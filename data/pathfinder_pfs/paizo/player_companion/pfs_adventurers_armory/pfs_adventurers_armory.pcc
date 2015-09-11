@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventu
 SOURCEDATE:2010-04
 ISOGL:YES
 
-COVER:../adventurers_armory.jpeg
+#COVER:../adventurers_armory.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

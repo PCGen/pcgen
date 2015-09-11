@@ -1,3 +1,6 @@
+/*
+ * pcGenGUIAliceTest.java
+ */
 package pcgen.inttest.game_35e;
 
 import pcgen.inttest.pcGenGUITestCase;

@@ -22,7 +22,7 @@ SOURCEWEB:http://paizo.com/products/btpy91dq?Pathfinder-Player-Companion-Blood-o
 SOURCEDATE:2013-04
 ISOGL:YES
 
-COVER:@/pathfinder/paizo/player_companion/blood_of_the_moon/PZO9439_180.jpeg
+#COVER:@/pathfinder/paizo/player_companion/blood_of_the_moon/PZO9439_180.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

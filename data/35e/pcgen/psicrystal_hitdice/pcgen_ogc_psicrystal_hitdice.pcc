@@ -22,7 +22,7 @@ COPYRIGHT:PCGen OGC dataset Copyright 2006, PCGen Data team (Including, but not 
 DESC:The PCGen Open Gaming Content dataset contains generally useful items which may be implied or extrapolated from other sources but are not specifically detailed.
 INFOTEXT:This set modifies Psicrystals in the RSRD Psionics dataset so that they gain hit dice as the Master progresses in class levels.  See the PCGen documentation under the Source Help section for details.
 URL:WEBSITE|http://pcgen.sourceforge.net/autobuilds/pcgen-docs/sourcehelp/pcgen_ogc_psicrystal_hd.html|Details of this dataset can be found here.
-COVER:../fantasy/pcgen_banner.jpg
+COVER:pcgen_banner.jpg
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
@@ -32,7 +32,7 @@ ABILITYCATEGORY:pcgen_ogc_abilitycategories.lst
 CLASS:pcgen_ogc_classes_psicrystals.lst
 COMPANIONMOD:pcgen_ogc_companionmods_psicrystals.lst
 RACE:pcgen_ogc_races_psicrystals.lst
-ABILITY:pcgen_ocg_feats_hidden_psicrystal.lst
+ABILITY:pcgen_ogc_feats_hidden_psicrystal.lst
 TEMPLATE:pcgen_ogc_templates_psicrystals.lst
 
 #

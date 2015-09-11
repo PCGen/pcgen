@@ -32,7 +32,7 @@ BIO
 			<levels_total>17</levels_total>
 			<levels_ecl>20</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Gia17                   </shortform>
+			<shortform>Gia17</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -1127,17 +1126,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1260,94 +1264,92 @@ BIO
 			<capacity>102400</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Claw</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Huge</long>
-						<short>H</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Slam</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Huge</long>
-						<short>H</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Bite</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Huge</long>
-						<short>H</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Claw</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Huge</long>
-						<short>H</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Claw</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Huge</long>
+					<short>H</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Slam</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Huge</long>
+					<short>H</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Bite</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Huge</long>
+					<short>H</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Claw</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Huge</long>
+					<short>H</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1440,7 +1442,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1453,8 +1457,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Air Traits</name>
 			<description></description>
@@ -1609,7 +1614,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Flight Maneuverability</name>
 			<description></description>
@@ -1643,7 +1648,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1710,7 +1715,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Creature Type</name>
 			<description></description>
@@ -1729,7 +1734,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells (Ray), Spells (Touch), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Giant</languages>
 
@@ -1767,11 +1772,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1779,11 +1780,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1794,95 +1792,94 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Fog Cloud</name>
-					<outputname>Fog Cloud</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Medium (250 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>15</casterlevel>
-					<dc></dc>
-					<duration>150 minutes</duration>
-					<effect>Fog obscures vision.</effect>
-					<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Conjuration</school>
-						<subschool>Creation</subschool>
-						<descriptor></descriptor>
-						<fullschool>Conjuration (Creation)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
-						<sourcepage>SpellsF-G</sourcepage>
-						<sourceshort>RSRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Fog obscures vision.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Levitate (self plus 2,000 pounds)</name>
-					<outputname>Levitate (self plus 2,000 pounds)</outputname>
-					<times_memorized>3</times_memorized>
-					<range>Personal</range>
-					<components>None</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>15</casterlevel>
-					<dc></dc>
-					<duration>15 minutes [D]</duration>
-					<effect>You move up and down at your direction.</effect>
-					<target>You and up to 2,000 pounds</target>
-					<saveinfo></saveinfo>
-					<school>
-						<school>Transmutation</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Transmutation</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
-						<sourcepage>SpellsH-L</sourcepage>
-						<sourceshort>RSRD</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>You move up and down at your direction.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Obscuring Mist</name>
-					<outputname>Obscuring Mist</outputname>
-					<times_memorized>3</times_memorized>
-					<range>20 ft.</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>15</casterlevel>
-					<dc></dc>
-					<duration>15 minutes</duration>
-					<effect>Fog surrounds you.</effect>
-					<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Conjuration</school>
-						<subschool>Creation</subschool>
-						<descriptor></descriptor>
-						<fullschool>Conjuration (Creation)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
-						<sourcepage>SpellsM-O</sourcepage>
-						<sourceshort>RSRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Fog surrounds you.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Fog Cloud</name>
+						<outputname>Fog Cloud</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (250 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>15</casterlevel>
+						<dc></dc>
+						<duration>150 minutes</duration>
+						<effect>Fog obscures vision.</effect>
+						<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Creation)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
+							<sourcepage>SpellsF-G</sourcepage>
+							<sourceshort>RSRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Fog obscures vision.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Levitate (self plus 2,000 pounds)</name>
+						<outputname>Levitate (self plus 2,000 pounds)</outputname>
+						<times_memorized>3</times_memorized>
+						<range>Personal</range>
+						<components>None</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>15</casterlevel>
+						<dc></dc>
+						<duration>15 minutes [D]</duration>
+						<effect>You move up and down at your direction.</effect>
+						<target>You and up to 2,000 pounds</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
+							<sourcepage>SpellsH-L</sourcepage>
+							<sourceshort>RSRD</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>You move up and down at your direction.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Obscuring Mist</name>
+						<outputname>Obscuring Mist</outputname>
+						<times_memorized>3</times_memorized>
+						<range>20 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>15</casterlevel>
+						<dc></dc>
+						<duration>15 minutes</duration>
+						<effect>Fog surrounds you.</effect>
+						<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Creation)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
+							<sourceshort>RSRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Fog surrounds you.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
@@ -1896,106 +1893,105 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Fog Cloud</name>
-					<outputname>Fog Cloud</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Medium (250 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>15</casterlevel>
-					<dc></dc>
-					<duration>150 minutes</duration>
-					<effect>Fog obscures vision.</effect>
-					<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Conjuration</school>
-						<subschool>Creation</subschool>
-						<descriptor></descriptor>
-						<fullschool>Conjuration (Creation)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
-						<sourcepage>SpellsF-G</sourcepage>
-						<sourceshort>RSRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Fog obscures vision.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Levitate (self plus 2,000 pounds)</name>
-					<outputname>Levitate (self plus 2,000 pounds)</outputname>
-					<times_memorized>3</times_memorized>
-					<range>Personal</range>
-					<components>None</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>15</casterlevel>
-					<dc></dc>
-					<duration>15 minutes [D]</duration>
-					<effect>You move up and down at your direction.</effect>
-					<target>You and up to 2,000 pounds</target>
-					<saveinfo></saveinfo>
-					<school>
-						<school>Transmutation</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Transmutation</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
-						<sourcepage>SpellsH-L</sourcepage>
-						<sourceshort>RSRD</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>You move up and down at your direction.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Obscuring Mist</name>
-					<outputname>Obscuring Mist</outputname>
-					<times_memorized>3</times_memorized>
-					<range>20 ft.</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>15</casterlevel>
-					<dc></dc>
-					<duration>15 minutes</duration>
-					<effect>Fog surrounds you.</effect>
-					<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Conjuration</school>
-						<subschool>Creation</subschool>
-						<descriptor></descriptor>
-						<fullschool>Conjuration (Creation)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
-						<sourcepage>SpellsM-O</sourcepage>
-						<sourceshort>RSRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Fog surrounds you.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Fog Cloud</name>
+						<outputname>Fog Cloud</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (250 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>15</casterlevel>
+						<dc></dc>
+						<duration>150 minutes</duration>
+						<effect>Fog obscures vision.</effect>
+						<target>Fog spreads in 20-ft. radius, 20 ft. high</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Creation)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsF-G</source>
+							<sourcepage>SpellsF-G</sourcepage>
+							<sourceshort>RSRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Fog obscures vision.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Levitate (self plus 2,000 pounds)</name>
+						<outputname>Levitate (self plus 2,000 pounds)</outputname>
+						<times_memorized>3</times_memorized>
+						<range>Personal</range>
+						<components>None</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>15</casterlevel>
+						<dc></dc>
+						<duration>15 minutes [D]</duration>
+						<effect>You move up and down at your direction.</effect>
+						<target>You and up to 2,000 pounds</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsH-L</source>
+							<sourcepage>SpellsH-L</sourcepage>
+							<sourceshort>RSRD</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>You move up and down at your direction.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Obscuring Mist</name>
+						<outputname>Obscuring Mist</outputname>
+						<times_memorized>3</times_memorized>
+						<range>20 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>15</casterlevel>
+						<dc></dc>
+						<duration>15 minutes</duration>
+						<effect>Fog surrounds you.</effect>
+						<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Creation)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
+							<sourceshort>RSRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Fog surrounds you.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

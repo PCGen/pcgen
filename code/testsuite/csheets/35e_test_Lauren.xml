@@ -39,7 +39,7 @@ BIO
 			<levels_total>2</levels_total>
 			<levels_ecl>2</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Tes1  Bas1                 </shortform>
+			<shortform>Tes1,Bas1</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -48,7 +48,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -878,17 +877,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -907,10 +911,8 @@ BIO
 			<capacity>800</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1091,6 +1093,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Simple Weapon Proficiency</name>
@@ -1102,6 +1105,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1114,8 +1118,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Ability Grant One</name>
 			<description>This ability Grants a Template Called &quot;Snowman&quot;</description>
@@ -1149,7 +1154,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1168,7 +1173,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Dagger, Extra Blade, Simple Weapon Four, Simple Weapon One, Simple Weapon Three, Simple Weapon Two, Spear, Suns Weapon Of Choice, Unarmed Strike</weapon_proficiencies>
 	<languages>Draconic</languages>
 
@@ -1191,11 +1196,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1203,11 +1204,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1218,37 +1216,36 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Fireball</name>
-					<outputname>Fireball</outputname>
-					<times_memorized>1</times_memorized>
-					<range></range>
-					<components></components>
-					<castingtime></castingtime>
-					<casterlevel>7</casterlevel>
-					<dc>80</dc>
-					<duration>As long as you want up to 70 days [Should be CL x 10]</duration>
-					<effect>What ever you want here, 7 [casterlevel], 70 [casterlevel x 10], 7 [min casterlevel ,10]</effect>
-					<target>Anywhere but here</target>
-					<saveinfo>Fort Saves</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>BlowThingsUp</subschool>
-						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, test</source>
-						<sourcepage>test</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Fireball</name>
+						<outputname>Fireball</outputname>
+						<times_memorized>1</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>7</casterlevel>
+						<dc>80</dc>
+						<duration>As long as you want up to 70 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 7 [casterlevel], 70 [casterlevel x 10], 7 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo>Fort Saves</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
@@ -1263,48 +1260,47 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Fireball</name>
-					<outputname>Fireball</outputname>
-					<times_memorized>1</times_memorized>
-					<range></range>
-					<components></components>
-					<castingtime></castingtime>
-					<casterlevel>7</casterlevel>
-					<dc>80</dc>
-					<duration>As long as you want up to 70 days [Should be CL x 10]</duration>
-					<effect>What ever you want here, 7 [casterlevel], 70 [casterlevel x 10], 7 [min casterlevel ,10]</effect>
-					<target>Anywhere but here</target>
-					<saveinfo>Fort Saves</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>BlowThingsUp</subschool>
-						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, test</source>
-						<sourcepage>test</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Fireball</name>
+						<outputname>Fireball</outputname>
+						<times_memorized>1</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>7</casterlevel>
+						<dc>80</dc>
+						<duration>As long as you want up to 70 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 7 [casterlevel], 70 [casterlevel x 10], 7 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo>Fort Saves</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

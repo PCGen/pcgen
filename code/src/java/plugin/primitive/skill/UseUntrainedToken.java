@@ -28,7 +28,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
-import plugin.primitive.race.BaseSizeToken;
 
 public class UseUntrainedToken implements PrimitiveToken<Skill>,
 		PrimitiveFilter<Skill>
@@ -86,7 +85,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj == this) || (obj instanceof BaseSizeToken);
+		return (obj == this) || (obj instanceof UseUntrainedToken);
 	}
 
 	@Override

@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net> This program is
+ * free software; you can redistribute it and/or modify it under the terms of
+ * the GNU Lesser General Public License as published by the Free Software
+ * Foundation; either version 2.1 of the License, or (at your option) any later
+ * version.
  * 
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -45,10 +45,11 @@ public class ExclusiveQualifierTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>();
 	private Skill s1, s2, s3, s4, s5;
 	private PCClass cl1;
-	 
+
 	private static final ExclusiveToken EXCLUSIVE_TOKEN = new ExclusiveToken();
 
 	public ExclusiveQualifierTokenTest()
@@ -99,7 +100,7 @@ public class ExclusiveQualifierTokenTest extends
 		return true;
 	}
 
-		@Test
+	@Test
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
@@ -110,7 +111,7 @@ public class ExclusiveQualifierTokenTest extends
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
+		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
 		assertEquals(2, set.size());
 		assertTrue(set.contains(s4));
@@ -138,13 +139,37 @@ public class ExclusiveQualifierTokenTest extends
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
+		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
 		assertEquals(1, set.size());
 		assertTrue(set.contains(s4));
 		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
 		assertTrue(set.isEmpty());
+	}
+
+	@Test
+	public void testGetSetNegated() throws PersistenceLayerException
+	{
+		setUpPC();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		initializeObjects();
+		assertTrue(parse(getSubTokenName() + "|!EXCLUSIVE[TYPE=Masterful]"));
+
+		finishLoad();
+
+		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+		pc.classMap.put(cl1, 1);
+		Collection<?> set = info.getSet(pc);
+		assertEquals(2, set.size());
+		assertTrue(set.contains(s2));
+		assertTrue(set.contains(s3));
+		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
+		set = info.getSet(pc);
+		assertEquals(3, set.size());
+		assertTrue(set.contains(s2));
+		assertTrue(set.contains(s3));
+		assertTrue(set.contains(s4));
 	}
 
 	private void initializeObjects()

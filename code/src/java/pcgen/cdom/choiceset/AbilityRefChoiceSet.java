@@ -25,6 +25,7 @@ package pcgen.cdom.choiceset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -187,7 +188,7 @@ public class AbilityRefChoiceSet implements
 	@Override
 	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
-		Set<CNAbilitySelection> returnSet = new HashSet<CNAbilitySelection>();
+		Set<CNAbilitySelection> returnSet = new LinkedHashSet<CNAbilitySelection>();
 		for (CDOMReference<Ability> ref : abilityRefSet)
 		{
 			for (Ability a : ref.getContainedObjects())

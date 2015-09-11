@@ -157,18 +157,15 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	private void initializeObjects() throws InstantiationException,
 		IllegalAccessException
 	{
-		wp1 = getTargetClass().newInstance();
-		wp1.setName("Eq1");
+		wp1 = (T) construct(primaryContext, "Eq1");
 		primaryContext.unconditionallyProcess(wp1, "TYPE", "Boring");
 		primaryContext.getReferenceContext().importObject(wp1);
 
-		wp2 = getTargetClass().newInstance();
-		wp2.setName("Wp2");
+		wp2 = (T) construct(primaryContext, "Wp2");
 		primaryContext.unconditionallyProcess(wp2, "TYPE", "Masterful");
 		primaryContext.getReferenceContext().importObject(wp2);
 
-		wp3 = getTargetClass().newInstance();
-		wp3.setName("Wp3");
+		wp3 = (T) construct(primaryContext, "Wp3");
 		primaryContext.unconditionallyProcess(wp3, "TYPE", "Masterful");
 		primaryContext.getReferenceContext().importObject(wp3);
 	}

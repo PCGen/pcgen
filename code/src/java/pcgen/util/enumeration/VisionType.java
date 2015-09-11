@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.util.CaseInsensitiveString;
+import pcgen.base.lang.CaseInsensitiveString;
 
 public final class VisionType extends AbstractConstant
 {

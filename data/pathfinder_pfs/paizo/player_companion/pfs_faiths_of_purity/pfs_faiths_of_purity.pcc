@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pa
 SOURCEDATE:2011-04
 ISOGL:YES
 
-COVER:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.jpg
+#COVER:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

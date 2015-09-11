@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeon
 SOURCEDATE:2013-03
 ISOGL:YES
 
-COVER:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.jpeg
+#COVER:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

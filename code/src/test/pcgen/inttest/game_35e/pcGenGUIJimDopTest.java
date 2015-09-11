@@ -1,6 +1,9 @@
+/*
+ * pcGenGUIJimDopTest.java
+ */
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.pcGenGUITestCase;
+import pcgen.inttest.PcgenFtlTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -10,8 +13,16 @@ import junit.framework.TestSuite;
  * See PCG file for details. 
  */
 @SuppressWarnings("nls")
-public class pcGenGUIJimDopTest extends pcGenGUITestCase
+public class pcGenGUIJimDopTest extends PcgenFtlTestCase
 {
+
+	/**
+	 *
+	 */
+	public pcGenGUIJimDopTest()
+	{
+		super("35e_jimdop");
+	}
 
 	/**
 	 * standard JUnit style constructor
