@@ -30,10 +30,6 @@ FACTSETDEF:DEITY|Pantheon		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
 FACTSETDEF:DEITY|Race			DATAFORMAT:String		VISIBLE:YES
 
 
-
-
-FACTDEF:CHECK|MAINSTAT		DATAFORMAT:STRING	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MAINSTAT		EXPLANATION:Abbreviation of Stat that is used for the Check (Save)
-
 # This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
 FACTDEF:RACE|IsPC				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
 FACTDEF:RACE|IsCompanion		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a Companion to begin with.
@@ -582,22 +578,12 @@ FACTDEF:ABILITY|DwarfStonecunning				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:N
 FACTDEF:ABILITY|DwarfWeaponFamiliarity			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponFamiliarity								EXPLANATION:Remove WeaponFamiliarity			
 
 ###Block: Saves File
-#FACTDEF:CHECKS|MainStat	EXPLANATION:Output the Stat a save uses to the OS
+FACTDEF:CHECK|MainStat	EXPLANATION:Output the Stat a save uses to the OS
 
 
 #############################
 #	Formula Parser
 ############################
-
-###Block: Formula NAMESPACEDEF
-# NAMESPACEDEF:x|y
-
-#NAMESPACEDEF:x|STRING
-
-# Required
-#NAMESPACEDEF:NUMBER|VAR
-#NAMESPACEDEF:ORDEREDPAIR|AREA
-#NAMESPACEDEF:NUMBER|MOVEMENT
 
 
 # Subdomain / Domain Support
