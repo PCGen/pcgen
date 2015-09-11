@@ -541,9 +541,8 @@ FACTDEF:ABILITY|Sorcerer_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	
 FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 FACTDEF:ABILITY|Sorcerer_Archetype_Bloodline							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 
-
-
 # Sorcerer Class Feature
+FACTDEF:ABILITY|Sorcerer_CF_ClassSkills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills							EXPLANATION:Remove Sorcerer ClassSkills	
 FACTDEF:ABILITY|Sorcerer_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies							EXPLANATION:Remove Sorcerer WeaponProficiencies	
 FACTDEF:ABILITY|Sorcerer_CF_EschewMaterials			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials								EXPLANATION:Remove Sorcerer EschewMaterials			
 FACTDEF:ABILITY|Sorcerer_CF_BloodlineArcana		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
