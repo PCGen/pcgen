@@ -128,6 +128,47 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
+	 * Adds the given value to the List for the given key at the given location.
+	 * The null value cannot be used as a key in a MapToList. This method will
+	 * automatically initialize the list for the given key if there is not
+	 * already a List for that key if and only if the provided location is zero.
+	 * 
+	 * If the location is not a valid location in the list for an addition (as
+	 * per the rules of add() in the List interface, then this will throw an
+	 * exception.
+	 * 
+	 * This method is reference-semantic and this MapToList will maintain a
+	 * strong reference to both the key object and the value object given as
+	 * arguments to this method.
+	 * 
+	 * @param key
+	 *            The key indicating which List the given object should be added
+	 *            to
+	 * @param location
+	 *            The location within the list where the given object should be
+	 *            added
+	 * @param valueElement
+	 *            The value to be added to the List for the given key
+	 */
+	public void addToListFor(K key, int location, V valueElement)
+	{
+		/*
+		 * Note there is no requirement that a Key is added before this method
+		 * is called
+		 */
+		if (!containsListFor(key))
+		{
+			if (location != 0)
+			{
+				throw new IllegalArgumentException(
+					"Cannot add at location > 0 when list is not initialized");
+			}
+			initializeListFor(key);
+		}
+		mapToList.get(key).add(location, valueElement);
+	}
+
+	/**
 	 * Adds all of the Objects in the given list to the (internal) List for the
 	 * given key. The null value cannot be used as a key in a MapToList. This
 	 * method will automatically initialize the list for the given key if there
