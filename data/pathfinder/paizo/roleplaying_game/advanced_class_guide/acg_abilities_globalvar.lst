@@ -537,6 +537,29 @@ CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Quarry|0
 CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_ImprovedQuarry|0
 CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_MasterSlayer|0
 
+
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent2|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent4|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent6|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent8|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent10|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent12|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent14|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent16|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent18|0	
+CATEGORY=Class|Slayer.MOD	DEFINE:Slayer_CF_Talent20|0	
+
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent2=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent4=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent6=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent8=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent10=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent12=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent14=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent16=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent18=True
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talent20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_Talent20=True
+
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_ClassSkills=True
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_ArmorProficiencies=True
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_WeaponProficiencies=True
@@ -569,19 +592,6 @@ CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SlayersAdvance|1|TYPE=Boolean|PREA
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Quarry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerQuarry
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ImprovedQuarry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerImprovedQuarry
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_MasterSlayer|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerMasterSlayer
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
