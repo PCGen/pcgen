@@ -44,8 +44,6 @@ PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
 
 # Fact/Factset & Formula System
 DATACONTROL:cr__datacontrol.lst
-#VARIABLE:cr__variables.lst
-#GLOBALMODIFIER:cr__globalmodifiers.lst
 
 ### GM Moved
 SAVE:cr__saves.lst
