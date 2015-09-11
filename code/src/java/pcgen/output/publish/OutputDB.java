@@ -31,7 +31,6 @@ import pcgen.output.base.ModelFactory;
 import pcgen.output.base.NamedModel;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
-import pcgen.output.factory.UnitSetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
 import freemarker.template.TemplateModel;
 
@@ -321,18 +320,4 @@ public final class OutputDB
 					+ pref);
 		}
 	}
-
-	/*
-	 * Initialize the preferences we want to export to FreeMarker
-	 */
-	static
-	{
-		triggerLoad();
-	}
-
-	private static void triggerLoad()
-	{
-		registerMode("unitset", new UnitSetModelFactory());
-	}
-
 }
