@@ -578,7 +578,7 @@ FACTDEF:ABILITY|DwarfStonecunning				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:N
 FACTDEF:ABILITY|DwarfWeaponFamiliarity			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponFamiliarity								EXPLANATION:Remove WeaponFamiliarity			
 
 ###Block: Saves File
-FACTDEF:CHECK|MainStat	EXPLANATION:Output the Stat a save uses to the OS
+FACTDEF:CHECK|MainStat	DATAFORMAT:STRING			EXPLANATION:Output the Stat a save uses to the OS
 
 
 #############################
