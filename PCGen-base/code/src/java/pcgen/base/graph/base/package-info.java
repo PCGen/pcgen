@@ -15,8 +15,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.graph.base;
-
 /**
  * pcgen.base.graph.base is a "base" package for graph support. This contains
  * the universal interfaces and other significantly shared resources for the
@@ -26,3 +24,5 @@ package pcgen.base.graph.base;
  * items from this package (and for this to NOT rely on other packages within
  * pcgen.base.graph.*)
  */
+package pcgen.base.graph.base;
+

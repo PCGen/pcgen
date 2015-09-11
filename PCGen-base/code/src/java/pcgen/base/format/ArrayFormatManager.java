@@ -226,12 +226,18 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		return result.toString();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode()
 	{
 		return componentManager.hashCode() * separator;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -262,13 +268,22 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		 */
 		private final ObjectContainer<T>[] array;
 
+		/**
+		 * Constructs a new ArrayObjectContainer with the given underlying
+		 * underlying ObjectContainer containing the objects for this
+		 * ArrayObjectContainer.
+		 * 
+		 * @param toSet
+		 *            The underlying ObjectContainer with the objects contained
+		 *            in this ArrayObjectContainer
+		 */
 		public ArrayObjectContainer(ObjectContainer<T>[] toSet)
 		{
 			array = toSet;
 		}
 
 		/**
-		 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
+		 * {@inheritDoc}
 		 */
 		@Override
 		public boolean contains(T[] toCheck)
@@ -293,7 +308,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public Class<T[]> getReferenceClass()
@@ -302,7 +317,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public Collection<? extends T[]> getContainedObjects()
@@ -311,7 +326,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
+		 * {@inheritDoc}
 		 */
 		@Override
 		public String getLSTformat(boolean useAny)
@@ -333,7 +348,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.util.Indirect#resolvesTo()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public T[] resolvesTo()
@@ -355,7 +370,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.util.Indirect#getUnconverted()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public String getUnconverted()

@@ -27,9 +27,11 @@ import java.text.MessageFormat;
  */
 public final class MessageFormatUtilities
 {
+	/**
+	 * Private Constructor for Utility Class.
+	 */
 	private MessageFormatUtilities()
 	{
-		//Do not instantiate
 	}
 
 	/**

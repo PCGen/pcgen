@@ -65,6 +65,12 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * Internal class used to convert an object to the Identity wrapper for that
 	 * object.
+	 * 
+	 * @param <V>
+	 *            The type of object for which the identity is being returned
+	 * @param value
+	 *            The value for which the identity is being returned
+	 * @return The Identity object for the given parameter
 	 */
 	private <V> Identity<V> getIdentity(V value)
 	{
@@ -72,7 +78,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#add(int, java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void add(int index, T element)
@@ -81,7 +87,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#add(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean add(T element)
@@ -90,7 +96,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#addAll(java.util.Collection)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final boolean addAll(Collection<? extends T> collection)
@@ -103,7 +109,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#addAll(int, java.util.Collection)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean addAll(int index, Collection<? extends T> collection)
@@ -117,7 +123,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#clear()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void clear()
@@ -126,7 +132,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#contains(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean contains(Object element)
@@ -135,7 +141,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#containsAll(java.util.Collection)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean containsAll(Collection<?> collection)
@@ -151,7 +157,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -161,17 +167,16 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#get(int)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public T get(int index)
 	{
-		Identity<T> und = embeddedList.get(index);
-		return und == null ? null : und.getUnderlying();
+		return embeddedList.get(index).getUnderlying();
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode()
@@ -180,16 +185,16 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#indexOf(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int indexOf(Object element)
 	{
-		return embeddedList.indexOf(element);
+		return embeddedList.indexOf(getIdentity(element));
 	}
 
 	/**
-	 * @see java.util.List#isEmpty()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isEmpty()
@@ -198,7 +203,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#iterator()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Iterator<T> iterator()
@@ -207,7 +212,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#lastIndexOf(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int lastIndexOf(Object element)
@@ -216,7 +221,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#listIterator()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public ListIterator<T> listIterator()
@@ -225,7 +230,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#listIterator(int)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public ListIterator<T> listIterator(int index)
@@ -234,17 +239,16 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#remove(int)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public T remove(int index)
 	{
-		Identity<T> und = embeddedList.remove(index);
-		return und == null ? null : und.getUnderlying();
+		return embeddedList.remove(index).getUnderlying();
 	}
 
 	/**
-	 * @see java.util.List#remove(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean remove(Object element)
@@ -253,7 +257,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#removeAll(java.util.Collection)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean removeAll(Collection<?> collection)
@@ -267,7 +271,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#retainAll(java.util.Collection)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean retainAll(Collection<?> collection)
@@ -276,17 +280,16 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#set(int, java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public T set(int index, T element)
 	{
-		Identity<T> und = embeddedList.set(index, getIdentity(element));
-		return und == null ? null : und.getUnderlying();
+		return embeddedList.set(index, getIdentity(element)).getUnderlying();
 	}
 
 	/**
-	 * @see java.util.List#size()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int size()
@@ -295,7 +298,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#subList(int, int)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public List<T> subList(int startIndex, int endIndex)
@@ -304,7 +307,7 @@ public class IdentityList<T> implements List<T>
 	}
 
 	/**
-	 * @see java.util.List#toArray()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object[] toArray()
@@ -314,18 +317,29 @@ public class IdentityList<T> implements List<T>
 		return array;
 	}
 
+	/**
+	 * Puts the underlying objects (from the source array of Identity objects)
+	 * into the given target array.
+	 * 
+	 * @param <V>
+	 *            The type of of object in the returned array
+	 * @param source
+	 *            The Wrapped (identity) objects
+	 * @param target
+	 *            The target array which will be loaded
+	 */
 	private <V> void putIntoArray(Object[] source, V[] target)
 	{
 		for (int i = 0; i < source.length; i++)
 		{
 			@SuppressWarnings("unchecked")
 			Identity<V> identity = (Identity<V>) source[i];
-			target[i] = identity == null ? null : identity.getUnderlying();
+			target[i] = identity.getUnderlying();
 		}
 	}
 
 	/**
-	 * @see java.util.List#toArray(Object[])
+	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -371,6 +385,9 @@ public class IdentityList<T> implements List<T>
 			underlying = item;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public boolean equals(Object obj)
 		{
@@ -378,6 +395,9 @@ public class IdentityList<T> implements List<T>
 				&& ((Identity<?>) obj).underlying == underlying;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public int hashCode()
 		{
@@ -423,7 +443,7 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#add(java.lang.Object)
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void add(I item)
@@ -432,7 +452,7 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#hasNext()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public boolean hasNext()
@@ -441,7 +461,7 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#hasPrevious()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public boolean hasPrevious()
@@ -450,17 +470,16 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#next()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public I next()
 		{
-			Identity<I> und = iter.next();
-			return und == null ? null : und.getUnderlying();
+			return iter.next().getUnderlying();
 		}
 
 		/**
-		 * @see java.util.ListIterator#nextIndex()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public int nextIndex()
@@ -469,17 +488,16 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#previous()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public I previous()
 		{
-			Identity<I> und = iter.previous();
-			return und == null ? null : und.getUnderlying();
+			return iter.previous().getUnderlying();
 		}
 
 		/**
-		 * @see java.util.ListIterator#previousIndex()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public int previousIndex()
@@ -488,7 +506,7 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#remove()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void remove()
@@ -497,7 +515,7 @@ public class IdentityList<T> implements List<T>
 		}
 
 		/**
-		 * @see java.util.ListIterator#set(java.lang.Object)
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void set(I item)

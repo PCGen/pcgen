@@ -72,7 +72,7 @@ public class CaseInsensitiveString
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -86,7 +86,7 @@ public class CaseInsensitiveString
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode()

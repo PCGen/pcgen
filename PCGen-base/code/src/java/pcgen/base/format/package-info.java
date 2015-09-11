@@ -15,9 +15,9 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.math;
-
 /**
- * pcgen.base.math is a package that is designed to contain classes related to
- * mathematics.
+ * pcgen.base.format is a package for supporting classes as "formats". These are
+ * items that can be converted to and from text formats (much like
+ * serialization, but human readable).
  */
+package pcgen.base.format;

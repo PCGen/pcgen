@@ -49,9 +49,11 @@ public final class StringUtil
 
 			};
 
+	/**
+	 * Private Constructor for Utility Class.
+	 */
 	private StringUtil()
 	{
-		// Do not instantiate
 	}
 
 	/**

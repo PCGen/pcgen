@@ -122,6 +122,9 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 		return Collections.singletonList(getNodeAt(0));
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString()
 	{

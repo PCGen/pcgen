@@ -24,9 +24,11 @@ package pcgen.base.lang;
 public final class ObjectUtil
 {
 
+	/**
+	 * Private Constructor for Utility Class.
+	 */
 	private ObjectUtil()
 	{
-		//Do not instantiate a utility class
 	}
 
 	/**

@@ -15,13 +15,9 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.util;
-
 /**
- * pcgen.base.util is a package of classes that significantly interact with or
- * support classes, interfaces or behaviors similar to those in the java.util
- * package.
- * 
- * These are often re-implementations of behavior, or utility classes or small
- * wrappers around existing items from the JRE.
+ * pcgen.base.graph.inst is a set of implementations for graph support. These
+ * classes implement the interfaces in pcgen.base.graph.base
  */
+package pcgen.base.graph.inst;
+

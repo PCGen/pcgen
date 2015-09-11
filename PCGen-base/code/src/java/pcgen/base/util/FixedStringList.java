@@ -281,9 +281,13 @@ public class FixedStringList extends AbstractList<String> implements
 	/**
 	 * Returns true is this FixedStringList is equal to the given Object,
 	 * ignoring case in the underlying String objects. This method is consistent
-	 * with the equalsIgnoreCase behavior defined in java.lang.String
+	 * with the equalsIgnoreCase behavior defined in java.lang.String.
 	 * 
-	 * @see java.util.AbstractList#equals(java.lang.Object)
+	 * @param fsl
+	 *            The other FixedStringList to be checked if it is equal
+	 *            (ignoring case) with this FixedStringList
+	 * @return true if the given FixedStringList (ignoring case); false
+	 *         otherwise
 	 */
 	public boolean equalsIgnoreCase(FixedStringList fsl)
 	{
@@ -320,6 +324,17 @@ public class FixedStringList extends AbstractList<String> implements
 	 * FixedStringList, rather than on the contents. Note that relative to the
 	 * contents of a FixedStringList (tested after size), null sorts first
 	 * (before any non-null Strings).
+	 * 
+	 * @param fsl1
+	 *            The first FixedStringList to be compared
+	 * @param fsl2
+	 *            The second FixedStringList to be compared
+	 * @param comparator
+	 *            The underlying comparator to be used to check the contents of
+	 *            the FixedStringList
+	 * @return Compares the two given arguments. Returns a negative integer,
+	 *         zero, or a positive integer as the first argument is less than,
+	 *         equal to, or greater than the second
 	 */
 	public static int compare(FixedStringList fsl1, FixedStringList fsl2,
 		Comparator<String> comparator)

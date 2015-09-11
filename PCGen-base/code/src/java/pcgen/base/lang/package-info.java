@@ -15,9 +15,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.graph.inst;
-
 /**
- * pcgen.base.graph.inst is a set of implementations for graph support. These
- * classes implement the interfaces in pcgen.base.graph.base
+ * pcgen.base.lang is a package of classes that significantly interact with or
+ * support objects from the java.lang package.
+ * 
+ * These are often utility classes or small wrappers around base language
+ * features.
  */
+package pcgen.base.lang;
+

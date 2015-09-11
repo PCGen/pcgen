@@ -95,6 +95,14 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		}
 	}
 
+	/**
+	 * Sets the nodes for this Edge (internal use).
+	 * 
+	 * @param nodes
+	 *            The nodes to be set for this Edge
+	 * @return The resulting List of nodes to be used/saved internally by this
+	 *         Edge
+	 */
 	private final List<N> setNodes(Collection<N> nodes)
 	{
 		if (nodes == null || nodes.isEmpty())

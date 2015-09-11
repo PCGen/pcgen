@@ -110,7 +110,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode()
@@ -119,7 +119,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(Object o)

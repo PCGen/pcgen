@@ -85,7 +85,7 @@ public class BasicObjectContainer<T> implements ObjectContainer<T>
 	}
 
 	/**
-	 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -94,7 +94,7 @@ public class BasicObjectContainer<T> implements ObjectContainer<T>
 	}
 
 	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Class<T> getReferenceClass()
@@ -115,7 +115,7 @@ public class BasicObjectContainer<T> implements ObjectContainer<T>
 	}
 
 	/**
-	 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean contains(T obj)

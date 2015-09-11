@@ -25,9 +25,11 @@ import java.math.BigDecimal;
 public final class NumberUtilities
 {
 
+	/**
+	 * Private Constructor for Utility Class.
+	 */
 	private NumberUtilities()
 	{
-		//Do not instantiate
 	}
 
 	/**

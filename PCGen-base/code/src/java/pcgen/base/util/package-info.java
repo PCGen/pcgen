@@ -15,12 +15,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.lang;
-
 /**
- * pcgen.base.lang is a package of classes that significantly interact with or
- * support objects from the java.lang package.
+ * pcgen.base.util is a package of classes that significantly interact with or
+ * support classes, interfaces or behaviors similar to those in the java.util
+ * package.
  * 
- * These are often utility classes or small wrappers around base language
- * features.
+ * These are often re-implementations of behavior, or utility classes or small
+ * wrappers around existing items from the JRE.
  */
+package pcgen.base.util;

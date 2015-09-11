@@ -375,7 +375,9 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	}
 
 	/**
-	 * Returns the hashCode for this Graph.
+	 * Returns the hashCode for this Graph. In order to keep this able to
+	 * compare to any other Graph (not just a SimpleListGraph), this is based on
+	 * common characteristics between graphs.
 	 * 
 	 * @return the hashCode for this Graph.
 	 */

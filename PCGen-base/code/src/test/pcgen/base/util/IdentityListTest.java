@@ -71,6 +71,81 @@ public class IdentityListTest extends TestCase
 		assertFalse(ls.contains(b1));
 		assertEquals(1, ls.size());
 		assertFalse(ls.isEmpty());
+		ls.add(null);
+		assertTrue(ls.contains(a1));
+		assertTrue(ls.contains(null));
+		assertFalse(ls.contains(b1));
+		assertEquals(2, ls.size());
+		assertFalse(ls.isEmpty());
+		assertEquals(a1, ls.get(0));
+		assertEquals(null, ls.get(1));
+		assertEquals(0, ls.indexOf(a1));
+		assertEquals(1, ls.indexOf(null));
+		assertEquals(0, ls.lastIndexOf(a1));
+		assertEquals(1, ls.lastIndexOf(null));
+		assertEquals(true, ls.remove(a1));
+		assertEquals(false, ls.remove(b1));
+		assertEquals(1, ls.size());
+		assertEquals(null, ls.get(0));
+		ls.add(a1);
+		assertEquals(a1, ls.remove(1));
+		try
+		{
+			assertEquals(null, ls.remove(2));
+			fail();
+		}
+		catch (IndexOutOfBoundsException e)
+		{
+			//ok
+		}
+		assertEquals(1, ls.size());
+		assertEquals(null, ls.get(0));
+	}
+
+	@Test
+	public void testIdentityAddInt()
+	{
+		assertFalse(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertTrue(ls.isEmpty());
+		assertEquals(0, ls.size());
+		ls.add(0, a1);
+		assertTrue(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertFalse(ls.isEmpty());
+		assertEquals(1, ls.size());
+		ls.add(1, a1);
+		assertTrue(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertEquals(2, ls.size());
+		assertFalse(ls.isEmpty());
+		ls.clear();
+		assertFalse(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertTrue(ls.isEmpty());
+		assertEquals(0, ls.size());
+		ls.add(0, a1);
+		assertTrue(ls.contains(a1));
+		assertFalse(ls.contains(b1));
+		assertEquals(1, ls.size());
+		assertFalse(ls.isEmpty());
+		try
+		{
+			ls.add(-1, a1);
+			fail();
+		}
+		catch (IndexOutOfBoundsException e)
+		{
+			//Expected
+		}
+		try
+		{
+			ls.add(2, a1);
+		}
+		catch (IndexOutOfBoundsException e)
+		{
+			//Expected
+		}
 	}
 
 	@Test

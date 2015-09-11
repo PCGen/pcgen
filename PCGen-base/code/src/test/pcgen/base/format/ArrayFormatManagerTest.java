@@ -197,6 +197,11 @@ public class ArrayFormatManagerTest extends TestCase
 		assertEquals("ARRAY[NUMBER]", manager.getIdentifierType());
 	}
 
+	public void testManagedClass()
+	{
+		assertEquals(new Number[]{}.getClass(), manager.getManagedClass());
+	}
+
 	public void testHashCodeEquals()
 	{
 		assertEquals(new ArrayFormatManager<>(new NumberManager(), ',').hashCode(), manager.hashCode());

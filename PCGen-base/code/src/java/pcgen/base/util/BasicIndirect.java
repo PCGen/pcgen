@@ -79,7 +79,7 @@ public class BasicIndirect<T> implements Indirect<T>
 	}
 
 	/**
-	 * @see pcgen.base.util.Indirect#resolvesTo()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public T resolvesTo()
@@ -88,7 +88,7 @@ public class BasicIndirect<T> implements Indirect<T>
 	}
 
 	/**
-	 * @see pcgen.base.util.Indirect#getUnconverted()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getUnconverted()
@@ -106,26 +106,23 @@ public class BasicIndirect<T> implements Indirect<T>
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof BasicIndirect)
 		{
-			BasicIndirect other = (BasicIndirect) obj;
-			if (object == null)
-			{
-				return other.object == null;
-			}
-			return object.equals(other.object);
+			BasicIndirect<?> other = (BasicIndirect<?>) obj;
+			//safe, formatManager and object cannot be null
+			return formatManager.equals(other.formatManager)
+				&& object.equals(other.object);
 		}
 		return false;
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode()

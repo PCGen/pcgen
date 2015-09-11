@@ -117,7 +117,7 @@ public class StringManager implements FormatManager<String>
 	}
 
 	/**
-	 * @see java.lang.Object#hashCode()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode()
@@ -126,7 +126,7 @@ public class StringManager implements FormatManager<String>
 	}
 
 	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean equals(Object o)
