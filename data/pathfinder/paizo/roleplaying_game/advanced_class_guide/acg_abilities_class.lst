@@ -2434,7 +2434,7 @@ Packmaster Follower ~ 20	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 20|
 
 ###Block:
 # Ability Name					Unique Key								Category of Ability	Type					Var. Min. Value				Stackable?	Multiple?	Choose		Bonus Ability Pool
-Animal Companion (Packmaster Archetype)	KEY:Boon Companion ~ Animal Companion (Packmaster)	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREVARGTEQ:AnimalCompanionLVLA,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Packmaster Master Companion|1
+Animal Companion (Packmaster Archetype)	KEY:Boon Companion ~ Animal Companion (Packmaster)	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREVARGTEQ:AnimalCompanionLVLA,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Packmaster Companion Choice|1
 
 ###Block: Selections
 # Ability Name			Unique Key								SORTKEY	Category of Ability	Type								Var. Min. Value				Modify VAR
