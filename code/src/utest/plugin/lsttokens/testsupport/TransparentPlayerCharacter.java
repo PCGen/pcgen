@@ -17,16 +17,22 @@
  */
 package plugin.lsttokens.testsupport;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.ListSet;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.Ability;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Language;
@@ -43,6 +49,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 
 	public final TransparentCharacterDisplay display;
 	public Set<WeaponProf> weaponProfSet = new ListSet<WeaponProf>();
+	public Set<CNAbility> abilitySet = new ListSet<CNAbility>();
 	public Set<PCTemplate> templateSet = new ListSet<PCTemplate>();
 	public Map<Skill, Integer> skillSet = new HashMap<Skill, Integer>();
 	public Race race = null;
@@ -50,7 +57,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public Set<Race> qualifiedSet = new ListSet<Race>();
 	public DoubleKeyMap<Skill, PCClass, SkillCost> skillCostMap =
 			new DoubleKeyMap<Skill, PCClass, SkillCost>();
-	public Set<PCClass> classSet = new ListSet<PCClass>();
+	public Map<PCClass, Integer> classMap = new LinkedHashMap<PCClass, Integer>();
 
 	public TransparentPlayerCharacter()
 	{
@@ -90,7 +97,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		@Override
 		public Set<PCClass> getClassSet()
 		{
-			return classSet;
+			return classMap.keySet();
 		}
 		
 		@Override
@@ -214,7 +221,35 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Set<PCClass> getClassSet()
 	{
-		return classSet;
+		return classMap.keySet();
 	}
+
+	@Override
+	public ArrayList<PCClass> getClassList()
+	{
+		return new ArrayList<>(classMap.keySet());
+	}
+	
+	@Override
+	public Float getMaxRank(Skill sk, PCClass cl)
+	{
+		return new Float(classMap.get(cl) + 3);
+	}
+
+	@Override
+	public List<CNAbility> getCNAbilities(Category<Ability> cat)
+	{
+		List<CNAbility> list = new ArrayList<CNAbility>();
+		for (CNAbility cna : abilitySet)
+		{
+			if (cna.getAbilityCategory().equals(cat))
+			{
+				list.add(cna);
+			}
+		}
+		return list;
+	}
+	
+	
 	
 }

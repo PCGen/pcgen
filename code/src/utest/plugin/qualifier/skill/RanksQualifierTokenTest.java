@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net> This program is
+ * free software; you can redistribute it and/or modify it under the terms of
+ * the GNU Lesser General Public License as published by the Free Software
+ * Foundation; either version 2.1 of the License, or (at your option) any later
+ * version.
  * 
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -46,7 +46,8 @@ public class RanksQualifierTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>();
 	private Skill s1, s2, s3;
 	private PCClass cl1;
 
@@ -100,22 +101,24 @@ public class RanksQualifierTokenTest extends
 		return true;
 	}
 
-		@Test
+	@Test
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|RANKS=3[ALL]"));
-		BuildUtilities.createFact(primaryContext, "ClassType", getTargetClass());
+		BuildUtilities
+			.createFact(primaryContext, "ClassType", getTargetClass());
 		FactDefinition<?, ?> fd =
-				BuildUtilities.createFact(primaryContext, "SpellType", getTargetClass());
+				BuildUtilities.createFact(primaryContext, "SpellType",
+					getTargetClass());
 		fd.setSelectable(true);
 
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
+		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
 		assertTrue(set.isEmpty());
 		pc.skillSet.put(s1, 2);
@@ -143,6 +146,46 @@ public class RanksQualifierTokenTest extends
 		pc.skillSet.put(s1, 1);
 		pc.skillSet.put(s2, 2);
 		Collection<?> set = info.getSet(pc);
+		assertEquals(1, set.size());
+		assertTrue(set.contains(s2));
+	}
+
+	@Test
+	public void testGetSetNegated() throws PersistenceLayerException
+	{
+		setUpPC();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		initializeObjects();
+		assertTrue(parse(getSubTokenName() + "|!RANKS=2[TYPE=Masterful]"));
+
+		finishLoad();
+
+		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+		pc.skillSet.put(s1, 1);
+		pc.skillSet.put(s2, 2);
+		Collection<?> set = info.getSet(pc);
+		assertEquals(1, set.size());
+		assertTrue(set.contains(s3));
+	}
+
+	@Test
+	public void testGetSetMaxRank() throws PersistenceLayerException
+	{
+		setUpPC();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+		initializeObjects();
+		assertTrue(parse(getSubTokenName() + "|RANKS=MAXRANK[TYPE=Masterful]"));
+
+		finishLoad();
+
+		pc.classMap.put(cl1, 1);
+		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+		pc.skillSet.put(s1, 1);
+		pc.skillSet.put(s2, 2);
+		Collection<?> set = info.getSet(pc);
+		assertTrue(set.isEmpty());
+		pc.skillSet.put(s2, 4);
+		set = info.getSet(pc);
 		assertEquals(1, set.size());
 		assertTrue(set.contains(s2));
 	}

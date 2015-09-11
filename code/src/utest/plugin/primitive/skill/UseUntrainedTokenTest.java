@@ -14,33 +14,44 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.qualifier.pcclass;
+package plugin.primitive.skill;
 
 import java.net.URISyntaxException;
 
-import pcgen.core.PCClass;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Race;
+import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.QualifierToken;
-import plugin.lsttokens.choose.ClassToken;
-import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
+import plugin.lsttokens.ChooseLst;
+import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
-public class PCQualifierTokenTest extends
-		AbstractPCQualifierTokenTestCase<PCClass>
+public class UseUntrainedTokenTest extends
+		AbstractPrimitiveTokenTestCase<CDOMObject, Skill>
 {
+	static ChooseLst token = new ChooseLst();
+	static SkillToken subtoken = new SkillToken();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
-	static ClassToken subtoken = new ClassToken();
+	private static final UseUntrainedToken USEUNTRAINED_TOKEN = new UseUntrainedToken();
 
-	private static final plugin.qualifier.pcclass.PCToken PC_TOKEN =
-			new plugin.qualifier.pcclass.PCToken();
+	public UseUntrainedTokenTest()
+	{
+		super("USEUNTRAINED", null);
+	}
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TokenRegistration.register(PC_TOKEN);
+		construct(primaryContext, "Skill1");
+		construct(secondaryContext, "Skill1");
+		TokenRegistration.register(USEUNTRAINED_TOKEN);
 	}
 
 	@Override
@@ -50,26 +61,26 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<PCClass> getTargetClass()
+	public Class<Skill> getTargetClass()
 	{
-		return PCClass.class;
+		return Skill.class;
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
+	public Class<Race> getCDOMClass()
 	{
-		return true;
+		return Race.class;
 	}
 
 	@Override
-	protected void addToPCSet(TransparentPlayerCharacter pc, PCClass item)
+	public CDOMLoader<CDOMObject> getLoader()
 	{
-		pc.classMap.put(item, 2);
+		return loader;
 	}
 
 	@Override
-	protected Class<? extends QualifierToken<?>> getQualifierClass()
+	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return plugin.qualifier.pcclass.PCToken.class;
+		return token;
 	}
 }
