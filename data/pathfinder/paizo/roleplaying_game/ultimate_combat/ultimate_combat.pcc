@@ -41,10 +41,11 @@ ABILITY:uc_abilities_globalvar.lst
 
 
 ABILITY:uc_abilities_class.lst
-ABILITY:uc_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:uc_abilities_race.lst
 ABILITY:uc_feats.lst
 ABILITYCATEGORY:uc_abilitycategories.lst
+ABILITYCATEGORY:uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 CLASS:uc_classes.lst
 EQUIPMENT:uc_equip_general.lst
 EQUIPMENT:uc_equip_arms_armor.lst|(EXCLUDE:Do-Maru|Tatami-Do|O-Yoroi|Mountain Pattern Armor)|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment

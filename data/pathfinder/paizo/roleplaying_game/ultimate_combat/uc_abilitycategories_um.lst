@@ -1,0 +1,7 @@
+
+
+ABILITYCATEGORY:Kensai Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability										ABILITYLIST:Kensai ~ Weapon Proficiency																													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kensai Chosen Weapon				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability										ABILITYLIST:Kensai ~ Chosen Weapon																														DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Kensai Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability										ABILITYLIST:Kensai ~ Weapon Focus Display																													DISPLAYLOCATION:Class Features
+

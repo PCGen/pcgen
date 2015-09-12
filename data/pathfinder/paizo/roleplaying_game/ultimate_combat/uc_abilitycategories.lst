@@ -72,11 +72,6 @@ ABILITYCATEGORY:Ape Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Bat Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT												ABILITYLIST:Acrobatic|Agile Maneuvers|Improved Initiative|Lightning Reflexes|Skill Focus (Perception)																			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Boar Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT												ABILITYLIST:Bleeding Critical|Blind-Fight|Diehard|Improved Overrun																								DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Kensai Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability										ABILITYLIST:Kensai ~ Weapon Proficiency																													DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Kensai Chosen Weapon				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability										ABILITYLIST:Kensai ~ Chosen Weapon																														DISPLAYLOCATION:Class Features
-
-ABILITYCATEGORY:Kensai Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability										ABILITYLIST:Kensai ~ Weapon Focus Display																													DISPLAYLOCATION:Class Features
-
 ABILITYCATEGORY:Wild Stalker Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WILDSTALKERWildTalent																																								DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT												ABILITYLIST:Rapid Reload																															DISPLAYLOCATION:Class Features
 
@@ -89,7 +84,6 @@ ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO
 ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SamuraiClassFeatures.Samurai Class Feature																														PLURAL:Samurai Class Features			DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Terrain Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Terrain Mastery																																		PLURAL:Terrain Mastery				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Magus Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:MagusClassFeatures																																		PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Controlled Rage Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Controlled Rage Choice																																								DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Controlled Rage Allocation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Controlled Rage Allocation																																							DISPLAYLOCATION:Class Features
