@@ -41,6 +41,7 @@ ABILITY:uc_abilities_globalvar.lst
 
 
 ABILITY:uc_abilities_class.lst
+ABILITY:uc_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:uc_abilities_race.lst
 ABILITY:uc_feats.lst
 ABILITYCATEGORY:uc_abilitycategories.lst
