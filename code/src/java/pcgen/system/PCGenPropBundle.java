@@ -29,9 +29,11 @@ import java.util.ResourceBundle;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.output.model.DirectScalarModel;
 import pcgen.output.publish.OutputDB;
 import pcgen.util.Logging;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * This class is used to manage the properties of the PCGen application
@@ -105,8 +107,16 @@ public class PCGenPropBundle
 			svnProperties = null;
 		}
 		//Safe as d_properties was constructed earlier in this block
-		OutputDB.addGlobalModel(DirectScalarModel.getModel("version",
-			getVersionNumber()));
+		try
+		{
+			TemplateModel wrappedVersion =
+					ObjectWrapper.DEFAULT_WRAPPER.wrap(getVersionNumber());
+			OutputDB.addGlobalModel("version", wrappedVersion);
+		}
+		catch (TemplateModelException e)
+		{
+			Logging.errorPrint("Failed to load version for FreeMarker", e);
+		}
 	}
 
 	/**
