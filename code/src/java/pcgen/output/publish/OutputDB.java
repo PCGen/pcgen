@@ -28,7 +28,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.core.GameMode;
 import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
-import pcgen.output.base.NamedModel;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
@@ -56,9 +55,9 @@ public final class OutputDB
 	/**
 	 * The map of string names to models for global items (not PC dependent)
 	 */
-	private static Map<Object, NamedModel> globalModels =
-			new CaseInsensitiveMap<NamedModel>();
-	
+	private static Map<Object, TemplateModel> globalModels =
+			new CaseInsensitiveMap<TemplateModel>();
+
 	/**
 	 * The Map of string names to output models for the Game Mode
 	 */
@@ -285,14 +284,12 @@ public final class OutputDB
 	 * 
 	 * @return a Map of the global TemplateModel objects
 	 */
-	public static Map<String, TemplateModel> getGlobal()
+	public static Map<Object, TemplateModel> getGlobal()
 	{
-		Map<String, TemplateModel> hm = new HashMap<String, TemplateModel>();
-		for (NamedModel nm : globalModels.values())
-		{
-			hm.put(nm.getModelName(), nm);
-		}
-		return hm;
+		CaseInsensitiveMap<TemplateModel> map =
+				new CaseInsensitiveMap<TemplateModel>();
+		map.putAll(globalModels);
+		return map;
 	}
 
 	/**
@@ -311,13 +308,27 @@ public final class OutputDB
 			throw new IllegalArgumentException(
 				"Preference Name may not be null or empty: " + pref);
 		}
-		BooleanOptionModel bom = new BooleanOptionModel(pref, defaultValue);
-		TemplateModel old = globalModels.put(pref, bom);
+		addGlobalModel(pref, new BooleanOptionModel(pref, defaultValue));
+	}
+
+	/**
+	 * Directly adds a new TemplateModel as part of the "Global" Models in
+	 * OutputDB.
+	 * 
+	 * @param name
+	 *            The name to be used when the TemplateModel is referred to in
+	 *            FreeMarker
+	 * @param model
+	 *            The TemplateModel to be added to the global models
+	 */
+	public static void addGlobalModel(String name, TemplateModel model)
+	{
+		TemplateModel old = globalModels.put(name, model);
 		if (old != null)
 		{
 			throw new UnsupportedOperationException(
-				"Cannot have two Preference Output Models using the same name: "
-					+ pref);
+				"Cannot have two Global Output Models using the same name: "
+					+ name);
 		}
 	}
 }
