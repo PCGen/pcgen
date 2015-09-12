@@ -140,6 +140,9 @@ ABILITYCATEGORY:Rapid Reload				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTI
 
 ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:Combat				ABILITYLIST:Arcane Strike|Combat Casting					DISPLAYLOCATION:Feats	POOL:Pool_Temp_Eldritch_Scrapper_Feat
 
+ABILITYCATEGORY:Packmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice												PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features	POOL:Pool_PackmasterCompanion
+ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Boon Companion Select Packmaster Companion	PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
+
 #
 # End
 #
