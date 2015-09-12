@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v6.5.4</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v6.5.4</h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v6.5.4</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 6.5.4</a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v6.5.4</a></h2>
+
+
+<p>PCGen v6.5.4 is 
+an alpha release from our development branch to allow 
+experimentation and testing of our latest work.
+Please give it a shot and let us know how it works for you. 
+		 Some notable changes in this release are listed below.
+<h3>Notable Changes</h3>
+<ul>
+<li>Update to PFS rules to Additional Resources Guide version January 9, 2015</li>
+<li>Reworking of the Pathfinder archetype system</li>
+<li>Conversion of many output tokens to Freemarker objects</li>
+<li>Update documentation for FEAT and UDAM tags</li>
+</ul>
+<!-- 
+<p>
+The new user interface does most of what you are used to, but does not currently provide  
+random NPC generation or LST editor functionality. 
+</p>
+ -->
+ 
+<h3>New Sources</h3>
+
+<p>The following new source was added in 6.5.4</p>
+
+<ul>
+<li>[Everyman Gaming] Dragon Companion Handbook</li>
+</ul>
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 13 September, 2015.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 7 or Java 8. PCGEN 6.5.4 is not compatible with Java 6 (or earlier) and it is NOT SUPPORTED. 
+		To get the latest version of Java, go to
+			<a href="https://www.java.com/inc/BrowserRedirect1.jsp?locale=en">java.com</a>.
+			PCGen has been tested with both Java 7 (including OpenJDK) and Java 8.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://www.pcgen.org/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen.
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://www.pcgen.org/autobuilds/pcgen-docs/">docs</a> to 
+		familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60504_full.zip?download">pcgen60504_full.zip</a>: <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60504_win_install.exe?download">pcgen60504_win_install.exe</a>: <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60504_mac_install.dmg?download">pcgen60504_mac_install.dmg</a>: <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<p>If you have custom data created using either the old LST Editor, or the my_dataset example files, it is
+			very important that you read the
+            <a href="http://pcgen-test.org/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> and
+            <a href="http://wiki.pcgen.org/Updating_Homebrew_Sets">Upgrading home brews</a> 
+            before installing your new version of PCGen.</p>
+
+		<h2><a name="Thanks">Thanks</a></h2>
+
+		<p>Thanks to the following people who contributed to the PCGen 6.5.4 release:
+		
+		Andrew Maitland, James Dempsey, ElroTheOnk, idlenexusgaming,  jamrenaissance, 
+		LiaungYip, Mark Means, megatog615, Tom Parker, Stefan Radermacher
+		and ckwalsh 
+		</p><p>
+		Thanks also to the many people who gave us feedback, reported bugs, contributed to the lists and 
+		helped other PCGen users out!</p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a>
+			or <a href="mailto:Content@pcgen.org">Content@pcgen.org</a>, or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://www.pcgen.org">http://www.pcgen.org</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://wiki.pcgen.org/">http://wiki.pcgen.org/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The Yahoo <strong>pcgen_developers mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://tech.groups.yahoo.com/group/pcgen_developers/">http://tech.groups.yahoo.com/group/pcgen_developers/</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 6.5.4</a></h2>
+
+<h3>        New Data Sources
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWSOURCE-241'>NEWSOURCE-241</a>] -         [Everyman Gaming] Dragon Companion Handbook
+</li>
+</ul>
+
+
+<h3>        New Code Feature
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2619'>CODE-2619</a>] -         Develop FreeMarker output models
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2706'>CODE-2706</a>] -         Include FileTracing for Ability Category Error
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2892'>CODE-2892</a>] -         .gitignore should have data/customsources
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2896'>CODE-2896</a>] -         Re-enable the MSRD Unit Tests
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2898'>CODE-2898</a>] -         Update active unit tests to use FTL Engine, and add missing License Headers
+</li>
+</ul>
+
+                         
+<h3>        New Data Features
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1527'>DATA-1527</a>] -         [Pathfinder] Implement Magus Arcana Spell Blending
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2197'>DATA-2197</a>] -         Style temporary bonus
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2313'>DATA-2313</a>] -         [Pathfinder] Request for Addition of Two Traits in two different books.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2327'>DATA-2327</a>] -         Update to PFS rules to Additional Resources Guide version January 9, 2015
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2337'>DATA-2337</a>] -         [Pathfinder] Add Character Traits Web Enhancement to Pathfinder
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2392'>DATA-2392</a>] -         [Paizo] PFSG - Risen Guard should provide a bonus to Conditional Save Modifiers
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2460'>DATA-2460</a>] -         [Paizo] PSFG - request to add Agile to Amulet of Mighty Fists
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2474'>DATA-2474</a>] -         [Paizo] ACG - Swashbuckler not offered Dares at Bonus Feats
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2475'>DATA-2475</a>] -         Utilize the Checklist function for Panache Points and Arcane Reservoir
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2487'>DATA-2487</a>] -         [Pathfinder] ACG states that Panache and Grit pools combine
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2505'>DATA-2505</a>] -         [Pathfinder] Archetype support for sorcerer bonus spells
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2507'>DATA-2507</a>] -         Implement - SIZENUM
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2539'>DATA-2539</a>] -         [Pathfinder] Implement FACT replacement to handle Archetype system
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2555'>DATA-2555</a>] -         Cavalier Tactician ability should indicate the bonus teamwork feat selected
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2557'>DATA-2557</a>] -         [Pathfinder] Display under Rogue Class Feature &quot;Sneak Attack&quot;
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2564'>DATA-2564</a>] -         [Pathfinder] ACG - Warpriest Fervor should have check boxes like Paladin lay on hands
+</li>
+</ul>
+
+
+
+<h3>        New Output Sheet Features
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-406'>OS-406</a>] -         please shorten text for Checklist points on front page
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-411'>OS-411</a>] -         Update Modern Sheet - add Ranks (round), and Action Points
+</li>
+</ul>
+
+ 
+<h3>        Modify Tokens
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-480'>NEWTAG-480</a>] -         SIZENUM: for sequencing of sizes
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-484'>NEWTAG-484</a>] -         Convert AGE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-485'>NEWTAG-485</a>] -         Convert ALIGNMENT output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-486'>NEWTAG-486</a>] -         Convert BIO output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-487'>NEWTAG-487</a>] -         Convert BIRTHDAY token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-488'>NEWTAG-488</a>] -         Convert BIRTHPLACE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-489'>NEWTAG-489</a>] -         Convert CATCHPHRASE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-490'>NEWTAG-490</a>] -         Convert COLOR.EYE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-491'>NEWTAG-491</a>] -         Convert COLOR.HAIR output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-492'>NEWTAG-492</a>] -         Convert COLOR.SKIN output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-493'>NEWTAG-493</a>] -         Convert HANDED output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-494'>NEWTAG-494</a>] -         Convert INTERESTS output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-495'>NEWTAG-495</a>] -         Convert LENGTH.HAIR output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-496'>NEWTAG-496</a>] -         Convert LOCATION output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-497'>NEWTAG-497</a>] -         Convert MISC.GM output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-498'>NEWTAG-498</a>] -         Convert MISC.COMPANIONS output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-499'>NEWTAG-499</a>] -         Convert MISC.ASSETS output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-500'>NEWTAG-500</a>] -         Convert MISC.MAGIC output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-501'>NEWTAG-501</a>] -         Convert PERSONALITY1 output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-502'>NEWTAG-502</a>] -         Convert PERSONALITY2 output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-503'>NEWTAG-503</a>] -         Convert PHOBIAS output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-504'>NEWTAG-504</a>] -         Convert PLAYERNAME output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-505'>NEWTAG-505</a>] -         Convert RESIDENCE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-506'>NEWTAG-506</a>] -         Convert SPEECHTENDENCY output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-507'>NEWTAG-507</a>] -         Convert TABNAME output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-508'>NEWTAG-508</a>] -         Convert DESC output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-509'>NEWTAG-509</a>] -         Convert LANGUAGES output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-510'>NEWTAG-510</a>] -         Convert WEAPONPROFS output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-511'>NEWTAG-511</a>] -         Convert TEMPLATE and TEMPLATELIST output tokens to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-512'>NEWTAG-512</a>] -         Convert CHECK output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-513'>NEWTAG-513</a>] -         Convert CLASS, CLASSABB and CLASSLIST output tokens to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-514'>NEWTAG-514</a>] -         Convert DEITY output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-515'>NEWTAG-515</a>] -         Convert DOMAIN output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-516'>NEWTAG-516</a>] -         Convert FAVOREDCLASS output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-517'>NEWTAG-517</a>] -         Convert RACE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-518'>NEWTAG-518</a>] -         Convert SIZE and SIZELONG output tokens to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-519'>NEWTAG-519</a>] -         Convert CHARACTERTYPE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-520'>NEWTAG-520</a>] -         Convert FACE output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-521'>NEWTAG-521</a>] -         Convert GENDER output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-522'>NEWTAG-522</a>] -         Convert HEIGHT output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-523'>NEWTAG-523</a>] -         Convert REACH output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-524'>NEWTAG-524</a>] -         Convert GOLD output token to FreeMarker
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-526'>NEWTAG-526</a>] -         Deprecate non-FreeMarker String Controls for output sheets
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-529'>NEWTAG-529</a>] -         Enable .outputname interpolation on appropriate CDOMObjects
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-561'>NEWTAG-561</a>] -         Allow VISIBLE:NO for skills
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-565'>NEWTAG-565</a>] -         Remove Spell Point Cost System
+</li>
+</ul>
+
+              
+<h3>        New Token
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-483'>NEWTAG-483</a>] -         Require SORTKEY on PaperInfo
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWTAG-560'>NEWTAG-560</a>] -         Add VISIBLE: (including support for VISIBLE:NO) to equipment
+</li>
+</ul>
+
+
+<!--                         
+<h3>        New Docs Feature
+</h3>
+<ul>
+</ul>
+ -->
+ 
+<h3>       Code Bug Fixes
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2770'>CODE-2770</a>] -         After character is closed and new one created, previously checked on &quot;Allow Debt&quot; has to be rechecked off and on to function
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2829'>CODE-2829</a>] -         Various Ability tokens are editor-unfriendly
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2833'>CODE-2833</a>] -         CHOOSE:Number for certain temporary bonuses does not show the appropriate Choose options
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2867'>CODE-2867</a>] -         Phantom Slot for Double Weapon type not granting 2 slots like &quot;BOTH&quot; is set up causing error message to appear.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2870'>CODE-2870</a>] -         ADD:CLASSSKILLS failing to operate as documented.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2885'>CODE-2885</a>] -         Error message for PREMULT issue is less than helpful - java.lang.StringIndexOutOfBoundsException
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2886'>CODE-2886</a>] -         PREFACT with multiple criteria not parsed correctly
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2894'>CODE-2894</a>] -         Unconstructed references error log is spewing tons of extra (useless) lines
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2897'>CODE-2897</a>] -         Duplicate FACTDEF with same type still produces an error.
+</li>
+</ul>
+
+<h3>       Data  Bug Fixes
+</h3>
+<ul>
+
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1344'>DATA-1344</a>] -         [Pathfinder] Bestiary 3 - Kits have wrong entries for skills
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1764'>DATA-1764</a>] -         [Paizo] ARG - Dwarven Boulder cannot be equipped in Head Slot
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2295'>DATA-2295</a>] -         [Pathfinder] Domain abilities not using correct variables
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2402'>DATA-2402</a>] -         [PFS] Dark Archives Faction Trait &#39;Librarian&#39; does not provide an option to select a skill to bonus
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2453'>DATA-2453</a>] -         [WotC] RSRD - Bardic Inspire Courage temporary bonuses
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2456'>DATA-2456</a>] -         [Paizo] B2 - Missing default character kit for Create Monster (Serpentfolk (Degenerate))
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2462'>DATA-2462</a>] -         [Paizo] ACG - Animal Archetype Bodyguard not replacing abilities
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2463'>DATA-2463</a>] -         [Paizo] CR - Familiar attacks uses incorrect formula when Dex higher than Str
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2464'>DATA-2464</a>] -         [Paizo] UM - Greensting Scorpion has Claw Attacks when it should not
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2466'>DATA-2466</a>] -         [Paizo] Iron Gods PG - missing Craft (Mechanical)
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2467'>DATA-2467</a>] -         [Paizo] CR/B1 - Animal Companion Deinonychus has incorrect damage for Talons attack
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2468'>DATA-2468</a>] -         [Paizo] APG - Oracle Revelations not properly negated for Archetypes
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2469'>DATA-2469</a>] -         [Paizo] CR - Fighter Weapon and Armor Training Archetype negation not following standards.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2471'>DATA-2471</a>] -         [Paizo] ACG - Slashing Grace should only add Dex to damage, not Dex+Str
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2472'>DATA-2472</a>] -         [Paizo] ACG - Slashing Grace should require Weapon Focus
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2473'>DATA-2473</a>] -         [Paizo] ACG - Swashbuckler To Hit calculated incorrectly.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2476'>DATA-2476</a>] -         [Pathfinder] Draconic Bloodline selection has the chooser text when that would be desired to not display.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2477'>DATA-2477</a>] -         [Paizo] UM - Witch Hex Prehensile hair should be based on INT
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2478'>DATA-2478</a>] -         [PF] ISP - Ustalavic Noble trait bonus missing
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2479'>DATA-2479</a>] -         [Pathfinder] Corset of Dire Witchcraft has a location of &quot;Chest&quot; instead of &quot;body&quot;
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2482'>DATA-2482</a>] -         [Pathfinder] ACG - Slayer talent &quot;Combat Style&quot; not qualifying PC for ranger style bonus feats
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2485'>DATA-2485</a>] -         Swashbuckler text for Panache has wrong formula
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2486'>DATA-2486</a>] -         [Pathfinder] UC - Gunslinger does not Utilize the Checklist function for Grit Points
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2488'>DATA-2488</a>] -         [Pathfinder] Swashbuckler Finesse applies Dex to Longsword when it is not chosen.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2489'>DATA-2489</a>] -         [Pathfinder] Arcanist displays wrong number of check-boxes for Arcane reservoir
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2492'>DATA-2492</a>] -         [Pathfinder] Kitsune Favored Class Bonus for Oracle
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2493'>DATA-2493</a>] -         [Pathfinder] Magus Arcana class feature not qualifying for Extra Arcana
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2494'>DATA-2494</a>] -         [Pathfinder] Exploiter Wizard does not qualify for Extra Reservoir feat, but should.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2495'>DATA-2495</a>] -         Fighter not displaying class skills
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2497'>DATA-2497</a>] -         Natural Claw Attacks apply 1.5 str instead of 1.0x str
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2498'>DATA-2498</a>] -         [Pathfinder] ACG - Swashbuckler&#39;s Evasive Deed should not grant Improved Evasion
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2499'>DATA-2499</a>] -         [Pathfinder] ACG- Swashbuckler Weapon Training is not working
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2502'>DATA-2502</a>] -         [Pathfinder] Errors upon loading ACG
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2506'>DATA-2506</a>] -         [Pathfinder] HaoG - Halfling cannot qualify for Jinx feats due to bad PRExxx
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2508'>DATA-2508</a>] -         [Pathfinder] Enlarge person temp bonus incorrectly increasing unarmed damage
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2510'>DATA-2510</a>] -         [Pathfinder] APG - Resounding Blow spell missing Paladin and Inquisitor classes
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2511'>DATA-2511</a>] -         [Pathfinder] Cleric given invalid selections for Channeling.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2512'>DATA-2512</a>] -         [Pathfinder] Favored Class Bonus (Tiefling) Alchemist Bomb Bonus Damage not implemented
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2513'>DATA-2513</a>] -         3.5e Paladin Divine Health has the Divine Grace bonus.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2514'>DATA-2514</a>] -         [Pathfinder] Shards of Sin cannot be selected due to bad Campaign Prereqs.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2515'>DATA-2515</a>] -         [Pathfinder] ISC - Samurai &amp; Monstrous mounts
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2516'>DATA-2516</a>] -         [Pathfinder] Gunslinger Grit
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2517'>DATA-2517</a>] -         [ISWG] Incorrect dependency on Ultimate Magic, unnecessary dependency on Bestiary
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2518'>DATA-2518</a>] -         [Pathfinder] Eidolon variable &#39;EidolonLVL&#39; re-used incorrectly for companion leveling
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2519'>DATA-2519</a>] -         [Pathfinder] Bloodrager Bonus Feats granted early
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2520'>DATA-2520</a>] -         [Pathfinder] Weapon Focus (Mythic) not doubling to hit bonus
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2521'>DATA-2521</a>] -         [APG] Can&#39;t take standard summoner
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2523'>DATA-2523</a>] -         Companion multiattack not calculating correctly
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2524'>DATA-2524</a>] -         [Ultimate Equipment] Load errors if Ultimate Combat (non-prereq) not selected
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2525'>DATA-2525</a>] -         [Pathfinder] Alchemist caster level variable is borked
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2527'>DATA-2527</a>] -         [Bestiary 3] Clean up dependencies
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2528'>DATA-2528</a>] -         [Advanced Class Guide] Dependency clean up
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2529'>DATA-2529</a>] -         [Pathfinder] Ranger missing Combat Style Feat from output.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2530'>DATA-2530</a>] -         [Pathfinder] Boon Companion not implemented in Animal Archive
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2533'>DATA-2533</a>] -         Magus Archetype Conflicts- Kensai,Spell Dancer (Magus; Elf),Bladebound
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2535'>DATA-2535</a>] -         [Pathfinder] Quickdraw shield (light/steel) - Not able to equip in secondary hand
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2536'>DATA-2536</a>] -         UE Darkleaf Cloth special material doesn&#39;t work
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2537'>DATA-2537</a>] -         [Pathfinder] problem with Druid (Weather Domain) and &quot;Alternative ~ Inquisition&quot;
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2540'>DATA-2540</a>] -         [Pathfinder] Skinwalker heritages cannot be swapped out.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2543'>DATA-2543</a>] -         commit d685583e9 introduced bloodline bugs
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2544'>DATA-2544</a>] -         [Pathfinder] UCA - Bloodline race traits missing
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2545'>DATA-2545</a>] -         [Pathfinder] FoP - Trait naming not updated in PREREQs to keep UI black when taken.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2546'>DATA-2546</a>] -         UI - Granted Brew Potion shows RED.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2547'>DATA-2547</a>] -         [Pathfinder] Effective Druid Levels do not stack for FAQ creatures...
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2549'>DATA-2549</a>] -         Inner Sea Combat missing dependency
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2550'>DATA-2550</a>] -         [Pathfinder] Boon Companion Feat is coded incorrectly per the Paizo FAQ
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2551'>DATA-2551</a>] -         [Pathfinder][ACG] Companion can not take teamwork feat meant for them
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2552'>DATA-2552</a>] -         [Pathfinder] Zen Archer can&#39;t take Zen Archer Bonus Feat
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2553'>DATA-2553</a>] -         [Pathfinder] Ratfolk has Vision: Normal instead of Darkvision 60&#39;
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2554'>DATA-2554</a>] -         [Pathfinder] Cavalier - Order of the Shield Challenge has typo
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2556'>DATA-2556</a>] -         [Pathfinder] Add Faction Template Displayed/Exported
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2560'>DATA-2560</a>] -         [Pathfinder] Technology Guide - Lacks &quot;Heavy Weaponry&quot; as a selection in the exotic weapon proficiency feat 
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2561'>DATA-2561</a>] -         [RSRD] Animal Companion Progression Confusing to end users.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2563'>DATA-2563</a>] -         [Pathfinder] ACG - Deliverer Slayer Archetype removes too many talents when multiclassing
+</li>
+</ul>
+
+<h3>       Documentation  Bug Fixes
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DOCS-94'>DOCS-94</a>] -         Make documentation CS3/WC3 strict compliant
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DOCS-322'>DOCS-322</a>] -         Update documentation for UDAM to reflect fix in CODE-2866
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DOCS-323'>DOCS-323</a>] -         Update documentation for *FEAT* tags - NEWTAG-477
+</li>
+</ul>
+
+<h3>        Output Sheet Bug Fix
+</h3>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-401'>OS-401</a>] -         [Modern] -3 appears in misc AC bonus for no reason
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-408'>OS-408</a>] -         Equipping more than one of a given potion, sends 2 rows of checkboxes to PDF
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-410'>OS-410</a>] -         Add OS block for &quot;Prestige Awards&quot;
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-416'>OS-416</a>] -         Funds display inoperable beyond 999.
+</li>
+</ul>
+
+
+	</body>
+</html>
