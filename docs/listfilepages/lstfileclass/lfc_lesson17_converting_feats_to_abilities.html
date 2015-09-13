@@ -75,8 +75,7 @@ Smith (Maredudd)
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../datafilestagpages/datafilesability.html#category2">
+   <code><a href="../datafilestagpages/datafilesability.html#category2">
      CATEGORY(ability)
     </a>
     ,
@@ -148,8 +147,7 @@ category)
     ,
     <a href="../globalfilestagpages/globalfilesbonus.html#var">
      BONUS:VAR
-    </a>
-   </code>
+    </a></code>
   </p>
   <hr/>
   <h2>
@@ -210,30 +208,20 @@ below.
 LST file class.
   </p>
   <p class="indent2">
-   <code>
-    Expert Defense
-   </code>
+   <code>Expert Defense</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Special
-   </code>
+   <code>TYPE:Special</code>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
   </p>
   <p class="indent2">
-   <code>
-    SAB:Expert Defense ~ Add % bonus to
-AC|INT
-   </code>
+   <code>SAB:Expert Defense ~ Add % bonus to
+AC|INT</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|INT
-   </code>
+   <code>BONUS:COMBAT|AC|INT</code>
   </p>
   <p class="indent0">
    Note: This hidden feat has been created
@@ -295,9 +283,7 @@ conventions to convey these ideas:
   <p class="indent1">
    1) Coding examples and PCGen tags are identified
 by
-   <code>
-    code
-   </code>
+   <code>code</code>
    style.
   </p>
   <p class="indent1">
@@ -308,16 +294,12 @@ e.g. domain, feat, weapon, etc., I have included the name as a
    </span>
    text, except for when the
 object is part of a
-   <code>
-    code
-   </code>
+   <code>code</code>
    example.
   </p>
   <p class="indent1">
    3) Each new line should be considered a
-   <code>
-    &lt;TAB&gt;
-   </code>
+   <code>&lt;TAB&gt;</code>
    in the actual file.
   </p>
   <blockquote>
@@ -325,29 +307,21 @@ object is part of a
     Examples in this lesson will appear as:
    </p>
    <p class="indent2">
-    <code>
-     ABILITYCATEGORY:My Special Ability
-Category
-    </code>
+    <code>ABILITYCATEGORY:My Special Ability
+Category</code>
    </p>
    <p class="indent2">
-    <code>
-     CATEGORY:Special Ability
-    </code>
+    <code>CATEGORY:Special Ability</code>
    </p>
    <p class="indent1">
     Will in the LST file appear as:
    </p>
    <p class="indent2">
-    <code>
-     ABILITYCATEGORY:My Special Ability
-Category
-    </code>
+    <code>ABILITYCATEGORY:My Special Ability
+Category</code>
     &lt;tab&gt;
-    <code>
-     CATEGORY:Special
-Ability
-    </code>
+    <code>CATEGORY:Special
+Ability</code>
    </p>
   </blockquote>
   <h4>
@@ -378,9 +352,7 @@ that you wish to convert to the new file and removing them from the
    </span>
    file. You will then need
 to add the appropriate
-   <code>
-    CATEGORY
-   </code>
+   <code>CATEGORY</code>
    tag to the copied
 feats, making sure that any new ability categories are properly
 defined in the
@@ -393,13 +365,9 @@ modify your hombrew
     my_campaign.pcc
    </span>
    file by adding the
-   <code>
-    ABILITY
-   </code>
+   <code>ABILITY</code>
    and
-   <code>
-    ABILITYCATEGORY
-   </code>
+   <code>ABILITYCATEGORY</code>
    tags. The relevant files and tags to
 acomplish this are explained below.
   </p>
@@ -420,9 +388,7 @@ are very similar to those used in the
    </span>
    file. The major difference between these
 two files is that you will need to add the
-   <code>
-    CATEGORY
-   </code>
+   <code>CATEGORY</code>
    tag to your converted feat to make it an ability. To get an idea of
 how to build feats, you can look up
    <a href="lfc_lesson12_feat1.html">
@@ -447,18 +413,14 @@ the ability. You can use any name you prefer as long as it conforms
 to the standard requirements for feat names. For our purposes in
 this class, we will be using the same name we used for our sample
 feat. This means our new ability will be called
-   <code>
-    Expert
-Defense
-   </code>
+   <code>Expert
+Defense</code>
    .
   </p>
   <p class="sidebar1">
    Note: You can have two abilities with the same
 name as long as they are of different categories, i.e. the
-   <code>
-    CATEGORY
-   </code>
+   <code>CATEGORY</code>
    tag specifies a different category for each
 ability.
   </p>
@@ -468,9 +430,7 @@ ability.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    Expert Defense
-   </code>
+   <code>Expert Defense</code>
   </p>
   <p class="indent2">
    Amazingly enough, our new ability has the same
@@ -478,9 +438,7 @@ name as our old feat.
   </p>
   <hr/>
   <h4>
-   <code>
-    CATEGORY:My Super Ability
-   </code>
+   <code>CATEGORY:My Super Ability</code>
   </h4>
   <p class="indent0">
    This tag identifies the 'category' in which your
@@ -519,35 +477,23 @@ way it is hardcoded within PCGen.
 is in our new ability. The final Ability object is shown below:
   </p>
   <p class="indent2">
-   <code>
-    Expert Defense
-   </code>
+   <code>Expert Defense</code>
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY:My Super Ability
-   </code>
+   <code>CATEGORY:My Super Ability</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Special
-   </code>
+   <code>TYPE:Special</code>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
   </p>
   <p class="indent2">
-   <code>
-    SAB:Expert Defense ~ Add % bonus to
-AC|INT
-   </code>
+   <code>SAB:Expert Defense ~ Add % bonus to
+AC|INT</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|INT
-   </code>
+   <code>BONUS:COMBAT|AC|INT</code>
   </p>
   <hr style="height:3px"/>
   <h3>
@@ -588,9 +534,7 @@ use the
   </p>
   <hr/>
   <h4>
-   <code>
-    ABILITYCATEGORY:My Super Ability
-   </code>
+   <code>ABILITYCATEGORY:My Super Ability</code>
   </h4>
   <p class="indent0">
    The first entry in the ABILITYCATEGORY line is
@@ -613,9 +557,7 @@ same name as this ability category. In this case,
   </p>
   <hr/>
   <h4>
-   <code>
-    CATEGORY:Special Ability
-   </code>
+   <code>CATEGORY:Special Ability</code>
   </h4>
   <p class="indent0">
    This is a 'super-category', or parent, to which
@@ -637,9 +579,7 @@ defined in either the
   </p>
   <hr/>
   <h4>
-   <code>
-    TYPE:Special
-   </code>
+   <code>TYPE:Special</code>
   </h4>
   <p class="indent0">
    This is a
@@ -688,34 +628,24 @@ types can be found on the
   </p>
   <hr/>
   <h4>
-   <code>
-    PLURAL:My Super Abilities
-   </code>
+   <code>PLURAL:My Super Abilities</code>
   </h4>
   <p class="indent0">
    This has to do with the internationalization. An
 example is:
-   <code>
-    in_feats
-   </code>
+   <code>in_feats</code>
    which sets the category key to
 'in_feats'. It also shows up with the 'Plural' of the name. An
 example of this is
-   <code>
-    Feat
-   </code>
+   <code>Feat</code>
    would be
-   <code>
-    Feats
-   </code>
+   <code>Feats</code>
    .
 (Feats would display in the drop down bar).
   </p>
   <hr/>
   <h4>
-   <code>
-    EDITABLE:NO
-   </code>
+   <code>EDITABLE:NO</code>
   </h4>
   <p class="indent0">
    This defines whether a user can modify the
@@ -728,9 +658,7 @@ for class abilities which aren't chosen by the user.
   </p>
   <hr/>
   <h4>
-   <code>
-    EDITPOOL:NO
-   </code>
+   <code>EDITPOOL:NO</code>
   </h4>
   <p class="indent0">
    This defines whether a user can modify the pool
@@ -749,28 +677,20 @@ default is
   </p>
   <hr/>
   <h4>
-   <code>
-    FRACTIONALPOOL:NO
-   </code>
+   <code>FRACTIONALPOOL:NO</code>
   </h4>
   <p class="indent0">
    This defines whether the pool must be a whole
 number or can be fractions. Some abilities may have a cost less
 than '1' like .5 or .25. Available options are
-   <code>
-    YES
-   </code>
+   <code>YES</code>
    or
-   <code>
-    NO
-   </code>
+   <code>NO</code>
    .
   </p>
   <hr/>
   <h4>
-   <code>
-    POOL:0
-   </code>
+   <code>POOL:0</code>
   </h4>
   <p class="indent0">
    This tag establishes the base ability pool for
@@ -780,55 +700,39 @@ variable. If a variable is used, the variable
     MUST
    </strong>
    be defined by a
-   <code>
-    DEFINE
-   </code>
+   <code>DEFINE</code>
    tag. For our new ability
 category, we will start with an ability pool of zero (0).
   </p>
   <hr/>
   <h4>
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
   </h4>
   <p class="indent0">
    Defines whether this category is visible on the
 UI or it it is hidden. This tag is useful for hidden abilities and
 class abilities that require no interaction from the user.
 Available options are -
-   <code>
-    YES
-   </code>
+   <code>YES</code>
    ,
-   <code>
-    NO
-   </code>
+   <code>NO</code>
    , or
-   <code>
-    QUALIFY
-   </code>
+   <code>QUALIFY</code>
    .
   </p>
   <hr/>
   <h4>
-   <code>
-    DISPLAYLOCATION
-   </code>
+   <code>DISPLAYLOCATION</code>
   </h4>
   <p class="indent0">
    The
-   <code>
-    DISPLAYLOCATION
-   </code>
+   <code>DISPLAYLOCATION</code>
    is optional but
 will identify the sub-tab upon which the associated abilities will
 be displayed. Examples of some standard locations defined in the
 RSRD data set are "Class Abilities" and "Special Qualities and
 Attacks". If it is not included the
-   <code>
-    PLURAL
-   </code>
+   <code>PLURAL</code>
    text will
 be used instead.
   </p>
@@ -839,9 +743,7 @@ the "My Special Abilities" sub-tab.
   </p>
   <p class="indent0">
    Well, you could if we had not included the
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
    tag in our ability category entry.
   </p>
   <hr/>
@@ -856,45 +758,29 @@ the "My Special Abilities" sub-tab.
    is shown below:
   </p>
   <p class="indent2">
-   <code>
-    ABILITYCATEGORY:My Super
-Ability
-   </code>
+   <code>ABILITYCATEGORY:My Super
+Ability</code>
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY:Special Ability
-   </code>
+   <code>CATEGORY:Special Ability</code>
   </p>
   <p class="indent2">
-   <code>
-    PLURAL:My Super Abilities
-   </code>
+   <code>PLURAL:My Super Abilities</code>
   </p>
   <p class="indent2">
-   <code>
-    EDITABLE:NO
-   </code>
+   <code>EDITABLE:NO</code>
   </p>
   <p class="indent2">
-   <code>
-    EDITPOOL:NO
-   </code>
+   <code>EDITPOOL:NO</code>
   </p>
   <p class="indent2">
-   <code>
-    FRACTIONALPOOL:NO
-   </code>
+   <code>FRACTIONALPOOL:NO</code>
   </p>
   <p class="indent2">
-   <code>
-    POOL:0
-   </code>
+   <code>POOL:0</code>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
   </p>
   <hr style="height:3px"/>
   <h3>
@@ -910,13 +796,9 @@ files to load as well as other information about the 'campaign'.
 Without these files and the related information, PCGen would not be
 able to load any datafiles. For the purposes of this lesson, there
 are only two tags we need to cover: The
-   <code>
-    ABILITY:my_abilities.lst
-   </code>
+   <code>ABILITY:my_abilities.lst</code>
    tag and the
-   <code>
-    ABILITYCATEGORY:my_abilitycategories.lst
-   </code>
+   <code>ABILITYCATEGORY:my_abilitycategories.lst</code>
    tag.
   </p>
   <p class="indent0">
@@ -943,26 +825,20 @@ absolute location within the PCGen installation. These are:
    <li>
     The "at" symbol (@) will load the file from a path relative to
 the data folder. (Example:
-    <code>
-     ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
-    </code>
+    <code>ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst</code>
     )
    </li>
    <li>
     The ampersand (&amp;) will load the file from a path relative
 to the vendor data folder. (Example:
-    <code>
-     ABILITY:&amp;/complete_monkey/complete_monkey_abilities.lst
-    </code>
+    <code>ABILITY:&amp;/complete_monkey/complete_monkey_abilities.lst</code>
     )
    </li>
    <li>
     The asterisk (*) will load the file from a path relative to the
 vendor data folder and if that does not exist, uses a path relative
 to the data folder. (Example:
-    <code>
-     ABILITYCATEGORY:*/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
-    </code>
+    <code>ABILITYCATEGORY:*/d20ogl/srd35/basics/rsrd_ability_categories_core.lst</code>
     )
    </li>
   </ol>
@@ -1005,9 +881,7 @@ RSRD/SRD for the
 ability categories or subcategories you MUST create it there. There
 are entries about them in the docs if you want to read up on them.
 To call the ability file it's (as you guessed),
-   <code>
-    ABILITY:ability.lst
-   </code>
+   <code>ABILITY:ability.lst</code>
    , in the .pcc file. Basically
 pretend that an
    <span class="lstfile">
@@ -1024,26 +898,20 @@ warning though, there may be exceptions to that rule of thumb).
    </a>
    when testing for the converted abilities as a prerequisite, as long
 as you use the
-   <code>
-    CATEGORY:FEAT
-   </code>
+   <code>CATEGORY:FEAT</code>
    tag, but it is
 recommended that you use
    <a href="../globalfilestagpages/globalfilesprexxx.html#preability">
     PREABILITY
    </a>
    instead. If you use any other category, e.g.
-   <code>
-    CATEGORY:MySpecialAbility
-   </code>
+   <code>CATEGORY:MySpecialAbility</code>
    , you
    <strong>
     MUST
    </strong>
    use the
-   <code>
-    PREABILITY
-   </code>
+   <code>PREABILITY</code>
    tag to check for your new abilities
 as prerequisites.
   </p>

@@ -146,9 +146,7 @@ load your datasets on the "Source Materials" tab.
     entry for the piece of equipment in question, include the
 appropriate tag to grant the "Negative Levels" feat. This is
 usually done with the
-    <code>
-     VFEAT:Negative Levels
-    </code>
+    <code>VFEAT:Negative Levels</code>
     tag. See
 the
     <a href="#vfeat">
@@ -159,9 +157,7 @@ how it works.
    </li>
    <li>
     Add a
-    <code>
-     BONUS:VAR|NegLevels|#|PRExxx
-    </code>
+    <code>BONUS:VAR|NegLevels|#|PRExxx</code>
     tag in the
     <span class="lstfile">
      equipment.lst
@@ -176,16 +172,12 @@ works.
    </li>
    <li>
     The PRExxx tag used in the
-    <code>
-     BONUS:VAR
-    </code>
+    <code>BONUS:VAR</code>
     tag above is
 used to define what prerequirements must be met before applying the
 negative levels. The most common prerequirement is the alignment of
 the character, in which case the
-    <code>
-     PREALIGN|x,x
-    </code>
+    <code>PREALIGN|x,x</code>
     tag
 would be used. See the
     <a href="#prealign">
@@ -252,12 +244,10 @@ the board. The tags used are explained below:
      <strong>
       Tag Used:
      </strong>
-     <code>
-      SA:%
+     <code>SA:%
 negative level(s) (-% effective level(s) and loses access to %
 spell(s) from the highest spell level
-castable)|NegLevels|NegLevels|NegLevels
-     </code>
+castable)|NegLevels|NegLevels|NegLevels</code>
     </p>
    </blockquote>
    <p class="indent1">
@@ -287,9 +277,7 @@ variable listed after subsequent pipes.
      </span>
      is defined
 by the
-     <code>
-      DEFINE
-     </code>
+     <code>DEFINE</code>
      tag within this feat.
     </li>
     <li>
@@ -307,9 +295,7 @@ last variable or formula equals "0".
     <strong>
      Tag Used:
     </strong>
-    <code>
-     DEFINE:NegLevels|0
-    </code>
+    <code>DEFINE:NegLevels|0</code>
    </p>
    <p class="indent1">
     <strong>
@@ -328,9 +314,7 @@ to a value of zero.
     <strong>
      Tag Used:
     </strong>
-    <code>
-     BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)
-    </code>
+    <code>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</code>
    </p>
    <p class="indent1">
     <strong>
@@ -346,9 +330,7 @@ and "Will" saving throws.
     <strong>
      Tag Used:
     </strong>
-    <code>
-     BONUS:COMBAT|TOHIT|-1*(NegLevels)
-    </code>
+    <code>BONUS:COMBAT|TOHIT|-1*(NegLevels)</code>
    </p>
    <p class="indent1">
     <strong>
@@ -364,10 +346,8 @@ number of negative leves granted from the primary attack bonus.
      <strong>
       Tag Used:
      </strong>
-     <code>
-      BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,
-TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
-     </code>
+     <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,
+TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code>
     </p>
    </blockquote>
    <p class="indent1">
@@ -393,15 +373,11 @@ number of negative levels granted from all skills.
 Levels
    </span>
    by using the
-   <code>
-    VFEAT
-   </code>
+   <code>VFEAT</code>
    tag in the specific
 equipment entry and then we must apply the specific number of
 negative levels through the
-   <code>
-    BONUS:VAR
-   </code>
+   <code>BONUS:VAR</code>
    tag.
   </p>
   <blockquote class="indent1">
@@ -411,9 +387,7 @@ negative levels through the
       Tag
 Used:
      </strong>
-     <code>
-      VFEAT:Negative Levels
-     </code>
+     <code>VFEAT:Negative Levels</code>
     </a>
    </p>
    <p class="indent1">
@@ -440,9 +414,7 @@ Entry above.)
       Tag
 Used:
      </strong>
-     <code>
-      BONUS:VAR|NegLevels|x|PREALIGN:LG,LN,NG,TN,CG,CN
-     </code>
+     <code>BONUS:VAR|NegLevels|x|PREALIGN:LG,LN,NG,TN,CG,CN</code>
     </a>
    </p>
    <p class="indent1">
@@ -504,9 +476,7 @@ restriction on the associated bonus.
     (RSRD)
    </p>
    <p class="indent2">
-    <code>
-     BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN
-    </code>
+    <code>BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN</code>
    </p>
    <p class="indent3">
     Demon Armor bestows one negative level to all
@@ -520,9 +490,7 @@ non-evil characters.
       Tag
 Used:
      </strong>
-     <code>
-      PREALIGN:LG,LN,NG,TN,CG,CN
-     </code>
+     <code>PREALIGN:LG,LN,NG,TN,CG,CN</code>
     </a>
    </p>
    <p class="indent1">
@@ -558,47 +526,31 @@ Levels
   </p>
   <blockquote class="indent2">
    <p class="tagindent1">
-    <code>
-     Negative Levels
-    </code>
+    <code>Negative Levels</code>
    </p>
    <p class="tagindent1">
-    <code>
-     TYPE:Special
-    </code>
+    <code>TYPE:Special</code>
    </p>
    <p class="tagindent1">
-    <code>
-     VISIBLE:NO
-    </code>
+    <code>VISIBLE:NO</code>
    </p>
    <p class="tagindent1">
-    <code>
-     SA:% negative level(s) (-% effective
+    <code>SA:% negative level(s) (-% effective
 level(s) and loses access to % spell(s) from the highest spell
-level castable)|NegLevels|NegLevels|NegLevels
-    </code>
+level castable)|NegLevels|NegLevels|NegLevels</code>
    </p>
    <p class="tagindent1">
-    <code>
-     DEFINE:NegLevels|0
-    </code>
+    <code>DEFINE:NegLevels|0</code>
    </p>
    <p class="tagindent1">
-    <code>
-     BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)
-    </code>
+    <code>BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)</code>
    </p>
    <p class="tagindent1">
-    <code>
-     BONUS:COMBAT|TOHIT|-1*(NegLevels)
-    </code>
+    <code>BONUS:COMBAT|TOHIT|-1*(NegLevels)</code>
    </p>
    <p class="tagindent1">
-    <code>
-     BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,
-TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
-    </code>
+    <code>BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,
+TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)</code>
    </p>
   </blockquote>
   <p class="indent1">
@@ -610,9 +562,7 @@ Armor
   </p>
   <blockquote class="indent2">
    <p class="tagindent2">
-    <code>
-     Demon Armor
-    </code>
+    <code>Demon Armor</code>
    </p>
    <p class="tagindent2">
     .
@@ -625,14 +575,10 @@ item.)
     .
    </p>
    <p class="tagindent2">
-    <code>
-     VFEAT:Negative Levels
-    </code>
+    <code>VFEAT:Negative Levels</code>
    </p>
    <p class="tagindent2">
-    <code>
-     BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN
-    </code>
+    <code>BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,NG,TN,CG,CN</code>
    </p>
   </blockquote>
   <hr/>

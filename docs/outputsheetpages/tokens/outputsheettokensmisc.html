@@ -111,44 +111,34 @@ operator.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TOTALLEVELS+15
-   </code>
+   <code>TOTALLEVELS+15</code>
   </p>
   <p class="indent3">
    Displays the total number of levels plus 15.
   </p>
   <p class="indent2">
-   <code>
-    (COMBAT.AC.TOTAL-3).INTVAL
-   </code>
+   <code>(COMBAT.AC.TOTAL-3).INTVAL</code>
   </p>
   <p class="indent3">
    Displays the integer portion of the Combat Armor
 Class minus 3.
   </p>
   <p class="indent2">
-   <code>
-    SKILL.Spot.RANKS*SKILL.Listen.RANKS
-   </code>
+   <code>SKILL.Spot.RANKS*SKILL.Listen.RANKS</code>
   </p>
   <p class="indent3">
    Displays the number of spot ranks multiplied by
 the number of listen ranks.
   </p>
   <p class="indent2">
-   <code>
-    (SKILLPOINTS.UNUSED/2).TRUNC
-   </code>
+   <code>(SKILLPOINTS.UNUSED/2).TRUNC</code>
   </p>
   <p class="indent3">
    Displays the integer and fist decimal place of
 the unused skill points divided by 2.
   </p>
   <p class="indent2">
-   <code>
-    (VAR.RangeMod-2).INTVAL.SIGN
-   </code>
+   <code>(VAR.RangeMod-2).INTVAL.SIGN</code>
   </p>
   <p class="indent3">
    Displays the integer portion preceded with a
@@ -345,9 +335,7 @@ be nested).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    |%WEAPON.3|
-   </code>
+   <code>|%WEAPON.3|</code>
   </p>
   <p class="indent3">
    The filter will stop all output (until this
@@ -407,9 +395,7 @@ associated with the tags involved.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUSLIST.COMBAT.AC
-   </code>
+   <code>BONUSLIST.COMBAT.AC</code>
   </p>
   <p class="indent3">
    Would list all COMBAT.AC bonuses as a
@@ -441,18 +427,14 @@ sections.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    2|BR|3
-   </code>
+   <code>2|BR|3</code>
   </p>
   <p class="indent3">
    Then the output would look like:
    <br/>
-   <code>
-    2
+   <code>2
     <br/>
-    3
-   </code>
+    3</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -690,35 +672,29 @@ character has.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]
-   </code>
+   <code>BONUS:HP|CURRENTMAX|3*COUNT[FEATNAME=Toughness]</code>
   </p>
   <p class="indent3">
    The count token is used in this example to
 calculate the total bonus.
   </p>
   <p class="indent2">
-   <code>
-    FOR,%num,0,COUNT[SKILLS],1,1
+   <code>FOR,%num,0,COUNT[SKILLS],1,1
     <br/>
     {Statements}
     <br/>
-    ENDFOR
-   </code>
+    ENDFOR</code>
   </p>
   <p class="indent3">
    The {statements} would be processed for each of
 the skills the character has.
   </p>
   <p class="indent2">
-   <code>
-    FOR,%spell,0,COUNT[SPELLSINBOOK0.0.0],1,1
+   <code>FOR,%spell,0,COUNT[SPELLSINBOOK0.0.0],1,1
     <br/>
     {Statements}
     <br/>
-    ENDFOR
-   </code>
+    ENDFOR</code>
   </p>
   <p class="indent3">
    The {statements} would be processed for each of
@@ -782,15 +758,13 @@ loops to the character specified.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CSHEETTAG2.~
+   <code>CSHEETTAG2.~
     <br/>
     DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],(COUNT[SKILLS]+1)/2,&lt;td&gt;~SKILL%~&lt;/td&gt;
 &lt;td&gt;~SKILL%.TOTAL~&lt;/td&gt;&lt;td&gt;~SKILL%.RANK~&lt;/td&gt;
     <br/>
     &lt;td&gt;~SKILL%.ABILITY~&lt;/td&gt;&lt;td&gt;~SKILL%.MOD~,&lt;tr
-align="center"&gt;,&lt;/tr&gt;,0
-   </code>
+align="center"&gt;,&lt;/tr&gt;,0</code>
   </p>
   <p class="indent3">
    This would change the field delimiter from the
@@ -963,15 +937,13 @@ CRLF iteration terminators.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],
+   <code>DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],
 (COUNT[SKILLS]+1)/2,&lt;td&gt;\SKILL%\&lt;/td&gt;
     <br/>
     &lt;td&gt;\SKILL%.TOTAL\&lt;/td&gt;&lt;td&gt;\SKILL%.RANK\&lt;/td&gt;
     <br/>
     &lt;td&gt;\SKILL%.ABILITY\&lt;/td&gt;&lt;td&gt;\SKILL%.MOD\,&lt;tr
-align="center"&gt;,&lt;/tr&gt;,0
-   </code>
+align="center"&gt;,&lt;/tr&gt;,0</code>
   </p>
   <p class="indent3">
    Produces a 2 column row table of all skills.
@@ -1025,86 +997,58 @@ directory.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DIR.PCGen
-   </code>
+   <code>DIR.PCGen</code>
   </p>
   <p class="indent3">
    Would display "
-   <code>
-    D:\RPG\PCGen\system
-   </code>
+   <code>D:\RPG\PCGen\system</code>
    "
 if PCGen was installed in "
-   <code>
-    D:\RPG\PCGen
-   </code>
+   <code>D:\RPG\PCGen</code>
    ".
   </p>
   <p class="indent2">
-   <code>
-    DIR.TEMPLATES
-   </code>
+   <code>DIR.TEMPLATES</code>
   </p>
   <p class="indent3">
    Would display
 "
-   <code>
-    D:\RPG\PCGen\outputsheets\d20\fantasy
-   </code>
+   <code>D:\RPG\PCGen\outputsheets\d20\fantasy</code>
    " if PCGen was
 installed in "
-   <code>
-    D:\RPG\PCGen
-   </code>
+   <code>D:\RPG\PCGen</code>
    ".
   </p>
   <p class="indent2">
-   <code>
-    DIR.PCG
-   </code>
+   <code>DIR.PCG</code>
   </p>
   <p class="indent3">
    Would display
 "
-   <code>
-    D:\RPG\PCGen\characters
-   </code>
+   <code>D:\RPG\PCGen\characters</code>
    " if PCGen was installed in
 "
-   <code>
-    D:\RPG\PCGen
-   </code>
+   <code>D:\RPG\PCGen</code>
    ".
   </p>
   <p class="indent2">
-   <code>
-    DIR.html
-   </code>
+   <code>DIR.html</code>
   </p>
   <p class="indent3">
    Would display
 "
-   <code>
-    D:\RPG\PCGen\outputsheets\d20\fantasy\htmlxml
-   </code>
+   <code>D:\RPG\PCGen\outputsheets\d20\fantasy\htmlxml</code>
    " if
 PCGen was installed in "
-   <code>
-    D:\RPG\PCGen
-   </code>
+   <code>D:\RPG\PCGen</code>
    ".
   </p>
   <p class="indent2">
-   <code>
-    DIR.TEMP
-   </code>
+   <code>DIR.TEMP</code>
   </p>
   <p class="indent3">
    Would display "
-   <code>
-    C:\Temp
-   </code>
+   <code>C:\Temp</code>
    " if that was
 the Operating System's temp directory.
   </p>
@@ -1151,9 +1095,7 @@ character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    EXPORT.DATE
-   </code>
+   <code>EXPORT.DATE</code>
   </p>
   <p class="indent3">
    Displays the date of export.
@@ -1169,13 +1111,11 @@ Name:
    FOR,%v,w,x,y,z
   </p>
   <p class="indent1">
-   <code>
-    FOR,%v,w,x,y,z
+   <code>FOR,%v,w,x,y,z
     <br/>
     {Statements}
     <br/>
-    ENDFOR
-   </code>
+    ENDFOR</code>
   </p>
   <p class="indent1">
    <strong>
@@ -1244,13 +1184,11 @@ the number of characters in the string.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FOR,%test,0,20-STRLEN[SKILL.%skill],1,0
+   <code>FOR,%test,0,20-STRLEN[SKILL.%skill],1,0
     <br/>
     {Statements}
     <br/>
-    ENDFOR
-   </code>
+    ENDFOR</code>
   </p>
   <p class="indent3">
    Counts from 0 to 20 minus the sting length of
@@ -1333,25 +1271,19 @@ replaced with the actual value of the index.
    </li>
    <li>
     If you have a
-    <code>
-     FOR.
-    </code>
+    <code>FOR.</code>
     loop involving the characters
 within the party for-loop, you must enclose the character for-loop
 in double-backslash (\\) token markers.
    </li>
    <li>
-    <code>
-     FOR.
-    </code>
+    <code>FOR.</code>
     loop on party sheets (
     <span class="lstfile">
      psheet*.*
     </span>
     ) can only loop on character numbers, so
-    <code>
-     \\%.NAME\\
-    </code>
+    <code>\\%.NAME\\</code>
     is valid.
    </li>
    <li>
@@ -1379,9 +1311,7 @@ nothing)
      STRLEN
     </strong>
     takes the form of
-    <code>
-     STRLEN[stringtobecounted]
-    </code>
+    <code>STRLEN[stringtobecounted]</code>
     and returns the number of
 characters in the string.
    </li>
@@ -1408,58 +1338,38 @@ loop is reached, or another filter is begun.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    &lt;table&gt;
-   </code>
+   <code>&lt;table&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    |FOR.0,10,1,[td]
-   </code>
+   <code>|FOR.0,10,1,[td]</code>
   </p>
   <p class="indent2">
-   <code>
-    \\%.FOR.0,100,1,\SKILL%\,(,),2\\
-   </code>
+   <code>\\%.FOR.0,100,1,\SKILL%\,(,),2\\</code>
   </p>
   <p class="indent2">
-   <code>
-    ,&lt;tr&gt;,&lt;/tr&gt;,1|
-   </code>
+   <code>,&lt;tr&gt;,&lt;/tr&gt;,1|</code>
   </p>
   <p class="indent2">
-   <code>
-    &lt;/table&gt;
-   </code>
+   <code>&lt;/table&gt;</code>
   </p>
   <p class="indent3">
    Produces a list of all the party member's
 skills.
   </p>
   <p class="indent2">
-   <code>
-    &lt;table&gt;
-   </code>
+   <code>&lt;table&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    |FOR.0,100,1,
-   </code>
+   <code>|FOR.0,100,1,</code>
   </p>
   <p class="indent2">
-   <code>
-    \\%.NAME\\
-   </code>
+   <code>\\%.NAME\\</code>
   </p>
   <p class="indent2">
-   <code>
-    ,[ , ],1|
-   </code>
+   <code>,[ , ],1|</code>
   </p>
   <p class="indent2">
-   <code>
-    &lt;table&gt;
-   </code>
+   <code>&lt;table&gt;</code>
   </p>
   <p class="indent3">
    Produces a list of all the party member's
@@ -1547,8 +1457,7 @@ statement is false.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(CL&gt;3)
+   <code>IIF(CL&gt;3)
     <br/>
     {True Statement}
     <br/>
@@ -1556,8 +1465,7 @@ statement is false.
     <br/>
     {False Statement}
     <br/>
-    ENDIF
-   </code>
+    ENDIF</code>
   </p>
   <p class="indent3">
    Returns the results of the evaluation of the
@@ -1607,9 +1515,7 @@ statements.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(CL&gt;3.AND.TL&lt;10)
-   </code>
+   <code>IIF(CL&gt;3.AND.TL&lt;10)</code>
   </p>
   <p class="indent3">
    Returns TRUE is Class Level was greater then 3
@@ -1640,9 +1546,7 @@ expression&gt;)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF((CL&gt;5)||(TL&gt;5))
-   </code>
+   <code>IIF((CL&gt;5)||(TL&gt;5))</code>
   </p>
   <p class="indent3">
    Returns TRUE if Class Level or Total Level are
@@ -1669,9 +1573,7 @@ greater-then 5.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(EVEN:%spell)
-   </code>
+   <code>IIF(EVEN:%spell)</code>
   </p>
   <p class="indent3">
    Would be true if the spell line was even.
@@ -1696,9 +1598,7 @@ greater-then 5.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(VAR.IF(VAR("COUNT[SKILLTYPE=Strength]")&gt;0;1;0):1)
-   </code>
+   <code>IIF(VAR.IF(VAR("COUNT[SKILLTYPE=Strength]")&gt;0;1;0):1)</code>
   </p>
   <p class="indent3">
    Evaluates to true if number of skills with type
@@ -1727,9 +1627,7 @@ equipment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(HASEQUIP:Dagger)
-   </code>
+   <code>IIF(HASEQUIP:Dagger)</code>
   </p>
   <p class="indent3">
    Would be true if character had a dagger.
@@ -1754,9 +1652,7 @@ equipment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(HASFEAT:Sneak Attack)
-   </code>
+   <code>IIF(HASFEAT:Sneak Attack)</code>
   </p>
   <p class="indent3">
    Would be true if character has the Sneak Attack
@@ -1783,9 +1679,7 @@ Ability.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(HASSA:Greater Rage)
-   </code>
+   <code>IIF(HASSA:Greater Rage)</code>
   </p>
   <p class="indent3">
    Would be true if character has the Greater Rage
@@ -1813,9 +1707,7 @@ special abilities).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(HASVAR:BasePowerPoints)
-   </code>
+   <code>IIF(HASVAR:BasePowerPoints)</code>
   </p>
   <p class="indent3">
    Would be true if character has a class with Base
@@ -1848,9 +1740,7 @@ array number of the skill).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(SKILL.%skill.UNTRAINED)
-   </code>
+   <code>IIF(SKILL.%skill.UNTRAINED)</code>
   </p>
   <p class="indent3">
    Would be true if the current skill is usable
@@ -1927,9 +1817,7 @@ cycles.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(SKILL%.UNTRAINED,YES,NO)
-   </code>
+   <code>IIF(SKILL%.UNTRAINED,YES,NO)</code>
   </p>
   <p class="indent3">
    Prints out "YES" if the skill is usable
@@ -1985,9 +1873,7 @@ with this skill.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(SKILL%.ACP,NOT,IS,UNTRAINED,SWIM)
-   </code>
+   <code>IIF(SKILL%.ACP,NOT,IS,UNTRAINED,SWIM)</code>
   </p>
   <p class="indent3">
    Prints out "YES" if the skill is not effected by
@@ -2024,9 +1910,7 @@ specified.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(SPELLCASTER:Wizard)
-   </code>
+   <code>IIF(SPELLCASTER:Wizard)</code>
   </p>
   <p class="indent3">
    Would be true if the character is a Wizard.
@@ -2062,18 +1946,14 @@ array number of the spellcaster class).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(SPELLCASTER:0=PREPARE)
-   </code>
+   <code>IIF(SPELLCASTER:0=PREPARE)</code>
   </p>
   <p class="indent3">
    Would be true if the character's 1st class
 prepares spells.
   </p>
   <p class="indent2">
-   <code>
-    IIF(SPELLCASTER:0=!PREPARE)
-   </code>
+   <code>IIF(SPELLCASTER:0=!PREPARE)</code>
   </p>
   <p class="indent3">
    Would be true if the character's 1st class does
@@ -2123,9 +2003,7 @@ the category
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(WEAPON.%weap.CATEGORY:Ranged)
-   </code>
+   <code>IIF(WEAPON.%weap.CATEGORY:Ranged)</code>
   </p>
   <p class="indent3">
    True if the current weapon is part of the Ranged
@@ -2166,17 +2044,13 @@ same value.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(COMBAT.AC.TOTAL:20)
-   </code>
+   <code>IIF(COMBAT.AC.TOTAL:20)</code>
   </p>
   <p class="indent3">
    Would be true if the combat AC total was 20.
   </p>
   <p class="indent2">
-   <code>
-    IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)
-   </code>
+   <code>IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)</code>
   </p>
   <p class="indent3">
    This could occur inside a double loop, and would
@@ -2227,17 +2101,13 @@ the same value or a substring of the evaluation result of token
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    IIF(COMBAT.AC.TOTAL:20)
-   </code>
+   <code>IIF(COMBAT.AC.TOTAL:20)</code>
   </p>
   <p class="indent3">
    Would be true if the combat AC total was 20.
   </p>
   <p class="indent2">
-   <code>
-    IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)
-   </code>
+   <code>IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)</code>
   </p>
   <p class="indent3">
    This could occur inside a double loop, and would
@@ -2255,14 +2125,12 @@ MasterAbility ASPECT of the ability represented by %ability.
    MANUALWHITESPACE
   </p>
   <p class="indent1">
-   <code>
-    MANUALWHITESPACE
+   <code>MANUALWHITESPACE
     <br/>
     {Statements}
     <br/>
     ENDMANUALWHITESPACE
-    <br/>
-   </code>
+    <br/></code>
   </p>
   <p class="indent1">
    <strong>
@@ -2288,8 +2156,7 @@ trimmed, as is normally done.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    |MANUALWHITESPACE| 1&amp;nbsp;
+   <code>|MANUALWHITESPACE| 1&amp;nbsp;
     <br/>
     |PLAYERNAME|
     <br/>
@@ -2297,16 +2164,13 @@ trimmed, as is normally done.
     <br/>
     4
     <br/>
-    |ENDMANUALWHITESPACE|
-   </code>
+    |ENDMANUALWHITESPACE|</code>
   </p>
   <p class="indent3">
    Where |PLAYERNAME| in this case is "Chuck Pint".
 Then the output would look like:
    <br/>
-   <code>
-    1&amp;nbsp;Chuck Pint23&lt;br&gt;4
-   </code>
+   <code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -2366,19 +2230,15 @@ supported.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    OIF(HASFEAT:Armor Proficiency
-(Light),YES,NO)
-   </code>
+   <code>OIF(HASFEAT:Armor Proficiency
+(Light),YES,NO)</code>
   </p>
   <p class="indent3">
    If the character has the Light Armor
 proficiency, then returns "YES". Otherwise it returns "NO".
   </p>
   <p class="indent2">
-   <code>
-    OIF((CL&gt;5)||(TL&gt;5),YES,NO)
-   </code>
+   <code>OIF((CL&gt;5)||(TL&gt;5),YES,NO)</code>
   </p>
   <p class="indent3">
    Returns "YES" if Class Level or Total Level ar
@@ -2408,9 +2268,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Pipe|PIPE|Example
-   </code>
+   <code>Pipe|PIPE|Example</code>
   </p>
   <p class="indent3">
    Would display "Pipe|Example".
@@ -2444,9 +2302,7 @@ sections.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Space|SPACE|Example
-   </code>
+   <code>Space|SPACE|Example</code>
   </p>
   <p class="indent3">
    Would display "Space Example".
@@ -2495,9 +2351,7 @@ no more than x characters.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUB10.SPELLMEM.0.0.0.0.COMPONENTS
-   </code>
+   <code>SUB10.SPELLMEM.0.0.0.0.COMPONENTS</code>
   </p>
   <p class="indent3">
    Would limit the output from the above tag to no
@@ -2549,19 +2403,13 @@ information.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    |FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|
-   </code>
+   <code>|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|</code>
   </p>
   <p class="indent2">
-   <code>
-    |TEMPBONUS.%temp|
-   </code>
+   <code>|TEMPBONUS.%temp|</code>
   </p>
   <p class="indent2">
-   <code>
-    |ENDFOR|
-   </code>
+   <code>|ENDFOR|</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -2664,40 +2512,28 @@ subrags allowed and their effect.
   </p>
   <ul class="indent2">
    <li>
-    <code>
-     LENGTH
-    </code>
+    <code>LENGTH</code>
     - Returns the length of the string the
 specified token produces. (Mostly useful to test for 0 length
 strings)
    </li>
    <li>
-    <code>
-     LOWER
-    </code>
+    <code>LOWER</code>
     ,
-    <code>
-     LOWERCASE
-    </code>
+    <code>LOWERCASE</code>
     - Output the tag
 result in lower case. e.g. the vitamins are in my fresh brussels
 sprouts
    </li>
    <li>
-    <code>
-     NUMSUFFIX
-    </code>
+    <code>NUMSUFFIX</code>
     - Output a numeric suffix appropriate
 for the tag result. e.g "th" or "rd"
    </li>
    <li>
-    <code>
-     REPLACEALL
-    </code>
+    <code>REPLACEALL</code>
     and
-    <code>
-     REPLACEFIRST
-    </code>
+    <code>REPLACEFIRST</code>
     -
 Performs a regular expression based search and replace on the
 string produced by the associated token. Multiple replacements can
@@ -2705,14 +2541,10 @@ be specified and are processed right to left. The proper syntax for
 these tags are as follows:
     <ul>
      <li>
-      <code>
-       REPLACEALL{regexp,newtest}
-      </code>
+      <code>REPLACEALL{regexp,newtest}</code>
      </li>
      <li>
-      <code>
-       REPLACEFIRST{regexp,newtest}
-      </code>
+      <code>REPLACEFIRST{regexp,newtest}</code>
      </li>
      <li>
       When writing regular expressions you may need to use character
@@ -2739,37 +2571,25 @@ substitution to get the results you are looking for. Examples:
     </ul>
    </li>
    <li>
-    <code>
-     SENTENCE
-    </code>
+    <code>SENTENCE</code>
     ,
-    <code>
-     SENTENCECASE
-    </code>
+    <code>SENTENCECASE</code>
     - Output the
 tag result in sentence case. e.g. The vitamins are in my fresh
 brussels sprouts
    </li>
    <li>
-    <code>
-     TITLE
-    </code>
+    <code>TITLE</code>
     ,
-    <code>
-     TITLECASE
-    </code>
+    <code>TITLECASE</code>
     - Output the tag
 result in title case. e.g. The Vitamins Are In My Fresh Brussels
 Sprouts
    </li>
    <li>
-    <code>
-     UPPER
-    </code>
+    <code>UPPER</code>
     ,
-    <code>
-     UPPERCASE
-    </code>
+    <code>UPPERCASE</code>
     - Output the tag
 result in upper case. e.g. THE VITAMINS ARE IN MY FRESH BRUSSELS
 SPROUTS
@@ -2781,27 +2601,21 @@ SPROUTS
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME
-   </code>
+   <code>TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME</code>
   </p>
   <p class="indent3">
    Would output the name for the spell in lower
 case.
   </p>
   <p class="indent2">
-   <code>
-    TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK
-   </code>
+   <code>TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK</code>
   </p>
   <p class="indent3">
    Would output "5" instead of "5.0" but would
 leave "5.5" as is.
   </p>
   <p class="indent2">
-   <code>
-    TEXT.NUMSUFFIX.22
-   </code>
+   <code>TEXT.NUMSUFFIX.22</code>
   </p>
   <p class="indent3">
    Would output a suffix of "nd" rather than the
@@ -2848,9 +2662,7 @@ the other 4).
    </li>
    <li>
     Also
-    <code>
-     .MINVAL
-    </code>
+    <code>.MINVAL</code>
     should be included if instead of the
 default maximum of multiple defines, you want the minimum.
    </li>
@@ -2861,33 +2673,25 @@ default maximum of multiple defines, you want the minimum.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VAR.Turn Undead.MINVAL.INTVAL
-   </code>
+   <code>VAR.Turn Undead.MINVAL.INTVAL</code>
   </p>
   <p class="indent3">
    Would return 2.
   </p>
   <p class="indent2">
-   <code>
-    VAR.Turn Undead.INTVAL
-   </code>
+   <code>VAR.Turn Undead.INTVAL</code>
   </p>
   <p class="indent3">
    Would return 4.
   </p>
   <p class="indent2">
-   <code>
-    VAR.Turn Undead.MINVAL
-   </code>
+   <code>VAR.Turn Undead.MINVAL</code>
   </p>
   <p class="indent3">
    Would return 2.0.
   </p>
   <p class="indent2">
-   <code>
-    VAR.Turn Undead
-   </code>
+   <code>VAR.Turn Undead</code>
   </p>
   <p class="indent3">
    Would return 4.0.

@@ -42,20 +42,14 @@ follows:
   </p>
   <blockquote>
    <p class="indent1">
-    <code>
-     BONUS:&lt;category&gt;|&lt;group&gt;|&lt;formula&gt;
-    </code>
+    <code>BONUS:&lt;category&gt;|&lt;group&gt;|&lt;formula&gt;</code>
    </p>
   </blockquote>
   <p class="indent1">
    This can be followed by pipe-delimitated
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    or
-   <code>
-    TYPE=&lt;type&gt;
-   </code>
+   <code>TYPE=&lt;type&gt;</code>
    tags.
   </p>
   <p class="indent1">
@@ -71,23 +65,17 @@ follows:
    page.
   </p>
   <p class="indent1">
-   <code>
-    LIST
-   </code>
+   <code>LIST</code>
    is a special case in
    <span class="lstfile">
     feats.lst
    </span>
    . It can be placed in most
 &lt;group&gt; categories.
-   <code>
-    LIST
-   </code>
+   <code>LIST</code>
    will be replaced by the
 choice from a
-   <code>
-    CHOOSE
-   </code>
+   <code>CHOOSE</code>
    tag contained within the
 feat.
   </p>
@@ -146,9 +134,7 @@ feat.
   <ul class="indent2">
    <li>
     These have no
-    <code>
-     TYPE=
-    </code>
+    <code>TYPE=</code>
     statement, and are always
 added into the final result.
    </li>
@@ -163,9 +149,7 @@ in a breakdown by bonus type.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|CURRENTMAX|3
-   </code>
+   <code>BONUS:HP|CURRENTMAX|3</code>
   </p>
   <p class="indent3">
    This bonus would grant the character an
@@ -173,9 +157,7 @@ additional three hit points.
    <br/>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|4
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|4</code>
   </p>
   <p class="indent3">
    This bonus would grant the character a bonus to
@@ -183,9 +165,7 @@ the listed skills of four.
    <br/>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|STAT=DEX|1
-   </code>
+   <code>BONUS:SKILL|STAT=DEX|1</code>
   </p>
   <p class="indent3">
    This would grant the character a bonus of one to
@@ -229,11 +209,9 @@ the final result.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|CURRENTMAX|2|TYPE=Luck
+   <code>BONUS:HP|CURRENTMAX|2|TYPE=Luck
     <br/>
-    BONUS:HP|CURRENTMAX|3|TYPE=Luck
-   </code>
+    BONUS:HP|CURRENTMAX|3|TYPE=Luck</code>
   </p>
   <p class="indent3">
    So long as the 'Luck' type is not listed in
@@ -242,11 +220,9 @@ is the largest 'Luck' type.
    <br/>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|3|TYPE=Luck
+   <code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck
     <br/>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Divine
-   </code>
+    BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code>
   </p>
   <p class="indent3">
    These would return a 3 from Luck, and a 4 from
@@ -254,13 +230,11 @@ Divine, for a total of 7. They are different Types.
    <br/>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|2|TYPE=Luck
+   <code>BONUS:SKILL|Bluff,Listen|2|TYPE=Luck
     <br/>
     BONUS:SKILL|Bluff,Listen|3|TYPE=Luck
     <br/>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Divine
-   </code>
+    BONUS:SKILL|Bluff,Listen|4|TYPE=Divine</code>
   </p>
   <p class="indent3">
    This would also return a value of 7, since 3 is
@@ -293,15 +267,13 @@ value of a particular TYPE.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE
+   <code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE
     <br/>
     BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.REPLACE
     <br/>
     BONUS:SKILL|Bluff,Listen|4|TYPE=Luck
     <br/>
-    BONUS:SKILL|Bluff,Listen|2|TYPE=Luck
-   </code>
+    BONUS:SKILL|Bluff,Listen|2|TYPE=Luck</code>
   </p>
   <p class="indent3">
    This would take the 2 and 3 with the .REPLACE
@@ -310,8 +282,7 @@ takes the highest value, for 5.
    <br/>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE
+   <code>BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE
     <br/>
     BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE
     <br/>
@@ -319,8 +290,7 @@ takes the highest value, for 5.
     <br/>
     BONUS:SKILL|Bluff,Listen|2|TYPE=Luck
     <br/>
-    BONUS:SKILL|Bluff,Listen|6|TYPE=Luck
-   </code>
+    BONUS:SKILL|Bluff,Listen|6|TYPE=Luck</code>
   </p>
   <p class="indent3">
    This would take the values from the .REPLACE
@@ -332,9 +302,7 @@ takes the highest value, for 6.
    <strong>
     Bonus Type:
    </strong>
-   <code>
-    .STACK
-   </code>
+   <code>.STACK</code>
   </p>
   <p class="indent1">
    <strong>
@@ -344,32 +312,22 @@ takes the highest value, for 6.
   <ul class="indent2">
    <li>
     This is subtype of the
-    <code>
-     TYPE=&lt;type&gt;
-    </code>
+    <code>TYPE=&lt;type&gt;</code>
     standard
 type.
    </li>
    <li>
-    <code>
-     .STACK
-    </code>
+    <code>.STACK</code>
     items are counted in addition to the normal
 and
-    <code>
-     .REPLACE
-    </code>
+    <code>.REPLACE</code>
     to determine the final value of a
 particular type.
    </li>
    <li>
-    <code>
-     .STACK
-    </code>
+    <code>.STACK</code>
     stacks together with itself like
-    <code>
-     .REPLACE
-    </code>
+    <code>.REPLACE</code>
     , but is also added to normal types.
    </li>
   </ul>
@@ -379,117 +337,75 @@ particular type.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Luck
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|4|TYPE=Luck</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.STACK
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|2|TYPE=Luck.STACK</code>
   </p>
   <p class="indent3">
    This would take the 4 of type
-   <code>
-    Luck
-   </code>
+   <code>Luck</code>
    ,
 and then add 2 more from the
-   <code>
-    Stack
-   </code>
+   <code>Stack</code>
    , on top of it.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.REPLACE
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.REPLACE</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.STACK
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|4|TYPE=Luck.STACK</code>
   </p>
   <p class="indent3">
    This would take the 4 of type
-   <code>
-    Luck
-   </code>
+   <code>Luck</code>
    ,
 and then add 4 more from the
-   <code>
-    Stack
-   </code>
+   <code>Stack</code>
    , on top of it.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Luck
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|4|TYPE=Luck</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.REPLACE</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.STACK
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.STACK</code>
   </p>
   <p class="indent3">
    This would take the 4 normal, compare to the
-   <code>
-    .REPLACE
-   </code>
+   <code>.REPLACE</code>
    (6) and give the higher value, then add in
 the
-   <code>
-    .STACK
-   </code>
+   <code>.STACK</code>
    , for a final value of 7.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|4|TYPE=Luck
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|4|TYPE=Luck</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|1|TYPE=Luck.REPLACE</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|3|TYPE=Luck.STACK</code>
   </p>
   <p class="indent3">
    This would take the normal (4), compare it to
 the total
-   <code>
-    .REPLACE
-   </code>
+   <code>.REPLACE</code>
    (2), give the higher value, then
 add in the
-   <code>
-    .STACK
-   </code>
+   <code>.STACK</code>
    (6) for a final value of 10.
   </p>
   <hr/>
@@ -524,9 +440,7 @@ in the
    </h3>
    <p class="indent1">
     Within PCGen, tags which do not have a
-    <code>
-     TYPE=&lt;type&gt;
-    </code>
+    <code>TYPE=&lt;type&gt;</code>
     sub-tag appended are assumed to
 stack, tags which do have a type appended do not normally stack.
 Some games have exceptions to this rule and list specific types
@@ -547,29 +461,19 @@ following are commonly used types that are defined within the
     file for this purpose.
    </p>
    <p class="indent2">
-    <code>
-     Defense
-    </code>
+    <code>Defense</code>
    </p>
    <p class="indent2">
-    <code>
-     Dodge
-    </code>
+    <code>Dodge</code>
    </p>
    <p class="indent2">
-    <code>
-     Circumstance
-    </code>
+    <code>Circumstance</code>
    </p>
    <p class="indent2">
-    <code>
-     NotRanged
-    </code>
+    <code>NotRanged</code>
    </p>
    <p class="indent2">
-    <code>
-     NotFlatFooted
-    </code>
+    <code>NotFlatFooted</code>
    </p>
    <h3>
     <a id="actype" name="actype">
@@ -590,74 +494,46 @@ that are defined with the
     file.
    </p>
    <p class="indent2">
-    <code>
-     Total
-    </code>
+    <code>Total</code>
    </p>
    <p class="indent2">
-    <code>
-     Flatfooted
-    </code>
+    <code>Flatfooted</code>
    </p>
    <p class="indent2">
-    <code>
-     Touch
-    </code>
+    <code>Touch</code>
    </p>
    <p class="indent2">
-    <code>
-     Base
-    </code>
+    <code>Base</code>
    </p>
    <p class="indent2">
-    <code>
-     Equipment
-    </code>
+    <code>Equipment</code>
    </p>
    <p class="indent2">
-    <code>
-     Armor
-    </code>
+    <code>Armor</code>
    </p>
    <p class="indent2">
-    <code>
-     Shield
-    </code>
+    <code>Shield</code>
    </p>
    <p class="indent2">
-    <code>
-     Ability
-    </code>
+    <code>Ability</code>
    </p>
    <p class="indent2">
-    <code>
-     Size
-    </code>
+    <code>Size</code>
    </p>
    <p class="indent2">
-    <code>
-     NaturalArmor
-    </code>
+    <code>NaturalArmor</code>
    </p>
    <p class="indent2">
-    <code>
-     NaturalArmorEnhancement
-    </code>
+    <code>NaturalArmorEnhancement</code>
    </p>
    <p class="indent2">
-    <code>
-     Misc
-    </code>
+    <code>Misc</code>
    </p>
    <p class="indent2">
-    <code>
-     ClassDefense
-    </code>
+    <code>ClassDefense</code>
    </p>
    <p class="indent2">
-    <code>
-     Dodge
-    </code>
+    <code>Dodge</code>
    </p>
   </blockquote>
   <hr/>
@@ -670,18 +546,12 @@ stack even when they have matching types.
   </p>
   <p class="indent1">
    While you can't
-   <code>
-    .CLEAR
-   </code>
+   <code>.CLEAR</code>
    a
-   <code>
-    BONUS
-   </code>
+   <code>BONUS</code>
    tag you can add a counter bonus that would
 negate it. In this case you would add a counter bonus and
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tag it with the reverse of the feat's
 prerequisite.
   </p>
@@ -733,10 +603,8 @@ character can take.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:ABILITYPOOL|Salient Divine
-Ability|1
-   </code>
+   <code>BONUS:ABILITYPOOL|Salient Divine
+Ability|1</code>
   </p>
   <p class="indent3">
    The character may take one additional Salient
@@ -868,52 +736,40 @@ innate racial spells.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|Sorcerer|1
-   </code>
+   <code>BONUS:CASTERLEVEL|Sorcerer|1</code>
   </p>
   <p class="indent3">
    Adds 1 to Sorcerer spell caster level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|TYPE.Arcane|1
-   </code>
+   <code>BONUS:CASTERLEVEL|TYPE.Arcane|1</code>
   </p>
   <p class="indent3">
    Adds 1 to Arcane spell caster level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|RACE.Gelfling|4
-   </code>
+   <code>BONUS:CASTERLEVEL|RACE.Gelfling|4</code>
   </p>
   <p class="indent3">
    Sets Gelfling innate racial spell caster level
 to 4.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|SPELL.Levitate|2
-   </code>
+   <code>BONUS:CASTERLEVEL|SPELL.Levitate|2</code>
   </p>
   <p class="indent3">
    Adds 2 to caster level for the 'Levitate'
 spell.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|SCHOOL.Transmutation|2
-   </code>
+   <code>BONUS:CASTERLEVEL|SCHOOL.Transmutation|2</code>
   </p>
   <p class="indent3">
    Adds 2 to caster level for all spells of the
 'Transmutation' school.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4
-   </code>
+   <code>BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4</code>
   </p>
   <p class="indent3">
    Sets the Paladin's spell caster level to half
@@ -924,13 +780,11 @@ his class level after he reaches level 4.
 is only valid in a class line)
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
+   <code>CLASS:Defender.MOD &lt;tab&gt;
 SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
 SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
 BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler
-   </code>
+SPELLLIST:1|Channeler</code>
   </p>
   <p class="indent3">
    Modifying the class Defender changes all of
@@ -953,9 +807,7 @@ is reset even if other bonus tags do not have them. Also, multiple
   </p>
   <p class="indent2">
    The syntax is:
-   <code>
-    BONUS:CASTERLEVEL|subtag.text.RESET|number
-   </code>
+   <code>BONUS:CASTERLEVEL|subtag.text.RESET|number</code>
   </p>
   <p class="indent1">
    <strong>
@@ -963,9 +815,7 @@ is reset even if other bonus tags do not have them. Also, multiple
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CASTERLEVEL|TYPE.Divine.RESET|max(CASTERLEVEL.TOTAL,10)
-   </code>
+   <code>CASTERLEVEL|TYPE.Divine.RESET|max(CASTERLEVEL.TOTAL,10)</code>
   </p>
   <p class="indent3">
    In this example all Divine spells would have a
@@ -973,14 +823,10 @@ caster level of either 10 or the PC's default caster level,
 whichever is higher.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|SPELL.Fireball.RESET|7
-   </code>
+   <code>BONUS:CASTERLEVEL|SPELL.Fireball.RESET|7</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|SCHOOL.Evocation.RESET|3
-   </code>
+   <code>BONUS:CASTERLEVEL|SCHOOL.Evocation.RESET|3</code>
   </p>
   <p class="indent3">
    These two bonuses in combination would result in
@@ -1042,9 +888,7 @@ variable or formula (Save Bonus)
    </li>
    <li>
     Using the
-    <code>
-     BASE.x
-    </code>
+    <code>BASE.x</code>
     syntax adds to indicated base
 check (normally only used in class progressions).
    </li>
@@ -1054,9 +898,7 @@ GameMode.
    </li>
    <li>
     Substitution is allowed through the use of
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     .
    </li>
   </ul>
@@ -1066,69 +908,51 @@ GameMode.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|Fortitude,Reflex|1
-   </code>
+   <code>BONUS:CHECKS|Fortitude,Reflex|1</code>
   </p>
   <p class="indent3">
    Adds one to "Fortitude" and "Reflex" saves.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:NUMCHOICES=1|CHECK|Fortitude|Reflex|Will &lt;tab&gt;
-BONUS:CHECKS|%LIST|1
-   </code>
+   <code>CHOOSE:NUMCHOICES=1|CHECK|Fortitude|Reflex|Will &lt;tab&gt;
+BONUS:CHECKS|%LIST|1</code>
   </p>
   <p class="indent3">
    The selection, "Fortitude", "Reflex" or "Will",
 is put into the
-   <code>
-    BONUS:CHECKS
-   </code>
+   <code>BONUS:CHECKS</code>
    tag in place of the
-   <code>
-    %LIST
-   </code>
+   <code>%LIST</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS
-   </code>
+   <code>BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS</code>
   </p>
   <p class="indent3">
    How does one code up something like 'you can add
 your Charisma modifier instead of Wisdom for Willpower saves'?
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|Fortitude|2|TYPE=Resistance
-   </code>
+   <code>BONUS:CHECKS|Fortitude|2|TYPE=Resistance</code>
   </p>
   <p class="indent3">
    Adds two to Fortitude checks due to
 Resistance.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1
-   </code>
+   <code>BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1</code>
   </p>
   <p class="indent3">
    Adds one to the base "Fortitude" and "Reflex"
 saves.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|ALL|1
-   </code>
+   <code>BONUS:CHECKS|ALL|1</code>
   </p>
   <p class="indent3">
    Adds one to the all saves.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:ANYPC|CHECKS|ALL|3|TYPE=Morale
-   </code>
+   <code>TEMPBONUS:ANYPC|CHECKS|ALL|3|TYPE=Morale</code>
   </p>
   <p class="indent3">
    Adds three to all saves, due to morale, to all
@@ -1286,40 +1110,30 @@ Variable or Formula (Bonus value)
     <ul>
      <li>
       Using the
-      <code>
-       AC
-      </code>
+      <code>AC</code>
       syntax adds to the armor class.
      </li>
      <li>
       Using the
-      <code>
-       ATTACKS
-      </code>
+      <code>ATTACKS</code>
       syntax adds to the number of
 attacks the primary hand gets.
      </li>
      <li>
       Using the
-      <code>
-       BASEAB
-      </code>
+      <code>BASEAB</code>
       syntax increases the base attack
 bonus and may increase the number of attacks the primary hand
 gets.
      </li>
      <li>
       Using the
-      <code>
-       DAMAGE
-      </code>
+      <code>DAMAGE</code>
       syntax increases the damage bonus
 but the weapon and damage types specified must be valid equipment
 types assigned to a weapon in the current data set or must have
 been defined by the
-      <code>
-       WEAPONTYPE
-      </code>
+      <code>WEAPONTYPE</code>
       tag in the current
 gamemode. Examples of standard Weapon and Weapon Damage types can
 be found on the
@@ -1331,27 +1145,19 @@ Type
      </li>
      <li>
       Using the
-      <code>
-       DAMAGEMULT
-      </code>
+      <code>DAMAGEMULT</code>
       syntax increases the damage
 multiplier for the designated hand(s) wielding the weapon. Bonuses
 are additive between each
-      <code>
-       BONUS
-      </code>
+      <code>BONUS</code>
       . Two
-      <code>
-       BONUS:COMBAT|DAMAGEMULT:0|1.5
-      </code>
+      <code>BONUS:COMBAT|DAMAGEMULT:0|1.5</code>
       tags will do a total of
 x3 damage, not 2.25.
      </li>
      <li>
       Using the
-      <code>
-       DAMAGESIZE
-      </code>
+      <code>DAMAGESIZE</code>
       syntax increases, or
 decreases, the damage die size along the same scale as is used for
 weapon size, i.e.:
@@ -1481,100 +1287,76 @@ weapon size, i.e.:
      </li>
      <li>
       Using the
-      <code>
-       DAMAGE-SHORTRANGE
-      </code>
+      <code>DAMAGE-SHORTRANGE</code>
       syntax adds to the
 damage of a weapon at short range as defined in the GameMode
 files.
      </li>
      <li>
       Using the
-      <code>
-       EPICAB
-      </code>
+      <code>EPICAB</code>
       syntax increases the epic attack
 bonus and may increase the number of attacks the primary hand
 gets.
      </li>
      <li>
       Using the
-      <code>
-       INITIATIVE
-      </code>
+      <code>INITIATIVE</code>
       syntax increases the
 character's initiative.
      </li>
      <li>
       Using the
-      <code>
-       REACH
-      </code>
+      <code>REACH</code>
       syntax modifies the character's
 reach.
      </li>
      <li>
       Using the
-      <code>
-       RANGEPENALTY
-      </code>
+      <code>RANGEPENALTY</code>
       syntax modifies the
 character's range increment penalty.
      </li>
      <li>
       Using the
-      <code>
-       SECONDARYATTACKS
-      </code>
+      <code>SECONDARYATTACKS</code>
       syntax increases the
 number of secondary attacks.
      </li>
      <li>
       Using the
-      <code>
-       SECONDARYDAMAGE
-      </code>
+      <code>SECONDARYDAMAGE</code>
       syntax increases the
 damage modifier for secondary attacks.
      </li>
      <li>
       Using the
-      <code>
-       TOHIT
-      </code>
+      <code>TOHIT</code>
       syntax increases the primary
 attack bonus.
      </li>
      <li>
       Using the
-      <code>
-       TOHIT.x
-      </code>
+      <code>TOHIT.x</code>
       syntax increases the attack
 bonus for the designated attack, i.e. by weapon type, grapple,
 melee, or ranged attack.
      </li>
      <li>
       Using the
-      <code>
-       TOHIT-PRIMARY
-      </code>
+      <code>TOHIT-PRIMARY</code>
       syntax increases the
 primary attack bonus.
      </li>
      <li>
       Using the
-      <code>
-       TOHIT-SECONDARY
-      </code>
+      <code>TOHIT-SECONDARY</code>
       syntax increases the
 secondary attack bonus.
      </li>
      <li>
       Using the
-      <code>
-       TOHIT-SHORTRANGE
-      </code>
+      <code>TOHIT-SHORTRANGE</code>
       syntax adds to the
 ranged attack rolls that are less than the gamemode defined
       <strong>
@@ -1592,68 +1374,52 @@ round.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|2|TYPE=Enhancement
-   </code>
+   <code>BONUS:COMBAT|AC|2|TYPE=Enhancement</code>
   </p>
   <p class="indent3">
    Increases the enhancement armor bonus by
 two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE
-   </code>
+   <code>BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE</code>
   </p>
   <p class="indent3">
    Replaces the natural armor bonus to seven.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|ATTACKS|2
-   </code>
+   <code>BONUS:COMBAT|ATTACKS|2</code>
   </p>
   <p class="indent3">
    Increases number of attacks by two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|BASEAB|1
-   </code>
+   <code>BONUS:COMBAT|BASEAB|1</code>
   </p>
   <p class="indent3">
    Increases base attack bonus by one.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-   </code>
+   <code>BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE</code>
   </p>
   <p class="indent3">
    Increases base attack bonus by Character Level,
 replacing the Base value.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGE.Piercing|2
-   </code>
+   <code>BONUS:COMBAT|DAMAGE.Piercing|2</code>
   </p>
   <p class="indent3">
    Increases "Piercing" damage bonus by two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Thrown|DEX
-   </code>
+   <code>BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Thrown|DEX</code>
   </p>
   <p class="indent3">
    Adds the character's dexterity modifier to both
 "Unarmed" and "Thrown" damage.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGEMULT:0|0.5
-   </code>
+   <code>BONUS:COMBAT|DAMAGEMULT:0|0.5</code>
   </p>
   <p class="indent3">
    Increases the damage multiplier by half your
@@ -1661,173 +1427,133 @@ strength bonus. Combined with the existing bonus this bonus will
 total your full strength bonus for an off hand weapon.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGEMULT:1|1
-   </code>
+   <code>BONUS:COMBAT|DAMAGEMULT:1|1</code>
   </p>
   <p class="indent3">
    Increases the damage multiplier of the weapon by
 your strength bonus when wielding in your primary hand.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGEMULT:2|1.5
-   </code>
+   <code>BONUS:COMBAT|DAMAGEMULT:2|1.5</code>
   </p>
   <p class="indent3">
    Increases the damage multiplier of the weapon by
 one and a half your strength bonus when wielding it two-handed.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGESIZE|2
-   </code>
+   <code>BONUS:COMBAT|DAMAGESIZE|2</code>
   </p>
   <p class="indent3">
    If the base damage dice is 1d8 this would scale
 it up to 3d6.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGESIZE|-1
-   </code>
+   <code>BONUS:COMBAT|DAMAGESIZE|-1</code>
   </p>
   <p class="indent3">
    If the base damage dice is 1d4 this would scale
 it down to 1d3.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|DAMAGE-SHORTRANGE|1
-   </code>
+   <code>BONUS:COMBAT|DAMAGE-SHORTRANGE|1</code>
   </p>
   <p class="indent3">
    Increases the damage done by a weapon at short
 range by 1.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|EPICAB|1
-   </code>
+   <code>BONUS:COMBAT|EPICAB|1</code>
   </p>
   <p class="indent3">
    Increases epic attack bonus by one.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|INITIATIVE|3
-   </code>
+   <code>BONUS:COMBAT|INITIATIVE|3</code>
   </p>
   <p class="indent3">
    Increases initiative by three.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
-   </code>
+   <code>BONUS:COMBAT|INITIATIVE|2|TYPE=Competence</code>
   </p>
   <p class="indent3">
    Increases initiative by two for Competence.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|REACH|10
-   </code>
+   <code>BONUS:COMBAT|REACH|10</code>
   </p>
   <p class="indent3">
    Increases reach by ten feet.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|RANGEPENALTY|1
-   </code>
+   <code>BONUS:COMBAT|RANGEPENALTY|1</code>
   </p>
   <p class="indent3">
    Reduces the range increment penalty by 1 (for
 example from -2 to -1).
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|RANGEPENALTY|-2
-   </code>
+   <code>BONUS:COMBAT|RANGEPENALTY|-2</code>
   </p>
   <p class="indent3">
    Increases the range increment penalty by 2 (for
 example from -2 to -4).
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|SECONDARYATTACKS|1
-   </code>
+   <code>BONUS:COMBAT|SECONDARYATTACKS|1</code>
   </p>
   <p class="indent3">
    Increases secondary attacks by one.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|SECONDARYDAMAGE|2
-   </code>
+   <code>BONUS:COMBAT|SECONDARYDAMAGE|2</code>
   </p>
   <p class="indent3">
    Increases the secondary attack damage bonus by
 two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT|2|TYPE=Luck
-   </code>
+   <code>BONUS:COMBAT|TOHIT|2|TYPE=Luck</code>
   </p>
   <p class="indent3">
    Increases Attack bonus by two.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:WEAPONPROFS|3 &lt;tab&gt;
-BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent
-   </code>
+   <code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt;
+BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code>
   </p>
   <p class="indent3">
    Increases Attack bonus by one for three
 WEAPONPROFS based on Talent.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT.THROWN|2|TYPE=Racial
-   </code>
+   <code>BONUS:COMBAT|TOHIT.THROWN|2|TYPE=Racial</code>
   </p>
   <p class="indent3">
    Increases Attack for thrown weapon's bonus by
 two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement
-   </code>
+   <code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code>
   </p>
   <p class="indent3">
    Increases Attack bonus by two when using a
 Slashing weapon.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT-PRIMARY|2
-   </code>
+   <code>BONUS:COMBAT|TOHIT-PRIMARY|2</code>
   </p>
   <p class="indent3">
    Increases Primary Attack bonus by two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT-SECONDARY|1
-   </code>
+   <code>BONUS:COMBAT|TOHIT-SECONDARY|1</code>
   </p>
   <p class="indent3">
    Increases Secondary Attack bonus by one.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT-SHORTRANGE|1
-   </code>
+   <code>BONUS:COMBAT|TOHIT-SHORTRANGE|1</code>
   </p>
   <p class="indent3">
    Adds one to character's short range To-Hit
@@ -1842,15 +1568,11 @@ attack rolls.
    </span>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|BAB|1
-   </code>
+   <code>BONUS:COMBAT|BAB|1</code>
   </p>
   <p class="indent3">
    Becomes
-   <code>
-    BONUS:COMBAT|BASEAB|1
-   </code>
+   <code>BONUS:COMBAT|BASEAB|1</code>
   </p>
   <hr/>
   <p class="lstnew">
@@ -1947,9 +1669,7 @@ associated with it.
    </strong>
    This bonus is defined
 with the
-   <code>
-    SPELLBASECONCENTRATION
-   </code>
+   <code>SPELLBASECONCENTRATION</code>
    game mode tag. If the
 game mode does not contain a
    <a href="../systemfilestagpages/gamemodemiscinfolist.html#spellbaseconcentration">
@@ -1973,54 +1693,42 @@ should not display concentration check bonuses.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CONCENTRATION|ALLSPELLS|1
-   </code>
+   <code>BONUS:CONCENTRATION|ALLSPELLS|1</code>
   </p>
   <p class="indent3">
    Adds 1 the concentration check bonuses for all
 spells.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CONCENTRATION|Sorcerer|1
-   </code>
+   <code>BONUS:CONCENTRATION|Sorcerer|1</code>
   </p>
   <p class="indent3">
    Adds 1 to Sorcerer spell concentration check
 bonuses.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CONCENTRATION|TYPE.Arcane|1
-   </code>
+   <code>BONUS:CONCENTRATION|TYPE.Arcane|1</code>
   </p>
   <p class="indent3">
    Adds 1 to Arcane spell concentration check
 bonuses.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CONCENTRATION|SPELL.Levitate|2
-   </code>
+   <code>BONUS:CONCENTRATION|SPELL.Levitate|2</code>
   </p>
   <p class="indent3">
    Adds 2 to concentration check bonuses for the
 'Levitate' spell.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CONCENTRATION|SCHOOL.Transmutation|2
-   </code>
+   <code>BONUS:CONCENTRATION|SCHOOL.Transmutation|2</code>
   </p>
   <p class="indent3">
    Adds 2 to concentration check bonuses for all
 spells of the 'Transmutation' school.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CONCENTRATION|SPELL.Fireball|2
-   </code>
+   <code>BONUS:CONCENTRATION|SPELL.Fireball|2</code>
   </p>
   <p class="indent3">
    Adds 2 to concentration check bonuses for the
@@ -2123,14 +1831,10 @@ applied feat bonus, i.e. through the application of a metamagic
 feat, by raising the spell level of the affected spells.
    </li>
    <li>
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     can be used with this tag to insert a choice
 made with a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </li>
   </ul>
@@ -2140,51 +1844,39 @@ made with a
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|SPELL.Fireball|7
-   </code>
+   <code>BONUS:DC|SPELL.Fireball|7</code>
   </p>
   <p class="indent3">
    Adds 7 to the DC of the spell Fireball.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:DC|SCHOOLS|ALL &lt;tab&gt;
-BONUS:DC|SCHOOL.%LIST|1
-   </code>
+   <code>CHOOSE:DC|SCHOOLS|ALL &lt;tab&gt;
+BONUS:DC|SCHOOL.%LIST|1</code>
   </p>
   <p class="indent3">
    Choose 1 School and add 1 to its DC.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|ALLSPELLS|1
-   </code>
+   <code>BONUS:DC|ALLSPELLS|1</code>
   </p>
   <p class="indent3">
    Adds 1 to the DC of all spells.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|CLASS.Sorcerer|2
-   </code>
+   <code>BONUS:DC|CLASS.Sorcerer|2</code>
   </p>
   <p class="indent3">
    Adds 2 to the DC of sorcerer spells.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|DESCRIPTOR.Law|4
-   </code>
+   <code>BONUS:DC|DESCRIPTOR.Law|4</code>
   </p>
   <p class="indent3">
    Adds 4 to the DC of any spells with the Law
 descriptor.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|DESCRIPTOR.Law,DOMAIN.Law|3
-   </code>
+   <code>BONUS:DC|DESCRIPTOR.Law,DOMAIN.Law|3</code>
   </p>
   <p class="indent3">
    Adds 3 to the DC of any spells with the Law
@@ -2192,28 +1884,22 @@ domain or descriptor and would add 6 to a spell with both the Law
 Domain and Law Descriptor.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|DOMAIN.War|6
-   </code>
+   <code>BONUS:DC|DOMAIN.War|6</code>
   </p>
   <p class="indent3">
    Adds 6 to the DC of War Domain spells.
   </p>
   <p class="indent2">
-   <code>
-    MULT:YES &lt;tab&gt;
+   <code>MULT:YES &lt;tab&gt;
 CHOOSE:|Air|Earth|Fire|Water &lt;tab&gt;
-BONUS:DC|DOMAIN.%LIST|1
-   </code>
+BONUS:DC|DOMAIN.%LIST|1</code>
   </p>
   <p class="indent3">
    Choose a domain and add 1 to the DC of spells
 for that domain. This may be used multiple times.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|FEATBONUS|1
-   </code>
+   <code>BONUS:DC|FEATBONUS|1</code>
   </p>
   <p class="indent3">
    Adds 1 to the DC of spells that this bonus
@@ -2221,44 +1907,34 @@ applies to by raising the spell's level by 1. The Heighten Spell
 metamagic feat is an example of where this is used.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|SCHOOL.Enchantment|2
-   </code>
+   <code>BONUS:DC|SCHOOL.Enchantment|2</code>
   </p>
   <p class="indent3">
    Adds 2 to Enchantment school spells.
   </p>
   <p class="indent2">
-   <code>
-    MULT:YES &lt;tab&gt; CHOOSE:FEAT=Psionic
-Focus &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|2|TYPE=Psychic
-   </code>
+   <code>MULT:YES &lt;tab&gt; CHOOSE:FEAT=Psionic
+Focus &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|2|TYPE=Psychic</code>
   </p>
   <p class="indent3">
    Adds 2 to 1 psychic school focus DC.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
-   </code>
+   <code>BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline</code>
   </p>
   <p class="indent3">
    Subtracts the Chrisma Modifier to Telepathy
 School with a bonus type of "Subdiscipline".
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|SUBSCHOOL.something|5
-   </code>
+   <code>BONUS:DC|SUBSCHOOL.something|5</code>
   </p>
   <p class="indent3">
    Adds 5 to the any spell with a subschool of
 "something".
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DC|TYPE.Arcane|3
-   </code>
+   <code>BONUS:DC|TYPE.Arcane|3</code>
   </p>
   <p class="indent3">
    Adds 3 to arcane spell DCs.
@@ -2307,9 +1983,7 @@ coordinated with a DR:#/&lt;string&gt;).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DR|+1|10
-   </code>
+   <code>BONUS:DR|+1|10</code>
   </p>
   <p class="indent3">
    If the +1 DR type was currently at 5/+1 this tag
@@ -2349,18 +2023,14 @@ chose from the domains.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DOMAIN|NUMBER|1
-   </code>
+   <code>BONUS:DOMAIN|NUMBER|1</code>
   </p>
   <p class="indent3">
    Character gains access to one additional
 Domain.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:DOMAIN|NUMBER|3
-   </code>
+   <code>BONUS:DOMAIN|NUMBER|3</code>
   </p>
   <p class="indent3">
    Character gains access to three additional
@@ -2385,34 +2055,24 @@ Domains.
     <ul class="incremental">
      <li>
       The
-      <code>
-       FEATPOOL
-      </code>
+      <code>FEATPOOL</code>
       tag is deprecated. Use
       <a href="#abilitypool">
-       <code>
-        ABILITYPOOL
-       </code>
+       <code>ABILITYPOOL</code>
       </a>
       instead.
      </li>
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format.
@@ -2456,26 +2116,20 @@ qualified by PRExxx tags and TYPE tags like other BONUS tags.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     BONUS:FEAT|POOL|1
-    </code>
+    <code>BONUS:FEAT|POOL|1</code>
    </p>
    <p class="indent3">
     Increases the feat pool by one.
    </p>
    <p class="indent2">
-    <code>
-     BONUS:FEAT|POOL|1|TYPE=Enhancement
-    </code>
+    <code>BONUS:FEAT|POOL|1|TYPE=Enhancement</code>
    </p>
    <p class="indent3">
     Increases the feat pool by one and will not
 stack with other BONUS:FEAT|POOL tags with TYPE=Enhancement.
    </p>
    <p class="indent2">
-    <code>
-     BONUS:FEAT|POOL|-1|PREFEAT:1,Alertness
-    </code>
+    <code>BONUS:FEAT|POOL|-1|PREFEAT:1,Alertness</code>
    </p>
    <p class="indent3">
     Decreases the feat pool by one if the character
@@ -2540,9 +2194,7 @@ has no effect.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:FOLLOWERS|Familiar|1
-   </code>
+   <code>BONUS:FOLLOWERS|Familiar|1</code>
   </p>
   <p class="indent3">
    A character is allowed 1 additional
@@ -2587,18 +2239,14 @@ in Class lines.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HD|MAX|2
-   </code>
+   <code>BONUS:HD|MAX|2</code>
   </p>
   <p class="indent3">
    Increases maximum of the HD by two points (1d4
 goes to 1d6).
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HD|MIN|1
-   </code>
+   <code>BONUS:HD|MIN|1</code>
   </p>
   <p class="indent3">
    Increases the minimum of the HD by 1 point (1d4
@@ -2676,37 +2324,29 @@ points are defined in the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|ALTHP|3
-   </code>
+   <code>BONUS:HP|ALTHP|3</code>
   </p>
   <p class="indent3">
    Adds three to the total secondary hit
 points.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|ALTHP|5|TYPE=Species
-   </code>
+   <code>BONUS:HP|ALTHP|5|TYPE=Species</code>
   </p>
   <p class="indent3">
    Adds five to the total secondary hit points for
 species reasons.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|CURRENTMAX|2
-   </code>
+   <code>BONUS:HP|CURRENTMAX|2</code>
   </p>
   <p class="indent3">
    Character gains two additional hit points.
   </p>
   <p class="indent2">
-   <code>
-    STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
+   <code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
 CHOOSE:NUMCHOICES=1|STAT|CON &lt;tab&gt;
-BONUS:HP|CURRENTMAX|%LIST-CON
-   </code>
+BONUS:HP|CURRENTMAX|%LIST-CON</code>
   </p>
   <p class="indent3">
    Character gains between 1 and CON Bonus
@@ -2714,9 +2354,7 @@ additional hit points, can be used multiple time, does not
 stack.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary
-   </code>
+   <code>TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary</code>
   </p>
   <p class="indent3">
    Character gains additional hit points temporary
@@ -2767,18 +2405,14 @@ COST
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:ITEMCOST|TYPE.Weapon|200
-   </code>
+   <code>BONUS:ITEMCOST|TYPE.Weapon|200</code>
   </p>
   <p class="indent3">
    Adds 200 to the cost if the item has the Weapon
 type.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:ITEMCOST|TYPE.Armor.Light|BASECOST*2
-   </code>
+   <code>BONUS:ITEMCOST|TYPE.Armor.Light|BASECOST*2</code>
   </p>
   <p class="indent3">
    Doubles the cost if the item has the Armor and
@@ -2816,17 +2450,13 @@ available language slots available.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:LANGUAGES|NUMBER|1
-   </code>
+   <code>BONUS:LANGUAGES|NUMBER|1</code>
   </p>
   <p class="indent3">
    Adds 1 to the available language pool.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:LANGUAGES|NUMBER|-1
-   </code>
+   <code>BONUS:LANGUAGES|NUMBER|-1</code>
   </p>
   <p class="indent3">
    Reduces the available language pool by 1.
@@ -2872,9 +2502,7 @@ formula
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:LOCKEDSTAT|INT|2
-   </code>
+   <code>BONUS:LOCKEDSTAT|INT|2</code>
   </p>
   <p class="indent3">
    Adds 2 to a locked "Intelligence" ability
@@ -2976,43 +2604,33 @@ variable or formula (Number to apply as a bonus)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MISC|ACCHECK|1
-   </code>
+   <code>BONUS:MISC|ACCHECK|1</code>
   </p>
   <p class="indent3">
    Adds one to total Armor Check.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MISC|CR|2
-   </code>
+   <code>BONUS:MISC|CR|2</code>
   </p>
   <p class="indent3">
    Adds 2 to the challange rating.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MISC|MAXDEX|1
-   </code>
+   <code>BONUS:MISC|MAXDEX|1</code>
   </p>
   <p class="indent3">
    Adds one to total Maximum Dex allowed while
 wearing armor.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light
-   </code>
+   <code>BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light</code>
   </p>
   <p class="indent3">
    Adds 20% to Spell Failure chance if equipped
 with light armor.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MISC|SR|10+CL|TYPE=EbonLink
-   </code>
+   <code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code>
   </p>
   <p class="indent3">
    Adds 10 plus the Character Level to the spell
@@ -3062,24 +2680,16 @@ variable or formula (Number to add to movement rate)
    </li>
    <li>
     Done before
-    <code>
-     MOVEMULT
-    </code>
+    <code>MOVEMULT</code>
     and
-    <code>
-     POSTMOVEADD
-    </code>
+    <code>POSTMOVEADD</code>
     calculations.
    </li>
    <li>
     It only works on MOVE types that have been defined in a
-    <code>
-     MOVE
-    </code>
+    <code>MOVE</code>
     or
-    <code>
-     MOVECLONE
-    </code>
+    <code>MOVECLONE</code>
     tag.
    </li>
   </ul>
@@ -3089,26 +2699,20 @@ variable or formula (Number to add to movement rate)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MOVEADD|TYPE.Walk|10
-   </code>
+   <code>BONUS:MOVEADD|TYPE.Walk|10</code>
   </p>
   <p class="indent3">
    Adds 10 to Walk.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MOVEADD|TYPE.Walk|5|PREVARLT:ENCUMBERANCE,1
-   </code>
+   <code>BONUS:MOVEADD|TYPE.Walk|5|PREVARLT:ENCUMBERANCE,1</code>
   </p>
   <p class="indent3">
    Adds 5 to Walk so long as the character is not
 at medium load.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|10|TYPE=Enhancement
-   </code>
+   <code>TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|10|TYPE=Enhancement</code>
   </p>
   <p class="indent3">
    Adds 5 to the character's Walk as an enhancement
@@ -3158,36 +2762,24 @@ variable or formula (Number to multiply the movement rate)
    </li>
    <li>
     Done before
-    <code>
-     MOVEMULT
-    </code>
+    <code>MOVEMULT</code>
     and
-    <code>
-     POSTMOVEADD
-    </code>
+    <code>POSTMOVEADD</code>
     calculations.
    </li>
    <li>
     It only works on MOVE types that have been defined in a
-    <code>
-     MOVE
-    </code>
+    <code>MOVE</code>
     or
-    <code>
-     MOVECLONE
-    </code>
+    <code>MOVECLONE</code>
     tag.
    </li>
   </ul>
   <p class="sidebar1">
    Note: PCGen does not use both
-   <code>
-    BONUS:MOVEMULT
-   </code>
+   <code>BONUS:MOVEMULT</code>
    and
-   <code>
-    BONUS:POSTMOVEADD
-   </code>
+   <code>BONUS:POSTMOVEADD</code>
    in
 calculating the total move adjustment. The total move adjustment is
 set to the greatest value between (Base Move + POSTMOVEADD) and
@@ -3199,18 +2791,14 @@ set to the greatest value between (Base Move + POSTMOVEADD) and
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MOVEMULT|TYPE.Walk,TYPE.Fly|2
-   </code>
+   <code>BONUS:MOVEMULT|TYPE.Walk,TYPE.Fly|2</code>
   </p>
   <p class="indent3">
    Multiplies the Walk &amp; Fly movement rates by
 two.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MOVEMULT|TYPE=Walk,TYPE=Fly,TYPE=Climb,TYPE=Hover,TYPE=Swim|2
-   </code>
+   <code>BONUS:MOVEMULT|TYPE=Walk,TYPE=Fly,TYPE=Climb,TYPE=Hover,TYPE=Swim|2</code>
   </p>
   <p class="indent3">
    Multiplies the Walk, Fly, Climb, Hover, Swim
@@ -3263,14 +2851,10 @@ to gain the bonus spellcasting level.
    </li>
    <li>
     The syntax
-    <code>
-     BONUS:PCLEVEL|TYPE=x|y
-    </code>
+    <code>BONUS:PCLEVEL|TYPE=x|y</code>
     is valid but in
 the context of this tag it is converted to
-    <code>
-     BONUS:PCLEVEL|TYPE.x|y
-    </code>
+    <code>BONUS:PCLEVEL|TYPE.x|y</code>
     by PCGen on the fly.
    </li>
   </ul>
@@ -3280,17 +2864,13 @@ the context of this tag it is converted to
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:PCLEVEL|Sorcerer|1
-   </code>
+   <code>BONUS:PCLEVEL|Sorcerer|1</code>
   </p>
   <p class="indent3">
    Adds 1 to Sorcerer spell caster level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:PCLEVEL|TYPE.Arcane|1
-   </code>
+   <code>BONUS:PCLEVEL|TYPE.Arcane|1</code>
   </p>
   <p class="indent3">
    Adds 1 to Arcane spell caster level.
@@ -3337,36 +2917,24 @@ variable or formula (Number to add to movement rate)
    </li>
    <li>
     Done after
-    <code>
-     MOVEMULT
-    </code>
+    <code>MOVEMULT</code>
     and
-    <code>
-     MOVEADD
-    </code>
+    <code>MOVEADD</code>
     calculations.
    </li>
    <li>
     It only works on MOVE types that have been defined in a
-    <code>
-     MOVE
-    </code>
+    <code>MOVE</code>
     or
-    <code>
-     MOVECLONE
-    </code>
+    <code>MOVECLONE</code>
     tag.
    </li>
   </ul>
   <p class="sidebar1">
    Note: PCGen does not use both
-   <code>
-    BONUS:MOVEMULT
-   </code>
+   <code>BONUS:MOVEMULT</code>
    and
-   <code>
-    BONUS:POSTMOVEADD
-   </code>
+   <code>BONUS:POSTMOVEADD</code>
    in
 calculating the total move adjustment. The total move adjustment is
 set to the greatest value between (Base Move + POSTMOVEADD) and
@@ -3378,17 +2946,13 @@ set to the greatest value between (Base Move + POSTMOVEADD) and
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:POSTMOVEADD|TYPE.Walk|10
-   </code>
+   <code>BONUS:POSTMOVEADD|TYPE.Walk|10</code>
   </p>
   <p class="indent3">
    Adds 10 to Walk.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:PC|POSTMOVEADD|TYPE.Walk,TYPE.Burrow,TYPE.Climb,TYPE.Fly,TYPE.Swim|30|TYPE=Enhancement
-   </code>
+   <code>TEMPBONUS:PC|POSTMOVEADD|TYPE.Walk,TYPE.Burrow,TYPE.Climb,TYPE.Fly,TYPE.Swim|30|TYPE=Enhancement</code>
   </p>
   <p class="indent3">
    Adds 30 to Walk, Burrow, Climb, Fly and Swim to
@@ -3444,18 +3008,14 @@ tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:POSTRANGEADD|PROJECTILE|5
-   </code>
+   <code>BONUS:POSTRANGEADD|PROJECTILE|5</code>
   </p>
   <p class="indent3">
    Would increase the range of projectile weapons
 by 5.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:POSTRANGEADD|THROWN|10
-   </code>
+   <code>BONUS:POSTRANGEADD|THROWN|10</code>
   </p>
   <p class="indent3">
    Would increase the range of thrown weapons by
@@ -3512,18 +3072,14 @@ tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:RANGEADD|PROJECTILE|5
-   </code>
+   <code>BONUS:RANGEADD|PROJECTILE|5</code>
   </p>
   <p class="indent3">
    Would increase the range of projectile weapons
 by 5.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:RANGEADD|THROWN|10
-   </code>
+   <code>BONUS:RANGEADD|THROWN|10</code>
   </p>
   <p class="indent3">
    Would increase the range of thrown weapons by
@@ -3580,36 +3136,28 @@ all POSTRANGEADD tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:RANGEMULT|PROJECTILE|50
-   </code>
+   <code>BONUS:RANGEMULT|PROJECTILE|50</code>
   </p>
   <p class="indent3">
    Would increase the range of projectile weapons
 by 50% (x1.5).
   </p>
   <p class="indent2">
-   <code>
-    BONUS:RANGEMULT|PROJECTILE|-50
-   </code>
+   <code>BONUS:RANGEMULT|PROJECTILE|-50</code>
   </p>
   <p class="indent3">
    Would decrease the range of projectile weapons
 by 50% (x.5).
   </p>
   <p class="indent2">
-   <code>
-    BONUS:RANGEMULT|THROWN|100
-   </code>
+   <code>BONUS:RANGEMULT|THROWN|100</code>
   </p>
   <p class="indent3">
    Would increase the range of thrown weapons by
 100% (x2).
   </p>
   <p class="indent2">
-   <code>
-    BONUS:RANGEMULT|TYPE=Starship|50
-   </code>
+   <code>BONUS:RANGEMULT|TYPE=Starship|50</code>
   </p>
   <p class="indent3">
    Would increase the range of starship weapons by
@@ -3665,9 +3213,7 @@ variable or formula (Save Bonus)
    </li>
    <li>
     Using the
-    <code>
-     BASE.x
-    </code>
+    <code>BASE.x</code>
     syntax adds to indicated base
 save (normally only used in class progressions).
    </li>
@@ -3677,9 +3223,7 @@ GameMode.
    </li>
    <li>
     Substitution is allowed through the use of
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     .
    </li>
   </ul>
@@ -3689,69 +3233,51 @@ GameMode.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SAVE|Fortitude,Reflex|1
-   </code>
+   <code>BONUS:SAVE|Fortitude,Reflex|1</code>
   </p>
   <p class="indent3">
    Adds one to "Fortitude" and "Reflex" saves.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:NUMCHOICES=1|CHECKS|Fortitude|Reflex|Will &lt;tab&gt;
-BONUS:SAVE|%LIST|1
-   </code>
+   <code>CHOOSE:NUMCHOICES=1|CHECKS|Fortitude|Reflex|Will &lt;tab&gt;
+BONUS:SAVE|%LIST|1</code>
   </p>
   <p class="indent3">
    The selection, "Fortitude", "Reflex" or "Will",
 is put into the
-   <code>
-    BONUS:SAVE
-   </code>
+   <code>BONUS:SAVE</code>
    tag in place of the
-   <code>
-    %LIST
-   </code>
+   <code>%LIST</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SAVE|Willpower||max(CHA,WIS)-WIS
-   </code>
+   <code>BONUS:SAVE|Willpower||max(CHA,WIS)-WIS</code>
   </p>
   <p class="indent3">
    How does one code up something like 'you can add
 your Charisma modifier instead of Wisdom for Willpower saves'?
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SAVE|Fortitude|2|TYPE=Resistance
-   </code>
+   <code>BONUS:SAVE|Fortitude|2|TYPE=Resistance</code>
   </p>
   <p class="indent3">
    Adds two to Fortitude saves due to
 Resistance.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SAVE|BASE.Fortitude,BASE.Reflex|1
-   </code>
+   <code>BONUS:SAVE|BASE.Fortitude,BASE.Reflex|1</code>
   </p>
   <p class="indent3">
    Adds one to the base "Fortitude" and "Reflex"
 saves.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SAVE|ALL|1
-   </code>
+   <code>BONUS:SAVE|ALL|1</code>
   </p>
   <p class="indent3">
    Adds one to the all saves.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:ANYPC|SAVE|ALL|3|TYPE=Morale
-   </code>
+   <code>TEMPBONUS:ANYPC|SAVE|ALL|3|TYPE=Morale</code>
   </p>
   <p class="indent3">
    Adds three to all saves, due to morale, to all
@@ -3805,9 +3331,7 @@ variable or formula (Number to add to skill level)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SITUATION|Stealth=Woodlands|2
-   </code>
+   <code>BONUS:SITUATION|Stealth=Woodlands|2</code>
   </p>
   <p class="indent3">
    Adds two to "Stealth (Woodlands)" situational
@@ -3855,47 +3379,37 @@ Medium, Large, Huge, Gargantuan, Colossal.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SIZEMOD|NUMBER|1
-   </code>
+   <code>BONUS:SIZEMOD|NUMBER|1</code>
   </p>
   <p class="indent3">
    Adds one to size. A "Medium" character would
 become "Large".
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SIZEMOD|NUMBER|-2
-   </code>
+   <code>BONUS:SIZEMOD|NUMBER|-2</code>
   </p>
   <p class="indent3">
    Reduces size by two. A "Medium" character would
 become "Tiny".
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T
-   </code>
+   <code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T</code>
   </p>
   <p class="indent3">
    If size is greater than Tiny (T) add 1 to
 SIZEMOD.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire
-Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
-   </code>
+   <code>BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire
+Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7</code>
   </p>
   <p class="indent3">
    If Total Levels (TL) are more than 3 and less
 than 7, and you are a Dire Wolf, reduce the SIZEMOD by 1.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire
-Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7.CLEAR
-   </code>
+   <code>BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire
+Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7.CLEAR</code>
   </p>
   <p class="indent3">
    Removes the if Total Levels (TL) are more than 3
@@ -3903,19 +3417,15 @@ and less than 7, and you are a Dire Wolf, reduce the SIZEMOD by
 1.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T.MOD
-&lt;tab&gt; BONUS:SIZEMOD|NUMBER|2|PRESIZEGT:T
-   </code>
+   <code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T.MOD
+&lt;tab&gt; BONUS:SIZEMOD|NUMBER|2|PRESIZEGT:T</code>
   </p>
   <p class="indent3">
    Changes the if size is greater than Tiny (T) add
 1 to SIZEMOD to add 2 to the SIZEMOD.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:PC|SIZEMOD|NUMBER|1
-   </code>
+   <code>TEMPBONUS:PC|SIZEMOD|NUMBER|1</code>
   </p>
   <p class="indent3">
    Add 1 to SIZEMOD of any PC.
@@ -3984,29 +3494,21 @@ variable or formula (Number to add to skill level)
    </li>
    <li>
     When the
-    <code>
-     STAT
-    </code>
+    <code>STAT</code>
     subtag is used this will add to
 skills based on the listed stat.
    </li>
    <li>
     When the
-    <code>
-     TYPE
-    </code>
+    <code>TYPE</code>
     subtag is used this will add to
 skills of the listed type.
    </li>
    <li>
     The
-    <code>
-     LIST
-    </code>
+    <code>LIST</code>
     subtag is used in conjunction with a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag and will add to skills chosen.
    </li>
    <li>
@@ -4023,99 +3525,75 @@ between Craft and (Metalworking),Craft (Metalworking))
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Bluff,Listen|10
-   </code>
+   <code>BONUS:SKILL|Bluff,Listen|10</code>
   </p>
   <p class="indent3">
    Adds 10 to "Bluff" &amp; "Listen".
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|TYPE=Charisma|2
-   </code>
+   <code>BONUS:SKILL|TYPE=Charisma|2</code>
   </p>
   <p class="indent3">
    Adds 2 to Charisma type skills.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1
-   </code>
+   <code>BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1</code>
   </p>
   <p class="indent3">
    Gain a +5 bonus to Spot, provided you have zero ranks in Spot.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|Hide|1|TYPE=Talent.STACK
-   </code>
+   <code>BONUS:SKILL|Hide|1|TYPE=Talent.STACK</code>
   </p>
   <p class="indent3">
    Adds 1 to Hide skill due to Talent and does
 Stack with all other Talent type.
   </p>
   <p class="indent2">
-   <code>
-    Balance.MOD &lt;tab&gt;
-BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
-   </code>
+   <code>Balance.MOD &lt;tab&gt;
+BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK</code>
   </p>
   <p class="indent3">
    Modifies the Balance skill to include the
 Synergy Bonus.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|STAT.STR|1
-   </code>
+   <code>BONUS:SKILL|STAT.STR|1</code>
   </p>
   <p class="indent3">
    Adds one to all "Strength" based skills.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|LIST|2
-   </code>
+   <code>BONUS:SKILL|LIST|2</code>
   </p>
   <p class="indent3">
    Adds a +2 bonus, to a skill selected by a
    <a href="./globalfileschoose.html#skill">
-    <code>
-     CHOOSE:SKILL
-    </code>
+    <code>CHOOSE:SKILL</code>
     tag
    </a>
    . The word
-   <code>
-    LIST
-   </code>
+   <code>LIST</code>
    is a placeholder for the skill chosen by the player.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:SKILLSNAMEDTOCSKILL|2 &lt;tab&gt;
-BONUS:SKILL|LIST|6|TYPE=Legendary
-   </code>
+   <code>CHOOSE:SKILLSNAMEDTOCSKILL|2 &lt;tab&gt;
+BONUS:SKILL|LIST|6|TYPE=Legendary</code>
   </p>
   <p class="indent3">
    Adds six to the two selected Class Skills skill
 learned during Legendary Class.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILL|ALL|1
-   </code>
+   <code>BONUS:SKILL|ALL|1</code>
   </p>
   <p class="indent3">
    Adds one to all skills.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:ANYPC|SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence
+   <code>TEMPBONUS:ANYPC|SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence
 &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster
-level
-   </code>
+level</code>
   </p>
   <p class="indent3">
    A chooser that figures your hide % (I think) 1
@@ -4170,26 +3648,20 @@ apply).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLRANK|Bluff,Listen|2
-   </code>
+   <code>BONUS:SKILLRANK|Bluff,Listen|2</code>
   </p>
   <p class="indent3">
    Adds two to "Bluff" &amp; "Listen" skills.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLRANK|TYPE=Strength|2
-   </code>
+   <code>BONUS:SKILLRANK|TYPE=Strength|2</code>
   </p>
   <p class="indent3">
    Adds two to Strength type skills.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLRANK|Speak Language,Decipher
-Script,Innuendo|2|TYPE=Insight
-   </code>
+   <code>BONUS:SKILLRANK|Speak Language,Decipher
+Script,Innuendo|2|TYPE=Insight</code>
   </p>
   <p class="indent3">
    Adds two to three skills for insight
@@ -4235,17 +3707,13 @@ PRELEVELMAX with this tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOINTS|NUMBER|1
-   </code>
+   <code>BONUS:SKILLPOINTS|NUMBER|1</code>
   </p>
   <p class="indent3">
    Adds one skill point per level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOINTS|NUMBER|4|PRELEVELMAX:1
-   </code>
+   <code>BONUS:SKILLPOINTS|NUMBER|4|PRELEVELMAX:1</code>
   </p>
   <p class="indent3">
    Adds 4 additional skillpoints to the character
@@ -4253,9 +3721,7 @@ at first level only, above and beyond any other skillpoints gained
 for race or class, etc.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOINTS|NUMBER|6|PRELEVELMAX:3
-   </code>
+   <code>BONUS:SKILLPOINTS|NUMBER|6|PRELEVELMAX:3</code>
   </p>
   <p class="indent3">
    Adds 6 additional skillpoints to the character
@@ -4311,9 +3777,7 @@ of the class at the level specified.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOOL|CLASS=Fighter;LEVEL=2|2
-   </code>
+   <code>BONUS:SKILLPOOL|CLASS=Fighter;LEVEL=2|2</code>
   </p>
   <p class="indent3">
    Adds 2 additional skillpoints to the character's
@@ -4321,9 +3785,7 @@ skill pool at the second level of the character's Fighter
 Class.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOOL|CLASS=Wizard;LEVEL=5|4|PRESTAT:1,INT=18
-   </code>
+   <code>BONUS:SKILLPOOL|CLASS=Wizard;LEVEL=5|4|PRESTAT:1,INT=18</code>
   </p>
   <p class="indent3">
    Adds 4 additional skillpoints to the character's
@@ -4449,18 +3911,14 @@ gameMode.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SLOTS|RING|1
-   </code>
+   <code>BONUS:SLOTS|RING|1</code>
   </p>
   <p class="indent3">
    Adds one ring slot to character.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SLOTS|LIST|1 &lt;tab&gt;
-CHOOSE:STRING|Armor|Shield|Bracer
-   </code>
+   <code>BONUS:SLOTS|LIST|1 &lt;tab&gt;
+CHOOSE:STRING|Armor|Shield|Bracer</code>
   </p>
   <p class="indent3">
    Adds one slot chosen from Armor, Shield or
@@ -4519,9 +3977,7 @@ Bracer to the character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPECIALTYSPELLKNOWN|CLASS=Abjurer;LEVEL=1|1
-   </code>
+   <code>BONUS:SPECIALTYSPELLKNOWN|CLASS=Abjurer;LEVEL=1|1</code>
   </p>
   <p class="indent3">
    You know and may cast 1 more 1
@@ -4532,9 +3988,7 @@ Bracer to the character.
 specialist Abjurer spell.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPECIALTYSPELLKNOWN|CLASS=Conjurer;LEVEL=1|2
-   </code>
+   <code>BONUS:SPECIALTYSPELLKNOWN|CLASS=Conjurer;LEVEL=1|2</code>
   </p>
   <p class="indent3">
    You know and may cast 2 more 1
@@ -4601,9 +4055,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLCAST|CLASS=Wizard;LEVEL=1|1
-   </code>
+   <code>BONUS:SPELLCAST|CLASS=Wizard;LEVEL=1|1</code>
   </p>
   <p class="indent3">
    You can cast 1 more 1
@@ -4611,15 +4063,11 @@ Name:
     st
    </sup>
    lvl
-   <code>
-    Wizard
-   </code>
+   <code>Wizard</code>
    spell.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1
-   </code>
+   <code>BONUS:SPELLCAST|TYPE=Arcane;LEVEL=1|1</code>
   </p>
   <p class="indent3">
    You can cast 1 more 1
@@ -4679,9 +4127,7 @@ Arcane type.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2
-   </code>
+   <code>BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2</code>
   </p>
   <p class="indent3">
    You can cast 2 times as many 1
@@ -4689,15 +4135,11 @@ Arcane type.
     st
    </sup>
    lvl
-   <code>
-    Wizard
-   </code>
+   <code>Wizard</code>
    spells as normal.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2
-   </code>
+   <code>BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2</code>
   </p>
   <p class="indent3">
    You can cast 2 times as many 1
@@ -4758,9 +4200,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1
-   </code>
+   <code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1</code>
   </p>
   <p class="indent3">
    You know 1 more 1
@@ -4771,9 +4211,7 @@ Name:
 spell.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2
-   </code>
+   <code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2</code>
   </p>
   <p class="indent3">
    You know 2 more 1
@@ -4836,9 +4274,7 @@ spells.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2
-   </code>
+   <code>BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|2</code>
   </p>
   <p class="indent3">
    You know 2 times more 1
@@ -4849,9 +4285,7 @@ spells.
 spells.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|2
-   </code>
+   <code>BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|2</code>
   </p>
   <p class="indent3">
    You know 2 times more 1
@@ -4900,40 +4334,32 @@ that has been defined in the statsandchecks.lst system file).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|STR|2
-   </code>
+   <code>BONUS:STAT|STR|2</code>
   </p>
   <p class="indent3">
    Adds two to character's STR stat.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|DEX,CON,INT|1
-   </code>
+   <code>BONUS:STAT|DEX,CON,INT|1</code>
   </p>
   <p class="indent3">
    Adds 1 to character's DEX, CON, &amp; INT
 stats.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:PCSTAT|STR|DEX|CON &lt;tab&gt;
+   <code>CHOOSE:PCSTAT|STR|DEX|CON &lt;tab&gt;
 STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
-BONUS:STAT|%LIST|1|TYPE=Inherent
-   </code>
+BONUS:STAT|%LIST|1|TYPE=Inherent</code>
   </p>
   <p class="indent3">
    Adds 1 to character's STR, DEX, &amp; CON stats,
 can be chosen multiple times, does not stack.
   </p>
   <p class="indent2">
-   <code>
-    #Dwarf Racial Progression.MOD &lt;tab&gt;
+   <code>#Dwarf Racial Progression.MOD &lt;tab&gt;
 BONUS:STAT|CON|2|PRELEVEL:3 &lt;tab&gt; BONUS:STAT|STR|2|PRELEVEL:5
 &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:7 &lt;tab&gt;
-BONUS:STAT|WIS|2|PRELEVEL:9
-   </code>
+BONUS:STAT|WIS|2|PRELEVEL:9</code>
   </p>
   <p class="indent3">
    Modifies the character based on what level they
@@ -4941,11 +4367,9 @@ are, i.e. +2 to CON at 3, +2 to STR at 5, +2 to CON at 7, +2 to WIS
 at 9.
   </p>
   <p class="indent2">
-   <code>
-    STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
+   <code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
 CHOOSE:PCSTAT|STR|DEX|CON &lt;tab&gt;
-BONUS:STAT|%LIST|2|TYPE=Inherent
-   </code>
+BONUS:STAT|%LIST|2|TYPE=Inherent</code>
   </p>
   <p class="indent3">
    Adds two to character's Chosen stat from
@@ -4987,9 +4411,7 @@ knows.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|BASESPELLKNOWNSTAT|1
-   </code>
+   <code>BONUS:STAT|BASESPELLKNOWNSTAT|1</code>
   </p>
   <p class="indent3">
    Adds 1 to all of the character's base spell stat
@@ -5037,9 +4459,7 @@ knows for the class specified.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|BASESPELLKNOWNSTAT;Class=Wizard|2
-   </code>
+   <code>BONUS:STAT|BASESPELLKNOWNSTAT;Class=Wizard|2</code>
   </p>
   <p class="indent3">
    Adds 2 to character's base spell stat bonus for
@@ -5075,9 +4495,7 @@ variable or formula (Number to adjust stat bonus by)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|BASESPELLSTAT|1
-   </code>
+   <code>BONUS:STAT|BASESPELLSTAT|1</code>
   </p>
   <p class="indent3">
    Adds 1 to all of the character's base spell stat
@@ -5121,9 +4539,7 @@ class specified.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|BASESPELLSTAT;Class=Wizard|2
-   </code>
+   <code>BONUS:STAT|BASESPELLSTAT;Class=Wizard|2</code>
   </p>
   <p class="indent3">
    Adds 2 to character's base spell stat bonus for
@@ -5170,18 +4586,14 @@ damage bonus as if he/she had gained those levels as a Monk.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:UDAM|CLASS.Monk|5
-   </code>
+   <code>BONUS:UDAM|CLASS.Monk|5</code>
   </p>
   <p class="indent3">
    Unarmed damage is treated as a Monk of five
 levels higher. For this to work you must have Monk levels.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:UDAM|CLASS.Monk|CL=SpecialMonk
-   </code>
+   <code>BONUS:UDAM|CLASS.Monk|CL=SpecialMonk</code>
   </p>
   <p class="indent3">
    Would raise the Monk's Unarmed Damage "level" by
@@ -5241,37 +4653,29 @@ effect.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:VAR|SneakAttack|2
-   </code>
+   <code>BONUS:VAR|SneakAttack|2</code>
   </p>
   <p class="indent3">
    Adds 2 to character's SneakAttack variable.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:VAR|SneakAttack,TrapSense|1
-   </code>
+   <code>BONUS:VAR|SneakAttack,TrapSense|1</code>
   </p>
   <p class="indent3">
    Adds 1 to character's SneakAttack and TrapSense
 variables.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base
-   </code>
+   <code>BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base</code>
   </p>
   <p class="indent3">
    Sets the character's base TurnTimesBase variable
 to three plus the Charisma Modifier.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan
+   <code>TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan
 &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy
-Points
-   </code>
+Points</code>
   </p>
   <p class="indent3">
    A chooser to let you select the number of points
@@ -5327,9 +4731,7 @@ Darkvision, Low-Light.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:VISION|Darkvision|30
-   </code>
+   <code>BONUS:VISION|Darkvision|30</code>
   </p>
   <p class="indent3">
    Adds DarkVision (30') if you don't have
@@ -5337,18 +4739,14 @@ Darkvision, otherwise it increases your darkvision range by
 30'.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:VISION|Darkvision|((CL/4).TRUNC+1)*10
-   </code>
+   <code>BONUS:VISION|Darkvision|((CL/4).TRUNC+1)*10</code>
   </p>
   <p class="indent3">
    Increases a character's Darkvision by 10 feet
 every four levels starting at 1st level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:VISION|Darkvision|60|PRERACE:1,TYPE=Robot
-   </code>
+   <code>BONUS:VISION|Darkvision|60|PRERACE:1,TYPE=Robot</code>
   </p>
   <p class="indent3">
    Adds Darkvision (60') if you don't have
@@ -5404,29 +4802,21 @@ can be used, they only effect when they are applied.
     Weapon properties defined are:
     <ul>
      <li>
-      <code>
-       ATTACKS
-      </code>
+      <code>ATTACKS</code>
       - Adds a number of additional
 attacks.
      </li>
      <li>
-      <code>
-       ATTACKSPROGRESS
-      </code>
+      <code>ATTACKSPROGRESS</code>
       - Overrides the standard attack
 progression.
      </li>
      <li>
-      <code>
-       DAMAGE
-      </code>
+      <code>DAMAGE</code>
       - Adds to the damage of the weapon.
      </li>
      <li>
-      <code>
-       DAMAGEMULT
-      </code>
+      <code>DAMAGEMULT</code>
       - Adds to the damage multiplier, See
       <a href="#combatdamagemult">
        BONUS:COMBAT|DAMAGEMULT
@@ -5435,9 +4825,7 @@ progression.
 syntax.
      </li>
      <li>
-      <code>
-       DAMAGESIZE
-      </code>
+      <code>DAMAGESIZE</code>
       - Raises or lowers the damage dice on
 the same scale as weapon size, See
       <a href="#combatdamagesize">
@@ -5446,38 +4834,28 @@ the same scale as weapon size, See
       for the scale.
      </li>
      <li>
-      <code>
-       DAMAGE-SHORTRANGE
-      </code>
+      <code>DAMAGE-SHORTRANGE</code>
       - Adds to the damage of the
 weapon when used at short range.
      </li>
      <li>
-      <code>
-       TOHIT
-      </code>
+      <code>TOHIT</code>
       - Adds to the attack bonus of the
 weapon.
      </li>
      <li>
-      <code>
-       TOHIT-SHORTRANGE
-      </code>
+      <code>TOHIT-SHORTRANGE</code>
       - Adds to the attack bonus of the
 weapon when used at short range.
      </li>
      <li>
-      <code>
-       WEAPONBAB
-      </code>
+      <code>WEAPONBAB</code>
       - Modifies the character's BAB for the
 weapon the bonus is applied to, affecting both to-hit and attack
 progression.
      </li>
      <li>
-      <code>
-       WIELDCATEGORY
-      </code>
+      <code>WIELDCATEGORY</code>
       - Raises or lowers the wieldcatagory
 of the weapon.
      </li>
@@ -5490,85 +4868,65 @@ of the weapon.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|DAMAGE|1
-   </code>
+   <code>BONUS:WEAPON|DAMAGE|1</code>
   </p>
   <p class="indent3">
    Adds one to weapon damage.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|DAMAGE-SHORTRANGE|1
-   </code>
+   <code>BONUS:WEAPON|DAMAGE-SHORTRANGE|1</code>
   </p>
   <p class="indent3">
    Adds one to short range weapon damage.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|TOHIT|1
-   </code>
+   <code>BONUS:WEAPON|TOHIT|1</code>
   </p>
   <p class="indent3">
    Adds one to weapon to-hit.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|TOHIT-SHORTRANGE|1
-   </code>
+   <code>BONUS:WEAPON|TOHIT-SHORTRANGE|1</code>
   </p>
   <p class="indent3">
    Adds one to short range weapon to-hit.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|TOHIT,DAMGE|1
-   </code>
+   <code>BONUS:WEAPON|TOHIT,DAMGE|1</code>
   </p>
   <p class="indent3">
    Adds one to weapon to-hit and damage.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|ATTACKS|1
-   </code>
+   <code>BONUS:WEAPON|ATTACKS|1</code>
   </p>
   <p class="indent3">
    Adds one attack to the weapon's attack
 progression.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|ATTACKSPROGRESS|1
-   </code>
+   <code>BONUS:WEAPON|ATTACKSPROGRESS|1</code>
   </p>
   <p class="indent3">
    Limits the weapon's attack progression to
 one.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|WIELDCATEGORY|1
-   </code>
+   <code>BONUS:WEAPON|WIELDCATEGORY|1</code>
   </p>
   <p class="indent3">
    Raises the weapon's wieldcatagory, if it were
 Light it becomes OneHanded.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|DAMAGE,TOHIT|min(2,(TL/6)|TYPE=Enhancement|PRELEVEL:6
-   </code>
+   <code>BONUS:WEAPON|DAMAGE,TOHIT|min(2,(TL/6)|TYPE=Enhancement|PRELEVEL:6</code>
   </p>
   <p class="indent3">
    Raises the weapon's damage and to-hit, between 2
 and (Total Level divided by 6) if character is over level 6.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|DAMAGEMULT:1|.5
-   </code>
+   <code>BONUS:WEAPON|DAMAGEMULT:1|.5</code>
   </p>
   <p class="indent3">
    Increases the damage multiplier of the weapon by
@@ -5629,36 +4987,26 @@ weapon proficiency type.
     Weapon proficiency properties defined are:
     <ul>
      <li>
-      <code>
-       CRITMULTADD
-      </code>
+      <code>CRITMULTADD</code>
       adds to the critical multiplier of the
 weapon.
      </li>
      <li>
-      <code>
-       CRITRANGEADD
-      </code>
+      <code>CRITRANGEADD</code>
       (adds to the critical range of the
 weapon.
      </li>
      <li>
-      <code>
-       CRITRANGEDOUBLE
-      </code>
+      <code>CRITRANGEDOUBLE</code>
       doubles the critical range of the
 weapon.
      </li>
      <li>
-      <code>
-       DAMAGE
-      </code>
+      <code>DAMAGE</code>
       adds to the damage of the weapon.
      </li>
      <li>
-      <code>
-       DAMAGEMULT
-      </code>
+      <code>DAMAGEMULT</code>
       adds to the damage multiplier, See
       <a href="#combatdamagemult">
        BONUS:COMBAT|DAMAGEMULT
@@ -5667,9 +5015,7 @@ weapon.
 syntax.
      </li>
      <li>
-      <code>
-       DAMAGESIZE
-      </code>
+      <code>DAMAGESIZE</code>
       raises or lowers the damage dice on the
 same scale as weapon size, See
       <a href="#combatdamagesize">
@@ -5678,58 +5024,42 @@ same scale as weapon size, See
       for the scale.
      </li>
      <li>
-      <code>
-       DAMAGE-SHORTRANGE
-      </code>
+      <code>DAMAGE-SHORTRANGE</code>
       adds to the damage of the weapon
 at short range as defined in the GameMode files.
      </li>
      <li>
-      <code>
-       PCSIZE
-      </code>
+      <code>PCSIZE</code>
       adds to the character's size in relation to
 the weapon.
      </li>
      <li>
-      <code>
-       REACH
-      </code>
+      <code>REACH</code>
       modifies the REACH for the specified
 weapon.
      </li>
      <li>
-      <code>
-       TOHIT
-      </code>
+      <code>TOHIT</code>
       adds to the attack bonus of the weapon.
      </li>
      <li>
-      <code>
-       TOHIT-SHORTRANGE
-      </code>
+      <code>TOHIT-SHORTRANGE</code>
       adds to the attack bonus of the
 weapon at short range as defined in the GameMode files.
      </li>
      <li>
-      <code>
-       TOHITOVERSIZE
-      </code>
+      <code>TOHITOVERSIZE</code>
       decreases the handedness of a
 weapon.
      </li>
      <li>
-      <code>
-       WEAPONBAB
-      </code>
+      <code>WEAPONBAB</code>
       - Modifies the character's BAB for the
 weapon proficiency the bonus is applied to, affecting both to-hit
 and attack progression.
      </li>
      <li>
-      <code>
-       WIELDCATEGORY
-      </code>
+      <code>WIELDCATEGORY</code>
       raises or lowers the wieldcatagory
 of the weapon.
      </li>
@@ -5742,119 +5072,93 @@ of the weapon.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Dagger|DAMAGE|1
-   </code>
+   <code>BONUS:WEAPONPROF=Dagger|DAMAGE|1</code>
   </p>
   <p class="indent3">
    Adds one to dagger weapon damage.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2
-   </code>
+   <code>BONUS:WEAPONPROF=Dagger|DAMAGE,TOHIT|2</code>
   </p>
   <p class="indent3">
    Adds two to dagger weapon attack bonus and
 damage.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=TYPE.Martial|CRITRANGEADD|1
-   </code>
+   <code>BONUS:WEAPONPROF=TYPE.Martial|CRITRANGEADD|1</code>
   </p>
   <p class="indent3">
    Adds one to the critical range of any Martial
 type weapon.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Shortbow|DAMAGE-SHORTRANGE|1
-   </code>
+   <code>BONUS:WEAPONPROF=Shortbow|DAMAGE-SHORTRANGE|1</code>
   </p>
   <p class="indent3">
    Adds one to the damage of Shortbows at short
 range.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Longsword|PCSIZE|1
-   </code>
+   <code>BONUS:WEAPONPROF=Longsword|PCSIZE|1</code>
   </p>
   <p class="indent3">
    Allows a small character to use a longsword as
 if he were medium sized.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Bite|REACH|5
-   </code>
+   <code>BONUS:WEAPONPROF=Bite|REACH|5</code>
   </p>
   <p class="indent3">
    Would increase the reach of a creature's Bite by
 5.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Greatsword|TOHITOVERSIZE|1
-   </code>
+   <code>BONUS:WEAPONPROF=Greatsword|TOHITOVERSIZE|1</code>
   </p>
   <p class="indent3">
    Allows a medium character to use a Greatsword
 one handed without penalty.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Longsword|WIELDCATEGORY|-1
-   </code>
+   <code>BONUS:WEAPONPROF=Longsword|WIELDCATEGORY|-1</code>
   </p>
   <p class="indent3">
    Lowers the weapon's wieldcatagory, if it were
 OneHanded it becomes Light.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:FEAT=Weapon Focus|1 &lt;tab&gt;
-BONUS:WEAPONPROF=%LIST|TOHIT|1
-   </code>
+   <code>CHOOSE:FEAT=Weapon Focus|1 &lt;tab&gt;
+BONUS:WEAPONPROF=%LIST|TOHIT|1</code>
   </p>
   <p class="indent3">
    Chooser for weapon's proficiency to add 1 to the
 to-hit of a Weapon Focus.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:FEAT=Greater Weapon Focus|1
-&lt;tab&gt; BONUS:WEAPONPROF=%LIST|DAMAGE|2
-   </code>
+   <code>CHOOSE:FEAT=Greater Weapon Focus|1
+&lt;tab&gt; BONUS:WEAPONPROF=%LIST|DAMAGE|2</code>
   </p>
   <p class="indent3">
    Chooser for weapon's proficiency to add 2 to the
 damager of a Weapon Focus.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty
-   </code>
+   <code>BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty</code>
   </p>
   <p class="indent3">
    Subtracts two from the to hit of Cannons due to
 gunnery.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5
-   </code>
+   <code>BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5</code>
   </p>
   <p class="indent3">
    Increases the damage multiplier of the dagger
 weapon by half your strength bonus when wielding it off handed.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPONPROF=Unarmed
-Strike|WEAPONBAB|MonkLVL-BAB
-   </code>
+   <code>BONUS:WEAPONPROF=Unarmed
+Strike|WEAPONBAB|MonkLVL-BAB</code>
   </p>
   <p class="indent3">
    When applied to a monk, this will change the
@@ -5935,27 +5239,21 @@ categories.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WIELDCATEGORY|TwoHanded|-1
-   </code>
+   <code>BONUS:WIELDCATEGORY|TwoHanded|-1</code>
   </p>
   <p class="indent3">
    Allows a character to wield a larger Two Handed
 weapon than would normally be allowed.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WIELDCATEGORY|ALL|-1
-   </code>
+   <code>BONUS:WIELDCATEGORY|ALL|-1</code>
   </p>
   <p class="indent3">
    Allows a character to use all weapons that are
 one Size Category larger.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WIELDCATEGORY|OneHanded,Light|1
-   </code>
+   <code>BONUS:WIELDCATEGORY|OneHanded,Light|1</code>
   </p>
   <p class="indent3">
    Allows a character to use smaller 'Light' and
@@ -6031,32 +5329,22 @@ Bonus Tab
     The temporary bonus includes the following targets:
     <ul>
      <li>
-      <code>
-       PC
-      </code>
+      <code>PC</code>
       - The temporary bonus can only be applied to a
 character that has been 'granted' the LST object that contains the
-      <code>
-       TEMPBONUS
-      </code>
+      <code>TEMPBONUS</code>
       tag.
      </li>
      <li>
-      <code>
-       ANYPC
-      </code>
+      <code>ANYPC</code>
       - The temporary bonus can be applied to any
 character whether the LST object containing the
-      <code>
-       TEMPBONUS
-      </code>
+      <code>TEMPBONUS</code>
       tag has been granted to the character or
 not.
      </li>
      <li>
-      <code>
-       EQ
-      </code>
+      <code>EQ</code>
       - The temporary bonus can only be applied to
 equipment of the type identified by the (y) parameter.
      </li>
@@ -6065,35 +5353,25 @@ equipment of the type identified by the (y) parameter.
    <li>
     The equipment type, variable (y), is used only when the target
 of the bonus is
-    <code>
-     EQ
-    </code>
+    <code>EQ</code>
     , and in this case it is
 required.
    </li>
    <li>
     The bonus subtoken syntax and parameters are as per the
 appropriate bonus. (See standard
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     tag
 documentation above.
    </li>
    <li>
     As with the standard bonus tags, the
-    <code>
-     TEMPBONUS
-    </code>
+    <code>TEMPBONUS</code>
     tag
 can take
-    <code>
-     TYPE
-    </code>
+    <code>TYPE</code>
     and
-    <code>
-     PRExxx
-    </code>
+    <code>PRExxx</code>
     tags.
    </li>
   </ul>
@@ -6103,49 +5381,35 @@ can take
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:PC|COMBAT|AC|2
-   </code>
+   <code>TEMPBONUS:PC|COMBAT|AC|2</code>
   </p>
   <p class="indent3">
    Increases armor class by two for the character
 granted the LST object containing the
-   <code>
-    TEMPBONUS
-   </code>
+   <code>TEMPBONUS</code>
    . This
 is equivalent to
-   <code>
-    BONUS:COMBAT|AC|2
-   </code>
+   <code>BONUS:COMBAT|AC|2</code>
    but is applied as a
 temporary bonus.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex|1
-   </code>
+   <code>TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex|1</code>
   </p>
   <p class="indent3">
    Adds one to "Fortitude" and "Reflex" saves for
 any character. This is equivalent to
-   <code>
-    BONUS:CHECKS|Fortitude,Reflex|1
-   </code>
+   <code>BONUS:CHECKS|Fortitude,Reflex|1</code>
    but is applied as a
 temporary bonus.
   </p>
   <p class="indent2">
-   <code>
-    TEMPBONUS:EQ|TwoHanded|WEAPON|DAMAGE|1
-   </code>
+   <code>TEMPBONUS:EQ|TwoHanded|WEAPON|DAMAGE|1</code>
   </p>
   <p class="indent3">
    Adds one to the damage done by the two-handed
 weapon on which the bonus is applied. This is equivalent to
-   <code>
-    BONUS:WEAPON|DAMAGE|1
-   </code>
+   <code>BONUS:WEAPON|DAMAGE|1</code>
    but is applied as a temporary
 bonus.
   </p>
@@ -6156,13 +5420,9 @@ TEMPBONUS:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|2|PREAPPLY:PC
-   </code>
+   <code>BONUS:COMBAT|AC|2|PREAPPLY:PC</code>
    becomes
-   <code>
-    TEMPBONUS:PC|COMBAT|AC|2
-   </code>
+   <code>TEMPBONUS:PC|COMBAT|AC|2</code>
   </p>
   <p class="indent1">
    <strong>

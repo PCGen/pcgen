@@ -59,19 +59,15 @@
       <strong>
        From:
       </strong>
-      <code>
-       java -Dswing.aatext=true -Xms128m
--Xmx256m -jar pcgen.jar
-      </code>
+      <code>java -Dswing.aatext=true -Xms128m
+-Xmx256m -jar pcgen.jar</code>
      </li>
      <li>
       <strong>
        To:
       </strong>
-      <code>
-       java -Dswing.aatext=true -Xms256m
--Xmx512m -jar pcgen.jar
-      </code>
+      <code>java -Dswing.aatext=true -Xms256m
+-Xmx512m -jar pcgen.jar</code>
      </li>
     </ul>
    </li>
@@ -79,9 +75,7 @@
     <strong>
      Note:
     </strong>
-    <code>
-     -Xms256
-    </code>
+    <code>-Xms256</code>
     assigns starting
 memory for PCGen to 256Mb of RAM and should be enough memory for
 pcgen to run with lots of sources loaded.
@@ -90,9 +84,7 @@ pcgen to run with lots of sources loaded.
     <strong>
      Note:
     </strong>
-    <code>
-     -Xmx512
-    </code>
+    <code>-Xmx512</code>
     assigns a maximum
 of 512Mb of RAM to PCGen and should be enough memory for pcgen to
 run with lots more sources and characters loaded.
@@ -126,23 +118,17 @@ will work out better.
    </li>
    <li>
     Look for the following text:
-    <code>
-     -Xms128m -Xmx256m
-    </code>
+    <code>-Xms128m -Xmx256m</code>
     <ol style="list-style-type: lower-alpha">
      <li>
       If you have 512MB of ram, you can change the text to the
 following:
-      <code>
-       -Xms256m -Xmx512m
-      </code>
+      <code>-Xms256m -Xmx512m</code>
      </li>
      <li>
       If you have 1GB of ram, you can change the text to the
 following:
-      <code>
-       -Xms512m -Xmx1024m
-      </code>
+      <code>-Xms512m -Xmx1024m</code>
      </li>
     </ol>
    </li>
@@ -170,18 +156,14 @@ following:
    </li>
    <li>
     Find the following line:
-    <code>
-     java -jar ./pcgen.jar
-    </code>
+    <code>java -jar ./pcgen.jar</code>
     . .
 .
    </li>
    <li>
     Replace it with the following line:
-    <code>
-     java -Xms256m
--Xmx512m -jar ./pcgen.jar
-    </code>
+    <code>java -Xms256m
+-Xmx512m -jar ./pcgen.jar</code>
     . . .
    </li>
    <li>
@@ -260,29 +242,21 @@ for PCGen (by PCGen version)
    Go the command prompt and type:
   </p>
   <p class="indent2">
-   <code>
-    java -version
-   </code>
+   <code>java -version</code>
   </p>
   <p class="indent1">
    You should get some kind of a response like:
   </p>
   <p class="indent2">
-   <code>
-    java version "1.5.0_06"
-   </code>
+   <code>java version "1.5.0_06"</code>
   </p>
   <p class="indent2">
-   <code>
-    Java(TM) 2 Runtime Environment, Standard
-Edition (build 1.5.0_06-b05)
-   </code>
+   <code>Java(TM) 2 Runtime Environment, Standard
+Edition (build 1.5.0_06-b05)</code>
   </p>
   <p class="indent2">
-   <code>
-    Java HotSpot(TM) Client VM (build
-1.5.0_06-b05, mixed mode, sharing)
-   </code>
+   <code>Java HotSpot(TM) Client VM (build
+1.5.0_06-b05, mixed mode, sharing)</code>
   </p>
   <h4>
    For Windows Vista Users:
@@ -322,29 +296,21 @@ other than 1.6.0_00
    Open a terminal window and enter:
   </p>
   <p class="indent2">
-   <code>
-    java -version
-   </code>
+   <code>java -version</code>
   </p>
   <p class="indent1">
    You should get some kind of a response like:
   </p>
   <p class="indent2">
-   <code>
-    java version "1.5.0_06"
-   </code>
+   <code>java version "1.5.0_06"</code>
   </p>
   <p class="indent2">
-   <code>
-    Java(TM) 2 Runtime Environment, Standard
-Edition (build 1.5.0_06-b05)
-   </code>
+   <code>Java(TM) 2 Runtime Environment, Standard
+Edition (build 1.5.0_06-b05)</code>
   </p>
   <p class="indent2">
-   <code>
-    Java HotSpot(TM) Client VM (build
-1.5.0_06-b05, mixed mode, sharing)
-   </code>
+   <code>Java HotSpot(TM) Client VM (build
+1.5.0_06-b05, mixed mode, sharing)</code>
   </p>
   <h4>
    For Unix Users:
@@ -409,18 +375,14 @@ problem is that Windows is not pointing the command "java" to the
   </p>
   <ol class="indent2">
    <li>
-    <code>
-     &lt;Path to Java&gt; -Dswing.aatext=true -Xms&lt;Minimum
+    <code>&lt;Path to Java&gt; -Dswing.aatext=true -Xms&lt;Minimum
 Memory&gt;m -Xmx&lt;Maximum Memory&gt;m -jar &lt;Path to
-PcGen&gt;
-    </code>
+PcGen&gt;</code>
     <div style="margin-left: 2em">
-     <code>
-      Example Vista: "C:\Program
+     <code>Example Vista: "C:\Program
 Files (x86)\Java\jre1.6.0_01\bin\java.exe" -Dswing.aatext=true
 -Xms256m -Xmx512m -jar "C:\Program Files
-(x86)\PCGen\PCGen5102\pcgen.jar"
-     </code>
+(x86)\PCGen\PCGen5102\pcgen.jar"</code>
     </div>
    </li>
    <li>
@@ -537,10 +499,8 @@ default that ships with Ubuntu.
   <ul>
    <li>
     Check the version of Java being used:
-    <code>
-     $ java
--version
-    </code>
+    <code>$ java
+-version</code>
    </li>
    <li>
     If not using Sun's JRE, you will need to install it. (see the
@@ -551,17 +511,13 @@ Ubuntu wiki for help)
 java by using:
     <ul>
      <li>
-      <code>
-       $ sudo update-alternatives --config java
-      </code>
+      <code>$ sudo update-alternatives --config java</code>
       <br/>
       or
      </li>
      <li>
-      <code>
-       $ sudo update-alternatives --set \java
-/usr/lib/jvm/java-1.5.0-sun/jre/bin/java
-      </code>
+      <code>$ sudo update-alternatives --set \java
+/usr/lib/jvm/java-1.5.0-sun/jre/bin/java</code>
       <br/>
       Note: Both command do the same thing (with the first command you
 get a list of possible java's and are asked to choose).

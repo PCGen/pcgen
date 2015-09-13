@@ -114,23 +114,17 @@ after filtering (see below) for ability category (u), visibility
 (v) of each ability. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the abilities that are visible in
 the outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the abilities that are not visible
 in the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all abilities.
      </li>
     </ul>
@@ -145,33 +139,25 @@ default will be to include abilities of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the ability position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the ability position (x) and before
 the property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -209,101 +195,73 @@ filtering.
 identified ability:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the ability.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -315,9 +273,7 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.FEAT.0
-   </code>
+   <code>ABILITY.FEAT.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -328,9 +284,7 @@ without any choices etc included.
 feat.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Fighter.0.DESC
-   </code>
+   <code>ABILITY.Fighter.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the 1
@@ -340,9 +294,7 @@ feat.
    chosen fighter ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.FEAT.3.TYPE=General
-   </code>
+   <code>ABILITY.FEAT.3.TYPE=General</code>
   </p>
   <p class="indent3">
    Displays the name of the 4
@@ -353,9 +305,7 @@ feat.
 general feat.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Echidna.3.TYPE=General.TYPE
-   </code>
+   <code>ABILITY.Echidna.3.TYPE=General.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 4
@@ -366,9 +316,7 @@ general feat.
 "Echidna" category ability with a type of general.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.FEAT.HIDDEN.0
-   </code>
+   <code>ABILITY.FEAT.HIDDEN.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -379,9 +327,7 @@ general feat.
 hidden feat.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.ASPECT
-   </code>
+   <code>ABILITY.Power.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -392,9 +338,7 @@ hidden feat.
    chosen "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.ASPECT.0
-   </code>
+   <code>ABILITY.Power.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -410,10 +354,8 @@ hidden feat.
 category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.ASPECT.Attack
-Type
-   </code>
+   <code>ABILITY.Power.0.ASPECT.Attack
+Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -424,9 +366,7 @@ for the 1
    chosen "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.ASPECTCOUNT
-   </code>
+   <code>ABILITY.Power.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -437,9 +377,7 @@ the 1
    chosen "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.HASASPECT.Miss
-   </code>
+   <code>ABILITY.Power.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -529,23 +467,17 @@ after filtering (see below) for ability category (u), visibility
 (v) of each ability. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the abilities that are visible in
 the outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the abilities that are not visible
 in the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all abilities.
      </li>
     </ul>
@@ -560,33 +492,25 @@ default will be to include abilities of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the ability position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the ability position (x) and before
 the property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -624,101 +548,73 @@ filtering.
 identified ability:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the ability.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -730,26 +626,20 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.FEAT.0
-   </code>
+   <code>ABILITYALL.FEAT.0</code>
   </p>
   <p class="indent3">
    Displays the first feat name.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Fighter.0.DESC
-   </code>
+   <code>ABILITYALL.Fighter.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the first category
 "Fighter" ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Wizard.1.TYPE=Metamagic
-   </code>
+   <code>ABILITYALL.Wizard.1.TYPE=Metamagic</code>
   </p>
   <p class="indent3">
    Displays the 2
@@ -760,9 +650,7 @@ without any choices etc included.
 ability description of type "Metamagic".
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Fighter.2.!TYPE=General.DESC
-   </code>
+   <code>ABILITYALL.Fighter.2.!TYPE=General.DESC</code>
   </p>
   <p class="indent3">
    Displays the 3
@@ -773,9 +661,7 @@ ability description of type "Metamagic".
 ability description of type "General".
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Starting.3.TYPE=Occupation.TYPE
-   </code>
+   <code>ABILITYALL.Starting.3.TYPE=Occupation.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 4
@@ -786,10 +672,8 @@ ability description of type "General".
 "Starting" ability of type "Occupation".
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Special
-Ability.HIDDEN.1.TYPE=Special
-   </code>
+   <code>ABILITYALL.Special
+Ability.HIDDEN.1.TYPE=Special</code>
   </p>
   <p class="indent3">
    Displays the 2
@@ -800,9 +684,7 @@ Ability.HIDDEN.1.TYPE=Special
 Ability" hidden ability name of type "Special".
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Power.0.ASPECT
-   </code>
+   <code>ABILITYALL.Power.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -813,9 +695,7 @@ Ability" hidden ability name of type "Special".
    "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Power.0.ASPECT.0
-   </code>
+   <code>ABILITYALL.Power.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -831,10 +711,8 @@ Ability" hidden ability name of type "Special".
 ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Power.0.ASPECT.Attack
-Type
-   </code>
+   <code>ABILITYALL.Power.0.ASPECT.Attack
+Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -845,9 +723,7 @@ for the 1
    "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Power.0.ASPECTCOUNT
-   </code>
+   <code>ABILITYALL.Power.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -858,9 +734,7 @@ the 1
    "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALL.Power.0.HASASPECT.Miss
-   </code>
+   <code>ABILITYALL.Power.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -935,27 +809,21 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALLLIST.FEAT
-   </code>
+   <code>ABILITYALLLIST.FEAT</code>
   </p>
   <p class="indent3">
    Displays all of the character's feats (comma
 delimited).
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALLLIST.FEAT.TYPE=Fighter
-   </code>
+   <code>ABILITYALLLIST.FEAT.TYPE=Fighter</code>
   </p>
   <p class="indent3">
    Displays all of the character's fighter feats
 (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    ABILITYALLLIST.WIZARD.!TYPE=Metamagic.!TYPE=ItemCreation
-   </code>
+   <code>ABILITYALLLIST.WIZARD.!TYPE=Metamagic.!TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Displays all of the character's wizard abilities
@@ -1040,23 +908,17 @@ after filtering (see below) for ability category (u), visibility
 (v) of each ability. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the abilities that are visible in
 the outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the abilities that are not visible
 in the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all abilities.
      </li>
     </ul>
@@ -1071,33 +933,25 @@ default will be to include abilities of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the ability position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the ability position (x) and before
 the property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -1135,101 +989,73 @@ filtering.
 identified ability:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the ability.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -1241,9 +1067,7 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.FEAT.0
-   </code>
+   <code>ABILITYAUTO.FEAT.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -1253,9 +1077,7 @@ without any choices etc included.
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Rogue.0.DESC
-   </code>
+   <code>ABILITYAUTO.Rogue.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the 1
@@ -1265,9 +1087,7 @@ without any choices etc included.
    automatic rogue ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Rogue.1.TYPE=General
-   </code>
+   <code>ABILITYAUTO.Rogue.1.TYPE=General</code>
   </p>
   <p class="indent3">
    Displays the name of the 2
@@ -1277,9 +1097,7 @@ without any choices etc included.
    automatic rogue ability if it is a general type ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Racial.1.TYPE=General.TYPE
-   </code>
+   <code>ABILITYAUTO.Racial.1.TYPE=General.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 2
@@ -1289,9 +1107,7 @@ without any choices etc included.
    automatic racial ability if it is a general type ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Power.0.ASPECT
-   </code>
+   <code>ABILITYAUTO.Power.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -1302,9 +1118,7 @@ without any choices etc included.
    automatic "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Power.0.ASPECT.0
-   </code>
+   <code>ABILITYAUTO.Power.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -1320,10 +1134,8 @@ without any choices etc included.
 category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Power.0.ASPECT.Attack
-Type
-   </code>
+   <code>ABILITYAUTO.Power.0.ASPECT.Attack
+Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -1334,9 +1146,7 @@ for the 1
    automatic "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Power.0.ASPECTCOUNT
-   </code>
+   <code>ABILITYAUTO.Power.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -1347,9 +1157,7 @@ the 1
    automatic "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTO.Power.0.HASASPECT.Miss
-   </code>
+   <code>ABILITYAUTO.Power.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -1425,18 +1233,14 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTOLIST.RACIAL
-   </code>
+   <code>ABILITYAUTOLIST.RACIAL</code>
   </p>
   <p class="indent3">
    Displays all of the character's automatic racial
 abilities (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    ABILITYAUTOLIST.RACIAL.!TYPE=General
-   </code>
+   <code>ABILITYAUTOLIST.RACIAL.!TYPE=General</code>
   </p>
   <p class="indent3">
    Displays all of the character's automatic racial
@@ -1507,18 +1311,14 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITYLIST.ROGUE
-   </code>
+   <code>ABILITYLIST.ROGUE</code>
   </p>
   <p class="indent3">
    Displays all of the character's chosen rogue
 abilities (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    ABILITYLIST.WIZARD.TYPE=ItemCreation
-   </code>
+   <code>ABILITYLIST.WIZARD.TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Displays all of the character's chosen item
@@ -1596,23 +1396,17 @@ filtering (see below) for visibility (v) and type (w and y).
 of each feat. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the feats that are visible in the
 outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the feats that are not visible in
 the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all feats.
      </li>
     </ul>
@@ -1627,33 +1421,25 @@ default will be to include feats of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the feat position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the feat position (x) and before the
 property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -1691,101 +1477,73 @@ filtering.
 identified feat:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the feat.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the feat.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -1797,9 +1555,7 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0
-   </code>
+   <code>FEAT.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -1810,9 +1566,7 @@ without any choices etc included.
 feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0.DESC
-   </code>
+   <code>FEAT.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the 1
@@ -1822,9 +1576,7 @@ feat.
    chosen feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.3.TYPE=General
-   </code>
+   <code>FEAT.3.TYPE=General</code>
   </p>
   <p class="indent3">
    Displays the name of the 4
@@ -1835,9 +1587,7 @@ feat.
 feat if it is a general type feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.3.TYPE=General.TYPE
-   </code>
+   <code>FEAT.3.TYPE=General.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 4
@@ -1848,9 +1598,7 @@ feat if it is a general type feat.
 feat if it is a general type feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0.ASPECT
-   </code>
+   <code>FEAT.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -1861,9 +1609,7 @@ feat if it is a general type feat.
    chosen feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0.ASPECT.0
-   </code>
+   <code>FEAT.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -1878,9 +1624,7 @@ feat if it is a general type feat.
    chosen feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0.ASPECT.Attack Type
-   </code>
+   <code>FEAT.0.ASPECT.Attack Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -1891,9 +1635,7 @@ for the 1
    chosen feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0.ASPECTCOUNT
-   </code>
+   <code>FEAT.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -1904,9 +1646,7 @@ the 1
    chosen feat.
   </p>
   <p class="indent2">
-   <code>
-    FEAT.0.HASASPECT.Miss
-   </code>
+   <code>FEAT.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -1989,23 +1729,17 @@ filtering (see below) for visibility (v) and type (w and y).
 of each feat. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the feats that are visible in the
 outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the feats that are not visible in
 the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all feats.
      </li>
     </ul>
@@ -2020,33 +1754,25 @@ default will be to include feats of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the feat position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the feat position (x) and before the
 property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -2084,101 +1810,73 @@ filtering.
 identified feat:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the feat.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the feat.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -2190,25 +1888,19 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0
-   </code>
+   <code>FEATALL.0</code>
   </p>
   <p class="indent3">
    Displays the first feat name.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0.DESC
-   </code>
+   <code>FEATALL.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the first feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.1.TYPE=Metamagic
-   </code>
+   <code>FEATALL.1.TYPE=Metamagic</code>
   </p>
   <p class="indent3">
    Displays the 2
@@ -2219,9 +1911,7 @@ without any choices etc included.
 metamagic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.2.!TYPE=General.DESC
-   </code>
+   <code>FEATALL.2.!TYPE=General.DESC</code>
   </p>
   <p class="indent3">
    Displays the feat description of the
@@ -2232,9 +1922,7 @@ metamagic feat.
    non-general feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.3.TYPE=Occupation.TYPE
-   </code>
+   <code>FEATALL.3.TYPE=Occupation.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 4
@@ -2245,9 +1933,7 @@ metamagic feat.
 it is an Occupation feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0.ASPECT
-   </code>
+   <code>FEATALL.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -2258,9 +1944,7 @@ it is an Occupation feat.
    feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0.ASPECT.0
-   </code>
+   <code>FEATALL.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -2275,9 +1959,7 @@ it is an Occupation feat.
    feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0.ASPECT.Attack Type
-   </code>
+   <code>FEATALL.0.ASPECT.Attack Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -2288,9 +1970,7 @@ for the 1
    feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0.ASPECTCOUNT
-   </code>
+   <code>FEATALL.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -2301,9 +1981,7 @@ the 1
    feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATALL.0.HASASPECT.Miss
-   </code>
+   <code>FEATALL.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -2371,27 +2049,21 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEATALLLIST
-   </code>
+   <code>FEATALLLIST</code>
   </p>
   <p class="indent3">
    Displays all of the character's feats (comma
 delimited).
   </p>
   <p class="indent2">
-   <code>
-    FEATALLLIST.TYPE=Fighter
-   </code>
+   <code>FEATALLLIST.TYPE=Fighter</code>
   </p>
   <p class="indent3">
    Displays all of the character's fighter feats
 (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    FEATALLLIST.!TYPE=Metamagic.!TYPE=ItemCreation
-   </code>
+   <code>FEATALLLIST.!TYPE=Metamagic.!TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Displays all of the character's feats except
@@ -2468,23 +2140,17 @@ filtering (see below) for visibility (v) and type (w and y).
 of each feat. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the feats that are visible in the
 outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the feats that are not visible in
 the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all feats.
      </li>
     </ul>
@@ -2499,33 +2165,25 @@ default will be to include feats of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the feat position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the feat position (x) and before the
 property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -2563,101 +2221,73 @@ filtering.
 identified feat:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the feat.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the feat.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -2669,9 +2299,7 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0
-   </code>
+   <code>FEATAUTO.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -2681,9 +2309,7 @@ without any choices etc included.
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0.DESC
-   </code>
+   <code>FEATAUTO.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the 1
@@ -2693,9 +2319,7 @@ without any choices etc included.
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.1.TYPE=General
-   </code>
+   <code>FEATAUTO.1.TYPE=General</code>
   </p>
   <p class="indent3">
    Displays the name of the 2
@@ -2706,9 +2330,7 @@ without any choices etc included.
 type automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.1.!TYPE=General.TYPE
-   </code>
+   <code>FEATAUTO.1.!TYPE=General.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 2
@@ -2718,9 +2340,7 @@ type automatic feat.
    non-general type automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0.ASPECT
-   </code>
+   <code>FEATAUTO.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -2731,9 +2351,7 @@ type automatic feat.
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0.ASPECT.0
-   </code>
+   <code>FEATAUTO.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -2748,9 +2366,7 @@ type automatic feat.
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0.ASPECT.Attack Type
-   </code>
+   <code>FEATAUTO.0.ASPECT.Attack Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -2761,9 +2377,7 @@ for the 1
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0.ASPECTCOUNT
-   </code>
+   <code>FEATAUTO.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -2774,9 +2388,7 @@ the 1
    automatic feat.
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTO.0.HASASPECT.Miss
-   </code>
+   <code>FEATAUTO.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -2845,18 +2457,14 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTOLIST
-   </code>
+   <code>FEATAUTOLIST</code>
   </p>
   <p class="indent3">
    Displays all of the character's automatic feats
 (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    FEATAUTOLIST.!TYPE=General
-   </code>
+   <code>FEATAUTOLIST.!TYPE=General</code>
   </p>
   <p class="indent3">
    Displays all of the character's automatic feats
@@ -2921,18 +2529,14 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEATLIST
-   </code>
+   <code>FEATLIST</code>
   </p>
   <p class="indent3">
    Displays all of the character's chosen feats
 (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    FEATLIST.TYPE=ItemCreation
-   </code>
+   <code>FEATLIST.TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Displays all of the character's chosen item
@@ -2962,9 +2566,7 @@ feat points.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FEATPOINTS
-   </code>
+   <code>FEATPOINTS</code>
   </p>
   <p class="indent3">
    Displays all the character's remaining un-spent
@@ -2998,9 +2600,7 @@ level.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MAXCCSKILLLEVEL
-   </code>
+   <code>MAXCCSKILLLEVEL</code>
   </p>
   <p class="indent3">
    Displays the maximum Cross Class Skill
@@ -3029,9 +2629,7 @@ level.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MAXSKILLLEVEL
-   </code>
+   <code>MAXSKILLLEVEL</code>
   </p>
   <p class="indent3">
    Displays the maximum Class Skill Level.
@@ -3093,24 +2691,18 @@ list.
     The properties allowed are:
     <ul>
      <li>
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       - Displays the key ability (stat) for the
 skill in position x in the character's skill list.
      </li>
      <li>
-      <code>
-       ABMOD
-      </code>
+      <code>ABMOD</code>
       - Displays the modifier from the key
 ability, for the skill in position x in the character's skill
 list.
      </li>
      <li>
-      <code>
-       ACP
-      </code>
+      <code>ACP</code>
       s,t,u,v - Displays the Armor Check Penalty for
 the skill in position x.
       <ul>
@@ -3131,93 +2723,67 @@ Swim
       </ul>
      </li>
      <li>
-      <code>
-       CLASS
-      </code>
+      <code>CLASS</code>
       - Displays a list of the character's classes
 that have this skill as a class skill.
      </li>
      <li>
-      <code>
-       EXCLUSIVE
-      </code>
+      <code>EXCLUSIVE</code>
       - Displays "Y" if the skill is an
 exlusive class skill and "N" if it is not.
      </li>
      <li>
-      <code>
-       EXCLUSIVE_TOTAL
-      </code>
+      <code>EXCLUSIVE_TOTAL</code>
       - Displays "0" if the skill is
 exclusive, not usable untrained and has 0 ranks.
      </li>
      <li>
-      <code>
-       EXPLAIN
-      </code>
+      <code>EXPLAIN</code>
       - Displays the make-up of the misc
 modifier in an abbreviated format.
      </li>
      <li>
-      <code>
-       EXPLAIN_LONG
-      </code>
+      <code>EXPLAIN_LONG</code>
       - Displays the make-up of the misc
 modifier in a verbose format.
      </li>
      <li>
-      <code>
-       MISC
-      </code>
+      <code>MISC</code>
       - equals TOTAL - RANK - ABMOD.
      </li>
      <li>
-      <code>
-       MOD
-      </code>
+      <code>MOD</code>
       - Displays the total modifiers from abilities,
 equipment, etc.? of the skill in position x in the character's
 skill list.
      </li>
      <li>
-      <code>
-       RANK
-      </code>
+      <code>RANK</code>
       - Displays the number of skill ranks of the
 skill in position x in the character's skill list.
      </li>
      <li>
-      <code>
-       SIZE
-      </code>
+      <code>SIZE</code>
       - Displays the character's size modifier as
 applied to the skill.
      </li>
      <li>
-      <code>
-       TOTAL
-      </code>
+      <code>TOTAL</code>
       - Displays the total bonus for the skill in
 position x in the character's skill list.
      </li>
      <li>
-      <code>
-       TRAINED_TOTAL
-      </code>
+      <code>TRAINED_TOTAL</code>
       - Displays "0" if the skill is not
 usable untrained and has 0 ranks.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the skill in position
 x in the character's skill list.
      </li>
      <li>
-      <code>
-       UNTRAINED
-      </code>
+      <code>UNTRAINED</code>
       - Displays "Y" if the skill can be used
 untrained and "N" if it cannot.
      </li>
@@ -3230,18 +2796,14 @@ untrained and "N" if it cannot.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILL.Alchemy.TOTAL
-   </code>
+   <code>SKILL.Alchemy.TOTAL</code>
   </p>
   <p class="indent3">
    Would display the total bonus on your Alchemy
 skill check.
   </p>
   <p class="indent2">
-   <code>
-    SKILL.Jump.EXPLAIN_LONG
-   </code>
+   <code>SKILL.Jump.EXPLAIN_LONG</code>
   </p>
   <p class="indent3">
    Displays the make-up of the misc modifier in the
@@ -3251,9 +2813,7 @@ Jump skill.
 -6.0[|TYPE=SPEED.STACK] +4.0[OTHER]
   </p>
   <p class="indent2">
-   <code>
-    SKILL.2.RANK
-   </code>
+   <code>SKILL.2.RANK</code>
   </p>
   <p class="indent3">
    Displays the number of ranks in the
@@ -3264,9 +2824,7 @@ Jump skill.
    skill.
   </p>
   <p class="indent2">
-   <code>
-    SKILL.1.MISC
-   </code>
+   <code>SKILL.1.MISC</code>
   </p>
   <p class="indent3">
    Displays the bonus for the 2
@@ -3277,9 +2835,7 @@ Jump skill.
 not from the key ability score or ranks (e.g. A synergy bonus).
   </p>
   <p class="indent2">
-   <code>
-    SKILL.0.ABILITY
-   </code>
+   <code>SKILL.0.ABILITY</code>
   </p>
   <p class="indent3">
    Displays the key ability name for the
@@ -3290,9 +2846,7 @@ not from the key ability score or ranks (e.g. A synergy bonus).
    skill.
   </p>
   <p class="indent2">
-   <code>
-    SKILL.2.EXPLAIN
-   </code>
+   <code>SKILL.2.EXPLAIN</code>
   </p>
   <p class="indent3">
    Displays the make-up of the misc modifier in the
@@ -3327,9 +2881,7 @@ not from the key ability score or ranks (e.g. A synergy bonus).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLLEVEL.1.TOTAL
-   </code>
+   <code>SKILLLEVEL.1.TOTAL</code>
   </p>
   <p class="indent3">
    Displays skill points gained at level 1.
@@ -3358,9 +2910,7 @@ adjustment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLLISTMODS
-   </code>
+   <code>SKILLLISTMODS</code>
   </p>
   <p class="indent3">
    Displays a list of all skills with a non-zero
@@ -3384,23 +2934,17 @@ adjustment.
   </p>
   <ul class="indent2">
    <li>
-    <code>
-     TOTAL
-    </code>
+    <code>TOTAL</code>
     - Displays the total skill points the
 character has.
    </li>
    <li>
-    <code>
-     USED
-    </code>
+    <code>USED</code>
     - Displays the number of skill points that
 have been assigned to skills.
    </li>
    <li>
-    <code>
-     UNUSED
-    </code>
+    <code>UNUSED</code>
     - Displays the number of skill points that
 remain unassigned.
    </li>
@@ -3428,18 +2972,14 @@ single class or the character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLPOINTS.TOTAL
-   </code>
+   <code>SKILLPOINTS.TOTAL</code>
   </p>
   <p class="indent3">
    Displays the total skill points the character
 has.
   </p>
   <p class="indent2">
-   <code>
-    SKILLPOINTS.TOTAL.0
-   </code>
+   <code>SKILLPOINTS.TOTAL.0</code>
   </p>
   <p class="indent3">
    Displays the total skill points the character
@@ -3509,24 +3049,18 @@ designated skill or for the "x"th skill in the character's skill
 list. The properties allowed are:
     <ul>
      <li>
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       - Displays the key ability (stat) for the
 skill in position "x" in the character's skill list.
      </li>
      <li>
-      <code>
-       ABMOD
-      </code>
+      <code>ABMOD</code>
       - Displays the modifier from the key
 ability, for the skill in position "x" in the character's skill
 list.
      </li>
      <li>
-      <code>
-       ACP
-      </code>
+      <code>ACP</code>
       s,t,u,v - Displays the Armor Check Penalty for
 the skill in position "x".
       <ul>
@@ -3547,93 +3081,67 @@ Swim
       </ul>
      </li>
      <li>
-      <code>
-       CLASS
-      </code>
+      <code>CLASS</code>
       - Displays a list of the character's classes
 that have this skill as a class skill.
      </li>
      <li>
-      <code>
-       EXCLUSIVE
-      </code>
+      <code>EXCLUSIVE</code>
       - Displays "Y" if the skill is an
 exlusive class skill and "N" if it is not.
      </li>
      <li>
-      <code>
-       EXCLUSIVE_TOTAL
-      </code>
+      <code>EXCLUSIVE_TOTAL</code>
       - Displays "0" if the skill is
 exclusive, not usable untrained and has 0 ranks.
      </li>
      <li>
-      <code>
-       EXPLAIN
-      </code>
+      <code>EXPLAIN</code>
       - Displays the make-up of the misc
 modifier in an abbreviated format.
      </li>
      <li>
-      <code>
-       EXPLAIN_LONG
-      </code>
+      <code>EXPLAIN_LONG</code>
       - Displays the make-up of the misc
 modifier in a verbose format.
      </li>
      <li>
-      <code>
-       MISC
-      </code>
+      <code>MISC</code>
       - equals TOTAL - RANK - ABMOD.
      </li>
      <li>
-      <code>
-       MOD
-      </code>
+      <code>MOD</code>
       - Displays the total modifiers from abilities,
 equipment, etc.? of the skill in position x in the character's
 skill list.
      </li>
      <li>
-      <code>
-       RANK
-      </code>
+      <code>RANK</code>
       - Displays the number of skill ranks of the
 skill in position x in the character's skill list.
      </li>
      <li>
-      <code>
-       SIZE
-      </code>
+      <code>SIZE</code>
       - Displays the character's size modifier as
 applied to the skill.
      </li>
      <li>
-      <code>
-       TOTAL
-      </code>
+      <code>TOTAL</code>
       - Displays the total bonus for the skill in
 position x in the character's skill list.
      </li>
      <li>
-      <code>
-       TRAINED_TOTAL
-      </code>
+      <code>TRAINED_TOTAL</code>
       - Displays "0" if the skill is not
 usable untrained and has 0 ranks.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the skill in position
 x in the character's skill list.
      </li>
      <li>
-      <code>
-       UNTRAINED
-      </code>
+      <code>UNTRAINED</code>
       - Displays "Y" if the skill can be used
 untrained and "N" if it cannot.
      </li>
@@ -3646,9 +3154,7 @@ untrained and "N" if it cannot.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLSIT.0.ABILITY
-   </code>
+   <code>SKILLSIT.0.ABILITY</code>
   </p>
   <p class="indent3">
    Displays the key ability name for the
@@ -3660,9 +3166,7 @@ untrained and "N" if it cannot.
 that skill.
   </p>
   <p class="indent2">
-   <code>
-    SKILLSIT.2.TOTAL
-   </code>
+   <code>SKILLSIT.2.TOTAL</code>
   </p>
   <p class="indent3">
    Displays the total bonus for the 3
@@ -3708,73 +3212,53 @@ index).
 character's skill list.
    </li>
    <li>
-    <code>
-     ABILITY
-    </code>
+    <code>ABILITY</code>
     - Displays the key ability for the skill
 in position x in the character's skill list.
    </li>
    <li>
-    <code>
-     ABMOD
-    </code>
+    <code>ABMOD</code>
     - Displays the modifier from the key
 ability, for the skill in position x in the character's skill
 list.
    </li>
    <li>
-    <code>
-     EXCLUSIVE
-    </code>
+    <code>EXCLUSIVE</code>
     - Displays "Y" if the skill is an
 exlusive class skill and "N" if it is not.
    </li>
    <li>
-    <code>
-     EXCLUSIVE_TOTAL
-    </code>
+    <code>EXCLUSIVE_TOTAL</code>
     - Displays "0" if the skill is
 exclusive, not usable untrained and has 0 ranks.
    </li>
    <li>
-    <code>
-     MISC
-    </code>
+    <code>MISC</code>
     - equals TOTAL - RANK - ABMOD.
    </li>
    <li>
-    <code>
-     MOD
-    </code>
+    <code>MOD</code>
     - Displays the total modifiers from abilities,
 equipment, etc.? of the skill in position x in the character's
 skill list.
    </li>
    <li>
-    <code>
-     RANK
-    </code>
+    <code>RANK</code>
     - Displays the number of skill ranks of the
 skill in position x in the character's skill list.
    </li>
    <li>
-    <code>
-     TOTAL
-    </code>
+    <code>TOTAL</code>
     - Displays the total bonus for the skill in
 position x in the character's skill list.
    </li>
    <li>
-    <code>
-     TRAINED_TOTAL
-    </code>
+    <code>TRAINED_TOTAL</code>
     - Displays "0" if the skill is not
 usable untrained and has 0 ranks.
    </li>
    <li>
-    <code>
-     UNTRAINED
-    </code>
+    <code>UNTRAINED</code>
     - Displays "Y" if the skill can be used
 untrained and "N" if it cannot.
    </li>
@@ -3796,9 +3280,7 @@ comparing subname to the beginning of the skill name, if they match
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLSUBSET.2.KNOWLEDGE.RANK
-   </code>
+   <code>SKILLSUBSET.2.KNOWLEDGE.RANK</code>
   </p>
   <p class="indent3">
    Displays the number of skill ranks of the
@@ -3809,9 +3291,7 @@ comparing subname to the beginning of the skill name, if they match
    knowledge skill in the character's skill list.
   </p>
   <p class="indent2">
-   <code>
-    SKILLSUBSET.2.KNOWLEDGE.MISC
-   </code>
+   <code>SKILLSUBSET.2.KNOWLEDGE.MISC</code>
   </p>
   <p class="indent3">
    Displays the miscelaneous bonus for the
@@ -3857,80 +3337,58 @@ index).
   </p>
   <ul class="indent2">
    <li>
-    <code>
-     ABILITY
-    </code>
+    <code>ABILITY</code>
     - Displays the key ability for the skill
 in position x in the character's skill list.
    </li>
    <li>
-    <code>
-     ABMOD
-    </code>
+    <code>ABMOD</code>
     - Displays the modifier from the key
 ability, for the skill in position x in the character's skill
 list.
    </li>
    <li>
-    <code>
-     EXCLUSIVE
-    </code>
+    <code>EXCLUSIVE</code>
     - Displays "Y" if the skill is an
 exlusive class skill and "N" if it is not.
    </li>
    <li>
-    <code>
-     EXCLUSIVE_TOTAL
-    </code>
+    <code>EXCLUSIVE_TOTAL</code>
     - Displays "0" if the skill is
 exclusive, not usable untrained and has 0 ranks.
    </li>
    <li>
-    <code>
-     MISC
-    </code>
+    <code>MISC</code>
     - equals TOTAL - RANK - ABMOD.
    </li>
    <li>
-    <code>
-     MOD
-    </code>
+    <code>MOD</code>
     - Displays the total modifiers from abilities,
 equipment, etc.? of the skill in position x in the character's
 skill list.
    </li>
    <li>
-    <code>
-     NAME
-    </code>
+    <code>NAME</code>
     - Displays the name of the skill in position
 x in the character's skill list.
    </li>
    <li>
-    <code>
-     RANK
-    </code>
+    <code>RANK</code>
     - Displays the number of skill ranks of the
 skill in position x in the character's skill list.
    </li>
    <li>
-    <code>
-     TOTAL
-    </code>
+    <code>TOTAL</code>
     - Displays the total bonus for the skill in
 position x in the character's skill list.
    </li>
    <li>
-    <code>
-     TRAINED_TOTAL
-    </code>
+    <code>TRAINED_TOTAL</code>
     - Displays "0" if the skill is not
 usable untrained and has 0 ranks.
    </li>
    <li>
-    <code>
-     UNTRAINED
-    </code>
+    <code>UNTRAINED</code>
     - Displays "Y" if the skill can be used
 untrained and "N" if it cannot.
    </li>
@@ -3953,18 +3411,14 @@ the subtype the skill is in the subset.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLTYPE.0.DEX.NAME
-   </code>
+   <code>SKILLTYPE.0.DEX.NAME</code>
   </p>
   <p class="indent3">
    Displays the name of skill of the 1st skill in
 the character's skill list.
   </p>
   <p class="indent2">
-   <code>
-    SKILLTYPE.1.DEX.TOTAL
-   </code>
+   <code>SKILLTYPE.1.DEX.TOTAL</code>
   </p>
   <p class="indent3">
    Displays the total numbrer of skills from the
@@ -3997,91 +3451,67 @@ templates position in the character's complete template list -
   </p>
   <ul class="indent2">
    <li>
-    <code>
-     NAME
-    </code>
+    <code>NAME</code>
     - Displays the name of the template at
 position x the characters list of templates.
    </li>
    <li>
-    <code>
-     CHAMOD
-    </code>
+    <code>CHAMOD</code>
     - Displays the Charisma Modifier granted by
 the template at position x in the characters list of
 templates.
    </li>
    <li>
-    <code>
-     CONMOD
-    </code>
+    <code>CONMOD</code>
     - Displays the Constitution Modifier
 granted by the template at position x in the characters list of
 templates.
    </li>
    <li>
-    <code>
-     CR
-    </code>
+    <code>CR</code>
     - Displays the Challenge Rating granted by the
 template at position x in the characters list of templates.
    </li>
    <li>
-    <code>
-     DEXMOD
-    </code>
+    <code>DEXMOD</code>
     - Displays the Dexterity Modifier granted
 by the template at position x in the characters list of
 templates.
    </li>
    <li>
-    <code>
-     DR
-    </code>
+    <code>DR</code>
     - Displays the Damage Reduction granted by the
 template at position x in the characters list of templates.
    </li>
    <li>
-    <code>
-     FEAT
-    </code>
+    <code>FEAT</code>
     - Displays the Feats granted by the template
 at position x in the characters list of templates.
    </li>
    <li>
-    <code>
-     INTMOD
-    </code>
+    <code>INTMOD</code>
     - Displays the Intelligence Modifier
 granted by the template at position x in the characters list of
 templates.
    </li>
    <li>
-    <code>
-     SA
-    </code>
+    <code>SA</code>
     - Displays the Special Abilities granted by the
 template at position x in the characters list of templates.
    </li>
    <li>
-    <code>
-     SR
-    </code>
+    <code>SR</code>
     - Displays the Spell Resistance granted by the
 template at position x in the characters list of templates.
    </li>
    <li>
-    <code>
-     STRMOD
-    </code>
+    <code>STRMOD</code>
     - Displays the Strength Modifier granted by
 the template at position x in the characters list of
 templates.
    </li>
    <li>
-    <code>
-     WISMOD
-    </code>
+    <code>WISMOD</code>
     - Displays the Wisdom Modifier granted by
 the template at position x in the characters list of
 templates.
@@ -4102,9 +3532,7 @@ to the character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE0.NAME
-   </code>
+   <code>TEMPLATE0.NAME</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -4115,9 +3543,7 @@ to the character.
 in the characters list of templates.
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE0.STRMOD
-   </code>
+   <code>TEMPLATE0.STRMOD</code>
   </p>
   <p class="indent3">
    Displays the Strength Modifiaction granted by
@@ -4152,9 +3578,7 @@ list.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATELIST
-   </code>
+   <code>TEMPLATELIST</code>
   </p>
   <p class="indent3">
    Displays your templates in a comma delimited
@@ -4239,23 +3663,17 @@ after filtering (see below) for ability category (u), visibility
 (v) of each ability. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the abilities that are visible in
 the outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the abilities that are not visible
 in the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all abilities.
      </li>
     </ul>
@@ -4270,33 +3688,25 @@ default will be to include abilities of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the ability position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the ability position (x) and before
 the property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -4334,101 +3744,73 @@ filtering.
 identified ability:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the ability.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the ability.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the ability.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -4440,9 +3822,7 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.Fighter.0
-   </code>
+   <code>VABILITY.Fighter.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -4453,9 +3833,7 @@ without any choices etc included.
 ability in the character's fighter ability list.
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.Fighter.0.DESC
-   </code>
+   <code>VABILITY.Fighter.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the 1
@@ -4465,9 +3843,7 @@ ability in the character's fighter ability list.
    virtual ability in the character's fighter ability list.
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.FEAT.2.TYPE=Fighter
-   </code>
+   <code>VABILITY.FEAT.2.TYPE=Fighter</code>
   </p>
   <p class="indent3">
    Displays the name of the 3
@@ -4478,9 +3854,7 @@ ability in the character's fighter ability list.
 ability in the character's fighter feat list.
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.FEAT.2.!TYPE=Fighter.TYPE
-   </code>
+   <code>VABILITY.FEAT.2.!TYPE=Fighter.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 3
@@ -4491,9 +3865,7 @@ ability in the character's fighter feat list.
 ability in the character's list of non-fighter feats.
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.Power.0.ASPECT
-   </code>
+   <code>VABILITY.Power.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -4504,9 +3876,7 @@ ability in the character's list of non-fighter feats.
    virtual "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.Power.0.ASPECT.0
-   </code>
+   <code>VABILITY.Power.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -4522,10 +3892,8 @@ ability in the character's list of non-fighter feats.
 category ability.
   </p>
   <p class="indent2">
-   <code>
-    VABILITY.Power.0.ASPECT.Attack
-Type
-   </code>
+   <code>VABILITY.Power.0.ASPECT.Attack
+Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -4536,9 +3904,7 @@ for the 1
    virtual "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.ASPECTCOUNT
-   </code>
+   <code>ABILITY.Power.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -4549,9 +3915,7 @@ the 1
    virtual "Power" category ability.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY.Power.0.HASASPECT.Miss
-   </code>
+   <code>ABILITY.Power.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -4626,18 +3990,14 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VABILITYLIST.RACIAL
-   </code>
+   <code>VABILITYLIST.RACIAL</code>
   </p>
   <p class="indent3">
    Displays all of the character's virtual racial
 abilities (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    VABILITYLIST.FEAT.TYPE=Fighter
-   </code>
+   <code>VABILITYLIST.FEAT.TYPE=Fighter</code>
   </p>
   <p class="indent3">
    Displays all of the character's virtual feats
@@ -4714,23 +4074,17 @@ filtering (see below) for visibility (v) and type (w and y).
 of each feat. The allowed visibility sub-tokens are:
     <ul>
      <li>
-      <code>
-       VISIBLE
-      </code>
+      <code>VISIBLE</code>
       - Filter the feats that are visible in the
 outputsheets (default option).
      </li>
      <li>
-      <code>
-       HIDDEN
-      </code>
+      <code>HIDDEN</code>
       - Filter the feats that are not visible in
 the outputsheets.
      </li>
      <li>
-      <code>
-       ALL
-      </code>
+      <code>ALL</code>
       - Shows all feats.
      </li>
     </ul>
@@ -4745,33 +4099,25 @@ default will be to include feats of all types.
      </li>
      <li>
       If you use the type syntax
-      <code>
-       &lt;Text&gt;
-      </code>
+      <code>&lt;Text&gt;</code>
       (w), you
 MUST place the type before the feat position (x).
      </li>
      <li>
       If you use the type syntax
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       (y),
 you MUST place the type after the feat position (x) and before the
 property (z).
      </li>
      <li>
       You may include more than one
-      <code>
-       TYPE=&lt;Text&gt;
-      </code>
+      <code>TYPE=&lt;Text&gt;</code>
       sub-tokens in this token.
      </li>
      <li>
       You may use
-      <code>
-       !TYPE=&lt;Text&gt;
-      </code>
+      <code>!TYPE=&lt;Text&gt;</code>
       to exclude the
 particular type from the list.
      </li>
@@ -4809,101 +4155,73 @@ filtering.
 identified feat:
     <ul>
      <li>
-      <code>
-       ASPECT
-      </code>
+      <code>ASPECT</code>
       - Displays the comma-delimited list of
 aspects associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;number&gt;
-      </code>
+      <code>ASPECT.&lt;number&gt;</code>
       - Displays the name/value of
 the numbered aspect, on a zero-based index of aspects, associated
 with the feat.
      </li>
      <li>
-      <code>
-       ASPECT.&lt;text&gt;
-      </code>
+      <code>ASPECT.&lt;text&gt;</code>
       - Displays the value of the
 named aspect associated with the feat.
      </li>
      <li>
-      <code>
-       ASPECTCOUNT
-      </code>
+      <code>ASPECTCOUNT</code>
       - Returns the total number of aspects
 associated with the feat.
      </li>
      <li>
-      <code>
-       HASASPECT
-      </code>
+      <code>HASASPECT</code>
       - Returns a boolean result on the named
 aspect in association with the feat.
      </li>
      <li>
-      <code>
-       ASSOCIATED
-      </code>
+      <code>ASSOCIATED</code>
       - Displays a comma separated list of
 the associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       ASSOCIATED.&lt;number&gt;
-      </code>
+      <code>ASSOCIATED.&lt;number&gt;</code>
       - Displays the numbered
 associated value (i.e. choice) of the ability. This can be combined
 with ASSOCIATEDCOUNT to loop through the choices.
      </li>
      <li>
-      <code>
-       ASSOCIATEDCOUNT
-      </code>
+      <code>ASSOCIATEDCOUNT</code>
       - Returns the total number of
 associated values (i.e. choices) of the ability.
      </li>
      <li>
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       - Displays the benefit of the
 ability.
      </li>
      <li>
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       - Displays the description of the
 ability.
      </li>
      <li>
-      <code>
-       KEY
-      </code>
+      <code>KEY</code>
       - Displays the internal key of the
 ability.
      </li>
      <li>
-      <code>
-       NAME
-      </code>
+      <code>NAME</code>
       - Displays the display name of the ability
 without any choices etc included.
      </li>
      <li>
-      <code>
-       SOURCE
-      </code>
+      <code>SOURCE</code>
       - Displays the source of the ability.
      </li>
      <li>
-      <code>
-       TYPE
-      </code>
+      <code>TYPE</code>
       - Displays the type of the ability.
      </li>
     </ul>
@@ -4915,9 +4233,7 @@ without any choices etc included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0
-   </code>
+   <code>VFEAT.0</code>
   </p>
   <p class="indent3">
    Displays the name of the 1
@@ -4928,9 +4244,7 @@ without any choices etc included.
 the character's virtual feat list.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0.DESC
-   </code>
+   <code>VFEAT.0.DESC</code>
   </p>
   <p class="indent3">
    Displays the description of the 1
@@ -4940,9 +4254,7 @@ the character's virtual feat list.
    feat in the character's virtual feat list.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.2.TYPE=Fighter
-   </code>
+   <code>VFEAT.2.TYPE=Fighter</code>
   </p>
   <p class="indent3">
    Displays the name of the 3
@@ -4953,9 +4265,7 @@ the character's virtual feat list.
 feat in the character's virtual feat list.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.2.!TYPE=Fighter.TYPE
-   </code>
+   <code>VFEAT.2.!TYPE=Fighter.TYPE</code>
   </p>
   <p class="indent3">
    Displays the type of the 3
@@ -4965,9 +4275,7 @@ feat in the character's virtual feat list.
    non-fighter feat in the character's virtual feat list.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0.ASPECT
-   </code>
+   <code>VFEAT.0.ASPECT</code>
   </p>
   <p class="indent3">
    Displays the list of "aspects" for the
@@ -4978,9 +4286,7 @@ feat in the character's virtual feat list.
    virtual feat.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0.ASPECT.0
-   </code>
+   <code>VFEAT.0.ASPECT.0</code>
   </p>
   <p class="indent3">
    Displays the name and value of the
@@ -4995,9 +4301,7 @@ feat in the character's virtual feat list.
    virtual feat.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0.ASPECT.Attack Type
-   </code>
+   <code>VFEAT.0.ASPECT.Attack Type</code>
   </p>
   <p class="indent3">
    Displays the value of the "Attack Type" aspect
@@ -5008,9 +4312,7 @@ for the 1
    virtual feat.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0.ASPECTCOUNT
-   </code>
+   <code>VFEAT.0.ASPECTCOUNT</code>
   </p>
   <p class="indent3">
    Returns the number of aspects associated with
@@ -5021,9 +4323,7 @@ the 1
    virtual feat.
   </p>
   <p class="indent2">
-   <code>
-    VFEAT.0.HASASPECT.Miss
-   </code>
+   <code>VFEAT.0.HASASPECT.Miss</code>
   </p>
   <p class="indent3">
    Returns a boolean result of "Y" if the
@@ -5092,18 +4392,14 @@ variables.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VFEATLIST
-   </code>
+   <code>VFEATLIST</code>
   </p>
   <p class="indent3">
    Displays all of the character's virtual feats
 (comma delimited).
   </p>
   <p class="indent2">
-   <code>
-    VFEATLIST.TYPE=Fighter
-   </code>
+   <code>VFEATLIST.TYPE=Fighter</code>
   </p>
   <p class="indent3">
    Displays all of the character's virtual feats
