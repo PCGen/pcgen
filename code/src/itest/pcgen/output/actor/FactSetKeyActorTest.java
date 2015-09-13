@@ -43,7 +43,6 @@ public class FactSetKeyActorTest extends AbstractOutputTestCase
 			classSetUp();
 			classSetUpRun = true;
 		}
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	private void classSetUp()
@@ -66,7 +65,7 @@ public class FactSetKeyActorTest extends AbstractOutputTestCase
 		d.addToSetFor(fsk, new BasicObjectContainer<>(mgr, expectedResult1));
 		d.addToSetFor(fsk, new BasicObjectContainer<>(mgr, expectedResult2));
 		FactSetKeyActor<?> lka = new FactSetKeyActor<>(fsk);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "booktype", lka);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "booktype", lka);
 		processThroughFreeMarker("${deity.booktype[0]}", expectedResult1);
 		processThroughFreeMarker("${deity.booktype[1]}", expectedResult2);
 	}
@@ -86,7 +85,7 @@ public class FactSetKeyActorTest extends AbstractOutputTestCase
 		d.addToSetFor(fsk, new BasicObjectContainer<>(mgr, expectedResult1));
 		d.addToSetFor(fsk, new BasicObjectContainer<>(mgr, expectedResult2));
 		FactSetKeyActor<?> lka = new FactSetKeyActor<>(fsk);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "booktype", lka);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "booktype", lka);
 		processThroughFreeMarker("${deity.booktype?join(\", \")!}", "Magical, Long");
 	}
 }

@@ -15,34 +15,34 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.output.wrapper;
+package pcgen.output.base;
 
-import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.output.base.PCGenObjectWrapper;
-import pcgen.output.model.CategoryModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * A CategoryWrapper is an ObjectWrapper capable of producing a TemplateModel
- * for objects that implement the Category interface.
+ * PCGenObjectWrapper is an advanced form of wrapper serving the Freemarker
+ * Template Engine.
+ * 
+ * This can wrap an object based on the object and the given CharID. The CharID
+ * is used to resolve any character specific information necessary to
+ * appropriate wrap an object.
  */
-public class CategoryWrapper implements PCGenObjectWrapper
+public interface PCGenObjectWrapper
 {
-
 	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
+	 * Wrap the given object into a TemplateModel, using the given CharID if
+	 * necessary.
+	 * 
+	 * @param id
+	 *            The CharID of the active Player Character, to be used by the
+	 *            Wrapper if necessary
+	 * @param obj
+	 *            The object to be wrapped to a TemplateModel
+	 * @return a TemplateModel that wraps the given object
+	 * @throws TemplateModelException
+	 *             If this Wrapper does not support wrapping the given object
 	 */
-	@Override
-	public TemplateModel wrap(CharID id, Object o)
-		throws TemplateModelException
-	{
-		if (o instanceof Category)
-		{
-			return new CategoryModel((Category<?>) o);
-		}
-		throw new TemplateModelException("Object was not a Category");
-	}
+	TemplateModel wrap(CharID id, Object obj) throws TemplateModelException;
 }

@@ -18,8 +18,9 @@
 package pcgen.output.wrapper;
 
 import pcgen.base.geom.OrderedPair;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.OrderedPairModel;
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -27,17 +28,15 @@ import freemarker.template.TemplateModelException;
  * An OrderedPairWrapper is an ObjectWrapper capable of producing a
  * TemplateModel for OrderedPair objects.
  */
-public class OrderedPairWrapper implements ObjectWrapper
+public class OrderedPairWrapper implements PCGenObjectWrapper
 {
-	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object obj)
+			throws TemplateModelException
 	{
-		if (o instanceof OrderedPair)
+		if (obj instanceof OrderedPair)
 		{
-			return new OrderedPairModel((OrderedPair) o);
+			return new OrderedPairModel((OrderedPair) obj);
 		}
 		throw new TemplateModelException("Object was not an OrderedPair");
 	}

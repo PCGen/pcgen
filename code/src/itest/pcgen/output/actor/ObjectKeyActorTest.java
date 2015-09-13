@@ -45,7 +45,6 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 			classSetUp();
 			classSetUpRun = true;
 		}
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	private void classSetUp()
@@ -63,7 +62,7 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 		d.put(ObjectKey.COST, expectedResult);
 		ObjectKeyActor<BigDecimal> oka =
 				new ObjectKeyActor<BigDecimal>(ObjectKey.COST);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "cost", oka);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "cost", oka);
 		processThroughFreeMarker("${deity.cost}", expectedResult.toString());
 	}
 
@@ -79,10 +78,10 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 		d.put(ObjectKey.SPELL_STAT, CDOMDirectSingleRef.getRef(str));
 		ObjectKeyActor<BigDecimal> oka_cost =
 				new ObjectKeyActor<BigDecimal>(ObjectKey.COST);
-		CDOMObjectWrapper.getInstance().load(str.getClass(), "cost", oka_cost);
+		CDOMObjectWrapper.load(dsid, str.getClass(), "cost", oka_cost);
 		ObjectKeyActor<CDOMSingleRef<PCStat>> oka_stat =
 				new ObjectKeyActor<CDOMSingleRef<PCStat>>(ObjectKey.SPELL_STAT);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "stat", oka_stat);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "stat", oka_stat);
 		processThroughFreeMarker("${deity.stat}", str.getDisplayName());
 		processThroughFreeMarker("${deity.stat.cost}", expectedResult.toString());
 	}

@@ -24,7 +24,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.output.library.ObjectWrapperLibrary;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -41,6 +42,9 @@ import freemarker.template.TemplateScalarModel;
 public class ItemFacetModel<T> implements TemplateHashModel,
 		TemplateScalarModel, Iterable<T>
 {
+	//Make sure to use PCGen's Wrappers since we don't know the underlying type
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID used to get the PlayerCharacter's item from the
@@ -108,9 +112,7 @@ public class ItemFacetModel<T> implements TemplateHashModel,
 		if (!cacheSet)
 		{
 			T obj = facet.get(id);
-			//TODO This is BOLD... what if it's not a CDOMObject?!?
-			TemplateModel wrapped =
-					ObjectWrapperLibrary.getInstance().wrap(obj);
+			TemplateModel wrapped = WRAPPER_FACET.wrap(id, obj);
 			if (wrapped instanceof TemplateHashModel)
 			{
 				cache = (TemplateHashModel) wrapped;
@@ -144,7 +146,6 @@ public class ItemFacetModel<T> implements TemplateHashModel,
 		{
 			return ((CDOMObject) obj).getDisplayName();
 		}
-		//TODO This is BOLD... what if it's not a CDOMObject?!?
 		return obj.toString();
 	}
 
