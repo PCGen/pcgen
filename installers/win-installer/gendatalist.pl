@@ -61,6 +61,7 @@ $pub{'doghouse_rules'} = 'Dog House Rules';
 $pub{'dragonwing_games'} = 'DragonWing Games';
 $pub{'dreamscarred_press'} = 'Dreamscarred Press';
 $pub{'en_publishing'} = 'EN Publishing';
+$pub{'everyman_gaming'} = 'Everyman Gaming';
 $pub{'fantasy_community_council'} = 'Fantasy Community Council';
 $pub{'fantasy_flight_games'} = 'Fantasy Flight Games';
 $pub{'gallantry_productions'} = 'Gallantry Productions';
