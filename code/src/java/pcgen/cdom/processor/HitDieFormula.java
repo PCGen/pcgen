@@ -15,17 +15,17 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.modifier;
+package pcgen.cdom.processor;
 
 import pcgen.base.formula.ReferenceFormula;
 import pcgen.cdom.content.HitDie;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 
 /**
  * A HitDieFormula represents a modified HitDie that changes relative to a
  * ReferenceFormula
  */
-public class HitDieFormula implements Modifier<HitDie>
+public class HitDieFormula implements Processor<HitDie>
 {
 
 	/**
@@ -49,7 +49,7 @@ public class HitDieFormula implements Modifier<HitDie>
 	}
 
 	/**
-	 * Applies this Modifier to the given input HitDie, which modifies the given
+	 * Applies this Processor to the given input HitDie, which modifies the given
 	 * input HitDie with the formula provided at construction of the
 	 * HitDieFormula.
 	 * 
@@ -64,7 +64,7 @@ public class HitDieFormula implements Modifier<HitDie>
 	 *             if the given HitDie is null
 	 */
 	@Override
-	public HitDie applyModifier(HitDie origHD, Object context)
+	public HitDie applyProcessor(HitDie origHD, Object context)
 	{
 		return new HitDie(formula.resolve(Integer.valueOf(origHD.getDie()))
 				.intValue());
@@ -84,9 +84,9 @@ public class HitDieFormula implements Modifier<HitDie>
 	}
 
 	/**
-	 * The class of object this Modifier acts upon (HitDie).
+	 * The class of object this Processor acts upon (HitDie).
 	 * 
-	 * @return The class of object this Modifier acts upon (HitDie.class)
+	 * @return The class of object this Processor acts upon (HitDie.class)
 	 */
 	@Override
 	public Class<HitDie> getModifiedClass()

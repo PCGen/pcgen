@@ -65,7 +65,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.cdom.inst.EquipmentHead;
-import pcgen.cdom.modifier.ChangeArmorType;
+import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.BonusActivation;
@@ -5094,7 +5094,7 @@ public final class Equipment extends PObject implements Serializable,
 					new LinkedHashSet<String>(calculatedTypeList);
 			for (ChangeArmorType cat : eqMod.getSafeListFor(ListKey.ARMORTYPE))
 			{
-				List<String> tempTypeList = cat.applyModifier(newTypeList);
+				List<String> tempTypeList = cat.applyProcessor(newTypeList);
 				LinkedHashSet<String> tempTypeSet =
 						new LinkedHashSet<String>(tempTypeList);
 				boolean noMatch =

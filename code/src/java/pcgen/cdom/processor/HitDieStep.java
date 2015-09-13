@@ -15,10 +15,10 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.modifier;
+package pcgen.cdom.processor;
 
 import pcgen.cdom.content.HitDie;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 
 /**
  * A HitDieStep represents a modified HitDie that changes along the path of Hit
@@ -29,7 +29,7 @@ import pcgen.cdom.content.Modifier;
  * during construction, the object constructing this HitDieStep is expected to
  * understand if it is setting an upper or lower bound.
  */
-public class HitDieStep implements Modifier<HitDie>
+public class HitDieStep implements Processor<HitDie>
 {
 
 	/**
@@ -59,7 +59,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 * 
 	 * @param steps
 	 *            The number of steps this HitDieStep will modify the incoming
-	 *            HitDie provided to applyModifier
+	 *            HitDie provided to applyProcessor
 	 * @param stopAt
 	 *            The bound, indicating the HitDie at which the HitDitStep will
 	 *            not proceed. This bound overrides the number of steps to be
@@ -67,7 +67,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 *            indicate there is no bound.
 	 * @throws IllegalArgumentException
 	 *             if the number of steps is zero (since that is effectively a
-	 *             pass-through, no Modifier is required)
+	 *             pass-through, no Processor is required)
 	 */
 	public HitDieStep(int steps, HitDie stopAt)
 	{
@@ -80,7 +80,7 @@ public class HitDieStep implements Modifier<HitDie>
 	}
 
 	/**
-	 * Applies this Modifier to the given input object, in the context of the
+	 * Applies this Processor to the given input object, in the context of the
 	 * given context object.
 	 * 
 	 * *NOTE* if the HitDie provided is not in the global sequence of HitDie
@@ -98,7 +98,7 @@ public class HitDieStep implements Modifier<HitDie>
 	 *             if the given HitDie is null
 	 */
 	@Override
-	public HitDie applyModifier(HitDie origHD, Object context)
+	public HitDie applyProcessor(HitDie origHD, Object context)
 	{
 		int steps = numSteps;
 		HitDie currentDie = origHD;
@@ -167,9 +167,9 @@ public class HitDieStep implements Modifier<HitDie>
 	}
 
 	/**
-	 * The class of object this Modifier acts upon (HitDie).
+	 * The class of object this Processor acts upon (HitDie).
 	 * 
-	 * @return The class of object this Modifier acts upon (HitDie.class)
+	 * @return The class of object this Processor acts upon (HitDie.class)
 	 */
 	@Override
 	public Class<HitDie> getModifiedClass()

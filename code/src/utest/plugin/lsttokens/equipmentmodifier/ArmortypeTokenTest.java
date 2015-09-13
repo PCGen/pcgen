@@ -23,7 +23,7 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.modifier.ChangeArmorType;
+import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
