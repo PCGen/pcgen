@@ -30,15 +30,13 @@ import freemarker.template.TemplateModelException;
  */
 public class OrderedPairWrapper implements PCGenObjectWrapper
 {
-	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object obj)
+			throws TemplateModelException
 	{
-		if (o instanceof OrderedPair)
+		if (obj instanceof OrderedPair)
 		{
-			return new OrderedPairModel((OrderedPair) o);
+			return new OrderedPairModel((OrderedPair) obj);
 		}
 		throw new TemplateModelException("Object was not an OrderedPair");
 	}

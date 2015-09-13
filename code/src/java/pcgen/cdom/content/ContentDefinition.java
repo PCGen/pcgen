@@ -317,6 +317,9 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 * internal use by ContentDefinition, as a portion of the activate() method.
 	 * 
 	 * This should not be called from an external source
+	 * 
+	 * @param dsID
+	 *            The DataSetID for which the output should be activated
 	 */
 	protected abstract void activateOutput(DataSetID dsID);
 

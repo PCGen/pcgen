@@ -62,7 +62,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateOutput()
+	 * @see pcgen.cdom.content.ContentDefinition#activateOutput(DataSetID)
 	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
