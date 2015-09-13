@@ -89,11 +89,12 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		def = fsi;
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		allObjects = refContext.getCDOMAllReference(def.getUsableLocation());
-		toMatch = def.getFormatManager().convertIndirect(context, value);
+		toMatch = def.getFormatManager().convertIndirect(value);
 		if (toMatch == null)
 		{
 			throw new IllegalArgumentException("Failed to convert " + value
-				+ " as a " + def.getFormatManager().getType().getSimpleName());
+				+ " as a "
+				+ def.getFormatManager().getManagedClass().getSimpleName());
 		}
 	}
 

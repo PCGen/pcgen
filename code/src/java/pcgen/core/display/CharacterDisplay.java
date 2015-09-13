@@ -30,7 +30,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.geom.OrderedPair;
+import pcgen.base.math.OrderedPair;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;

@@ -18,8 +18,8 @@ package pcgen.cdom.enumeration;
 import java.util.Collection;
 import java.util.Collections;
 
+import pcgen.base.format.FormatManager;
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.rules.types.FormatManager;
 
 /**
  * This is a Typesafe enumeration of legal FACTs of an object. It is designed to
@@ -91,7 +91,8 @@ public final class FactSetKey<T>
 		else if (!key.formatManager.equals(cl))
 		{
 			throw new IllegalArgumentException("FactSetKey: " + name
-				+ " does not store objects of " + cl.getType().getCanonicalName());
+				+ " does not store objects of "
+				+ cl.getManagedClass().getCanonicalName());
 		}
 		return key;
 	}
