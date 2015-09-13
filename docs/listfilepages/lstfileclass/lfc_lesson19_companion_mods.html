@@ -44,8 +44,7 @@
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="">
+   <code><a href="">
      FOLLOWER
     </a>
     ,
@@ -91,8 +90,7 @@
     ,
     <a href="">
      COMPANIONLIST
-    </a>
-   </code>
+    </a></code>
   </p>
   <hr/>
   <p class="indent0">
@@ -160,16 +158,12 @@ with the Follower tag.
 telling the program what "level" things happen at. So like we have
 Class Level Lines to tell PCGen what is applied at that level and
 lower so to do we have a tag called
-   <code>
-    FOLLOWER
-   </code>
+   <code>FOLLOWER</code>
    which
 acts in much the same way.
   </p>
   <p class="indent1">
-   <code>
-    FOLLOWER:MonkeyFu=1
-   </code>
+   <code>FOLLOWER:MonkeyFu=1</code>
   </p>
   <p class="indent2">
    The Follower tag can take variables or Class
@@ -179,17 +173,13 @@ have this variable of at least 1 to obtain the rest of the benefits
 derived from the rest of the line.
   </p>
   <p class="indent1">
-   <code>
-    FOLLOWER:Paladin=1
-   </code>
+   <code>FOLLOWER:Paladin=1</code>
   </p>
   <p class="indent2">
    You need to have 1 level in paladin class.
   </p>
   <p class="indent1">
-   <code>
-    FOLLOWER:MagicItem=1
-   </code>
+   <code>FOLLOWER:MagicItem=1</code>
   </p>
   <p class="indent2">
    You need to have 1 in a variable name called
@@ -201,9 +191,7 @@ MagicItem
   </h4>
   <p class="indent0">
    The second and VERY important tag is
-   <code>
-    TYPE
-   </code>
+   <code>TYPE</code>
   </p>
   <p class="indent0">
    Type tells pcgen what applies to this line. The
@@ -215,9 +203,7 @@ Companion, Special Mount, Mount and Follower.
 benefits applied to them. Simply put without a TYPE PCGen won't be
 able to able the changes you code up. TYPE has to match exactly the
 name from
-   <code>
-    COMPANIONLIST
-   </code>
+   <code>COMPANIONLIST</code>
    . Think of TYPE as a Group as
 it groups things together, so with that frame of mind, Familiar is
 a group, as is Special Mount.
@@ -226,9 +212,7 @@ a group, as is Special Mount.
    Example of a Familiar:
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Familiar|Bat,Cat
-   </code>
+   <code>COMPANIONLIST:Familiar|Bat,Cat</code>
   </p>
   <p class="indent2">
    Bat and Cat are both of the Familiar TYPE or
@@ -254,9 +238,7 @@ Follower Line.
    This tag identifies the companion's Base Attack
 Bonus (BAB) progression and can be set to that of its master, by
 using the
-   <code>
-    MASTER
-   </code>
+   <code>MASTER</code>
    parameter, or you may use a number,
 variable or formula.
   </p>
@@ -266,9 +248,7 @@ the Master PC's BAB progression you would use the following
 tag:
   </p>
   <p class="indent1">
-   <code>
-    COPYMASTERBAB:MASTER
-   </code>
+   <code>COPYMASTERBAB:MASTER</code>
    (Common for
 familiars)
   </p>
@@ -278,9 +258,7 @@ familiars)
 following tag:
   </p>
   <p class="indent1">
-   <code>
-    COPYMASTERBAB:5
-   </code>
+   <code>COPYMASTERBAB:5</code>
   </p>
   <hr/>
   <h4>
@@ -292,9 +270,7 @@ Checks (Commonly Fortitude, Reflex and Will) The creature will use
 it's Stats to modify the base though (Common for Familiar)
   </p>
   <p class="indent1">
-   <code>
-    COPYMASTERCHECK:MASTER
-   </code>
+   <code>COPYMASTERCHECK:MASTER</code>
   </p>
   <hr/>
   <h4>
@@ -310,10 +286,8 @@ companionmod file.
    Example from the docs
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Animal
-Companion|Ape|FOLLOWERADJUSTMENT:-3
-   </code>
+   <code>COMPANIONLIST:Animal
+Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
   </p>
   <p class="indent0">
    An Ape companion to a 4th level Druid gains the
@@ -328,9 +302,7 @@ benefits normally granted to a companion of a 1st level Druid.
 type.
   </p>
   <p class="indent1">
-   <code>
-    HD:5
-   </code>
+   <code>HD:5</code>
   </p>
   <p class="indent2">
    Will grant 5 bonus Hit Die (Or class levels) of
@@ -362,20 +334,16 @@ underestimated, with this tag you can grant a level dependent bonus
 to the master at a certain level.
   </p>
   <p class="indent1">
-   <code>
-    MASTERBONUSRACE:Bat &lt;TAB&gt;
-BONUS:SKILL|Spot|3
-   </code>
+   <code>MASTERBONUSRACE:Bat &lt;TAB&gt;
+BONUS:SKILL|Spot|3</code>
   </p>
   <p class="indent2">
    Would give the master +3 bonus to Spot checks if
 he has a Bat.
   </p>
   <p class="indent1">
-   <code>
-    MASTERBONUSRACE:Bat &lt;TAB&gt;
-BONUS:VAR|MyCoolVar|3|PREPCLEVEL:MIN=10
-   </code>
+   <code>MASTERBONUSRACE:Bat &lt;TAB&gt;
+BONUS:VAR|MyCoolVar|3|PREPCLEVEL:MIN=10</code>
   </p>
   <p class="indent2">
    At 10th level the Master of this Bat gets 3 to
@@ -383,11 +351,9 @@ his 'MyCoolVar' which can be attached to a feat, ability, or even
 an item with a Variable in the SPROP.
   </p>
   <p class="indent1">
-   <code>
-    MASTERBONUSRACE:Magic Item - Sword
+   <code>MASTERBONUSRACE:Magic Item - Sword
 &lt;TAB&gt;
-BONUS:VAR|MagicWeaponPlusIncrease|2|PREVARGTEQ:MagicItem,1
-   </code>
+BONUS:VAR|MagicWeaponPlusIncrease|2|PREVARGTEQ:MagicItem,1</code>
   </p>
   <p class="indent2">
    This will grant two (2) to the varaible
@@ -403,9 +369,7 @@ the one listed. RACETYPE affects the Bonus HD and progression of
 the creature.
   </p>
   <p class="indent1">
-   <code>
-    RACETYPE:Fey
-   </code>
+   <code>RACETYPE:Fey</code>
   </p>
   <p class="indent2">
    The creature now has the Fey Type which replaces
@@ -421,19 +385,13 @@ exact same skill ranks as the master.
   </p>
   <p class="indent0">
    Your choices are
-   <code>
-    YES
-   </code>
+   <code>YES</code>
    and
-   <code>
-    NO
-   </code>
+   <code>NO</code>
    (Default).
   </p>
   <p class="indent1">
-   <code>
-    USEMASTERSKILL:YES
-   </code>
+   <code>USEMASTERSKILL:YES</code>
   </p>
   <p class="indent2">
    Creature will have the exact same ranks in the
@@ -453,16 +411,12 @@ this class.
   </p>
   <p class="indent0">
    The
-   <code>
-    BONUS:FOLLOWER
-   </code>
+   <code>BONUS:FOLLOWER</code>
    tag is what
 allows us to actually gain a creature in a particular TYPE or
 group. Without it you won't be able to select or add any creatures
 from that TYPE or group. This needs to match the
-   <code>
-    COMPANIONLIST
-   </code>
+   <code>COMPANIONLIST</code>
    definition, which is seen as the
 companion type inside our actual file.
   </p>
@@ -487,13 +441,11 @@ non-companion mod lst file (e.g.
    , etc.)
   </p>
   <p class="indent1">
-   <code>
-    BONUS:FOLLOWERS|
+   <code>BONUS:FOLLOWERS|
     <b>
      Familiar
     </b>
-    |1
-   </code>
+    |1</code>
   </p>
   <p class="indent2">
    You can gain one (1) Familiar
@@ -507,26 +459,22 @@ the
    :
   </p>
   <p class="indent1">
-   <code>
-    FOLLOWER:Whatever=1 &lt;TAB&gt;
+   <code>FOLLOWER:Whatever=1 &lt;TAB&gt;
 TYPE:
     <b>
      Familiar
-    </b>
-   </code>
+    </b></code>
   </p>
   <p class="indent2">
   </p>
   <p class="indent0">
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:
+   <code>COMPANIONLIST:
     <b>
      Familiar
     </b>
-    |Foo
-   </code>
+    |Foo</code>
   </p>
   <p class="indent2">
   </p>
@@ -552,26 +500,20 @@ something PCGen understands.
   </p>
   <blockquote class="indent1">
    <p class="tagindent1">
-    <code>
-     FOLLOWER:SlySlinkLvl=3 &lt;TAB&gt;
-TYPE:Sly Slink &lt;TAB&gt; HD:3
-    </code>
+    <code>FOLLOWER:SlySlinkLvl=3 &lt;TAB&gt;
+TYPE:Sly Slink &lt;TAB&gt; HD:3</code>
    </p>
    <p class="tagindent1">
-    <code>
-     FOLLOWER:SlySlinkLvl=5 &lt;TAB&gt;
-TYPE:Sly Slink &lt;TAB&gt; HD:3
-    </code>
+    <code>FOLLOWER:SlySlinkLvl=5 &lt;TAB&gt;
+TYPE:Sly Slink &lt;TAB&gt; HD:3</code>
    </p>
   </blockquote>
   <blockquote class="indent1">
    <p class="tagindent1">
-    <code>
-     MASTERBONUSRACE:Shadow Ferret
+    <code>MASTERBONUSRACE:Shadow Ferret
 &lt;TAB&gt; TYPE:Sly Slink &lt;TAB&gt;
 BONUS:SKILL|Hide|2|PREPCLEVEL:MIN=3 &lt;TAB&gt; SAB:use Shadow Walk
-once per day|PREPCLEVEL:MIN=5
-    </code>
+once per day|PREPCLEVEL:MIN=5</code>
    </p>
   </blockquote>
   <p class="indent0">
@@ -580,12 +522,10 @@ this:
   </p>
   <blockquote class="indent1">
    <p class="tagindent1">
-    <code>
-     FOLLOWERS:Sly Slink|1 &lt;TAB&gt;
+    <code>FOLLOWERS:Sly Slink|1 &lt;TAB&gt;
 COMPANIONLIST:Sly Slink|Shadow Ferret &lt;TAB&gt;
 DEFINE:SlySlinkLvl|0 &lt;TAB&gt;
-BONUS:VAR|SlySlinkLvl|TL
-    </code>
+BONUS:VAR|SlySlinkLvl|TL</code>
    </p>
   </blockquote>
   <p class="indent0">
@@ -594,47 +534,33 @@ critter
   </p>
   <blockquote class="indent1">
    <p class="tagindent1">
-    <code>
-     FOLLOWER:Monkey Warrior=1 &lt;TAB&gt;
+    <code>FOLLOWER:Monkey Warrior=1 &lt;TAB&gt;
 HD:5 &lt;TAB&gt; TYPE:Monkey Mount &lt;TAB&gt; ABILITY:Special
 Ability|AUTOMATIC|Dodging Foo|Nasty Breath &lt;TAB&gt;
-RACETYPE:Dragon &lt;TAB&gt; USEMASTERSKILL:YES
-    </code>
+RACETYPE:Dragon &lt;TAB&gt; USEMASTERSKILL:YES</code>
    </p>
   </blockquote>
   <p class="indent2">
    Okay Class, I threw a few curve balls in there.
 As a 1st level Monkey Warrior,
-   <code>
-    FOLLOWER:Monkey
-Warrior=1
-   </code>
+   <code>FOLLOWER:Monkey
+Warrior=1</code>
    , my critter of the Monkey Mount type,
-   <code>
-    TYPE:Monkey Mount
-   </code>
+   <code>TYPE:Monkey Mount</code>
    , will become a Dragon race type,
-   <code>
-    RACETYPE:Dragon
-   </code>
+   <code>RACETYPE:Dragon</code>
    . It will use my skill rank selection,
-   <code>
-    USEMASTERSKILL:YES
-   </code>
+   <code>USEMASTERSKILL:YES</code>
    , and get the special abilities of
 Dodging Foo and Nasty Breath,
-   <code>
-    ABILITY:Special
-Ability|AUTOMATIC|Dodging Foo|Nasty Breath
-   </code>
+   <code>ABILITY:Special
+Ability|AUTOMATIC|Dodging Foo|Nasty Breath</code>
    , as automatic
 abilities.
   </p>
   <p class="indent1">
-   <code>
-    FOLLOWER:Monkey Warrior=5 &lt;TAB&gt; HD:5
-&lt;TAB&gt; SR:12+HD
-   </code>
+   <code>FOLLOWER:Monkey Warrior=5 &lt;TAB&gt; HD:5
+&lt;TAB&gt; SR:12+HD</code>
   </p>
   <p class="indent2">
    When Monkey Warrior becomes 5th level, my
@@ -653,20 +579,16 @@ you choose what creatures belong in the Monkey Mount (TYPE) or
 group.
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Monkey Mount|Wolf,Fuzzy
-Bear
-   </code>
+   <code>COMPANIONLIST:Monkey Mount|Wolf,Fuzzy
+Bear</code>
   </p>
   <p class="indent2">
    That would make a Wolf and Fuzzy Bear part of
 the Monkey Mount (TYPE) or group.
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Monkey
-Mount|Bat|FOLLOWERADJUSTMENT:-5
-   </code>
+   <code>COMPANIONLIST:Monkey
+Mount|Bat|FOLLOWERADJUSTMENT:-5</code>
   </p>
   <p class="indent2">
    If my Monkey Warrior takes a bat companion he
@@ -681,25 +603,19 @@ makes a great example of this case.
 they understand this.
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Intelligent Item|Intelligent
-Weapon - Longsword
-   </code>
+   <code>COMPANIONLIST:Intelligent Item|Intelligent
+Weapon - Longsword</code>
   </p>
   <p class="indent1">
-   <code>
-    BONUS:FOLLOWERS|Intelligent
-Item|1
-   </code>
+   <code>BONUS:FOLLOWERS|Intelligent
+Item|1</code>
   </p>
   <blockquote class="indent1">
    <p class="tagindent1">
-    <code>
-     MASTERBONUSRACE:Intelligent Weapon -
+    <code>MASTERBONUSRACE:Intelligent Weapon -
 Longsword &lt;TAB&gt; BONUS:SKILL|Move Silently|5|TYPE=Competence
 &lt;TAB&gt; AUTO:FEAT|Weapon Focus(Longsword) &lt;TAB&gt;
-BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8
-    </code>
+BONUS:VAR|WeaponPlusIncrease|1|PREPCLEVEL:MIN=8</code>
    </p>
   </blockquote>
   <p class="indent0">
@@ -727,17 +643,13 @@ time when you wish to add to the list of available critters to a
 certain class or group.
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST
-   </code>
+   <code>COMPANIONLIST</code>
    is additive. A good
 example of this case is Improved Familiar.
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Familiar|Shocker
-Lizard,Stirge|PRECLASS:1,SPELLCASTER.Arcane=5
-   </code>
+   <code>COMPANIONLIST:Familiar|Shocker
+Lizard,Stirge|PRECLASS:1,SPELLCASTER.Arcane=5</code>
   </p>
   <p class="indent0">
    This will grant the Shocker Lizard and Stirge to
@@ -745,10 +657,8 @@ the available list in the Familiar (TYPE) if the master is an
 Arcane Spell Caster of 5th level or higher.
   </p>
   <p class="indent1">
-   <code>
-    COMPANIONLIST:Monkey Mount|Sand
-Shark
-   </code>
+   <code>COMPANIONLIST:Monkey Mount|Sand
+Shark</code>
   </p>
   <p class="indent0">
    This will grant the Sand Shark to the available

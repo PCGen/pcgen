@@ -95,24 +95,16 @@ following:
     </p>
     <blockquote>
      <p class="indent2">
-      <code>
-       Bite
-      </code>
+      <code>Bite</code>
      </p>
      <p class="indent2">
-      <code>
-       CATEGORY:Natural Attack
-      </code>
+      <code>CATEGORY:Natural Attack</code>
      </p>
      <p class="indent2">
-      <code>
-       TYPE:NaturalAttack
-      </code>
+      <code>TYPE:NaturalAttack</code>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackName|Bite
-      </code>
+      <code>ASPECT:NaturalAttackName|Bite</code>
      </p>
      <p class="indent3">
       <i>
@@ -121,9 +113,7 @@ displayed.
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackToHit|%1|BAB+STR+BiteAdditional
-      </code>
+      <code>ASPECT:NaturalAttackToHit|%1|BAB+STR+BiteAdditional</code>
      </p>
      <p class="indent3">
       <i>
@@ -135,9 +125,7 @@ to work, there is NO proficiency associated with this
      </p>
      <p class="indent2">
       <i>
-       <code>
-        ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize
-       </code>
+       <code>ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize</code>
       </i>
      </p>
      <p class="indent3">
@@ -148,9 +136,7 @@ the damage
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackDamageBonus|%1|STR
-      </code>
+      <code>ASPECT:NaturalAttackDamageBonus|%1|STR</code>
      </p>
      <p class="indent3">
       <i>
@@ -158,9 +144,7 @@ the damage
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackReach|%1|REACH.VAL
-      </code>
+      <code>ASPECT:NaturalAttackReach|%1|REACH.VAL</code>
      </p>
      <p class="indent3">
       <i>
@@ -169,9 +153,7 @@ natural Reach value
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackType|Bludgeoning
-      </code>
+      <code>ASPECT:NaturalAttackType|Bludgeoning</code>
      </p>
      <p class="indent3">
       <i>
@@ -180,9 +162,7 @@ Slashing, Piercing, Energy Type, Element Type
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange
-      </code>
+      <code>ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange</code>
      </p>
      <p class="indent3">
       <i>
@@ -191,9 +171,7 @@ typically '20'
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackThreatRange|x%1|BiteCritMult
-      </code>
+      <code>ASPECT:NaturalAttackThreatRange|x%1|BiteCritMult</code>
      </p>
      <p class="indent3">
       <i>
@@ -201,9 +179,7 @@ typically '20'
       </i>
      </p>
      <p class="indent2">
-      <code>
-       ASPECT:NaturalAttackNotes|x
-      </code>
+      <code>ASPECT:NaturalAttackNotes|x</code>
      </p>
      <p class="indent3">
       <i>
@@ -212,9 +188,7 @@ attack
       </i>
      </p>
      <p class="indent2">
-      <code>
-       DESC:x
-      </code>
+      <code>DESC:x</code>
      </p>
      <p class="indent3">
       <i>
@@ -229,63 +203,39 @@ variables and you may alter however you wish.
       </i>
      </p>
      <p class="indent2">
-      <code>
-       DEFINE:BiteDamageDice|0
-      </code>
+      <code>DEFINE:BiteDamageDice|0</code>
      </p>
      <p class="indent2">
-      <code>
-       DEFINE:BiteDamageSize|0
-      </code>
+      <code>DEFINE:BiteDamageSize|0</code>
      </p>
      <p class="indent2">
-      <code>
-       DEFINE:BiteCritMult|2
-      </code>
+      <code>DEFINE:BiteCritMult|2</code>
      </p>
      <p class="indent2">
-      <code>
-       BONUS:VAR|BiteDamageDice|1
-      </code>
+      <code>BONUS:VAR|BiteDamageDice|1</code>
      </p>
      <p class="indent2">
-      <code>
-       BONUS:VAR|BiteDamageSize|6
-      </code>
+      <code>BONUS:VAR|BiteDamageSize|6</code>
      </p>
      <p class="indent2">
-      <code>
-       DEFINE:BiteAdditional|0
-      </code>
+      <code>DEFINE:BiteAdditional|0</code>
      </p>
      <p class="indent2">
-      <code>
-       DEFINE:BiteThreatRange|0
-      </code>
+      <code>DEFINE:BiteThreatRange|0</code>
      </p>
      <p class="indent2">
-      <code>
-       BONUS:VAR|BiteThreatRange|20
-      </code>
+      <code>BONUS:VAR|BiteThreatRange|20</code>
      </p>
     </blockquote>
     <p class="indent0">
      For Special Attack Notes, you may either use
-     <code>
-      DESC:x
-     </code>
+     <code>DESC:x</code>
      , or
-     <code>
-      ASPECT:NaturalAttackNotes|x
-     </code>
+     <code>ASPECT:NaturalAttackNotes|x</code>
      .
-     <code>
-      ASPECT
-     </code>
+     <code>ASPECT</code>
      is used for just one note while
-     <code>
-      DESC
-     </code>
+     <code>DESC</code>
      can take PRExxx tags and are ideal if your attack
 can be given to other creatures whose attacks vary by level based
 increases.
@@ -293,9 +243,7 @@ increases.
     <p class="indent0">
      What this solution will not do is handle
 iterative attacks unless you set up the ability with an
-     <code>
-      ASPECT
-     </code>
+     <code>ASPECT</code>
      with all the iterative attacks. Unfortunately,
 ASPECT needs work in order to fully support any Alternative
 Iterative Attacks, or partial Iterative Attacks.
@@ -303,10 +251,8 @@ Iterative Attacks, or partial Iterative Attacks.
     <p class="indent0">
      Suggested Method to add Bonus to Hit by
 proficiency would be to do
-     <code>
-      BONUS:VAR|BiteAdditional|1|PREFEAT:1,Weapon
-Focus(Bite)
-     </code>
+     <code>BONUS:VAR|BiteAdditional|1|PREFEAT:1,Weapon
+Focus(Bite)</code>
      <i>
       and make sure you add
       <b>
@@ -317,9 +263,7 @@ Focus(Bite)
        weaponprof.lst
       </u>
       file and append
-      <code>
-       AUTO:WEAPONPROF|Bite
-      </code>
+      <code>AUTO:WEAPONPROF|Bite</code>
       to the ability. This will allow
 the character to take the Proficiency in Weapon Focus. Repeat for
 other methods you desire.
@@ -350,39 +294,29 @@ include the following in your ability:
        <strong>
         Example:
        </strong>
-       <code>
-        TYPE:SpecialAttack.Supernatural.Checklist
-       </code>
+       <code>TYPE:SpecialAttack.Supernatural.Checklist</code>
       </i>
      </li>
      <li>
       <i>
        Include the following
-       <code>
-        ASPECT
-       </code>
+       <code>ASPECT</code>
        tags:
       </i>
       <p class="indent2">
        <i>
-        <code>
-         ASPECT:CheckList|Yes
-        </code>
+        <code>ASPECT:CheckList|Yes</code>
        </i>
       </p>
       <p class="indent2">
        <i>
-        <code>
-         ASPECT:CheckCount|x
-        </code>
+        <code>ASPECT:CheckCount|x</code>
         [x can be a
 number, variable or formula.]
        </i>
       </p>
       <p class="indent2">
-       <code>
-        ASPECT:CheckType|y
-       </code>
+       <code>ASPECT:CheckType|y</code>
        [
        <i>
         y is simple
@@ -411,19 +345,13 @@ feat with the following included in it:
       <strong>
        Example:
       </strong>
-      <code>
-       TYPE:SpecialQuality.RacialBonus.SkillBonus
-      </code>
+      <code>TYPE:SpecialQuality.RacialBonus.SkillBonus</code>
      </li>
      <li>
-      <code>
-       ASPECT:SkillBonus|x
-      </code>
+      <code>ASPECT:SkillBonus|x</code>
       tag must be included in the
 granted ability or feat. The quot;xquot; is simple text as per the
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       tag.
      </li>
     </ol>

@@ -22,9 +22,7 @@
       <li>
        <a href="#structure-of-the-sizeadjustment.lst-file">
         Structure of the
-        <code>
-         sizeAdjustment.lst
-        </code>
+        <code>sizeAdjustment.lst</code>
         file
        </a>
       </li>
@@ -36,17 +34,13 @@
       <li>
        <a href="#global-bonus-tags-which-are-useful-in-sizeadjustment.lst">
         Global BONUS tags which are useful in
-        <code>
-         sizeAdjustment.lst
-        </code>
+        <code>sizeAdjustment.lst</code>
        </a>
       </li>
       <li>
        <a href="#bonus-tags-specific-to-sizeadjustment.lst">
         BONUS tags specific to
-        <code>
-         sizeAdjustment.lst
-        </code>
+        <code>sizeAdjustment.lst</code>
        </a>
       </li>
      </ul>
@@ -58,15 +52,11 @@
   </h1>
   <p>
    The
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    is a part of the "game mode".
   </p>
   <p>
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    defines:
   </p>
   <ul class="incremental">
@@ -82,45 +72,31 @@
   </ul>
   <p>
    The
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    files can be found in the
-   <code>
-    system/gameModes/&lt;game_mode_name&gt;/
-   </code>
+   <code>system/gameModes/&lt;game_mode_name&gt;/</code>
    directory for each game mode.
   </p>
   <h2 id="structure-of-the-sizeadjustment.lst-file">
    Structure of the
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    file
   </h2>
   <p>
    Each creature size is identified by a
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    .
   </p>
   <p>
    Tokens are added to the
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    to indicate the in-game effects of the creature's size. The
-   <code>
-    SIZENUM
-   </code>
+   <code>SIZENUM</code>
    token is mandatory; all others are optional.
   </p>
   <p>
    A typical size definition, from
-   <code>
-    system/gameModes/35e/sizeAdjustment.lst
-   </code>
+   <code>system/gameModes/35e/sizeAdjustment.lst</code>
    , looks like:
   </p>
   <pre><code>SIZENAME:S
@@ -167,30 +143,20 @@ SIZENAME:S
    Syntax
   </h4>
   <p>
-   <code>
-    ABB:X
-   </code>
+   <code>ABB:X</code>
    , where
-   <code>
-    X
-   </code>
+   <code>X</code>
    is a single letter.
   </p>
   <h4 id="example">
    Example
   </h4>
   <p>
-   <code>
-    SIZENAME:Fine  →  ABB:F
-   </code>
+   <code>SIZENAME:Fine  →  ABB:F</code>
    sets the abbreviation for the
-   <code>
-    Fine
-   </code>
+   <code>Fine</code>
    size to the letter
-   <code>
-    F
-   </code>
+   <code>F</code>
    .
   </p>
   <h4 id="notes">
@@ -198,9 +164,7 @@ SIZENAME:S
   </h4>
   <p>
    The
-   <code>
-    ABB
-   </code>
+   <code>ABB</code>
    tag is implemented in
    <a href="https://github.com/PCGen/pcgen/blob/master/code/src/java/plugin/lsttokens/sizeadjustment/AbbToken.java">
     code/src/java/plugin/lsttokens/sizeadjustment/AbbToken.java
@@ -221,26 +185,18 @@ SIZENAME:S
    Syntax
   </h4>
   <p>
-   <code>
-    SIZENAME:size_1 → ISDEFAULTSIZE:Y
-   </code>
+   <code>SIZENAME:size_1 → ISDEFAULTSIZE:Y</code>
    indicates that
-   <code>
-    size_1
-   </code>
+   <code>size_1</code>
    <strong>
     is
    </strong>
    the default size for the game mode.
   </p>
   <p>
-   <code>
-    SIZENAME:size_2 → ISDEFAULTSIZE:N
-   </code>
+   <code>SIZENAME:size_2 → ISDEFAULTSIZE:N</code>
    indicates that
-   <code>
-    size_2
-   </code>
+   <code>size_2</code>
    <strong>
     is not
    </strong>
@@ -250,13 +206,9 @@ SIZENAME:S
    Example
   </h4>
   <p>
-   <code>
-    SIZENAME:Medium → ISDEFAULTSIZE:Y
-   </code>
+   <code>SIZENAME:Medium → ISDEFAULTSIZE:Y</code>
    makes
-   <code>
-    Medium
-   </code>
+   <code>Medium</code>
    the default size for this game mode.
   </p>
   <h4 id="notes-1">
@@ -275,17 +227,11 @@ SIZENAME:S
   </ul>
   <p>
    If the
-   <code>
-    ISDEFAULTSIZE
-   </code>
+   <code>ISDEFAULTSIZE</code>
    tag is missing for a particular
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    , then
-   <code>
-    ISDEFAULTSIZE:N
-   </code>
+   <code>ISDEFAULTSIZE:N</code>
    is assumed.
   </p>
   <hr/>
@@ -297,40 +243,26 @@ SIZENAME:S
   </p>
   <p>
    Each line of the
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    file
    <strong>
     MUST
    </strong>
    begin with a
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    tag. Features are added to the category by adding sub-tags after the
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    , such as
-   <code>
-    BONUS
-   </code>
+   <code>BONUS</code>
    tags.
   </p>
   <p>
    The same
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    may appear on multiple lines. The tokens following the
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    are appended to any tokens for the same
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    on preceding lines.
   </p>
   <h4 id="status">
@@ -343,44 +275,26 @@ SIZENAME:S
    Syntax
   </h4>
   <p>
-   <code>
-    SIZENAME:size_name
-   </code>
+   <code>SIZENAME:size_name</code>
    , where
-   <code>
-    size_name
-   </code>
+   <code>size_name</code>
    is a single letter, i.e.
-   <code>
-    S
-   </code>
+   <code>S</code>
    ,
-   <code>
-    M
-   </code>
+   <code>M</code>
    ,
-   <code>
-    L
-   </code>
+   <code>L</code>
    . This is the current standard for all game modes included in PCGen.
   </p>
   <p>
    Alternately,
-   <code>
-    size_name
-   </code>
+   <code>size_name</code>
    may be a single word such as
-   <code>
-    Small
-   </code>
+   <code>Small</code>
    ,
-   <code>
-    Medium
-   </code>
+   <code>Medium</code>
    ,
-   <code>
-    Large
-   </code>
+   <code>Large</code>
    , etc.
   </p>
   <p>
@@ -389,23 +303,15 @@ SIZENAME:S
    </strong>
   </p>
   <p>
-   <code>
-    SIZENAME:F
-   </code>
+   <code>SIZENAME:F</code>
    defines a creature size named
-   <code>
-    F
-   </code>
+   <code>F</code>
    . (This form is preferred.)
   </p>
   <p>
-   <code>
-    SIZENAME:Fine
-   </code>
+   <code>SIZENAME:Fine</code>
    defines a creature size
-   <code>
-    Fine
-   </code>
+   <code>Fine</code>
    .
   </p>
   <hr/>
@@ -426,17 +332,11 @@ SIZENAME:S
   </p>
   <p>
    Before 6.05.04, the size order was inferred from the order of the
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    tags in the
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    file. As of 6.05.04, the order is explicitly indicated using the
-   <code>
-    SIZENUM
-   </code>
+   <code>SIZENUM</code>
    tag.
   </p>
   <ul class="incremental">
@@ -459,9 +359,7 @@ SIZENAME:S
      GitHub PR #410
     </a>
     - added
-    <code>
-     SIZENUM
-    </code>
+    <code>SIZENUM</code>
     tags to all the default game modes.
    </li>
   </ul>
@@ -469,14 +367,10 @@ SIZENAME:S
    Syntax:
   </h4>
   <p>
-   <code>
-    SIZENAME:size_name  →  SIZENUM:size_number
-   </code>
+   <code>SIZENAME:size_name  →  SIZENUM:size_number</code>
   </p>
   <p>
-   <code>
-    size_number
-   </code>
+   <code>size_number</code>
    is an integer. Bigger numbers correspond to larger size categories.
   </p>
   <h4 id="example-2">
@@ -484,17 +378,11 @@ SIZENAME:S
   </h4>
   <p>
    The following code, included in the
-   <code>
-    35e
-   </code>
+   <code>35e</code>
    version of
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    , defines the ordering of the
-   <code>
-    35e
-   </code>
+   <code>35e</code>
    size categories:
   </p>
   <pre><code>SIZENAME:F  SIZENUM:010
@@ -510,19 +398,13 @@ SIZENAME:P  SIZENUM:100</code></pre>
   <hr/>
   <h2 id="global-bonus-tags-which-are-useful-in-sizeadjustment.lst">
    Global BONUS tags which are useful in
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
   </h2>
   <p>
    All global
-   <code>
-    BONUS
-   </code>
+   <code>BONUS</code>
    tags may be used in
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    .
   </p>
   <p>
@@ -530,46 +412,32 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:COMBAT|AC|1|TYPE=Size
-    </code>
+    <code>BONUS:COMBAT|AC|1|TYPE=Size</code>
     - grant a +1 size AC bonus due to size.
    </li>
    <li>
-    <code>
-     BONUS:COMBAT|TOHIT|1|Type=Size
-    </code>
+    <code>BONUS:COMBAT|TOHIT|1|Type=Size</code>
     - grant a +1 attack bonus due to size.
    </li>
    <li>
-    <code>
-     BONUS:COMBAT|TOHIT.GRAPPLE|5|Type=Size
-    </code>
+    <code>BONUS:COMBAT|TOHIT.GRAPPLE|5|Type=Size</code>
     - grant a bonus on Grapple checks due to large size.
    </li>
    <li>
-    <code>
-     BONUS:SKILL|Hide|4|TYPE=Size
-    </code>
+    <code>BONUS:SKILL|Hide|4|TYPE=Size</code>
     - grant a bonus on Hide checks due to small size.
    </li>
   </ul>
   <hr/>
   <h2 id="bonus-tags-specific-to-sizeadjustment.lst">
    BONUS tags specific to
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
   </h2>
   <p>
    The following
-   <code>
-    BONUS
-   </code>
+   <code>BONUS</code>
    tags function only in the
-   <code>
-    sizeAdjustment.lst
-   </code>
+   <code>sizeAdjustment.lst</code>
    file.
   </p>
   <h3 id="bonusacvalue">
@@ -577,13 +445,9 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h3>
   <p>
    Multiplies the AC bonus from a particular type of armour, such as
-   <code>
-    Armor
-   </code>
+   <code>Armor</code>
    or
-   <code>
-    Shield
-   </code>
+   <code>Shield</code>
    , based on the creature's size.
   </p>
   <h4 id="status-2">
@@ -596,64 +460,42 @@ SIZENAME:P  SIZENUM:100</code></pre>
    Syntax
   </h4>
   <p>
-   <code>
-    BONUS:ACVALUE|TYPE:type_1,TYPE:type_2, ...|ac_multiplier
-   </code>
+   <code>BONUS:ACVALUE|TYPE:type_1,TYPE:type_2, ...|ac_multiplier</code>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     type_1
-    </code>
+    <code>type_1</code>
     ,
-    <code>
-     type_2
-    </code>
+    <code>type_2</code>
     , ... may include armour types such as
-    <code>
-     TYPE:Armor
-    </code>
+    <code>TYPE:Armor</code>
     and
-    <code>
-     TYPE:Shield
-    </code>
+    <code>TYPE:Shield</code>
     .
     <ul class="incremental">
      <li>
       <em>
        [Ed: do things like
-       <code>
-        TYPE:Natural
-       </code>
+       <code>TYPE:Natural</code>
        ,
-       <code>
-        TYPE:Dodge
-       </code>
+       <code>TYPE:Dodge</code>
        ,
-       <code>
-        TYPE:Sacred
-       </code>
+       <code>TYPE:Sacred</code>
        ... also work?]
       </em>
      </li>
     </ul>
    </li>
    <li>
-    <code>
-     ac_multiplier
-    </code>
+    <code>ac_multiplier</code>
     is the multiplier to AC for the given armour types.
     <ul class="incremental">
      <li>
-      <code>
-       0.5
-      </code>
+      <code>0.5</code>
       would cause the creature to only receive half the normal AC bonus from the given armour types.
      </li>
      <li>
-      <code>
-       2
-      </code>
+      <code>2</code>
       would cause the creature to gain twice the AC bonus from the given armour types.
      </li>
     </ul>
@@ -664,9 +506,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h4>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5
-    </code>
+    <code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5</code>
    </li>
   </ul>
   <p>
@@ -674,9 +514,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2
-    </code>
+    <code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2</code>
    </li>
   </ul>
   <p>
@@ -714,37 +552,23 @@ SIZENAME:P  SIZENUM:100</code></pre>
    Syntax
   </h4>
   <p>
-   <code>
-    BONUS:ITEMCAPACITY|TYPE=item_type|capacity_multiplier
-   </code>
+   <code>BONUS:ITEMCAPACITY|TYPE=item_type|capacity_multiplier</code>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     item_type
-    </code>
+    <code>item_type</code>
     is a type of equipment from the data set's equipment files, i.e. the
-    <code>
-     35e
-    </code>
+    <code>35e</code>
     files
-    <code>
-     rsrd_equip_arms_and_armor.lst
-    </code>
+    <code>rsrd_equip_arms_and_armor.lst</code>
     ,
-    <code>
-     rsrd_equip_general.lst
-    </code>
+    <code>rsrd_equip_general.lst</code>
     , and
-    <code>
-     rsrd_equip_magic_items.lst
-    </code>
+    <code>rsrd_equip_magic_items.lst</code>
     . Such types might include:
    </li>
    <li>
-    <code>
-     Resizable
-    </code>
+    <code>Resizable</code>
     - for items which are
     <a href="http://www.d20srd.org/srd/equipment/goodsAndServices.htm#adventuringGear">
      supposed to come in different sizes for different characters
@@ -753,13 +577,9 @@ SIZENAME:P  SIZENUM:100</code></pre>
    </li>
    <li>
     <p>
-     <code>
-      Goods
-     </code>
+     <code>Goods</code>
      - seems to include the majority of things in the
-     <code>
-      rsrd_equip_general.lst
-     </code>
+     <code>rsrd_equip_general.lst</code>
      , which covers general
      <a href="http://www.d20srd.org/srd/equipment/goodsAndServices.htm#adventuringGear">
       goods and services
@@ -769,9 +589,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
    </li>
    <li>
     <p>
-     <code>
-      capacity_multiplier
-     </code>
+     <code>capacity_multiplier</code>
      is a number.
     </p>
    </li>
@@ -781,30 +599,22 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h4>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ITEMCAPACITY|TYPE=Resizable|0.25
-    </code>
+    <code>BONUS:ITEMCAPACITY|TYPE=Resizable|0.25</code>
    </li>
   </ul>
   <p>
    Reduces the carrying capacity of items of
-   <code>
-    TYPE=Resizable
-   </code>
+   <code>TYPE=Resizable</code>
    to one quarter of the normal value.
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ITEMCAPACITY|TYPE=Goods|2
-    </code>
+    <code>BONUS:ITEMCAPACITY|TYPE=Goods|2</code>
    </li>
   </ul>
   <p>
    Increases the carrying capacity of
-   <code>
-    TYPE=Goods
-   </code>
+   <code>TYPE=Goods</code>
    to double the normal value.
   </p>
   <hr/>
@@ -835,61 +645,39 @@ SIZENAME:P  SIZENUM:100</code></pre>
    Syntax
   </h4>
   <p>
-   <code>
-    BONUS:ITEMCOST|TYPE=item_type_1,TYPE=item_type_2,...|cost_multiplier
-   </code>
+   <code>BONUS:ITEMCOST|TYPE=item_type_1,TYPE=item_type_2,...|cost_multiplier</code>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     item_type
-    </code>
+    <code>item_type</code>
     is a type of equipment from the data set's equipment files, i.e. the
-    <code>
-     35e
-    </code>
+    <code>35e</code>
     files
-    <code>
-     rsrd_equip_arms_and_armor.lst
-    </code>
+    <code>rsrd_equip_arms_and_armor.lst</code>
     ,
-    <code>
-     rsrd_equip_general.lst
-    </code>
+    <code>rsrd_equip_general.lst</code>
     , and
-    <code>
-     rsrd_equip_magic_items.lst
-    </code>
+    <code>rsrd_equip_magic_items.lst</code>
     . Such types might include:
     <ul class="incremental">
      <li>
-      <code>
-       Armor
-      </code>
+      <code>Armor</code>
      </li>
      <li>
-      <code>
-       Weapon
-      </code>
+      <code>Weapon</code>
      </li>
      <li>
-      <code>
-       Potion
-      </code>
+      <code>Potion</code>
      </li>
      <li>
       Very specific types such as
-      <code>
-       Quarterstaff
-      </code>
+      <code>Quarterstaff</code>
       .
      </li>
     </ul>
    </li>
    <li>
-    <code>
-     cost_multiplier
-    </code>
+    <code>cost_multiplier</code>
     is a number.
    </li>
   </ul>
@@ -898,9 +686,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h4>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ITEMCOST|TYPE=Weapon|0.5
-    </code>
+    <code>BONUS:ITEMCOST|TYPE=Weapon|0.5</code>
    </li>
   </ul>
   <p>
@@ -908,9 +694,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ITEMCOST|TYPE=Weapon,TYPE=Armor|2
-    </code>
+    <code>BONUS:ITEMCOST|TYPE=Weapon,TYPE=Armor|2</code>
    </li>
   </ul>
   <p>
@@ -918,9 +702,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ITEMCOST|TYPE=Scrolls,TYPE=Potions|1
-    </code>
+    <code>BONUS:ITEMCOST|TYPE=Scrolls,TYPE=Potions|1</code>
    </li>
   </ul>
   <p>
@@ -928,9 +710,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     BONUS:ITEMCOST|TYPE=Alchemical,TYPE=Liquid,TYPE=Clothing,TYPE=Food|2
-    </code>
+    <code>BONUS:ITEMCOST|TYPE=Alchemical,TYPE=Liquid,TYPE=Clothing,TYPE=Food|2</code>
    </li>
   </ul>
   <p>
@@ -960,25 +740,17 @@ SIZENAME:P  SIZENUM:100</code></pre>
    Syntax
   </h4>
   <p>
-   <code>
-    BONUS:ITEMWEIGHT|TYPE=item_type_1,TYPE=item_type_2,...|weight_multiplier
-   </code>
+   <code>BONUS:ITEMWEIGHT|TYPE=item_type_1,TYPE=item_type_2,...|weight_multiplier</code>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     item_type
-    </code>
+    <code>item_type</code>
     is a type of equipment from the data set's equipment files, as per
-    <code>
-     BONUS:ITEMCOST
-    </code>
+    <code>BONUS:ITEMCOST</code>
     above.
    </li>
    <li>
-    <code>
-     weight_multiplier
-    </code>
+    <code>weight_multiplier</code>
     is a number.
    </li>
   </ul>
@@ -987,9 +759,7 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h4>
   <ul class="incremental">
    <li>
-    <code>
-     ITEMWEIGHT|TYPE=Armor|2
-    </code>
+    <code>ITEMWEIGHT|TYPE=Armor|2</code>
    </li>
   </ul>
   <p>
@@ -997,16 +767,12 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     ITEMWEIGHT|TYPE=Resizable|0.25
-    </code>
+    <code>ITEMWEIGHT|TYPE=Resizable|0.25</code>
    </li>
   </ul>
   <p>
    Reduces the weight of
-   <code>
-    Resiable
-   </code>
+   <code>Resiable</code>
    items, such as backpacks and bedrolls, to one-quarter the normal value.
   </p>
   <hr/>
@@ -1015,13 +781,9 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h3>
   <p>
    Adds to the
-   <code>
-    SIZEMULT
-   </code>
+   <code>SIZEMULT</code>
    value as defined in the
-   <code>
-    load.lst
-   </code>
+   <code>load.lst</code>
    game mode file.
   </p>
   <p>
@@ -1030,13 +792,9 @@ SIZENAME:P  SIZENUM:100</code></pre>
     and so on
    </a>
    are implemented in
-   <code>
-    load.lst
-   </code>
+   <code>load.lst</code>
    . The
-   <code>
-    BONUS:LOADMULT
-   </code>
+   <code>BONUS:LOADMULT</code>
    tag is used to implement rules for creatures with four legs having greater load-carrying capacity.
   </p>
   <h4 id="status-6">
@@ -1049,23 +807,15 @@ SIZENAME:P  SIZENUM:100</code></pre>
    Syntax
   </h4>
   <p>
-   <code>
-    BONUS:LOADMULT|TYPE=SIZE|sizemult_modifier
-   </code>
+   <code>BONUS:LOADMULT|TYPE=SIZE|sizemult_modifier</code>
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     sizemult_modifier
-    </code>
+    <code>sizemult_modifier</code>
     is a number. This number is added to the
-    <code>
-     SIZEMULT
-    </code>
+    <code>SIZEMULT</code>
     in the
-    <code>
-     load.lst
-    </code>
+    <code>load.lst</code>
     file to determine the "effective" carrying capacity multiplier, relative to a normal sized creature.
    </li>
   </ul>
@@ -1074,41 +824,29 @@ SIZENAME:P  SIZENUM:100</code></pre>
   </h5>
   <ul class="incremental">
    <li>
-    <code>
-     SIZENAME:H  →  BONUS:LOADMULT|TYPE=SIZE|2
-    </code>
+    <code>SIZENAME:H  →  BONUS:LOADMULT|TYPE=SIZE|2</code>
    </li>
   </ul>
   <p>
    Increases the creature's carrying capacity by one multiple of the normal carrying capacity. This adds with the multiplier already defined for the creature's size category, in
-   <code>
-    load.lst
-   </code>
+   <code>load.lst</code>
    .
   </p>
   <p>
    For example, in DnD 3.5e, a huge-size creature can already carry four times the load of a medium-size creature. This is defined by the code
-   <code>
-    SIZEMULT:H|4
-   </code>
+   <code>SIZEMULT:H|4</code>
    in
-   <code>
-    load.lst
-   </code>
+   <code>load.lst</code>
    .
   </p>
   <p>
    The above
-   <code>
-    BONUS:LOADMULT|...|2
-   </code>
+   <code>BONUS:LOADMULT|...|2</code>
    increases this by a further two multiples of the medium-size creature's carrying capacity, to a total of six times.
   </p>
   <ul class="incremental">
    <li>
-    <code>
-     SIZENAME:H  →  BONUS:LOADMULT|TYPE=SIZE|2|PRELEGSGTEQ:4
-    </code>
+    <code>SIZENAME:H  →  BONUS:LOADMULT|TYPE=SIZE|2|PRELEGSGTEQ:4</code>
    </li>
   </ul>
   <p>

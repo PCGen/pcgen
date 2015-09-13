@@ -48,8 +48,7 @@ Gwaith)
    </b>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../datafilestagpages/datafilesdeities.html#domains">
+   <code><a href="../datafilestagpages/datafilesdeities.html#domains">
      DOMAINS
     </a>
     ,
@@ -83,8 +82,7 @@ Gwaith)
     ,
     <a href="../globalfilestagpages/globalfilesother.html#sourcepage">
      SOURCEPAGE
-    </a>
-   </code>
+    </a></code>
   </p>
   <hr/>
   <p class="indent0">
@@ -306,15 +304,11 @@ of a deity. This means that the entries into our data file begin as
 follows:
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt;
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt;
   </p>
   <hr/>
@@ -325,9 +319,7 @@ follows:
    <strong>
     Tag Format:
    </strong>
-   <code>
-    DOMAINS:&lt;domain list&gt;
-   </code>
+   <code>DOMAINS:&lt;domain list&gt;</code>
   </p>
   <p class="indent0">
    This tag sets the domains the deity makes
@@ -341,35 +333,25 @@ important that the domains listed must be defined in a
 When making your own deity, you may include as many domains as you
 wish, though prudence may dictate limiting the number for if a
 deity has all domains, which can be done by simply using
-   <code>
-    ALL
-   </code>
+   <code>ALL</code>
    as the sole argument, there is no need for
 additional deities, and what fun would that be.
   </p>
   <p class="indent0">
    The
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tag may be used as an
 optional tag added at the end of the domain list, separated by a
 pipe (|). These prerequisites are checked against the divine caster
 to determine if he/she is allowed to select the domains listed in
 that particular
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag. Typically, the
-   <code>
-    PREALIGN
-   </code>
+   <code>PREALIGN</code>
    tag is used to restrict what alignments a
 cleric/class with access to domains can be to have access to the
 domains. For more depth on
-   <code>
-    PREALIGN
-   </code>
+   <code>PREALIGN</code>
    syntax and usage
 itself, scroll down a bit. It can be used by itself on the line
 (with slightly different meaning for the user) and is explained
@@ -377,9 +359,7 @@ more in depth there.
   </p>
   <p class="indent0">
    PCGen provides some flexibility in how the
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tags are applied, allowing some fairly complex
 application, but most usage of this tag is fairly simple so you
 might just skip over the next paragraph. On the other, if you wish
@@ -388,60 +368,38 @@ started.
   </p>
   <p class="indent0">
    When using the
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tags at the
 end of the
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag, all domains listed in that tag
 will be restricted if the
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tag isn't satisfied.
 Fortunately, PCGen allows the placement of multiple
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tags in the same deity line, and each
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag can have its own
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tag,
 or none at all. With multiple
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tags, the
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tags are applied only to the domains included
 in that specific
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag but all domains included
 in each
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tags are made available to the divine
 caster, that is if the appropriate prerequisites have been
 satisfied.
   </p>
   <p class="indent0">
    At this point we are ready to build the
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tags for our two example deities.
   </p>
   <p class="indent0">
@@ -462,9 +420,7 @@ having the domains of
     Animal
    </span>
    , so this tag will appear as
-   <code>
-    DOMAINS:Chaos,Knowledge,Animal
-   </code>
+   <code>DOMAINS:Chaos,Knowledge,Animal</code>
    . If we wish to restrict
 the selection of the
    <span class="lstobj">
@@ -472,17 +428,11 @@ the selection of the
    </span>
    domain to
 only those divine casters who are chaotic, we can break the
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag into the following two tags:
-   <code>
-    DOMAINS:Chaos|PREALIGN:CG,CN
-   </code>
+   <code>DOMAINS:Chaos|PREALIGN:CG,CN</code>
    &lt;tab&gt;
-   <code>
-    DOMAINS:Knowledge,Animal
-   </code>
+   <code>DOMAINS:Knowledge,Animal</code>
    .
   </p>
   <p class="indent0">
@@ -503,9 +453,7 @@ having the domains of
     Poetry
    </span>
    , so this tag will appear as
-   <code>
-    DOMAINS:Good,Knowledge,Poetry
-   </code>
+   <code>DOMAINS:Good,Knowledge,Poetry</code>
    . If we wish to restrict
 the selection of the
    <span class="lstobj">
@@ -513,17 +461,11 @@ the selection of the
    </span>
    domain to
 only those divine casters who are good, we can break the
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag into the following two tags:
-   <code>
-    DOMAINS:Good|PREALIGN:LG,NG,CG
-   </code>
+   <code>DOMAINS:Good|PREALIGN:LG,NG,CG</code>
    &lt;tab&gt;
-   <code>
-    DOMAINS:Knowledge,Poetry
-   </code>
+   <code>DOMAINS:Knowledge,Poetry</code>
   </p>
   <p class="indent0">
    <strong>
@@ -531,78 +473,48 @@ only those divine casters who are good, we can break the
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    DOMAINS:Chaos,Knowledge,Animal
-   </code>
+   <code>DOMAINS:Chaos,Knowledge,Animal</code>
    (without the
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tags.)
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    DOMAINS:Chaos|PREALIGN:CG,CN
-   </code>
+   <code>DOMAINS:Chaos|PREALIGN:CG,CN</code>
    &lt;tab&gt;
-   <code>
-    DOMAINS:Knowledge,Animal
-   </code>
+   <code>DOMAINS:Knowledge,Animal</code>
    (With the
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tag.)
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . . &lt;TAB
 &gt;
-   <code>
-    DOMAINS:Good,Knowledge,Poetry
-   </code>
+   <code>DOMAINS:Good,Knowledge,Poetry</code>
    (without
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tags.)
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    DOMAINS:Good|PREALIGN:LG,NG,CG
-   </code>
+   <code>DOMAINS:Good|PREALIGN:LG,NG,CG</code>
    &lt;tab&gt;
-   <code>
-    DOMAINS:Knowledge,Poetry
-   </code>
+   <code>DOMAINS:Knowledge,Poetry</code>
    (with
-   <code>
-    PRExxx
-   </code>
+   <code>PRExxx</code>
    tags.)
   </p>
   <hr/>
   <p class="indent0">
    <strong>
-    <code>
-     ALIGN
-    </code>
+    <code>ALIGN</code>
    </strong>
   </p>
   <p class="indent0">
@@ -610,55 +522,33 @@ only those divine casters who are good, we can break the
     Tag
 Format:
    </strong>
-   <code>
-    ALIGN:&lt;alignment&gt;
-   </code>
+   <code>ALIGN:&lt;alignment&gt;</code>
   </p>
   <p class="indent0">
    This tag identifies the alignment of the deity.
 The generally accepted entries in the text field are
-   <code>
-    LG
-   </code>
+   <code>LG</code>
    ,
-   <code>
-    NG
-   </code>
+   <code>NG</code>
    ,
-   <code>
-    CG
-   </code>
+   <code>CG</code>
    ,
-   <code>
-    LN
-   </code>
+   <code>LN</code>
    ,
-   <code>
-    TN
-   </code>
+   <code>TN</code>
    ,
-   <code>
-    CN
-   </code>
+   <code>CN</code>
    ,
-   <code>
-    LE
-   </code>
+   <code>LE</code>
    ,
-   <code>
-    NE
-   </code>
+   <code>NE</code>
    and
-   <code>
-    CE
-   </code>
+   <code>CE</code>
    representing the following alignments: Lawful
 Good, Neutral Good, Chaotic Good, Lawful Neutral, True Neutral,
 Chaotic Neutral, Lawful Evil, Neutral Evil and Chaotic Evil. This
 tag isn't strictly necessary, but is used in
-   <code>
-    PREDEITYALIGN
-   </code>
+   <code>PREDEITYALIGN</code>
    tag, and a few other places, so we are
 including it with the critical tags.
   </p>
@@ -681,52 +571,36 @@ abbreviations, we get the tag implementations listed below.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    ALIGN:CG
-   </code>
+   <code>ALIGN:CG</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    ALIGN:NG
-   </code>
+   <code>ALIGN:NG</code>
   </p>
   <hr/>
   <p class="indent0">
    <strong>
-    <code>
-     PREALIGN
-    </code>
+    <code>PREALIGN</code>
    </strong>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    PREALIGN:&lt;alignment abbreviation&gt;
-   </code>
+   <code>PREALIGN:&lt;alignment abbreviation&gt;</code>
   </p>
   <p class="indent0">
    This tag establishes a restriction, based on the
 electing character's alignment, on which deities may be selected.
 This tag, in conjunction with the
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tag,
 replaces the functionality of the
-   <code>
-    FOLLOWERALIGN
-   </code>
+   <code>FOLLOWERALIGN</code>
    tag,
 which, as it has been deprecated, isn't being covered in this
 class.
@@ -735,41 +609,23 @@ class.
    The argument for this tag is a comma-delimited
 list of alignments by abbreviation. The accepted entries in the
 text field are
-   <code>
-    LG
-   </code>
+   <code>LG</code>
    ,
-   <code>
-    NG
-   </code>
+   <code>NG</code>
    ,
-   <code>
-    CG
-   </code>
+   <code>CG</code>
    ,
-   <code>
-    LN
-   </code>
+   <code>LN</code>
    ,
-   <code>
-    TN
-   </code>
+   <code>TN</code>
    ,
-   <code>
-    CN
-   </code>
+   <code>CN</code>
    ,
-   <code>
-    LE
-   </code>
+   <code>LE</code>
    ,
-   <code>
-    LN
-   </code>
+   <code>LN</code>
    and
-   <code>
-    CE
-   </code>
+   <code>CE</code>
    representing the following
 alignments: Lawful Good, Neutral Good, Chaotic Good, Lawful
 Neutral, True Neutral, Chaotic Neutral, Lawful Evil, Neutral Evil
@@ -780,9 +636,7 @@ and Chaotic Evil. These abbreviations are defined in the
    file in the Game
 Mode section of the PCGen documentation. There is one additional
 'alignment' which can be included. That is
-   <code>
-    Deity
-   </code>
+   <code>Deity</code>
    ,
 which simply refers back to the selected deity's own alignment.
   </p>
@@ -801,39 +655,27 @@ listed below.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    PREALIGN:NG,CG,CN
-   </code>
+   <code>PREALIGN:NG,CG,CN</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    PREALIGN:LG,NG,TN,CG
-   </code>
+   <code>PREALIGN:LG,NG,TN,CG</code>
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      DEITYWEAP
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    DEITYWEAP:&lt;favored weapon&gt;
-   </code>
+   <code>DEITYWEAP:&lt;favored weapon&gt;</code>
   </p>
   <p class="indent0">
    This tag provides the deity's favored weapon.
@@ -888,23 +730,15 @@ implementation of this tag for our deities is shown below.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    DEITYWEAP:Tiger Claws
-   </code>
+   <code>DEITYWEAP:Tiger Claws</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    DEITYWEAP:Shepherd's Crook
-   </code>
+   <code>DEITYWEAP:Shepherd's Crook</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -930,19 +764,15 @@ implement.
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      PANTHEON
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    PANTHEON:&lt;pantheon name&gt;
-   </code>
+   <code>PANTHEON:&lt;pantheon name&gt;</code>
   </p>
   <p class="indent0">
    This tag establishes the pantheon to which the
@@ -972,39 +802,27 @@ implementation listed below.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    PANTHEON:BoD
-   </code>
+   <code>PANTHEON:BoD</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    PANTHEON:Olympia
-   </code>
+   <code>PANTHEON:Olympia</code>
   </p>
   <hr/>
   <p class="indent0">
    <strong>
-    <code>
-     TITLE
-    </code>
+    <code>TITLE</code>
    </strong>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    TITLE:&lt;descriptive title&gt;
-   </code>
+   <code>TITLE:&lt;descriptive title&gt;</code>
   </p>
   <p class="indent0">
    This tag provides the deity's descriptive title,
@@ -1028,39 +846,27 @@ below.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    TITLE:The CONTENTed One
-   </code>
+   <code>TITLE:The CONTENTed One</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    TITLE:The Flourishing One
-   </code>
+   <code>TITLE:The Flourishing One</code>
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      APPEARANCE
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    APPEARANCE:&lt;descriptive appearance&gt;
-   </code>
+   <code>APPEARANCE:&lt;descriptive appearance&gt;</code>
   </p>
   <p class="indent0">
    This tag provides the deity's descriptive
@@ -1077,41 +883,29 @@ implementation of this tag for each deity below.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    APPEARANCE:He is usually seen as a small simian stooped over
-a wireless keyboard typing madly.
-   </code>
+   <code>APPEARANCE:He is usually seen as a small simian stooped over
+a wireless keyboard typing madly.</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    APPEARANCE:She is sometimes seen with a crown of
-ivy and a Shepherd's crook
-   </code>
+   <code>APPEARANCE:She is sometimes seen with a crown of
+ivy and a Shepherd's crook</code>
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      WORSHIPPERS
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    WORSHIPPERS:&lt;typical worshipers&gt;
-   </code>
+   <code>WORSHIPPERS:&lt;typical worshipers&gt;</code>
   </p>
   <p class="indent0">
    This tag provides a list of the deity's typical
@@ -1129,9 +923,7 @@ see the implementation of this tag in the examples below.
   </p>
   <p class="sidebar1">
    NOTE: The astute student will note that the
-   <code>
-    WORSHIPPERS
-   </code>
+   <code>WORSHIPPERS</code>
    tag is misspelled. That may be so but that
 is the way the tag is in fact spelled within the program, so please
 conform to the misspelling ... at least until we can fix it in the
@@ -1143,24 +935,16 @@ code base.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;TAB&gt; . . . &lt;TAB&gt;
-   <code>
-    WORSHIPPERS:LST Monkeys
-   </code>
+   <code>WORSHIPPERS:LST Monkeys</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;TAB&gt; . . .
 &lt;TAB&gt;
-   <code>
-    WORSHIPPERS:Comedians and Pastoral
-Poets
-   </code>
+   <code>WORSHIPPERS:Comedians and Pastoral
+Poets</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -1191,18 +975,14 @@ on your own!
   <hr/>
   <p>
    <strong>
-    <code>
-     DESCISIP
-    </code>
+    <code>DESCISIP</code>
    </strong>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    DESCIP:&lt;YES or NO&gt;
-   </code>
+   <code>DESCIP:&lt;YES or NO&gt;</code>
   </p>
   <p class="indent0">
    This tag is used to identify the deity
@@ -1227,13 +1007,9 @@ can help to clarify any confusion.
    As for this tag itself, it is fairly simple to
 implement as the argument for the tag is a simple boolean and will
 take only
-   <code>
-    YES
-   </code>
+   <code>YES</code>
    or
-   <code>
-    NO
-   </code>
+   <code>NO</code>
    as values. For our
 sample deities, the first created as an example in the
    <span class="lstfile">
@@ -1242,41 +1018,31 @@ sample deities, the first created as an example in the
    file, and the other created
 out-of-thin-air for this lst class, the descriptions are not PI;
 therefore, we would implement this tag as
-   <code>
-    DESCISPI:NO
-   </code>
+   <code>DESCISPI:NO</code>
    .
 Or we would if it was really necessary for if the tag is not
 included PCGen defaults to
-   <code>
-    NO
-   </code>
+   <code>NO</code>
    so we won't actually
 include the tag in our deity file.
   </p>
   <hr/>
   <p class="indent0">
    <strong>
-    <code>
-     SOURCEPAGE
-    </code>
+    <code>SOURCEPAGE</code>
    </strong>
   </p>
   <p class="indent0">
    <strong>
     Tag Format:
    </strong>
-   <code>
-    SOURCEPAGE:&lt;source page number&gt;
-   </code>
+   <code>SOURCEPAGE:&lt;source page number&gt;</code>
   </p>
   <p class="indent0">
    Simply put, this tag provides the specific page
 reference within the source from which the deity information was
 taken. The source page text generally takes the form of
-   <code>
-    &lt;p.#&gt;
-   </code>
+   <code>&lt;p.#&gt;</code>
    with the pound sign (#) being replaced by
 the page number on which the deity information can be found within
 the source material. For our sample deity
@@ -1288,13 +1054,9 @@ the source material. For our sample deity
     my_deity.lst
    </span>
    file so our
-   <code>
-    SOURCEPAGE
-   </code>
+   <code>SOURCEPAGE</code>
    tag will take the form of
-   <code>
-    SOURCEPAGE:my_deity.lst
-   </code>
+   <code>SOURCEPAGE:my_deity.lst</code>
    . As
 for
    <span class="lstobj">
@@ -1304,9 +1066,7 @@ for
 deity, there is no source page, but many functions and filters in
 PCGen use it, so it is good to include it. Therefore, we will
 include the tag with an
-   <code>
-    n/a
-   </code>
+   <code>n/a</code>
    for the source page.
   </p>
   <p class="indent0">
@@ -1315,24 +1075,16 @@ include the tag with an
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    MoSaT
-   </code>
+   <code>MoSaT</code>
    &lt;tab&gt; . . .
 &lt;tab&gt;
-   <code>
-    SOURCEPAGE:my_deity.lst
-   </code>
+   <code>SOURCEPAGE:my_deity.lst</code>
   </p>
   <p class="indent1">
-   <code>
-    Thalia
-   </code>
+   <code>Thalia</code>
    &lt;tab&gt; . . .
 &lt;tab&gt;
-   <code>
-    SOURCEPAGE:n/a
-   </code>
+   <code>SOURCEPAGE:n/a</code>
   </p>
   <hr/>
   <h3>
@@ -1344,129 +1096,83 @@ single line and the tags in the order that I feel makes most
 sense.):
   </p>
   <p class="indent2">
-   <code>
-    MoSaT&lt;tab&gt;
-   </code>
+   <code>MoSaT&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    TITLE:The CONTENTed
-One&lt;tab&gt;
-   </code>
+   <code>TITLE:The CONTENTed
+One&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    PANTHEON:BoD&lt;tab&gt;
-   </code>
+   <code>PANTHEON:BoD&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    ALIGN:CG&lt;tab&gt;
-   </code>
+   <code>ALIGN:CG&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    PREALIGN:NG,CG,CN&lt;tab&gt;
-   </code>
+   <code>PREALIGN:NG,CG,CN&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Chaos|PREALIGN:CG,CN&lt;tab&gt;
-   </code>
+   <code>DOMAINS:Chaos|PREALIGN:CG,CN&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Knowledge,Animal&lt;tab&gt;
-   </code>
+   <code>DOMAINS:Knowledge,Animal&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    DEITYWEAP:Tiger
-Claws&lt;tab&gt;
-   </code>
+   <code>DEITYWEAP:Tiger
+Claws&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    APPEARANCE:He is usually seen as a small
-simian
-   </code>
+   <code>APPEARANCE:He is usually seen as a small
+simian</code>
   </p>
   <p class="indent3">
-   <code>
-    stooped over a wireless keyboard typing
-madly.&lt;tab&gt;
-   </code>
+   <code>stooped over a wireless keyboard typing
+madly.&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    WORSHIPPERS:LST
-Monkeys&lt;tab&gt;
-   </code>
+   <code>WORSHIPPERS:LST
+Monkeys&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEPAGE:my_deity.lst
-   </code>
+   <code>SOURCEPAGE:my_deity.lst</code>
   </p>
   <p class="indent2">
-   <code>
-    Thalia&lt;tab&gt;
-   </code>
+   <code>Thalia&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    TITLE:The Flourishing
-One&lt;tab&gt;
-   </code>
+   <code>TITLE:The Flourishing
+One&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    PANTHEON:Olympia&lt;tab&gt;
-   </code>
+   <code>PANTHEON:Olympia&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    ALIGN:NG&lt;tab&gt;
-   </code>
+   <code>ALIGN:NG&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    PREALIGN:LG,NG,TN,CG&lt;tab&gt;
-   </code>
+   <code>PREALIGN:LG,NG,TN,CG&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Good|PREALIGN:LG,NG,CG&lt;tab&gt;
-   </code>
+   <code>DOMAINS:Good|PREALIGN:LG,NG,CG&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Knowledge,Poetry&lt;tab&gt;
-   </code>
+   <code>DOMAINS:Knowledge,Poetry&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    DEITYWEAP:Shepherd's
-Crook&lt;tab&gt;
-   </code>
+   <code>DEITYWEAP:Shepherd's
+Crook&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    APPEARANCE:She is sometimes seen with a
-crown of ivy
-   </code>
+   <code>APPEARANCE:She is sometimes seen with a
+crown of ivy</code>
   </p>
   <p class="indent3">
-   <code>
-    and a Shepherd's
-crook.&lt;tab&gt;
-   </code>
+   <code>and a Shepherd's
+crook.&lt;tab&gt;</code>
   </p>
   <p class="indent2">
-   <code>
-    WORSHIPPERS:Comedians and Pastoral
-Poets
-   </code>
+   <code>WORSHIPPERS:Comedians and Pastoral
+Poets</code>
   </p>
   <hr/>
   <p class="indent0">

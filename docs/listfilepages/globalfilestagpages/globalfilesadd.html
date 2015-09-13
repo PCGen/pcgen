@@ -43,9 +43,7 @@
     be used with at
 least one valid choice (like the CHOOSE tag) or it will not
 function, i.e. If
-    <code>
-     ADD:FEAT|TYPE=Foo
-    </code>
+    <code>ADD:FEAT|TYPE=Foo</code>
     and the character
 does not qualify for any TYPE=Foo feat, there will be no pop-up or
 choice.
@@ -113,43 +111,31 @@ not be supported in the future.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:.CLEAR.LEVEL2
-   </code>
+   <code>ADD:.CLEAR.LEVEL2</code>
   </p>
   <p class="indent3">
    If this were used in a CLASS:Rogue.MOD line it
 would clear the
-   <code>
-    ADD:FEAT(Evasion, Improved Evasion)
-   </code>
+   <code>ADD:FEAT(Evasion, Improved Evasion)</code>
    tag normally found there and allow you to add a new one, perhaps:
-   <code>
-    ADD:FEAT (Evasion,Improved Evasion,Shadow)
-   </code>
+   <code>ADD:FEAT (Evasion,Improved Evasion,Shadow)</code>
    .
   </p>
   <p class="indent2">
-   <code>
-    ADD:.CLEAR
-   </code>
+   <code>ADD:.CLEAR</code>
   </p>
   <p class="indent3">
    If this were used in a Zombie.MOD line it would
 clear the
-   <code>
-    ADD:FEAT (TYPE=SlamWeapons)
-   </code>
+   <code>ADD:FEAT (TYPE=SlamWeapons)</code>
    tag normally
 found in that template.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Gunslinger.MOD &lt;tab&gt;
+   <code>CLASS:Gunslinger.MOD &lt;tab&gt;
 ADD:.CLEAR.LEVEL2 &lt;tab&gt; ADD:.CLEAR.LEVEL3 &lt;tab&gt;
 ADD:.CLEAR.LEVEL6 &lt;tab&gt; ADD:.CLEAR.LEVEL8 &lt;tab&gt;
-ADD:.CLEAR.LEVEL9
-   </code>
+ADD:.CLEAR.LEVEL9</code>
   </p>
   <p class="indent3">
    This modification of the Gunslinger Class
@@ -224,13 +210,9 @@ names and/or types.
    </li>
    <li>
     Valid ability natures are
-    <code>
-     NORMAL
-    </code>
+    <code>NORMAL</code>
     or
-    <code>
-     VIRTUAL
-    </code>
+    <code>VIRTUAL</code>
     .
    </li>
    <!--
@@ -239,14 +221,10 @@ names and/or types.
 -->
    <li>
     If the ability being added has a chooser
-    <code>
-     ADD:ABILITY
-    </code>
+    <code>ADD:ABILITY</code>
     is the only tag which will activate it
 (
-    <code>
-     ABILITY
-    </code>
+    <code>ABILITY</code>
     alone will not).
    </li>
   </ul>
@@ -256,19 +234,15 @@ names and/or types.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:ABILITY|2|FEAT|NORMAL|Alertness,TYPE=Fighter,Electric
-Boogalo
-   </code>
+   <code>ADD:ABILITY|2|FEAT|NORMAL|Alertness,TYPE=Fighter,Electric
+Boogalo</code>
   </p>
   <p class="indent3">
    Add two feats from "Alertness", any "Fighter"
 type feats or "Electric Boogalo".
   </p>
   <p class="indent2">
-   <code>
-    ADD:ABILITY|FEAT|VIRTUAL|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-   </code>
+   <code>ADD:ABILITY|FEAT|VIRTUAL|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Add one virtual feat from "General", any
@@ -331,47 +305,37 @@ assumed.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:EQUIP|1|Torch,Lantern
-   </code>
+   <code>ADD:EQUIP|1|Torch,Lantern</code>
   </p>
   <p class="indent3">
    Add one of either a "Torch" or a "Lantern" to
 the character.
   </p>
   <p class="indent2">
-   <code>
-    ADD:EQUIP|Blastpowder (10)
-   </code>
+   <code>ADD:EQUIP|Blastpowder (10)</code>
   </p>
   <p class="indent3">
    Add one of "Blastpowder (10)" to the
 character.
   </p>
   <p class="indent2">
-   <code>
-    ADD:EQUIP|2|Synchronicity Watch,Secret
-Pockets,Daylight Flares
-   </code>
+   <code>ADD:EQUIP|2|Synchronicity Watch,Secret
+Pockets,Daylight Flares</code>
   </p>
   <p class="indent3">
    Add two of "Synchronicity Watch", "Secret
 Pockets" or "Daylight Flares" to the character.
   </p>
   <p class="indent2">
-   <code>
-    ADD:EQUIP|Dagger (Sarishan
-Steel)
-   </code>
+   <code>ADD:EQUIP|Dagger (Sarishan
+Steel)</code>
   </p>
   <p class="indent3">
    Add one of "Sarishan Steel Dagger" to the
 character.
   </p>
   <p class="indent2">
-   <code>
-    ADD:EQUIP|TYPE=Thrown
-   </code>
+   <code>ADD:EQUIP|TYPE=Thrown</code>
   </p>
   <p class="indent3">
    Add one piece of equipment of type "Thrown" to
@@ -448,13 +412,9 @@ tag.
 -->
    <li>
     If the feat being added has a chooser,
-    <code>
-     ADD:FEAT
-    </code>
+    <code>ADD:FEAT</code>
     will activate it. (
-    <code>
-     FEAT
-    </code>
+    <code>FEAT</code>
     alone will not.)
    </li>
   </ul>
@@ -464,19 +424,15 @@ tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:FEAT|2|Alertness,TYPE=Fighter,Electric
-Boogalo
-   </code>
+   <code>ADD:FEAT|2|Alertness,TYPE=Fighter,Electric
+Boogalo</code>
   </p>
   <p class="indent3">
    Add two feats from a list of feats consisting of
 "Alertness", any "Fighter" type feats and "Electric Boogalo".
   </p>
   <p class="indent2">
-   <code>
-    ADD:FEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-   </code>
+   <code>ADD:FEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Add one feat from the list of feats consisting
@@ -484,17 +440,13 @@ of "General", any "Metamagic", or any "ItemCreation" type
 feats.
   </p>
   <p class="indent2">
-   <code>
-    ADD:FEAT|2|ALL
-   </code>
+   <code>ADD:FEAT|2|ALL</code>
   </p>
   <p class="indent3">
    Add two feats from all feats available.
   </p>
   <p class="indent2">
-   <code>
-    ADD:FEAT|Skill Focus(Craft%)
-   </code>
+   <code>ADD:FEAT|Skill Focus(Craft%)</code>
   </p>
   <p class="indent3">
    Add the skill focus feat and choose only from
@@ -563,36 +515,28 @@ character can choose from.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:LANGUAGE|Draconic,Elven,Undercommon
-   </code>
+   <code>ADD:LANGUAGE|Draconic,Elven,Undercommon</code>
   </p>
   <p class="indent3">
    Add "Draconic", "Elven" or "Undercommon" to the
 list of languages known.
   </p>
   <p class="indent2">
-   <code>
-    ADD:LANGUAGE|2|TYPE=Spoken
-   </code>
+   <code>ADD:LANGUAGE|2|TYPE=Spoken</code>
   </p>
   <p class="indent3">
    Adds two of any spoken type languages to the
 list of languages known.
   </p>
   <p class="indent2">
-   <code>
-    ADD:LANGUAGE|2|TYPE=Imperial,TYPE=Infernal
-   </code>
+   <code>ADD:LANGUAGE|2|TYPE=Imperial,TYPE=Infernal</code>
   </p>
   <p class="indent3">
    Adds two of any Imperial or Infernal type
 languages to the list of languages known.
   </p>
   <p class="indent2">
-   <code>
-    ADD:LANGUAGE|2|ALL
-   </code>
+   <code>ADD:LANGUAGE|2|ALL</code>
   </p>
   <p class="indent3">
    Adds two of any language to the list of
@@ -659,20 +603,16 @@ one to the limit of count (y) from the items listed (z).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:SAB|Brick Wall|3|Damage
+   <code>ADD:SAB|Brick Wall|3|Damage
 Reduction,Concussion Resistance,Remain Concious, Melee
-Smash,Extreme Effort
-   </code>
+Smash,Extreme Effort</code>
   </p>
   <p class="indent3">
    Add three of special abilities listed.
   </p>
   <p class="indent2">
-   <code>
-    ADD:SAB|Shadow Slayer|1|Detect
-Shadow,Shadow Immunity
-   </code>
+   <code>ADD:SAB|Shadow Slayer|1|Detect
+Shadow,Shadow Immunity</code>
   </p>
   <p class="indent3">
    Add one of the two special abilities.
@@ -736,27 +676,21 @@ skills.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:SKILL|1|Read/Write Language
-   </code>
+   <code>ADD:SKILL|1|Read/Write Language</code>
   </p>
   <p class="indent3">
    Add one of either a "Read/Write Language".
   </p>
   <p class="indent2">
-   <code>
-    ADD:SKILL|5|Balance,Craft
-(Structural),Demolitions
-   </code>
+   <code>ADD:SKILL|5|Balance,Craft
+(Structural),Demolitions</code>
   </p>
   <p class="indent3">
    Add five skill levels of "Balance" or "Craft
 (Structural)" or "Demolitions".
   </p>
   <p class="indent2">
-   <code>
-    ADD:SKILL|2|Speak Language
-   </code>
+   <code>ADD:SKILL|2|Speak Language</code>
   </p>
   <p class="indent3">
    Add two of "Speak Language".
@@ -856,36 +790,28 @@ in order to select them.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:SPELLCASTER|ANY
-   </code>
+   <code>ADD:SPELLCASTER|ANY</code>
   </p>
   <p class="indent3">
    Adds a bonus level of spellcasting to any
 spellcasting class the character has levels in.
   </p>
   <p class="indent2">
-   <code>
-    ADD:SPELLCASTER|Divine
-   </code>
+   <code>ADD:SPELLCASTER|Divine</code>
   </p>
   <p class="indent3">
    Adds a bonus level of spellcasting to any Divine
 spellcasting class the character has levels in.
   </p>
   <p class="indent2">
-   <code>
-    ADD:SPELLCASTER|Arcane
-   </code>
+   <code>ADD:SPELLCASTER|Arcane</code>
   </p>
   <p class="indent3">
    Adds a bonus level of spellcasting to any Arcane
 spellcasting class the character has levels in.
   </p>
   <p class="indent2">
-   <code>
-    ADD:SPELLCASTER|Bard,Sorcerer
-   </code>
+   <code>ADD:SPELLCASTER|Bard,Sorcerer</code>
   </p>
   <p class="indent3">
    Adds a bonus level of spellcasting of either
@@ -941,27 +867,21 @@ to the character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:TEMPLATE|1|Scholar,Soldier
-   </code>
+   <code>ADD:TEMPLATE|1|Scholar,Soldier</code>
   </p>
   <p class="indent3">
    Add one of either a "Scholar" or a
 "Soldier".
   </p>
   <p class="indent2">
-   <code>
-    ADD:TEMPLATE|Robot
-   </code>
+   <code>ADD:TEMPLATE|Robot</code>
   </p>
   <p class="indent3">
    Add one of "Robot".
   </p>
   <p class="indent2">
-   <code>
-    ADD:TEMPLATE|2|Suite of St. Daris,Suite of
-St. Feldin,Suite of Lothian
-   </code>
+   <code>ADD:TEMPLATE|2|Suite of St. Daris,Suite of
+St. Feldin,Suite of Lothian</code>
   </p>
   <p class="indent3">
    Add two of "Suite of St. Daris", "Suite of St.
@@ -1033,13 +953,9 @@ of feats (y) to the character regardless of qualification.
 -->
    <li>
     If the feat being added has a chooser,
-    <code>
-     ADD:VFEAT
-    </code>
+    <code>ADD:VFEAT</code>
     will activate it. (
-    <code>
-     VFEAT
-    </code>
+    <code>VFEAT</code>
     alone will not.)
    </li>
    <li>
@@ -1052,28 +968,22 @@ of feats (y) to the character regardless of qualification.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:VFEAT|Weapon
-Master(TYPE=Weapon)
-   </code>
+   <code>ADD:VFEAT|Weapon
+Master(TYPE=Weapon)</code>
   </p>
   <p class="indent3">
    Add Weapon Master feat, for any "Weapon" type,
 as a virtual feat.
   </p>
   <p class="indent2">
-   <code>
-    ADD:VFEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
-   </code>
+   <code>ADD:VFEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code>
   </p>
   <p class="indent3">
    Add one virtual feat from types "General",
 "Metamagic", and "ItemCreation" type feats.
   </p>
   <p class="indent2">
-   <code>
-    ADD:VFEAT|2|ALL
-   </code>
+   <code>ADD:VFEAT|2|ALL</code>
   </p>
   <p class="indent3">
    Add two virtual feats selected from among all

@@ -61,16 +61,12 @@ equality. If you are curious you can check out the JEP library at
 negative) use -1*(). EXAMPLE:
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|BASE.Will|CL/3
-   </code>
+   <code>BONUS:CHECKS|BASE.Will|CL/3</code>
    is a
 positive 1 at 3rd level and
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|BASE.Will|-1*(CL/3)
-   </code>
+   <code>BONUS:CHECKS|BASE.Will|-1*(CL/3)</code>
    is
 a -1 at 3rd level.
   </p>
@@ -108,10 +104,8 @@ is defined as: '$', '_', a-z and A-Z.
 alone:
   </p>
   <p class="indent3">
-   <code>
-    CL, TL, ARMORACCHECK,
-BardicKnowledgeLevel, TirelessRage.
-   </code>
+   <code>CL, TL, ARMORACCHECK,
+BardicKnowledgeLevel, TirelessRage.</code>
    ,
   </p>
   <p class="indent2">
@@ -119,10 +113,8 @@ BardicKnowledgeLevel, TirelessRage.
 the getvar() function:
   </p>
   <p class="indent3">
-   <code>
-    var("CL=Fighter"), var("COUNT[FEATS]"),
-var("COUNT[FEATTYPE=type]").
-   </code>
+   <code>var("CL=Fighter"), var("COUNT[FEATS]"),
+var("COUNT[FEATTYPE=type]").</code>
   </p>
   <p class="indent2">
    Consult the
@@ -143,9 +135,7 @@ processing:
 processing is done left-to-right.
   </p>
   <p class="indent2">
-   <code>
-    2+(3*5+2)/2
-   </code>
+   <code>2+(3*5+2)/2</code>
   </p>
   <p class="indent3">
    Would become 2+(15+2)/2 (3*5 replaced)
@@ -185,33 +175,25 @@ floor(a) or ceil(a) tags.
    <strong>
     Addition:
    </strong>
-   <code>
-    x+y
-   </code>
+   <code>x+y</code>
   </p>
   <p class="indent1">
    <strong>
     Subtraction:
    </strong>
-   <code>
-    x-y
-   </code>
+   <code>x-y</code>
   </p>
   <p class="indent1">
    <strong>
     Division:
    </strong>
-   <code>
-    x/y
-   </code>
+   <code>x/y</code>
   </p>
   <p class="indent1">
    <strong>
     Multiplication:
    </strong>
-   <code>
-    x*y
-   </code>
+   <code>x*y</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -262,44 +244,34 @@ processed first.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     2+1
-    </code>
+    <code>2+1</code>
    </p>
    <p class="indent3">
     Returns a value of 3.
    </p>
    <p class="indent2">
-    <code>
-     CL-1
-    </code>
+    <code>CL-1</code>
    </p>
    <p class="indent3">
     Returns a value equal to the Class Level minus
 1.
    </p>
    <p class="indent2">
-    <code>
-     CL/2
-    </code>
+    <code>CL/2</code>
    </p>
    <p class="indent3">
     Returns a value equal to the Class Level divided
 by 2.
    </p>
    <p class="indent2">
-    <code>
-     CL*3
-    </code>
+    <code>CL*3</code>
    </p>
    <p class="indent3">
     Returns a value equal to the Class Level
 multiplied by 3.
    </p>
    <p class="indent2">
-    <code>
-     ((CL+1)+(3*TL)/2)+4
-    </code>
+    <code>((CL+1)+(3*TL)/2)+4</code>
     (JEP
 Expression)
    </p>
@@ -309,9 +281,7 @@ Level divided by two, plus Class Level plus 1, plus four. Assuming
 CL=TL=4, this expression returns 15.
    </p>
    <p class="indent2">
-    <code>
-     ((CL+1)+(3*TL)/2)+4
-    </code>
+    <code>((CL+1)+(3*TL)/2)+4</code>
     (Non-JEP
 Expression)
    </p>
@@ -331,65 +301,49 @@ Assuming CL=TL=4, this expression returns 12.
    <strong>
     Equal:
    </strong>
-   <code>
-    x==y
-   </code>
+   <code>x==y</code>
   </p>
   <p class="indent1">
    <strong>
     Not Equal:
    </strong>
-   <code>
-    x!=y
-   </code>
+   <code>x!=y</code>
   </p>
   <p class="indent1">
    <strong>
     Greater Than:
    </strong>
-   <code>
-    x&gt;y
-   </code>
+   <code>x&gt;y</code>
   </p>
   <p class="indent1">
    <strong>
     Less Than:
    </strong>
-   <code>
-    x&lt;y
-   </code>
+   <code>x&lt;y</code>
   </p>
   <p class="indent1">
    <strong>
     Greater Than or Equal:
    </strong>
-   <code>
-    x&gt;=y
-   </code>
+   <code>x&gt;=y</code>
   </p>
   <p class="indent1">
    <strong>
     Less Than or Equal:
    </strong>
-   <code>
-    x&lt;=y
-   </code>
+   <code>x&lt;=y</code>
   </p>
   <p class="indent1">
    <strong>
     Logical AND:
    </strong>
-   <code>
-    x&amp;&amp;y
-   </code>
+   <code>x&amp;&amp;y</code>
   </p>
   <p class="indent1">
    <strong>
     Logical OR:
    </strong>
-   <code>
-    x||y
-   </code>
+   <code>x||y</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -421,63 +375,49 @@ or 0 (true or false respectively).
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     CL==1
-    </code>
+    <code>CL==1</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level is equal to
 1.
    </p>
    <p class="indent2">
-    <code>
-     CL!=1
-    </code>
+    <code>CL!=1</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level is not equal
 to 1.
    </p>
    <p class="indent2">
-    <code>
-     CL&gt;1
-    </code>
+    <code>CL&gt;1</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level is greater
 than 1.
    </p>
    <p class="indent2">
-    <code>
-     CL&lt;1
-    </code>
+    <code>CL&lt;1</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level is less than
 1.
    </p>
    <p class="indent2">
-    <code>
-     CL&gt;=1
-    </code>
+    <code>CL&gt;=1</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level is greater
 than or equal to 1.
    </p>
    <p class="indent2">
-    <code>
-     CL&lt;=1
-    </code>
+    <code>CL&lt;=1</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level is less than
 or equal to 1.
    </p>
    <p class="indent2">
-    <code>
-     (CL&gt;5)&amp;&amp;(TL&gt;5)
-    </code>
+    <code>(CL&gt;5)&amp;&amp;(TL&gt;5)</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level
@@ -487,9 +427,7 @@ or equal to 1.
     Total Level are greater than 5.
    </p>
    <p class="indent2">
-    <code>
-     (CL&gt;5)||(TL&gt;5)
-    </code>
+    <code>(CL&gt;5)||(TL&gt;5)</code>
    </p>
    <p class="indent3">
     Will return "True" if Class Level
@@ -511,9 +449,7 @@ or equal to 1.
    <strong>
     Choice:
    </strong>
-   <code>
-    %CHOICE
-   </code>
+   <code>%CHOICE</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -544,10 +480,8 @@ into its place.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     SPROP:Unreliable (%CHOICE) &lt;tab&gt;
-CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%
-    </code>
+    <code>SPROP:Unreliable (%CHOICE) &lt;tab&gt;
+CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code>
    </p>
    <p class="indent3">
     Chooser to select the level of unreliablty.
@@ -559,9 +493,7 @@ CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95
    <strong>
     List:
    </strong>
-   <code>
-    %LIST
-   </code>
+   <code>%LIST</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -592,10 +524,8 @@ into its place.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL
-&lt;tab&gt; BONUS:CHECKS|%LIST|1
-    </code>
+    <code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL
+&lt;tab&gt; BONUS:CHECKS|%LIST|1</code>
    </p>
    <p class="indent3">
     Will insert the "Choice" made in the "CHOOSE:"
@@ -609,9 +539,7 @@ tag into the "Bonus" tag and apply the bonus of "1" to the chosen
    <strong>
     Not:
    </strong>
-   <code>
-    !
-   </code>
+   <code>!</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -628,9 +556,7 @@ tag into the "Bonus" tag and apply the bonus of "1" to the chosen
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.
-    </code>
+    <code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code>
    </p>
    <p class="indent3">
     If the character does not have swim, add 1 to
@@ -643,9 +569,7 @@ it.
    <strong>
     Replacement/Substitution:
    </strong>
-   <code>
-    %
-   </code>
+   <code>%</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -675,10 +599,8 @@ the
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     SAB:Resistance to %
-5|MyFooVariable
-    </code>
+    <code>SAB:Resistance to %
+5|MyFooVariable</code>
    </p>
    <p class="indent3">
     Will substitute the value of "MyFooVariable" for
@@ -708,9 +630,7 @@ the "%" in the
    <strong>
     Formula:
    </strong>
-   <code>
-    x%y
-   </code>
+   <code>x%y</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -742,9 +662,7 @@ the operation.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     CL%3
-    </code>
+    <code>CL%3</code>
    </p>
    <p class="indent3">
     Divides the character's class level by 3 and
@@ -768,13 +686,9 @@ Expression)
    <strong>
     Formula:
    </strong>
-   <code>
-    min(x,x)
-   </code>
+   <code>min(x,x)</code>
    or
-   <code>
-    max(x,x)
-   </code>
+   <code>max(x,x)</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -808,9 +722,7 @@ compared.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     min(10,CL,TL/2)
-    </code>
+    <code>min(10,CL,TL/2)</code>
     given a multi-class
 character: Wiz8/Ftr6 and looking at it from the Wizard's
 perspective.
@@ -820,9 +732,7 @@ perspective.
 -&gt; (14/2)=7]) -&gt; min returns the value "7".
    </p>
    <p class="indent2">
-    <code>
-     max(3,CL,TL/2)
-    </code>
+    <code>max(3,CL,TL/2)</code>
     given a multi-class
 character: Wiz4/Rog6 and looking at it from the Rogue's
 perspective.
@@ -845,13 +755,9 @@ Expression)
    <strong>
     Formula:
    </strong>
-   <code>
-    floor(x)
-   </code>
+   <code>floor(x)</code>
    or
-   <code>
-    ceil(x)
-   </code>
+   <code>ceil(x)</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -880,9 +786,7 @@ that is greater than 'x'.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     floor((FooVariable+4)/6)
-    </code>
+    <code>floor((FooVariable+4)/6)</code>
     Assume
 FooVariable is "7"
    </p>
@@ -891,9 +795,7 @@ FooVariable is "7"
 11/6 -&gt; 1 5/6 - &gt; floor returns 1.
    </p>
    <p class="indent2">
-    <code>
-     ceil(STR/2)
-    </code>
+    <code>ceil(STR/2)</code>
     Assume STR=15
    </p>
    <p class="indent3">
@@ -913,9 +815,7 @@ ceil returns 8.
    <strong>
     Formula:
    </strong>
-   <code>
-    if(x,y,z)
-   </code>
+   <code>if(x,y,z)</code>
    <br/>
   </p>
   <blockquote>
@@ -969,27 +869,21 @@ the "False" result (z) is returned.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     if(CL&lt;10,1,2)
-    </code>
+    <code>if(CL&lt;10,1,2)</code>
    </p>
    <p class="indent3">
     Asks if Class Level is less than 10 then returns
 1 or else returns 2.
    </p>
    <p class="indent2">
-    <code>
-     if(CL&gt;=4,10,0)
-    </code>
+    <code>if(CL&gt;=4,10,0)</code>
    </p>
    <p class="indent3">
     Asks if Class Level is greater than or equal to
 4 then returns 10 or else returns 0.
    </p>
    <p class="indent2">
-    <code>
-     if((CL&gt;5)||(TL&gt;5),2,-4)
-    </code>
+    <code>if((CL&gt;5)||(TL&gt;5),2,-4)</code>
    </p>
    <p class="indent3">
     Asks if Class Level
@@ -1000,9 +894,7 @@ the "False" result (z) is returned.
 Level is greater than 5 then returns 2 or else returns -4.
    </p>
    <p class="indent2">
-    <code>
-     if(STR,5,0)
-    </code>
+    <code>if(STR,5,0)</code>
    </p>
    <p class="indent3">
     Asks if Strength modifier is greater than or
@@ -1019,9 +911,7 @@ less than 0 then returns 5 or else returns 0.
    <strong>
     Formula:
    </strong>
-   <code>
-    roll("x")
-   </code>
+   <code>roll("x")</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -1048,39 +938,25 @@ function and must be encapsulated in a roll("x") call to function
 properly:
      <ul>
       <li>
-       <code>
-        min(v1,v2)
-       </code>
+       <code>min(v1,v2)</code>
       </li>
       <li>
-       <code>
-        max(v1,v2)
-       </code>
+       <code>max(v1,v2)</code>
       </li>
       <li>
-       <code>
-        pow(base, exponent)
-       </code>
+       <code>pow(base, exponent)</code>
       </li>
       <li>
-       <code>
-        roll(times, sides)
-       </code>
+       <code>roll(times, sides)</code>
       </li>
       <li>
-       <code>
-        roll(times, sides, [keep])
-       </code>
+       <code>roll(times, sides, [keep])</code>
       </li>
       <li>
-       <code>
-        roll(times, [sides])
-       </code>
+       <code>roll(times, [sides])</code>
       </li>
       <li>
-       <code>
-        roll(times, [sides], [keep])
-       </code>
+       <code>roll(times, [sides], [keep])</code>
       </li>
      </ul>
     </li>
@@ -1113,76 +989,58 @@ functions in a useful way.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     roll("3d6")
-    </code>
+    <code>roll("3d6")</code>
    </p>
    <p class="indent3">
     Simulates rolling 3 six-sided dice.
    </p>
    <p class="indent2">
-    <code>
-     roll("1d20+10")
-    </code>
+    <code>roll("1d20+10")</code>
    </p>
    <p class="indent3">
     Simulates rolling a twenty-sided die and adds
 10.
    </p>
    <p class="indent2">
-    <code>
-     roll("min(4,7)")
-    </code>
+    <code>roll("min(4,7)")</code>
    </p>
    <p class="indent3">
     Returns a value of "4".
    </p>
    <p class="indent2">
-    <code>
-     roll("max(4,7)")
-    </code>
+    <code>roll("max(4,7)")</code>
    </p>
    <p class="indent3">
     Returns a value of "7".
    </p>
    <p class="indent2">
-    <code>
-     roll("pow(10,2)")
-    </code>
+    <code>roll("pow(10,2)")</code>
    </p>
    <p class="indent3">
     Returns a value of "100".
    </p>
    <p class="indent2">
-    <code>
-     roll("roll(3,6)")
-    </code>
+    <code>roll("roll(3,6)")</code>
    </p>
    <p class="indent3">
     Simulates rolling 3 six-sided dice.
    </p>
    <p class="indent2">
-    <code>
-     roll("roll(4,6,[2,3,4])")
-    </code>
+    <code>roll("roll(4,6,[2,3,4])")</code>
    </p>
    <p class="indent3">
     Simulates rolling 4 six-sided dice and keeps the
 3 highest rolls.
    </p>
    <p class="indent2">
-    <code>
-     roll("roll(1,[3,5,7,9])")
-    </code>
+    <code>roll("roll(1,[3,5,7,9])")</code>
    </p>
    <p class="indent3">
     Similates rolling one 3, 5, 7 or 9 sided die,
 randomly selected.
    </p>
    <p class="indent2">
-    <code>
-     roll("roll(3,[2,3,4,5,6],[2,3])")
-    </code>
+    <code>roll("roll(3,[2,3,4,5,6],[2,3])")</code>
    </p>
    <p class="indent3">
     Simulates rolling three 2, 3, 4, 5, or 6 sided
@@ -1206,9 +1064,7 @@ Expression)
    <strong>
     Formula:
    </strong>
-   <code>
-    classlevel("x")
-   </code>
+   <code>classlevel("x")</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -1247,9 +1103,7 @@ specified class.
       Class
      </span>
      by
-     <code>
-      TYPE
-     </code>
+     <code>TYPE</code>
      , use of a period-delimited list of types will
 return the level of the
      <span class="lstobj">
@@ -1265,9 +1119,7 @@ of all types listed.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     classlevel("Bard")
-    </code>
+    <code>classlevel("Bard")</code>
    </p>
    <p class="indent3">
     Returns the number of levels of
@@ -1277,9 +1129,7 @@ of all types listed.
     .
    </p>
    <p class="indent2">
-    <code>
-     classlevel("TYPE=PC.Prestige")
-    </code>
+    <code>classlevel("TYPE=PC.Prestige")</code>
    </p>
    <p class="indent3">
     Returns the number of levels of the class of
@@ -1294,9 +1144,7 @@ types
     .
    </p>
    <p class="indent2">
-    <code>
-     classlevel("APPLIEDAS=NONEPIC")
-    </code>
+    <code>classlevel("APPLIEDAS=NONEPIC")</code>
    </p>
    <p class="indent3">
     Returns the number of levels of applied as
@@ -1308,9 +1156,7 @@ non-epic levels.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     CL=&lt;Bard&gt;
-    </code>
+    <code>CL=&lt;Bard&gt;</code>
    </p>
   </blockquote>
   <hr/>
@@ -1331,9 +1177,7 @@ Expression)
    <strong>
     Formula:
    </strong>
-   <code>
-    skillinfo("x","y")
-   </code>
+   <code>skillinfo("x","y")</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -1426,54 +1270,42 @@ bonuses.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     skillinfo("RANK", "Hide")
-    </code>
+    <code>skillinfo("RANK", "Hide")</code>
    </p>
    <p class="indent3">
     Returns the number of base ranks in Hide.
    </p>
    <p class="indent2">
-    <code>
-     skillinfo("TOTALRANK", "Climb")
-    </code>
+    <code>skillinfo("TOTALRANK", "Climb")</code>
    </p>
    <p class="indent3">
     Returns the number ranks in Climb including
 those gained from BONUS:SKILLRANK tags.
    </p>
    <p class="indent2">
-    <code>
-     skillinfo("MODIFIER", "Bluff")
-    </code>
+    <code>skillinfo("MODIFIER", "Bluff")</code>
    </p>
    <p class="indent3">
     Returns the total number of bonuses in
 Bluff.
    </p>
    <p class="indent2">
-    <code>
-     skillinfo("STAT", "Diplomacy")
-    </code>
+    <code>skillinfo("STAT", "Diplomacy")</code>
    </p>
    <p class="indent3">
     Returns the ability bonus for Diplomacy.
    </p>
    <p class="indent2">
-    <code>
-     skillinfo("MISC", "Use Magic
-Device")
-    </code>
+    <code>skillinfo("MISC", "Use Magic
+Device")</code>
    </p>
    <p class="indent3">
     Returns the total miscellaneous bonuses in Use
 Magic Device.
    </p>
    <p class="indent2">
-    <code>
-     skillinfo("TOTAL",
-"Spellcraft")
-    </code>
+    <code>skillinfo("TOTAL",
+"Spellcraft")</code>
    </p>
    <p class="indent3">
     Returns the grand total in Spellcraft.
@@ -1492,9 +1324,7 @@ Expression)
    <strong>
     Formula:
    </strong>
-   <code>
-    charbonusto("x","y")
-   </code>
+   <code>charbonusto("x","y")</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -1583,9 +1413,7 @@ default to "PCLEVEL".
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     charbonusto("PCLEVEL","Cleric")
-    </code>
+    <code>charbonusto("PCLEVEL","Cleric")</code>
    </p>
    <p class="indent3">
     Returns the number of bonus Spellcaster Levels
@@ -1593,9 +1421,7 @@ to the class specified, which usually come from Prestige
 classes.
    </p>
    <p class="indent2">
-    <code>
-     charbonusto("CHECKS","Reflex")
-    </code>
+    <code>charbonusto("CHECKS","Reflex")</code>
    </p>
    <p class="indent3">
     Will return Reflex bonuses from a high Dexterity
@@ -1619,9 +1445,7 @@ and other bonuses but not the full reflex save value.
    <strong>
     Formula:
    </strong>
-   <code>
-    count(x,y)
-   </code>
+   <code>count(x,y)</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -1655,25 +1479,17 @@ being counted.
     </li>
     <li>
      "
-     <code>
-      [and]
-     </code>
+     <code>[and]</code>
      " and "
-     <code>
-      [or]
-     </code>
+     <code>[or]</code>
      " can be used
 between parameters.
     </li>
     <li>
      Use of this token in conjunction with output sheet tokens
-     <code>
-      IIF
-     </code>
+     <code>IIF</code>
      and
-     <code>
-      VAR
-     </code>
+     <code>VAR</code>
      require a semicolon-delimited
 (;) list of quotated parameters instead of a comma-delimited
 list.
@@ -1687,16 +1503,12 @@ max.
 &lt;Matching criteria&gt; are listed below:
      <ul>
       <li>
-       <code>
-        ABILITIES
-       </code>
+       <code>ABILITIES</code>
        - Will count the abilities that satisfy
 the following criteria:
        <ul>
         <li>
-         <code>
-          "CATEGORY=&lt;text&gt;"
-         </code>
+         <code>"CATEGORY=&lt;text&gt;"</code>
          - The ability category as
 defined in the
          <em>
@@ -1709,9 +1521,7 @@ defined in the
          file.
         </li>
         <li>
-         <code>
-          "NAME=&lt;text&gt;"
-         </code>
+         <code>"NAME=&lt;text&gt;"</code>
          - The name of a specific
 Ability which can be taken multiple times, returns the number of
 times it was taken. For abilities with internal choices you include
@@ -1719,9 +1529,7 @@ the specific choices to be counted within parenthesis, i.e. Weapon
 Focus (Longsword).
         </li>
         <li>
-         <code>
-          "KEY=&lt;text&gt;"
-         </code>
+         <code>"KEY=&lt;text&gt;"</code>
          - The key of a specific Ability
 which can be taken multiple times, returns the number of times it
 was taken. For abilities with internal choices you include the
@@ -1729,24 +1537,18 @@ specific choices to be counted within parenthesis, i.e. Weapon
 Focus (Longsword).
         </li>
         <li>
-         <code>
-          "NATURE=&lt;text&gt;"
-         </code>
+         <code>"NATURE=&lt;text&gt;"</code>
          - "NORMAL", "VIRTUAL", or
 "AUTOMATIC".
         </li>
         <li>
-         <code>
-          "TYPE=&lt;text&gt;"
-         </code>
+         <code>"TYPE=&lt;text&gt;"</code>
          - The ability type as defined
 in the ability.lst file. (e.g. "General", "Fighter", "Metamagic",
 etc.)
         </li>
         <li>
-         <code>
-          "VISIBILITY=&lt;text&gt;"
-         </code>
+         <code>"VISIBILITY=&lt;text&gt;"</code>
          <ul>
           <li>
            "HIDDEN", includes abilities with VISIBLE:NO
@@ -1764,9 +1566,7 @@ tag at all
          </ul>
         </li>
         <li>
-         <code>
-          "ASPECT=&lt;text&gt;"
-         </code>
+         <code>"ASPECT=&lt;text&gt;"</code>
          - The aspect as defined for
 the ability objects in the ability.lst file.
         </li>
@@ -1774,57 +1574,39 @@ the ability objects in the ability.lst file.
        <br/>
       </li>
       <li>
-       <code>
-        CAMPAIGNHISTORY
-       </code>
+       <code>CAMPAIGNHISTORY</code>
        - Will count the number of entries
 in the character's campaign history page.
       </li>
       <li>
-       <code>
-        CLASSES
-       </code>
+       <code>CLASSES</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        DOMAINS
-       </code>
+       <code>DOMAINS</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        EQUIPMENT
-       </code>
+       <code>EQUIPMENT</code>
        - Not yet implemented..
       </li>
       <li>
-       <code>
-        FOLLOWERS
-       </code>
+       <code>FOLLOWERS</code>
        - Not yet implemented..
       </li>
       <li>
-       <code>
-        LANGUAGES
-       </code>
+       <code>LANGUAGES</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        RACESUBTYPES
-       </code>
+       <code>RACESUBTYPES</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        SKILLSIT
-       </code>
+       <code>SKILLSIT</code>
        - Will count skills/situations that
 satisfy the stipulated criteria (y) as
-       <code>
-        "VIEW=&lt;text&gt;"
-       </code>
+       <code>"VIEW=&lt;text&gt;"</code>
        . Valid views are as per tag
        <a href="">
         TBD
@@ -1832,33 +1614,23 @@ satisfy the stipulated criteria (y) as
        .
       </li>
       <li>
-       <code>
-        SPELLBOOKS
-       </code>
+       <code>SPELLBOOKS</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        SPELLS
-       </code>
+       <code>SPELLS</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        SPELLSKNOWN
-       </code>
+       <code>SPELLSKNOWN</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        SPELLSINBOOK
-       </code>
+       <code>SPELLSINBOOK</code>
        - Not yet implemented.
       </li>
       <li>
-       <code>
-        TEMPLATES
-       </code>
+       <code>TEMPLATES</code>
        - Not yet implemented.
       </li>
      </ul>
@@ -1870,46 +1642,36 @@ satisfy the stipulated criteria (y) as
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     count("ABILITIES","CATEGORY=FEAT","TYPE=Metamagic","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")
-    </code>
+    <code>count("ABILITIES","CATEGORY=FEAT","TYPE=Metamagic","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")</code>
    </p>
    <p class="indent3">
     This token returns the number of visible
 metamagic feats the character has.
    </p>
    <p class="indent2">
-    <code>
-     count("ABILITIES","CATEGORY=FEAT","TYPE=Fighter","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")
-    </code>
+    <code>count("ABILITIES","CATEGORY=FEAT","TYPE=Fighter","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")</code>
    </p>
    <p class="indent3">
     Returns the number of all visible Fighter type
 feat abilities.
    </p>
    <p class="indent2">
-    <code>
-     count("ABILITIES","CATEGORY=FEAT","NAME=Toughness")
-    </code>
+    <code>count("ABILITIES","CATEGORY=FEAT","NAME=Toughness")</code>
    </p>
    <p class="indent3">
     Returns the number of times the Toughness feat
 was taken.
    </p>
    <p class="indent2">
-    <code>
-     count("ABILITIES","CATEGORY=FEAT","KEY=Toughness")
-    </code>
+    <code>count("ABILITIES","CATEGORY=FEAT","KEY=Toughness")</code>
    </p>
    <p class="indent3">
     Returns the number of times the Toughness feat
 was taken.
    </p>
    <p class="indent2">
-    <code>
-     count("ABILITIES","CATEGORY=Special
-Ability","NATURE=VIRTUAL[or]NATURE=AUTOMATIC")
-    </code>
+    <code>count("ABILITIES","CATEGORY=Special
+Ability","NATURE=VIRTUAL[or]NATURE=AUTOMATIC")</code>
    </p>
    <p class="indent3">
     Returns the number of abilities of category
@@ -1917,36 +1679,28 @@ Ability","NATURE=VIRTUAL[or]NATURE=AUTOMATIC")
 automatic.
    </p>
    <p class="indent2">
-    <code>
-     count("ABILITIES","CATEGORY=FEAT","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")
-    </code>
+    <code>count("ABILITIES","CATEGORY=FEAT","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")</code>
    </p>
    <p class="indent3">
     Returns the number of hidden feats.
    </p>
    <p class="indent2">
-    <code>
-     |VAR.count("ABILITIES","CATEGORY=Maneuver")|
-    </code>
+    <code>|VAR.count("ABILITIES","CATEGORY=Maneuver")|</code>
    </p>
    <p class="indent3">
     Outputs the number of "Maneuver" abilities the
 character has.
    </p>
    <p class="indent2">
-    <code>
-     count("CAMPAIGNHISTORY")
-    </code>
+    <code>count("CAMPAIGNHISTORY")</code>
    </p>
    <p class="indent3">
     This token returns the number of campaign
 history chronicles marked as being for export.
    </p>
    <p class="indent2">
-    <code>
-     count("CAMPAIGNHISTORY",
-"EXPORT=YES[or]EXPORT=NO")
-    </code>
+    <code>count("CAMPAIGNHISTORY",
+"EXPORT=YES[or]EXPORT=NO")</code>
    </p>
    <p class="indent3">
     This token returns the number of campaign
@@ -1969,9 +1723,7 @@ history chronicles no matter how they are marked.
    <strong>
     Formula:
    </strong>
-   <code>
-    isgamemode("x")
-   </code>
+   <code>isgamemode("x")</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -1997,9 +1749,7 @@ is running and a "0" if it is not.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     isgamemode("35e")
-    </code>
+    <code>isgamemode("35e")</code>
    </p>
    <p class="indent3">
     Returns a "1" if the designated gameMode is
@@ -2022,9 +1772,7 @@ running and a "0" if it is not.
    <strong>
     Formula:
    </strong>
-   <code>
-    mastervar("x")
-   </code>
+   <code>mastervar("x")</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -2050,9 +1798,7 @@ relevant companion's Master PC.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     mastervar("BAB")
-    </code>
+    <code>mastervar("BAB")</code>
    </p>
    <p class="indent3">
     Returns the base attack bonus of the relevant
@@ -2075,9 +1821,7 @@ companion's Master PC.
    <strong>
     Formula:
    </strong>
-   <code>
-    xdyz
-   </code>
+   <code>xdyz</code>
   </p>
   <blockquote>
    <p class="indent1">
@@ -2124,9 +1868,7 @@ companion's Master PC.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     4d8+5
-    </code>
+    <code>4d8+5</code>
    </p>
    <p class="indent3">
     Returns a number between 9 and 37.
@@ -2137,13 +1879,9 @@ companion's Master PC.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     DAMAGE
-    </code>
+    <code>DAMAGE</code>
     and
-    <code>
-     ALTDAMAGE
-    </code>
+    <code>ALTDAMAGE</code>
     tags.
    </p>
   </blockquote>
@@ -2158,9 +1896,7 @@ companion's Master PC.
 version 5.7.1. The syntax will be replaced with JEP syntax.
   </p>
   <p class="indent2">
-   <code>
-    ((TL/3).TRUNC)*2
-   </code>
+   <code>((TL/3).TRUNC)*2</code>
   </p>
   <p class="indent3">
    Truncation - would divide TL by 3, truncate (or
@@ -2170,9 +1906,7 @@ round down) and then multiply by 2.
    Deprecated, use floor(a).
   </p>
   <p class="indent2">
-   <code>
-    2MIN4
-   </code>
+   <code>2MIN4</code>
   </p>
   <p class="indent3">
    Minimum - would return 2 since it's taking the
@@ -2182,9 +1916,7 @@ minimum of the two values (MIN is always between the values).
    Deprecated, use min(a,b).
   </p>
   <p class="indent2">
-   <code>
-    2MAX4
-   </code>
+   <code>2MAX4</code>
   </p>
   <p class="indent3">
    Maximum - would return 4 since it's the max of
