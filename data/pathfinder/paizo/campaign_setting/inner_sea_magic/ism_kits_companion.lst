@@ -1,0 +1,9 @@
+SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+STARTPACK:Fey Eidolon	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fey Eidolon]
+RACE:Fey Eidolon	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+
+# End
+#
