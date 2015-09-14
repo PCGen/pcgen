@@ -430,6 +430,7 @@ FACTDEF:ABILITY|Paladin_CF_BondedMount					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECT
 
 
 # Ranger Archetype Section
+FACTDEF:ABILITY|Ranger_Archetype_Proficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies										EXPLANATION:Determines whether the archetype affects - Proficiencies										
 FACTDEF:ABILITY|Ranger_Archetype_HuntersBond							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HuntersBond										EXPLANATION:Determines whether the archetype affects - HuntersBond										
 FACTDEF:ABILITY|Ranger_Archetype_FavoredEnemy							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredEnemy										EXPLANATION:Determines whether the archetype affects - FavoredEnemy										
 FACTDEF:ABILITY|Ranger_Archetype_FavoredTerrain							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredTerrain										EXPLANATION:Determines whether the archetype affects - FavoredTerrain										
@@ -481,6 +482,15 @@ FACTDEF:ABILITY|Ranger_CF_FavoredEnemy2				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECT
 FACTDEF:ABILITY|Ranger_CF_FavoredEnemy3				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
 FACTDEF:ABILITY|Ranger_CF_FavoredEnemy4				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
 FACTDEF:ABILITY|Ranger_CF_AnimalCompanion				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+FACTDEF:ABILITY|Ranger_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+
+FACTDEF:ABILITY|Ranger_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+FACTDEF:ABILITY|Ranger_CF_LightArmorProficiency			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+FACTDEF:ABILITY|Ranger_CF_MediumArmorProficiency			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+FACTDEF:ABILITY|Ranger_CF_ShieldProficiency			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+FACTDEF:ABILITY|Ranger_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
+
+
 
 
 # Rogue Archetype Section
@@ -528,6 +538,7 @@ FACTDEF:ABILITY|Rogue_CF_RogueTalent20				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTA
 FACTDEF:ABILITY|Sorcerer_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
 FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 FACTDEF:ABILITY|Sorcerer_Archetype_Bloodline							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
+FACTDEF:ABILITY|Sorcerer_Archetype_ClassSkills							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 
 # Sorcerer Class Feature
 FACTDEF:ABILITY|Sorcerer_CF_ClassSkills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills							EXPLANATION:Remove Sorcerer ClassSkills	
@@ -540,15 +551,15 @@ FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELE
 
 FACTDEF:ABILITY|Sorcerer_CF_BloodlineFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
 
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell2								EXPLANATION:Remove Sorcerer BloodlineBonusSpell2			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells3		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell3								EXPLANATION:Remove Sorcerer BloodlineBonusSpell3			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell4								EXPLANATION:Remove Sorcerer BloodlineBonusSpell4			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells5		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell5								EXPLANATION:Remove Sorcerer BloodlineBonusSpell5			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells6		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell6								EXPLANATION:Remove Sorcerer BloodlineBonusSpell6			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells7		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell7								EXPLANATION:Remove Sorcerer BloodlineBonusSpell7			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells8		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell8								EXPLANATION:Remove Sorcerer BloodlineBonusSpell8			
-FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpells9		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell9								EXPLANATION:Remove Sorcerer BloodlineBonusSpell9			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell2								EXPLANATION:Remove Sorcerer BloodlineBonusSpell2			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell3		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell3								EXPLANATION:Remove Sorcerer BloodlineBonusSpell3			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell4								EXPLANATION:Remove Sorcerer BloodlineBonusSpell4			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell5		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell5								EXPLANATION:Remove Sorcerer BloodlineBonusSpell5			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell6		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell6								EXPLANATION:Remove Sorcerer BloodlineBonusSpell6			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell7		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell7								EXPLANATION:Remove Sorcerer BloodlineBonusSpell7			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell8		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell8								EXPLANATION:Remove Sorcerer BloodlineBonusSpell8			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineSpell9		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell9								EXPLANATION:Remove Sorcerer BloodlineBonusSpell9			
 
 FACTDEF:ABILITY|Sorcerer_CF_Bloodline			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials								EXPLANATION:Remove Sorcerer EschewMaterials			
 FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusFeat7		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell9								EXPLANATION:Remove Sorcerer BloodlineBonusSpell9			
