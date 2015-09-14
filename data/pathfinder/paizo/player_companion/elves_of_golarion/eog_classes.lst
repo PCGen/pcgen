@@ -7,8 +7,11 @@ CLASS:Brightness Seeker	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC
 CLASS:Brightness Seeker	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Brightness Seeker	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Brightness Seeker	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Brightness Seeker	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Spot 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Spot=4,Survival=4	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]
-CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Knowledge (nature)|Knowledge (religion)|Listen|Profession|Spot|Survival|Swim
+CLASS:Brightness Seeker	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Perception 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Perception=4,Survival=4	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]
+CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Heal|Stealth|Knowledge (nature)|Knowledge (religion)|Perception|TYPE=Profession|Survival|Swim
+# 35e version
+#CLASS:Brightness Seeker	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Spot 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Spot=4,Survival=4	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]
+#CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Knowledge (nature)|Knowledge (religion)|Listen|Profession|Spot|Survival|Swim
 ###Block
 1	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Discover Omen		
 1	ABILITY:Brightness Seeker Class Feature|AUTOMATIC|Brightness Seeker ~ Favored Pilgrim		
