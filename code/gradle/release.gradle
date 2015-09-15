@@ -247,11 +247,11 @@ task checksum(dependsOn: assembleArtifacts) << {
     }
 } 
 
-task prepareRelease (dependsOn: ['clean', 'updateVersionRelease', 'build', 'genDataList']) {
+task prepareRelease (dependsOn: ['clean', 'build', 'genDataList']) {
 	description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
-task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'tagRelease', 'updateVersionToNext']) {
+task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'tagRelease']) {
 	description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, tag the release and then update and commit the version ready for new dev work."
 }
 

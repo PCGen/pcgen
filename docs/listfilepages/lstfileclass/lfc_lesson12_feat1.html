@@ -43,8 +43,7 @@
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../globalfilestagpages/globalfilesother.html#outputname">
+   <code><a href="../globalfilestagpages/globalfilesother.html#outputname">
      OUTPUTNAME
     </a>
     ,
@@ -98,8 +97,7 @@
     ,
     <a href="../globalfilestagpages/globalfilesother.html#sourceshort">
      SOURCEPAGE
-    </a>
-   </code>
+    </a></code>
   </p>
   <hr/>
   <p>
@@ -174,9 +172,7 @@ characters in it to get around the issues.
    So, as an example of OUTPUTNAME use, if we wanted the name on
 output to be "Critical (Improved)", we could cause it to happen by
 entering
-   <code>
-    OUTPUTNAME:Critical (Improved)
-   </code>
+   <code>OUTPUTNAME:Critical (Improved)</code>
    . Note that
 there is a preference setting that turns off output names so the
 user may not see it if they have elected to turn them off.
@@ -196,9 +192,7 @@ skip an OUTPUTNAME tag on this one.
 first and most obvious is to set the feat type as indicated by the
 source. Another use of it is for internal program use to group a
 set of feats together for later selection by an
-   <code>
-    ADD:FEAT(TYPE=type)
-   </code>
+   <code>ADD:FEAT(TYPE=type)</code>
    tag elsewhere. This is especially
 useful when you have several benefits that a PC can choose from.
 These TYPEs can also be used in separating feats for display in
@@ -224,9 +218,7 @@ those listed above are just ones you might commonly see.
   <p>
    Looking at the RSRD, Improved Critical is a General feat and a
 Fighter feat, so we enter
-   <code>
-    TYPE:General.Fighter
-   </code>
+   <code>TYPE:General.Fighter</code>
   </p>
   <hr/>
   <p>
@@ -269,9 +261,7 @@ UI.
 section of a data source, it should be VISIBLE:YES (or leave out
 the VISIBLE tag so it defaults to YES). If it's not listed as a
 feat in the source, it should be
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
    . The
 EXPORT and DISPLAY options are used for special cases where we need
 to something very strange... :)
@@ -300,9 +290,7 @@ feat also.
   <p>
    According to the RSRD, Improved Critical can be taken more than
 once, so we'll use
-   <code>
-    MULT:YES
-   </code>
+   <code>MULT:YES</code>
    .
   </p>
   <hr/>
@@ -324,9 +312,7 @@ you in the "Special" section of the feat description.
    According to the RSRD, Improved Critical does not stack with
 itself (you can take it again but must choose a different weapon)
 so we need to put
-   <code>
-    STACK:NO
-   </code>
+   <code>STACK:NO</code>
    in the feat line.
   </p>
   <hr/>
@@ -438,11 +424,9 @@ shorter) text from the DESC tag will be displayed.
   </p>
   <p>
    For the Improved Critical feat we would enter
-   <code>
-    BENEFIT:When
+   <code>BENEFIT:When
 using the weapon you selected, your threat range is
-doubled.
-   </code>
+doubled.</code>
   </p>
   <p>
    Note that it is quite common to leave this tag out so as to
@@ -480,10 +464,8 @@ practice CMP has adopted for this tag).
   </p>
   <p>
    Since we are using the RSRD for our example, the tag would be
-   <code>
-    SOURCELONG:Revised (v.3.5) System Reference
-Document
-   </code>
+   <code>SOURCELONG:Revised (v.3.5) System Reference
+Document</code>
   </p>
   <hr/>
   <p>
@@ -520,9 +502,7 @@ tag is encountered, or it may be placed on each feat line.
   </p>
   <p>
    In the case of the RSRD, the tag would be
-   <code>
-    SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
-   </code>
+   <code>SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35</code>
   </p>
   <hr/>
   <p>
@@ -538,20 +518,14 @@ using the SOURCEPAGE output token.
   </p>
   <p>
    When you are going from an OGL book the format is usually
-   <code>
-    SOURCEPAGE:p.#
-   </code>
+   <code>SOURCEPAGE:p.#</code>
    . If you are working from an online
 document such as the SRD, it would be the filename, so
-   <code>
-    SOURCEPAGE:&lt;filename&gt;
-   </code>
+   <code>SOURCEPAGE:&lt;filename&gt;</code>
   </p>
   <p>
    Since we are working from the RSRD, our tag will look like
-   <code>
-    SOURCEPAGE:Feats.rtf
-   </code>
+   <code>SOURCEPAGE:Feats.rtf</code>
   </p>
   <hr/>
   <p>
@@ -568,8 +542,7 @@ feat so far (new lines should tab characters):
   </p>
   <blockquote>
    <p>
-    <code>
-     Improved Critical
+    <code>Improved Critical
      <br/>
      TYPE:General.Fighter
      <br/>
@@ -594,8 +567,7 @@ doubled.
       http://www.wizards.com/default.asp?x=d20/article/srd35
      </a>
      <br/>
-     SOURCEPAGE:Feats.rtf
-    </code>
+     SOURCEPAGE:Feats.rtf</code>
    </p>
   </blockquote>
   <p>

@@ -41,8 +41,7 @@
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../datafilestagpages/datafilestemplates.html#hd">
+   <code><a href="../datafilestagpages/datafilestemplates.html#hd">
      HD
     </a>
     ,
@@ -96,8 +95,7 @@
     ,
     <a href="../globalfilestagpages/globalfilesbonus.html#miscsr">
      BONUS:MISC|SR
-    </a>
-   </code>
+    </a></code>
   </p>
   <p class="indent1">
    The template tags HD and LEVEL are used in
@@ -137,22 +135,18 @@ of total levels the character has. Both of these tags can be
 expressed with this syntax:
   </p>
   <p class="indent1">
-   <code>
-    &lt;Prerequisite&gt;:&lt;levels
+   <code>&lt;Prerequisite&gt;:&lt;levels
 specified&gt;:&lt;Object granting tag&gt;:&lt;Object to be
-granted&gt;
-   </code>
+granted&gt;</code>
   </p>
   <p>
    The more modern syntax which replaces this can be expressed in
 this way:
   </p>
   <p class="indent1">
-   <code>
-    &lt;Object granting tag&gt;:&lt;Object to
+   <code>&lt;Object granting tag&gt;:&lt;Object to
 be granted&gt;|&lt;Prerequisite&gt;:&lt;levels
-specified&gt;
-   </code>
+specified&gt;</code>
   </p>
   <p>
    The function of the HD tag is replaced by the prerequisite tag
@@ -171,31 +165,19 @@ well as a good deal more because of the flexibility these tags
 have. For example:
   </p>
   <p class="indent1">
-   <code>
-    HD:2+
-   </code>
+   <code>HD:2+</code>
    is now
-   <code>
-    PREHD:MIN=2
-   </code>
+   <code>PREHD:MIN=2</code>
   </p>
   <p class="indent1">
-   <code>
-    HD:5-7
-   </code>
+   <code>HD:5-7</code>
    is now
-   <code>
-    PREHD:MIN=5,MAX=7
-   </code>
+   <code>PREHD:MIN=5,MAX=7</code>
   </p>
   <p class="indent1">
-   <code>
-    HD:1-10
-   </code>
+   <code>HD:1-10</code>
    is now
-   <code>
-    PREHD:MAX=10
-   </code>
+   <code>PREHD:MAX=10</code>
   </p>
   <p>
    The same syntax applies to LEVEL and PRELEVEL. In addition there
@@ -224,63 +206,45 @@ value at the levels specified. BONUS:MISC|CR|x can be used to
 replace this function in both HD and LEVEL
   </p>
   <p class="indent1">
-   <code>
-    HD:2+:CR:3
-   </code>
+   <code>HD:2+:CR:3</code>
    is now
-   <code>
-    BONUS:MISC|CR|3|PREHD:MIN=2
-   </code>
+   <code>BONUS:MISC|CR|3|PREHD:MIN=2</code>
   </p>
   <p class="indent1">
-   <code>
-    HD:1-10:CR:2
-   </code>
+   <code>HD:1-10:CR:2</code>
    is
 now
-   <code>
-    BONUS:MISC|CR|2|PREHD:MAX=10
-   </code>
+   <code>BONUS:MISC|CR|2|PREHD:MAX=10</code>
   </p>
   <p class="indent1">
-   <code>
-    LEVEL:5-7:CR:5
-   </code>
+   <code>LEVEL:5-7:CR:5</code>
    is
 now
-   <code>
-    BONUS:MISC|CR|5|PRELEVEL:MIN=5,MAX=7
-   </code>
+   <code>BONUS:MISC|CR|5|PRELEVEL:MIN=5,MAX=7</code>
   </p>
   <p>
    Keep in mind that CR is additive and there can be several way to
 express things, for example a template containing:
   </p>
   <p class="indent1">
-   <code>
-    HD:1-3:CR:2 &lt;tab&gt; HD:4-6:CR:3
-&lt;tab&gt; HD:7+:CR:4
-   </code>
+   <code>HD:1-3:CR:2 &lt;tab&gt; HD:4-6:CR:3
+&lt;tab&gt; HD:7+:CR:4</code>
   </p>
   <p>
    Can be converted most literally as:
   </p>
   <p class="indent1">
-   <code>
-    BONUS:MISC|CR|2|MAX=3 &lt;tab&gt;
+   <code>BONUS:MISC|CR|2|MAX=3 &lt;tab&gt;
 BONUS:MISC|CR|3|PREHD:MIN=4,MAX=6 &lt;tab&gt;
-BONUS:MISC|CR|4|PREHD:MIN=7
-   </code>
+BONUS:MISC|CR|4|PREHD:MIN=7</code>
   </p>
   <p>
    But can also be converted more economically as:
   </p>
   <p class="indent1">
-   <code>
-    CR:2 &lt;tab&gt;
+   <code>CR:2 &lt;tab&gt;
 BONUS:MISC|CR|1|PREHD:MIN=4 &lt;tab&gt;
-BONUS:MISC|CR|1|PREHD:MIN=7
-   </code>
+BONUS:MISC|CR|1|PREHD:MIN=7</code>
   </p>
   <hr/>
   <h3>
@@ -309,33 +273,21 @@ case 10/Magic). It also means that for the tag BONUS:DR|Magic|2 to
 have any effect you must first have a DR:x/Magic tag.
   </p>
   <p class="indent1">
-   <code>
-    HD:2+:DR:10/+1
-   </code>
+   <code>HD:2+:DR:10/+1</code>
    is
 now
-   <code>
-    DR:10/+1|PREHD:MIN=2
-   </code>
+   <code>DR:10/+1|PREHD:MIN=2</code>
   </p>
   <p class="indent1">
-   <code>
-    HD:1-10:DR:5/Cold
-Iron
-   </code>
+   <code>HD:1-10:DR:5/Cold
+Iron</code>
    is now
-   <code>
-    DR:5/Cold Iron|PREHD:MAX=10
-   </code>
+   <code>DR:5/Cold Iron|PREHD:MAX=10</code>
   </p>
   <p class="indent1">
-   <code>
-    LEVEL:5-7:DR:20/Silver
-   </code>
+   <code>LEVEL:5-7:DR:20/Silver</code>
    is now
-   <code>
-    DR:20/Silver|PRELEVEL:MIN=5,MAX=7
-   </code>
+   <code>DR:20/Silver|PRELEVEL:MIN=5,MAX=7</code>
   </p>
   <hr/>
   <h3>
@@ -347,23 +299,15 @@ adjust the feat pool. Feats granted by the HD and LEVEL tags can be
 converted to the ABILITY tag.
   </p>
   <p class="indent1">
-   <code>
-    HD:1-10:FEAT:Blind
-Fight
-   </code>
+   <code>HD:1-10:FEAT:Blind
+Fight</code>
    is now
-   <code>
-    ABILITY:FEAT|AUTOMATIC|Blind Fight|PREHD:MAX=10
-   </code>
+   <code>ABILITY:FEAT|AUTOMATIC|Blind Fight|PREHD:MAX=10</code>
   </p>
   <p class="indent1">
-   <code>
-    LEVEL:5-7:FEAT:Alertness
-   </code>
+   <code>LEVEL:5-7:FEAT:Alertness</code>
    is now
-   <code>
-    ABILITY:FEAT|AUTOMATIC|Alertness|PRELEVEL:MIN=5,MAX=7
-   </code>
+   <code>ABILITY:FEAT|AUTOMATIC|Alertness|PRELEVEL:MIN=5,MAX=7</code>
   </p>
   <p>
    The FEAT function of HD and LEVEL also supports TYPE.x which
@@ -397,25 +341,17 @@ tags granted with HD and LEVEL should be converted to SAB tags with
 the proper PRE tags.
   </p>
   <p class="indent1">
-   <code>
-    HD:1-10:SA:Banana
-toss
-   </code>
+   <code>HD:1-10:SA:Banana
+toss</code>
    is now
-   <code>
-    SAB:Banana toss|PREHD:MAX=10
-   </code>
+   <code>SAB:Banana toss|PREHD:MAX=10</code>
   </p>
   <p class="indent1">
-   <code>
-    LEVEL:5-7:SA:Fire in the
-Hole
-   </code>
+   <code>LEVEL:5-7:SA:Fire in the
+Hole</code>
    is now
-   <code>
-    SAB:Fire in the
-Hole|PRELEVEL:MIN=5,MAX=7
-   </code>
+   <code>SAB:Fire in the
+Hole|PRELEVEL:MIN=5,MAX=7</code>
   </p>
   <hr/>
   <h3>
@@ -431,63 +367,45 @@ at the levels specified. BONUS:MISC|SR|x can be used to replace
 this function in both HD and LEVEL
   </p>
   <p class="indent1">
-   <code>
-    HD:2+:SR:3
-   </code>
+   <code>HD:2+:SR:3</code>
    is now
-   <code>
-    BONUS:MISC|SR|3|PREHD:MIN=2
-   </code>
+   <code>BONUS:MISC|SR|3|PREHD:MIN=2</code>
   </p>
   <p class="indent1">
-   <code>
-    HD:1-10:SR:2
-   </code>
+   <code>HD:1-10:SR:2</code>
    is
 now
-   <code>
-    BONUS:MISC|SR|2|PREHD:MAX=10
-   </code>
+   <code>BONUS:MISC|SR|2|PREHD:MAX=10</code>
   </p>
   <p class="indent1">
-   <code>
-    LEVEL:5-7:SR:5
-   </code>
+   <code>LEVEL:5-7:SR:5</code>
    is
 now
-   <code>
-    BONUS:MISC|SR|5|PRELEVEL:MIN=5,MAX=7
-   </code>
+   <code>BONUS:MISC|SR|5|PRELEVEL:MIN=5,MAX=7</code>
   </p>
   <p>
    Keep in mind that SR is additive and there can be several way to
 express things, for example a template containing:
   </p>
   <p class="indent1">
-   <code>
-    HD:1-3:SR:2 &lt;tab&gt; HD:4-6:SR:3
-&lt;tab&gt; HD:7+:SR:4
-   </code>
+   <code>HD:1-3:SR:2 &lt;tab&gt; HD:4-6:SR:3
+&lt;tab&gt; HD:7+:SR:4</code>
   </p>
   <p>
    Can be converted most literally as:
   </p>
   <p class="indent1">
-   <code>
-    BONUS:MISC|SR|2|MAX=3 &lt;tab&gt;
+   <code>BONUS:MISC|SR|2|MAX=3 &lt;tab&gt;
 BONUS:MISC|SR|3|PREHD:MIN=4,MAX=6 &lt;tab&gt;
-BONUS:MISC|SR|4|PREHD:MIN=7
-   </code>
+BONUS:MISC|SR|4|PREHD:MIN=7</code>
   </p>
   <p>
    But can also be converted more economically as:
   </p>
   <p class="indent1">
-   <code>
-    SR:2 &lt;tab&gt;
+   <code>SR:2 &lt;tab&gt;
 BONUS:MISC|SR|1|PREHD:MIN=4 &lt;tab&gt;
-BONUS:MISC|SR|1|PREHD:MIN=7
-   </code>
+BONUS:MISC|SR|1|PREHD:MIN=7</code>
   </p>
   <hr/>
   <p>

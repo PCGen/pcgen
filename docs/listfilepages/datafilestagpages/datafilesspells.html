@@ -54,37 +54,29 @@ Spell
    The first field is the name of the spell.
   </p>
   <p class="indent2">
-   <code>
-    Ghost Sound
-   </code>
+   <code>Ghost Sound</code>
   </p>
   <p class="indent3">
    The spell named "Ghost Sound" is to be
 created.
   </p>
   <p class="indent2">
-   <code>
-    Silent Image.MOD
-   </code>
+   <code>Silent Image.MOD</code>
   </p>
   <p class="indent3">
    The spell named "Silent Image" is to be
 modified.
   </p>
   <p class="indent2">
-   <code>
-    Magic Aura.COPY=Nystal's Undetectable
-Aura
-   </code>
+   <code>Magic Aura.COPY=Nystal's Undetectable
+Aura</code>
   </p>
   <p class="indent3">
    Copy the spell "Magic Aura" and rename to
 "Nystal's Undetectable Aura" in all aspects.
   </p>
   <p class="indent2">
-   <code>
-    Holy Smite.FORGET
-   </code>
+   <code>Holy Smite.FORGET</code>
   </p>
   <p class="indent3">
    The spell "Holy Smite" is to be forgotten.
@@ -199,9 +191,7 @@ applied is equal to the Caster's current level.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:PPCOST|Blade Barrier|3
-   </code>
+   <code>BONUS:PPCOST|Blade Barrier|3</code>
   </p>
   <p class="indent3">
    It costs a Clr9/Good9/War9 11 PP to launch a
@@ -211,9 +201,7 @@ extra PP is 3 for this example. Damage can not be raised over the
 Caster's actual level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:PPCOST|Lightning Bolt|2
-   </code>
+   <code>BONUS:PPCOST|Lightning Bolt|2</code>
   </p>
   <p class="indent3">
    It costs a Sor/Wiz 9 5 PP to launch a Lightning
@@ -263,9 +251,7 @@ formula.
      </li>
      <li>
       When used inside parenthesis in these tags,
-      <code>
-       CASTERLEVEL
-      </code>
+      <code>CASTERLEVEL</code>
       returns the caster level of the class
 which grants the spell.
      </li>
@@ -273,17 +259,13 @@ which grants the spell.
    </li>
    <li>
     The value of
-    <code>
-     CASTERLEVEL
-    </code>
+    <code>CASTERLEVEL</code>
     depends mostly on the
 "Class" granting the spell, but can be affected by "Race" or by
 other attributes of the spell (e.g. School, Descriptor, etc.).
    </li>
    <li>
-    <code>
-     CASTERLEVEL
-    </code>
+    <code>CASTERLEVEL</code>
     can be adjusted using the
     <a href="../globalfilestagpages/globalfilesbonus.html#casterlevel">
      BONUS:CASTERLEVEL
@@ -302,29 +284,23 @@ recommended that the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DESC:Electricity deals (CASTERLEVEL)d6
-damage
-   </code>
+   <code>DESC:Electricity deals (CASTERLEVEL)d6
+damage</code>
   </p>
   <p class="indent3">
    If the caster level is 2, the output
 reads:Electricity deals 2d6 damage.
   </p>
   <p class="indent2">
-   <code>
-    DURATION:((CASTERLEVEL/3)+1)
-rounds
-   </code>
+   <code>DURATION:((CASTERLEVEL/3)+1)
+rounds</code>
   </p>
   <p class="indent3">
    If the caster level is 6, the output
 reads:DURATION:3 rounds
   </p>
   <p class="indent2">
-   <code>
-    TARGETAREA:(floor((CASTERLEVEL/2)*5)+25)
-   </code>
+   <code>TARGETAREA:(floor((CASTERLEVEL/2)*5)+25)</code>
   </p>
   <p class="indent3">
    If the caster level is 7, the output
@@ -332,19 +308,15 @@ reads:TARGETAREA:40 (Note that if floor() were not used formula
 would return 42).
   </p>
   <p class="indent2">
-   <code>
-    DURATION:(CASTERLEVEL) rounds
-   </code>
+   <code>DURATION:(CASTERLEVEL) rounds</code>
   </p>
   <p class="indent3">
    If the caster level is 3, the output
 reads:DURATION:3 rounds
   </p>
   <p class="indent2">
-   <code>
-    DESC:Random damage in area during
-duration, plus (CASTERLEVEL)d4 damage
-   </code>
+   <code>DESC:Random damage in area during
+duration, plus (CASTERLEVEL)d4 damage</code>
   </p>
   <p class="indent3">
    If the caster level is 3, output
@@ -383,9 +355,7 @@ spell.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CASTTIME:1 Round
-   </code>
+   <code>CASTTIME:1 Round</code>
   </p>
   <p class="indent3">
    This spell takes 1 round to cast.
@@ -397,24 +367,18 @@ spell.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; CASTTIME:1 Round
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; CASTTIME:1 Round</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; CASTTIME:10 Minute Ritual
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; CASTTIME:10 Minute Ritual</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; CASTTIME:1 Round|10 Minute Ritual
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; CASTTIME:1 Round|10 Minute Ritual</code>
   </p>
   <p class="indent3">
    The output sheet will display "1 Round, 10
@@ -483,26 +447,18 @@ named class.
      MUST
     </strong>
     also be included in a
-    <code>
-     SPELLLIST
-    </code>
+    <code>SPELLLIST</code>
     tag in the appropriate class file object. For example, if the
 "Enchanter" subclass is included as part of a
-    <code>
-     CLASSES
-    </code>
+    <code>CLASSES</code>
     tag in a spell, there must be an "Enchanter" subclass defined in a
 loaded class file.
    </li>
    <li>
-    <code>
-     .CLEARALL
-    </code>
+    <code>.CLEARALL</code>
     will clear all classes or class/level
 pairs from the
-    <code>
-     CLASSES
-    </code>
+    <code>CLASSES</code>
     tag.
    </li>
    <li>
@@ -517,54 +473,42 @@ instead of the usual pipe-delineation (|).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASSES:Wizard=5|Enchanter=3|Druid=6
-   </code>
+   <code>CLASSES:Wizard=5|Enchanter=3|Druid=6</code>
   </p>
   <p class="indent3">
    Indicates this spell is 5th Lvl Wizard, 3rd Lvl
 Enchanter, and 6th Lvl Druid.
   </p>
   <p class="indent2">
-   <code>
-    CLASSES:Wizard,Sorcerer=5|Cleric=4
-   </code>
+   <code>CLASSES:Wizard,Sorcerer=5|Cleric=4</code>
   </p>
   <p class="indent3">
    Indicates this spell is 5th Lvl Wizard, 5th Lvl
 Sorcerer, and 4th Lvl Cleric.
   </p>
   <p class="indent2">
-   <code>
-    CLASSES:ALL=4
-   </code>
+   <code>CLASSES:ALL=4</code>
   </p>
   <p class="indent3">
    Indicates this spell is 4th Lvl for all
 classes.
   </p>
   <p class="indent2">
-   <code>
-    CLASSES:TYPE.Divine=3
-   </code>
+   <code>CLASSES:TYPE.Divine=3</code>
   </p>
   <p class="indent3">
    Indicates this spell is 3rd Lvl for divine
 classes.
   </p>
   <p class="indent2">
-   <code>
-    CLASSES:ALL=4[PREDEITY:Java]
-   </code>
+   <code>CLASSES:ALL=4[PREDEITY:Java]</code>
   </p>
   <p class="indent3">
    Indicates this spell is 4th Lvl for all classes,
 but is only available for followers of Java.
   </p>
   <p class="indent2">
-   <code>
-    CLASSES:Wizard,Sorcerer=5|Cleric=4[PRECLASS:1,Magician=1]
-   </code>
+   <code>CLASSES:Wizard,Sorcerer=5|Cleric=4[PRECLASS:1,Magician=1]</code>
   </p>
   <p class="indent3">
    Indicates this spell is 5th Lvl Wizard, 5th Lvl
@@ -575,10 +519,8 @@ add caster levels to existing levels but do not otherwise have a
 spell progression.
   </p>
   <p class="indent2">
-   <code>
-    Misdirection.MOD &lt;tab&gt;
-CLASSES:Circle Walker=2
-   </code>
+   <code>Misdirection.MOD &lt;tab&gt;
+CLASSES:Circle Walker=2</code>
   </p>
   <p class="indent3">
    Indicates this spell is modified to 2nd Level
@@ -591,24 +533,18 @@ for Circle Walker classes.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; CLASSES:Wizard=4
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; CLASSES:Wizard=4</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; CLASSES:Cleris=3
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; CLASSES:Cleris=3</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; CLASSES:Wizard=4|Cleric=3
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; CLASSES:Wizard=4|Cleric=3</code>
   </p>
   <p class="indent3">
    The associated spell is a 4th level Wizard spell
@@ -649,19 +585,15 @@ this spells (Verbal, Somatic, etc).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    COMPS:V S
-   </code>
+   <code>COMPS:V S</code>
   </p>
   <p class="indent3">
    This spell has "Verbal" and "Somatic"
 components.
   </p>
   <p class="indent2">
-   <code>
-    SpellFoo &lt;tab&gt; COMPS:.CLEAR
-&lt;tab&gt; COMPS:V &lt;tab&gt; COMPS:S
-   </code>
+   <code>SpellFoo &lt;tab&gt; COMPS:.CLEAR
+&lt;tab&gt; COMPS:V &lt;tab&gt; COMPS:S</code>
   </p>
   <p class="indent3">
    The spell SpellFoo has its COMPS cleared and
@@ -674,24 +606,18 @@ components.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; COMPS:V S
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; COMPS:V S</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; COMPS:M
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; COMPS:M</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; COMPS:V S|M
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; COMPS:V S|M</code>
   </p>
   <p class="indent3">
    The associated spell's spell components include
@@ -733,9 +659,7 @@ components.
     This tag identifies the cost of the spell's components.
    </li>
    <li>
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     is used to clear the cost of a spell's
 components.
    </li>
@@ -746,9 +670,7 @@ components.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    COST:300
-   </code>
+   <code>COST:300</code>
   </p>
   <p class="indent1">
    <strong>
@@ -757,24 +679,18 @@ components.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; COST:300
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; COST:300</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; COST:150
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; COST:150</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; COST:150
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; COST:150</code>
   </p>
   <p class="indent3">
    The associated spell components cost 150 gp.
@@ -809,9 +725,7 @@ components.
 of the spell that the mage is casting.
    </li>
    <li>
-    <code>
-     CT
-    </code>
+    <code>CT</code>
     must be in integer &gt;= 0
    </li>
   </ul>
@@ -821,9 +735,7 @@ of the spell that the mage is casting.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CT:41
-   </code>
+   <code>CT:41</code>
   </p>
   <p class="indent3">
    This spell takes 41+ points to cast.
@@ -835,24 +747,18 @@ of the spell that the mage is casting.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; CT:25
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; CT:25</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; CT:35
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; CT:35</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; CT:35
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; CT:35</code>
   </p>
   <p class="indent3">
    The casting threshold of the associated spell is
@@ -895,9 +801,7 @@ type)
 wizards to determine their favored school's bonus spells.
    </li>
    <li>
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     is used to clear all descriptors from a
 spell and can be followed by new descriptors to replace those
 cleared.
@@ -909,18 +813,14 @@ cleared.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DESCRIPTOR:Sonic|Acid|Evil
-   </code>
+   <code>DESCRIPTOR:Sonic|Acid|Evil</code>
   </p>
   <p class="indent3">
    This spell is of the "Sonic", "Acid" &amp;
 "Evil" types.
   </p>
   <p class="indent2">
-   <code>
-    DESCRIPTOR:.CLEAR|Fire
-   </code>
+   <code>DESCRIPTOR:.CLEAR|Fire</code>
   </p>
   <p class="indent3">
    This clears the spell list and replaces it with
@@ -933,24 +833,18 @@ the "Fire" type.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; DESCRIPTOR:Sonic|Acid
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; DESCRIPTOR:Sonic|Acid</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; DESCRIPTOR:Evil
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; DESCRIPTOR:Evil</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; DESCRIPTOR:Sonic|Acid|Evil
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; DESCRIPTOR:Sonic|Acid|Evil</code>
   </p>
   <p class="indent3">
    The associated spell has the descriptors "Acid",
@@ -1000,25 +894,17 @@ the "Fire" type.
 named domain.
    </li>
    <li>
-    <code>
-     .CLEARALL
-    </code>
+    <code>.CLEARALL</code>
     will clear all classes or class/level
 pairs from the
-    <code>
-     CLASSES
-    </code>
+    <code>CLASSES</code>
     tag.
    </li>
    <li>
     This tag can now be qualified with
-    <code>
-     PRExxx
-    </code>
+    <code>PRExxx</code>
     statements. Please note that you must enclose the
-    <code>
-     PRExxx
-    </code>
+    <code>PRExxx</code>
     statement with [ ] instead of the usual Pipe
 delineation.
    </li>
@@ -1029,18 +915,14 @@ delineation.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Charm=2|Beauty=3
-   </code>
+   <code>DOMAINS:Charm=2|Beauty=3</code>
   </p>
   <p class="indent3">
    Indicates that this is a 2nd level spell for the
 Charm domain, and 3rd level for the Beauty domain.
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Fire=3|Magic=4[PREALIGN:2,5,8]
-   </code>
+   <code>DOMAINS:Fire=3|Magic=4[PREALIGN:2,5,8]</code>
   </p>
   <p class="indent3">
    Indicates that this is a 3rd level spell for the
@@ -1048,9 +930,7 @@ Fire domain, and 4th level for the Magic domain, but is only
 available to evil characters.
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:Charm=2|Beauty=3[PRECLASS:Supermodel=1]
-   </code>
+   <code>DOMAINS:Charm=2|Beauty=3[PRECLASS:Supermodel=1]</code>
   </p>
   <p class="indent3">
    Indicates that this is a 2nd level spell for the
@@ -1059,10 +939,8 @@ added to the spell list of a character with a level of the
 Supermodel prestige class.
   </p>
   <p class="indent2">
-   <code>
-    Binding.MOD &lt;tab&gt;
-DOMAINS:Fate=8
-   </code>
+   <code>Binding.MOD &lt;tab&gt;
+DOMAINS:Fate=8</code>
   </p>
   <p class="indent3">
    Indicates that this is an 8th level spell for
@@ -1074,33 +952,21 @@ the Fate domain.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DOMAINS:.CLEAR
-   </code>
+   <code>DOMAINS:.CLEAR</code>
    replaced by
-   <code>
-    DOMAINS:.CLEARALL.
-   </code>
+   <code>DOMAINS:.CLEARALL.</code>
   </p>
   <p class="indent3">
    This is done due to the past side-effects
 between the
-   <code>
-    CLASSES
-   </code>
+   <code>CLASSES</code>
    and
-   <code>
-    DOMAINS
-   </code>
+   <code>DOMAINS</code>
    tags.
 Note that any single
-   <code>
-    .CLEAR
-   </code>
+   <code>.CLEAR</code>
    is equivalent to both
-   <code>
-    .CLEARALL
-   </code>
+   <code>.CLEARALL</code>
    tags due to this old interaction.
   </p>
   <p class="indent1">
@@ -1110,24 +976,18 @@ Note that any single
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; DOMAINS:Charm=2
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; DOMAINS:Charm=2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; DOMAINS:Beauty=3
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; DOMAINS:Beauty=3</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; DOMAINS:Charm=2|Beauty=3
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; DOMAINS:Charm=2|Beauty=3</code>
   </p>
   <p class="indent3">
    The associated spell is a 2nd level spell for
@@ -1183,17 +1043,13 @@ to be parsed, text containing parentheses must substitute brackets
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DURATION:1 Round/Level
-   </code>
+   <code>DURATION:1 Round/Level</code>
   </p>
   <p class="indent3">
    This spell lasts for one round per level.
   </p>
   <p class="indent2">
-   <code>
-    DURATION:(CASTERLEVEL) rounds
-   </code>
+   <code>DURATION:(CASTERLEVEL) rounds</code>
   </p>
   <p class="indent3">
    If CASTERLEVEL is equal to 3 then this outputs:
@@ -1206,24 +1062,18 @@ to be parsed, text containing parentheses must substitute brackets
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; DURATION:1 Round/Level
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; DURATION:1 Round/Level</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; DURATION:(CASTERLEVEL) rounds
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; DURATION:(CASTERLEVEL) rounds</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; DURATION:1 Round/Level|(CASTERLEVEL) rounds
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; DURATION:1 Round/Level|(CASTERLEVEL) rounds</code>
   </p>
   <p class="indent3">
    For a 3rd level spellcaster the associated spell
@@ -1273,17 +1123,13 @@ being used in the specified item.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ITEM:Potion
-   </code>
+   <code>ITEM:Potion</code>
   </p>
   <p class="indent3">
    This spell can be used in a potion.
   </p>
   <p class="indent2">
-   <code>
-    ITEM:[Scroll]
-   </code>
+   <code>ITEM:[Scroll]</code>
   </p>
   <p class="indent3">
    This spell can NOT be used in a scroll.
@@ -1295,24 +1141,18 @@ being used in the specified item.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; ITEM:Scroll
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; ITEM:Scroll</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; ITEM:Potion
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; ITEM:Potion</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; ITEM:Scroll|Potion
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; ITEM:Scroll|Potion</code>
   </p>
   <p class="indent3">
    The associated spell can be used to make scrolls
@@ -1352,9 +1192,7 @@ spell works with SKILLTOTAL=&gt;skill name)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PPCOST:9
-   </code>
+   <code>PPCOST:9</code>
   </p>
   <p class="indent3">
    This spell costs 9 points to use.
@@ -1366,24 +1204,18 @@ spell works with SKILLTOTAL=&gt;skill name)
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; PPCOST:3
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; PPCOST:3</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; PPCOST:6
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; PPCOST:6</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; PPCOST:6
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; PPCOST:6</code>
   </p>
   <p class="indent3">
    The associated spells costs "6" power
@@ -1423,19 +1255,15 @@ range)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    RANGE:Medium (100' + 5/lv)
-   </code>
+   <code>RANGE:Medium (100' + 5/lv)</code>
   </p>
   <p class="indent3">
    This spell has a range of 100 feet plus 5 feet
 per level.
   </p>
   <p class="indent2">
-   <code>
-    RANGE:.CLEAR &lt;tab&gt;
-RANGE:Personal
-   </code>
+   <code>RANGE:.CLEAR &lt;tab&gt;
+RANGE:Personal</code>
   </p>
   <p class="indent3">
    This clears the previous range and replaces with
@@ -1448,24 +1276,18 @@ RANGE:Personal
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; RANGE:Personal
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; RANGE:Personal</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; RANGE:Medium (100' + 5/lvl)
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; RANGE:Medium (100' + 5/lvl)</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; RANGE:Personal|Medium (100' + 5/lvl)
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; RANGE:Personal|Medium (100' + 5/lvl)</code>
   </p>
   <p class="indent3">
    The associated spell can be used as a personal
@@ -1503,9 +1325,7 @@ spell, and if so what it is.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SAVEINFO:Will Negates
-   </code>
+   <code>SAVEINFO:Will Negates</code>
   </p>
   <p class="indent3">
    A successful Will save will negate the spell
@@ -1518,24 +1338,18 @@ effects.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SAVEINFO:Will negates
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SAVEINFO:Will negates</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; SAVEINFO:Reflex for half
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; SAVEINFO:Reflex for half</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SAVEINFO:Will negates|Reflex for half
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SAVEINFO:Will negates|Reflex for half</code>
   </p>
   <p class="indent3">
    A successful Reflex save will half the spell
@@ -1581,29 +1395,23 @@ SCHOOL:.CLEAR|x|x|.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SCHOOL:Divination
-   </code>
+   <code>SCHOOL:Divination</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Divination"
 school.
   </p>
   <p class="indent2">
-   <code>
-    SCHOOL:Enchantment|Illusion
-   </code>
+   <code>SCHOOL:Enchantment|Illusion</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Enchantment" and
 "Illusion" schools.
   </p>
   <p class="indent2">
-   <code>
-    Summon Monster VII.MOD &lt;tab&gt;
+   <code>Summon Monster VII.MOD &lt;tab&gt;
 CLASSES:Channeler=7 &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt;
-SCHOOL:Greater Conjuration
-   </code>
+SCHOOL:Greater Conjuration</code>
   </p>
   <p class="indent3">
    For the Class Channeler of level 7 the spell
@@ -1611,10 +1419,8 @@ Summon Monster VII is modified, moving it from whatever schools it
 was in to just "Greater Conjuration".
   </p>
   <p class="indent2">
-   <code>
-    SCHOOL:.CLEAR &lt;tab&gt;
-SCHOOL:Illusion
-   </code>
+   <code>SCHOOL:.CLEAR &lt;tab&gt;
+SCHOOL:Illusion</code>
   </p>
   <p class="indent3">
    This clears the schools list and replaces it
@@ -1627,24 +1433,18 @@ with the "Illusion" school.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SCHOOL:Enchantment
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SCHOOL:Enchantment</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; SCHOOL:Illusion
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; SCHOOL:Illusion</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SCHOOL:Enchantment|Illusion
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SCHOOL:Enchantment|Illusion</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Enchantment" and
@@ -1704,10 +1504,8 @@ effect costs.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLPOINTCOST:Evoke Fire=4|Range=1|Area
-of Effect=1|Duration=1
-   </code>
+   <code>SPELLPOINTCOST:Evoke Fire=4|Range=1|Area
+of Effect=1|Duration=1</code>
   </p>
   <p class="indent3">
    Enhancing the "Evoke Fire" effect would cost 4
@@ -1715,9 +1513,7 @@ spell points, the "Range", "Area of Effect", and "Duration" one
 point each.
   </p>
   <p class="indent2">
-   <code>
-    SPELLPOINTCOST:4
-   </code>
+   <code>SPELLPOINTCOST:4</code>
   </p>
   <p class="indent3">
    Enhancing the spell costs a total of 4 spell
@@ -1730,24 +1526,18 @@ points.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SPELLPOINTCOST:Evoke Fire=4
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SPELLPOINTCOST:Evoke Fire=4</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; SPELLPOINTCOST:Range=1
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; SPELLPOINTCOST:Range=1</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SPELLPOINTCOST:Evoke Fire=4|Range=1
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SPELLPOINTCOST:Evoke Fire=4|Range=1</code>
   </p>
   <p class="indent3">
    Enhancing the "Evoke Fire" effect would cost 4
@@ -1795,26 +1585,20 @@ Creatures|Limited or SPELLRES:.CLEAR|No
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLRES:Yes
-   </code>
+   <code>SPELLRES:Yes</code>
   </p>
   <p class="indent3">
    This spell is susceptible to spell
 resistance.
   </p>
   <p class="indent2">
-   <code>
-    SPELLRES:For Good Creatures
-   </code>
+   <code>SPELLRES:For Good Creatures</code>
   </p>
   <p class="indent3">
    This spell is susceptible to Good Creatures.
   </p>
   <p class="indent2">
-   <code>
-    SPELLRES:.CLEAR
-   </code>
+   <code>SPELLRES:.CLEAR</code>
   </p>
   <p class="indent3">
    This clears the Spell resistance setting.
@@ -1826,24 +1610,18 @@ resistance.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SPELLRES:YES
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SPELLRES:YES</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; SPELLRES:
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; SPELLRES:</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SPELLRES:
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SPELLRES:</code>
   </p>
   <p class="indent3">
   </p>
@@ -1876,9 +1654,7 @@ bonus spells and maximum level the character can cast.
    </li>
    <li>
     Used in conjunction with the
-    <code>
-     SPELLSTAT:SPELL
-    </code>
+    <code>SPELLSTAT:SPELL</code>
     tag
 in the
     <em>
@@ -1893,15 +1669,11 @@ in the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STAT:CHA
-   </code>
+   <code>STAT:CHA</code>
   </p>
   <p class="indent3">
    When used in conjunction with the
-   <code>
-    SPELLSTAT:SPELL
-   </code>
+   <code>SPELLSTAT:SPELL</code>
    tag in a class file, a spell with this
 tag will use the charisma modifier to determine bonus spells and
 maximum level the character can cast.
@@ -1913,24 +1685,18 @@ maximum level the character can cast.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; STAT:CHA
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; STAT:CHA</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; STAT:INT
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; STAT:INT</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; STAT:INT
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; STAT:INT</code>
   </p>
   <p class="indent3">
    This spell will now use the intelligence
@@ -1977,37 +1743,29 @@ SUBSCHOOL:.CLEAR|x|x|.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBSCHOOL:Charm
-   </code>
+   <code>SUBSCHOOL:Charm</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Charm"
 sub-school.
   </p>
   <p class="indent2">
-   <code>
-    SUBSCHOOL:Creation|Calling
-   </code>
+   <code>SUBSCHOOL:Creation|Calling</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Creation" and
 "Calling" subschools.
   </p>
   <p class="indent2">
-   <code>
-    Wall of Force.MOD &lt;tab&gt;
-SUBSCHOOL:Force
-   </code>
+   <code>Wall of Force.MOD &lt;tab&gt;
+SUBSCHOOL:Force</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Force"
 sub-school.
   </p>
   <p class="indent2">
-   <code>
-    SUBSCHOOL:.CLEAR|Charm
-   </code>
+   <code>SUBSCHOOL:.CLEAR|Charm</code>
   </p>
   <p class="indent3">
    This clears the subschools list and replaces
@@ -2020,24 +1778,18 @@ with "Charm" sub-school.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SUBSCHOOL:Creation
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SUBSCHOOL:Creation</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; SUBSCHOOL:Calling
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; SUBSCHOOL:Calling</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; SUBSCHOOL:Creation|Calling
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; SUBSCHOOL:Creation|Calling</code>
   </p>
   <p class="indent3">
    This spell belongs to the "Creation" and
@@ -2096,9 +1848,7 @@ to be parsed, text containing parentheses must substitute brackets
 [ ] in place of parentheses.
    </li>
    <li>
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     is used to clear the target, area, or
 effects that a spell has.
    </li>
@@ -2109,18 +1859,14 @@ effects that a spell has.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TARGETAREA:Cone
-   </code>
+   <code>TARGETAREA:Cone</code>
   </p>
   <p class="indent3">
    Spell has a cone area of effect.
   </p>
   <p class="indent2">
-   <code>
-    TARGETAREA:(CASTERLEVEL*10) ft.
-cube
-   </code>
+   <code>TARGETAREA:(CASTERLEVEL*10) ft.
+cube</code>
   </p>
   <p class="indent3">
    If CASTERLEVEL is equal to 3 then this outputs:
@@ -2133,24 +1879,18 @@ cube
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; TARGETAREA:(CASTERLEVEL*5) ft. cube
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; TARGETAREA:(CASTERLEVEL*5) ft. cube</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; TARGETAREA:(CASTERLEVEL*10) ft. cube
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; TARGETAREA:(CASTERLEVEL*10) ft. cube</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; TARGETAREA:(CASTERLEVEL*10) ft. cube
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; TARGETAREA:(CASTERLEVEL*10) ft. cube</code>
   </p>
   <p class="indent3">
    The target area is now equal to cube 10 times
@@ -2205,36 +1945,28 @@ TAG:.CLEAR|x|x|.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VARIANTS:Blast|Spell
-   </code>
+   <code>VARIANTS:Blast|Spell</code>
   </p>
   <p class="indent3">
    Names the two variations of the spell.
   </p>
   <p class="indent2">
-   <code>
-    VARIANTS:Acorn Grenades|Holly Berry
-Bombs
-   </code>
+   <code>VARIANTS:Acorn Grenades|Holly Berry
+Bombs</code>
   </p>
   <p class="indent3">
    Names the two variants of the spell Fire
 seeds.
   </p>
   <p class="indent2">
-   <code>
-    VARIANTS:.CLEAR
-   </code>
+   <code>VARIANTS:.CLEAR</code>
   </p>
   <p class="indent3">
    Removes all variants of the spell.
   </p>
   <p class="indent2">
-   <code>
-    VARIANTS:.CLEAR|Acorn Grenades|Holly Berry
-Bombs
-   </code>
+   <code>VARIANTS:.CLEAR|Acorn Grenades|Holly Berry
+Bombs</code>
   </p>
   <p class="indent3">
    Removes all variants of the spell Fire
@@ -2247,24 +1979,18 @@ seeds.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; VARIANTS:Acorn Grenades
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; VARIANTS:Acorn Grenades</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; VARIANTS:Holly Berry Bombs
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; VARIANTS:Holly Berry Bombs</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; VARIANTS:Acorn Grenades|Holly Berry Bombs
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; VARIANTS:Acorn Grenades|Holly Berry Bombs</code>
   </p>
   <p class="indent3">
    Names the two variants of the spell Fire
@@ -2305,9 +2031,7 @@ for determining potion, wand, etc costs.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    XPCOST:1250
-   </code>
+   <code>XPCOST:1250</code>
   </p>
   <p class="indent3">
    Spell costs 1250 Experience points to cast.
@@ -2319,24 +2043,18 @@ for determining potion, wand, etc costs.
   </p>
   <p class="indent2">
    Initial Spell:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; XPCOST:1250
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; XPCOST:1250</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;spell name&gt;.MOD
-&lt;tab&gt; XPCOST:750
-   </code>
+   <code>&lt;spell name&gt;.MOD
+&lt;tab&gt; XPCOST:750</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;spell name&gt;
-&lt;tab&gt; XPCOST:750
-   </code>
+   <code>&lt;spell name&gt;
+&lt;tab&gt; XPCOST:750</code>
   </p>
   <p class="indent3">
    Spell costs 750 Experience points to cast.

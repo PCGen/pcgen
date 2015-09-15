@@ -71,9 +71,7 @@ when using PRExxx tags.
    <li>
     When using PRExxx tags as part of a class, the level will be
 tested before any new level is fully applied. This means that
-    <code>
-     PREPCLEVEL:MAX=1
-    </code>
+    <code>PREPCLEVEL:MAX=1</code>
     will pass when adding a second level
 to a first level character as that character is not yet level
 2.
@@ -87,9 +85,7 @@ whether the prerequisite is passed or not.
    </li>
    <li>
     There is a
-    <code>
-     PRE:.CLEAR
-    </code>
+    <code>PRE:.CLEAR</code>
     tag. Be aware that it will
 clear all PRExxx tags from an object and you will need to re-enter
 those PRExxx tags that you want to keep.
@@ -107,28 +103,20 @@ those PRExxx tags that you want to keep.
   <p>
    Logical negation of any pre-requisite is obtained by pre-pending
 an exclamation mark,
-   <code>
-    !
-   </code>
+   <code>!</code>
    , to the
-   <code>
-    PRE
-   </code>
+   <code>PRE</code>
    tag.
   </p>
   <ul>
    <li>
-    <code>
-     PREALIGN:LG
-    </code>
+    <code>PREALIGN:LG</code>
     ,
     <strong>
      without
     </strong>
     the
-    <code>
-     !
-    </code>
+    <code>!</code>
     , requires that the character's alignment
     <strong>
      is
@@ -136,17 +124,13 @@ an exclamation mark,
     lawful good.
    </li>
    <li>
-    <code>
-     !PREALIGN:LG
-    </code>
+    <code>!PREALIGN:LG</code>
     ,
     <strong>
      with
     </strong>
     the
-    <code>
-     !
-    </code>
+    <code>!</code>
     , requires that the character
     <strong>
      is not
@@ -159,22 +143,16 @@ an exclamation mark,
   </h4>
   <p>
    Use
-   <code>
-    PREMULT:1,[sub_prereq1],[sub_prereq2]...
-   </code>
+   <code>PREMULT:1,[sub_prereq1],[sub_prereq2]...</code>
    to
 require
    <strong>
     at least one
    </strong>
    of the sub-prerequisites
-   <code>
-    [sub_prereq1]
-   </code>
+   <code>[sub_prereq1]</code>
    ,
-   <code>
-    [sub_prereq2]
-   </code>
+   <code>[sub_prereq2]</code>
    , ... to be
 true.
   </p>
@@ -182,9 +160,7 @@ true.
    <li>
     <p>
      2-variable OR:
-     <code>
-      PREMULT:1,[PREALIGN:LG],[PREGENDER:M]
-     </code>
+     <code>PREMULT:1,[PREALIGN:LG],[PREGENDER:M]</code>
     </p>
     <p>
      Must have lawful good alignment OR male gender.
@@ -193,9 +169,7 @@ true.
    <li>
     <p>
      3-variable OR:
-     <code>
-      PREMULT:1,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]
-     </code>
+     <code>PREMULT:1,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]</code>
     </p>
     <p>
      Must have lawful good alignment OR male gender OR a base attack
@@ -208,25 +182,17 @@ bonus of at least 10.
   </h4>
   <p>
    Use
-   <code>
-    PREMULT:N,[sub_prereq1],[sub_prereq2]...
-   </code>
+   <code>PREMULT:N,[sub_prereq1],[sub_prereq2]...</code>
    , where
-   <code>
-    N
-   </code>
+   <code>N</code>
    is the number of sub-prerequisites, to require that
    <strong>
     all
    </strong>
    of the sub-prerequisites
-   <code>
-    [sub_prereq1]
-   </code>
+   <code>[sub_prereq1]</code>
    ,
-   <code>
-    [sub_prereq2]
-   </code>
+   <code>[sub_prereq2]</code>
    , ... are
 true.
   </p>
@@ -234,9 +200,7 @@ true.
    <li>
     <p>
      2-variable AND:
-     <code>
-      PREMULT:2,[PREALIGN:LG],[PREGENDER:M]
-     </code>
+     <code>PREMULT:2,[PREALIGN:LG],[PREGENDER:M]</code>
     </p>
     <p>
      Must have lawful good alignment AND male gender.
@@ -245,9 +209,7 @@ true.
    <li>
     <p>
      3-variable AND:
-     <code>
-      PREMULT:3,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]
-     </code>
+     <code>PREMULT:3,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]</code>
     </p>
     <p>
      Must have lawful good alignment AND male gender AND a base
@@ -260,39 +222,25 @@ attack bonus of at least 10.
   </h4>
   <p>
    The
-   <code>
-    NOR
-   </code>
+   <code>NOR</code>
    (
-   <code>
-    not OR
-   </code>
+   <code>not OR</code>
    ) and
-   <code>
-    NAND
-   </code>
+   <code>NAND</code>
    (
-   <code>
-    not AND
-   </code>
+   <code>not AND</code>
    ) functions are produced by
 prefixing
-   <code>
-    !
-   </code>
+   <code>!</code>
    , giving the
-   <code>
-    !PREMULT
-   </code>
+   <code>!PREMULT</code>
    tag.
   </p>
   <ul>
    <li>
     <p>
      2-variable NOR:
-     <code>
-      !PREMULT:1,[PREALIGN:LG],[PREGENDER:M]
-     </code>
+     <code>!PREMULT:1,[PREALIGN:LG],[PREGENDER:M]</code>
     </p>
     <p>
      Must NOT have (lawful good alignment OR male gender).
@@ -301,9 +249,7 @@ prefixing
    <li>
     <p>
      2-variable NAND:
-     <code>
-      !PREMULT:2,[PREALIGN:LG],[PREGENDER:M]
-     </code>
+     <code>!PREMULT:2,[PREALIGN:LG],[PREGENDER:M]</code>
     </p>
     <p>
      Must NOT have (lawful good alignment AND male gender).
@@ -315,18 +261,12 @@ prefixing
   </h4>
   <p>
    It is possible to nest the
-   <code>
-    PREMULT
-   </code>
+   <code>PREMULT</code>
    tag within other
-   <code>
-    PREMULT
-   </code>
+   <code>PREMULT</code>
    tags, allowing logic functions like
-   <code>
-    (A
-OR B) AND (C OR D)
-   </code>
+   <code>(A
+OR B) AND (C OR D)</code>
    to be realised.
   </p>
   <h3 id="comparison-operators">
@@ -339,39 +279,27 @@ operators.
   </p>
   <ul>
    <li>
-    <code>
-     EQ
-    </code>
+    <code>EQ</code>
     - equals
    </li>
    <li>
-    <code>
-     GT
-    </code>
+    <code>GT</code>
     - greater than
    </li>
    <li>
-    <code>
-     GTEQ
-    </code>
+    <code>GTEQ</code>
     - greater than or equal to
    </li>
    <li>
-    <code>
-     LT
-    </code>
+    <code>LT</code>
     - less than
    </li>
    <li>
-    <code>
-     LTEQ
-    </code>
+    <code>LTEQ</code>
     - less than or equal to
    </li>
    <li>
-    <code>
-     NEQ
-    </code>
+    <code>NEQ</code>
     - not equal to
    </li>
   </ul>
@@ -380,39 +308,25 @@ operators.
   </p>
   <ul>
    <li>
-    <code>
-     PREBASESIZE
-    </code>
+    <code>PREBASESIZE</code>
    </li>
    <li>
-    <code>
-     PREHANDS
-    </code>
+    <code>PREHANDS</code>
    </li>
    <li>
-    <code>
-     PRELEGS
-    </code>
+    <code>PRELEGS</code>
    </li>
    <li>
-    <code>
-     PREREACH
-    </code>
+    <code>PREREACH</code>
    </li>
    <li>
-    <code>
-     PRESIZE
-    </code>
+    <code>PRESIZE</code>
    </li>
    <li>
-    <code>
-     PRESR
-    </code>
+    <code>PRESR</code>
    </li>
    <li>
-    <code>
-     PREVAR
-    </code>
+    <code>PREVAR</code>
    </li>
   </ul>
   <p>
@@ -422,24 +336,16 @@ operators.
 name
    </strong>
    . i.e.
-   <code>
-    PREVARNEQ
-   </code>
+   <code>PREVARNEQ</code>
    or
-   <code>
-    PREREACHLTEQ
-   </code>
+   <code>PREREACHLTEQ</code>
    .
   </p>
   <p>
    (Not as
-   <code>
-    PREVAR:EQ
-   </code>
+   <code>PREVAR:EQ</code>
    or
-   <code>
-    PREREACH:LTEQ
-   </code>
+   <code>PREREACH:LTEQ</code>
    .)
   </p>
   <hr/>
@@ -449,13 +355,9 @@ name
   <p>
    <em>
     Require that the character has at least
-    <code>
-     N
-    </code>
+    <code>N</code>
     abilities from a given
-    <code>
-     ability_category
-    </code>
+    <code>ability_category</code>
     . A type of
 ability can be specified, or individual abilities can be specified
 by name.
@@ -470,18 +372,12 @@ by name.
     <ul>
      <li>
       The syntax
-      <code>
-       PREABILITY:N,CATEGORY=ability_category,ALL
-      </code>
+      <code>PREABILITY:N,CATEGORY=ability_category,ALL</code>
       was
 deleted. (Formerly used to require
-      <code>
-       N
-      </code>
+      <code>N</code>
       abilities from
-      <code>
-       ability_category
-      </code>
+      <code>ability_category</code>
       . Removed because it was too
 broad.)
      </li>
@@ -503,65 +399,43 @@ PREABILITY.
   <ol>
    <li>
     <p>
-     <code>
-      PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...
-     </code>
+     <code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...</code>
     </p>
     <p>
      Requires the character to have at least
-     <code>
-      N
-     </code>
+     <code>N</code>
      abilities
 from
-     <code>
-      ability_category
-     </code>
+     <code>ability_category</code>
      , of the specific type(s)
-     <code>
-      ability_type_1
-     </code>
+     <code>ability_type_1</code>
      ,
-     <code>
-      ability_type_2
-     </code>
+     <code>ability_type_2</code>
      , and so
 on.
     </p>
    </li>
    <li>
     <p>
-     <code>
-      PREABILITY:N,CATEGORY=ability_category,ability_name_1,ability_name_2,...
-     </code>
+     <code>PREABILITY:N,CATEGORY=ability_category,ability_name_1,ability_name_2,...</code>
     </p>
     <p>
      Requires the character to have at least
-     <code>
-      N
-     </code>
+     <code>N</code>
      abilities
 from a specific list of abilities:
-     <code>
-      ability_name_1
-     </code>
+     <code>ability_name_1</code>
      ,
-     <code>
-      ability_name_2
-     </code>
+     <code>ability_name_2</code>
      , and so on.
     </p>
    </li>
   </ol>
   <p>
    It is possible to combine the
-   <code>
-    TYPE.ability_type1
-   </code>
+   <code>TYPE.ability_type1</code>
    and the
-   <code>
-    ability_name_1
-   </code>
+   <code>ability_name_1</code>
    syntax:
   </p>
   <pre>
@@ -575,9 +449,7 @@ from a specific list of abilities:
    <li>
     <p>
      The
-     <code>
-      CATEGORY
-     </code>
+     <code>CATEGORY</code>
      tag will only accept "parent"
 categories.
     </p>
@@ -585,34 +457,26 @@ categories.
    <li>
     <p>
      Square brackets around an ability name,
-     <code>
-      [ability_name_1]
-     </code>
+     <code>[ability_name_1]</code>
      , means that the character must
      <strong>
       not
      </strong>
      have
-     <code>
-      ability_name_1
-     </code>
+     <code>ability_name_1</code>
      .
     </p>
    </li>
    <li>
     <p>
      Square brackets around an ability type,
-     <code>
-      [TYPE.ability_type_1]
-     </code>
+     <code>[TYPE.ability_type_1]</code>
      , means that the character must
      <strong>
       not
      </strong>
      have any ability of the type
-     <code>
-      ability_type_1
-     </code>
+     <code>ability_type_1</code>
      .
     </p>
    </li>
@@ -628,15 +492,11 @@ categories.
     <ul>
      <li>
       <p>
-       <code>
-        PREABILITY:1,CATEGORY=Feat,Dodge
-       </code>
+       <code>PREABILITY:1,CATEGORY=Feat,Dodge</code>
       </p>
       <p>
        Requires the
-       <code>
-        Dodge
-       </code>
+       <code>Dodge</code>
        feat. (Prerequisite for
        <a href="http://www.d20srd.org/srd/feats.htm#mobility">
         d20 SRD
@@ -647,19 +507,13 @@ Mobility
      </li>
      <li>
       <p>
-       <code>
-        PREABILITY:2,CATEGORY=Feat,Dodge,Mobility
-       </code>
+       <code>PREABILITY:2,CATEGORY=Feat,Dodge,Mobility</code>
       </p>
       <p>
        Requires two of the
-       <code>
-        Dodge
-       </code>
+       <code>Dodge</code>
        and
-       <code>
-        Mobility
-       </code>
+       <code>Mobility</code>
        feats, i.e. both are required. (Prerequisite for
        <a href="http://www.d20srd.org/srd/feats.htm#springAttack">
         d20 SRD Spring
@@ -670,10 +524,8 @@ Attack
      </li>
      <li>
       <p>
-       <code>
-        PREABILITY:2,CATEGORY=Feat,Improved Disarm,Improved
-Feint,Improved Trip
-       </code>
+       <code>PREABILITY:2,CATEGORY=Feat,Improved Disarm,Improved
+Feint,Improved Trip</code>
       </p>
       <p>
        Requires any two of the three feats specified.
@@ -688,29 +540,21 @@ Feint,Improved Trip
     <ul>
      <li>
       <p>
-       <code>
-        PREABILITY:1,Category=Feat,TYPE.SpellFocus
-       </code>
+       <code>PREABILITY:1,Category=Feat,TYPE.SpellFocus</code>
       </p>
       <p>
        Requires at least one
-       <code>
-        SpellFocus
-       </code>
+       <code>SpellFocus</code>
        type feat.
       </p>
      </li>
      <li>
       <p>
-       <code>
-        PREABILITY:3,Category=Feat,TYPE.Metamagic
-       </code>
+       <code>PREABILITY:3,Category=Feat,TYPE.Metamagic</code>
       </p>
       <p>
        Requires at least three
-       <code>
-        Metamagic
-       </code>
+       <code>Metamagic</code>
        type feats.
       </p>
      </li>
@@ -723,10 +567,8 @@ Feint,Improved Trip
     <ul>
      <li>
       <p>
-       <code>
-        PREABILITY:1,Category=SpecialQuality,[Night
-Vision]
-       </code>
+       <code>PREABILITY:1,Category=SpecialQuality,[Night
+Vision]</code>
       </p>
       <p>
        Requires that the creature does
@@ -734,47 +576,35 @@ Vision]
         not
        </strong>
        have the
-       <code>
-        Night Vision
-       </code>
+       <code>Night Vision</code>
        special quality.
       </p>
       <p>
        Note that the
-       <code>
-        !
-       </code>
+       <code>!</code>
        syntax could also be used, i.e.
       </p>
       <p>
-       <code>
-        !PREABILITY:1,Category=SpecialQuality,Night
-Vision
-       </code>
+       <code>!PREABILITY:1,Category=SpecialQuality,Night
+Vision</code>
        .
       </p>
      </li>
      <li>
       <p>
-       <code>
-        PREABILITY:1,CATEGORY=Feat,Power Attack,[Weapon
-Finesse]
-       </code>
+       <code>PREABILITY:1,CATEGORY=Feat,Power Attack,[Weapon
+Finesse]</code>
       </p>
       <p>
        Requires that the creature has the
-       <code>
-        Power Attack
-       </code>
+       <code>Power Attack</code>
        feat, and does
        <strong>
         not
        </strong>
        have the
-       <code>
-        Weapon
-Finesse
-       </code>
+       <code>Weapon
+Finesse</code>
        feat.
       </p>
      </li>
@@ -846,35 +676,27 @@ Middle Age, Old, and Venerable.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREAGESET:1,Old
-   </code>
+   <code>PREAGESET:1,Old</code>
   </p>
   <p class="indent3">
    Requires the PC to be "Old" or "Venerable".
   </p>
   <p class="indent2">
-   <code>
-    PREAGESET:1,Venerable
-   </code>
+   <code>PREAGESET:1,Venerable</code>
   </p>
   <p class="indent3">
    Requires the PC to be "Venerable".
   </p>
   <p class="indent2">
-   <code>
-    !PREAGESET:1,Venerable
-   </code>
+   <code>!PREAGESET:1,Venerable</code>
   </p>
   <p class="indent3">
    Requires the PC to be younger than
 "Venerable".
   </p>
   <p class="indent2">
-   <code>
-    PREMULT:2,[PREAGESET:1,Middle
-Age],[!PREAGESET:1,Old]
-   </code>
+   <code>PREMULT:2,[PREAGESET:1,Middle
+Age],[!PREAGESET:1,Old]</code>
   </p>
   <p class="indent3">
    Requires the PC to be "Middle Age" but not
@@ -953,34 +775,26 @@ Deity's Alignment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREALIGN:LG,NG,CG
-   </code>
+   <code>PREALIGN:LG,NG,CG</code>
   </p>
   <p class="indent3">
    Requires any Good alignment.
   </p>
   <p class="indent2">
-   <code>
-    PREALIGN:2,5,8
-   </code>
+   <code>PREALIGN:2,5,8</code>
   </p>
   <p class="indent3">
    Requires any evil alignment.
   </p>
   <p class="indent2">
-   <code>
-    PREALIGN:LG,Deity
-   </code>
+   <code>PREALIGN:LG,Deity</code>
   </p>
   <p class="indent3">
    Requires Lawful Good or the character's chosen
 Deity's alignment.
   </p>
   <p class="indent2">
-   <code>
-    !PREALIGN:LG,NG,CG
-   </code>
+   <code>!PREALIGN:LG,NG,CG</code>
   </p>
   <p class="indent3">
    Requires the PC not be of "Good" alignment.
@@ -1032,32 +846,24 @@ type name).
    <li>
     Requires that the included qualifications be met by the target
 before the associated
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     will be applied to that
 target.
    </li>
    <li>
-    <code>
-     PREAPPLY
-    </code>
+    <code>PREAPPLY</code>
     works
     <strong>
      ONLY
     </strong>
     at the end of
 a
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     tag.
    </li>
    <li>
     Bonuses with
-    <code>
-     PREAPPLY
-    </code>
+    <code>PREAPPLY</code>
     tags will only appear in the
     <em>
      Temporary Bonuses Tab
@@ -1080,17 +886,11 @@ a
    </li>
    <li>
     All LST objects containing
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     tags with
-    <code>
-     ANYPC
-    </code>
+    <code>ANYPC</code>
     as the target of a
-    <code>
-     PREAPPLY
-    </code>
+    <code>PREAPPLY</code>
     tag
 will always show up on the
     <em>
@@ -1100,9 +900,7 @@ will always show up on the
    </li>
    <li>
     Use of the
-    <code>
-     ANYPC
-    </code>
+    <code>ANYPC</code>
     subtag allows for bonuses to be
 granted without the character needing to have added the containing
 object to his character, or to allow for conditional/situational
@@ -1110,9 +908,7 @@ bonuses on LST objects that have been added to the character.
    </li>
    <li>
     LST objects that can include a
-    <code>
-     PREAPPLY:ANYPC
-    </code>
+    <code>PREAPPLY:ANYPC</code>
     tag
 include:
     <ul>
@@ -1135,14 +931,10 @@ include:
    </li>
    <li>
     Spells with
-    <code>
-     PREAPPLY
-    </code>
+    <code>PREAPPLY</code>
     tags with weapon types will
 be treated as containing
-    <code>
-     ANYPC
-    </code>
+    <code>ANYPC</code>
     subtag and will appear
 in the
     <em>
@@ -1166,36 +958,28 @@ Bonus Tab
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREAPPLY:ANYPC
-   </code>
+   <code>PREAPPLY:ANYPC</code>
   </p>
   <p class="indent3">
    This allows the bonus granted to be applied to
 any character.
   </p>
   <p class="indent2">
-   <code>
-    PREAPPLY:PC
-   </code>
+   <code>PREAPPLY:PC</code>
   </p>
   <p class="indent3">
    This allows the bonus granted to be applied to
 the PC to which the granting LST object is attached.
   </p>
   <p class="indent2">
-   <code>
-    PREAPPLY:Ranged;Melee
-   </code>
+   <code>PREAPPLY:Ranged;Melee</code>
   </p>
   <p class="indent3">
    This allows the bonus granted to be applied to
 either ranged or melee weapons.
   </p>
   <p class="indent2">
-   <code>
-    PREAPPLY:Weapon,Blunt
-   </code>
+   <code>PREAPPLY:Weapon,Blunt</code>
   </p>
   <p class="indent3">
    This allows the bonus granted to be applied to
@@ -1208,13 +992,9 @@ tag:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|2|PREAPPLY:PC
-   </code>
+   <code>BONUS:COMBAT|AC|2|PREAPPLY:PC</code>
    becomes
-   <code>
-    TEMPBONUS:PC|COMBAT|AC|2
-   </code>
+   <code>TEMPBONUS:PC|COMBAT|AC|2</code>
   </p>
   <hr/>
   <p class="lststatus">
@@ -1279,37 +1059,29 @@ with).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREARMORTYPE:1,Chainmail,Full
-Plate
-   </code>
+   <code>PREARMORTYPE:1,Chainmail,Full
+Plate</code>
   </p>
   <p class="indent3">
    Character must have either "Chainmail" or "Full
 Plate" armor equipped.
   </p>
   <p class="indent2">
-   <code>
-    PREARMORTYPE:1,Leather Armor%
-   </code>
+   <code>PREARMORTYPE:1,Leather Armor%</code>
   </p>
   <p class="indent3">
    The "%" allows for items named Leather Armor
 (Masterwork), Leather Armor (+1) etc.
   </p>
   <p class="indent2">
-   <code>
-    PREARMORTYPE:1,TYPE.Medium
-   </code>
+   <code>PREARMORTYPE:1,TYPE.Medium</code>
   </p>
   <p class="indent3">
    Character must have a Medium type armor
 equipped.
   </p>
   <p class="indent2">
-   <code>
-    PREARMORTYPE:1,LIST
-   </code>
+   <code>PREARMORTYPE:1,LIST</code>
   </p>
   <p class="indent3">
    Character must be proficient in the armor
@@ -1350,9 +1122,7 @@ bonus.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREATT:6
-   </code>
+   <code>PREATT:6</code>
   </p>
   <p class="indent3">
    This would apply only if the PC had minimum base
@@ -1371,45 +1141,29 @@ or in a particular range of size categories.
   </h4>
   <p>
    Changed:
-   <code>
-    size
-   </code>
+   <code>size</code>
    used to be specified as the size name
 in words, i.e.
-   <code>
-    Small
-   </code>
+   <code>Small</code>
    . Now is is specified as the
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    , i.e.
-   <code>
-    S
-   </code>
+   <code>S</code>
    .
   </p>
   <h4 id="syntax">
    Syntax
   </h4>
   <p>
-   <code>
-    PREBASESIZEoperator:size
-   </code>
+   <code>PREBASESIZEoperator:size</code>
   </p>
   <p>
-   <code>
-    operator
-   </code>
+   <code>operator</code>
    and
-   <code>
-    size
-   </code>
+   <code>size</code>
    are as per the
    <a href="#presize">
-    <code>
-     PRESIZE
-    </code>
+    <code>PRESIZE</code>
     tag
    </a>
    .
@@ -1420,9 +1174,7 @@ in words, i.e.
   <p>
    As per the
    <a href="#presize">
-    <code>
-     PRESIZE
-    </code>
+    <code>PRESIZE</code>
     tag
    </a>
   </p>
@@ -1457,9 +1209,7 @@ text.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREBIRTHPLACE:Klamath
-   </code>
+   <code>PREBIRTHPLACE:Klamath</code>
   </p>
   <p class="indent3">
    Character must have been born in "Klamath".
@@ -1641,18 +1391,14 @@ number the associated check must be greater than or equal to).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRECHECK:1,Fortitude=5,Reflex=3
-   </code>
+   <code>PRECHECK:1,Fortitude=5,Reflex=3</code>
   </p>
   <p class="indent3">
    Would succeed if Fortitude meets or exceeds 5 or
 Reflex meets or exceeds 3.
   </p>
   <p class="indent2">
-   <code>
-    PRECHECK:2,Fortitude=5,Reflex=3,Willpower=4
-   </code>
+   <code>PRECHECK:2,Fortitude=5,Reflex=3,Willpower=4</code>
   </p>
   <p class="indent3">
    Would succeed if any 2 of the 3 three listed
@@ -1701,9 +1447,7 @@ to).
 Checks are usually only those from class advancement (no stat
 modifiers, magic, etc.), but follow anything defined with
 "
-   <code>
-    BONUS:CHECKS|BASE.Name|
-   </code>
+   <code>BONUS:CHECKS|BASE.Name|</code>
    ".
   </p>
   <p class="indent1">
@@ -1712,18 +1456,14 @@ modifiers, magic, etc.), but follow anything defined with
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRECHECKBASE:2,Fortitude=3,Reflex=3
-   </code>
+   <code>PRECHECKBASE:2,Fortitude=3,Reflex=3</code>
   </p>
   <p class="indent3">
    Would succeed if both Fortitude meets or exceeds
 3 and Reflex meets or exceeds 3.
   </p>
   <p class="indent2">
-   <code>
-    PRECHECKBASE:1,Fortitude=5,Reflex=3
-   </code>
+   <code>PRECHECKBASE:1,Fortitude=5,Reflex=3</code>
   </p>
   <p class="indent3">
    Would succeed if Fortitude meets or exceeds 5 or
@@ -1765,9 +1505,7 @@ Tab
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRECITY:Klamath
-   </code>
+   <code>PRECITY:Klamath</code>
   </p>
   <p class="indent3">
    Character must currently reside in
@@ -1844,18 +1582,14 @@ Name)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:2,Wizard=5,Sorcerer=6,Cleric=7
-   </code>
+   <code>PRECLASS:2,Wizard=5,Sorcerer=6,Cleric=7</code>
   </p>
   <p class="indent3">
    Multi-classed character must be at least
 Wiz5/Sor6, Wiz5/Clr7 or Sor6/Clr7.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:1,SPELLCASTER=2
-   </code>
+   <code>PRECLASS:1,SPELLCASTER=2</code>
   </p>
   <p class="indent3">
    Character must have 2 levels in any spellcasting
@@ -1864,18 +1598,14 @@ PCGen does not treat manifesting differently from spellcasting.
 Spellcaster and manifester can be considered interchangeable.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:1,SPELLCASTER.Arcane=2
-   </code>
+   <code>PRECLASS:1,SPELLCASTER.Arcane=2</code>
   </p>
   <p class="indent3">
    Character must have 2 levels in any arcane
 spellcasting class.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3
-   </code>
+   <code>PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3</code>
   </p>
   <p class="indent3">
    Character must have 6 levels in any divine
@@ -1883,102 +1613,80 @@ spellcasting class or 3 levels in any psionic manifesting
 class.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:2,TYPE.Base=5,TYPE.Prestige=1
-   </code>
+   <code>PRECLASS:2,TYPE.Base=5,TYPE.Prestige=1</code>
   </p>
   <p class="indent3">
    Character must have 5 levels in any Base class
 and 1 level in any Prestige class.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:2,ANY
-   </code>
+   <code>PRECLASS:2,ANY</code>
   </p>
   <p class="indent3">
    Multi-classed character must be at least two
 Classes.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:1,ANY
-   </code>
+   <code>PRECLASS:1,ANY</code>
   </p>
   <p class="indent3">
    Character must have 1 level in any class.
   </p>
   <p class="indent2">
-   <code>
-    PREMULT:1,[PREFEAT:1,Blood of the
-Fey],[PRECLASS:1,Fey-Touched=1]
-   </code>
+   <code>PREMULT:1,[PREFEAT:1,Blood of the
+Fey],[PRECLASS:1,Fey-Touched=1]</code>
   </p>
   <p class="indent3">
    Character must have 1 level in Fey-Touched class
 or feat Blood of the Fey.
   </p>
   <p class="indent2">
-   <code>
-    PRECLASS:1,Jack o' the Green=5
-!PREFEAT:1,TYPE.LASlipperyEel
-   </code>
+   <code>PRECLASS:1,Jack o' the Green=5
+!PREFEAT:1,TYPE.LASlipperyEel</code>
   </p>
   <p class="indent3">
    Character must have 5 levels in Jack o' the
 Green class and not have the feat LASlipperyEel.
   </p>
   <p class="indent2">
-   <code>
-    !PRECLASS:1,SPELLCASTER.Arcane=1
-   </code>
+   <code>!PRECLASS:1,SPELLCASTER.Arcane=1</code>
   </p>
   <p class="indent3">
    Character must not have 1 level in
 SPELLCASTER.Arcane class.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10
-   </code>
+   <code>BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10</code>
   </p>
   <p class="indent3">
    Character adds 1 to armor class if 10 levels in
 Shaper Class.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|TOHIT|4|TYPE=Luck|PRECLASS:1,Wizard=1,Sorcerer=1
-   </code>
+   <code>BONUS:WEAPON|TOHIT|4|TYPE=Luck|PRECLASS:1,Wizard=1,Sorcerer=1</code>
   </p>
   <p class="indent3">
    Character adds 4 to To-Hit from luck if 1 level
 in either Wizard/Sorcerer Class.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|Minstrel|CL-3|PRECLASS:1,Minstrel=4
-   </code>
+   <code>BONUS:CASTERLEVEL|Minstrel|CL-3|PRECLASS:1,Minstrel=4</code>
   </p>
   <p class="indent3">
    Character adds CL-3 bonus to Casterlevel if 4
 levels in Minstrel Class.
   </p>
   <p class="indent2">
-   <code>
-    SA:Damage reduction 1/opposed
-alignment|PRECLASS:1,Shaper=10
-   </code>
+   <code>SA:Damage reduction 1/opposed
+alignment|PRECLASS:1,Shaper=10</code>
   </p>
   <p class="indent3">
    SA: will fire with 10 levels of Shaper
 Class.
   </p>
   <p class="indent2">
-   <code>
-    SA:Spy|PREMULT:2,[PRECLASS:1,Aradil's
-Eye=5],[PRECLASSLEVELMAX:1,Aradil's Eye=9]
-   </code>
+   <code>SA:Spy|PREMULT:2,[PRECLASS:1,Aradil's
+Eye=5],[PRECLASSLEVELMAX:1,Aradil's Eye=9]</code>
   </p>
   <p class="indent3">
    SA: will fire with 5 levels of Aradil's Eye
@@ -2048,16 +1756,12 @@ name)
 the RSRD are "Base", "PC", or "Prestige".
    </li>
    <li>
-    <code>
-     SPELLCASTER
-    </code>
+    <code>SPELLCASTER</code>
     will check against all spellcasting
 classes.
    </li>
    <li>
-    <code>
-     SPELLCASTER.Text
-    </code>
+    <code>SPELLCASTER.Text</code>
     will check against spellcaster
 types, e.g. Arcane or Divine.
    </li>
@@ -2068,9 +1772,7 @@ types, e.g. Arcane or Divine.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRECLASSLEVELMAX:2,Fighter=2,SPELLCASTER=2
-   </code>
+   <code>PRECLASSLEVELMAX:2,Fighter=2,SPELLCASTER=2</code>
   </p>
   <p class="indent3">
    Character cannot have more than 2 levels of
@@ -2135,18 +1837,14 @@ text must match the entry exactly.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRECSKILL:1,Spot,Listen
-   </code>
+   <code>PRECSKILL:1,Spot,Listen</code>
   </p>
   <p class="indent3">
    Character must have either "Spot" or "Listen" as
 a Class Skill.
   </p>
   <p class="indent2">
-   <code>
-    PRECSKILL:2,TYPE.Spy
-   </code>
+   <code>PRECSKILL:2,TYPE.Spy</code>
   </p>
   <p class="indent3">
    Character must have two "Spy" skills as Class
@@ -2211,44 +1909,34 @@ pantheon name.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREDEITY:1,Y
-   </code>
+   <code>PREDEITY:1,Y</code>
   </p>
   <p class="indent3">
    Character must have a deity chosen.
   </p>
   <p class="indent2">
-   <code>
-    PREDEITY:1,N
-   </code>
+   <code>PREDEITY:1,N</code>
   </p>
   <p class="indent3">
    Character must NOT have a deity chosen.
   </p>
   <p class="indent2">
-   <code>
-    PREDEITY:1,Zeus,Odin
-   </code>
+   <code>PREDEITY:1,Zeus,Odin</code>
   </p>
   <p class="indent3">
    Character must have chosen either "Zeus" or
 "Odin".
   </p>
   <p class="indent2">
-   <code>
-    PREDEITY:1,Zeus,PANTHEON.Celtic,Odin
-   </code>
+   <code>PREDEITY:1,Zeus,PANTHEON.Celtic,Odin</code>
   </p>
   <p class="indent3">
    Character must have chosen either "Zeus", "Odin"
 or a deity in the "Celtic" pantheon.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Druid.MOD &lt;tab&gt;
-PREDEITY:1.Saluwe,Yarris,Belisarda,Fire Dragon
-   </code>
+   <code>CLASS:Druid.MOD &lt;tab&gt;
+PREDEITY:1.Saluwe,Yarris,Belisarda,Fire Dragon</code>
   </p>
   <p class="indent3">
    Character must have chosen either "Saluwe"
@@ -2324,18 +2012,14 @@ Deity's Alignment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREDEITYALIGN:0
-   </code>
+   <code>PREDEITYALIGN:0</code>
   </p>
   <p class="indent3">
    Character must have chosen a Lawful Good
 deity.
   </p>
   <p class="indent2">
-   <code>
-    PREDEITYALIGN:LG,NG,CG
-   </code>
+   <code>PREDEITYALIGN:LG,NG,CG</code>
   </p>
   <p class="indent3">
    Character must have chosen a deity of any Good
@@ -2384,9 +2068,7 @@ domains that the PC has selected for itself.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREDEITYDOMAIN:1,Good,Law
-   </code>
+   <code>PREDEITYDOMAIN:1,Good,Law</code>
   </p>
   <p class="indent3">
    Character must have chosen of deity with either
@@ -2439,18 +2121,14 @@ itself.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREDOMAIN:1,Good,Law
-   </code>
+   <code>PREDOMAIN:1,Good,Law</code>
   </p>
   <p class="indent3">
    Character must have 1 of the two listed
 domains.
   </p>
   <p class="indent2">
-   <code>
-    PREDOMAIN:2,ANY
-   </code>
+   <code>PREDOMAIN:2,ANY</code>
   </p>
   <p class="indent3">
    Character must have 2 domains of any type.
@@ -2501,18 +2179,14 @@ Resistance.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREDR:1,+1=10
-   </code>
+   <code>PREDR:1,+1=10</code>
   </p>
   <p class="indent3">
    Must have DR of 10/+1 or greater (but DR Type
 must be +1).
   </p>
   <p class="indent2">
-   <code>
-    PREDR:1,-=10,+1=10,+2=10,+3=10,+4=10,+5=10,Silver=10
-   </code>
+   <code>PREDR:1,-=10,+1=10,+2=10,+3=10,+4=10,+5=10,Silver=10</code>
   </p>
   <p class="indent3">
    Must have DR of 10 or greater of any type
@@ -2580,61 +2254,47 @@ delimited (.) list. (e.g. TYPE=Heavy.Armor for "Heavy Armor")
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:1,Leather Armor
-   </code>
+   <code>PREEQUIP:1,Leather Armor</code>
   </p>
   <p class="indent3">
    Must have Leather Armor (only) equipped.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:1,Leather Armor%
-   </code>
+   <code>PREEQUIP:1,Leather Armor%</code>
   </p>
   <p class="indent3">
    The "%" allows for items named Leather Armor
 (Masterwork), Leather Armor (+1) etc.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:1,TYPE=Armor
-   </code>
+   <code>PREEQUIP:1,TYPE=Armor</code>
   </p>
   <p class="indent3">
    Must have some type of armor equipped.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:2,TYPE=Armor,Sword
-(Long)%
-   </code>
+   <code>PREEQUIP:2,TYPE=Armor,Sword
+(Long)%</code>
   </p>
   <p class="indent3">
    Must be equipped with any Sword (Long), as well
 as any type of armor.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:2,TYPE=Armor,TYPE=Shield
-   </code>
+   <code>PREEQUIP:2,TYPE=Armor,TYPE=Shield</code>
   </p>
   <p class="indent3">
    Must be equipped with any Armor and any
 Shield.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:1,WIELDCATEGORY=TwoHanded
-   </code>
+   <code>PREEQUIP:1,WIELDCATEGORY=TwoHanded</code>
   </p>
   <p class="indent3">
    Must be equipped with a two handed weapon.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Light
-   </code>
+   <code>PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Light</code>
   </p>
   <p class="indent3">
    Must have equipped Heavy Armor or Light
@@ -2694,36 +2354,28 @@ can be more than one if can have more than one Primary hand.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPPRIMARY:1,Dagger
-   </code>
+   <code>PREEQUIPPRIMARY:1,Dagger</code>
   </p>
   <p class="indent3">
    Must have a dagger equipped in the primary
 hand.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPPRIMARY:1,Dagger%
-   </code>
+   <code>PREEQUIPPRIMARY:1,Dagger%</code>
   </p>
   <p class="indent3">
    The "%" allows for items named Dagger
 (Masterwork), Dagger (Punching), etc.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPPRIMARY:1,TYPE=Slashing
-   </code>
+   <code>PREEQUIPPRIMARY:1,TYPE=Slashing</code>
   </p>
   <p class="indent3">
    Must have some type of slashing weapon equipped
 in the primary hand.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPPRIMARY:1,WIELDCATEGORY=OneHanded
-   </code>
+   <code>PREEQUIPPRIMARY:1,WIELDCATEGORY=OneHanded</code>
   </p>
   <p class="indent3">
    Must have a one handed weapon equipped in the
@@ -2783,36 +2435,28 @@ can be more than one if can have more than one Secondary hand.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPSECONDARY:1,Dagger
-   </code>
+   <code>PREEQUIPSECONDARY:1,Dagger</code>
   </p>
   <p class="indent3">
    Must have a dagger equipped in the secondary
 hand.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPSECONDARY:1,Dagger%
-   </code>
+   <code>PREEQUIPSECONDARY:1,Dagger%</code>
   </p>
   <p class="indent3">
    The "%" allows for items named Dagger
 (Masterwork), Dagger (Punching), etc.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPSECONDARY:1,TYPE=Slashing
-   </code>
+   <code>PREEQUIPSECONDARY:1,TYPE=Slashing</code>
   </p>
   <p class="indent3">
    Must have some type of slashing weapon equipped
 in the secondary hand.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPSECONDARY:1,WIELDCATEGORY=Light
-   </code>
+   <code>PREEQUIPSECONDARY:1,WIELDCATEGORY=Light</code>
   </p>
   <p class="indent3">
    Must have a light weapon equipped in the
@@ -2870,27 +2514,21 @@ style.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPBOTH:1,Quarterstaff
-   </code>
+   <code>PREEQUIPBOTH:1,Quarterstaff</code>
   </p>
   <p class="indent3">
    Must have a Quarterstaff equipped in both
 hands.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPBOTH:1,Sword (Great%
-   </code>
+   <code>PREEQUIPBOTH:1,Sword (Great%</code>
   </p>
   <p class="indent3">
    The "%" allows for items named Sword
 (Great/Masterwork) etc.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPBOTH:1,TYPE=Slashing
-   </code>
+   <code>PREEQUIPBOTH:1,TYPE=Slashing</code>
   </p>
   <p class="indent3">
    Must have a slashing type weapon equipped in
@@ -2949,20 +2587,16 @@ style.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPTWOWEAPON:1,Sword
-(Short)
-   </code>
+   <code>PREEQUIPTWOWEAPON:1,Sword
+(Short)</code>
   </p>
   <p class="indent3">
    Must have a Sword (Short) equipped as one of two
 weapons for two weapon fighting.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPTWOWEAPON:1,Sword
-(Short%
-   </code>
+   <code>PREEQUIPTWOWEAPON:1,Sword
+(Short%</code>
   </p>
   <p class="indent3">
    Must have a Sword (Short) equipped as one of two
@@ -2970,18 +2604,14 @@ weapons and allows for items named Sword (Short/Masterwork)
 etc.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPTWOWEAPON:1,TYPE=Slashing
-   </code>
+   <code>PREEQUIPTWOWEAPON:1,TYPE=Slashing</code>
   </p>
   <p class="indent3">
    Must have a "Slashing" type weapon equipped as
 one of two weapons for two weapon fighting.
   </p>
   <p class="indent2">
-   <code>
-    PREEQUIPTWOWEAPON:1,WIELDCATEGORY=Light
-   </code>
+   <code>PREEQUIPTWOWEAPON:1,WIELDCATEGORY=Light</code>
   </p>
   <p class="indent3">
    Must have a light weapon equipped for two weapon
@@ -3005,34 +2635,24 @@ fighting.
    <li style="list-style: none; display: inline">
     <ul class="incremental">
      <li>
-      <code>
-       PREFEAT
-      </code>
+      <code>PREFEAT</code>
       is deprecated. Use
       <a href="#preability">
-       <code>
-        PREABILITY
-       </code>
+       <code>PREABILITY</code>
       </a>
       instead.
      </li>
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format.
@@ -3106,33 +2726,21 @@ space between the name of the feat and the parentheses.
     </li>
     <li>
      Use of the
-     <code>
-      (TYPE=&lt;text&gt;)
-     </code>
+     <code>(TYPE=&lt;text&gt;)</code>
      syntax with feats
 with multiple instances, e.g.
-     <code>
-      Weapon Focus(TYPE=Bow)
-     </code>
+     <code>Weapon Focus(TYPE=Bow)</code>
      ,
 though allowed, is only supported for feats with internal choosers
 for
-     <code>
-      DOMAIN
-     </code>
+     <code>DOMAIN</code>
      ,
-     <code>
-      SKILL
-     </code>
+     <code>SKILL</code>
      ,
-     <code>
-      SPELL
-     </code>
+     <code>SPELL</code>
      ,
 and
-     <code>
-      WEAPONPROF
-     </code>
+     <code>WEAPONPROF</code>
      types.
     </li>
    </ul>
@@ -3142,87 +2750,69 @@ and
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:1,Dodge,Combat Reflexes
-    </code>
+    <code>PREFEAT:1,Dodge,Combat Reflexes</code>
    </p>
    <p class="indent3">
     Character must have either "Dodge" or "Combat
 Reflexes".
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:2,CHECKMULT,Spell Focus
-    </code>
+    <code>PREFEAT:2,CHECKMULT,Spell Focus</code>
    </p>
    <p class="indent3">
     Character must have "Spell Focus" for two
 schools.
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:2,CHECKMULT,Spell Focus,[Spell
-Focus(Enchantment)]
-    </code>
+    <code>PREFEAT:2,CHECKMULT,Spell Focus,[Spell
+Focus(Enchantment)]</code>
    </p>
    <p class="indent3">
     Character must have "Spell Focus" for two
 schools, but not the "Enchantment" school.
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:2,Weapon Focus(TYPE=Bow),Weapon
-Focus(Longsword)
-    </code>
+    <code>PREFEAT:2,Weapon Focus(TYPE=Bow),Weapon
+Focus(Longsword)</code>
    </p>
    <p class="indent3">
     Character must have both "Weapon
 Focus(Longsword)" and any one "Bow" type "Weapon Focus".
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:2,CHECKMULT,Weapon
-Focus(TYPE=Sword)
-    </code>
+    <code>PREFEAT:2,CHECKMULT,Weapon
+Focus(TYPE=Sword)</code>
    </p>
    <p class="indent3">
     Character must have two "Sword" type "Weapon
 Focus" feats.
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:2,Skill Focus(Spot),Skill
-Focus(Listen),Skill Focus(Search)
-    </code>
+    <code>PREFEAT:2,Skill Focus(Spot),Skill
+Focus(Listen),Skill Focus(Search)</code>
    </p>
    <p class="indent3">
     Character must have any two of "Skill
 Focus(Spot)", "Skill Focus(Listen)", or "Skill Focus(Search)".
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:2,TYPE=ItemCreation
-    </code>
+    <code>PREFEAT:2,TYPE=ItemCreation</code>
    </p>
    <p class="indent3">
     Character must have any two "ItemCreation" type
 feats.
    </p>
    <p class="indent2">
-    <code>
-     PREFEAT:1,Skill
-Focus(Knowledge%)
-    </code>
+    <code>PREFEAT:1,Skill
+Focus(Knowledge%)</code>
    </p>
    <p class="indent3">
     Character must have one "Skill Focus" feat for a
 "Knowledge" sub-type skill.
    </p>
    <p class="indent2">
-    <code>
-     Magecraft (Charismatic).MOD &lt;tab&gt;
-!PREFEAT:1,Untapped Potential
-    </code>
+    <code>Magecraft (Charismatic).MOD &lt;tab&gt;
+!PREFEAT:1,Untapped Potential</code>
    </p>
    <p class="indent3">
     Character must not (!) have one feat called
@@ -3264,9 +2854,7 @@ None, and Other.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREGENDER:M
-   </code>
+   <code>PREGENDER:M</code>
   </p>
   <p class="indent3">
    Character's gender must start with "M".
@@ -3345,9 +2933,7 @@ prerequisite.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREHANDSGT:2
-   </code>
+   <code>PREHANDSGT:2</code>
   </p>
   <p class="indent3">
    Character must have a number of hands greater
@@ -3401,36 +2987,28 @@ Monster Classes only.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREHD:MIN=1,MAX=3
-   </code>
+   <code>PREHD:MIN=1,MAX=3</code>
   </p>
   <p class="indent3">
    The character must have one, two, or three
 racial hit die monster levels.
   </p>
   <p class="indent2">
-   <code>
-    PREHD:MIN=4
-   </code>
+   <code>PREHD:MIN=4</code>
   </p>
   <p class="indent3">
    The character must have four or more racial hit
 die or monster levels.
   </p>
   <p class="indent2">
-   <code>
-    PREHD:MAX=4
-   </code>
+   <code>PREHD:MAX=4</code>
   </p>
   <p class="indent3">
    The character must have four or fewer racial hit
 die monster levels.
   </p>
   <p class="indent2">
-   <code>
-    !PREHD:MIN=5,MAX=7
-   </code>
+   <code>!PREHD:MIN=5,MAX=7</code>
   </p>
   <p class="indent3">
    Character must have between 0-4 OR 7 or greater
@@ -3471,9 +3049,7 @@ prerequisite.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREHP:50
-   </code>
+   <code>PREHP:50</code>
   </p>
   <p class="indent3">
    The character must have at least 50 hp.
@@ -3529,27 +3105,21 @@ assignment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREITEM:1,Sword (Long),Sword
-(Short)
-   </code>
+   <code>PREITEM:1,Sword (Long),Sword
+(Short)</code>
   </p>
   <p class="indent3">
    Character must possess either a "long sword" or
 a "short sword".
   </p>
   <p class="indent2">
-   <code>
-    PREITEM:2,TYPE=Armor,TYPE=Armor
-   </code>
+   <code>PREITEM:2,TYPE=Armor,TYPE=Armor</code>
   </p>
   <p class="indent3">
    Character must possess two sets of armor.
   </p>
   <p class="indent2">
-   <code>
-    PREITEM:1,TYPE=Natural
-   </code>
+   <code>PREITEM:1,TYPE=Natural</code>
   </p>
   <p class="indent3">
    Character must possess one natural item.
@@ -3592,9 +3162,7 @@ Name)
    </li>
    <li>
     The Kit name is taken from the
-    <code>
-     STARTPACK
-    </code>
+    <code>STARTPACK</code>
     tag for
 the target kit.
    </li>
@@ -3611,36 +3179,28 @@ the target kit.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREKIT:1,Starting Gold
-   </code>
+   <code>PREKIT:1,Starting Gold</code>
   </p>
   <p class="indent3">
    Makes sure the character has the 'Starting Gold'
 kit.
   </p>
   <p class="indent2">
-   <code>
-    PREKIT:2,Flumph Abilities,Flumph
-Skills
-   </code>
+   <code>PREKIT:2,Flumph Abilities,Flumph
+Skills</code>
   </p>
   <p class="indent3">
    Makes sure the character has both kits
   </p>
   <p class="indent2">
-   <code>
-    PREKIT:1,Alchemist's Kit
-   </code>
+   <code>PREKIT:1,Alchemist's Kit</code>
   </p>
   <p class="indent3">
    Makes sure the character does not have the
 Alchemist's Kit
   </p>
   <p class="indent2">
-   <code>
-    PREKIT:1,Dragon Age%
-   </code>
+   <code>PREKIT:1,Dragon Age%</code>
   </p>
   <p class="indent3">
    Will match both 'Dragon Age 01 ~ Wyrmling' and
@@ -3693,45 +3253,35 @@ prerequisite.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRELANG:1,Dwarven,Elven
-   </code>
+   <code>PRELANG:1,Dwarven,Elven</code>
   </p>
   <p class="indent3">
    Character must be able to speak either "Dwarven"
 or "Elven".
   </p>
   <p class="indent2">
-   <code>
-    PRELANG:2,Dwarven,Elven
-   </code>
+   <code>PRELANG:2,Dwarven,Elven</code>
   </p>
   <p class="indent3">
    Character must be able to speak both "Dwarven"
 and "Elven".
   </p>
   <p class="indent2">
-   <code>
-    PRELANG:2,Dwarven,Elven,Halfling
-   </code>
+   <code>PRELANG:2,Dwarven,Elven,Halfling</code>
   </p>
   <p class="indent3">
    Character must be able to speak any two of
 "Dwarven", "Elven" or "Halfling".
   </p>
   <p class="indent2">
-   <code>
-    PRELANG:3,ANY
-   </code>
+   <code>PRELANG:3,ANY</code>
   </p>
   <p class="indent3">
    Character must be able to speak any three
 languages.
   </p>
   <p class="indent2">
-   <code>
-    PRELANG:4,TYPE=Spoken
-   </code>
+   <code>PRELANG:4,TYPE=Spoken</code>
   </p>
   <p class="indent3">
    Character must be able to speak any four
@@ -3811,9 +3361,7 @@ prerequisite.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRELEGSGTEQ:4
-   </code>
+   <code>PRELEGSGTEQ:4</code>
   </p>
   <p class="indent3">
    Character must have at least 4 legs.
@@ -3866,34 +3414,26 @@ to qualify.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRELEVEL:MIN=5
-   </code>
+   <code>PRELEVEL:MIN=5</code>
   </p>
   <p class="indent3">
    Character must be at least 5th level.
   </p>
   <p class="indent2">
-   <code>
-    PRELEVEL:MAX=5
-   </code>
+   <code>PRELEVEL:MAX=5</code>
   </p>
   <p class="indent3">
    Character must be no greater than 5th level.
   </p>
   <p class="indent2">
-   <code>
-    PRELEVEL:MIN=5,MAX=10
-   </code>
+   <code>PRELEVEL:MIN=5,MAX=10</code>
   </p>
   <p class="indent3">
    Character must be at least 5th level but no
 greater than 10th level.
   </p>
   <p class="indent2">
-   <code>
-    !PRELEVEL:MIN=3,MAX=6
-   </code>
+   <code>!PRELEVEL:MIN=3,MAX=6</code>
   </p>
   <p class="indent3">
    Character must NOT be 3rd, 4th, 5th or 6th
@@ -3935,9 +3475,7 @@ some very bad exceptions in the code.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRELEVELMAX:10
-   </code>
+   <code>PRELEVELMAX:10</code>
   </p>
   <p class="indent3">
    Character cannot be over level 10.
@@ -3990,26 +3528,20 @@ minimum movement rate for the associated movement type).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREMOVE:1,Walk=30,Fly=20
-   </code>
+   <code>PREMOVE:1,Walk=30,Fly=20</code>
   </p>
   <p class="indent3">
    Character must be able to either walk at speed
 30 OR fly at speed 20
   </p>
   <p class="indent2">
-   <code>
-    PREMOVE:1,Swim=10
-   </code>
+   <code>PREMOVE:1,Swim=10</code>
   </p>
   <p class="indent3">
    Character must be able to swim at speed 10
   </p>
   <p class="indent2">
-   <code>
-    PREMOVE:2,Walk=30,Climb=15
-   </code>
+   <code>PREMOVE:2,Walk=30,Climb=15</code>
   </p>
   <p class="indent3">
    Character must be able to walk at speed 30 AND
@@ -4060,38 +3592,30 @@ PRExxx tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]
-   </code>
+   <code>PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]</code>
   </p>
   <p class="indent3">
    Character must be either a "Gnome" or a
 "Cleric".
   </p>
   <p class="indent2">
-   <code>
-    PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]
-   </code>
+   <code>PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]</code>
   </p>
   <p class="indent3">
    Character must be "Gnome" OR a medium sized or
 larger creature with the "Alertness" feat.
   </p>
   <p class="indent2">
-   <code>
-    PREMULT:1,[!PRERACE:%],[PRERACE:Bunch of
-Rocks]
-   </code>
+   <code>PREMULT:1,[!PRERACE:%],[PRERACE:Bunch of
+Rocks]</code>
   </p>
   <p class="indent3">
    Character only be from a "Bunch of Rocks".
   </p>
   <p class="indent2">
-   <code>
-    Stamina.MOD &lt;tab&gt; PRE:.CLEAR
+   <code>Stamina.MOD &lt;tab&gt; PRE:.CLEAR
 &lt;tab&gt; PREMULT:1,[PREFEAT:1,Robust],[PRECLASS:1,Super
-Soldier=1]
-   </code>
+Soldier=1]</code>
   </p>
   <p class="indent3">
    The Stamna feat is modified to remove all PRE
@@ -4151,9 +3675,7 @@ classes.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREPCLEVEL:MAX=1
-   </code>
+   <code>PREPCLEVEL:MAX=1</code>
   </p>
   <p class="indent3">
    Character must be no greater than 1st level.
@@ -4162,34 +3684,26 @@ level character. A character with racial hitdice (monster levels)
 but only 1 or no character class levels will still qualify.
   </p>
   <p class="indent2">
-   <code>
-    PREPCLEVEL:MIN=5
-   </code>
+   <code>PREPCLEVEL:MIN=5</code>
   </p>
   <p class="indent3">
    Character must be at least 5th level.
   </p>
   <p class="indent2">
-   <code>
-    PREPCLEVEL:MAX=5
-   </code>
+   <code>PREPCLEVEL:MAX=5</code>
   </p>
   <p class="indent3">
    Character must be no greater than 5th level.
   </p>
   <p class="indent2">
-   <code>
-    PREPCLEVEL:MIN=5,MAX=10
-   </code>
+   <code>PREPCLEVEL:MIN=5,MAX=10</code>
   </p>
   <p class="indent3">
    Character must be at least 5th level but no
 greater than 10th level.
   </p>
   <p class="indent2">
-   <code>
-    !PREPCLEVEL:MIN=2,MAX=4
-   </code>
+   <code>!PREPCLEVEL:MIN=2,MAX=4</code>
   </p>
   <p class="indent3">
    Character must NOT be 2nd, 3rd or 4th level.
@@ -4245,18 +3759,14 @@ unecessary.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREPOINTBUYMETHOD:1,Standard
-   </code>
+   <code>PREPOINTBUYMETHOD:1,Standard</code>
   </p>
   <p class="indent3">
    Sets a prerequisite of "Standard" for the
 point-buy saved method.
   </p>
   <p class="indent2">
-   <code>
-    PREPOINTBUYMETHOD:1,Standard,High-powered
-   </code>
+   <code>PREPOINTBUYMETHOD:1,Standard,High-powered</code>
   </p>
   <p class="indent3">
    Sets a prerequisite of "Standard" or
@@ -4309,19 +3819,15 @@ name of a Armor Prof).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREPROFWITHARMOR:1,Chainmail,Full
-Plate
-   </code>
+   <code>PREPROFWITHARMOR:1,Chainmail,Full
+Plate</code>
   </p>
   <p class="indent3">
    Character must be proficient with either
 "Chainmail" or "Full Plate".
   </p>
   <p class="indent2">
-   <code>
-    PREPROFWITHARMOR:1,TYPE.Medium
-   </code>
+   <code>PREPROFWITHARMOR:1,TYPE.Medium</code>
   </p>
   <p class="indent3">
    Character must be proficient with Medium
@@ -4374,19 +3880,15 @@ name of a shield proficiency).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREPROFWITHSHIELD:1,Buckler,Large
-Shield
-   </code>
+   <code>PREPROFWITHSHIELD:1,Buckler,Large
+Shield</code>
   </p>
   <p class="indent3">
    Character must be proficient with either
 "Buckler" or "Large Shield".
   </p>
   <p class="indent2">
-   <code>
-    PREPROFWITHSHIELD:1,TYPE.Tower
-   </code>
+   <code>PREPROFWITHSHIELD:1,TYPE.Tower</code>
   </p>
   <p class="indent3">
    Character must be proficient with Tower
@@ -4482,97 +3984,75 @@ assignment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:1,Dwarf,Elf,Human
-   </code>
+   <code>PRERACE:1,Dwarf,Elf,Human</code>
   </p>
   <p class="indent3">
    Character must be a "Dwarf", "Elf" or
 "Human".
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:1,Elf%,[Elf (aquatic)]
-   </code>
+   <code>PRERACE:1,Elf%,[Elf (aquatic)]</code>
   </p>
   <p class="indent3">
    Character must be one of the "Elf" races, except
 "Elf (aquatic)".
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:1,TYPE=Dire
-   </code>
+   <code>PRERACE:1,TYPE=Dire</code>
   </p>
   <p class="indent3">
    Character's race type must be "Dire".
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:1,RACETYPE=Giant
-   </code>
+   <code>PRERACE:1,RACETYPE=Giant</code>
   </p>
   <p class="indent3">
    Character's race type must be "Giant".
   </p>
   <p class="indent2">
-   <code>
-    !PRERACE:1,RACETYPE=Outsider
-   </code>
+   <code>!PRERACE:1,RACETYPE=Outsider</code>
   </p>
   <p class="indent3">
    Character's race type must not be
 "Outsider".
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:1,RACESUBTYPE=Incorporeal
-   </code>
+   <code>PRERACE:1,RACESUBTYPE=Incorporeal</code>
   </p>
   <p class="indent3">
    Character must have the "Incorporeal"
 subtype.
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal
-   </code>
+   <code>PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal</code>
   </p>
   <p class="indent3">
    Character must have both a race type of "Undead"
 and a subtype of "Incorporeal".
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:1,%
-   </code>
+   <code>PRERACE:1,%</code>
   </p>
   <p class="indent3">
    This will pass if any race has been chosen but
 will fail if no race has been selected.
   </p>
   <p class="indent2">
-   <code>
-    !PRERACE:1,%
-   </code>
+   <code>!PRERACE:1,%</code>
   </p>
   <p class="indent3">
    This will pass if no race has been selected.
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:TYPE=Humanoid
-   </code>
+   <code>PRERACE:TYPE=Humanoid</code>
   </p>
   <p class="indent3">
    This will pass if a humanoid race has been
 selected.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Sorcerer.MOD &lt;tab&gt;
-!PRERACE:Human
-   </code>
+   <code>CLASS:Sorcerer.MOD &lt;tab&gt;
+!PRERACE:Human</code>
   </p>
   <p class="indent3">
    This will pass if no Human race has been
@@ -4654,18 +4134,14 @@ reach to be compared to).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREREACH:10
-   </code>
+   <code>PREREACH:10</code>
   </p>
   <p class="indent3">
    Character must have at least a reach of 10
 ft..
   </p>
   <p class="indent2">
-   <code>
-    PREREACHEQ:5
-   </code>
+   <code>PREREACHEQ:5</code>
   </p>
   <p class="indent3">
    Character must have a reach of exactly 5
@@ -4703,9 +4179,7 @@ text.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREREGION:Slithe
-   </code>
+   <code>PREREGION:Slithe</code>
   </p>
   <p class="indent3">
    Character must hail from the "Slithe"
@@ -4747,9 +4221,7 @@ name)
    <li>
     The rule name must have been defined and match the variable
 (
-    <code>
-     VAR
-    </code>
+    <code>VAR</code>
     ) entry in the
     <em>
      system/gameModes/rules.lst
@@ -4771,9 +4243,7 @@ Rules
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRERULE:1,SYS_WTPSK
-   </code>
+   <code>PRERULE:1,SYS_WTPSK</code>
   </p>
   <p class="indent3">
    The rule WeightPenaltyToSkill must be checked
@@ -4815,9 +4285,7 @@ prerequisite.
    </li>
    <li>
     Special abilities applied by the
-    <code>
-     SAB
-    </code>
+    <code>SAB</code>
     tag will
 satisfy this prerequisite.
    </li>
@@ -4828,20 +4296,16 @@ satisfy this prerequisite.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESA:1,Turn undead,Rebuke undead,Smite
-Evil
-   </code>
+   <code>PRESA:1,Turn undead,Rebuke undead,Smite
+Evil</code>
   </p>
   <p class="indent3">
    Character must have any one of "Turn Undead",
 "Rebuke Undead" or "Smite Evil".
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Mystic Theurge.MOD &lt;tab&gt;
-!PRESA:1,Theurgy
-   </code>
+   <code>CLASS:Mystic Theurge.MOD &lt;tab&gt;
+!PRESA:1,Theurgy</code>
   </p>
   <p class="indent3">
    Character must not have any Special Abilities of
@@ -4862,43 +4326,25 @@ particular range of size categories.
    Syntax
   </h4>
   <p>
-   <code>
-    PRESIZEoperator:size
-   </code>
+   <code>PRESIZEoperator:size</code>
   </p>
   <p>
-   <code>
-    operator
-   </code>
+   <code>operator</code>
    is a comparison operator from the list
-   <code>
-    EQ
-   </code>
+   <code>EQ</code>
    ,
-   <code>
-    LT
-   </code>
+   <code>LT</code>
    ,
-   <code>
-    LTEQ
-   </code>
+   <code>LTEQ</code>
    ,
-   <code>
-    GT
-   </code>
+   <code>GT</code>
    ,
-   <code>
-    GTEQ
-   </code>
+   <code>GTEQ</code>
    , or
-   <code>
-    NEQ
-   </code>
+   <code>NEQ</code>
    . The
 comparison operator is written as part of the tag name, i.e.
-   <code>
-    PRESIZELTEQ
-   </code>
+   <code>PRESIZELTEQ</code>
    . See
    <a href="#comparison-operators">
     comparison operators
@@ -4908,102 +4354,66 @@ comparison operator is written as part of the tag name, i.e.
   </p>
   <p>
    The
-   <code>
-    operator
-   </code>
+   <code>operator</code>
    is written as part of the tag name,
 i.e.
-   <code>
-    PRESIZENEQ
-   </code>
+   <code>PRESIZENEQ</code>
    or
-   <code>
-    PRESIZEGTEQ
-   </code>
+   <code>PRESIZEGTEQ</code>
    .
   </p>
   <p>
-   <code>
-    size
-   </code>
+   <code>size</code>
    is one of the
-   <code>
-    SIZENAME
-   </code>
+   <code>SIZENAME</code>
    s defined
 in the "game mode", i.e.
-   <code>
-    /system/gameModes/35e/sizeAdjustment.lst
-   </code>
+   <code>/system/gameModes/35e/sizeAdjustment.lst</code>
    . For the
-   <code>
-    35e
-   </code>
+   <code>35e</code>
    game mode the
-   <code>
-    SIZENAMES
-   </code>
+   <code>SIZENAMES</code>
    are:
   </p>
   <ul>
    <li>
-    <code>
-     F
-    </code>
+    <code>F</code>
     - fine
    </li>
    <li>
-    <code>
-     D
-    </code>
+    <code>D</code>
     - diminutive
    </li>
    <li>
-    <code>
-     T
-    </code>
+    <code>T</code>
     - tiny
    </li>
    <li>
-    <code>
-     S
-    </code>
+    <code>S</code>
     - small
    </li>
    <li>
-    <code>
-     M
-    </code>
+    <code>M</code>
     - medium
    </li>
    <li>
-    <code>
-     L
-    </code>
+    <code>L</code>
     - large
    </li>
    <li>
-    <code>
-     H
-    </code>
+    <code>H</code>
     - huge
    </li>
    <li>
-    <code>
-     G
-    </code>
+    <code>G</code>
     - gargantuan
    </li>
    <li>
-    <code>
-     C
-    </code>
+    <code>C</code>
     - colossal
    </li>
    <li>
-    <code>
-     P
-    </code>
+    <code>P</code>
     - larger than colossal
    </li>
   </ul>
@@ -5013,9 +4423,7 @@ in the "game mode", i.e.
   <ol>
    <li>
     <p>
-     <code>
-      PRESIZEGTEQ:S
-     </code>
+     <code>PRESIZEGTEQ:S</code>
     </p>
     <p>
      Require the character is at least small-sized.
@@ -5023,9 +4431,7 @@ in the "game mode", i.e.
    </li>
    <li>
     <p>
-     <code>
-      PRESIZELT:S
-     </code>
+     <code>PRESIZELT:S</code>
     </p>
     <p>
      Require that the character is fine, diminutive, or tiny.
@@ -5033,18 +4439,14 @@ in the "game mode", i.e.
    </li>
    <li>
     <p>
-     <code>
-      PREMULT:2,[PRESIZEGTEQ:S],[PRESIZELTEQ:L]
-     </code>
+     <code>PREMULT:2,[PRESIZEGTEQ:S],[PRESIZELTEQ:L]</code>
     </p>
     <p>
      Require the character to be small, medium, or large.
     </p>
     <p>
      Alternately,
-     <code>
-      PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M],[PRESIZEEQ:L]
-     </code>
+     <code>PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M],[PRESIZEEQ:L]</code>
      would do the same thing.
     </p>
    </li>
@@ -5099,9 +4501,7 @@ name)
    <li>
     If you require multiples of a particular type of skill, you
 need to include a
-    <code>
-     TYPE.Text
-    </code>
+    <code>TYPE.Text</code>
     sub-tag for each instance
 in the comma delimited list.
    </li>
@@ -5117,28 +4517,22 @@ parentheses because the text must match the entry exactly.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESKILL:1,Spot=10,Listen=10
-   </code>
+   <code>PRESKILL:1,Spot=10,Listen=10</code>
   </p>
   <p class="indent3">
    Character must have at least 10 ranks in either
 "Spot" or "Listen".
   </p>
   <p class="indent2">
-   <code>
-    PRESKILL:2,TYPE.Spy=2,TYPE.Spy=2
-   </code>
+   <code>PRESKILL:2,TYPE.Spy=2,TYPE.Spy=2</code>
   </p>
   <p class="indent3">
    Character must have two "Spy" skills with at
 least two ranks in each of them.
   </p>
   <p class="indent2">
-   <code>
-    PRESKILL:3,Appraise=3,Decipher
-Script=3,Knowledge (TYPE=Other)=3
-   </code>
+   <code>PRESKILL:3,Appraise=3,Decipher
+Script=3,Knowledge (TYPE=Other)=3</code>
   </p>
   <p class="indent3">
    Character must have three skills with at least
@@ -5224,9 +4618,7 @@ in some files but not all.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESKILLMULT:1,Spot=10,Listen=10
-   </code>
+   <code>PRESKILLMULT:1,Spot=10,Listen=10</code>
   </p>
   <p class="indent3">
    Character must have a Spot or Listen at 10 or
@@ -5287,9 +4679,7 @@ Variable, or Formula (Skill ranks)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESKILLSIT:1,SKILL=Spot,Woodlands=10
-   </code>
+   <code>PRESKILLSIT:1,SKILL=Spot,Woodlands=10</code>
   </p>
   <p class="indent3">
    Character must have at least 10 ranks in "Spot
@@ -5345,9 +4735,7 @@ must equal y.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESKILLTOT:Spot,Listen,Search=30
-   </code>
+   <code>PRESKILLTOT:Spot,Listen,Search=30</code>
   </p>
   <p class="indent3">
    Character must have a total of 30 non-bonus
@@ -5391,10 +4779,8 @@ name of a spell).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELL:1,Magic Missile,Lightning
-Bolt
-   </code>
+   <code>PRESPELL:1,Magic Missile,Lightning
+Bolt</code>
   </p>
   <p class="indent3">
    Character must have either Magic Missile OR
@@ -5435,18 +4821,14 @@ Lightning Bolt in their spell list.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLBOOK:YES
-   </code>
+   <code>PRESPELLBOOK:YES</code>
   </p>
   <p class="indent3">
    At least one of the character's classes must use
 spell books.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLBOOK:NO
-   </code>
+   <code>PRESPELLBOOK:NO</code>
   </p>
   <p class="indent3">
    None of the character's classes can use spell
@@ -5514,45 +4896,35 @@ meet all the requirements), then this prerequisite is met.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLCAST:MEMORIZE=Y
-   </code>
+   <code>PRESPELLCAST:MEMORIZE=Y</code>
   </p>
   <p class="indent3">
    Character's class must have to memorize
 spells.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLCAST:MEMORIZE=N
-   </code>
+   <code>PRESPELLCAST:MEMORIZE=N</code>
   </p>
   <p class="indent3">
    Character's class must NOT have to memorize
 spells.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLCAST:TYPE=Arcane
-   </code>
+   <code>PRESPELLCAST:TYPE=Arcane</code>
   </p>
   <p class="indent3">
    Character must be able to cast arcane
 spells.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLCAST:TYPE=Divine
-   </code>
+   <code>PRESPELLCAST:TYPE=Divine</code>
   </p>
   <p class="indent3">
    Character must be able to cast divine
 spells.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLCAST:TYPE=Arcane,TYPE=Divine
-   </code>
+   <code>PRESPELLCAST:TYPE=Arcane,TYPE=Divine</code>
   </p>
   <p class="indent3">
    Character must be able to cast arcane/divine
@@ -5603,9 +4975,7 @@ Acid, Sonic, Evil, Good, Mind-Affecting, etc.)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLDESCRIPTOR:4,Mind-Affecting=3
-   </code>
+   <code>PRESPELLDESCRIPTOR:4,Mind-Affecting=3</code>
   </p>
   <p class="indent3">
    Character must have at least four 3rd level or
@@ -5617,9 +4987,7 @@ higher Mind-Affecting spells to meet the requirement.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLDESCRIPTOR:y,x,z
-   </code>
+   <code>PRESPELLDESCRIPTOR:y,x,z</code>
   </p>
   <hr/>
   <p class="lststatus">
@@ -5675,9 +5043,7 @@ a comma-delimited (",") list.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLSCHOOL:3,Necromancy=2
-   </code>
+   <code>PRESPELLSCHOOL:3,Necromancy=2</code>
   </p>
   <p class="indent3">
    Character must have at least three 2nd level or
@@ -5737,9 +5103,7 @@ as a comma-delimited (",") list.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLSCHOOLSUB:3,Creation=2
-   </code>
+   <code>PRESPELLSCHOOLSUB:3,Creation=2</code>
   </p>
   <p class="indent3">
    Character must have at least three 2nd level
@@ -5821,28 +5185,22 @@ is required
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLTYPE:4,Arcane=5
-   </code>
+   <code>PRESPELLTYPE:4,Arcane=5</code>
   </p>
   <p class="indent3">
    Character must have at least four 5th level
 arcane spells to meet the requirement.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3
-   </code>
+   <code>PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3</code>
   </p>
   <p class="indent3">
    Character must have at least one 3rd level spell
 from any of the "Arcane", "Divine", or "Psionic" types.
   </p>
   <p class="indent2">
-   <code>
-    PRESPELLTYPE:1,Arcane=3 &lt;tab&gt;
-PRESPELLTYPE:1,Divine=3
-   </code>
+   <code>PRESPELLTYPE:1,Arcane=3 &lt;tab&gt;
+PRESPELLTYPE:1,Divine=3</code>
   </p>
   <p class="indent3">
    Character must have at least one 3rd level
@@ -5922,18 +5280,14 @@ including SR from equipment) a prerequisite.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESRGTEQ:10
-   </code>
+   <code>PRESRGTEQ:10</code>
   </p>
   <p class="indent3">
    Character must have spell resistance of 10 or
 greater.
   </p>
   <p class="indent2">
-   <code>
-    PRESREQ:10
-   </code>
+   <code>PRESREQ:10</code>
   </p>
   <p class="indent3">
    Character must have spell resistance of exactly
@@ -5984,45 +5338,35 @@ minimum value of the stat).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESTAT:1,STR=18
-   </code>
+   <code>PRESTAT:1,STR=18</code>
   </p>
   <p class="indent3">
    Character must have an 18 Strength to meet the
 requirement.
   </p>
   <p class="indent2">
-   <code>
-    PRESTAT:1,STR=18,WIS=18
-   </code>
+   <code>PRESTAT:1,STR=18,WIS=18</code>
   </p>
   <p class="indent3">
    Either STR or WIS at 18 - one of the two listed
 must meet the requirements.
   </p>
   <p class="indent2">
-   <code>
-    PRESTAT:2,STR=18,WIS=18
-   </code>
+   <code>PRESTAT:2,STR=18,WIS=18</code>
   </p>
   <p class="indent3">
    BOTH STR and WIS at 18 - two of the two listed
 must meet the requirements.
   </p>
   <p class="indent2">
-   <code>
-    PRESTAT:1,STR=15,WIS=13
-   </code>
+   <code>PRESTAT:1,STR=15,WIS=13</code>
   </p>
   <p class="indent3">
    Either STR at 15 or WIS at 13 - one of the two
 listed must meet the requirements.
   </p>
   <p class="indent2">
-   <code>
-    PRESTAT:2,STR=13,INT=10,CHA=13
-   </code>
+   <code>PRESTAT:2,STR=13,INT=10,CHA=13</code>
   </p>
   <p class="indent3">
    Either STR at 13, INT at 10 or CHA at 13 - two
@@ -6065,9 +5409,7 @@ of the three listed must meet the requirements.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRESUBCLASS:1,Evoker,Abjurer,Enchanter,Illusionist
-   </code>
+   <code>PRESUBCLASS:1,Evoker,Abjurer,Enchanter,Illusionist</code>
   </p>
   <p class="indent3">
    Character must be one of the listed
@@ -6116,18 +5458,14 @@ list matches, the prerequisite is met.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRETEMPLATE:1,Celestial,Fiendish
-   </code>
+   <code>PRETEMPLATE:1,Celestial,Fiendish</code>
   </p>
   <p class="indent3">
    Character must be either "Celestial" or
 "Fiendish".
   </p>
   <p class="indent2">
-   <code>
-    PRETEMPLATE:1,Feral%
-   </code>
+   <code>PRETEMPLATE:1,Feral%</code>
   </p>
   <p class="indent3">
    Character must be any subrace of Feral.
@@ -6172,10 +5510,8 @@ but alerts the player to the additional pre-requisites.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRETEXT:Character must make a sacrifice of
-bananas to the Monkey God.
-   </code>
+   <code>PRETEXT:Character must make a sacrifice of
+bananas to the Monkey God.</code>
   </p>
   <p class="indent3">
    Explains what additional requirements are needed
@@ -6216,9 +5552,7 @@ considers both the base attack bonu and the epic attack bonus.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRETOTALAB:21
-   </code>
+   <code>PRETOTALAB:21</code>
   </p>
   <p class="indent3">
    Required total attack bonus is 21.
@@ -6260,9 +5594,7 @@ etc.
    </li>
    <li>
     See the
-    <code>
-     PRETYPE
-    </code>
+    <code>PRETYPE</code>
     entry in
     <a href="../datafilestagpages/datafilesequipment.html#pretype">
      Equipment
@@ -6290,26 +5622,20 @@ type template.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:1,Elemental,Fey,Outsider
-   </code>
+   <code>PRETYPE:1,Elemental,Fey,Outsider</code>
   </p>
   <p class="indent3">
    Type must either "Elemental", "Fey" or
 "Outsider".
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:2,Humanoid,Undead
-   </code>
+   <code>PRETYPE:2,Humanoid,Undead</code>
   </p>
   <p class="indent3">
    Character must be an "Undead Humanoid".
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:1,Heavy
-   </code>
+   <code>PRETYPE:1,Heavy</code>
   </p>
   <p class="indent3">
    Object must have the type "Heavy".
@@ -6346,9 +5672,7 @@ bonus.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREUATT:4
-   </code>
+   <code>PREUATT:4</code>
   </p>
   <p class="indent3">
    This would apply only if the PC had minimum
@@ -6360,9 +5684,7 @@ unarmed attack bonus of 4.
   </h3>
   <p>
    Requires that a
-   <code>
-    VAR
-   </code>
+   <code>VAR</code>
    variable has a certain value or
 range of values.
   </p>
@@ -6373,43 +5695,25 @@ range of values.
    Syntax
   </h4>
   <p>
-   <code>
-    PREVARoperator:varname,value
-   </code>
+   <code>PREVARoperator:varname,value</code>
   </p>
   <p>
-   <code>
-    operator
-   </code>
+   <code>operator</code>
    is a comparison operator from the list
-   <code>
-    EQ
-   </code>
+   <code>EQ</code>
    ,
-   <code>
-    LT
-   </code>
+   <code>LT</code>
    ,
-   <code>
-    LTEQ
-   </code>
+   <code>LTEQ</code>
    ,
-   <code>
-    GT
-   </code>
+   <code>GT</code>
    ,
-   <code>
-    GTEQ
-   </code>
+   <code>GTEQ</code>
    , or
-   <code>
-    NEQ
-   </code>
+   <code>NEQ</code>
    . The
 comparison operator is written as part of the tag name, i.e.
-   <code>
-    PREVARLTEQ
-   </code>
+   <code>PREVARLTEQ</code>
    . See
    <a href="#comparison-operators">
     comparison operators
@@ -6418,23 +5722,15 @@ comparison operator is written as part of the tag name, i.e.
 details.
   </p>
   <p>
-   <code>
-    varname
-   </code>
+   <code>varname</code>
    is the name of a variable - as used in a
-   <code>
-    DEFINE:
-   </code>
+   <code>DEFINE:</code>
    or
-   <code>
-    BONUS:VAR
-   </code>
+   <code>BONUS:VAR</code>
    statement.
   </p>
   <p>
-   <code>
-    value
-   </code>
+   <code>value</code>
    is the value the variable is to be compared
 to.
   </p>
@@ -6444,9 +5740,7 @@ to.
   <ol>
    <li>
     <p>
-     <code>
-      PREVARGT:Rage,4
-     </code>
+     <code>PREVARGT:Rage,4</code>
     </p>
     <p>
      Character must must have a variable 'Rage' with a value greater
@@ -6455,9 +5749,7 @@ than four.
    </li>
    <li>
     <p>
-     <code>
-      PREVARGT:SneakAttack,5
-     </code>
+     <code>PREVARGT:SneakAttack,5</code>
     </p>
     <p>
      Character must have a variable 'Sneak Attack' with a value
@@ -6466,9 +5758,7 @@ greater than five.
    </li>
    <li>
     <p>
-     <code>
-      PREVARGT:SneakAttack,5,Rage,4
-     </code>
+     <code>PREVARGT:SneakAttack,5,Rage,4</code>
     </p>
     <p>
      Character must have a variable 'SneakAttack' with a value
@@ -6535,27 +5825,21 @@ type.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREVISION:2,Normal=ANY,Darkvision=ANY
-   </code>
+   <code>PREVISION:2,Normal=ANY,Darkvision=ANY</code>
   </p>
   <p class="indent3">
    Character must have both Normal and
 Darkvision.
   </p>
   <p class="indent2">
-   <code>
-    PREVISION:1,Blindsight=30,Darkvision=30
-   </code>
+   <code>PREVISION:1,Blindsight=30,Darkvision=30</code>
   </p>
   <p class="indent3">
    Character must have either Blindsight or
 Darkvision at at least 30.
   </p>
   <p class="indent2">
-   <code>
-    PREVISION:1,Low-Light=ANY
-   </code>
+   <code>PREVISION:1,Low-Light=ANY</code>
   </p>
   <p class="indent3">
    Character must have low-light vision to any
@@ -6623,37 +5907,29 @@ results.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PREWEAPONPROF:2,Kama,Katana
-   </code>
+   <code>PREWEAPONPROF:2,Kama,Katana</code>
   </p>
   <p class="indent3">
    Character must have proficiency with both the
 "Kama" and the "Katana".
   </p>
   <p class="indent2">
-   <code>
-    PREWEAPONPROF:1,TYPE.Exotic
-   </code>
+   <code>PREWEAPONPROF:1,TYPE.Exotic</code>
   </p>
   <p class="indent3">
    Character must have a weapon proficiency of type
 "Exotic".
   </p>
   <p class="indent2">
-   <code>
-    PREWEAPONPROF:1,TYPE.Martial,Chain
-(Spiked)
-   </code>
+   <code>PREWEAPONPROF:1,TYPE.Martial,Chain
+(Spiked)</code>
   </p>
   <p class="indent3">
    Character must have either a weapon proficiency
 of type "Martial" or proficiency with "Chain (Spiked)".
   </p>
   <p class="indent2">
-   <code>
-    PREWEAPONPROF:1,DEITYWEAPON
-   </code>
+   <code>PREWEAPONPROF:1,DEITYWEAPON</code>
   </p>
   <p class="indent3">
    Character must have proficiency with one of the
@@ -6693,9 +5969,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRE:.CLEAR
-   </code>
+   <code>PRE:.CLEAR</code>
   </p>
   <p class="indent3">
    Clears all prerequisites.
@@ -6732,16 +6006,12 @@ some but not all prereqs.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    QUALIFY:Whirlwind Attack
-   </code>
+   <code>QUALIFY:Whirlwind Attack</code>
    (In
 Template)
   </p>
   <p class="indent2">
-   <code>
-    PRESTAT:Q:1,DEX=13
-   </code>
+   <code>PRESTAT:Q:1,DEX=13</code>
    (In Whirlwind
 Attack Feat)
   </p>

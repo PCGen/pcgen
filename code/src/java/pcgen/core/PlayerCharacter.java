@@ -9236,19 +9236,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		spellLevel = si.getActualLevel();
 		ow = cs.getOwner();
 
-		String fixedConcentration = si.getFixedConcentration();
-
-		if (fixedConcentration != null && "INNATE".equalsIgnoreCase(si.getBook()))
-		{
-			return getVariableValue(fixedConcentration, "").intValue();
-		}
-
-		// Check for a non class based fixed Concentration
-		if (fixedConcentration != null && ow != null && !(ow instanceof PCClass))
-		{
-			return getVariableValue(fixedConcentration, "").intValue();
-		}
-
 		if (si.getFeatList() != null)
 		{
 			for (Ability metaFeat : si.getFeatList())

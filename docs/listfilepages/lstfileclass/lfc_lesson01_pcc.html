@@ -42,8 +42,7 @@ creation)
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../datafilestagpages/datafilespcc.html#campaign">
+   <code><a href="../datafilestagpages/datafilespcc.html#campaign">
      CAMPAIGN
     </a>
     ,
@@ -81,8 +80,7 @@ creation)
     ,
     <a href="../datafilestagpages/datafilespcc.html#infotext">
      INFOTEXT
-    </a>
-   </code>
+    </a></code>
   </p>
   <p>
    This lesson will discuss what a PCC is, and what it uses to tell
@@ -136,11 +134,9 @@ which files it needs to load.
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      CAMPAIGN:
-    </strong>
-   </code>
+    </strong></code>
    The name used for the
 set of sources in the PCC
   </p>
@@ -151,9 +147,7 @@ memory object, and then define parts of it, we HAVE to name the
 campaign for PCGen on the FIRST LINE of the file. No other tag
 lines can come before it. We tell PCGen the name of the campaign by
 using the CAMPAIGN tag. So I put "
-   <code>
-    CAMPAIGN:My Stuff
-   </code>
+   <code>CAMPAIGN:My Stuff</code>
    "
 right at the very top. When PCGen lists my campaign, it will
 display 'My stuff' in the source tab.
@@ -161,9 +155,7 @@ display 'My stuff' in the source tab.
   <hr/>
   <p>
    <strong>
-    <code>
-     GAMEMODE:
-    </code>
+    <code>GAMEMODE:</code>
    </strong>
    what game mode the
 campaign is designed for.
@@ -174,18 +166,14 @@ want this campaign to run in. We use the GAMEMODE tag to tell PCGen
 which GameMode to run in. Since I want to run it in the normal
 gamemode that comes with PCGen, I'm going to use '3e' So I put
 "
-   <code>
-    GAMEMODE:3e
-   </code>
+   <code>GAMEMODE:3e</code>
    " on my second line. Note that this MUST
 be the second line in the file.
   </p>
   <hr/>
   <p>
    <strong>
-    <code>
-     RANK:
-    </code>
+    <code>RANK:</code>
    </strong>
    Loading order.
   </p>
@@ -203,9 +191,7 @@ simple route for the moment. :)
 this one _only_ so I don't have to think about the other sources in
 PCGen (and make it easier for my group to load the same stuff). I'm
 going to make it
-   <code>
-    RANK:1
-   </code>
+   <code>RANK:1</code>
    . It should now load before any
 other source with a higher RANK number.
   </p>
@@ -218,11 +204,9 @@ depth in another lesson...
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      TYPE:
-    </strong>
-   </code>
+    </strong></code>
    Displaying on the Source
 tab.
   </p>
@@ -236,15 +220,12 @@ then type of book, and then anything else necessary. So I'll enter
   </p>
   <p>
    My file now looks like this (between the
-   <code>
-    -----
-   </code>
+   <code>-----</code>
    lines is the actual file):
   </p>
   <blockquote>
    <p>
-    <code>
-     -----------
+    <code>-----------
      <br/>
      CAMPAIGN:My Stuff
      <br/>
@@ -254,8 +235,7 @@ then type of book, and then anything else necessary. So I'll enter
      <br/>
      TYPE:PCGenLstMonkey.Campaign Setting.My World
      <br/>
-     -----------
-    </code>
+     -----------</code>
    </p>
   </blockquote>
   <p>
@@ -277,11 +257,9 @@ if you expanded the tree fully would be:
   </blockquote>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      SOURCExxx:
-    </strong>
-   </code>
+    </strong></code>
    Identifying the source
 material.
   </p>
@@ -298,32 +276,22 @@ be:
   </p>
   <blockquote>
    <p>
-    <code>
-     SOURCELONG:PCGenLstMonkey
-     <br/>
-    </code>
-    <code>
-     SOURCESHORT:PCGLM
-     <br/>
-    </code>
-    <code>
-     SOURCEWEB:http://www.mystuffcampaign.com
-    </code>
+    <code>SOURCELONG:PCGenLstMonkey
+     <br/></code>
+    <code>SOURCESHORT:PCGLM
+     <br/></code>
+    <code>SOURCEWEB:http://www.mystuffcampaign.com</code>
    </p>
   </blockquote>
   <hr/>
   <p>
    <strong>
-    <code>
-     ISOGL
-    </code>
+    <code>ISOGL</code>
    </strong>
    and
-   <code>
-    <strong>
+   <code><strong>
      COPYRIGHT:
-    </strong>
-   </code>
+    </strong></code>
    OGL Section 15
 information.
   </p>
@@ -334,9 +302,7 @@ community, the ISOGL tag. This is used to indicate whether or not
 the source falls under the OGL license (most do... It's really hard
 work for it not to).  So we'll enter it this way:
 "
-   <code>
-    ISOGL:YES
-   </code>
+   <code>ISOGL:YES</code>
    ". This will trigger the program to insert
 the information from the next tag we cover into the OGL (Open
 Gaming License) that we display on startup.
@@ -350,17 +316,13 @@ will look like this:
   </p>
   <blockquote>
    <p>
-    <code>
-     COPYRIGHT:PCGenLstMonkey Copyright 2003
-    </code>
+    <code>COPYRIGHT:PCGenLstMonkey Copyright 2003</code>
    </p>
   </blockquote>
   <hr/>
   <p>
    <strong>
-    <code>
-     INFOTEXT:
-    </code>
+    <code>INFOTEXT:</code>
    </strong>
    further information for
 the user.
@@ -374,11 +336,9 @@ read like this:
   </p>
   <blockquote>
    <p>
-    <code>
-     INFOTEXT:This data set contains all the information
+    <code>INFOTEXT:This data set contains all the information
 necessary to create a character for the mystuff campaign
-world
-    </code>
+world</code>
    </p>
   </blockquote>
   <p>

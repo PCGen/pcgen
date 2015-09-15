@@ -17,18 +17,22 @@
  */
 package pcgen.output.base;
 
+import pcgen.core.GameMode;
 import freemarker.template.TemplateModel;
 
 /**
- * A NamedModel is a TemplateModel that can return a name
+ * A ModeModelFactory is a class that can generate TemplateModel objects for the
+ * current Game Mode.
  */
-public interface NamedModel extends TemplateModel
+public interface ModeModelFactory
 {
 	/**
-	 * Returns the String name of the model (to be used for what the identifier
-	 * in the freemarker file is)
+	 * Generates a TemplateModel based on the current Game Mode.
 	 * 
-	 * @return The String name of the model
+	 * @param mode
+	 *            The GameMode TemplateModel should be produced by this
+	 *            ModeModelFactory
+	 * @return A TemplateModel produced by this ModeModelFactory
 	 */
-	public String getModelName();
+	public TemplateModel generate(GameMode mode);
 }

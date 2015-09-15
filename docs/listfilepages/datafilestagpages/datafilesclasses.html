@@ -81,9 +81,7 @@ classes.
   <ul>
    <li>
     Begins with the
-    <code>
-     CLASS:&lt;class name&gt;
-    </code>
+    <code>CLASS:&lt;class name&gt;</code>
     tag.
    </li>
    <li>
@@ -117,41 +115,23 @@ ths line.
   </p>
   <blockquote>
    <p>
-    <code>
-     CLASS:Rogue . . .
-    </code>
+    <code>CLASS:Rogue . . .</code>
     <br/>
-    <code>
-     CLASS:Rogue . . .
-    </code>
+    <code>CLASS:Rogue . . .</code>
     <br/>
-    <code>
-     1 . . .
-    </code>
+    <code>1 . . .</code>
     <br/>
-    <code>
-     2 . . .
-    </code>
+    <code>2 . . .</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     19 . . .
-    </code>
+    <code>19 . . .</code>
     <br/>
-    <code>
-     20 . . .
-    </code>
+    <code>20 . . .</code>
    </p>
   </blockquote>
   <h3>
@@ -164,17 +144,13 @@ i.e. take the subclass and gain 'spell' related advantages and
 disadvantages in comparison to the base class. You pick a subclass
 and your characters abilities are changed throughout as defined by
 the subclass tags;
-   <code>
-    <a href="#subclass">
+   <code><a href="#subclass">
      SUBCLASS
-    </a>
-   </code>
+    </a></code>
    and
-   <code>
-    <a href="#subclasslevel">
+   <code><a href="#subclasslevel">
      SUBCLASSLEVEL
-    </a>
-   </code>
+    </a></code>
    tags.
   </p>
   <p>
@@ -187,17 +163,13 @@ the subclass tags;
     <strong>
      NOTE:
     </strong>
-    <code>
-     HASSUBCLASS
-    </code>
+    <code>HASSUBCLASS</code>
     is no longer
 required to create sub-classes.
    </li>
    <li>
     Begins with the
-    <code>
-     SUBCLASS:&lt;sub-class name&gt;
-    </code>
+    <code>SUBCLASS:&lt;sub-class name&gt;</code>
     tag.
    </li>
    <li>
@@ -217,9 +189,7 @@ should be used on this line.
   <ul>
    <li>
     Begins with the
-    <code>
-     SUBCLASSLEVEL:&lt;level number&gt;
-    </code>
+    <code>SUBCLASSLEVEL:&lt;level number&gt;</code>
     tag.
    </li>
    <li>
@@ -235,14 +205,10 @@ included.
 should be used on this line.
     <ul>
      <li>
-      <code>
-       SPELLLIST
-      </code>
+      <code>SPELLLIST</code>
       does not work on Class Line if a
 subclass or substitution class is present. In these cases, the
-      <code>
-       SPELLLIST
-      </code>
+      <code>SPELLLIST</code>
       tag must be placed on each SubClass or
 Substitution Class Line (Not the SubClass/Substitution Level
 Line).
@@ -257,60 +223,34 @@ Line).
   </p>
   <blockquote>
    <p>
-    <code>
-     CLASS:Wizard . . .
-    </code>
+    <code>CLASS:Wizard . . .</code>
     <br/>
-    <code>
-     CLASS:Wizard . . . ALLOWBASECLASS:NO
-    </code>
+    <code>CLASS:Wizard . . . ALLOWBASECLASS:NO</code>
     <br/>
-    <code>
-     CLASS:Wizard . . .
-    </code>
+    <code>CLASS:Wizard . . .</code>
     <br/>
-    <code>
-     SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt;
+    <code>SUBCLASS:Abjurer &lt;tab&gt; COST:2 &lt;tab&gt;
 CHOICE:SCHOOL|Abjuration &lt;tab&gt;
-KNOWNSPELLSFROMSPECIALTY:1
-    </code>
+KNOWNSPELLSFROMSPECIALTY:1</code>
     <br/>
-    <code>
-     SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning
-Bonus
-    </code>
+    <code>SUBCLASSLEVEL:1 &lt;tab&gt; FEATAUTO:Abjurer Learning
+Bonus</code>
     <br/>
-    <code>
-     SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid
-    </code>
+    <code>SUBCLASSLEVEL:10 &lt;tab&gt; SA:Immune to Acid</code>
     <br/>
-    <code>
-     1 . . .
-    </code>
+    <code>1 . . .</code>
     <br/>
-    <code>
-     2 . . .
-    </code>
+    <code>2 . . .</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     19 . . .
-    </code>
+    <code>19 . . .</code>
     <br/>
-    <code>
-     20 . . .
-    </code>
+    <code>20 . . .</code>
    </p>
   </blockquote>
   <h3>
@@ -326,17 +266,13 @@ levels as you desire in your set and when your character reaches a
 level with a substitution level he/she will be able to select the
 substitution level or the standard level as he/she desires.
 Substitution levels can be implemented with the inclusion of the
-   <code>
-    <a href="#substitutionclass">
+   <code><a href="#substitutionclass">
      SUBSTITUTIONCLASS
-    </a>
-   </code>
+    </a></code>
    and
-   <code>
-    <a href="#substitutionlevel">
+   <code><a href="#substitutionlevel">
      SUBSTITUTIONLEVEL
-    </a>
-   </code>
+    </a></code>
    tags.
   </p>
   <p>
@@ -349,18 +285,14 @@ Substitution levels can be implemented with the inclusion of the
     <strong>
      NOTE:
     </strong>
-    <code>
-     HASSUBSTITUTIONLEVEL
-    </code>
+    <code>HASSUBSTITUTIONLEVEL</code>
     is no
 longer required to create a substitution level.
    </li>
    <li>
     Begins with the
-    <code>
-     SUBSTITUTIONCLASS:&lt;substitution class
-name&gt;
-    </code>
+    <code>SUBSTITUTIONCLASS:&lt;substitution class
+name&gt;</code>
     tag.
    </li>
    <li>
@@ -380,10 +312,8 @@ tags should be used on this line.
   <ul>
    <li>
     Begins with the
-    <code>
-     SUBSTITUTIONLEVEL:&lt;level
-number&gt;
-    </code>
+    <code>SUBSTITUTIONLEVEL:&lt;level
+number&gt;</code>
     tag.
    </li>
    <li>
@@ -424,54 +354,30 @@ Entry
   </p>
   <blockquote>
    <p>
-    <code>
-     CLASS:Ranger . . .
-    </code>
+    <code>CLASS:Ranger . . .</code>
     <br/>
-    <code>
-     CLASS:Ranger . . .
-    </code>
+    <code>CLASS:Ranger . . .</code>
     <br/>
-    <code>
-     SUBSTITUTIONCLASS:Orc Ranger
-    </code>
+    <code>SUBSTITUTIONCLASS:Orc Ranger</code>
     <br/>
-    <code>
-     SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
-SA:Goblin Slave (Ex)
-    </code>
+    <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
+SA:Goblin Slave (Ex)</code>
     <br/>
-    <code>
-     SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12
-    </code>
+    <code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code>
     <br/>
-    <code>
-     1 . . .
-    </code>
+    <code>1 . . .</code>
     <br/>
-    <code>
-     2 . . .
-    </code>
+    <code>2 . . .</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     .
-    </code>
+    <code>.</code>
     <br/>
-    <code>
-     19 . . .
-    </code>
+    <code>19 . . .</code>
     <br/>
-    <code>
-     20 . . .
-    </code>
+    <code>20 . . .</code>
    </p>
   </blockquote>
   <p>
@@ -482,22 +388,14 @@ Entry
   </p>
   <blockquote>
    <p>
-    <code>
-     CLASS:Ranger.MOD
-    </code>
+    <code>CLASS:Ranger.MOD</code>
     <br/>
-    <code>
-     SUBSTITUTIONCLASS:Orc Ranger
-    </code>
+    <code>SUBSTITUTIONCLASS:Orc Ranger</code>
     <br/>
-    <code>
-     SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
-SA:Goblin Slave (Ex)
-    </code>
+    <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; HITDIE:12 &lt;tab&gt;
+SA:Goblin Slave (Ex)</code>
     <br/>
-    <code>
-     SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12
-    </code>
+    <code>SUBSTITUTIONLEVEL:10 &lt;tab&gt; HITDIE:12</code>
     <br/>
    </p>
   </blockquote>
@@ -584,9 +482,7 @@ name.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABB:Rgr
-   </code>
+   <code>ABB:Rgr</code>
   </p>
   <p class="indent3">
    The class abbreviation is "Rgr".
@@ -643,9 +539,7 @@ or UAB
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ATTACKCYCLE:UAB|3
-   </code>
+   <code>ATTACKCYCLE:UAB|3</code>
   </p>
   <p class="indent3">
    Grants another attack ever 3 bonus points of BAB
@@ -719,36 +613,28 @@ Class Name (Source)' ex. Cleric (Fey).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Ranger
-   </code>
+   <code>CLASS:Ranger</code>
   </p>
   <p class="indent3">
    The full class name is "Ranger".
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
-TEMPLATE:Maximum Spell Level
-   </code>
+   <code>CLASS:Defender.MOD &lt;tab&gt;
+TEMPLATE:Maximum Spell Level</code>
   </p>
   <p class="indent3">
    Adds the TEMPLATE:Maximum Spell Level to the
 class "Defender".
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Rogue.COPY=Rogueless
-   </code>
+   <code>CLASS:Rogue.COPY=Rogueless</code>
   </p>
   <p class="indent3">
    Copies the Class "Rogue" and renames to
 "Rogueless".
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Fighter.FORGET
-   </code>
+   <code>CLASS:Fighter.FORGET</code>
   </p>
   <p class="indent3">
    Removes the Class "Fighter" from the
@@ -800,9 +686,7 @@ that is used to determine CR for creatures with this class.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASSTYPE:PC
-   </code>
+   <code>CLASSTYPE:PC</code>
   </p>
   <p class="indent3">
    The PC class type is used to determine the CR
@@ -840,9 +724,7 @@ at each level gained.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    HD:10
-   </code>
+   <code>HD:10</code>
   </p>
   <p class="indent3">
    The hit dice per level is 10.
@@ -904,27 +786,21 @@ menu to allow this to be overridden.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MAXLEVEL:10
-   </code>
+   <code>MAXLEVEL:10</code>
   </p>
   <p class="indent3">
    The maximum class level is 10.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Barbarian.MOD &lt;tab&gt;
-MAXLEVEL:100
-   </code>
+   <code>CLASS:Barbarian.MOD &lt;tab&gt;
+MAXLEVEL:100</code>
   </p>
   <p class="indent3">
    The maximum class level is modified to 100.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Barbarian.MOD &lt;tab&gt;
-MAXLEVEL:NOLIMIT
-   </code>
+   <code>CLASS:Barbarian.MOD &lt;tab&gt;
+MAXLEVEL:NOLIMIT</code>
   </p>
   <p class="indent3">
    Remove the previously specified maximum class
@@ -971,41 +847,33 @@ per level.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STARTSKILLPTS:4
-   </code>
+   <code>STARTSKILLPTS:4</code>
   </p>
   <p class="indent3">
    Class gets 4 skill points per level, before any
 modifiers.
   </p>
   <p class="indent2">
-   <code>
-    STARTSKILLPTS:4+INT
-   </code>
+   <code>STARTSKILLPTS:4+INT</code>
   </p>
   <p class="indent3">
    Class gets 4 skill points per level plus the INT
 Bonus points, before any modifiers.
   </p>
   <p class="indent2">
-   <code>
-    STARTSKILLPTS:4/CHA
-   </code>
+   <code>STARTSKILLPTS:4/CHA</code>
   </p>
   <p class="indent3">
    Class gets 4 skill points per level divided by
 the CHA Bonus points, before any modifiers.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Blackguard.MOD &lt;tab&gt;
+   <code>CLASS:Blackguard.MOD &lt;tab&gt;
 STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride
 &lt;tab&gt;
 CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge
 (Religion) |TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot
-&lt;tab&gt; CCSKILL:Handle Animal|Ride
-   </code>
+&lt;tab&gt; CCSKILL:Handle Animal|Ride</code>
   </p>
   <p class="indent3">
    Modified Class that changes all of these Tags
@@ -1050,9 +918,7 @@ the class will get at first level only.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    XTRAFEATS:1
-   </code>
+   <code>XTRAFEATS:1</code>
   </p>
   <p class="indent3">
    The class will gets 1 extra feat.
@@ -1125,38 +991,30 @@ after the domain name.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Foo &lt;tab&gt;
+   <code>CLASS:Foo &lt;tab&gt;
 ADDDOMAINS:Travel|Sun &lt;tab&gt; SPELLSTAT:CHA &lt;tab&gt;
-SPELLTYPE:Arcane
-   </code>
+SPELLTYPE:Arcane</code>
   </p>
   <p class="indent3">
    The class gets the Travel and Sun domains as a
 choice regardless of the deity selected.
   </p>
   <p class="indent2">
-   <code>
-    ADDDOMAINS:Sun
-   </code>
+   <code>ADDDOMAINS:Sun</code>
   </p>
   <p class="indent3">
    The class gets the Sun domain as a choice
 regardless of the deity selected.
   </p>
   <p class="indent2">
-   <code>
-    ADDDOMAINS:Sun|Law
-   </code>
+   <code>ADDDOMAINS:Sun|Law</code>
   </p>
   <p class="indent3">
    The class gets the Sun &amp; Law domains as a
 choice regardless of the deity selected.
   </p>
   <p class="indent2">
-   <code>
-    ADDDOMAINS:Sun[PREDIETY:Ra]|Law
-   </code>
+   <code>ADDDOMAINS:Sun[PREDIETY:Ra]|Law</code>
   </p>
   <p class="indent3">
    The class gets to choose between the Sun domain,
@@ -1180,15 +1038,11 @@ regardless of the deity selected.
    </span>
   </p>
   <p class="indent2">
-   <code>
-    ADDDOMAINS:Travel.Sun
-   </code>
+   <code>ADDDOMAINS:Travel.Sun</code>
   </p>
   <p class="indent3">
    Becomes:
-   <code>
-    ADDDOMAINS:Travel|Sun
-   </code>
+   <code>ADDDOMAINS:Travel|Sun</code>
   </p>
   <hr/>
   <p class="status">
@@ -1247,18 +1101,14 @@ racial spells. See the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|Wizard|CL
-   </code>
+   <code>BONUS:CASTERLEVEL|Wizard|CL</code>
   </p>
   <p class="indent3">
    Sets the Wizard's spell caster level to his
 class level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4
-   </code>
+   <code>BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4</code>
   </p>
   <p class="indent3">
    Sets the Paladin's spell caster level to half
@@ -1317,22 +1167,18 @@ spells.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUSSPELLSTAT:STR
-   </code>
+   <code>BONUSSPELLSTAT:STR</code>
   </p>
   <p class="indent3">
    The class uses Strength to determine bonus
 spells.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
+   <code>CLASS:Defender.MOD &lt;tab&gt;
 SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
 SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
 BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler
-   </code>
+SPELLLIST:1|Channeler</code>
   </p>
   <p class="indent3">
    Modifying the class Defender changes all of
@@ -1394,9 +1240,7 @@ variable and use the variable in the CAST progression.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CAST:3,3,1
-   </code>
+   <code>CAST:3,3,1</code>
   </p>
   <p class="indent3">
    Class can cast 3 0th level spells, 3 1st level
@@ -1408,17 +1252,13 @@ spells and 1 2nd level spell.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:CastLvl0|min(6,4+CL) &lt;tab&gt;
-CAST:CastLvl0
-   </code>
+   <code>DEFINE:CastLvl0|min(6,4+CL) &lt;tab&gt;
+CAST:CastLvl0</code>
   </p>
   <p class="indent3">
    Sets the cast progression to the value of the
 variable
-   <code>
-    CastLvl0
-   </code>
+   <code>CastLvl0</code>
    for 0 level spells.
   </p>
   <p class="indent1">
@@ -1460,17 +1300,13 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEITY:Zeus
-   </code>
+   <code>DEITY:Zeus</code>
   </p>
   <p class="indent3">
    Class may only have "Zeus" as its Deity.
   </p>
   <p class="indent2">
-   <code>
-    DEITY:Zeus|Athena
-   </code>
+   <code>DEITY:Zeus|Athena</code>
   </p>
   <p class="indent3">
    Class may have "Zeus" or "Athena" as its
@@ -1519,24 +1355,18 @@ character.
    <li>
     If a domain is added on top of the character's other normal
 domains, it will need to be paired with a
-    <code>
-     BONUS:DOMAIN|NUMBER|x
-    </code>
+    <code>BONUS:DOMAIN|NUMBER|x</code>
     .
    </li>
    <li>
     This tag can use trailing PRExxx tags to provide prerequisites
 for the domains included in the associated
-    <code>
-     DOMAIN
-    </code>
+    <code>DOMAIN</code>
     tag.
    </li>
    <li>
     Multiple
-    <code>
-     DOMAIN
-    </code>
+    <code>DOMAIN</code>
     tags may be used in a class
 object, allowing access to some domains without prerequisites and
 some with.
@@ -1548,28 +1378,22 @@ some with.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    7 &lt;tab&gt; DOMAIN:Sun
-   </code>
+   <code>7 &lt;tab&gt; DOMAIN:Sun</code>
   </p>
   <p class="indent3">
    At the seventh level class gets the Sun domain
 added.
   </p>
   <p class="indent2">
-   <code>
-    15 &lt;tab&gt; DOMAIN:Sun|Law
-   </code>
+   <code>15 &lt;tab&gt; DOMAIN:Sun|Law</code>
   </p>
   <p class="indent3">
    At fifteenth level class gets the Sun or law
 domain added.
   </p>
   <p class="indent2">
-   <code>
-    11 &lt;tab&gt; DOMAIN:Sun|PREDEITY:Ra
-&lt;tab&gt; DOMAIN:Law
-   </code>
+   <code>11 &lt;tab&gt; DOMAIN:Sun|PREDEITY:Ra
+&lt;tab&gt; DOMAIN:Law</code>
   </p>
   <p class="indent3">
    At eleventh level class gets the Sun or Law
@@ -1623,18 +1447,14 @@ will default to a value of 1.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ITEMCREATE:2
-   </code>
+   <code>ITEMCREATE:2</code>
   </p>
   <p class="indent3">
    The class level is doubled when calculating
 potions, scrolls and wands.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Paladin ITEMCREATE:CL/3.3
-   </code>
+   <code>CLASS:Paladin ITEMCREATE:CL/3.3</code>
   </p>
   <p class="indent3">
    The class level is calculated to the following
@@ -1698,9 +1518,7 @@ variable and use the variable in the KNOWN progression.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    KNOWN:6,4,3
-   </code>
+   <code>KNOWN:6,4,3</code>
   </p>
   <p class="indent3">
    The class knows 6 0th level spells, 4 1st level
@@ -1712,17 +1530,13 @@ spells and 3 2nd level spells.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:KnownLvl0|min(9,4+(CL/2))
-&lt;tab&gt; KNOWN:KnownLvl0
-   </code>
+   <code>DEFINE:KnownLvl0|min(9,4+(CL/2))
+&lt;tab&gt; KNOWN:KnownLvl0</code>
   </p>
   <p class="indent3">
    Sets the known progression to the value of the
 variable
-   <code>
-    KnownLvl0
-   </code>
+   <code>KnownLvl0</code>
    for 0 level spells.
   </p>
   <p class="indent1">
@@ -1793,9 +1607,7 @@ prerequisites. (e.g. class level and required spell-stat
 score.)
    </li>
    <li>
-    <code>
-     .CLEARALL
-    </code>
+    <code>.CLEARALL</code>
     will clear all spells awarded on Class
 or Class Level line 0.
    </li>
@@ -1810,30 +1622,24 @@ otherwise Class Level Lines are NOT allowed.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:Acid Fog
-   </code>
+   <code>CLASS:Monkey Mage &lt;tab&gt;
+KNOWNSPELLS:Acid Fog</code>
   </p>
   <p class="indent3">
    The class knows the spell "Acid Fog" at 6th
 Level.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:Acid Fog|Alarm
-   </code>
+   <code>CLASS:Monkey Mage &lt;tab&gt;
+KNOWNSPELLS:Acid Fog|Alarm</code>
   </p>
   <p class="indent3">
    The class knows the spell "Acid Fog" at 6th
 Level; and "Alarm" at 1st Level.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:LEVEL=3
-   </code>
+   <code>CLASS:Monkey Mage &lt;tab&gt;
+KNOWNSPELLS:LEVEL=3</code>
   </p>
   <p class="indent3">
    The class knows all level 3 spells
@@ -1848,19 +1654,15 @@ available.
         <p class="indent3">The class knows all level 3 spells available.</p>
 -->
   <p class="indent2">
-   <code>
-    CLASS:Monkey Cleric &lt;tab&gt;
-KNOWNSPELLS:TYPE=Divine
-   </code>
+   <code>CLASS:Monkey Cleric &lt;tab&gt;
+KNOWNSPELLS:TYPE=Divine</code>
   </p>
   <p class="indent3">
    The class knows all available divine spells.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Monkey Mage &lt;tab&gt;
-KNOWNSPELLS:LEVEL=3,TYPE=Arcane
-   </code>
+   <code>CLASS:Monkey Mage &lt;tab&gt;
+KNOWNSPELLS:LEVEL=3,TYPE=Arcane</code>
   </p>
   <p class="indent3">
    The class Monkey Mage knows all level 3 arcane
@@ -1912,9 +1714,7 @@ spells as a wizard does.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MEMORIZE:YES
-   </code>
+   <code>MEMORIZE:YES</code>
   </p>
   <p class="indent3">
    The class memorizes spells as a wizard does.
@@ -1959,9 +1759,7 @@ taken).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITED:Divination,Necromancy
-   </code>
+   <code>PROHIBITED:Divination,Necromancy</code>
   </p>
   <p class="indent3">
    The class cannot use Divination or
@@ -2052,45 +1850,35 @@ the PROHIBITSPELLS house rule preference.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITSPELL:ALIGNMENT.Evil
-   </code>
+   <code>PROHIBITSPELL:ALIGNMENT.Evil</code>
   </p>
   <p class="indent3">
    Prohibits the character from taking spells with
 the "Evil" descriptor.
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITSPELL:ALIGNMENT.Chaotic.Evil
-   </code>
+   <code>PROHIBITSPELL:ALIGNMENT.Chaotic.Evil</code>
   </p>
   <p class="indent3">
    Prohibits the character from taking spells that
 have both the "Chaotic" and the "Evil" descriptors.
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITSPELL:DESCRIPTOR.Fear
-   </code>
+   <code>PROHIBITSPELL:DESCRIPTOR.Fear</code>
   </p>
   <p class="indent3">
    Prohibits the character from taking spells with
 the "Fear" descriptor.
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITSPELL:SCHOOL.Illusion
-   </code>
+   <code>PROHIBITSPELL:SCHOOL.Illusion</code>
   </p>
   <p class="indent3">
    Prohibits the character from taking spells from
 the "Illusion" school.
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITSPELL:SUBSCHOOL.Healing
-   </code>
+   <code>PROHIBITSPELL:SUBSCHOOL.Healing</code>
   </p>
   <p class="indent3">
    Prohibits the character from taking spells from
@@ -2098,8 +1886,7 @@ the "Healing" subschool.
   </p>
   <blockquote class="indent2">
    <p class="tagindent2">
-    <code>
-     1 &lt;tab&gt;
+    <code>1 &lt;tab&gt;
 PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE &lt;tab&gt;
 PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG &lt;tab&gt;
 PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE &lt;tab&gt;
@@ -2107,8 +1894,7 @@ PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE &lt;tab&gt;
 PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE &lt;tab&gt;
 PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG &lt;tab&gt;
 PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE &lt;tab&gt;
-PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
-    </code>
+PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE</code>
    </p>
   </blockquote>
   <p class="indent3">
@@ -2122,10 +1908,8 @@ alignment is CG,CN,CE; taking "Chaotic" spells if Deity alignment
 is LG,LN,LE.
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITSPELL:SPELL.Fireball,Lightning
-Bolt
-   </code>
+   <code>PROHIBITSPELL:SPELL.Fireball,Lightning
+Bolt</code>
   </p>
   <p class="indent3">
    Prohibits the character from taking either
@@ -2177,18 +1961,14 @@ both racial hit dice and class levels.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ROLE:Skill
-   </code>
+   <code>ROLE:Skill</code>
   </p>
   <p class="indent3">
    Character levels in this class are key levels
 for CR calculation purposes for creatures with the Skill role.
   </p>
   <p class="indent2">
-   <code>
-    ROLE:Combat.Skill
-   </code>
+   <code>ROLE:Combat.Skill</code>
   </p>
   <p class="indent3">
    Character levels in this class are key levels
@@ -2226,21 +2006,17 @@ spellbook as a wizard does.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLBOOK:YES
-   </code>
+   <code>SPELLBOOK:YES</code>
   </p>
   <p class="indent3">
    The class uses a spellbook.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
+   <code>CLASS:Defender.MOD &lt;tab&gt;
 SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
 SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
 BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler
-   </code>
+SPELLLIST:1|Channeler</code>
   </p>
   <p class="indent3">
    Modifying the class Defender changes all of
@@ -2260,9 +2036,7 @@ these tags to determine bonus spells and maximum casting level.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NO
-   </code>
+   <code>NO</code>
   </p>
   <hr/>
   <p class="status">
@@ -2319,9 +2093,7 @@ duplicate spell casting ability.
    <li>
     For a spellcasting class with subclasses that have separate
 spell lists, the
-    <code>
-     SPELLLIST
-    </code>
+    <code>SPELLLIST</code>
     tag should be included in
 the subclass line only.
    </li>
@@ -2332,61 +2104,49 @@ the subclass line only.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Faemancer &lt;tab&gt;
-SPELLLIST:1|Ranger
-   </code>
+   <code>CLASS:Faemancer &lt;tab&gt;
+SPELLLIST:1|Ranger</code>
   </p>
   <p class="indent3">
    The class uses the ranger spell list.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Egoist &lt;tab&gt;
-SPELLLIST:1|Ranger|Druid
-   </code>
+   <code>SUBCLASS:Egoist &lt;tab&gt;
+SPELLLIST:1|Ranger|Druid</code>
   </p>
   <p class="indent3">
    The subclass uses either the ranger or druid
 spell list.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:War Mind &lt;tab&gt;
-SPELLLIST:2|Ranger|Druid|Barabarian
-   </code>
+   <code>CLASS:War Mind &lt;tab&gt;
+SPELLLIST:2|Ranger|Druid|Barabarian</code>
   </p>
   <p class="indent3">
    The class uses 2 of the ranger, Druid or
 Barbarian spell lists.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Blood Witch &lt;tab&gt;
-SPELLLIST:1|DOMAIN.Animal
-   </code>
+   <code>CLASS:Blood Witch &lt;tab&gt;
+SPELLLIST:1|DOMAIN.Animal</code>
   </p>
   <p class="indent3">
    The class uses the Animal Domain spell list.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Rogue.COPY=Blood Witch &lt;tab&gt;
-SPELLLIST:1|DOMAIN.Animal
-   </code>
+   <code>CLASS:Rogue.COPY=Blood Witch &lt;tab&gt;
+SPELLLIST:1|DOMAIN.Animal</code>
   </p>
   <p class="indent3">
    Copy class Rogue to Blood Witch useing the
 Animal Domain spell list.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
+   <code>CLASS:Defender.MOD &lt;tab&gt;
 SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
 SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
 BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler
-   </code>
+SPELLLIST:1|Channeler</code>
   </p>
   <p class="indent3">
    Modifying the class Defender changes all of
@@ -2442,9 +2202,7 @@ bonus spells and maximum level the character can cast
    </li>
    <li>
     Used in a Subclass Line this tag overwrites any
-    <code>
-     SPELLSTAT
-    </code>
+    <code>SPELLSTAT</code>
     tag in the main Class Line.
    </li>
    <li>
@@ -2456,22 +2214,16 @@ bonus spells and maximum level the character can cast
    </li>
    <li>
     Use of the
-    <code>
-     SPELL
-    </code>
+    <code>SPELL</code>
     subtag tells PCGen to use the
 stat specified in the
-    <code>
-     SPELLSTAT
-    </code>
+    <code>SPELLSTAT</code>
     tag located in the
 class' individual spells.
    </li>
    <li>
     Use of the
-    <code>
-     OTHER
-    </code>
+    <code>OTHER</code>
     subtag will result in no stat
 bonuses being granted.
    </li>
@@ -2482,45 +2234,35 @@ bonuses being granted.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLSTAT:INT
-   </code>
+   <code>SPELLSTAT:INT</code>
   </p>
   <p class="indent3">
    This class/subclass uses Intelligence to
 determine maximum level of spells.
   </p>
   <p class="indent2">
-   <code>
-    SPELLSTAT:SPELL
-   </code>
+   <code>SPELLSTAT:SPELL</code>
   </p>
   <p class="indent3">
    This class/subclass uses the stat specified in
 the
-   <code>
-    STAT:x
-   </code>
+   <code>STAT:x</code>
    tag in the spells the class/subclass
 uses.
   </p>
   <p class="indent2">
-   <code>
-    SPELLSTAT:OTHER
-   </code>
+   <code>SPELLSTAT:OTHER</code>
   </p>
   <p class="indent3">
    Thia class/subclass does not recieve a stat
 bonus for spell casting.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
+   <code>CLASS:Defender.MOD &lt;tab&gt;
 SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
 SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
 BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler
-   </code>
+SPELLLIST:1|Channeler</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -2572,21 +2314,17 @@ type)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLTYPE:Arcane
-   </code>
+   <code>SPELLTYPE:Arcane</code>
   </p>
   <p class="indent3">
    The class uses arcane spells.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Defender.MOD &lt;tab&gt;
+   <code>CLASS:Defender.MOD &lt;tab&gt;
 SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt;
 SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt;
 BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt;
-SPELLLIST:1|Channeler
-   </code>
+SPELLLIST:1|Channeler</code>
   </p>
   <p class="indent3">
    Modifying the class Defender changes all of
@@ -2635,10 +2373,8 @@ not listed, the default value is 0.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    19 &lt;tab&gt;
-SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
-   </code>
+   <code>19 &lt;tab&gt;
+SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1</code>
   </p>
   <p class="indent3">
    At 19 level the specialist can prepare one
@@ -2646,10 +2382,8 @@ additional Zero thru ninth level spell (of the school selected as a
 specialty) per spell level each day.
   </p>
   <p class="indent2">
-   <code>
-    12 &lt;tab&gt;
-SPECIALTYKNOWN:1,1,1
-   </code>
+   <code>12 &lt;tab&gt;
+SPECIALTYKNOWN:1,1,1</code>
   </p>
   <p class="indent3">
    At 12 level the Paladin can prepare one third
@@ -2714,9 +2448,7 @@ when selecting a subclass.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALLOWBASECLASS:NO
-   </code>
+   <code>ALLOWBASECLASS:NO</code>
   </p>
   <p class="indent3">
    The base class cannot be selected, only
@@ -2797,56 +2529,44 @@ subschools available.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Illusionist &lt;tab&gt;
-CHOICE:SCHOOL|Illusion
-   </code>
+   <code>SUBCLASS:Illusionist &lt;tab&gt;
+CHOICE:SCHOOL|Illusion</code>
   </p>
   <p class="indent3">
    For an Illusionist.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Abjure &lt;tab&gt;
-CHOICE:SCHOOL|Abjuration
-   </code>
+   <code>SUBCLASS:Abjure &lt;tab&gt;
+CHOICE:SCHOOL|Abjuration</code>
   </p>
   <p class="indent3">
    For an Abjurer.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Diviner &lt;tab&gt;
-CHOICE:SCHOOL|Divination
-   </code>
+   <code>SUBCLASS:Diviner &lt;tab&gt;
+CHOICE:SCHOOL|Divination</code>
   </p>
   <p class="indent3">
    For a Diviner.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Savant &lt;tab&gt;
-CHOICE:SCHOOL|Psychokinesis
-   </code>
+   <code>SUBCLASS:Savant &lt;tab&gt;
+CHOICE:SCHOOL|Psychokinesis</code>
   </p>
   <p class="indent3">
    For a Psychokinesis.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Shaper &lt;tab&gt;
-CHOICE:SCHOOL|Illusion.CLEAR
-   </code>
+   <code>SUBCLASS:Shaper &lt;tab&gt;
+CHOICE:SCHOOL|Illusion.CLEAR</code>
   </p>
   <p class="indent3">
    Removes the choice for an Illusionist.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Nomad &lt;tab&gt;
+   <code>SUBCLASS:Nomad &lt;tab&gt;
 CHOICE:SCHOOL|Abjuration.MOD &lt;tab&gt;
-CHOICE:SCHOOL|Divination
-   </code>
+CHOICE:SCHOOL|Divination</code>
   </p>
   <p class="indent3">
    Replaces the choice for an Abjurer with
@@ -2895,9 +2615,7 @@ must be selected) of this specialty or subclass (0 is default).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    COST:2
-   </code>
+   <code>COST:2</code>
   </p>
   <p class="indent3">
    The subclass has a cost of 2.
@@ -2947,9 +2665,7 @@ allotment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    KNOWNSPELLSFROMSPECIALTY:1
-   </code>
+   <code>KNOWNSPELLSFROMSPECIALTY:1</code>
   </p>
   <p class="indent3">
    The subclass has 1 spell from their specialty in
@@ -3003,9 +2719,7 @@ prevents this school from being prohibited.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PROHIBITCOST:2
-   </code>
+   <code>PROHIBITCOST:2</code>
   </p>
   <p class="indent3">
    The subclass has a prohibited cost of 2.
@@ -3056,9 +2770,7 @@ specialties.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASS:Illusionist
-   </code>
+   <code>SUBCLASS:Illusionist</code>
   </p>
   <p class="indent3">
    The class has Illusionist as a subclass.
@@ -3115,10 +2827,8 @@ immediately above it.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASSLEVEL:3 &lt;tab&gt;
-SA:Angelfire
-   </code>
+   <code>SUBCLASSLEVEL:3 &lt;tab&gt;
+SA:Angelfire</code>
   </p>
   <p class="indent3">
    would add SA:Angelfire at level 3
@@ -3177,9 +2887,7 @@ levels.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBSTITUTIONCLASS:Orc Ranger
-   </code>
+   <code>SUBSTITUTIONCLASS:Orc Ranger</code>
   </p>
   <p class="indent3">
    The class has Orc Ranger substitution
@@ -3236,10 +2944,8 @@ immediately above it.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin
-Slave (Ex)
-   </code>
+   <code>SUBSTITUTIONLEVEL:4 &lt;tab&gt; SA:Goblin
+Slave (Ex)</code>
   </p>
   <p class="indent3">
    would add SA:Goblin Slave (Ex) at level 4
@@ -3362,54 +3068,40 @@ skills.
    </li>
    <li>
     If
-    <code>
-     ANY
-    </code>
+    <code>ANY</code>
     or
-    <code>
-     ALL
-    </code>
+    <code>ALL</code>
     are used, the list of
 skills to select from will include all skills.
    </li>
    <li>
     If
-    <code>
-     CROSSCLASSSKILLS
-    </code>
+    <code>CROSSCLASSSKILLS</code>
     is used, the list of skills to
 select from will include all cross-class skills.
    </li>
    <li>
     If
-    <code>
-     UNTRAINED
-    </code>
+    <code>UNTRAINED</code>
     is used, the list of skills to select
 from will include all untrained skills.
    </li>
    <li>
     If
-    <code>
-     TRAINED
-    </code>
+    <code>TRAINED</code>
     is used, the list of skills to select
 from will include all trained skills.
    </li>
    <li>
     If
-    <code>
-     EXCLUSIVE
-    </code>
+    <code>EXCLUSIVE</code>
     is used, the list of skills to select
 from will include all skills exclusive to the associated
 class.
    </li>
    <li>
     If
-    <code>
-     NONEXCLUSIVE
-    </code>
+    <code>NONEXCLUSIVE</code>
     is used, the list of skills to
 select from will include all skills that are not exclusive to the
 assiciated class.
@@ -3424,20 +3116,16 @@ assiciated class.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|Knowledge
-(Reverie)
-   </code>
+   <code>ADD:CLASSSKILLS|Knowledge
+(Reverie)</code>
   </p>
   <p class="indent3">
    Add "Knowledge (Reverie)" skill to the
 character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|Knowledge
-(nature),Survival,AUTORANK=3
-   </code>
+   <code>ADD:CLASSSKILLS|Knowledge
+(nature),Survival,AUTORANK=3</code>
   </p>
   <p class="indent3">
    Add "Knowledge (nature)" and "Survival" skills
@@ -3445,72 +3133,56 @@ to the character's list of class skills and grant 2 free ranks in
 each.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|TYPE=Craft
-   </code>
+   <code>ADD:CLASSSKILLS|TYPE=Craft</code>
   </p>
   <p class="indent3">
    Add one skill from the list of "Craft" type
 skills to the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|3|ANY
-   </code>
+   <code>ADD:CLASSSKILLS|3|ANY</code>
   </p>
   <p class="indent3">
    Add three skills from the full list of skills to
 the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|3|ALL
-   </code>
+   <code>ADD:CLASSSKILLS|3|ALL</code>
   </p>
   <p class="indent3">
    Add three skills from the full list of skills to
 the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|CROSSCLASSSKILLS
-   </code>
+   <code>ADD:CLASSSKILLS|CROSSCLASSSKILLS</code>
   </p>
   <p class="indent3">
    Add one skill from the list of cross-class
 skills to the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|UNTRAINED
-   </code>
+   <code>ADD:CLASSSKILLS|UNTRAINED</code>
   </p>
   <p class="indent3">
    Add one skill from the list of skills that can
 be used untrained to the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|3|TRAINED
-   </code>
+   <code>ADD:CLASSSKILLS|3|TRAINED</code>
   </p>
   <p class="indent3">
    Add three skills from the list of skills that
 require training to the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|2|EXCLUSIVE
-   </code>
+   <code>ADD:CLASSSKILLS|2|EXCLUSIVE</code>
   </p>
   <p class="indent3">
    Add two skills from the list of exclusive skills
 to the character's list of class skills.
   </p>
   <p class="indent2">
-   <code>
-    ADD:CLASSSKILLS|2|NONEXCLUSIVE
-   </code>
+   <code>ADD:CLASSSKILLS|2|NONEXCLUSIVE</code>
   </p>
   <p class="indent3">
    Add two skills from the list of non-exclusive
@@ -3559,18 +3231,14 @@ that the bonus appears in
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOOL|NUMBER|1
-   </code>
+   <code>BONUS:SKILLPOOL|NUMBER|1</code>
   </p>
   <p class="indent3">
    Adds one skill point to the skill pool.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:SKILLPOOL|NUMBER|1|PREFEAT:1,Scribe
-Scroll
-   </code>
+   <code>BONUS:SKILLPOOL|NUMBER|1|PREFEAT:1,Scribe
+Scroll</code>
   </p>
   <p class="indent3">
    Adds one skill point to the skill pool if the
@@ -3624,9 +3292,7 @@ the associated level.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    5 &lt;tab&gt; DONOTADD:HITDIE
-   </code>
+   <code>5 &lt;tab&gt; DONOTADD:HITDIE</code>
   </p>
   <p class="indent3">
    The character will not receive an additional hit
@@ -3673,9 +3339,7 @@ met.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    EXCLASS:Ex Monk
-   </code>
+   <code>EXCLASS:Ex Monk</code>
   </p>
   <p class="indent3">
    If prerequisites are no longer met, the
@@ -3742,10 +3406,8 @@ class to the specified class.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    EXCHANGELEVEL:Ex
-Paladin|11|10|1
-   </code>
+   <code>EXCHANGELEVEL:Ex
+Paladin|11|10|1</code>
   </p>
   <p class="indent3">
    Up to 10 levels of Ex Paladin can be exchanged
@@ -3897,76 +3559,58 @@ sizes specified by the DIESIZES tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:12
-   </code>
+   <code>HITDIE:12</code>
   </p>
   <p class="indent3">
    The character now has a Hit Dice of 12.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%+2
-   </code>
+   <code>HITDIE:%+2</code>
   </p>
   <p class="indent3">
    Adds 2 to the current Hit Dice size.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%-4
-   </code>
+   <code>HITDIE:%-4</code>
   </p>
   <p class="indent3">
    Subtracts 4 from the current Hit Dice size.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%*3
-   </code>
+   <code>HITDIE:%*3</code>
   </p>
   <p class="indent3">
    Multiplies the current Hit Dice size by 3.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%/2
-   </code>
+   <code>HITDIE:%/2</code>
   </p>
   <p class="indent3">
    Divides the current Hit Dice size by 2.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%up2
-   </code>
+   <code>HITDIE:%up2</code>
   </p>
   <p class="indent3">
    Steps up the Hit Dice size by two steps. If the
 class has a Hit Die of d6 it will be stepped up to d10.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%down1
-   </code>
+   <code>HITDIE:%down1</code>
   </p>
   <p class="indent3">
    Steps down the Hit Dice size by one step. If the
 class has a Hit Die of d6 it will be stepped down to d4.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%Hup4
-   </code>
+   <code>HITDIE:%Hup4</code>
   </p>
   <p class="indent3">
    Steps up the Hit Dice size by four steps. If the
 class has a Hit Die of d6 it will be stepped up to d20.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%Hdown3
-   </code>
+   <code>HITDIE:%Hdown3</code>
   </p>
   <p class="indent3">
    Steps down the Hit Dice size by three step. If
@@ -4037,54 +3681,42 @@ is necessary.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:Draconic
-   </code>
+   <code>LANGBONUS:Draconic</code>
   </p>
   <p class="indent3">
    The class can choose "Draconic" as one of their
 languages.
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:Draconic,Elven
-   </code>
+   <code>LANGBONUS:Draconic,Elven</code>
   </p>
   <p class="indent3">
    The class can choose "Draconic" or "Elven" as
 one of their languages.
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:ALL
-   </code>
+   <code>LANGBONUS:ALL</code>
   </p>
   <p class="indent3">
    The class can choose any language loaded from
 sources as one of their languages.
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:TYPE=Written
-   </code>
+   <code>LANGBONUS:TYPE=Written</code>
   </p>
   <p class="indent3">
    The class can choose any written language as one
 of their languages.
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:TYPE=Spoken,Draconic
-   </code>
+   <code>LANGBONUS:TYPE=Spoken,Draconic</code>
   </p>
   <p class="indent3">
    The class can choose any written language or
 "Draconic" as one of their languages.
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:.CLEAR,Dwarven,Gnomish,Orcish
-   </code>
+   <code>LANGBONUS:.CLEAR,Dwarven,Gnomish,Orcish</code>
   </p>
   <p class="indent3">
    The class has all bonus languages cleared then
@@ -4204,20 +3836,16 @@ SUBSTITUTIONLEVEL lines.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    5:REPEATLEVEL:5 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)
-   </code>
+   <code>5:REPEATLEVEL:5 &lt;tab&gt;
+ADD:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent3">
    Would add at levels 5,10,15,20,... up to the
 MAXLEVEL defined by class.
   </p>
   <p class="indent2">
-   <code>
-    1:REPEATLEVEL:1|SKIP=4 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)
-   </code>
+   <code>1:REPEATLEVEL:1|SKIP=4 &lt;tab&gt;
+ADD:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent3">
    Would add at levels
@@ -4225,10 +3853,8 @@ ADD:FEAT(ABonusFeat)
 class.
   </p>
   <p class="indent2">
-   <code>
-    2:REPEATLEVEL:2|SKIP=0|MAX=20 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)
-   </code>
+   <code>2:REPEATLEVEL:2|SKIP=0|MAX=20 &lt;tab&gt;
+ADD:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent3">
    Would add at levels 2,4,6,8,... up to level
@@ -4240,10 +3866,8 @@ ADD:FEAT(ABonusFeat)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;
-ADD:FEAT(ABonusFeat)
-   </code>
+   <code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;
+ADD:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent1">
    <strong>
@@ -4293,27 +3917,21 @@ that the class can choose from to duplicate class skills.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SKILLLIST:1|Ranger
-   </code>
+   <code>SKILLLIST:1|Ranger</code>
   </p>
   <p class="indent3">
    The class can choose from Ranger class
 skills.
   </p>
   <p class="indent2">
-   <code>
-    SKILLLIST:1|Ranger|Druid
-   </code>
+   <code>SKILLLIST:1|Ranger|Druid</code>
   </p>
   <p class="indent3">
    The class can choose either from Ranger or Druid
 class skills.
   </p>
   <p class="indent2">
-   <code>
-    SKILLLIST:2|Ranger|Druid|Barabarian
-   </code>
+   <code>SKILLLIST:2|Ranger|Druid|Barabarian</code>
   </p>
   <p class="indent3">
    The class can choose from 2 of Ranger, Druid or
@@ -4359,9 +3977,7 @@ that are granted to the class.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:Incorporeal|Undead|Celestial
-   </code>
+   <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
   </p>
   <p class="indent3">
    The class uses the "Incorporeal", "Undead" and
@@ -4404,21 +4020,13 @@ tag.
    </li>
    <li>
     When using the
-    <code>
-     TEMPLATE:ADDCOICE
-    </code>
+    <code>TEMPLATE:ADDCOICE</code>
     tag as part of a
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     of a class that containes multiple
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tags, all instances of the
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag will be modified.
    </li>
   </ul>
@@ -4428,9 +4036,7 @@ tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:ADDCHOICE:Demihuman|Beast
-   </code>
+   <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
   </p>
   <p class="indent3">
    The class can choose previously defined
@@ -4473,18 +4079,14 @@ list.
    </li>
    <li>
     Multiple
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tags can be used in the
 same LST object but PCGen's current Data Standard is to include no
 more that one in each LST object.
    </li>
    <li>
     Though the
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag is not a gobal tag
 it can be used in the
     <a href="datafilesability.html#templatechoose">
@@ -4507,9 +4109,7 @@ it can be used in the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:CHOOSE:Celestial|Outsider
-   </code>
+   <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
   </p>
   <p class="indent3">
    The class can choose either the "Celestial" or
@@ -4566,9 +4166,7 @@ Summary tabs as a valid choice for selection.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:NO
-   </code>
+   <code>VISIBLE:NO</code>
   </p>
   <p class="indent3">
    The class is not visible for selection on the
@@ -4632,10 +4230,8 @@ tab.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    WEAPONBONUS:Dagger|Staff|Club|Mace|Sword
-(Short)|Shortbow (Composite)
-   </code>
+   <code>WEAPONBONUS:Dagger|Staff|Club|Mace|Sword
+(Short)|Shortbow (Composite)</code>
   </p>
   <p class="indent3">
    The class can choose from a weapon proficiency
@@ -4643,9 +4239,7 @@ from "Dagger", "Staff", "Club", "Mace", "Sword (Short)" or
 "Shortbow (Composite)".
   </p>
   <p class="indent2">
-   <code>
-    WEAPONBONUS:TYPE.Simple
-   </code>
+   <code>WEAPONBONUS:TYPE.Simple</code>
   </p>
   <p class="indent3">
    The class receives bonus proficiency in any one
@@ -4696,9 +4290,7 @@ monster to gain a new feat.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    LEVELSPERFEAT:2
-   </code>
+   <code>LEVELSPERFEAT:2</code>
   </p>
   <p class="indent3">
    The class gets 1 feat per 2 levels.
@@ -4743,9 +4335,7 @@ gaining hit dice
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MODTOSKILLS:YES
-   </code>
+   <code>MODTOSKILLS:YES</code>
   </p>
   <p class="indent3">
    The class gets the intelligence modifier for
@@ -4765,9 +4355,7 @@ skills they get for gaining hit dice.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    YES
-   </code>
+   <code>YES</code>
   </p>
   <hr/>
   <p class="status">
@@ -4805,9 +4393,7 @@ tag is normally seen with a PRESIZE requirement.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MONNONSKILLHD:32|PRESIZEEQ:C
-   </code>
+   <code>MONNONSKILLHD:32|PRESIZEEQ:C</code>
   </p>
   <p class="indent3">
    A colossal monster would not get skill points
@@ -4857,9 +4443,7 @@ a number.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MONSKILL:6+INT
-   </code>
+   <code>MONSKILL:6+INT</code>
   </p>
   <p class="indent3">
    Each level the monster will receive 6 + int
@@ -4901,13 +4485,9 @@ Type)
   <ul class="indent2">
    <li>
     This tag checks both the
-    <code>
-     TYPE
-    </code>
+    <code>TYPE</code>
     and
-    <code>
-     RACETYPE
-    </code>
+    <code>RACETYPE</code>
     tags in the original race file entry,
 ignoring any race types aquired outside of the original race file
 entry.
@@ -4931,9 +4511,7 @@ not take the class.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRERACETYPE:Animal
-   </code>
+   <code>PRERACETYPE:Animal</code>
   </p>
   <p class="indent3">
    This class can only be taken by "Animal"

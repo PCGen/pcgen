@@ -31,9 +31,7 @@
   <p class="indent1">
    This page is broken into two sections. The first
 section will describe the
-   <code>
-    DEFINE
-   </code>
+   <code>DEFINE</code>
    tag and its uses. The
 second section will discuss variables and their use in PCGen.
   </p>
@@ -80,9 +78,7 @@ value to the number or formula given.
    </li>
    <li>
     Many classes use
-    <code>
-     PREVARxx
-    </code>
+    <code>PREVARxx</code>
     tags, which are
 prerequisites based upon variable values.
    </li>
@@ -94,9 +90,7 @@ to it.
    <li>
     PCGen scans the character's race, templates, classes, feats,
 skills, deity, domains and equipped items for
-    <code>
-     DEFINE
-    </code>
+    <code>DEFINE</code>
     tags that match this variable name.
    </li>
    <li>
@@ -105,43 +99,31 @@ value.
    </li>
    <li>
     PCGen then scans the same list of items and looks for
-    <code>
-     BONUS:VAR
-    </code>
+    <code>BONUS:VAR</code>
     tags and after figuring out which ones
 stack, adds those to the highest define value.
    </li>
    <li>
     The resulting value is then compared to the
-    <code>
-     PREVARxx
-    </code>
+    <code>PREVARxx</code>
     requirement and PCGen then indicates if the
 character meets this requirement or not.
    </li>
    <li>
-    <code>
-     BONUS:VAR
-    </code>
+    <code>BONUS:VAR</code>
     tags which reference variables which
 have not been defined have no effect and the value of that variable
 will effectively remain at zero (0).
    </li>
    <li>
     The standard use of
-    <code>
-     DEFINE
-    </code>
+    <code>DEFINE</code>
     in PCGen release files
 is to use only one
-    <code>
-     DEFINE
-    </code>
+    <code>DEFINE</code>
     per variable and to
 initially set the value to zero (0) and adjust it with
-    <code>
-     BONUS:VAR
-    </code>
+    <code>BONUS:VAR</code>
     tags as needed.
    </li>
   </ul>
@@ -151,19 +133,15 @@ initially set the value to zero (0) and adjust it with
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:MonkeyChop|2
-   </code>
+   <code>DEFINE:MonkeyChop|2</code>
   </p>
   <p class="indent3">
    Creates a new variable named MonkeyChop and sets
 the initial value to 2.
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:MonkeySwing|0 &lt;tab&gt;
-BONUS:VAR|MonkeySwing|TL/2
-   </code>
+   <code>DEFINE:MonkeySwing|0 &lt;tab&gt;
+BONUS:VAR|MonkeySwing|TL/2</code>
   </p>
   <p class="indent3">
    Creates a new variable named
@@ -192,9 +170,7 @@ system-defined, that is they are hard-coded into PCGen's code-base.
 While both types of variable can be used in any formula in any LST
 file, only system-defined variables can be used in any gameMode.
 Only user-defined variables can be modified through the use of the
-   <code>
-    BONUS:VAR
-   </code>
+   <code>BONUS:VAR</code>
    tag.
   </p>
   <p class="indent0">
@@ -269,14 +245,10 @@ for the BAB is set for each individual class in the
    </span>
    file. The BAB progression is set using
 the global
-   <code>
-    BONUS:COMBAT|BAB
-   </code>
+   <code>BONUS:COMBAT|BAB</code>
    tag, which will take a
 formula. As an example,
-   <code>
-    BONUS:COMBAT|BAB|CL*2
-   </code>
+   <code>BONUS:COMBAT|BAB|CL*2</code>
    would
 grant a BAB of +2 per class-level.
   </p>
@@ -305,9 +277,7 @@ character's race.
   <p class="indent2">
    This is the unmodified number of hit dice of the
 creature in question, as specified with the
-   <code>
-    MONSTERCLASS
-   </code>
+   <code>MONSTERCLASS</code>
    race tag. If that tag is absent, the
 variable will return 0.
   </p>
@@ -367,25 +337,17 @@ your
     Cleric
    </strong>
    level.
-   <code>
-    BL=Wizard
-   </code>
+   <code>BL=Wizard</code>
    would
 return 5 and
-   <code>
-    BL=Cleric
-   </code>
+   <code>BL=Cleric</code>
    would return 3. Replace "{"
 with "(" and "}" with ")", e.g.
-   <code>
-    BL=Cleric {Special}
-   </code>
+   <code>BL=Cleric {Special}</code>
    would return the bonus levels of "Cleric (Special)" since "(" and
 ")" have other meanings in DEFINE variables. If used within a JEP
 formula you will need to enclose it in a variable function e.g.
-   <code>
-    var("BL=Cleric {Special}")
-   </code>
+   <code>var("BL=Cleric {Special}")</code>
    .
   </p>
   <p class="indent1">

@@ -55,32 +55,22 @@
        ability
       </a>
       belonging to the
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesabilitycategory.html">
        ability category
       </a>
       , i.e.
-      <code>
-       CATEGORY:FEAT
-      </code>
+      <code>CATEGORY:FEAT</code>
       .
      </li>
      <li>
       The feats may still be contained in a file called
-      <code>
-       feats.lst
-      </code>
+      <code>feats.lst</code>
       (see
-      <code>
-       /data/35e/wizards_of_the_coast/rsrd/basics/feats.lst
-      </code>
+      <code>/data/35e/wizards_of_the_coast/rsrd/basics/feats.lst</code>
       for an example.) However this file must use the
       <a href="file:///C:/Users/lws/gits/pcgen/docs/listfilepages/datafilestagpages/datafilesability.html">
-       <code>
-        ability.lst
-       </code>
+       <code>ability.lst</code>
        format
       </a>
       , not the obsolete format
@@ -88,21 +78,15 @@ described below.
      </li>
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format
@@ -140,28 +124,22 @@ assumes that feat is an instance of the one without parentheses and
 does not display the one with parentheses.
    </p>
    <p class="indent2">
-    <code>
-     Improved Critical
-    </code>
+    <code>Improved Critical</code>
    </p>
    <p class="indent3">
     The feat named "Improved Critical" is to be
 created.
    </p>
    <p class="indent2">
-    <code>
-     Acrobatic.MOD
-    </code>
+    <code>Acrobatic.MOD</code>
    </p>
    <p class="indent3">
     The feat named "Acrobatic" is to be
 modified.
    </p>
    <p class="indent2">
-    <code>
-     Occupation (Emergency
-Services).FORGET
-    </code>
+    <code>Occupation (Emergency
+Services).FORGET</code>
    </p>
    <p class="indent3">
     The feat named "Occupation (Emergency Services)"
@@ -169,9 +147,7 @@ is to be forgotten.
    </p>
    <p class="indent1">
     When the
-    <code>
-     POINTPOOLNAME
-    </code>
+    <code>POINTPOOLNAME</code>
     trigger tag
 is present in the
     <span class="lstfile">
@@ -238,17 +214,11 @@ the spell level slot requires.
      </strong>
      When modifying a a feat with
 the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      ADDSPELLLEVEL
-     </code>
+     <code>ADDSPELLLEVEL</code>
      tag, the data included in a new
-     <code>
-      ADDSPELLLEVEL
-     </code>
+     <code>ADDSPELLLEVEL</code>
      tag will overwrite the existing tag
 data.
     </li>
@@ -259,9 +229,7 @@ data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     ADDSPELLLEVEL:2
-    </code>
+    <code>ADDSPELLLEVEL:2</code>
    </p>
    <p class="indent3">
     A spell with this metamagic feat applied to it
@@ -274,24 +242,18 @@ takes up a slot two levels higher than the normal spell.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; ADDSPELLLEVEL:1
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; ADDSPELLLEVEL:1</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:2
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+ADDSPELLLEVEL:2</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; ADDSPELLLEVEL:2
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; ADDSPELLLEVEL:2</code>
    </p>
    <p class="indent3">
     Modified feat applied to a spell will causes the
@@ -333,9 +295,7 @@ addribute that can modify the spell name./p&gt;
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     APPLIEDNAME:Empowered
-    </code>
+    <code>APPLIEDNAME:Empowered</code>
    </p>
    <p class="indent3">
     A spell with this metamagic feat applied to it
@@ -397,38 +357,26 @@ replaced by the second z, etc..
     <li>
      The y text can also use other special variables, also usable in
 the
-     <code>
-      DESC
-     </code>
+     <code>DESC</code>
      tag:
      <ul>
       <li>
-       <code>
-        %CHOICE
-       </code>
+       <code>%CHOICE</code>
        - Will replace the first associated choice
 in the object.
       </li>
       <li>
-       <code>
-        %LIST
-       </code>
+       <code>%LIST</code>
        - Will substitute all choices comma
 separated into that parameter.
       </li>
       <li>
-       <code>
-        %NAME
-       </code>
+       <code>%NAME</code>
        - The
-       <code>
-        OUTPUTNAME
-       </code>
+       <code>OUTPUTNAME</code>
        or name of the
 object this
-       <code>
-        DESC
-       </code>
+       <code>DESC</code>
        tag is in.
       </li>
      </ul>
@@ -438,30 +386,20 @@ object this
       .MOD Behavior:
      </strong>
      When modifying a feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      ASPECT
-     </code>
+     <code>ASPECT</code>
      tag,
 the data included in a new
-     <code>
-      ASPECT
-     </code>
+     <code>ASPECT</code>
      tag will selectively
 overwrite the existing tag data or include the separate tags. Since
 each aspect name can hold only one value per feat, modifying an
 existing
-     <code>
-      ASPECT
-     </code>
+     <code>ASPECT</code>
      tag will overwrite only the value of
 the aspect by that name in the feat, and will add a separate
-     <code>
-      ASPECT
-     </code>
+     <code>ASPECT</code>
      tag with a new name.
     </li>
    </ul>
@@ -471,10 +409,8 @@ the aspect by that name in the feat, and will add a separate
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     ASPECT:Action Type|Standard
-Action
-    </code>
+    <code>ASPECT:Action Type|Standard
+Action</code>
    </p>
    <p class="indent3">
     Identifies the "Action Type" of an action
@@ -482,9 +418,7 @@ performed as part of the associated feat as a "Standard
 Action".
    </p>
    <p class="indent2">
-    <code>
-     ASPECT:Attack Type|Melee weapon
-    </code>
+    <code>ASPECT:Attack Type|Melee weapon</code>
    </p>
    <p class="indent3">
     Identifies the "Attack Type" of an attack
@@ -492,28 +426,22 @@ performed as part of the associated feat as a "Melee weapon"
 attack.
    </p>
    <p class="indent2">
-    <code>
-     ASPECT:Target|One creature
-    </code>
+    <code>ASPECT:Target|One creature</code>
    </p>
    <p class="indent3">
     Identifies the "Target" of an action performed
 as part of the associated feat as "One creature".
    </p>
    <p class="indent2">
-    <code>
-     ASPECT:Attack|Strength vs. AC
-    </code>
+    <code>ASPECT:Attack|Strength vs. AC</code>
    </p>
    <p class="indent3">
     Identifies an "Attack" performed as part of the
 associated feat as "Strength vs. AC".
    </p>
    <p class="indent2">
-    <code>
-     ASPECT:Attack Type|Ranged
-%1|PowerRange
-    </code>
+    <code>ASPECT:Attack Type|Ranged
+%1|PowerRange</code>
    </p>
    <p class="indent3">
     Identifies the "Attack Type" of an attack
@@ -521,10 +449,8 @@ performed as part of the associated feat as a "Ranged" attack with
 a range equivalent to the "PowerRange" variable.
    </p>
    <p class="indent2">
-    <code>
-     ASPECT:Effect|Double damage to %CHOICE
-creatures
-    </code>
+    <code>ASPECT:Effect|Double damage to %CHOICE
+creatures</code>
    </p>
    <p class="indent3">
     Identifies the "Effect" of an action performed
@@ -538,24 +464,18 @@ chosen by the associated chooser.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A2
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; ASPECT:A1|A2</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-ASPECT:A1|A3
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+ASPECT:A1|A3</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A3
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; ASPECT:A1|A3</code>
    </p>
    <p class="indent1">
     <strong>
@@ -565,24 +485,18 @@ Separately):
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A2
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; ASPECT:A1|A2</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-ASPECT:B1|B2
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+ASPECT:B1|B2</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt; ASPECT:B1|B2
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt; ASPECT:B1|B2</code>
    </p>
    <hr/>
    <p class="indent0">
@@ -627,53 +541,37 @@ Preference window is unchecked. Otherwise the text from the
     </li>
     <li>
      PRExxx tags can be used with the
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tag.
     </li>
     <li>
      Multiple
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tags per line are allowed with
 all qualifying
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tags being concatonated for
 output and separated by spaces.
     </li>
     <li>
-     <code>
-      .CLEAR
-     </code>
+     <code>.CLEAR</code>
      will clear all
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tags.
     </li>
     <li>
-     <code>
-      .CLEAR.(regular expression match)
-     </code>
+     <code>.CLEAR.(regular expression match)</code>
      will clear
 specific instances.
     </li>
     <li>
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tags will take variable substitution.
      <ul>
       <li>
        Within the text a % followed by a number will substitute the
 #th variable from the variable list associated with the
-       <code>
-        BENEFIT
-       </code>
+       <code>BENEFIT</code>
        .
       </li>
       <li>
@@ -696,33 +594,23 @@ number should be surrounded in curly brackets { }. For example,
 list:
      <ul>
       <li>
-       <code>
-        %NAME
-       </code>
+       <code>%NAME</code>
        - The name of the object this
-       <code>
-        BENEFIT
-       </code>
+       <code>BENEFIT</code>
        tag is in.
       </li>
       <li>
-       <code>
-        %FEAT
-       </code>
+       <code>%FEAT</code>
        - Will substitute the descriptions of feats
 within the object that match the associated preqrequisites.
       </li>
       <li>
-       <code>
-        %CHOICE
-       </code>
+       <code>%CHOICE</code>
        - Will replace the first associated choice
 in the object.
       </li>
       <li>
-       <code>
-        %LIST
-       </code>
+       <code>%LIST</code>
        - Will substitute all choices into that
 parameter as a comma-delimited list.
       </li>
@@ -758,19 +646,13 @@ You can create fairly powerful match structures using things like
 character groups "[a-zA-Z]" match any alphabetic character or
 groupings "(bat|super)man" match batman or superman and many many
 more. So, for example, you could clear all benefits by doing
-     <code>
-      BENEFIT:.CLEAR..*
-     </code>
+     <code>BENEFIT:.CLEAR..*</code>
      , or clear all exceptional abilities
 by doing
-     <code>
-      BENEFIT:.CLEAR.\(Ex\)
-     </code>
+     <code>BENEFIT:.CLEAR.\(Ex\)</code>
      , or clear everything
 that's non-numeric with
-     <code>
-      BENEFIT:.CLEAR.[A-Za-z]
-     </code>
+     <code>BENEFIT:.CLEAR.[A-Za-z]</code>
      .
     </li>
     <li>
@@ -778,18 +660,12 @@ that's non-numeric with
       .MOD Behavior:
      </strong>
      When modifying a feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tag,
 the data included in a new
-     <code>
-      BENEFIT
-     </code>
+     <code>BENEFIT</code>
      tag will be
 included as a separate tag.
     </li>
@@ -800,10 +676,8 @@ included as a separate tag.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     BENEFIT:This is sample text for the
-example purposes
-    </code>
+    <code>BENEFIT:This is sample text for the
+example purposes</code>
    </p>
    <p class="indent3">
     Adds feat benefit.
@@ -816,25 +690,19 @@ Separately):
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; BENEFIT:Initial benefit text.
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; BENEFIT:Initial benefit text.</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-BENEFIT:New benefit text.
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+BENEFIT:New benefit text.</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
+    <code>&lt;feat name&gt;
 &lt;tab&gt; BENEFIT:Initial benefit text. &lt;tab&gt; BENEFIT:New
-benefit text.
-    </code>
+benefit text.</code>
    </p>
    <p class="indent3">
     The output of the modified will show the
@@ -873,18 +741,12 @@ point.
       .MOD Behavior:
      </strong>
      When modifying a feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      COST
-     </code>
+     <code>COST</code>
      tag, the
 data included in a new
-     <code>
-      COST
-     </code>
+     <code>COST</code>
      tag will overwrite the
 existing tag data.
     </li>
@@ -895,17 +757,13 @@ existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     COST:1
-    </code>
+    <code>COST:1</code>
    </p>
    <p class="indent3">
     Feat costs one feat point.
    </p>
    <p class="indent2">
-    <code>
-     COST:.5
-    </code>
+    <code>COST:.5</code>
    </p>
    <p class="indent3">
     Feat costs half a feat point.
@@ -916,9 +774,7 @@ existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     1
-    </code>
+    <code>1</code>
    </p>
    <p class="indent1">
     <strong>
@@ -927,24 +783,18 @@ existing tag data.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; COST:2
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; COST:2</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-COST:1
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+COST:1</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;ability name&gt;
-&lt;tab&gt; COST:1
-    </code>
+    <code>&lt;ability name&gt;
+&lt;tab&gt; COST:1</code>
    </p>
    <p class="indent3">
     Modified Feat costs one feat point.
@@ -993,17 +843,11 @@ new one.
       .MOD Behavior:
      </strong>
      When modifying an feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      MODIFYFEATCHOICE
-     </code>
+     <code>MODIFYFEATCHOICE</code>
      tag, the data included in a new
-     <code>
-      MODIFYFEATCHOICE
-     </code>
+     <code>MODIFYFEATCHOICE</code>
      tag will overwrite the existing tag
 data.
     </li>
@@ -1014,9 +858,7 @@ data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     MODIFYFEATCHOICE:TYPE=NinjaMonkeySchool
-    </code>
+    <code>MODIFYFEATCHOICE:TYPE=NinjaMonkeySchool</code>
    </p>
    <p class="indent3">
     Allows the selection of a new school from a list
@@ -1024,10 +866,8 @@ of schools of type 'NinjaMonkeySchool' to replace a previously
 selected one.
    </p>
    <p class="indent2">
-    <code>
-     MODIFYFEATCHOICE:Ninja Monkey Primary
-Weapon Reselection
-    </code>
+    <code>MODIFYFEATCHOICE:Ninja Monkey Primary
+Weapon Reselection</code>
    </p>
    <p class="indent3">
     Allows a ninja monkey to select a new primary
@@ -1040,25 +880,19 @@ weapon, replacing an earlier selected primary weapon.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; MODIFYFEATCHOICE:TYPE=NinjaMonkeyChimpSchool
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; MODIFYFEATCHOICE:TYPE=NinjaMonkeyChimpSchool</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
+    <code>&lt;feat name&gt;
 &lt;tab&gt;
-MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool
-    </code>
+MODIFYFEATCHOICE:TYPE=NinjaMonkeySilverbackSchool</code>
    </p>
    <p class="indent3">
     Modified feat allows the selection of a new
@@ -1095,9 +929,7 @@ value is set to YES, then you
       MUST
      </strong>
      also use a
-     <code>
-      CHOOSE
-     </code>
+     <code>CHOOSE</code>
      tag.
     </li>
     <li>
@@ -1105,18 +937,12 @@ value is set to YES, then you
       .MOD Behavior:
      </strong>
      When modifying an feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      MULT
-     </code>
+     <code>MULT</code>
      tag, the
 data included in a new
-     <code>
-      MULT
-     </code>
+     <code>MULT</code>
      tag will overwrite the
 existing tag data.
     </li>
@@ -1127,9 +953,7 @@ existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     MULT:YES
-    </code>
+    <code>MULT:YES</code>
    </p>
    <p class="indent3">
     This Feat can be taken multiple times.
@@ -1140,9 +964,7 @@ existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     NO
-    </code>
+    <code>NO</code>
    </p>
    <p class="indent1">
     <strong>
@@ -1151,24 +973,18 @@ existing tag data.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; MULT:YES
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; MULT:YES</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-MULT:NO
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+MULT:NO</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; MULT:NO
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; MULT:NO</code>
    </p>
    <p class="indent3">
     Modified feat cannot be taken multiple
@@ -1206,18 +1022,12 @@ another.
       .MOD Behavior:
      </strong>
      When modifying a feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      STACK
-     </code>
+     <code>STACK</code>
      tag,
 the data included in a new
-     <code>
-      STACK
-     </code>
+     <code>STACK</code>
      tag will overwrite
 the existing tag data.
     </li>
@@ -1228,9 +1038,7 @@ the existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     STACK:YES
-    </code>
+    <code>STACK:YES</code>
    </p>
    <p class="indent3">
     This Feat may be stack on itself.
@@ -1241,9 +1049,7 @@ the existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     NO
-    </code>
+    <code>NO</code>
    </p>
    <p class="indent1">
     <strong>
@@ -1252,24 +1058,18 @@ the existing tag data.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; STACK:YES
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; STACK:YES</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-STACK:NO
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+STACK:NO</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; STACK:NO
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; STACK:NO</code>
    </p>
    <p class="indent3">
     The benefits for the modified feat will not
@@ -1307,13 +1107,9 @@ by the feat.
     </li>
     <li>
      Supports
-     <code>
-      %LIST
-     </code>
+     <code>%LIST</code>
      in conjunction with a
-     <code>
-      CHOOSE
-     </code>
+     <code>CHOOSE</code>
      tag.
     </li>
    </ul>
@@ -1323,19 +1119,15 @@ by the feat.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     TEMPLATE:Celestial
-    </code>
+    <code>TEMPLATE:Celestial</code>
    </p>
    <p class="indent3">
     Adds the "Celestial" template to the
 character.
    </p>
    <p class="indent2">
-    <code>
-     TEMPLATE:Half Dragon
-(Red)|Zombie
-    </code>
+    <code>TEMPLATE:Half Dragon
+(Red)|Zombie</code>
    </p>
    <p class="indent3">
     Adds the templates "Half Dragon (Red)" and
@@ -1366,28 +1158,18 @@ character.
     <li>
      This is a pipe-delimited list of template choices that are
 added to the list presented by the original
-     <code>
-      TEMPLATE:CHOOSE
-     </code>
+     <code>TEMPLATE:CHOOSE</code>
      tag.
     </li>
     <li>
      When using the
-     <code>
-      TEMPLATE:ADDCOICE
-     </code>
+     <code>TEMPLATE:ADDCOICE</code>
      tag as part of a
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      of a Feat that containes multiple
-     <code>
-      TEMPLATE:CHOOSE
-     </code>
+     <code>TEMPLATE:CHOOSE</code>
      tags, all instances of the
-     <code>
-      TEMPLATE:CHOOSE
-     </code>
+     <code>TEMPLATE:CHOOSE</code>
      tag will be modified.
     </li>
    </ul>
@@ -1397,9 +1179,7 @@ added to the list presented by the original
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     TEMPLATE:ADDCHOICE:Demihuman|Beast
-    </code>
+    <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
    </p>
    <p class="indent3">
     The feat allows the selection of previously
@@ -1434,9 +1214,7 @@ list.
     </li>
     <li>
      Multiple
-     <code>
-      TEMPLATE:CHOOSE
-     </code>
+     <code>TEMPLATE:CHOOSE</code>
      tags can be used in the
 same LST object but doing so can cause unintended results.
     </li>
@@ -1447,9 +1225,7 @@ same LST object but doing so can cause unintended results.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     TEMPLATE:CHOOSE:Celestial|Outsider
-    </code>
+    <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
    </p>
    <p class="indent3">
     The feat allows the selections of either the
@@ -1497,30 +1273,22 @@ Name:
    </p>
    <ul class="indent2">
     <li>
-     <code>
-      YES
-     </code>
+     <code>YES</code>
      - Shows the feat name in PCGen and on export
 to a character sheet.
     </li>
     <li>
-     <code>
-      NO
-     </code>
+     <code>NO</code>
      - Hides the feat name in PCGen and on export to
 a character sheet.
     </li>
     <li>
-     <code>
-      DISPLAY
-     </code>
+     <code>DISPLAY</code>
      - Displays the feat name in PCGen but not
 on the character sheet.
     </li>
     <li>
-     <code>
-      EXPORT
-     </code>
+     <code>EXPORT</code>
      - Hides the feat name from PCGen but
 displays it on the character sheet.
     </li>
@@ -1529,18 +1297,12 @@ displays it on the character sheet.
       .MOD Behavior:
      </strong>
      When modifying a feat with the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      VISIBLE
-     </code>
+     <code>VISIBLE</code>
      tag,
 the data included in a new
-     <code>
-      VISIBLE
-     </code>
+     <code>VISIBLE</code>
      tag will overwrite
 the existing tag data.
     </li>
@@ -1551,9 +1313,7 @@ the existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     VISIBLE:YES
-    </code>
+    <code>VISIBLE:YES</code>
    </p>
    <p class="indent3">
     Shows the feat name in PCGen and on the Output
@@ -1566,24 +1326,18 @@ sheet.
    </p>
    <p class="indent2">
     Initial Feat:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; VISIBLEE:YES
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; VISIBLEE:YES</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     &lt;feat name&gt; &lt;tab&gt;
-VISIBLE:DISPLAY
-    </code>
+    <code>&lt;feat name&gt; &lt;tab&gt;
+VISIBLE:DISPLAY</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     &lt;feat name&gt;
-&lt;tab&gt; VISIBLE:DISPLAY
-    </code>
+    <code>&lt;feat name&gt;
+&lt;tab&gt; VISIBLE:DISPLAY</code>
    </p>
    <p class="indent3">
     Modified feat will appear in the GUI but will

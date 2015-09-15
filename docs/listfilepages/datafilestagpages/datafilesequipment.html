@@ -61,27 +61,21 @@ piece of equipment.
 This first list of tags is relevant to all equipment
   </p>
   <p class="indent2">
-   <code>
-    Clothing Outfit (Business)
-   </code>
+   <code>Clothing Outfit (Business)</code>
   </p>
   <p class="indent3">
    The item named "Clothing Outfit (Business)" is
 to be created.
   </p>
   <p class="indent2">
-   <code>
-    Handbag.MOD
-   </code>
+   <code>Handbag.MOD</code>
   </p>
   <p class="indent3">
    The item named "Handbag" is to be modified.
   </p>
   <p class="indent2">
-   <code>
-    Light-Duty Vest.COPY=Vest
-(Concealable/w.Outershell)
-   </code>
+   <code>Light-Duty Vest.COPY=Vest
+(Concealable/w.Outershell)</code>
   </p>
   <p class="indent3">
    Copy the equipment "Light-Duty Vest" and rename
@@ -146,20 +140,14 @@ of base item)
 an existing item.
    </li>
    <li>
-    <code>
-     BASEITEM
-    </code>
+    <code>BASEITEM</code>
     must be used in conjunction with the
-    <code>
-     EQMOD
-    </code>
+    <code>EQMOD</code>
     tag.
    </li>
    <li>
     Eqmods listed in the
-    <code>
-     EQMOD
-    </code>
+    <code>EQMOD</code>
     tag are applied to the
 base item prior to the application of any other included tags.
    </li>
@@ -167,9 +155,7 @@ base item prior to the application of any other included tags.
   <p class="sidebar1">
    NOTE: This tag will not copy any of the base
 item's existing tags so you will need to add them yourself. The
-   <code>
-    .COPY
-   </code>
+   <code>.COPY</code>
    tag will perform this same function but will
 copy all tags to the new item, verbatim, prior to adding any new
 tags. (See
@@ -185,11 +171,9 @@ tags. (See
   </p>
   <blockquote class="indent2">
    <p class="tagindent1">
-    <code>
-     Davril's Longsword &lt;tab&gt;
+    <code>Davril's Longsword &lt;tab&gt;
 BONUS:COMBAT|DAMAGE,TOHIT|2 &lt;tab&gt; BASEITEM:Longsword
-&lt;tab&gt; EQMOD:BANE_M|Undead.HOLY_M.KEEN
-    </code>
+&lt;tab&gt; EQMOD:BANE_M|Undead.HOLY_M.KEEN</code>
    </p>
   </blockquote>
   <p class="indent3">
@@ -230,9 +214,7 @@ items in this bundle. ie. Arrows (20) should have.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BASEQTY:20
-   </code>
+   <code>BASEQTY:20</code>
   </p>
   <p class="indent3">
    20 items in a bundle (e.g. Arrows).
@@ -290,17 +272,11 @@ object, a container can hold.
    </li>
    <li>
     Any object with
-    <code>
-     CONTAINS
-    </code>
+    <code>CONTAINS</code>
     must also include a
-    <code>
-     TYPE:Container
-    </code>
+    <code>TYPE:Container</code>
     tag for the
-    <code>
-     CONTAINS
-    </code>
+    <code>CONTAINS</code>
     tag
 to be activated.
    </li>
@@ -325,9 +301,7 @@ files in the
       </span>
       file with
 the tag
-      <code>
-       WEIGHTUNITABBREV
-      </code>
+      <code>WEIGHTUNITABBREV</code>
       .
      </li>
     </ul>
@@ -364,21 +338,15 @@ associated type of items.
    <strong>
     Note:
    </strong>
-   <code>
-    UNLIM
-   </code>
+   <code>UNLIM</code>
    may
 be used, in either (x) or (z), to indicate an unlimited weight
 allowance for the container or the item type quantity. If no value
 is provided for (z),
-   <code>
-    UNLIM
-   </code>
+   <code>UNLIM</code>
    is assumed. PCGen's Data
 Converter will remove
-   <code>
-    UNLIM
-   </code>
+   <code>UNLIM</code>
    when converting a data
 file.
   </p>
@@ -388,71 +356,55 @@ file.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:500
-   </code>
+   <code>CONTAINS:500</code>
   </p>
   <p class="indent3">
    500 units of weight can fit in this
 container.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:*500
-   </code>
+   <code>CONTAINS:*500</code>
   </p>
   <p class="indent3">
    500 units of weight can fit in this container
 and this is not added to the PCs carried weight.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:50%50|Any=25
-   </code>
+   <code>CONTAINS:50%50|Any=25</code>
   </p>
   <p class="indent3">
    Holds up to 25 items of up to 50 units of
 weight, but the total weight contained is reduced 50%.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:25%UNLIM|Any=100
-   </code>
+   <code>CONTAINS:25%UNLIM|Any=100</code>
   </p>
   <p class="indent3">
    Holds up to 100 items no matter the weight, but
 total weight contained is reduced 25%.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:500|Potions=100
-   </code>
+   <code>CONTAINS:500|Potions=100</code>
   </p>
   <p class="indent3">
    500 units of weight can fit in this container,
 but only 100 potions fit.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:UNLIM
-   </code>
+   <code>CONTAINS:UNLIM</code>
   </p>
   <p class="indent3">
    This container has an unlimited weight
 allowance.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:UNLIM|Any=100
-   </code>
+   <code>CONTAINS:UNLIM|Any=100</code>
   </p>
   <p class="indent3">
    Holds 100 things, no matter what the weight.
   </p>
   <p class="indent2">
-   <code>
-    CONTAINS:UNLIM|Total=10|Paper=10|Scroll=10
-   </code>
+   <code>CONTAINS:UNLIM|Total=10|Paper=10|Scroll=10</code>
   </p>
   <p class="indent3">
    Holds 10 papers or 10 scrolls, or any
@@ -489,9 +441,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    COST:5
-   </code>
+   <code>COST:5</code>
   </p>
   <p class="indent3">
    Item costs 5 gold pieces.
@@ -530,9 +480,7 @@ item.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    EDR:5
-   </code>
+   <code>EDR:5</code>
   </p>
   <p class="indent3">
    Item takes 5 points to destroy.
@@ -592,9 +540,7 @@ variables or choosers of the eqmod itself. See
    </li>
    <li>
     When used in conjunction with
-    <code>
-     BASEITEM
-    </code>
+    <code>BASEITEM</code>
     , the eqmod
 is automatically applied to the base item and is applied before
 looking at other tags.
@@ -606,28 +552,22 @@ looking at other tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    EQMOD:KEEN.BANE|Undead
-   </code>
+   <code>EQMOD:KEEN.BANE|Undead</code>
   </p>
   <p class="indent3">
    Creates a sword that is keen and also has Bane
 Undead.
   </p>
   <p class="indent2">
-   <code>
-    EQMOD:ABILITYPLUS|STR+2
-   </code>
+   <code>EQMOD:ABILITYPLUS|STR+2</code>
   </p>
   <p class="indent3">
    Applies a +2 strength bonus to the character
 when using the item.
   </p>
   <p class="indent2">
-   <code>
-    Leather Armor.MOD &lt;tab&gt;
-EQMOD:DR_CONVERSION_ARCHAIC|2
-   </code>
+   <code>Leather Armor.MOD &lt;tab&gt;
+EQMOD:DR_CONVERSION_ARCHAIC|2</code>
   </p>
   <p class="indent3">
    Applies a damage reduction bonus of 2 to the
@@ -635,13 +575,11 @@ character when using the item.
   </p>
   <blockquote class="indent2">
    <p class="tagindent1">
-    <code>
-     Rod (Absorption) &lt;TAB&gt;
+    <code>Rod (Absorption) &lt;TAB&gt;
 OUTPUTNAME:Rod of [NAME] &lt;TAB&gt; TYPE:Magic.Rod &lt;TAB&gt;
 COST:50000 &lt;TAB&gt; WT:5 &lt;TAB&gt; BASEITEM:Rod &lt;TAB&gt;
 EQMOD:CHARGED_ITEM_50|CHARGES[50] &lt;TAB&gt;
-SOURCEPAGE:MagicItemsIII.rtf
-    </code>
+SOURCEPAGE:MagicItemsIII.rtf</code>
    </p>
   </blockquote>
   <p class="indent3">
@@ -686,9 +624,7 @@ specify where the path is relative to.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ICON:@/d20ogl/srd35/icons/backpack.png
-   </code>
+   <code>ICON:@/d20ogl/srd35/icons/backpack.png</code>
   </p>
   <p class="indent3">
    The icon for this item will be
@@ -739,9 +675,7 @@ order to purchase the item.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MODS:YES
-   </code>
+   <code>MODS:YES</code>
   </p>
   <p class="indent3">
    Item can have equipment modifiers added.
@@ -782,9 +716,7 @@ sub-tab of the Spells Tab.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NUMPAGES:100
-   </code>
+   <code>NUMPAGES:100</code>
   </p>
   <p class="indent3">
    Spell book with 100 pages.
@@ -827,18 +759,14 @@ Tab.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PAGEUSAGE:max(SPELLLEVEL*2,1)
-   </code>
+   <code>PAGEUSAGE:max(SPELLLEVEL*2,1)</code>
   </p>
   <p class="indent3">
    Each spell will use 2 pages per level (3.0
 standard spellbook).
   </p>
   <p class="indent2">
-   <code>
-    PAGEUSAGE:1
-   </code>
+   <code>PAGEUSAGE:1</code>
   </p>
   <p class="indent3">
    Each spell will use a single page (Blessed
@@ -891,9 +819,7 @@ number of types that must match the specified requirements).
     Make specific Types or Equipment Modifiers a prerequisite.
    </li>
    <li>
-    <code>
-     EQMODTYPE
-    </code>
+    <code>EQMODTYPE</code>
     checks for the
     <strong>
      TYPE
@@ -902,9 +828,7 @@ number of types that must match the specified requirements).
 the applied Equipment Modifiers, not Equipment type.
    </li>
    <li>
-    <code>
-     EQMOD
-    </code>
+    <code>EQMOD</code>
     checks for the specified
     <strong>
      EQMOD
@@ -912,13 +836,9 @@ the applied Equipment Modifiers, not Equipment type.
     by name or key.
    </li>
    <li>
-    <code>
-     EQMOD
-    </code>
+    <code>EQMOD</code>
     can take an optional parameter of the form
-    <code>
-     EQMOD=&lt;key&gt;(&lt;choice&gt;)
-    </code>
+    <code>EQMOD=&lt;key&gt;(&lt;choice&gt;)</code>
     , where the "choice"
 represents an item previously selected by an internal chooser for
 the specified
@@ -933,9 +853,7 @@ the specified
     Note
    </span>
    :
-   <code>
-    PRETYPE
-   </code>
+   <code>PRETYPE</code>
    has a different use outside of Equipment and
 Equipment Modifier files, it checks for race types. See the
    <a href="../globalfilestagpages/globalfilesprexxx.html#pretype">
@@ -951,18 +869,14 @@ Modifier files.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:1,Magic &lt;tab&gt;
-PRETYPE:1,Piercing,Slashing
-   </code>
+   <code>PRETYPE:1,Magic &lt;tab&gt;
+PRETYPE:1,Piercing,Slashing</code>
   </p>
   <p class="indent3">
    Type must be magic and piercing or slashing
   </p>
   <p class="indent2">
-   <code>
-    PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]
-   </code>
+   <code>PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]</code>
   </p>
   <p class="indent3">
    This example, utilizing the PREMULT tag,
@@ -970,26 +884,20 @@ accomplishes the same thing as the example above it but as it is
 one statement it can be attached to a BONUS statement.
   </p>
   <p class="indent2">
-   <code>
-    !PRETYPE:1,Heavy
-   </code>
+   <code>!PRETYPE:1,Heavy</code>
   </p>
   <p class="indent3">
    Type must NOT be Heavy
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:1,EQMODTYPE=Mundane
-   </code>
+   <code>PRETYPE:1,EQMODTYPE=Mundane</code>
   </p>
   <p class="indent3">
    Use to test for any modifier with "Mundane"
 type.
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:1,EQMOD=IRONWOOD
-   </code>
+   <code>PRETYPE:1,EQMOD=IRONWOOD</code>
   </p>
   <p class="indent3">
    Use to test for the "Ironwood" Equipment
@@ -1044,9 +952,7 @@ to pass.
      AND
     </strong>
     . As an example,
-    <code>
-     PRETYPE:Heavy,Armor|Shield
-    </code>
+    <code>PRETYPE:Heavy,Armor|Shield</code>
     translates to: Must have
 "Heavy" AND either "Armor" OR "Shield" types.
    </li>
@@ -1058,17 +964,13 @@ syntax:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:Magic,Piercing,Slashing
-   </code>
+   <code>PRETYPE:Magic,Piercing,Slashing</code>
   </p>
   <p class="indent3">
    Type must be Magic, Piercing and Slashing.
   </p>
   <p class="indent2">
-   <code>
-    PRETYPE:Magic,Armor|Shield,Piercing,Slashing
-   </code>
+   <code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code>
   </p>
   <p class="indent3">
    Type must be Magic, Piercing, Slashing and
@@ -1109,11 +1011,9 @@ string value of the quality)
   <p class="indent2">
    Sets the name and value of a quality which will
 be attached to the equipment. Qualities can be output by the
-   <code>
-    <a href="../../outputsheetpages/tokens/outputsheettokensequip.html#eq.quality">
+   <code><a href="../../outputsheetpages/tokens/outputsheettokensequip.html#eq.quality">
      EQ.0.QUALITY
-    </a>
-   </code>
+    </a></code>
    tag
   </p>
   <p class="indent1">
@@ -1122,18 +1022,14 @@ be attached to the equipment. Qualities can be output by the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    QUALITY:Restriction|Licensed
-   </code>
+   <code>QUALITY:Restriction|Licensed</code>
   </p>
   <p class="indent3">
    The equipment has the "Restriction" quality
 which has a value of "Licensed".
   </p>
   <p class="indent2">
-   <code>
-    QUALITY:Black Market DC|(+1)
-   </code>
+   <code>QUALITY:Black Market DC|(+1)</code>
   </p>
   <p class="indent3">
    The equipment has the "Black Market DC" quality
@@ -1196,9 +1092,7 @@ abilities for weapons.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SIZE:M
-   </code>
+   <code>SIZE:M</code>
   </p>
   <p class="indent3">
    Item is medium size.
@@ -1236,9 +1130,7 @@ default is one.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SLOTS:2
-   </code>
+   <code>SLOTS:2</code>
   </p>
   <p class="indent3">
    Weapon requires two hands to wield it.
@@ -1315,40 +1207,32 @@ one SPROP tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPROP:Shines with an inner
-light
-   </code>
+   <code>SPROP:Shines with an inner
+light</code>
   </p>
   <p class="indent3">
    Output sheet reads "Shines with an inner light"
 under the item.
   </p>
   <p class="indent2">
-   <code>
-    SPROP:Squash code bugs % times per
-day|TL
-   </code>
+   <code>SPROP:Squash code bugs % times per
+day|TL</code>
   </p>
   <p class="indent3">
    For a 5th level character the output sheet would
 read "Squash code bugs 5 times per day" under the item.
   </p>
   <p class="indent2">
-   <code>
-    SPROP:+2 against
-undead|PRECLASS:1,Paladin=1
-   </code>
+   <code>SPROP:+2 against
+undead|PRECLASS:1,Paladin=1</code>
   </p>
   <p class="indent3">
    Outputs the text if the character has at least 1
 level of Paladin.
   </p>
   <p class="indent2">
-   <code>
-    SPROP:+% vs. code
-bugs|ColaIntake|PRESKILL:1,Programming=10
-   </code>
+   <code>SPROP:+% vs. code
+bugs|ColaIntake|PRESKILL:1,Programming=10</code>
   </p>
   <p class="indent3">
    If the character has the Programming skill of at
@@ -1356,12 +1240,10 @@ least 10 and the variable "ColaIntake" is defined as equal to 4
 then the output sheet reads "+4 vs. code bugs".
   </p>
   <p class="indent2">
-   <code>
-    SPROP:+1 luck bonus to saves vs. %|%CHOICE
+   <code>SPROP:+1 luck bonus to saves vs. %|%CHOICE
 &lt;tab&gt; CHOOSE:Abjuration|Conjuration|
     <br/>
-    Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal
-   </code>
+    Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal</code>
   </p>
   <p class="indent3">
    Allows for the selection of the type of luck
@@ -1395,17 +1277,13 @@ Name:
    </li>
    <li>
     The
-    <code>
-     WT
-    </code>
+    <code>WT</code>
     tag will take a number greater than or
 equal to zero (0) for the weight.
    </li>
    <li>
     The units for the weight is set with the
-    <code>
-     WEIGHTUNIT
-    </code>
+    <code>WEIGHTUNIT</code>
     tag in the gameMode
     <span class="lstfile">
      miscinfo.lst
@@ -1419,9 +1297,7 @@ equal to zero (0) for the weight.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    WT:5
-   </code>
+   <code>WT:5</code>
   </p>
   <p class="indent3">
    Item weighs 5 lbs.
@@ -1484,9 +1360,7 @@ penalty applied to certain skills that have an Armor Check.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ACCHECK:-6
-   </code>
+   <code>ACCHECK:-6</code>
   </p>
   <p class="indent3">
    Item has an armor check penalty of -6.
@@ -1535,17 +1409,13 @@ multiplier for the secondary attack.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALTCRITMULT:x3
-   </code>
+   <code>ALTCRITMULT:x3</code>
   </p>
   <p class="indent3">
    2nd head has a critical modifier of x3.
   </p>
   <p class="indent2">
-   <code>
-    ALTCRITMULT:-
-   </code>
+   <code>ALTCRITMULT:-</code>
   </p>
   <p class="indent3">
    2nd head has no critical modifier.
@@ -1588,9 +1458,7 @@ multiplier for the secondary attack.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALTCRITRANGE:2
-   </code>
+   <code>ALTCRITRANGE:2</code>
   </p>
   <p class="indent3">
    2nd head criticals on roll of 19 or 20.
@@ -1631,9 +1499,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALTDAMAGE:1d6-1
-   </code>
+   <code>ALTDAMAGE:1d6-1</code>
   </p>
   <p class="indent3">
    2nd head does 1d6-1 damage.
@@ -1698,9 +1564,7 @@ EQMOD on both heads.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALTEQMOD:WOOD
-   </code>
+   <code>ALTEQMOD:WOOD</code>
   </p>
   <p class="indent3">
    2nd head has the WOOD EQMOD applied to it.
@@ -1749,9 +1613,7 @@ included.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALTTYPE:Simple.Melee.Bludgeoning
-   </code>
+   <code>ALTTYPE:Simple.Melee.Bludgeoning</code>
   </p>
   <p class="indent3">
    2nd head is Simple Melee Bludgeoning.
@@ -1794,17 +1656,13 @@ multiplier for the equipment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CRITMULT:x2
-   </code>
+   <code>CRITMULT:x2</code>
   </p>
   <p class="indent3">
    Item has a critical modifier of x2.
   </p>
   <p class="indent2">
-   <code>
-    CRITMULT:-
-   </code>
+   <code>CRITMULT:-</code>
   </p>
   <p class="indent3">
    Item has no critical modifier.
@@ -1845,9 +1703,7 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CRITRANGE:2
-   </code>
+   <code>CRITRANGE:2</code>
   </p>
   <p class="indent3">
    Item criticals on roll of 19 or 20.
@@ -1884,9 +1740,7 @@ the character sheet output.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DAMAGE:1d6
-   </code>
+   <code>DAMAGE:1d6</code>
   </p>
   <p class="indent3">
    Item damage is 1d6.
@@ -1930,17 +1784,13 @@ weapon head).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FUMBLERANGE:1-3
-   </code>
+   <code>FUMBLERANGE:1-3</code>
   </p>
   <p class="indent3">
    Indicates and error range of 1-3.
   </p>
   <p class="indent2">
-   <code>
-    FUMBLERANGE:Natural 1
-   </code>
+   <code>FUMBLERANGE:Natural 1</code>
   </p>
   <p class="indent3">
    Indicates and error range of a natural 1.
@@ -1978,9 +1828,7 @@ the armor.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MAXDEX:3
-   </code>
+   <code>MAXDEX:3</code>
   </p>
   <p class="indent3">
    Item allows a maximum dexterity bonus of three
@@ -2045,26 +1893,20 @@ from the appropriate
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PROFICIENCY:WEAPON|Sword (Long)
-   </code>
+   <code>PROFICIENCY:WEAPON|Sword (Long)</code>
   </p>
   <p class="indent3">
    Item uses the "Longsword" weapon
 proficiency.
   </p>
   <p class="indent2">
-   <code>
-    PROFICIENCY:ARMOR|Chainmail
-   </code>
+   <code>PROFICIENCY:ARMOR|Chainmail</code>
   </p>
   <p class="indent3">
    Item uses the "Chainmail" armor proficiency.
   </p>
   <p class="indent2">
-   <code>
-    PROFICIENCY:SHIELD|Buckler
-   </code>
+   <code>PROFICIENCY:SHIELD|Buckler</code>
   </p>
   <p class="indent3">
    Item uses the "Buckler" shield proficiency.
@@ -2101,9 +1943,7 @@ increment.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    RANGE:50
-   </code>
+   <code>RANGE:50</code>
   </p>
   <p class="indent3">
    One range increment for this weapon is 50
@@ -2145,34 +1985,26 @@ futuristic games.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    RATEOFFIRE:1
-   </code>
+   <code>RATEOFFIRE:1</code>
   </p>
   <p class="indent3">
    1 shot per round.
   </p>
   <p class="indent2">
-   <code>
-    RATEOFFIRE:0/10/20
-   </code>
+   <code>RATEOFFIRE:0/10/20</code>
   </p>
   <p class="indent3">
    0 shots first round, 10 shots second round and
 20 shots on the third.
   </p>
   <p class="indent2">
-   <code>
-    RATEOFFIRE:S,A
-   </code>
+   <code>RATEOFFIRE:S,A</code>
   </p>
   <p class="indent3">
    Single or Automatic.
   </p>
   <p class="indent2">
-   <code>
-    RATEOFFIRE:Single
-   </code>
+   <code>RATEOFFIRE:Single</code>
   </p>
   <p class="indent3">
    Single shot only.
@@ -2219,9 +2051,7 @@ have a reach of 15 with that weapon.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    REACH:10
-   </code>
+   <code>REACH:10</code>
   </p>
   <p class="indent3">
    Item reaches 10 feet.
@@ -2268,9 +2098,7 @@ weapon.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    REACHMULT:2
-   </code>
+   <code>REACHMULT:2</code>
   </p>
   <p class="indent3">
    Item reaches 2 times the character's normal
@@ -2308,9 +2136,7 @@ wearing/wielding this item (when item is equipped).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLFAILURE:5
-   </code>
+   <code>SPELLFAILURE:5</code>
   </p>
   <p class="indent3">
    Item causes 5% of arcane spells to fail.
@@ -2371,9 +2197,7 @@ category 'TwoHanded' for a Medium sized PC.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    WIELD:TwoHanded
-   </code>
+   <code>WIELD:TwoHanded</code>
   </p>
   <p class="indent3">
    Weapon must be wielded with two hands.

@@ -136,14 +136,10 @@ circumstances needed for it to be valid.
    would be modified to:
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|TOHIT|-2|PREAPPLY:Weapon,Ranged
-   </code>
+   <code>BONUS:WEAPON|TOHIT|-2|PREAPPLY:Weapon,Ranged</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|ATTACKS|1|PREAPPLY:Weapon,Ranged
-   </code>
+   <code>BONUS:WEAPON|ATTACKS|1|PREAPPLY:Weapon,Ranged</code>
   </p>
   <p>
    Rapid Shot would then appear in this tab as an available
@@ -172,26 +168,18 @@ obtained, but your character can still gain the bonuses.
 template:
   </p>
   <p class="indent2">
-   <code>
-    Alter Self (Troglodyte)
-   </code>
+   <code>Alter Self (Troglodyte)</code>
   </p>
   <p class="indent2">
-   <code>
-    REMOVABLE:YES  
-VISIBLE:NO
-   </code>
+   <code>REMOVABLE:YES  
+VISIBLE:NO</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|6|TYPE=NaturalArmor|PREAPPLY:ANYPC
-   </code>
+   <code>BONUS:COMBAT|AC|6|TYPE=NaturalArmor|PREAPPLY:ANYPC</code>
   </p>
   <p class="indent2">
-   <code>
-    TEMPDESC:Alter Self spell applied to a
-Medium sized creature to transform into a Troglodyte
-   </code>
+   <code>TEMPDESC:Alter Self spell applied to a
+Medium sized creature to transform into a Troglodyte</code>
   </p>
   <p>
    You do not have to apply this template to a PC, I can just add
@@ -219,15 +207,11 @@ Strength as an example.
    would be modified to:
   </p>
   <p class="indent2">
-   <code>
-    BONUS:STAT|STR|%CHOICE|PREAPPLY:ANYPC|TYPE=Enhancement
-   </code>
+   <code>BONUS:STAT|STR|%CHOICE|PREAPPLY:ANYPC|TYPE=Enhancement</code>
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll
-1d4+1
-   </code>
+   <code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll
+1d4+1</code>
   </p>
   <p>
    When Bull's Strength is applied to the character a chooser
@@ -248,15 +232,11 @@ casterlevels up to 5.
    would be modified to:
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|TOHIT,DAMAGE|(((%CHOICE/3).TRUNC)MAX1)MIN5|PREAPPLY:Weapon|TYPE=Enhancement
-   </code>
+   <code>BONUS:COMBAT|TOHIT,DAMAGE|(((%CHOICE/3).TRUNC)MAX1)MIN5|PREAPPLY:Weapon|TYPE=Enhancement</code>
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:NUMBER|MIN=3|MAX=20|TITLE=Choose
-Spell Caster Level
-   </code>
+   <code>CHOOSE:NUMBER|MIN=3|MAX=20|TITLE=Choose
+Spell Caster Level</code>
   </p>
   <p>
    When Greater Magic Weapon is applied to a character's weapon a
@@ -270,36 +250,24 @@ weapon.
 an example feat:
   </p>
   <p class="indent2">
-   <code>
-    Variable Spell Resistance
-   </code>
+   <code>Variable Spell Resistance</code>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:No
-   </code>
+   <code>VISIBLE:No</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:TemporaryBonus
-   </code>
+   <code>TYPE:TemporaryBonus</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MISC|SR|%CHOICE|PREAPPLY:ANYPC
-   </code>
+   <code>BONUS:MISC|SR|%CHOICE|PREAPPLY:ANYPC</code>
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Choose
-Spell Resistance
-   </code>
+   <code>CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Choose
+Spell Resistance</code>
   </p>
   <p class="indent2">
-   <code>
-    TEMPDESC:Assign Spell Resistance to a
-character
-   </code>
+   <code>TEMPDESC:Assign Spell Resistance to a
+character</code>
   </p>
   <p>
    The PC does not need to select this feat, you simply apply the

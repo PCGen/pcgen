@@ -143,13 +143,9 @@ be handled one of two ways.
      </li>
      <li>
       Used in conjunction with the
-      <code>
-       CHOOSE
-      </code>
+      <code>CHOOSE</code>
       tag,
-      <code>
-       %LIST
-      </code>
+      <code>%LIST</code>
       can be used with this tag to provide the
 required choice.
      </li>
@@ -165,18 +161,14 @@ a matching ability.
      PRExxx
     </a>
     tags unless they use the
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     parameter. ABILITY tags qualified with PRExxx
 tags will not be added unless the character meets the
 prerequisites.
    </li>
    <li>
     For specific infomation on the
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     tag, read
 the
     <a href="#clear">
@@ -211,90 +203,70 @@ activate a chooser inside of a feat being granted.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:FEAT|AUTOMATIC|Empower
-Spell
-   </code>
+   <code>ABILITY:FEAT|AUTOMATIC|Empower
+Spell</code>
   </p>
   <p class="indent3">
    Adds the empower spell feat as an Auto feat.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:FEAT|AUTOMATIC|TYPE=SpecialFu
-   </code>
+   <code>ABILITY:FEAT|AUTOMATIC|TYPE=SpecialFu</code>
   </p>
   <p class="indent3">
    Adds all feats with SpecialFu Type.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:Special Ability|AUTOMATIC|Monkey
-Fu Mastery
-   </code>
+   <code>ABILITY:Special Ability|AUTOMATIC|Monkey
+Fu Mastery</code>
   </p>
   <p class="indent3">
    Adds the Monkey Fu Mastery 'Special Ability' and
 lists it as Automatic nature (if visible).
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:CLASSFEATURE|VIRTUAL|Stunning
-Fist
-   </code>
+   <code>ABILITY:CLASSFEATURE|VIRTUAL|Stunning
+Fist</code>
   </p>
   <p class="indent3">
    Adds the Stunning Fist ability as a virtual
 class feature.
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
-ABILITY:FEAT|AUTOMATIC|Weapon Focus (%LIST)
-   </code>
+   <code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
+ABILITY:FEAT|AUTOMATIC|Weapon Focus (%LIST)</code>
   </p>
   <p class="indent3">
    The feat "Weapon Focus" is granted as an
 automatic feat with the weapon chosen with the
-   <code>
-    CHOOSE
-   </code>
+   <code>CHOOSE</code>
    tag.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:FEAT|AUTOMATIC|.CLEAR
-   </code>
+   <code>ABILITY:FEAT|AUTOMATIC|.CLEAR</code>
   </p>
   <p class="indent3">
    Clears all automatic feats from the
 character.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:FEAT|VIRTUAL|.CLEAR.Empower
-Spell
-   </code>
+   <code>ABILITY:FEAT|VIRTUAL|.CLEAR.Empower
+Spell</code>
   </p>
   <p class="indent3">
    Clears the empower spell feat as an virtual
 feat.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:FEAT|AUTOMATIC|Toughness|Track
-   </code>
+   <code>ABILITY:FEAT|AUTOMATIC|Toughness|Track</code>
   </p>
   <p class="indent3">
    Example of granting more than one feat. This
 grants 'Track' and 'Toughness' as automatic feats
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:Special Ability|AUTOMATIC|Wild
+   <code>ABILITY:Special Ability|AUTOMATIC|Wild
 Shape(Small Animal)|Wild Shape(Medium
-Animal)|PREVARGTEQ:DruidWildShape,4
-   </code>
+Animal)|PREVARGTEQ:DruidWildShape,4</code>
   </p>
   <p class="indent3">
    Grants the Special Ability 'Wild Shape (Small
@@ -303,11 +275,9 @@ once the variable 'DruidWildShape' equals or is greater than
 '4'
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:Special Ability|AUTOMATIC|Wild
+   <code>ABILITY:Special Ability|AUTOMATIC|Wild
 Shape(Small Animal,Medium
-Animal)|PREVARGTEQ:DruidWildShape,4
-   </code>
+Animal)|PREVARGTEQ:DruidWildShape,4</code>
   </p>
   <p class="indent3">
    This shows an example of Abilities with
@@ -317,11 +287,9 @@ and grants the Special Ability 'Wild Shape (Small Animal)' and
 Comma delimiter.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:Special Ability|AUTOMATIC|%LIST
+   <code>ABILITY:Special Ability|AUTOMATIC|%LIST
 &lt;tab&gt; CHOOSE:ABILITYSELECTION|Special
-Ability|TYPE=CuteBunnies &lt;tab&gt; MULT:YES
-   </code>
+Ability|TYPE=CuteBunnies &lt;tab&gt; MULT:YES</code>
   </p>
   <p class="indent3">
    Would grant automatically, a Choice of type
@@ -365,9 +333,7 @@ type, that are granted as free armor proficiencies.
    </li>
    <li>
     When including the
-    <code>
-     ARMORTYPE=
-    </code>
+    <code>ARMORTYPE=</code>
     sub-tag you may use
 a period-delimted (.) list of armor types. This will grant the
 character proficiency with armor that meet all of the listed armor
@@ -384,37 +350,29 @@ pipe-delimited (|) syntax.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    AUTO:ARMORPROF|ARMORTYPE=Light
-   </code>
+   <code>AUTO:ARMORPROF|ARMORTYPE=Light</code>
   </p>
   <p class="indent3">
    All Light armors are given as free armor
 proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:ARMORPROF|Leather
-   </code>
+   <code>AUTO:ARMORPROF|Leather</code>
   </p>
   <p class="indent3">
    Leather armor is given as a free armor
 proficiency.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
-   </code>
+   <code>AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium</code>
   </p>
   <p class="indent3">
    Light and Medium Armor is given as a free armor
 proficiency.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:ARMORPROF|Dwarven
-Plate|PRERACE:1,Dwarf
-   </code>
+   <code>AUTO:ARMORPROF|Dwarven
+Plate|PRERACE:1,Dwarf</code>
   </p>
   <p class="indent3">
    Dwarven Plate is given as a free armor
@@ -455,9 +413,7 @@ to the character for free.
 pipe-delimited (|) syntax.
    </li>
    <li>
-    <code>
-     AUTO:EQUIP
-    </code>
+    <code>AUTO:EQUIP</code>
     won't take (%)LIST or (%)CHOICE for
 substitution.
    </li>
@@ -468,9 +424,7 @@ substitution.
    </strong>
    The equipment added is
 marked on the GUI just as feats added by the
-   <code>
-    AUTO:FEAT
-   </code>
+   <code>AUTO:FEAT</code>
    tag, i.e. are yellow, and can't be removed. Additionally, the
 equipment must be added to the Equipment Set just as any other
 Equipment the PC has to come out on the OS.
@@ -499,20 +453,16 @@ class level lines. It can be used on a class line.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    AUTO:EQUIP|Flurry of
-Blows|PRECLASS:1,Monk=1|
-   </code>
+   <code>AUTO:EQUIP|Flurry of
+Blows|PRECLASS:1,Monk=1|</code>
   </p>
   <p class="indent3">
    The item "Flurry of Blows" is granted as a free
 equipment item if the character has a level of Monk.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:EQUIP|Flurry of
-Blows|PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]
-   </code>
+   <code>AUTO:EQUIP|Flurry of
+Blows|PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]</code>
   </p>
   <p class="indent3">
    The item "Flurry of Blows" is granted as a free
@@ -537,34 +487,24 @@ of 15 or better.
    <li style="list-style: none; display: inline">
     <ul class="incremental">
      <li>
-      <code>
-       AUTO:FEAT
-      </code>
+      <code>AUTO:FEAT</code>
       is deprecated. Use
       <a href="#ability">
-       <code>
-        ABILITY:FEAT|AUTOMATIC|
-       </code>
+       <code>ABILITY:FEAT|AUTOMATIC|</code>
       </a>
       instead.
      </li>
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format.
@@ -613,13 +553,9 @@ be handled one of two ways.
       </li>
       <li>
        Used in conjunction with the
-       <code>
-        CHOOSE
-       </code>
+       <code>CHOOSE</code>
        tag,
-       <code>
-        %LIST
-       </code>
+       <code>%LIST</code>
        can be used with this tag to provide the
 required choice.
       </li>
@@ -657,33 +593,25 @@ activate a chooser inside of a feat being granted.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     AUTO:FEAT|Dodge|PRESTAT:1,DEX=13
-    </code>
+    <code>AUTO:FEAT|Dodge|PRESTAT:1,DEX=13</code>
    </p>
    <p class="indent3">
     The feat "Dodge" is granted as an automatic feat
 if the character's dexterity is 13 or higher.
    </p>
    <p class="indent2">
-    <code>
-     CHOOSE:WEAPONPROFICIENCY|LIST &lt;tab&gt;
-AUTO:FEAT|Weapon Focus (%LIST)
-    </code>
+    <code>CHOOSE:WEAPONPROFICIENCY|LIST &lt;tab&gt;
+AUTO:FEAT|Weapon Focus (%LIST)</code>
    </p>
    <p class="indent3">
     The feat "Weapon Focus" is granted as an
 automatic feat with the weapon chosen with the
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </p>
    <p class="indent2">
-    <code>
-     AUTO:FEAT|.CLEAR.Dodge &lt;tab&gt;
-AUTO:FEAT|Alertness
-    </code>
+    <code>AUTO:FEAT|.CLEAR.Dodge &lt;tab&gt;
+AUTO:FEAT|Alertness</code>
    </p>
    <p class="indent3">
     The feat "Dodge" is cleared and the feat
@@ -754,33 +682,23 @@ type, that are granted as free language.
    </li>
    <li>
     When including the
-    <code>
-     TYPE=
-    </code>
+    <code>TYPE=</code>
     sub-tag you may use a
 period-delimited (.) list of language types. This will grant the
 character any Language with the listed types.
    </li>
    <li>
     Use of
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     will insert the result of a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </li>
    <li>
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     will clear all languages granted by
 previous
-    <code>
-     AUTO:LANG
-    </code>
+    <code>AUTO:LANG</code>
     tags.
    </li>
    <li>
@@ -794,27 +712,21 @@ pipe-delimited (|) syntax.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    AUTO:LANG|Common
-   </code>
+   <code>AUTO:LANG|Common</code>
   </p>
   <p class="indent3">
    Common is granted as a free language to the
 character.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:LANG|TYPE=Latin
-   </code>
+   <code>AUTO:LANG|TYPE=Latin</code>
   </p>
   <p class="indent3">
    Latin-type Languages are given as free languages
 .
   </p>
   <p class="indent2">
-   <code>
-    AUTO:LANG|Draconic|PREFEAT:1,Dodge
-   </code>
+   <code>AUTO:LANG|Draconic|PREFEAT:1,Dodge</code>
   </p>
   <p class="indent3">
    The Draconic language is granted as a free
@@ -857,9 +769,7 @@ type, that are granted as free shield proficiencies.
    </li>
    <li>
     When including the
-    <code>
-     SHIELDTYPE=
-    </code>
+    <code>SHIELDTYPE=</code>
     sub-tag you may use
 a period-delimted (.) list of shield types. This will grant the
 character proficiency with shields that meet all of the listed
@@ -876,18 +786,14 @@ pipe-delimited (|) syntax.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    AUTO:SHIELDPROF|SHIELDTYPE=Buckler
-   </code>
+   <code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler</code>
   </p>
   <p class="indent3">
    Buckler shield is given as a free shield
 proficiency.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy
-   </code>
+   <code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy</code>
   </p>
   <p class="indent3">
    Buckler, Light, and Heavy Shields are given as
@@ -948,22 +854,16 @@ proficiency type.
    </li>
    <li>
     When including the
-    <code>
-     TYPE=Text
-    </code>
+    <code>TYPE=Text</code>
     or
-    <code>
-     TYPE,Text
-    </code>
+    <code>TYPE,Text</code>
     sub-tag you may use a period-delimted (.)
 list of weapon types. This will grant the character proficiency
 with weapons that meet all of the listed weapon types.
    </li>
    <li>
     When using the
-    <code>
-     DEITYWEAPONS
-    </code>
+    <code>DEITYWEAPONS</code>
     sub-tag, all of the
 deity's favored weapons, except for natural weapons, are added. If
 the deity specifies "ALL" or "ANY" for its favored weapon, no
@@ -980,83 +880,65 @@ pipe-delimited (|) syntax.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|Longsword|Shortbow
-(Composite)
-   </code>
+   <code>AUTO:WEAPONPROF|Longsword|Shortbow
+(Composite)</code>
   </p>
   <p class="indent3">
    The "Longsword" and "Shortbow (Composite)" are
 given as free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|TYPE.Simple
-   </code>
+   <code>AUTO:WEAPONPROF|TYPE.Simple</code>
   </p>
   <p class="indent3">
    All "Simple" weapons are given as free weapon
 proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial
-   </code>
+   <code>AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial</code>
   </p>
   <p class="indent3">
    All "Simple" and "Martial" weapons are given as
 free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|TYPE.Ranged|TYPE.Piercing|TYPE.Simple
-   </code>
+   <code>AUTO:WEAPONPROF|TYPE.Ranged|TYPE.Piercing|TYPE.Simple</code>
   </p>
   <p class="indent3">
    All "Ranged", "Piercing" and "Simple" weapons
 are given as free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|TYPE.Martial.Slashing
-   </code>
+   <code>AUTO:WEAPONPROF|TYPE.Martial.Slashing</code>
   </p>
   <p class="indent3">
    All "Martial" weapons that are "Slashing" type
 are given as free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|TYPE.Martial.Slashing.Melee
-   </code>
+   <code>AUTO:WEAPONPROF|TYPE.Martial.Slashing.Melee</code>
   </p>
   <p class="indent3">
    All "Melee" type "Martial" weapons that are
 "Slashing" type are given as free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|DEITYWEAPONS
-   </code>
+   <code>AUTO:WEAPONPROF|DEITYWEAPONS</code>
   </p>
   <p class="indent3">
    All favored weapons of the character's deity are
 given as free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    AUTO:WEAPONPROF|TYPE=NoProfReq|Longspear|Javelin
-   </code>
+   <code>AUTO:WEAPONPROF|TYPE=NoProfReq|Longspear|Javelin</code>
   </p>
   <p class="indent3">
    All "NoProfReq" and "Longspear" and "Javelin"
 weapons are given as free weapon proficiencies.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Rogue.MOD &lt;tab&gt;
-AUTO:WEAPONPROF|Gladius
-   </code>
+   <code>CLASS:Rogue.MOD &lt;tab&gt;
+AUTO:WEAPONPROF|Gladius</code>
   </p>
   <p class="indent3">
    Modified the Rogue Class to include the Gladius
@@ -1141,46 +1023,36 @@ classes the character possesses.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CSKILL:Listen|Spot
-   </code>
+   <code>CSKILL:Listen|Spot</code>
   </p>
   <p class="indent3">
    The "Listen" and "Spot" skills are made class
 skills.
   </p>
   <p class="indent2">
-   <code>
-    CSKILL:Search|TYPE.Knowledge
-   </code>
+   <code>CSKILL:Search|TYPE.Knowledge</code>
   </p>
   <p class="indent3">
    The "Search" and "Knowledge" type skills are
 made class skills.
   </p>
   <p class="indent2">
-   <code>
-    CSKILL:ALL
-   </code>
+   <code>CSKILL:ALL</code>
   </p>
   <p class="indent3">
    All skills are made class skills.
   </p>
   <p class="indent2">
-   <code>
-    CSKILL:LIST
-   </code>
+   <code>CSKILL:LIST</code>
   </p>
   <p class="indent3">
    Skills selected in the associated choice are
 made class skills. (In Abilities and Feats)
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Sorcerer.MOD &lt;tab&gt;
+   <code>CLASS:Sorcerer.MOD &lt;tab&gt;
 CSKILL:.CLEAR.Scry &lt;tab&gt;
-CSKILL:Drive|TYPE.Knowledge|Perform
-   </code>
+CSKILL:Drive|TYPE.Knowledge|Perform</code>
   </p>
   <p class="indent3">
    Modifies the Class Sorcerer, droping the class
@@ -1188,23 +1060,19 @@ skill "Scry" and adding "Drive, Perform and all TYPE.Knowledge"
 skills.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Blackguard.MOD &lt;tab&gt;
+   <code>CLASS:Blackguard.MOD &lt;tab&gt;
 CSKILL:.CLEAR &lt;tab&gt;
 CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge
-(Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot
-   </code>
+(Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot</code>
   </p>
   <p class="indent3">
    Modified Class that removes all class skills in
 the object previously, then adds in the specific list.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Blackguard.MOD &lt;tab&gt;
+   <code>CLASS:Blackguard.MOD &lt;tab&gt;
 CSKILL:.CLEAR.Handle Animal|.CLEAR.Ride|Heal &lt;tab&gt;
-CSKILL:Pilot
-   </code>
+CSKILL:Pilot</code>
   </p>
   <p class="indent3">
    Modified Class that removes only Handle Animal
@@ -1256,41 +1124,33 @@ cross-class skills.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CCSKILL:Listen|Spot
-   </code>
+   <code>CCSKILL:Listen|Spot</code>
   </p>
   <p class="indent3">
    The "Listen" and "Spot" skills are made
 cross-class skills.
   </p>
   <p class="indent2">
-   <code>
-    CCSKILL:Search|TYPE.Knowledge
-   </code>
+   <code>CCSKILL:Search|TYPE.Knowledge</code>
   </p>
   <p class="indent3">
    The "Search" and "Knowledge" type skills are
 made cross-class skills.
   </p>
   <p class="indent2">
-   <code>
-    CCSKILL:LIST
-   </code>
+   <code>CCSKILL:LIST</code>
   </p>
   <p class="indent3">
    Skills selected in the associated choice are
 made cross-class skills.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Blackguard.MOD &lt;tab&gt;
+   <code>CLASS:Blackguard.MOD &lt;tab&gt;
 STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride
 &lt;tab&gt;
 CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge
 (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot
-&lt;tab&gt; CCSKILL:Handle Animal|Ride
-   </code>
+&lt;tab&gt; CCSKILL:Handle Animal|Ride</code>
   </p>
   <p class="indent3">
    Modified Class that changes all of these Tags
@@ -1350,19 +1210,15 @@ category.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CHANGEPROF:Urgrosh (Dwarven),Waraxe
-(Dwarven)=Martial
-   </code>
+   <code>CHANGEPROF:Urgrosh (Dwarven),Waraxe
+(Dwarven)=Martial</code>
   </p>
   <p class="indent3">
    Changes the above weapons to be Martial weapons
 for proficiency purposes.
   </p>
   <p class="indent2">
-   <code>
-    CHANGEPROF:TYPE.Hammer=Simple
-   </code>
+   <code>CHANGEPROF:TYPE.Hammer=Simple</code>
   </p>
   <p class="indent3">
    Changes all weapons of TYPE Hammer to be Simple
@@ -1431,16 +1287,12 @@ companions for the specified companion type.
    </li>
    <li>
     PRExxx tags can be added at the end of
-    <code>
-     COMPANIONLIST
-    </code>
+    <code>COMPANIONLIST</code>
     tags, PRExxx tags are checked against
 the master.
    </li>
    <li>
-    <code>
-     FOLLOWERADJUSTMENT
-    </code>
+    <code>FOLLOWERADJUSTMENT</code>
     will modify the masters
 effective level when determining the benefits gained from the
 companion creature.
@@ -1452,9 +1304,7 @@ companion creature.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,Weasel
-   </code>
+   <code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,Weasel</code>
   </p>
   <p class="indent3">
    Would build the list consisting of the Bat, Cat,
@@ -1462,38 +1312,30 @@ Hawk, Lizard, Owl, Rat, Raven, Snake(Tiny/Viper), Toad, and Weasel
 and make them available to be familiars.
   </p>
   <p class="indent2">
-   <code>
-    COMPANIONLIST:Pet|RACETYPE=Animal
-   </code>
+   <code>COMPANIONLIST:Pet|RACETYPE=Animal</code>
   </p>
   <p class="indent3">
    Would build a list of all animals and make them
 available to be a Pet.
   </p>
   <p class="indent2">
-   <code>
-    COMPANIONLIST:Pet|RACESUBTYPE=Fire
-   </code>
+   <code>COMPANIONLIST:Pet|RACESUBTYPE=Fire</code>
   </p>
   <p class="indent3">
    Would build a list of all creatures with a race
 subtype of 'Fire' and make them available to be a Pet.
   </p>
   <p class="indent2">
-   <code>
-    COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special
-Familiar|PREALIGN:CE
-   </code>
+   <code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special
+Familiar|PREALIGN:CE</code>
   </p>
   <p class="indent3">
    A Quasit can be chosen as a Familiar but only if
 the master is evil and has the Special Familiar feat.
   </p>
   <p class="indent2">
-   <code>
-    COMPANIONLIST:Animal
-Companion|Ape|FOLLOWERADJUSTMENT:-3
-   </code>
+   <code>COMPANIONLIST:Animal
+Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
   </p>
   <p class="indent3">
    An Ape companion to a 4th level master gains the
@@ -1549,9 +1391,7 @@ such as the undead's lack of a constitution score.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:LOCK.CON|10
-   </code>
+   <code>DEFINE:LOCK.CON|10</code>
   </p>
   <p class="indent3">
    Constitution is set to 10 and an asterisk is
@@ -1564,13 +1404,9 @@ tag:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:LOCK.CON|10
-   </code>
+   <code>DEFINE:LOCK.CON|10</code>
    becomes
-   <code>
-    DEFINESTAT:LOCK|CON|10
-   </code>
+   <code>DEFINESTAT:LOCK|CON|10</code>
   </p>
   <hr/>
   <p class="lstdep">
@@ -1615,9 +1451,7 @@ DEFINE:LOCK
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:UNLOCK.CON
-   </code>
+   <code>DEFINE:UNLOCK.CON</code>
   </p>
   <p class="indent3">
    Constitution is unlocked.
@@ -1629,13 +1463,9 @@ tag:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:UNLOCK.CON
-   </code>
+   <code>DEFINE:UNLOCK.CON</code>
    becomes
-   <code>
-    DEFINESTAT:UNLOCK|CON
-   </code>
+   <code>DEFINESTAT:UNLOCK|CON</code>
   </p>
   <hr/>
   <p class="lstnew">
@@ -1711,9 +1541,7 @@ Formula
     <ul>
      <li>
       Using
-      <code>
-       LOCK
-      </code>
+      <code>LOCK</code>
       will lock the designated ability score
 (y) to the value (z) regardless of any other bonuses to that
 ability score except for those applied by the
@@ -1724,22 +1552,16 @@ ability score except for those applied by the
      </li>
      <li>
       Using
-      <code>
-       UNLOCK
-      </code>
+      <code>UNLOCK</code>
       will unlock the designated ability
 score (y) that has previously been locked.
      </li>
      <li>
       The
-      <code>
-       UNLOCK
-      </code>
+      <code>UNLOCK</code>
       sub-tag will not affect an ability
 score that has been designated as a "nonstat". (see
-      <code>
-       NONSTAT
-      </code>
+      <code>NONSTAT</code>
       below).
      </li>
     </ul>
@@ -1754,18 +1576,14 @@ initialized during character creation.
      </li>
      <li>
       Using
-      <code>
-       NONSTAT
-      </code>
+      <code>NONSTAT</code>
       will change an ability score to a
 non-stat, causing it to be shown as an asterisk (*) on output
 sheets and prohibiting any bonuses from being applied.
      </li>
      <li>
       Using
-      <code>
-       STAT
-      </code>
+      <code>STAT</code>
       will change an ability score that has
 been previously designated as a nonstat back to a stat without
 affecting its locked/unlocked state.
@@ -1774,17 +1592,13 @@ affecting its locked/unlocked state.
    </li>
    <li>
     Using
-    <code>
-     MINVALUE
-    </code>
+    <code>MINVALUE</code>
     defines the minimum value (z) for
 the designated ability score (y).
    </li>
    <li>
     Using
-    <code>
-     MAXVALUE
-    </code>
+    <code>MAXVALUE</code>
     defines the maximum value (z) for
 the designated ability score (y).
    </li>
@@ -1795,26 +1609,20 @@ the designated ability score (y).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINESTAT:LOCK|INT|10
-   </code>
+   <code>DEFINESTAT:LOCK|INT|10</code>
   </p>
   <p class="indent3">
    Locks the stat "Intelligence" to 10.
   </p>
   <p class="indent2">
-   <code>
-    DEFINESTAT:UNLOCK|INT
-   </code>
+   <code>DEFINESTAT:UNLOCK|INT</code>
   </p>
   <p class="indent3">
    Unlocks previously locked stat
 "Intelligence".
   </p>
   <p class="indent2">
-   <code>
-    DEFINESTAT:NONSTAT|INT
-   </code>
+   <code>DEFINESTAT:NONSTAT|INT</code>
   </p>
   <p class="indent3">
    Changes the ability score "Intelligence" to a
@@ -1822,9 +1630,7 @@ non-stat, causing it to appear on the output sheet as an
 asterisk.
   </p>
   <p class="indent2">
-   <code>
-    DEFINESTAT:STAT|INT
-   </code>
+   <code>DEFINESTAT:STAT|INT</code>
   </p>
   <p class="indent3">
    Changes the ability score "Intelligence" that
@@ -1832,18 +1638,14 @@ has been previously changed to a non-stat back to a normal
 stat.
   </p>
   <p class="indent2">
-   <code>
-    DEFINESTAT:MINVALUE|INT|3
-   </code>
+   <code>DEFINESTAT:MINVALUE|INT|3</code>
   </p>
   <p class="indent3">
    The creature cannot have an "Intelligence" less
 than 3.
   </p>
   <p class="indent2">
-   <code>
-    DEFINESTAT:MAXVALUE|INT|10
-   </code>
+   <code>DEFINESTAT:MAXVALUE|INT|10</code>
   </p>
   <p class="indent3">
    The creature cannot have an "Intelligence" more
@@ -1912,54 +1714,38 @@ description)
   <ul class="indent1">
    <li>
     The
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tags provides a description appropriate
 for the object it is attached to, i.e. ability, deity, domain,
 equipment, feat, or spell.
    </li>
    <li>
     PRExxx tags can be used with the
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tag.
    </li>
    <li>
     Multiple
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tags per line are allowed with all
 qualifying
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tags being concatonated for output and
 separated by spaces.
    </li>
    <li>
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     will clear all
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tags.
    </li>
    <li>
-    <code>
-     .CLEAR.(regular expression match)
-    </code>
+    <code>.CLEAR.(regular expression match)</code>
     will clear
 specific instances.
    </li>
    <li>
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tags now take variable substitution.
     <br/>
     <ul>
@@ -1967,14 +1753,10 @@ specific instances.
       Within the text a percent-sign (%) followed by a number (#)
 will substitute the #th variable from the variable list associated
 with the
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       . For example, %1 will substitute the
 first variable into that position in the
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
      </li>
      <li>
       Variables are specified at the end of the descriptive text and
@@ -1997,34 +1779,24 @@ list:
     <br/>
     <ul>
      <li>
-      <code>
-       %CHOICE
-      </code>
+      <code>%CHOICE</code>
       - Will replace the first associated choice
 in the object.
      </li>
      <li>
-      <code>
-       %FEAT
-      </code>
+      <code>%FEAT</code>
       - Will substitute the descriptions of feats
 within the object that match the associated preqrequisites.
      </li>
      <li>
-      <code>
-       %LIST
-      </code>
+      <code>%LIST</code>
       - Will substitute all choices comma
 separated into that parameter.
      </li>
      <li>
-      <code>
-       %NAME
-      </code>
+      <code>%NAME</code>
       - The name of the object this
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       tag is in.
      </li>
     </ul>
@@ -2055,19 +1827,13 @@ structures using things like character groups "[a-zA-Z]" match any
 alphabetic character or groupings "(bat|super)man" match batman or
 superman and many many more. So, for example, you could clear all
 DESC tags by doing
-      <code>
-       DESC:.CLEAR..*
-      </code>
+      <code>DESC:.CLEAR..*</code>
       , or clear all
 exceptional abilities by doing
-      <code>
-       DESC:.CLEAR.\(Ex\)
-      </code>
+      <code>DESC:.CLEAR.\(Ex\)</code>
       , or
 clear everything that's non-numeric with
-      <code>
-       DESC:.CLEAR.[A-Za-z]
-      </code>
+      <code>DESC:.CLEAR.[A-Za-z]</code>
       .
      </li>
     </ul>
@@ -2079,70 +1845,56 @@ clear everything that's non-numeric with
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DESC:This domain grants the turn code
-monkey speech into english
-   </code>
+   <code>DESC:This domain grants the turn code
+monkey speech into english</code>
   </p>
   <p class="indent3">
    The domain description.
   </p>
   <p class="indent2">
-   <code>
-    DESC:This is a description of the
-item.
-   </code>
+   <code>DESC:This is a description of the
+item.</code>
   </p>
   <p class="indent3">
    Adds a description for the equipment.
   </p>
   <p class="indent2">
-   <code>
-    DESC:This is sample text for the example
-purposes
-   </code>
+   <code>DESC:This is sample text for the example
+purposes</code>
   </p>
   <p class="indent3">
    Adds feat description.
   </p>
   <p class="indent2">
-   <code>
-    DESC:Kick Butt (level
-3)|PRELEVEL:3
-   </code>
+   <code>DESC:Kick Butt (level
+3)|PRELEVEL:3</code>
   </p>
   <p class="indent3">
    Adds feat description only if the PC is level 3
 or higher.
   </p>
   <p class="indent2">
-   <code>
-    DESC:Assembly ~ 1
+   <code>DESC:Assembly ~ 1
 table|PREVAREQ:AssemblyTables,1
     <br/>
     DESC:Assembly ~ %1
-tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2
-   </code>
+tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code>
   </p>
   <p class="indent3">
    Adds a feat description which is dependent upon
 the value of the variable AssemblyTables.
   </p>
   <p class="indent2">
-   <code>
-    DESC:You get a +2 bonus on all %1 saving
-throws|%CHOICE
-   </code>
+   <code>DESC:You get a +2 bonus on all %1 saving
+throws|%CHOICE</code>
   </p>
   <p class="indent3">
    Adds feat description and replaces %1 with the
 first choice made.
   </p>
   <p class="indent2">
-   <code>
-    DESC:Bardic Music %1/day
-(%2)|BardicMusicTimes|%FEAT=TYPE.BardicMusic
-   </code>
+   <code>DESC:Bardic Music %1/day
+(%2)|BardicMusicTimes|%FEAT=TYPE.BardicMusic</code>
   </p>
   <p class="indent3">
    The variable "BardicMusicTimes" is substituted
@@ -2151,62 +1903,50 @@ with type "BardicMusic" are concatenated and substituted for
 "%2".
   </p>
   <p class="indent2">
-   <code>
-    DESC:You get a +3 bonus on all checks
-involving %1|%LIST.
-   </code>
+   <code>DESC:You get a +3 bonus on all checks
+involving %1|%LIST.</code>
   </p>
   <p class="indent3">
    Adds feat description replaces %LIST with all
 choices made.
   </p>
   <p class="indent2">
-   <code>
-    DESC:%3 Sneak Attacks per day for +%1d%2
-damage|SneakAttack|SneakAttackDie|SneakAttackTimes
-   </code>
+   <code>DESC:%3 Sneak Attacks per day for +%1d%2
+damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code>
   </p>
   <p class="indent3">
    Adds feat description substituting the variables
 from the positions specified.
   </p>
   <p class="indent2">
-   <code>
-    Advanced Combat Martial Arts.MOD
+   <code>Advanced Combat Martial Arts.MOD
 &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:When the character scores
 a critical hit on an opponent with an unarmed strike, the character
-deals triple damage
-   </code>
+deals triple damage</code>
   </p>
   <p class="indent3">
    Changes the feat description, substituting the
 specified.
   </p>
   <p class="indent2">
-   <code>
-    DESC:Toasts the monsters with
-fire
-   </code>
+   <code>DESC:Toasts the monsters with
+fire</code>
   </p>
   <p class="indent3">
    What the spell does.
   </p>
   <p class="indent2">
-   <code>
-    DESC:Target is prone for (CASTERLEVEL)
-rounds.
-   </code>
+   <code>DESC:Target is prone for (CASTERLEVEL)
+rounds.</code>
   </p>
   <p class="indent3">
    If the value of CASTERLEVEL is equal to 3 then
 this would output: "Target is prone for 3 rounds.".
   </p>
   <p class="indent2">
-   <code>
-    Maximize Power.MOD &lt;tab&gt; DESC:.CLEAR
+   <code>Maximize Power.MOD &lt;tab&gt; DESC:.CLEAR
 &lt;tab&gt; DESC:You can manifest powers to maximum
-effect.
-   </code>
+effect.</code>
   </p>
   <p class="indent3">
    Replaces the standard spell DESC with the
@@ -2247,9 +1987,7 @@ description. Default is NO.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DESCISPI:YES
-   </code>
+   <code>DESCISPI:YES</code>
   </p>
   <p class="indent3">
    It will bold and italicize the description of an
@@ -2332,17 +2070,13 @@ prerequisites.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DR:10/+1
-   </code>
+   <code>DR:10/+1</code>
   </p>
   <p class="indent3">
    Grants DR of 10/+1 on output.
   </p>
   <p class="indent2">
-   <code>
-    DR:2/-|PRESTAT:1,CON=18
-   </code>
+   <code>DR:2/-|PRESTAT:1,CON=18</code>
   </p>
   <p class="indent3">
    Grants DR of 2/- if the character has a
@@ -2413,9 +2147,7 @@ Domains.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FOLLOWERS:Familiar|1
-   </code>
+   <code>FOLLOWERS:Familiar|1</code>
   </p>
   <p class="indent3">
    A character is allowed only 1 companion of type
@@ -2461,9 +2193,7 @@ of kit).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    KIT:1|Wizard1|Illusionist1
-   </code>
+   <code>KIT:1|Wizard1|Illusionist1</code>
   </p>
   <p class="indent3">
    Offers a choice of the Wizard1 or Illusionist1
@@ -2504,9 +2234,7 @@ movement types the race has.
   </p>
   <p class="sidebar0">
    Note: Each race should always have a
-   <code>
-    MOVE
-   </code>
+   <code>MOVE</code>
    entry as this is required for other objects to
 later adjust the movement.
   </p>
@@ -2516,9 +2244,7 @@ later adjust the movement.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MOVE:Walk,30,Fly,10
-   </code>
+   <code>MOVE:Walk,30,Fly,10</code>
   </p>
   <p class="indent3">
    This would grant a walking speed of 30 ft per
@@ -2530,10 +2256,8 @@ round and a flying speed of 10 feet per round
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    This can be used anywhere except Equipment
-and Equipment Mod files.
-   </code>
+   <code>This can be used anywhere except Equipment
+and Equipment Mod files.</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -2590,18 +2314,14 @@ assumed
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MOVECLONE:Walk,Fly,*2
-   </code>
+   <code>MOVECLONE:Walk,Fly,*2</code>
   </p>
   <p class="indent3">
    Create the "Fly" movement type and set it equal
 to "Walk" multiplied by 2.
   </p>
   <p class="indent2">
-   <code>
-    MOVECLONE:Walk,Tunnel,/3
-   </code>
+   <code>MOVECLONE:Walk,Tunnel,/3</code>
   </p>
   <p class="indent3">
    Create "Tunnel" movement type and set it equal
@@ -2640,9 +2360,7 @@ Identity. The Default is "NO".
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NAMEISPI:YES
-   </code>
+   <code>NAMEISPI:YES</code>
   </p>
   <p class="indent3">
    The name is the Product Identity
@@ -2725,9 +2443,7 @@ must be present.
    </li>
    <li>
     For multiple attacks included in the same
-    <code>
-     NATURALATTACKS
-    </code>
+    <code>NATURALATTACKS</code>
     tag, the first is treated as a primary
 weapon and the second is treated as a secondary attack.
    </li>
@@ -2761,24 +2477,16 @@ otherwise, the attacks will always be size "Medium".
    </li>
    <li>
     The
-    <code>
-     NATURALATTACKS
-    </code>
+    <code>NATURALATTACKS</code>
     tag creates a proficiency for
 the attacks on the fly which allows the use of the
-    <code>
-     BONUS:WEAPONPROF
-    </code>
+    <code>BONUS:WEAPONPROF</code>
     tag to effect it. For example, if you
 used the
-    <code>
-     NATURALATTACKS
-    </code>
+    <code>NATURALATTACKS</code>
     tag to create a Bite attack
 you could then use
-    <code>
-     BONUS:WEAPONPROF=Bite|DAMAGE,TOHIT|2
-    </code>
+    <code>BONUS:WEAPONPROF=Bite|DAMAGE,TOHIT|2</code>
     to add 2 to the
 attack and damage rolls.
    </li>
@@ -2789,17 +2497,13 @@ attack and damage rolls.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
-   </code>
+   <code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code>
   </p>
   <p class="indent3">
    Race has 2 Claw attacks and a Bite attack.
   </p>
   <p class="indent2">
-   <code>
-    NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d4,SPROP=plus 1d4 acid and grab
-   </code>
+   <code>NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d4,SPROP=plus 1d4 acid and grab</code>
   </p>
   <p class="indent3">
    Race has a single slam attack that has the extra
@@ -2851,17 +2555,13 @@ to appear on the output sheet)
    </li>
    <li>
     The
-    <code>
-     [NAME]
-    </code>
+    <code>[NAME]</code>
     tag, when used, will be replaced by the
 parenthetical text in the object's name.
    </li>
    <li>
     If the
-    <code>
-     [NAME]
-    </code>
+    <code>[NAME]</code>
     tag is used where there is no
 parenthetical text the object name itself is output.
    </li>
@@ -2879,55 +2579,43 @@ sacrificing the preferred name of the object.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    OUTPUTNAME:Jason's [NAME]
-   </code>
+   <code>OUTPUTNAME:Jason's [NAME]</code>
   </p>
   <p class="indent3">
    LST entry "Magic Spell" will output as "Jason's
 Magic Spell"
   </p>
   <p class="indent2">
-   <code>
-    OUTPUTNAME:[NAME] Elf
-   </code>
+   <code>OUTPUTNAME:[NAME] Elf</code>
   </p>
   <p class="indent3">
    LST entry "Elf (Gray)" will output as "Gray
 Elf".
   </p>
   <p class="indent2">
-   <code>
-    OUTPUTNAME:Huge Water Elemental
-   </code>
+   <code>OUTPUTNAME:Huge Water Elemental</code>
   </p>
   <p class="indent3">
    LST entry "Elemental (Water/Huge)" will output
 as "Huge Water Elemental".
   </p>
   <p class="indent2">
-   <code>
-    OUTPUTNAME:Formian [NAME]
-   </code>
+   <code>OUTPUTNAME:Formian [NAME]</code>
   </p>
   <p class="indent3">
    LST entry "Formian (Queen)" will output as
 "Formian Queen".
   </p>
   <p class="indent2">
-   <code>
-    OUTPUTNAME:Potion of [NAME]
-   </code>
+   <code>OUTPUTNAME:Potion of [NAME]</code>
   </p>
   <p class="indent3">
    LST entry "Potion (Glibness)" will output as
 "Potion of Glibness".
   </p>
   <p class="indent2">
-   <code>
-    Clenched Fist.MOD &lt;tab&gt;
-OUTPUTNAME:Big [NAME]
-   </code>
+   <code>Clenched Fist.MOD &lt;tab&gt;
+OUTPUTNAME:Big [NAME]</code>
   </p>
   <p class="indent3">
    This spell will output as "Big Clenched
@@ -3041,39 +2729,31 @@ selection for the character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    QUALIFY:ABILITY=FEAT|Mounted
-Combat|Ride-By Attack
-   </code>
+   <code>QUALIFY:ABILITY=FEAT|Mounted
+Combat|Ride-By Attack</code>
   </p>
   <p class="indent3">
    The character would be able to take the above
 feats whether they meet the prereqs or not.
   </p>
   <p class="indent2">
-   <code>
-    QUALIFY:FEAT|Mounted Combat|Ride-By
-Attack
-   </code>
+   <code>QUALIFY:FEAT|Mounted Combat|Ride-By
+Attack</code>
   </p>
   <p class="indent3">
    The character would be able to take the above
 feats whether they meet the prereqs or not.
   </p>
   <p class="indent2">
-   <code>
-    QUALIFY:CLASS|Monk
-   </code>
+   <code>QUALIFY:CLASS|Monk</code>
   </p>
   <p class="indent3">
    The character would be able to take the Monk
 class whether they meet the prereqs or not.
   </p>
   <p class="indent2">
-   <code>
-    QUALIFY:CLASS|Battle
-Mind|Telepath
-   </code>
+   <code>QUALIFY:CLASS|Battle
+Mind|Telepath</code>
   </p>
   <p class="indent3">
    The character would be able to take either the
@@ -3132,18 +2812,14 @@ selections to allow)
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    REGION:1|Region1|Region2|Region3
-   </code>
+   <code>REGION:1|Region1|Region2|Region3</code>
   </p>
   <p class="indent3">
    Will allow the choice of Region1, Region2, or
 Region3 as the character's region.
   </p>
   <p class="indent2">
-   <code>
-    REGION:1|Timbuktu
-   </code>
+   <code>REGION:1|Timbuktu</code>
   </p>
   <p class="indent3">
    The PC is from the "Timbuktu" region.
@@ -3167,21 +2843,15 @@ Region3 as the character's region.
     <ul class="incremental">
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format.
@@ -3257,9 +2927,7 @@ variable (y).
     </li>
     <li>
      When
-     <code>
-      ALL
-     </code>
+     <code>ALL</code>
      is used for (x), all indicated feats are
 removed without prompting.
     </li>
@@ -3270,27 +2938,21 @@ removed without prompting.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     REMOVE:FEAT|Alertness
-    </code>
+    <code>REMOVE:FEAT|Alertness</code>
    </p>
    <p class="indent3">
     Removes the Alertness feat, no choice is
 presented, the feat is simply removed.
    </p>
    <p class="indent2">
-    <code>
-     REMOVE:FEAT|TYPE.Fighter
-    </code>
+    <code>REMOVE:FEAT|TYPE.Fighter</code>
    </p>
    <p class="indent3">
     Presents a list of Fighter type feats and allows
 the removal of up to 3.
    </p>
    <p class="indent2">
-    <code>
-     REMOVE:FEAT|2|CHOICE
-    </code>
+    <code>REMOVE:FEAT|2|CHOICE</code>
    </p>
    <p class="indent3">
     Presents a list of all feats the character has
@@ -3298,9 +2960,7 @@ and allows the removal of 2 of them. If a feat has a cost
 associated with it, it returns that cost to the feat pool.
    </p>
    <p class="indent2">
-    <code>
-     REMOVE:FEAT|ALL|CLASS.Paladin
-    </code>
+    <code>REMOVE:FEAT|ALL|CLASS.Paladin</code>
    </p>
    <p class="indent3">
     Removes all feats that have been granted/taken
@@ -3368,52 +3028,36 @@ has.
    </li>
    <li>
     The
-    <code>
-     %
-    </code>
+    <code>%</code>
     tag will fill in a number from a variable
 listed after a pipe
-    <code>
-     |
-    </code>
+    <code>|</code>
     .
    </li>
    <li>
     This can be done numerous times, with each successive percent
 sign
-    <code>
-     %
-    </code>
+    <code>%</code>
     relating to the next variable listed after
 another pipe
-    <code>
-     |
-    </code>
+    <code>|</code>
     .
    </li>
    <li>
     This can be specified via number of
-    <code>
-     %#
-    </code>
+    <code>%#</code>
     , with each
 successive numbered
-    <code>
-     %
-    </code>
+    <code>%</code>
     relating to the next variable
 listed after another pipe
-    <code>
-     |
-    </code>
+    <code>|</code>
     . The count starts at zero
 and counts up.
    </li>
    <li>
     Each variable needs to be defined (via the global
-    <code>
-     DEFINE
-    </code>
+    <code>DEFINE</code>
     tag.)
    </li>
    <li>
@@ -3421,58 +3065,40 @@ and counts up.
 or formula equals zero.
    </li>
    <li>
-    <code>
-     SAB:.CLEAR
-    </code>
+    <code>SAB:.CLEAR</code>
     can be used in conjunction with the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     but does not support cross-level
 interactions.
    </li>
    <li>
-    <code>
-     SAB:.CLEAR
-    </code>
+    <code>SAB:.CLEAR</code>
     will only clear a previous
-    <code>
-     SAB
-    </code>
+    <code>SAB</code>
     in the same object (class, template, etc.). It
 will not clear them across objects.
    </li>
    <li>
-    <code>
-     SAB:.CLEAR.Text
-    </code>
+    <code>SAB:.CLEAR.Text</code>
     must include the exact text of the
 Special Ability to be removed but only the exact text up to the
 first open-parentheses. The
-    <code>
-     CLEAR
-    </code>
+    <code>CLEAR</code>
     and Replace tags
 should be at the end of the line, so the new and old tags are
 not.
    </li>
    <li>
     SAB tags can be qualified with
-    <code>
-     [PRExxx](globalfilesprexxx.html)
-    </code>
+    <code>[PRExxx](globalfilesprexxx.html)</code>
     tags.
    </li>
    <li>
     SAB tags can be used with
-    <code>
-     %CHOICE
-    </code>
+    <code>%CHOICE</code>
     tags to display
 the result of a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     result.
    </li>
   </ul>
@@ -3482,9 +3108,7 @@ the result of a
   <ol>
    <li>
     <p>
-     <code>
-      SAB:Fire in the Hole
-     </code>
+     <code>SAB:Fire in the Hole</code>
     </p>
     <p>
      Grants the special ability "Fire in the Hole".
@@ -3492,42 +3116,28 @@ the result of a
    </li>
    <li>
     <p>
-     <code>
-      SAB:Sneak Attack +%d%|Sneak Attack|Sneak Attack
-Die
-     </code>
+     <code>SAB:Sneak Attack +%d%|Sneak Attack|Sneak Attack
+Die</code>
     </p>
     <p>
      If the PC's
-     <code>
-      Sneak Attack
-     </code>
+     <code>Sneak Attack</code>
      variable had value
-     <code>
-      2
-     </code>
+     <code>2</code>
      , and the PC's
-     <code>
-      Sneak Attack Die
-     </code>
+     <code>Sneak Attack Die</code>
      variable
 had value
-     <code>
-      6
-     </code>
+     <code>6</code>
      , this would grant the special ability
-     <code>
-      Sneak Attack +2d6
-     </code>
+     <code>Sneak Attack +2d6</code>
      .
     </p>
    </li>
    <li>
     <p>
-     <code>
-      SAB:.CLEAR.+1d6 to natural weapons →
-SAB:+1d8 to natural weapons
-     </code>
+     <code>SAB:.CLEAR.+1d6 to natural weapons →
+SAB:+1d8 to natural weapons</code>
     </p>
     <p>
      Clears the "Natural Weapons" value and makes it +1d8
@@ -3536,9 +3146,7 @@ instead.
    </li>
    <li>
     <p>
-     <code>
-      SAB:Banana toss|PRERACE:monkey
-     </code>
+     <code>SAB:Banana toss|PRERACE:monkey</code>
     </p>
     <p>
      Grants the special ability "Banana toss" if the character's race
@@ -3547,29 +3155,19 @@ is "monkey".
    </li>
    <li>
     <p>
-     <code>
-      SAB:Banana toss via elemental power of (%CHOICE)
+     <code>SAB:Banana toss via elemental power of (%CHOICE)
 → STACK:NO → MULT:YES
-→ CHOOSE:Air|Earth|Fire|Water
-     </code>
+→ CHOOSE:Air|Earth|Fire|Water</code>
     </p>
     <p>
      Offers a Choice between the elemental powers of
-     <code>
-      Air
-     </code>
+     <code>Air</code>
      ,
-     <code>
-      Earth
-     </code>
+     <code>Earth</code>
      ,
-     <code>
-      Fire
-     </code>
+     <code>Fire</code>
      and
-     <code>
-      Water
-     </code>
+     <code>Water</code>
      for banana tossing. The same ability may be
 taken multiple times, but a different element must be chosen each
 time.
@@ -3577,15 +3175,11 @@ time.
    </li>
    <li>
     <p>
-     <code>
-      SAB:.CLEAR.Poison
-     </code>
+     <code>SAB:.CLEAR.Poison</code>
     </p>
     <p>
      Clears the
-     <code>
-      Poison
-     </code>
+     <code>Poison</code>
      value and replaces it with
 nothing.
     </p>
@@ -3599,23 +3193,17 @@ nothing.
      :
     </p>
     <pre>
-<code> CLASS:Basketweaver        
+<code>CLASS:Basketweaver        
  1  →  SAB:Basket Toss
  5  →  SAB:.CLEAR.Basket Toss  →  SAB:Greater Basket Toss</code>
 </pre>
     <p>
      Replaces the
-     <code>
-      Basket Toss
-     </code>
+     <code>Basket Toss</code>
      ability with the
-     <code>
-      Greater Basket Toss
-     </code>
+     <code>Greater Basket Toss</code>
      ability at
-     <code>
-      Basketweaver
-     </code>
+     <code>Basketweaver</code>
      class level 5.
     </p>
    </li>
@@ -3634,18 +3222,12 @@ nothing.
 </pre>
     <p>
      Another way of replacing the
-     <code>
-      Basket Toss
-     </code>
+     <code>Basket Toss</code>
      ability
 with the
-     <code>
-      Greater Basket Toss
-     </code>
+     <code>Greater Basket Toss</code>
      ability at
-     <code>
-      Basketweaver
-     </code>
+     <code>Basketweaver</code>
      class level 5.
     </p>
    </li>
@@ -3655,9 +3237,7 @@ with the
   </h4>
   <p>
    The
-   <code>
-    SAB
-   </code>
+   <code>SAB</code>
    tag has no effect on calculations. Its sole
 purpose is to display a short ability description under the
    <i>
@@ -3665,9 +3245,7 @@ purpose is to display a short ability description under the
    </i>
    section of the character sheet. An example
 for
-   <code>
-    SAB:Plays nice with others.
-   </code>
+   <code>SAB:Plays nice with others.</code>
    is shown below.
   </p>
   <p>
@@ -3675,9 +3253,7 @@ for
   </p>
   <p>
    The
-   <code>
-    ASPECT
-   </code>
+   <code>ASPECT</code>
    tag can be used to display similar
 pieces of text in the other boxes,
    <em>
@@ -3697,24 +3273,18 @@ Modifiers
   <ul>
    <li>
     Conditional combat bonus:
-    <code>
-     ASPECT:CombatBonus|+2 to attack
-and damage vs. elves.
-    </code>
+    <code>ASPECT:CombatBonus|+2 to attack
+and damage vs. elves.</code>
    </li>
    <li>
     Conditional saving throw bonus:
-    <code>
-     ASPECT:SaveBonus|-2
-penalty on saving throws vs. fear effects.
-    </code>
+    <code>ASPECT:SaveBonus|-2
+penalty on saving throws vs. fear effects.</code>
    </li>
    <li>
     Conditional skill bonus:
-    <code>
-     ASPECT:SkillBonus|+2 Competence
-bonus on Climb checks when climbing trees.
-    </code>
+    <code>ASPECT:SkillBonus|+2 Competence
+bonus on Climb checks when climbing trees.</code>
    </li>
   </ul>
   <p>
@@ -3763,9 +3333,7 @@ object is taken.
    </li>
    <li>
     This tag is used in conjunction with a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag
 that does not already have an integrated number for "choices" to be
 made.
@@ -3776,9 +3344,7 @@ is one (1).
    </li>
    <li>
     Tag is ignored when used in conjunction with
-    <code>
-     CHOOSE:NOCHOICE
-    </code>
+    <code>CHOOSE:NOCHOICE</code>
     .
    </li>
   </ul>
@@ -3788,19 +3354,15 @@ is one (1).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SELECT:3 &lt;tab&gt;
-CHOOSE:SKILLS
-   </code>
+   <code>SELECT:3 &lt;tab&gt;
+CHOOSE:SKILLS</code>
   </p>
   <p class="indent3">
    Allows the selection of "3" skills selected from
 the list of skills currently held by the character.
   </p>
   <p class="indent2">
-   <code>
-    SELECT:INT
-   </code>
+   <code>SELECT:INT</code>
   </p>
   <p class="indent3">
    Allows a number of choices equal to the
@@ -3866,20 +3428,16 @@ by PRExxx tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Super
-Foo&lt;tab&gt;SERVESAS:ABILITY=FEAT|Endurance|Diehard
-   </code>
+   <code>Super
+Foo&lt;tab&gt;SERVESAS:ABILITY=FEAT|Endurance|Diehard</code>
   </p>
   <p class="indent3">
    Allows a character with the feat "Super Foo" to
 pass a prerequisite of "Endurance" or "Diehard".
   </p>
   <p class="indent2">
-   <code>
-    Super Warrior &lt;tab&gt;
-SERVESAS:CLASS|Warrior|Barbarian
-   </code>
+   <code>Super Warrior &lt;tab&gt;
+SERVESAS:CLASS|Warrior|Barbarian</code>
   </p>
   <p class="indent3">
    Allows a character with class levels of "Super
@@ -3957,22 +3515,16 @@ objects, PCGen will sort by
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Enlarge
-Spell&lt;tab&gt;SORTKEY:Metamagic~Enlarge Spell
-   </code>
+   <code>Enlarge
+Spell&lt;tab&gt;SORTKEY:Metamagic~Enlarge Spell</code>
   </p>
   <p class="indent2">
-   <code>
-    Quicken
-Spell&lt;tab&gt;SORTKEY:11-MetaMagic~Quicken Spell
-   </code>
+   <code>Quicken
+Spell&lt;tab&gt;SORTKEY:11-MetaMagic~Quicken Spell</code>
   </p>
   <p class="indent2">
-   <code>
-    Early Feat&lt;tab&gt;SORTKEY:Z-Me
-last
-   </code>
+   <code>Early Feat&lt;tab&gt;SORTKEY:Z-Me
+last</code>
   </p>
   <p class="indent3">
    Would Display as
@@ -4017,25 +3569,19 @@ Source Name)
    </li>
    <li>
     This tag is used on its own line, with other
-    <code>
-     SOURCExxx
-    </code>
+    <code>SOURCExxx</code>
     tags, or on individual object lines.
    </li>
    <li>
     When used on its own line the
-    <code>
-     SOURCELONG
-    </code>
+    <code>SOURCELONG</code>
     tag will
 be used by all objects which follow it.
    </li>
    <li>
     When used on individual object lines it applies to that object
 and overrides any stand alone
-    <code>
-     SOURCELONG
-    </code>
+    <code>SOURCELONG</code>
     tag on lines
 which preceeded it.
    </li>
@@ -4046,10 +3592,8 @@ which preceeded it.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SOURCELONG:Core Rulebook I (Foo
-Handbook)
-   </code>
+   <code>SOURCELONG:Core Rulebook I (Foo
+Handbook)</code>
   </p>
   <p class="indent3">
    The long source name for this file is "Core
@@ -4091,9 +3635,7 @@ object. This tag is optional.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SOURCELINK:http://www.d20srd.org/srd/spells/aid.htm
-   </code>
+   <code>SOURCELINK:http://www.d20srd.org/srd/spells/aid.htm</code>
   </p>
   <p class="indent3">
    Provides the following active URL:
@@ -4102,9 +3644,7 @@ object. This tag is optional.
    </a>
   </p>
   <p class="indent2">
-   <code>
-    SOURCELINK:http://paizo.com/prd/spells/aid.html
-   </code>
+   <code>SOURCELINK:http://paizo.com/prd/spells/aid.html</code>
   </p>
   <p class="indent3">
    Provides the following active URL:
@@ -4145,19 +3685,15 @@ the SOURCE information requires its presence.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEPAGE:p.102
-   </code>
+   <code>SOURCEPAGE:p.102</code>
   </p>
   <p class="indent3">
    Further information can be found on page 102 of
 the source.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Strong.MOD &lt;tab&gt; SOURCEPAGE:p.
-28
-   </code>
+   <code>CLASS:Strong.MOD &lt;tab&gt; SOURCEPAGE:p.
+28</code>
   </p>
   <p class="indent3">
    Further information can be found on page 28 of
@@ -4194,25 +3730,19 @@ Source Name)
    </li>
    <li>
     This tag is used on its own line, with other
-    <code>
-     SOURCExxx
-    </code>
+    <code>SOURCExxx</code>
     tags, or on individual object lines.
    </li>
    <li>
     When used on its own line the
-    <code>
-     SOURCESHORT
-    </code>
+    <code>SOURCESHORT</code>
     tag will
 be used by all objects which follow it.
    </li>
    <li>
     When used on individual object lines it applies to that object
 and overrides any stand alone
-    <code>
-     SOURCESHORT
-    </code>
+    <code>SOURCESHORT</code>
     tag on lines
 which preceeded it.
    </li>
@@ -4223,9 +3753,7 @@ which preceeded it.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SOURCESHORT:FHB
-   </code>
+   <code>SOURCESHORT:FHB</code>
   </p>
   <p class="indent3">
    The short source name for this file is
@@ -4263,25 +3791,19 @@ product/book.
    </li>
    <li>
     This tag is used on its own line, with other
-    <code>
-     SOURCExxx
-    </code>
+    <code>SOURCExxx</code>
     tags, or on individual object lines.
    </li>
    <li>
     When used on its own line the
-    <code>
-     SOURCEWEB
-    </code>
+    <code>SOURCEWEB</code>
     tag will
 be used by all objects which follow it.
    </li>
    <li>
     When used on individual object lines it applies to that object
 and overrides any stand alone
-    <code>
-     SOURCEWEB
-    </code>
+    <code>SOURCEWEB</code>
     tag on lines
 which preceeded it.
    </li>
@@ -4292,9 +3814,7 @@ which preceeded it.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEWEB:http://www.foogames.com/product.php?products=654321
-   </code>
+   <code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code>
   </p>
   <p class="indent3">
    The web site for this source is
@@ -4369,44 +3889,36 @@ names.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLKNOWN:CLASS|Arawnite
+   <code>SPELLKNOWN:CLASS|Arawnite
 Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read
-Magic,Resistance,Virtue
-   </code>
+Magic,Resistance,Virtue</code>
   </p>
   <p class="indent3">
    This is the character's known spell's for the
 Arawnite Guardian class.
   </p>
   <p class="indent2">
-   <code>
-    1 &lt;tab&gt; SPELLKNOWN:CLASS|Trundlefolk
+   <code>1 &lt;tab&gt; SPELLKNOWN:CLASS|Trundlefolk
 Shaman=0|Create Water,Cure Minor Wounds,Detect
-Magic,Guidance,Mending,Purify Food and Drink
-   </code>
+Magic,Guidance,Mending,Purify Food and Drink</code>
   </p>
   <p class="indent3">
    This is the character's known spell's for the
 first level Trundlefolk Shaman class.
   </p>
   <p class="indent2">
-   <code>
-    SPELLKNOWN:CLASS|SPELLCASTER.Psionic=7|Hypercognition
-   </code>
+   <code>SPELLKNOWN:CLASS|SPELLCASTER.Psionic=7|Hypercognition</code>
   </p>
   <p class="indent3">
    The Hypercognition power is added to the
 character's Psionic spallcasting classes.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASSLEVEL:1 &lt;tab&gt;
+   <code>SUBCLASSLEVEL:1 &lt;tab&gt;
 SPELLKNOWN:CLASS|Holy Warrior=1|Bless,Bless Water,Bless
 Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect
 Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from
-Evil,Read Magic,Resistance,Virtue
-   </code>
+Evil,Read Magic,Resistance,Virtue</code>
   </p>
   <p class="indent3">
    This is the character's known spell's for the
@@ -4483,13 +3995,9 @@ tag
    </li>
    <li>
     The
-    <code>
-     SPELLCASTER
-    </code>
+    <code>SPELLCASTER</code>
     subtag is used only with the
-    <code>
-     CLASS
-    </code>
+    <code>CLASS</code>
     subtag.
    </li>
    <li>
@@ -4503,70 +4011,58 @@ names.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLLEVEL:DOMAIN|Cold=1|Endure
+   <code>SPELLLEVEL:DOMAIN|Cold=1|Endure
 Elements|Cold=2|Chill Metal|Cold=3|Sleet Storm|Cold=4|Wall of
 Ice|Cold=5|Cone of Cold|Cold=6|Freezing Sphere|Cold=7|Control
-Weather|Cold=8|Finger of Death|Cold=9|Elemental Swarm
-   </code>
+Weather|Cold=8|Finger of Death|Cold=9|Elemental Swarm</code>
   </p>
   <p class="indent3">
    This is the character's spell's for the Cold
 domain.
   </p>
   <p class="indent2">
-   <code>
-    SPELLLEVEL:CLASS|Arawnite
+   <code>SPELLLEVEL:CLASS|Arawnite
 Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read
-Magic,Resistance,Virtue
-   </code>
+Magic,Resistance,Virtue</code>
   </p>
   <p class="indent3">
    This is the character's spell's for the Arawnite
 Guardian class.
   </p>
   <p class="indent2">
-   <code>
-    SPELLLEVEL:CLASS|SPELLCASTER.Psionic=7|Hypercognition
-   </code>
+   <code>SPELLLEVEL:CLASS|SPELLCASTER.Psionic=7|Hypercognition</code>
   </p>
   <p class="indent3">
    The Hypercognition power is added to the
 character's Psionic spallcasting classes.
   </p>
   <p class="indent2">
-   <code>
-    1 &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk
+   <code>1 &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk
 Shaman=0|Create Water,Cure Minor Wounds,Detect
-Magic,Guidance,Mending,Purify Food and Drink
-   </code>
+Magic,Guidance,Mending,Purify Food and Drink</code>
   </p>
   <p class="indent3">
    This is the character's spell's for the first
 level Trundlefolk Shaman class.
   </p>
   <p class="indent2">
-   <code>
-    SUBCLASSLEVEL:1 &lt;tab&gt;
+   <code>SUBCLASSLEVEL:1 &lt;tab&gt;
 SPELLLEVEL:CLASS|Holy Warrior=1|Bless,Bless Water,Bless
 Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect
 Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from
-Evil,Read Magic,Resistance,Virtue
-   </code>
+Evil,Read Magic,Resistance,Virtue</code>
   </p>
   <p class="indent3">
    This is the character's spell's for the first
 level subclass Holy Warrior class.
   </p>
   <p class="indent2">
-   <code>
-    The Dead &lt;tab&gt; NAMEISPI:NO
+   <code>The Dead &lt;tab&gt; NAMEISPI:NO
 &lt;tab&gt; SPELLLEVEL:DOMAIN|The Dead=1|Detect Return|The
 Dead=2|Consecrate|The Dead=3|Negative Energy Protection|The
 Dead=4|Touch of Return|The Dead=5|Hallow|The Dead=6|Heal|The
 Dead=7|Greater Restoration|The Dead=8|Greater Return|The
-Dead=9|Imprison Soul
-   </code>
+Dead=9|Imprison Soul</code>
   </p>
   <p class="indent3">
    This is the character's spell's for the
@@ -4662,54 +4158,38 @@ Spellbook Names
     .
    </li>
    <li>
-    <code>
-     TIMES
-    </code>
+    <code>TIMES</code>
     is an optional parameter and if not present
 will default to 1.
    </li>
    <li>
-    <code>
-     TIMEUNIT
-    </code>
+    <code>TIMEUNIT</code>
     can be any unit of time, e.g. Day, Week,
 Month, Encounter, etc., but is optional and if not present will
 default to "Day".
    </li>
    <li>
-    <code>
-     CASTERLEVEL
-    </code>
+    <code>CASTERLEVEL</code>
     is an optional parameter and if not
 present will default to 1.
    </li>
    <li>
     There should never be more than one
-    <code>
-     TIMES
-    </code>
+    <code>TIMES</code>
     and
-    <code>
-     CASTERLEVEL
-    </code>
+    <code>CASTERLEVEL</code>
     tag used within a
-    <code>
-     SPELLS
-    </code>
+    <code>SPELLS</code>
     tag.
    </li>
    <li>
     You can apply PRExxx tags to the
-    <code>
-     SPELLS
-    </code>
+    <code>SPELLS</code>
     tag.
     <ul>
      <li>
       If a
-      <code>
-       SPELLS
-      </code>
+      <code>SPELLS</code>
       tag requires multiple PRExxx tags they
 are pipe-delimited ("|").
      </li>
@@ -4732,17 +4212,13 @@ using parentheses "( )".
    </li>
    <li>
     Because the
-    <code>
-     SPELLS
-    </code>
+    <code>SPELLS</code>
     tag is not associated with any
 one class the variable "CL" will not work in it.
    </li>
    <li>
     Use of
-    <code>
-     .CLEARALL
-    </code>
+    <code>.CLEARALL</code>
     will clear all spell-like
 abilities for the character/creature.
    </li>
@@ -4753,10 +4229,8 @@ abilities for the character/creature.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid
-Arrow,12+CHA|PRESTAT:1,CHA=12
-   </code>
+   <code>SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid
+Arrow,12+CHA|PRESTAT:1,CHA=12</code>
   </p>
   <p class="indent3">
    "Acid Arrow" is granted as an "Innate" spell 3
@@ -4765,10 +4239,8 @@ DC is 12+CHA, and the Caster level is the character's level
 (minimum 1).
   </p>
   <p class="indent2">
-   <code>
-    SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Fireball|Cure Light
-Wounds
-   </code>
+   <code>SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Fireball|Cure Light
+Wounds</code>
   </p>
   <p class="indent3">
    Grants "Fireball" and "Cure Light Wounds" at
@@ -4776,19 +4248,15 @@ will with a caster level equal to your hitdice in the spellbook
 "Innate"
   </p>
   <p class="indent2">
-   <code>
-    SPELLS:Innate|Charm Person,15
-   </code>
+   <code>SPELLS:Innate|Charm Person,15</code>
   </p>
   <p class="indent3">
    Grants "Charm Person" once per day, first level
 with a DC of 15 in the spellbook "Innate"
   </p>
   <p class="indent2">
-   <code>
-    SPELLS:Dragon|CASTERLEVEL=18|Death
-Ward|PRESTAT:1,WIS=20|PREALIGN:LG,NG,CG
-   </code>
+   <code>SPELLS:Dragon|CASTERLEVEL=18|Death
+Ward|PRESTAT:1,WIS=20|PREALIGN:LG,NG,CG</code>
   </p>
   <p class="indent3">
    Grants "Death Ward" once per day with a caster
@@ -4796,10 +4264,8 @@ level of 18 in spellbook "Dragon" requiring a Wisdom of 20 and any
 good alignment.
   </p>
   <p class="indent2">
-   <code>
-    SPELLS:Innate|TIMES=5|TIMEUNIT=Week|Wall
-of Stone
-   </code>
+   <code>SPELLS:Innate|TIMES=5|TIMEUNIT=Week|Wall
+of Stone</code>
   </p>
   <p class="indent3">
    Grants "Wall of Stone", 5 times per week at 1st
@@ -4837,9 +4303,7 @@ feat/class/template/etc. bestows.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SR:TL+10
-   </code>
+   <code>SR:TL+10</code>
   </p>
   <p class="indent3">
    This would set the Spell Resistance to be the
@@ -4882,18 +4346,14 @@ modifiers applied.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STAT.STR.NOTEMP
-   </code>
+   <code>STAT.STR.NOTEMP</code>
   </p>
   <p class="indent3">
    This would output the character's unmodified
 strength score when used.
   </p>
   <p class="indent2">
-   <code>
-    STAT.INT.NOTEMP
-   </code>
+   <code>STAT.INT.NOTEMP</code>
   </p>
   <p class="indent3">
    This would output the character's unmodified
@@ -4935,9 +4395,7 @@ modifiers applied.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SR:STAT.INT.NOTEMP
-   </code>
+   <code>SR:STAT.INT.NOTEMP</code>
   </p>
   <p class="indent3">
    This would set the character's spell resistance
@@ -4982,10 +4440,8 @@ Bonus Sub-Tab.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPDESC:This bonus can be applied when
-the character is in an underground environment.
-   </code>
+   <code>TEMPDESC:This bonus can be applied when
+the character is in an underground environment.</code>
   </p>
   <p class="indent3">
    Describes the conditions needed for the bonus to
@@ -5030,9 +4486,7 @@ PREAPPLY tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:Lycanthrope.REMOVE
-   </code>
+   <code>TEMPLATE:Lycanthrope.REMOVE</code>
   </p>
   <p class="indent3">
    Removes the "Lycanthrope" template..
@@ -5061,9 +4515,7 @@ PREAPPLY tag.
      <li>
       The 'damage by size category' syntax, with multiple arguments, now
 takes as many arguments as there are size categories in the
-      <code>
-       sizeAdjustment.lst
-      </code>
+      <code>sizeAdjustment.lst</code>
       .
       <em>
        Typically
@@ -5073,9 +4525,7 @@ takes as many arguments as there are size categories in the
        exactly
       </em>
       nine arguments, ignoring
-      <code>
-       sizeAdjustment.lst
-      </code>
+      <code>sizeAdjustment.lst</code>
       .)
      </li>
     </ul>
@@ -5086,50 +4536,36 @@ takes as many arguments as there are size categories in the
   </h4>
   <ul class="incremental">
    <li>
-    <code>
-     UDAM:XdY
-    </code>
+    <code>UDAM:XdY</code>
     <ul class="incremental">
      <li>
       Sets the character's unarmed attack damage to
-      <code>
-       XdY
-      </code>
+      <code>XdY</code>
       regardless of the character's current size.
      </li>
     </ul>
    </li>
    <li>
-    <code>
-     UDAM:XdY,XdY, ... ,XdY
-    </code>
+    <code>UDAM:XdY,XdY, ... ,XdY</code>
     <ul class="incremental">
      <li>
       Sets the character's unarmed attack damage by size.
      </li>
      <li>
       The arguments
-      <code>
-       XdY
-      </code>
+      <code>XdY</code>
       are in ascending order of size.
      </li>
      <li>
       The number of arguments
-      <code>
-       XdY
-      </code>
+      <code>XdY</code>
       must match the number of sizes listed in the game mode's
-      <code>
-       sizeAdjustment.lst
-      </code>
+      <code>sizeAdjustment.lst</code>
       .
      </li>
      <li>
       For the
-      <code>
-       35e
-      </code>
+      <code>35e</code>
       game mode, there are nine sizes -
       <em>
        fine, diminutive, tiny, small, medium, large, huge, gargantuan, colossal,
@@ -5145,28 +4581,18 @@ colossal+
   </h4>
   <ol class="incremental">
    <li>
-    <code>
-     UDAM:1d3
-    </code>
+    <code>UDAM:1d3</code>
     - sets un-armed damage to be
-    <code>
-     1d3
-    </code>
+    <code>1d3</code>
     , no matter what size the creature is.
    </li>
    <li>
-    <code>
-     UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8
-    </code>
+    <code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code>
     - sets a damage
 progression for nine creature sizes, increasing from
-    <code>
-     1
-    </code>
+    <code>1</code>
     point at the smallest size, to
-    <code>
-     2d8
-    </code>
+    <code>2d8</code>
     at the largest size.
    </li>
   </ol>
@@ -5207,9 +4633,7 @@ with the UDAM tag on the same line.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    UMULT:2
-   </code>
+   <code>UMULT:2</code>
   </p>
   <p class="indent3">
    This set unarmed damage critical multiplier as
@@ -5295,9 +4719,7 @@ negate both the encumbrance and armor penalties.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
-   </code>
+   <code>UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor</code>
   </p>
   <p class="indent3">
    This is used in the Race entry for Dwarves,
@@ -5322,34 +4744,24 @@ and heavy loads.
    <li style="list-style: none; display: inline">
     <ul class="incremental">
      <li>
-      <code>
-       VFEAT
-      </code>
+      <code>VFEAT</code>
       is deprecated. Use
       <a href="#ability">
-       <code>
-        ABILITY:FEAT|VIRTUAL|
-       </code>
+       <code>ABILITY:FEAT|VIRTUAL|</code>
       </a>
       instead.
      </li>
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format.
@@ -5406,13 +4818,9 @@ be handled one of two ways.
       </li>
       <li>
        Used in conjunction with the
-       <code>
-        CHOOSE
-       </code>
+       <code>CHOOSE</code>
        tag,
-       <code>
-        %LIST
-       </code>
+       <code>%LIST</code>
        can be used with this tag to provide the
 required choice.
       </li>
@@ -5464,51 +4872,39 @@ activate a chooser inside of a feat being granted.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     VFEAT:Simple Weapon Proficiency
-    </code>
+    <code>VFEAT:Simple Weapon Proficiency</code>
    </p>
    <p class="indent3">
     The character gains "Simple Weapon Proficiency"
 as a virtual feat.
    </p>
    <p class="indent2">
-    <code>
-     VFEAT:Alertness|Blind Fight
-    </code>
+    <code>VFEAT:Alertness|Blind Fight</code>
    </p>
    <p class="indent3">
     The character gains "Alertness" and "Blind
 Fight" as virtual feats.
    </p>
    <p class="indent2">
-    <code>
-     VFEAT:Weapon Focus(Greatsword)
-    </code>
+    <code>VFEAT:Weapon Focus(Greatsword)</code>
    </p>
    <p class="indent3">
     The character gains "Weapon Focus(Greatsword)"
 as a virtual feat.
    </p>
    <p class="indent2">
-    <code>
-     CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
-VFEAT:Weapon Focus (%LIST)
-    </code>
+    <code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
+VFEAT:Weapon Focus (%LIST)</code>
    </p>
    <p class="indent3">
     The feat "Weapon Focus" is granted as a virtual
 feat with the weapon chosen with the
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </p>
    <p class="indent2">
-    <code>
-     VFEAT:Banana Barrage|PRECLASS:1,Ninja
-Monkey=1
-    </code>
+    <code>VFEAT:Banana Barrage|PRECLASS:1,Ninja
+Monkey=1</code>
    </p>
    <p class="indent3">
     The character gains "Banana Barrage" as a
@@ -5579,56 +4975,44 @@ vision.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VISION:Low-light
-   </code>
+   <code>VISION:Low-light</code>
   </p>
   <p class="indent3">
    This gives the "Low-Light" vision mode to the
 PC.
   </p>
   <p class="indent2">
-   <code>
-    VISION:Darkvision (60')
-   </code>
+   <code>VISION:Darkvision (60')</code>
   </p>
   <p class="indent3">
    This gives the "Dark" vision mode of 60 foot to
 the PC.
   </p>
   <p class="indent2">
-   <code>
-    VISION:Darkvision (10*TL)
-   </code>
+   <code>VISION:Darkvision (10*TL)</code>
   </p>
   <p class="indent3">
    This gives the "Dark" vision mode of 10 x their
 total level to the PC.
   </p>
   <p class="indent2">
-   <code>
-    VISION:Darkvision
-(120')|Low-light
-   </code>
+   <code>VISION:Darkvision
+(120')|Low-light</code>
   </p>
   <p class="indent3">
    This gives the "Dark" vision mode of 120 foot
 and the "Low-Light" vision mode to the PC.
   </p>
   <p class="indent2">
-   <code>
-    VISION:.CLEAR.Low-light
-   </code>
+   <code>VISION:.CLEAR.Low-light</code>
   </p>
   <p class="indent3">
    Removes the Low-light vision from the
 character
   </p>
   <p class="indent2">
-   <code>
-    VISION:Darkvision
-(0')&lt;tab&gt;BONUS:VISION|Darkvision|30
-   </code>
+   <code>VISION:Darkvision
+(0')&lt;tab&gt;BONUS:VISION|Darkvision|30</code>
   </p>
   <p class="indent3">
    If character does not have Darkvision, receives
@@ -5674,31 +5058,23 @@ abilities.)
     Modifies an existing LST object.
    </li>
    <li>
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     is appended to the end of the first tag on an
 object line as follows:
     <ul>
      <li>
-      <code>
-       &lt;object name&gt;.MOD
-      </code>
+      <code>&lt;object name&gt;.MOD</code>
       for dieties, domains,
 equipment (including weapons, armor, and shields), eqmods, feats,
 languages, race, skill, spell, and templates.
      </li>
      <li>
-      <code>
-       CLASS:&lt;class name&gt;.MOD
-      </code>
+      <code>CLASS:&lt;class name&gt;.MOD</code>
       for classes.
      </li>
      <li>
-      <code>
-       CATEGORY=&lt;category name&gt;|&lt;ability name or
-key&gt;.MOD
-      </code>
+      <code>CATEGORY=&lt;category name&gt;|&lt;ability name or
+key&gt;.MOD</code>
       for abilities.
      </li>
     </ul>
@@ -5709,107 +5085,63 @@ i.e. case sensitive.
    </li>
    <li>
     Any tags that follow the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag are added to the
 list of tags already in the object.
    </li>
    <li>
     If only one tag is allowed, such as
-    <code>
-     HD
-    </code>
+    <code>HD</code>
     for classes
 or
-    <code>
-     COST
-    </code>
+    <code>COST</code>
     in equipment, the new tag will replace the tag
 in the original entry.
    </li>
    <li>
     If more than one tag is allowed, most notably
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     statements, then the new tag will be added to
 the other tags in the object.
    </li>
    <li>
     When modifying an object to remove or replace a numerical
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     , you must duplicate the original
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     with the number or formula used for the
 numerical bonus multiplied by "-1".
    </li>
    <li>
     The order of operations is: Native line,
-    <code>
-     COPY
-    </code>
+    <code>COPY</code>
     ,
-    <code>
-     MOD
-    </code>
+    <code>MOD</code>
     , then
-    <code>
-     FORGET
-    </code>
+    <code>FORGET</code>
     , but the order of
 operation is also controlled by the
-    <code>
-     RANK
-    </code>
+    <code>RANK</code>
     tag in the
 PCC file.
     <ul>
      <li>
       Given:
-      <code>
-       1.MOD
-      </code>
-      <code>
-       1.FORGET
-      </code>
-      <code>
-       2.COPY
-      </code>
-      <code>
-       2.Blank
-      </code>
-      <code>
-       2.MOD
-      </code>
-      <code>
-       3.MOD
-      </code>
+      <code>1.MOD</code>
+      <code>1.FORGET</code>
+      <code>2.COPY</code>
+      <code>2.Blank</code>
+      <code>2.MOD</code>
+      <code>3.MOD</code>
      </li>
      <li>
       Order of processing is:
-      <code>
-       2.Blank
-      </code>
-      <code>
-       2.COPY
-      </code>
-      <code>
-       1.MOD
-      </code>
-      <code>
-       2.MOD
-      </code>
-      <code>
-       3.MOD
-      </code>
-      <code>
-       1.FORGET
-      </code>
+      <code>2.Blank</code>
+      <code>2.COPY</code>
+      <code>1.MOD</code>
+      <code>2.MOD</code>
+      <code>3.MOD</code>
+      <code>1.FORGET</code>
      </li>
     </ul>
    </li>
@@ -5824,9 +5156,7 @@ Behavior:
   </p>
   <p class="indent2">
    When modifying a LST Object with the
-   <code>
-    .MOD
-   </code>
+   <code>.MOD</code>
    tag, there are four ways in which tags are
 modified internally by PCGen: Modification by Overwriting Data,
 Modification by Selective Overwriting, Modification by Appending
@@ -5838,127 +5168,95 @@ below.
   </p>
   <p class="indent3">
    Initial LST Object:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A</code>
   </p>
   <p class="indent3">
    Modified By:
-   <code>
-    &lt;lst object&gt;.MOD
-&lt;tab&gt; LSTFILETAG:B
-   </code>
+   <code>&lt;lst object&gt;.MOD
+&lt;tab&gt; LSTFILETAG:B</code>
   </p>
   <p class="indent3">
    Results In:
-   <code>
-    &lt;lst object&gt; &lt;tab&gt;
-LSTFILETAG:B
-   </code>
+   <code>&lt;lst object&gt; &lt;tab&gt;
+LSTFILETAG:B</code>
   </p>
   <p class="indent2">
    Modification by Selective Overwriting Data
   </p>
   <p class="indent3">
    Initial LST Object:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A|A1
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A|A1</code>
   </p>
   <p class="indent3">
    Modified By:
-   <code>
-    &lt;lst object&gt;.MOD
-&lt;tab&gt; LSTFILETAG:A|A2
-   </code>
+   <code>&lt;lst object&gt;.MOD
+&lt;tab&gt; LSTFILETAG:A|A2</code>
   </p>
   <p class="indent3">
    Results In:
-   <code>
-    &lt;lst object&gt; &lt;tab&gt;
-LSTFILETAG:A|A2
-   </code>
+   <code>&lt;lst object&gt; &lt;tab&gt;
+LSTFILETAG:A|A2</code>
   </p>
   <p class="indent2">
    While
   </p>
   <p class="indent3">
    Initial LST Object:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A|A1
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A|A1</code>
   </p>
   <p class="indent3">
    Modified By:
-   <code>
-    &lt;lst object&gt;.MOD
-&lt;tab&gt; LSTFILETAG:B|B1
-   </code>
+   <code>&lt;lst object&gt;.MOD
+&lt;tab&gt; LSTFILETAG:B|B1</code>
   </p>
   <p class="indent3">
    Results In:
-   <code>
-    &lt;lst object&gt; &lt;tab&gt;
-LSTFILETAG:B|B1
-   </code>
+   <code>&lt;lst object&gt; &lt;tab&gt;
+LSTFILETAG:B|B1</code>
   </p>
   <p class="indent2">
    Modification by Appending Data
   </p>
   <p class="indent3">
    Initial LST Object:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A</code>
   </p>
   <p class="indent3">
    Modified By:
-   <code>
-    &lt;lst object&gt;.MOD
-&lt;tab&gt; LSTFILETAG:B
-   </code>
+   <code>&lt;lst object&gt;.MOD
+&lt;tab&gt; LSTFILETAG:B</code>
   </p>
   <p class="indent3">
    Is Equivalent To:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A,B
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A,B</code>
   </p>
   <p class="indent2">
    Modification by Separate LST Tags
   </p>
   <p class="indent3">
    Initial LST Object:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A</code>
   </p>
   <p class="indent3">
    Modified By:
-   <code>
-    &lt;lst object&gt;.MOD
-&lt;tab&gt; LSTFILETAG:B
-   </code>
+   <code>&lt;lst object&gt;.MOD
+&lt;tab&gt; LSTFILETAG:B</code>
   </p>
   <p class="indent3">
    Is Equivalent To:
-   <code>
-    &lt;lst object&gt;
-&lt;tab&gt; LSTFILETAG:A &lt;tab&gt; LSTFILETAG:B
-   </code>
+   <code>&lt;lst object&gt;
+&lt;tab&gt; LSTFILETAG:A &lt;tab&gt; LSTFILETAG:B</code>
   </p>
   <p class="indent3">
    But is Not Equivalent To:
-   <code>
-    &lt;lst
-object&gt; &lt;tab&gt; LSTFILETAG:A,B
-   </code>
+   <code>&lt;lst
+object&gt; &lt;tab&gt; LSTFILETAG:A,B</code>
   </p>
   <p class="sidebar1">
    NOTE:The actual separator used in the
@@ -5972,9 +5270,7 @@ modification syntax.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Human.MOD
-   </code>
+   <code>Human.MOD</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -5988,10 +5284,8 @@ modification syntax.
    file)
   </p>
   <p class="indent2">
-   <code>
-    Dagger.MOD &lt;tab&gt; DESC:Short and
-pointy
-   </code>
+   <code>Dagger.MOD &lt;tab&gt; DESC:Short and
+pointy</code>
   </p>
   <p class="indent3">
    Replaces the description of the
@@ -6005,9 +5299,7 @@ pointy
    file)
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Ranger.MOD
-   </code>
+   <code>CLASS:Ranger.MOD</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -6021,10 +5313,8 @@ pointy
    file)
   </p>
   <p class="indent2">
-   <code>
-    Acid Arrow.MOD &lt;tab&gt; OUTPUTNAME:My
-Acid Arrow
-   </code>
+   <code>Acid Arrow.MOD &lt;tab&gt; OUTPUTNAME:My
+Acid Arrow</code>
   </p>
   <p class="indent3">
    Renames the
@@ -6038,10 +5328,8 @@ Acid Arrow
    (in a spells.lst file)
   </p>
   <p class="indent2">
-   <code>
-    Resistance.MOD &lt;tab&gt;
-BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC
-   </code>
+   <code>Resistance.MOD &lt;tab&gt;
+BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC</code>
   </p>
   <p class="indent3">
    Adds a saving throw temporary bonus function to
@@ -6052,11 +5340,9 @@ the
    spell
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Arcane Archer.MOD &lt;tab&gt;
+   <code>CLASS:Arcane Archer.MOD &lt;tab&gt;
 BONUS:CHECKS|BASE.Will|-1*(CL/3) &lt;tab&gt;
-BONUS:CHECKS|BASE.Will|CL/2+2
-   </code>
+BONUS:CHECKS|BASE.Will|CL/2+2</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -6068,9 +5354,7 @@ first removing the original "Will" bonus and then adding the new
 bonus.
   </p>
   <p class="indent2">
-   <code>
-    Skill Focus.MOD
-   </code>
+   <code>Skill Focus.MOD</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -6084,9 +5368,7 @@ bonus.
    file)
   </p>
   <p class="indent2">
-   <code>
-    BOWSTR.MOD
-   </code>
+   <code>BOWSTR.MOD</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -6100,10 +5382,8 @@ bonus.
    file)
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY=Mutation|Weak Immune
-System.MOD
-   </code>
+   <code>CATEGORY=Mutation|Weak Immune
+System.MOD</code>
   </p>
   <p class="indent3">
    Modifies an ability of the category "Mutation",
@@ -6165,9 +5445,7 @@ properties as the original object.
    <li>
     When copying abilities you reference the ability by its
 "category", i.e.
-    <code>
-     CATEGORY=&lt;category&gt;
-    </code>
+    <code>CATEGORY=&lt;category&gt;</code>
     , and its
 name, or "key".
    </li>
@@ -6178,115 +5456,69 @@ i.e. case sensitive.
    <li>
     Copying a "class" requires that the object include the
 beginning
-    <code>
-     CLASS:
-    </code>
+    <code>CLASS:</code>
     tag.
    </li>
    <li>
     Tags following the
-    <code>
-     .COPY
-    </code>
+    <code>.COPY</code>
     line modify the new
 object in the same way the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag modifies
 objects.
    </li>
    <li>
     Any tags that follow the
-    <code>
-     .COPY
-    </code>
+    <code>.COPY</code>
     tag are added to
 the list of tags already in the object.
    </li>
    <li>
     If only one tag is allowed, such as
-    <code>
-     HD
-    </code>
+    <code>HD</code>
     for classes
 or
-    <code>
-     COST
-    </code>
+    <code>COST</code>
     in equipment, the new tag will replace the tag
 in the original entry.
    </li>
    <li>
     If more than one tag is allowed, most notably
-    <code>
-     BONUS
-    </code>
+    <code>BONUS</code>
     statements, then the new tag will be added to
 the other tags in the object.
    </li>
    <li>
     The order of operations is: Native line,
-    <code>
-     COPY
-    </code>
+    <code>COPY</code>
     ,
-    <code>
-     MOD
-    </code>
+    <code>MOD</code>
     , then
-    <code>
-     FORGET
-    </code>
+    <code>FORGET</code>
     , but the order of
 operation is also controlled by the
-    <code>
-     RANK
-    </code>
+    <code>RANK</code>
     tag in the
 PCC file.
     <ul>
      <li>
       Given:
-      <code>
-       1.MOD
-      </code>
-      <code>
-       1.FORGET
-      </code>
-      <code>
-       2.COPY
-      </code>
-      <code>
-       2.Blank
-      </code>
-      <code>
-       2.MOD
-      </code>
-      <code>
-       3.MOD
-      </code>
+      <code>1.MOD</code>
+      <code>1.FORGET</code>
+      <code>2.COPY</code>
+      <code>2.Blank</code>
+      <code>2.MOD</code>
+      <code>3.MOD</code>
      </li>
      <li>
       Order of processing is:
-      <code>
-       2.Blank
-      </code>
-      <code>
-       2.COPY
-      </code>
-      <code>
-       1.MOD
-      </code>
-      <code>
-       2.MOD
-      </code>
-      <code>
-       3.MOD
-      </code>
-      <code>
-       1.FORGET
-      </code>
+      <code>2.Blank</code>
+      <code>2.COPY</code>
+      <code>1.MOD</code>
+      <code>2.MOD</code>
+      <code>3.MOD</code>
+      <code>1.FORGET</code>
      </li>
     </ul>
    </li>
@@ -6305,52 +5537,40 @@ Spellcasting, Favored Enemies, etc.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Human.COPY=Aboriginee
-   </code>
+   <code>Human.COPY=Aboriginee</code>
   </p>
   <p class="indent3">
    Creates a new race called Aboriginee based on
 the Human race.
   </p>
   <p class="indent2">
-   <code>
-    Dagger.COPY=Hunting Knife
-   </code>
+   <code>Dagger.COPY=Hunting Knife</code>
   </p>
   <p class="indent3">
    Creates a new weapon called Hunting Knife based
 on the weapon Dagger.
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Ranger.COPY=Woodsman
-   </code>
+   <code>CLASS:Ranger.COPY=Woodsman</code>
   </p>
   <p class="indent3">
    Creates a new class called the Woodsman based on
 the Ranger class.
   </p>
   <p class="indent2">
-   <code>
-    Skill Focus.COPY=Heighten
-Knowledge
-   </code>
+   <code>Skill Focus.COPY=Heighten
+Knowledge</code>
   </p>
   <p class="indent3">
    Creates a new feat called Heighten Knowledge
 based on the Skill Focus feat.
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY=(foo)|(key).COPY
-   </code>
+   <code>CATEGORY=(foo)|(key).COPY</code>
   </p>
   <p class="indent3">
    The new syntax to be used to
-   <code>
-    .COPY
-   </code>
+   <code>.COPY</code>
    an ability.
   </p>
   <hr/>
@@ -6388,13 +5608,9 @@ of object being cleared, Optional))
   <ul class="indent2">
    <li>
     This tag is used in conjunction with the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     and
-    <code>
-     .COPY
-    </code>
+    <code>.COPY</code>
     tags and may not be used for "Run-Time"
 changes.
    </li>
@@ -6407,17 +5623,13 @@ changes.
    </li>
    <li>
     Tags that can have multiple items, such as
-    <code>
-     TYPE
-    </code>
+    <code>TYPE</code>
     ,
 or tags that can be used multiple times can be eliminated.
    </li>
    <li>
     The
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     syntax has not yet been standardized as
 many of the other tags have been and there are at least 2
 variations on how it can be used.
@@ -6425,9 +5637,7 @@ variations on how it can be used.
   </ul>
   <p class="sidebar1">
    Note: Although listed as global,
-   <code>
-    .CLEAR
-   </code>
+   <code>.CLEAR</code>
    will not work with all tags. Some
 experimentation may be required to see which usage is required with
 which tags.
@@ -6438,9 +5648,7 @@ which tags.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TAG:.CLEAR
-   </code>
+   <code>TAG:.CLEAR</code>
   </p>
   <p class="indent3">
    This syntax clears all the values of the
@@ -6450,16 +5658,12 @@ sequential manner and if the two tags order is swapped the new
 value will be cleared as well as the original values.
   </p>
   <p class="indent2">
-   <code>
-    TAG:.CLEAR.&lt;Values to be
-cleared&gt;
-   </code>
+   <code>TAG:.CLEAR.&lt;Values to be
+cleared&gt;</code>
   </p>
   <p class="indent3">
    The items which follow the
-   <code>
-    .CLEAR.
-   </code>
+   <code>.CLEAR.</code>
    are cleared.
   </p>
   <p class="indent1">
@@ -6468,28 +5672,20 @@ cleared&gt;
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    .CLEAR
-   </code>
+   <code>.CLEAR</code>
    is not supported on the
-   <code>
-    CHOICE
-   </code>
+   <code>CHOICE</code>
    tag, allowing the removal of the tag from the
 item. Two ways to do that are:
   </p>
   <ul class="indent2" style="list-style: lower-alpha">
    <li>
-    <code>
-     MULT:NO
-    </code>
+    <code>MULT:NO</code>
     - makes it a single feat, choice not
 supported.
    </li>
    <li>
-    <code>
-     CHOOSE:NOCHOICE
-    </code>
+    <code>CHOOSE:NOCHOICE</code>
     - no popup, but selectable
 multiple times.
    </li>
@@ -6500,10 +5696,8 @@ multiple times.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Ranger.MOD &lt;tab&gt;
-CSKILL:.CLEAR.Animal Empathy
-   </code>
+   <code>CLASS:Ranger.MOD &lt;tab&gt;
+CSKILL:.CLEAR.Animal Empathy</code>
   </p>
   <p class="indent3">
    Modifies the
@@ -6518,11 +5712,9 @@ CSKILL:.CLEAR.Animal Empathy
   </p>
   <blockquote class="indent2">
    <p class="tagindent1">
-    <code>
-     Dagger.COPY=Hunting Knife &lt;tab&gt;
+    <code>Dagger.COPY=Hunting Knife &lt;tab&gt;
 TYPE:.CLEAR &lt;tab&gt;
-TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Piercing.Slashing.Dagger
-    </code>
+TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Piercing.Slashing.Dagger</code>
    </p>
   </blockquote>
   <p class="indent3">
@@ -6534,22 +5726,16 @@ TYPE:Weapon.Melee.Finesseable.Exotic.Standard.Piercing.Slashing.Dagger
 weapon and then adds back the desired types.
   </p>
   <p class="indent2">
-   <code>
-    Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR
-&lt;tab&gt; SCHOOL:Lesser Conjuration
-   </code>
+   <code>Acid Arrow.MOD &lt;tab&gt; SCHOOL:.CLEAR
+&lt;tab&gt; SCHOOL:Lesser Conjuration</code>
   </p>
   <p class="indent3">
    Modifies the Acid Arrow spell by eliminating the
 original value of the
-   <code>
-    SCHOOL
-   </code>
+   <code>SCHOOL</code>
    tag and then sets the new
 value with a second
-   <code>
-    SCHOOL
-   </code>
+   <code>SCHOOL</code>
    tag.
   </p>
   <p class="indent1">
@@ -6559,13 +5745,9 @@ value with a second
   </p>
   <p class="indent2">
    In conjunction with
-   <code>
-    .MOD
-   </code>
+   <code>.MOD</code>
    and
-   <code>
-    .COPY
-   </code>
+   <code>.COPY</code>
   </p>
   <hr/>
   <h2>
@@ -6609,9 +5791,7 @@ abilities.)
    <li>
     When forgeting abilities you reference the ability by its
 "category", i.e.
-    <code>
-     CATEGORY=&lt;category&gt;
-    </code>
+    <code>CATEGORY=&lt;category&gt;</code>
     , and its
 name, or "key".
    </li>
@@ -6625,73 +5805,39 @@ i.e. case sensitive.
    <li>
     Forgeting a "class" requires that the object include the
 beginning
-    <code>
-     CLASS:
-    </code>
+    <code>CLASS:</code>
     tag.
    </li>
    <li>
     The order of operations is: Native line,
-    <code>
-     COPY
-    </code>
+    <code>COPY</code>
     ,
-    <code>
-     MOD
-    </code>
+    <code>MOD</code>
     , then
-    <code>
-     FORGET
-    </code>
+    <code>FORGET</code>
     , but the order of
 operation is also controlled by the
-    <code>
-     RANK
-    </code>
+    <code>RANK</code>
     tag in the
 PCC file.
     <ul>
      <li>
       Given:
-      <code>
-       1.MOD
-      </code>
-      <code>
-       1.FORGET
-      </code>
-      <code>
-       2.COPY
-      </code>
-      <code>
-       2.Blank
-      </code>
-      <code>
-       2.MOD
-      </code>
-      <code>
-       3.MOD
-      </code>
+      <code>1.MOD</code>
+      <code>1.FORGET</code>
+      <code>2.COPY</code>
+      <code>2.Blank</code>
+      <code>2.MOD</code>
+      <code>3.MOD</code>
      </li>
      <li>
       Order of processing is:
-      <code>
-       2.Blank
-      </code>
-      <code>
-       2.COPY
-      </code>
-      <code>
-       1.MOD
-      </code>
-      <code>
-       2.MOD
-      </code>
-      <code>
-       3.MOD
-      </code>
-      <code>
-       1.FORGET
-      </code>
+      <code>2.Blank</code>
+      <code>2.COPY</code>
+      <code>1.MOD</code>
+      <code>2.MOD</code>
+      <code>3.MOD</code>
+      <code>1.FORGET</code>
      </li>
     </ul>
    </li>
@@ -6702,42 +5848,32 @@ PCC file.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    Human.FORGET
-   </code>
+   <code>Human.FORGET</code>
   </p>
   <p class="indent3">
    Removes the Human race (in a race.lst file)
   </p>
   <p class="indent2">
-   <code>
-    Dagger.FORGET
-   </code>
+   <code>Dagger.FORGET</code>
   </p>
   <p class="indent3">
    Removes the Dagger weapon (in equipment.lst
 file)
   </p>
   <p class="indent2">
-   <code>
-    CLASS:Ranger.FORGET
-   </code>
+   <code>CLASS:Ranger.FORGET</code>
   </p>
   <p class="indent3">
    Removes the Ranger class (in class.lst)
   </p>
   <p class="indent2">
-   <code>
-    Skill Focus.FORGET
-   </code>
+   <code>Skill Focus.FORGET</code>
   </p>
   <p class="indent3">
    Removes the Skill Focus feat (in feat.lst)
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY=(foo)|(key).FORGET
-   </code>
+   <code>CATEGORY=(foo)|(key).FORGET</code>
   </p>
   <p class="indent3">
    The new syntax to be used to .FORGET an
@@ -6795,9 +5931,7 @@ the qualifiers has the following effect:
       </strong>
       - Will return a list of all LST objects of
 the type requested by the
-      <code>
-       CHOOSE
-      </code>
+      <code>CHOOSE</code>
       tag, e.g. Template,
 Race, Equipment, Domain, etc.
      </li>
@@ -6807,9 +5941,7 @@ Race, Equipment, Domain, etc.
       </strong>
       - Will return a list of all LST objects
 already taken by the Player Character of the type requested by the
-      <code>
-       CHOOSE
-      </code>
+      <code>CHOOSE</code>
       tag, e.g. Template, Race, Equipment, Domain,
 etc.
      </li>
@@ -6819,9 +5951,7 @@ etc.
       </strong>
       - Will return a list of all LST
 objects of the type requested by the
-      <code>
-       CHOOSE
-      </code>
+      <code>CHOOSE</code>
       tag, e.g.
 Template, Race, Equipment, Domain, etc., that the player character
 is otherwise qualified for.
@@ -6831,9 +5961,7 @@ is otherwise qualified for.
    <li>
     Qualifiers can be logically negated by prefacing with the
 exclamation point (!), i.e.
-    <code>
-     !PC
-    </code>
+    <code>!PC</code>
     is a valid usage.
    </li>
    <li>
@@ -6892,25 +6020,19 @@ Name:
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    PRERACE:%
-   </code>
+   <code>PRERACE:%</code>
   </p>
   <p class="indent3">
    Match any race in a race.lst file
   </p>
   <p class="indent2">
-   <code>
-    Level %
-   </code>
+   <code>Level %</code>
   </p>
   <p class="indent3">
    Any Level
   </p>
   <p class="indent2">
-   <code>
-    Knowledge%
-   </code>
+   <code>Knowledge%</code>
   </p>
   <p class="indent3">
    Any Knowledge skills

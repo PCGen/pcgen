@@ -3,6 +3,48 @@
 ##	New Formula Parser Support Mechanisms	##
 ###--------------------------------------------###
 
+
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_DefensiveTraining|0		
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Greed|0				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Hatred|0				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Hardy|0				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Stability|0			
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Stonecunning|0			
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Steady|0				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_WeaponFamiliarity|0		
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Darkvision|0			
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		DEFINE:Dwarf_Trait_Language|0			
+
+
+
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_DefensiveTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Greed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Hatred|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Hardy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHardy
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Stability|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Stonecunning|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Steady|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_WeaponFamiliarity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Darkvision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Language|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfLanguage
+
+
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_DefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_DefensiveTraining=True		
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Greed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Greed=True				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Hatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Hatred=True				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Hardy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Hardy=True				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Stability|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Stability=True
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Stonecunning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Stonecunning=True			
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Steady|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Steady=True				
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_WeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_WeaponFamiliarity=True		
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Darkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Darkvision=True			
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Language|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_Trait_Language=True			
+
+
+
+
+
+
 ###Block: Actual Base Class
 # COMMENT: These will eventually become FLAG/Boolean in the new system
 # COMMENT: Currently Double System to make transition easier
@@ -631,6 +673,18 @@ CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREA
 ###
 
 ###Block:
+CATEGORY=Class|Ranger.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|PREVAREQ:Ranger_CF_Proficiencies,0
+CATEGORY=Class|Ranger.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Ranger_CF_WeaponProficiencies,0
+CATEGORY=Class|Ranger.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|PREVAREQ:Ranger_CF_LightArmorProficiency,0
+CATEGORY=Class|Ranger.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|PREVAREQ:Ranger_CF_MediumArmorProficiency,0
+CATEGORY=Class|Ranger.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|PREVAREQ:Ranger_CF_ShieldProficiency,0
+
+
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Proficiencies|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_WeaponProficiencies|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_LightArmorProficiency|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_MediumArmorProficiency|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_ShieldProficiency|0
 
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_HuntersBond|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy|0
@@ -662,6 +716,14 @@ CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy3|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy4|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_AnimalCompanion|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_ClassSkills|0
+
+
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Proficiencies=True		
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WeaponProficiencies=True		
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_LightArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_LightArmorProficiency=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_MediumArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_MediumArmorProficiency=True	
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ShieldProficiency=True
+
 
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ClassSkills=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ImprovedEvasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ImprovedEvasion=True
@@ -822,15 +884,16 @@ CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower15|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower20|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineFeats|0
 
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells1|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells2|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells3|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells4|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells5|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells6|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells7|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells8|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells9|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell1|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell2|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell3|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell4|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell5|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell6|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell7|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell8|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpell9|0
 
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_ClassSkills=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower1=True
@@ -843,15 +906,16 @@ CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineFeats|1|TYPE=Boolean|
 
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_WeaponProficiencies=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_EschewMaterials=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells1=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells2=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells3=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells4=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells5=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells6=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells7=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells8=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells9=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell1=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell2=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell3=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell4=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell5=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell6=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell7=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell8=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpell9=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Bloodline=True
 
 # Old Style

@@ -85,9 +85,7 @@ character to build upon.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STATNAME:Awareness
-   </code>
+   <code>STATNAME:Awareness</code>
   </p>
   <p class="indent3">
    Creates a Stat named "Awareness".
@@ -133,9 +131,7 @@ statistic.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABB:AWR
-   </code>
+   <code>ABB:AWR</code>
   </p>
   <p class="indent3">
    Example abbreviation of above example of
@@ -183,17 +179,13 @@ metamagic feat costs to apply.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:ADDSPELLLEVEL|1
-   </code>
+   <code>ABILITY:ADDSPELLLEVEL|1</code>
   </p>
   <p class="indent3">
    Adds 1 to the spell level.
   </p>
   <p class="indent2">
-   <code>
-    ABILITY:ADDSPELLLEVEL|+2
-   </code>
+   <code>ABILITY:ADDSPELLLEVEL|+2</code>
   </p>
   <p class="indent3">
    Adds 2 to the spell level.
@@ -243,9 +235,7 @@ appropriate.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|1|TYPE=NaturalArmor
-   </code>
+   <code>BONUS:COMBAT|AC|1|TYPE=NaturalArmor</code>
   </p>
   <p class="indent3">
    Bonus of +1 to Natural Armor.
@@ -296,36 +286,28 @@ defined HP type).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|WOUNDPOINTS|CON
-   </code>
+   <code>BONUS:HP|WOUNDPOINTS|CON</code>
   </p>
   <p class="indent3">
    Adds a characters CON bonus to the WOUNDPOINTS
 total at each level.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|ALTHP|CONSCORE
-   </code>
+   <code>BONUS:HP|ALTHP|CONSCORE</code>
   </p>
   <p class="indent3">
    Adds a characters CONSCORE to the ALTHP total as
 defined in miscinfo.lst.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|BONUS|CON
-   </code>
+   <code>BONUS:HP|BONUS|CON</code>
   </p>
   <p class="indent3">
    Adds a characters CON bonus to the Primary HP
 total as defined in miscinfo.lst.
   </p>
   <p class="indent2">
-   <code>
-    BONUS:HP|CON
-   </code>
+   <code>BONUS:HP|CON</code>
   </p>
   <p class="indent3">
    Adds a characters CON bonus to the Primary HP
@@ -380,9 +362,7 @@ variable or formula
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:LANG|BONUS|INT
-   </code>
+   <code>BONUS:LANG|BONUS|INT</code>
   </p>
   <p class="indent3">
    Adds the value of INT modifier to total the
@@ -436,9 +416,7 @@ variable or formula
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MODSKILLPOINTS|NUMBER|INT
-   </code>
+   <code>BONUS:MODSKILLPOINTS|NUMBER|INT</code>
   </p>
   <p class="indent3">
    Adds the value of INT modifier to total the
@@ -494,9 +472,7 @@ you can use based on the referenced stat.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    DEFINE:MAXLEVELSTAT:WIS|WISSCORE-10
-   </code>
+   <code>DEFINE:MAXLEVELSTAT:WIS|WISSCORE-10</code>
   </p>
   <p class="indent3">
    Maximum spell level is Wisdom -10
@@ -560,9 +536,7 @@ modifiers.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STATMOD:floor(SCORE/2)-5
-   </code>
+   <code>STATMOD:floor(SCORE/2)-5</code>
   </p>
   <p class="indent3">
    Would calculate a stat modification as STAT
@@ -571,27 +545,21 @@ the stat value). Note: the formula can only contain 1 SCORE
 variable.
   </p>
   <p class="indent2">
-   <code>
-    STATMOD:if(CL&lt;10,1,2)
-   </code>
+   <code>STATMOD:if(CL&lt;10,1,2)</code>
   </p>
   <p class="indent3">
    Would compare CL to 10 and return 1 or 2 as
 required.
   </p>
   <p class="indent2">
-   <code>
-    STATMOD:if((CL&gt;5)||(TL&gt;5),2,-4)
-   </code>
+   <code>STATMOD:if((CL&gt;5)||(TL&gt;5),2,-4)</code>
   </p>
   <p class="indent3">
    Asks if Class Level or Total Level is greater
 than 5 then returns 2 or else returns -4.
   </p>
   <p class="indent2">
-   <code>
-    STATMOD:if(STR&gt;DEX,STR,DEX)
-   </code>
+   <code>STATMOD:if(STR&gt;DEX,STR,DEX)</code>
   </p>
   <p class="indent3">
    Asks if STR is greater than DEX then returns STR
@@ -644,9 +612,7 @@ stat.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STATRANGE:-100|100
-   </code>
+   <code>STATRANGE:-100|100</code>
   </p>
   <p class="indent3">
    Would allow a valid range for a stat of between
@@ -715,9 +681,7 @@ throws.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CHECKNAME:Fortitude
-   </code>
+   <code>CHECKNAME:Fortitude</code>
   </p>
   <p class="indent3">
    Defines "Fortitude" as a valid check.
@@ -771,9 +735,7 @@ lines, besides the CHECKNAME tag itself).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:CHECKS|FORTITUDE|CON
-   </code>
+   <code>BONUS:CHECKS|FORTITUDE|CON</code>
   </p>
   <p class="indent3">
    Defines that "Constitution" gives a bonus to
@@ -793,10 +755,8 @@ lines, besides the CHECKNAME tag itself).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CHECKNAME:Fortitude
-BONUS:CHECKS|FORTITUDE|CON
-   </code>
+   <code>CHECKNAME:Fortitude
+BONUS:CHECKS|FORTITUDE|CON</code>
   </p>
   <hr/>
   <h2>
@@ -838,9 +798,7 @@ level you are defining bonus spells for).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUSSPELLLEVEL:1
-   </code>
+   <code>BONUSSPELLLEVEL:1</code>
   </p>
   <p class="indent3">
    Defines that bonus spells are for level 1.
@@ -886,9 +844,7 @@ score is WIS for Sorcerers, INT for Wizards, etc.).
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BASESTATSCORE:12
-   </code>
+   <code>BASESTATSCORE:12</code>
   </p>
   <p class="indent3">
    Defines that a base stat of 12 is required for
@@ -936,9 +892,7 @@ be given again.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STATRANGE:8
-   </code>
+   <code>STATRANGE:8</code>
   </p>
   <p class="indent3">
    Base stat score +8 is required before another
@@ -958,10 +912,8 @@ spell is given.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUSSPELLLEVEL:1 BASESTATSCORE:12
-STATRANGE:8
-   </code>
+   <code>BONUSSPELLLEVEL:1 BASESTATSCORE:12
+STATRANGE:8</code>
   </p>
   <hr/>
   <h2>
@@ -1001,9 +953,7 @@ alignments are all possible.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALIGNMENTNAME: Lawful Good
-   </code>
+   <code>ALIGNMENTNAME: Lawful Good</code>
   </p>
   <p class="indent3">
    Defines the alignment "Lawful Good".
@@ -1050,9 +1000,7 @@ necessarily have to be 2 letters, it can be longer.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ABB:LG
-   </code>
+   <code>ABB:LG</code>
   </p>
   <p class="indent3">
    Defines the abbreviated alignment as "LG".
@@ -1071,10 +1019,8 @@ necessarily have to be 2 letters, it can be longer.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ALIGNMENTNAME: Lawful Good
-ABB:LG
-   </code>
+   <code>ALIGNMENTNAME: Lawful Good
+ABB:LG</code>
   </p>
   <hr/>
   <p>

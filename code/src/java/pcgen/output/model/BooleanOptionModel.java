@@ -17,7 +17,6 @@
  */
 package pcgen.output.model;
 
-import pcgen.output.base.NamedModel;
 import pcgen.system.PCGenSettings;
 import freemarker.template.TemplateBooleanModel;
 import freemarker.template.TemplateModelException;
@@ -27,7 +26,7 @@ import freemarker.template.TemplateModelException;
  * that into a TemplateModel representing the contents of the specific Boolean
  * Preference being requested by its name
  */
-public class BooleanOptionModel implements TemplateBooleanModel, NamedModel
+public class BooleanOptionModel implements TemplateBooleanModel
 {
 	/**
 	 * The String indicating the preference name underlying this
@@ -60,11 +59,5 @@ public class BooleanOptionModel implements TemplateBooleanModel, NamedModel
 	public boolean getAsBoolean() throws TemplateModelException
 	{
 		return PCGenSettings.OPTIONS_CONTEXT.getBoolean(prefName, defaultValue);
-	}
-
-	@Override
-	public String getModelName()
-	{
-		return prefName;
 	}
 }

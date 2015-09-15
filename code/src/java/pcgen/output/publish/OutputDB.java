@@ -25,8 +25,9 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.core.GameMode;
+import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
-import pcgen.output.base.NamedModel;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
@@ -54,8 +55,14 @@ public final class OutputDB
 	/**
 	 * The map of string names to models for global items (not PC dependent)
 	 */
-	private static Map<Object, NamedModel> globalModels =
-			new CaseInsensitiveMap<NamedModel>();
+	private static Map<Object, TemplateModel> globalModels =
+			new CaseInsensitiveMap<TemplateModel>();
+
+	/**
+	 * The Map of string names to output models for the Game Mode
+	 */
+	private static Map<Object, ModeModelFactory> modeModels =
+			new CaseInsensitiveMap<ModeModelFactory>();
 
 	/**
 	 * Registers a new ModelFactory to be used in output
@@ -169,6 +176,55 @@ public final class OutputDB
 	}
 
 	/**
+	 * Builds the "game mode" data model
+	 * 
+	 * @return Returns a Map containing the "game mode" information
+	 */
+	public static Map<String, Object> buildModeDataModel(GameMode mode)
+	{
+		Map<String, Object> input = new HashMap<String, Object>();
+		for (Object key : modeModels.keySet())
+		{
+			ModeModelFactory modelFactory = modeModels.get(key);
+			input.put(key.toString(), modelFactory.generate(mode));
+		}
+		return input;
+	}
+	
+	/**
+	 * Registers a ModeModelFactory under the given name.
+	 * 
+	 * Note that only one ModeModelFactory can be registered under a given (case
+	 * insensitive) name. Additional items registered under the same name will
+	 * cause an UnsupportedOperationException.
+	 * 
+	 * @param name
+	 *            The Name the given ModeModelFactory should be registered under
+	 *            for use as an interpolation under gamemode. in FreeMarker
+	 * @param factory
+	 *            The ModeModelFactory to be registered under the given name
+	 */
+	public static void registerMode(String name, ModeModelFactory factory)
+	{
+		if (factory == null)
+		{
+			throw new IllegalArgumentException("Model Factory may not be null");
+		}
+		int dotLoc = name.indexOf('.');
+		if (dotLoc != -1)
+		{
+			throw new IllegalArgumentException("Name may not contain a dot: "
+				+ name);
+		}
+		ModeModelFactory old = modeModels.put(name, factory);
+		if (old != null)
+		{
+			throw new UnsupportedOperationException(
+				"Cannot have two Mode Models using the same name: " + name);
+		}
+	}
+	
+	/**
 	 * Returns a specific portion of the PlayerCharacter data model for the
 	 * given CharID and selection string.
 	 * 
@@ -215,6 +271,7 @@ public final class OutputDB
 	{
 		outModels.clear();
 		globalModels.clear();
+		modeModels.clear();
 	}
 
 	/**
@@ -227,14 +284,12 @@ public final class OutputDB
 	 * 
 	 * @return a Map of the global TemplateModel objects
 	 */
-	public static Map<String, TemplateModel> getGlobal()
+	public static Map<Object, TemplateModel> getGlobal()
 	{
-		Map<String, TemplateModel> hm = new HashMap<String, TemplateModel>();
-		for (NamedModel nm : globalModels.values())
-		{
-			hm.put(nm.getModelName(), nm);
-		}
-		return hm;
+		CaseInsensitiveMap<TemplateModel> map =
+				new CaseInsensitiveMap<TemplateModel>();
+		map.putAll(globalModels);
+		return map;
 	}
 
 	/**
@@ -253,14 +308,27 @@ public final class OutputDB
 			throw new IllegalArgumentException(
 				"Preference Name may not be null or empty: " + pref);
 		}
-		BooleanOptionModel bom = new BooleanOptionModel(pref, defaultValue);
-		TemplateModel old = globalModels.put(pref, bom);
+		addGlobalModel(pref, new BooleanOptionModel(pref, defaultValue));
+	}
+
+	/**
+	 * Directly adds a new TemplateModel as part of the "Global" Models in
+	 * OutputDB.
+	 * 
+	 * @param name
+	 *            The name to be used when the TemplateModel is referred to in
+	 *            FreeMarker
+	 * @param model
+	 *            The TemplateModel to be added to the global models
+	 */
+	public static void addGlobalModel(String name, TemplateModel model)
+	{
+		TemplateModel old = globalModels.put(name, model);
 		if (old != null)
 		{
 			throw new UnsupportedOperationException(
-				"Cannot have two Preference Output Models using the same name: "
-					+ pref);
+				"Cannot have two Global Output Models using the same name: "
+					+ name);
 		}
 	}
-
 }

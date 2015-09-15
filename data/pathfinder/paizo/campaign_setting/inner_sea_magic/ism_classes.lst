@@ -1,0 +1,102 @@
+SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Cleric ~ Varisian Pilgrim
+CLASS:Cleric.MOD
+0	DOMAIN:Exploration Subdomain|PREABILITY:1,CATEGORY=Special Ability,Varisian Pilgrim Domain ~ Exploration Subdomain
+0	DOMAIN:Fate Subdomain|PREABILITY:1,CATEGORY=Special Ability,Varisian Pilgrim Domain ~ Fate Subdomain
+0	DOMAIN:Freedom Subdomain|PREABILITY:1,CATEGORY=Special Ability,Varisian Pilgrim Domain ~ Freedom Subdomain
+0	DOMAIN:Seasons Subdomain|PREABILITY:1,CATEGORY=Special Ability,Varisian Pilgrim Domain ~ Seasons Subdomain
+0	DOMAIN:Trade Subdomain|PREABILITY:1,CATEGORY=Special Ability,Varisian Pilgrim Domain ~ Trade Subdomain
+
+
+###Block: Summoner ~ First Worlder
+# Class Name		Output Name			HD	Type				Class Type			Max Level		Source Page		Ability					Define			Combat bonus										Save bonus																													Modify VAR
+CLASS:Eidolon (Fey)	OUTPUTNAME:Eidolon	HD:6	TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.35	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|EidolonLVL|CL
+# Class Name		Reg. Race Type
+CLASS:Eidolon (Fey)	PRERACETYPE:Eidolon
+# Class Name		Skill Pts/Lvl	Add INT to Skill?	Class Skill
+CLASS:Eidolon (Fey)	STARTSKILLPTS:6	MODTOSKILLS:YES	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Fly|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE=Perform|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+
+
+###Block: Witch ~ Winter Witch
+CLASS:Witch.MOD	PROHIBITSPELL:DESCRIPTOR.Fire|PREABILITY:1,CATEGORY=Special Ability,Winter Witch ~ Ice Magic
+
+
+###Block: Wizard ~ Thassilonian Specialist
+CLASS:Wizard.MOD
+SUBCLASS:Envy	COST:0	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Envy (Abjuration) School		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Gluttony	COST:0	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Gluttony (Necromancy) School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Greed	COST:0	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Greed (Transmutation) School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Lust	COST:0	CHOICE:SCHOOL|Enchantment	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Lust (Enchantment) School		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Pride	COST:0	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Pride (Illusion) School		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Sloth	COST:0	CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Sloth (Conjuration) School		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Wrath	COST:0	CHOICE:SCHOOL|Evocation		KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Wrath (Evocation) School		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+1	PROHIBITSPELL:SCHOOL.Abjuration|PRESUBCLASS:1,Gluttony,Wrath
+1	PROHIBITSPELL:SCHOOL.Conjuration|PRESUBCLASS:1,Pride,Wrath
+1	PROHIBITSPELL:SCHOOL.Enchantment|PRESUBCLASS:1,Gluttony,Greed
+1	PROHIBITSPELL:SCHOOL.Evocation|PRESUBCLASS:1,Envy,Sloth
+1	PROHIBITSPELL:SCHOOL.Illusion|PRESUBCLASS:1,Greed,Sloth
+1	PROHIBITSPELL:SCHOOL.Necromancy|PRESUBCLASS:1,Envy,Lust
+1	PROHIBITSPELL:SCHOOL.Transmutation|PRESUBCLASS:1,Lust,Pride
+
+
+###Block: Cyphermage
+# Class Name	HD	Type			Class Type		Abbrev	Max Level	Source Page		Define			Modify VAR				PI?
+CLASS:Cyphermage	HD:6	TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Cyp	MAXLEVEL:10	SOURCEPAGE:p.44	DEFINE:CyphermageLVL|0	BONUS:VAR|CyphermageLVL|CL	NAMEISPI:YES
+# Class Name	Combat bonus										Save bonus
+CLASS:Cyphermage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
+# Class Name	Required Language				Required Feats					Required Skill										Required spells
+CLASS:Cyphermage	PRELANG:2,Thassilonian,Varisian	PREFEAT:2,Cypher Magic,Scribe Scroll	PRESKILL:3,Knowledge (Arcana)=5,Knowledge (History)=5,Linguistics=5	PRESPELLCAST:TYPE=Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cyphermage	STARTSKILLPTS:4	CSKILL:Appraise|Climb|Disable Device|Fly|TYPE=Knowledge|Linguistics|Perception|Spellcraft|Survival|Use Magic Device
+###Block: Progression
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block: Progression
+1	ABILITY:Cyphermage Class Feature|AUTOMATIC|Cyphermage ~ Cypher Lore
+10	BONUS:ABILITYPOOL|Cypherlord|1
+
+
+###Block: Divine Scion
+# Class Name		HD	Type			Class Type		Abbrev	Max Level	Source Page		Define			Modify VAR
+CLASS:Divine Scion	HD:8	TYPE:PC.Prestige	CLASSTYPE:PC	ABB:DSc	MAXLEVEL:10	SOURCEPAGE:p.46	DEFINE:DivineScionLVL|0	BONUS:VAR|DivineScionLVL|CL
+# Class Name		Combat bonus										Save bonus
+CLASS:Divine Scion	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
+# Class Name		Required Feats				Required Skill										Required spells			Req deity		Required align
+CLASS:Divine Scion	PREFEAT:2,Iron Will,Weapon Focus	PRESKILL:3,Knowledge (Planes)=5,Knowledge (Religion)=5,Spellcraft=5	PRESPELLCAST:TYPE=Divine	PREDEITY:1,Y	PREALIGN:Deity
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Divine Scion	STARTSKILLPTS:2	CSKILL:Diplomacy|Fly|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Perform|TYPE=Profession|Spellcraft
+###Block: Progression
+1	ADD:SPELLCASTER|Divine
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+5	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+7	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+9	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block: Progression
+1	ABILITY:Divine Scion Class Feature|AUTOMATIC|Divine Scion ~ Weapon and Armor Proficiency	BONUS:ABILITYPOOL|Opposition Alignment|1
+3	ABILITY:Divine Scion Class Feature|AUTOMATIC|Divine Scion ~ Domain Specialization
+4	ABILITY:Divine Scion Class Feature|AUTOMATIC|Divine Scion ~ Divine Wrath
+7	ABILITY:Divine Scion Class Feature|AUTOMATIC|Divine Scion ~ Deific Defense
+8	ABILITY:Divine Scion Class Feature|AUTOMATIC|Divine Scion ~ Divine Awe
+10	BONUS:ABILITYPOOL|True Scion|1

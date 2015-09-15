@@ -1,5 +1,5 @@
 /*
- * ExportToken.java
+ * UnitSetToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,60 +23,63 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.Globals;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-import pcgen.system.PCGenPropBundle;
-
-import java.text.DateFormat;
-import java.util.Date;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Deals with Tokens:
+ * <code>UnitSetToken</code>.
+ *
+ * Token formats are:
  * 
- * EXPORT
- * EXPORT.DATE
- * EXPORT.TIME
- * EXPORT.VERSION
+ * UNITSET
+ * UNITSET.HEIGHTUNIT
+ * UNITSET.DISTANCEUNIT
+ * UNITSET.WEIGHTUNIT
+ *
+ * @author jdempsey
+ * @version $Revision$
  */
-public class ExportToken extends Token
+public class UnitSetToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "EXPORT";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "UNITSET";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		String exportString = "";
+		String retString = "";
 
-		if ("EXPORT.DATE".equals(tokenSource))
+		if ("UNITSET".equals(tokenSource))
 		{
-			exportString = DateFormat.getDateInstance().format(new Date());
+			retString = Globals.getGameModeUnitSet().getDisplayName();
 		}
-		else if ("EXPORT.TIME".equals(tokenSource))
+		else if ("UNITSET.HEIGHTUNIT".equals(tokenSource))
 		{
-			exportString = DateFormat.getTimeInstance().format(new Date());
+			retString = Globals.getGameModeUnitSet().getHeightUnit();
 		}
-		else if ("EXPORT.VERSION".equals(tokenSource))
+		else if ("UNITSET.DISTANCEUNIT".equals(tokenSource))
 		{
-			exportString = PCGenPropBundle.getVersionNumber();
+			retString = Globals.getGameModeUnitSet().getDistanceUnit();
+		}
+		else if ("UNITSET.WEIGHTUNIT".equals(tokenSource))
+		{
+			retString = Globals.getGameModeUnitSet().getWeightUnit();
 		}
 
-		return exportString;
+		return retString;
 	}
 }

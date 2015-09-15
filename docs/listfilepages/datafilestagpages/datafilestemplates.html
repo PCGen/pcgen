@@ -106,17 +106,11 @@ character qualifies for the class in question.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     ADDLEVEL
-    </code>
+    <code>ADDLEVEL</code>
     tag, the data included in a new
-    <code>
-     ADDLEVEL
-    </code>
+    <code>ADDLEVEL</code>
     tag will be
 included as if it were a separate tag.
    </li>
@@ -127,9 +121,7 @@ included as if it were a separate tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADDLEVEL:Animal|6
-   </code>
+   <code>ADDLEVEL:Animal|6</code>
   </p>
   <p class="indent3">
    Adds six levels of the Animal class to the
@@ -143,24 +135,18 @@ Separately):
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Werewolf &lt;tab&gt;
-ADDLEVEL:Animal|2
-   </code>
+   <code>Werewolf &lt;tab&gt;
+ADDLEVEL:Animal|2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Werewolf.MOD &lt;tab&gt;
-ADDLEVEL:Animal|1
-   </code>
+   <code>Werewolf.MOD &lt;tab&gt;
+ADDLEVEL:Animal|1</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Werewolf &lt;tab&gt;
-ADDLEVEL:Animal|2 &lt;tab&gt; ADDLEVEL:Animal|1
-   </code>
+   <code>Werewolf &lt;tab&gt;
+ADDLEVEL:Animal|2 &lt;tab&gt; ADDLEVEL:Animal|1</code>
    .
   </p>
   <p class="indent3">
@@ -201,17 +187,11 @@ additional skill points.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     BONUSSKILLPOINTS
-    </code>
+    <code>BONUSSKILLPOINTS</code>
     tag, the data included in a new
-    <code>
-     BONUSSKILLPOINTS
-    </code>
+    <code>BONUSSKILLPOINTS</code>
     tag will overwrite the existing tag
 data.
    </li>
@@ -222,9 +202,7 @@ data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUSSKILLPOINTS:2
-   </code>
+   <code>BONUSSKILLPOINTS:2</code>
   </p>
   <p class="indent3">
    Two bonus skill points are given.
@@ -236,24 +214,18 @@ data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Sentient Construct
-&lt;tab&gt; BONUSSKILLPOINTS:2
-   </code>
+   <code>Sentient Construct
+&lt;tab&gt; BONUSSKILLPOINTS:2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Sentience Construct.MOD
-&lt;tab&gt; BONUSSKILLPOINTS:3
-   </code>
+   <code>Sentience Construct.MOD
+&lt;tab&gt; BONUSSKILLPOINTS:3</code>
   </p>
   <p class="indent2">
    Results In:
-   <code>
-    Sentient Construct &lt;tab&gt;
-BONUSSKILLPOINTS:3
-   </code>
+   <code>Sentient Construct &lt;tab&gt;
+BONUSSKILLPOINTS:3</code>
   </p>
   <p class="indent3">
    Twelve skill points are granted at first level
@@ -293,9 +265,7 @@ monster HD. This tag will work retroactively.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:MONSKILLPTS|LOCKNUMBER|6
-   </code>
+   <code>BONUS:MONSKILLPTS|LOCKNUMBER|6</code>
   </p>
   <p class="indent3">
    This template will set 6 as the base skill
@@ -335,14 +305,10 @@ score/stat.
     </strong>
     When modifying a template with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, the data included in this tag will be
 overwritten by the new
-    <code>
-     CHOOSE:LANGAUTO
-    </code>
+    <code>CHOOSE:LANGAUTO</code>
     tag if one is
 included in the modification.
    </li>
@@ -353,9 +319,7 @@ included in the modification.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CHOOSE:LANGAUTO:Abyssal|Infernal
-   </code>
+   <code>CHOOSE:LANGAUTO:Abyssal|Infernal</code>
   </p>
   <p class="indent3">
    "Abyssal" &amp; "Infernal" are granted as bonus
@@ -368,24 +332,18 @@ languages.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling &lt;tab&gt;
-CHOOSE:LANGAUTO:Abyssal|Infernal
-   </code>
+   <code>Darkling &lt;tab&gt;
+CHOOSE:LANGAUTO:Abyssal|Infernal</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling.MOD &lt;tab&gt;
-CHOOSE:LANGAUTO:Ignan|Undercommon
-   </code>
+   <code>Darkling.MOD &lt;tab&gt;
+CHOOSE:LANGAUTO:Ignan|Undercommon</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling &lt;tab&gt;
-CHOOSE:LANGAUTO:Undercommon
-   </code>
+   <code>Darkling &lt;tab&gt;
+CHOOSE:LANGAUTO:Undercommon</code>
   </p>
   <p class="indent3">
    Darklings are allowed to choose either "Ignan"
@@ -424,18 +382,12 @@ increased by this template.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     CR
-    </code>
+    <code>CR</code>
     tag,
 the data included in a new
-    <code>
-     CR
-    </code>
+    <code>CR</code>
     tag will overwrite the
 existing tag data.
    </li>
@@ -446,19 +398,15 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CR:2
-   </code>
+   <code>CR:2</code>
   </p>
   <p class="indent3">
    The character's challenge rating is increased by
 two.
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-CR:3
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+CR:3</code>
   </p>
   <p class="indent3">
    The character's challenge rating is increased by
@@ -471,24 +419,18 @@ three.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling &lt;tab&gt;
-CR:2
-   </code>
+   <code>Darkling &lt;tab&gt;
+CR:2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling.MOD &lt;tab&gt;
-CR:3
-   </code>
+   <code>Darkling.MOD &lt;tab&gt;
+CR:3</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling &lt;tab&gt;
-CR:3
-   </code>
+   <code>Darkling &lt;tab&gt;
+CR:3</code>
   </p>
   <p class="indent3">
    Darklings have a "challenge rating" of "3".
@@ -536,18 +478,12 @@ sides.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     FACE
-    </code>
+    <code>FACE</code>
     tag,
 the data included in a new
-    <code>
-     FACE
-    </code>
+    <code>FACE</code>
     tag will overwrite the
 existing tag data.
    </li>
@@ -563,26 +499,20 @@ statistic.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FACE:5,10
-   </code>
+   <code>FACE:5,10</code>
   </p>
   <p class="indent3">
    The creature has a face/space of 5 by 10.
   </p>
   <p class="indent2">
-   <code>
-    FACE:10
-   </code>
+   <code>FACE:10</code>
   </p>
   <p class="indent3">
    The creature has a face/space of 10.
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-FACE:20
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+FACE:20</code>
   </p>
   <p class="indent3">
    The creature has a face/space of 20.
@@ -594,24 +524,18 @@ FACE:20
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling &lt;tab&gt;
-FACE:10,5
-   </code>
+   <code>Darkling &lt;tab&gt;
+FACE:10,5</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling.MOD &lt;tab&gt;
-FACE:10
-   </code>
+   <code>Darkling.MOD &lt;tab&gt;
+FACE:10</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling &lt;tab&gt;
-FACE:10
-   </code>
+   <code>Darkling &lt;tab&gt;
+FACE:10</code>
   </p>
   <p class="indent3">
    Darklings have a "face/space" of "10".
@@ -675,17 +599,11 @@ class as Favored.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     FAVOREDCLASS
-    </code>
+    <code>FAVOREDCLASS</code>
     tag, the data included in a new
-    <code>
-     FAVOREDCLASS
-    </code>
+    <code>FAVOREDCLASS</code>
     tag will be appended to the existing tag
 data.
    </li>
@@ -696,37 +614,29 @@ data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    FAVOREDCLASS:Wizard|Fighter
-   </code>
+   <code>FAVOREDCLASS:Wizard|Fighter</code>
   </p>
   <p class="indent3">
    The character's favored classes are "Wizard",
 including any of its sub-classes, and "Fighter".
   </p>
   <p class="indent2">
-   <code>
-    FAVOREDCLASS:Wizard.Wizard
-   </code>
+   <code>FAVOREDCLASS:Wizard.Wizard</code>
   </p>
   <p class="indent3">
    The character's favored class is "Wizard",
 excluding any of its sub-classes.
   </p>
   <p class="indent2">
-   <code>
-    FAVOREDCLASS:Wizard.Illusionist
-   </code>
+   <code>FAVOREDCLASS:Wizard.Illusionist</code>
   </p>
   <p class="indent3">
    The character's favored class is the "Wizard"
 sub-class, the "Illusionist".
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-FAVOREDCLASS:Wizard.Necromancer
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+FAVOREDCLASS:Wizard.Necromancer</code>
   </p>
   <p class="indent3">
    The character's favored class is the "Wizard"
@@ -739,24 +649,18 @@ sub-class, the "Necromancer".
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling &lt;tab&gt;
-FAVOREDCLASS:Sorcerer
-   </code>
+   <code>Darkling &lt;tab&gt;
+FAVOREDCLASS:Sorcerer</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling.MOD &lt;tab&gt;
-FAVOREDCLASS:Wizard.Necromancer
-   </code>
+   <code>Darkling.MOD &lt;tab&gt;
+FAVOREDCLASS:Wizard.Necromancer</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling &lt;tab&gt;
-FAVOREDCLASS:Sorcerer|Wizard.Necromancer
-   </code>
+   <code>Darkling &lt;tab&gt;
+FAVOREDCLASS:Sorcerer|Wizard.Necromancer</code>
   </p>
   <p class="indent3">
    Darkling's "favored class" is the "Sorcerer" and
@@ -779,34 +683,24 @@ the "Wizard" sub-class, the "Necromancer".
     <ul class="incremental">
      <li>
       The
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tag is deprecated. Use
       <a href="../globalfilestagpages/globalfilesother.html#ability">
-       <code>
-        ABILITY
-       </code>
+       <code>ABILITY</code>
       </a>
       instead.
      </li>
      <li>
       All
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       tags have been
       <strong>
        deprecated
       </strong>
       and replaced by the
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system, which is more general. The
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       system can model feats, racial features, class
 features, traits, flaws, temporary bonuses, and so on, all using a
 common format.
@@ -840,9 +734,7 @@ selected and then granted to the character.
     </li>
     <li>
      The hyphen (-) is used only in the
-     <code>
-      OUTPUTNAME
-     </code>
+     <code>OUTPUTNAME</code>
      of
 feats and should NOT be used in the feat list for this tag.
     </li>
@@ -852,18 +744,12 @@ feats and should NOT be used in the feat list for this tag.
      </strong>
      When modifying a template, with
 the
-     <code>
-      .MOD
-     </code>
+     <code>.MOD</code>
      tag, given an existing
-     <code>
-      FEAT
-     </code>
+     <code>FEAT</code>
      tag,
 the data included in a new
-     <code>
-      FEAT
-     </code>
+     <code>FEAT</code>
      tag will overwrite the
 existing tag data.
     </li>
@@ -874,9 +760,7 @@ existing tag data.
     </strong>
    </p>
    <p class="indent2">
-    <code>
-     FEAT:Blind Fight|Alertness
-    </code>
+    <code>FEAT:Blind Fight|Alertness</code>
    </p>
    <p class="indent3">
     Presents the "Blind-Fight" &amp; "Alertness"
@@ -890,24 +774,18 @@ character.
    </p>
    <p class="indent2">
     Initial Template:
-    <code>
-     Darkling &lt;tab&gt;
-FEAT:Blind Fight|Alertness
-    </code>
+    <code>Darkling &lt;tab&gt;
+FEAT:Blind Fight|Alertness</code>
    </p>
    <p class="indent2">
     Modified By:
-    <code>
-     Darkling.MOD &lt;tab&gt;
-FEAT:Blind Fight|Combat Reflexes
-    </code>
+    <code>Darkling.MOD &lt;tab&gt;
+FEAT:Blind Fight|Combat Reflexes</code>
    </p>
    <p class="indent2">
     Is Equivalent To:
-    <code>
-     Darkling &lt;tab&gt;
-FEAT:Blind Fight|Combat Reflexes
-    </code>
+    <code>Darkling &lt;tab&gt;
+FEAT:Blind Fight|Combat Reflexes</code>
    </p>
    <p class="indent3">
     Presents the "Blind-Fight" and "Combat Reflexes"
@@ -959,17 +837,11 @@ it.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     GENDERLOCK
-    </code>
+    <code>GENDERLOCK</code>
     tag, the data included in a new
-    <code>
-     GENDERLOCK
-    </code>
+    <code>GENDERLOCK</code>
     tag will overwrite the existing tag
 data.
    </li>
@@ -980,9 +852,7 @@ data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    GENDERLOCK:Female
-   </code>
+   <code>GENDERLOCK:Female</code>
   </p>
   <p class="indent3">
    The character's gender is set to and locked as
@@ -995,24 +865,18 @@ data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling Sorcerer
-&lt;tab&gt; GENDERLOCK:Female
-   </code>
+   <code>Darkling Sorcerer
+&lt;tab&gt; GENDERLOCK:Female</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling Sorcerer.MOD
-&lt;tab&gt; GENDERLOCK:Male
-   </code>
+   <code>Darkling Sorcerer.MOD
+&lt;tab&gt; GENDERLOCK:Male</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling Sorcerer
-&lt;tab&gt; GENDERLOCK:Male
-   </code>
+   <code>Darkling Sorcerer
+&lt;tab&gt; GENDERLOCK:Male</code>
   </p>
   <p class="indent3">
    The Darkling Sorcerer's gender is set to "Male"
@@ -1051,17 +915,11 @@ multiattacks and multidexterity.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     HANDS
-    </code>
+    <code>HANDS</code>
     tag, the data included in a new
-    <code>
-     HANDS
-    </code>
+    <code>HANDS</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -1072,9 +930,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    HANDS:4
-   </code>
+   <code>HANDS:4</code>
   </p>
   <p class="indent3">
    The creature has four hands.
@@ -1086,24 +942,18 @@ overwrite the existing tag data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling Sorcerer
-&lt;tab&gt; HANDS:2
-   </code>
+   <code>Darkling Sorcerer
+&lt;tab&gt; HANDS:2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling Sorcerer.MOD
-&lt;tab&gt; HANDS:4
-   </code>
+   <code>Darkling Sorcerer.MOD
+&lt;tab&gt; HANDS:4</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling Sorcerer
-&lt;tab&gt; HANDS:4
-   </code>
+   <code>Darkling Sorcerer
+&lt;tab&gt; HANDS:4</code>
   </p>
   <p class="indent3">
    The Darkling Sorcerer's number of hands is set
@@ -1207,18 +1057,12 @@ PRE tags can also be used
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     HD
-    </code>
+    <code>HD</code>
     tag,
 the data included in a new
-    <code>
-     HD
-    </code>
+    <code>HD</code>
     tag will be included as
 if it were a separate tag.
    </li>
@@ -1229,45 +1073,35 @@ if it were a separate tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    HD:1-3:DR:5/1
-   </code>
+   <code>HD:1-3:DR:5/1</code>
   </p>
   <p class="indent3">
    Grants Damage Reduction of 5/+1 if natural hit
 dice is between one and three.
   </p>
   <p class="indent2">
-   <code>
-    HD:1+:SR:15
-   </code>
+   <code>HD:1+:SR:15</code>
   </p>
   <p class="indent3">
    Grants Spell Resistance of 15 if natural hit
 dice is greater than one.
   </p>
   <p class="indent2">
-   <code>
-    HD:2-7:CR:2
-   </code>
+   <code>HD:2-7:CR:2</code>
   </p>
   <p class="indent3">
    Grants an increase in Challenge Rating of two if
 natural hit dice is between two and seven.
   </p>
   <p class="indent2">
-   <code>
-    HD:15+:SA:Uncanny Dodge
-   </code>
+   <code>HD:15+:SA:Uncanny Dodge</code>
   </p>
   <p class="indent3">
    Grants the "Uncanny Dodge" special ability if
 natural hit dice is greater than fifteen.
   </p>
   <p class="indent2">
-   <code>
-    HD:10+:FEAT:Alertness
-   </code>
+   <code>HD:10+:FEAT:Alertness</code>
   </p>
   <p class="indent3">
    Grants the "Alertness" feat if natural hit dice
@@ -1280,24 +1114,18 @@ is greater than ten.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Werewolf &lt;tab&gt;
-HD:1-3:DR:5/1
-   </code>
+   <code>Werewolf &lt;tab&gt;
+HD:1-3:DR:5/1</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Werewolf.MOD &lt;tab&gt;
-HD:2-7:CR:2
-   </code>
+   <code>Werewolf.MOD &lt;tab&gt;
+HD:2-7:CR:2</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Werewolf &lt;tab&gt;
-HD:1-3:DR:5/1 &lt;tab&gt; HD:2-7:CR:2
-   </code>
+   <code>Werewolf &lt;tab&gt;
+HD:1-3:DR:5/1 &lt;tab&gt; HD:2-7:CR:2</code>
    .
   </p>
   <p class="indent3">
@@ -1423,34 +1251,22 @@ steps is defined by the Game Mode &gt; Misc Info File &gt;
     When using the step up function (%upNumber) or step down
 function (%downNumber), the minimum and maximum steps are set by
 the
-    <code>
-     MIN
-    </code>
+    <code>MIN</code>
     and
-    <code>
-     MAX
-    </code>
+    <code>MAX</code>
     parameters in the
-    <code>
-     DIESIZES
-    </code>
+    <code>DIESIZES</code>
     tag.
    </li>
    <li>
     The step up function (%Hup) and step down functions (%Hdown)
 will ignore the
-    <code>
-     MIN
-    </code>
+    <code>MIN</code>
     and
-    <code>
-     MAX
-    </code>
+    <code>MAX</code>
     settings and
 use the full range of die sizes specified by the
-    <code>
-     DIESIZES
-    </code>
+    <code>DIESIZES</code>
     tag.
    </li>
    <li>
@@ -1458,9 +1274,7 @@ use the full range of die sizes specified by the
 will never drop below "1".
    </li>
    <li>
-    <code>
-     HITDIE
-    </code>
+    <code>HITDIE</code>
     can be qualified with a Class or Class type
 in which case it will only be applied to the matching classes.
    </li>
@@ -1470,17 +1284,11 @@ in which case it will only be applied to the matching classes.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     HITDIE
-    </code>
+    <code>HITDIE</code>
     tag, the data included in a new
-    <code>
-     HITDIE
-    </code>
+    <code>HITDIE</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -1491,67 +1299,51 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:12
-   </code>
+   <code>HITDIE:12</code>
   </p>
   <p class="indent3">
    The character now has a Hit Die size of 12.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%+2
-   </code>
+   <code>HITDIE:%+2</code>
   </p>
   <p class="indent3">
    Adds 2 to the current Hit Die size.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%-4
-   </code>
+   <code>HITDIE:%-4</code>
   </p>
   <p class="indent3">
    Subtracts 4 from the current Hit Die size.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%*3
-   </code>
+   <code>HITDIE:%*3</code>
   </p>
   <p class="indent3">
    Multiplies the current Hit Die size by 3.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%/2
-   </code>
+   <code>HITDIE:%/2</code>
   </p>
   <p class="indent3">
    Divides the current Hit Die size by 2.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%up2
-   </code>
+   <code>HITDIE:%up2</code>
   </p>
   <p class="indent3">
    Steps up the Hit Die size by two steps. If the
 creature has a Hit Die of d6 it will be stepped up to d10.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%down1
-   </code>
+   <code>HITDIE:%down1</code>
   </p>
   <p class="indent3">
    Steps down the Hit Die size by one step. If the
 creature has a Hit Die of d6 it will be stepped down to d4.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%up1|CLASS.TYPE=Monster
-   </code>
+   <code>HITDIE:%up1|CLASS.TYPE=Monster</code>
   </p>
   <p class="indent3">
    Steps up the Hit Die size by one step for any
@@ -1559,28 +1351,22 @@ Monster class levels the creature has. If the creature has a
 Monster class Hit Die of d8 it will be stepped up to d10.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%Hup4
-   </code>
+   <code>HITDIE:%Hup4</code>
   </p>
   <p class="indent3">
    Steps up the Hit Die size by four steps. If the
 class has a Hit Die of d6 it will be stepped up to d20.
   </p>
   <p class="indent2">
-   <code>
-    HITDIE:%Hdown3
-   </code>
+   <code>HITDIE:%Hdown3</code>
   </p>
   <p class="indent3">
    Steps down the Hit Die size by three steps. If
 the class has a Hit Die of d6 it will be stepped down to d2.
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-HITDIE:8
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+HITDIE:8</code>
   </p>
   <p class="indent3">
    The character now has a Hit Die size of 8.
@@ -1592,24 +1378,18 @@ HITDIE:8
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling Sorcerer
-&lt;tab&gt; HITDIE:6
-   </code>
+   <code>Darkling Sorcerer
+&lt;tab&gt; HITDIE:6</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling Sorcerer.MOD
-&lt;tab&gt; HITDIE:8
-   </code>
+   <code>Darkling Sorcerer.MOD
+&lt;tab&gt; HITDIE:8</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling Sorcerer
-&lt;tab&gt; HITDIE:8
-   </code>
+   <code>Darkling Sorcerer
+&lt;tab&gt; HITDIE:8</code>
   </p>
   <p class="indent3">
    The Darkling Sorcerer's Hit Die size is now
@@ -1671,17 +1451,11 @@ necessary.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     LANGBONUS
-    </code>
+    <code>LANGBONUS</code>
     tag, the data included in a new
-    <code>
-     LANGBONUS
-    </code>
+    <code>LANGBONUS</code>
     tag will be
 appended to the existing tag data.
    </li>
@@ -1692,9 +1466,7 @@ appended to the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    LANGBONUS:TYPE=Spoken,Draconic
-   </code>
+   <code>LANGBONUS:TYPE=Spoken,Draconic</code>
   </p>
   <p class="indent3">
    Add all "Spoken" type languages &amp; "Draconic"
@@ -1708,24 +1480,18 @@ character.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Space Monkey &lt;tab&gt;
-LANGBONUS:Simian
-   </code>
+   <code>Space Monkey &lt;tab&gt;
+LANGBONUS:Simian</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Space Monkey.MOD &lt;tab&gt;
-LANGBONUS:Martian
-   </code>
+   <code>Space Monkey.MOD &lt;tab&gt;
+LANGBONUS:Martian</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Space Monkey &lt;tab&gt;
-LANGBONUS:Simian,Martian
-   </code>
+   <code>Space Monkey &lt;tab&gt;
+LANGBONUS:Simian,Martian</code>
    .
   </p>
   <p class="indent3">
@@ -1762,18 +1528,12 @@ than/less than 2).
    </li>
    <li>
     .MOD Behavior: When modifying a template, with the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     LEGS
-    </code>
+    <code>LEGS</code>
     tag, the
 data included in a new
-    <code>
-     LEGS
-    </code>
+    <code>LEGS</code>
     tag will overwrite the
 existing tag data.
    </li>
@@ -1784,27 +1544,21 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    LEGS:4
-   </code>
+   <code>LEGS:4</code>
   </p>
   <p class="indent3">
    A horse has four legs.
   </p>
   <p class="indent2">
-   <code>
-    LEGS:0
-   </code>
+   <code>LEGS:0</code>
   </p>
   <p class="indent3">
    Slime and ooze creatures/characters would have
 no legs!
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-LEGS:8
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+LEGS:8</code>
   </p>
   <p class="indent3">
    The creature has eight legs.
@@ -1816,24 +1570,18 @@ LEGS:8
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Odin's Blessing
-&lt;tab&gt; LEGS:8
-   </code>
+   <code>Odin's Blessing
+&lt;tab&gt; LEGS:8</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Odin's Blessing.MOD
-&lt;tab&gt; LEGS:6
-   </code>
+   <code>Odin's Blessing.MOD
+&lt;tab&gt; LEGS:6</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Odin's Blessing
-&lt;tab&gt; LEGS:6
-   </code>
+   <code>Odin's Blessing
+&lt;tab&gt; LEGS:6</code>
   </p>
   <p class="indent3">
    The recipient of this template now has "6"
@@ -1896,27 +1644,21 @@ call any global tag.
     <br/>
     <ul>
      <li>
-      <code>
-       ABILITY
-      </code>
+      <code>ABILITY</code>
       -
       <a href="../globalfilestagpages/globalfilesother.html#ability">
        Ability
       </a>
      </li>
      <li>
-      <code>
-       CR
-      </code>
+      <code>CR</code>
       -
       <a href="#cr">
        Challenge Rating
       </a>
      </li>
      <li>
-      <code>
-       DR
-      </code>
+      <code>DR</code>
       -
       <a href="../globalfilestagpages/globalfilesother.html#dr">
        Damage
@@ -1924,27 +1666,21 @@ Reduction
       </a>
      </li>
      <li>
-      <code>
-       FEAT
-      </code>
+      <code>FEAT</code>
       -
       <a href="#feat">
        Feat
       </a>
      </li>
      <li>
-      <code>
-       MOVE
-      </code>
+      <code>MOVE</code>
       -
       <a href="../globalfilestagpages/globalfilesother.html#move">
        Move
       </a>
      </li>
      <li>
-      <code>
-       SAB
-      </code>
+      <code>SAB</code>
       -
       <a href="../globalfilestagpages/globalfilesother.html#sab">
        Special
@@ -1952,9 +1688,7 @@ Ability
       </a>
      </li>
      <li>
-      <code>
-       SR
-      </code>
+      <code>SR</code>
       -
       <a href="../globalfilestagpages/globalfilesother.html#sr">
        Spell
@@ -1980,17 +1714,11 @@ not count against a PC's feat pool.
     </strong>
     When modifying a template with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     LEVEL
-    </code>
+    <code>LEVEL</code>
     tag, the data included in a new
-    <code>
-     LEVEL
-    </code>
+    <code>LEVEL</code>
     tag will be
 included as if it were a separate tag.
    </li>
@@ -2001,69 +1729,53 @@ included as if it were a separate tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:1:DR:5/+1
-   </code>
+   <code>LEVEL:1:DR:5/+1</code>
   </p>
   <p class="indent3">
    Grants Damage Reduction of 5/+1 at Level 1.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:2:SR:15
-   </code>
+   <code>LEVEL:2:SR:15</code>
   </p>
   <p class="indent3">
    Grants Spell Resistance of 15 at Level 2.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:3:CR:2
-   </code>
+   <code>LEVEL:3:CR:2</code>
   </p>
   <p class="indent3">
    Grants an increase in Challenge Rating of two at
 Level 3.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:3:MOVE:Burrow,20
-   </code>
+   <code>LEVEL:3:MOVE:Burrow,20</code>
   </p>
   <p class="indent3">
    Grants an a burrowing rate of 20 at Level 3.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:4:SAB:Uncanny Dodge
-   </code>
+   <code>LEVEL:4:SAB:Uncanny Dodge</code>
   </p>
   <p class="indent3">
    Grants the "Uncanny Dodge" special ability at
 Level 4.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:5:FEAT:Alertness
-   </code>
+   <code>LEVEL:5:FEAT:Alertness</code>
   </p>
   <p class="indent3">
    Grants the "Alertness" feat at Level 5.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:6:FEAT:TYPE.Fighter
-   </code>
+   <code>LEVEL:6:FEAT:TYPE.Fighter</code>
   </p>
   <p class="indent3">
    Produces a popup menu at Level 6 from which a PC
 can choose a fighter feat.
   </p>
   <p class="indent2">
-   <code>
-    LEVEL:6:ABILITY:FEAT|AUTOMATIC|Empower
-Spell
-   </code>
+   <code>LEVEL:6:ABILITY:FEAT|AUTOMATIC|Empower
+Spell</code>
   </p>
   <p class="indent3">
    Grants the "Empower Spell" feat as an automatic
@@ -2076,24 +1788,18 @@ feat at Level 6.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Werewolf &lt;tab&gt;
-LEVEL:1:DR:5/1
-   </code>
+   <code>Werewolf &lt;tab&gt;
+LEVEL:1:DR:5/1</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Werewolf.MOD &lt;tab&gt;
-LEVEL:2-7:CR:2
-   </code>
+   <code>Werewolf.MOD &lt;tab&gt;
+LEVEL:2-7:CR:2</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Werewolf &lt;tab&gt;
-HD:1:DR:5/1 &lt;tab&gt; HD:2:CR:2
-   </code>
+   <code>Werewolf &lt;tab&gt;
+HD:1:DR:5/1 &lt;tab&gt; HD:2:CR:2</code>
    .
   </p>
   <p class="indent3">
@@ -2144,17 +1850,11 @@ level adjustments would need to reach 5th level.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     LEVELADJUSTMENT
-    </code>
+    <code>LEVELADJUSTMENT</code>
     tag, the data included in a new
-    <code>
-     LEVELADJUSTMENT
-    </code>
+    <code>LEVELADJUSTMENT</code>
     tag will overwrite the existing tag
 data.
    </li>
@@ -2165,18 +1865,14 @@ data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    LEVELADJUSTMENT:1
-   </code>
+   <code>LEVELADJUSTMENT:1</code>
   </p>
   <p class="indent3">
    Effective Character Level is raised by one.
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-LEVELADJUSTMENT:3
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+LEVELADJUSTMENT:3</code>
   </p>
   <p class="indent3">
    The character's ECL is raised by three.
@@ -2188,24 +1884,18 @@ LEVELADJUSTMENT:3
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Darkling &lt;tab&gt;
-LEVELADJUSTMENT:2
-   </code>
+   <code>Darkling &lt;tab&gt;
+LEVELADJUSTMENT:2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Darkling.MOD &lt;tab&gt;
-LEVELADJUSTMENT:4
-   </code>
+   <code>Darkling.MOD &lt;tab&gt;
+LEVELADJUSTMENT:4</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Darkling &lt;tab&gt;
-LEVELADJUSTMENT:4
-   </code>
+   <code>Darkling &lt;tab&gt;
+LEVELADJUSTMENT:4</code>
   </p>
   <p class="indent3">
    The Darkling's Effective Character Level (ECL)
@@ -2248,17 +1938,11 @@ the number specified.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     NONPP
-    </code>
+    <code>NONPP</code>
     tag, the data included in a new
-    <code>
-     NONPP
-    </code>
+    <code>NONPP</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -2269,9 +1953,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NONPP:-2
-   </code>
+   <code>NONPP:-2</code>
   </p>
   <p class="indent3">
    The non-proficiency penalty is minus two.
@@ -2283,24 +1965,18 @@ overwrite the existing tag data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; NONPP:-2
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; NONPP:-2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;template name&gt;.MOD
-&lt;tab&gt; NONPP:-1
-   </code>
+   <code>&lt;template name&gt;.MOD
+&lt;tab&gt; NONPP:-1</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; NONPP:-1
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; NONPP:-1</code>
    .
   </p>
   <p class="indent3">
@@ -2356,17 +2032,11 @@ as well as Humaniod subraces such as Elf, Orc, Dwarf, etc..
    </li>
    <li>
     .MOD Behavior: When modifying a template, with the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     RACESUBTYPE
-    </code>
+    <code>RACESUBTYPE</code>
     tag, the data included in a new
-    <code>
-     RACESUBTYPE
-    </code>
+    <code>RACESUBTYPE</code>
     tag will
 be appended to the existing tag data.
    </li>
@@ -2377,25 +2047,19 @@ be appended to the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    RACESUBTYPE:Lawful|Air
-   </code>
+   <code>RACESUBTYPE:Lawful|Air</code>
   </p>
   <p class="indent3">
    Adds the "Lawful" and "Air" subtypes.
   </p>
   <p class="indent2">
-   <code>
-    RACESUBTYPE:.REMOVE.Evil
-   </code>
+   <code>RACESUBTYPE:.REMOVE.Evil</code>
   </p>
   <p class="indent3">
    Removes the "Evil" subtype.
   </p>
   <p class="indent2">
-   <code>
-    RACESUBTYPE:.REMOVE.Extraplanar|Native
-   </code>
+   <code>RACESUBTYPE:.REMOVE.Extraplanar|Native</code>
   </p>
   <p class="indent3">
    Removes the "Extraplanar" subtype and adds
@@ -2408,24 +2072,18 @@ be appended to the existing tag data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Ooze Monkey &lt;tab&gt;
-RACESUBTYPE:Simian
-   </code>
+   <code>Ooze Monkey &lt;tab&gt;
+RACESUBTYPE:Simian</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Ooze Monkey.MOD &lt;tab&gt;
-RACESUBTYPE:Gooey
-   </code>
+   <code>Ooze Monkey.MOD &lt;tab&gt;
+RACESUBTYPE:Gooey</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Ooze Monkey &lt;tab&gt;
-RACESUBTYPE:Simian|Gooey
-   </code>
+   <code>Ooze Monkey &lt;tab&gt;
+RACESUBTYPE:Simian|Gooey</code>
    .
   </p>
   <p class="indent3">
@@ -2484,17 +2142,11 @@ Plant, Shapechanger, Undead, and Vermin
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     RACETYPE
-    </code>
+    <code>RACETYPE</code>
     tag, the data included in a new
-    <code>
-     RACETYPE
-    </code>
+    <code>RACETYPE</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -2505,9 +2157,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    RACETYPE:Undead
-   </code>
+   <code>RACETYPE:Undead</code>
   </p>
   <p class="indent3">
    The creature is now of the "Undead" type.
@@ -2519,24 +2169,18 @@ overwrite the existing tag data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; RACETYPE:Undead
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; RACETYPE:Undead</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;template name&gt;.MOD
-&lt;tab&gt; RACETYPE:Outsider
-   </code>
+   <code>&lt;template name&gt;.MOD
+&lt;tab&gt; RACETYPE:Outsider</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; RACETYPE:Outsider
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; RACETYPE:Outsider</code>
    .
   </p>
   <p class="indent3">
@@ -2575,17 +2219,11 @@ Name:
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     REACH
-    </code>
+    <code>REACH</code>
     tag, the data included in a new
-    <code>
-     REACH
-    </code>
+    <code>REACH</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -2596,9 +2234,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    REACH:10
-   </code>
+   <code>REACH:10</code>
   </p>
   <p class="indent3">
    The creature has a reach of ten (10) feet.
@@ -2610,24 +2246,18 @@ overwrite the existing tag data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; REACH:10
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; REACH:10</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;template name&gt;.MOD
-&lt;tab&gt; REACH:20
-   </code>
+   <code>&lt;template name&gt;.MOD
+&lt;tab&gt; REACH:20</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; REACH:20
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; REACH:20</code>
    .
   </p>
   <p class="indent3">
@@ -2674,17 +2304,11 @@ default is none.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     REGION
-    </code>
+    <code>REGION</code>
     tag, the data included in a new
-    <code>
-     REGION
-    </code>
+    <code>REGION</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -2695,9 +2319,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    REGION:Timbuktu
-   </code>
+   <code>REGION:Timbuktu</code>
   </p>
   <p class="indent3">
    The character is from "Timbuktu".
@@ -2709,24 +2331,18 @@ overwrite the existing tag data.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; REGION:Timbuktu
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; REGION:Timbuktu</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;template name&gt;.MOD
-&lt;tab&gt; REGION:Saskatewan
-   </code>
+   <code>&lt;template name&gt;.MOD
+&lt;tab&gt; REGION:Saskatewan</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; REGION:Saskatewan
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; REGION:Saskatewan</code>
    .
   </p>
   <p class="indent3">
@@ -2772,17 +2388,11 @@ is chosen.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     REMOVABLE
-    </code>
+    <code>REMOVABLE</code>
     tag, the data included in a new
-    <code>
-     REMOVABLE
-    </code>
+    <code>REMOVABLE</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -2793,18 +2403,14 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    REMOVABLE:NO
-   </code>
+   <code>REMOVABLE:NO</code>
   </p>
   <p class="indent3">
    The template may not be removed if taken.
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-REMOVABLE:YES
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+REMOVABLE:YES</code>
   </p>
   <p class="indent3">
    The template may be removed after being
@@ -2817,24 +2423,18 @@ taken.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; REMOVABLE:NO
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; REMOVABLE:NO</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;template name&gt;.MOD
-&lt;tab&gt; REMOVABLE:YES
-   </code>
+   <code>&lt;template name&gt;.MOD
+&lt;tab&gt; REMOVABLE:YES</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; REMOVABLE:YES
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; REMOVABLE:YES</code>
   </p>
   <p class="indent3">
    The template is removable.
@@ -2920,25 +2520,15 @@ REPEATELEVEL tag.
    </li>
    <li>
     Valid tags to be used as part o the REPEATELEVEL tag are:
-    <code>
-     SR
-    </code>
+    <code>SR</code>
     ,
-    <code>
-     SAB
-    </code>
+    <code>SAB</code>
     ,
-    <code>
-     DR
-    </code>
+    <code>DR</code>
     ,
-    <code>
-     CR
-    </code>
+    <code>CR</code>
     , and
-    <code>
-     FEAT
-    </code>
+    <code>FEAT</code>
     , each with its own suntax
 and parameter requirements.
    </li>
@@ -2948,17 +2538,11 @@ and parameter requirements.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     REPEATLEVEL
-    </code>
+    <code>REPEATLEVEL</code>
     tag, the data included in a new
-    <code>
-     REPEATLEVEL
-    </code>
+    <code>REPEATLEVEL</code>
     tag will be included as if it were a
 separate tag.
    </li>
@@ -2969,42 +2553,34 @@ separate tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    &lt;Template Name&gt; &lt;tab&gt;
-REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)
-   </code>
+   <code>&lt;Template Name&gt; &lt;tab&gt;
+REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent3">
    Would add "ABonusFeat" at levels 5, 10, 15, and
 20.
   </p>
   <p class="indent2">
-   <code>
-    &lt;Template Name&gt; &lt;tab&gt;
-REPEATLEVEL:1|0|20:1:FEAT(ABonusFeat)
-   </code>
+   <code>&lt;Template Name&gt; &lt;tab&gt;
+REPEATLEVEL:1|0|20:1:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent3">
    Would add "ABonusFeat" at levels 1, 2, 3, 5, 6,
 7, 9, 10, 11, 13, 14, 15, 17, 18, and 19.
   </p>
   <p class="indent2">
-   <code>
-    &lt;Template Name&gt; &lt;tab&gt;
-REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)
-   </code>
+   <code>&lt;Template Name&gt; &lt;tab&gt;
+REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent3">
    Would add "ABonusFeat" at levels 2, 4, 6, 8,...
 up to level 20.
   </p>
   <p class="indent2">
-   <code>
-    Drow Male &lt;tab&gt;
+   <code>Drow Male &lt;tab&gt;
 REPEATLEVEL:1|0|10:1:FEAT(AWizardFeat) &lt;tab&gt; PRERACE:Elf
 (Drow) &lt;tab&gt; SUBRACE:Male &lt;tab&gt;
-GENDERLOCK:Male
-   </code>
+GENDERLOCK:Male</code>
   </p>
   <p class="indent3">
    Would add "AWizardFeat" at levels 1, 2, 3, 5, 6,
@@ -3017,26 +2593,20 @@ GENDERLOCK:Male
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Advanced Werewolf
-&lt;tab&gt; REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)
-   </code>
+   <code>Advanced Werewolf
+&lt;tab&gt; REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Advanced Werewolf.MOD
-&lt;tab&gt; REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)
-   </code>
+   <code>Advanced Werewolf.MOD
+&lt;tab&gt; REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Advanced Werewolf
+   <code>Advanced Werewolf
 &lt;tab&gt; REPEATLEVEL:5|4|20:1:FEAT(ABonusFeat)
     <br/>
-    &lt;tab&gt; REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)
-   </code>
+    &lt;tab&gt; REPEATLEVEL:2|1|20:2:FEAT(ABonusFeat)</code>
    .
   </p>
   <p class="indent3">
@@ -3100,18 +2670,12 @@ undefined.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     SIZE
-    </code>
+    <code>SIZE</code>
     tag,
 the data included in a new
-    <code>
-     SIZE
-    </code>
+    <code>SIZE</code>
     tag will overwrite the
 existing tag data.
    </li>
@@ -3122,17 +2686,13 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SIZE:M
-   </code>
+   <code>SIZE:M</code>
   </p>
   <p class="indent3">
    The character is "Medium" size.
   </p>
   <p class="indent2">
-   <code>
-    SIZE:max(AnimalSize,SIZE)
-   </code>
+   <code>SIZE:max(AnimalSize,SIZE)</code>
   </p>
   <p class="indent3">
    Sets the character's size to the maximum of the
@@ -3145,24 +2705,18 @@ variable "AnimalSize" and current size.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; SIZE:M
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; SIZE:M</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    &lt;template name&gt;.MOD
-&lt;tab&gt; SIZE:L
-   </code>
+   <code>&lt;template name&gt;.MOD
+&lt;tab&gt; SIZE:L</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    &lt;template name&gt;
-&lt;tab&gt; SIZE:L
-   </code>
+   <code>&lt;template name&gt;
+&lt;tab&gt; SIZE:L</code>
   </p>
   <p class="indent3">
    The creatue is "Large".
@@ -3206,9 +2760,7 @@ template in parenthesis after the race on character sheet
 output.
    </li>
    <li>
-    <code>
-     SUBRACE
-    </code>
+    <code>SUBRACE</code>
     should only be used once in a template
 line.
    </li>
@@ -3218,17 +2770,11 @@ line.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     SUBRACE
-    </code>
+    <code>SUBRACE</code>
     tag, the data included in a new
-    <code>
-     SUBRACE
-    </code>
+    <code>SUBRACE</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -3239,9 +2785,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBRACE:Ooze Monkey
-   </code>
+   <code>SUBRACE:Ooze Monkey</code>
   </p>
   <p class="indent3">
    The character is part of the "Monkey Ooze" sub
@@ -3254,24 +2798,18 @@ race.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Ooze Monkey &lt;tab&gt;
-SUBRACE:Ooze Monkey
-   </code>
+   <code>Ooze Monkey &lt;tab&gt;
+SUBRACE:Ooze Monkey</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Ooze Monkey.MOD &lt;tab&gt;
-SUBRACE:Tropical
-   </code>
+   <code>Ooze Monkey.MOD &lt;tab&gt;
+SUBRACE:Tropical</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Ooze Monkey &lt;tab&gt;
-SUBRACE:Tropical
-   </code>
+   <code>Ooze Monkey &lt;tab&gt;
+SUBRACE:Tropical</code>
    .
   </p>
   <p class="indent3">
@@ -3322,17 +2860,11 @@ output.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     SUBREGION
-    </code>
+    <code>SUBREGION</code>
     tag, the data included in a new
-    <code>
-     SUBREGION
-    </code>
+    <code>SUBREGION</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -3343,9 +2875,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    SUBREGION:South Side
-   </code>
+   <code>SUBREGION:South Side</code>
   </p>
   <p class="indent3">
    The character is from the "South Side"
@@ -3358,24 +2888,18 @@ subregion.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    South Philly &lt;tab&gt;
-SUBREGION:South Side
-   </code>
+   <code>South Philly &lt;tab&gt;
+SUBREGION:South Side</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    South Philly.MOD &lt;tab&gt;
-SUBREGION:Philadelphia
-   </code>
+   <code>South Philly.MOD &lt;tab&gt;
+SUBREGION:Philadelphia</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    South Philly &lt;tab&gt;
-SUBREGION:Philadelphia
-   </code>
+   <code>South Philly &lt;tab&gt;
+SUBREGION:Philadelphia</code>
    .
   </p>
   <p class="indent3">
@@ -3420,13 +2944,9 @@ to the character.
    </li>
    <li>
     Supports
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     in conjunction with a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </li>
   </ul>
@@ -3436,9 +2956,7 @@ to the character.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:Incorporeal|Undead|Celestial
-   </code>
+   <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
   </p>
   <p class="indent3">
    The character is given the "Incorporeal",
@@ -3479,9 +2997,7 @@ to the character.
    <li>
     This is a pipe-delimited list of template choices that are
 added to the list presented by the original
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag.
    </li>
    <li>
@@ -3489,21 +3005,13 @@ added to the list presented by the original
      .MOD Behavior:
     </strong>
     When using the
-    <code>
-     TEMPLATE:ADDCOICE
-    </code>
+    <code>TEMPLATE:ADDCOICE</code>
     tag as part of a
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     of a Template object that containes multiple
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tags, all instances of the
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag will be modified.
    </li>
   </ul>
@@ -3513,9 +3021,7 @@ added to the list presented by the original
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:ADDCHOICE:Demihuman|Beast
-   </code>
+   <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
   </p>
   <p class="indent3">
    The character has "Demihuman" and "Beast" added
@@ -3560,18 +3066,14 @@ list.
    </li>
    <li>
     Multiple
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tags can be used in the
 same LST object but PCGen's current Data Standard is to include no
 more that one in each LST object.
    </li>
    <li>
     Though the
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag is not a gobal tag
 it can be used in the
     <a href="datafilesability.html#templatechoose">
@@ -3594,9 +3096,7 @@ it can be used in the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:CHOOSE:Celestial|Outsider
-   </code>
+   <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
   </p>
   <p class="indent3">
    The character is given the choice between
@@ -3644,30 +3144,22 @@ Name:
   </p>
   <ul class="indent2">
    <li>
-    <code>
-     YES
-    </code>
+    <code>YES</code>
     - Shows the Template name in PCGen and on
 export to a character sheet
    </li>
    <li>
-    <code>
-     NO
-    </code>
+    <code>NO</code>
     - Hides the Template name in PCGen and on
 export to a character sheet.
    </li>
    <li>
-    <code>
-     DISPLAY
-    </code>
+    <code>DISPLAY</code>
     - Displays the Template name in PCGen but
 not on the character sheet.
    </li>
    <li>
-    <code>
-     EXPORT
-    </code>
+    <code>EXPORT</code>
     - Hides the Template name from PCGen but
 displays it on the character sheet.
    </li>
@@ -3677,17 +3169,11 @@ displays it on the character sheet.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     VISIBLE
-    </code>
+    <code>VISIBLE</code>
     tag, the data included in a new
-    <code>
-     VISIBLE
-    </code>
+    <code>VISIBLE</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -3698,19 +3184,15 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:YES
-   </code>
+   <code>VISIBLE:YES</code>
   </p>
   <p class="indent3">
    Shows the Template name in PCGen and on export
 to a character sheet.
   </p>
   <p class="indent2">
-   <code>
-    &lt;template name&gt;.MOD &lt;tab&gt;
-VISIBLE:NO
-   </code>
+   <code>&lt;template name&gt;.MOD &lt;tab&gt;
+VISIBLE:NO</code>
   </p>
   <p class="indent3">
    The template will not be visible either in the
@@ -3723,24 +3205,18 @@ GUI or on the character sheet..
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    South Philly &lt;tab&gt;
-VISIBLE:YES
-   </code>
+   <code>South Philly &lt;tab&gt;
+VISIBLE:YES</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    South Philly.MOD &lt;tab&gt;
-VISIBLE:NO
-   </code>
+   <code>South Philly.MOD &lt;tab&gt;
+VISIBLE:NO</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    South Philly &lt;tab&gt;
-VISIBLE:NO
-   </code>
+   <code>South Philly &lt;tab&gt;
+VISIBLE:NO</code>
    .
   </p>
   <p class="indent3">
@@ -3790,17 +3266,11 @@ weapons.
     </strong>
     When modifying a template, with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     WEAPONBONUS
-    </code>
+    <code>WEAPONBONUS</code>
     tag, the data included in a new
-    <code>
-     WEAPONBONUS
-    </code>
+    <code>WEAPONBONUS</code>
     tag will be appended to the existing tag
 data.
    </li>
@@ -3811,18 +3281,14 @@ data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    WEAPONBONUS:Rapier|Longbow
-   </code>
+   <code>WEAPONBONUS:Rapier|Longbow</code>
   </p>
   <p class="indent3">
    The race receives bonus proficiency in "Rapier"
 or "Longbow".
   </p>
   <p class="indent2">
-   <code>
-    WEAPONBONUS:TYPE.Simple
-   </code>
+   <code>WEAPONBONUS:TYPE.Simple</code>
   </p>
   <p class="indent3">
    The race receives bonus proficiency in any one
@@ -3835,24 +3301,18 @@ Simple weapon.
   </p>
   <p class="indent2">
    Initial Template:
-   <code>
-    Grunt &lt;tab&gt;
-WEAPONBONUS:TYPE.Simple
-   </code>
+   <code>Grunt &lt;tab&gt;
+WEAPONBONUS:TYPE.Simple</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    Grunt.MOD &lt;tab&gt;
-WEAPONBONUS:TYPE.Martial
-   </code>
+   <code>Grunt.MOD &lt;tab&gt;
+WEAPONBONUS:TYPE.Martial</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    Grunt &lt;tab&gt;
-WEAPONBONUS:TYPE.Simple|TYPE.Martial
-   </code>
+   <code>Grunt &lt;tab&gt;
+WEAPONBONUS:TYPE.Simple|TYPE.Martial</code>
    .
   </p>
   <p class="indent3">
