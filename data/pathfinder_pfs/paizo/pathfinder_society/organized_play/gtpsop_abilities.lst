@@ -5,8 +5,10 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEW
 # Updated by: Vincent Lhote
 
 # Ability Name			Define				Modify VAR
-CATEGORY=Internal|Default.MOD	DEFINE:Society_Faction_Pool|0	BONUS:VAR|Society_Faction_Pool|1|TYPE=Base|PRECLASS:1,TYPE.Base=1
+CATEGORY=Internal|Default.MOD	DEFINE:Society_Faction_Pool|0	BONUS:VAR|Society_Faction_Pool|1|TYPE=Base|PRECLASS:1,TYPE.Base=1	BONUS:VAR|PFS_System|1	DEFINE:PFS_System|0	DEFINE:PFF_Character_ID|0	BONUS:VAR|PFF_Character_ID|1|PRECHARACTERTYPE:1,PC
 
+
+PFS Character ID	CATEGORY:Internal	TYPE:Society ID	CHOOSE:USERINPUT	MULT:YES	ASPECT:PFS_ID|%1|%LIST
 
 ###Block: Boon from season 4 to freely change faction
 # Ability Name			Unique Key						Product Identity?	Category of Ability		Type				Visible		Required Ability								Restricted Ability										Description													Multiple?	Choose		Selections	Ability									Bonus Ability Pool			Stat bonus			Cost		Source, Long Desc.				Source, Short Desc.	Aspects
