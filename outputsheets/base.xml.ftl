@@ -44,6 +44,13 @@
 	  ====================================
 	  ====================================-->
 	<basics>
+		<rules>
+			<pfs>
+				<os>${pcstring('VAR.PFS_System.INTVAL')}</os>
+				<id_number>${pcstring('ABILITYALL.ANY.0.ASPECT=PFS_ID.ASPECT.PFS_ID')}</id_number>
+				<faction>${pcstring('ABILITYALL.ANY.0.TYPE=Society Faction.NAME')}</faction>
+			</pfs>
+		</rules>
 		<bonuses>${pcstring('BONUSLIST.STAT.STR')}</bonuses>
 		<bonuses>${pcstring('BONUSLIST.STAT.STR.TOTAL')}</bonuses>
 		<bonuses>${pcstring('BONUSLIST.CHECK.BASE')}</bonuses>
