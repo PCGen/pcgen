@@ -684,6 +684,37 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>		<!--	15	-->
 			<!-- SR -->
+			<fo:table-column column-width="2mm"/>		<!--	16	-->
+			<!-- space -->
+
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>		<!--	17	-->
+			<!-- Acid Resistance -->
+						<fo:table-column column-width="2mm"/>		<!--	18	-->
+			<!-- space -->
+
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>		<!--	19	-->
+			<!-- Cold Resistance -->
+						<fo:table-column column-width="2mm"/>		<!--	20	-->
+			<!-- space -->
+
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>		<!--	21	-->
+			<!-- Electricity Resistance -->
+			<fo:table-column column-width="2mm"/>		<!--	22	-->
+			<!-- space -->
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
+			</fo:table-column>		<!--	23	-->
+			<!-- Fire Resistance -->
+
+
+
+
 			<fo:table-body>
 				<fo:table-row height="2pt">
 											<xsl:message>Test</xsl:message>
@@ -765,8 +796,50 @@
 							<xsl:value-of select="spell_resistance"/>
 						</fo:block>
 					</fo:table-cell>		<!--	15	-->
+
+					<fo:table-cell/>		<!--	14	-->
+
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'spell_resistance'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:value-of select="resistances/acid"/>
+						</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'spell_resistance'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:value-of select="resistances/cold"/>
+						</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'spell_resistance'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:value-of select="resistances/electricity"/>
+						</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell display-align="center">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'spell_resistance'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt">
+							<xsl:value-of select="resistances/fire"/>
+						</fo:block>
+					</fo:table-cell>		<!--	15	-->
+
+				
+				
 				</fo:table-row>
 <!--				<fo:table-row height="0.5pt"/>	-->
+<!-- Label Row -->
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>		<!--	1	-->
@@ -799,6 +872,35 @@
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">SPELL RESIST</fo:block>
 					</fo:table-cell>		<!--	15	-->
+					
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">ACID RESIST</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">COLD RESIST</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">ELECT. RESIST</fo:block>
+					</fo:table-cell>		<!--	15	-->
+					<fo:table-cell/>		<!--	14	-->
+					<fo:table-cell>
+						<fo:block text-align="center" font-size="4pt">FIRE RESIST</fo:block>
+					</fo:table-cell>		<!--	15	-->
+
+					
+					
+					
+					
+					
+					
+					
+					
+
+
+
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
@@ -953,8 +1055,8 @@
 	<xsl:template match="saving_throws">
 		<!-- BEGIN Saves table -->
 		<fo:table table-layout="fixed" space-before="2mm">
-			<fo:table-column column-width="82mm"/>
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="82mm"/>	<!-- Saves Row -->
+			<fo:table-column column-width="2mm"/>	<!-- Spacer -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 86" />mm</xsl:attribute>
 			</fo:table-column>
@@ -965,13 +1067,13 @@
 						<xsl:apply-templates select="." mode="saves"/>
 					</fo:table-cell>
 					<fo:table-cell/>
-<!--	Square Box Conditional Save area that we no longer need
+<!--	Square Box Conditional Save area that we no longer need	
 					<fo:table-cell padding-start="1pt">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'border'"/>
 						</xsl:call-template>
-						<fo:block font-size="4pt">Conditional Save Modifiers</fo:block>
-						<xsl:for-each select="conditional_modifiers/savebonus">
+						<fo:block font-size="4pt">Resistance</fo:block>
+						<xsl:for-each select="resistances">
 							<fo:block font-size="4pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 						</xsl:for-each>
 					</fo:table-cell>		-->
