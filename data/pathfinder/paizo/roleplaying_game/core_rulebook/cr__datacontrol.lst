@@ -308,6 +308,9 @@ FACTDEF:ABILITY|Druid_Archetype_AThousandFaces					DATAFORMAT:BOOLEAN	VISIBLE:YE
 FACTDEF:ABILITY|Druid_Archetype_TimelessBody					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody						EXPLANATION:Determines whether the archetype affects - TimelessBody						
 FACTDEF:ABILITY|Druid_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody						EXPLANATION:Determines whether the archetype affects - TimelessBody						
 FACTDEF:ABILITY|Druid_Archetype_NatureBond					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:NatureSense						EXPLANATION:Determines whether the archetype affects - NatureSense						
+FACTDEF:ABILITY|Druid_Archetype_WildShape6				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildShape							EXPLANATION:Remove Druid WildShape				
+FACTDEF:ABILITY|Druid_Archetype_WildShape8				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildShape							EXPLANATION:Remove Druid WildShape				
+
 
 # Druid Class Feature
 FACTDEF:ABILITY|Druid_CF_SpontaneousCasting		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting						EXPLANATION:Remove Druid SpontaneousCasting			
@@ -653,6 +656,8 @@ FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISI
 FACTDEF:ABILITY|Sorcerer_Archetype_Bloodline							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 FACTDEF:ABILITY|Sorcerer_Archetype_ClassSkills							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 
+FACTDEF:ABILITY|Sorcerer_Archetype_BloodlineArcana		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
+FACTDEF:ABILITY|Sorcerer_Archetype_BloodlineSpells		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
 FACTDEF:ABILITY|Sorcerer_Archetype_BloodlineSpell1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
 FACTDEF:ABILITY|Sorcerer_Archetype_BloodlineSpell2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell2								EXPLANATION:Remove Sorcerer BloodlineBonusSpell2			
 FACTDEF:ABILITY|Sorcerer_Archetype_BloodlineSpell3		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell3								EXPLANATION:Remove Sorcerer BloodlineBonusSpell3			
