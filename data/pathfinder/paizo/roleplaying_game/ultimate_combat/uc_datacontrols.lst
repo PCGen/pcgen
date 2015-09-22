@@ -11,6 +11,41 @@ FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeats										DATAFORMAT:BOOLEAN	VISI
 FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining									EXPLANATION:Determines whether the archetype affects - GunTraining		
 FACTDEF:ABILITY|Gunslinger_Archetype_TrueGrit										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TrueGrit										EXPLANATION:Determines whether the archetype affects - TrueGrit			
 
+FACTDEF:ABILITY|Gunslinger_Archetype_Gunsmith									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Gunsmith										EXPLANATION:Remove Gunslinger Gunsmith							
+FACTDEF:ABILITY|Gunslinger_Archetype_Deeds									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Deeds										EXPLANATION:Remove Gunslinger Deeds							
+FACTDEF:ABILITY|Gunslinger_Archetype_Grit										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Grit											EXPLANATION:Remove Gunslinger Grit								
+FACTDEF:ABILITY|Gunslinger_Archetype_Nimble									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Nimble										EXPLANATION:Remove Gunslinger Nimble							
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
+FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining									EXPLANATION:Remove Gunslinger GunTraining						
+FACTDEF:ABILITY|Gunslinger_Archetype_TrueGrit									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TrueGrit										EXPLANATION:Remove Gunslinger TrueGrit							
+FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining1									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining1										EXPLANATION:Remove Gunslinger GunTraining1							
+FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining2									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining2										EXPLANATION:Remove Gunslinger GunTraining2							
+FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining3									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining3										EXPLANATION:Remove Gunslinger GunTraining3							
+FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining4									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining4										EXPLANATION:Remove Gunslinger GunTraining4							
+FACTDEF:ABILITY|Gunslinger_Archetype_DeadeyeDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DeadeyeDeed													EXPLANATION:Remove Gunslinger DeadeyeDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_GunslingersDodgeDeed											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunslingersDodgeDeed												EXPLANATION:Remove Gunslinger GunslingersDodgeDeed							
+FACTDEF:ABILITY|Gunslinger_Archetype_QuickClearDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:QuickClearDeed													EXPLANATION:Remove Gunslinger QuickClearDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_GunslingerInitiativeDeed										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunslingerInitiativeDeed											EXPLANATION:Remove Gunslinger GunslingerInitiativeDeed						
+FACTDEF:ABILITY|Gunslinger_Archetype_PistolWhipDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PistolWhipDeed													EXPLANATION:Remove Gunslinger PistolWhipDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_UtilityShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:UtilityShotDeed													EXPLANATION:Remove Gunslinger UtilityShotDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_DeadShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DeadShotDeed													EXPLANATION:Remove Gunslinger DeadShotDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_StartlingShotDeed											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StartlingShotDeed												EXPLANATION:Remove Gunslinger StartlingShotDeed							
+FACTDEF:ABILITY|Gunslinger_Archetype_TargetingDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TargetingDeed													EXPLANATION:Remove Gunslinger TargetingDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_BleedingWoundDeed											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BleedingWoundDeed												EXPLANATION:Remove Gunslinger BleedingWoundDeed							
+FACTDEF:ABILITY|Gunslinger_Archetype_ExpertLoadingDeed											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ExpertLoadingDeed												EXPLANATION:Remove Gunslinger ExpertLoadingDeed							
+FACTDEF:ABILITY|Gunslinger_Archetype_LightningReloadDeed											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LightningReloadDeed												EXPLANATION:Remove Gunslinger LightningReloadDeed							
+FACTDEF:ABILITY|Gunslinger_Archetype_EvasiveDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EvasiveDeed													EXPLANATION:Remove Gunslinger EvasiveDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_MenacingShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MenacingShotDeed													EXPLANATION:Remove Gunslinger MenacingShotDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_SlingersLuckDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SlingersLuckDeed													EXPLANATION:Remove Gunslinger SlingersLuckDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_CheatDeathDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CheatDeathDeed													EXPLANATION:Remove Gunslinger CheatDeathDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_DeathsShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DeathsShotDeed													EXPLANATION:Remove Gunslinger DeathsShotDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_StunningShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StunningShotDeed													EXPLANATION:Remove Gunslinger StunningShotDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_DodgeDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StunningShotDeed													EXPLANATION:Remove Gunslinger StunningShotDeed								
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat4									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat8									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat12									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat16									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat20									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
 
 
 
@@ -26,9 +61,6 @@ FACTDEF:ABILITY|Gunslinger_CF_GunTraining1									DATAFORMAT:BOOLEAN	VISIBLE:YE
 FACTDEF:ABILITY|Gunslinger_CF_GunTraining2									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining2										EXPLANATION:Remove Gunslinger GunTraining2							
 FACTDEF:ABILITY|Gunslinger_CF_GunTraining3									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining3										EXPLANATION:Remove Gunslinger GunTraining3							
 FACTDEF:ABILITY|Gunslinger_CF_GunTraining4									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining4										EXPLANATION:Remove Gunslinger GunTraining4							
-
-
-
 FACTDEF:ABILITY|Gunslinger_CF_DeadeyeDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DeadeyeDeed													EXPLANATION:Remove Gunslinger DeadeyeDeed								
 FACTDEF:ABILITY|Gunslinger_CF_GunslingersDodgeDeed											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunslingersDodgeDeed												EXPLANATION:Remove Gunslinger GunslingersDodgeDeed							
 FACTDEF:ABILITY|Gunslinger_CF_QuickClearDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:QuickClearDeed													EXPLANATION:Remove Gunslinger QuickClearDeed								
@@ -47,9 +79,7 @@ FACTDEF:ABILITY|Gunslinger_CF_SlingersLuckDeed												DATAFORMAT:BOOLEAN	VIS
 FACTDEF:ABILITY|Gunslinger_CF_CheatDeathDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CheatDeathDeed													EXPLANATION:Remove Gunslinger CheatDeathDeed								
 FACTDEF:ABILITY|Gunslinger_CF_DeathsShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DeathsShotDeed													EXPLANATION:Remove Gunslinger DeathsShotDeed								
 FACTDEF:ABILITY|Gunslinger_CF_StunningShotDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StunningShotDeed													EXPLANATION:Remove Gunslinger StunningShotDeed								
-
 FACTDEF:ABILITY|Gunslinger_CF_DodgeDeed												DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StunningShotDeed													EXPLANATION:Remove Gunslinger StunningShotDeed								
-
 FACTDEF:ABILITY|Gunslinger_CF_BonusFeat4									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
 FACTDEF:ABILITY|Gunslinger_CF_BonusFeat8									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
 FACTDEF:ABILITY|Gunslinger_CF_BonusFeat12									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							

@@ -973,6 +973,66 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>*Gauntlet, Spiked</short>
+					<long>*Gauntlet, Spiked</long>
+				</name>
+				<category>Simple-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+10/+5</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+10/+5</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>P</type>
+				<weight>0</weight>
+				<sequence>2</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+10/+5</to_hit>
+					<damage>1d4+4</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>+6/+1</to_hit>
+					<damage>1d4+2</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+10/+5</to_hit>
+					<damage>1d4+4</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>+4/-1</to_hit>
+					<damage>1d4+4</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>+6/+1</to_hit>
+					<damage>1d4+4</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>+2</to_hit>
+					<damage>1d4+2</damage>
+				</w2_o>
+			</melee>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>Dagger</short>
 					<long>Dagger</long>
 				</name>
@@ -995,7 +1055,7 @@ BIO
 				<template></template>
 				<type>PS</type>
 				<weight>0</weight>
-				<sequence>2</sequence>
+				<sequence>3</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1082,7 +1142,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>2</weight>
-				<sequence>4</sequence>
+				<sequence>5</sequence>
 			</common>
 			<ranges>
 				<range>
@@ -1137,7 +1197,7 @@ BIO
 				<template></template>
 				<type>S</type>
 				<weight>4</weight>
-				<sequence>5</sequence>
+				<sequence>6</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1197,7 +1257,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>0</weight>
-				<sequence>6</sequence>
+				<sequence>7</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1258,66 +1318,6 @@ BIO
 					<damage>1d4+4</damage>
 				</range>
 			</ranges>
-		</weapon>
-		<weapon>
-			<common>
-				<name>
-					<short>*Gauntlet, Spiked</short>
-					<long>*Gauntlet (Spiked)</long>
-				</name>
-				<category>Simple-Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+10/+5</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+10/+5</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Equipped</hand>
-				<num_attacks>2</num_attacks>
-				<reach>5</reach>
-				<size>M</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>P</type>
-				<weight>0</weight>
-				<sequence>8</sequence>
-			</common>
-			<melee>
-				<w1_h1_p>
-					<!-- One weapon, 1 hand, primary hand -->
-					<to_hit>+10/+5</to_hit>
-					<damage>1d4+4</damage>
-				</w1_h1_p>
-				<w1_h1_o>
-					<!-- One weapon, 1 handed, offhand -->
-					<to_hit>+6/+1</to_hit>
-					<damage>1d4+2</damage>
-				</w1_h1_o>
-				<w1_h2>
-					<!-- One weapon, 2 handed -->
-					<to_hit>+10/+5</to_hit>
-					<damage>1d4+4</damage>
-				</w1_h2>
-				<w2_p_oh>
-					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
-					<to_hit>+4/-1</to_hit>
-					<damage>1d4+4</damage>
-				</w2_p_oh>
-				<w2_p_ol>
-					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
-					<to_hit>+6/+1</to_hit>
-					<damage>1d4+4</damage>
-				</w2_p_ol>
-				<w2_o>
-					<!-- Two weapons, this weapon in off-hand -->
-					<to_hit>+2</to_hit>
-					<damage>1d4+2</damage>
-				</w2_o>
-			</melee>
 		</weapon>
 		<weapon>
 			<common>
@@ -1526,6 +1526,32 @@ BIO
 			</size>
 			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
 			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Gauntlet, Spiked</longname>
+			<id></id>
+			<name>Gauntlet, Spiked</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>5</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2128,32 +2154,6 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Gauntlet (Spiked)</longname>
-			<id></id>
-			<name>Gauntlet, Spiked</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>5</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
 			<longname>Outfit (Traveler&#39;s)</longname>
 			<id></id>
 			<name>Traveler&#39;s Outfit</name>
@@ -2278,6 +2278,27 @@ BIO
 				</size>
 				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
 				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Gauntlet, Spiked</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>5</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2762,27 +2783,6 @@ BIO
 				<special_properties></special_properties>
 				<type>GOODS.GENERAL.RESIZABLE</type>
 				<weight>4</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Gauntlet, Spiked</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>5</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
-				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
