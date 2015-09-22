@@ -804,7 +804,9 @@
 							<xsl:with-param name="attribute" select="'spell_resistance'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+							<xsl:if test="resistances/acid > 0">
 							<xsl:value-of select="resistances/acid"/>
+							</xsl:if>
 						</fo:block>
 					</fo:table-cell>		<!--	15	-->
 					<fo:table-cell/>		<!--	14	-->
@@ -813,7 +815,9 @@
 							<xsl:with-param name="attribute" select="'spell_resistance'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+							<xsl:if test="resistances/cold > 0">
 							<xsl:value-of select="resistances/cold"/>
+							</xsl:if>
 						</fo:block>
 					</fo:table-cell>		<!--	15	-->
 					<fo:table-cell/>		<!--	14	-->
@@ -822,7 +826,9 @@
 							<xsl:with-param name="attribute" select="'spell_resistance'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+							<xsl:if test="resistances/electricity > 0">
 							<xsl:value-of select="resistances/electricity"/>
+							</xsl:if>
 						</fo:block>
 					</fo:table-cell>		<!--	15	-->
 					<fo:table-cell/>		<!--	14	-->
@@ -831,7 +837,9 @@
 							<xsl:with-param name="attribute" select="'spell_resistance'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
+							<xsl:if test="resistances/fire > 0">
 							<xsl:value-of select="resistances/fire"/>
+							</xsl:if>
 						</fo:block>
 					</fo:table-cell>		<!--	15	-->
 

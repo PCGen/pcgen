@@ -372,10 +372,10 @@
 		<spell_resistance>${pcstring('SR')}</spell_resistance>
 		<hero_points>${pcstring('VAR.HEROPOINTS.INTVAL')}</hero_points>
 		<resistances>
-			<acid>5</acid>
-			<cold>8</cold>
-			<electricity>2</electricity>
-			<fire>4</fire>
+			<acid>${pcstring('VAR.AcidResistanceBonus.INTVAL')}</acid>
+			<cold>${pcstring('VAR.ColdResistanceBonus.INTVAL')}</cold>
+			<electricity>${pcstring('VAR.ElectricityResistanceBonus.INTVAL')}</electricity>
+			<fire>${pcstring('VAR.FireResistanceBonus.INTVAL')}</fire>
 			<force/>
 			<sonic/>
 		</resistances>
