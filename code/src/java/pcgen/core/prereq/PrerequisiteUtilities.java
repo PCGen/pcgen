@@ -294,7 +294,7 @@ public final class PrerequisiteUtilities
 
 
 	/**
-	 * This operation deals with matching subKeys against abilities where the the main key
+	 * This operation deals with matching subKeys against abilities where the main key
 	 * has already matched.
 
 	 * The subKey may be prefixed with TYPE(=|.) in which case the Choice string from the

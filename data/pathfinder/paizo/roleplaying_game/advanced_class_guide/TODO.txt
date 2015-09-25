@@ -27,7 +27,7 @@ Barbarian Rage Powers on page 80
 
 Ability: Earth Blessing ~ Armor of Earth should have BONUS to DR, but not stack with any other DR.
 
-Ability: Glory Blessing ~ Demoralizing Glory "ranks in Intimidate" instead of "warpriest level"? So recalculate the the DC by Intimidate skill, subtract ranks and any bonus due to ranks and recalcuate using level in place of ranks
+Ability: Glory Blessing ~ Demoralizing Glory "ranks in Intimidate" instead of "warpriest level"? So recalculate the DC by Intimidate skill, subtract ranks and any bonus due to ranks and recalcuate using level in place of ranks
 
 Feat: Weapon of the Chosen needs PRExxx to require Weapon Focus (DEITYWEAPON)
 

@@ -298,7 +298,7 @@ public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
 	}
 
 	/**
-	 * Returns true if this SpellBookFacet contains a SpellBook of the the given
+	 * Returns true if this SpellBookFacet contains a SpellBook of the given
 	 * name in the list of SpellBooks for the Player Character represented by
 	 * the given CharID.
 	 * 

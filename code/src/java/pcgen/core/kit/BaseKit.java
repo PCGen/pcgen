@@ -92,7 +92,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	}
 	
 	/**
-	 * Evaluate the the EVAL expression
+	 * Evaluate the EVAL expression
 	 * 
 	 * @param aPC
 	 * @param aValue
