@@ -2330,7 +2330,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Get the weight as a double
 	 * 
 	 * @param aPC The PC that has this Equipment
-	 * @return weight as as double
+	 * @return weight as double
 	 */
 	public double getWeightAsDouble(final PlayerCharacter aPC)
 	{

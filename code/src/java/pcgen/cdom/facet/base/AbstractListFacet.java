@@ -521,7 +521,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *            object is to be placed in the Collection for the Player
 	 *            Character represented by the given PCGenIdentifier
 	 * @param added
-	 *            The object to be added to the the Collection for the Player
+	 *            The object to be added to the Collection for the Player
 	 *            Character represented by the given PCGenIdentifier
 	 */
 	public void addAfter(IDT id, T trigger, T added)

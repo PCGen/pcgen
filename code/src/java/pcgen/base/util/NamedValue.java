@@ -34,7 +34,7 @@ public final class NamedValue
 	private final String name;
 
 	/**
-	 * The (double) value contained in the the NamedValue.
+	 * The (double) value contained in the NamedValue.
 	 */
 	private double weight;
 
