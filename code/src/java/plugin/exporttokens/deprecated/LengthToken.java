@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens.deprecated;
 
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -55,7 +56,7 @@ public class LengthToken extends AbstractExportToken
 
 		if ("LENGTH.HAIR".equals(tokenSource))
 		{
-			retString = display.getHairStyle();
+			retString = display.getSafeStringFor(PCStringKey.HAIRSTYLE);
 		}
 
 		return retString;

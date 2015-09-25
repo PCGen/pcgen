@@ -19,15 +19,6 @@
  */
  package plugin.pcgtracker;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ImagePreview;
-import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -41,6 +32,14 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ImagePreview;
+import gmgen.io.SimpleFileFilter;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -165,7 +164,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		if (e.getSource() == theView.getSaveButton())
 		{
-			for (Object obj : theView.getLoadedList().getSelectedValues())
+			for (Object obj : theView.getLoadedList().getSelectedValuesList())
 			{
 				PlayerCharacter pc = model.get(obj);
 				savePC(pc, false);
@@ -174,7 +173,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		if (e.getSource() == theView.getSaveAsButton())
 		{
-			for (Object obj : theView.getLoadedList().getSelectedValues())
+			for (Object obj : theView.getLoadedList().getSelectedValuesList())
 			{
 				PlayerCharacter pc = model.get(obj);
 				savePC(pc, true);
@@ -322,7 +321,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 	public void removeSelected()
 	{
-		for (Object obj : theView.getLoadedList().getSelectedValues())
+		for (Object obj : theView.getLoadedList().getSelectedValuesList())
 		{
 			PlayerCharacter pc = model.get(obj);
 			model.removeElement(obj);
