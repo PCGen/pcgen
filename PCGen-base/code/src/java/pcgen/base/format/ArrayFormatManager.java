@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
 
@@ -85,7 +86,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * to in the instructions should be separated by the separator provided at
 	 * construction of this ArrayFormatManager.
 	 * 
-	 * @see pcgen.base.format.FormatManager#convert(java.lang.String)
+	 * @see pcgen.base.util.FormatManager#convert(java.lang.String)
 	 */
 	@Override
 	public T[] convert(String instructions)
@@ -114,7 +115,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * referred to in the instructions should be separated by the separator
 	 * provided at construction of this ArrayFormatManager.
 	 * 
-	 * @see pcgen.base.format.FormatManager#convertIndirect(java.lang.String)
+	 * @see pcgen.base.util.FormatManager#convertIndirect(java.lang.String)
 	 */
 	@Override
 	public Indirect<T[]> convertIndirect(String instructions)
@@ -134,7 +135,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * objects or groups referred to in the instructions should be separated by
 	 * the separator provided at construction of this ArrayFormatManager.
 	 * 
-	 * @see pcgen.base.format.FormatManager#convertObjectContainer(java.lang.String)
+	 * @see pcgen.base.util.FormatManager#convertObjectContainer(java.lang.String)
 	 */
 	@Override
 	public ObjectContainer<T[]> convertObjectContainer(String instructions)
@@ -171,7 +172,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * Returns the FormatManager for the class of object within the array
 	 * managed by this ArrayFormatManager.
 	 * 
-	 * @see pcgen.base.format.FormatManager#getComponentManager()
+	 * @see pcgen.base.util.FormatManager#getComponentManager()
 	 */
 	@Override
 	public FormatManager<?> getComponentManager()
@@ -182,7 +183,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	/**
 	 * Returns the identifier type for this ArrayFormatManager.
 	 * 
-	 * @see pcgen.base.format.FormatManager#getIdentifierType()
+	 * @see pcgen.base.util.FormatManager#getIdentifierType()
 	 */
 	@Override
 	public String getIdentifierType()
@@ -194,7 +195,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * Returns the class for this ArrayFormatManager (will be an Array.class
 	 * with the appropriate component class).
 	 * 
-	 * @see pcgen.base.format.FormatManager#getManagedClass()
+	 * @see pcgen.base.util.FormatManager#getManagedClass()
 	 */
 	@Override
 	public Class<T[]> getManagedClass()
@@ -205,7 +206,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	/**
 	 * Unconverts the given array using this ArrayFormatManager.
 	 * 
-	 * @see pcgen.base.format.FormatManager#unconvert(java.lang.Object)
+	 * @see pcgen.base.util.FormatManager#unconvert(java.lang.Object)
 	 */
 	@Override
 	public String unconvert(T[] array)

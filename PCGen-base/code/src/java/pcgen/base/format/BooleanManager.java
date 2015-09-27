@@ -19,6 +19,7 @@ package pcgen.base.format;
 
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.BasicObjectContainer;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
 
@@ -130,7 +131,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	/**
 	 * Returns null, as this FormatManager does not have a component.
 	 * 
-	 * @see pcgen.base.format.FormatManager#getComponentManager()
+	 * @see pcgen.base.util.FormatManager#getComponentManager()
 	 */
 	@Override
 	public FormatManager<?> getComponentManager()
