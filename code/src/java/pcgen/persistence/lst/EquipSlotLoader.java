@@ -41,11 +41,6 @@ import pcgen.util.Logging;
  **/
 public final class EquipSlotLoader extends LstLineFileLoader
 {
-	/** Creates a new instance of EquipSlotLoader */
-	public EquipSlotLoader()
-	{
-		// Empty Constructor
-	}
 
 	/**
 	 * @see LstLineFileLoader#parseLine(LoadContext, String, URI)

@@ -17,6 +17,8 @@
  */
 package pcgen.persistence.lst;
 
+import java.util.Objects;
+
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Loadable;
@@ -32,11 +34,7 @@ public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 	public SimplePrefixLoader(Class<T> cl, String prefix)
 	{
 		super(cl);
-		if (prefix == null)
-		{
-			throw new IllegalArgumentException("Prefix cannot be null");
-		}
-		if (prefix.length() == 0)
+		if (Objects.requireNonNull(prefix).isEmpty())
 		{
 			throw new IllegalArgumentException("Prefix cannot be empty");
 		}

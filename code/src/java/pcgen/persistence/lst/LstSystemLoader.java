@@ -46,7 +46,7 @@ public final class LstSystemLoader implements SystemLoader
 {
 
 	private final Map<String, List<URI>> chosenCampaignSourcefiles =
-			new HashMap<String, List<URI>>();
+			new HashMap<>();
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.SystemLoader#setChosenCampaignSourcefiles(java.util.List, pcgen.core.GameMode)

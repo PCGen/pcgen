@@ -32,7 +32,7 @@ import pcgen.output.publish.OutputDB;
  * properties
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class PCGenSettings extends PropertyContext
+public final class PCGenSettings extends PropertyContext
 {
 
 	private static final PCGenSettings instance = new PCGenSettings();

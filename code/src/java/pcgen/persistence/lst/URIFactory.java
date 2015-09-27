@@ -80,7 +80,7 @@ public class URIFactory
 		{
 			throw new IllegalArgumentException("root URI cannot be null");
 		}
-		if (offset == null || offset.length() == 0)
+		if (offset == null || offset.isEmpty())
 		{
 			throw new IllegalArgumentException("URI offset cannot be null");
 		}
