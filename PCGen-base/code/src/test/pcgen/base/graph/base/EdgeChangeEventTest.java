@@ -64,12 +64,4 @@ public class EdgeChangeEventTest extends TestCase
 		}
 	}
 
-	public void testGetGraphEdge()
-	{
-	}
-
-	public void testGetID()
-	{
-	}
-
 }

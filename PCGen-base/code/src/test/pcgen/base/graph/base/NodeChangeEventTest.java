@@ -62,12 +62,4 @@ public class NodeChangeEventTest extends TestCase
 		}
 	}
 
-	public void testGetGraphEdge()
-	{
-	}
-
-	public void testGetID()
-	{
-	}
-
 }
