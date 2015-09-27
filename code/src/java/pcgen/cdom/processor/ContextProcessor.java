@@ -15,100 +15,100 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.modifier;
+package pcgen.cdom.processor;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 import pcgen.util.StringPClassUtil;
 
 /**
- * A ContextModifier is a Modifier that has the ability to wrap another Modifier
- * in order to conditionally apply the underlying Modifier only in a given
+ * A ContextProcessor is a Processor that has the ability to wrap another Processor
+ * in order to conditionally apply the underlying Processor only in a given
  * context.
  * 
  * @param <T>
- *            The class of object this ContextModifier acts upon.
+ *            The class of object this ContextProcessor acts upon.
  * @param <R>
  *            The class of objects which provide the context in which this
- *            ContextModifier acts
+ *            ContextProcessor acts
  */
-public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
+public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 {
 	/**
-	 * The underlying Modifier that this ContextModifer will apply when the
+	 * The underlying Processor that this ContextModifer will apply when the
 	 * given context is matched.
 	 */
-	private final Modifier<T> modifier;
+	private final Processor<T> processor;
 
 	/**
 	 * A Reference which contains the objects in the context in which the
-	 * underlying Modifier should be applied.
+	 * underlying Processor should be applied.
 	 */
 	private final CDOMReference<R> contextItems;
 
 	/**
-	 * Constructs a new ContextModifier that will conditionally apply the given
-	 * Modifier only when objects in the given CDOMReference are provided as the
+	 * Constructs a new ContextProcessor that will conditionally apply the given
+	 * Processor only when objects in the given CDOMReference are provided as the
 	 * context of the modification.
 	 * 
 	 * @param mod
-	 *            The underlying Modifier that this ContextModifer will apply
+	 *            The underlying Processor that this ContextModifer will apply
 	 *            when the given context is matched.
 	 * @param contextRef
 	 *            The CDOMReference which contains the objects for which the
-	 *            underlying Modifier should be applied.
+	 *            underlying Processor should be applied.
 	 * @throws IllegalArgumentException
-	 *             if the given Modifier or the given CDOMReference is null
+	 *             if the given Processor or the given CDOMReference is null
 	 */
-	public ContextModifier(Modifier<T> mod, CDOMReference<R> contextRef)
+	public ContextProcessor(Processor<T> mod, CDOMReference<R> contextRef)
 	{
 		if (mod == null)
 		{
 			throw new IllegalArgumentException(
-					"Modifier in ContextModifier cannot be null");
+					"Processor in ContextProcessor cannot be null");
 		}
 		if (contextRef == null)
 		{
 			throw new IllegalArgumentException(
-					"Context in ContextModifier cannot be null");
+					"Context in ContextProcessor cannot be null");
 		}
-		modifier = mod;
+		processor = mod;
 		contextItems = contextRef;
 	}
 
 	/**
-	 * Conditionally applies the underlying Modifier to the given input. Will
+	 * Conditionally applies the underlying Processor to the given input. Will
 	 * only be applied if the object given as the context object is contained
 	 * within the CDOMReference provided during construction of this
-	 * ContextModifier.
+	 * ContextProcessor.
 	 * 
 	 * Note this method may return the object passed in as the input object. The
-	 * behavior of ContextModifier will depend on the behavior of the underlying
-	 * Modifier. Therefore, if the input object is mutable, the caller of the
-	 * applyModifier method should be aware of that behavior, and should treat
+	 * behavior of ContextProcessor will depend on the behavior of the underlying
+	 * Processor. Therefore, if the input object is mutable, the caller of the
+	 * applyProcessor method should be aware of that behavior, and should treat
 	 * the returned object appropriately.
 	 * 
 	 * @param obj
-	 *            The input object this ContextModifier will act upon
+	 *            The input object this ContextProcessor will act upon
 	 * @param context
-	 *            The context of this ContextModifier, to establish whether this
-	 *            Modifier should act upon the input object
+	 *            The context of this ContextProcessor, to establish whether this
+	 *            Processor should act upon the input object
 	 * @return The modified object, of the same class as the input object.
 	 */
 	@Override
-	public T applyModifier(T obj, Object context)
+	public T applyProcessor(T obj, Object context)
 	{
 		return (context instanceof PrereqObject && contextItems
-				.contains((R) context)) ? modifier.applyModifier(obj, context)
+				.contains((R) context)) ? processor.applyProcessor(obj, context)
 				: obj;
 	}
 
 	/**
-	 * Returns a representation of this ContextModifier, suitable for storing in
+	 * Returns a representation of this ContextProcessor, suitable for storing in
 	 * an LST file.
 	 * 
-	 * @return A representation of this ContextModifier, suitable for storing in
+	 * @return A representation of this ContextProcessor, suitable for storing in
 	 *         an LST file.
 	 */
 	@Override
@@ -116,7 +116,7 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	{
 		String contextString = contextItems.getLSTformat(false);
 		StringBuilder sb = new StringBuilder();
-		sb.append(modifier.getLSTformat()).append('|');
+		sb.append(processor.getLSTformat()).append('|');
 		sb.append(StringPClassUtil.getStringFor(contextItems
 				.getReferenceClass()));
 		sb.append(contextString.indexOf('=') == -1 ? '=' : '.');
@@ -125,45 +125,45 @@ public class ContextModifier<T, R extends PrereqObject> implements Modifier<T>
 	}
 
 	/**
-	 * The class of object this ContextModifier acts upon (matches the modified
-	 * class of the underlying Modifier).
+	 * The class of object this ContextProcessor acts upon (matches the modified
+	 * class of the underlying Processor).
 	 * 
-	 * @return The class of object this ContextModifier acts upon
+	 * @return The class of object this ContextProcessor acts upon
 	 */
 	@Override
 	public Class<T> getModifiedClass()
 	{
-		return modifier.getModifiedClass();
+		return processor.getModifiedClass();
 	}
 
 	/**
-	 * Returns true if this ContextModifier is equal to the given Object.
-	 * Equality is defined as being another ContextModifier object underlying
-	 * Modifier and context items
+	 * Returns true if this ContextProcessor is equal to the given Object.
+	 * Equality is defined as being another ContextProcessor object underlying
+	 * Processor and context items
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof ContextModifier)
+		if (obj instanceof ContextProcessor)
 		{
-			ContextModifier<?, ?> other = (ContextModifier<?, ?>) obj;
-			return modifier.equals(other.modifier)
+			ContextProcessor<?, ?> other = (ContextProcessor<?, ?>) obj;
+			return processor.equals(other.processor)
 					&& contextItems.equals(other.contextItems);
 		}
 		return false;
 	}
 
 	/**
-	 * Returns the consistent-with-equals hashCode for this ContextModifier
+	 * Returns the consistent-with-equals hashCode for this ContextProcessor
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
 	{
-		return modifier.hashCode() * 31 - contextItems.hashCode();
+		return processor.hashCode() * 31 - contextItems.hashCode();
 	}
 
 }

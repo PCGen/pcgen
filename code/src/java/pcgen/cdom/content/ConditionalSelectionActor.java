@@ -117,7 +117,7 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 	{
 		if (obj instanceof ConditionalSelectionActor)
 		{
-			ConditionalSelectionActor other = (ConditionalSelectionActor) obj;
+			ConditionalSelectionActor<?> other = (ConditionalSelectionActor<?>) obj;
 			return actor.equals(other.actor) && equalsPrereqObject(other);
 		}
 		return false;

@@ -19,7 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.HitDie;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.analysis.LevelFacet;
@@ -90,7 +90,7 @@ public class HitPointFacet extends
 				//
 				// Recalculate HPs in case HD have changed.
 				//
-				Modifier<HitDie> dieLock = cdo.get(ObjectKey.HITDIE);
+				Processor<HitDie> dieLock = cdo.get(ObjectKey.HITDIE);
 				if (dieLock != null)
 				{
 					for (int level = 1; level <= classFacet.getLevel(id,
@@ -143,10 +143,10 @@ public class HitPointFacet extends
 	{
 		// Class Base Hit Die
 		HitDie currDie = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);
-		Modifier<HitDie> dieLock = raceFacet.get(id).get(ObjectKey.HITDIE);
+		Processor<HitDie> dieLock = raceFacet.get(id).get(ObjectKey.HITDIE);
 		if (dieLock != null)
 		{
-			currDie = dieLock.applyModifier(currDie, pcClass);
+			currDie = dieLock.applyProcessor(currDie, pcClass);
 		}
 
 		// Templates
@@ -154,10 +154,10 @@ public class HitPointFacet extends
 		{
 			if (template != null)
 			{
-				Modifier<HitDie> lock = template.get(ObjectKey.HITDIE);
+				Processor<HitDie> lock = template.get(ObjectKey.HITDIE);
 				if (lock != null)
 				{
-					currDie = lock.applyModifier(currDie, pcClass);
+					currDie = lock.applyProcessor(currDie, pcClass);
 				}
 			}
 		}
@@ -172,10 +172,10 @@ public class HitPointFacet extends
 			}
 			else
 			{
-				Modifier<HitDie> lock = cl.get(ObjectKey.HITDIE);
+				Processor<HitDie> lock = cl.get(ObjectKey.HITDIE);
 				if (lock != null)
 				{
-					currDie = lock.applyModifier(currDie, pcClass);
+					currDie = lock.applyProcessor(currDie, pcClass);
 				}
 			}
 		}
