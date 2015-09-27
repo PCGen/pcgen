@@ -26,6 +26,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
@@ -265,8 +266,8 @@ public class SpellChoicePanel extends JPanel
 				return;
 			}
 
-			Object[] selectedValues = metamagicList.getSelectedValues();
-			spellBuilderFacade.setSelectedMetamagicFeats(selectedValues);
+			List selectedValues = metamagicList.getSelectedValuesList();
+			spellBuilderFacade.setSelectedMetamagicFeats(selectedValues.toArray());
 		}
 
 	}

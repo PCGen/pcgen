@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens.deprecated;
 
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -50,6 +51,6 @@ public class BirthplaceToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return display.getBirthplace();
+		return display.getSafeStringFor(PCStringKey.BIRTHPLACE);
 	}
 }

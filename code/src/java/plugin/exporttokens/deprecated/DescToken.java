@@ -25,11 +25,12 @@
  */
 package plugin.exporttokens.deprecated;
 
-import java.util.StringTokenizer;
-
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+
+import java.util.StringTokenizer;
 
 /**
  * Deals with tokens:
@@ -64,7 +65,7 @@ public class DescToken extends AbstractExportToken
 			delim = tok.nextToken();
 		}
 
-		return display.getDescription().replaceAll("(\n)", delim);
+		return display.getSafeStringFor(PCStringKey.DESCRIPTION).replaceAll("(\n)", delim);
 	}
 
 }

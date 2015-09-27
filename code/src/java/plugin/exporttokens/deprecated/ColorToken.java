@@ -26,6 +26,7 @@
 package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -83,7 +84,7 @@ public class ColorToken extends AbstractExportToken
 		{
 			return "";
 		}
-		return display.getEyeColor();
+		return display.getSafeStringFor(PCStringKey.EYECOLOR);
 	}
 
 	/**
@@ -97,7 +98,7 @@ public class ColorToken extends AbstractExportToken
 		{
 			return "";
 		}
-		return display.getHairColor();
+		return display.getSafeStringFor(PCStringKey.HAIRCOLOR);
 	}
 
 	/**
@@ -111,7 +112,7 @@ public class ColorToken extends AbstractExportToken
 		{
 			return "";
 		}
-		return display.getSkinColor();
+		return display.getSafeStringFor(PCStringKey.SKINCOLOR);
 	}
 
 }
