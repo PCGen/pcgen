@@ -17,7 +17,6 @@
  */
 package pcgen.base.util;
 
-import pcgen.base.format.FormatManager;
 
 /**
  * A BasicIndirect is a simple container for storing an object that is accessed

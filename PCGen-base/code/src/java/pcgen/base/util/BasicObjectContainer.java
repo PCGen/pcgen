@@ -20,8 +20,6 @@ package pcgen.base.util;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.base.format.FormatManager;
-
 /**
  * A BasicObjectContainer is a simple container for storing one object that is
  * accessed indirectly from an ObjectContainer (meaning the
