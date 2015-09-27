@@ -39,11 +39,11 @@ public class NumberUtilitiesTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			
+			//We expect this
 		}
 		catch (NullPointerException e)
 		{
-			
+			//Acceptable as well
 		}
 	}
 
@@ -56,11 +56,11 @@ public class NumberUtilitiesTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			
+			//We expect this
 		}
 		catch (NullPointerException e)
 		{
-			
+			//Acceptable as well
 		}
 	}
 
@@ -73,11 +73,11 @@ public class NumberUtilitiesTest extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			
+			//We expect this
 		}
 		catch (NullPointerException e)
 		{
-			
+			//Acceptable as well
 		}
 	}
 

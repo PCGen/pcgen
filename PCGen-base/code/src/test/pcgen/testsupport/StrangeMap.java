@@ -23,7 +23,7 @@ public class StrangeMap<K, V> extends HashMap<K, V>
 {
 	public StrangeMap(String s)
 	{
-
+		super();
 	}
 
 }
