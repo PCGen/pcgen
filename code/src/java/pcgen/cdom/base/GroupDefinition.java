@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.base.format.FormatManager;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.rules.context.LoadContext;

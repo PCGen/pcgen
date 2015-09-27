@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.base.format.BooleanManager;
-import pcgen.base.format.FormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;

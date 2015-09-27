@@ -18,8 +18,8 @@ package pcgen.cdom.enumeration;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.base.format.FormatManager;
 import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.base.util.FormatManager;
 
 /**
  * This is a Typesafe enumeration of legal FACTs of an object. It is designed to

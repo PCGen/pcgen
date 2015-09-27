@@ -30,8 +30,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.format.FormatManager;
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;

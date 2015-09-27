@@ -1,8 +1,8 @@
 package plugin.lsttokens.testsupport;
 
-import pcgen.base.format.FormatManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;

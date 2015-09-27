@@ -15,7 +15,7 @@
  */
 package plugin.lsttokens.datacontrol;
 
-import pcgen.base.format.FormatManager;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;

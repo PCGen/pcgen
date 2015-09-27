@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.content.fact;
 
-import pcgen.base.format.FormatManager;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactKey;
 

@@ -29,9 +29,9 @@ import java.util.TreeMap;
 
 import javax.swing.event.EventListenerList;
 
-import pcgen.base.format.FormatManager;
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.util.FixedStringList;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.KeyMap;

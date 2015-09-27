@@ -19,7 +19,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.format.FormatManager;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
 

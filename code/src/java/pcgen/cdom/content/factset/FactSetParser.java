@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.base.format.FormatManager;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;

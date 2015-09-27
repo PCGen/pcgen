@@ -20,7 +20,7 @@ package pcgen.rules.context;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.format.FormatManager;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
