@@ -33,6 +33,9 @@ import freemarker.template.TemplateModelException;
  */
 public class CDOMReferenceWrapper implements PCGenObjectWrapper
 {
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
 	 *      java.lang.Object)
@@ -45,8 +48,7 @@ public class CDOMReferenceWrapper implements PCGenObjectWrapper
 		{
 			CDOMSingleRef<?> ref = (CDOMSingleRef<?>) o;
 			Object obj = ref.resolvesTo();
-			return FacetLibrary.getFacet(ObjectWrapperFacet.class)
-				.wrap(id, obj);
+			return WRAPPER_FACET.wrap(id, obj);
 		}
 		if (o instanceof CDOMReference)
 		{

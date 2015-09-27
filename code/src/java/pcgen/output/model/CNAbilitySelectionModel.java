@@ -31,6 +31,9 @@ import freemarker.template.TemplateModelException;
  */
 public class CNAbilitySelectionModel implements TemplateHashModel
 {
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * The underlying CNAbilitySelection for this CNAbilitySelectionModel
 	 */
@@ -93,7 +96,7 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 			throw new TemplateModelException(
 				"CNAbilitySelection did not have output of type " + key);
 		}
-		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, towrap);
+		return WRAPPER_FACET.wrap(id, towrap);
 	}
 
 	/**

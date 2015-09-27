@@ -34,6 +34,9 @@ import freemarker.template.TemplateSequenceModel;
 public class CollectionModel implements TemplateSequenceModel
 {
 
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * The underlying collection for this CollectionModel
 	 */
@@ -77,8 +80,7 @@ public class CollectionModel implements TemplateSequenceModel
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
-		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
-			list.get(index));
+		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
 	/**

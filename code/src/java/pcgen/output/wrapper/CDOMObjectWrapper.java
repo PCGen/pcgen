@@ -35,6 +35,9 @@ import freemarker.template.TemplateModelException;
 public final class CDOMObjectWrapper implements PCGenObjectWrapper
 {
 
+	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(CDOMWrapperInfoFacet.class);
+
 	/**
 	 * Loads a new OutputActor into the CDOMObjectWrapperInfo for the given
 	 * class.
@@ -56,9 +59,7 @@ public final class CDOMObjectWrapper implements PCGenObjectWrapper
 	public static <T extends CDOMObject> boolean load(DataSetID id,
 		Class<T> cl, String name, OutputActor<CDOMObject> oa)
 	{
-		CDOMWrapperInfoFacet wiFacet =
-				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
-		return wiFacet.set(id, cl, name, oa);
+		return WRAPPER_FACET.set(id, cl, name, oa);
 	}
 
 	/**
