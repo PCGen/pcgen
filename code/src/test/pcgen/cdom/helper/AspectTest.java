@@ -52,14 +52,7 @@ import pcgen.util.TestHelper;
 @SuppressWarnings("nls")
 public class AspectTest extends AbstractCharacterTestCase
 {
-	private static String ASPECT_NAME = "UnitTest";
-	/**
-	 * Constructs a new <code>AspectTest</code>.
-	 */
-	public AspectTest()
-	{
-		super();
-	}
+	private static final String ASPECT_NAME = "UnitTest";
 
 	/**
 	 * Tests outputting an empty Aspect.

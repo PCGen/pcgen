@@ -43,12 +43,6 @@ public final class FeatLoader extends AbilityLoader
 {
 	private boolean defaultFeatsLoaded = false;
 
-	/** Creates a new instance of FeatLoader */
-	public FeatLoader()
-	{
-		super();
-	}
-
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */

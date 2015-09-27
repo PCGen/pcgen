@@ -46,11 +46,6 @@ import pcgen.util.Logging;
  */
 public class AbilityLoader extends LstObjectFileLoader<Ability>
 {
-	/** Creates a new instance of AbilityLoader */
-	public AbilityLoader()
-	{
-		super();
-	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
