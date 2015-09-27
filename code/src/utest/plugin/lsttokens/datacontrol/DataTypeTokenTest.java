@@ -26,6 +26,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import pcgen.base.format.OrderedPairManager;
+import pcgen.base.format.StringManager;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.core.Campaign;
@@ -35,8 +37,6 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import plugin.format.OrderedPairManager;
-import plugin.format.StringManager;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class DataTypeTokenTest extends TestCase
@@ -69,8 +69,6 @@ public class DataTypeTokenTest extends TestCase
 		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
-		TokenRegistration.register(new OrderedPairManager());
-		TokenRegistration.register(new StringManager());
 		resetContext();
 	}
 

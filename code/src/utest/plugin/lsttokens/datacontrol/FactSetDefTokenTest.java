@@ -36,8 +36,6 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import plugin.format.OrderedPairManager;
-import plugin.format.StringManager;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class FactSetDefTokenTest extends TestCase
@@ -70,8 +68,6 @@ public class FactSetDefTokenTest extends TestCase
 		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
-		TokenRegistration.register(new OrderedPairManager());
-		TokenRegistration.register(new StringManager());
 		resetContext();
 	}
 

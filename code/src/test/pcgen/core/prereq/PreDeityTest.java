@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicObjectContainer;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -33,7 +34,6 @@ import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import plugin.format.StringManager;
 
 /**
  * <code>PreDeityTest</code> tests that the PREDEITY tag is

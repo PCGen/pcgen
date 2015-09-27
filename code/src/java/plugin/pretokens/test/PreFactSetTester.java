@@ -23,7 +23,6 @@ import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactSetKey;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -81,7 +80,7 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 	private <T> int getRunningTotal(final Prerequisite prereq, final int number,
 		Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
 	{
-		T targetVal = fk.getFormatManager().convert(Globals.getContext(), factval);
+		T targetVal = fk.getFormatManager().convert(factval);
 		int runningTotal = 0;
 		CDO: for (Reducible r : objModel)
 		{
