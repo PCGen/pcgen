@@ -142,7 +142,7 @@ public class AutoLanguageFacet extends
 	 * @param id
 	 *            The CharID identifying the Player Character for which the list
 	 *            of all equipment granted by AUTO:LANGUAGE will be returned.
-	 * @return The List of Languages granted by the the Player Character by all
+	 * @return The List of Languages granted by the Player Character by all
 	 *         AUTO:LANGUAGE tokens on objects added to the Player Character.
 	 */
 	public List<Language> getAutoLanguage(CharID id)

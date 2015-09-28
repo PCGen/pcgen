@@ -32,7 +32,7 @@ public final class NamedFormula
 	private final String name;
 
 	/**
-	 * The (formula) value contained in the the NamedFormula
+	 * The (formula) value contained in the NamedFormula
 	 */
 	private final Formula formula;
 

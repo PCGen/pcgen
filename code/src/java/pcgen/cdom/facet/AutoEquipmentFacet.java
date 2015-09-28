@@ -107,7 +107,7 @@ public class AutoEquipmentFacet extends
 	 * @param id
 	 *            The CharID identifying the Player Character for which the list
 	 *            of all equipment granted by AUTO:EQUIP will be returned.
-	 * @return The List of Equipment granted by the the Player Character by all
+	 * @return The List of Equipment granted by the Player Character by all
 	 *         AUTO:EQUIP tokens on objects added to the Player Character.
 	 */
 	public List<Equipment> getAutoEquipment(CharID id)

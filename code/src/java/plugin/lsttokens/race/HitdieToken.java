@@ -24,12 +24,12 @@ import pcgen.base.formula.SubtractingFormula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.modifier.ContextModifier;
-import pcgen.cdom.modifier.HitDieFormula;
-import pcgen.cdom.modifier.HitDieLock;
-import pcgen.cdom.modifier.HitDieStep;
+import pcgen.cdom.processor.ContextProcessor;
+import pcgen.cdom.processor.HitDieFormula;
+import pcgen.cdom.processor.HitDieLock;
+import pcgen.cdom.processor.HitDieStep;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
@@ -108,7 +108,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				lock = lock.substring(0, pipeLoc);
 			}
 
-			Modifier<HitDie> hdm;
+			Processor<HitDie> hdm;
 			if (lock.startsWith("%/"))
 			{
 				// HITDIE:%/num --- divides the classes hit die by num.
@@ -240,8 +240,8 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				hdm = new HitDieLock(new HitDie(i));
 			}
 
-			Modifier<HitDie> mod = owner == null ? hdm
-					: new ContextModifier<HitDie, PCClass>(hdm, owner);
+			Processor<HitDie> mod = owner == null ? hdm
+					: new ContextProcessor<HitDie, PCClass>(hdm, owner);
 			context.getObjectContext().put(race, ObjectKey.HITDIE, mod);
 			return ParseResult.SUCCESS;
 		}
@@ -255,7 +255,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Modifier<HitDie> hdcf = context.getObjectContext().getObject(race,
+		Processor<HitDie> hdcf = context.getObjectContext().getObject(race,
 				ObjectKey.HITDIE);
 		if (hdcf == null)
 		{

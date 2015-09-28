@@ -268,7 +268,7 @@ public class PCGenPropBundle
 	}
 
 	/**
-	 * Retrieve the date of the the autobuild in which this PCGen instance was 
+	 * Retrieve the date of the autobuild in which this PCGen instance was 
 	 * built.
 	 * @return The build date, or blank if unknown. 
 	 */

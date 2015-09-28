@@ -58,12 +58,6 @@ public final class BioSetLoader extends LstLineFileLoader
 	 */
 	int currentAgeSetIndex = 0;
 
-	/** Creates a new instance of bioSetLoader */
-	public BioSetLoader()
-	{
-		// Empty Constructor
-	}
-
 	/**
 	 * clear the regionName
 	 */

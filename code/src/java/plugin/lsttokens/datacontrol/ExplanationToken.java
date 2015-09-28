@@ -15,14 +15,14 @@
  */
 package plugin.lsttokens.datacontrol;
 
-import pcgen.cdom.content.ContentDefinition;
+import pcgen.cdom.content.UserContent;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ExplanationToken extends AbstractNonEmptyToken<ContentDefinition>
-		implements CDOMPrimaryToken<ContentDefinition>
+public class ExplanationToken extends AbstractNonEmptyToken<UserContent>
+		implements CDOMPrimaryToken<UserContent>
 {
 
 	@Override
@@ -33,14 +33,14 @@ public class ExplanationToken extends AbstractNonEmptyToken<ContentDefinition>
 
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context,
-		ContentDefinition factDef, String value)
+		UserContent factDef, String value)
 	{
 		factDef.setExplanation(value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, ContentDefinition factDef)
+	public String[] unparse(LoadContext context, UserContent factDef)
 	{
 		String name = factDef.getExplanation();
 		if (name == null)
@@ -51,9 +51,9 @@ public class ExplanationToken extends AbstractNonEmptyToken<ContentDefinition>
 	}
 
 	@Override
-	public Class<ContentDefinition> getTokenClass()
+	public Class<UserContent> getTokenClass()
 	{
-		return ContentDefinition.class;
+		return UserContent.class;
 	}
 
 }

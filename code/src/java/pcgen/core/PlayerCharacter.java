@@ -64,7 +64,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -4957,7 +4957,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			//
 			if (!isImporting())
 			{
-				Modifier<HitDie> dieLock = inTemplate.get(ObjectKey.HITDIE);
+				Processor<HitDie> dieLock = inTemplate.get(ObjectKey.HITDIE);
 				if (dieLock != null)
 				{
 					for (int level = 1; level <= getLevel(pcClass); level++)

@@ -15,18 +15,18 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.modifier;
+package pcgen.cdom.processor;
 
 import pcgen.cdom.content.HitDie;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 
 /**
  * A HitDieLock represents a constrained HitDie that does not change. Since this
- * acts as a Modifier, the effect of the application of this Modifier is
+ * acts as a Processor, the effect of the application of this Processor is
  * unconditional return of the HitDie object provided at construction of the
  * HitDieLock object.
  */
-public class HitDieLock implements Modifier<HitDie>
+public class HitDieLock implements Processor<HitDie>
 {
 
 	/**
@@ -55,19 +55,19 @@ public class HitDieLock implements Modifier<HitDie>
 	}
 
 	/**
-	 * Applies this Modifier by returning the HitDie to which this HitDieLock is
+	 * Applies this Processor by returning the HitDie to which this HitDieLock is
 	 * set.
 	 * 
 	 * Since HitDieLock is universal, the given context is ignored.
 	 * 
 	 * @param origHD
-	 *            The input HitDie this Modifier will act upon
+	 *            The input HitDie this Processor will act upon
 	 * @param context
-	 *            The context of this Modifier, ignored by HitDieLock.
+	 *            The context of this Processor, ignored by HitDieLock.
 	 * @return The modified object, of the same class as the input object.
 	 */
 	@Override
-	public HitDie applyModifier(HitDie origHD, Object context)
+	public HitDie applyProcessor(HitDie origHD, Object context)
 	{
 		return hitDie;
 	}
@@ -86,9 +86,9 @@ public class HitDieLock implements Modifier<HitDie>
 	}
 
 	/**
-	 * The class of object this Modifier acts upon (HitDie).
+	 * The class of object this Processor acts upon (HitDie).
 	 * 
-	 * @return The class of object this Modifier acts upon (HitDie.class)
+	 * @return The class of object this Processor acts upon (HitDie.class)
 	 */
 	@Override
 	public Class<HitDie> getModifiedClass()

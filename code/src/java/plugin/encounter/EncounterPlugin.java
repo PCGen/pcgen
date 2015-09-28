@@ -604,7 +604,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		theView.getEnvironment().setSelectedIndex(sel);
 		theView.setTotalEncounterLevel(Integer.toString(theModel.getCR()));
 
-		//	If there are no races in the the races model, make sure we cannot accidentally
+		//	If there are no races in the races model, make sure we cannot accidentally
 		//	generate an encounter
 		if (theRaces.getSize() > 1)
 		{

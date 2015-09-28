@@ -471,7 +471,7 @@ public class PrerequisiteWriterTest extends TestCase
 	{
 		Prerequisite prereq = null;
 		boolean bExceptionThrown = false;
-		boolean bExceptionExpected = (expectedOutput.length() == 0);
+		boolean bExceptionExpected = expectedOutput.isEmpty();
 		try
 		{
 			prereq = PreParserFactory.getInstance().parse(aPreString);

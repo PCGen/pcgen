@@ -26,7 +26,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
 
 /**
- * NaturalEquipSetFacet is a Facet that tracks the the Natural EquipSet for a
+ * NaturalEquipSetFacet is a Facet that tracks the Natural EquipSet for a
  * Player Character, and automatically adds Natural Equipment to that EquipSet.
  */
 public class NaturalEquipSetFacet implements DataFacetChangeListener<CharID, Equipment>

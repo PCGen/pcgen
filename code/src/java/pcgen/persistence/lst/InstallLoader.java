@@ -46,13 +46,6 @@ public class InstallLoader extends LstLineFileLoader
 	private InstallableCampaign campaign = null;
 
 	/**
-	 * Creates a new instance of InstallLoader
-	 */
-	public InstallLoader()
-	{
-	}
-
-	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstString(LoadContext, URI, String)
 	 */
 	@Override
