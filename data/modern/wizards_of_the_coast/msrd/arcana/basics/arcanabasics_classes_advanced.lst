@@ -11,11 +11,11 @@ CLASS:Arcane Arranger	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Decipher Script|
 1													ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ Word on the Street
 2													ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ False Allegiance
 3	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
-4													ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ FShadow Resources
-5													ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ FPack Rat
+4													ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ Shadow Resources
+5													ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ Pack Rat
 6	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
 7													ABILITY:Special Ability|AUTOMATIC|Shared ~ Expert in Your Field
-8								BONUS:VAR|UpMySleeveLvl|1	ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ FUp My Sleeve
+8								BONUS:VAR|UpMySleeveLvl|1	ABILITY:Special Ability|AUTOMATIC|Arcane Arranger ~ Up My Sleeve
 9	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
 10								BONUS:VAR|UpMySleeveLvl|1
 

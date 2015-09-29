@@ -29,8 +29,6 @@ INFOTEXT:This will load the basic options of the MSRD without FX, Menace or race
 ### GM Moved
 SAVE:modernbasics__saves.lst
 STAT:modernbasics__stats.lst
-#ALIGNMENT:modernbasics__alignments.lst
-
 
 
 
