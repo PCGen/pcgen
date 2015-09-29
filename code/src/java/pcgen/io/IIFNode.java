@@ -21,6 +21,7 @@
 package pcgen.io;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,15 +32,15 @@ import java.util.List;
  */
 class IIFNode
 {
-	private List<Object> falseChildren;
-	private List<Object> trueChildren;
-	private String expr;
+	private final List<Object> falseChildren;
+	private final List<Object> trueChildren;
+	private final String expr;
 
-	IIFNode(String _expr)
+	IIFNode(final String expr)
 	{
-		expr = _expr;
-		trueChildren = new ArrayList<Object>();
-		falseChildren = new ArrayList<Object>();
+		this.expr = expr;
+		trueChildren = new ArrayList<>();
+		falseChildren = new ArrayList<>();
 	}
 
 	/**
@@ -57,14 +58,14 @@ class IIFNode
 	 */
 	public final List<?> trueChildren()
 	{
-		return trueChildren;
+		return Collections.unmodifiableList(trueChildren);
 	}
 
 	/**
 	 * Add a false child
 	 * @param child
 	 */
-	public void addFalseChild(Object child)
+	public void addFalseChild(final Object child)
 	{
 		falseChildren.add(child);
 	}
@@ -84,6 +85,6 @@ class IIFNode
 	 */
 	public final List<?> falseChildren()
 	{
-		return falseChildren;
+		return Collections.unmodifiableList(falseChildren);
 	}
 }
