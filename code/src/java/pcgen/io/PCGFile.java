@@ -1,9 +1,9 @@
 package pcgen.io;
 
-import pcgen.cdom.base.Constants;
-
 import java.io.File;
 import java.net.URI;
+
+import pcgen.cdom.base.Constants;
 
 /**
  * Common I/O methods specific to files.
@@ -143,33 +143,6 @@ public final class PCGFile
 
 		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE)
 			|| name.endsWith(Constants.EXTENSION_PARTY_FILE);
-	}
-
-	/**
-	 * Checks if the given <var>file</var> is a PCGen character, party or campaign
-	 * file based on the file extension.
-	 *
-	 * @param file the file to test
-	 *
-	 * @return {<code>true</code>} if a PCGen character, party or campaign file
-	 *
-	 * @see Constants#EXTENSION_CAMPAIGN_FILE
-	 * @see Constants#EXTENSION_CHARACTER_FILE
-	 * @see Constants#EXTENSION_PARTY_FILE
-	 */
-	public static boolean isPCGenCharacterPartyOrCampaignFile(final File file)
-	{
-		// A directory strangely named "fred.pcg" is not a character file.
-		if (!file.isFile())
-		{
-			return false;
-		}
-
-		final String name = getWindowsSafeFilename(file);
-
-		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE)
-			|| name.endsWith(Constants.EXTENSION_PARTY_FILE)
-			|| name.endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
 	}
 
 	/**
