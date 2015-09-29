@@ -4,7 +4,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 
 
 # Class Name	Hit Dice	Type			Class Type		Source Page			Combat bonus											Number of Feats										Save bonus
-CLASS:Robot		HD:10		TYPE:Monster	CLASSTYPE:Monster	SOURCEPAGE:FutureRobots	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*floor(TL/3)|!PREEQUIP:1,Robot Software (Feat Web)	BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Robot		HD:10		TYPE:Monster	FACT:ClassType|Monster	SOURCEPAGE:FutureRobots	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*floor(TL/3)|!PREEQUIP:1,Robot Software (Feat Web)	BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Reg. Race Type
 CLASS:Robot		PRERACETYPE:Robot
 # Class Name	Add INT to Skill Points?

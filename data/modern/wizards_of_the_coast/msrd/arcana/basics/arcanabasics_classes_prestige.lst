@@ -3,7 +3,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Original Entry by: Paul King
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Archmage	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Archmage	HD:6		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Required Skill										Required Casting Type
 CLASS:Archmage	PRESKILL:3,Knowledge (Arcane Lore)=12,Concentration=12,Spellcraft=12	PRESPELLCAST:TYPE=Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -15,7 +15,7 @@ CLASS:Archmage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical
 5								ABILITY:Special Ability|AUTOMATIC|Archmage ~ Granted Incantations
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																														Modify VAR
-CLASS:Artificer	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Artificer	HD:6		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Multiple Requirements												Req. Spell Type
 CLASS:Artificer	PREMULT:2,[PRESKILL:2,Knowledge (Arcane Lore)=9,Spellcraft=9],[PRESKILL:1,TYPE.Craft=9]	PRESPELLTYPE:1,Arcane=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -24,7 +24,7 @@ CLASS:Artificer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemica
 2	BONUS:ABILITYPOOL|Artificer Feat|CL/2
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Required Ability						Required Skill												Required Casting Type
 CLASS:Ecclesiarch	PREABILITY:1,CATEGORY=Special Ability,Base Turn	PRESKILL:3,Concentration=10,Knowledge (Theology and Philosophy)=10,Spellcraft=10	PRESPELLCAST:TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -36,13 +36,13 @@ CLASS:Ecclesiarch	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (E
 5																																																				ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Innovative Turning
 
 # Class Name			Hit Dice	Type			Class Type		Max Level	Source Page					Modify VAR
-CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name			Required Feat		Multiple Requirements												PRETOTALAB
 CLASS:Holy Unholy Knight	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREMULT:2,[PRESKILL:2,Diplomacy=9,Gather Information=9],[PRESKILL:1,TYPE.Knowledge=9]	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Holy Unholy Knight	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Ride|Sense Motive|SPEAK LANGUAGE|Treat Injury
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Unholy Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Holy Unholy Knight|CL
+CLASS:Holy Unholy Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Holy Unholy Knight|CL
 ###Block: Turning
 5	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1			DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 5	BONUS:VAR|TurnLevel|var("CL=Holy Unholy Knight")	BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
