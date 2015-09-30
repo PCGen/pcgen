@@ -1,0 +1,7 @@
+#
+#Currently the code supports exactly three checks. Will fix later.
+#
+Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
+Reflex	SORTKEY:2	BONUS:SAVE|Reflex|DEX
+Will		SORTKEY:3	BONUS:SAVE|Will|WIS
+
