@@ -24,9 +24,11 @@ COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copy
 
 ABILITYCATEGORY:arcanabasics_ability_categories_arcana.lst
 
-ABILITY:arcanabasics_abilities_occupations.lst
 ABILITY:arcanabasics_abilities_class.lst
 ABILITY:arcanabasics_abilities_monsters.lst
+ABILITY:arcanabasics_abilities_occupations.lst
+
+ABILITY:arcanabasics_abilities_class_sab.lst
 
 CLASS:arcanabasics_classes_advanced.lst
 CLASS:arcanabasics_classes_prestige.lst

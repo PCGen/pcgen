@@ -3,19 +3,19 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Original Entry by: Paul King
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Archmage	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Archmage	HD:6		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Required Skill										Required Casting Type
 CLASS:Archmage	PRESKILL:3,Knowledge (Arcane Lore)=12,Concentration=12,Spellcraft=12	PRESPELLCAST:TYPE=Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|SPEAK LANGUAGE|Spellcraft
-1								ABILITY:Special Ability|AUTOMATIC|Total Spellcasting ~ Archmage
-2	BONUS:VAR|IncreasedSpellsProgression|1	ABILITY:Special Ability|AUTOMATIC|Increased Spells ~ Archmage
-3								ABILITY:Special Ability|AUTOMATIC|Gifted Incantations
+1								ABILITY:Special Ability|AUTOMATIC|Archmage ~ Total Spellcasting
+2	BONUS:VAR|IncreasedSpellsProgression|1	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Increased Spells
+3								ABILITY:Special Ability|AUTOMATIC|Archmage ~ Gifted Incantations
 4	BONUS:VAR|IncreasedSpellsProgression|1
-5								ABILITY:Special Ability|AUTOMATIC|Granted Incantations
+5								ABILITY:Special Ability|AUTOMATIC|Archmage ~ Granted Incantations
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																														Modify VAR
-CLASS:Artificer	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Artificer	HD:6		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Multiple Requirements												Req. Spell Type
 CLASS:Artificer	PREMULT:2,[PRESKILL:2,Knowledge (Arcane Lore)=9,Spellcraft=9],[PRESKILL:1,TYPE.Craft=9]	PRESPELLTYPE:1,Arcane=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -24,25 +24,25 @@ CLASS:Artificer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemica
 2	BONUS:ABILITYPOOL|Artificer Feat|CL/2
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Required Ability						Required Skill												Required Casting Type
 CLASS:Ecclesiarch	PREABILITY:1,CATEGORY=Special Ability,Base Turn	PRESKILL:3,Concentration=10,Knowledge (Theology and Philosophy)=10,Spellcraft=10	PRESPELLCAST:TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ecclesiarch	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Listen|TYPE=Perform|Profession|Read/Write Language|Research|Sense Motive|SPEAK LANGUAGE|Spellcraft|Survival|Treat Injury
-1	BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1										ABILITY:Special Ability|AUTOMATIC|Total Spellcasting ~ Ecclesiarch
-2																																											BONUS:VAR|IncreasedSpellsEcclesiarchProgression|1	ABILITY:Special Ability|AUTOMATIC|Increased Spells ~ Ecclesiarch
-3																																																				ABILITY:Special Ability|AUTOMATIC|Total Turning
+1	BONUS:CASTERLEVEL|Acolyte|CL=Mystic+CL=Holy Unholy Knight|PRECLASS:1,Acolyte=1	BONUS:CASTERLEVEL|Mystic|CL=Acolyte+CL=Holy Unholy Knight|PRECLASS:1,Mystic=1	BONUS:CASTERLEVEL|Holy Unholy Knight|CL=Acolyte+CL=Mystic|PRECLASS:1,Holy Unholy Knight=1										ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Total Spellcasting
+2																																											BONUS:VAR|IncreasedSpellsEcclesiarchProgression|1	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Increased Spells
+3																																																				ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Total Turning
 4																																											BONUS:VAR|IncreasedSpellsEcclesiarchProgression|1
-5																																																				ABILITY:Special Ability|AUTOMATIC|Innovative Turning
+5																																																				ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Innovative Turning
 
 # Class Name			Hit Dice	Type			Class Type		Max Level	Source Page					Modify VAR
-CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	FACT:ClassType|PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name			Required Feat		Multiple Requirements												PRETOTALAB
 CLASS:Holy Unholy Knight	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREMULT:2,[PRESKILL:2,Diplomacy=9,Gather Information=9],[PRESKILL:1,TYPE.Knowledge=9]	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Holy Unholy Knight	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Ride|Sense Motive|SPEAK LANGUAGE|Treat Injury
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Unholy Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Holy Unholy Knight|CL
+CLASS:Holy Unholy Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Holy Unholy Knight|CL
 ###Block: Turning
 5	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1			DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 5	BONUS:VAR|TurnLevel|var("CL=Holy Unholy Knight")	BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
@@ -51,10 +51,10 @@ CLASS:Holy Unholy Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Holy Unholy Knight=0|Create Water,Cure Minor Wounds,Detect Magical Aura,Inflict Minor Wounds,Light,Read Magic,Resistance,Virtue|Holy Unholy Knight=1|Bane,Bless,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Inflict Light Wounds,Magic Weapon,Remove Fear,Shield of Faith|Holy Unholy Knight=2|Aid,Augury,Cure Moderate Wounds,Delay Poison,Enhance Ability,Hold Person,Inflict Moderate Wounds,Lesser Restoration,Remove Paralysis,Resist Energy,Silence,Spider Climb,Zone of Truth|Holy Unholy Knight=3|Animate Dead,Bestow Curse,Cure Serious Wounds,Dispel Magic,Glyph of Warding,Inflict Serious Wounds,Locate Object,Prayer,Remove Curse,Remove Disease,Searing Light,Status,Water Breathing
 ###Block: Standard block
-1	CAST:2,1		ABILITY:Special Ability|AUTOMATIC|Divine Grace
-2	CAST:3,2		ABILITY:Special Ability|AUTOMATIC|Sense Allegiance
-3	CAST:3,2,1		ABILITY:Special Ability|AUTOMATIC|Smite Allegiance
-4	CAST:4,3,2		ABILITY:Special Ability|AUTOMATIC|Divine Touch
+1	CAST:2,1		ABILITY:Special Ability|AUTOMATIC|Holy Unholy Knight ~ Divine Grace
+2	CAST:3,2		ABILITY:Special Ability|AUTOMATIC|Holy Unholy Knight ~ Sense Allegiance
+3	CAST:3,2,1		ABILITY:Special Ability|AUTOMATIC|Holy Unholy Knight ~ Smite Allegiance
+4	CAST:4,3,2		ABILITY:Special Ability|AUTOMATIC|Holy Unholy Knight ~ Divine Touch
 5	CAST:4,3,2,1
 
 #
