@@ -472,7 +472,6 @@ Ride the Waves.MOD			CLASSES:Bloodrager=4
 River of Wind.MOD				CLASSES:Bloodrager=4
 Shocking Image.MOD			CLASSES:Bloodrager=4
 Shout.MOD					CLASSES:Bloodrager=4
-Slow.MOD					CLASSES:Bloodrager=4
 Stoneskin.MOD				CLASSES:Bloodrager=4
 Telekinetic Charge.MOD			CLASSES:Bloodrager=4
 Touch of Slime.MOD			CLASSES:Bloodrager=4
@@ -543,6 +542,7 @@ Protection from Law.MOD			CLASSES:Shaman=1
 Remove Fear.MOD				CLASSES:Shaman=1
 Sleep.MOD					CLASSES:Shaman=1
 Stone Shield.MOD				CLASSES:Shaman=1
+Summon Nature's Ally I.MOD		CLASSES:Shaman=1
 
 Aid.MOD					CLASSES:Shaman=2
 Alter Self.MOD				CLASSES:Shaman=2
@@ -584,6 +584,7 @@ Tree Shape.MOD				CLASSES:Shaman=2
 Warp Wood.MOD				CLASSES:Shaman=2
 Web Shelter.MOD				CLASSES:Shaman=2
 Wood Shape.MOD				CLASSES:Shaman=2
+Summon Nature's Ally II.MOD		CLASSES:Shaman=2
 
 Animate Dead.MOD				CLASSES:Shaman=3
 Bestow Curse.MOD				CLASSES:Shaman=3
@@ -608,6 +609,7 @@ Magic Vestment.MOD			CLASSES:Shaman=3
 Protection from Energy.MOD		CLASSES:Shaman=3
 Remove Blindness/Deafness.MOD		CLASSES:Shaman=3
 Remove Curse.MOD				CLASSES:Shaman=3
+Remove Disease.MOD			CLASSES:Shaman=3
 Sleet Storm.MOD				CLASSES:Shaman=3
 Speak with Dead.MOD			CLASSES:Shaman=3
 Stinking Cloud.MOD			CLASSES:Shaman=3
@@ -616,6 +618,7 @@ Ward of the Season.MOD			CLASSES:Shaman=3
 Water Breathing.MOD			CLASSES:Shaman=3
 Water Walk.MOD				CLASSES:Shaman=3
 Wind Wall.MOD				CLASSES:Shaman=3
+Summon Nature's Ally III.MOD		CLASSES:Shaman=3
 
 Ball Lightning.MOD			CLASSES:Shaman=4
 Command Plants.MOD			CLASSES:Shaman=4
@@ -651,6 +654,7 @@ Spit Venom.MOD				CLASSES:Shaman=4
 Thorn Body.MOD				CLASSES:Shaman=4
 Tongues.MOD					CLASSES:Shaman=4
 Wandering Star Motes.MOD		CLASSES:Shaman=4
+Summon Nature's Ally IV.MOD		CLASSES:Shaman=4
 
 Animal Growth.MOD				CLASSES:Shaman=5
 Baleful Polymorph.MOD			CLASSES:Shaman=5
@@ -679,6 +683,7 @@ Stoneskin.MOD				CLASSES:Shaman=5
 True Seeing.MOD				CLASSES:Shaman=5
 Wall of Fire.MOD				CLASSES:Shaman=5
 Wall of Thorns.MOD			CLASSES:Shaman=5
+Summon Nature's Ally V.MOD		CLASSES:Shaman=5
 
 Antilife Shell.MOD			CLASSES:Shaman=6
 Awaken.MOD					CLASSES:Shaman=6
@@ -701,6 +706,7 @@ Slay Living.MOD				CLASSES:Shaman=6
 Snake Staff.MOD				CLASSES:Shaman=6
 Stone to Flesh.MOD			CLASSES:Shaman=6
 Wall of Stone.MOD				CLASSES:Shaman=6
+Summon Nature's Ally VI.MOD		CLASSES:Shaman=6
 
 Animate Plants.MOD			CLASSES:Shaman=7
 Cloak of Dreams.MOD			CLASSES:Shaman=7
@@ -722,6 +728,7 @@ Transport via Plants.MOD		CLASSES:Shaman=7
 Vision.MOD					CLASSES:Shaman=7
 Vortex.MOD					CLASSES:Shaman=7
 Wind Walk.MOD				CLASSES:Shaman=7
+Summon Nature's Ally VII.MOD		CLASSES:Shaman=7
 
 Animal Shapes.MOD				CLASSES:Shaman=8
 Blood Mist.MOD				CLASSES:Shaman=8
@@ -740,6 +747,7 @@ Resurrection.MOD				CLASSES:Shaman=8
 Stormbolts.MOD				CLASSES:Shaman=8
 Sunburst.MOD				CLASSES:Shaman=8
 Whirlwind.MOD				CLASSES:Shaman=8
+Summon Nature's Ally VIII.MOD		CLASSES:Shaman=8
 
 Elemental Swarm.MOD			CLASSES:Shaman=9
 Energy Drain.MOD				CLASSES:Shaman=9
@@ -754,6 +762,7 @@ Storm of Vengeance.MOD			CLASSES:Shaman=9
 Tsunami.MOD					CLASSES:Shaman=9
 Wail of the Banshee.MOD			CLASSES:Shaman=9
 Winds of Vengeance.MOD			CLASSES:Shaman=9
+Summon Nature's Ally IX.MOD		CLASSES:Shaman=9
 
 ###Block: Standard Summoner
 Adjustable Polymorph.MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
