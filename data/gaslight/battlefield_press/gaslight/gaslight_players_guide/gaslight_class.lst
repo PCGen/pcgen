@@ -9,7 +9,7 @@ CLASS:Acolyte	HD:8		TYPE:Base.PC	ABB:Aclyt		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CO
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Expression)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Occult Science)|Knowledge (Theology and Philosophy)|Knowledge (The Planes)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Speak Language|Treat Injury
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
-CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Acolyte|CL
+CLASS:Acolyte	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Acolyte|CL
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Starting Level
@@ -56,7 +56,7 @@ CLASS:Apprentice	HD:6		TYPE:Base.PC	ABB:Appr		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Apprentice	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Expression)|Decipher Script|TYPE=OperateVehicle|Escape Artist|Forgery|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Device
 # Class Name	Spell Type		Caster level
-CLASS:Apprentice	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Aprentice|CL
+CLASS:Apprentice	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Aprentice|CL
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
