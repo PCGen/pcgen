@@ -2428,6 +2428,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Glory</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Race Traits ~ Human</name>
 			<description></description>
 			<type></type>
@@ -2464,6 +2475,17 @@ BIO
 			<name>Sun</name>
 			<description></description>
 			<type>INTERNAL.DOMAINABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Sun</name>
+			<description></description>
+			<type></type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
