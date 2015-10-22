@@ -75,40 +75,6 @@ Undead Subdomain							PREMULT:1,[PREDOMAIN:1,Undead Subdomain],[PREVARLT:DeathD
 Wards Subdomain							PREMULT:1,[PREDOMAIN:1,Wards Subdomain],[PREVARLT:RuneDomain,1]																ABILITY:FEAT|AUTOMATIC|Scribe Scroll	ABILITY:Special Ability|AUTOMATIC|Rune Domain ~ Blast Rune|PREVARGTEQ:DomainRuneAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Wards Subdomain ~ Warding Rune|PREVARGTEQ:DomainRuneAbilityTriggerLVL,6					DEFINE:RuneDomain|0	DEFINE:DomainRuneLVL|0	DEFINE:DomainRuneDC|0	DEFINE:DomainRuneTimes|0	DEFINE:DomainRuneAbilityTriggerLVL|0																													BONUS:VAR|RuneDomain|1|TYPE=Domain	BONUS:VAR|DomainRuneLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainRuneDC|10+(DomainRuneLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainRuneTimes|DomainPowerTimes|TYPE=Domain	BONUS:VAR|DomainRuneAbilityTriggerLVL|DomainAbilityTriggerLVL|TYPE=Domain																				SOURCEPAGE:p.97																														SPELLLEVEL:DOMAIN|Wards Subdomain=1|Arcane Lock|Wards Subdomain=2|Secret Page|Wards Subdomain=3|Glyph Of Warding|Wards Subdomain=4|Dimensional Anchor|Wards Subdomain=5|Planar Binding (Lesser)|Wards Subdomain=6|Guards and Wards|Wards Subdomain=7|Instant Summons|Wards Subdomain=8|Symbol of Death|Wards Subdomain=9|Teleportation Circle
 Wind Subdomain							PREMULT:1,[PREDOMAIN:1,Wind Subdomain],[PREVARLT:AirDomain,1]																ABILITY:Special Ability|AUTOMATIC|Wind Subdomain ~ Wind Blast|PREVARGTEQ:DomainAirAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Air Domain ~ Electricity Resistance|PREVARGTEQ:DomainAirAbilityTriggerLVL,6											DEFINE:AirDomain|0	DEFINE:DomainAirLVL|0	DEFINE:DomainAirDC|0	DEFINE:DomainAirTimes|0	DEFINE:DomainAirAbilityTriggerLVL|0																															BONUS:VAR|AirDomain|1|TYPE=Domain	BONUS:VAR|DomainAirLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainAirDC|10+(DomainAirLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainAirTimes|DomainPowerTimes|TYPE=Domain	BONUS:VAR|DomainAirAbilityTriggerLVL|DomainAbilityTriggerLVL|TYPE=Domain																					SOURCEPAGE:p.97																														SPELLLEVEL:DOMAIN|Wind Subdomain=1|Whispering Wind|Wind Subdomain=2|Wind Wall|Wind Subdomain=3|Gaseous Form|Wind Subdomain=4|Air Walk|Wind Subdomain=5|Control Winds|Wind Subdomain=6|Wind Walk|Wind Subdomain=7|Elemental Body IV (Air Only)|Wind Subdomain=8|Whirlwind|Wind Subdomain=9|Winds of Vengeance
 
-###Block: Mods to Core Domains:
-Air.MOD								PREMULT:1,[PREDOMAIN:1,Air],[PREVARLT:AirDomain,1]				DEFINE:AirDomain|0		BONUS:VAR|AirDomain|1
-Animal.MOD								PREMULT:1,[PREDOMAIN:1,Animal],[PREVARLT:AnimalDomain,1]			DEFINE:AnimalDomain|0		BONUS:VAR|AnimalDomain|1
-Artifice.MOD							PREMULT:1,[PREDOMAIN:1,Artifice],[PREVARLT:ArtificeDomain,1]		DEFINE:ArtificeDomain|0		BONUS:VAR|ArtificeDomain|1
-Chaos.MOD								PREMULT:1,[PREDOMAIN:1,Chaos],[PREVARLT:ChaosDomain,1]			DEFINE:ChaosDomain|0		BONUS:VAR|ChaosDomain|1
-Charm.MOD								PREMULT:1,[PREDOMAIN:1,Charm],[PREVARLT:CharmDomain,1]			DEFINE:CharmDomain|0		BONUS:VAR|CharmDomain|1
-Community.MOD							PREMULT:1,[PREDOMAIN:1,Community],[PREVARLT:CommunityDomain,1]		DEFINE:CommunityDomain|0	BONUS:VAR|CommunityDomain|1
-Darkness.MOD							PREMULT:1,[PREDOMAIN:1,Darkness],[PREVARLT:DarknessDomain,1]		DEFINE:DarknessDomain|0		BONUS:VAR|DarknessDomain|1
-Death.MOD								PREMULT:1,[PREDOMAIN:1,Death],[PREVARLT:DeathDomain,1]			DEFINE:DeathDomain|0		BONUS:VAR|DeathDomain|1
-Destruction.MOD							PREMULT:1,[PREDOMAIN:1,Destruction],[PREVARLT:DestructionDomain,1]	DEFINE:DestructionDomain|0	BONUS:VAR|DestructionDomain|1
-Earth.MOD								PREMULT:1,[PREDOMAIN:1,Earth],[PREVARLT:EarthDomain,1]			DEFINE:EarthDomain|0		BONUS:VAR|EarthDomain|1
-Evil.MOD								PREMULT:1,[PREDOMAIN:1,Evil],[PREVARLT:EvilDomain,1]				DEFINE:EvilDomain|0		BONUS:VAR|EvilDomain|1
-Fire.MOD								PREMULT:1,[PREDOMAIN:1,Fire],[PREVARLT:FireDomain,1]				DEFINE:FireDomain|0		BONUS:VAR|FireDomain|1
-Glory.MOD								PREMULT:1,[PREDOMAIN:1,Glory],[PREVARLT:GloryDomain,1]			DEFINE:GloryDomain|0		BONUS:VAR|GloryDomain|1
-Good.MOD								PREMULT:1,[PREDOMAIN:1,Good],[PREVARLT:GoodDomain,1]				DEFINE:GoodDomain|0		BONUS:VAR|GoodDomain|1
-Healing.MOD								PREMULT:1,[PREDOMAIN:1,Healing],[PREVARLT:HealingDomain,1]			DEFINE:HealingDomain|0		BONUS:VAR|HealingDomain|1
-Knowledge.MOD							PREMULT:1,[PREDOMAIN:1,Knowledge],[PREVARLT:KnowledgeDomain,1]		DEFINE:KnowledgeDomain|0	BONUS:VAR|KnowledgeDomain|1
-Law.MOD								PREMULT:1,[PREDOMAIN:1,Law],[PREVARLT:LawDomain,1]				DEFINE:LawDomain|0		BONUS:VAR|LawDomain|1
-Liberation.MOD							PREMULT:1,[PREDOMAIN:1,Liberation],[PREVARLT:LiberationDomain,1]		DEFINE:LiberationDomain|0	BONUS:VAR|LiberationDomain|1
-Luck.MOD								PREMULT:1,[PREDOMAIN:1,Luck],[PREVARLT:LuckDomain,1]				DEFINE:LuckDomain|0		BONUS:VAR|LuckDomain|1
-Madness.MOD								PREMULT:1,[PREDOMAIN:1,Madness],[PREVARLT:MadnessDomain,1]			DEFINE:MadnessDomain|0		BONUS:VAR|MadnessDomain|1
-Magic.MOD								PREMULT:1,[PREDOMAIN:1,Magic],[PREVARLT:MagicDomain,1]			DEFINE:MagicDomain|0		BONUS:VAR|MagicDomain|1
-Nobility.MOD							PREMULT:1,[PREDOMAIN:1,Nobility],[PREVARLT:NobilityDomain,1]		DEFINE:NobilityDomain|0		BONUS:VAR|NobilityDomain|1
-Plant.MOD								PREMULT:1,[PREDOMAIN:1,Plant],[PREVARLT:PlantDomain,1]			DEFINE:PlantDomain|0		BONUS:VAR|PlantDomain|1
-Protection.MOD							PREMULT:1,[PREDOMAIN:1,Protection],[PREVARLT:ProtectionDomain,1]		DEFINE:ProtectionDomain|0	BONUS:VAR|ProtectionDomain|1
-Repose.MOD								PREMULT:1,[PREDOMAIN:1,Repose],[PREVARLT:ReposeDomain,1]			DEFINE:ReposeDomain|0		BONUS:VAR|ReposeDomain|1
-Rune.MOD								PREMULT:1,[PREDOMAIN:1,Rune],[PREVARLT:RuneDomain,1]				DEFINE:RuneDomain|0		BONUS:VAR|RuneDomain|1
-Strength.MOD							PREMULT:1,[PREDOMAIN:1,Strength],[PREVARLT:StrengthDomain,1]		DEFINE:StrengthDomain|0		BONUS:VAR|StrengthDomain|1
-Sun.MOD								PREMULT:1,[PREDOMAIN:1,Sun],[PREVARLT:SunDomain,1]				DEFINE:SunDomain|0		BONUS:VAR|SunDomain|1
-Travel.MOD								PREMULT:1,[PREDOMAIN:1,Travel],[PREVARLT:TravelDomain,1]			DEFINE:TravelDomain|0		BONUS:VAR|TravelDomain|1
-Trickery.MOD							PREMULT:1,[PREDOMAIN:1,Trickery],[PREVARLT:TrickeryDomain,1]		DEFINE:TrickeryDomain|0		BONUS:VAR|TrickeryDomain|1
-War.MOD								PREMULT:1,[PREDOMAIN:1,War],[PREVARLT:WarDomain,1]				DEFINE:WarDomain|0		BONUS:VAR|WarDomain|1
-Water.MOD								PREMULT:1,[PREDOMAIN:1,Water],[PREVARLT:WaterDomain,1]			DEFINE:WaterDomain|0		BONUS:VAR|WaterDomain|1
-Weather.MOD								PREMULT:1,[PREDOMAIN:1,Weather],[PREVARLT:WeatherDomain,1]			DEFINE:WeatherDomain|0		BONUS:VAR|WeatherDomain|1
 
 # Implement Pharasma-Friendly Souls Subdomain from http://paizo.com/paizo/blog/v5748dyo5lbvp
 Souls (Pharasma) Subdomain					PREMULT:1,[PREDOMAIN:1,Souls (Pharasma) Subdomain],[PREVARLT:ReposeDomain,1]														ABILITY:Special Ability|AUTOMATIC|Souls Subdomain ~ Touch the Spirit World|PREVARGTEQ:DomainReposeAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Repose Domain ~ Ward Against Death|PREVARGTEQ:DomainReposeAbilityTriggerLVL,8								DEFINE:ReposeDomain|0	DEFINE:DomainReposeLVL|0	DEFINE:DomainReposeDC|0	DEFINE:DomainReposeTimes|0	DEFINE:DomainReposeAbilityTriggerLVL|0																												BONUS:VAR|ReposeDomain|1|TYPE=Domain	BONUS:VAR|DomainReposeLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainReposeDC|10+(DomainReposeLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainReposeTimes|DomainPowerTimes|TYPE=Domain	BONUS:VAR|DomainReposeAbilityTriggerLVL|DomainAbilityTriggerLVL|TYPE=Domain																		SOURCEPAGE:p.96																														SPELLLEVEL:DOMAIN|Souls Subdomain=1|Deathwatch|Souls Subdomain=2|Gentle Repose|Souls Subdomain=3|Animate Dead|Souls Subdomain=4|Death Ward|Souls Subdomain=5|Slay Living|Souls Subdomain=6|Antilife Shell|Souls Subdomain=7|Destruction|Souls Subdomain=8|Waves of Exhaustion|Souls Subdomain=9|Trap the Soul
