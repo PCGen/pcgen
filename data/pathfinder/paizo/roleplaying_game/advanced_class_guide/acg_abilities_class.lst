@@ -77,16 +77,16 @@ Arcanist ~ Spells Castable								CATEGORY:Internal																			DEFINE:Arc
 
 ###Block: Arcanist Exploit Pool
 # Ability Name								Modify VAR
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,1|PREVAREQ:Arcanist_CF_Exploit1,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,3|PREVAREQ:Arcanist_CF_Exploit3,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,5|PREVAREQ:Arcanist_CF_Exploit5,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,7|PREVAREQ:Arcanist_CF_Exploit7,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,9|PREVAREQ:Arcanist_CF_Exploit9,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,11|PREVAREQ:Arcanist_CF_Exploit11,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,13|PREVAREQ:Arcanist_CF_Exploit13,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,15|PREVAREQ:Arcanist_CF_Exploit15,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,17|PREVAREQ:Arcanist_CF_Exploit17,0
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,19|PREVAREQ:Arcanist_CF_Exploit19,0
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,1|PREVAREQ:Arcanist_CF_Exploit1,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,3|PREVAREQ:Arcanist_CF_Exploit3,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,5|PREVAREQ:Arcanist_CF_Exploit5,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,7|PREVAREQ:Arcanist_CF_Exploit7,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,9|PREVAREQ:Arcanist_CF_Exploit9,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,11|PREVAREQ:Arcanist_CF_Exploit11,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,13|PREVAREQ:Arcanist_CF_Exploit13,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,15|PREVAREQ:Arcanist_CF_Exploit15,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,17|PREVAREQ:Arcanist_CF_Exploit17,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,19|PREVAREQ:Arcanist_CF_Exploit19,1
 
 # ------------------------------
 # Arcanist Exploits
@@ -2981,7 +2981,7 @@ Lightning Reload			KEY:Picaroon ~ Lightning Reload				CATEGORY:Special Ability	T
 Two-Weapon Finesse		KEY:Picaroon ~ Two-Weapon Finesse				CATEGORY:Special Ability	TYPE:Picaroon Class Feature.Swashbuckler Class Feature.SpecialQuality.Extraordinary																																																																																																																																																																		DESC:At 2nd level, a picaroon gains the benefits of the Weapon Finesse feat with light or onehanded piercing melee weapons. She also gains the effects of the Two-Weapon Fighting feat as long as she is wielding a light or one-handed piercing melee weapon in one hand and one-handed firearm in the other hand. This ability counts as having both the Weapon Finesse and Two-Weapon Fighting feats for the purposes of meeting feat requirements. This ability replaces swashbuckler finesse.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																															SOURCEPAGE:p.127
 
 
-CATEGORY=Special Ability|Picaroon ~ Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:WEAPONPROF|TYPE=OneHandedFirearms
+CATEGORY=Special Ability|Picaroon ~ Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:WEAPONPROF|TYPE=OneHandedFirearm
 
 # ==============================
 # Warpriest Archetypes		TYPEs in place, abilities not implemented yet
