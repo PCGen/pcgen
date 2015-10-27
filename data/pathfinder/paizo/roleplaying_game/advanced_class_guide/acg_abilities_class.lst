@@ -77,16 +77,16 @@ Arcanist ~ Spells Castable								CATEGORY:Internal																			DEFINE:Arc
 
 ###Block: Arcanist Exploit Pool
 # Ability Name								Modify VAR
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,1|PREVAREQ:Arcanist_CF_Exploit1,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,3|PREVAREQ:Arcanist_CF_Exploit3,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,5|PREVAREQ:Arcanist_CF_Exploit5,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,7|PREVAREQ:Arcanist_CF_Exploit7,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,9|PREVAREQ:Arcanist_CF_Exploit9,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,11|PREVAREQ:Arcanist_CF_Exploit11,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,13|PREVAREQ:Arcanist_CF_Exploit13,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,15|PREVAREQ:Arcanist_CF_Exploit15,0			
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,17|PREVAREQ:Arcanist_CF_Exploit17,0		
-CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,19|PREVAREQ:Arcanist_CF_Exploit19,0			
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,1|PREVAREQ:Arcanist_CF_Exploit1,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,3|PREVAREQ:Arcanist_CF_Exploit3,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,5|PREVAREQ:Arcanist_CF_Exploit5,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,7|PREVAREQ:Arcanist_CF_Exploit7,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,9|PREVAREQ:Arcanist_CF_Exploit9,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,11|PREVAREQ:Arcanist_CF_Exploit11,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,13|PREVAREQ:Arcanist_CF_Exploit13,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,15|PREVAREQ:Arcanist_CF_Exploit15,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,17|PREVAREQ:Arcanist_CF_Exploit17,1
+CATEGORY=Special Ability|Arcanist ~ Arcanist Exploits.MOD	BONUS:VAR|ArcanistExploitPool|-1|PREVARGTEQ:ArcanistLvl,19|PREVAREQ:Arcanist_CF_Exploit19,1
 
 # ------------------------------
 # Arcanist Exploits
@@ -724,7 +724,7 @@ CATEGORY=Special Ability|Hunter ~ Teamwork Feats.MOD	BONUS:ABILITYPOOL|Hunter Te
 CATEGORY=Special Ability|Hunter ~ Teamwork Feats.MOD	BONUS:ABILITYPOOL|Hunter Teamwork Feats|1|PREMULT:2,[PRECLASS:1,Hunter=18],[PREVAREQ:Hunter_CF_TeamworkFeat18,0]
 CATEGORY=Special Ability|Hunter ~ Bonus Tricks.MOD	BONUS:VAR|HunterBonusTricks|1|PREMULT:2,[PRECLASS:1,Hunter=7],[PREVAREQ:Hunter_CF_BonusTrick7,0]
 CATEGORY=Special Ability|Hunter ~ Bonus Tricks.MOD	BONUS:VAR|HunterBonusTricks|1|PREMULT:2,[PRECLASS:1,Hunter=13],[PREVAREQ:Hunter_CF_BonusTrick13,0]
-CATEGORY=Special Ability|Hunter ~ Bonus Tricks.MOD	BONUS:VAR|HunterBonusTricks|1|PREMULT:2,[PRECLASS:1,Hunter=19],[PREVAREQ:Hunter_CF_BonusTrick19,0]				
+CATEGORY=Special Ability|Hunter ~ Bonus Tricks.MOD	BONUS:VAR|HunterBonusTricks|1|PREMULT:2,[PRECLASS:1,Hunter=19],[PREVAREQ:Hunter_CF_BonusTrick19,0]
 
 ###Block: Hunter Precise Companion Feat
 # Ability Name	Unique Key								Category of Ability		Type						Visible		Required Ability									Multiple Requirements																				Description							Ability					Source Page
@@ -1417,7 +1417,7 @@ Weapon and Armor Proficiency					KEY:Swashbuckler ~ Weapon and Armor Proficiency
 Class Skills	KEY:Swashbuckler ~ Class Skills	CATEGORY:Internal		TYPE:Swashbuckler Class Feature	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Intimidate|Knowledge (local)|Knowledge (nobility)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Swim
 
 # Ability Name								Unique Key							SORTKEY					Category of Ability		Type											Serves As						Define													Description																																																																																																																																																																																																																																				Ability																																																																																																												Bonus Ability Pool																				Combat bonus																																																							Modify VAR																																																	Source Page		Aspects													Temporary effect description																	Temporary Bonus
-Panache									KEY:Swashbuckler ~ Panache				SORTKEY:Class_Swashbuckler_2a		CATEGORY:Special Ability	TYPE:Swashbuckler Class Feature.SpecialQuality.Extraordinary.GritShared																		DESC:More than just a lightly armored warrior, a swashbuckler is a daring combatant. She fights with panache: a fluctuating measure of a swashbuckler's ability to perform amazing actions in combat. At the start of each day, a swashbuckler gains a number of panache points equal to her Charisma modifier [%1] (minimum 1). Her panache goes up or down throughout the day, but usually cannot go higher than her Charisma modifier [%1] (minimum 1), though feats and magic items can affect this maximum. A swashbuckler spends panache to accomplish deeds (see below), and regains panache in the following ways.|PanachePoints	SOURCEPAGE:p.56		ABILITY:Special Ability|AUTOMATIC|Display Panache Points|!PREABILITY:2,CATEGORY=Special Ability,TYPE.GritShared		
+Panache									KEY:Swashbuckler ~ Panache				SORTKEY:Class_Swashbuckler_2a		CATEGORY:Special Ability	TYPE:Swashbuckler Class Feature.SpecialQuality.Extraordinary.GritShared																		DESC:More than just a lightly armored warrior, a swashbuckler is a daring combatant. She fights with panache: a fluctuating measure of a swashbuckler's ability to perform amazing actions in combat. At the start of each day, a swashbuckler gains a number of panache points equal to her Charisma modifier [%1] (minimum 1). Her panache goes up or down throughout the day, but usually cannot go higher than her Charisma modifier [%1] (minimum 1), though feats and magic items can affect this maximum. A swashbuckler spends panache to accomplish deeds (see below), and regains panache in the following ways.|PanachePoints	SOURCEPAGE:p.56		ABILITY:Special Ability|AUTOMATIC|Display Panache Points|!PREABILITY:2,CATEGORY=Special Ability,TYPE.GritShared
 Swashbuckler Finesse							KEY:Swashbuckler ~ Swashbuckler Finesse		SORTKEY:Class_Swashbuckler_2b		CATEGORY:Special Ability	TYPE:Swashbuckler Class Feature.SpecialQuality.Extraordinary	SERVESAS:ABILITY=FEAT|Weapon Finesse	DEFINE:SwashbucklerFinesseQualify|0	DEFINE:CombatFeatIntRequirement|0			DESC:A swashbuckler gains the benefits of the Weapon Finesse feat with light or one-handed piercing melee weapons, and she can use her Charisma score in place of Intelligence as a prerequisite for combat feats. This ability counts as having the Weapon Finesse feat for purposes of meeting feat prerequisites.																																																																																																																																																																																																																																																																																																																																																																															BONUS:VAR|SwashbucklerFinesseQualify|1	BONUS:VAR|CombatFeatIntRequirement|max(CHASCORE,INTSCORE)|TYPE=Base																																SOURCEPAGE:p.56
 Deeds										KEY:Swashbuckler ~ Deeds				SORTKEY:Class_Swashbuckler_Deed_1	CATEGORY:Special Ability	TYPE:Swashbuckler Class Feature.SpecialQuality											DEFINE:SwashbucklerDeedsLVL|0										DESC:Swashbucklers spend panache points to accomplish deeds. Most deeds grant the swashbuckler a momentary bonus or effect, but some provide longer-lasting effects. Some deeds remain in effect while the swashbuckler has at least 1 panache point, but do not require expending panache to be maintained. A swashbuckler can only perform deeds of her level or lower. Unless otherwise noted, a deed can be performed multiple successive times, as long as the swashbuckler has or spends the required number of panache points to perform the deed.																																																																																																																																																																																																																																																																																																																																									BONUS:VAR|SwashbucklerDeedsLVL|SwashbucklerLVL																																											SOURCEPAGE:p.56
 Nimble									KEY:Swashbuckler ~ Nimble				SORTKEY:Class_Swashbuckler_2c		CATEGORY:Special Ability	TYPE:Swashbuckler Class Feature.SpecialQuality.Extraordinary								DEFINE:SwashbucklerDodgeBonus|0									DESC:A swashbuckler gains a +%1 dodge bonus to AC while wearing light or no armor. Anything that causes the swashbuckler to lose her Dexterity bonus to AC also causes the swashbuckler to lose this dodge bonus.|SwashbucklerDodgeBonus																																																																																																																																																																																																																																																																																																																																			BONUS:COMBAT|AC|SwashbucklerDodgeBonus|TYPE=Dodge|PREVARLT:var("COUNT[EQTYPE.ARMOR.IS.MEDIUM]"),1																																									BONUS:VAR|SwashbucklerDodgeBonus|(SwashbucklerLVL+1)/4																																									SOURCEPAGE:p.56
@@ -2428,26 +2428,26 @@ Animal Companion / XVIII	KEY:Packmaster ~ Animal Companion 18	CATEGORY:Special A
 Animal Companion / XIX		KEY:Packmaster ~ Animal Companion 19	CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice	PREVARGTEQ:AnimalCompanionLVLR,1	PREVARLT:AnimalCompanionLVLS,HunterLVL	DEFINE:AnimalCompanionLVLS|0		DESC:Total Levels Assigned to Companion %1|AnimalCompanionLVLS	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Packmaster Follower ~ 19		BONUS:VAR|AnimalCompanionLVLS|1
 Animal Companion / XX		KEY:Packmaster ~ Animal Companion 20	CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice	PREVARGTEQ:AnimalCompanionLVLS,1	PREVARLT:AnimalCompanionLVLT,HunterLVL	DEFINE:AnimalCompanionLVLT|0		DESC:Total Levels Assigned to Companion %1|AnimalCompanionLVLT	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Packmaster Follower ~ 20		BONUS:VAR|AnimalCompanionLVLT|1
 ###Block: AUTO ADDED ABILITIES:
-Packmaster Follower ~ Prime	CATEGORY:Special Ability	FOLLOWERS:Animal Companion|1		COMPANIONLIST:Animal Companion|RACETYPE=Companion																								
-Packmaster Follower ~ 2		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 2|1	COMPANIONLIST:Animal Companion 2|RACETYPE=Companion																								
-Packmaster Follower ~ 3		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 3|1	COMPANIONLIST:Animal Companion 3|RACETYPE=Companion																								
-Packmaster Follower ~ 4		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 4|1	COMPANIONLIST:Animal Companion 4|RACETYPE=Companion																								
-Packmaster Follower ~ 5		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 5|1	COMPANIONLIST:Animal Companion 5|RACETYPE=Companion																								
-Packmaster Follower ~ 6		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 6|1	COMPANIONLIST:Animal Companion 6|RACETYPE=Companion																								
-Packmaster Follower ~ 7		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 7|1	COMPANIONLIST:Animal Companion 7|RACETYPE=Companion																								
-Packmaster Follower ~ 8		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 8|1	COMPANIONLIST:Animal Companion 8|RACETYPE=Companion																								
-Packmaster Follower ~ 9		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 9|1	COMPANIONLIST:Animal Companion 9|RACETYPE=Companion																								
-Packmaster Follower ~ 10	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 10|1	COMPANIONLIST:Animal Companion 10|RACETYPE=Companion																								
-Packmaster Follower ~ 11	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 11|1	COMPANIONLIST:Animal Companion 11|RACETYPE=Companion																								
-Packmaster Follower ~ 12	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 12|1	COMPANIONLIST:Animal Companion 12|RACETYPE=Companion																								
-Packmaster Follower ~ 13	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 13|1	COMPANIONLIST:Animal Companion 13|RACETYPE=Companion																								
-Packmaster Follower ~ 14	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 14|1	COMPANIONLIST:Animal Companion 14|RACETYPE=Companion																								
-Packmaster Follower ~ 15	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 15|1	COMPANIONLIST:Animal Companion 15|RACETYPE=Companion																								
-Packmaster Follower ~ 16	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 16|1	COMPANIONLIST:Animal Companion 16|RACETYPE=Companion																								
-Packmaster Follower ~ 17	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 17|1	COMPANIONLIST:Animal Companion 17|RACETYPE=Companion																								
-Packmaster Follower ~ 18	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 18|1	COMPANIONLIST:Animal Companion 18|RACETYPE=Companion																								
-Packmaster Follower ~ 19	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 19|1	COMPANIONLIST:Animal Companion 19|RACETYPE=Companion																								
-Packmaster Follower ~ 20	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 20|1	COMPANIONLIST:Animal Companion 20|RACETYPE=Companion																								
+Packmaster Follower ~ Prime	CATEGORY:Special Ability	FOLLOWERS:Animal Companion|1		COMPANIONLIST:Animal Companion|RACETYPE=Companion
+Packmaster Follower ~ 2		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 2|1	COMPANIONLIST:Animal Companion 2|RACETYPE=Companion
+Packmaster Follower ~ 3		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 3|1	COMPANIONLIST:Animal Companion 3|RACETYPE=Companion
+Packmaster Follower ~ 4		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 4|1	COMPANIONLIST:Animal Companion 4|RACETYPE=Companion
+Packmaster Follower ~ 5		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 5|1	COMPANIONLIST:Animal Companion 5|RACETYPE=Companion
+Packmaster Follower ~ 6		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 6|1	COMPANIONLIST:Animal Companion 6|RACETYPE=Companion
+Packmaster Follower ~ 7		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 7|1	COMPANIONLIST:Animal Companion 7|RACETYPE=Companion
+Packmaster Follower ~ 8		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 8|1	COMPANIONLIST:Animal Companion 8|RACETYPE=Companion
+Packmaster Follower ~ 9		CATEGORY:Special Ability	FOLLOWERS:Animal Companion 9|1	COMPANIONLIST:Animal Companion 9|RACETYPE=Companion
+Packmaster Follower ~ 10	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 10|1	COMPANIONLIST:Animal Companion 10|RACETYPE=Companion
+Packmaster Follower ~ 11	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 11|1	COMPANIONLIST:Animal Companion 11|RACETYPE=Companion
+Packmaster Follower ~ 12	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 12|1	COMPANIONLIST:Animal Companion 12|RACETYPE=Companion
+Packmaster Follower ~ 13	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 13|1	COMPANIONLIST:Animal Companion 13|RACETYPE=Companion
+Packmaster Follower ~ 14	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 14|1	COMPANIONLIST:Animal Companion 14|RACETYPE=Companion
+Packmaster Follower ~ 15	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 15|1	COMPANIONLIST:Animal Companion 15|RACETYPE=Companion
+Packmaster Follower ~ 16	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 16|1	COMPANIONLIST:Animal Companion 16|RACETYPE=Companion
+Packmaster Follower ~ 17	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 17|1	COMPANIONLIST:Animal Companion 17|RACETYPE=Companion
+Packmaster Follower ~ 18	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 18|1	COMPANIONLIST:Animal Companion 18|RACETYPE=Companion
+Packmaster Follower ~ 19	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 19|1	COMPANIONLIST:Animal Companion 19|RACETYPE=Companion
+Packmaster Follower ~ 20	CATEGORY:Special Ability	FOLLOWERS:Animal Companion 20|1	COMPANIONLIST:Animal Companion 20|RACETYPE=Companion
 
 ###Block: Boon Companion Support for Beast Master
 # Ability Name			Category of Ability	Type			Define					Modify VAR
@@ -2597,16 +2597,16 @@ Greater Spell Combat		KEY:Eldritch Scion ~ Greater Spell Combat			CATEGORY:Speci
 Eldritch Scion SpellCasting Reduction	CATEGORY:Internal
 ###Block:
 # Ability Name							Bonus to spell cast/day
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=0|4|PREVARGTEQ:MagusLVL,1	
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|2|PREVARGTEQ:MagusLVL,1	
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=0|1|PREVARGTEQ:MagusLVL,2	
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|1|PREVARGTEQ:MagusLVL,2		
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=0|1|PREVARGTEQ:MagusLVL,3	
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|1|PREVARGTEQ:MagusLVL,3		
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=2|2|PREVARGTEQ:MagusLVL,4		
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=2|1|PREVARGTEQ:MagusLVL,5		
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=2|1|PREVARGTEQ:MagusLVL,6			
-CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|1|PREVARGTEQ:MagusLVL,7		
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=0|4|PREVARGTEQ:MagusLVL,1
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|2|PREVARGTEQ:MagusLVL,1
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=0|1|PREVARGTEQ:MagusLVL,2
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|1|PREVARGTEQ:MagusLVL,2
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=0|1|PREVARGTEQ:MagusLVL,3
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|1|PREVARGTEQ:MagusLVL,3
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=2|2|PREVARGTEQ:MagusLVL,4
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=2|1|PREVARGTEQ:MagusLVL,5
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=2|1|PREVARGTEQ:MagusLVL,6
+CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=1|1|PREVARGTEQ:MagusLVL,7
 CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=3|2|PREVARGTEQ:MagusLVL,7
 CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=3|1|PREVARGTEQ:MagusLVL,8
 CATEGORY=Internal|Eldritch Scion SpellCasting Reduction.MOD	BONUS:SPELLKNOWN|CLASS=Magus;LEVEL=3|1|PREVARGTEQ:MagusLVL,9
@@ -2980,6 +2980,9 @@ Gun Feint				KEY:Picaroon ~ Gun Feint					CATEGORY:Special Ability	TYPE:Picaroon
 Lightning Reload			KEY:Picaroon ~ Lightning Reload				CATEGORY:Special Ability	TYPE:Picaroon Class Feature.Swashbuckler Class Feature.SpecialQuality.Extraordinary																																																																																																																																																																		DESC:At 11th level, once per round the picaroon can spend 1 panache point to reload a single barrel of a one-handed firearm as a swift action. If she has the Rapid Reload feat or is using an alchemical cartridge, she can instead reload a single barrel of the weapon as a free action each round. Using this deed doesn't provoke attacks of opportunity. This deed replaces bleeding wound.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																															SOURCEPAGE:p.127
 Two-Weapon Finesse		KEY:Picaroon ~ Two-Weapon Finesse				CATEGORY:Special Ability	TYPE:Picaroon Class Feature.Swashbuckler Class Feature.SpecialQuality.Extraordinary																																																																																																																																																																		DESC:At 2nd level, a picaroon gains the benefits of the Weapon Finesse feat with light or onehanded piercing melee weapons. She also gains the effects of the Two-Weapon Fighting feat as long as she is wielding a light or one-handed piercing melee weapon in one hand and one-handed firearm in the other hand. This ability counts as having both the Weapon Finesse and Two-Weapon Fighting feats for the purposes of meeting feat requirements. This ability replaces swashbuckler finesse.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																															SOURCEPAGE:p.127
 
+
+CATEGORY=Special Ability|Picaroon ~ Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:WEAPONPROF|TYPE=OneHandedFirearm
+
 # ==============================
 # Warpriest Archetypes		TYPEs in place, abilities not implemented yet
 # ==============================
@@ -3071,67 +3074,67 @@ Spirit Link				KEY:Spirit Whisperer ~ Spirit Link				CATEGORY:Special Ability	TY
 Spirit Hex				KEY:Spirit Whisperer ~ Spirit Hex				CATEGORY:Special Ability	TYPE:Spirit Whisperer Class Feature.Wizard Class Feature.SpecialQuality																																																																																																																																																																				DESC:At 5th level, a spirit whisperer can select one hex from the list of those granted by his chosen spirit. He uses his wizard level as his shaman level when determining the effects and DC of this hex. In addition, he uses his Intelligence modifier in place of his Wisdom modifier for these hexes. At 10th and 15th level, he can select another hex from those granted by his spirit. Each hex selected in this way replaces the bonus feat gained at that level. This ability alters bonus feats.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													SOURCEPAGE:p.133
 
 ###Block: Magus Spellblend
-Adhesive Blood				KEY:Magus Spellblend ~ Adhesive Blood				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Adhesive Blood				
-Adhesive Spittle				KEY:Magus Spellblend ~ Adhesive Spittle				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Adhesive Spittle				
-Adjustable Disguise			KEY:Magus Spellblend ~ Adjustable Disguise			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Adjustable Disguise			
-Air Step					KEY:Magus Spellblend ~ Air Step					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Air Step							
-Alter Musical Instrument		KEY:Magus Spellblend ~ Alter Musical Instrument			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Alter Musical Instrument									
-Anchored Step				KEY:Magus Spellblend ~ Anchored Step				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Anchored Step								
-Aura Sight					KEY:Magus Spellblend ~ Aura Sight					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Aura Sight							
-Banshee Blast				KEY:Magus Spellblend ~ Banshee Blast				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Banshee Blast												
-Barrow Haze					KEY:Magus Spellblend ~ Barrow Haze					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Barrow Haze													
-Bloatbomb					KEY:Magus Spellblend ~ Bloatbomb					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Bloatbomb											
-Blood Armor					KEY:Magus Spellblend ~ Blood Armor					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Blood Armor								
-Blood Sentinel				KEY:Magus Spellblend ~ Blood Sentinel				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Blood Sentinel												
-Body Capacitance				KEY:Magus Spellblend ~ Body Capacitance				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Body Capacitance												
-Bullet Ward					KEY:Magus Spellblend ~ Bullet Ward					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Bullet Ward						
-Buoyancy					KEY:Magus Spellblend ~ Buoyancy					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Buoyancy											
-Companion Life Link			KEY:Magus Spellblend ~ Companion Life Link			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Companion Life Link									
-Contingent Action				KEY:Magus Spellblend ~ Contingent Action				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Contingent Action												
-Contingent Scroll				KEY:Magus Spellblend ~ Contingent Scroll				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Contingent Scroll												
-Creeping Ice				KEY:Magus Spellblend ~ Creeping Ice					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Creeping Ice										
-Crimson Confession			KEY:Magus Spellblend ~ Crimson Confession				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Crimson Confession											
-Curse of Burning Sleep			KEY:Magus Spellblend ~ Curse of Burning Sleep			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Curse of Burning Sleep										
-Dimensional Bounce			KEY:Magus Spellblend ~ Dimensional Bounce				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL7	SPELLKNOWN:CLASS|Magus=7|Dimensional Bounce									
-Disable Construct				KEY:Magus Spellblend ~ Disable Construct				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Disable Construct											
-Discern Next of Kin			KEY:Magus Spellblend ~ Discern Next of Kin			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Discern Next of Kin									
-Enchantment Foil				KEY:Magus Spellblend ~ Enchantment Foil				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Enchantment Foil								
-Eyes of the Void				KEY:Magus Spellblend ~ Eyes of the Void				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Eyes of the Void										
-Feast on Fear				KEY:Magus Spellblend ~ Feast on Fear				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Feast on Fear										
-Gentle Breeze				KEY:Magus Spellblend ~ Gentle Breeze				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Gentle Breeze										
-Heightened Awareness			KEY:Magus Spellblend ~ Heightened Awareness			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Heightened Awareness					
-Investigative Mind			KEY:Magus Spellblend ~ Investigative Mind				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Investigative Mind									
-Invisibility Alarm			KEY:Magus Spellblend ~ Invisibility Alarm				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Invisibility Alarm							
-Life Pact					KEY:Magus Spellblend ~ Life Pact					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Life Pact											
-Memorize Page				KEY:Magus Spellblend ~ Memorize Page				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Memorize Page											
-Mindlocked Messenger			KEY:Magus Spellblend ~ Mindlocked Messenger			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Mindlocked Messenger									
-Mirror Hideaway				KEY:Magus Spellblend ~ Mirror Hideaway				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Mirror Hideaway												
-Mirror Polish				KEY:Magus Spellblend ~ Mirror Polish				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Mirror Polish												
-Mirror Transport				KEY:Magus Spellblend ~ Mirror Transport				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Mirror Transport												
-Pierce Disguise				KEY:Magus Spellblend ~ Pierce Disguise				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Pierce Disguise										
-Polymorph Familiar			KEY:Magus Spellblend ~ Polymorph Familiar				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Polymorph Familiar										
-Refine Improvised Weapon		KEY:Magus Spellblend ~ Refine Improvised Weapon			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Refine Improvised Weapon							
-Repair Undead				KEY:Magus Spellblend ~ Repair Undead				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Repair Undead													
-Repair Undead (Mass)			KEY:Magus Spellblend ~ Repair Undead (Mass)			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Repair Undead (Mass)												
-Shield Companion				KEY:Magus Spellblend ~ Shield Companion				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Shield Companion								
-Silent Table				KEY:Magus Spellblend ~ Silent Table					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Silent Table										
-Sonic Form					KEY:Magus Spellblend ~ Sonic Form					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Sonic Form												
-Spellcrash					KEY:Magus Spellblend ~ Spellcrash					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Spellcrash												
-Spellcrash (Greater)			KEY:Magus Spellblend ~ Spellcrash (Greater)			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL8	SPELLKNOWN:CLASS|Magus=8|Spellcrash (Greater)										
-Spellcrash (Lesser)			KEY:Magus Spellblend ~ Spellcrash (Lesser)			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Spellcrash (Lesser)										
-Stricken Heart				KEY:Magus Spellblend ~ Stricken Heart				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Stricken Heart									
-Stunning Barrier				KEY:Magus Spellblend ~ Stunning Barrier				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Stunning Barrier									
-Stunning Barrier (Greater)		KEY:Magus Spellblend ~ Stunning Barrier (Greater)		CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Stunning Barrier (Greater)							
-Symbol of Laughter			KEY:Magus Spellblend ~ Symbol of Laughter				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Symbol of Laughter											
-Triggered Suggestion			KEY:Magus Spellblend ~ Triggered Suggestion			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Triggered Suggestion										
-Twilight Haze				KEY:Magus Spellblend ~ Twilight Haze				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Twilight Haze												
-Unbearable Brightness			KEY:Magus Spellblend ~ Unbearable Brightness			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Unbearable Brightness										
-Unliving Rage				KEY:Magus Spellblend ~ Unliving Rage				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Unliving Rage											
-Wall of Blindness/Deafness		KEY:Magus Spellblend ~ Wall of Blindness/Deafness		CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Wall of Blindness/Deafness								
-Wall of Nausea				KEY:Magus Spellblend ~ Wall of Nausea				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Wall of Nausea												
-Whip of Ants				KEY:Magus Spellblend ~ Whip of Ants					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Whip of Ants									
-Whip of Centipedes			KEY:Magus Spellblend ~ Whip of Centipedes				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Whip of Centipedes								
-Whip of Spiders				KEY:Magus Spellblend ~ Whip of Spiders				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Whip of Spiders									
+Adhesive Blood				KEY:Magus Spellblend ~ Adhesive Blood				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Adhesive Blood
+Adhesive Spittle				KEY:Magus Spellblend ~ Adhesive Spittle				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Adhesive Spittle
+Adjustable Disguise			KEY:Magus Spellblend ~ Adjustable Disguise			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Adjustable Disguise
+Air Step					KEY:Magus Spellblend ~ Air Step					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Air Step
+Alter Musical Instrument		KEY:Magus Spellblend ~ Alter Musical Instrument			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Alter Musical Instrument
+Anchored Step				KEY:Magus Spellblend ~ Anchored Step				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Anchored Step
+Aura Sight					KEY:Magus Spellblend ~ Aura Sight					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Aura Sight
+Banshee Blast				KEY:Magus Spellblend ~ Banshee Blast				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Banshee Blast
+Barrow Haze					KEY:Magus Spellblend ~ Barrow Haze					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Barrow Haze
+Bloatbomb					KEY:Magus Spellblend ~ Bloatbomb					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Bloatbomb
+Blood Armor					KEY:Magus Spellblend ~ Blood Armor					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Blood Armor
+Blood Sentinel				KEY:Magus Spellblend ~ Blood Sentinel				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Blood Sentinel
+Body Capacitance				KEY:Magus Spellblend ~ Body Capacitance				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Body Capacitance
+Bullet Ward					KEY:Magus Spellblend ~ Bullet Ward					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Bullet Ward
+Buoyancy					KEY:Magus Spellblend ~ Buoyancy					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Buoyancy
+Companion Life Link			KEY:Magus Spellblend ~ Companion Life Link			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Companion Life Link
+Contingent Action				KEY:Magus Spellblend ~ Contingent Action				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Contingent Action
+Contingent Scroll				KEY:Magus Spellblend ~ Contingent Scroll				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Contingent Scroll
+Creeping Ice				KEY:Magus Spellblend ~ Creeping Ice					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Creeping Ice
+Crimson Confession			KEY:Magus Spellblend ~ Crimson Confession				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Crimson Confession
+Curse of Burning Sleep			KEY:Magus Spellblend ~ Curse of Burning Sleep			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Curse of Burning Sleep
+Dimensional Bounce			KEY:Magus Spellblend ~ Dimensional Bounce				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL7	SPELLKNOWN:CLASS|Magus=7|Dimensional Bounce
+Disable Construct				KEY:Magus Spellblend ~ Disable Construct				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Disable Construct
+Discern Next of Kin			KEY:Magus Spellblend ~ Discern Next of Kin			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Discern Next of Kin
+Enchantment Foil				KEY:Magus Spellblend ~ Enchantment Foil				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Enchantment Foil
+Eyes of the Void				KEY:Magus Spellblend ~ Eyes of the Void				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Eyes of the Void
+Feast on Fear				KEY:Magus Spellblend ~ Feast on Fear				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Feast on Fear
+Gentle Breeze				KEY:Magus Spellblend ~ Gentle Breeze				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Gentle Breeze
+Heightened Awareness			KEY:Magus Spellblend ~ Heightened Awareness			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Heightened Awareness
+Investigative Mind			KEY:Magus Spellblend ~ Investigative Mind				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Investigative Mind
+Invisibility Alarm			KEY:Magus Spellblend ~ Invisibility Alarm				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Invisibility Alarm
+Life Pact					KEY:Magus Spellblend ~ Life Pact					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Life Pact
+Memorize Page				KEY:Magus Spellblend ~ Memorize Page				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Memorize Page
+Mindlocked Messenger			KEY:Magus Spellblend ~ Mindlocked Messenger			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Mindlocked Messenger
+Mirror Hideaway				KEY:Magus Spellblend ~ Mirror Hideaway				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Mirror Hideaway
+Mirror Polish				KEY:Magus Spellblend ~ Mirror Polish				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Mirror Polish
+Mirror Transport				KEY:Magus Spellblend ~ Mirror Transport				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Mirror Transport
+Pierce Disguise				KEY:Magus Spellblend ~ Pierce Disguise				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Pierce Disguise
+Polymorph Familiar			KEY:Magus Spellblend ~ Polymorph Familiar				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Polymorph Familiar
+Refine Improvised Weapon		KEY:Magus Spellblend ~ Refine Improvised Weapon			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Refine Improvised Weapon
+Repair Undead				KEY:Magus Spellblend ~ Repair Undead				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Repair Undead
+Repair Undead (Mass)			KEY:Magus Spellblend ~ Repair Undead (Mass)			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Repair Undead (Mass)
+Shield Companion				KEY:Magus Spellblend ~ Shield Companion				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Shield Companion
+Silent Table				KEY:Magus Spellblend ~ Silent Table					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Silent Table
+Sonic Form					KEY:Magus Spellblend ~ Sonic Form					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Sonic Form
+Spellcrash					KEY:Magus Spellblend ~ Spellcrash					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Spellcrash
+Spellcrash (Greater)			KEY:Magus Spellblend ~ Spellcrash (Greater)			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL8	SPELLKNOWN:CLASS|Magus=8|Spellcrash (Greater)
+Spellcrash (Lesser)			KEY:Magus Spellblend ~ Spellcrash (Lesser)			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Spellcrash (Lesser)
+Stricken Heart				KEY:Magus Spellblend ~ Stricken Heart				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Stricken Heart
+Stunning Barrier				KEY:Magus Spellblend ~ Stunning Barrier				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Stunning Barrier
+Stunning Barrier (Greater)		KEY:Magus Spellblend ~ Stunning Barrier (Greater)		CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Stunning Barrier (Greater)
+Symbol of Laughter			KEY:Magus Spellblend ~ Symbol of Laughter				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Symbol of Laughter
+Triggered Suggestion			KEY:Magus Spellblend ~ Triggered Suggestion			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Triggered Suggestion
+Twilight Haze				KEY:Magus Spellblend ~ Twilight Haze				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Twilight Haze
+Unbearable Brightness			KEY:Magus Spellblend ~ Unbearable Brightness			CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Unbearable Brightness
+Unliving Rage				KEY:Magus Spellblend ~ Unliving Rage				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Unliving Rage
+Wall of Blindness/Deafness		KEY:Magus Spellblend ~ Wall of Blindness/Deafness		CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Wall of Blindness/Deafness
+Wall of Nausea				KEY:Magus Spellblend ~ Wall of Nausea				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Wall of Nausea
+Whip of Ants				KEY:Magus Spellblend ~ Whip of Ants					CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Whip of Ants
+Whip of Centipedes			KEY:Magus Spellblend ~ Whip of Centipedes				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Whip of Centipedes
+Whip of Spiders				KEY:Magus Spellblend ~ Whip of Spiders				CATEGORY:Internal	TYPE:MagusSpellBlend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Whip of Spiders
 
 ###Block:
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Display Combined Grit Panache Luck|PREABILITY:2,CATEGORY=Special Ability,TYPE.GritShared
