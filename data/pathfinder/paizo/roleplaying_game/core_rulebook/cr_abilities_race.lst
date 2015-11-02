@@ -29,7 +29,7 @@ CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_Trait_Stonecunning,0
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|PREVAREQ:Dwarf_Trait_Steady,0
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_Trait_WeaponFamiliarity,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_RacialVision,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_Darkvision,0
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|PREVAREQ:Dwarf_Trait_Language,0
 #
 CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
