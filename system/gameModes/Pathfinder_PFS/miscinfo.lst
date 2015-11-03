@@ -272,6 +272,7 @@ WIELDCATEGORY:TwoHanded							DOWN:OneHanded|Light
 WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
 
 WIELDCATEGORY:TwoHandsOnly	UP:TwoHandsOnlyTooLarge	DOWN:TwoHandsOnlyTooSmall
+WIELDCATEGORY:OneHandOnlyOnly	UP:OneHandOnlyTooLarge	DOWN:OneHandOnlyTooSmall
 
 WIELDCATEGORY:TwoHandsOnlyTooSmall							UP:TwoHandsOnly
 WIELDCATEGORY:TwoHandsOnlyTooLarge							DOWN:TwoHandsOnly
