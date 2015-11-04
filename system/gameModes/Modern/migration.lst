@@ -138,7 +138,7 @@ ABILITY:Special Ability|Smite Allegiance				MAXVER:6.6.0		NEWKEY:Holy Unholy Kni
 ABILITY:Special Ability|Divine Touch				MAXVER:6.6.0		NEWKEY:Holy Unholy Knight ~ Divine Touch
 
 ###Block:Organizations
-ABILITY of Ability||Ability Name														Newkey
+#ABILITY of Ability||Ability Name														Newkey
 ABILITY:Special Ability|Member of The Black Feathers							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of The Black Feathers
 ABILITY:Special Ability|Member of Cirque des Moitie							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of Cirque des Moitie
 ABILITY:Special Ability|Member of the Commission for Research Into Unexplained Phenomena	MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the Commission for Research Into Unexplained Phenomena
