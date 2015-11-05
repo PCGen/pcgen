@@ -23,8 +23,10 @@ package pcgen.gui2.csheet;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -40,12 +42,14 @@ import org.lobobrowser.html.parser.InputSourceImpl;
 import org.lobobrowser.html.test.SimpleHtmlRendererContext;
 import org.lobobrowser.html.test.SimpleUserAgentContext;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import pcgen.core.Globals;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.PCGenStatusBar;
 import pcgen.gui2.tools.CharacterSelectionListener;
+import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
@@ -56,61 +60,40 @@ import pcgen.util.Logging;
  */
 public class CharacterSheetPanel extends HtmlPanel implements CharacterSelectionListener
 {
-
-	private static final String COLOR_TAG = "preview_color.css";
-
 	private enum CssColor
 	{
+		BLUE("preview_color_blue.css"),
+		LIGHTBLUE("preview_color_light_blue.css"),
+		GREEN("preview_color_green.css"),
+		LIGHTGREEN("preview_color_light_green.css"),
+		RED("preview_color_red.css"),
+		LIGHTRED("preview_color_light_red.css"),
+		YELLOW("preview_color_yellow.css"),
+		LIGHTYELLOW("preview_color_light_yellow.css"),
+		GREY("preview_color_grey.css"),
+		LIGHTGREY("preview_color_light_grey.css");
 
-		BLUE,
-		LIGHTBLUE,
-		GREEN,
-		LIGHTGREEN,
-		RED,
-		LIGHTRED,
-		YELLOW,
-		LIGHTYELLOW,
-		GREY,
-		LIGHTGREY;
+		private final String cssfile;
 
-		public String getCssText()
-		{
-			switch (this)
-			{
-				case BLUE:
-					return "preview_color_blue.css";
-				case LIGHTBLUE:
-					return "preview_color_light_blue.css";
-				case GREEN:
-					return "preview_color_green.css";
-				case LIGHTGREEN:
-					return "preview_color_light_green.css";
-				case RED:
-					return "preview_color_red.css";
-				case LIGHTRED:
-					return "preview_color_light_red.css";
-				case YELLOW:
-					return "preview_color_yellow.css";
-				case LIGHTYELLOW:
-					return "preview_color_light_yellow.css";
-				case GREY:
-					return "preview_color_grey.css";
-				case LIGHTGREY:
-					return "preview_color_light_grey.css";
-				default:
-					throw new InternalError();
-			}
+		CssColor(String cssfile) {
+			this.cssfile = cssfile;
 		}
 
+		public String getCssfile() {
+			return this.cssfile;
+		}
 	}
 
 	private final HtmlRendererContext theRendererContext;
 	private final DocumentBuilderImpl theDocBuilder;
-	private ExportHandler handler = null;
-	private CharacterFacade character = null;
-	private ExecutorService refreshService = null;
-	private FutureTask<Document> refreshTask = null;
-	private CssColor cssColor = CssColor.BLUE;
+	private final CssColor cssColor = CssColor.BLUE;
+	private static final String COLOR_TAG = "preview_color.css";
+	private final ExecutorService refreshService;
+	private ExportHandler handler;
+	private CharacterFacade character;
+	private FutureTask<Document> refreshTask;
+
+
 
 	public CharacterSheetPanel()
 	{
@@ -137,7 +120,6 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	public void setCharacter(CharacterFacade character)
 	{
 		this.character = character;
-		//refresh();
 	}
 
 	public void setCharacterSheet(File sheet)
@@ -196,15 +178,11 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 						}
 						catch (Throwable e)
 						{
-							final String errorMsg = "<html><body>Unable to process sheet<br>" +
-									e + "</body></html>";
-							ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes());
-							try
-							{
+							final String errorMsg = String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
+							try (ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes())) {
 								doc = theDocBuilder.parse(instream);
-							}
-							catch (Exception ex)
-							{
+							} catch (IOException | SAXException e1) {
+								e1.printStackTrace();
 							}
 							Logging.errorPrint("Unable to process sheet: ", e);
 						}
@@ -225,22 +203,16 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private class DocumentConstructor implements Callable<Document>
 	{
 		@Override
-		public Document call() throws Exception
-		{
+		public Document call() throws URISyntaxException, IOException, ExportException, SAXException {
 			StringWriter out = new StringWriter();
 			BufferedWriter buf = new BufferedWriter(out);
 			character.export(handler, buf);
 
-			String genText = out.toString().replace(COLOR_TAG,
-				cssColor.getCssText());
+			final String genText = out.toString().replace(COLOR_TAG, cssColor.getCssfile());
 			ByteArrayInputStream instream = new ByteArrayInputStream(genText.getBytes());
-			Document doc = null;
 
 			URI root = new URI("file", ConfigurationSettings.getPreviewDir().replaceAll("\\\\", "/"), null);
-			doc = theDocBuilder.parse(new InputSourceImpl(instream,
-				root.toString(),
-					"UTF-8"));
-			return doc;
+			return theDocBuilder.parse(new InputSourceImpl(instream, root.toString(), "UTF-8"));
 		}
 	}
 }
