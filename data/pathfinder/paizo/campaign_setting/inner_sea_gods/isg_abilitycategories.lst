@@ -1,0 +1,16 @@
+
+ABILITYCATEGORY:Evangelist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Class Feature.EvangelistClassFeatures					PLURAL:Evangelist Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Exalted Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Exalted Class Feature.ExaltedClassFeatures					PLURAL:Exalted Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sentinel Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sentinel Class Feature.SentinelClassFeatures					PLURAL:Sentinel Class Features			DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Evangelist Aligned Class	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Evangelist Aligned Class
+# select any previously held class
+
+ABILITYCATEGORY:Evangelist Divine Boon	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Evangelist Divine Boon
+ABILITYCATEGORY:Exalted Divine Boon		CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Exalted Divine Boon
+ABILITYCATEGORY:Sentinel Divine Boon	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Sentinel Divine Boon
+
+
+
+
