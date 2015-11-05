@@ -1,0 +1,227 @@
+
+
+Shield (Heavy/Wooden).MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
+Shield (Heavy/Steel).MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
+
+###Block: Altars
+Altar of Abadar			COST:10000	WT:1000	SOURCEPAGE:p.246	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Asmodeus			COST:16000	WT:750	SOURCEPAGE:p.246	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Calistria		COST:16000	WT:500	SOURCEPAGE:p.246	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Cayden Cailean		COST:8000	WT:150	SOURCEPAGE:p.246	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Desna			COST:10000	WT:1000	SOURCEPAGE:p.247	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Erastil			COST:10000	WT:1000	SOURCEPAGE:p.247	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Gorum			COST:8000	WT:750	SOURCEPAGE:p.247	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Gozreh			COST:8000	WT:1000	SOURCEPAGE:p.247	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Iomedae			COST:8000	WT:1000	SOURCEPAGE:p.248	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Irori			COST:8000	WT:150	SOURCEPAGE:p.248	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Lamashtu			COST:10000	WT:500	SOURCEPAGE:p.248	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Nethys			COST:8000	WT:500	SOURCEPAGE:p.248	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Norgorber		COST:10000	WT:250	SOURCEPAGE:p.248	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Pharasma			COST:5380	WT:1000	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Rovagug			COST:10000	WT:150	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Sarenrae			COST:8000	WT:750	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Shelyn			COST:8000	WT:150	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Torag			COST:10000	WT:500	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Urgathoa			COST:8000	WT:500	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+Altar of Zon-Huthon		COST:8000	WT:150	SOURCEPAGE:p.249	TYPE:Magic.Altar	NAMEISPI:YES
+###Block: Magic Items 
+# Armor
+Chain Shirt.COPY=All-Seeing Armor			
+Chainmail.COPY=Armor Of The Unqenchable Fire	
+Leather.COPY=Blackfingers Apron			
+Shield (Light/Steel).COPY=Bronze Whisperer's Shield		
+Chain Shirt.COPY=Calmitous Mail			
+Chain Shirt.COPY=Dawnflower Chain Vest		
+Studded Leather.COPY=Deadeye Leather			
+Shield (Heavy/Wooden).COPY=Driftwood Shield			
+Breastplate.COPY=Eternal Iron Breastplate		
+Scale Mail.COPY=Fangtide Scale Mail			
+Half-Plate.COPY=Forgefather's Half-Plate		
+Breastplate.COPY=Golden Judge's Breastplate	
+Chainmail.COPY=Gravewatcher Chainmail		
+Leather.COPY=Gray Master's Leathers		
+Chainmail.COPY=Grim Gloom Mail			
+Half-Plate.COPY=Half-Plate Of The Dark Prince	
+Breastplate.COPY=Inheritor's Breastplate		
+Leather.COPY=Kimle Coat				
+Chainmail.COPY=Lucky Drunk's Mail			
+Leather.COPY=Milanite Armor			
+Studded Leather.COPY=Painspike Armor			
+Chainmail.COPY=Pallid Chain				
+Hide.COPY=Pelt Of The Demon Mother		
+Leather.COPY=Perfection Leather			
+Leather.COPY=Red Stalker Armor			
+Chain Shirt.COPY=Rosy Hauberk				
+Studded Leather.COPY=Sea Banshee Coat			
+Chainmail.COPY=Starsong Mail				
+Chainmail.COPY=Toiler's Armor			
+Chain Shirt.COPY=Veiled Chain				
+# Weapons
+Sword (Short).COPY=Black Alibi					
+Glaive.COPY=Blade Of Three Fancies			
+Greatsword.COPY=Bloodlight					
+Rapier.COPY=Carouser's Retort				
+Scimitar.COPY=Dawnfire					
+Morningstar.COPY=Enduring Bloom				
+Dagger.COPY=Fate Blade					
+Warhammer.COPY=Forgefather's Sledge			
+Crossbow (Light).COPY=Fugitive Finder				
+Sawtooth Sabre.COPY=Fuming Blood Sabre				
+Mace (Light).COPY=Hell's Eye					
+Longsword.COPY=Inheritor's Light				
+Longbow.COPY=Kinbonded Bow					
+Scythe.COPY=Nail Of The Princess			
+Flail (Heavy).COPY=Obliviating Flail				
+Whip.COPY=Perfectionist Shavtoosh			
+Quarterstaff.COPY=Quarterstaff Of Entwined Serpents	
+Falchion.COPY=Redlust's Daughter				
+Greataxe.COPY=Rusting Teeth Of The Rough Beast	
+Starknife.COPY=Shooting Starknife				
+Trident.COPY=Stormstrike					
+Chain (Spiked).COPY=Umbral Chain					
+Whip.COPY=Vengeful Kiss					
+
+# Magic Armor and Shields
+# TODO: Add COST.
+All-Seeing Armor.MOD			TYPE:Magic		COST:5570	WT:25		SOURCEPAGE:p.250	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Armor of the Unqenchable Fire.MOD	TYPE:Magic		COST:4840	WT:40	SOURCEPAGE:p.250	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Blackfingers Apron.MOD			TYPE:Magic		COST:5240	WT:15	SOURCEPAGE:p.250	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Bronze Whisperer's Shield.MOD		TYPE:Magic		COST:4279	WT:6	SOURCEPAGE:p.250	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Calmitous Mail.MOD			TYPE:Magic		COST:3750	WT:25	SOURCEPAGE:p.250	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Dawnflower Chain Vest.MOD		TYPE:Magic		COST:6950	WT:25	SOURCEPAGE:p.250	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Deadeye Leather.MOD			TYPE:Magic		COST:5425	WT:20	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Driftwood Shield.MOD			TYPE:Magic		COST:2527	WT:10	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Eternal Iron Breastplate.MOD		TYPE:Magic		COST:4890	WT:30	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Fangtide Scale Mail.MOD			TYPE:Magic		COST:4890	WT:30	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Forgefather's Half-Plate.MOD		TYPE:Magic		COST:4180	WT:50	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Golden Judge's Breastplate.MOD	TYPE:Magic		COST:5110	WT:30	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gravewatcher Chainmail.MOD		TYPE:Magic		COST:5380	WT:40	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gray Master's Leathers.MOD		TYPE:Magic		COST:5720	WT:15	SOURCEPAGE:p.251	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Grim Gloom Mail.MOD			TYPE:Magic		COST:2380	WT:40	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Half-Plate of the Dark Prince.MOD	TYPE:Magic		COST:3910	WT:50	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Inheritor's Breastplate.MOD		TYPE:Magic		COST:2430	WT:30	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Kimle Coat.MOD				TYPE:Magic		COST:2300	WT:15	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Lucky Drunk's Mail.MOD			TYPE:Magic		COST:4840	WT:40	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Milanite Armor.MOD			TYPE:Magic		COST:2780	WT:40	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Painspike Armor.MOD			TYPE:Magic		COST:4145	WT:20	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Pallid Chain.MOD				TYPE:Magic		COST:3300	WT:40	SOURCEPAGE:p.252	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Pelt of the Demon Mother.MOD		TYPE:Magic		COST:3325	WT:25	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Perfection Leather.MOD			TYPE:Magic		COST:3860	WT:15	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Red Stalker Armor.MOD			TYPE:Magic		COST:3035	WT:15	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Rosy Hauberk.MOD				TYPE:Magic		COST:3035	WT:25	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Sea Banshee Coat.MOD			TYPE:Magic		COST:3605	WT:20	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Starsong Mail.MOD				TYPE:Magic		COST:3460	WT:40	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Toiler's Armor.MOD			TYPE:Magic		COST:3920	WT:40	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Veiled Chain.MOD				TYPE:Magic		COST:4490	WT:25	SOURCEPAGE:p.253	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+
+###Block: Magic Weapons
+Black Alibi.MOD					TYPE:Magic		COST:4410	SOURCEPAGE:p.254	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Blade Of Three Fancies.MOD			TYPE:Magic		COST:5248	SOURCEPAGE:p.254	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Bloodlight.MOD					TYPE:Magic		COST:3970	SOURCEPAGE:p.254	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Carouser's Retort.MOD				TYPE:Magic		COST:3060	SOURCEPAGE:p.254	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Dawnfire.MOD					TYPE:Magic		COST:5315	SOURCEPAGE:p.254	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Enduring Bloom.MOD				TYPE:Magic		COST:3848	SOURCEPAGE:p.255	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Fate Blade.MOD					TYPE:Magic		COST:3072	SOURCEPAGE:p.255	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Forgefather's Sledge.MOD			TYPE:Magic		COST:4312	SOURCEPAGE:p.255	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Fugitive Finder.MOD				TYPE:Magic		COST:12655	SOURCEPAGE:p.255	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Fuming Blood Sabre.MOD				TYPE:Magic		COST:11035	SOURCEPAGE:p.255	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Hell's Eye.MOD					TYPE:Magic		COST:10305	SOURCEPAGE:p.255	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Inheritor's Light.MOD				TYPE:Magic		COST:6555	SOURCEPAGE:p.256	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Kinbonded Bow.MOD					TYPE:Magic		COST:3875	SOURCEPAGE:p.256	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Nail Of The Princess.MOD			TYPE:Magic		COST:5318	SOURCEPAGE:p.256	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Obliviating Flail.MOD				TYPE:Magic		COST:4815	SOURCEPAGE:p.256	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Perfectionist Shavtoosh.MOD			TYPE:Magic		COST:4461	SOURCEPAGE:p.256	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Quarterstaff Of Entwined Serpents.MOD	TYPE:Magic		COST:5050	SOURCEPAGE:p.256	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Redlust's Daughter.MOD				TYPE:Magic		COST:9875	SOURCEPAGE:p.257	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Rusting Teeth Of The Rough Beast.MOD	TYPE:Magic		COST:8320	SOURCEPAGE:p.257	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Shooting Starknife.MOD				TYPE:Magic		COST:7724	SOURCEPAGE:p.257	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Stormstrike.MOD					TYPE:Magic		COST:9315	SOURCEPAGE:p.257	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Umbral Chain.MOD					TYPE:Magic		COST:8825	SOURCEPAGE:p.257	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Vengeful Kiss.MOD					TYPE:Magic		COST:11501	SOURCEPAGE:p.257	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+
+###Block: Rings
+Deadeye's Spotter Ring				TYPE:SLOT_Ring.Ring		COST:1500	WT:0	SOURCEPAGE:p.258	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Droskar's Guiding Ring				TYPE:SLOT_Ring.Ring		COST:2600	WT:0	SOURCEPAGE:p.258	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg	NAMEISPI:YES
+Ghost Battling Ring				TYPE:SLOT_Ring.Ring		COST:13000	WT:0	SOURCEPAGE:p.258	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Glorious Flame Ring				TYPE:SLOT_Ring.Ring		COST:5400	WT:0	SOURCEPAGE:p.258	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gluttonous Feasting Ring			TYPE:SLOT_Ring.Ring		COST:5000	WT:0	SOURCEPAGE:p.258	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Knight-Inheritor's Ring				TYPE:SLOT_Ring.Ring		COST:3000	WT:0	SOURCEPAGE:p.258	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Nethysian Ring Of Minor Spell Storing	TYPE:SLOT_Ring.Ring		COST:20000	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg	NAMEISPI:YES
+Profane Seal Signet				TYPE:SLOT_Ring.Ring		COST:3000	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Red Hound Ring					TYPE:SLOT_Ring.Ring		COST:4700	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Ring Of Serence Contortions			TYPE:SLOT_Ring.Ring		COST:1200	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Ring Of Seven Lovely Colors			TYPE:SLOT_Ring.Ring		COST:4000	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Ring Of Stairs And Stars			TYPE:SLOT_Ring.Ring		COST:3020	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Ring Of Sundering Metals			TYPE:SLOT_Ring.Ring		COST:6000	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Ring Of Unquenchable Passions			TYPE:SLOT_Ring.Ring		COST:6500	WT:0	SOURCEPAGE:p.259	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+
+###Block: Wondrous Items
+Barbed Pentacle Of Asmodeus			TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3000	WT:1	SOURCEPAGE:p.260	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Beautiful War Paint				TYPE:Magic.Wondrous Item.SLOT_Head	COST:6300	WT:1	SOURCEPAGE:p.260	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Bear Pelt Of The Bonebreaker			TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:3300	WT:10	SOURCEPAGE:p.260	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Belt Of The Snake King				TYPE:Magic.Wondrous Item.SLOT_Belt	COST:2600	WT:1	SOURCEPAGE:p.260	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Besmara's Bicorne					TYPE:Magic.Wondrous Item.SLOT_Head	COST:1700	WT:1	SOURCEPAGE:p.260	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Besmara's Tricorne				TYPE:Magic.Wondrous Item.SLOT_Head	COST:2600	WT:1	SOURCEPAGE:p.261	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Blessed Keepsake					TYPE:Magic.Wondrous Item.SLOT_Neck	COST:8000	WT:0	SOURCEPAGE:p.261	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Boots Of The Earth				TYPE:Magic.Wondrous Item.SLOT_Feet	COST:5000	WT:5	SOURCEPAGE:p.261	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Boots Of The Eternal Rose			TYPE:Magic.Wondrous Item.SLOT_Feet	COST:4000	WT:1	SOURCEPAGE:p.261	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Broken Chain Of The Beast			TYPE:Magic.Wondrous Item.SLOT_Belt	COST:4500	WT:5	SOURCEPAGE:p.261	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Bronze Skinning Knife				TYPE:Magic.Wondrous Item.SLOT_None	COST:3300	WT:1	SOURCEPAGE:p.262	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Cloak Of The Crusader				TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:2700	WT:1	SOURCEPAGE:p.262	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Cloak Of The Night Sky				TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:2500	WT:1	SOURCEPAGE:p.262	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Dawnflower Lantern				TYPE:Magic.Wondrous Item.SLOT_None	COST:6400	WT:2	SOURCEPAGE:p.262	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Dawnflower Sash					TYPE:Magic.Wondrous Item.SLOT_Belt.SLOT_Head	COST:2500	WT:0	SOURCEPAGE:p.262	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Deathlurker's Cloak				TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:2700	WT:1	SOURCEPAGE:p.263	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Demon Mother's Mask				TYPE:Magic.Wondrous Item.SLOT_Head	COST:3600	WT:1	SOURCEPAGE:p.263	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Diabolical Masquerade Mask			TYPE:Magic.Wondrous Item.SLOT_Head	COST:2900	WT:1	SOURCEPAGE:p.263	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Dream Candle					TYPE:Magic.Wondrous Item.SLOT_None	COST:2300	WT:1	SOURCEPAGE:p.263	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Dreamwing Cape					TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:17500	WT:1	SOURCEPAGE:p.263	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Fate's Shears					TYPE:Magic.Wondrous Item.SLOT_None	COST:3600	WT:1	SOURCEPAGE:p.263	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Father's Forgehammer				TYPE:Magic.Wondrous Item.SLOT_None	COST:4800	WT:2	SOURCEPAGE:p.264	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Featherscale Cloak				TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:4000	WT:1	SOURCEPAGE:p.264	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Flask Of The Reaper				TYPE:Magic.Wondrous Item.SLOT_None	COST:3800	WT:0	SOURCEPAGE:p.264	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gloves Of Bony Power				TYPE:Magic.Wondrous Item.SLOT_Hands	COST:5400	WT:0	SOURCEPAGE:p.264	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gossamer Amberstone				TYPE:Magic.Wondrous Item.SLOT_Neck	COST:2700	WT:0	SOURCEPAGE:p.264	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gray Gambler's Hat				TYPE:Magic.Wondrous Item.SLOT_Head	COST:2400	WT:0	SOURCEPAGE:p.264	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Great Barghest Hero Cloak			TYPE:Magic.Wondrous Item.SLOT_Shoulders	COST:2800	WT:1	SOURCEPAGE:p.265	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Gutbite Belt					TYPE:Magic.Wondrous Item.SLOT_Belt	COST:4500	WT:1	SOURCEPAGE:p.265	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Hag's Shabble					TYPE:Magic.Wondrous Item.SLOT_Body	COST:3400	WT:3	SOURCEPAGE:p.265	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Hero's Release Pendant				TYPE:Magic.Wondrous Item.SLOT_Neck	COST:2800	WT:1	SOURCEPAGE:p.265	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Icon Of The Midwife				TYPE:Magic.Wondrous Item.SLOT_None	COST:3500	WT:2	SOURCEPAGE:p.265	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Inheritor's Gauntlet				TYPE:Magic.Wondrous Item.SLOT_Hands	COST:2700	WT:1	SOURCEPAGE:p.265	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Iron Lord's Transforming Slivers		TYPE:Magic.Wondrous Item.SLOT_None	COST:1000	WT:2	SOURCEPAGE:p.266	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Key Of The Second Vault				TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3000	WT:0	SOURCEPAGE:p.266	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Mask Of Conflicting Energies			TYPE:Magic.Wondrous Item.SLOT_Head	COST:4000	WT:1	SOURCEPAGE:p.266	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Mask Of Cutting Flash				TYPE:Magic.Wondrous Item.SLOT_Head	COST:3000	WT:1	SOURCEPAGE:p.266	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Medal Of The Hero's Heart			TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3400	WT:0	SOURCEPAGE:p.266	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Nightstone Of Sorrow				TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3300	WT:2	SOURCEPAGE:p.267	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Orb Of The Waybringer				TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3900	WT:1	SOURCEPAGE:p.267	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Pallid Crystal					TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3300	WT:0	SOURCEPAGE:p.267	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Perfect Tuning Fork				TYPE:Magic.Wondrous Item.SLOT_None	COST:600	WT:0	SOURCEPAGE:p.267	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Poison Gum						TYPE:Magic.Wondrous Item.SLOT_None	COST:1250	WT:0	SOURCEPAGE:p.267	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Preklikin's Book Of Cults			TYPE:Magic.Wondrous Item.SLOT_None	COST:1500	WT:5	SOURCEPAGE:p.268	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg	NAMEISPI:YES
+Purification Talisman				TYPE:Magic.Wondrous Item.SLOT_Meck	COST:1800	WT:0	SOURCEPAGE:p.268	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Rhombocrystal					TYPE:Magic.Wondrous Item.SLOT_None	COST:2250	WT:0	SOURCEPAGE:p.268	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Robe Of The Master Of Masters			TYPE:Magic.Wondrous Item.SLOT_Body	COST:2300	WT:3	SOURCEPAGE:p.268	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Sacrificial Dagger Of The Blood Mother	TYPE:Magic.Wondrous Item.SLOT_None	COST:2700	WT:1	SOURCEPAGE:p.268	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Safecamp Wagon					TYPE:Magic.Wondrous Item.SLOT_None	COST:3000	WT:2	SOURCEPAGE:p.268	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Scabbard Of Pain					TYPE:Magic.Wondrous Item.SLOT_None	COST:2500	WT:1	SOURCEPAGE:p.269	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Shad'gorum Nugget					TYPE:Magic.Wondrous Item.SLOT_Neck	COST:4200	WT:5	SOURCEPAGE:p.269	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Silent Blade Vest					TYPE:Magic.Wondrous Item.SLOT_Chest	COST:4300	WT:0	SOURCEPAGE:p.269	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Spellsight Bracer					TYPE:Magic.Wondrous Item.SLOT_Wrists	COST:2100	WT:1	SOURCEPAGE:p.269	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Stagger-Proof Boots				TYPE:Magic.Wondrous Item.SLOT_Feet	COST:2000	WT:1	SOURCEPAGE:p.270	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Starfaring Robe					TYPE:Magic.Wondrous Item.SLOT_Body	COST:82000	WT:1	SOURCEPAGE:p.270	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Steward's Iron Key				TYPE:Magic.Wondrous Item.SLOT_None	COST:3000	WT:0	SOURCEPAGE:p.270	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Stinging Stiletto					TYPE:Magic.Wondrous Item.SLOT_Neck.SLOT_Ring	COST:4500	WT:0	SOURCEPAGE:p.270	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Tankard Of The Drunken Hero			TYPE:Magic.Wondrous Item.SLOT_None	COST:5300	WT:1	SOURCEPAGE:p.270	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Veil Of Veils					TYPE:Magic.Wondrous Item.SLOT_Head	COST:3300	WT:0	SOURCEPAGE:p.271	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Vurra Of The Maker				TYPE:Magic.Wondrous Item.SLOT_Neck	COST:3300	WT:5	SOURCEPAGE:p.271	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Wayfinder Of Zephyrs				TYPE:Magic.Wondrous Item.SLOT_None	COST:15000	WT:1	SOURCEPAGE:p.271	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Windwave Kilt					TYPE:Magic.Wondrous Item.SLOT_Belt	COST:7000	WT:5	SOURCEPAGE:p.271	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+Zonzon Doll Of Forgiveness			TYPE:Magic.Wondrous Item.SLOT_None	COST:5000	WT:1	SOURCEPAGE:p.271	SOURCELONG:Inner Sea Gods	SOURCESHORT:isg
+
+
+
+
+
+
