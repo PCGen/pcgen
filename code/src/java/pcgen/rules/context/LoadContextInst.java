@@ -38,15 +38,6 @@ import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.ParsingSeparator;
-import pcgen.output.library.ObjectWrapperLibrary;
-import pcgen.output.wrapper.AgeSetWrapper;
-import pcgen.output.wrapper.CDOMObjectWrapper;
-import pcgen.output.wrapper.CDOMReferenceWrapper;
-import pcgen.output.wrapper.CNAbilitySelectionWrapper;
-import pcgen.output.wrapper.CategoryWrapper;
-import pcgen.output.wrapper.EnumWrapper;
-import pcgen.output.wrapper.OrderedPairWrapper;
-import pcgen.output.wrapper.TypeSafeConstantWrapper;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -58,7 +49,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
-import freemarker.template.ObjectWrapper;
 
 public abstract class LoadContextInst implements LoadContext
 {
@@ -91,16 +81,6 @@ public abstract class LoadContextInst implements LoadContext
 	static
 	{
 		FacetInitialization.initialize();
-		ObjectWrapperLibrary owl = ObjectWrapperLibrary.getInstance();
-		owl.add(ObjectWrapper.SIMPLE_WRAPPER);
-		owl.add(CDOMObjectWrapper.getInstance());
-		owl.add(new AgeSetWrapper());
-		owl.add(new CDOMReferenceWrapper());
-		owl.add(new TypeSafeConstantWrapper());
-		owl.add(new CNAbilitySelectionWrapper());
-		owl.add(new CategoryWrapper());
-		owl.add(new EnumWrapper());
-		owl.add(new OrderedPairWrapper());
 	}
 
 	public LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)

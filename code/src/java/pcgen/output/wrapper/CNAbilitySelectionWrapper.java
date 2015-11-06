@@ -17,9 +17,10 @@
  */
 package pcgen.output.wrapper;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CNAbilitySelectionModel;
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -27,17 +28,19 @@ import freemarker.template.TemplateModelException;
  * A CNAbilitySelectionWrapper is an ObjectWrapper capable of producing a
  * TemplateModel for CNAbilitySelection objects.
  */
-public class CNAbilitySelectionWrapper implements ObjectWrapper
+public class CNAbilitySelectionWrapper implements PCGenObjectWrapper
 {
 	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
+	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o)
+		throws TemplateModelException
 	{
 		if (o instanceof CNAbilitySelection)
 		{
-			return new CNAbilitySelectionModel((CNAbilitySelection) o);
+			return new CNAbilitySelectionModel(id, (CNAbilitySelection) o);
 		}
 		throw new TemplateModelException("Object was not a CNAbilitySelection");
 	}

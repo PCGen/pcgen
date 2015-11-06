@@ -20,6 +20,7 @@ package pcgen.cdom.content;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.types.FormatManager;
 import pcgen.util.StringPClassUtil;
@@ -293,7 +294,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 		Visibility vis = (visibility == null) ? Visibility.HIDDEN : visibility;
 		if (vis.isVisibleTo(View.VISIBLE_EXPORT))
 		{
-			activateOutput();
+			activateOutput(context.getDataSetID());
 		}
 		activateTokens(context);
 	}
@@ -311,8 +312,11 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	 * internal use by ContentDefinition, as a portion of the activate() method.
 	 * 
 	 * This should not be called from an external source
+	 * 
+	 * @param dsID
+	 *            The DataSetID for which the output should be activated
 	 */
-	protected abstract void activateOutput();
+	protected abstract void activateOutput(DataSetID dsID);
 
 	/**
 	 * Activates the tokens supporting this ContentDefinition. This is intended
