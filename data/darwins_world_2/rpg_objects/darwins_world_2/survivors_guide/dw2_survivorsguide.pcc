@@ -38,8 +38,8 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 #EXTRAFILE:to do.txt
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 
-SAVE:w2sg__saves.lst
-STAT:w2sg__stats.lst
+SAVE:dw2sg__saves.lst
+STAT:dw2sg__stats.lst
 
 #Load required msrd information
 #msrd files
