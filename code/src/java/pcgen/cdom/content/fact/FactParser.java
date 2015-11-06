@@ -80,7 +80,7 @@ public class FactParser<T extends CDOMObject, F> extends
 		else
 		{
 			Indirect<F> indirect =
-					def.getFormatManager().convertIndirect(context, value);
+					def.getFormatManager().convertIndirect(value);
 			context.getObjectContext().put(obj, fk, indirect);
 		}
 		return ParseResult.SUCCESS;

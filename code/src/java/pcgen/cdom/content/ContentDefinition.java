@@ -17,11 +17,11 @@
  */
 package pcgen.cdom.content;
 
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.types.FormatManager;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;

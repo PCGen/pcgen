@@ -17,6 +17,7 @@
  */
 package pcgen.output.actor;
 
+import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicObjectContainer;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -25,7 +26,6 @@ import pcgen.core.Deity;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
-import plugin.format.StringManager;
 
 public class FactSetKeyActorTest extends AbstractOutputTestCase
 {

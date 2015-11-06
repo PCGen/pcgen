@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.content.factset;
 
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
-import pcgen.rules.types.FormatManager;
 
 /**
  * FactSetInfo represents the key information required in order to use a

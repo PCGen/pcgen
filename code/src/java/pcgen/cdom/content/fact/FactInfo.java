@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.content.fact;
 
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactKey;
-import pcgen.rules.types.FormatManager;
 
 /**
  * FactInfo represents the key information required in order to use a Fact. This
