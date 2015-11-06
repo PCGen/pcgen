@@ -4,7 +4,7 @@ CLASS:Technomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=
 CLASS:Technomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Technomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Technomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Technomancer	PRETEXT:Feats: Skill Focus (Knowledge [engineering]), Technologist. Skills: Disable Device 6 ranks, Knowledge (engineering) 6 ranks, Spellcraft 6 ranks. Special: Ability to cast 3rd-level arcane spells.	PREFEAT:2,Skill Focus (Knowledge (Engineering)),Technologist	PRESKILL:3,Disable Device=6,Knowledge (engineering)=6,Spellcraft=6	PRESPELLTYPE:1,Arcane=3
+CLASS:Technomancer	PRETEXT:Feats: Skill Focus (Knowledge [engineering]), Technologist. Skills: Disable Device 6 ranks, Knowledge (engineering) 6 ranks, Spellcraft 6 ranks. Special: Ability to cast 3rd-level arcane spells.	PREABILITY:2,CATEGORY=FEAT,Skill Focus (Knowledge (Engineering)),Technologist	PRESKILL:3,Disable Device=6,Knowledge (engineering)=6,Spellcraft=6	PRESPELLTYPE:1,Arcane=3
 CLASS:Technomancer	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft
 ###Block
 2:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane

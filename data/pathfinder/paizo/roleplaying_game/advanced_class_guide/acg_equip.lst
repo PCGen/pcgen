@@ -156,7 +156,7 @@ Scroll Blade.MOD									TYPE:Weapon Group Melee Light Piercing
 ###Block: Adventuring Gear
 # Equipment Name			Type					Cost		Weight	Modifier					Source Page		Bonus to skill			Special Property																																			Temporary Bonus
 Animal Call				TYPE:Goods.General		COST:0.1									SOURCEPAGE:p.202						SPROP:+2 on Survival to track specific animal type or get along in the wild
-#	CHOOSE:USERINPUT|1|TITLE=Type of Animal
+#	SELECT:1	CHOOSE:USERINPUT|TITLE=Type of Animal
 Book Lariat				TYPE:Goods.Tools			COST:0.3	WT:0.5							SOURCEPAGE:p.202						SPROP:Attaches spellbook to wrist with 10 ft. cord
 Book of Puzzles			TYPE:Goods.Tools.Book		COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.202						SPROP:Solve puzzle to roll twice on a single Disable Device, Knowledge, or Sense Motive check
 Book of War Prayers		TYPE:Goods.Tools.Book		COST:50	WT:0.5							SOURCEPAGE:p.202						SPROP:With Charisma 13 or 1 rank in Perform (Oratory), read for 10 minutes to give +2 morale bonus on next save against fear in 24 hours
@@ -334,7 +334,7 @@ Amulet of the Spirits (Stone)												TYPE:Magic.Wondrous.Amulet		COST:10000	
 Amulet of the Spirits (Waves)												TYPE:Magic.Wondrous.Amulet		COST:10000	WT:1										SOURCEPAGE:p.224																																																																						SPROP:increase effective level of mystery or spirit powers by 2|PREABILITY:1,CATEGORY=Special Ability,Mystery ~ Waves,Spirit Bond ~ Waves	SPROP:1/day activate ward of mist (blur until 2 attacks miss because of concealment); 1/day cause creature within 30 ft. to be etangled for 1 round by cold damage for 1 minute|!PREABILITY:1,CATEGORY=Special Ability,Mystery ~ Waves,Spirit Bond ~ Waves
 Amulet of the Spirits (Wind)												TYPE:Magic.Wondrous.Amulet		COST:8000	WT:1										SOURCEPAGE:p.224																																																																						SPROP:increase effective level of mystery or spirit powers by 2|PREABILITY:1,CATEGORY=Special Ability,Mystery ~ Wind,Spirit Bond ~ Wind	SPROP:1/day activate ward of wind (ranged attacks get 20% miss chance) for 1 minute; 1/day cause creature within 30 ft. to emit light like a torch and take 5 electricity damage when hit with a metal weapon|!PREABILITY:1,CATEGORY=Special Ability,Mystery ~ Wind,Spirit Bond ~ Wind
 Amulet of Uncanny Defense												TYPE:Magic.Wondrous.Amulet		COST:5000											SOURCEPAGE:p.225																																																																						SPROP:gain improved uncanny dodge|PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	SPROP:treat class level as 4 higher for improved uncanny dodge|PREABILITY:1,CATEGORY=Special Ability,Improved Uncanny Dodge
-#	CHOOSE:USERINPUT|1|TITLE=Type of Animal
+#	SELECT:1	CHOOSE:USERINPUT|TITLE=Type of Animal
 Aspect Mask															TYPE:Magic.Wondrous.Headgear		COST:6500	WT:2										SOURCEPAGE:p.225																																																																						SPROP:3/day gain aspect of animal attuned to mask, as if by hunter's animal focus class feature
 Assassin's Dust														TYPE:Magic.Wondrous.Consumable	COST:750											SOURCEPAGE:p.226																																																																						SPROP:disintegrates dead flesh and bones
 Banner of Restful Nights												TYPE:Magic.Wondrous			COST:5040	WT:7										SOURCEPAGE:p.226																																																																						SPROP:1/day endure elements, alarm, and calm magical weather in 20-ft. radius for 8 hours or until removed
