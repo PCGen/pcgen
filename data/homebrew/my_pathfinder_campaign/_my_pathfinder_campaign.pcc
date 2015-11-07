@@ -17,10 +17,10 @@ COPYRIGHT:My Pathfinder Campaign, Copyright 2015 by PCGen Team
 
 #INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
 
-DATACONTROL:mpc_datacontrols.lst
-ALIGNMENT:mpc_align.lst
-STAT:mpc_stats.lst
-SAVE:mpc_saves.lst
+DATACONTROL:mpc__datacontrols.lst
+ALIGNMENT:mpc__align.lst
+STAT:mpc__stats.lst
+SAVE:mpc__saves.lst
 
 
 ABILITY:mpc_abilities.lst
