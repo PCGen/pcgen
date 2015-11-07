@@ -27,8 +27,16 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+<<<<<<< HEAD
 SAVE:gaslight__saves.lst
 STAT:gaslight__stats.lst
+=======
+### Gamemode:
+SAVE:gaslight__saves.lst
+STAT:gaslight__stats.lst
+#ALIGNMENT:gaslight__align.lst	// Modern has no alignment system
+DATACONTROL:gaslight__datacontrol.lst
+>>>>>>> remotes/LK/DATA-2588
 
 ### Files
 ABILITY:gaslight_abilities_class.lst
