@@ -17,6 +17,7 @@
  */
 package pcgen.output.actor;
 
+import pcgen.base.format.NumberManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.model.DeityFacet;
@@ -24,7 +25,6 @@ import pcgen.core.Deity;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
-import plugin.format.NumberManager;
 
 public class FactKeyActorTest extends AbstractOutputTestCase
 {
