@@ -4,10 +4,6 @@
 # Last Edited: $Date$
 #
 # Stat definitions for 35e mode
-#
-
-# Epic Saves and Attack bonuses included here.
-
 BONUSSPELLLEVEL:1		BASESTATSCORE:12	STATRANGE:8
 BONUSSPELLLEVEL:2		BASESTATSCORE:14	STATRANGE:8
 BONUSSPELLLEVEL:3		BASESTATSCORE:16	STATRANGE:8
