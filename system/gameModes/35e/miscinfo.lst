@@ -294,7 +294,8 @@ ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALP
 
 
 PREVIEWDIR:d20/fantasy
-PREVIEWSHEET:Standard.htm
+PREVIEWSHEET:Standard.htm.ftl
+
 INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
@@ -313,7 +314,7 @@ RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 # Character Types:
 CHARACTERTYPE:PC|NPC
 
-DEFAULTDATASET:3.5 RSRD|SRD 3.5 for Game Masters (includes Monsters)
+DEFAULTDATASET:3.5 RSRD
 
 #
 # DONE
