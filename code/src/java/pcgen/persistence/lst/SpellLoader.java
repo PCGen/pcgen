@@ -45,11 +45,6 @@ import pcgen.util.Logging;
  */
 public final class SpellLoader extends LstObjectFileLoader<Spell>
 {
-	/** Creates a new instance of SpellLoader */
-	public SpellLoader()
-	{
-		super();
-	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)

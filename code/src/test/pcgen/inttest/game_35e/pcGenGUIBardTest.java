@@ -1,6 +1,9 @@
+/*
+ * pcGenGUIBardTest.java
+ */
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.pcGenGUITestCase;
+import pcgen.inttest.PcgenFtlTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -9,7 +12,7 @@ import junit.framework.TestSuite;
  * abilities that are conditionally granted via variables and skill ranks.
  */
 @SuppressWarnings("nls")
-public class pcGenGUIBardTest extends pcGenGUITestCase
+public class pcGenGUIBardTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -17,7 +20,7 @@ public class pcGenGUIBardTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIBardTest()
 	{
-		// Empty Constructor
+		super("35e_bard");
 	}
 
 	/**

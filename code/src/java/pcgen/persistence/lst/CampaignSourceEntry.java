@@ -28,6 +28,7 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -65,31 +66,15 @@ public class CampaignSourceEntry implements SourceEntry
 	public CampaignSourceEntry(Campaign campaign, URI lstLoc)
 	{
 		super();
-		if (campaign == null)
-		{
-			throw new IllegalArgumentException("campaign can't be null");
-		}
-		if (lstLoc == null)
-		{
-			throw new IllegalArgumentException("lstLoc can't be null");
-		}
-		this.campaign = campaign;
-		this.uri = new URIEntry(campaign.getDisplayName(), lstLoc);
+		this.campaign = Objects.requireNonNull(campaign);
+		this.uri = new URIEntry(campaign.getDisplayName(), Objects.requireNonNull(lstLoc));
 	}
 
 	public CampaignSourceEntry(Campaign campaign, URIEntry entry)
 	{
 		super();
-		if (campaign == null)
-		{
-			throw new IllegalArgumentException("campaign can't be null");
-		}
-		if (entry == null)
-		{
-			throw new IllegalArgumentException("URIEntry can't be null");
-		}
-		this.campaign = campaign;
-		this.uri = entry;
+		this.campaign = Objects.requireNonNull(campaign);
+		this.uri = Objects.requireNonNull(entry);
 	}
 
 	/**
@@ -184,7 +169,7 @@ public class CampaignSourceEntry implements SourceEntry
 	public static CampaignSourceEntry getNewCSE(Campaign campaign2,
 		URI sourceUri, String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
 			Logging
 				.errorPrint("Cannot build CampaignSourceEntry for empty value in "

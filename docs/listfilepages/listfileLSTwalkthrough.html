@@ -182,129 +182,93 @@ Campaign Information Tags
    Sample PCC FIles:
   </p>
   <p class="indent2">
-   <code>
-    CAMPAIGN:
-   </code>
+   <code>CAMPAIGN:</code>
    - Name of Campaign
 Displayed in data load window.
   </p>
   <p class="indent2">
-   <code>
-    GAMEMODE:3e
-   </code>
+   <code>GAMEMODE:3e</code>
    - Designates the Game
 Mode.
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Dominant Game Publisher.SRD
-   </code>
+   <code>TYPE:Dominant Game Publisher.SRD</code>
    -
 Type will be used for sorting.
   </p>
   <p class="indent2">
-   <code>
-    RANK: 1
-   </code>
+   <code>RANK: 1</code>
    - Rank indicates priority
 in sorting.
   </p>
   <p class="indent2">
-   <code>
-    GENRE:
-   </code>
+   <code>GENRE:</code>
    - This tells PCGen what
 genre this is, used to filter sources.
   </p>
   <p class="indent2">
-   <code>
-    BOOKTYPE:
-   </code>
+   <code>BOOKTYPE:</code>
    - Identifies the source
 book type for use in prerequisites for loading other source
 book.
   </p>
   <p class="indent2">
-   <code>
-    SETTING:
-   </code>
+   <code>SETTING:</code>
    - Identifies the setting
 of which this source is part.
   </p>
   <p class="indent2">
-   <code>
-    !PRECAMPAIGN:1,BOOKTYPE=Core Rules
-   </code>
+   <code>!PRECAMPAIGN:1,BOOKTYPE=Core Rules</code>
    - Established the prerequisite for loading.
   </p>
   <p class="indent2">
-   <code>
-    PUBNAMELONG:The Full Name of the
-Source
-   </code>
+   <code>PUBNAMELONG:The Full Name of the
+Source</code>
    &lt; - Long name for the publisher of the material
 (used in some displays).
   </p>
   <p class="indent2">
-   <code>
-    PUBNAMESHORT:Source
-   </code>
+   <code>PUBNAMESHORT:Source</code>
    - Short name
 for the publisher of the material (used in some displays).
   </p>
   <p class="indent2">
-   <code>
-    PUBNAMEWEB:http://www.mywebsite.com
-   </code>
+   <code>PUBNAMEWEB:http://www.mywebsite.com</code>
    - Website for the publisher's site).
   </p>
   <p class="indent2">
-   <code>
-    SOURCELONG:The Full Name of the
-Source
-   </code>
+   <code>SOURCELONG:The Full Name of the
+Source</code>
    &lt; - Long title (used in some displays).
   </p>
   <p class="indent2">
-   <code>
-    SOURCESHORT:Source
-   </code>
+   <code>SOURCESHORT:Source</code>
    - Short title
 (used in some displays).
   </p>
   <p class="indent2">
-   <code>
-    SOURCEWEB:http://www.mywebsite.com
-   </code>
+   <code>SOURCEWEB:http://www.mywebsite.com</code>
    - Website for the source (typically the publisher's general
 site).
   </p>
   <p class="indent2">
-   <code>
-    ISOGL:YES
-   </code>
+   <code>ISOGL:YES</code>
    - If the source uses the
 open gaming license (OGL) See OGL FAQ.
   </p>
   <p class="indent2">
-   <code>
-    COPYRIGHT:Open Game License v 1.0a
-Copyright 2000, WotC etc.
-   </code>
+   <code>COPYRIGHT:Open Game License v 1.0a
+Copyright 2000, WotC etc.</code>
    - Copyright Terms.
   </p>
   <p class="indent2">
-   <code>
-    COPYRIGHT:Full Name of the Source
-Copyright 2003, Company Name, Authors Names
-   </code>
+   <code>COPYRIGHT:Full Name of the Source
+Copyright 2003, Company Name, Authors Names</code>
    - Copyright
 Owner.
   </p>
   <p class="indent2">
-   <code>
-    [LST Type]:[LST File Name]
-   </code>
+   <code>[LST Type]:[LST File Name]</code>
    - Call a
 LST file.
   </p>
@@ -382,9 +346,7 @@ object.
 PCC file with the following:
   </p>
   <p class="indent1">
-   <code>
-    PCC:myPCC.pcc
-   </code>
+   <code>PCC:myPCC.pcc</code>
    .
   </p>
   <p class="indent0">
@@ -397,9 +359,7 @@ objects named
 would have the following line in your PCC file.
   </p>
   <p class="indent1">
-   <code>
-    CLASS:myfirstclass.lst
-   </code>
+   <code>CLASS:myfirstclass.lst</code>
   </p>
   <p class="indent0">
    For a complete listing of LST file types and the
@@ -433,9 +393,7 @@ the file
 the following line:
   </p>
   <p class="indent1">
-   <code>
-    SPELL:@/d20ogl/srd/srdspells.lst
-   </code>
+   <code>SPELL:@/d20ogl/srd/srdspells.lst</code>
   </p>
   <p class="indent0">
    The "@" symbol tells PCGen to start at the top
@@ -447,9 +405,7 @@ of the
 down.
   </p>
   <p class="indent1">
-   <code>
-    CLASS:&amp;/complete_monkey/complete_monkey_classes.lst
-   </code>
+   <code>CLASS:&amp;/complete_monkey/complete_monkey_classes.lst</code>
   </p>
   <p class="indent0">
    The "&amp;" symbol tells PCGen to start at the
@@ -475,22 +431,16 @@ path down.
   <p class="indent0">
    You can include or exclude specific information
 from any LST file by using the
-   <code>
-    INCLUDE
-   </code>
+   <code>INCLUDE</code>
    or
-   <code>
-    EXCLUDE
-   </code>
+   <code>EXCLUDE</code>
    tags.
   </p>
   <p class="indent0">
    Examples:
   </p>
   <p class="indent1">
-   <code>
-    CLASS:myfirstclass.lst|@/d20ogl/srd/srdclassesbase.lst|(INCLUDE:Fighter)
-   </code>
+   <code>CLASS:myfirstclass.lst|@/d20ogl/srd/srdclassesbase.lst|(INCLUDE:Fighter)</code>
   </p>
   <p class="indent2">
    Loads the classes in
@@ -501,9 +451,7 @@ from any LST file by using the
 classes.
   </p>
   <p class="indent1">
-   <code>
-    CLASS:myfirstclass.lst|(EXCLUDE:Monk|Sorcerer)|@/d20ogl/srd/srdclassesbase.lst
-   </code>
+   <code>CLASS:myfirstclass.lst|(EXCLUDE:Monk|Sorcerer)|@/d20ogl/srd/srdclassesbase.lst</code>
   </p>
   <p class="indent2">
    Load all classes in
@@ -528,9 +476,7 @@ PCC file tags in PCGen's
   <p class="indent0">
    Because LST files are called from PCC files they
 have little in the way of a header, just a
-   <code>
-    SOURCExxx
-   </code>
+   <code>SOURCExxx</code>
    tag, which provides information used on character sheets and
 displays.
   </p>
@@ -611,19 +557,13 @@ Simian and the written only language Peel.
    Here is the header block:
   </p>
   <p class="indent1">
-   <code>
-    SOURCELONG:PCGen Documentation
-   </code>
+   <code>SOURCELONG:PCGen Documentation</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCESHORT:P-Doc
-   </code>
+   <code>SOURCESHORT:P-Doc</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEWEB:http://www.pcgen.org
-   </code>
+   <code>SOURCEWEB:http://www.pcgen.org</code>
   </p>
   <p class="indent0">
    Here the header tells us in detail where the
@@ -641,24 +581,16 @@ on your keyboard) or whitespace. Entries are on separate lines.
    And here are the two working tags:
   </p>
   <p class="indent1">
-   <code>
-    Simian
-   </code>
+   <code>Simian</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Spoken
-   </code>
+   <code>TYPE:Spoken</code>
   </p>
   <p class="indent1">
-   <code>
-    Peel
-   </code>
+   <code>Peel</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Written
-   </code>
+   <code>TYPE:Written</code>
   </p>
   <p class="indent0">
    You can refer to the srdlanguages.lst for a
@@ -676,19 +608,13 @@ simple, like a Mighty Sling.
    First, the header block:
   </p>
   <p class="indent1">
-   <code>
-    SOURCELONG:PCGen Documentation
-   </code>
+   <code>SOURCELONG:PCGen Documentation</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCESHORT:P-Doc
-   </code>
+   <code>SOURCESHORT:P-Doc</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEWEB:http://www.pcgen.org
-   </code>
+   <code>SOURCEWEB:http://www.pcgen.org</code>
   </p>
   <p class="indent0">
    Then comes the actual code. In order we list the
@@ -708,59 +634,37 @@ references your new weapon and then have your PCC load it.
 into a separate line
   </p>
   <p class="indent1">
-   <code>
-    Sling (+1 Mighty)
-   </code>
+   <code>Sling (+1 Mighty)</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning
-   </code>
+   <code>TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning</code>
   </p>
   <p class="indent2">
-   <code>
-    COST:0
-   </code>
+   <code>COST:0</code>
   </p>
   <p class="indent2">
-   <code>
-    WT:0
-   </code>
+   <code>WT:0</code>
   </p>
   <p class="indent2">
-   <code>
-    PROFICIENCY:Sling
-   </code>
+   <code>PROFICIENCY:Sling</code>
   </p>
   <p class="indent2">
-   <code>
-    CRITMULT:x2
-   </code>
+   <code>CRITMULT:x2</code>
   </p>
   <p class="indent2">
-   <code>
-    CRITRANGE:1
-   </code>
+   <code>CRITRANGE:1</code>
   </p>
   <p class="indent2">
-   <code>
-    DAMAGE:1d4
-   </code>
+   <code>DAMAGE:1d4</code>
   </p>
   <p class="indent2">
-   <code>
-    RANGE:50
-   </code>
+   <code>RANGE:50</code>
   </p>
   <p class="indent2">
-   <code>
-    SIZE:S
-   </code>
+   <code>SIZE:S</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:WEAPON|DAMAGE|STRMIN1
-   </code>
+   <code>BONUS:WEAPON|DAMAGE|STRMIN1</code>
   </p>
   <p class="indent0">
    Looking at this you might notice the source page
@@ -781,9 +685,7 @@ as the user has a strength bonus of at least +1. A mighty +2 sling
 would be identical except for the tag
   </p>
   <p class="indent1">
-   <code>
-    BONUS:WEAPON|DAMAGE|STRMIN2
-   </code>
+   <code>BONUS:WEAPON|DAMAGE|STRMIN2</code>
   </p>
   <p class="indent0">
    Now lets do something a bit more and create some
@@ -793,49 +695,31 @@ start by copying the plate armor from the srdequiparmorshields.lst
 file.
   </p>
   <p class="indent1">
-   <code>
-    Full Plate
-   </code>
+   <code>Full Plate</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Armor.Heavy.Suit.Standard.Metal
-   </code>
+   <code>TYPE:Armor.Heavy.Suit.Standard.Metal</code>
   </p>
   <p class="indent2">
-   <code>
-    COST:1500
-   </code>
+   <code>COST:1500</code>
   </p>
   <p class="indent2">
-   <code>
-    WT:50
-   </code>
+   <code>WT:50</code>
   </p>
   <p class="indent2">
-   <code>
-    ACCHECK:-6
-   </code>
+   <code>ACCHECK:-6</code>
   </p>
   <p class="indent2">
-   <code>
-    MAXDEX:1
-   </code>
+   <code>MAXDEX:1</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEPAGE:Chap.7, Armor
-   </code>
+   <code>SOURCEPAGE:Chap.7, Armor</code>
   </p>
   <p class="indent2">
-   <code>
-    SPELLFAILURE:35
-   </code>
+   <code>SPELLFAILURE:35</code>
   </p>
   <p class="indent2">
-   <code>
-    BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE
-   </code>
+   <code>BONUS:COMBAT|AC|8|TYPE=Armor.REPLACE</code>
   </p>
   <p class="indent0">
    Looking at it you can see how its tags work and
@@ -852,99 +736,77 @@ srdequiparmorsheildspecific.lst
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      Red Dragon Armor
-     </code>
+     <code>Red Dragon Armor</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      PROFICIENCY:Full Plate
-     </code>
+     <code>PROFICIENCY:Full Plate</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:Magic.Armor.Heavy.Standard.Suit.Specific
-     </code>
+     <code>TYPE:Magic.Armor.Heavy.Standard.Suit.Specific</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      COST:16650
-     </code>
+     <code>COST:16650</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      WT:50
-     </code>
+     <code>WT:50</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      ACCHECK:-5
-     </code>
+     <code>ACCHECK:-5</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      MAXDEX:1
-     </code>
+     <code>MAXDEX:1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SPELLFAILURE:35
-     </code>
+     <code>SPELLFAILURE:35</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE
-     </code>
+     <code>BONUS:COMBAT|AC|10|TYPE=Armor.REPLACE</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:Fire Resistance +5
-     </code>
+     <code>SAB:Fire Resistance +5</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:Immune to Red Dragon Fear
-     </code>
+     <code>SAB:Immune to Red Dragon Fear</code>
     </td>
    </tr>
   </table>
@@ -1019,29 +881,19 @@ the Bastard Sword can use it one handed.
    file we get:
   </p>
   <p class="indent1">
-   <code>
-    SOURCELONG:PCGen Documentation
-   </code>
+   <code>SOURCELONG:PCGen Documentation</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCESHORT:P-Doc
-   </code>
+   <code>SOURCESHORT:P-Doc</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEWEB:http://www.pcgen.org
-   </code>
+   <code>SOURCEWEB:http://www.pcgen.org</code>
   </p>
   <p class="indent1">
-   <code>
-    Sword (Bastard)
-   </code>
+   <code>Sword (Bastard)</code>
   </p>
   <p class="indent2">
-   <code>
-    TYPE:Martial.Exotic.Sword
-   </code>
+   <code>TYPE:Martial.Exotic.Sword</code>
   </p>
   <p class="indent0">
    So you see the weapon's name, the type, and the
@@ -1084,46 +936,36 @@ of the srdfeats.lst and pull alertness.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      Alertness
-     </code>
+     <code>Alertness</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:General
-     </code>
+     <code>TYPE:General</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      DESC:See Text
-     </code>
+     <code>DESC:See Text</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:SKILL|Listen,Spot|2
-     </code>
+     <code>BONUS:SKILL|Listen,Spot|2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SOURCEPAGE:Chap.5, Feat
-Descriptions
-     </code>
+     <code>SOURCEPAGE:Chap.5, Feat
+Descriptions</code>
     </td>
    </tr>
   </table>
@@ -1140,91 +982,71 @@ or just not addressed.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      Weapon Specialization
-     </code>
+     <code>Weapon Specialization</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:Special.Fighter
-     </code>
+     <code>TYPE:Special.Fighter</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      PREFEAT:1,Weapon Focus
-     </code>
+     <code>PREFEAT:1,Weapon Focus</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      PREVARGTEQ:WeapSpecQualify,1
-     </code>
+     <code>PREVARGTEQ:WeapSpecQualify,1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      DESC:See Text
-     </code>
+     <code>DESC:See Text</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      MULT:YES
-     </code>
+     <code>MULT:YES</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      CHOOSE:FEAT=Weapon Focus|1
-     </code>
+     <code>CHOOSE:FEAT=Weapon Focus|1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged
-     </code>
+     <code>BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2
-     </code>
+     <code>BONUS:WEAPONPROF=%LIST|DAMAGE-SHORTRANGE|2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SOURCEPAGE:Chap.5, Feat
-Descriptions
-     </code>
+     <code>SOURCEPAGE:Chap.5, Feat
+Descriptions</code>
     </td>
    </tr>
   </table>
@@ -1251,176 +1073,138 @@ be found in the srdracesphb.lst file.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      Elf
-     </code>
+     <code>Elf</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      FAVCLASS:Wizard
-     </code>
+     <code>FAVCLASS:Wizard</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      STARTFEATS:1
-     </code>
+     <code>STARTFEATS:1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SIZE:M
-     </code>
+     <code>SIZE:M</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      MOVE:Walk,30
-     </code>
+     <code>MOVE:Walk,30</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      REACH:5
-     </code>
+     <code>REACH:5</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      VISION:Low-light
-     </code>
+     <code>VISION:Low-light</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      LANGAUTO:Common,Elven
-     </code>
+     <code>LANGAUTO:Common,Elven</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan
-     </code>
+     <code>LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      WEAPONAUTO:Shortbow|Longbow|Longbow
-(Composite)|Shortbow (Composite)
-     </code>
+     <code>WEAPONAUTO:Shortbow|Longbow|Longbow
+(Composite)|Shortbow (Composite)</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      WEAPONBONUS:Rapier|Longsword
-     </code>
+     <code>WEAPONBONUS:Rapier|Longsword</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial
-     </code>
+     <code>BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:STAT|DEX|2
-     </code>
+     <code>BONUS:STAT|DEX|2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:STAT|CON|-2
-     </code>
+     <code>BONUS:STAT|CON|-2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:Immunity to magic sleep spells and
-effects
-     </code>
+     <code>SAB:Immunity to magic sleep spells and
+effects</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:+2 racial saving throw bonus against
-Enchantment spells or effects
-     </code>
+     <code>SAB:+2 racial saving throw bonus against
+Enchantment spells or effects</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:An elf who merely passes within 5 feet of
+     <code>SAB:An elf who merely passes within 5 feet of
 a secret or concealed door is entitled to a Search check to notice
-it as if she were actively looking for the door
-     </code>
+it as if she were actively looking for the door</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:Humanoid
-     </code>
+     <code>TYPE:Humanoid</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SOURCEPAGE:Chap.2, Elves
-     </code>
+     <code>SOURCEPAGE:Chap.2, Elves</code>
     </td>
    </tr>
   </table>
@@ -1466,162 +1250,124 @@ monster classes.
 our standard header.
   </p>
   <p class="indent1">
-   <code>
-    SOURCELONG:PCGen Documentation
-   </code>
+   <code>SOURCELONG:PCGen Documentation</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCESHORT:P-Doc
-   </code>
+   <code>SOURCESHORT:P-Doc</code>
   </p>
   <p class="indent2">
-   <code>
-    SOURCEWEB:http://www.pcgen.org/
-   </code>
+   <code>SOURCEWEB:http://www.pcgen.org/</code>
   </p>
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      Silverback
-     </code>
+     <code>Silverback</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      FAVCLASS:Ranger
-     </code>
+     <code>FAVCLASS:Ranger</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      STARTFEATS:1
-     </code>
+     <code>STARTFEATS:1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SIZE:L
-     </code>
+     <code>SIZE:L</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      MOVE:Walk,30
-     </code>
+     <code>MOVE:Walk,30</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      REACH:10
-     </code>
+     <code>REACH:10</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      VISION:Darkvision (60')
-     </code>
+     <code>VISION:Darkvision (60')</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      LANGAUTO:Common,Simian
-     </code>
+     <code>LANGAUTO:Common,Simian</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan,Elven
-     </code>
+     <code>LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan,Elven</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:SKILL|Handle Animal,Diplomacy,Sense
-Motive|2|TYPE=Racial
-     </code>
+     <code>BONUS:SKILL|Handle Animal,Diplomacy,Sense
+Motive|2|TYPE=Racial</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:STAT|STR|2
-     </code>
+     <code>BONUS:STAT|STR|2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:STAT|INT|1
-     </code>
+     <code>BONUS:STAT|INT|1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:STAT|DEX|-1
-     </code>
+     <code>BONUS:STAT|DEX|-1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6
-     </code>
+     <code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:Immunity to charm
-     </code>
+     <code>SAB:Immunity to charm</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:Humanoid
-     </code>
+     <code>TYPE:Humanoid</code>
     </td>
    </tr>
   </table>
@@ -1670,133 +1416,103 @@ line and the indentions list the tags that fall on that line.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      CLASS:Warrior
-     </code>
+     <code>CLASS:Warrior</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      CLASS:Warrior
-     </code>
+     <code>CLASS:Warrior</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      HD:8
-     </code>
+     <code>HD:8</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:NPC
-     </code>
+     <code>TYPE:NPC</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      ABB:War
-     </code>
+     <code>ABB:War</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SOURCEPAGE:Chap.2, Classes, NPC
-Classes
-     </code>
+     <code>SOURCEPAGE:Chap.2, Classes, NPC
+Classes</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:CHECKS|BASE.Fortitude|CL/2+2
-     </code>
+     <code>BONUS:CHECKS|BASE.Fortitude|CL/2+2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3
-     </code>
+     <code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/3</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:COMBAT|BAB|CL
-     </code>
+     <code>BONUS:COMBAT|BAB|CL</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      CLASS:Warrior
-     </code>
+     <code>CLASS:Warrior</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      STARTSKILLPTS:2
-     </code>
+     <code>STARTSKILLPTS:2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      CSKILL:Climb|Handle
-Animal|Intimidate|Jump|Ride|Swim
-     </code>
+     <code>CSKILL:Climb|Handle
+Animal|Intimidate|Jump|Ride|Swim</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
-     <code>
-      1
-     </code>
+     <code>1</code>
     </td>
     <td class="w90">
-     <code>
-      WEAPONAUTO:SIMPLE|MARTIAL
-     </code>
+     <code>WEAPONAUTO:SIMPLE|MARTIAL</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      AUTO:FEAT|:Simple Weapon Proficiency|Armor
+     <code>AUTO:FEAT|:Simple Weapon Proficiency|Armor
 Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency
-(Heavy)|Shield Proficiency|Martial Weapon Proficiency
-     </code>
+(Heavy)|Shield Proficiency|Martial Weapon Proficiency</code>
     </td>
    </tr>
   </table>
@@ -1829,176 +1545,128 @@ srdbaseclasses.lst file:
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      1
-     </code>
+     <code>1</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      WEAPONAUTO:SIMPLE|MARTIAL AUTO:FEAT|:Armor
+     <code>WEAPONAUTO:SIMPLE|MARTIAL AUTO:FEAT|:Armor
 Proficiency (Light)|Armor Proficiency
       <br/>
       (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Simple Weapon
-Proficiency
-     </code>
+Proficiency</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      2
-     </code>
+     <code>2</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      4
-     </code>
+     <code>4</code>
     </td>
     <td class="w90">
-     <code>
-      DEFINE:WeapSpecQualify|1
-     </code>
+     <code>DEFINE:WeapSpecQualify|1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      6
-     </code>
+     <code>6</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      8
-     </code>
+     <code>8</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      10
-     </code>
+     <code>10</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      12
-     </code>
+     <code>12</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      14
-     </code>
+     <code>14</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      16
-     </code>
+     <code>16</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      18
-     </code>
+     <code>18</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      20
-     </code>
+     <code>20</code>
     </td>
     <td class="w90">
-     <code>
-      ADD:FEAT(TYPE=Fighter)
-     </code>
+     <code>ADD:FEAT(TYPE=Fighter)</code>
     </td>
    </tr>
   </table>
@@ -2020,108 +1688,84 @@ bard.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      CLASS:Bard
-     </code>
+     <code>CLASS:Bard</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      HD:6
-     </code>
+     <code>HD:6</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SPELLSTAT:CHA
-     </code>
+     <code>SPELLSTAT:CHA</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SPELLTYPE:Arcane
-     </code>
+     <code>SPELLTYPE:Arcane</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      TYPE:Base.PC
-     </code>
+     <code>TYPE:Base.PC</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      ABB:Brd
-     </code>
+     <code>ABB:Brd</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      MEMORIZE:NO
-     </code>
+     <code>MEMORIZE:NO</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SOURCEPAGE:Chap.3, Bard
-     </code>
+     <code>SOURCEPAGE:Chap.3, Bard</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      LANGAUTO:Literacy
-     </code>
+     <code>LANGAUTO:Literacy</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:CHECKS|BASE.Fortitude|CL/3
-     </code>
+     <code>BONUS:CHECKS|BASE.Fortitude|CL/3</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2
-     </code>
+     <code>BONUS:CHECKS|BASE.Reflex,BASE.Willpower|CL/2+2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:COMBAT|BAB|CL*3/4
-     </code>
+     <code>BONUS:COMBAT|BAB|CL*3/4</code>
     </td>
    </tr>
   </table>
@@ -2133,18 +1777,14 @@ as the prime stat without memorizing spells.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      CLASS:Bard
-     </code>
+     <code>CLASS:Bard</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      PREALIGN:3,4,5,6,7,8
-     </code>
+     <code>PREALIGN:3,4,5,6,7,8</code>
     </td>
    </tr>
   </table>
@@ -2157,32 +1797,26 @@ evil respectively.
   <table class="w67">
    <tr>
     <td colspan="2">
-     <code>
-      CLASS:Bard
-     </code>
+     <code>CLASS:Bard</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      STARTSKILLPTS:4
-     </code>
+     <code>STARTSKILLPTS:4</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|
+     <code>CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|
 Decipher Script|Diplomacy|Disguise|Escape Artist|Gather
 Information|Hide| Intuit Direction|Jump|TYPE.Knowledge|Listen|Move
 Silently|Perform|Pick Pocket| TYPE.Profession|Scry|Sense
 Motive|Speak Language|Spellcraft|Swim|Tumble|Use Magic
-Device
-     </code>
+Device</code>
     </td>
    </tr>
   </table>
@@ -2193,109 +1827,85 @@ along.
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      1
-     </code>
+     <code>1</code>
     </td>
     <td class="w90">
-     <code>
-      CAST:2
-     </code>
+     <code>CAST:2</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      KNOWN:4
-     </code>
+     <code>KNOWN:4</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:Bardic music
-%/day|BardicMusic
-     </code>
+     <code>SAB:Bardic music
+%/day|BardicMusic</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      SAB:Bardic knowledge
-(+%)|BardicKnowledge
-     </code>
+     <code>SAB:Bardic knowledge
+(+%)|BardicKnowledge</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:VAR|BardicMusic|CL=Bard
-     </code>
+     <code>BONUS:VAR|BardicMusic|CL=Bard</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      BONUS:VAR|BardicKnowledge|CL=Bard+INT
-     </code>
+     <code>BONUS:VAR|BardicKnowledge|CL=Bard+INT</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      DEFINE:BardicKnowledge|0
-     </code>
+     <code>DEFINE:BardicKnowledge|0</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      DEFINE:BardicMusic|0
-     </code>
+     <code>DEFINE:BardicMusic|0</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      WEAPONAUTO:SIMPLE
-     </code>
+     <code>WEAPONAUTO:SIMPLE</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      WEAPONBONUS:Longbow|Longbow(Composite)|Longsword|Rapier|Sap|Shortbow
-(Composite)|Sword (Short)|Shortbow|Whip
-     </code>
+     <code>WEAPONBONUS:Longbow|Longbow(Composite)|Longsword|Rapier|Sap|Shortbow
+(Composite)|Sword (Short)|Shortbow|Whip</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      AUTO:FEAT|:Armor Proficiency (Light)|Armor
+     <code>AUTO:FEAT|:Armor Proficiency (Light)|Armor
 Proficiency (Medium)|Shield Proficiency|Simple Weapon
-Proficiency
-     </code>
+Proficiency</code>
     </td>
    </tr>
   </table>
@@ -2316,23 +1926,17 @@ is done with the Bardic Knowledge bonus.
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      2
-     </code>
+     <code>2</code>
     </td>
     <td class="w90">
-     <code>
-      CAST:3,0
-     </code>
+     <code>CAST:3,0</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      KNOWN:5,2
-     </code>
+     <code>KNOWN:5,2</code>
     </td>
    </tr>
   </table>
@@ -2348,46 +1952,34 @@ know 2 of them.
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      3
-     </code>
+     <code>3</code>
     </td>
     <td class="w90">
-     <code>
-      CAST:3,1
-     </code>
+     <code>CAST:3,1</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      KNOWN:6,3
-     </code>
+     <code>KNOWN:6,3</code>
     </td>
    </tr>
   </table>
   <table class="w67">
    <tr>
     <td class="w10">
-     <code>
-      4
-     </code>
+     <code>4</code>
     </td>
     <td class="w90">
-     <code>
-      CAST:3,2,0
-     </code>
+     <code>CAST:3,2,0</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      KNOWN:6,3,2
-     </code>
+     <code>KNOWN:6,3,2</code>
     </td>
    </tr>
    <tr>
@@ -2420,23 +2012,17 @@ know 2 of them.
    </tr>
    <tr>
     <td class="w10">
-     <code>
-      20
-     </code>
+     <code>20</code>
     </td>
     <td class="w90">
-     <code>
-      CAST:4,4,4,4,4,4,4
-     </code>
+     <code>CAST:4,4,4,4,4,4,4</code>
     </td>
    </tr>
    <tr>
     <td class="w10">
     </td>
     <td class="w90">
-     <code>
-      KNOWN:6,5,5,5,5,5,4
-     </code>
+     <code>KNOWN:6,5,5,5,5,5,4</code>
     </td>
    </tr>
   </table>

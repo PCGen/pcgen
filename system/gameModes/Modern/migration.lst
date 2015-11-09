@@ -1,0 +1,206 @@
+#
+# Current Ver: $Revision$
+# Last Editor: $Author$
+# Last Edited: $Date$
+#
+# Rules for migrating characters from old data to new.
+#
+
+# Examples
+# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
+# NEWCATEGORY:Spell-like Ability
+
+###Block: Conversions for 6.6
+
+###Block:Basic Classes
+#Block:Shared Abilities
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Expert in Your Field			MAXVER:6.6.0		NEWKEY:Shared ~ Expert in Your Field
+ABILITY:Special Ability|Quick Weapon Draw				MAXVER:6.6.0		NEWKEY:Shared ~ Quick Weapon Draw
+
+#Block:Arcane Arranger
+# Category of Ability|Ability Name
+ABILITY:Special Ability|Word on the Street			MAXVER:6.6.0		NEWKEY:Arcane Arranger ~ Word on the Street
+ABILITY:Special Ability|False Allegiance				MAXVER:6.6.0		NEWKEY:Arcane Arranger ~ False Allegiance
+ABILITY:Special Ability|Shadow Resources				MAXVER:6.6.0		NEWKEY:Arcane Arranger ~ Shadow Resources
+ABILITY:Special Ability|Pack Rat					MAXVER:6.6.0		NEWKEY:Arcane Arranger ~ Pack Rat
+ABILITY:Special Ability|Up My Sleeve				MAXVER:6.6.0		NEWKEY:Arcane Arranger ~ Up My Sleeve
+
+#Block:Archaic Weaponsmaster
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Imbue Weapon				MAXVER:6.6.0		NEWKEY:Archaic Weaponsmaster ~ Imbue Weapon
+ABILITY:Special Ability|Weapon Stun					MAXVER:6.6.0		NEWKEY:Archaic Weaponsmaster ~ Weapon Stun
+
+#Block:Glamourist
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Self Confidence				MAXVER:6.6.0		NEWKEY:Glamourist ~ Self Confidence
+ABILITY:Special Ability|Hidden Motives				MAXVER:6.6.0		NEWKEY:Glamourist ~ Hidden Motives
+ABILITY:Special Ability|Hidden Allegiance				MAXVER:6.6.0		NEWKEY:Glamourist ~ Hidden Allegiance
+ABILITY:Special Ability|Audience					MAXVER:6.6.0		NEWKEY:Glamourist ~ Audience
+ABILITY:Special Ability|Daze						MAXVER:6.6.0		NEWKEY:Glamourist ~ Daze
+ABILITY:Special Ability|Utterly Convincing			MAXVER:6.6.0		NEWKEY:Glamourist ~ Utterly Convincing
+ABILITY:Special Ability|Charm Person				MAXVER:6.6.0		NEWKEY:Glamourist ~ Charm Person
+
+#Block:Mystic
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Combat Casting				MAXVER:6.6.0		NEWKEY:Mystic ~ Combat Casting
+
+#Block:Shadow Hunter
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Target Bonus				MAXVER:6.6.0		NEWKEY:Shadow Hunter ~ Target Bonus
+ABILITY:Special Ability|Swift Track					MAXVER:6.6.0		NEWKEY:Shadow Hunter ~ Swift Track
+ABILITY:Special Ability|No Trace					MAXVER:6.6.0		NEWKEY:Shadow Hunter ~ No Trace
+ABILITY:Special Ability|Play a Hunch				MAXVER:6.6.0		NEWKEY:Shadow Hunter ~ Play a Hunch
+ABILITY:Special Ability|Detect Magical Aura			MAXVER:6.6.0		NEWKEY:Shadow Hunter ~ Detect Magical Aura
+ABILITY:Special Ability|Locate Target				MAXVER:6.6.0		NEWKEY:Shadow Hunter ~ Locate Target
+
+#Block:Shadowjack
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Read/Write Code				MAXVER:6.6.0		NEWKEY:Shadowjack ~ Read/Write Code
+ABILITY:Special Ability|Online Presence				MAXVER:6.6.0		NEWKEY:Shadowjack ~ Online Presence
+ABILITY:Special Ability|Electronic Empathy			MAXVER:6.6.0		NEWKEY:Shadowjack ~ Electronic Empathy
+ABILITY:Special Ability|Careful Progress				MAXVER:6.6.0		NEWKEY:Shadowjack ~ Careful Progress
+ABILITY:Special Ability|False Trail					MAXVER:6.6.0		NEWKEY:Shadowjack ~ False Trail
+ABILITY:Special Ability|Install Backdoor				MAXVER:6.6.0		NEWKEY:Shadowjack ~ Install Backdoor
+ABILITY:Special Ability|Online Spell Resistance			MAXVER:6.6.0		NEWKEY:Shadowjack ~ Online Spell Resistance
+ABILITY:Special Ability|Improved Degradation			MAXVER:6.6.0		NEWKEY:Shadowjack ~ Improved Degradation
+ABILITY:Special Ability|Passfirewall				MAXVER:6.6.0		NEWKEY:Shadowjack ~ Passfirewall
+ABILITY:Special Ability|Walking Database				MAXVER:6.6.0		NEWKEY:Shadowjack ~ Walking Database
+ABILITY:Special Ability|Virtual Incantations			MAXVER:6.6.0		NEWKEY:Shadowjack ~ Virtual Incantations
+
+#Block:Speed Demon
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Hit the Weak Spot				MAXVER:6.6.0		NEWKEY:Speed Demon ~ Hit the Weak Spot
+ABILITY:Special Ability|Vehicle Empathy				MAXVER:6.6.0		NEWKEY:Speed Demon ~ Vehicle Empathy
+ABILITY:Special Ability|Need for Speed				MAXVER:6.6.0		NEWKEY:Speed Demon ~ Need for Speed
+ABILITY:Special Ability|Nursing the Turns				MAXVER:6.6.0		NEWKEY:Speed Demon ~ Nursing the Turns
+ABILITY:Special Ability|Commandeer					MAXVER:6.6.0		NEWKEY:Speed Demon ~ Commandeer
+ABILITY:Special Ability|Leadfoot					MAXVER:6.6.0		NEWKEY:Speed Demon ~ Leadfoot
+ABILITY:Special Ability|Redlining the Needle			MAXVER:6.6.0		NEWKEY:Speed Demon ~ Redlining the Needle
+ABILITY:Special Ability|Restore Vehicle				MAXVER:6.6.0		NEWKEY:Speed Demon ~ Restore Vehicle
+ABILITY:Special Ability|One with the Machine			MAXVER:6.6.0		NEWKEY:Speed Demon ~ One with the Machine
+
+#Block:Street Warrior
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Urban Survival				MAXVER:6.6.0		NEWKEY:Street Warrior ~ Urban Survival
+ABILITY:Special Ability|Improvised Weapons			MAXVER:6.6.0		NEWKEY:Street Warrior ~ Improvised Weapons
+ABILITY:Special Ability|Street Cred					MAXVER:6.6.0		NEWKEY:Street Warrior ~ Street Cred
+ABILITY:Special Ability|Improved Streetfighting			MAXVER:6.6.0		NEWKEY:Street Warrior ~ Improved Streetfighting
+ABILITY:Special Ability|Advanced Streetfighting			MAXVER:6.6.0		NEWKEY:Street Warrior ~ Advanced Streetfighting
+
+#Block:Swashbuckler
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Deflect Missiles				MAXVER:6.6.0		NEWKEY:Swashbuckler ~ Deflect Missiles
+ABILITY:Special Ability|Touche					MAXVER:6.6.0		NEWKEY:Swashbuckler ~ Touche
+
+#Block:Techno Mage
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Arcane Skills				MAXVER:6.6.0		NEWKEY:Techo Mage ~ Arcane Skills
+ABILITY:Special Ability|Machine Empathy				MAXVER:6.6.0		NEWKEY:Techo Mage ~ Machine Empathy
+ABILITY:Special Ability|Program Spell				MAXVER:6.6.0		NEWKEY:Techo Mage ~ Program Spell
+ABILITY:Special Ability|Create Homunculus				MAXVER:6.6.0		NEWKEY:Techo Mage ~ Create Homunculus
+ABILITY:Special Ability|Online Casting				MAXVER:6.6.0		NEWKEY:Techo Mage ~ Online Casting
+ABILITY:Special Ability|Arcane Spontaneous Casting		MAXVER:6.6.0		NEWKEY:Techo Mage ~ Arcane Spontaneous Casting
+
+#Block:Thrasher
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Tough Defense				MAXVER:6.6.0		NEWKEY:Thrasher ~ Tough Defense
+
+#Block:Wildlord 
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Animal Empathy				MAXVER:6.6.0		NEWKEY:Wildlord ~ Animal Empathy
+ABILITY:Special Ability|Animal Companion				MAXVER:6.6.0		NEWKEY:Wildlord ~ Animal Companion
+ABILITY:Special Ability|Fast Climb					MAXVER:6.6.0		NEWKEY:Wildlord ~ Fast Climb
+ABILITY:Special Ability|Resist Venom				MAXVER:6.6.0		NEWKEY:Wildlord ~ Resist Venom
+ABILITY:Special Ability|Call Companion				MAXVER:6.6.0		NEWKEY:Wildlord ~ Call Companion
+ABILITY:Special Ability|Transform Companion			MAXVER:6.6.0		NEWKEY:Wildlord ~ Transform Companion
+ABILITY:Special Ability|Wildlord Skill Mastery			MAXVER:6.6.0		NEWKEY:Wildlord ~ Wildlord Skill Mastery
+
+###Block:Prestige
+#Block:Archmage
+# Category of Ability|Ability Name									Newkey
+ABILITY:Special Ability|Total Spellcasting ~ Archmage		MAXVER:6.6.0		NEWKEY:Archmage ~ Total Spellcasting
+ABILITY:Special Ability|Increased Spells ~ Archmage		MAXVER:6.6.0		NEWKEY:Archmage ~ Increased Spells
+ABILITY:Special Ability|Gifted Incantations			MAXVER:6.6.0		NEWKEY:Archmage ~ Gifted Incantations
+ABILITY:Special Ability|Granted Incantations			MAXVER:6.6.0		NEWKEY:Archmage ~ Granted Incantations
+
+#Block:Ecclesiarch
+ABILITY:Special Ability|Total Spellcasting ~ Ecclesiarch	MAXVER:6.6.0		NEWKEY:Ecclesiarch ~ Total Spellcasting
+ABILITY:Special Ability|Increased Spells ~ Ecclesiarch	MAXVER:6.6.0		NEWKEY:Ecclesiarch ~ Increased Spells
+ABILITY:Special Ability|Total Turning				MAXVER:6.6.0		NEWKEY:Ecclesiarch ~ Total Turning
+ABILITY:Special Ability|Innovative Turning			MAXVER:6.6.0		NEWKEY:Ecclesiarch ~ Innovative Turning
+
+#Block:Holy Unholy Knight
+ABILITY:Special Ability|Divine Grace				MAXVER:6.6.0		NEWKEY:Holy Unholy Knight ~ Divine Grace
+ABILITY:Special Ability|Sense Allegiance				MAXVER:6.6.0		NEWKEY:Holy Unholy Knight ~ Sense Allegiance
+ABILITY:Special Ability|Smite Allegiance				MAXVER:6.6.0		NEWKEY:Holy Unholy Knight ~ Smite Allegiance
+ABILITY:Special Ability|Divine Touch				MAXVER:6.6.0		NEWKEY:Holy Unholy Knight ~ Divine Touch
+
+###Block:Organizations
+#ABILITY of Ability||Ability Name														Newkey
+ABILITY:Special Ability|Member of The Black Feathers							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of The Black Feathers
+ABILITY:Special Ability|Member of Cirque des Moitie							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of Cirque des Moitie
+ABILITY:Special Ability|Member of the Commission for Research Into Unexplained Phenomena	MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the Commission for Research Into Unexplained Phenomena
+ABILITY:Special Ability|Agent of Department 7								MAXVER:6.6.0		NEWKEY:Organisation ~ Agent of Department 7
+ABILITY:Special Ability|Member of The Displaced								MAXVER:6.6.0		NEWKEY:Organisation ~ Member of The Displaced
+ABILITY:Special Ability|Employee of Draco Industries							MAXVER:6.6.0		NEWKEY:Organisation ~ Employee of Draco Industries
+ABILITY:Special Ability|Member of The Enlightenment							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of The Enlightenment
+ABILITY:Special Ability|Agent of the Fellowship								MAXVER:6.6.0		NEWKEY:Organisation ~ Agent of the Fellowship
+ABILITY:Special Ability|Member of the Fraternal Order of Vigilance				MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the Fraternal Order of Vigilance
+ABILITY:Special Ability|Instructor of the Institute for Continuous Education			MAXVER:6.6.0		NEWKEY:Organisation ~ Instructor of the Institute for Continuous Education
+ABILITY:Special Ability|Member of the International Guild of Laborers				MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the International Guild of Laborers
+#ABILITY:Special Ability|Monk of the Knightly Order of St. Bartholomew				MAXVER:6.6.0		NEWKEY:Organisation ~ Monk of the Knightly Order of St. Bartholomew
+ABILITY:Special Ability|Journalist of Markova Enterprises Intl					MAXVER:6.6.0		NEWKEY:Organisation ~ Journalist of Markova Enterprises Intl
+ABILITY:Special Ability|Member of the Mindwreckers							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the Mindwreckers
+ABILITY:Special Ability|Agent of the Paranormal Science and Investigation Agency		MAXVER:6.6.0		NEWKEY:Organisation ~ Agent of the Paranormal Science and Investigation Agency
+ABILITY:Special Ability|Employee of the Prancing Pony							MAXVER:6.6.0		NEWKEY:Organisation ~ Employee of the Prancing Pony
+ABILITY:Special Ability|Member of the Silent Walkers							MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the Silent Walkers
+ABILITY:Special Ability|Member of the Swiss Juncture of Gnomes					MAXVER:6.6.0		NEWKEY:Organisation ~ Member of the Swiss Juncture of Gnomes
+
+ABILITY:Special Ability|Dragon Daze									MAXVER:6.6.0	NEWKEY:Dragon ~ Daze
+ABILITY:Special Ability|Dragon Detect Magical Aura						MAXVER:6.6.0	NEWKEY:Dragon ~ Detect Magical Aura
+ABILITY:Special Ability|Dragon Sleep								MAXVER:6.6.0	NEWKEY:Dragon ~ Sleep
+ABILITY:Special Ability|Dragon True Strike							MAXVER:6.6.0	NEWKEY:Dragon ~ True Strike
+ABILITY:Special Ability|Dragon Locate Object							MAXVER:6.6.0	NEWKEY:Dragon ~ Locate Object
+ABILITY:Special Ability|Dragon Zone of Truth							MAXVER:6.6.0	NEWKEY:Dragon ~ Zone of Truth
+ABILITY:Special Ability|Dragon Protection from Arrows/Bullets				MAXVER:6.6.0	NEWKEY:Dragon ~ Protection from Arrows/Bullets
+ABILITY:Special Ability|Dragon Resist Energy							MAXVER:6.6.0	NEWKEY:Dragon ~ Resist Energy
+ABILITY:Special Ability|Dragon Blur									MAXVER:6.6.0	NEWKEY:Dragon ~ Blur
+ABILITY:Special Ability|Dragon Invisibility							MAXVER:6.6.0	NEWKEY:Dragon ~ Invisibility
+ABILITY:Special Ability|Dragon Tongues								MAXVER:6.6.0	NEWKEY:Dragon ~ Tongues
+ABILITY:Special Ability|Dragon Water Breathing							MAXVER:6.6.0	NEWKEY:Dragon ~ Water Breathing
+ABILITY:Special Ability|Dragon Arcane Eye								MAXVER:6.6.0	NEWKEY:Dragon ~ Arcane Eye
+ABILITY:Special Ability|Dragon Minor Globe of Invulnerability				MAXVER:6.6.0	NEWKEY:Dragon ~ Minor Globe of Invulnerability
+ABILITY:Special Ability|Dragon Confusion								MAXVER:6.6.0	NEWKEY:Dragon ~ Confusion
+ABILITY:Special Ability|Dragon Freedom of Movement						MAXVER:6.6.0	NEWKEY:Dragon ~ Freedom of Movement
+ABILITY:Special Ability|Dragon Break Enchantment						MAXVER:6.6.0	NEWKEY:Dragon ~ Break Enchantment
+ABILITY:Special Ability|Dragon True Seeing							MAXVER:6.6.0	NEWKEY:Dragon ~ True Seeing
+ABILITY:Special Ability|Dragon Cloudkill								MAXVER:6.6.0	NEWKEY:Dragon ~ Cloudkill
+ABILITY:Special Ability|Dragon Telekinesis							MAXVER:6.6.0	NEWKEY:Dragon ~ Telekinesis
+ 
+ABILITY:Special Ability|2 Vivilor Type A Abilities						MAXVER:6.6.0	NEWKEY:Vivilor ~ Type A Abilities
+ABILITY:Special Ability|1 Vivilor Type B Ability						MAXVER:6.6.0	NEWKEY:Vivilor ~ Type B Ability
+ 
+ABILITY:Special Ability|Vivilor Aquatic								MAXVER:6.6.0	NEWKEY:Vivilor ~ Aquatic
+ABILITY:Special Ability|Vivilor Bat Wings								MAXVER:6.6.0	NEWKEY:Vivilor ~ Bat Wings
+ABILITY:Special Ability|Vivilor Acid Resistance 5						MAXVER:6.6.0	NEWKEY:Vivilor ~ Acid Resistance 5
+ABILITY:Special Ability|Vivilor Cold Resistance 5						MAXVER:6.6.0	NEWKEY:Vivilor ~ Cold Resistance 5
+ABILITY:Special Ability|Vivilor Electricity Resistance 5					MAXVER:6.6.0	NEWKEY:Vivilor ~ Electricity Resistance 5
+ABILITY:Special Ability|Vivilor Fire Resistance 5						MAXVER:6.6.0	NEWKEY:Vivilor ~ Fire Resistance 5
+ABILITY:Special Ability|Vivilor Sonic/Concussion Resistance 5				MAXVER:6.6.0	NEWKEY:Vivilor ~ Sonic/Concussion Resistance 5
+ABILITY:Special Ability|Vivilor Improved Ability Scores					MAXVER:6.6.0	NEWKEY:Vivilor ~ Improved Ability Scores
+ABILITY:Special Ability|Vivilor Quadrupedal							MAXVER:6.6.0	NEWKEY:Vivilor ~ Quadrupedal
+ABILITY:Special Ability|Vivilor Tentacles								MAXVER:6.6.0	NEWKEY:Vivilor ~ Tentacles
+ABILITY:Special Ability|Vivilor Tougher Skin							MAXVER:6.6.0	NEWKEY:Vivilor ~ Tougher Skin
+ 
+ABILITY:Special Ability|Vivilor Amorphous								MAXVER:6.6.0	NEWKEY:Vivilor ~ Amorphous
+ABILITY:Special Ability|Vivilor Acid Resistance 15						MAXVER:6.6.0	NEWKEY:Vivilor ~ Acid Resistance 15
+ABILITY:Special Ability|Vivilor Cold Resistance 15						MAXVER:6.6.0	NEWKEY:Vivilor ~ Cold Resistance 15
+ABILITY:Special Ability|Vivilor Electricity Resistance 15					MAXVER:6.6.0	NEWKEY:Vivilor ~ Electricity Resistance 15
+ABILITY:Special Ability|Vivilor Fire Resistance 15						MAXVER:6.6.0	NEWKEY:Vivilor ~ Fire Resistance 15
+ABILITY:Special Ability|Vivilor Sonic/Concussion Resistance 15				MAXVER:6.6.0	NEWKEY:Vivilor ~ Sonic/Concussion Resistance 15
+ABILITY:Special Ability|Vivilor Feathered Wings							MAXVER:6.6.0	NEWKEY:Vivilor ~ Feathered Wings
+ABILITY:Special Ability|Vivilor Grasping Tentacles						MAXVER:6.6.0	NEWKEY:Vivilor ~ Grasping Tentacles
+ABILITY:Special Ability|Vivilor Metallic Skin							MAXVER:6.6.0	NEWKEY:Vivilor ~ Metallic Skin
+ABILITY:Special Ability|Vivilor Serpentine							MAXVER:6.6.0	NEWKEY:Vivilor ~ Serpentine

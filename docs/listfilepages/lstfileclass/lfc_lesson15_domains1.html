@@ -49,8 +49,7 @@
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../globalfilestagpages/globalfilesother.html#desc">
+   <code><a href="../globalfilestagpages/globalfilesother.html#desc">
      DESC
     </a>
     ,
@@ -60,8 +59,7 @@
     <a href="../globalfilestagpages/globalfilesother.html#sourcepage">
      SOURCEPAGE
     </a>
-    ,
-   </code>
+    ,</code>
   </p>
   <hr/>
   <p class="indent0">
@@ -284,12 +282,10 @@ Class Style Guide
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      &lt;Domain
 Name&gt;
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    This is the name used for the domain. There is
@@ -303,26 +299,20 @@ simply enough with the following entries:
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    War
-   </code>
+   <code>War</code>
    &lt;tab&gt;
   </p>
   <p class="indent1">
-   <code>
-    Poetry
-   </code>
+   <code>Poetry</code>
    &lt;tab&gt;
   </p>
   <p class="indent0">
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      DESC
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    Now we are getting to the 'fun stuff'. This tag
@@ -335,9 +325,7 @@ your favorite source book, you can generally find this information
 identified as the 'Granted Powers' in the domain block. For the
 Poetry Domain listed above and the War Domain, found in the RSRD,
 the
-   <code>
-    DESC
-   </code>
+   <code>DESC</code>
    tags are reproduced below:
   </p>
   <p class="indent0">
@@ -347,47 +335,37 @@ the
   </p>
   <blockquote class="indent2">
    <p class="tagindent2">
-    <code>
-     War
-    </code>
+    <code>War</code>
    </p>
    <p class="tagindent2">
-    <code>
-     DESC:Free Martial Weapon Proficiency
+    <code>DESC:Free Martial Weapon Proficiency
 with deity’s favored weapon (if necessary) and Weapon Focus
-with the deity favored weapon.
-    </code>
+with the deity favored weapon.</code>
    </p>
   </blockquote>
   <p class="indent0">
   </p>
   <blockquote class="indent2">
    <p class="tagindent2">
-    <code>
-     Poetry
-    </code>
+    <code>Poetry</code>
    </p>
    <p class="tagindent2">
-    <code>
-     DESC:You add all Perform skills to your
+    <code>DESC:You add all Perform skills to your
 cleric class skills and automatically gain the ability to Scribe
 Scrolls at 3rd level. You cast mind-affecting spells at +1 caster
 level. and is graced by Great Intelligence every four levels to a
 maximum of 20th level. If you have a charisma score of 12 or
 greater you may use Ventriloquism once a day as a spell-like
-ability.
-    </code>
+ability.</code>
    </p>
   </blockquote>
   <p class="indent0">
   </p>
   <hr/>
   <p class="indent0">
-   <code>
-    <strong>
+   <code><strong>
      SPELLLEVEL:DOMAIN
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p class="indent0">
    In the domain file this tag provides a list of
@@ -398,18 +376,14 @@ to by the domain.
    There are two types of argument regularly used
 with this tag, used in pairs in a pipe (|) delimited list. These
 arguments are the domain spell level slot, appearing as
-   <code>
-    &lt;domain name&gt;=&lt;spell level&gt;
-   </code>
+   <code>&lt;domain name&gt;=&lt;spell level&gt;</code>
    , and the name
 of the spell that fills that level slot. Together, the string of
 arguments will look like this:
-   <code>
-    |&lt;domain name&gt;=&lt;spell
+   <code>|&lt;domain name&gt;=&lt;spell
 level 1&gt;|&lt;spell name 1&gt;|&lt;domain name&gt;=&lt;spell
 level 2&gt;|&lt;spell name 2&gt;|&lt;domain name&gt;=&lt;spell
-level 3&gt;|&lt;spell name 3&gt; . . .
-   </code>
+level 3&gt;|&lt;spell name 3&gt; . . .</code>
   </p>
   <p class="indent0">
    Using this format, and looking at the spell list
@@ -442,9 +416,7 @@ Lesser
     </strong>
    </em>
    . Other incarnations of the
-   <code>
-    SPELLLEVEL
-   </code>
+   <code>SPELLLEVEL</code>
    tag use comma-delimited data and including
 a comma in the domain's spell list will cause PCGen to ignore the
 spell reference, thereby not granting access to that spell as a
@@ -457,31 +429,23 @@ domain spell.
   </p>
   <blockquote>
    <p class="tagindent1">
-    <code>
-     War
-    </code>
+    <code>War</code>
     &lt;tab&gt; . . .
 &lt;tab&gt;
-    <code>
-     SPELLLEVEL:DOMAIN|War=1|Magic
+    <code>SPELLLEVEL:DOMAIN|War=1|Magic
 Weapon|War=2|Spiritual Weapon|War=3|Magic Vestment|War=4|Divine
 Power|War=5|Flame Strike|War=6|Blade Barrier|War=7|Power Word
-Blind|War=8|Power Word Stun|War=9|Power Word Kill
-    </code>
+Blind|War=8|Power Word Stun|War=9|Power Word Kill</code>
    </p>
    <p class="tagindent1">
-    <code>
-     Poetry
-    </code>
+    <code>Poetry</code>
     &lt;tab&gt; . . .
 &lt;tab&gt;
-    <code>
-     SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
+    <code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
 (Lesser)|Poetry=4|Modify Memory|Poetry=5|Song of
 Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
 (Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster
-(Mass)
-    </code>
+(Mass)</code>
    </p>
   </blockquote>
   <p class="indent0">
@@ -489,9 +453,7 @@ Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
   <hr/>
   <p class="indent0">
    <strong>
-    <code>
-     SOURCEPAGE
-    </code>
+    <code>SOURCEPAGE</code>
    </strong>
   </p>
   <p class="indent0">
@@ -500,50 +462,34 @@ the page within the source material where you can find the specific
 description, powers, and spells for the domain you are creating. It
 takes free-form text but most often you will find it in one of two
 forms. If your source material is an OGL book the format is usually
-   <code>
-    SOURCEPAGE:p.&lt;#&gt;
-   </code>
+   <code>SOURCEPAGE:p.&lt;#&gt;</code>
    . If you are working from an
 online source, such as the RSRD, you would use the filename, so
 your tag would look like
-   <code>
-    SOURCEPAGE:&lt;filename&gt;.
-   </code>
+   <code>SOURCEPAGE:&lt;filename&gt;.</code>
   </p>
   <p class="indent0">
    Since I have created the Poetry Domain from
 scratch there is no 'source', so there is no
-   <code>
-    SOURCEPAGE
-   </code>
+   <code>SOURCEPAGE</code>
    tag required, but many functions and
 filters in PCGen use it, so it is good to include it. Therefore, I
 will include the tag with an N/A for the source page. I will skip
 it. The War Domain on the other hand comes from the RSRD and
 therefore would use the
-   <code>
-    SOURCEPAGE
-   </code>
+   <code>SOURCEPAGE</code>
    tag per the example
 below.
   </p>
   <p class="indent0">
    Note: There are three other
-   <code>
-    SOURCExxx
-   </code>
+   <code>SOURCExxx</code>
    tags (
-   <code>
-    SOURCELONG
-   </code>
+   <code>SOURCELONG</code>
    ,
-   <code>
-    SOURCESHORT
-   </code>
+   <code>SOURCESHORT</code>
    and
-   <code>
-    SOURCEWEB
-   </code>
+   <code>SOURCEWEB</code>
    ) that will be
 covered in a separate class so we will not be covering them
 here.
@@ -554,23 +500,15 @@ here.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    War
-   </code>
+   <code>War</code>
    &lt;tab&gt; . . . &lt;tab&gt;
-   <code>
-    SOURCEPAGE:SpellListI.rtf
-   </code>
+   <code>SOURCEPAGE:SpellListI.rtf</code>
   </p>
   <p class="indent1">
-   <code>
-    Poetry
-   </code>
+   <code>Poetry</code>
    &lt;tab&gt; . . .
 &lt;tab&gt;
-   <code>
-    SOURCEPAGE:N/A
-   </code>
+   <code>SOURCEPAGE:N/A</code>
   </p>
   <p class="indent0">
   </p>
@@ -584,34 +522,26 @@ single line.):
   </p>
   <blockquote class="indent2">
    <p class="tagindent2">
-    <code>
-     Poetry
-    </code>
+    <code>Poetry</code>
    </p>
    <p class="tagindent2">
-    <code>
-     DESC:You add all Perform skills to your
+    <code>DESC:You add all Perform skills to your
 cleric class skills and automatically gain the ability to Scribe
 Scrolls at 3rd level. You cast mind-affectng spells at +1 caster
 level and is graced by Great Inteligence every four levels to a
 maximum of 20th level. If you have a charisma score of 12 or
 greater you may use Ventriloquism once a day as a spell-like
-ability.
-    </code>
+ability.</code>
    </p>
    <p class="tagindent2">
-    <code>
-     SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
+    <code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas
 (Lesser)||Modify Memory|Poetry=5|Song of
 Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
 (Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster
-(Mass)
-    </code>
+(Mass)</code>
    </p>
    <p class="tagindent2">
-    <code>
-     SOURCEPAGE:SpellListI.rtf
-    </code>
+    <code>SOURCEPAGE:SpellListI.rtf</code>
    </p>
    <p class="indent0">
    </p>
@@ -624,9 +554,7 @@ Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person
 domains to your campaign, albeit, only the most basic of
 functionality will exist. You may have noted a number of abilities
 are included in the
-   <code>
-    DESC
-   </code>
+   <code>DESC</code>
    tag that this domain entry
 doesn't implement. To see how to implement these abilities we will
 move to the

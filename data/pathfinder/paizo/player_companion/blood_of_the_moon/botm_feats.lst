@@ -4,14 +4,14 @@ Fast Change				TYPE:General	SOURCEPAGE:p.7	PRETEXT:Prerequisites: Dex 13 , base 
 Bat Shape				TYPE:General	SOURCEPAGE:p.9	PRETEXT:Prerequisites: Cha 13 , werebat-kin.	PRETEMPLATE:1,Werebat-Kin	PRESTAT:1,CHA=13		
 Bloodmarked Flight		TYPE:General	SOURCEPAGE:p.9	PRETEXT:Prerequisites: Base attack bonus +5, werebat-kin.	PRETOTALAB:5	PRETEMPLATE:1,Werebat-Kin	
 Dire Bat Shape			TYPE:General	SOURCEPAGE:p.9	PRETEXT:Prerequisites: Cha i3 , Bat Shape, base attack bonus +3 , were bat-kin.	PRESTAT:1,CHA=13	PRETOTALAB:3	PRETEMPLATE:1,Werebat-Kin	
-Bear Hug				TYPE:Combat		SOURCEPAGE:p.11	PRETEXT:Prerequisites: Str 17, Beartrap Bite, Weapon Focus (bite), base attack bonus +8.	PRESTAT:1,STR=17	PREFEAT:2,Beartrap Bite,Weapon Focus (Bite)	PRETOTALAB:6	
-Beartrap Bite			TYPE:Combat		SOURCEPAGE:p.11	PRETEXT:Prerequisites: Weapon Focus (bite), base attack bonus +6.	PREFEAT:1,Weapon Focus (Bite)	PRETOTALAB:6	
+Bear Hug				TYPE:Combat		SOURCEPAGE:p.11	PRETEXT:Prerequisites: Str 17, Beartrap Bite, Weapon Focus (bite), base attack bonus +8.	PRESTAT:1,STR=17	PREABILITY:2,CATEGORY=FEAT,Beartrap Bite,Weapon Focus (Bite)	PRETOTALAB:6	
+Beartrap Bite			TYPE:Combat		SOURCEPAGE:p.11	PRETEXT:Prerequisites: Weapon Focus (bite), base attack bonus +6.	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Bite)	PRETOTALAB:6	
 Ferocious Loyalty			TYPE:Teamwork	SOURCEPAGE:p.11	ASPECT:CombatBonus|+1 morale bonus on attack rolls against any foe that currently threatens an ally who also has this feat. Whenever an ally with this feat is rendered helpless or killed within 30 feet of you, you gain a +2 morale bonus on attack rolls for 1 minute or until the foe responsible is rendered helpless or killed, whichever comes first.
 Swarm Scatter			TYPE:Teamwork	SOURCEPAGE:p.19
 Swarm Strike			TYPE:Teamwork	SOURCEPAGE:p.19
-Motivating Display		TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Cha i3 , Dazzling Display, Weapon Focus.	PRESTAT:1,CHA=13	PREFEAT:2,Dazzling Display,Weapon Focus
-Surprising Combatant		TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Improved Initiative, Bluff 3 ranks.					PREFEAT:1,Improved Initiative	PRESKILL:1,Bluff=3
-Violent Display			TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Dazzling Display, Weapon Focus, base attack bonus +6.		PREFEAT:2,Dazzling Display,Weapon Focus	PRETOTALAB:6
+Motivating Display		TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Cha i3 , Dazzling Display, Weapon Focus.	PRESTAT:1,CHA=13	PREABILITY:2,CATEGORY=FEAT,Dazzling Display,Weapon Focus
+Surprising Combatant		TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Improved Initiative, Bluff 3 ranks.					PREABILITY:1,CATEGORY=FEAT,Improved Initiative	PRESKILL:1,Bluff=3
+Violent Display			TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Dazzling Display, Weapon Focus, base attack bonus +6.		PREABILITY:2,CATEGORY=FEAT,Dazzling Display,Weapon Focus	PRETOTALAB:6
 Wolf Savage				TYPE:Combat.Style	SOURCEPAGE:p.25
 Wolf Style				TYPE:Combat.Style	SOURCEPAGE:p.25
 Wolf Trip				TYPE:Combat.Style	SOURCEPAGE:p.25

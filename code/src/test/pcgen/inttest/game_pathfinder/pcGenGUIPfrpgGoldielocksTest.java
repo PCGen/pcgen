@@ -1,3 +1,6 @@
+/*
+ * pcGenGUIPfrpgGoldieLocksTest.java
+ */
 package pcgen.inttest.game_pathfinder;
 
 import pcgen.inttest.pcGenGUITestCase;
@@ -17,7 +20,7 @@ public class pcGenGUIPfrpgGoldielocksTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIPfrpgGoldielocksTest()
 	{
-		// Empty Constructor
+		//	super("pf_goldielocks");
 	}
 
 	/**

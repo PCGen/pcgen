@@ -42,14 +42,6 @@ public abstract class AbstractPrerequisiteListParser
 	implements PrerequisiteParserInterface
 {
 
-	/**
-	 * Default Constructor
-	 */
-	public AbstractPrerequisiteListParser()
-	{
-		super();
-	}
-
 	protected void convertKeysToSubKeys(Prerequisite prereq, String kind)
 	{
 		if (prereq == null)

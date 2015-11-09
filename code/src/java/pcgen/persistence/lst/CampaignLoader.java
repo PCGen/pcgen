@@ -67,35 +67,6 @@ public class CampaignLoader extends LstLineFileLoader
 		ListKey.FILE_DATACTRL};
 
 	/**
-	 * Creates a new instance of CampaignLoader
-	 */
-	public CampaignLoader()
-	{
-		// Empty Constructor
-	}
-
-	/**
-	 * This method initializes any campaigns that include other campaigns,
-	 * avoiding an infinite loop in the event of recursive, for example
-	 * interdependent campaigns.
-	 *
-	 * @throws PersistenceLayerException if an error occurs reading a
-	 *                                   newly-encountered campaign
-	 */
-	public void initRecursivePccFiles() throws PersistenceLayerException
-	{
-		// This may modify the globals list; need a local copy so
-		// the iteration doesn't fail.
-		List<Campaign> initialCampaigns =
-				new ArrayList<Campaign>(Globals.getCampaignList());
-
-		for (Campaign c : initialCampaigns)
-		{
-			initRecursivePccFiles(c);
-		}
-	}
-
-    /**
      * This method initializes any campaigns that include other campaigns,
      * avoiding an infinite loop in the event of recursive (for example
      * interdependent campaigns)

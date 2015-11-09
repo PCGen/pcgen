@@ -20,6 +20,7 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
+import java.util.Objects;
 
 import pcgen.base.lang.ObjectUtil;
 import pcgen.util.Logging;
@@ -37,6 +38,7 @@ public class URIEntry
 	private final String campaignName;
 
 	/**
+	 *
 	 * Optionally contains the URIFactory used to determine the URI for this
 	 * URIEntry. May be null if uri is set to a non-null value in the
 	 * constructor.
@@ -61,16 +63,8 @@ public class URIEntry
 	URIEntry(String campaignName, URI uri)
 	{
 		super();
-		if (campaignName == null)
-		{
-			throw new IllegalArgumentException("Campaign Name can't be null");
-		}
-		if (uri == null)
-		{
-			throw new IllegalArgumentException("uri can't be null");
-		}
-		this.campaignName = campaignName;
-		this.uri = uri;
+		this.campaignName = Objects.requireNonNull(campaignName);
+		this.uri = Objects.requireNonNull(uri);
 		uriFac = null;
 	}
 
@@ -88,16 +82,8 @@ public class URIEntry
 	private URIEntry(String campaignName, URIFactory fac)
 	{
 		super();
-		if (campaignName == null)
-		{
-			throw new IllegalArgumentException("campaignName can't be null");
-		}
-		if (fac == null)
-		{
-			throw new IllegalArgumentException("URI Factory can't be null");
-		}
-		this.campaignName = campaignName;
-		this.uriFac = fac;
+		this.campaignName = Objects.requireNonNull(campaignName);
+		this.uriFac = Objects.requireNonNull(fac);
 	}
 
 	/**
@@ -193,12 +179,7 @@ public class URIEntry
 	 */
 	public URIEntry getRelatedTarget(String fileName)
 	{
-		if (uriFac == null)
-		{
-			throw new IllegalStateException(
-				"getRelatedTarget can only be called on a URIEntry that uses a URI Factory");
-		}
-		return new URIEntry(campaignName, new URIFactory(uriFac.getRootURI(),
+		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(),
 			fileName));
 	}
 
@@ -218,7 +199,7 @@ public class URIEntry
 	public static URIEntry getURIEntry(String campaignName, URI rootURI,
 		String offset)
 	{
-		if (offset == null || offset.length() == 0)
+		if (offset == null || offset.isEmpty())
 		{
 			Logging.errorPrint("Cannot build URIEntry for empty value in "
 				+ rootURI);

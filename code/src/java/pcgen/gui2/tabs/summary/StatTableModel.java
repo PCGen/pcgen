@@ -231,11 +231,11 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			Font tableFont = table.getFont();
 			if (column < 3)
 			{
-				setFont(tableFont.deriveFont(Font.BOLD));
+				setFont(FontManipulation.bold(tableFont));
 			}
 			else
 			{
-				setFont(tableFont.deriveFont(Font.PLAIN));
+				setFont(FontManipulation.plain(tableFont));
 			}
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());

@@ -1823,6 +1823,32 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Bullets, Sling (10)</longname>
+			<id></id>
+			<name>Bullets, Sling (10)</name>
+			<carried>2.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0.1</cost>
+			<equipped>N</equipped>
+			<location>Carried</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>2</quantity>
+			<checkbox>20</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>AMMUNITION.RESIZABLE.STANDARD.BULLET.METAL</type>
+			<weight>5</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
 			<longname>Backpack (Masterwork) (Small)</longname>
 			<id></id>
 			<name>Backpack (Masterwork) (Small)</name>
@@ -2628,32 +2654,6 @@ BIO
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
-		<item>
-			<longname>Bullets (Sling/10)</longname>
-			<id></id>
-			<name>Bullets, Sling (10)</name>
-			<carried>2.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0.1</cost>
-			<equipped>N</equipped>
-			<location>Carried</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>2</quantity>
-			<checkbox>20</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>AMMUNITION.RESIZABLE.STANDARD.BULLET.METAL</type>
-			<weight>5</weight>
-			<bonuslist></bonuslist>
-		</item>
 		<total>
 			<weight>36.91 lbs.</weight>
 			<value>49170.8 gp</value>
@@ -2891,6 +2891,27 @@ BIO
 				<special_properties></special_properties>
 				<type>MAGIC.WONDROUS.BOOT</type>
 				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Bullets, Sling (10)</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>AMMUNITION.RESIZABLE.STANDARD.BULLET.METAL</type>
+				<weight>5</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
@@ -3542,27 +3563,6 @@ BIO
 				<special_properties></special_properties>
 				<type>GOODS.CONTAINER.GENERAL</type>
 				<weight>0</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Bullets, Sling (10)</name>
-				<carried>2.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>0.1</cost>
-				<equipped>N</equipped>
-				<location>Carried</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>2</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>AMMUNITION.RESIZABLE.STANDARD.BULLET.METAL</type>
-				<weight>5</weight>
 				<bonuslist></bonuslist>
 			</item>
 			</equipmentset>

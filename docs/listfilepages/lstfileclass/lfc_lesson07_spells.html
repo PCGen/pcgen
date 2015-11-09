@@ -54,8 +54,7 @@
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../datafilestagpages/datafilesspells.html#school">
+   <code><a href="../datafilestagpages/datafilesspells.html#school">
      SCHOOL
     </a>
     ,
@@ -121,8 +120,7 @@
     ,
     <a href="../datafilestagpages/datafilesspells.html#xpcost">
      XPCOST
-    </a>
-   </code>
+    </a></code>
   </p>
   <p>
    Please notice the
@@ -164,9 +162,7 @@ information (applying a spell to a character) will come later.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    SCHOOL, SUBSCHOOL, DESCRIPTOR
-   </code>
+   <code>SCHOOL, SUBSCHOOL, DESCRIPTOR</code>
   </p>
   <p>
    The line below the spell name is usually in this format:
@@ -178,9 +174,7 @@ information (applying a spell to a character) will come later.
    Note that I mention "Descriptors" in plural. There generally is
 only one School and Subschool, but many spells have more than one
 descriptor.
-   <code>
-    DESCRIPTOR
-   </code>
+   <code>DESCRIPTOR</code>
    can contain a pipe-delimited
 (|) list of descriptors, so put a pipe between more than one
 descriptor.
@@ -195,11 +189,9 @@ a School and 2 descriptors.
   </p>
   <blockquote>
    <p>
-    <code>
-     SCHOOL:Evocation
+    <code>SCHOOL:Evocation
      <br/>
-     DESCRIPTOR:Evil|Sonic
-    </code>
+     DESCRIPTOR:Evil|Sonic</code>
    </p>
   </blockquote>
   <p>
@@ -213,13 +205,11 @@ Sonic]
   </p>
   <blockquote>
    <p>
-    <code>
-     SCHOOL:Enchantment
+    <code>SCHOOL:Enchantment
      <br/>
      SUBSCHOOL:Compulsion
      <br/>
-     DESCRIPTOR:Mind-Affecting|Sonic
-    </code>
+     DESCRIPTOR:Mind-Affecting|Sonic</code>
    </p>
   </blockquote>
   <p>
@@ -238,9 +228,7 @@ DESCRIPTOR.
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    CLASSES, DOMAINS, TYPE
-   </code>
+   <code>CLASSES, DOMAINS, TYPE</code>
   </p>
   <p>
    This is only part of the way of linking. If adding a new spell,
@@ -268,13 +256,11 @@ tags. Our example from
   </p>
   <blockquote>
    <p>
-    <code>
-     Blasphamy
+    <code>Blasphamy
      <br/>
      CLASSES:Cleric=7
      <br/>
-     DOMAINS:Evil=7
-    </code>
+     DOMAINS:Evil=7</code>
    </p>
   </blockquote>
   <p>
@@ -283,9 +269,7 @@ get:
   </p>
   <blockquote>
    <p>
-    <code>
-     TYPE:Divine.
-    </code>
+    <code>TYPE:Divine.</code>
    </p>
   </blockquote>
   <p>
@@ -306,13 +290,11 @@ example:
   </p>
   <blockquote>
    <p>
-    <code>
-     Antimagic Field
+    <code>Antimagic Field
      <br/>
      CLASSES:Cleric=8|Sorcerer,Wizard=6
      <br/>
-     DOMAINS:Magic,Protection=6
-    </code>
+     DOMAINS:Magic,Protection=6</code>
    </p>
   </blockquote>
   <p>
@@ -321,9 +303,7 @@ the next tag would be:
   </p>
   <blockquote>
    <p>
-    <code>
-     TYPE:Arcane.Divine
-    </code>
+    <code>TYPE:Arcane.Divine</code>
    </p>
   </blockquote>
   <p>
@@ -344,9 +324,7 @@ etc. but those are global tags not normally used in a
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    COMPS, CASTTIME
-   </code>
+   <code>COMPS, CASTTIME</code>
   </p>
   <p>
    This section is easy, especially for those people that like to
@@ -364,11 +342,9 @@ cut and paste. For the following spell information:
   </p>
   <blockquote>
    <p>
-    <code>
-     COMPS:V
+    <code>COMPS:V
      <br/>
-     CASTTIME:1 standard action
-    </code>
+     CASTTIME:1 standard action</code>
    </p>
   </blockquote>
   <p>
@@ -384,9 +360,7 @@ cut and paste. For the following spell information:
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    RANGE, DURATION, TARGETAREA
-   </code>
+   <code>RANGE, DURATION, TARGETAREA</code>
   </p>
   <p>
    Ok, the first two are easy.
@@ -411,9 +385,7 @@ put in the word for the range.
 bit of code that will do math functions. Such math functions must
 be encapsulated within a set of parentheses (). The character
 casterlevel can be used in these calculations by using the variable
-   <code>
-    CASTERLEVEL
-   </code>
+   <code>CASTERLEVEL</code>
    as part of the math function. Everything
 in the parentheses is reduced to a number. For normal parentheses,
 like those used for "(D)" where spellcaster can end the spell
@@ -457,14 +429,12 @@ you
   </p>
   <blockquote>
    <p>
-    <code>
-     RANGE:40 ft.
+    <code>RANGE:40 ft.
      <br/>
      TARGETAREA:Nonevil creatures in a 40-ft.-radius spread centered on
 you
      <br/>
-     DURATION:Instantaneous
-    </code>
+     DURATION:Instantaneous</code>
    </p>
   </blockquote>
   <p>
@@ -491,14 +461,12 @@ object
   </p>
   <blockquote>
    <p>
-    <code>
-     RANGE:Close
+    <code>RANGE:Close
      <br/>
      TARGETAREA:One location [ up to (CASETERLEVEL*10) cubes] or one
 object
      <br/>
-     DURATION:(CASTERLEVEL*2) hours [D]
-    </code>
+     DURATION:(CASTERLEVEL*2) hours [D]</code>
    </p>
   </blockquote>
   <hr/>
@@ -511,9 +479,7 @@ object
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    SAVEINFO, SPELLRES
-   </code>
+   <code>SAVEINFO, SPELLRES</code>
   </p>
   <p>
    Again, this is easy copy/paste stuff.
@@ -533,11 +499,9 @@ object
   </p>
   <blockquote>
    <p>
-    <code>
-     SAVEINFO:None or Will negates; see text
+    <code>SAVEINFO:None or Will negates; see text
      <br/>
-     SPELLRES:Yes
-    </code>
+     SPELLRES:Yes</code>
    </p>
   </blockquote>
   <hr/>
@@ -550,21 +514,13 @@ object
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    DESC
-   </code>
+   <code>DESC</code>
    ,
-   <code>
-    VARIANTS
-   </code>
+   <code>VARIANTS</code>
    ,
-   <code>
-    COST
-   </code>
+   <code>COST</code>
    ,
-   <code>
-    XPCOST
-   </code>
+   <code>XPCOST</code>
   </p>
   <p>
    These tags are from the spells description, and require some
@@ -572,9 +528,7 @@ judgment calls.
   </p>
   <p class="indent1">
    1)
-   <code>
-    DESC
-   </code>
+   <code>DESC</code>
    is usually pulled from the
 "one-liners" in spell descriptions, such as those found in the RSRD
    <span class="lstfile">
@@ -588,9 +542,7 @@ descriptions to less than 50 characters long.
   </p>
   <p class="indent1">
    2)
-   <code>
-    VARIANTS
-   </code>
+   <code>VARIANTS</code>
    are taken from the
 description, where the caster makes a decision on how a spell works
 when casting, such as Fire Seeds, where the caster uses either
@@ -604,18 +556,14 @@ casting.
   </p>
   <p class="indent1">
    3)
-   <code>
-    COST
-   </code>
+   <code>COST</code>
    gives the specific cost of
 material components, usually listed at end of the spell
 description.
   </p>
   <p class="indent1">
    4)
-   <code>
-    XPCOST
-   </code>
+   <code>XPCOST</code>
    gives the xp cost, when
 one exists, when casting the related spell. As with the material
 component cost, the xp cost is typically listed at the end of the
@@ -630,10 +578,8 @@ spell description.
   </p>
   <blockquote>
    <p>
-    <code>
-     DESC:Kills, paralyzes, weakens, or dazes nonevil
-subjects.
-    </code>
+    <code>DESC:Kills, paralyzes, weakens, or dazes nonevil
+subjects.</code>
    </p>
   </blockquote>
   <p>
@@ -671,11 +617,9 @@ supplies (cost 1,000 gp).
   </p>
   <blockquote>
    <p>
-    <code>
-     DESC:Duplicate awakens when original dies.
+    <code>DESC:Duplicate awakens when original dies.
      <br/>
-     COST:1500
-    </code>
+     COST:1500</code>
    </p>
   </blockquote>
   <p>
@@ -700,17 +644,13 @@ creation costs).
   </blockquote>
   <blockquote>
    <p>
-    <code>
-     XPCOST:100
-    </code>
+    <code>XPCOST:100</code>
    </p>
   </blockquote>
   <hr/>
   <p>
    Throw in a
-   <code>
-    SOURCEPAGE
-   </code>
+   <code>SOURCEPAGE</code>
    tag, and basically, that is a
 spell, minus any Temp bonus tags for applying spell effects to
 characters.

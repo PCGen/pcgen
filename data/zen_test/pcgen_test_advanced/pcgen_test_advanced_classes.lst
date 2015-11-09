@@ -93,7 +93,7 @@ CLASS:Running With Scissors	CSKILL:Monkey Building Sensation
 CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC	CLASSTYPE:PC
 #SAB:Tom Test Works
 #SAB:Tom Test Works|PREVARGTEQ:classlevel("APPLIEDAS=NONEPIC"),2
-1	SAB:Tom Test Works|PREFEAT:1,Dodge
+1	SAB:Tom Test Works|PREABILITY:1,CATEGORY=FEAT,Dodge
 
 # Class Name
 CLASS:Tom Test Copy Deal.COPY=Testing the Copy

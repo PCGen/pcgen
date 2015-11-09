@@ -1,6 +1,9 @@
+/*
+ * pcGenGUIFranTest.java
+ */
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.pcGenGUITestCase;
+import pcgen.inttest.PcgenFtlTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -9,7 +12,7 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIFranTest extends pcGenGUITestCase
+public class pcGenGUIFranTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -17,7 +20,7 @@ public class pcGenGUIFranTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIFranTest()
 	{
-		// Empty Constructor
+		super("35e_fran");
 	}
 
 	/**

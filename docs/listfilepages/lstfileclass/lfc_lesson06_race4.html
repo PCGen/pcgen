@@ -43,8 +43,7 @@
    </strong>
   </p>
   <p class="indent1">
-   <code>
-    <a href="../datafilestagpages/datafilesraces.html#moncskill">
+   <code><a href="../datafilestagpages/datafilesraces.html#moncskill">
      MONCSKILL
     </a>
     ,
@@ -99,8 +98,7 @@ MFEAT,
     ,
     <a href="../globalfilestagpages/globalfilesother.html#sourcepage">
      SOURCEPAGE
-    </a>
-   </code>
+    </a></code>
   </p>
   <p>
    This will be the final lesson on creating "monster" race files.
@@ -115,17 +113,13 @@ dive right in.
   <hr/>
   <p>
    <strong>
-    <code>
-     MONCSKILL
-    </code>
+    <code>MONCSKILL</code>
    </strong>
   </p>
   <p>
    To define the skills that are considered class skill for each
 race we use the
-   <code>
-    MONCSKILL
-   </code>
+   <code>MONCSKILL</code>
    tag.  Following the tag
 is a list of the race's class skills, separated by the pipe ("|")
 character.
@@ -141,11 +135,9 @@ there is a class skill for that race.
   </p>
   <blockquote>
    <p>
-    <code>
-     MONCSKILL:Concentration|Escape
+    <code>MONCSKILL:Concentration|Escape
 Artist|Hide|TYPE.Knowledge|TYPE.Craft|Listen|Move
-Silently|Search|Sense Motive|Spellcraft|Spot
-    </code>
+Silently|Search|Sense Motive|Spellcraft|Spot</code>
    </p>
   </blockquote>
   <p>
@@ -157,10 +149,8 @@ racial skills since they may choose from among all of them.
   </p>
   <blockquote>
    <p>
-    <code>
-     MONCSKILL:Balance|Hide|Jump|Listen|Move
-Silently|Spot
-    </code>
+    <code>MONCSKILL:Balance|Hide|Jump|Listen|Move
+Silently|Spot</code>
    </p>
   </blockquote>
   <p class="sidebar">
@@ -188,9 +178,7 @@ it since they have a racial bonus to Balance.
   <hr/>
   <p>
    <strong>
-    <code>
-     BONUS:SKILLRANK
-    </code>
+    <code>BONUS:SKILLRANK</code>
    </strong>
   </p>
   <p>
@@ -225,9 +213,7 @@ would be:
   </p>
   <blockquote>
    <p>
-    <code>
-     BONUS:SKILLRANK|Concentration|11|PREDEFAULTMONSTER:Y
-    </code>
+    <code>BONUS:SKILLRANK|Concentration|11|PREDEFAULTMONSTER:Y</code>
    </p>
   </blockquote>
   <p>
@@ -250,10 +236,8 @@ several others) would be:
   </p>
   <blockquote>
    <p>
-    <code>
-     BONUS:SKILLRANK|Escape Artist,Hide,Listen,Move
-Silently,Sense Motive,Spot|25|PREDEFAULTMONSTER:Y
-    </code>
+    <code>BONUS:SKILLRANK|Escape Artist,Hide,Listen,Move
+Silently,Sense Motive,Spot|25|PREDEFAULTMONSTER:Y</code>
    </p>
   </blockquote>
   <p>
@@ -266,9 +250,7 @@ listing all of the  skills of the selected type and allow them
 to pick five of them and then assign the appropriate number
 of  ranks to those skills.  I use an
 "
-   <code>
-    ADD:FEAT(TYPE=FiveKnowledge22,TYPE=FiveCraft22)
-   </code>
+   <code>ADD:FEAT(TYPE=FiveKnowledge22,TYPE=FiveCraft22)</code>
    " tag
 in this race file to  start the feat chooser.
   </p>
@@ -295,10 +277,8 @@ be:
   </p>
   <blockquote>
    <p>
-    <code>
-     BONUS:SKILLRANK|Balance,Hide,Jump,Listen,Move
-Silently,Spot|5|PREDEFAULTMONSTER:Y
-    </code>
+    <code>BONUS:SKILLRANK|Balance,Hide,Jump,Listen,Move
+Silently,Spot|5|PREDEFAULTMONSTER:Y</code>
    </p>
   </blockquote>
   <p class="sidebar">
@@ -330,9 +310,7 @@ Silently|4|PREDEFAULTMONSTER:Y
   <hr/>
   <p>
    <strong>
-    <code>
-     BONUS:SKILL
-    </code>
+    <code>BONUS:SKILL</code>
    </strong>
   </p>
   <p>
@@ -347,25 +325,19 @@ however so we do not need to enter them in the race file.
   </p>
   <p>
    We apply these racial skill bonuses using the
-   <code>
-    BONUS:SKILL
-   </code>
+   <code>BONUS:SKILL</code>
    tag.  You can use this tag for a
 single skill, or multiple ones separated by commas as long as the
 bonus value is the same for each skill.  If there are two
 skills with two different bonus values, you have to use two
 separate
-   <code>
-    BONUS:SKILL
-   </code>
+   <code>BONUS:SKILL</code>
    tags.
   </p>
   <p>
    To indicate that these are Racial bonuses we add
 "
-   <code>
-    |TYPE=Racial
-   </code>
+   <code>|TYPE=Racial</code>
    " to the end of the tags.
   </p>
   <p>
@@ -379,9 +351,7 @@ be:
   </p>
   <blockquote>
    <p>
-    <code>
-     BONUS:SKILL|Balance,Jump|4|TYPE=Racial
-    </code>
+    <code>BONUS:SKILL|Balance,Jump|4|TYPE=Racial</code>
    </p>
   </blockquote>
   <p class="sidebar">
@@ -395,9 +365,7 @@ in the RSRD.
   <hr/>
   <p>
    <strong>
-    <code>
-     MFEAT
-    </code>
+    <code>MFEAT</code>
    </strong>
    (
    <span class="new">
@@ -416,14 +384,10 @@ being used instead.
   </p>
   <p>
    To grant racial feats we use the
-   <code>
-    MFEAT
-   </code>
+   <code>MFEAT</code>
    tag. 
 This is very similar to the
-   <code>
-    MONCSKILL
-   </code>
+   <code>MONCSKILL</code>
    tag in that the
 tag is followed by a list (of feats instead of skills) separated by
 the pipe character.
@@ -435,9 +399,7 @@ section of their listing.
   <p>
    A couple of things to pay special attention to when entering
 feats using the
-   <code>
-    MFEAT
-   </code>
+   <code>MFEAT</code>
    tag:  Often a race will
 have a feat multiple times, but with a different target, such as
 Weapon Focus with their claws and their bite.  This would be
@@ -454,10 +416,8 @@ reference a feat with a target, in any kind of .lst file.
   </p>
   <blockquote>
    <p>
-    <code>
-     MFEAT:Cleave|Dodge|Great Cleave|Improved
-Initiative|Mobility|Power Attack
-    </code>
+    <code>MFEAT:Cleave|Dodge|Great Cleave|Improved
+Initiative|Mobility|Power Attack</code>
    </p>
   </blockquote>
   <p class="sidebar">
@@ -480,11 +440,9 @@ coded as:
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      CR
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p>
    The CR tag is used to set the challenge rating for the race. It
@@ -495,17 +453,13 @@ rating of 4 would get a "CR:4" tag. One with a challenge rating of
   <p>
    The Solar has a challenge rating of 19, so the tag would read
 "
-   <code>
-    CR:19
-   </code>
+   <code>CR:19</code>
    ".
   </p>
   <p>
    The Ninja Monkey has a challenge rating of 2, so his tag would
 read "
-   <code>
-    CR:2
-   </code>
+   <code>CR:2</code>
    ".
   </p>
   <p class="sidebar">
@@ -519,9 +473,7 @@ read "
   <hr/>
   <p>
    <strong>
-    <code>
-     PREALIGN
-    </code>
+    <code>PREALIGN</code>
    </strong>
   </p>
   <p>
@@ -555,9 +507,7 @@ LG,LN,LE,NG,TN,NE,CG,CN,CE.
   <p>
    Since the Solars must be of good alignment, the tag for them
 will read "
-   <code>
-    PREALIGN:0,3,6
-   </code>
+   <code>PREALIGN:0,3,6</code>
    ".
   </p>
   <p>
@@ -566,11 +516,9 @@ so we will simply not put in a PREALIGN tag for them.
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      HITDICEADVANCEMENT
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p>
    We use the HITDICEADVANCEMENT tag for those races that change
@@ -588,9 +536,7 @@ this tag should be left out.
    The solar shows an advance of 22-33 for Large size and 34-66 for
 Huge. So the tag for him will be
 "
-   <code>
-    HITDICEADVANCEMENT:33,66
-   </code>
+   <code>HITDICEADVANCEMENT:33,66</code>
    "
   </p>
   <p>
@@ -599,11 +545,9 @@ get no HITDICEADVANCEMENT tag.
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      LEVELADJUSTMENT
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p>
    The LEVELADJUSTMENT tag is used for those races that might
@@ -618,17 +562,13 @@ level adjustment.
    The Ninja Monkey, due to his several small special abilities
 would get a +2 level adjustment, so his tag would read
 "
-   <code>
-    LEVELADJUSTMENT:2
-   </code>
+   <code>LEVELADJUSTMENT:2</code>
    ".
   </p>
   <hr/>
   <p>
    <strong>
-    <code>
-     FAVCLASS
-    </code>
+    <code>FAVCLASS</code>
    </strong>
   </p>
   <p>
@@ -642,17 +582,13 @@ enter:
   </p>
   <blockquote>
    <p>
-    <code>
-     FAVCLASS:Monk
-    </code>
+    <code>FAVCLASS:Monk</code>
    </p>
   </blockquote>
   <hr/>
   <p>
    <strong>
-    <code>
-     LANGAUTO
-    </code>
+    <code>LANGAUTO</code>
    </strong>
   </p>
   <p>
@@ -671,9 +607,7 @@ this:
   </p>
   <blockquote>
    <p>
-    <code>
-     LANGAUTO:Celestial,Infernal,Draconic
-    </code>
+    <code>LANGAUTO:Celestial,Infernal,Draconic</code>
    </p>
   </blockquote>
   <p>
@@ -683,17 +617,13 @@ so their tag will look like this:
   </p>
   <blockquote>
    <p>
-    <code>
-     LANGAUTO:Common,Monkey
-    </code>
+    <code>LANGAUTO:Common,Monkey</code>
    </p>
   </blockquote>
   <hr/>
   <p>
    <strong>
-    <code>
-     LANGBONUS
-    </code>
+    <code>LANGBONUS</code>
    </strong>
   </p>
   <p>
@@ -701,9 +631,7 @@ so their tag will look like this:
 number of bonus languages that the creature can pick from when
 spending its Int-based language picks.  The tag for this works
 just like the
-   <code>
-    LANGAUTO
-   </code>
+   <code>LANGAUTO</code>
    tag.
   </p>
   <p>
@@ -716,17 +644,13 @@ as their bonus languages.
   </p>
   <blockquote>
    <p>
-    <code>
-     LANGBONUS:Elven,Goblin,Sylvan
-    </code>
+    <code>LANGBONUS:Elven,Goblin,Sylvan</code>
    </p>
   </blockquote>
   <hr/>
   <p>
    <strong>
-    <code>
-     LEGS
-    </code>
+    <code>LEGS</code>
    </strong>
   </p>
   <p>
@@ -739,18 +663,14 @@ to just refer to the pictures provided. :p
   <p>
    Both the Solar and our Ninja Monkey have two legs, so the tag
 for both races will be "
-   <code>
-    LEGS:2
-   </code>
+   <code>LEGS:2</code>
    ".
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      HANDS
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p>
    The HANDS tag is used to denote the number of hands a creature
@@ -764,24 +684,18 @@ a race's natural attacks.
   <p>
    The Solar and our Ninja Monkey both have two hands, so our tag
 for both races would be "
-   <code>
-    HANDS:2
-   </code>
+   <code>HANDS:2</code>
    "
   </p>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      SPELLS
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p>
    The
-   <code>
-    SPELLS
-   </code>
+   <code>SPELLS</code>
    tag is used to grant innate spellcasting
 (and some spell-like abilities). We use it for spell-like abilities
 when they grant the full spell effect. If it is restricted in some
@@ -792,18 +706,12 @@ certain creature, etc.), we simply list it as an SA.
    Alternately, you can create a version of the spell with the
 modifications the race needs included in the description.  The
 spell should be added with no
-   <code>
-    CLASS
-   </code>
+   <code>CLASS</code>
    or
-   <code>
-    DOMAIN
-   </code>
+   <code>DOMAIN</code>
    tags.  Once the spell is created you can
 use the
-   <code>
-    SPELLS
-   </code>
+   <code>SPELLS</code>
    as normal.
   </p>
   <p>
@@ -821,8 +729,7 @@ would be:
   </p>
   <blockquote>
    <p>
-    <code>
-     SPELLS:Innate|TIMES=-1|CASTERLEVEL=20|Aid|Animate
+    <code>SPELLS:Innate|TIMES=-1|CASTERLEVEL=20|Aid|Animate
 Objects|Commune|Continual Flame|Dimensional Anchor|Greater
 Dispelling|Holy Smite,21|Imprisonment|Improved Invisibility (Self
 Only)|Lesser Restoration|Remove Curse|Remove Disease|Remove
@@ -833,8 +740,7 @@ Barrier,23|Earthquake,25|Heal|Permanency|Resurrection|Shapechange,
      <br/>
      SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Greater Restoration|Mass
 Charm,25|Power Word (Blind),25|Power Word (Kill),26|Power Word
-(Stun),24|Prismatic Spray,24|Symbol,24|Wish
-    </code>
+(Stun),24|Prismatic Spray,24|Symbol,24|Wish</code>
    </p>
   </blockquote>
   <p>
@@ -845,18 +751,14 @@ blank.  The tag would then look like:
   </p>
   <blockquote>
    <p>
-    <code>
-     SPELLS:Innate|TIMES=-1|Pass Without Trace
-    </code>
+    <code>SPELLS:Innate|TIMES=-1|Pass Without Trace</code>
    </p>
   </blockquote>
   <hr/>
   <p>
-   <code>
-    <strong>
+   <code><strong>
      SOURCEPAGE
-    </strong>
-   </code>
+    </strong></code>
   </p>
   <p>
    This is just what it seems, where we indicate the page from the
@@ -874,17 +776,13 @@ would be the filename, so SOURCEPAGE:&lt;filename&gt;/
   <p>
    For the solar, we pulled him from the SRD so his tag would be
 "
-   <code>
-    SOURCEPAGE:srdmonstersc.rtf
-   </code>
+   <code>SOURCEPAGE:srdmonstersc.rtf</code>
    ".
   </p>
   <p>
    The Ninja Money is from my custom races file, so Il make the tag
 for him "
-   <code>
-    SOURCEPAGE:customraces.txt
-   </code>
+   <code>SOURCEPAGE:customraces.txt</code>
    ".
   </p>
   <hr/>

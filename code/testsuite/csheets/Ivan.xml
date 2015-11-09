@@ -39,7 +39,7 @@ BIO
 			<levels_total>3</levels_total>
 			<levels_ecl>3</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Tes2  Sor1                 </shortform>
+			<shortform>Tes2,Sor1</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -48,7 +48,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -890,17 +889,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -919,10 +923,8 @@ BIO
 			<capacity>100</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1019,7 +1021,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Weapon Focus (Bob Long Blade, Bob Short Blade)</name>
@@ -1042,8 +1046,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Grant Template Chosen (Template-71)</name>
 			<description>This will grant a TEMPLATE Chosen to the Character</description>
@@ -1055,7 +1060,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1074,7 +1079,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies></weapon_proficiencies>
 	<languages>Common, Draconic</languages>
 
@@ -1112,11 +1117,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1124,11 +1125,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1142,11 +1140,10 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="Sorcerer" spellcastertype="Arcane">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="2" cast="5">
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1175,7 +1172,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Magic Missile</name>
 						<outputname>Magic Missile</outputname>
 						<times_memorized>1</times_memorized>

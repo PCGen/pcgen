@@ -42,5 +42,5 @@ public interface GameModeLstToken extends LstToken
 	 * @param value
 	 * @return true if successful
 	 */
-	public abstract boolean parse(GameMode gameMode, String value, URI source);
+	boolean parse(GameMode gameMode, String value, URI source);
 }

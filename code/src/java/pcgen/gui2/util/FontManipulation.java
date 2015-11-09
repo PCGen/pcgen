@@ -189,6 +189,17 @@ public class FontManipulation
 	}
 	
 	/**
+	 * For plain font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static Font plain(Font f)
+	{
+		return f.deriveFont(Font.PLAIN);
+	}
+	
+	/**
 	 * For bold font.
 	 * 
 	 * @param font

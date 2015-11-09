@@ -27,7 +27,7 @@ package plugin.exporttokens.deprecated;
 
 import java.text.DecimalFormat;
 
-import pcgen.base.geom.OrderedPair;
+import pcgen.base.math.OrderedPair;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
@@ -96,22 +96,23 @@ public class FaceToken extends AbstractExportToken
 	{
 		OrderedPair face = display.getFace();
 		String retString = "";
-		if (CoreUtility.doublesEqual(face.getY(), 0.0))
+		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-						face.getX())
+						face.getPreciseX().doubleValue())
 						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		else
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-						face.getX())
+						face.getPreciseX().doubleValue())
 						+ Globals.getGameModeUnitSet().getDistanceUnit()
 						+ " by "
 						+ Globals.getGameModeUnitSet()
-							.displayDistanceInUnitSet(face.getY())
+							.displayDistanceInUnitSet(
+								face.getPreciseY().doubleValue())
 						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return retString;
@@ -119,6 +120,7 @@ public class FaceToken extends AbstractExportToken
 
 	/**
 	 * Get SHORT sub token
+	 * 
 	 * @param pc
 	 * @return SHORT sub toke
 	 */
@@ -126,22 +128,23 @@ public class FaceToken extends AbstractExportToken
 	{
 		OrderedPair face = display.getFace();
 		String retString = "";
-		if (CoreUtility.doublesEqual(face.getY(), 0.0))
+		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-						face.getX())
+						face.getPreciseX().doubleValue())
 						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		else
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-						face.getX())
+						face.getPreciseX().doubleValue())
 						+ Globals.getGameModeUnitSet().getDistanceUnit()
 						+ " x "
 						+ Globals.getGameModeUnitSet()
-							.displayDistanceInUnitSet(face.getY())
+							.displayDistanceInUnitSet(
+								face.getPreciseY().doubleValue())
 						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return retString;
@@ -149,6 +152,7 @@ public class FaceToken extends AbstractExportToken
 
 	/**
 	 * Get squares sub token
+	 * 
 	 * @param pc
 	 * @return squares sub token
 	 */
@@ -157,43 +161,45 @@ public class FaceToken extends AbstractExportToken
 		OrderedPair face = display.getFace();
 		String retString = "";
 		double squareSize = SettingsHandler.getGame().getSquareSize();
-		if (CoreUtility.doublesEqual(face.getY(), 0.0))
+		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
 			retString =
-					new DecimalFormat("#.#").format(face.getX()
-						/ squareSize);
+					new DecimalFormat("#.#").format(face.getPreciseX()
+						.doubleValue() / squareSize);
 		}
 		else
 		{
 			retString =
-					new DecimalFormat("#.#").format(face.getX()
-						/ squareSize)
+					new DecimalFormat("#.#").format(face.getPreciseX()
+						.doubleValue() / squareSize)
 						+ " x "
-						+ new DecimalFormat("#.#").format(face.getY()
-							/ squareSize);
+						+ new DecimalFormat("#.#").format(face.getPreciseY()
+							.doubleValue() / squareSize);
 		}
 		return retString;
 	}
 
 	/**
 	 * Get 1 sub token
+	 * 
 	 * @param pc
 	 * @return 1 sub token
 	 */
 	public static String get1Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			display.getFace().getX());
+			display.getFace().getPreciseX().doubleValue());
 	}
 
 	/**
 	 * Get 2 sub token
+	 * 
 	 * @param pc
 	 * @return 2 sub token
 	 */
 	public static String get2Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			display.getFace().getY());
+			display.getFace().getPreciseY().doubleValue());
 	}
 }

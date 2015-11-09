@@ -19,7 +19,6 @@ SOURCEWEB:http://paizo.com/products/btpy8tim?Pathfinder-Player-Companion-Varisia
 SOURCEDATE:2012-9
 ISOGL:YES
 
-COVER:../varisia_birthplace_of_legends.jpeg
 #COVER:@/pathfinder/paizo/player_companion/varisia_birthplace_of_legends/varisia_birthplace_of_legends.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!

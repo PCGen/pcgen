@@ -1721,11 +1721,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				final String slotName = node.getSlot().toString();
 				if (Constants.EQUIP_LOCATION_BOTH.equals(slotName))
 				{
-					return 2;
+					return 1;	// Set to 1, we should only have 1 object here. - Andrew
 				}
 				if (Constants.EQUIP_LOCATION_DOUBLE.equals(slotName))
 				{
-					return 2;
+					return 1;	// Set to 1, we should only have 1 object here. - Andrew
 				}
 				return node.singleOnly ? 1 : node.getSlot().getSlotCount()
 					+ (int) theCharacter.getTotalBonusTo("SLOTS", node

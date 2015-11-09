@@ -22,7 +22,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.modifier.ChangeArmorType;
+import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;

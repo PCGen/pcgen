@@ -39,7 +39,7 @@ BIO
 			<levels_total>6</levels_total>
 			<levels_ecl>6</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Tou3  Str3                 </shortform>
+			<shortform>Tou3,Str3</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -48,7 +48,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -1235,17 +1234,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1524,220 +1528,218 @@ BIO
 			<capacity>150</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Beretta 92F (9mm autoloader) (Medium)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs.</contents>
-					<cost>16</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Magazine 15,Lic(+1)</special_properties>
-					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.CUSTOM</type>
-					<weight>6</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Brawl</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Non-Lethal</special_properties>
-					<type>WEAPON.NATURAL.MELEE.BRAWL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Casual Outfit</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>8</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Binoculars, Standard</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>7</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Brass Knuckles (Medium)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.MELEE.BLUDGEONING.CUSTOM</type>
-					<weight>10</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Backpack</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>5 lbs., 1 Formal Outfit, 1 Stealth Outfit, 1 9mm Bullets, 50 pack</contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.CONTAINER</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Dagger (Punching) (Medium)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
-					<weight>20</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Formal Outfit</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>15</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Stealth Outfit</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>9</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>9mm Bullets, 50 pack</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>5</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>AMMUNITION.STANDARD.METAL.BULLET</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Beretta 92F (9mm autoloader) (Medium)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0 lbs.</contents>
+				<cost>16</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Magazine 15,Lic(+1)</special_properties>
+				<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.CUSTOM</type>
+				<weight>6</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Brawl</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Non-Lethal</special_properties>
+				<type>WEAPON.NATURAL.MELEE.BRAWL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Casual Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>8</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Binoculars, Standard</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>7</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Brass Knuckles (Medium)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.MELEE.BLUDGEONING.CUSTOM</type>
+				<weight>10</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Backpack</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>5 lbs., 1 Formal Outfit, 1 Stealth Outfit, 1 9mm Bullets, 50 pack</contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.CONTAINER</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Dagger (Punching) (Medium)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
+				<weight>20</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Formal Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>15</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Stealth Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>9</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>9mm Bullets, 50 pack</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>5</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>AMMUNITION.STANDARD.METAL.BULLET</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1834,6 +1836,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Simple Weapons Proficiency</name>
@@ -1845,6 +1848,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1857,8 +1861,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1870,7 +1875,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Standard "Talent" Ability Objects -->
+		<!-- Visible Normal "Talent" Ability Objects -->
 		<ability_object>
 			<name>Acid Resistance</name>
 			<description>See text</description>
@@ -1915,7 +1920,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Talent</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Brawl</name>
 			<description></description>
@@ -1967,19 +1972,12 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
 	<languages>English, Russian</languages>
 
-	<templates>
-		<list></list>
-	</templates>
-
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1987,11 +1985,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================

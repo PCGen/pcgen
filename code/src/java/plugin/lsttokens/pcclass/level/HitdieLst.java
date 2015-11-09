@@ -23,12 +23,12 @@ import pcgen.base.formula.MultiplyingFormula;
 import pcgen.base.formula.SubtractingFormula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
-import pcgen.cdom.content.Modifier;
+import pcgen.cdom.content.Processor;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.cdom.modifier.HitDieFormula;
-import pcgen.cdom.modifier.HitDieLock;
-import pcgen.cdom.modifier.HitDieStep;
+import pcgen.cdom.processor.HitDieFormula;
+import pcgen.cdom.processor.HitDieLock;
+import pcgen.cdom.processor.HitDieStep;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -61,7 +61,7 @@ public class HitdieLst extends AbstractToken implements
 				return new ParseResult.Fail(getTokenName() + " is invalid has a pipe: "
 						+ value, context);
 			}
-			Modifier<HitDie> hdm;
+			Processor<HitDie> hdm;
 			if (lock.startsWith("%/"))
 			{
 				// HITDIE:%/num --- divides the classes hit die by num.
@@ -209,7 +209,7 @@ public class HitdieLst extends AbstractToken implements
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Modifier<HitDie> hdcf = context.getObjectContext().getObject(level,
+		Processor<HitDie> hdcf = context.getObjectContext().getObject(level,
 				ObjectKey.HITDIE);
 		if (hdcf == null)
 		{

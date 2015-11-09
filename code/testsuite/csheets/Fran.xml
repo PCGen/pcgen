@@ -53,7 +53,7 @@ BIO
 			<levels_total>5</levels_total>
 			<levels_ecl>5</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Dom1  Mon1  Tes2  Tes1             </shortform>
+			<shortform>Dom1,Mon1,Tes2,Tes1</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -62,7 +62,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -996,17 +995,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1051,31 +1055,29 @@ BIO
 			<capacity>15</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Tentacles of the Fey</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Tentacles of the Fey</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.RANGED.SLASHING.BLUDGEONING.PIERCING.NATURAL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1170,6 +1172,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>AutoFeat_GivingThingy (AutoFeat_StackChoiceFeat (Ride), AutoFeat_StackChoiceFeat (Ride), AutoFeat_StackChoiceFeat (Tumble), AutoFeat_StackNoChoiceFeat, AutoFeat_StackNoChoiceFeat)</name>
@@ -1291,6 +1294,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<feat>
 			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackNoChoiceFeat, StackNoChoiceFeat)</name>
@@ -1313,8 +1317,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Fey Dust Test</name>
 			<description>Fey Dust Test ~ Grants the ability to fly, no aspect granted</description>
@@ -1337,7 +1342,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1356,7 +1361,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Light Blades, Tentacles of the Fey</weapon_proficiencies>
 	<languages></languages>
 
@@ -1379,11 +1384,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1391,11 +1392,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1409,7 +1407,6 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="MonKee" spellcastertype="Arcane">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="0" cast="0"/>

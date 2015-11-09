@@ -1,0 +1,22 @@
+This is a framework for a PCGen dataset. It is meant for beginners who want to take their first steps in entering their own
+custom data into PCGen.
+
+To use this, first find the corresponding *.lst files for your kind of data (e.g. My_classes.lst if you want to add a new
+class) and enter your new data there. Each *.lst file includes an example to give you a feel for how an entry in that
+particular type of file would look like. You can simply delete the example and comments in there, if you feel you don't
+need them anymore.
+
+If you need information how to set up a LST file, start PCGen and click on Documentation in the Help menu. That will bring
+up a browser window in which you should click 'List Files'. This will open a menu tree that includes the option 'LST File
+Class' which will guide you through your first steps.
+
+There is also a file called OGL.txt, which we always need to distribute with data that is coming from an Open Game Content
+Source. It is here because the examples in the *.lst files were mostly drawn from our dataset for the 3.5 System Reference
+Document. It is not needed for your dataset to function.
+
+Frank Kliewe, 2005-12-07
+
+PS.
+If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
+different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
+your existing installation of PCGen, your changes would get overwritten and thus be lost.

@@ -125,17 +125,11 @@ higher the spell levelslot requires.
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     ADDSPELLLEVEL
-    </code>
+    <code>ADDSPELLLEVEL</code>
     tag, the data included in a new
-    <code>
-     ADDSPELLLEVEL
-    </code>
+    <code>ADDSPELLLEVEL</code>
     tag will overwrite the existing tag
 data.
    </li>
@@ -146,9 +140,7 @@ data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ADDSPELLLEVEL:2
-   </code>
+   <code>ADDSPELLLEVEL:2</code>
   </p>
   <p class="indent3">
    A spell with this metamagic ability applied to
@@ -161,27 +153,21 @@ it takes up a slot two levels higher than the normal spell.
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:1
-   </code>
+ADDSPELLLEVEL:1</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:2
-   </code>
+ADDSPELLLEVEL:2</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt;
-ADDSPELLLEVEL:2
-   </code>
+ADDSPELLLEVEL:2</code>
   </p>
   <p class="indent3">
    Modified ability applied to a spell will cause
@@ -223,9 +209,7 @@ an addribute that can modify the spell name./p&gt;
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    APPLIEDNAME:Empowered
-   </code>
+   <code>APPLIEDNAME:Empowered</code>
   </p>
   <p class="indent3">
    A spell with this metamagic ability applied to
@@ -279,30 +263,22 @@ and sets its value.
    </li>
    <li>
     PRExxx tags can be used with the
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag.
    </li>
    <li>
     This tag can be used multiple times within an ability but each
 time it must identify a new aspect unless the
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag includes a PRExxx tag appended to the end.
    </li>
    <li>
     When using multiple
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tags for the same
 "aspect" and PRExxx tags appended to the end of each, the final
 value for that aspect will be set by the physically last
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag in the ability line that passes the
 prerequisite.
    </li>
@@ -314,38 +290,26 @@ first (z), %2 is replaced by the second (z), etc..
    <li>
     The (y) parameter can also use other special variables as is
 done in the
-    <code>
-     DESC
-    </code>
+    <code>DESC</code>
     tag:
     <ul>
      <li>
-      <code>
-       %CHOICE
-      </code>
+      <code>%CHOICE</code>
       - Will replace the first associated choice
 in the object.
      </li>
      <li>
-      <code>
-       %LIST
-      </code>
+      <code>%LIST</code>
       - Will substitute all choices comma
 separated into that parameter.
      </li>
      <li>
-      <code>
-       %NAME
-      </code>
+      <code>%NAME</code>
       - The
-      <code>
-       OUTPUTNAME
-      </code>
+      <code>OUTPUTNAME</code>
       or name of the
 object this
-      <code>
-       DESC
-      </code>
+      <code>DESC</code>
       tag is in.
      </li>
     </ul>
@@ -356,30 +320,20 @@ object this
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag, the data included in a new
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag will
 selectively overwrite the existing tag data or include the separate
 tags. Since each aspect name can hold only one value per ability,
 modifying an existing
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag will overwrite only
 the value of the aspect by that name in the ability, and will add a
 separate
-    <code>
-     ASPECT
-    </code>
+    <code>ASPECT</code>
     tag with a new name.
    </li>
   </ul>
@@ -389,10 +343,8 @@ separate
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Action Type|Standard
-Action
-   </code>
+   <code>ASPECT:Action Type|Standard
+Action</code>
   </p>
   <p class="indent3">
    Identifies the "Action Type" of an action
@@ -400,9 +352,7 @@ performed as part of the associated ability as a "Standard
 Action".
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Attack Type|Melee weapon
-   </code>
+   <code>ASPECT:Attack Type|Melee weapon</code>
   </p>
   <p class="indent3">
    Identifies the "Attack Type" of an attack
@@ -410,28 +360,22 @@ performed as part of the associated ability as a "Melee weapon"
 attack.
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Target|One creature
-   </code>
+   <code>ASPECT:Target|One creature</code>
   </p>
   <p class="indent3">
    Identifies the "Target" of an action performed
 as part of the associated ability as "One creature".
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Attack|Strength vs. AC
-   </code>
+   <code>ASPECT:Attack|Strength vs. AC</code>
   </p>
   <p class="indent3">
    Identifies an "Attack" performed as part of the
 associated ability as "Strength vs. AC".
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Attack Type|Ranged
-%1|PowerRange
-   </code>
+   <code>ASPECT:Attack Type|Ranged
+%1|PowerRange</code>
   </p>
   <p class="indent3">
    Identifies the "Attack Type" of an attack
@@ -439,10 +383,8 @@ performed as part of the associated ability as a "Ranged" attack
 with a range equivalent to the "PowerRange" variable.
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Effect|Double damage to %CHOICE
-creatures
-   </code>
+   <code>ASPECT:Effect|Double damage to %CHOICE
+creatures</code>
   </p>
   <p class="indent3">
    Identifies the "Effect" of an action performed
@@ -450,11 +392,9 @@ as part of the associated ability as "Double damage" to the
 creature chosen by the associated chooser.
   </p>
   <p class="indent2">
-   <code>
-    ASPECT:Target|One creature &lt;tab&gt;
+   <code>ASPECT:Target|One creature &lt;tab&gt;
 ASPECT:Target|Two creatures|PREPCLEVEL:MIN=7,MAX=12 &lt;tab&gt;
-ASPECT:Target|Three creatures|PREPCLEVEL:MIN=13
-   </code>
+ASPECT:Target|Three creatures|PREPCLEVEL:MIN=13</code>
   </p>
   <p class="indent3">
    Identifies the "Target" of an action performed
@@ -469,24 +409,18 @@ that are level 1-6, "Two creatures"' for characters level 7-12, and
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A3</code>
   </p>
   <p class="indent1">
    <strong>
@@ -496,25 +430,19 @@ Separately):
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:B1|B2
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:B1|B2</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt; ASPECT:A1|A2 &lt;tab&gt;
-ASPECT:B1|B2
-   </code>
+ASPECT:B1|B2</code>
   </p>
   <hr/>
   <p class="lstnew">
@@ -575,53 +503,37 @@ Preference window is unchecked. Otherwise the text from the
    </li>
    <li>
     PRExxx tags can be used with the
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tag.
    </li>
    <li>
     Multiple
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tags per line are allowed with
 all qualifying
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tags being concatonated for
 output and separated by spaces.
    </li>
    <li>
-    <code>
-     .CLEAR
-    </code>
+    <code>.CLEAR</code>
     will clear all
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tags.
    </li>
    <li>
-    <code>
-     .CLEAR.(regular expression match)
-    </code>
+    <code>.CLEAR.(regular expression match)</code>
     will clear
 specific instances.
    </li>
    <li>
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tags will take variable substitution.
     <ul>
      <li>
       Within the text a % followed by a number will substitute the
 #th variable from the variable list associated with the
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       .
      </li>
      <li>
@@ -644,33 +556,23 @@ number should be surrounded in curly brackets { }. For example,
 list:
     <ul>
      <li>
-      <code>
-       %NAME
-      </code>
+      <code>%NAME</code>
       - The name of the object this
-      <code>
-       BENEFIT
-      </code>
+      <code>BENEFIT</code>
       tag is in.
      </li>
      <li>
-      <code>
-       %FEAT
-      </code>
+      <code>%FEAT</code>
       - Will substitute the descriptions of feats
 within the object that match the associated preqrequisites.
      </li>
      <li>
-      <code>
-       %CHOICE
-      </code>
+      <code>%CHOICE</code>
       - Will replace the first associated choice
 in the object.
      </li>
      <li>
-      <code>
-       %LIST
-      </code>
+      <code>%LIST</code>
       - Will substitute all choices into that
 parameter as a comma-delimited list.
      </li>
@@ -706,19 +608,13 @@ You can create fairly powerful match structures using things like
 character groups "[a-zA-Z]" match any alphabetic character or
 groupings "(bat|super)man" match batman or superman and many many
 more. So, for example, you could clear all benefits by doing
-    <code>
-     BENEFIT:.CLEAR..*
-    </code>
+    <code>BENEFIT:.CLEAR..*</code>
     , or clear all exceptional abilities
 by doing
-    <code>
-     BENEFIT:.CLEAR.\(Ex\)
-    </code>
+    <code>BENEFIT:.CLEAR.\(Ex\)</code>
     , or clear everything
 that's non-numeric with
-    <code>
-     BENEFIT:.CLEAR.[A-Za-z]
-    </code>
+    <code>BENEFIT:.CLEAR.[A-Za-z]</code>
     .
    </li>
    <li>
@@ -727,17 +623,11 @@ that's non-numeric with
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tag, the data included in a new
-    <code>
-     BENEFIT
-    </code>
+    <code>BENEFIT</code>
     tag will be
 included as a separate tag.
    </li>
@@ -748,75 +638,61 @@ included as a separate tag.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    BENEFIT:This is sample text for the
-example purposes
-   </code>
+   <code>BENEFIT:This is sample text for the
+example purposes</code>
   </p>
   <p class="indent3">
    Adds ability benefit.
   </p>
   <p class="indent2">
-   <code>
-    BENEFIT:Kick Butt (level
-3)|PRELEVEL:3
-   </code>
+   <code>BENEFIT:Kick Butt (level
+3)|PRELEVEL:3</code>
   </p>
   <p class="indent3">
    Adds ability description only if the PC is level
 3 or higher.
   </p>
   <p class="indent2">
-   <code>
-    BENEFIT:Assembly ~ 1
+   <code>BENEFIT:Assembly ~ 1
 table|PREVAREQ:AssemblyTables,1
     <br/>
     BENEFIT:Assembly ~ %1
-tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2
-   </code>
+tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code>
   </p>
   <p class="indent3">
    Adds an ability description which is dependent
 upon the value of the variable AssemblyTables.
   </p>
   <p class="indent2">
-   <code>
-    BENEFIT:You get a +2 bonus on all %1
-saving throws|%CHOICE
-   </code>
+   <code>BENEFIT:You get a +2 bonus on all %1
+saving throws|%CHOICE</code>
   </p>
   <p class="indent3">
    Adds ability description and replaces %1 with
 the first choice made.
   </p>
   <p class="indent2">
-   <code>
-    BENEFIT:You get a +3 bonus on all checks
-involving %1|%LIST.
-   </code>
+   <code>BENEFIT:You get a +3 bonus on all checks
+involving %1|%LIST.</code>
   </p>
   <p class="indent3">
    Adds ability description, replacing %LIST with
 all choices made.
   </p>
   <p class="indent2">
-   <code>
-    BENEFIT:%3 Sneak Attacks per day for
+   <code>BENEFIT:%3 Sneak Attacks per day for
 +%1d%2
-damage|SneakAttack|SneakAttackDie|SneakAttackTimes
-   </code>
+damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code>
   </p>
   <p class="indent3">
    Adds ability description, substituting the
 variables from the positions specified.
   </p>
   <p class="indent2">
-   <code>
-    Advanced Combat Martial Arts.MOD
+   <code>Advanced Combat Martial Arts.MOD
 &lt;tab&gt; BENEFIT:.CLEAR &lt;tab&gt; BENEFIT:When the character
 scores a critical hit on an opponent with an unarmed strike, the
-character deals triple damage
-   </code>
+character deals triple damage</code>
   </p>
   <p class="indent3">
    Changes the ability description, substituting
@@ -830,27 +706,21 @@ Separately):
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:Initial benefit
-text.
-   </code>
+text.</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:New benefit
-text.
-   </code>
+text.</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt; BENEFIT:Initial benefit
-text. &lt;tab&gt; BENEFIT:New benefit text.
-   </code>
+text. &lt;tab&gt; BENEFIT:New benefit text.</code>
   </p>
   <p class="indent3">
    The output will show the following:
@@ -897,18 +767,14 @@ only be unique within its category.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY:SpecialAttack
-   </code>
+   <code>CATEGORY:SpecialAttack</code>
   </p>
   <p class="indent3">
    This ability is part of the "SpecialAttack"
 ability category.
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY:Feat
-   </code>
+   <code>CATEGORY:Feat</code>
   </p>
   <p class="indent3">
    This ability is part of the "Feat" ability
@@ -916,10 +782,8 @@ category, which is a special case of abilities that can be selected
 as feats.
   </p>
   <p class="indent2">
-   <code>
-    CATEGORY=Talent|Uncanny Dodge II.MOD
-&lt;tab&gt; PRE:.CLEAR
-   </code>
+   <code>CATEGORY=Talent|Uncanny Dodge II.MOD
+&lt;tab&gt; PRE:.CLEAR</code>
   </p>
   <p class="indent3">
    This ability is part of the "Talent" ability
@@ -962,18 +826,12 @@ ability point.
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     COST
-    </code>
+    <code>COST</code>
     tag,
 the data included in a new
-    <code>
-     COST
-    </code>
+    <code>COST</code>
     tag will overwrite the
 existing tag data.
    </li>
@@ -984,17 +842,13 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    COST:1
-   </code>
+   <code>COST:1</code>
   </p>
   <p class="indent3">
    Ability costs one ability point.
   </p>
   <p class="indent2">
-   <code>
-    COST:.5
-   </code>
+   <code>COST:.5</code>
   </p>
   <p class="indent3">
    Ability costs half a ability point.
@@ -1005,9 +859,7 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    1
-   </code>
+   <code>1</code>
   </p>
   <p class="indent1">
    <strong>
@@ -1016,24 +868,18 @@ existing tag data.
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:2
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:2</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; COST:1</code>
   </p>
   <p class="indent3">
    Ability costs one ability point.
@@ -1072,9 +918,7 @@ the value is set to 'YES', then you
     </strong>
     also use
 a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </li>
    <li>
@@ -1083,18 +927,12 @@ a
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     MULT
-    </code>
+    <code>MULT</code>
     tag,
 the data included in a new
-    <code>
-     MULT
-    </code>
+    <code>MULT</code>
     tag will overwrite the
 existing tag data.
    </li>
@@ -1105,9 +943,7 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    MULT:YES
-   </code>
+   <code>MULT:YES</code>
   </p>
   <p class="indent3">
    This Ability can be taken multiple times.
@@ -1118,9 +954,7 @@ existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NO
-   </code>
+   <code>NO</code>
   </p>
   <p class="indent1">
    <strong>
@@ -1129,24 +963,18 @@ existing tag data.
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:YES
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:YES</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; MULT:NO</code>
   </p>
   <p class="indent3">
    Modified ability cannot be taken multiple
@@ -1188,17 +1016,11 @@ another.
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     STACK
-    </code>
+    <code>STACK</code>
     tag, the data included in a new
-    <code>
-     STACK
-    </code>
+    <code>STACK</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -1209,9 +1031,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    STACK:YES
-   </code>
+   <code>STACK:YES</code>
   </p>
   <p class="indent3">
    The benefits for this ability stack with itself
@@ -1223,9 +1043,7 @@ if taken multiple times.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    NO
-   </code>
+   <code>NO</code>
   </p>
   <p class="indent1">
    <strong>
@@ -1234,24 +1052,18 @@ if taken multiple times.
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:YES
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:YES</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; STACK:NO</code>
   </p>
   <p class="indent3">
    The benefits for the modified ability will not
@@ -1289,13 +1101,9 @@ by the ability.
    </li>
    <li>
     Supports
-    <code>
-     %LIST
-    </code>
+    <code>%LIST</code>
     in conjunction with a
-    <code>
-     CHOOSE
-    </code>
+    <code>CHOOSE</code>
     tag.
    </li>
   </ul>
@@ -1305,9 +1113,7 @@ by the ability.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:Incorporeal|Undead|Celestial
-   </code>
+   <code>TEMPLATE:Incorporeal|Undead|Celestial</code>
   </p>
   <p class="indent3">
    The ability applies the "Incorporeal", "Undead"
@@ -1338,28 +1144,18 @@ and "Celestial" templates.
    <li>
     This is a pipe-delimited list of template choices that are
 added to the list presented by the original
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag.
    </li>
    <li>
     When using the
-    <code>
-     TEMPLATE:ADDCOICE
-    </code>
+    <code>TEMPLATE:ADDCOICE</code>
     tag as part of a
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     of a Race object that containes multiple
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tags, all instances of the
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag will be modified.
    </li>
   </ul>
@@ -1369,9 +1165,7 @@ added to the list presented by the original
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:ADDCHOICE:Demihuman|Beast
-   </code>
+   <code>TEMPLATE:ADDCHOICE:Demihuman|Beast</code>
   </p>
   <p class="indent3">
    The ability can choose previously defined
@@ -1406,18 +1200,14 @@ list.
    </li>
    <li>
     Multiple
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tags can be used in the
 same LST object but PCGen's current Data Standard is to include no
 more that one in each LST object.
    </li>
    <li>
     Though the
-    <code>
-     TEMPLATE:CHOOSE
-    </code>
+    <code>TEMPLATE:CHOOSE</code>
     tag is not a gobal tag
 it can be used in the
     <a href="datafilesclasses.html#templatechoose">
@@ -1440,9 +1230,7 @@ it can be used in the
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    TEMPLATE:CHOOSE:Celestial|Outsider
-   </code>
+   <code>TEMPLATE:CHOOSE:Celestial|Outsider</code>
   </p>
   <p class="indent3">
    The ability allows the selection of either the
@@ -1493,30 +1281,22 @@ it can be used in the
   </p>
   <ul class="indent2">
    <li>
-    <code>
-     YES
-    </code>
+    <code>YES</code>
     - Shows the ability name in PCGen and on
 export to a character sheet.
    </li>
    <li>
-    <code>
-     NO
-    </code>
+    <code>NO</code>
     - Hides the ability name in PCGen and on export
 to a character sheet.
    </li>
    <li>
-    <code>
-     DISPLAY
-    </code>
+    <code>DISPLAY</code>
     - Displays the ability name in PCGen but
 not on the character sheet.
    </li>
    <li>
-    <code>
-     EXPORT
-    </code>
+    <code>EXPORT</code>
     - Hides the ability name from PCGen but
 displays it on the character sheet.
    </li>
@@ -1526,17 +1306,11 @@ displays it on the character sheet.
     </strong>
     When modifying an ability with
 the
-    <code>
-     .MOD
-    </code>
+    <code>.MOD</code>
     tag, given an existing
-    <code>
-     VISIBLE
-    </code>
+    <code>VISIBLE</code>
     tag, the data included in a new
-    <code>
-     VISIBLE
-    </code>
+    <code>VISIBLE</code>
     tag will
 overwrite the existing tag data.
    </li>
@@ -1547,9 +1321,7 @@ overwrite the existing tag data.
    </strong>
   </p>
   <p class="indent2">
-   <code>
-    VISIBLE:YES
-   </code>
+   <code>VISIBLE:YES</code>
   </p>
   <p class="indent3">
    Shows the ability name in PCGen and on the
@@ -1562,26 +1334,20 @@ Output sheet.
   </p>
   <p class="indent2">
    Initial Ability:
-   <code>
-    CATEGORY=&lt;category
-name&gt;|&lt;ability name&gt; &lt;tab&gt; VISIBLEE:YES
-   </code>
+   <code>CATEGORY=&lt;category
+name&gt;|&lt;ability name&gt; &lt;tab&gt; VISIBLEE:YES</code>
   </p>
   <p class="indent2">
    Modified By:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt;
-VISIBLE:DISPLAY
-   </code>
+VISIBLE:DISPLAY</code>
   </p>
   <p class="indent2">
    Is Equivalent To:
-   <code>
-    CATEGORY=&lt;category
+   <code>CATEGORY=&lt;category
 name&gt;|&lt;ability name&gt; &lt;tab&gt;
-VISIBLE:DISPLAY
-   </code>
+VISIBLE:DISPLAY</code>
   </p>
   <p class="indent3">
    Modified ability will appear in the GUI but will

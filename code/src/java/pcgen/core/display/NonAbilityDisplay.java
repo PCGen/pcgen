@@ -31,7 +31,7 @@ public class NonAbilityDisplay
 	 * 
 	 * @param stat
 	 *            The PCStat to be checked to see if it is a non-ability as
-	 *            locked in the the given CDOMObject
+	 *            locked in the given CDOMObject
 	 * @param po
 	 *            The CDOMObject which is to be checked to see if the given
 	 *            PCStat is locked as a non-ability

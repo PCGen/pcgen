@@ -329,19 +329,6 @@ CLASS:Ranger	STARTSKILLPTS:6
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_BL_Stripped_Ranger|PRECLASS:1,Ranger=4	BONUS:VAR|Caster_Level_BL_Stripped_Ranger|Caster_Level_Ranger-CasterLevelBLRanger	BONUS:VAR|Caster_Level_Ranger|CL+Caster_Level_Bonus-3+CasterLevelBLRanger	DEFINE:CasterLevelBLRanger|0	BONUS:VAR|CasterLevelBL_x_Ranger|charbonusto("PCLEVEL","Ranger")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Ranger|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Ranger
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerWeaponProficiency,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency,TYPE.RangerLightArmorProficiency,TYPE.RangerShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWeaponProficiency,TYPE.RangerWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerLightArmorProficiency
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency
-1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerShieldProficiency
-###Block: Favored Enemies and Terrains
-1	BONUS:VAR|RangerFavoredEnemyLVL|CL
-1	BONUS:VAR|RangerFavoredTerrainLVL|CL
-1	BONUS:VAR|WildEmpathy|CL
-1	BONUS:VAR|TrackLVL|CL
-2	BONUS:VAR|CombatStyleLVL|CL
-4	BONUS:VAR|HuntersBondLVL|CL
-20	BONUS:VAR|MasterHunterLVL|CL
 ###Block: Progression Abilities
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|PREVAREQ:Ranger_CF_FavoredEnemy,0
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|PREVAREQ:Ranger_CF_FavoredTerrain,0

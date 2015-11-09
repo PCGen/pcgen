@@ -137,7 +137,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	private void addDefaultNotes()
 	{
 		notes.addElement(createDefaultNote(NOTE_NAME_BIO, charDisplay.getBio()));
-		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, charDisplay.getDescription()));
+		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));
 		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION,
 			charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
 		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS,

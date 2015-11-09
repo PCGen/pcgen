@@ -24,7 +24,6 @@ package pcgen.gui2.tabs;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Collections;
@@ -46,10 +45,10 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.TempBonusFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
@@ -61,6 +60,7 @@ import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.SortMode;
 import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.treeview.DataView;
@@ -224,11 +224,11 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 			if (value instanceof InfoFacade && ((InfoFacade) value).isNamePI())
 			{
-				setFont(getFont().deriveFont(Font.BOLD + Font.ITALIC));
+				setFont(FontManipulation.bold_italic(getFont()));
 			}
 			else
 			{
-				setFont(getFont().deriveFont(Font.PLAIN));
+				setFont(FontManipulation.plain(getFont()));
 			}
 			return this;
 		}

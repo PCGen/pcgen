@@ -862,7 +862,7 @@ BIO
 			<common>
 				<name>
 					<short>Crossbow, Light</short>
-					<long>Crossbow (Light)</long>
+					<long>Crossbow, Light</long>
 				</name>
 				<category>Simple-Ranged</category>
 				<critical>
@@ -917,7 +917,7 @@ BIO
 			<common>
 				<name>
 					<short>*Shield, Light Steel</short>
-					<long>*Shield (Light/Steel)</long>
+					<long>*Shield, Light Steel</long>
 				</name>
 				<category>Non-Standard-Melee</category>
 				<critical>
@@ -1200,7 +1200,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Bolts (Crossbow/10)</longname>
+			<longname>Bolts, Crossbow (10)</longname>
 			<id></id>
 			<name>Bolts, Crossbow (10)</name>
 			<carried>1.0</carried>
@@ -1226,7 +1226,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Bolts (Crossbow/10)</longname>
+			<longname>Bolts, Crossbow (10)</longname>
 			<id></id>
 			<name>Bolts, Crossbow (10)</name>
 			<carried>0.0</carried>
@@ -1356,7 +1356,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Crossbow (Light)</longname>
+			<longname>Crossbow, Light</longname>
 			<id></id>
 			<name>Crossbow, Light</name>
 			<carried>1.0</carried>
@@ -1512,7 +1512,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Shield (Light/Steel)</longname>
+			<longname>Shield, Light Steel</longname>
 			<id></id>
 			<name>Shield, Light Steel</name>
 			<carried>1.0</carried>
@@ -2428,6 +2428,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Glory</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Race Traits ~ Human</name>
 			<description></description>
 			<type></type>
@@ -2464,6 +2475,17 @@ BIO
 			<name>Sun</name>
 			<description></description>
 			<type>INTERNAL.DOMAINABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Sun</name>
+			<description></description>
+			<type></type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

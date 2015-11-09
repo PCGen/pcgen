@@ -19,7 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -190,7 +190,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		}
 
 		Collection<? extends T> set = choices.getSet(pc);
-		Set<T> allowed = new HashSet<T>();
+		Set<T> allowed = new LinkedHashSet<T>();
 		List<Object> assocList = pc.getAssocList(this, AssociationListKey.ADD);
 		for (T item : set)
 		{

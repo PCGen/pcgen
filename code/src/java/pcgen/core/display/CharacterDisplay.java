@@ -30,7 +30,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.geom.OrderedPair;
+import pcgen.base.math.OrderedPair;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -294,17 +294,6 @@ public class CharacterDisplay
 	}
 
 	/**
-	 * Get the birthday.
-	 * 
-	 * @return birthday
-	 */
-	@Deprecated
-	public String getBirthday()
-	{
-		return getSafeStringFor(PCStringKey.BIRTHDAY);
-	}
-
-	/**
 	 * Get the catchphrase.
 	 * 
 	 * @return catchphrase
@@ -312,49 +301,6 @@ public class CharacterDisplay
 	public String getCatchPhrase()
 	{
 		return getSafeStringFor(PCStringKey.CATCHPHRASE);
-	}
-
-	/**
-	 * Get the description.
-	 * 
-	 * @return description
-	 */
-	public String getDescription()
-	{
-		return getSafeStringFor(PCStringKey.DESCRIPTION);
-	}
-
-	/**
-	 * Get the characters eye colour.
-	 * 
-	 * @return the colour of their eyes
-	 */
-	@Deprecated
-	public String getEyeColor()
-	{
-		return getSafeStringFor(PCStringKey.EYECOLOR);
-	}
-
-	/**
-	 * Gets the character's hair color.
-	 * 
-	 * @return A hair color string.
-	 */
-	@Deprecated
-	public String getHairColor()
-	{
-		return getSafeStringFor(PCStringKey.HAIRCOLOR);
-	}
-
-	/**
-	 * Gets the character's hair style.
-	 * 
-	 * @return The character's hair style.
-	 */
-	@Deprecated
-	public String getHairStyle()
-	{
-		return getSafeStringFor(PCStringKey.HAIRSTYLE);
 	}
 
 	/**
@@ -385,27 +331,6 @@ public class CharacterDisplay
 	public String getLocation()
 	{
 		return getSafeStringFor(PCStringKey.LOCATION);
-	}
-
-	/**
-	 * Gets the phobia string for the character.
-	 * 
-	 * @return A phobia string.
-	 */
-	public String getPhobias()
-	{
-		return getSafeStringFor(PCStringKey.PHOBIAS);
-	}
-
-	/**
-	 * Get skin colour.
-	 * 
-	 * @return skin colour
-	 */
-	@Deprecated
-	public String getSkinColor()
-	{
-		return getSafeStringFor(PCStringKey.SKINCOLOR);
 	}
 
 	/**
@@ -643,12 +568,6 @@ public class CharacterDisplay
 	public int getAge()
 	{
 		return ageFacet.getAge(id);
-	}
-
-	@Deprecated
-	public String getBirthplace()
-	{
-		return getSafeStringFor(PCStringKey.BIRTHPLACE);
 	}
 
 	public int getBaseMovement(String moveType, Load load)

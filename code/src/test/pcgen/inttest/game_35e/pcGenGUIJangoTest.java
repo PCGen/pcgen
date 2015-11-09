@@ -1,15 +1,26 @@
+/*
+ * pcGenGUIJangoTest.java
+ */
 package pcgen.inttest.game_35e;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.inttest.pcGenGUITestCase;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * See PCG file for details. 
  */
 @SuppressWarnings("nls")
-public class pcGenGUIJangoTest extends pcGenGUITestCase
+public class pcGenGUIJangoTest extends PcgenFtlTestCase
 {
+
+	/**
+	 *
+	 */
+	public pcGenGUIJangoTest()
+	{
+		super("35e_jango");
+	}
 
 	/**
 	 * standard JUnit style constructor

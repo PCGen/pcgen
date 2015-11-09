@@ -58,7 +58,7 @@ import pcgen.util.Logging;
  * <p>
  * BatchExporter is intended to be used for both batch export of characters 
  * and as a library for other code to easily provide output capability. When
- * used in batch mode an instance should be created for the the template and 
+ * used in batch mode an instance should be created for the template and 
  * one of the export methods called. When used as a library the static methods
  * should be used and supplied with preloaded characters.  
  *

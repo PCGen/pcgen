@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 
 import org.junit.Test;
 
+import pcgen.base.format.StringManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.cdom.list.ClassSkillList;
@@ -31,7 +32,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
-import plugin.format.StringManager;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -47,7 +47,6 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	{
 		TokenRegistration.clearTokens();
 		super.setUp();
-		TokenRegistration.register(new StringManager());
 		FactSetDefinition fd = new FactSetDefinition();
 		fd.setName("DEITY.Possibility");
 		fd.setFactSetName("Possibility");

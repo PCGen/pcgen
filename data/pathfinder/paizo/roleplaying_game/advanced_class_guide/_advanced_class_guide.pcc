@@ -19,7 +19,7 @@ SOURCEWEB:http://paizo.com/products/btpy92zi
 SOURCEDATE:2014-08
 ISOGL:YES
 
-COVER:advanced_class_guide_playtest.jpg
+#COVER:advanced_class_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -58,6 +58,9 @@ SKILL:acg_skills.lst
 SPELL:acg_spells.lst
 TEMPLATE:acg_templates.lst
 COMPANIONMOD:acg_companionmods.lst
+
+
+ABILITY:support/acg_abilities_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 
 #Spells from ARG
 

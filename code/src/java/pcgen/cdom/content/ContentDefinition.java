@@ -17,13 +17,11 @@
  */
 package pcgen.cdom.content;
 
-import java.net.URI;
-
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.types.FormatManager;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
@@ -38,25 +36,15 @@ import pcgen.util.enumeration.Visibility;
  *            The type of object used as content in the items managed by this
  *            ContentDefinition
  */
-public abstract class ContentDefinition<T extends CDOMObject, F> implements
-		Loadable
+public abstract class ContentDefinition<T extends CDOMObject, F> extends
+		UserContent implements Loadable
 {
-
-	/**
-	 * The unique name of this ContentDefinition.
-	 */
-	private String name;
 
 	/**
 	 * The display name of this ContentDefinition, which matches the keyword
 	 * used in an LST file
 	 */
 	private String displayName;
-
-	/**
-	 * The source URI where this ContentDefinition was originally defined
-	 */
-	private URI sourceURI;
 
 	/**
 	 * The usable location for this ContentDefinition
@@ -93,33 +81,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	private Boolean required;
 
 	/**
-	 * A String representing an explanation for
-	 */
-	private String explanation;
-
-	/**
-	 * @see pcgen.cdom.base.Loadable#setName(java.lang.String)
-	 */
-	@Override
-	public void setName(String name)
-	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
-		this.name = name;
-	}
-
-	/**
-	 * @see pcgen.cdom.base.Identified#getKeyName()
-	 */
-	@Override
-	public String getKeyName()
-	{
-		return name;
-	}
-
-	/**
 	 * Sets the Display name for this ContentDefinition
 	 * 
 	 * @param name
@@ -143,24 +104,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	public String getDisplayName()
 	{
 		return displayName;
-	}
-
-	/**
-	 * @see pcgen.cdom.base.Loadable#setSourceURI(java.net.URI)
-	 */
-	@Override
-	public void setSourceURI(URI source)
-	{
-		sourceURI = source;
-	}
-
-	/**
-	 * @see pcgen.cdom.base.Loadable#getSourceURI()
-	 */
-	@Override
-	public URI getSourceURI()
-	{
-		return sourceURI;
 	}
 
 	/**
@@ -320,32 +263,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	}
 
 	/**
-	 * Sets the Explanation for this ContentDefinition. This is intended to be a
-	 * user understood String; it is not processed by PCGen.
-	 * 
-	 * @param value
-	 *            The Explanation for this ContentDefinition
-	 */
-	public void setExplanation(String value)
-	{
-		if (value == null)
-		{
-			throw new IllegalArgumentException("Explanation may not be null");
-		}
-		explanation = value;
-	}
-
-	/**
-	 * Returns the non-null Explanation for this ContentDefinition.
-	 * 
-	 * @return The non-null Explanation for this ContentDefinition
-	 */
-	public String getExplanation()
-	{
-		return explanation;
-	}
-
-	/**
 	 * @see pcgen.cdom.base.Loadable#getLSTformat()
 	 */
 	@Override
@@ -360,27 +277,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 		{
 			loc = StringPClassUtil.getStringFor(usableLocation);
 		}
-		return loc + Constants.PIPE + name;
-	}
-
-	/**
-	 * @see pcgen.cdom.base.Loadable#isInternal()
-	 */
-	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public boolean isInternal()
-	{
-		return false;
-	}
-
-	/**
-	 * @see pcgen.cdom.base.Loadable#isType(java.lang.String)
-	 */
-	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public boolean isType(String type)
-	{
-		return false;
+		return loc + Constants.PIPE + getKeyName();
 	}
 
 	/**

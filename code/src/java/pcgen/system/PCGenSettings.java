@@ -24,13 +24,15 @@ import java.io.File;
 
 import org.apache.commons.lang.SystemUtils;
 
+import pcgen.output.publish.OutputDB;
+
 /**
  * This stores some of the properties that pcgen uses.
  * This class is mainly intended to be used to store non-ui related
  * properties
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class PCGenSettings extends PropertyContext
+public final class PCGenSettings extends PropertyContext
 {
 
 	private static final PCGenSettings instance = new PCGenSettings();
@@ -104,6 +106,8 @@ public class PCGenSettings extends PropertyContext
 		setProperty(VENDOR_DATA_DIR, "@vendordata");
 		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
 		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
+		OutputDB.registerBooleanPreference(
+			OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false);
 	}
 
 	@Override

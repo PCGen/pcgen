@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflin
 SOURCEDATE:2010-12
 ISOGL:YES
 
-COVER:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.jpg
+#COVER:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

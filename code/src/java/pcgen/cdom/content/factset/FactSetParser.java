@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -31,7 +32,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.rules.types.FormatManager;
 
 /**
  * A FactSetParser is a dynamically built subtoken created when a FACTSET: is
@@ -99,7 +99,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 				context.getObjectContext().removeSet(obj, fk);
 			}
 
-			ObjectContainer<F> indirect = tm.convertObjectContainer(context, token);
+			ObjectContainer<F> indirect = tm.convertObjectContainer(token);
 			context.getObjectContext().addToSet(obj, fk, indirect);
 		}
 		return ParseResult.SUCCESS;

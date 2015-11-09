@@ -284,7 +284,7 @@ New in 5.10.1
 
 <h3 id="BONUSITEMWEIGHT">BONUS:ITEMWEIGHT</h3>
 
-Modifies the weight of of items based on the item's size category, i.e. the size of the creature the item was made for.
+Modifies the weight of items based on the item's size category, i.e. the size of the creature the item was made for.
 
 For example, in 3.5e, armour for small-size creatures [weighs half as much](http://www.d20srd.org/srd/equipment/armor.htm#armorForUnusualCreatures) as armour for medium-sized creatures.
 

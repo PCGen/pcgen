@@ -258,28 +258,15 @@ public class DataTest
 	{
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<CampaignSourceEntry>();
+		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
+		{
+			cseList.addAll(campaign.getSafeListFor(lk));
+		}
+		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OTHER_FILE_LISTKEY)
+		{
+			cseList.addAll(campaign.getSafeListFor(lk));
+		}
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_CLASS));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_SKILL));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_FEAT));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DEITY));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DOMAIN));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_SPELL));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LANGUAGE));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_TEMPLATE));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
-		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 		return cseList;
 	}
 	

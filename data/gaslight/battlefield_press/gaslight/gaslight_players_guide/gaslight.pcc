@@ -27,6 +27,11 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+### Gamemode:
+SAVE:gaslight__saves.lst
+STAT:gaslight__stats.lst
+DATACONTROL:gaslight__datacontrol.lst
+
 ### Files
 ABILITY:gaslight_abilities_class.lst
 ABILITY:gaslight_abilities_occupations.lst

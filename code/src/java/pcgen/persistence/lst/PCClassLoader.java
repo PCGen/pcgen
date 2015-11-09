@@ -47,12 +47,6 @@ import pcgen.util.Logging;
  */
 public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
-	/** Creates a new instance of PCClassLoader */
-	public PCClassLoader()
-	{
-		super();
-	}
-
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.cdom.base.CDOMObject, String, SourceEntry)
 	 */

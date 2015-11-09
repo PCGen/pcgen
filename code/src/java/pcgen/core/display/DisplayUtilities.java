@@ -15,13 +15,13 @@ public final class DisplayUtilities
 	/**
 	 * Concatenates the Display Name of given Collection of CDOMObjects into a String
 	 * using the separator as the delimiter.
-	 * 
+	 *
 	 * The items will be joined in the order determined by the ordering of the
 	 * given Collection.
-	 * 
+	 *
 	 * This method is value-semantic. DisplayUtilities will not maintain a
 	 * reference to or modify the given Collection.
-	 * 
+	 *
 	 * @param cdoCollection
 	 *            An Collection of CDOMObjects
 	 * @param separator

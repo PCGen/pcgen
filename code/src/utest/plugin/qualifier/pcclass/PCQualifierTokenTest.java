@@ -64,7 +64,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, PCClass item)
 	{
-		pc.classSet.add(item);
+		pc.classMap.put(item, 2);
 	}
 
 	@Override

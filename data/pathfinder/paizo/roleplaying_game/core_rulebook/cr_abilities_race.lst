@@ -21,16 +21,16 @@ Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	TYPE:HumanRaci
 ###Block: Racial Traits
 #
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining],[!PREFACT:1,ABILITIES,DwarfDefensiveTraining=True]
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHardy
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning],[!PREFACT:1,ABILITIES,DwarfStonecunning=True]
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity],[!PREFACT:1,ABILITIES,DwarfWeaponFamiliarity=True]
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfLanguage
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREVAREQ:Dwarf_Trait_DefensiveTraining,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|PREVAREQ:Dwarf_Trait_Greed,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|PREVAREQ:Dwarf_Trait_Hatred,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|PREVAREQ:Dwarf_Trait_Hardy,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:Dwarf_Trait_Stability,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_Trait_Stonecunning,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|PREVAREQ:Dwarf_Trait_Steady,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_Trait_WeaponFamiliarity,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_Darkvision,0
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|PREVAREQ:Dwarf_Trait_Language,0
 #
 CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
 CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
