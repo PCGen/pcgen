@@ -354,3 +354,6 @@ Temp Bonus ~ Reduce Person	CATEGORY:Internal		BONUS:COMBAT|TOHIT.GRAPPLE|-5|TYPE
 +1 Bonus Feat	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 feat.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE		BONUS:ABILITYPOOL|FEAT|1									COST:0
 +1 Skill Rank	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 skill rank (won't exceed max ranks).	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base										BONUS:SKILLRANK|%LIST|1	COST:0
 +1 Skill Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 skill bonus.					STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base						BONUS:SKILL|%LIST|1					COST:0
+
+###Block: House Rules / Homebrew Support
+Rule - Bypass the Trait Restrictions	CATEGORY:Internal	TYPE:OptionalRules	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	DEFINE:BypassTraitRestriction|0	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule
