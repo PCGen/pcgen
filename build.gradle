@@ -61,7 +61,7 @@ applicationDistribution.from(artifacts) {
 }
 
 repositories {
-        
+    mavenCentral()
 	ivy {
 	    url "http://pcgen.sourceforge.net/mvnrepo"
 	    layout "pattern", {
@@ -72,7 +72,6 @@ repositories {
         name "fileRepo"
         url 'http://librepo.pcgen.org'
     }
-    mavenCentral()
 }
 
 sourceSets {
