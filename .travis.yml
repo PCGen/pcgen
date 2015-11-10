@@ -3,7 +3,7 @@
 language: java
 jdk:
   - oraclejdk7
-script: ./gradlew clean build test datatest pfinttest
+script: ./gradlew -i clean build test datatest pfinttest
 
 before_install:
  - chmod +x gradlew
