@@ -1279,17 +1279,16 @@ CATEGORY=Special Ability|Slayer ~ Studied Target.MOD	DESC:A slayer can study an 
 
 ###Block: Slayer Talent Archetype Support
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,1|PREVAREQ:Slayer_CF_SlayerTalent2,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,2|PREVAREQ:Slayer_CF_SlayerTalent4,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,3|PREVAREQ:Slayer_CF_SlayerTalent6,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,4|PREVAREQ:Slayer_CF_SlayerTalent8,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,5|PREVAREQ:Slayer_CF_SlayerTalent10,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,6|PREVAREQ:Slayer_CF_SlayerTalent12,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,7|PREVAREQ:Slayer_CF_SlayerTalent14,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,8|PREVAREQ:Slayer_CF_SlayerTalent16,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,9|PREVAREQ:Slayer_CF_SlayerTalent18,1
-CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,10|PREVAREQ:Slayer_CF_SlayerTalent20,1
-
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,2|PREVAREQ:Slayer_CF_Talent2,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,4|PREVAREQ:Slayer_CF_Talent4,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,6|PREVAREQ:Slayer_CF_Talent6,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,8|PREVAREQ:Slayer_CF_Talent8,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,10|PREVAREQ:Slayer_CF_Talent10,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,12|PREVAREQ:Slayer_CF_Talent12,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,14|PREVAREQ:Slayer_CF_Talent14,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,16|PREVAREQ:Slayer_CF_Talent16,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,18|PREVAREQ:Slayer_CF_Talent18,1
+CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD	BONUS:ABILITYPOOL|Slayer Talent|-1|PREVARGTEQ:SlayerTalentLVL,20|PREVAREQ:Slayer_CF_Talent20,1
 # ------------------------------
 # Slayer Talents
 # ------------------------------
