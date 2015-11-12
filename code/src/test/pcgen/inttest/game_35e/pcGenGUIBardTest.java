@@ -48,6 +48,6 @@ public class pcGenGUIBardTest extends PcgenFtlTestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("35eBard", "35e");
+		runTest("35e_Bard", "35e");
 	}
 }

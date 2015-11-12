@@ -48,6 +48,6 @@ public class pcGenGUIQuasvinTest extends PcgenFtlTestCase
 	 */
 	public void testQuasvin() throws Exception
 	{
-		runTest("Quasvin", "35e");
+		runTest("35e_Quasvin", "35e");
 	}
 }
