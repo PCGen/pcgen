@@ -70,6 +70,6 @@ public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("PFRPGRogue", "Pathfinder_RPG");
+		runTest("pf_Rogue", "Pathfinder_RPG");
 	}
 }
