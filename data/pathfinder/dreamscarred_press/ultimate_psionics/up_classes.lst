@@ -876,7 +876,7 @@ CLASS:Elocater	STARTSKILLPTS:6	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Knowled
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus										Save bonus																						Modify VAR
 CLASS:Metaforge	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.359	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Required Ability												Required Skill
-CLASS:Metaforge	PREABILITY:2,CATEGORY=Special Ability,Enhanced Mind Blade,Aegis ~ Invigorating Suit	PRESKILL:1,TYPE.Craft=3,TYPE.Craft=3
+CLASS:Metaforge	PREABILITY:2,CATEGORY=Special Ability,Soulknife ~ Enhanced Mind Blade,Aegis ~ Invigorating Suit	PRESKILL:1,TYPE.Craft=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metaforge	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Fly|Intimidate|Knowledge (Psionics)
 
