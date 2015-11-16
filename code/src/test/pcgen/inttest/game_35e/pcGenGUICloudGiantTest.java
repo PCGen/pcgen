@@ -47,7 +47,7 @@ public class pcGenGUICloudGiantTest extends PcgenFtlTestCase
 	 */
 	public void testCloudGiantHalfDragon() throws Exception
 	{
-		runTest("CloudGiantHalfDragon", "35e");
+		runTest("35e_CloudGiantHalfDragon", "35e");
 	}
 
 }
