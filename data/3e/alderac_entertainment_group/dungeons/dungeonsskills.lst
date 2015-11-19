@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Skill Name				Key Stat	Untrained?		Skill Penalty?	Classes						Type					Source Page
+Contortionist				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		CLASSES:Bard|Rogue				TYPE:Dexterity			SOURCEPAGE:p.78
+Intuit Depth				KEYSTAT:WIS	USEUNTRAINED:NO				CLASSES:Druid					TYPE:Wisdom				SOURCEPAGE:p.78
+Intuit Distance				KEYSTAT:WIS	USEUNTRAINED:NO				CLASSES:Barbarian|Druid|Ranger		TYPE:Wisdom				SOURCEPAGE:p.78
+Intuit Language				KEYSTAT:WIS	USEUNTRAINED:NO				CLASSES:Bard|Cleric|Druid			TYPE:Wisdom				SOURCEPAGE:p.78
+#Craft (Metalworking)			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence.Craft		SOURCEPAGE:p.
+#Duplicate in SRD
+Knowledge (Ancient History)		KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence.Knowledge	SOURCEPAGE:p.
+Knowledge (Dungeon Lore)		KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence.Knowledge	SOURCEPAGE:p.79
+Knowledge (Monster Lore)		KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence.Knowledge	SOURCEPAGE:p.79
+Knowledge (Riddles)			KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence.Knowledge	SOURCEPAGE:p.79
+Knowledge (Subterranean Cultures)	KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence.Knowledge	SOURCEPAGE:p.80
+Mimic						KEYSTAT:CHA	USEUNTRAINED:NO				CLASSES:Bard|Druid				TYPE:Charisma			SOURCEPAGE:p.80
+Sapper					KEYSTAT:STR							CLASSES:Barbarian|Fighter|Paladin|Ranger	TYPE:Strength			SOURCEPAGE:p.80
+Trap Design					KEYSTAT:INT	USEUNTRAINED:NO				CLASSES:Rogue					TYPE:Intelligence			SOURCEPAGE:p.80

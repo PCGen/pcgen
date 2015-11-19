@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Equipment Name	Output Name				Type			Cost		Weight	Source Page
+Staff (Deep)	OUTPUTNAME:Staff of the Deep	TYPE:Magic.Staff	COST:90000	WT:0		SOURCEPAGE:p.84
+Staff (Fleet)	OUTPUTNAME:Staff of the Fleet	TYPE:Magic.Staff	COST:104800	WT:0		SOURCEPAGE:p.84

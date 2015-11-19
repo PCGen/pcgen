@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+# Equipment Name			Output Name				Required Weapon Proficiency	Type													Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Reach Multiplier	Size		Source Page
+Lance (Heavy)			OUTPUTNAME:Lance, Heavy		PROFICIENCY:WEAPON|Lance	TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Wooden.Piercing.Lance	COST:20	WT:17		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:63
+Lance (Jousting)			OUTPUTNAME:Lance, Jousting	PROFICIENCY:WEAPON|Lance	TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Wooden.Piercing.Lance	COST:20	WT:15		CRITMULT:x1	CRITRANGE:1	DAMAGE:1d8	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:63
+
+Spellbook (Wizard's/Blank)

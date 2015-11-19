@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+# Equipment Name		Required Weapon Proficiency	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page		Special Property
+Sprite Dagger		PROFICIENCY:WEAPON|Dagger	TYPE:Magic.Weapon.Simple.Melee.Slashing.Specific	COST:9302	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	SIZE:T	SOURCEPAGE:p.48
+Stone of Confusion						TYPE:Magic.Ammunition.Standard.SlingStone			COST:1400	WT:0.5									SOURCEPAGE:p.48	SPROP:Confusion (DC 18)

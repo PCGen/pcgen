@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com	SOURCEDATE:2002-01
+# Original Entry by: Mynex
+
+# Equipment Name		Type				Cost		Weight	Base Quantity	Source Page
+Blowgun Needle		TYPE:Ammunition.Needle	COST:0.1	WT:0					SOURCEPAGE:p.14
+Blowgun Needles (10)	TYPE:Ammunition.Needle	COST:1	WT:0		BASEQTY:10		SOURCEPAGE:p.14

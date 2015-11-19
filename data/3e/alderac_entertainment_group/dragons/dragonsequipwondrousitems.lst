@@ -1,0 +1,25 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+#Wondrous Items
+# Equipment Name			Product Identity?	Type						Cost		Weight	Source Page
+Cloak of Dragon Fear		NAMEISPI:YES	TYPE:Magic.Wondrous.Cloak		COST:22000	WT:0		SOURCEPAGE:p.62
+Cloak of the Wyrm			NAMEISPI:YES	TYPE:Magic.Wondrous.Cloak		COST:28000	WT:0		SOURCEPAGE:p.62
+Cloak of Dragonshadow		NAMEISPI:YES	TYPE:Magic.Wondrous.Cloak		COST:25000	WT:0		SOURCEPAGE:p.
+Dark Lantern			NAMEISPI:YES	TYPE:Magic.Wondrous			COST:100	WT:5		SOURCEPAGE:p.63
+Dragon Bone Flute			NAMEISPI:YES	TYPE:Magic.Wondrous.Instrument	COST:12000	WT:3		SOURCEPAGE:p.63
+Dragon Bone Horn			NAMEISPI:YES	TYPE:Magic.Wondrous.Instrument	COST:6000	WT:3		SOURCEPAGE:p.63
+Dragon Tooth Choker		NAMEISPI:YES	TYPE:Magic.Wondrous			COST:15000	WT:1		SOURCEPAGE:p.64
+Lens of Memory			NAMEISPI:YES	TYPE:Magic.Wondrous.Eyegear		COST:2000	WT:20		SOURCEPAGE:p.65
+Links of Loyalty			NAMEISPI:YES	TYPE:Magic.Wondrous			COST:18000	WT:1		SOURCEPAGE:p.65
+Links of Trespass (1 foot)	NAMEISPI:YES	TYPE:Magic.Wondrous			COST:100	WT:0		SOURCEPAGE:p.65
+Manacles of Hunger		NAMEISPI:YES	TYPE:Magic.Wondrous			COST:26000	WT:20		SOURCEPAGE:p.65
+Mercurian Weapon			NAMEISPI:YES	TYPE:Magic.Wondrous			COST:30000	WT:0		SOURCEPAGE:p.65
+Orb of Seeing			NAMEISPI:YES	TYPE:Magic.Wondrous			COST:10000	WT:5		SOURCEPAGE:p.66
+Razorwire				NAMEISPI:YES	TYPE:Magic.Wondrous			COST:1000	WT:0		SOURCEPAGE:p.66
+Sphere of Caltrops		NAMEISPI:YES	TYPE:Magic.Wondrous			COST:600	WT:6		SOURCEPAGE:p.66
+Tent of Dragon Wings		NAMEISPI:YES	TYPE:Magic.Wondrous			COST:28000	WT:0		SOURCEPAGE:p.67
+Thunderbelcher			NAMEISPI:YES	TYPE:Magic.Wondrous			COST:12500	WT:30		SOURCEPAGE:p.67
+Tome of History			NAMEISPI:YES	TYPE:Magic.Wondrous.Book		COST:5000	WT:50		SOURCEPAGE:p.67
+Vessel of Purest Essence	NAMEISPI:YES	TYPE:Magic.Wondrous			COST:50000	WT:1		SOURCEPAGE:p.67
+Well of Forgetting		NAMEISPI:YES	TYPE:Magic.Wondrous			COST:50000	WT:9999999	SOURCEPAGE:p.68
