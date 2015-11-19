@@ -41,7 +41,7 @@ ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_race.lst
 ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities.lst
 
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilitycategories.lst
-CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes.lst|(INCLUDE:Barbarian|Ex Barbarian|Ex Druid|Ex Paladin|Fighter|Rogue|Arcane TricksterAnimal|Animal (Will)|Sorcerer/Cleric (Arcane))
+CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes.lst|(INCLUDE:Barbarian|Ex Barbarian|Ex Druid|Ex Paladin|Fighter|Rogue|Arcane Trickster|Animal|Animal (Will)|Sorcerer/Cleric (Arcane)|Construct|Elemental)
 COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_companionmods.lst
 ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equipmods.lst

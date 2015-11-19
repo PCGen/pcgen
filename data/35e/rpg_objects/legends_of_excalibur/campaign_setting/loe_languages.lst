@@ -19,3 +19,6 @@ Draconic	TYPE:Spoken.Written.Read.Wizard
 Infernal	TYPE:Spoken.Written.Read.Priest
 Sylvan	TYPE:Spoken.Written.Read.Druid
 Druidic	TYPE:Spoken.Written.Read.Druid.Secret
+
+Auran	TYPE:Spoken
+Ignan	TYPE:Spoken
