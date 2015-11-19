@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:35e
 TYPE:Paizo Publishing.GameMastery Module
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/

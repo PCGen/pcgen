@@ -7,7 +7,7 @@ BOOKTYPE:Supplement
 SETTING:Core
 STATUS:RELEASE
 TYPE:Necromancer Games.Supplement
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Necromancer Games
 PUBNAMESHORT:Necromancer
 PUBNAMEWEB:http://www.necromancergames.com/

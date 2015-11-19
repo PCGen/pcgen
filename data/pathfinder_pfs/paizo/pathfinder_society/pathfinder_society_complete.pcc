@@ -10,7 +10,7 @@ BOOKTYPE:MultiSet
 SETTING:Pathfinder|Golarion
 SHOWINMENU:YES
 # COMMENT: No books should be allowed if this set is used. Causes issues!
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Pathfinder Society]
+!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Pathfinder Society]
 #!PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
 # NOTE: To use an unconverted source, you can browse to the main Paizo Publishing source tree to select it. However, using an unconverted set may cause load errors.
 # Also, you must manually verify that the items are PFS Legal by consulting the Pathfinder Society Additional Resources Guide at Paizo.com.

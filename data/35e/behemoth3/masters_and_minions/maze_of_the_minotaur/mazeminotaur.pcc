@@ -7,7 +7,7 @@ BOOKTYPE:Supplement
 SETTING:Generic
 STATUS:RELEASE
 TYPE:Behemoth3.Masters and Minions
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Behemoth3
 PUBNAMESHORT:Behemoth3
 PUBNAMEWEB:http://www.behemoth3.com/

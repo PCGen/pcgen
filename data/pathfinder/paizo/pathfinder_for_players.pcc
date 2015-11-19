@@ -9,7 +9,7 @@ GENRE:Fantasy
 BOOKTYPE:MultiSet
 SETTING:Pathfinder
 SHOWINMENU:YES
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Pathfinder RPG for Players]
+!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Pathfinder RPG for Players]
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

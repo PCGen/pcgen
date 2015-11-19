@@ -7,7 +7,7 @@ BOOKTYPE:Supplement
 SETTING:Fantasy
 STATUS:RELEASE
 TYPE:Secular Games.Advanced Character Guide.Arcane Archer
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Secular Games
 PUBNAMESHORT:SG
 PUBNAMEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/index.html

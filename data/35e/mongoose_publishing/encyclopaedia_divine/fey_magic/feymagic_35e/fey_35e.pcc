@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
 TYPE:Mongoose.Encyclopaedia Divine
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Mongoose Publishing
 PUBNAMESHORT:Mongoose
 PUBNAMEWEB:http://mongoosepublishing.com

@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Fantasy
 TYPE:Big Finger Games.Fantasy Folio
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Big Finger Games
 PUBNAMESHORT:BFG
 PUBNAMEWEB:http://www.bigfingergames.com/

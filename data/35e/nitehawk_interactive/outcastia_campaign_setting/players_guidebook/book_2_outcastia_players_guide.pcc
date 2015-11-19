@@ -8,7 +8,7 @@ BOOKTYPE:Campaign
 SETTING:RSRD
 STATUS:BETA
 TYPE:Nitehawk Interactive Games.Campaign
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,[3.5 RSRD Basics]
 PUBNAMELONG:Nitehawk Interactive Games
 PUBNAMESHORT:NIG
 PUBNAMEWEB:http://www.nitehawk-games.biz/index.html

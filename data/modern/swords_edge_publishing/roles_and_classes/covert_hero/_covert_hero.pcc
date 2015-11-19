@@ -6,7 +6,7 @@ GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Modern
 TYPE:Swords Edge Publishing.Roles and Classes
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Swords Edge Publishing
 PUBNAMESHORT:SEP
 PUBNAMEWEB:http://www.swordsedgepublishing.ca
