@@ -26,6 +26,14 @@ INFOTEXT:The Campaign Setting
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# SUPPORT FILES:
+SAVE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__saves.lst
+#STAT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__stats.lst
+STAT:loe__stats.lst
+ALIGNMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__align.lst
+DATACONTROL:@/35e/wizards_of_the_coast/rsrd/basics/rsrd__datacontrols.lst
+
+
 # RSRD files that are included
 ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_class.lst|(EXCLUDE:CATEGORY=Special Ability,Monk ~ Flurry of Blows)
 ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_race.lst

@@ -7,7 +7,7 @@ BOOKTYPE:Campaign Setting
 SETTING:XCrawl
 STATUS:RELEASE
 TYPE:Pandahead Productions.XCrawl
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Pandahead Production
 PUBNAMESHORT:Pandahead
 PUBNAMEWEB:http://www.pandahead.com/

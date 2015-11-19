@@ -5,7 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 TYPE:Vigilance Press.Clash of Arms
 BOOKTYPE:Supplement
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Vigilance Press
 PUBNAMESHORT:VP
 PUBNAMEWEB:http://www.rpgnow.com/default.php?manufacturers_id=323

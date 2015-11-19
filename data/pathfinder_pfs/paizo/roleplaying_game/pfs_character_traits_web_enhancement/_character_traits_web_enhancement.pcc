@@ -6,7 +6,7 @@ GAMEMODE:Pathfinder_PFS
 GENRE:Fantasy
 BOOKTYPE:Supplement
 TYPE:Paizo Publishing.Web Enhancement
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/

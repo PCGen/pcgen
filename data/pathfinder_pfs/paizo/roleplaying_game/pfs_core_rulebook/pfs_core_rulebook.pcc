@@ -8,7 +8,7 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder
-!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
 PRECAMPAIGN:1,Guide To Pathfinder Society Organized Play
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo

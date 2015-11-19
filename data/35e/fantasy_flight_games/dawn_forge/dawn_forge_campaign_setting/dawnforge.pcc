@@ -8,7 +8,7 @@ BOOKTYPE:Campaign Setting
 SETTING:Dawnforge
 STATUS:RELEASE
 TYPE:Fantasy Flight Games.Dawnforge
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Fantasy Flight Games
 PUBNAMESHORT:FFG
 PUBNAMEWEB:http://www.fantasyflightgames.com

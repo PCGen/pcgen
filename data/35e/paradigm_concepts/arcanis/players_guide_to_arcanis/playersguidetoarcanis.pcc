@@ -5,7 +5,7 @@ STATUS:RELEASE
 TYPE:Paradigm Concepts
 RANK:1
 BOOKTYPE:Core Rules
-!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,[Player's Guide to Arcanis]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Player's Guide to Arcanis]
 SOURCELONG:Player's Guide to Arcanis
 SOURCESHORT:PGtA
 SOURCEWEB:http://www.paradigmconcepts.com

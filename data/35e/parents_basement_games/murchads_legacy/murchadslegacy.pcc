@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Murchad's Legacy
 TYPE:Parent's Basement Games.Murchad's Legacy
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Parent's Basement Games
 PUBNAMESHORT:PBG
 PUBNAMEWEB:http://murchadslegacy.pbwiki.com/

@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Modern Medieval
 TYPE:Swords Edge Publishing.Modern Medieval
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Sword's Edge Publishing
 PUBNAMESHORT:SEP
 PUBNAMEWEB:http://swordsedgepublishing.ca/

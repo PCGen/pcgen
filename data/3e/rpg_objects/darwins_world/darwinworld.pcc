@@ -6,7 +6,7 @@ GENRE:Future
 BOOKTYPE:Core Rules
 SETTING:Darwin's World
 TYPE:RPGObjects.Core.Darwin's World
-!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,RPGObjects - Darwin's World - World Rules,RPGObjects - Darwin's World - Denizens of the Twisted Earth,RPGObjects - Darwin's World - Artifacts of the Ancients,[RPGObjects - Darwin's World - Complete World Rules]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,RPGObjects - Darwin's World - World Rules,RPGObjects - Darwin's World - Denizens of the Twisted Earth,RPGObjects - Darwin's World - Artifacts of the Ancients,[RPGObjects - Darwin's World - Complete World Rules]
 PUBNAMELONG:RPGObjects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/

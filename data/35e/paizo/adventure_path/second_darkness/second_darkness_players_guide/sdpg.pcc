@@ -2,7 +2,7 @@
 CAMPAIGN:Paizo - Pathfinder Companion: Second Darkness Player's Guide
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,Paizo - Pathfinder Character Traits Web Enhancement
 RANK:5
 GENRE:Fantasy

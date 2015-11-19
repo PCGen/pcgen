@@ -7,7 +7,7 @@ BOOKTYPE:Supplement
 SETTING:Modern
 STATUS:RELEASE
 TYPE:The Game Mechanics.Sourcebook
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Green Ronin
 PUBNAMESHORT:Ronin
 PUBNAMEWEB:http://www.greenronin.com

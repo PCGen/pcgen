@@ -8,7 +8,7 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder
-!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,[Core Rulebook]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Core Rulebook]
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

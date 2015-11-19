@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Penumbra
 TYPE:Atlas Games.Module.Penumbra
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Atlas Games
 PUBNAMESHORT:Atlas
 PUBNAMEWEB:http://www.atlas-games.com/
