@@ -53,7 +53,7 @@ CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Language|1|TYPE=
 # COMMENT: When the New Formula Parser BOOLEAN is implemented, these will be moved to the correct file.
 # COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
 # COMMENT: This will be moved into the GLOBALVARs file when it exists.
-Barbarian			CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard|PREVAREQ:Pool_Barbarian_Class_Selection,0	DEFINE:Pool_Barbarian_Class_Selection|0	
+Barbarian			CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class|PREVAREQ:Pool_Barbarian_Class_Selection,0	DEFINE:Pool_Barbarian_Class_Selection|0	
 Bard				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0
 Cleric			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|PREVAREQ:Cleric_CF_ClassSkills,0
 Druid				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|PREVAREQ:Druid_CF_ClassSkills,0
