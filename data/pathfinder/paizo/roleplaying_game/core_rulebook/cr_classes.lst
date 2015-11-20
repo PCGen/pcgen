@@ -8,30 +8,15 @@ CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex
 CLASS:Barbarian	PREMULT:1,[!PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Barbarian,1]
 # Class Name	Skill Pts/Lvl
 CLASS:Barbarian	STARTSKILLPTS:4
-###Block:Proficiencies
+###Block:
 1	ABILITY:Class|AUTOMATIC|Barbarian
-###Block: Level Progression
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|PREVAREQ:Barbarian_CF_Rage,0
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_FastMovement,0
-2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|PREVAREQ:Barbarian_CF_RagePowers,0
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_TrapSense,0
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_DamageReduction,0
-11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|PREVAREQ:Barbarian_CF_GreaterRage,0
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_IndomitableWill,0
-17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|PREVAREQ:Barbarian_CF_TirelessRage,0
-20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|PREVAREQ:Barbarian_CF_MightyRage,0
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Visible	Define			Combat bonus										Save bonus																						Modify VAR				Monster Role
 CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill
 # Class Name		Skill Pts/Lvl
 CLASS:Ex-Barbarian	STARTSKILLPTS:4
-###Block:Proficiencies
+###Block:
 1	ABILITY:Class|AUTOMATIC|Barbarian
-###Block: Level Progression
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_FastMovement,0
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_TrapSense,0
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_DamageReduction,0
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_IndomitableWill,0
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Combat bonus											Save bonus																					Modify VAR			Monster Role
@@ -231,29 +216,6 @@ CLASS:Monk		STARTSKILLPTS:4
 #	The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
 # MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
 ###Block:
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|PREVAREQ:Monk_CF_FlurryOfBlows,0
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|PREVAREQ:Monk_CF_BonusFeats,0
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|PREVAREQ:Monk_CF_ACBonus,0
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Stunning Fist|PREVAREQ:Monk_CF_StunningFist,0
-2	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|PREVAREQ:Monk_CF_Evasion,0
-3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Fast Movement|PREVAREQ:Monk_CF_FastMovement,0
-3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Maneuver Training|PREVAREQ:Monk_CF_ManeuverTraining,0
-3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Still Mind|PREVAREQ:Monk_CF_StillMind,0
-4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki Pool|PREVAREQ:Monk_CF_KiPool,0
-4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Slow Fall|PREVAREQ:Monk_CF_SlowFall,0
-5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ High Jump|PREVAREQ:Monk_CF_HighJump,0
-5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Purity of Body|PREVAREQ:Monk_CF_PurityOfBody,0
-7	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Wholeness of Body|PREVAREQ:Monk_CF_WholenessOfBody,0
-9	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Improved Evasion|PREVAREQ:Monk_CF_ImprovedEvasion,0
-11	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Body|PREVAREQ:Monk_CF_DiamondBody,0
-12	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Abundant Step|PREVAREQ:Monk_CF_AbundantStep,0
-13	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul|PREVAREQ:Monk_CF_DiamondSoul,0
-15	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Quivering Palm|PREVAREQ:Monk_CF_QuiveringPalm,0
-17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Tongue of the Sun and Moon|PREVAREQ:Monk_CF_TongueOfTheSunAndMoon,0
-17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body|PREVAREQ:Monk_CF_TimelessBody,0
-19	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|PREVAREQ:Monk_CF_EmptyBody,0
-20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self|PREVAREQ:Monk_CF_PerfectSelf,0
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																	Visible	Define								Combat bonus										Add domain number					Save bonus																					Modify VAR			Monster Role
@@ -388,13 +350,6 @@ CLASS:Rogue		STARTSKILLPTS:8
 8	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueImprovedUncannyDodge,0
 20	BONUS:VAR|MasterStrikeLVL|CL
 ###Block:
-1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|PREVAREQ:Rogue_CF_SneakAttack,0
-1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|PREVAREQ:Rogue_CF_Trapfinding,0
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|PREVAREQ:Rogue_CF_Evasion,0
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|PREVAREQ:Rogue_CF_RogueTalents,0
-3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|PREVAREQ:Rogue_CF_TrapSense,0
-4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-20	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Combat bonus										Save bonus																					Modify VAR				Monster Role
