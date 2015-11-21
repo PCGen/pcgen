@@ -48,6 +48,6 @@ public class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("PFRPGCleric", "Pathfinder_RPG");
+		runTest("pf_Cleric", "Pathfinder_RPG");
 	}
 }

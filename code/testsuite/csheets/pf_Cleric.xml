@@ -2195,7 +2195,7 @@ BIO
 		<ability_object>
 			<name>Sun&#39;s Blessing</name>
 			<description>Whenever you channel positive energy to harm undead creatures, add a +3 bonus to the damage dealt. Undead do not add their channel resistance to their saves when you channel positive energy.</description>
-			<type>CLERICCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.DOMAINPOWER</type>
+			<type>CLERICCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.DOMAINPOWER.SUN DOMAIN</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2206,7 +2206,7 @@ BIO
 		<ability_object>
 			<name>Touch of Glory</name>
 			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
-			<type>CLERICCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER</type>
+			<type>CLERICCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER.GLORY DOMAIN</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
