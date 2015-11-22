@@ -3,7 +3,9 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 # Original Entry by: Paul Shipley
 
 # Class Name			Product Identity?	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Combat bonus											Save bonus																					Template
-CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TEMPLATE:Undead
+CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	TEMPLATE:Undead
 # Class Name			Reg. Race Type
 CLASS:Daughter of Urgathoa	PRERACETYPE:Undead
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

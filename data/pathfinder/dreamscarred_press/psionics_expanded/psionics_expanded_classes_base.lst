@@ -6,7 +6,9 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 ###Block: Aegis
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Ability																		Combat bonus										Save bonus
-CLASS:Aegis		HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	ABILITY:Internal|AUTOMATIC|Use Magic Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisUseMagicDevice	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Aegis		HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	ABILITY:Internal|AUTOMATIC|Use Magic Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisUseMagicDevice	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE=Profession|Spellcraft|Swim
 
@@ -49,7 +51,9 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly
 ###Block: Cryptic
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Ability																		Combat bonus											Save bonus																					Modify VAR
-CLASS:Cryptic	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Internal|AUTOMATIC|Disable Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticDisableDevice	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|Base.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PCrystalLevel|classlevel("APPLIEDAS=NONEPIC")|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Cryptic	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Internal|AUTOMATIC|Disable Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticDisableDevice	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PCrystalLevel|classlevel("APPLIEDAS=NONEPIC")|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE=Craft|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -120,7 +124,9 @@ CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryp
 ###Block: Dread
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus											Save bonus																					Modify VAR
-CLASS:Dread		HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PCrystalLevel|classlevel("APPLIEDAS=NONEPIC")|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Dread		HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PCrystalLevel|classlevel("APPLIEDAS=NONEPIC")|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Stealth|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -191,7 +197,9 @@ CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread
 ###Block: Marksman
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Marksman	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Stealth|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
@@ -247,7 +255,9 @@ CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	B
 ###Block: Tactician
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus											Save bonus																					Modify VAR
-CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PCrystalLevel|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Tactician	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PCrystalLevel|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -313,7 +323,9 @@ CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Ta
 ###Block: Vitalist
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Vitalist	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Vitalist	HD:6	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vitalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level

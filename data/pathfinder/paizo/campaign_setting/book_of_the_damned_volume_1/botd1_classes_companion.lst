@@ -2,7 +2,12 @@
 SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 
 # Class Name		Output Name				Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Visible	Combat bonus											Save bonus
-CLASS:Imp Companion	OUTPUTNAME:Imp Companion	HD:10		TYPE:Monster.Companion	CLASSTYPE:Monster	ABB:IC		MAXLEVEL:20	SOURCEPAGE:p.44	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Imp Companion	OUTPUTNAME:Imp Companion	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	TYPE:Monster.Companion	CLASSTYPE:Monster	ABB:IC		MAXLEVEL:20	SOURCEPAGE:p.44	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Skill Pts/Lvl
 CLASS:Imp Companion	STARTSKILLPTS:2
 1	ABILITY:FEAT|AUTOMATIC|CMB Output

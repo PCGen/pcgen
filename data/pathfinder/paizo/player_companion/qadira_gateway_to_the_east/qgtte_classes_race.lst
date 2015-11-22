@@ -3,7 +3,9 @@ SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.
 # Original entry by Chris 'Barak' Chandler
 
 # Class Name		Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability																		Combat bonus										Save bonus
-CLASS:Outsider (Zhyen)	OUTPUTNAME:Outsider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.23	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Outsider (Zhyen)	OUTPUTNAME:Outsider	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.23	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
 # Class Name		Reg. Race Type
 CLASS:Outsider (Zhyen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
