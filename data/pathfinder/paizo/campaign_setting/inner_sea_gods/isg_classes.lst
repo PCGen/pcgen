@@ -1,12 +1,9 @@
 
 CLASS:Evangelist	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.198	DEFINE:EvangelistLVL|0	BONUS:VAR|EvangelistLVL|CL
-CLASS:Evangelist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
-CLASS:Evangelist	
-	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3
-CLASS:Evangelist	
-	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2
-CLASS:Evangelist	
-	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:Evangelist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Evangelist		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Evangelist		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Evangelist		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 CLASS:Evangelist	PRETEXT:Alignment: Within one step of chosen deity. Deity: Must worship a single, specific deity. Feat: Deific Obedience* Special: Any one of the following: base attack bonus +5, 5 ranks in any skill other than Knowledge (religion), or ability to cast 3rd-level spells.	PREABILITY:1,CATEGORY=FEAT,Deific Obedience	PREMULT:1,[PRETOTALAB:5],[PRESPELLTYPE:1,Divine=3],[PRESKILL:1,TYPE.Base=5]
 CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (religion)|Perception|TYPE=Profession
 ###Block
@@ -23,13 +20,10 @@ CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (rel
 10	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Spiritual Form			
 
 CLASS:Exalted	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.200	DEFINE:ExaltedLVL|0	BONUS:VAR|ExaltedLVL|CL
-CLASS:Exalted	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
-CLASS:Exalted	
-	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3
-CLASS:Exalted	
-	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
-CLASS:Exalted	
-	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2
+CLASS:Exalted	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Exalted		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Exalted		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Exalted		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 CLASS:Exalted	PRETEXT:Alignment: Same as chosen deity. Deity: Must worship a single, specific deity. Feats: Deific Obedience*, Skill Focus (Knowledge [religion]). Skills: Diplomacy 5 ranks, Knowledge (religion) 5 ranks. Spells: Ability to cast 3rd-level divine spells.	PRESPELLTYPE:1,Divine=3	PRESKILL:2,Diplomacy=5,Knowledge (Religion)=5	PREABILITY:2,CATEGORY=FEAT,deific obedience,skill focus (knowledge (religion))	PREDEITY:1,Y	PREALIGN:DEITY
 CLASS:Exalted	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (planes)|Knowledge (religion)|Linguistics|Perform (oratory)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block
@@ -50,13 +44,10 @@ CLASS:Exalted	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Heal|Intimidate|Knowle
 10	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Perform Miracle				
 
 CLASS:Sentinel	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.202	DEFINE:SentinelLVL|0	BONUS:VAR|SentinelLVL|CL
-CLASS:Sentinel	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
-CLASS:Sentinel	
-	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2
-CLASS:Sentinel	
-	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
-CLASS:Sentinel	
-	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:Sentinel	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Sentinel		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Sentinel		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Sentinel		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 CLASS:Sentinel	PRETEXT:Alignment: Within one step of chosen deity. Deity: Must worship a single, specific deity. Feats: Deific Obedience*, Weapon Focus (deity's favored weapon). Special: Base attack bonus +5 or higher.	PRETOTALAB:5	PREDEITY:1,Y	PREABILITY:2,CATEGORY=FEAT,Deific obedience,Weapon Focus
 CLASS:Sentinel	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (religion)|Perception|TYPE=Profession|Ride|Survival|Swim
 ###Block

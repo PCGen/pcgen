@@ -3,9 +3,7 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 # Original Entry by: Paul Shipley (elro the onk)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus										Save bonus																					Modify VAR
-CLASS:Archon	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:Arc		MAXLEVEL:20	SOURCEPAGE:p.6	DEFINE:ArchonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
-	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ArchonLVL|CL
+CLASS:Archon	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:Arc		MAXLEVEL:20	SOURCEPAGE:p.6	DEFINE:ArchonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ArchonLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Fly|Handle Animal|Intimidate|Knowledge (Arcana)|Knowledge (Nobility)|TYPE=Profession|Ride|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
@@ -52,9 +50,7 @@ CLASS:Archon	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arch
 20	CAST:3,3,3,3,3,3,3	KNOWN:0,6,6,3,3,3,3
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus											Save bonus																					Modify VAR
-CLASS:Death Mage	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:DMa		MAXLEVEL:20	SOURCEPAGE:p.14	DEFINE:DeathMageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
-	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|DeathMageLVL|CL
+CLASS:Death Mage	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:DMa		MAXLEVEL:20	SOURCEPAGE:p.14	DEFINE:DeathMageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|DeathMageLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Death Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Linguistics|TYPE=Profession|Ride|Spellcraft|Stealth|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Bonus Specialty spells
@@ -100,9 +96,7 @@ CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 # This class was originally named the Magus, but was renamed when Paizo published Ultimate Magic with a class of the same name :-)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus										Save bonus																					Modify VAR
-CLASS:Magister	HD:6	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:Mgr		MAXLEVEL:20	SOURCEPAGE:p.24	DEFINE:MagisterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
-	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|MagisterLVL|CL
+CLASS:Magister	HD:6	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:Mgr		MAXLEVEL:20	SOURCEPAGE:p.24	DEFINE:MagisterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|MagisterLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|Perform (Oratory)|Perform (Sing)|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type			Memorize	Caster level
@@ -125,7 +119,7 @@ CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane.Divine	MEMORIZE:NO	BONUS:CASTERLEV
 18										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus IX ~ Magister
 ###Block: Spell Alignment Restrictions
 1						PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE
-#Block: Spells known
+###Block: Spells known
 1																																								BONUS:ABILITYPOOL|Magister Primary 0 Spells|(Magister0Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 0 Spells|Magister0Spells/2	BONUS:VAR|Magister0Spells|min((CL+8)/2,9)
 1																																								BONUS:ABILITYPOOL|Magister Primary 1 Spells|(Magister1Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 1 Spells|Magister1Spells/2	BONUS:VAR|Magister1Spells|min((CL+3)/2,5)
 4																																								BONUS:ABILITYPOOL|Magister Primary 2 Spells|(Magister2Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 2 Spells|Magister2Spells/2	BONUS:VAR|Magister2Spells|min((CL-1)/2,5)
@@ -136,7 +130,7 @@ CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane.Divine	MEMORIZE:NO	BONUS:CASTERLEV
 14																																								BONUS:ABILITYPOOL|Magister Primary 7 Spells|(Magister7Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 7 Spells|Magister7Spells/2	BONUS:VAR|Magister7Spells|min((CL-11)/2,3)
 16																																								BONUS:ABILITYPOOL|Magister Primary 8 Spells|(Magister8Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 8 Spells|Magister8Spells/2	BONUS:VAR|Magister8Spells|min((CL-13)/2,3)
 18																																								BONUS:ABILITYPOOL|Magister Primary 9 Spells|(Magister9Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 9 Spells|Magister9Spells/2	BONUS:VAR|Magister9Spells|min((CL-15)/2,3)
-#Block: Spellcasting
+###Block: Spellcasting
 1	CAST:0,3
 2	CAST:0,4
 3	CAST:0,5
@@ -159,9 +153,7 @@ CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane.Divine	MEMORIZE:NO	BONUS:CASTERLEV
 20	CAST:0,6,6,6,6,6,6,6,6,6
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus											Save bonus																					Modify VAR
-CLASS:Shadow Assassin	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:ShA		MAXLEVEL:20	SOURCEPAGE:p.32	DEFINE:ShadowAssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
-	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ShadowAssassinLVL|CL
+CLASS:Shadow Assassin	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:ShA		MAXLEVEL:20	SOURCEPAGE:p.32	DEFINE:ShadowAssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ShadowAssassinLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Stealth|Swim
 ###Block:Proficiencies
@@ -184,9 +176,7 @@ CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|D
 20	BONUS:ABILITYPOOL|Shadow Style|1									ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Death Shadow) ~ Shadow Assassin
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus										Save bonus																					Modify VAR
-CLASS:War Master	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:WMa		MAXLEVEL:20	SOURCEPAGE:p.40	DEFINE:WarMasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	
-	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WarMasterLVL|CL
+CLASS:War Master	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:Base.PC	ABB:WMa		MAXLEVEL:20	SOURCEPAGE:p.40	DEFINE:WarMasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WarMasterLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Master	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Engineering)|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Profession|Ride|Sense Motive|Survival
 ###Block:Proficiencies
