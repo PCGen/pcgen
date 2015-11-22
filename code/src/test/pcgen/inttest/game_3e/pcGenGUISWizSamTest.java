@@ -46,6 +46,6 @@ public class pcGenGUISWizSamTest extends pcGenGUITestCase
 	 */
 	public void testSWizSam() throws Exception
 	{
-		runTest("SWizSam", "3e");
+		runTest("3e_SWizSam", "3e");
 	}
 }

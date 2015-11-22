@@ -45,7 +45,7 @@ public class pcGenGUIWizSharTest extends pcGenGUITestCase
 	 */
 	public void testWizShar() throws Exception
 	{
-		runTest("WizShar", "3e");
+		runTest("3e_WizShar", "3e");
 	}
 
 }

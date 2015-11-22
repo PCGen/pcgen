@@ -55,6 +55,6 @@ public class pcGenGUIBarJackTest extends pcGenGUITestCase
 	 */
 	public void testBarJack() throws Exception
 	{
-		runTest("BarJack", "3e");
+		runTest("3e_BarJack", "3e");
 	}
 }

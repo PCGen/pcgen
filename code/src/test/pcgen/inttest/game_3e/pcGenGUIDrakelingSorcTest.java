@@ -46,7 +46,7 @@ public class pcGenGUIDrakelingSorcTest extends pcGenGUITestCase
 	public void testDrakelingSorc() throws Exception
 	{
 		// Commented out as it fails due to removal of dependant sources.
-		//runTest("DrakelingSorc", "3e");
+		//runTest("3e_DrakelingSorc", "3e");
 	}
 
 }

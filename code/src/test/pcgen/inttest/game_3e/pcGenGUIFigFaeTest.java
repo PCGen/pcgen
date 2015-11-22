@@ -38,6 +38,6 @@ public class pcGenGUIFigFaeTest extends pcGenGUITestCase
 	 */
 	public void testFigFae() throws Exception
 	{
-		runTest("FigFae", "3e");
+		runTest("3e_FigFae", "3e");
 	}
 }

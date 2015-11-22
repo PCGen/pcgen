@@ -47,6 +47,6 @@ public class pcGenGUIMonKeeTest extends pcGenGUITestCase
 	 */
 	public void testMonKee() throws Exception
 	{
-		runTest("MonKee", "3e");
+		runTest("3e_MonKee", "3e");
 	}
 }
