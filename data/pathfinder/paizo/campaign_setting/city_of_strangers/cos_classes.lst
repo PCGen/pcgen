@@ -1,0 +1,23 @@
+
+CLASS:Bloatmage	MAXLEVEL:10
+CLASS:Bloatmage	HD:6	TYPE:Prestige
+CLASS:Bloatmage	FACT:Abb|BM	FACT:ClassType|Caster
+CLASS:Bloatmage	DEFINE:BloatmageLVL|0	BONUS:VAR|BloatmageLVL|CL
+CLASS:Bloatmage	SOURCEPAGE:p.60
+CLASS:Bloatmage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Bloatmage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Bloatmage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:Bloatmage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:Bloatmage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2
+CLASS:Bloatmage	PRETEXT:Feats: Bloatmage Initiate, Spell Focus (any school). Spells: Able to cast 3rd-level arcane spells.	PREABILITY:2,CATEGORY=FEAT,Bloatmage Initiate,Spell Focus	PRESPELLCAST:1,Arcane=3
+CLASS:Bloatmage	STARTSKILLPTS:2	CSKILL:Fly|Heal|TYPE=Knowledge|Spellcraft|Use Magic Device
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+###Block 	
+1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Weapon and Armor Proficiency	
+1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Spells per Day/Spells Known	
+1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Blood Pool				
+1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Bloat
+1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Hemophilia
+3	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Corpulence				
+10	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Absorb Bloodline			
