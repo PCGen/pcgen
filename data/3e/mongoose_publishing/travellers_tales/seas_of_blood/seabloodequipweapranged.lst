@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Equipment Name			Output Name				Required Weapon Proficiency		Type												Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Special Property
+Crossbow (Light/Aquatic)	OUTPUTNAME:[NAME] Crossbow	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Weapon.Simple.Ranged.Piercing.Container.Wooden.Projectile.Crossbow	CONTAINS:UNLIM|Bolt=1	COST:175	WT:7		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	RANGE:30	SIZE:S	SOURCEPAGE:p.70	SPROP:Range Inc 80 on Dry Land
+Harpoon (Light)			OUTPUTNAME:Harpoon, [NAME]	PROFICIENCY:WEAPON|Harpoon (Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Wooden.Thrown								COST:10	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	RANGE:30	SIZE:M	SOURCEPAGE:p.93	SPROP:Target makes DC 10+damage Ref save or is harpooned. See text

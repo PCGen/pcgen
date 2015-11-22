@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+# Equipment Name		Required Weapon Proficiency	Type							Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Size		Source Page		Special Property
+Mancatcher (Gladiator)	PROFICIENCY:WEAPON|Mancatcher	TYPE:Weapon.Exotic.Melee.Bludgeoning	COST:40	WT:12				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	SIZE:L	SOURCEPAGE:p.58	SPROP:+2 to Grapple checks
+Spiked Helmet							TYPE:Weapon.Exotic.Melee.Piercing		COST:25	WT:3				CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.59	SPROP:Double damage if used in charge attack.
+Wrist Razor								TYPE:Weapon.Exotic.Melee.Slashing		COST:25	WT:5		SLOTS:0	CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.59	SPROP:Cannot use with shield in same hand.

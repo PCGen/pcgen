@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Modifier Name	Product Identity?	Type		Plus		Source Page		Required Type					Modify VAR						Special Property																		Ability
+Accord		NAMEISPI:YES	TYPE:Weapon	PLUS:4	SOURCEPAGE:p.67	PRETYPE:1,EQMODTYPE=MagicalEnhancement	BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	SPROP:Any promise made while touching weapon becomes geas, those touching can not lie, +2d6 lawful damage vs. chaos	ABILITY:Special Ability|AUTOMATIC|Negative Levels

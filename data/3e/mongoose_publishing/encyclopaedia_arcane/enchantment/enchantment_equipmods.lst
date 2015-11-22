@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
+
+###Block: Armor special qualities
+
+# Modifier Name	Unique Key		Type		Plus		Source Page		Required Type			Special Property
+Assumption		KEY:ASSUMPTION	TYPE:Armor	PLUS:2	SOURCEPAGE:p.54	PRETYPE:2,Enhancement,Armor	SPROP:-5 to Hide checks

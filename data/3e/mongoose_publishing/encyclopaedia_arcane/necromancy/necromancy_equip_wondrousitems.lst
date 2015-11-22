@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:58:07 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
+
+# Equipment Name		Type					Cost		Weight	Source Page
+Black Gauntlet		TYPE:Magic.Wondrous.Glove	COST:15000	WT:0		SOURCEPAGE:p.45-46
+Bone Delvern Lantern	TYPE:Magic.Wondrous		COST:4000	WT:0		SOURCEPAGE:p.46
+Bloodied Onyx		TYPE:Magic.Wondrous		COST:500	WT:0		SOURCEPAGE:p.46
+Cup of the Damned		TYPE:Magic.Wondrous		COST:30000	WT:0		SOURCEPAGE:p.47
+Mask of Death		TYPE:Magic.Wondrous.Headgear	COST:25000	WT:0		SOURCEPAGE:p.47

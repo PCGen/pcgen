@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+#Magical Weapons Melee
+# Equipment Name		Product Identity?	Required Weapon Proficiency			Type								Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page		Weapon prop. bonus
+Dragon Claw Gauntlets	NAMEISPI:YES	PROFICIENCY:WEAPON|Gauntlet (Spiked)	TYPE:Magic.Weapon.Simple.Melee.Piercing		COST:32000	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	SIZE:S	SOURCEPAGE:p.63	BONUS:WEAPON|DAMAGE,TOHIT|3
+Dragon Claws		NAMEISPI:YES	PROFICIENCY:WEAPON|Dagger			TYPE:Magic.Weapon.Simple.Melee.Piercing.Dagger	COST:25000	WT:2		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	SIZE:T	SOURCEPAGE:p.64	BONUS:WEAPON|DAMAGE,TOHIT|4
+Dragontooth			NAMEISPI:YES	PROFICIENCY:WEAPON|Dagger			TYPE:Magic.Weapon.Simple.Melee.Piercing.Dagger	COST:18500	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	SIZE:T	SOURCEPAGE:p.64	BONUS:WEAPON|DAMAGE,TOHIT|2

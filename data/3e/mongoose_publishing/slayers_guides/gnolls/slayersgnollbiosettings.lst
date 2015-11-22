@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
+
+AGESET:0|Adulthood
+RACENAME:Gnoll (Mongoose)	SEX:Male[BASEHT:70|HTDIEROLL:2d8|BASEWT:200|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:65|HTDIEROLL:2d8|BASEWT:165|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
+### Old tag for race Gnoll (Mongoose)=> AGE:14:1:4:1:6:2:6

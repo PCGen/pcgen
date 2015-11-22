@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+
+
+# Ability Category			Visible		Editable?		Change Pool?	Category of Object	Type of Object			Specific choices list		Display Location
+ABILITYCATEGORY:Empath Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT		TYPE:Metamagic.Enchantment	ABILITYLIST:Spell Mastery	DISPLAYLOCATION:Class Abilities

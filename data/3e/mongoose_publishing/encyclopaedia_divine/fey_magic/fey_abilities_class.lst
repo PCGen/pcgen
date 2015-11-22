@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+# ENTRY BY: Andrew Maitland
+# Entry Date: July, 2012
+
+# Feydancer
+# Ability Name		Unique Key							Category of Ability		Type				Define				Description
+Attunement			KEY:Attunement ~ Feydancer				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ATTUNEMENT|0		DESC: +%1|ATTUNEMENT
+Essence Retention		KEY:Essence Retention ~ Feydancer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Essence Efficiency	KEY:Essence Efficiency ~ Feydancer			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:EssEff|0			DESC: %1|EssEff
+Enchanted Slumber		KEY:Enchanted Slumber ~ Feydancer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Transformation		KEY:Transformation ~ Feydancer			CATEGORY:Special Ability	TYPE:SpecialQuality
+#Attunement +%1|ATTUNEMENT		KEY: ~ Feydancer	CATEGORY:Special Ability	TYPE:SpecialQuality
+# COMMENT: Found the attunement was duplicated... wondering if it was supposed to be an improved or something.
+
+# Spellbinder
+Sense Token			KEY:Sense Token ~ Spellbinder				CATEGORY:Special Ability	TYPE:SpecialQuality
+Hand of the Inventor	KEY:Hand of the Inventor ~ Spellbinder		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:HOTI|0			DESC: (+%1)|HOTI
+Overcharge			KEY:Overcharge ~ Spellbinder				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:OVERCHARGE|0		DESC: %1|OVERCHARGE
+Invest Token		KEY:Invest Token ~ Spellbinder			CATEGORY:Special Ability	TYPE:SpecialQuality
+Command Word Activated	KEY:Command Word Activated ~ Spellbinder		CATEGORY:Special Ability	TYPE:SpecialQuality
+Use Activated		KEY:Use Activated ~ Spellbinder			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# Wylding
+Safe Passage		KEY:Safe Passage ~ Wylding				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SafePassageLvl|0		DESC:Natural	DESC:Enchanted|PREVARGTEQ:SafePassageLvl,1
+Absorb Essence		KEY:Absorb Essence ~ Wylding				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ABSORBESSENCE|0		DESC: %1|ABSORBESSENCE
+Plant Bond			KEY:Plant Bond ~ Wylding				CATEGORY:Special Ability	TYPE:SpecialQuality
+Symbiosis			KEY:Symbiosis ~ Wylding					CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# Chosen Protector
+Scent of the Hunter	KEY:Scent of the Hunter ~ Chosen Protector	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ScentoftheHunterLvl|0	DESC: (+%1)|ScentoftheHunterLvl
+Slayer			KEY:Slayer ~ Chosen Protector				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:CPSLAYER|0			DESC: (+%1)|CPSLAYER
+Augmentation		KEY:Augmentation ~ Chosen Protector			CATEGORY:Special Ability	TYPE:SpecialQuality
