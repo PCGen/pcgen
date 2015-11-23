@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Equipment Name	Product Identity?	Type						Cost		Weight	Source Page			Special Property
+Banner of Kul Mar	NAMEISPI:YES	TYPE:Magic.Artifact.Major		COST:999999	WT:20		SOURCEPAGE:p.112		SPROP:Enemies suffer -2 morale on saves and 50% chance to drop all
+Jalenor's Shield	NAMEISPI:YES	TYPE:Magic.Artifact.Major		COST:999999	WT:0		SOURCEPAGE:p.118-119	SPROP:See Text p.119
+Ring of Elements				TYPE:Magic.Ring.Artifact.Minor	COST:999999	WT:0		SOURCEPAGE:p.119-120	SPROP:See Text p.119-120

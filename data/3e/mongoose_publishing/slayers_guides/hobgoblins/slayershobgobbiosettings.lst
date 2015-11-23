@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
+
+AGESET:0|Adulthood
+RACENAME:Hobgoblin (Mongoose)	SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
+### Old tag for race Hobgoblin (Mongoose)=> AGE:15:1:4:1:6:2:6

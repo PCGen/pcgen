@@ -1,0 +1,62 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
+#ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
+
+#Potions
+# Equipment Name				Output Name				Type						Cost		Weight	Source Page
+Potion (Beyond Words)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.27
+Potion (Confidante)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.29
+Potion (Enhance Bond)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Favour's Focus I)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.31
+Potion (Favour's Focus II)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.32
+Potion (Favour's Focus III)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.32
+Potion (Greater Daze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.35
+Potion (Kenning the Heart)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.36
+Potion (Moment's Pause)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:50	WT:0		SOURCEPAGE:p.37
+Potion (Piercing Gaze)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Rapturous Touch)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Seductive Smile)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.38
+Potion (Thrall's Understanding)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:300	WT:0		SOURCEPAGE:p.39
+Potion (Wave of Hesitation)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable		COST:750	WT:0		SOURCEPAGE:p.41
+
+#Scroll name
+#9 Clr, Drd, Wiz		TYPE:Magic.Scroll.Arcane	COST:3825	WT:.01
+# Equipment Name				Output Name				Type						Cost		Weight	Source Page
+Scroll (Beyond Words)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:0.01	SOURCEPAGE:p.27
+Scroll (Bonded Souls)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:0.01	SOURCEPAGE:p.27
+Scroll (Bonded Thoughts)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:0.01	SOURCEPAGE:p.27
+Scroll (Camaraderie)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:0.01	SOURCEPAGE:p.28
+Scroll (Change of Heart)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:3825	WT:0.01	SOURCEPAGE:p.28
+Scroll (Confidante)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:0.01	SOURCEPAGE:p.29
+Scroll (Dazing Aura)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:0.01	SOURCEPAGE:p.29
+Scroll (Dolorous Touch)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:700	WT:0.01	SOURCEPAGE:p.30
+Scroll (Enamouring Touch)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:0.01	SOURCEPAGE:p.30
+Scroll (Endless Daze)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:3000	WT:0.01	SOURCEPAGE:p.31
+Scroll (Enhance Bond)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:0.01	SOURCEPAGE:p.31
+Scroll (Favour's Focus I)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:0.01	SOURCEPAGE:p.31
+Scroll (Favour's Focus II)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:0.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus III)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:0.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus IV)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:700	WT:0.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus V)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:0.01	SOURCEPAGE:p.32
+Scroll (Favour's Focus VI)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:0.01	SOURCEPAGE:p.33
+Scroll (Favour's Focus VII)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:0.01	SOURCEPAGE:p.33
+Scroll (Favour's Focus VIII)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:3000	WT:0.01	SOURCEPAGE:p.34
+Scroll (Favour's Focus IX)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:3825	WT:0.01	SOURCEPAGE:p.34
+Scroll (Fractured Unity)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:700	WT:0.01	SOURCEPAGE:p.34
+Scroll (Friendship)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:0.01	SOURCEPAGE:p.35
+Scroll (Greater Daze)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:0.01	SOURCEPAGE:p.35
+Scroll (Hatred's Puppet)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:700	WT:0.01	SOURCEPAGE:p.35
+Scroll (Kenning the Heart)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:0.01	SOURCEPAGE:p.36
+Scroll (Kenning the Mind)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:0.01	SOURCEPAGE:p.36
+Scroll (Kenning the Soul)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:3825	WT:0.01	SOURCEPAGE:p.36
+Scroll (Lingering Daze)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1650	WT:0.01	SOURCEPAGE:p.37
+Scroll (Moment's Pause)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:25	WT:0.01	SOURCEPAGE:p.37
+Scroll (Piercing Gaze)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:0.01	SOURCEPAGE:p.38
+Scroll (Rapturous Touch)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:0.01	SOURCEPAGE:p.38
+Scroll (Seductive Smile)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:0.01	SOURCEPAGE:p.38
+Scroll (Shattered Will)			OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:1125	WT:0.01	SOURCEPAGE:p.39
+Scroll (Thrall's Understanding)	OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:150	WT:0.01	SOURCEPAGE:p.39
+Scroll (Torment of Loss)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:0.01	SOURCEPAGE:p.40
+Scroll (Undying Loyalty)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:2275	WT:0.01	SOURCEPAGE:p.40
+Scroll (Wall of Distraction)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:700	WT:0.01	SOURCEPAGE:p.41
+Scroll (Wave of Hesitation)		OUTPUTNAME:Scroll of [NAME]	TYPE:Magic.Scroll.Consumable.Arcane	COST:375	WT:0.01	SOURCEPAGE:p.41

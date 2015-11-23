@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Domain Name	Product Identity?	Source Page		Description
+Rulership		NAMEISPI:YES	SOURCEPAGE:p.72	DESC:Once per day you can give a one word comand which is obeyed by one Hit Die worth of creature per level.  This is a spell-like ability identical to Greater Command.
+Spirit		NAMEISPI:YES	SOURCEPAGE:p.72	DESC:You cannot be attacked by allips, ghosts, nightshades, shadows, spectres or wraiths as long as another target remains.
+Undead		NAMEISPI:YES	SOURCEPAGE:p.73	DESC:You may add +2 to any turning check you make, but only to rebuke undead, not to turn them.

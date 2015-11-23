@@ -78,7 +78,7 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 MENUENTRY:3.5e
 MENUTOOLTIP:Use 3.5e character creation settings
 DISPLAYORDER:1
-ALLOWEDMODES:35e|DnD
+ALLOWEDMODES:35e|DnD|LoE
 #
 # SHORTRANGE sets the Short Range as referenced by
 #  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE

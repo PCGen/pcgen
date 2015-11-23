@@ -1,0 +1,36 @@
+# CVS $Revision $ $Author $ -- Thu Aug  4 14:38:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:PCGen Open Gaming Content
+RANK:7
+GAMEMODE:3e|35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:PCGen OGL
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:PCGen Open Source Team
+PUBNAMESHORT:PCGen
+PUBNAMEWEB:http://pcgen.sourceforge.net/
+SOURCELONG:PCGen Open Gaming Content
+SOURCESHORT:PCGen OGC
+#SOURCEWEB:http://pcgen.sourceforge.net/
+SOURCEWEB:../../../../docs/sourcehelp/pcgen_ogc_help.html
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen OGC dataset Copyright 2006, PCGen Data team (Including, but not limited to Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith)).
+
+DESC:The PCGen Open Gaming Content dataset contains generally useful items which may be implied or extrapolated from other sources but are not specifically detailed.
+INFOTEXT:PCGen Open Gaming Content objects are detailed in the PCGen documentation under the Source Help section
+URL:WEBSITE|http://pcgen.sourceforge.net/autobuilds/pcgen-docs/sourcehelp/pcgen_ogc_help.html|Details of this dataset can be found here.
+COVER:pcgen_banner.jpg
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:pcgen_ogc_equip.lst
+EQUIPMENT:pcgen_ogc_equip_spells.lst
+KIT:pcgen_ogc_kits.lst
+
+#
+# End
+#

@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Troglodytes	SOURCESHORT:SGtTroglod	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+# EFFECTS and EFFECTTYPE messed up.. Clean up EFFECTS...  - Tir Gwaith
+
+# Spell Name	Type		Classes of caster	School			Sub-School		Components	Casting Time	Range		Item		Target Area or Effect		Duration			Save Info		Spell Resistance	Source Page		Description
+Extinguish		TYPE:Divine	CLASSES:Cleric=1	SCHOOL:Evocation		SUBSCHOOL:Evil	COMPS:V S	CASTTIME:1 action	RANGE:Close			TARGETAREA:Cone			DURATION:Instantaneous	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:p.31	DESC:See Text
+Pitch Sight		TYPE:Divine	CLASSES:Cleric=2	SCHOOL:Transmutation	SUBSCHOOL:Evil	COMPS:V S M	CASTTIME:1 action	RANGE:Close	ITEM:Potion	TARGETAREA:One creature/lvl	DURATION:???		SAVEINFO:Will	SPELLRES:Yes	SOURCEPAGE:p.31	DESC:See Text

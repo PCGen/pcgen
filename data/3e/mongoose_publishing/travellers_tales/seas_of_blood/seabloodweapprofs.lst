@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Weapon Name	Type		Nb Hands
+Boathook		TYPE:Exotic	HANDS:2
+Gaff Hook		TYPE:Exotic
+Harpoon (Light)	TYPE:Exotic
