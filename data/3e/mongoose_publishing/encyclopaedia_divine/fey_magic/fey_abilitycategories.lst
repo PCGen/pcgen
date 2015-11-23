@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object	Type of Object	Specific choices list			Display Location
+ABILITYCATEGORY:Fey Gift Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT		TYPE:Fey Gift							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Improved Craft Focus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT					ABILITYLIST:Improved Craft Focus	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Craft Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT					ABILITYLIST:Craft Focus			DISPLAYLOCATION:Class Abilities

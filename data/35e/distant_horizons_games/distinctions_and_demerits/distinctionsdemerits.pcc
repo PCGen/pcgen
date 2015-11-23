@@ -7,7 +7,7 @@ BOOKTYPE:Supplement
 SETTING:RSRD.SRD
 STATUS:RELEASE
 TYPE:Distant Horizons Games.Supplement
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Distant Horizon Games
 PUBNAMESHORT:DHG
 PUBNAMEWEB:http://ruscumag.wordpress.com/atheria-d20/

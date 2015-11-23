@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
+
+# Template Name	Output Name		Hit Dice Size	Source Page		Special ABility																																											Define Stat			Combat bonus					Stat bonus								Removable?		Vision
+Undead ~ Mongoose	OUTPUTNAME:Undead	HITDIE:12		SOURCEPAGE:p.37	SAB:Immune to mind-influencing effects/poison/sleep/paralysis/stunning/disease	SAB:Not subject to critical hits/subdual damage/ability damage/energy drain/death from massive damage	SAB:No longer required to make Negative Energy Checks when using Necromantic Feats	DEFINESTAT:NONSTAT|CON	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|-1	BONUS:STAT|CHA|-2	REMOVABLE:YES	VISION:Darkvision (60')

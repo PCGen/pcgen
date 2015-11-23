@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs	SOURCESHORT:SGtM	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+
+# Spell Name		Type		Classes of caster		School			Components		Casting Time	Range			Target Area or Effect				Duration										Save Info				Spell Resistance	Source Page		Description
+Defile Alter		TYPE:Divine	CLASSES:Adept,Cleric=2	SCHOOL:Evocation		COMPS:V, S, M	CASTTIME:8 hours	RANGE:Touch/Close	TARGETAREA:Bone Altar/Target Creature	DURATION:Permanant/until target is removed from sight of altar.	SAVEINFO:None/Will negates	SPELLRES:Yes	SOURCEPAGE:p.19	DESC:This spell imbues a bone altar with an unholy aura. Not only does it become available as a material component for related spells, it also has the power to drive mad any creature (except minotaurs) who so much as glances at it.
+The Horned Ones Favor	TYPE:Divine	CLASSES:Adept,Cleric=3	SCHOOL:Transmutation	COMPS:V, S, M	CASTTIME:1 action	RANGE:Area		TARGETAREA:(CASTERLEVEL) creatures		DURATION:10 rounds								SAVEINFO:No				SPELLRES:No		SOURCEPAGE:p.20	DESC:This spell has the potential to produce a variety of effects, though different effects require additional castings of the spell.

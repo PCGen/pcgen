@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+
+# Skill Name	Key Stat	Untrained?		Type		Source Page		Bonus to skill
+Prophecy		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom	SOURCEPAGE:50
+Concentration.MOD								SOURCEPAGE:50	BONUS:SKILL|Prophecy|SynergyBonus|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK

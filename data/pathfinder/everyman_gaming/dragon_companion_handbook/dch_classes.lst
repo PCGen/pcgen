@@ -1,10 +1,10 @@
 
 
 CLASS:Dragon Paragon	HD:12	TYPE:Monster	SOURCEPAGE:p.12	DEFINE:DragonParagonLVL|0	BONUS:VAR|DragonParagonLVL|CL
-CLASS:Dragon Paragon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	
-CLASS:Dragon Paragon	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Dragon Paragon	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Dragon Paragon	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dragon Paragon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Dragon Paragon		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Dragon Paragon		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Dragon Paragon		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 CLASS:Dragon Paragon	PRERACE:1,Dragon%,Kobold%
 CLASS:Dragon Paragon	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
 CLASS:Dragon Paragon	BONUS:CASTERLEVEL|Dragon Paragon|CL+CasterLevelBonus	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZE:NO	SPELLLIST:2|Wizard|Sorcerer
@@ -56,7 +56,7 @@ CLASS:Dragon Paragon	BONUS:CASTERLEVEL|Dragon Paragon|CL+CasterLevelBonus	SPELLT
 
 
 # Class Name
-CLASS:Draconic Companion	OUTPUTNAME:Draconic Companion	HD:12		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:DC		MAXLEVEL:20	SOURCEPAGE:p.52	VISIBLE:NO	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	
+CLASS:Draconic Companion	OUTPUTNAME:Draconic Companion	HD:12	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:DC		MAXLEVEL:20	SOURCEPAGE:p.52	VISIBLE:NO	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0		BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name
 CLASS:Draconic Companion	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
 

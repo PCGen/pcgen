@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Equipment Name							Type							Contains							Cost			Weight	Source Page		Combat bonus			Bonus to skill								Special Property
+Tarred Armour							TYPE:Goods.Alchemical.Consumable										COST:25		WT:1		SOURCEPAGE:p.71	BONUS:COMBAT|AC|1|TYPE=Tar											SPROP:Double damage from fire-based attacks. Reapply once a month.
+Case (Watertight Scroll)					TYPE:Goods.Container				CONTAINS:3|Total=6|Scroll=6|Documents=6|Paper=6	COST:5		WT:0.5	SOURCEPAGE:p.71																SPROP:Water-tight
+Sea Chest								TYPE:Goods.Container				CONTAINS:200|Any=200					COST:25		WT:30		SOURCEPAGE:p.71																SPROP:Water-tight
+Mechanical Log (Gnomish)					TYPE:Goods.Tools													COST:750		WT:12		SOURCEPAGE:p.						BONUS:SKILL|Profession (Navigator)|1|TYPE=Circumstance
+Navigator's Tools							TYPE:Goods.Tools													COST:250		WT:8		SOURCEPAGE:p.70
+Boarding Ramp							TYPE:Goods.Transportation.Ships.Extra									COST:250				SOURCEPAGE:p.70
+Rowing Boat								TYPE:Goods.Transportation.Ships										COST:50				SOURCEPAGE:p.
+Lifeboat								TYPE:Goods.Transportation.Ships										COST:500				SOURCEPAGE:p.
+Fishing Boat							TYPE:Goods.Transportation.Ships										COST:3000				SOURCEPAGE:p.
+Barge									TYPE:Goods.Transportation.Ships										COST:2000				SOURCEPAGE:p.
+Submersible (Gnomish/Diver)					TYPE:Goods.Transportation.Ships										COST:12000				SOURCEPAGE:p.
+Cargo Ship (Fleur)						TYPE:Goods.Transportation.Ships										COST:12000				SOURCEPAGE:p.
+Sloop (Voyager)							TYPE:Goods.Transportation.Ships										COST:22000				SOURCEPAGE:p.
+Trading Ship (Orca)						TYPE:Goods.Transportation.Ships										COST:16000				SOURCEPAGE:p.
+Mercantile Ship (High Seas)					TYPE:Goods.Transportation.Ships										COST:28000				SOURCEPAGE:p.
+Longship (SoB)							TYPE:Goods.Transportation.Ships										COST:25000				SOURCEPAGE:p.
+Raider (Hobgoblin							TYPE:Goods.Transportation.Ships										COST:27000				SOURCEPAGE:p.
+Frigate (Fury)							TYPE:Goods.Transportation.Ships										COST:44000				SOURCEPAGE:p.
+Corsair (Elven)							TYPE:Goods.Transportation.Ships										COST:100000				SOURCEPAGE:p.
+Fast Galleon (Typhoon)						TYPE:Goods.Transportation.Ships										COST:54000				SOURCEPAGE:p.
+War Galleon (Victory)						TYPE:Goods.Transportation.Ships										COST:70000				SOURCEPAGE:p.
+War Galley (Devastation)					TYPE:Goods.Transportation.Ships										COST:80000				SOURCEPAGE:p.
+Great Galley (Devourer)						TYPE:Goods.Transportation.Ships										COST:125000				SOURCEPAGE:p.
+Battleship (Leviathan)						TYPE:Goods.Transportation.Ships										COST:150000				SOURCEPAGE:p.
+Siege Ship (Warspite)						TYPE:Goods.Transportation.Ships										COST:190000				SOURCEPAGE:p.
+Dreadnought (Sovereign)						TYPE:Goods.Transportation.Ships										COST:290000				SOURCEPAGE:p.
+Floating Fortress (Dwarvish/Foundation of the World)	TYPE:Goods.Transportation.Ships										COST:1750000			SOURCEPAGE:p.

@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# Original Entry: Andrew Maitland
+SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
+
+###Arcane Power from Feat
+# Spell Name	Type		School		Components	Casting Time		Range		Target Area or Effect	Duration			Save Info			Spell Resistance	Source Page		Description
+Arcane Power	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL/2) point(s) damage to any single creature within range.
+Arcane Power I	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL) point damage to any single creature within range.
+Arcane Power II	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d3 points damage to any single creature within range.
+Arcane Power III	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d4 points damage to any single creature within range.
+Arcane Power IV	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d6 points damage to any single creature within range.
+Arcane Power V	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d8 points damage to any single creature within range.
+Arcane Power VI	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d8+(CASTERLEVEL*2) points damage to any single creature within range.
+Arcane Power VII	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d10 points damage to any single creature within range.
+Arcane Power VIII	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d10+(CASTERLEVEL*3) points damage to any single creature within range.
+Arcane Power IX	TYPE:Arcane	SCHOOL:Universal	COMPS:V	CASTTIME:1 full round	RANGE:Close	TARGETAREA:One creature	DURATION:Instantaneous	SAVEINFO:Reflex half	SPELLRES:Yes	SOURCEPAGE:p.114	DESC:A blast of arcane magic erupts from your hand, dealing (CASTERLEVEL)d12+(CASTERLEVEL*3) points damage to any single creature within range.
+
+#
+##EOF
+#

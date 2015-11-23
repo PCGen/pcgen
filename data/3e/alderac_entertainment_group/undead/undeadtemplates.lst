@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Template Name	Product Identity?	Visible	Special ABility																																																							Define Stat			Removable?
+Undeath		NAMEISPI:YES	VISIBLE:YES	SAB:Immune to poison/sleep/paralysis/stunning/disease/death effects/necromantic effects/mind-influencing effects	SAB:Not subject to critical hits/subdual damage/ability damage/energy drain/death from massive damage	SAB:No longer has a Constitution score and is immune to any effects requiring a Fort save	SAB:Negative energy effects heal	DEFINESTAT:NONSTAT|CON	REMOVABLE:YES

@@ -1,0 +1,2 @@
+
+Bloatmage Initiate	CATEGORY:FEAT	TYPE:General	PREABILITY:1,CATEGORY=FEAT,Spell Focus	DESC:The practice of hemotheurgy is an ancient practice performed by those who believe that "magic lies in the blood."	MULT:YES	CHOOSE:SPELLS|FEAT=Spell Focus	AUTO:EQUIP|Body Fat	BONUS:CASTERLEVEL|SCHOOL.%LIST|1	SOURCEPAGE:p.42

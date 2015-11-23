@@ -1,0 +1,29 @@
+# Created January, 2015 Tom Parker
+# This file represents a conversion mechanism for items that were previously
+# stand-alone tokens, but are now handled internally as FACT or FACTSET.
+#
+# This file does not need to be referenced by a set of data or game mode
+# unless that data uses a data control file (DATACONTROL: in a PCC file)
+#
+# Once a dataset takes on the responsibility of a DATACONTROL file, then it 
+# MUST include these entries (or something near equivalent [additional
+# SELECT-ability would be legal]) in one of the DATACONTROL files.
+
+FACTDEF:ABILITY|AppliedName	DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:CLASS|Abb			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:CLASS|ClassType		DATAFORMAT:String		VISIBLE:YES
+FACTDEF:CLASS|SpellType		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+
+FACTDEF:DEITY|Symbol			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Worshippers		DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Title			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Appearance		DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:EQUIPMENT|RateOfFire	DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:TEMPLATE|AppliedName	DATAFORMAT:String		VISIBLE:YES
+
+FACTSETDEF:DEITY|Pantheon		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+FACTSETDEF:DEITY|Race			DATAFORMAT:String		VISIBLE:YES
+

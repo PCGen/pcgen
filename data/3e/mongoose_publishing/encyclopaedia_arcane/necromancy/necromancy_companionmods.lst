@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
+
+# Class of the Master		Type				Spell Res.	Special ABility														Define			Define Stat				Combat bonus						Main Race Type
+FOLLOWER:Sorcerer,Wizard=1	TYPE:Demonic Familiar			SAB:Improved Evasion (Ex)	SAB:Empathic Link	SAB:Share Spells	SAB:Immune to Fire and Poison	DEFINE:PHBFeatEvasion|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Demonic Beast
+FOLLOWER:Sorcerer,Wizard=3	TYPE:Demonic Familiar			SAB:Touch	SAB:See in Darkness (Including Magical)												DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=5	TYPE:Demonic Familiar			SAB:Speak with master	SAB:Invisibility 1/day													DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=7	TYPE:Demonic Familiar			SAB:Speak with animals of its type	SAB:Cold and Acid Resist 20										DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=9	TYPE:Demonic Familiar			SAB:Speak with creatures of it's type Telepathically when Familiar is in contact							DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=11	TYPE:Demonic Familiar	SR:16																						DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=12	TYPE:Demonic Familiar	SR:17
+FOLLOWER:Sorcerer,Wizard=13	TYPE:Demonic Familiar	SR:18		SAB:Master can Scry																	DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=14	TYPE:Demonic Familiar	SR:19
+FOLLOWER:Sorcerer,Wizard=15	TYPE:Demonic Familiar	SR:20																						DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=16	TYPE:Demonic Familiar	SR:21
+FOLLOWER:Sorcerer,Wizard=17	TYPE:Demonic Familiar	SR:22																						DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=18	TYPE:Demonic Familiar	SR:23
+FOLLOWER:Sorcerer,Wizard=19	TYPE:Demonic Familiar	SR:24																						DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:Sorcerer,Wizard=20	TYPE:Demonic Familiar	SR:25

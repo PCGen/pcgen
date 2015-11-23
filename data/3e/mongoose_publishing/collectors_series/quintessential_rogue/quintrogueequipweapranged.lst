@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# Equipment Name		Required Weapon Proficiency		Type									Contains			Cost		Weight	Crit Range	Damage	Range		Size		Source Page			Special Property
+Crossbow (Sniper's)	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Weapon.Exotic.Ranged.Piercing.Metal.Container	CONTAINS:UNLIM|Bolt=1	COST:250	WT:7		CRITRANGE:2	DAMAGE:1d8	RANGE:80	SIZE:M	SOURCEPAGE:p.53		SPROP:Proficient user can sneak attack at 120'. (See text)
+Lariat									TYPE:Weapon.Exotic.Ranged.Nonmetal								COST:1	WT:8						RANGE:10	SIZE:M	SOURCEPAGE:p.53-55	SPROP:Can ensnare target. (See text)

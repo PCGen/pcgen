@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Specific choices list						Display Location
+ABILITYCATEGORY:Peasant Hero Weapon Competence Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	ABILITYLIST:Peasant Hero Weapon Competence Bonus	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Peasant Hero 5th level Weapon Competence	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	ABILITYLIST:Peasant Hero 5th level Weapon Competence	DISPLAYLOCATION:Class Abilities

@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Gnolls	SOURCESHORT:SGtGnolls	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Race Name		Output Name		Favored Class	Starting Feats	Size		Move			Face/Space	Vision			Bonus Languages						Combat bonus				Bonus to skill			Stat bonus											Class Skill			Auto Language		Nb Legs	Main Race Type	Source Page
+Gnoll (Mongoose)	OUTPUTNAME:Gnoll	FAVCLASS:Ranger	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	VISION:Darkvision (60')	LANGBONUS:Goblinoid,Ogre,Orc,Troll,Undercommon	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Listen,Spot|3	BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2	CSKILL:Listen|Spot	AUTO:LANG|Common|Gnoll	LEGS:2	RACETYPE:Humanoid	SOURCEPAGE:p.
