@@ -1,19 +1,20 @@
-# CVS $Revision: 23075 $ $Author: amaitland $ -- Sat Sep 22 13:52:50 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-CAMPAIGN:Battlefield Press - Gaslight - A Victorian Era Fantasy Role Playing Game
+# CVS $Revision: 25436 $ $Author: amaitland $ -- Sat Sep 22 13:52:50 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+CAMPAIGN:Gaslight Victorian Fantasy 2nd Edition --in progress
+KEY:BPI ~ Gaslight
 GAMEMODE:Gaslight
-TYPE:Battlefield Press.Gaslight
-STATUS:RELEASE
+TYPE:Battlefield Press Inc.Gaslight
+STATUS:BETA
 RANK:1
 GENRE:Modern
 BOOKTYPE:Core Rulebook
 SETTING:Modern
-PUBNAMELONG:Battlefield Press
-PUBNAMESHORT:BP
-PUBNAMEWEB:www.battlefieldpress.com
-SOURCELONG:Gaslight - Players Guide
+PUBNAMELONG:Battlefield Press Inc.
+PUBNAMESHORT:BPI
+PUBNAMEWEB:http://www.battlefieldpress.com
+SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition
 SOURCESHORT:Gaslight
-SOURCEWEB:www.battlefieldpress.com
-SOURCEDATE:2009-12
+SOURCEWEB:http://www.battlefieldpress.com
+SOURCEDATE:2013-11
 ISOGL:YES
 
 COVER:gaslight.png
@@ -26,20 +27,23 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+#EXTRAFILE:gaslight_notes.txt
 
 ### Gamemode:
 SAVE:gaslight__saves.lst
 STAT:gaslight__stats.lst
-DATACONTROL:gaslight__datacontrol.lst
+DATACONTROL:gaslight__datacontrols.lst
 
 ### Files
 ABILITY:gaslight_abilities_class.lst
+ABILITY:gaslight_abilities_companion.lst
 ABILITY:gaslight_abilities_occupations.lst
 ABILITY:gaslight_abilities_racial.lst
 
-ABILITYCATEGORY:gaslight_ability_categories.lst
+ABILITYCATEGORY:gaslight_abilitycategories.lst
 
 CLASS:gaslight_class.lst
+COMPANIONMOD:gaslight_companionmods.lst
 DOMAIN:gaslight_domains.lst
 
 EQUIPMENT:gaslight_equip_weap.lst
@@ -59,7 +63,8 @@ ARMORPROF:gaslight_profs_armor.lst
 SHIELDPROF:gaslight_profs_shields.lst
 WEAPONPROF:gaslight_profs_weapons.lst
 
-RACE:gaslight_race.lst
+RACE:gaslight_races.lst
+RACE:gaslight_races_companion.lst
 
 SKILL:gaslight_skills.lst
 
@@ -177,8 +182,23 @@ COPYRIGHT:Wrath & Rage: A Guidebook to Orcs and Half-Orcs, Copyright 2002, Green
 COPYRIGHT:Pathfinder Roleplaying Game Beta Release. Copyright 2008, Paizo Inc.; Author: Jason Bulmahn.
 COPYRIGHT:Modern Dispatch #9 2004, RPGObjects; Author Charles Rice
 COPYRIGHT:Blood and Guts 2: Military Training Manual: 2005, RPGObjects; Author Charles Rice
-COPYRIGHT:Gaslight Victorian Fantasy Role Playing Game Copyright 2009, Jonathan M. Thompson d/b/a Battlefield Press, Inc.; Authors Marc Gacy, Stephen J. Miller and Jonathan M. Thompson
+COPYRIGHT:Iron Heroes Revised Copyright 2007 Adam Winsor. All rights reserved.
+COPYRIGHT:3E Tower Copyright 2000-2002, John T. Dodson, Author John T. Dodson
+COPYRIGHT:Arcana: Societies of Magic, Copyright 2001, Keven Brannan and James Maliszewski
+COPYRIGHT:Beyond Monks Copyright 2002, Chainmail Bikini Games, Ltd.
+COPYRIGHT:Book of Eldritch Might, copyright 2001 Monte J Cook.
+COPYRIGHT:Book of Eldritch Might II: Songs and Souls of Power copyright 2002 Monte J. Cook.
+COPYRIGHT:Call of Duty Copyright 2002, Chainmail Bikini Games, Ltd.
+COPYRIGHT:Tournaments, Fairs and Taverns copyright 2002 Natural 20 Press
+COPYRIGHT:Traps & Treachery, copyright 2001, Fantasy Flight Publishing Inc.
+COPYRIGHT:War, Copyright 2002, Alderac Entertainment Group
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural20 Press
+COPYRIGHT:Ultimate Prestige Classes, Vol2 Copyright 2003, Mongoose Publishing
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.; Andy Collins, Jesse Decker, David Noonan, Rich Redman.
+COPYRIGHT:Gaslight Victorian Fantasy Role Playing Game Second Edition Copyright 2013, Jonathan M. Thompson d/b/a Battlefield Press, Inc.; Authors Stephen J. Miller and Jonathan M. Thompson
+#COPYRIGHT:Gaslight Victorian Fantasy Role Playing Game Copyright 2009, Jonathan M. Thompson d/b/a Battlefield Press, Inc.; Authors Marc Gacy, Stephen J. Miller and Jonathan M. Thompson
 COPYRIGHT:PCGen dataset conversion for "Gaslight Victorian Fantasy Role Playing Game" Copyright 2010, PCGen Data Team (including, but not limited to: Eddy Anthony (MoSaT), Andrew Maitland (LegacyKing))
+COPYRIGHT:PCGen dataset conversion for "Gaslight Victorian Fantasy Role Playing Game Second Edition" Copyright 2014, PCGen Data Team (including, but not limited to: Andrew Maitland (LegacyKing))
 
 #
 # End

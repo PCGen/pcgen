@@ -1,11 +1,16 @@
-# CVS $Revision: 25130 $ $Author: amaitland $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: 25436 $ $Author: amaitland $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 
 # Ability Name							Modify VAR								Allow Follower			Allowed Companions
-ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Raven,Snake (Viper/Tiny),Toad
+ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Armadillo,Bat,Cat,Fox,Goat,Hawk,Hedgehog,Lizard,Monkey,Owl,Pig,Platypus,Raccoon,Rat,Raven,Scorpion (Greensting),Skunk,Squirrel,Toad,Turtle,Snake (Viper/Tiny),Weasel
 ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|AnimalCompanionLVL|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Wolf
+
+###Block: Familiar specific
+Familiar Level Tracker		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells|PREVARGTEQ:mastervar("FamiliarLVL"),1	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Intelligence|PREVAREQ:FamiliarIntelligence,1	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK	ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells|PREVARGTEQ:mastervar("FamiliarLVL"),3	ABILITY:Special Ability|AUTOMATIC|Speak with Master|PREVARGTEQ:mastervar("FamiliarLVL"),5	ABILITY:Special Ability|AUTOMATIC|Speak with Animals of its Kind|PREVARGTEQ:mastervar("FamiliarLVL"),7	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Spell Resistance|PREVARGTEQ:mastervar("FamiliarLVL"),11	ABILITY:Special Ability|AUTOMATIC|Scry on Familiar|PREVARGTEQ:mastervar("FamiliarLVL"),13	ABILITY:Special Ability|AUTOMATIC|Spelled Familiar|PREVARGTEQ:mastervar("FamiliarLVL"),21					
+Familiar ~ Spell Resistance	CATEGORY:Special Ability	SR:mastervar("FamiliarLVL")+5
+Familiar ~ Intelligence		CATEGORY:Special Ability	DEFINESTAT:MINVALUE|INT|mastervar("FamiliarLVL")/2+5
 
 ###Block: Animal Abilities
 # Ability Name		Output Name									Category of Ability		Type								Visible	Define			Description																																																																				Modify VAR																			Source Page
@@ -32,15 +37,39 @@ Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Atta
 
 ###Block: Companion Modifier Abilities -----------------------------------------
 # Ability Name				Category of Ability		Type						Visible	Source Page					Temporary effect description							Temporary Bonus
-Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Deliver Touch Spells			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Devotion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
-Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Speak with Animals of its Kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight		TEMPBONUS:PC|SITUATION|Perception=Spot|3|TYPE=HawkFamiliar
-Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness	TEMPBONUS:PC|SITUATION|Perception=Spot|3|TYPE=OwlFamiliar
+Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+Deliver Touch Spells			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+Devotion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	SOURCEPAGE:p.97
+Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+Speak with Animals of its Kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+Spelled Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
+
+###Block: Master Granted Bonuses
+Familiar (Armadillo)			CATEGORY:Special Ability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+Familiar (Bat)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Fly checks
+Familiar (Cat)				CATEGORY:Special Ability	BONUS:SKILL|Stealth|3
+Familiar (Fox)				CATEGORY:Special Ability	BONUS:SAVE|Reflex|2
+Familiar (Goat)				CATEGORY:Special Ability	BONUS:SKILL|Survival|3
+Familiar (Hawk)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Spot checks in daylight
+Familiar (Hedgehog)			CATEGORY:Special Ability	BONUS:SAVE|Will|2
+Familiar (Lizard)				CATEGORY:Special Ability	BONUS:SKILL|Athletics|3
+Familiar (Monkey)				CATEGORY:Special Ability	BONUS:SKILL|Acrobatics|3
+Familiar (Owl)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Spot checks in dusk or darkness
+Familiar (Pig)				CATEGORY:Special Ability	BONUS:SKILL|Persuasion|3
+Familiar (Platypus)			CATEGORY:Special Ability	BONUS:SKILL|Athletics|3
+Familiar (Raccoon)			CATEGORY:Special Ability	BONUS:SKILL|Sleight of Hand|3
+Familiar (Rat)				CATEGORY:Special Ability	BONUS:SAVE|Fortitude|2
+Familiar (Raven)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Appraise checks
+Familiar (Scorpion (Greensting))	CATEGORY:Special Ability	BONUS:COMBAT|INITIATIVE|4
+Familiar (Skunk)				CATEGORY:Special Ability	BONUS:SAVE|Fortitude|2
+Familiar (Squirrel)			CATEGORY:Special Ability	BONUS:SKILL|Sleight of Hand|3
+Familiar (Toad)				CATEGORY:Special Ability	BONUS:HP|CURRENTMAX|3
+Familiar (Turtle)				CATEGORY:Special Ability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+Familiar (Snake (Viper/Tiny))		CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Bluff checks
+Familiar (Weasel)				CATEGORY:Special Ability	BONUS:SAVE|Reflex|2
+
 
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type				Define			Description			Bonus Ability Pool
@@ -72,10 +101,6 @@ Trained for Heavy Labor		KEY:Animal Training ~ Heavy Labor	CATEGORY:Special Abil
 Trained for Hunting		KEY:Animal Training ~ Hunting		CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	PRESTAT:1,INT=2	DESC:An animal trained for hunting knows the tricks attack, down, fetch, heel, seek, and track. Training an animal for hunting takes 6 weeks.	ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Attack|Animal Trick ~ Down|Animal Trick ~ Fetch|Animal Trick ~ Heel|Animal Trick ~ Seek|Animal Trick ~ Track	COST:6
 Trained for Performance		KEY:Animal Training ~ Performance	CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	PRESTAT:1,INT=2	DESC:An animal trained for performance knows the tricks come, fetch, heel, perform, and stay. Training an animal for performance takes 5 weeks.	ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Come|Animal Trick ~ Fetch|Animal Trick ~ Heel|Animal Trick ~ Perform|Animal Trick ~ Stay					COST:5
 Trained for Riding		KEY:Animal Training ~ Riding		CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining				DESC:An animal trained to bear a rider knows the tricks come, heel, and stay. Training an animal for riding takes 3 weeks.				ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Come|Animal Trick ~ Heel|Animal Trick ~ Stay												COST:3
-
-#
-# End
-#
 
 #
 # End

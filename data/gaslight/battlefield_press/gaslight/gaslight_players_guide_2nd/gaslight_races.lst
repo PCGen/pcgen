@@ -1,0 +1,20 @@
+# CVS $Revision: 25436 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+###Block: Gaslight Races
+# Race Name	Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages	Bonus Ability Pool					Combat bonus							Bonus to skill														Stat bonus																																																																																																																																																																							Auto Language	Ability																	Damage Reduction	Main Race Type	Race Subtype					Challenge Rating	Source Page		Bonus language
+Beast Man					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5					LANGBONUS:ALL	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Beast Man	RACETYPE:Humanoid								CR:1/2		SOURCEPAGE:p.70	BONUS:LANGUAGES|NUMBER|-1	AUTO:LANG|English
+Human		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5					LANGBONUS:ALL	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Human		RACETYPE:Humanoid								CR:1/2		SOURCEPAGE:p.71
+Ratling					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5					LANGBONUS:ALL	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ratling	RACETYPE:Humanoid	RACESUBTYPE:Ratling				CR:1/2		SOURCEPAGE:p.72
+Vampire					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-Light Vision	LANGBONUS:ALL	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Vampire	RACETYPE:Humanoid								CR:1/2		SOURCEPAGE:p.73
+Werewolf					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-Light Vision	LANGBONUS:ALL	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Werewolf	RACETYPE:Humanoid	RACESUBTYPE:Lycanthrope|Shapeshifter	CR:1/2		SOURCEPAGE:p.74
+Wildling					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5					LANGBONUS:ALL	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Wildling	RACETYPE:Humanoid	RACESUBTYPE:Fey					CR:1/2		SOURCEPAGE:p.75
+
+Ghost		SIZE:M		SOURCEPAGE:p.00	RACETYPE:Not declared	TYPE:Not declared	RACESUBTYPE:Not declared	MOVE:Walk,40	FACE:5	REACH:5	LEGS:2	HANDS:2	STARTFEATS:1	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ghost
+Pixie		SIZE:S		SOURCEPAGE:p.00	RACETYPE:Not Declared	TYPE:Not Declared	MOVE:Walk,20,Fly,60	CSKILL:Fly	BONUS:VAR|Maneuverability|4	FACE:5	REACH:5	LEGS:2	HANDS:2	STARTFEATS:1	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|2	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pixie
+
+
+#
+# End
+#
