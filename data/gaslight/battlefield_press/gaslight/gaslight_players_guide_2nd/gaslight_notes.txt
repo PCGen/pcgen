@@ -1,0 +1,226 @@
+
+#COVER IMAGE: 
+Sent request to Jon at BPI for updated Cover.png as the revised book has a different cover.
+
+#PCC FILE:
+Updated Company name
+Updated Copyrights
+Added this file to not trip Jenkins orphan alert.
+Change Campaign name to one specified by Jon
+
+#RACE FILE:
+Added Ratling
+Updated Source pages
+Switched to Internal Race Trait Abilities to manage race items.
+Moved Beastmen Stats to Ability, this is required to fix the double stat display when using TYPE=Racial on a RACE line!
+
+
+#ABILITY FILE:
+Updated Page References
+Removed Fortune Talent Tree and merged the talents into Privilege Talent Tree
+Altered how the races gain their Talent Selections to RACETalent TYPE only. (Faster)
+Race Talent Trees source page ref updated.
+Occupations source page ref updated.
+Skill MaxRank values for each skill held in Default (Internal)
+
+
+#ABILITYCATEGORY FILE:
+Changed everything to DISPLAYLOCATION:Character Creation, except feats.
+
+#CLASS FILE
+Updated class casting progression to handle 30 levels.
+Updated divine casting progression.
+Acolyte - used formulas where possible
+Apprentice - used formulas where possible
+ALL - removed "APPLIEDAS=EPIC" as Epic progression not used.
+
+#SKILL FILE:
+Changed to Allow altering of max ranks: Set up DISPLAY Skill and Regular Skill
+NOTE: CHOOSE w/ Skill and MAX rank will not work as MAX RANK is 10 higher for support. Need to use another QUALIFIER that will respect the PREVAR instead.
+
+
+#COMPANIONMOD FILE
+Take advantage of the new feat mastervar and condense the file space, move familiar items into ability where possible
+Add new masterbonus - fly is erroneous, but Jon has not substitute.
+
+#Familiars - 
+
+# GAMEMODE FILES
+Changed XP progressions to use Slow, Medium and Fast
+Added VAR 'MaxRank' for CLASS SKILL Max Rank system. Set to 10 above normal, should be more than sufficient. Leaves a pontential for +8 more.
+
+
+# ISSUES DISCOVERED:
+Gaslight is supposed to be a modern system derivative. But nothing in the book points this out. So, when looking for races for the familiars, any customer is going to be confused.
+I know I'd be annoyed not having any reference to the listed creatures.
+
+Since no Familiars are listed in the book other than by name, and such, it does make things a bit difficult. Is the goal that we do not use any stats for the familiars? They are just an adjunct that grant a bonus?
+I can redo the system so you select the bonus, and make it easier than making a separate familiar if that is the desired goal.
+
+MSRD Defined Animals:
+	Ape
+	Badger
+	Bat
+	Bear
+	Camel
+	Cat
+	Crocodile
+	Dog
+	Eagle
+	Elephant
+	Ferret
+	Hawk
+	Herd Animal
+	Horse
+	Lizard
+	Monkey
+	Octopus
+	Owl
+	Pony
+	Porpoise
+	Rat
+	Raven
+	Shark
+	Snake (Viper/Tiny)
+	Snake (Viper/Small)
+	Snake (Viper/Medium)
+	Squid
+	Tiger
+	Toad
+	Wolf
+
+LIST of non-MSRD Animals: For what it's worth, this list looks exactly the same as the Pathfinder Bestiary familiar creature list.
+I certainly hope we aren't mixing game systems, because that is not good. (Different skills, feats, how ranks and bonuses are granted, etc.)
+	Armadillo
+	Fox
+	Goat
+	Hedgehog
+	Pig
+	Platypus
+	Raccoon
+	Scorpion (Greensting)
+	Skunk
+	Squirrel
+	Turtle
+	Weasel
+
+Knowledge (Psychic) & Knowledge (Technology) listed a second time separate from the Knowledge group.
+
+No "Craft (Writing)" referenced as a class skill by the News Hound class. Page 123.
+No "Profession (Journalism)" referenced as a class skill by the News Hound. (Profession is a standalone skill)
+No "Knowledge (Local)" referenced by class Street Rat
+No "Knowledge (religion)" referenced by class Paladin
+
+Missing "Heroic Surge" from class Explorer
+
+PERFORM has the exact same wording as Knowledge.
+"The number of Knowledge categories is kept purposely..."
+"The number of Perform categories is kept purposely..."
+
+
+
+
+
+OS Updates required:
+Max Rank needs to use PCVAR Max_Rank_Display if available, fall back to default if not present.
+
+
+###Summon Vivilor	P.311
+Vivilor
+Vivilors are outsiders who come in response to the summon vivilor spell.
+Vivilors generally have humanoid shapes, but spellcasters can summon
+quadupedal or serpentine vivilors if they wish. In addition to their basic
+statistics, a summoner chooses additional special qualities from Vivilor
+Menu A or Vivilor Menu B (see below). A spellcaster can substitute two
+choices on Vivilor Menu A for one choice on Vivilor Menu B, or one
+choice on Vivilor Menu B for two choices on Vivilor Menu A.
+Vivilors do not speak. However, a vivilor can understand the instructions
+of its summoner and follows them to the letter.
+Species Traits
+All vivilors share the following traits:
+Darkvision (Ex): A vivilor can see in the dark up to 60 feet. Darkvision
+is black and white only, but it is otherwise like normal sight, and the
+vivilor can function with no light at all.
+Bonus Feat: Vivilors gain the bonus feat Archaic Weapons Proficiency.
+However, they generally prefer to use their natural weapons in combat.
+1st-level Vivilor: CR 1/3; Small outsider; HD 1d8; hp 4; Init +1; Spd 40
+ft.; Defense 13, touch 12, flat-footed 12 (+1 size, +1 Dex, +1 natural);
+BAB +1; Grap –3; Atk +2 melee (1d4, slam); Full Atk +2 melee (1d4,
+slam); FS 5 ft. by 5 ft.; Reach 5 ft.; SQ one choice from Vivilor Menu
+A; AL summoner; SV Fort +2, Ref +3, Will +3; AP 0; Rep +0; Str 11,
+Dex 13, Con 11, Int 7, Wis 12, Cha 6.
+Skills: Hide +5, Listen +6, Spot +6.
+Feats: Alertness, Archaic Weapons Proficiency.
+Advancement: None.
+2nd-level Vivilor: CR 1; Medium outsider; HD 2d8+2; hp 11; Init +0;
+Spd 40 ft.; Defense 14, touch 10, flat-footed 14 (+4 natural); BAB +2;
+Grap +3; Atk +3 melee (1d6+1, slam); Full Atk +3 melee (1d6+1, slam);
+FS 5 ft. by 5 ft.; Reach 5 ft.; SQ two choices from Vivilor Menu A; AL
+summoner; SV Fort +4, Ref +3, Will +4; AP 0; Rep +0; Str 13, Dex 11,
+Con 13, Int 7, Wis 12, Cha 6.
+Skills: Climb +5, Jump +5, Listen +7, Spot +7.
+Feats: Alertness, Archaic Weapons Proficiency.
+Advancement: None.
+3rd-level Vivilor: CR 2; Medium outsider; HD 3d8+4; hp 17; Init +0;
+Spd 40 ft.; Defense 17, touch 10, flat-footed 17 (+7 natural); BAB +3;
+Grap +4; Atk +4 melee (1d6+1, slam); Full Atk +4 melee (1d6+1, slam);
+FS 5 ft. by 5 ft.; Reach 5 ft.; SQ three choices from Vivilor Menu A; AL
+summoner; SV Fort +4, Ref +3, Will +4; AP 0; Rep +0; Str 13, Dex 11,
+Con 13, Int 7, Wis 12, Cha 6.
+Skills: Climb +7, Jump +7, Listen +8, Spot +8.
+Feats: Alertness, Archaic Weapons Proficiency.
+Advancement: None.
+4th-level Vivilor: CR 4; Large outsider; HD 5d8+15; hp 37; Init –1; Spd
+50 ft.; Defense 18, touch 8, flat-footed 18 (–1 size, –1 Dex, +10 natural);
+BAB +5; Grap +14; Atk +9 melee (1d8+7, slam); Full Atk +9 melee (1d8+7,
+slam); FS 10 ft. by 10 ft.; Reach 10 ft.; SQ one choice from Vivilor Menu
+B, damage reduction 5/+1; AL summoner; SV Fort +7, Ref +3, Will +7;
+AP 0; Rep +0; Str 21, Dex 9, Con 17, Int 7, Wis 12, Cha 6.
+Skills: Climb +13, Hide –5, Jump +13, Listen +12, Spot +12.
+Feats: Alertness, Archaic Weapons Proficiency, Iron Will.
+Advancement: None.
+
+5th-level Vivilor: CR 5; Large outsider; HD 7d8+21; hp 52; Init –1; Spd 50
+ft.; Defense 21, touch 8, flat-footed 21 (–1 size, –1 Dex, +13 natural); BAB
++7/+2; Grap +16; Atk +11 melee (1d8+7, slam); Full Atk +11/+6 melee
+(1d8+7, slam); FS 10 ft. by 10 ft.; Reach 10 ft.; SQ two choices from Vivilor
+Menu B, damage reduction 5/+1; AL summoner; SV Fort +8, Ref +4, Will
++8; AP 0; Rep +0; Str 21, Dex 9, Con 17, Int 7, Wis 12, Cha 6.
+Skills: Climb +16, Hide –5, Jump +16, Listen +15, Spot +15.
+Feats: Alertness, Archaic Weapons Proficiency, Iron Will.
+Advancement: None.
+Vivilor Menu A
+Aquatic: The vivilor gains a swim speed of 60 feet. The vivilor can move
+in water without making Swim checks and cannot drown in water. Bat
+Wings: The vivilor gains a fly speed of 60 feet (average maneuverability).
+Energy Resistance 5 (Ex): The vivilor gains resistance 5 to one energy
+type of the summoner’s choosing: acid, fire, cold, electricity, or sonic/
+concussion. Improved Ability Scores: The vivilor gains +2 Strength and
++2 Constitution.
+Quadrupedal: The vivilor has four limbs for locomotion, increasing its
+ground speed by +20 feet. As a quadruped, the vivilor can also carry
+heavier loads than bipedal forms.
+Tentacles: The vivilor can slam opponents using tentacles that increase
+its reach by +5 feet.
+Tougher Skin: The vivilor’s natural armor bonus to Defense increases by +1.
+Vivilor Menu B
+Amorphous: The vivilor is immune to critical hits and massive damage.
+It cannot be flanked.
+Energy Resistance 15 (Ex): The vivilor gains resistance 15 to one energy
+type of the summoner’s choosing: acid, fire, cold, electricity, or sonic/
+concussion.
+Extra Limbs: The vivilor gains three additional slam attacks during its
+full attack action. These additional slams are treated as secondary attacks
+(–5 penalty to the attack roll).
+Feathered Wings: The vivilor gains a fly speed of 90 feet (good maneuverability).
+Grasping Tentacles (Ex): The vivilor can slam opponents using tentacles
+that increase its reach by +5 feet. On a successful hit, a tentacle can
+make a free grapple check without provoking attacks of opportunity. A
+grappled opponent takes automatic slam damage every round the
+grapple is maintained.
+Metallic Skin: The vivilor’s natural armor bonus to Defense increases by +4.
+Serpentine: The vivilor has a serpentine form. It deals double slam
+damage against grappled foes.
+
+
+###Errors:
