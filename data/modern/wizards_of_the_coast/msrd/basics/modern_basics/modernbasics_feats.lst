@@ -32,7 +32,7 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 
 # Fixed the Brawl/Martial Arts problem by adding a template 'Unarmed Lethal Strike' that includes a Natural Attack of the same name,
 # to get a second object for outputting the differing results. The Brawl and Martial Arts feats now modify the two 'unarmed' objects
-# accordingly  																		- Frank Kliewe
+# accordingly																		- Frank Kliewe
 
 # Haven't looked at how classes group the feats into bonus feats yet.
 

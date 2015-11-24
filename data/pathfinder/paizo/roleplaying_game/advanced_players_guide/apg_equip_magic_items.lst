@@ -108,9 +108,9 @@ Ring of Delayed Doom							TYPE:Magic.Ring	COST:5000	EQMOD:CHARGED_ITEM_9	SOURCE
 Ring of Forcefangs							TYPE:Magic.Ring	COST:8000					SOURCEPAGE:p.292											SPROP:Negates any force spell or spell-like ability targeted at the wearer. Doing so gives the ring a number of charges equal to the spell level of the incoming force effect, to a maximum of 9 charges. On command, the wearer can use the ring?s charges to cast magic missile, per the spell of the same name, per charge but no more than five missiles per round.
 Ring of Mechanical Devices						TYPE:Magic.Ring	COST:5000					SOURCEPAGE:p.292	BONUS:SKILL|Craft (Traps),Disable Device|5|TYPE=Competence
 Ring of Retribution							TYPE:Magic.Ring	COST:15000					SOURCEPAGE:p.292											SPROP:Once per day, the wearer of this charred bone ring may, as an immediate action, cause it to detonate in a 30-foot-radius burst that deals 10d6 points of fire damage (Reflex DC 14 half ).
-#Ring of Revelation (Lesser)			OUTPUTNAME:Ring of Revelation, Lesser		TYPE:Magic.Ring 	COST:10000	SOURCEPAGE:p.293
-#Ring of Revelation (Greater)			OUTPUTNAME:Ring of Revelation, Greater		TYPE:Magic.Ring 	COST:16000	SOURCEPAGE:p.293
-#Ring of Revelation (Superior)			OUTPUTNAME:Ring of Revelation, Superior		TYPE:Magic.Ring 	COST:24000	SOURCEPAGE:p.293
+#Ring of Revelation (Lesser)			OUTPUTNAME:Ring of Revelation, Lesser		TYPE:Magic.Ring	COST:10000	SOURCEPAGE:p.293
+#Ring of Revelation (Greater)			OUTPUTNAME:Ring of Revelation, Greater		TYPE:Magic.Ring	COST:16000	SOURCEPAGE:p.293
+#Ring of Revelation (Superior)			OUTPUTNAME:Ring of Revelation, Superior		TYPE:Magic.Ring	COST:24000	SOURCEPAGE:p.293
 
 ###Block: Cursed Rings
 # Equipment Name	Type				Cost		Weight	Source Page

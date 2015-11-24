@@ -34,7 +34,7 @@ Custom Ride		CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility	DEFINE:Cus
 
 ###Block:  Fixer Abilities
 
-# Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add 					Add to base move													Modify VAR
+# Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add					Add to base move													Modify VAR
 # Ability Name		Category of Ability		Type							Define									Description																																					Stackable?	Multiple?	Choose		Bonus Ability Pool				Add to base move													Modify VAR
 Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|0	DESC: +%1d%2|SneakAttackDice|SneakAttackDieSize																																																												BONUS:VAR|SneakAttackDieSize|6|TYPE=Base
 Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|0			DESC:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	DESC:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	DESC:Uncanny Dodge (can't be flanked, +%1 against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3																														BONUS:VAR|UncannyTraps|max((UncannyDodge-2),0)
@@ -51,8 +51,8 @@ Fixer Feat Choice		CATEGORY:Special Ability	TYPE:FixerSpecialAbility												
 
 ###Block:  Pointman Abilities
 
-# Feat Name						Type					Visible	Required Feat				Special ABility							Define				Stackable?	Multiple?	Choose				Add 														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
-# Ability Name					Category of Ability		Type								Required Ability									Define				Description								Stackable?	Multiple?	Choose			Add 					Bonus Ability Pool				Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
+# Feat Name						Type					Visible	Required Feat				Special ABility							Define				Stackable?	Multiple?	Choose				Add														Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
+# Ability Name					Category of Ability		Type								Required Ability									Define				Description								Stackable?	Multiple?	Choose			Add					Bonus Ability Pool				Combat bonus					Misc bonus							Modify VAR					Class Skill	Damage Reduction
 Versatility						CATEGORY:Special Ability	TYPE:SpecialQuality.PointmanSpecialAbility																										STACK:NO	MULT:YES	CHOOSE:SKILL|CROSSCLASS																																		CSKILL:LIST
 
 Faceman Linguist					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE		ADD:LANGUAGE|TYPE=Spoken
@@ -85,7 +85,7 @@ Wheelman Familiarity +2				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossCla
 
 ###Block:  Snoop Abilities
 
-# Feat Name							Type			Visible	Required Feat				Special ABility									Define					Stackable?	Multiple?	Choose		Add 					Modify VAR
+# Feat Name							Type			Visible	Required Feat				Special ABility									Define					Stackable?	Multiple?	Choose		Add					Modify VAR
 # Ability Name						Category of Ability		Type						Required Ability									Define					Description										Stackable?	Multiple?	Choose		Bonus Ability Pool				Modify VAR
 Comb the Streets						CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility												DEFINE:CombtheStreets|0			DESC:Comb the Streets (%1/session)|CombtheStreets																	BONUS:VAR|CombtheStreets|1
 Comb the Streets (additional sessions)		CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility	PREABILITY:1,CATEGORY=Special Ability,Comb the Streets																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|CombtheStreets|1

@@ -3,7 +3,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
 ###Block: Altherian Artificer -----------------------------------------------------
-# Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Auto Feat				Add 										Bonus to skill																Allow Follower				Allowed Companions
+# Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Auto Feat				Add										Bonus to skill																Allow Follower				Allowed Companions
 Altherian Craftsman									CATEGORY:Special Ability																																									ABILITY:FEAT|AUTOMATIC|Altherian Craftsman
 Sharp Intellect										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality
 Dedication											CATEGORY:Special Ability							DEFINE:DedicationBonus|0	DESC:%1|DedicationBonus																															ADD:ABILITY|Special Ability|NORMAL|Dedication Output Choice
@@ -142,10 +142,10 @@ Quicker Than The Mind	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Warder -----------------------------------------------------------------------------
 
-# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add 											Modify VAR
+# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add											Modify VAR
 Track					CATEGORY:Special Ability	TYPE:SpecialQuality
 
-# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add 											Modify VAR
+# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add											Modify VAR
 Homeland Defense			CATEGORY:Special Ability	TYPE:SpecialQuality																																													DEFINE:Aquatic|0	DEFINE:Desert|0	DEFINE:Forest|0	DEFINE:Hill|0	DEFINE:Marsh|0	DEFINE:Mountains|0	DEFINE:Plains|0	DEFINE:Aquatic|0	DEFINE:Urban|0
 
 #!PREABILITY:1,CATEGORY=Special Ability,Homeland Defense Choice I
@@ -432,7 +432,7 @@ Arcane Strength																		CATEGORY:Special Ability	TYPE:SpecialQuality.Su
 
 
 ###Block: The Master-Smith ------------------------------------------------------------------------------------------------
-# Ability Name				Output Name				Category of Ability		Type				Define				Virtual Feat				Add 																			Bonus to skill
+# Ability Name				Output Name				Category of Ability		Type				Define				Virtual Feat				Add																			Bonus to skill
 Apprenticeship									CATEGORY:Special Ability	TYPE:SpecialQuality
 Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																										BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science/Metallurgy),Craft (Blacksmithing)|SkillMasteryBonus|TYPE=Competence
 Silvered Weapon									CATEGORY:Special Ability	TYPE:SpecialQuality

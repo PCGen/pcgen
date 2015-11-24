@@ -13,7 +13,7 @@ CLASS:Bloatmage	PRETEXT:Feats: Bloatmage Initiate, Spell Focus (any school). Spe
 CLASS:Bloatmage	STARTSKILLPTS:2	CSKILL:Fly|Heal|TYPE=Knowledge|Spellcraft|Use Magic Device
 ###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
-###Block 	
+###Block	
 1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Weapon and Armor Proficiency	
 1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Spells per Day/Spells Known	
 1	ABILITY:Bloatmage Class Feature|AUTOMATIC|Bloatmage ~ Blood Pool				

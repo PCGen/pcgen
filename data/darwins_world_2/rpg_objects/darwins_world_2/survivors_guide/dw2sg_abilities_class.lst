@@ -14,7 +14,7 @@ Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES							
 Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Advanced Technology														DESC:Craft Lore (%1)|%CHOICE														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p.14
 
 Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																																				PRESKILL:1,Knowledge (Mutant Lore)=1					DESC:Mutation Knowledge																																																												SOURCEPAGE:p.14
-Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant1,Mutant2,Mutant3	DESC:Mutant Weapon 																																																					BONUS:WEAPONPROF=TYPE.Natural|TOHIT|1	SOURCEPAGE:p.14
+Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant1,Mutant2,Mutant3	DESC:Mutant Weapon																																																					BONUS:WEAPONPROF=TYPE.Natural|TOHIT|1	SOURCEPAGE:p.14
 Neural Mastery		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telekinesis,Neural Mutation - Telepathy																			DESC:Neural Mastery																																								BONUS:VAR|precogUses|WIS	BONUS:VAR|tkUses|CON	BONUS:VAR|teepUses|CHA								SOURCEPAGE:p.14
 
 Improvised Toolkit	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																				PRESKILL:1,Repair=1								DESC:Improvised Toolkit																																																												SOURCEPAGE:p.14
@@ -41,7 +41,7 @@ Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTa
 Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																			BONUS:SKILLRANK|Drive|4
 
 ###Block: Survivalist
-# Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add 								Bonus to skill					Modify VAR
+# Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add								Bonus to skill					Modify VAR
 Survival Bonus (Overall)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES	DEFINE:SurvOverall|0	DESC:Way of the Land (+%1 Overall Survival/Navigation)|SurvOverall			STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:SKILL|Survival,Navigate|SurvOverall	BONUS:VAR|SurvOverall|2
 Survival Bonus (Regional)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:ABILITY|Talent|NORMAL|TYPE=SurvivalRegion
 Region (Big Rocks)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Big Rocks Region)
@@ -68,7 +68,7 @@ Electronic Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	V
 Mechanical Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	VISIBLE:YES	PRECLASS:1,Mech=1	DEFINE:MasterMechanical|0	DESC:Mastercraft (Mechanical +%1)|MasterMechanical	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:p.47
 
 ###Block: Medicine Man
-# Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					Prohibite Special Ability				Description								Virtual Feat					Add 				Source Page
+# Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					Prohibite Special Ability				Description								Virtual Feat					Add				Source Page
 Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						ABILITY:FEAT|VIRTUAL|Advanced Pharmaceutical Discipline					SOURCEPAGE:p.48
 JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																									DESC:Ancient Drugs													BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.48
 JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																	PRESA:1,Juju Miracle,Minor Medical Miracle																									BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.49
@@ -80,13 +80,13 @@ MedTech (Zombie Plague Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.Anc
 
 ###Block: Scientist
 # Ability Name	Category of Ability	Type					Visible	Special ABility		Multiple?	Choose				Weapon prof. bonus															Source Page
-Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%CHOICE) - USE INT instead of STR or DEX for attack bonus.		MULT:YES		BONUS:COMBAT|TOHIT.Melee|-STR		BONUS:COMBAT|TOHIT.Ranged|-DEX		BONUS:COMBAT|TOHIT.Melee|STR|TYPE=Stat		BONUS:COMBAT|TOHIT.Ranged|DEX|TYPE=Stat		CHOOSE:WEAPONPROFICIENCY|PC	     BONUS:COMBAT|TOHIT.%LIST|TOHIT|INT|TYPE=Stat	SOURCEPAGE:p.52
+Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%CHOICE) - USE INT instead of STR or DEX for attack bonus.		MULT:YES		BONUS:COMBAT|TOHIT.Melee|-STR		BONUS:COMBAT|TOHIT.Ranged|-DEX		BONUS:COMBAT|TOHIT.Melee|STR|TYPE=Stat		BONUS:COMBAT|TOHIT.Ranged|DEX|TYPE=Stat		CHOOSE:WEAPONPROFICIENCY|PC	BONUS:COMBAT|TOHIT.%LIST|TOHIT|INT|TYPE=Stat	SOURCEPAGE:p.52
 
 ###Block: Warrior Monk
 # Ability Name				Category of Ability	Type				Visible	Required Ability								Required Feat		Description								Stackable?	Multiple?	Choose								Weapon prof. bonus			Source Page
 Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES											PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
 Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Reflexes																								SOURCEPAGE:p.58
-Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES																   PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus				BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
+Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES																PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus				BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
 Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Expertise																							SOURCEPAGE:p.58
 
 ###Block: Companion support

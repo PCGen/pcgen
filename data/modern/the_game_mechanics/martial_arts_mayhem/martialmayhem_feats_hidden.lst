@@ -3,7 +3,7 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 #Original Entry by: Frank Kliewe
 
 ###Block:Gunslinger Levels for Level Substitution
-# Feat Name						Type			Visible	Special ABility		Add 					Bonus Ability Pool
+# Feat Name						Type			Visible	Special ABility		Add					Bonus Ability Pool
 1st Level Gunslinger Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO	SAB:Close Combat Shot
 2nd Level Gunslinger Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO										BONUS:ABILITYPOOL|Weapon Focus|1
 3rd Level Gunslinger Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Gunslinger
@@ -16,7 +16,7 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 10th Level Gunslinger Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO	SAB:Bullseye
 
 ###Block:Soldier Levels for Level Substitution
-# Feat Name					Type			Visible	Special ABility		Add 				Bonus Ability Pool						Combat bonus						Modify VAR
+# Feat Name					Type			Visible	Special ABility		Add				Bonus Ability Pool						Combat bonus						Modify VAR
 1st Level Soldier Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO									BONUS:ABILITYPOOL|Weapon Focus|1
 2nd Level Soldier Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO									BONUS:ABILITYPOOL|Weapon Specialization|1											BONUS:VAR|WeapSpecQualify|1
 3rd Level Soldier Class Abilities	CATEGORY:FEAT	TYPE:StandardLvl	VISIBLE:NO					ADD:FEAT|TYPE=Soldier																		BONUS:VAR|WeapSpecQualify|-1

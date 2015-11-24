@@ -17,7 +17,7 @@ Soulknife ITCK Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBL
 
 
 # ~ Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
-# Ability Name		Unique Key							Category of Ability		Type					Define																		Description									Auto Equip			Add 				Modify VAR
+# Ability Name		Unique Key							Category of Ability		Type					Define																		Description									Auto Equip			Add				Modify VAR
 Power Sharing I		KEY:Power Sharing I ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality
 Power Sharing II		KEY:Power Sharing II ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality
 Colorless Fire		KEY:Colorless Fire ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0										DESC: DC%1, %2 times/day|ColorlessFireDC|ColorlessFireTimes

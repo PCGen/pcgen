@@ -2,7 +2,7 @@
 
 
 
-# Domain Name		Class Skill			Choose								Selections	Innate Spells																Add 					Auto Feat				Auto Weapon Prof		Description						List of Domain Spells by Level						Type
+# Domain Name		Class Skill			Choose								Selections	Innate Spells																Add					Auto Feat				Auto Weapon Prof		Description						List of Domain Spells by Level						Type
 Foo Ball																																																		DESC:This is the Foo Ball Domain		SPELLLEVEL:DOMAIN|Foo Ball=1|Magic Missile|Foo Ball=2|Fireball	TYPE:TestDomainExtra
 
 Bar Ball							CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1																								AUTO:FEAT|Weapon Focus(%LIST)	AUTO:WEAPONPROF|%LIST	DESC:This is the Bar Ball Domain		SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify		TYPE:TestDomain

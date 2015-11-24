@@ -255,16 +255,16 @@ Wizard		VISIBLE:NO					PRECLASS:1,Wizard=1					REMOVABLE:NO	TYPE:BaseClass
 None			VISIBLE:NO									!PRECLASS:1,Barbarian=1	REMOVABLE:NO	TYPE:BaseClass
 
 ###Block: Language Support for Cleric Homebrews
-# Template Name				Visible	Choose												Add 				Apply Kit			Bonus Languages					Temporary Bonus
+# Template Name				Visible	Choose												Add				Apply Kit			Bonus Languages					Temporary Bonus
 Cleric ~ Bonus Languages		VISIBLE:NO																						LANGBONUS:Abyssal,Celestial,Infernal
 
 
 
-# Template Name				Visible	Choose												Add 				Apply Kit			Bonus Languages					Temporary Bonus
+# Template Name				Visible	Choose												Add				Apply Kit			Bonus Languages					Temporary Bonus
 Imbue Spell Like Ability ~ Cleric	VISIBLE:NO	CHOOSE:NUMBER|MIN=7|MAX=20|TITLE=Select Cleric Imbuing Spells upon you level	ADD:SPELLCASTER|Cleric												TEMPBONUS:PC|CASTERLEVEL|Cleric|%CHOICE
 
 
-# Template Name				Visible	Choose												Add 				Apply Kit			Bonus Languages					Temporary Bonus
+# Template Name				Visible	Choose												Add				Apply Kit			Bonus Languages					Temporary Bonus
 Spellbook					VISIBLE:NO																		KIT:1|Wizard Spell Book
 
 ###Block: Dragon Disciple Attacks
@@ -309,7 +309,7 @@ Total Defense			VISIBLE:NO	SOURCEPAGE:CombatI											TEMPDESC:You are defendi
 Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats		CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary
 
 ###Block: Awakened Animal
-# Template Name			Visible	Template										Define Stat			Required Class			Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
+# Template Name			Visible	Template										Define Stat			Required Class			Required Race					Add					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
 Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will										PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 Awakened Animal_Standard	VISIBLE:NO																PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
 Awakened Animal_Will		VISIBLE:NO																PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
@@ -358,7 +358,7 @@ Strongly Aligned (Lawful)	VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of M
 Strongly Aligned (Neutral)	VISIBLE:NO	SOURCEPAGE:Planes.rft																									TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:NG,NE,CN,LN	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE	TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-4|TYPE=Circumstance|PREALIGN:LG,CG,CE,LE
 
 ###Block: Raven Familiar Support
-# Template Name		Visible	Source Page			Add 					Ability
+# Template Name		Visible	Source Page			Add					Ability
 Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
 
 ###Block: Size Mods for Automatic Changes

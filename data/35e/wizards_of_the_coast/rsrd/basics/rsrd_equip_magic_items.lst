@@ -355,7 +355,7 @@ Wand (Web)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BA
 
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 # Commas should not be part of names.  OUTPUTNAME for that.
-# 	Replaced all commas by '/', specified the complete name in OUTPUTNAME. That better ? Thomas/Chipoulou
+#	Replaced all commas by '/', specified the complete name in OUTPUTNAME. That better ? Thomas/Chipoulou
 # WT:.01 for negligible items for Wizards items per Wizard request. - Tir Gwaith
 
 # removed non-existent Scroll (Control Weather/Arcane/Lvl 6) -- Frank
@@ -368,8 +368,8 @@ Wand (Web)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BA
 # Scroll (Gate/Arcane)                   has KEY:Scroll (Gate)
 # Scroll (Summon Monster IX/Arcane)      has KEY:Scroll (Summon Monster IX)
 # Scroll (Analyze Dweomer)               has KEY:Scroll (Analayze Dweomer)
-# Scroll (Control Weather/Arcane)	     has KEY:Scroll (Control Weather/Arcane/Lvl 7)
-# Scroll (Banishment/Arcane)		     has KEY:Scroll (Banishement/Arcane)
+# Scroll (Control Weather/Arcane)	has KEY:Scroll (Control Weather/Arcane/Lvl 7)
+# Scroll (Banishment/Arcane)		has KEY:Scroll (Banishement/Arcane)
 # Scroll (Protection from Energy/Arcane) has KEY:Scroll (Protection from Energy)
 # DIVINE
 # Scroll (Control Water/Divine)     has KEY:Scroll (Control Water)
@@ -1378,7 +1378,7 @@ Golem Manual (Iron)																	OUTPUTNAME:Golem Manual, [NAME]								TYPE:
 Golem Manual (Stone)																	OUTPUTNAME:Golem Manual, [NAME]								TYPE:Magic.Wondrous.Book.Consumable																					COST:22000	WT:5																					SOURCEPAGE:MagicItemsV
 Golem Manual (Greater Stone)																OUTPUTNAME:Golem Manual, [NAME]								TYPE:Magic.Wondrous.Book.Consumable																					COST:44000	WT:5																					SOURCEPAGE:MagicItemsV
 ###Block: H's
-# Equipment Name						Unique Key								SORTKEY					Output Name								Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page			Add 				Virtual Feat	Ability									Innate Spells										Combat bonus					Add to base move										Save bonus								Bonus to skill																			Bonus to skill point/L		Bonus to nb of slots	Stat bonus					Modify VAR							Special Property
+# Equipment Name						Unique Key								SORTKEY					Output Name								Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page			Add				Virtual Feat	Ability									Innate Spells										Combat bonus					Add to base move										Save bonus								Bonus to skill																			Bonus to skill point/L		Bonus to nb of slots	Stat bonus					Modify VAR							Special Property
 Hand of Glory																														TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2										SOURCEPAGE:MagicItemsV																		SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Daylight,13|See Invisibility,13																																																							BONUS:SLOTS|RING|1
 Hand of the Mage																														TYPE:Magic.Wondrous.Amulet					COST:900	WT:2										SOURCEPAGE:MagicItemsV																		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand,10
 Handy Haversack																														TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5										SOURCEPAGE:MagicItemsV

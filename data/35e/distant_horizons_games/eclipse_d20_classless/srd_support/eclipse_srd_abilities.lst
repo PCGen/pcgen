@@ -249,7 +249,7 @@ Innate Enchantment / Whispering Sage										KEY:Innate Enchantment ~ L1 ~ Whis
 
 
 
-#Innate Enchantment / 							KEY:Innate Enchantment ~ L1 ~ 					CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice.EclipseAbilityOutput	SORTKEY:Innate Enchantment_Level_01_				COST:1400	DESC:x
+#Innate Enchantment /							KEY:Innate Enchantment ~ L1 ~					CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice.EclipseAbilityOutput	SORTKEY:Innate Enchantment_Level_01_				COST:1400	DESC:x
 
 #L2
 Innate Enchantment / Enhanced Attribute (+4 Strength)								KEY:Innate Enchantment ~ L2 ~ STR +4						SORTKEY:Innate Enchantment_Level_02_Enhance_Attribute_1			CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice.EclipseAbilityOutput																																																																																																																																																																																																																																																																																																																																																																							BONUS:STAT|STR|4|TYPE=Enchantment																									COST:8400	BENEFIT:[At Will] Grants +4 Enhancement Bonus to Strength

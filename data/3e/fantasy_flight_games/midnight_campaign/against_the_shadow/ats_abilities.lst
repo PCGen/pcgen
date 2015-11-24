@@ -37,7 +37,7 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 #Original Entry By: Aaron Divinsky
 
 
-# Feat Name				Type													Visible	Prohibited Feat					Required Var. value							Special ABility													Multiple?	Choose																	Add 											Combat bonus			Save bonus			Bonus to skill		Stat bonus					Modify VAR				Damage Reduction	Temporary Bonus
+# Feat Name				Type													Visible	Prohibited Feat					Required Var. value							Special ABility													Multiple?	Choose																	Add											Combat bonus			Save bonus			Bonus to skill		Stat bonus					Modify VAR				Damage Reduction	Temporary Bonus
 Enhanced Constitution I		CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.LivingNexusAbility.EnhancedConstitution	!PREABILITY:1,CATEGORY=Special Ability,TYPE.EnhancedConstitution	PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),1																																																												BONUS:STAT|CON|1|TYPE=Legendary
 Enhanced Constitution II	CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.LivingNexusAbility.EnhancedConstitution	!PREABILITY:1,CATEGORY=Special Ability,TYPE.EnhancedConstitution	PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),2																																																												BONUS:STAT|CON|2|TYPE=Legendary
 Enhanced Constitution III	CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.LivingNexusAbility.EnhancedConstitution	!PREABILITY:1,CATEGORY=Special Ability,TYPE.EnhancedConstitution	PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),3																																																												BONUS:STAT|CON|3|TYPE=Legendary
@@ -262,7 +262,7 @@ Awaken Ancestral Blade	CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinar
 
 ###Block: Aradil's Eye Abilities
 
-# Feat Name					Output Name					Type									Visible		Special ABility																																																																																																																																					Define																Description																					Stackable?	Multiple?	Choose											Auto Feat		Add 							Misc bonus										Modify VAR													Temporary effect description																				Temporary Bonus
+# Feat Name					Output Name					Type									Visible		Special ABility																																																																																																																																					Define																Description																					Stackable?	Multiple?	Choose											Auto Feat		Add							Misc bonus										Modify VAR													Temporary effect description																				Temporary Bonus
 Alter Ego											CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural						SAB:Alter Ego (Su) [% alter egos]|NumAlterEgos|PREVARLT:TL,7	SAB:Alter Ego (Su) [Any number of aliases]|PREVARGTEQ:AlterEgoLvl,7																																																																																																																	DEFINE:AlterEgoLvl|0	DEFINE:NumAlterEgos|0																																																																					BONUS:VAR|NumAlterEgos|1	BONUS:VAR|NumAlterEgos|1|PREVARGTEQ:AlterEgoLvl,3
 Mindbond											CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural						SAB:Mindbond (Su)
 Closed Mind											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Closed Mind (Ex)
