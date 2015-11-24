@@ -163,3 +163,9 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather I
 3																							ABILITY:Special Ability|VIRTUAL|Evasion
 4																		BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 5																							ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Swashbuckler
+
+# Class Name			Remove Class Skill		Class Skill
+CLASS:Officer of War.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+
+# Class Name		Remove Class Skill		Class Skill
+CLASS:Peasant Hero.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
