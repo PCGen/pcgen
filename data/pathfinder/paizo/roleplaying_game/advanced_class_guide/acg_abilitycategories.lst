@@ -143,6 +143,11 @@ ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Packmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice												PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features	POOL:Pool_PackmasterCompanion
 ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Boon Companion Select Packmaster Companion	PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
 
+
+ABILITYCATEGORY:Arcane School Specialization	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneSchool			PLURAL:Wizard Arcane School Specialization			DISPLAYLOCATION:Class Features	POOL:Pool_ArcaneSchoolSpecialization
+ABILITYCATEGORY:Arcane School Opposition		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneOppositionSchool	PLURAL:Wizard Arcane School Opposition				DISPLAYLOCATION:Class Features	POOL:Pool_ArcaneSchoolOpposition
+
+
 #
 # End
 #
