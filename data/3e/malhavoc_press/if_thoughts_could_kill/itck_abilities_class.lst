@@ -3,12 +3,12 @@ SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:ht
 
 ###Block : hidden feats for subdisciplines.
 # Feat Name					Type						Visible	Special ABility						Bonus DC
-Psychometabolism Subdiscipline	CATEGORY:Special Ability	!PRESUBCLASS:Egoist ITCK	TYPE:Special.Subdiscipline		SAB:Psychometabolism psionic subdiscipline.	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline
-Psychokinesis Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:Savant ITCK	TYPE:Special.Subdiscipline		SAB:Psychokinesis psionic subdiscipline.		BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline
-Psychoportation Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:Nomad ITCK		TYPE:Special.Subdiscipline		SAB:Psychoportation psionic subdiscipline.	BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline
-Metacreativity Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:Shaper ITCK	TYPE:Special.Subdiscipline		SAB:Metacreativity psionic subdiscipline.		BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline
-Clairsentience Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:Seer ITCK		TYPE:Special.Subdiscipline		SAB:Clairsentience psionic subdiscipline.		BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline
-Telepathy Subdiscipline			CATEGORY:Special Ability	!PRESUBCLASS:Telepath ITCK	TYPE:Special.Subdiscipline		SAB:Telepathy psionic subdiscipline.		BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
+Psychometabolism Subdiscipline	CATEGORY:Special Ability	!PRESUBCLASS:1,Egoist ITCK	TYPE:Special.Subdiscipline		SAB:Psychometabolism psionic subdiscipline.	BONUS:DC|SCHOOL.Psychometabolism|SPELLSTAT-STR|TYPE=Subdiscipline
+Psychokinesis Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:1,Savant ITCK	TYPE:Special.Subdiscipline		SAB:Psychokinesis psionic subdiscipline.		BONUS:DC|SCHOOL.Psychokinesis|SPELLSTAT-CON|TYPE=Subdiscipline
+Psychoportation Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:1,Nomad ITCK	TYPE:Special.Subdiscipline		SAB:Psychoportation psionic subdiscipline.	BONUS:DC|SCHOOL.Psychoportation|SPELLSTAT-DEX|TYPE=Subdiscipline
+Metacreativity Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:1,Shaper ITCK	TYPE:Special.Subdiscipline		SAB:Metacreativity psionic subdiscipline.		BONUS:DC|SCHOOL.Metacreativity|SPELLSTAT-INT|TYPE=Subdiscipline
+Clairsentience Subdiscipline		CATEGORY:Special Ability	!PRESUBCLASS:1,Seer ITCK	TYPE:Special.Subdiscipline		SAB:Clairsentience psionic subdiscipline.		BONUS:DC|SCHOOL.Clairsentience|SPELLSTAT-WIS|TYPE=Subdiscipline
+Telepathy Subdiscipline			CATEGORY:Special Ability	!PRESUBCLASS:1,Telepath ITCK	TYPE:Special.Subdiscipline		SAB:Telepathy psionic subdiscipline.		BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline
 
 
 ###block: weapon proficiencies

@@ -108,10 +108,10 @@ CLASS:Sea Witch	PRESKILL:2,Concentration=8,Profession (Sailor)=8	PRESPELLTYPE:1,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Handle Animal|Intuit Direction|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language|Swim|Use Rope
 # Class Name	Caster level
-CLASS:Sea Witch	BONUS:CASTERLEVEL|Sea Witch|CL
-SUBCLASS:Intelligence Base	COST:0	SPELLSTAT:INT	SPELLTYPE:Arcane
-SUBCLASS:Wisdom Base		COST:0	SPELLSTAT:WIS	SPELLTYPE:Divine
-SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
+CLASS:Sea Witch	BONUS:CASTERLEVEL|Sea Witch|CL	SPELLTYPE:Arcane
+SUBCLASS:Intelligence Base	COST:0	SPELLSTAT:INT
+SUBCLASS:Wisdom Base		COST:0	SPELLSTAT:WIS
+SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Sea Witch=1|Alarm,Animal Messenger,Charm Person or Animal,Comprehend Languages,Create Water,Expeditious Retreat,Obscuring Mist,Silent Image,Sleep,Speak with Animals,Spider Climb,Unseen Servant
 1	SPELLLEVEL:CLASS|Sea Witch=2|Animal Trance,Animate Rope,Augury,Blur,Charm Monster,Daylight,Detect Thoughts,Fog Cloud,Hold Animal,Identify,Invisibility,Wind Wall
