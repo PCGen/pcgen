@@ -1,6 +1,6 @@
 
 # This file controls the saves.
 
-#	Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
-#	Reflex	SORTKEY:2	BONUS:SAVE|Reflex|DEX
-#	Will		SORTKEY:3	BONUS:SAVE|Will|WIS
+#Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
+#Reflex	SORTKEY:2	BONUS:SAVE|Reflex|DEX
+#Will		SORTKEY:3	BONUS:SAVE|Will|WIS
