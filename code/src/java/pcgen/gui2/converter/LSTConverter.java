@@ -55,16 +55,19 @@ import pcgen.gui2.converter.loader.CopyLoader;
 import pcgen.gui2.converter.loader.EquipmentLoader;
 import pcgen.gui2.converter.loader.SelfCopyLoader;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.persistence.CDOMControlLoader;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
+	private final CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private final EditorLoadContext context;
 	private List<Loader> loaders;
 	private Set<URI> written = new HashSet<URI>();
@@ -110,6 +113,7 @@ public class LSTConverter extends Observable
 	 */
 	public void initCampaigns(List<Campaign> campaigns)
 	{
+		List<CampaignSourceEntry> dataDefFileList = new ArrayList<>();
 		for (Campaign campaign : campaigns)
 		{
 			// load ability categories first as they used to only be at the game
@@ -124,7 +128,25 @@ public class LSTConverter extends Observable
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			dataDefFileList.addAll(campaign
+				.getSafeListFor(ListKey.FILE_DATACTRL));
+
 		}
+		
+
+		// Load using the new LstFileLoaders
+		try
+		{
+			SourceFileLoader.addDefaultDataControlIfNeeded(dataDefFileList);
+			dataControlLoader.loadLstFiles(context, dataDefFileList);
+			SourceFileLoader.processFactDefinitions(context);
+		}
+		catch (PersistenceLayerException e)
+		{
+			// TODO Auto-generated catch block
+			Logging.errorPrint("LSTConverter.initCampaigns failed", e);
+		}
+		
 	}
 	
 	public void processCampaign(Campaign campaign)
@@ -266,6 +288,7 @@ public class LSTConverter extends Observable
 		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
 		loaderList.add(new CopyLoader(ListKey.FILE_KIT));
 		loaderList.add(new CopyLoader(ListKey.FILE_BIO_SET));
+		loaderList.add(new CopyLoader(ListKey.FILE_DATACTRL));
 		loaderList.add(new CopyLoader(ListKey.FILE_PCC));
 		loaderList.add(new SelfCopyLoader());
 		return loaderList;
