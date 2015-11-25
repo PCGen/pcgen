@@ -7,11 +7,6 @@
 ABILITYCATEGORY:Unchained Rage Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnchainedRagePower		PLURAL:Unchained Rage Powers	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Unchained Raging Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnchainedRageSelection						DISPLAYLOCATION:Class Features
 
-#
-ABILITYCATEGORY:Unchained Summoner Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Summoner Class Feature		PLURAL:Unchained Summoner Class Features			DISPLAYLOCATION:Class Features
-
-
-
 
 ABILITYCATEGORY:Unchained Eidolon Subtype			POOL:Pool_UnchainedEidolonType			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Subtype Selection
 ABILITYCATEGORY:Unchained Eidolon Form			POOL:Pool_UnchainedEidolonForm			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Base Form Selection
@@ -24,6 +19,21 @@ ABILITYCATEGORY:Unchained Eidolon Ability Increase	POOL:Pool_UnchainedEidolonAbi
 ABILITYCATEGORY:Unchained Eidolon Grab			POOL:Pool_UnchainedEidolonGrab			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Unchained Evolution ~ Grab
 ABILITYCATEGORY:Unchained Eidolon Constrict		POOL:Pool_UnchainedEidolonConstrict			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Unchained Evolution ~ Constrict
 
+
+###Block: Unchained Rogue Class Feature Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI				Display Location
+ABILITYCATEGORY:Unchained Rogue Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Rogue Class Feature			PLURAL:Unchained Rogue Class Feature		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skill Unlock Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillUnlock						PLURAL:Skill Unlock Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Certainty Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Certainty						PLURAL:Certainty Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skill Mastery Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skill Mastery					PLURAL:Skill Mastery Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Finesse Damage Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Rogue Finesse Damage Choice	PLURAL:Unchained Rogue Finesse Damage Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Rogue Talent				PLURAL:Unchained Rogue Talents			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Advanced Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Rogue Advanced Talent		PLURAL:Unchained Rogue Advanced Talents		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Unchained Barbarian Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Barbarian Class Feature		PLURAL:Unchained Barbarian Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Monk Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature		PLURAL:Unchained Monk Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rogue Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Rogue Class Feature		PLURAL:Unchained Rogue Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Summoner Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Summoner Class Feature		PLURAL:Unchained Summoner Class Features			DISPLAYLOCATION:Class Features
 
 
 #
