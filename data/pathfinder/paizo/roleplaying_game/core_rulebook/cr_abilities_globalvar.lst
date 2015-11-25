@@ -82,9 +82,9 @@ Expert			CATEGORY:Class
 Warrior			CATEGORY:Class
 
 ###Block:
-Barbarian ~ Standard Class		CATEGORY:Class	COST:1	TYPE:Barbarian Class Selection	DEFINE:Barbarian_CFP_Level|0	BONUS:VAR|Barbarian_CFP_Level|BarbarianLVL	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class|PREMULT:1,[!PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,0]	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Ex-Class|PREMULT:1,[PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,1]
-Monk ~ Standard Class			CATEGORY:Class	COST:1	TYPE:Monk Class Selection		DEFINE:Monk_CFP_Level|0		BONUS:VAR|Monk_CFP_Level|MonkLVL				ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
-Rogue ~ Standard Class			CATEGORY:Class	COST:1	TYPE:Rogue Class Selection		DEFINE:Rogue_CFP_Level|0	BONUS:VAR|Rogue_CFP_Level|RogueLVL			ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0
+Standard Barbarian	KEY:Barbarian ~ Standard Class		CATEGORY:Class	COST:1	TYPE:Barbarian Class Selection	DEFINE:Barbarian_CFP_Level|0	BONUS:VAR|Barbarian_CFP_Level|BarbarianLVL	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class|PREMULT:1,[!PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,0]	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Ex-Class|PREMULT:1,[PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,1]
+Standard Monk		KEY:Monk ~ Standard Class			CATEGORY:Class	COST:1	TYPE:Monk Class Selection		DEFINE:Monk_CFP_Level|0		BONUS:VAR|Monk_CFP_Level|MonkLVL			ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
+Standard Rogue		KEY:Rogue ~ Standard Class			CATEGORY:Class	COST:1	TYPE:Rogue Class Selection		DEFINE:Rogue_CFP_Level|0	BONUS:VAR|Rogue_CFP_Level|RogueLVL			ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0
 #
 Barbarian ~ Standard Class Full	CATEGORY:Class
 Barbarian ~ Standard Ex-Class		CATEGORY:Class
