@@ -2,7 +2,7 @@
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 
 ##Rings
-# Equipment Name			Output Name				Type			Cost		Weight	Source Page			Add 															Combat bonus				Bonus to skill				Stat bonus						Special Property
+# Equipment Name			Output Name				Type			Cost		Weight	Source Page			Add															Combat bonus				Bonus to skill				Stat bonus						Special Property
 Ring (Purity)			OUTPUTNAME:Band of [NAME]	TYPE:Magic.Ring	COST:48825	WT:0		SOURCEPAGE:p.23																																				SPROP:See text
 # The "minimum Profession (cook) rank of 3" is missing from the Ring of Cooking.
 Ring (Cooking)			OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:3300	WT:0		SOURCEPAGE:p.23																							BONUS:SKILL|Profession (Cook)|2								SPROP:See text

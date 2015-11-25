@@ -359,7 +359,7 @@ Gambler		CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQual
 #######################
 
 ###Block:Trueborn Racial Talents
-# Ability Name	Category of Ability		Type										Visible	Required Ability							Add 									Bonus to skill				Source Page
+# Ability Name	Category of Ability		Type										Visible	Required Ability							Add									Bonus to skill				Source Page
 Hard Worker		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality				VISIBLE:YES										BONUS:ABILITYPOOL|Hard Worker Feat|1									SOURCEPAGE:p.106
 Bowman		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																									SOURCEPAGE:p.106
 Fleet Footed	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																			BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106

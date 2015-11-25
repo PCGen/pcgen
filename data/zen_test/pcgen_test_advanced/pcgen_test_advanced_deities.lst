@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
-# Deity Name	Domains						Holy Item			Deity Weapon										Align		Pantheon			Add 				Type
+# Deity Name	Domains						Holy Item			Deity Weapon										Align		Pantheon			Add				Type
 Puni Deity		DOMAINS:Bar Ball,Dungeon Crawl,Foo Ball	SYMBOL:Wine with Sword	DEITYWEAP:Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni	ALIGN:LN	PANTHEON:Cool Guys					TYPE:Puni
 
 Elf Deity																									ALIGN:LG	PANTHEON:Elf						TYPE:Elf

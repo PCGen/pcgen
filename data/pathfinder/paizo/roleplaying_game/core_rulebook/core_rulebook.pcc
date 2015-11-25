@@ -43,12 +43,12 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
 
 # Fact/Factset & Formula System
-DATACONTROL:cr__datacontrol.lst
+DATACONTROL:cr__datacontrols.lst
 
 ### GM Moved
+ALIGNMENT:cr__align.lst
 SAVE:cr__saves.lst
 STAT:cr__stats.lst
-ALIGNMENT:cr__alignments.lst
 
 # Standard Files
 ABILITYCATEGORY:cr_abilitycategories.lst

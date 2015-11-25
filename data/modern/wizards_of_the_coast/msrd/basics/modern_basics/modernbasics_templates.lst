@@ -64,7 +64,7 @@ Ordinary CR		CR:-1			VISIBLE:NO
 #Unarmed Damage Advancement	VISIBLE:NO						BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|1	BONUS:WEAPONPROF=Unarmed Lethal Strike|DAMAGESIZE|1|!PREABILITY:1,CATEGORY=FEAT,Combat Martial Arts
 #the ULS template is needed for the Combat Martial Arts / Brawl feat combo, where lethal and nonlethal damage from an unarmed strike can differ.
 #I made it visible, as it can be used without the CMA feat at a -4 to-hit. the UDA template is to be used with creatures that have an unarmed
-#damage die 1 category larger than their size would usually grant them. It will adjust UDAM and ULS accordingly.  	        -- Frank Kliewe
+#damage die 1 category larger than their size would usually grant them. It will adjust UDAM and ULS accordingly.	-- Frank Kliewe
 
 ###Block: Subtypes
 # Template Name	Visible	Source Page				Define Stat			Combat bonus										Ability

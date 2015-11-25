@@ -62,7 +62,7 @@ Lure of the Dammed					KEY:Lure of the Dammed ~ Shadowtamer					CATEGORY:Special
 Damned							KEY:Damned ~ Shadowtamer							CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
-# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add 			Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
+# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add			Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
 Military Longsword Proficiency														CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon									!PREWEAPONPROF:1,Longsword																																																																																										AUTO:WEAPONPROF|Longsword
 Military Shortsword Proficiency														CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon									!PREWEAPONPROF:1,Sword (Short)																																																																																									AUTO:WEAPONPROF|Sword (Short)
 Military Longsword Competence															CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																																																																																						BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence

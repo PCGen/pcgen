@@ -62,7 +62,7 @@ Wolf Totem		CATEGORY:Special Ability	TYPE:AnimalLordTotem		SAB:Totem Animal- Wol
 
 ###Block: Animal Lord Totem Abilities
 
-# Feat Name							Type				Visible	Required Class			Required Feat											Prohibited Feat				Required Var. value		Special ABility											Define			Description		Stackable?	Multiple?	Choose		Add 				Combat bonus				Add to base move					Save bonus			Bonus to skill						Modify VAR				Weapon prof. bonus
+# Feat Name							Type				Visible	Required Class			Required Feat											Prohibited Feat				Required Var. value		Special ABility											Define			Description		Stackable?	Multiple?	Choose		Add				Combat bonus				Add to base move					Save bonus			Bonus to skill						Modify VAR				Weapon prof. bonus
 Ape Ability - Deceptive Intellect			CATEGORY:Special Ability	TYPE:AnimalLordAbility		PRECLASS:1,Animal Lord=1	PREABILITY:1,CATEGORY=Special Ability,Ape Totem																PREVAREQ:ALSkillBonus,1		SAB:Deceptive Intellect														DESC:See Text																																					BONUS:VAR|AnimalLordSkill1|1
 Ape Ability - Deceptive Intellect Level 5		CATEGORY:Special Ability	TYPE:AnimalLordAbility		PRECLASS:1,Animal Lord=5	PREABILITY:1,CATEGORY=Special Ability,Ape Totem																PREVAREQ:ALSkillBonus,5																			DESC:See Text																																					BONUS:VAR|AnimalLordSkill5|1
 Ape Ability - Deceptive Intellect Level 9		CATEGORY:Special Ability	TYPE:AnimalLordAbility		PRECLASS:1,Animal Lord=9	PREABILITY:1,CATEGORY=Special Ability,Ape Totem																PREVAREQ:ALSkillBonus,9																			DESC:See Text																																					BONUS:VAR|AnimalLordSkill9|1

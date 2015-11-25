@@ -55,7 +55,7 @@ World Traveller		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY			
 
 
 ###Block: Occupation Skill Choices
-# Ability Name							Category of Ability		Type																																															Visible		Restricted Ability													Required Class Skill					Prohibited Class SKill						Add 					Bonus to skill									Class Skill
+# Ability Name							Category of Ability		Type																																															Visible		Restricted Ability													Required Class Skill					Prohibited Class SKill						Add					Bonus to skill									Class Skill
 Acrobatics(class skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills.Circus_Performer_Skills.Rural_Skills																																			VISIBLE:DISPLAY																									!PRECSKILL:1,Acrobatics																						CSKILL:Acrobatics
 Acrobatics(+1 to skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills.Circus_Performer_Skills.Rural_Skills																																			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Acrobatics (class skill)					PRECSKILL:1,Acrobatics																			BONUS:SKILL|Acrobatics|1|TYPE=Competance					CSKILL:Acrobatics
 

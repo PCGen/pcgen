@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
-# Feat Name			Type						Required Feat								Multiple Requirements						Required Skill			Required Text											Description																																					Add 			Modify VAR			Source Page
+# Feat Name			Type						Required Feat								Multiple Requirements						Required Skill			Required Text											Description																																					Add			Modify VAR			Source Page
 Axe Kick			CATEGORY:FEAT	TYPE:General.MartialArtsManeuver	PREABILITY:1,CATEGORY=FEAT,Hopboxing																																		DESC:A vicious kick in which you bring your leg up above your head, then bring your heel down on your target.																											SOURCEPAGE:p.16
 Choke Hold			CATEGORY:FEAT	TYPE:General.MartialArtsManeuver	PREABILITY:1,CATEGORY=FEAT,Hopboxing																																		DESC:You have received advanced training in choking your target, either as a means of subduing him, or quietly eliminating him.																								SOURCEPAGE:p.16
 Circle Kick			CATEGORY:FEAT	TYPE:General.MartialArtsManeuver	PREABILITY:1,CATEGORY=FEAT,Hopboxing																																		DESC:By spinning your entire body, you increase the damage from your kick attacks.																																SOURCEPAGE:p.16

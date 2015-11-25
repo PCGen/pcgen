@@ -1,0 +1,115 @@
+
+###Block: Updated Background Skills
+Appraise.MOD					TYPE:Background
+Handle Animal.MOD					TYPE:Background
+Knowledge (engineering).MOD			TYPE:Background
+Knowledge (geography).MOD			TYPE:Background
+Knowledge (history).MOD				TYPE:Background
+Knowledge (nobility).MOD			TYPE:Background
+Linguistics.MOD					TYPE:Background
+Sleight of Hand.MOD				TYPE:Background
+
+Craft (Alchemy).MOD				TYPE:Background
+Craft (Armor).MOD					TYPE:Background
+Craft (Baskets).MOD				TYPE:Background
+Craft (Blacksmithing).MOD			TYPE:Background
+Craft (Books).MOD					TYPE:Background
+Craft (Bows).MOD					TYPE:Background
+Craft (Calligraphy).MOD				TYPE:Background
+Craft (Carpentry).MOD				TYPE:Background
+Craft (Cloth).MOD					TYPE:Background
+Craft (Clothing).MOD				TYPE:Background
+Craft (Gemcutting).MOD				TYPE:Background
+Craft (Glass).MOD					TYPE:Background
+Craft (Jewelry).MOD				TYPE:Background
+Craft (Leather).MOD				TYPE:Background
+Craft (Locks).MOD					TYPE:Background
+Craft (Paintings).MOD				TYPE:Background
+Craft (Pottery).MOD				TYPE:Background
+Craft (Sculptures).MOD				TYPE:Background
+Craft (Ships).MOD					TYPE:Background
+Craft (Shoes).MOD					TYPE:Background
+Craft (Stonemasonry).MOD			TYPE:Background
+Craft (Traps).MOD					TYPE:Background
+Craft (Weapons).MOD				TYPE:Background
+
+Perform (Act).MOD					TYPE:Background
+Perform (Comedy).MOD				TYPE:Background
+Perform (Dance).MOD				TYPE:Background
+Perform (Keyboard Instruments).MOD		TYPE:Background
+Perform (Oratory).MOD				TYPE:Background
+Perform (Percussion Instruments).MOD	TYPE:Background
+Perform (Sing).MOD				TYPE:Background
+Perform (String Instruments).MOD		TYPE:Background
+Perform (Wind Instruments).MOD		TYPE:Background
+Perform (Untrained).MOD				TYPE:Background
+Profession (Architect).MOD			TYPE:Background
+Profession (Baker).MOD				TYPE:Background
+Profession (Barrister).MOD			TYPE:Background
+Profession (Brewer).MOD				TYPE:Background
+Profession (Butcher).MOD			TYPE:Background
+Profession (Clerk).MOD				TYPE:Background
+Profession (Cook).MOD				TYPE:Background
+Profession (Courtesan).MOD			TYPE:Background
+Profession (Driver).MOD				TYPE:Background
+Profession (Engineer).MOD			TYPE:Background
+Profession (Farmer).MOD				TYPE:Background
+Profession (Fisherman).MOD			TYPE:Background
+Profession (Gambler).MOD			TYPE:Background
+Profession (Gardener).MOD			TYPE:Background
+Profession (Herbalist).MOD			TYPE:Background
+Profession (Innkeeper).MOD			TYPE:Background
+Profession (Librarian).MOD			TYPE:Background
+Profession (Merchant).MOD			TYPE:Background
+Profession (Midwife).MOD			TYPE:Background
+Profession (Miller).MOD				TYPE:Background
+Profession (Miner).MOD				TYPE:Background
+Profession (Porter).MOD				TYPE:Background
+Profession (Sailor).MOD				TYPE:Background
+Profession (Scribe).MOD				TYPE:Background
+Profession (Shepherd).MOD			TYPE:Background
+Profession (Soldier).MOD			TYPE:Background
+Profession (Soothsayer).MOD			TYPE:Background
+Profession (Stable Master).MOD		TYPE:Background
+Profession (Tanner).MOD				TYPE:Background
+Profession (Trapper).MOD			TYPE:Background
+Profession (Woodcutter).MOD			TYPE:Background
+
+
+
+###Block: New Skills
+Artistry								KEYSTAT:INT	TYPE:Intelligence.Base.Background	
+Lore (           )						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+
+Lore (A particular small city)				USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (One district of a large city or metropolis)	USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (A particular monastery)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Taverns in a region)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Bandits in a region)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Famous battles in a region)				USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (The spice trade)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Cats)								USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Drow matriarchs)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Dwarven history)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Frost giants)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Sarenrae)							USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Dagon)							USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Phlegethon)							USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (Military commanders)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+
+
+
+###Block: Consolidated Skills
+Acrobatics		KEY:Consolidated Skill ~ Acrobatics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....	
+Athletics		KEY:Consolidated Skill ~ Athletics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:STR	DESC:Replaces....
+Finesse		KEY:Consolidated Skill ~ Finesse		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:NO	KEYSTAT:DEX	DESC:Replaces....
+Influence		KEY:Consolidated Skill ~ Influence		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:CHA	DESC:Replaces....
+Nature		KEY:Consolidated Skill ~ Nature		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+Perception		KEY:Consolidated Skill ~ Perception		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
+Performance		KEY:Consolidated Skill ~ Performance	PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:CHA	DESC:Replaces....
+Religion		KEY:Consolidated Skill ~ Religion		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+Society		KEY:Consolidated Skill ~ Society		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+Spellcraft		KEY:Consolidated Skill ~ Spellcraft		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+Stealth		KEY:Consolidated Skill ~ Stealth		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
+Survival		KEY:Consolidated Skill ~ Survival		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
+

@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
-# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add 					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
+# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
 Allow_Casting										TYPE:Allow_Casting																DESC:Allows Casting
 Incompetent (-3 to Group)	KEY:Disadvantage ~ Incompetent Group	TYPE:Disadvantage.DisadvantageCounter										DESCISPI:YES	DESC:You suffer from a '-3' modifier on a group of related skills (e.g., anything 'high-tech').			MULT:YES	CHOOSE:STRING|Charisma|Craft|Dexterity|Intelligence|Knowledge|Perform|Profession|Wisdom																													BONUS:SKILL|TYPE=%LIST|-3					COST:1	SOURCEPAGE:p.19											BENEFIT:You have a -3 to selected group of skills.
 
@@ -30,7 +30,7 @@ Test97 ~ Auto Normal																																												STACK:YES	MULT:Y
 
 
 
-# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add 					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
+# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
 MyTest ~ No Prexxx									TYPE:Code1730
 MyTest ~ Yes Prexxx									TYPE:Code1730					PREABILITY:1,CATEGORY=FEAT,MyTest ~ No Prexxx
 MyTest ~ Yes x2 Prexxx									TYPE:Code1730					PREABILITY:2,CATEGORY=FEAT,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
@@ -71,7 +71,7 @@ Test-78											TYPE:Test78																																																			
 
 
 
-# Feat Name							Unique Key					Type								Visible		Req. Spell Type			Define				Description											Stackable?			Multiple?	Choose																		Selections	Template			Auto Armor Prof		Auto Feat		Auto Language	Auto Shield Prof		Auto Weapon Prof		Virtual Feat			Ability																													Add 										Combat bonus				Bonus to HP			Caster level bonus		Modify VAR																																															Cost		Source Page		Benefits																			SORTKEY
+# Feat Name							Unique Key					Type								Visible		Req. Spell Type			Define				Description											Stackable?			Multiple?	Choose																		Selections	Template			Auto Armor Prof		Auto Feat		Auto Language	Auto Shield Prof		Auto Weapon Prof		Virtual Feat			Ability																													Add										Combat bonus				Bonus to HP			Caster level bonus		Modify VAR																																															Cost		Source Page		Benefits																			SORTKEY
 Test-57 Apply A1												TYPE:TEST-57																																																																																																																			ADD:VFEAT|Dodge,Test-57-Ability-1
 Test-57 Apply A2												TYPE:TEST-57																																																																																																																			ADD:VFEAT|Test-57-Ability-2
 #Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
