@@ -546,15 +546,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		// Load using the new LstFileLoaders
 		List<CampaignSourceEntry> dataDefFileList = fileLists.getListFor(ListKey.FILE_DATACTRL);
-		if (dataDefFileList.isEmpty())
-		{
-			File defaultGameModeDir = new File(gameModeDir, "default");
-			File df = new File(defaultGameModeDir, "compatibilityDataControl.lst");
-			Campaign c = new Campaign();
-			c.setName("Default Data Control File");
-			CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
-			dataDefFileList.add(cse);
-		}
+		addDefaultDataControlIfNeeded(dataDefFileList);
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
 
@@ -639,6 +631,28 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		 * resolved.
 		 */
 		System.gc();
+	}
+
+	/**
+	 * Add default data control files to the supplied list, but only if it is empty.
+	 * 
+	 * @param dataDefFileList The list of data control files.
+	 */
+	public static void addDefaultDataControlIfNeeded(
+		List<CampaignSourceEntry> dataDefFileList)
+	{
+		if (dataDefFileList.isEmpty())
+		{
+			File gameModeDir =
+					new File(ConfigurationSettings.getSystemsDir(), "gameModes");
+			File defaultGameModeDir = new File(gameModeDir, "default");
+			File df =
+					new File(defaultGameModeDir, "compatibilityDataControl.lst");
+			Campaign c = new Campaign();
+			c.setName("Default Data Control File");
+			CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
+			dataDefFileList.add(cse);
+		}
 	}
 
 	public static void processFactDefinitions(LoadContext context)
