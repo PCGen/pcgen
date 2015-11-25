@@ -545,6 +545,16 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
+|IIF(count("ABILITIES";"CATEGORY=Class")==0)|
+|ELSE|
+<b>Class</b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Class")-1,1,0|
+<b>|ABILITYALL.Class.%ability|</b> [<i>|ABILITYALL.Class.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
+
 
 |IIF(count("ABILITIES";"CATEGORY=Natural Attack")==0)|
 |ELSE|
