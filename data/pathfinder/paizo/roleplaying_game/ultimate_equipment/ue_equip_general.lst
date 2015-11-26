@@ -244,7 +244,7 @@ Road Toll				TYPE:Service		COST:0.01	SOURCEPAGE:p.99
 Gate Toll				TYPE:Service		COST:0.01	SOURCEPAGE:p.99
 Scribe (Text)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 Scribe (Map)			TYPE:Service		COST:10	SOURCEPAGE:p.99
-#Spellcasting		caster level x spell level × 10 gp		SOURCEPAGE:p.99
+#Spellcasting		caster level x spell level x 10 gp		SOURCEPAGE:p.99
 Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 
 ###Block: Tools and Skill Kits
@@ -471,7 +471,7 @@ False-Bottomed Chest															TYPE:Goods.General															COST:52	WT:2
 False-Bottomed Cup															TYPE:Goods.General															COST:1						SOURCEPAGE:p.64
 False-Bottomed Scabbard															TYPE:Goods.General															COST:45	WT:1					SOURCEPAGE:p.64
 Familiar Satchel																TYPE:Goods.General															COST:25	WT:6					SOURCEPAGE:p.64																																																				SPROP:Provides total cover to any Tiny or smaller creature contained within it.
-Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 × 10 minutes and should be thoroughly rinsed after each use.
+Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 x 10 minutes and should be thoroughly rinsed after each use.
 Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
 Fishhook.MOD																																									SOURCEPAGE:p.64
 Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
