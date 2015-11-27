@@ -1,0 +1,9 @@
+
+
+Race Traits ~ Horror	CATEGORY:Internal	BONUS:VAR|Pool_HorrorType|1	DEFINE:Pool_HorrorType|0
+
+# Selection
+Biped		KEY:Horror Type ~ Biped				TYPE:HorrorType	CATEGORY:Internal	BONUS:VAR|HorrorFortitudeGood|1	BONUS:VAR|HorrorWillGood|1	ABILITY:Evolution|AUTOMATIC|Evolution_Legs	ABILITY:Evolution|AUTOMATIC|Evolution_Legs	ABILITY:Evolution|AUTOMATIC|Evolution_Bite
+Quadruped	KEY:Horror Type ~ Quadruped			TYPE:HorrorType	CATEGORY:Internal	BONUS:VAR|HorrorFortitudeGood|1	BONUS:VAR|HorrorReflexGood|1	ABILITY:Evolution|AUTOMATIC|Evolution_Arms	ABILITY:Evolution|AUTOMATIC|Evolution_Legs	ABILITY:Evolution|AUTOMATIC|Evolution_Clawed_Hands
+Serpentine	KEY:Horror Type ~ Serpentine			TYPE:HorrorType	CATEGORY:Internal	BONUS:VAR|HorrorReflexGood|1		BONUS:VAR|HorrorWillGood|1	ABILITY:Evolution|AUTOMATIC|Evolution_Bite	ABILITY:Evolution|AUTOMATIC|Evolution_Tail	ABILITY:Evolution|AUTOMATIC|Evolution_Climb	ABILITY:Evolution|AUTOMATIC|Evolution_Reach (Bite)	ABILITY:Evolution|AUTOMATIC|Evolution_Tail_Slap
+
