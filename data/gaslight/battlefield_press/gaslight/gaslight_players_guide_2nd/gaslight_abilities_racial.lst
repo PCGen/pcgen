@@ -48,7 +48,7 @@ Skills			KEY:Pixie ~ Skills							CATEGORY:Special Ability	TYPE:Pixie Race Trait
 Racial Feats		KEY:Pixie ~ Racial Feats						CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality			SOURCEPAGE:p.	DESC:A pixie receives Dodge as a bonus feat.		ABILITY:FEAT|AUTOMATIC|Dodge
 Damage reduction		KEY:Pixie ~ Damage reduction						CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality			SOURCEPAGE:p.	DESC:Pixies have a damage resistance of 2/cold iron.	DR:2/Cold iron
 Spell resistance		KEY:Pixie ~ Spell resistance						CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality			SOURCEPAGE:p.	DESC:Pixies have a natural spell resistance equal to 5 + class levels.	SR:TL+8
-Spell-Like Abilities	KEY:Pixie ~ Spell-Like Abilities					CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality			SOURCEPAGE:p.	DESC:1/day—confusion, dancing lights, dispel magic. Caster level 8th. The save DCs are Charisma-based. These abilities follow the same rules as standard spellcasting.	SPELLS:Pixie|CASTERLEVEL=8|TIMES=1|Confusion,13+CHA|Dancing Lights,11+CHA|Dispel Magic,13+CHA
+Spell-Like Abilities	KEY:Pixie ~ Spell-Like Abilities					CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality			SOURCEPAGE:p.	DESC:1/day-confusion, dancing lights, dispel magic. Caster level 8th. The save DCs are Charisma-based. These abilities follow the same rules as standard spellcasting.	SPELLS:Pixie|CASTERLEVEL=8|TIMES=1|Confusion,13+CHA|Dancing Lights,11+CHA|Dispel Magic,13+CHA
 Free Language Skills	KEY:Pixie ~ Free Language Skills					CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality			SOURCEPAGE:p.	DESC:Speak Sylvan, Read/Write Sylvan	AUTO:LANG|Sylvan|Sylvan ~ Written
 
 
