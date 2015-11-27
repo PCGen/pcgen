@@ -5,7 +5,7 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 
 # CONSIDER:
 #   Add aquatic form from UM
-Horror			STARTFEATS:0	SIZE:M	MOVE:Walk,20	FACE:5,5	REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon			BONUS:ABILITYPOOL|Horror Evolution|5				BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1								LEGS:2	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror:1				RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror	ABILITY:Internal|AUTOMATIC|Race Traits ~ Horror
+Horror			STARTFEATS:0	SIZE:M	MOVE:Walk,20	FACE:5,5	REACH:5	VISION:Darkvision (60')	SERVESAS:RACE|Eidolon	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:VAR|EidHeads|1								LEGS:2	HANDS:7	DEFINE:EidHeads|0	MONSTERCLASS:Horror:1				RACETYPE:Construct	SOURCEPAGE:p.268	KIT:1|Horror	ABILITY:Internal|AUTOMATIC|Race Traits ~ Horror
 
 # NEEDS CODE/DATA WORK: RACETYPE:Eidolon needed to allow some eidolon evolutions - but only one RACETYPE allowed!
 # NEEDS CODE WORK: SERVESAS:RACE|Eidolon (Whatever) doesn't seem to be working.

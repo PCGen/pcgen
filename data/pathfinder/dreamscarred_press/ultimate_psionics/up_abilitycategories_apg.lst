@@ -21,6 +21,11 @@ ABILITYCATEGORY:Forgesteed Rider Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
 ABILITYCATEGORY:Clan Warden Domain Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ClanWardenDomain	PLURAL:Clan Warden Domain Choices	DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Horror Type	POOL:Pool_HorrorType		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Horror Type		PLURAL:Horror Evolutions		DISPLAYLOCATION:Class Features
+
+
+
+
 #
 # End
 #
