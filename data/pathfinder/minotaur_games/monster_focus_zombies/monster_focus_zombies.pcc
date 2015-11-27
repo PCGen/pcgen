@@ -47,7 +47,7 @@ SPELL:mfz_spells.lst
 TEMPLATE:mfz_templates.lst
 
 # Out of set data sources
-ABILITY:*/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race.lst|(INCLUDE:Staggered ~ Zombie)|!PRECAMPAIGN:1,INCLUDES=Bestiary
+ABILITY:*/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race.lst|(INCLUDE:Zombie ~ Staggered)|!PRECAMPAIGN:1,INCLUDES=Bestiary
 TEMPLATE:*/pathfinder/paizo/roleplaying_game/bestiary/b1_templates.lst|(INCLUDE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal)|!PRECAMPAIGN:1,INCLUDES=Bestiary
 
 # Forward References

@@ -2,7 +2,7 @@ SOURCELONG:Advanced Options: Inquisitors' Judgments	SOURCESHORT:AOIJ	SOURCEDATE:
 # Original Entry by: Paul Shipley (elro the onk)
 
 ### MOD the base inquisitor to call up & use the rules options selection
-CATEGORY=Special Ability|Inquisitor ~ Judgement.MOD	ABILITY:Inquisitor Judgment Option|AUTOMATIC|Inquisitor ~ Option Select|!PREABILITY:1,CATEGORY=Special Ability,TYPE.InquisitorJudgmentOptionSelection
+CATEGORY=Special Ability|Inquisitor ~ Judgment.MOD	ABILITY:Inquisitor Judgment Option|AUTOMATIC|Inquisitor ~ Option Select|!PREABILITY:1,CATEGORY=Special Ability,TYPE.InquisitorJudgmentOptionSelection
 CATEGORY=Special Ability|Inquisitor ~ Sacred Judgment.FORGET
 CATEGORY=Special Ability|Inquisitor ~ Profane Judgment.FORGET
 

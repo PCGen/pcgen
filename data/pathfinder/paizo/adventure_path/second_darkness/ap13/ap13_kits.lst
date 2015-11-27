@@ -308,8 +308,8 @@ SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=Monk Bonus Feat|Combat Reflexes
-#ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
+ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Combat Reflexes
+#ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Stunning Fist
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 GEAR:Outfit (Monk's)			LOCATION:Equipped
 GEAR:Unarmed Strike			LOCATION:Equipped

@@ -45,9 +45,9 @@ SKILL:Perform (Dance)		RANK:7
 SKILL:Stealth			RANK:11
 SKILL:Sense Motive		RANK:11
 SKILL:Survival			RANK:11
-ABILITY:CATEGORY=Monk Bonus Feat|Deflect Arrows
-ABILITY:CATEGORY=Monk Bonus Feat|Improved Disarm
-ABILITY:CATEGORY=Monk Bonus Feat|Improved Grapple
+ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Deflect Arrows
+ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Improved Disarm
+ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Improved Grapple
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Snatch Arrows
