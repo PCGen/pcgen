@@ -8088,22 +8088,37 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * returns new id_Path with the last id one higher than the current highest
-	 * id for EquipSets with the same ParentIdPath
+	 * returns a new id_Path with the last id one higher than the current highest 
+	 * child of the supplied EquipSet.
 	 * 
-	 * @param eSet
+	 * @param eSet The equipset which would be the parent of a new node. 
 	 * @return new id path
 	 */
 	private String getNewIdPath(EquipSet eSet)
 	{
 		String pid = Constants.EQUIP_SET_ROOT_ID;
-		int newID = 0;
 
 		if (eSet != null)
 		{
 			pid = eSet.getIdPath();
 		}
 
+		int newID = getNewChildId(pid);
+
+		return pid + Constants.EQUIP_SET_PATH_SEPARATOR + newID;
+	}
+
+	/**
+	 * Identify a new id (only the final number in the path) for a child 
+	 * equipment set. The id is guarantyeed to be unique and have no siblings 
+	 * with higher ids.
+	 *  
+	 * @param pid The parent path.
+	 * @return New id for a child node 
+	 */
+	public int getNewChildId(String pid)
+	{
+		int newID = 0;
 		for (EquipSet es : getEquipSet())
 		{
 			if (es.getParentIdPath().equals(pid) && (es.getId() > newID))
@@ -8113,8 +8128,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 
 		++newID;
-
-		return pid + Constants.EQUIP_SET_PATH_SEPARATOR + newID;
+		return newID;
 	}
 
 	public EquipSet addEquipToTarget(final EquipSet eSet, final Equipment eqTarget, String locName,
@@ -8251,6 +8265,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return newSet;
 	}
 
+	/**
+	 * Move the equipset to a new unique path under its existing parent.
+	 * @param es The equipment set item to be moved.
+	 */
+	public void moveEquipSetToNewPath(EquipSet es)
+	{
+		String parentPath = es.getParentIdPath();
+		EquipSet parent = getEquipSetByIdPath(parentPath);
+		String newPath = getNewIdPath(parent);
+		es.setIdPath(newPath);
+	}
+	
 	/**
 	 * Gets a 'safe' String representation
 	 * 
