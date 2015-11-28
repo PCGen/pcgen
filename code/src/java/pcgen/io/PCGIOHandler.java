@@ -38,7 +38,9 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.commons.io.FileUtils;
@@ -50,10 +52,12 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
+import pcgen.core.character.EquipSet;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.system.LanguageBundle;
@@ -422,6 +426,8 @@ public final class PCGIOHandler extends IOHandler
 		// Hit point sanity check
 		boolean bFixMade = false;
 
+		resolveDuplicateEquipmentSets(currentPC);
+		
 		// First make sure the "working" equipment list
 		// is in effect for all the bonuses it may add
 		currentPC.setCalcEquipmentList();
@@ -523,6 +529,94 @@ public final class PCGIOHandler extends IOHandler
 
 		// make sure we are not dirty
 		currentPC.setDirty(false);
+	}
+
+	/**
+	 * Check all equipment sets to ensure there are no duplicate paths. Where a 
+	 * duplicate path is found, report it and try to move one non-container to 
+	 * a new path.
+	 * 
+	 * @param currentPC The character being loaded.
+	 */
+	private void resolveDuplicateEquipmentSets(PlayerCharacter currentPC)
+	{
+		boolean anyMoved = false;
+		List<EquipSet> equipSetList =
+				new ArrayList<>(currentPC.getDisplay().getEquipSet());
+		Map<String, EquipSet> idMap = new HashMap<>();
+		for (EquipSet es : equipSetList)
+		{
+			String idPath = es.getIdPath();
+			if (idMap.containsKey(idPath))
+			{
+				EquipSet existingEs = idMap.get(idPath);
+				EquipSet esToBeMoved = chooseItemToBeMoved(existingEs, es);
+				if (esToBeMoved == null)
+				{
+					warnings.add(String.format(
+						"Found two equipment items equipped to the "
+							+ "path %s. Items were %s and %s.", idPath,
+						es.getItem(), existingEs.getItem()));
+					continue;
+				}
+
+				// change the item's location
+				currentPC.moveEquipSetToNewPath(esToBeMoved);
+				EquipSet esStaying = esToBeMoved == es ? existingEs : es;
+
+				// As we always move the non container, move any items it 
+				// erroneously held to the item remaining in place
+				for (int j =
+						esToBeMoved.getItem().getContainedEquipmentCount() - 1; j >= 0; j--)
+				{
+					Equipment containedItem =
+							esToBeMoved.getItem().getContainedEquipment(j);
+					esToBeMoved.getItem().removeChild(currentPC, containedItem);
+					esStaying.getItem().insertChild(currentPC, containedItem);
+				}
+
+				Logging.log(Logging.WARNING, String.format(
+					"Moved item %s from path %s to %s as it "
+						+ "clashed with %s", esToBeMoved.getItem(), idPath,
+					esToBeMoved.getIdPath(),
+					esToBeMoved == es ? existingEs.getItem() : es.getItem()));
+				idMap.put(es.getIdPath(), es);
+				idMap.put(existingEs.getIdPath(), existingEs);
+				anyMoved = true;
+					
+			}
+			else
+			{
+				idMap.put(idPath, es);
+			}
+		}
+		
+		if (anyMoved)
+		{
+			warnings.add("Some equipment was moved as it was incorrectly stored."
+				+ " Please see the log for details.");
+		}
+	}
+
+	/**
+	 * Pick one of two equipment sets sharing a path to be moved to a new path. 
+	 * Only non containers will be moved to avoid issues with contents.   
+	 * @param equipSet1 The first equipment set at a path.
+	 * @param equipSet1 The second equipment set at a path.
+	 * @return The equipment set that should be move,d or null if none are safe.
+	 */
+	private EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
+	{
+		if (!equipSet2.getItem().isContainer())
+		{
+			return equipSet2;
+		}
+		if (!equipSet1.getItem().isContainer())
+		{
+			return equipSet1;
+		}
+		// Currently be really conservative
+		return null;
 	}
 
 	/**
