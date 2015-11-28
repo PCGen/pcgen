@@ -149,10 +149,10 @@ Wyrmrage		KEY:Wyrmrage ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuali
 Bonus Feat		KEY:Bonus Feat ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							DESC:chooses one of the following bonus metamagic feats: Empower Spell, Enlarge Spell, Extend Spell, Heighten Spell, Maximize Spell, Quicken Spell, Silent Spell, Still Spell.																	SOURCEPAGE:p.108
 Fasting		KEY:Fasting ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																	BONUS:STAT|WIS,CHA|1	SOURCEPAGE:p.108
 Calming Presence	KEY:Calming Presence ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.109
-# TODO		 The holy terror is able to add his Charisma modifier to the hit dice of the dragon's lord's Calm Dragon ability.
+# TODO		The holy terror is able to add his Charisma modifier to the hit dice of the dragon's lord's Calm Dragon ability.
 Commune		KEY:Commune ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																						SOURCEPAGE:p.109
 Divine Resistance	KEY:Divine Resistance ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.109
-# TODO:		 Upon reaching 6th level the holy terror is able to add his Charisma modifier to his dragon lord resistance ability.
+# TODO:		Upon reaching 6th level the holy terror is able to add his Charisma modifier to his dragon lord resistance ability.
 Inspiration		KEY:Inspiration ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																					SOURCEPAGE:p.109
 Avatar		KEY:Avatar ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.109
 

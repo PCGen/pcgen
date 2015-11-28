@@ -165,7 +165,7 @@ Terbutje (Great)				TYPE:StoneAge.Exotic.Slashing.Fragile
 Wahaika					TYPE:StoneAge.Exotic.Bludgeoning.Disarm
 
 # Siege Engines
-#Direct-Fire Engines	 Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
+#Direct-Fire Engines	Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
 # Large Siege Engines
 Ballista (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
 Cannon					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm

@@ -76,7 +76,7 @@ Wounding		KEY:WOUNDING		TYPE:Weapon.Melee			COST:3	VISIBLE:QUALIFY						SOURCEPA
 
 ###Block: Vehicular Items
 
-### used in KEYS: 				allowed
+### used in KEYS:				allowed
 ### BUMP_(bumpers or ramplate)		1 per vehicle	(2 exist)
 ### CPNT_(coat of paint)			1 per vehicle	(5 exist)
 ### CTAR_(containment area)			1 per vehicle	(1 exists)
@@ -92,7 +92,7 @@ Wounding		KEY:WOUNDING		TYPE:Weapon.Melee			COST:3	VISIBLE:QUALIFY						SOURCEPA
 #1 per vehicle allowance is checked via the REPLACES tag, NO CHECK for electronic accessories yet because there are only two
 
 ###	ADDING VEHICULAR ITEM COST TO VEHICLE COST
-###	    ITEM COST		VEHICLE COST==>FINAL COST
+###	ITEM COST		VEHICLE COST==>FINAL COST
 
 ###	for ITEM COST 25	1-21==>26	22-23 ==>27	24-25 ==>28	26-27==>29	28==>30		29-30==>31 31+==>+1
 ###	BONUS:ITEMCOST|TYPE.Transportation|if(BASECOST<22,26,if(BASECOST<24,27,if(BASECOST<26,28,if(BASECOST<28,29,if(BASECOST=28,30,if(BASECOST<31,31,BASECOST+1))))))

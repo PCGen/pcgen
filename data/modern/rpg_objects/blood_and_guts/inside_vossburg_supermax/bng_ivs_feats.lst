@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Blood and Guts - Inside Vossberg Supermax	SOURCESHORT:BnG-IVS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=45	SOURCEDATE:2003-01
 
-# Feat Name					Type					Required Skill				Required Stat		Description																																																																																		Add 							Bonus to skill				Class Skill		Source Page
+# Feat Name					Type					Required Skill				Required Stat		Description																																																																																		Add							Bonus to skill				Class Skill		Source Page
 Gang Affiliation				CATEGORY:FEAT	TYPE:General			PRESKILL:1,Knowledge (Streetwise)=3					DESC:You have run with a gang on an informal basis, or perhaps just grew up in a neighborhood rife with gangs, learning their ways.																																																																														SOURCEPAGE:p.14
 Rappel Master				CATEGORY:FEAT	TYPE:General													DESC:You are an expert at rappelling and creating rappelling rigs.																																																																															BONUS:SKILL|Climb,Use Rope|2					SOURCEPAGE:p.14
 

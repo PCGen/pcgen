@@ -79,7 +79,7 @@ Fighting Defensively	VISIBLE:NO	SOURCEPAGE:SRDCombatActions	TEMPDESC:You are fig
 Total Defense		VISIBLE:NO	SOURCEPAGE:SRDCombatActions	TEMPDESC:You are defending yourself as a standard action	TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5
 
 ###Block: Awakened Animal
-# Template Name	Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
+# Template Name	Required Race					Add					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
 Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
 
 ###Block: Diseases

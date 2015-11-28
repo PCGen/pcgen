@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
-# Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add 						Save bonus				Modify VAR
+# Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add						Save bonus				Modify VAR
 Psyche					CATEGORY:FEAT	TYPE:Special		VISIBLE:NO											SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
 
 Human Computer Fortitude		CATEGORY:FEAT	TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:SAVE|Fortitude|INT

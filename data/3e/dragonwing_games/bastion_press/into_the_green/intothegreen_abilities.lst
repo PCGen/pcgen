@@ -185,7 +185,7 @@ Air Walk						KEY:Zephtaur ~ Air Walk					CATEGORY:Special Ability	TYPE:SpecialA
 Summon Elemental					KEY:Zephtaur ~ Summon Elemental			CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQuality.Supernatural
 
 ###Block: Work Arounds
-# Ability Name			Output Name				Category of Ability		Type							Visible	Required Race		Add 					Caster level bonus
+# Ability Name			Output Name				Category of Ability		Type							Visible	Required Race		Add					Caster level bonus
 Maakantu Druid Caster							CATEGORY:Special Ability	TYPE:CasterNeeded							PRERACE:1,Maakantu	ADD:SPELLCASTER|Druid		BONUS:PCLEVEL|Druid|6
 Elderwitch Sorcerer Caster						CATEGORY:Special Ability	TYPE:CasterNeeded							PRERACE:1,Elderwitch	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|7
 

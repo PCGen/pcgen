@@ -238,7 +238,7 @@ Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Extra Step|PREVAREQ:var("COUN
 Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Evasion	SAB:Improved Evasion																																								SOURCEPAGE:p.106
 
 ###Block:G-man Class Abilities
-# Feat Name				Type				Visible	Special ABility						Multiple?	Choose									Add 																									Source Page
+# Feat Name				Type				Visible	Special ABility						Multiple?	Choose									Add																									Source Page
 Jurisdiction			TYPE:GManAbility		VISIBLE:NO	SAB:Jurisdiction																																											SOURCEPAGE:p.103
 Big Brother				TYPE:GManAbility		VISIBLE:NO	SAB:Big Brother																																											SOURCEPAGE:p.103
 Signature Kit			TYPE:GManAbility		VISIBLE:NO																					ADD:FEAT|Signature Kit - Firearm	ADD:FEAT|Signature Kit - Melee weapon	ADD:FEAT|Signature Kit - Equipment	ADD:FEAT|Signature Kit - Vehicle	SOURCEPAGE:p.104
@@ -327,7 +327,7 @@ Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SAB:Bald Faced Liar (%/day)|BaldFaced
 Self Deception	TYPE:SpyAbility	VISIBLE:NO	SAB:Self Deception																																								SOURCEPAGE:p.122
 
 ###Block:Weird Inventor Class Abilities
-# Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add 				Bonus to skill			Modify VAR											Source Page		Temporary Bonus
+# Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add				Bonus to skill			Modify VAR											Source Page		Temporary Bonus
 Jury Rig						TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Jury Rig +%|JuryRigValue								DEFINE:JuryRigValue|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|JuryRigValue|2								SOURCEPAGE:p.123
 Weird Scientist Gadget Creation		TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Weird Science Gadget Creation (% Invention Levels)|InventionLevels	DEFINE:InventionLevels|0																	BONUS:VAR|InventionLevels|var("CL=Weird Inventor")+2+max(0,INTSCORE-12)	SOURCEPAGE:p.123
 Academic Mastery					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Academic Mastery x%|var("COUNT[FEATNAME=Academic Mastery]")							STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Focus|1																		SOURCEPAGE:p.123

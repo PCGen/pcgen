@@ -6,7 +6,7 @@ FOLLOWER:CompanionLVL=1	TYPE:Companion Mod	SAB:This Companion Mod Works									
 FOLLOWER:CompanionLvl=2	TYPE:Animal Companion	SAB:If this is working I should see this message.	BONUS:SIZEMOD|NUMBER|1
 
 
-# Race of familiar		Type				Add 						Spell Res.
+# Race of familiar		Type				Add						Spell Res.
 MASTERBONUSRACE:Companion	TYPE:Companion Mod	ADD:FEAT|Add Feat Master Bonus Race	SR:10+TL
 
 

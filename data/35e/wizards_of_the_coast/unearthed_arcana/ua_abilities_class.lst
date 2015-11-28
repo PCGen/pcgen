@@ -64,13 +64,13 @@ Whirling Frenzy	KEY:Whirling Frenzy	CATEGORY:Special Ability	TYPE:SpecialAttack.
 #Whirling Frenzy VARs.  I've tried to re-use Rage VARs, so other feats can still work
 # with the Frenzy version. If this becomes a problem, we'll need to make them separate Frenzy Vars.
 # - Tir Gwaith
-# 	RageTimes         - Number of times per day
-# 	RageDuration      - Length of Frenzy
-# 	RageStrBonus      - Bonus to Strength while in Frenzy
-# 	FrenzyACBonus     * Bonus to AC while in Frenzy
-# 	FrenzyReflexBonus * Bonus to Reflex while in Frenzy
-# 	Frenzied          * Whether or not character is in Frenzy for temp bonuses
-# 	RageBonus         - Bonus tracker for the Rage benefit numbers
+#	RageTimes         - Number of times per day
+#	RageDuration      - Length of Frenzy
+#	RageStrBonus      - Bonus to Strength while in Frenzy
+#	FrenzyACBonus     * Bonus to AC while in Frenzy
+#	FrenzyReflexBonus * Bonus to Reflex while in Frenzy
+#	Frenzied          * Whether or not character is in Frenzy for temp bonuses
+#	RageBonus         - Bonus tracker for the Rage benefit numbers
 
 ###Block: Alternate Class Abilities, Page 58.
 # Ability Name	Unique Key					Category of Ability	Type																						Visible		Description																																							Ability																													Modify VAR											Source Page

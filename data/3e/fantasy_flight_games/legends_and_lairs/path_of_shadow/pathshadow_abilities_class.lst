@@ -41,7 +41,7 @@ Insight into Deceit	CATEGORY:Special Ability	TYPE:ConArtistSpecialAbilities	VISI
 
 ###Block:Acolyte of Chance special abilities (similar to the rogue)
 # Feat Name						Type					Visible	Required Feat			Prohibited Feat			Prohibite Special Ability	Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Add					Save checks bonus		Modify VAR				Source Page
-# Ability Name					Category of Ability		Type					Visible	Required Feat			Prohibited Feat			Prohibite Special Ability	Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Add 					Save bonus			Modify VAR				Source Page
+# Ability Name					Category of Ability		Type					Visible	Required Feat			Prohibited Feat			Prohibite Special Ability	Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Add					Save bonus			Modify VAR				Source Page
 Lucky Strike					CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|LuckyStrike|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Close Call						CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|CloseCall|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 One More Time					CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities																	SAB:One More Time (Su)																													SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities

@@ -1,0 +1,11 @@
+
+Quarterstaff Master				KEY:Combat Trick ~ Quarterstaff Master	ASPECT:SourceBook|UM				CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	SOURCEPAGE:129	DESC:When you use this feat to wield a quarterstaff as a one-handed weapon, you can spend 5 stamina points to retain the ability to use it as a double weapon and still keep a hand free. This effect lasts until the beginning of your next turn.
+Tripping Staff					KEY:Combat Trick ~ Tripping Staff		ASPECT:SourceBook|UM					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	SOURCEPAGE:134	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefits of this feat only as long as you have at least 1 stamina point in your stamina pool.
+Tripping Twirl					KEY:Combat Trick ~ Tripping Twirl		ASPECT:SourceBook|UM					CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	SOURCEPAGE:134	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benef its of this feat only as long as you have at least 1 stamina point in your stamina pool.
+
+
+
+
+CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Quarterstaff Master|PREABILITY:1,CATEGORY=FEAT,
+CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Staff|PREABILITY:1,CATEGORY=FEAT,
+CATEGORY=Internal|Combat Trick Tracker.MOD	ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Twirl|PREABILITY:1,CATEGORY=FEAT,

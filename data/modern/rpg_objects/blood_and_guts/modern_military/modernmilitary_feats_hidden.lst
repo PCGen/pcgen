@@ -2,7 +2,7 @@
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
-# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add 				Modify VAR
+# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add				Modify VAR
 Psychotherapy Qualify			CATEGORY:FEAT	TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:FEAT|Psychotherapy
 Surgery Qualify				CATEGORY:FEAT	TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:FEAT|Surgery
 

@@ -50,7 +50,7 @@ Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:
 Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork														SOURCEPAGE:p.5
 
 ###Block: Finesse Tree
-# Ability Name		Category of Ability	Type						Visible	Required Ability						Prohibited Feat			Multiple Requirements												Add 				Combat bonus												Source Page
+# Ability Name		Category of Ability	Type						Visible	Required Ability						Prohibited Feat			Multiple Requirements												Add				Combat bonus												Source Page
 Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Weapon Finesse																ADD:FEAT|Weapon Finesse															SOURCEPAGE:p.5
 Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES														PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Weapon Finesse Talent],[PREABILITY:1,CATEGORY=FEAT,Weapon Finesse]					BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
 Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																									BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
@@ -95,7 +95,7 @@ Improved Learning	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:Y
 Broad Knowledge	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Fast Learner				SOURCEPAGE:p.7
 Cross Training	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	SOURCEPAGE:p.7
 #	ADD:CLASSSKILLS(ANY)3
-#	 - ADD:CLASSSKILLS() is a Class level line tag ONLY
+#	- ADD:CLASSSKILLS() is a Class level line tag ONLY
 
 ###Block: Quick Thinking Tree
 # Ability Name				Category of Ability	Type							Visible	Required Ability									Multiple?	Choose																																																Combat bonus				Save bonus			Bonus to skill		Source Page

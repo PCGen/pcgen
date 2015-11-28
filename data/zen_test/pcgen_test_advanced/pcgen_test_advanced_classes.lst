@@ -134,7 +134,7 @@ CLASS:Basic Fighter	STARTSKILLPTS:2	CSKILL:TYPE=TestSkills
 
 # Alice and Charlie Classes -
 
-# Class Name	Hit Dice	Type			Class Type		Add 														Combat bonus										Add domain number		Save bonus
+# Class Name	Hit Dice	Type			Class Type		Add														Combat bonus										Add domain number		Save bonus
 CLASS:Alice Class	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	ADD:FEAT|Add Feat Class Line	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alice Class	STARTSKILLPTS:2	CSKILL:Class Skill 1

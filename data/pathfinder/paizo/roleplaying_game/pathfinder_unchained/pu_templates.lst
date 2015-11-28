@@ -1,6 +1,6 @@
 
-#Summoner ~ Unchained Class	!PRETEMPLATE:1,TYPE=SummonerClass	TYPE:SummonerClass	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Unchained Class
 
+Monk ~ Unchained HD	VISIBLE:NO	HITDIE:10|CLASS=Monk
 
 Legs 02	VISIBLE:NO	LEGS:02
 Legs 04	VISIBLE:NO	LEGS:04

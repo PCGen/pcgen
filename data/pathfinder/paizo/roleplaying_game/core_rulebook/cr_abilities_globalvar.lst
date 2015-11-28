@@ -53,15 +53,15 @@ CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Language|1|TYPE=
 # COMMENT: When the New Formula Parser BOOLEAN is implemented, these will be moved to the correct file.
 # COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
 # COMMENT: This will be moved into the GLOBALVARs file when it exists.
-Barbarian			CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class|PREVAREQ:Pool_Barbarian_Class_Selection,0	DEFINE:Pool_Barbarian_Class_Selection|0	
+Barbarian			CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltBarbarianChoice	DEFINE:BarbarianClassSelection|0	DEFINE:Pool_Barbarian_Class_Selection|0
 Bard				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0
 Cleric			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|PREVAREQ:Cleric_CF_ClassSkills,0
 Druid				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|PREVAREQ:Druid_CF_ClassSkills,0
 Fighter			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|PREVAREQ:Fighter_CF_ClassSkills,0	
-Monk				CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Monk ~ Standard Class|PREVAREQ:Pool_Monk_Class_Selection,0	DEFINE:Pool_Monk_Class_Selection|0	
+Monk				CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Monk ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltMonkChoice	DEFINE:Pool_Monk_Class_Selection|0	
 Paladin			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|PREVAREQ:Paladin_CF_ClassSkills,0
 Ranger			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|PREVAREQ:Ranger_CF_ClassSkills,0
-Rogue				CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Rogue ~ Standard Class|PREVAREQ:Pool_Rogue_Class_Selection,0	DEFINE:Pool_Rogue_Class_Selection|0	
+Rogue				CATEGORY:Class	ABILITY:CLASS|AUTOMATIC|Rogue ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltRogueChoice	DEFINE:Pool_Rogue_Class_Selection|0	
 Sorcerer			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|PREVAREQ:Sorcerer_CF_ClassSkills,0
 Wizard			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|PREVAREQ:Wizard_CF_ClassSkills,0
 
@@ -81,10 +81,16 @@ Commoner			CATEGORY:Class
 Expert			CATEGORY:Class
 Warrior			CATEGORY:Class
 
-###Block:
-Barbarian ~ Standard Class		CATEGORY:Class	COST:1	TYPE:Barbarian Class Selection	DEFINE:Barbarian_CFP_Level|0	BONUS:VAR|Barbarian_CFP_Level|BarbarianLVL	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class|PREMULT:1,[!PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,0]	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Ex-Class|PREMULT:1,[PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,1]
-Monk ~ Standard Class			CATEGORY:Class	COST:1	TYPE:Monk Class Selection		DEFINE:Monk_CFP_Level|0		BONUS:VAR|Monk_CFP_Level|MonkLVL				ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
-Rogue ~ Standard Class			CATEGORY:Class	COST:1	TYPE:Rogue Class Selection		DEFINE:Rogue_CFP_Level|0	BONUS:VAR|Rogue_CFP_Level|RogueLVL			ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0
+###Block: Dummy Entries
+Standard Barbarian	KEY:Empty Selection ~ Standard Barbarian	CATEGORY:Class	TYPE:Barbarian Class Selection
+Standard Monk		KEY:Empty Selection ~ Standard Monk		CATEGORY:Class	TYPE:Monk Class Selection
+Standard Rogue		KEY:Empty Selection ~ Standard Rogue	CATEGORY:Class	TYPE:Rogue Class Selection
+
+
+###Block: Actual Class
+Standard Barbarian	KEY:Barbarian ~ Standard Class		CATEGORY:Class	TYPE:Internal	DEFINE:Barbarian_CFP_Level|0	BONUS:VAR|Barbarian_CFP_Level|BarbarianLVL	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Class Full|PREMULT:1,[!PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,0]	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Standard Ex-Class|PREMULT:1,[PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,1]
+Standard Monk		KEY:Monk ~ Standard Class			CATEGORY:Class	TYPE:Internal	DEFINE:Monk_CFP_Level|0		BONUS:VAR|Monk_CFP_Level|MonkLVL			ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
+Standard Rogue		KEY:Rogue ~ Standard Class			CATEGORY:Class	TYPE:Internal	DEFINE:Rogue_CFP_Level|0	BONUS:VAR|Rogue_CFP_Level|RogueLVL			ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0
 #
 Barbarian ~ Standard Class Full	CATEGORY:Class
 Barbarian ~ Standard Ex-Class		CATEGORY:Class

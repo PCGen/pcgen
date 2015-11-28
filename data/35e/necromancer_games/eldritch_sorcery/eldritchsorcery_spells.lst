@@ -53,7 +53,7 @@ SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancerg
 #	Dolphin Fins and Mass, Save Throw and Spell resitance to (harmless) from /harmless
 #	Donor - removed "both of" from Target
 #	Dream Speaker - Range Touch, based on description. Close touch makes no sense.
-#			  - Save info to "(harmless); see text" from "/harmless (see text)"
+#			- Save info to "(harmless); see text" from "/harmless (see text)"
 #	Earthen Wave - added Range 30 ft. - nothing listed in source
 #	Elemental Scimitar - added Range 0 from the description
 #	Feed Summoned Creature at Casting Time default of 1 standard action - none listed.
