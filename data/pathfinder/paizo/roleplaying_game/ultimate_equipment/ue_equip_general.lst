@@ -657,7 +657,6 @@ Gambler's Kit (Common)		TYPE:Goods.Tools.Kits	COST:75	WT:5		SOURCEPAGE:p.65
 Gambler's Kit (Cheating)	TYPE:Goods.Tools.Kits	COST:300	WT:5		SOURCEPAGE:p.65	BONUS:SKILL|Profession (Gambler)|4|TYPE=Circumstance	SPROP:Grants a +4 circumstance bonus on Profession (gambler) checks when using these materials.
 Scrivener's Kit			TYPE:Goods.General	COST:2	WT:1		SOURCEPAGE:p.71
 
-
 ###Block: Alchemical Remedies
 # Equipment Name			Type						Cost		Weight	Source Page		Bonus to skill						Modify VAR						Special Property
 Alchemical Grease.MOD		TYPE:Goods.Alchemical.Consumable	COST:5	WT:1		SOURCEPAGE:p.100	BONUS:SKILL|Escape Artist|5|TYPE=Alchemical	BONUS:VAR|CMD_Grapple|5|TYPE=Alchemical
@@ -885,6 +884,37 @@ Saddle (Exotic/Pack).MOD										SOURCEPAGE:p.85
 Saddle (Exotic/Riding).MOD										SOURCEPAGE:p.85
 Saddlebags.MOD												SOURCEPAGE:p.85
 Stabling (Per Day).MOD											SOURCEPAGE:p.86
+
+###Block:
+Kit	TYPE:Kit	COST:0	SPROP:To make full use of the kit, please use the EDIT > Add Kit. Search "KIT" and add the proper kit.
+
+# Copy Section
+Kit.COPY=Kit ~ barbarian's			
+Kit.COPY=Kit ~ bard's			
+Kit.COPY=Kit ~ campsite			
+Kit.COPY=Kit ~ cavalier's			
+Kit.COPY=Kit ~ chronicler's		
+Kit.COPY=Kit ~ cleric's			
+Kit.COPY=Kit ~ dragonslayer's		
+Kit.COPY=Kit ~ dungeoneering (common)	
+Kit.COPY=Kit ~ dungeoneering (deluxe)	
+Kit.COPY=Kit ~ fighter's kit		
+Kit.COPY=Kit ~ gunslinger's		
+Kit.COPY=Kit ~ inquisitor's		
+Kit.COPY=Kit ~ magus's			
+Kit.COPY=Kit ~ monk's			
+Kit.COPY=Kit ~ oracle's			
+Kit.COPY=Kit ~ paladin's			
+Kit.COPY=Kit ~ pathfinder's		
+Kit.COPY=Kit ~ ranger's			
+Kit.COPY=Kit ~ rogue's			
+Kit.COPY=Kit ~ sorcerer's			
+Kit.COPY=Kit ~ spelunking			
+Kit.COPY=Kit ~ summoner's			
+Kit.COPY=Kit ~ troll slayer's		
+Kit.COPY=Kit ~ undead slayer's		
+Kit.COPY=Kit ~ witch's			
+Kit.COPY=Kit ~ wizard's			
 
 #
 ###END
