@@ -1,0 +1,81 @@
+# CVS $Revision: 7532 $ $Author: eddyanthony $ -- Sat Oct 15 17:54:00 2005 -- reformated by prettylst.pl v1.35 (build 478)
+CAMPAIGN:Midnight - Campaign Source Book
+GAMEMODE:35e
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Midnight
+STATUS:BETA
+# The active Type tag is temporary and will be removed when this source graduates from
+TYPE:Fantasy Flight Games.Campaign.Midnight
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com/
+SOURCELONG:Midnight 2nd Edition Campaign Source Book
+SOURCESHORT:MDNT
+SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+ISOGL:YES
+
+COVER:Midnight_v2.jpg
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Path of Sword Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Tournaments, Fairs, and Taverns Copyright 2002, Natural 20 Press
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural 20 Press
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Dragonstar:Starfarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Open Game Content from The Tide of Years Copyright 2001, Michelle A. Brown Nephew
+COPYRIGHT:Seafarer's Handbook, Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:The Ranger Re-visited Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Midnight Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:MIDNIGHT 2ND EDITION Copyright 2005, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for Midnight Campaign Setting Copyright 2003-2005, Andrew McDougall (Tir Gwaith), Michael Beaver, Eddy Anthony
+COPYRIGHT:PCGen dataset conversion for "Midnight Campaign Setting 3.5e" Copyright 2015, PCgen Data team (Including but not limited to, Dan Schofield)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:ogl.txt
+
+ABILITY:midnight_abilities_heroic_path.lst
+ABILITY:midnight_abilities_class.lst
+ABILITY:midnight_abilities_racial.lst
+ABILITY:midnight_abilities_magic_items.lst
+ABILITYCATEGORY:midnight_ability_categories.lst
+BIOSET:midnight_biosettings.lst
+LANGUAGE:midnight_languages.lst
+CLASS:midnight_classes.lst
+CLASS:midnight_classes_prestige.lst
+DEITY:midnight_deities.lst
+EQUIPMENT:midnight_equip_general.lst
+EQUIPMENT:midnight_equip_weap_melee.lst
+EQUIPMENT:midnight_equip_magic_items.lst
+EQUIPMOD:midnight_equipmods.lst
+WEAPONPROF:midnight_weaponprofs.lst
+ABILITY:midnight_feats.lst
+RACE:midnight_races.lst
+RACE:midnight_races_monsters.lst
+SKILL:midnight_skills.lst
+SPELL:midnight_spells.lst
+TEMPLATE:midnight_templates.lst
+TEMPLATE:midnight_templates_races.lst
+COMPANIONMOD:midnight_companion_mods.lst
+KIT:midnight_kits_races_monsters.lst
+
+BONUS:LANGUAGES|NUMBER|INT
+
+# ENTRY DATE: 2015-11-30
+# LST MONKEY: schofida
+# LICENSE MONKEY: Paul Grosse (2015-11-30)
+# RELEASE REVIEW #
+# BETA: Andrew Maitland (2015-12-01)
+# RELEASE:
+# Built for PCGen Version: 6.05.05
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.05
+# COMMENTS: 
+
+#
+# End
+#
