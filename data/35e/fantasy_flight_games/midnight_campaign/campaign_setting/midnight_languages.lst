@@ -1,0 +1,70 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+
+# Language					Type												Required Language					!PRELANG														Multiple Requirements
+Black Tongue				TYPE:Spoken.Midnight.Unrestricted.Pidgin
+Colonial (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.Colonial											!PRELANG:1,Colonial (1),Colonial
+Colonial (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.Colonial				PRELANG:1,Colonial (2)				!PRELANG:1,Colonial
+Colonial					TYPE:Spoken.Midnight.Unrestricted.Fluent.Colonial				PRELANG:1,Colonial (1)
+Courtier (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.Courtier											!PRELANG:1,Courtier (1),Courtier
+Courtier (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.Courtier				PRELANG:1,Courtier (2)				!PRELANG:1,Courtier
+Courtier					TYPE:Spoken.Midnight.Unrestricted.Fluent.Courtier				PRELANG:1,Courtier (1)
+Colonial (Literacy) (1)			TYPE:Read.Write.Midnight.Unrestricted.Colonial.Courtier										!PRELANG:1,Colonial (Literacy)
+Colonial (Literacy)			TYPE:Read.Write.Midnight.Unrestricted.Fluent.Colonial.Courtier		PRELANG:1,Colonial (Literacy) (1)
+Erenlander (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.Erenlander											!PRELANG:1,Erenlander (1),Erenlander
+Erenlander (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.Erenlander				PRELANG:1,Erenlander (2)			!PRELANG:1,Erenlander
+Erenlander					TYPE:Spoken.Midnight.Unrestricted.Fluent.Erenlander				PRELANG:1,Erenlander (1)
+Erenlander (Literacy) (1)		TYPE:Read.Write.Midnight.Unrestricted.Erenlander											!PRELANG:1,Erenlander (Literacy)
+Erenlander (Literacy)			TYPE:Read.Write.Midnight.Unrestricted.Fluent.Erenlander			PRELANG:1,Erenlander (Literacy) (1)
+Danisil (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.Danisil											!PRELANG:1,Danisil (1),Danisil
+Danisil (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.Danisil					PRELANG:1,Danisil (2)				!PRELANG:1,Danisil
+Danisil					TYPE:Spoken.Midnight.Unrestricted.Fluent.Danisil				PRELANG:1,Danisil (1)
+Halfling (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.Halfling											!PRELANG:1,Halfling (1),Halfling
+Halfling (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.Halfling				PRELANG:1,Halfling (2)				!PRELANG:1,Halfling
+Halfling.MOD				TYPE:Spoken.Midnight.Unrestricted.Fluent.Halfling				PRELANG:1,Halfling (1)
+High Elven (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.HighElven											!PRELANG:1,High Elven (1),High Elven
+High Elven (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.HighElven				PRELANG:1,High Elven (2)			!PRELANG:1,High Elven
+High Elven					TYPE:Spoken.Midnight.Unrestricted.Fluent.HighElven				PRELANG:1,High Elven (1)
+High Elven (Literacy) (1)		TYPE:Read.Write.Midnight.Unrestricted.HighElven.Halfling.Danisil									!PRELANG:1,High Elven (Literacy)
+High Elven (Literacy)			TYPE:Read.Write.Midnight.Unrestricted.Fluent.HighElven.Halfling.Danisil	PRELANG:1,High Elven (Literacy) (1)
+Norther (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.Norther											!PRELANG:1,Norther (1),Norther
+Norther (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.Norther					PRELANG:1,Norther (2)				!PRELANG:1,Norther
+Norther					TYPE:Spoken.Midnight.Unrestricted.Fluent.Norther				PRELANG:1,Norther (1)
+Norther (Literacy) (1)			TYPE:Read.Write.Midnight.Unrestricted.Norther												!PRELANG:1,Norther (Literacy)
+Norther (Literacy)			TYPE:Read.Write.Midnight.Unrestricted.Norther					PRELANG:1,Norther (Literacy) (1)
+Old Dwarven (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.OldDwarven											!PRELANG:1,Old Dwarven (1),Old Dwarven
+Old Dwarven (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.OldDwarven				PRELANG:1,Old Dwarven (2)			!PRELANG:1,Old Dwarven
+Old Dwarven					TYPE:Spoken.Midnight.Unrestricted.Fluent.OldDwarven				PRELANG:1,Old Dwarven (1)
+Old Dwarven (Literacy) (3)		TYPE:Read.Write.Midnight.Unrestricted.OldDwarven											!PRELANG:1,Old Dwarven (Literacy) (2),Old Dwarven (Literacy) (1),Old Dwarven (Literacy)
+Old Dwarven (Literacy) (2)		TYPE:Read.Write.Midnight.Unrestricted.OldDwarven				PRELANG:1,Old Dwarven (Literacy) (3)	!PRELANG:1,Old Dwarven (Literacy) (1),Old Dwarven (Literacy)
+Old Dwarven (Literacy) (1)		TYPE:Read.Write.Midnight.Unrestricted.OldDwarven				PRELANG:1,Old Dwarven (Literacy) (2)	!PRELANG:1,Old Dwarven (Literacy)
+Old Dwarven (Literacy)			TYPE:Read.Write.Midnight.Unrestricted.Fluent.OldDwarven			PRELANG:1,Old Dwarven (Literacy) (1)
+Thedron (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.ClanDialect.Thedron									!PRELANG:1,Thedron (1),Thedron
+Thedron (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.ClanDialect.Thedron			PRELANG:1,Thedron (2)				!PRELANG:1,Thedron
+Thedron					TYPE:Spoken.Midnight.Unrestricted.Fluent.ClanDialect.Thedron		PRELANG:1,Thedron (1)
+Fodrin (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.ClanDialect.Fodrin										!PRELANG:1,Fodrin (1),Fodrin
+Fodrin (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.ClanDialect.Fodrin			PRELANG:1,Fodrin (2)				!PRELANG:1,Fodrin
+Fodrin					TYPE:Spoken.Midnight.Unrestricted.Fluent.ClanDialect.Fodrin			PRELANG:1,Thedron (1)
+Durgis (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.ClanDialect.Durgis										!PRELANG:1,Durgis (1),Durgis
+Durgis (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.ClanDialect.Durgis			PRELANG:1,Durgis (2)				!PRELANG:1,Durgis
+Durgis					TYPE:Spoken.Midnight.Unrestricted.Fluent.ClanDialect.Durgis			PRELANG:1,Durgis (1)
+Gorand (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.ClanDialect.Gorand										!PRELANG:1,Gorand (1),Gorand
+Gorand (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.ClanDialect.Gorand			PRELANG:1,Gorand (2)				!PRELANG:1,Gorand
+Gorand					TYPE:Spoken.Midnight.Unrestricted.Fluent.ClanDialect.Gorand			PRELANG:1,Gorand (1)
+Black Blood (2)				TYPE:Spoken.Midnight.Unrestricted.Pidgin.ClanDialect.BlackBlood									!PRELANG:1,Black Blood (1),Black Blood
+Black Blood (1)				TYPE:Spoken.Midnight.Unrestricted.Basic.ClanDialect.BlackBlood		PRELANG:1,Black Blood (2)			!PRELANG:1,Black Blood
+Black Blood					TYPE:Spoken.Midnight.Unrestricted.Fluent.ClanDialect.BlackBlood		PRELANG:1,Black Blood (1)
+Orcish (2)					TYPE:Spoken.Midnight.Unrestricted.Pidgin.Orcish												!PRELANG:1,Orcish (1),Orcish
+Orcish (1)					TYPE:Spoken.Midnight.Unrestricted.Basic.Orcish					PRELANG:1,Orcish (2)				!PRELANG:1,Orcish
+Orcish					TYPE:Spoken.Midnight.Unrestricted.Fluent.Orcish					PRELANG:1,Orcish (1)
+Patrol Sign					TYPE:Spoken.Midnight.Pidgin.Restricted
+Sundered Tongue				TYPE:Spoken.Midnight.Pidgin.Restricted
+Sundered Tongue (Literacy) (1)	TYPE:Read.Write.Midnight.SunderedTongue.Restricted											!PRELANG:1,Sundered Tongue (Literacy)
+Sundered Tongue (Literacy)		TYPE:Read.Write.Midnight.Fluent.SunderedTongue.Restricted			PRELANG:1,Sundered Tongue (Literacy) (1)
+Sylvan (2)					TYPE:Spoken.Midnight.Pidgin.Sylvan.Restricted												!PRELANG:1,Sylvan (1),Sylvan
+Sylvan (1)					TYPE:Spoken.Midnight.Basic.Sylvan.Restricted					PRELANG:1,Sylvan (2)				!PRELANG:1,Sylvan
+Sylvan.MOD					TYPE:Spoken.Midnight.Fluent.Sylvan.Restricted					PRELANG:1,Sylvan (1)
+Trader's Tongue (2)			TYPE:Spoken.Midnight.Unrestricted.Pidgin.TradersTongue										!PRELANG:1,Trader's Tongue (1),Trader's Tongue
+Trader's Tongue (1)			TYPE:Spoken.Midnight.Unrestricted.Basic.TradersTongue				PRELANG:1,Trader's Tongue (2)			!PRELANG:1,Trader's Tongue
+Trader's Tongue				TYPE:Spoken.Midnight.Unrestricted.Fluent.TradersTongue			PRELANG:1,Trader's Tongue (1)
+Trader's Tongue (Literacy) (1)	TYPE:Read.Write.Midnight.Unrestricted.TradersTongue											!PRELANG:1,Trader's Tongue (Literacy)
+Trader's Tongue (Literacy)		TYPE:Read.Write.Midnight.Fluent.Unrestricted.TradersTongue																									PREMULT:1,[PRELANG:1,Trader's Tongue (Literacy) (1)],[PREABILITY:1,CATEGORY=Special Ability,Literate (Trader's Tongue)]
