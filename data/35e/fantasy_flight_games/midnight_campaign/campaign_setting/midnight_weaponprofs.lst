@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- reformated by PCGen PrettyLST v6.04.01
+#Original Entry By: Tir Gwaith
+
+# Weapon Name			Output Name					Type															Nb Hands
+Cedeku										TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing
+Fighting Knife (Snow Elf)	OUTPUTNAME:Fighting Knife		TYPE:Exotic.Melee.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.Light
+Sepi											TYPE:Exotic.Melee.Slashing.MeleeSlashing.Light
+Staghorn										TYPE:Exotic.Melee.Piercing.MeleePiercing.OneHanded
+Urutuk Hatchet									TYPE:Exotic.Melee.Ranged.Slashing.MeleeSlashing.RangedSlashing.OneHanded
+Vardatch										TYPE:Exotic.Melee.Slashing.MeleeSlashing.OneHanded.Vardatch
+Vardatch (Crafted)		OUTPUTNAME:Crafted Vardatch		TYPE:Exotic.Melee.Slashing.MeleeSlashing.OneHanded.Vardatch
+Atharak										TYPE:Exotic.Melee.Bludgeoning.MeleeBludgeoning.TwoHanded
+Lance (Halfling)			OUTPUTNAME:Halfling Lance		TYPE:Exotic.Melee.Piercing.MeleePiercing.TwoHanded.Reach
+Lance (Sarcosan)			OUTPUTNAME:Sarcosan Lance		TYPE:Exotic.Melee.Piercing.MeleePiercing.TwoHanded.Reach.Ranged.Piercing.RangedPiercing
+Spear (Dornish Horse)		OUTPUTNAME:Dornish Horse Lance	TYPE:Exotic.Melee.Piercing.MeleePiercing.TwoHanded
+Vardatch (Greater)		OUTPUTNAME:Greater Vardatch		TYPE:Exotic.Melee.Slashing.MeleeSlashing.TwoHanded.Vardatch
+Inutek										TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning
+Urgosh (Dwarven)									TYPE:Exotic
+Longbow (Icewood)			OUTPUTNAME:Icewood Longbow		TYPE:Exotic.Ranged.Piercing.RangedPiercing								HANDS:2
