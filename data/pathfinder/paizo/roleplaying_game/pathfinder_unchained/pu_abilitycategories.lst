@@ -35,6 +35,7 @@ ABILITYCATEGORY:Unchained Monk Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Unchained Rogue Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Rogue Class Feature		PLURAL:Unchained Rogue Class Features			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Unchained Summoner Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Summoner Class Feature		PLURAL:Unchained Summoner Class Features			DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Background Skill				POOL:Pool_BackgroundSkill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BackgroundSkill						PLURAL:Background Skills				DISPLAYLOCATION:Class Features
 
 #
 # End
