@@ -105,6 +105,7 @@ $pub{'wizards_of_the_coast'} = 'Wizards of the Coast';
 # Non-publishers
 $pub{'homebrew'} = 'Homebrew';
 $pub{'conversion_support'} = 'Conversion Support';
+$pub{'my_pathfinder_campaign'} = 'Homebrew';
 
 # Open the script output file
 my $script_file = 'includes/data.nsh';
@@ -116,7 +117,7 @@ open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 foreach $dirname (@basedirlist)
 {
 	# Skip some folders we don't wish to offer
-	if ($dirname eq 'homebrew' || $dirname eq 'zen_test' || $dirname eq 'customsources')
+	if ($dirname eq 'readme.md' || $dirname eq 'zen_test' || $dirname eq 'customsources')
 	{
 		next;
 	}
