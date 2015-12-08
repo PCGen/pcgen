@@ -94,6 +94,7 @@ $pub{'sovereign_press'} = 'Sovereign Press';
 $pub{'srd'} = 'SRD';
 $pub{'srd35'} = 'SRD35';
 $pub{'st_cooley_publishing'} = 'S T Cooley Publishing';
+$pub{'storm_bunny_studios'} = 'Storm Bunny Studios';
 $pub{'super_genius_games'} = 'Super Genius Games';
 $pub{'sword_and_sorcery_studios'} = 'Sword and Sorcery Studios';
 $pub{'swords_edge_publishing'} = 'Swords Edge Publishing';
@@ -134,7 +135,7 @@ foreach $dirname (@basedirlist)
 NAME:	foreach $filename (@nondots)
 	{
 		# Skip some folders we don't wish to distribute
-		if ($filename eq 'homebrew' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
+		if ($filename eq 'readme.md' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
 		{
 			next NAME;
 		}
