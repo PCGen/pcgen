@@ -1,0 +1,6 @@
+
+
+# Equip
+Vested Pistol	KEY:Vested Pistol	PROFICIENCY:WEAPON|Vested Pistol	TYPE:Weapon.Ranged.Pistol.OneHandedFirearm.Projectile.Bludgeoning.Piercing	DAMAGE:1d6	CRITRANGE:1	CRITMULT:x2	SPROP:Misfire 1; Capacity 4	RANGE:30	WT:4
+Vested Rifle	KEY:Vested Rifle	PROFICIENCY:WEAPON|Vested Rifle	TYPE:Weapon.Ranged.Rifle.TwoHandedFirearm.Projectile.Bludgeoning.Piercing	DAMAGE:1d8	CRITRANGE:1	CRITMULT:x3	SPROP:Misfire 1; Capacity 1	RANGE:60	WT:8
+
