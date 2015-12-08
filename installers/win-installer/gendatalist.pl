@@ -116,7 +116,7 @@ open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 foreach $dirname (@basedirlist)
 {
 	# Skip some folders we don't wish to offer
-	if ($dirname eq 'homebrew' || $dirname eq 'zen_test' || $dirname eq 'customsources')
+	if ($filename eq 'readme.md' || $dirname eq 'zen_test' || $dirname eq 'customsources')
 	{
 		next;
 	}
