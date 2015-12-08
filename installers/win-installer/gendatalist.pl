@@ -116,7 +116,7 @@ open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 foreach $dirname (@basedirlist)
 {
 	# Skip some folders we don't wish to offer
-	if ($filename eq 'readme.md' || $dirname eq 'zen_test' || $dirname eq 'customsources')
+	if ($dirname eq 'readme.md' || $dirname eq 'zen_test' || $dirname eq 'customsources' || $dirname eq 'my_pathfinder_campaign')
 	{
 		next;
 	}
@@ -135,7 +135,7 @@ foreach $dirname (@basedirlist)
 NAME:	foreach $filename (@nondots)
 	{
 		# Skip some folders we don't wish to distribute
-		if ($filename eq 'readme.md' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
+		if ($filename eq 'readme.md' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/ || $dirname eq 'my_pathfinder_campaign')
 		{
 			next NAME;
 		}
