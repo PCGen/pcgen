@@ -105,6 +105,9 @@ $pub{'wizards_of_the_coast'} = 'Wizards of the Coast';
 # Non-publishers
 $pub{'homebrew'} = 'Homebrew';
 $pub{'conversion_support'} = 'Conversion Support';
+$pub{'my_pathfinder_campaign'} = 'Homebrew';
+
+
 
 # Open the script output file
 my $script_file = 'includes/data.nsh';
