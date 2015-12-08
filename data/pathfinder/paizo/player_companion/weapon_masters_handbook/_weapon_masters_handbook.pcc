@@ -3,7 +3,7 @@ KEY:PF - Weapon Master's Handbook
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
@@ -28,7 +28,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Player Companion: Weapon Master’s Handbook Copyright 2015, Paizo Inc.; Authors: Alexander Augunas and David N. Ross.
+COPYRIGHT:Pathfinder Player Companion: Weapon Master's Handbook Copyright 2015, Paizo Inc.; Authors: Alexander Augunas and David N. Ross.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Weapon Master's Handbook" Copyright 2015, PCGen Data Team (including, but not limited to Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.
@@ -49,9 +49,9 @@ ABILITY:support/wmh_abilities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Gu
 
 # ENTRY DATE: 2015-11-26
 # LST MONKEY: Andrew Maitland (LegacyKing) on 2015-11-26
-# LICENSE MONKEY: Paul Grosse on YEAR-MON-DAY
+# LICENSE MONKEY: Paul Grosse on 2015-12-07
 # RELEASE REVIEW #
-# BETA:
+# BETA: Andrew Maitland for 6.05.06 on 2015-12-07
 # RELEASE:
 # Built for PCGen Version: 6.05.06
 # Updated to work with version: -
