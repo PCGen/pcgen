@@ -1,0 +1,12 @@
+
+
+Gnome Flick-Mace		TYPE:Exotic
+Khakkhara			TYPE:Simple
+War Flute			TYPE:Martial
+
+
+###Block: Weapon Groups
+Gnome Flick-Mace.MOD	TYPE:Weapon Group Pole Arms
+Khakkhara.MOD		TYPE:Weapon Group Monk
+War Flute.MOD		TYPE:Weapon Group Hammers
+
