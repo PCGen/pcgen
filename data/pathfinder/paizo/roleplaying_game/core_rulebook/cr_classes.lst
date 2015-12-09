@@ -341,15 +341,6 @@ CLASS:Rogue		STARTSKILLPTS:8
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
 1	ABILITY:Class|AUTOMATIC|Rogue
-###Block: Level progression
-1	BONUS:VAR|RogueSneakAttackLVL|CL	BONUS:VAR|TrapfindingLVL|CL
-2	BONUS:VAR|RogueTalentLVL|CL
-3	BONUS:VAR|RogueTrapSenseLVL|CL
-4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-4	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueUncannyDodge,0
-8	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueImprovedUncannyDodge,0
-20	BONUS:VAR|MasterStrikeLVL|CL
-###Block:
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Combat bonus										Save bonus																					Modify VAR				Monster Role
