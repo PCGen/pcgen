@@ -12,7 +12,7 @@ CATEGORY=Class|Summoner.MOD		BONUS:VAR|Pool_Summoner_Class_Selection|1		BONUS:VA
 ###Block:
 Unchained Barbarian	KEY:Barbarian ~ Unchained Class	CATEGORY:CLASS	COST:1	TYPE:Barbarian Class Selection.AltBarbarianChoice	ABILITY:Internal|AUTOMATIC|Class Skills ~ Unchained Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Unchained Class Full|PREMULT:1,[!PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,0]	ABILITY:CLASS|AUTOMATIC|Barbarian ~ Unchained Ex-Class|PREMULT:1,[PRECLASS:1,Ex-Barbarian=1],[PREVAREQ:Class_BarbarianExClass,1]
 Unchained Monk		KEY:Monk ~ Unchained Class		CATEGORY:CLASS	COST:1	TYPE:Monk Class Selection.AltMonkChoice	TEMPLATE:Monk ~ Unchained HD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Unchained Monk|PREVAREQ:Monk_CF_ClassSkills,0
-Unchained Rogue		KEY:Rogue ~ Unchained Class		CATEGORY:CLASS	COST:1	TYPE:Rogue Class Selection.AltRogueChoice	BONUS:VAR|MasterStrikeLVL|RogueLVL	BONUS:VAR|RogueSneakAttackLVL|RogueLVL	BONUS:VAR|RogueTalentLVL|RogueLVL	BONUS:VAR|RogueTrapSenseLVL|RogueLVL	BONUS:VAR|TrapfindingLVL|RogueLVL	BONUS:VAR|UncannyDodgeFlankingLevel|RogueLVL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLVL|RogueLVL/4	
+Unchained Rogue		KEY:Rogue ~ Unchained Class		CATEGORY:CLASS	COST:1	TYPE:Rogue Class Selection.AltRogueChoice
 Unchained Summoner	KEY:Summoner ~ Unchained Class	CATEGORY:CLASS	COST:1	TYPE:Summoner Class Selection.SummonerAlternative	BONUS:VAR|NoSummonerSelection|-1		FACT:SummonerSelectionMade|True	FACT:Summoner_Archetype_Eidolon|True
 
 ###Block: Sub Selections to support Ex-Class
@@ -483,7 +483,7 @@ Twin Eidolon			KEY:Unchained Summoner ~ Twin Eidolon						CATEGORY:Special Abili
 ###Block: Rules
 Rule - Use Fractional BAB		CATEGORY:Internal	COST:0	TYPE:OptionalRules	DEFINE:UseFractionalBAB|0	BONUS:VAR|UseFractionalBAB|1		DEFINE:ClassBABFull|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABPoor|0	BONUS:COMBAT|BASEAB|ClassBABFull+(ClassBABModerate*3/4)+(ClassBABPoor*1/2)|TYPE=Class
 Rule - Use Fractional Saves		CATEGORY:Internal	COST:0	TYPE:OptionalRules	DEFINE:UseFractionalSave|0	BONUS:VAR|UseFractionalSave|1				DEFINE:ClassSaveGood_Fortitude|0	DEFINE:ClassSaveGood_Reflex|0	DEFINE:ClassSaveGood_Will|0	DEFINE:ClassSavePoor_Fortitude|0	DEFINE:ClassSavePoor_Reflex|0	DEFINE:ClassSavePoor_Will|0	BONUS:CHECKS|BASE.Fortitude|(ClassSaveGood_Fortitude/2+2)+(ClassSavePoor_Fortitude/3)	BONUS:CHECKS|BASE.Reflex|(ClassSaveGood_Reflex/2+2)+(ClassSavePoor_Reflex/3)	BONUS:CHECKS|BASE.Will|(ClassSaveGood_Will/2+2)+(ClassSavePoor_Will/3)
-Rule - Use Background Skills		CATEGORY:Internal	COST:0	TYPE:OptionalRules	DEFINE:Pool_BackgroundSkill|0	BONUS:VAR|Pool_BackgroundSkill|TL-HD
+Rule - Use Background Skills		CATEGORY:Internal	COST:0	TYPE:OptionalRules	DEFINE:Pool_BackgroundSkill|0	BONUS:VAR|Pool_BackgroundSkill|2*(TL-HD)
 Rule - Use Consolidated Skills	CATEGORY:Internal	COST:0	TYPE:OptionalRules	DEFINE:UseConsolidatedSkills|0	BONUS:VAR|UseConsolidatedSkills|1
 Rule - Multiclass Variant		CATEGORY:Internal	COST:0	TYPE:OptionalRules	DEFINE:Pool_SecondaryClass|0		BONUS:VAR|Pool_SecondaryClass|1
 Rule - Wound Threshold			CATEGORY:Internal	COST:0	TYPE:OptionalRules	ABILITY:Special Ability|AUTOMATIC|Wound Threshold
