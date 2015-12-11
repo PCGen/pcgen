@@ -405,6 +405,7 @@ Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		
 ###Block: Adventuring Gear
 # Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property
 Air Bladder																	TYPE:Goods.General															COST:0.1	WT:0.5				SOURCEPAGE:p.58																																																				SPROP:If inflated, it holds enough air to sustain a Medium creature for 1 round or a Small creature for 2 rounds.
+Alchemist's Kit	COST:40	WT:24	SOURCEPAGE:p.58	SPROP:This kit includes an alchemy crafting kit, a backpack, a bedroll, a belt pouch, a flint and steel, ink, an inkpen, an iron pot, a mess kit, soap, torches (10), trail rations (5 days), and a waterskin.
 Animal Glue																	TYPE:Goods.General.Consumable														COST:0.5	WT:0.5				SOURCEPAGE:p.58																																																				SPROP:Before you use animal glue, you must heat it until it liquefies. You normally apply it with a brush and hold the pieces together for a minute, at which point it is cooled and hardened. The glue is sufficient to coat 1 square foot of surface, or up to 40 smaller applications of approximately 2 square inches each.
 Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURCEPAGE:p.58	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance																															SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
 Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																																				SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
@@ -414,7 +415,9 @@ Bandolier																	TYPE:Goods.Clothing.Resizable.Container		CONTAINS:*UNL
 Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
 Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
 Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
+Barbarian's Kit	COST:9	WT:26	SOURCEPAGE:p.59	SPROP:This kit includes a backpack, a belt pouch, a blanket, a flint and steel, an iron pot, rope, soap, torches (10), trail rations (5 days), and a waterskin.
 Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
+Bard's Kit		COST:41	WT:33.5	SOURCEPAGE:p.59	SPROP:This includes a backpack, a bedroll, a belt pouch, a common musical instrument, a flint and steel, ink, an inkpen, an iron pot, a journal, a mess kit, a mirror, rope, soap, torches (10), trail rations (5 days), and a waterskin.
 Barrel.MOD																																										SOURCEPAGE:p.59
 Basket.MOD																																										SOURCEPAGE:p.59
 Bedroll.MOD																																										SOURCEPAGE:p.59
@@ -443,6 +446,7 @@ Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4					
 Canvas (Sq Yd).MOD																																								SOURCEPAGE:p.61
 Cauldron.MOD																TYPE:Goods.Tools																COST:1	WT:5					SOURCEPAGE:p.61
 Cauldron (Mithral)								OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																COST:1251	WT:2.5				SOURCEPAGE:p.61																																																				SPROP:Lighter than a standard cauldron and food rarely sticks to it.
+Cavalier's Kit	COST:23	WT:112	SOURCEPAGE:p.61	SPROP:This includes animal feed (5 days), a backpack, a bedroll, a belt pouch, a bit and bridle, a flint and steel, an iron pot, a mess kit, a riding saddle, rope, saddlebags, soap, torches (10), trail rations (5 days), and a waterskin.
 Chain (10 Ft).MOD																																									SOURCEPAGE:p.61
 Chalk (1 Piece).MOD																																								SOURCEPAGE:p.62
 Chalkboard.MOD																TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.62
@@ -450,6 +454,8 @@ Chest (Small).MOD																																									SOURCEPAGE:p.62
 Chest (Medium).MOD																																								SOURCEPAGE:p.62
 Chest (Large).MOD																																									SOURCEPAGE:p.62
 Chest (Huge).MOD																																									SOURCEPAGE:p.62
+Chirurgeon's Kit	COST:400	WT:5	SOURCEPAGE:p.62	SPROP:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. It consists of a leather pouch, a healer’s kit, a bottle of strong brandy, a potion of cure light wounds, a vial of smelling salts, and 2 doses each of alchemist’s kindness, antiplague, antitoxin, bloodblock, and soothe syrup.
+Chronicler's Kit	COST:40	WT:4.5	SOURCEPAGE:p.62	SPROP:This bundle contains a map case, two vials of ink, two inkpens, 10 sheets of paper, two blank journals, a pound of fine powder for drying ink, and a 20-foot measuring cord. The supplies usually suffice for chronicling a single expedition of not more than 2 months’ duration.
 Clay																		TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.62
 Coffee Pot																	TYPE:Goods.General															COST:3	WT:4					SOURCEPAGE:p.62
 Coffin (Common)																TYPE:Goods.General.Resizable														COST:10	WT:30					SOURCEPAGE:p.62
@@ -457,13 +463,19 @@ Coffin (Ornate)																TYPE:Goods.General.Resizable														COST:10
 Collapsible Bathtub															TYPE:Goods.General.Resizable														COST:15	WT:20					SOURCEPAGE:p.62
 Collapsible Plank																TYPE:Goods.General															COST:0.4	WT:10					SOURCEPAGE:p.62
 Compass.MOD																	TYPE:Goods.General															COST:10	WT:0.5				SOURCEPAGE:p.62	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance
+Cooking Kit	COST:3	WT:16	SOURCEPAGE:p.62	SPROP:This kit contains an iron pot, an iron skillet, a ladle, a skewer, a wooden cutting board, a cutting knife, an iron tripod for the pot, a packet of tinder, and a small selection of local or otherwise easy to find seasonings. You can attach the skewer to the tripod for roasting small game animals. All the component pieces (except the skillet) fit within the pot for easy storage and transport.
 Copy of a Key																TYPE:Goods.Tools																COST:1						SOURCEPAGE:p.63																																																				SPROP:An artisan can make a working copy of a key in an hour.
 Cot																		TYPE:Goods.General.Resizable														COST:1	WT:30					SOURCEPAGE:p.63
 Crowbar.MOD																																										SOURCEPAGE:p.63
 Cypher Books																TYPE:Goods.General															COST:150	WT:2					SOURCEPAGE:p.63																																																				SPROP:A creature without access to the appropriate cypher book takes a -10 penalty on Linguistic checks made to decipher each page of a coded message.
+Dragonslayer's Kit	COST:485	WT:64	SOURCEPAGE:p.63	SPROP:Aimed more at hired blades than seasoned adventurers, this kit provides supplemental equipment for outfitting hirelings to hunt dragons. It includes a potion of cure moderate wounds, oil of bless weapon (1 application), a longspear, a backpack, three large sacks, a sunrod, a tower shield, and 5 vials of alchemist’s fire. For hunting dragons that are immune to fire, the alchemist’s fire can be replaced with acid at the time of purchase, for a savings of 50 gp.
 Drill.MOD																	TYPE:Goods.General															COST:0.5	WT:1					SOURCEPAGE:p.63
+Druid's Kit	COST:14	WT:44	SPROP:
+Dungeoneer's Kit (Common)	COST:15	WT:25	SOURCEPAGE:p.63	SPROP:This bundle of essential supplies for exploring ruins and abandoned cities includes two candles, chalk, a hammer and four pitons, 50 feet of hemp rope, a hooded lantern with 5 flasks of oil, two sacks, two torches, and four tindertwigs.
+Dungeoneer's Kit (Deluxe)	COST:130	WT:15	SOURCEPAGE:p.63	SPROP:A deluxe dungeoneering kit contains two candles, chalk, a hammer and four pitons, 50 feet of silk rope, two sacks, three sunrods, four tindertwigs, and an everburning torch.
 Ear Trumpet																	TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																																				SPROP:By holding this specially crafted ear trumpet to your ear and placing the other end against a door or wall, you reduce the DC penalty for listening through a door or wall by 5.
 Earplugs.MOD																TYPE:Goods.General															COST:0.03						SOURCEPAGE:p.63																																																				SPROP:Give you a +2 circumstance bonus on saves against effects that require hearing, but also cause a -5 penalty on hearing-based Perception checks.
+Entertainer's Kit	COST:.5	WT:3	SOURCEPAGE:p.63	SPROP:This kit includes juggling balls, colored handkerchiefs, playing cards, clownish makeup, and other simple props for stage magicians and other street entertainers.
 Everburning Torch.MOD																																								SOURCEPAGE:p.63
 Fake Footprint Shoes															TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																																				SPROP:Each pair creates a specific type of footprint, such as tiger, orc, goblin, or ogre. When walking with these shoes, you may make a Survival check; the check result is the Survival DC for anyone trying to determine whether the tracks are what they appear to be.
 False Manacles																TYPE:Goods.General.Masterwork														COST:65	WT:2					SOURCEPAGE:p.64																																																				SPROP:A wearer who knows the location of the secret catch can open them as a standard action.
@@ -471,9 +483,11 @@ False-Bottomed Chest															TYPE:Goods.General															COST:52	WT:2
 False-Bottomed Cup															TYPE:Goods.General															COST:1						SOURCEPAGE:p.64
 False-Bottomed Scabbard															TYPE:Goods.General															COST:45	WT:1					SOURCEPAGE:p.64
 Familiar Satchel																TYPE:Goods.General															COST:25	WT:6					SOURCEPAGE:p.64																																																				SPROP:Provides total cover to any Tiny or smaller creature contained within it.
+Fighter's Kit	COST:9	WT:29	SOURCEPAGE:p.64	SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, an iron pot, a mess kit, rope, soap, torches (10), trail rations (5 days), and a waterskin.
 Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 x 10 minutes and should be thoroughly rinsed after each use.
 Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
 Fishhook.MOD																																									SOURCEPAGE:p.64
+Fishing Kit	COST:.5	WT:3	SOURCEPAGE:p.64	SPROP:This kit includes a simple fishing pole and a small box that contains fishing tackle (hooks, lines, sinkers, floats, and lures).
 Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
 Flask (Empty).MOD																																									SOURCEPAGE:p.64
 Flint and Steel.MOD																																								SOURCEPAGE:p.64
@@ -481,7 +495,9 @@ Folding Chair																TYPE:Goods.General.Resizable														COST:2	WT
 Folding Ladder																TYPE:Goods.General															COST:2	WT:16					SOURCEPAGE:p.65
 Folding Pole																TYPE:Goods.General															COST:0.2	WT:10					SOURCEPAGE:p.65
 Folding Table																TYPE:Goods.General															COST:10	WT:20					SOURCEPAGE:p.65
-Gear Maintenance Kit															TYPE:Goods.Tools.Kits															COST:5	WT:2					SOURCEPAGE:p.65
+Gambler's Kit (Common)		COST:75	WT:5	SOURCEPAGE:p.65	SPROP:This small, tightly packed suitcase holds decks of cards, a betting wheel, numbered cloths, colored wooden chips, and a wide variety of other sorts of specialized equipment necessary for many different games of chance.
+Gambler's Kit (Cheating)	COST:300	WT:5	SOURCEPAGE:p.65	SPROP:This small, tightly packed suitcase holds decks of cards, a betting wheel, numbered cloths, colored wooden chips, and a wide variety of other sorts of specialized equipment necessary for many different games of chance. A cheating gambler’s kit is very similar, except its cards are marked and its games are rigged, giving a knowledgeable user a +4 circumstance bonus on Profession (gambler) checks when using these materials. A DC 25 Perception or DC 20 Profession (gambler) check exposes the ruse.
+Gear Maintenance Kit															TYPE:Goods.Tools.Kits															COST:5	WT:2					SOURCEPAGE:p.65	SPROP:This kit contains metal polish, a small file, a leather paring knife, conditioning oil for leather, two soft cloths, extra leather straps, a sewing needle, and a few buttons.
 Glass Cutter																TYPE:Goods.General															COST:5						SOURCEPAGE:p.65
 Glue Paper																	TYPE:Goods.General.Consumable														COST:0.1						SOURCEPAGE:p.65																																																				SPROP:If you apply glue paper to a window before you break it, the broken pieces stick to the glue rather than noisily falling to the ground.
 Grappling Arrow																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
@@ -489,6 +505,7 @@ Grappling Bolt																TYPE:Goods.General															COST:1	WT:0.5				
 Grappling Hook.MOD								OUTPUTNAME:Grappling Hook, Common																											SOURCEPAGE:p.65
 Grappling Hook (Mithral)							OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.65
 Grooming Kit																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.65
+Gunslinger's Kit		COST:26	WT:31	SOURCEPAGE:p.65	SPROP:This includes a backpack, a bedroll, a belt pouch, a flint and steel, a gunsmith’s kit, an iron pot, a mess kit, a powder horn, rope, torches (10), trail rations (5 days), and a waterskin.
 Gunsmith's Kit																TYPE:Goods.General															COST:15	WT:2					SOURCEPAGE:p.65
 Hammer.MOD																																										SOURCEPAGE:p.65
 Hammock																	TYPE:Goods.General.Resizable														COST:0.1	WT:3					SOURCEPAGE:p.65
@@ -532,6 +549,7 @@ Hourglass.MOD									OUTPUTNAME:Hourglass, 1 Minute																				COST:20	
 Hourglass (1 Hour).MOD								OUTPUTNAME:Hourglass, 1 Hour																					COST:25	WT:1					SOURCEPAGE:p.67
 Ink (1 oz Vial).MOD																																								SOURCEPAGE:p.67
 Inkpen.MOD																																										SOURCEPAGE:p.67
+Inquisitor's Kit	TYPE:Kit	COST:30	WT:34	SOURCEPAGE:p.67	SPROP:This kit includes a backpack, a bedroll, a belt pouch, candles (10), a cheap holy text, a flint and steel, an iron pot, manacles, a mess kit, rope, soap, a spell component pouch, torches (10), trail rations (5 days), a waterskin, and a wooden holy symbol.
 Iron Spike.MOD																TYPE:Goods.General															COST:0.05	WT:1					SOURCEPAGE:p.67
 Iron Vial																	TYPE:Goods.General.Vial															COST:0.1	WT:1					SOURCEPAGE:p.67
 Journal																	TYPE:Goods.Tools.Book															COST:10	WT:1					SOURCEPAGE:p.67																																																				SPROP:a blank, lightweight book with an oilskin cover. It has 50 paper pages.
@@ -547,6 +565,7 @@ Lock (Good).MOD																																									SOURCEPAGE:p.67
 Lock (Superior).MOD																																								SOURCEPAGE:p.67
 Magnet.MOD																	TYPE:Goods.General															COST:0.5	WT:0.5				SOURCEPAGE:p.67
 Magnifying Glass.MOD															TYPE:Goods.General															COST:100						SOURCEPAGE:p.67																						BONUS:SKILL|Appraise|2|TYPE=Circumstance
+Magus's Kit	TYPE:Kit	COST:22	WT:31	SOURCEPAGE:p.68	SPROP:This includes a backpack, a bedroll, a belt pouch, a flint and steel, ink, an inkpen, an iron pot, a mess kit, rope, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
 Manacles (Medium).MOD																																								SOURCEPAGE:p.68
 Manacles (Small).MOD																																								SOURCEPAGE:p.68
 Manacles (Large).MOD																																								SOURCEPAGE:p.68
@@ -564,10 +583,14 @@ Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOUR
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
 Mock Armor																	TYPE:Goods.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
+Monk's Kit	TYPE:Kit	COST:8	WT:22	SOURCEPAGE:p.68	SPROP:This kit includes a backpack, a belt pouch, a blanket, rope, soap, torches (10), trail rations (5 days), and a waterskin.
 Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
+Oracle's Kit	TYPE:Kit	COST:9	WT:29	SOURCEPAGE:p.69	SPROP:This kit includes a backpack, a bedroll, a belt pouch, candles (10), a flint and steel, an iron pot, mess kit, rope, soap, torches (10), trail rations (5 days), and a waterskin.
+Paladin's Kit	TYPE:Kit	COST:11	WT:30	SOURCEPAGE:p.69	SPROP:This kit includes a backpack, a bedroll, a belt pouch, a cheap holy text, a flint and steel, an iron pot, a mess kit, rope, soap, torches (10), trail rations (5 days), a waterskin, and a wooden holy symbol.
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69
 Parchment (Sheet).MOD																																								SOURCEPAGE:p.69
+Pathfinder's Kit	TYPE:Kit	COST:12	WT:22	SOURCEPAGE:p.69	SPROP:This kit consists of a backpack, a bedroll, a belt pouch, a clay mug, a dagger, two fishhooks, a flint and steel, a sewing needle, a signal whistle, 50 feet of string, 50 feet of thread, a waterskin, a week’s worth of trail rations, and a whetstone. For Small creatures, the weight of a Pathfinder’s kit is 7-1/2 pounds. Leaving the bedroll and rations at camp or on a mount reduces the weight by 12 pounds for Medium creatures and by 3 pounds for Small creatures.
 Perfume/Cologne																TYPE:Goods.General.Vial															COST:5						SOURCEPAGE:p.69																																																				SPROP:Perfume or cologne may (at the GM's discretion) provide a +1 circumstance bonus on several Charisma-based skill checks.
 Periscope.MOD																TYPE:Goods.General															COST:20	WT:4					SOURCEPAGE:p.69
 Pitcher (Clay).MOD																																								SOURCEPAGE:p.69
@@ -586,10 +609,15 @@ Prosthetic (Foot)																TYPE:Goods.General.Container.Resizable		CONTAIN
 Prosthetic (Hand)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:1					SOURCEPAGE:p.70
 Prosthetic (Leg)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:20	WT:6					SOURCEPAGE:p.70
 Pyrography Kit																TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.70
+Ranger's Kit	TYPE:Kit	COST:9	WT:28	SOURCEPAGE:p.70	SPROP:This includes a backpack, a bedroll, a belt pouch, a flint and steel, iron pot, mess kit, rope, torches (10), trail rations (5 days), and a waterskin.
 Rice Paper (Sheet).MOD								OUTPUTNAME:Rice Paper, Sheet			TYPE:Goods.General.Writing.Documents												COST:0.05	WT:0					SOURCEPAGE:p.70
+Riding Kit (Common)		TYPE:Kit	COST:16	WT:54	SOURCEPAGE:p.70	SPROP:This kit includes a bit and bridle, a saddle, a saddle blanket, saddlebags, and 2 days’ worth of feed for a mount. The weight can be lightened 10 pounds by discarding the feed.
+Riding Kit (Exotic Mount)	TYPE:Kit	COST:36	WT:59	SOURCEPAGE:p.70	SPROP:This kit includes a bit and bridle, a saddle, a saddle blanket, saddlebags, and 2 days’ worth of feed for a mount. The weight can be lightened 10 pounds by discarding the feed.
+Rogue's Kit		TYPE:Kit	COST:50	WT:37	SOURCEPAGE:p.70	SPROP:This kit includes a backpack, a bedroll, a belt pouch, caltrops, chalk (10), a flint and steel, a grappling hook, an iron pot, a mess kit, a mirror, pitons (10), rope, soap, thieves’ tools, torches (10), trail rations (5 days), and a waterskin.
 Rope (Hemp/50 ft).MOD																																								SOURCEPAGE:p.70
 Sack.MOD																																										SOURCEPAGE:p.70
 Saw.MOD																	TYPE:Goods.General															COST:0.04	WT:2					SOURCEPAGE:p.71
+Scrivener's Kit	TYPE:Kit	COST:2	WT:1	SOURCEPAGE:p.71	SPROP:This soft leather case contains a vial for holding ink, an ink pen, spare pen nibs, a small container of pigment for making ink, a tiny knife for cutting quills into pens, a blotter, and a small ruler.
 Scroll Box																	TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:5	WT:1					SOURCEPAGE:p.71
 Case (Map or Scroll).MOD							OUTPUTNAME:Scroll Case																													SOURCEPAGE:p.71
 Sealing Wax.MOD																																									SOURCEPAGE:p.71
@@ -613,6 +641,8 @@ Smoked Goggles.MOD															TYPE:Goods.General															COST:10	WT:0		
 Snorkel (Common)									OUTPUTNAME:Snorkel, Common			TYPE:Goods.General															COST:0.5						SOURCEPAGE:p.72
 Snorkel (Masterwork)								OUTPUTNAME:Snorkel, Masterwork		TYPE:Goods.General.Masterwork														COST:5						SOURCEPAGE:p.72
 Soap (per lb).MOD																																									SOURCEPAGE:p.72
+Sorcerer's Kit	TYPE:Kit	COST:8	WT:19	SOURCEPAGE:p.72	SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, an iron pot, a mess kit, soap, torches (10), trail rations (5 days), and a waterskin.
+Spelunking Kit	TYPE:Kit	COST:174	WT:32	SOURCEPAGE:p.72	SPROP:This kit holds equipment for exploring underground, consisting of a lantern with 4 flasks of oil, a hammer and 8 pitons, 100 feet of silk rope, a grappling hook, and a climber’s kit.
 Rope (Spider Silk/50 ft.).MOD							OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General															COST:100	WT:4					SOURCEPAGE:p.73
 Spyglass.MOD																																									SOURCEPAGE:p.73
 Stationery																	TYPE:Goods.General.Writing.Documents												COST:1						SOURCEPAGE:p.73
@@ -620,6 +650,7 @@ Stilts (Common)																TYPE:Goods.General.Resizable														COST:0.
 Stilts (Masterwork)															TYPE:Goods.General.Resizable														COST:5	WT:10					SOURCEPAGE:p.73
 Stove Can																	TYPE:Goods.General															COST:10	WT:1					SOURCEPAGE:p.73
 String (50 ft.).MOD															TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.73
+Summoner's Kit		TYPE:Kit	COST:8	WT:19	SOURCEPAGE:p.73	SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, an iron pot, a mess kit, soap, torches (10), trail rations (5 days), and a waterskin.
 Survival Kit (Common)															TYPE:Goods.General															COST:5	WT:4					SOURCEPAGE:p.73
 Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	WT:5					SOURCEPAGE:p.73																						BONUS:SKILL|Survival|2|TYPE=Circumstance
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
@@ -631,6 +662,8 @@ Tent (Large).MOD									OUTPUTNAME:Tent, Large				TYPE:Goods.General.Resizable	
 Tent (Pavilion).MOD								OUTPUTNAME:Tent, Pavilion			TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
 Thurible																	TYPE:Goods.General															COST:50	WT:3					SOURCEPAGE:p.74
 Torch.MOD																																										SOURCEPAGE:p.74
+Troll Slayer's Kit	TYPE:Kit	COST:30	WT:17	SOURCEPAGE:p.74	SPROP:This kit includes 1 vial of alchemist’s fire, 1 flask of acid, 10 torches, one tindertwig, and 5 flasks of oil.
+Undead Slayer's Kit	TYPE:Kit	COST:402	WT:7	SOURCEPAGE:p.74	SPROP:This kit includes a wooden holy symbol, a necklace of garlic bulbs, a hammer, a wooden stake, 2 flasks of holy water, one sunrod, a potion of lesser restoration, and a potion of protection from evil.
 Traveler's Dictionary															TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.74
 Vial.MOD																																										SOURCEPAGE:p.74
 Waffle Iron (Common)															TYPE:Goods.General															COST:1	WT:5					SOURCEPAGE:p.74
@@ -645,6 +678,8 @@ Whetstone.MOD																																									SOURCEPAGE:p.75
 Wire																		TYPE:Goods.General															COST:5	WT:0.5				SOURCEPAGE:p.75
 Wire Saw (Common)																TYPE:Goods.General															COST:30						SOURCEPAGE:p.75
 Wire Saw (Adamantine)															TYPE:Goods.General															COST:150						SOURCEPAGE:p.75
+Witch's Kit		TYPE:Kit	COST:21	WT:21	SOURCEPAGE:p.75	SPROP:This kit includes a backpack, a bedroll, a belt pouch, candles (10), chalk (10), a flint and steel, ink, an inkpen, an iron pot, a mess kit, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
+Wizard's Kit	TYPE:Kit	COST:21	WT:21	SOURCEPAGE:p.75	SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, ink, an inkpen, an iron pot, a mess kit, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
 Wrist Sheath																TYPE:Goods.General.Container.Resizable		CONTAINS:UNLIM|Any							COST:1	WT:1					SOURCEPAGE:p.75
 
 ###Block: Starting Kits
@@ -866,7 +901,7 @@ Mule.MOD																		WT:800	SOURCEPAGE:p.82
 # Barding is in armor .LST file
 # Equipment Name			Type					Cost		Weight	Source Page
 Animal Harness.MOD		TYPE:Goods.Mount.Resizable	COST:2	WT:2		SOURCEPAGE:p.80
-Bit and Bridle.MOD											SOURCEPAGE:80
+Bit and Bridle.MOD											SOURCEPAGE:p.80
 Cage (Fine)				TYPE:Goods.Mount.Pets		COST:10	WT:2		SOURCEPAGE:p.81
 Cage (Diminutive)			TYPE:Goods.Mount.Pets		COST:10	WT:2		SOURCEPAGE:p.81
 Cage (Tiny).MOD			TYPE:Goods.Mount.Pets		COST:2	WT:5		SOURCEPAGE:p.81
@@ -884,37 +919,6 @@ Saddle (Exotic/Pack).MOD										SOURCEPAGE:p.85
 Saddle (Exotic/Riding).MOD										SOURCEPAGE:p.85
 Saddlebags.MOD												SOURCEPAGE:p.85
 Stabling (Per Day).MOD											SOURCEPAGE:p.86
-
-###Block:
-Kit	TYPE:Kit	COST:0	SPROP:To make full use of the kit, please use the EDIT > Add Kit. Search "KIT" and add the proper kit.
-
-# Copy Section
-Kit.COPY=Kit ~ barbarian's			
-Kit.COPY=Kit ~ bard's			
-Kit.COPY=Kit ~ campsite			
-Kit.COPY=Kit ~ cavalier's			
-Kit.COPY=Kit ~ chronicler's		
-Kit.COPY=Kit ~ cleric's			
-Kit.COPY=Kit ~ dragonslayer's		
-Kit.COPY=Kit ~ dungeoneering (common)	
-Kit.COPY=Kit ~ dungeoneering (deluxe)	
-Kit.COPY=Kit ~ fighter's kit		
-Kit.COPY=Kit ~ gunslinger's		
-Kit.COPY=Kit ~ inquisitor's		
-Kit.COPY=Kit ~ magus's			
-Kit.COPY=Kit ~ monk's			
-Kit.COPY=Kit ~ oracle's			
-Kit.COPY=Kit ~ paladin's			
-Kit.COPY=Kit ~ pathfinder's		
-Kit.COPY=Kit ~ ranger's			
-Kit.COPY=Kit ~ rogue's			
-Kit.COPY=Kit ~ sorcerer's			
-Kit.COPY=Kit ~ spelunking			
-Kit.COPY=Kit ~ summoner's			
-Kit.COPY=Kit ~ troll slayer's		
-Kit.COPY=Kit ~ undead slayer's		
-Kit.COPY=Kit ~ witch's			
-Kit.COPY=Kit ~ wizard's			
 
 #
 ###END
