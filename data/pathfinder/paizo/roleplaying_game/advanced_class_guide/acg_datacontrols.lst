@@ -7,6 +7,16 @@ FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploits					DATAFORMAT:BOOLEAN	VISIB
 FACTDEF:ABILITY|Arcanist_Archetype_Cantrips						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Arcanist_Archetype_GreaterArcanistExploits				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Arcanist_Archetype_MagicalSupremacy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit1						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit3						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit5						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit7						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit9						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit11					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit13					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit15					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit17					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_Exploit19					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
 
 
 FACTDEF:ABILITY|Arcanist_CF_Proficiencies					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
@@ -45,6 +55,15 @@ FACTDEF:ABILITY|Bloodrager_Archetype_TirelessBloodrage						DATAFORMAT:BOOLEAN	V
 FACTDEF:ABILITY|Bloodrager_Archetype_MightyBloodrage							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 
 FACTDEF:ABILITY|Bloodrager_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat6								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat9								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat12								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat15								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat18								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+
+
+
+
 FACTDEF:ABILITY|Bloodrager_CF_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
 
 
