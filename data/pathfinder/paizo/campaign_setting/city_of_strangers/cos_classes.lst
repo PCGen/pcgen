@@ -9,7 +9,7 @@ CLASS:Bloatmage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:
 CLASS:Bloatmage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3
 CLASS:Bloatmage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
 CLASS:Bloatmage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
-CLASS:Bloatmage	PRETEXT:Feats: Bloatmage Initiate, Spell Focus (any school). Spells: Able to cast 3rd-level arcane spells.	PREABILITY:2,CATEGORY=FEAT,Bloatmage Initiate,Spell Focus	PRESPELLCAST:1,Arcane=3
+CLASS:Bloatmage	PRETEXT:Feats: Bloatmage Initiate, Spell Focus (any school). Spells: Able to cast 3rd-level arcane spells.	PREABILITY:2,CATEGORY=FEAT,Bloatmage Initiate,Spell Focus	PRESPELLTYPE:1,Arcane=3
 CLASS:Bloatmage	STARTSKILLPTS:2	CSKILL:Fly|Heal|TYPE=Knowledge|Spellcraft|Use Magic Device
 ###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
