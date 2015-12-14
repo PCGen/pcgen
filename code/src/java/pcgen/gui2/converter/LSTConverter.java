@@ -289,6 +289,9 @@ public class LSTConverter extends Observable
 		loaderList.add(new CopyLoader(ListKey.FILE_KIT));
 		loaderList.add(new CopyLoader(ListKey.FILE_BIO_SET));
 		loaderList.add(new CopyLoader(ListKey.FILE_DATACTRL));
+		loaderList.add(new CopyLoader(ListKey.FILE_STAT));
+		loaderList.add(new CopyLoader(ListKey.FILE_SAVE));
+		loaderList.add(new CopyLoader(ListKey.FILE_ALIGNMENT));
 		loaderList.add(new CopyLoader(ListKey.FILE_PCC));
 		loaderList.add(new SelfCopyLoader());
 		return loaderList;
