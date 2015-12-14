@@ -631,6 +631,16 @@ Protection from Spells.MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
 Sympathy.MOD				CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
 Teleportation Circle.MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
 
+
+Summon Monster I.MOD			CLASSES:Summoner=1[PREMULT:2,[PREVAREQ:Summoner_CF_SummonMonster,0],[PREVAREQ:StandardSummoner,1]]
+Summon Monster II.MOD			CLASSES:Summoner=2[PREMULT:2,[PREVAREQ:Summoner_CF_SummonMonster,0],[PREVAREQ:StandardSummoner,1]]
+Summon Monster IV.MOD			CLASSES:Summoner=3[PREMULT:2,[PREVAREQ:Summoner_CF_SummonMonster,0],[PREVAREQ:StandardSummoner,1]]
+Summon Monster V.MOD			CLASSES:Summoner=4[PREMULT:2,[PREVAREQ:Summoner_CF_SummonMonster,0],[PREVAREQ:StandardSummoner,1]]
+Summon Monster VII.MOD			CLASSES:Summoner=5[PREMULT:2,[PREVAREQ:Summoner_CF_SummonMonster,0],[PREVAREQ:StandardSummoner,1]]
+Summon Monster VIII.MOD			CLASSES:Summoner=6[PREMULT:2,[PREVAREQ:Summoner_CF_SummonMonster,0],[PREVAREQ:StandardSummoner,1]]
+
+
+
 #Witch Spells
 Arcane Mark.MOD				CLASSES:Witch=0
 Bleed.MOD					CLASSES:Witch=0
