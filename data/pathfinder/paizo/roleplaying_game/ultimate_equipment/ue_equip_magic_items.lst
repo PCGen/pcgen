@@ -620,7 +620,7 @@ Horseshoes of Crushing Blows +4												TYPE:Magic.Wondrous.Feet.GreaterMajor
 Horseshoes of Crushing Blows +5												TYPE:Magic.Wondrous.Feet.GreaterMajor																																COST:100000	WT:4																								SOURCEPAGE:p.231																																																																																																																																																																																																				BONUS:WEAPONPROF=Hoof|TOHIT,DAMAGE|5
 Horseshoes of Glory														TYPE:Magic.Wondrous.Feet.LesserMajor																																COST:39600	WT:12																								SOURCEPAGE:p.231
 Horseshoes of Mist														TYPE:Magic.Wondrous.Feet.GreaterMedium																																COST:27000	WT:12																								SOURCEPAGE:p.232
-Horseshoes of Speed.MOD														TYPE:LesserMinor																																				COST:3000	WT:12																								SOURCEPAGE:p.232																																																																																																		BONUS:MOVEADD|TYPE.Walk|30
+Horseshoes of Speed.MOD														TYPE:LesserMinor																																				COST:3000	WT:12																								SOURCEPAGE:p.232
 Jaunt Boots																TYPE:Magic.Wondrous.Boot.GreaterMinor																																COST:7200	WT:2																								SOURCEPAGE:p.232
 Nightmare Boots															TYPE:Magic.Wondrous.Boot.LesserMedium																																COST:8500	WT:3																								SOURCEPAGE:p.232
 Nightmare Horseshoes														TYPE:Magic.Wondrous.Boot.LesserMedium																																COST:9000	WT:1																								SOURCEPAGE:p.232
