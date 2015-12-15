@@ -1092,11 +1092,11 @@ CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Two_Weapon_Rend|0
 ###Block: Archetype Support
 # Ranger Combat Style
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,1|PREVAREQ:Ranger_CF_CombatStyleFeat2,1
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,2|PREVAREQ:Ranger_CF_CombatStyleFeat6,1
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,3|PREVAREQ:Ranger_CF_CombatStyleFeat10,1
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,4|PREVAREQ:Ranger_CF_CombatStyleFeat14,1
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,5|PREVAREQ:Ranger_CF_CombatStyleFeat18,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:VAR|RangerCombatStyleFeatCount|-1|PREVARGTEQ:RangerLVL,2|PREVAREQ:Ranger_CF_CombatStyleFeat2,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:VAR|RangerCombatStyleFeatCount|-1|PREVARGTEQ:RangerLVL,6|PREVAREQ:Ranger_CF_CombatStyleFeat6,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:VAR|RangerCombatStyleFeatCount|-1|PREVARGTEQ:RangerLVL,10|PREVAREQ:Ranger_CF_CombatStyleFeat10,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:VAR|RangerCombatStyleFeatCount|-1|PREVARGTEQ:RangerLVL,14|PREVAREQ:Ranger_CF_CombatStyleFeat14,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:VAR|RangerCombatStyleFeatCount|-1|PREVARGTEQ:RangerLVL,18|PREVAREQ:Ranger_CF_CombatStyleFeat18,1
 
 # Ranger Favored Enemy
 CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,1|PREVAREQ:Ranger_CF_FavoredEnemy1,1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,1|PREVAREQ:Ranger_CF_FavoredEnemy1,1
