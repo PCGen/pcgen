@@ -2983,6 +2983,7 @@
 		<racial_innate>
 			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 			<spell>
+					<basecasterlevel>${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}</basecasterlevel>
 					<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 					<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
 					<times_memorized>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}</times_memorized>
@@ -3026,6 +3027,7 @@
 			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
 			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 				<spell>
+						<basecasterlevel>${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}</basecasterlevel>
 						<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 						<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
 						<times_memorized>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}</times_memorized>
@@ -3079,6 +3081,7 @@
 			<#else>
 			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 				<spell>
+						<basecasterlevel>${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}</basecasterlevel>
 						<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 						<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
 						<times_memorized>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}</times_memorized>
@@ -3140,6 +3143,7 @@
 		<racial_innate_memorized>
 		  <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 			<spell>
+					<basecasterlevel>${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}</basecasterlevel>
 					<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 					<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
 					<times_memorized>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}</times_memorized>
@@ -3184,6 +3188,7 @@
 			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
 			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 				<spell>
+						<basecasterlevel>${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}</basecasterlevel>
 						<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 						<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
 						<times_memorized>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}</times_memorized>
@@ -3243,6 +3248,7 @@
 				<level number="${level}" spellcount="${spelllevelcount}">
 				   <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 					<spell>
+							<basecasterlevel>${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}</basecasterlevel>
 							<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 							<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
 							<times_memorized>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}</times_memorized>
