@@ -8,6 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Core Rulebook
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -36,7 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
-DATACONTROL:_datacontrol.lst
+DATACONTROL:apg__datacontrols.lst
 ABILITY:apg_abilities_globalvar.lst
 
 ABILITY:apg_abilities.lst

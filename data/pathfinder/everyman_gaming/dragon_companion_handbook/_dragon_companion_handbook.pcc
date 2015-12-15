@@ -6,7 +6,7 @@ RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Everyman Gaming
 PUBNAMESHORT:EG
 PUBNAMEWEB:https://gamingeveryman.wordpress.com/
