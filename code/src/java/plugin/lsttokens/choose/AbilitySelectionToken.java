@@ -24,6 +24,7 @@ package plugin.lsttokens.choose;
 
 import java.util.List;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedAbilitySelectionChooseInformation;
 import pcgen.cdom.base.ChooseDriver;
@@ -163,7 +164,15 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		}
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getLSTformat(false));
+		if (tc instanceof CategorizedAbilitySelectionChooseInformation)
+		{
+			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getLSTformat(false));
+		}
+		else
+		{
+			// We have a migrating FEATSELECTION token
+			sb.append("FEAT");
+		}
 		sb.append('|');
 		sb.append(tc.getLSTformat());
 		String title = tc.getTitle();
