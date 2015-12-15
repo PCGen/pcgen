@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Tir Gwaith
 
 # Class Name		Bonus to skill point for a level								Template
@@ -16,6 +16,7 @@ CLASS:Barbarian.MOD	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBO
 CLASS:Bard.MOD	VISIBLE:NO
 
 # COMMENT: Why is this using SUBCLASS instead of a simple pool? - Andrew
+
 # Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Define			Combat bonus											Save bonus																					Bonus to skill point for a level								Modify VAR				Template
 CLASS:Channeler	HD:6		TYPE:PC.Base	MAXLEVEL:20	ALLOWBASECLASS:NO		DEFINE:ChannelerLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	BONUS:VAR|ChannelerLvl|CL	TEMPLATE:Maximum Spell Level
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com	SOURCEDATE:2003-01
 #Original Entry by Frank Kliewe
 
@@ -8,86 +8,88 @@ SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT
 
 
 # Feat Name				Output Name		Type				Required Feat								Prohibited Feat			Multiple Requirements									Required Non-Monster Lvl	Required Race	Required Skill			Required Stat	Required Text											PRETOTALAB		Var. Min. Value	Special ABility							Description																	Stackable?	Multiple?	Choose								Combat bonus					Modify VAR					Source Page
-Birthright Aid						CATEGORY:FEAT	TYPE:General.Titan																																	PRERACE:1,Titan																																					DESC:You are able to help another character manifest a Birthright																																		SOURCEPAGE:p.91
-Blind Shot							CATEGORY:FEAT	TYPE:General		PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot																																																																	DESC:You are skilled at making well-placed shots at concealed targets																																	SOURCEPAGE:p.91
-Combat Sense						CATEGORY:FEAT	TYPE:General.Titan	PREABILITY:2,CATEGORY=FEAT,Combat Reflexes,Dodge																											PRERACE:1,Titan																									PREVARGTEQ:BBB,2										DESC:Your reflexes are supernaturally attuned to danger, increasing your ability to defend from attack														BONUS:COMBAT|AC|floor(BBB/2)|TYPE=Legacy							SOURCEPAGE:p.91
-Daemonic Boon						CATEGORY:FEAT	TYPE:General																																																																									DESC:You have a daemonic patron who provides power to your cult								STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:VAR|CultLevel|2|TYPE=Legacy	SOURCEPAGE:p.91
-Daemonic Spell						CATEGORY:FEAT	TYPE:General																																													PRETEXT:You must receive spells as a result of your connection to a cult																DESC:You are able to cast an additional spell per day - for a price																																	SOURCEPAGE:p.91
-Great Longevity						CATEGORY:FEAT	TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Longevity																													PRERACE:1,Titan																									PREVARGTEQ:BBB,5										DESC:You are blessed with an incredibly long lifespan																																				SOURCEPAGE:p.91
-Gunfight Adept						CATEGORY:FEAT	TYPE:General		PREABILITY:1,CATEGORY=FEAT,Point Blank Shot																																																																			DESC:You know when to keep you head down in a firefight and when to pop up and take a few shots of your own																											SOURCEPAGE:p.92
-Ignore Strain						CATEGORY:FEAT	TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Personal Power																												PRERACE:1,Titan																																					DESC:You can manifest a birthright and not gain a strain penalty								STACK:YES	MULT:YES	CHOOSE:ABILITY|FEAT|PC[TYPE=Birthright]																	SOURCEPAGE:p.92
-Immortality							CATEGORY:FEAT	TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Great Longevity																												PRERACE:1,Titan																									PREVARGTEQ:BBB,8										DESC:You have gained the much sought after eternal life of the progenitors																																SOURCEPAGE:p.92
-Improved Far Shot						CATEGORY:FEAT	TYPE:General		PREABILITY:2,CATEGORY=FEAT,Far Shot,Point Blank Shot																																																																		DESC:You are skilled at making accurate ranged attacks at great distance																																SOURCEPAGE:p.92
-Improved Shot on the Run				CATEGORY:FEAT	TYPE:General		PREABILITY:4,CATEGORY=FEAT,Point Blank Shot,Dodge,Mobility,Shot on the Run																															PRESTAT:1,DEX=15																													DESC:You are skilled at making multiple ranged attacks with firearms while on the move																														SOURCEPAGE:p.92
-Lead Foot							CATEGORY:FEAT	TYPE:General		PREABILITY:1,CATEGORY=FEAT,Vehicle Expert																															PRESKILL:1,Drive=4																																	DESC:You can accelerate and decelerate much more quickly than most drivers																																SOURCEPAGE:p.92
-Lieutenant							CATEGORY:FEAT	TYPE:General																																																																SAB:Lieutenant max. level %|min(floor(TL/2)+CHA,TL-3)	DESC:You have a fanatical lieutenant who assists you in the day-to-day running of your cult			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				SOURCEPAGE:p.92
-Lightning Footwork					CATEGORY:FEAT	TYPE:General		PREABILITY:2,CATEGORY=FEAT,Combat Reflexes,Improved Combat Martial Arts																																																														DESC:You are skilled at making most of an opponent's mistakes during unarmed combat attacks																													SOURCEPAGE:p.92
-Longevity							CATEGORY:FEAT	TYPE:General.Titan																																	PRERACE:1,Titan																									PREVARGTEQ:BBB,3										DESC:You are blessed with a long lifespan																																						SOURCEPAGE:p.93
-Kip up				OUTPUTNAME:Kip-up	CATEGORY:FEAT	TYPE:General																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Defensive Martial Arts],[PRESKILL:1,Tumble=4]																																													DESC:You can stand or flip up quickly from a prone position																																			SOURCEPAGE:p.93
-Mobile Shot							CATEGORY:FEAT	TYPE:General		PREABILITY:2,CATEGORY=FEAT,Dodge,Personal Firearms Proficiency																																	PRESTAT:1,DEX=13																													DESC:You are adept at dodging attacks while firing a ranged Weapon																																	SOURCEPAGE:p.93
-Personal Power						CATEGORY:FEAT	TYPE:General.Titan																																	PRERACE:1,Titan																																					DESC:You suffer less strain from the use of a single birthright								STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|FEAT|PC[TYPE=Birthright]															SOURCEPAGE:p.93
-Potent Foci							CATEGORY:FEAT	TYPE:General		PREABILITY:1,CATEGORY=FEAT,Sorcerous Birthright																																			PRESTAT:1,CHA=10																													DESC:A focus bound to you can hold more spells than normal																																			SOURCEPAGE:p.93
-Potent Lineage						CATEGORY:FEAT	TYPE:General.Titan																																	PRERACE:1,Titan																																					DESC:Your potent heritage allows you to ignore the effects of birthright strain for a time																													SOURCEPAGE:p.93
-Prone Fighting						CATEGORY:FEAT	TYPE:General		PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Defensive Martial Arts																																																PRETOTALAB:2													DESC:You are skilled at fighting while prone																																					SOURCEPAGE:p.93
-Ranged Disarm						CATEGORY:FEAT	TYPE:General		PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot																																																		PRETOTALAB:10													DESC:You are able to shoot a weapon or other object out of the hand of your target																															SOURCEPAGE:p.93
-Resilent Ability						CATEGORY:FEAT	TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Personal Power						!PREABILITY:1,CATEGORY=FEAT,Resilent Ability																		PRERACE:1,Titan																									PREVARGTEQ:BBB,2										DESC:You are able to shrug off the effects of birthright strain more easily						STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL																				SOURCEPAGE:p.93
-Revelation							CATEGORY:FEAT	TYPE:General.Titan																																	PRERACE:1,Titan																									PREVARGTEQ:BBB,2										DESC:You can awe your enemies by showing them a glimpse of your hereditary power																															SOURCEPAGE:p.93
-Sense the Daemonic					CATEGORY:FEAT	TYPE:General.Titan																PREMULT:1,[PRERACE:1,Titan],[PREABILITY:1,CATEGORY=Talent,Intuition]																																				SAB:Sense the Daemonic (Su)					DESC:You can discern the presence of the daemonic based on the evidence of your six senses																													SOURCEPAGE:p.94
-Sorcerous Birthright					CATEGORY:FEAT	TYPE:General.Birthright																												PREPCLEVEL:MAX=1											PRESTAT:1,CHA=10																													DESC:You are descended from a magical lineage and have a close connection to the Ethereal Plane					MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[LEVELMAX=1;LEVELMIN=1]														SOURCEPAGE:p.94
-Surgical Savant						CATEGORY:FEAT	TYPE:General		PREABILITY:1,CATEGORY=FEAT,Surgery																																	PRESKILL:1,Treat Injury=11																																DESC:Your surgical patients suffer less fatigue from your efforts than normal																																SOURCEPAGE:p.94
-Titanic Resistance					CATEGORY:FEAT	TYPE:General.Titan																																	PRERACE:1,Titan																																					DESC:You are highly resistant to birthrights and daemonic magic																																		SOURCEPAGE:p.94
+# Ability Name			Output Name		Category of Ability	Type				Required Ability											Restricted Ability					Multiple Requirements											Required Non-Monster Lvl	Required Race	Required Skill			Required Stat	Required Text											PRETOTALAB		Var. Min. Value	Special ABility							Description																	Stackable?	Multiple?	Choose								Combat bonus					Modify VAR					Source Page
+Birthright Aid						CATEGORY:FEAT		TYPE:General.Titan																																									PRERACE:1,Titan																																					DESC:You are able to help another character manifest a Birthright																																		SOURCEPAGE:p.91
+Blind Shot							CATEGORY:FEAT		TYPE:General		PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot																																																																						DESC:You are skilled at making well-placed shots at concealed targets																																	SOURCEPAGE:p.91
+Combat Sense						CATEGORY:FEAT		TYPE:General.Titan	PREABILITY:2,CATEGORY=FEAT,Combat Reflexes,Dodge																																PRERACE:1,Titan																									PREVARGTEQ:BBB,2										DESC:Your reflexes are supernaturally attuned to danger, increasing your ability to defend from attack														BONUS:COMBAT|AC|floor(BBB/2)|TYPE=Legacy							SOURCEPAGE:p.91
+Daemonic Boon						CATEGORY:FEAT		TYPE:General																																																																																	DESC:You have a daemonic patron who provides power to your cult								STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:VAR|CultLevel|2|TYPE=Legacy	SOURCEPAGE:p.91
+Daemonic Spell						CATEGORY:FEAT		TYPE:General																																																					PRETEXT:You must receive spells as a result of your connection to a cult																DESC:You are able to cast an additional spell per day - for a price																																	SOURCEPAGE:p.91
+Great Longevity						CATEGORY:FEAT		TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Longevity																																		PRERACE:1,Titan																									PREVARGTEQ:BBB,5										DESC:You are blessed with an incredibly long lifespan																																				SOURCEPAGE:p.91
+Gunfight Adept						CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Point Blank Shot																																																																								DESC:You know when to keep you head down in a firefight and when to pop up and take a few shots of your own																											SOURCEPAGE:p.92
+Ignore Strain						CATEGORY:FEAT		TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Personal Power																																		PRERACE:1,Titan																																					DESC:You can manifest a birthright and not gain a strain penalty								STACK:YES	MULT:YES	CHOOSE:ABILITY|FEAT|PC[TYPE=Birthright]																SOURCEPAGE:p.92
+Immortality							CATEGORY:FEAT		TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Great Longevity																																	PRERACE:1,Titan																									PREVARGTEQ:BBB,8										DESC:You have gained the much sought after eternal life of the progenitors																																SOURCEPAGE:p.92
+Improved Far Shot						CATEGORY:FEAT		TYPE:General		PREABILITY:2,CATEGORY=FEAT,Far Shot,Point Blank Shot																																																																							DESC:You are skilled at making accurate ranged attacks at great distance																																SOURCEPAGE:p.92
+Improved Shot on the Run				CATEGORY:FEAT		TYPE:General		PREABILITY:4,CATEGORY=FEAT,Point Blank Shot,Dodge,Mobility,Shot on the Run																																				PRESTAT:1,DEX=15																													DESC:You are skilled at making multiple ranged attacks with firearms while on the move																														SOURCEPAGE:p.92
+Lead Foot							CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Vehicle Expert																																					PRESKILL:1,Drive=4																																	DESC:You can accelerate and decelerate much more quickly than most drivers																																SOURCEPAGE:p.92
+Lieutenant							CATEGORY:FEAT		TYPE:General																																																																								SAB:Lieutenant max. level %|min(floor(TL/2)+CHA,TL-3)	DESC:You have a fanatical lieutenant who assists you in the day-to-day running of your cult			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				SOURCEPAGE:p.92
+Lightning Footwork					CATEGORY:FEAT		TYPE:General		PREABILITY:2,CATEGORY=FEAT,Combat Reflexes,Improved Combat Martial Arts																																																																				DESC:You are skilled at making most of an opponent's mistakes during unarmed combat attacks																													SOURCEPAGE:p.92
+Longevity							CATEGORY:FEAT		TYPE:General.Titan																																									PRERACE:1,Titan																									PREVARGTEQ:BBB,3										DESC:You are blessed with a long lifespan																																						SOURCEPAGE:p.93
+Kip up				OUTPUTNAME:Kip-up	CATEGORY:FEAT		TYPE:General																							PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Defensive Martial Arts],[PRESKILL:1,Tumble=4]																																													DESC:You can stand or flip up quickly from a prone position																																			SOURCEPAGE:p.93
+Mobile Shot							CATEGORY:FEAT		TYPE:General		PREABILITY:2,CATEGORY=FEAT,Dodge,Personal Firearms Proficiency																																						PRESTAT:1,DEX=13																													DESC:You are adept at dodging attacks while firing a ranged Weapon																																	SOURCEPAGE:p.93
+Personal Power						CATEGORY:FEAT		TYPE:General.Titan																																									PRERACE:1,Titan																																					DESC:You suffer less strain from the use of a single birthright								STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=1|FEAT|PC[TYPE=Birthright]															SOURCEPAGE:p.93
+Potent Foci							CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Sorcerous Birthright																																									PRESTAT:1,CHA=10																													DESC:A focus bound to you can hold more spells than normal																																			SOURCEPAGE:p.93
+Potent Lineage						CATEGORY:FEAT		TYPE:General.Titan																																									PRERACE:1,Titan																																					DESC:Your potent heritage allows you to ignore the effects of birthright strain for a time																													SOURCEPAGE:p.93
+Prone Fighting						CATEGORY:FEAT		TYPE:General		PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Defensive Martial Arts																																																					PRETOTALAB:2													DESC:You are skilled at fighting while prone																																					SOURCEPAGE:p.93
+Ranged Disarm						CATEGORY:FEAT		TYPE:General		PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot																																																							PRETOTALAB:10													DESC:You are able to shoot a weapon or other object out of the hand of your target																															SOURCEPAGE:p.93
+Resilent Ability						CATEGORY:FEAT		TYPE:General.Titan	PREABILITY:1,CATEGORY=FEAT,Personal Power							!PREABILITY:1,CATEGORY=FEAT,Resilent Ability																				PRERACE:1,Titan																									PREVARGTEQ:BBB,2										DESC:You are able to shrug off the effects of birthright strain more easily						STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL																				SOURCEPAGE:p.93
+Revelation							CATEGORY:FEAT		TYPE:General.Titan																																									PRERACE:1,Titan																									PREVARGTEQ:BBB,2										DESC:You can awe your enemies by showing them a glimpse of your hereditary power																															SOURCEPAGE:p.93
+Sense the Daemonic					CATEGORY:FEAT		TYPE:General.Titan																						PREMULT:1,[PRERACE:1,Titan],[PREABILITY:1,CATEGORY=Talent,Intuition]																																						SAB:Sense the Daemonic (Su)					DESC:You can discern the presence of the daemonic based on the evidence of your six senses																													SOURCEPAGE:p.94
+Sorcerous Birthright					CATEGORY:FEAT		TYPE:General.Birthright																																				PREPCLEVEL:MAX=1											PRESTAT:1,CHA=10																													DESC:You are descended from a magical lineage and have a close connection to the Ethereal Plane					MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[LEVELMAX=1;LEVELMIN=1]														SOURCEPAGE:p.94
+Surgical Savant						CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Surgery																																						PRESKILL:1,Treat Injury=11																																DESC:Your surgical patients suffer less fatigue from your efforts than normal																																SOURCEPAGE:p.94
+Titanic Resistance					CATEGORY:FEAT		TYPE:General.Titan																																									PRERACE:1,Titan																																					DESC:You are highly resistant to birthrights and daemonic magic																																		SOURCEPAGE:p.94
 
 ###Block: adding Types to Feats
 # Feat Name					Type
-CATEGORY=FEAT|Acrobatic.MOD				TYPE:EldritchMonk
-CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:StimFreak.SuperSoldier.EldritchMonk
+# Ability Name							Type
+CATEGORY=FEAT|Acrobatic.MOD					TYPE:EldritchMonk
+CATEGORY=FEAT|Advanced Combat Martial Arts.MOD		TYPE:StimFreak.SuperSoldier.EldritchMonk
 CATEGORY=FEAT|Agile Riposte.MOD				TYPE:SuperSoldier
-CATEGORY=FEAT|Alertness.MOD				TYPE:Mystic_Occupation.Explorer_DI
-CATEGORY=FEAT|Animal Affinity.MOD			TYPE:Child.Mystic_DI
-CATEGORY=FEAT|Archaic Weapons Proficiency.MOD	TYPE:Tribal_DI.EldritchMonk.Initiate.Mystic_DI.CrusadingAdvocate
+CATEGORY=FEAT|Alertness.MOD					TYPE:Mystic_Occupation.Explorer_DI
+CATEGORY=FEAT|Animal Affinity.MOD				TYPE:Child.Mystic_DI
+CATEGORY=FEAT|Archaic Weapons Proficiency.MOD		TYPE:Tribal_DI.EldritchMonk.Initiate.Mystic_DI.CrusadingAdvocate
 CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:StimFreak.SuperSoldier.Explorer_DI.Initiate.Mystic_DI
-CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:StimFreak.SuperSoldier
-CATEGORY=FEAT|Athletic.MOD				TYPE:StimFreak.SuperSoldier
-CATEGORY=FEAT|Attentive.MOD				TYPE:Mystic_Occupation.Mystic_DI
-CATEGORY=FEAT|Blind-Fight.MOD				TYPE:EldritchMonk
-CATEGORY=FEAT|Brawl.MOD					TYPE:Tribal_DI.StimFreak
-CATEGORY=FEAT|Combat Expertise.MOD			TYPE:CrusadingAdvocate
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD		TYPE:StimFreak.SuperSoldier
+CATEGORY=FEAT|Athletic.MOD					TYPE:StimFreak.SuperSoldier
+CATEGORY=FEAT|Attentive.MOD					TYPE:Mystic_Occupation.Mystic_DI
+CATEGORY=FEAT|Blind-Fight.MOD					TYPE:EldritchMonk
+CATEGORY=FEAT|Brawl.MOD						TYPE:Tribal_DI.StimFreak
+CATEGORY=FEAT|Combat Expertise.MOD				TYPE:CrusadingAdvocate
 CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:StimFreak
-CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:EldritchMonk
-CATEGORY=FEAT|Deceptive.MOD				TYPE:Mystic_Occupation
-CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:SuperSoldier.EldritchMonk.Explorer_DI.Initiate
-CATEGORY=FEAT|Dodge.MOD					TYPE:Child.StimFreak.SuperSoldier
-CATEGORY=FEAT|Educated.MOD				TYPE:Mystic_DI.CrusadingAdvocate
-CATEGORY=FEAT|Elusive Target.MOD			TYPE:Initiate
-CATEGORY=FEAT|Endurance.MOD				TYPE:Cultist
+CATEGORY=FEAT|Combat Reflexes.MOD				TYPE:EldritchMonk
+CATEGORY=FEAT|Deceptive.MOD					TYPE:Mystic_Occupation
+CATEGORY=FEAT|Defensive Martial Arts.MOD			TYPE:SuperSoldier.EldritchMonk.Explorer_DI.Initiate
+CATEGORY=FEAT|Dodge.MOD						TYPE:Child.StimFreak.SuperSoldier
+CATEGORY=FEAT|Educated.MOD					TYPE:Mystic_DI.CrusadingAdvocate
+CATEGORY=FEAT|Elusive Target.MOD				TYPE:Initiate
+CATEGORY=FEAT|Endurance.MOD					TYPE:Cultist
 CATEGORY=FEAT|Exotic Melee Weapon Proficiency.MOD	TYPE:EldritchMonk
-CATEGORY=FEAT|Far Shot.MOD				TYPE:SuperSoldier
+CATEGORY=FEAT|Far Shot.MOD					TYPE:SuperSoldier
 CATEGORY=FEAT|Focused.MOD					TYPE:Cultist.Mystic_Occupation.Initiate.CrusadingAdvocate
-CATEGORY=FEAT|Gearhead.MOD				TYPE:CrusadingAdvocate
-CATEGORY=FEAT|Great Fortitude.MOD			TYPE:Child.Explorer_DI
-CATEGORY=FEAT|Guide.MOD					TYPE:Tribal_DI.Explorer_DI.CrusadingAdvocate
+CATEGORY=FEAT|Gearhead.MOD					TYPE:CrusadingAdvocate
+CATEGORY=FEAT|Great Fortitude.MOD				TYPE:Child.Explorer_DI
+CATEGORY=FEAT|Guide.MOD						TYPE:Tribal_DI.Explorer_DI.CrusadingAdvocate
 CATEGORY=FEAT|Heroic Surge.MOD				TYPE:StimFreak.SuperSoldier.CrusadingAdvocate
-CATEGORY=FEAT|Improved Brawl.MOD			TYPE:StimFreak
-CATEGORY=FEAT|Improved Combat Martial Arts.MOD	TYPE:StimFreak.SuperSoldier.EldritchMonk
+CATEGORY=FEAT|Improved Brawl.MOD				TYPE:StimFreak
+CATEGORY=FEAT|Improved Combat Martial Arts.MOD		TYPE:StimFreak.SuperSoldier.EldritchMonk
 CATEGORY=FEAT|Improved Damage Threshold.MOD		TYPE:StimFreak.SuperSoldier.Explorer_DI
 CATEGORY=FEAT|Improved Initiative.MOD			TYPE:SuperSoldier.EldritchMonk
-CATEGORY=FEAT|Improved Knockout Punch.MOD		TYPE:StimFreak
-CATEGORY=FEAT|Iron Will.MOD				TYPE:Child.Mystic_DI
-CATEGORY=FEAT|Knockout Punch.MOD			TYPE:StimFreak
+CATEGORY=FEAT|Improved Knockout Punch.MOD			TYPE:StimFreak
+CATEGORY=FEAT|Iron Will.MOD					TYPE:Child.Mystic_DI
+CATEGORY=FEAT|Knockout Punch.MOD				TYPE:StimFreak
 CATEGORY=FEAT|Lightning Reflexes.MOD			TYPE:Child
-CATEGORY=FEAT|Low Profile.MOD				TYPE:Initiate
-CATEGORY=FEAT|Mobility.MOD				TYPE:StimFreak.SuperSoldier
-CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:Cultist.Initiate.CrusadingAdvocate
-CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:CrusadingAdvocate
+CATEGORY=FEAT|Low Profile.MOD					TYPE:Initiate
+CATEGORY=FEAT|Mobility.MOD					TYPE:StimFreak.SuperSoldier
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD		TYPE:Cultist.Initiate.CrusadingAdvocate
+CATEGORY=FEAT|Point Blank Shot.MOD				TYPE:CrusadingAdvocate
 CATEGORY=FEAT|Power Attack.MOD				TYPE:StimFreak
 CATEGORY=FEAT|Renown.MOD					TYPE:CrusadingAdvocate
-CATEGORY=FEAT|Run.MOD					TYPE:Explorer_DI
-CATEGORY=FEAT|Shot on the Run.MOD			TYPE:Explorer_DI
-CATEGORY=FEAT|Streetfighting.MOD			TYPE:StimFreak
-CATEGORY=FEAT|Studious.MOD				TYPE:Initiate.Mystic_DI.CrusadingAdvocate
-CATEGORY=FEAT|Toughness.MOD				TYPE:Tribal_DI.StimFreak.SuperSoldier.EldritchMonk.Initiate
-CATEGORY=FEAT|Track.MOD					TYPE:Mystic_DI
-CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:Explorer_DI
+CATEGORY=FEAT|Run.MOD						TYPE:Explorer_DI
+CATEGORY=FEAT|Shot on the Run.MOD				TYPE:Explorer_DI
+CATEGORY=FEAT|Streetfighting.MOD				TYPE:StimFreak
+CATEGORY=FEAT|Studious.MOD					TYPE:Initiate.Mystic_DI.CrusadingAdvocate
+CATEGORY=FEAT|Toughness.MOD					TYPE:Tribal_DI.StimFreak.SuperSoldier.EldritchMonk.Initiate
+CATEGORY=FEAT|Track.MOD						TYPE:Mystic_DI
+CATEGORY=FEAT|Vehicle Expert.MOD				TYPE:Explorer_DI
 CATEGORY=FEAT|Weapon Focus.MOD				TYPE:SuperSoldier.EldritchMonk
 
 #

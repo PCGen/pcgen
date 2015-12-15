@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Class Name		Remove Class Skill
@@ -7,7 +7,7 @@ CLASS:Buccaneer.MOD	CSKILL:.CLEAR.Innuendo
 # Class Name			Remove Class Skill
 CLASS:Navigator Wizard.MOD	CSKILL:.CLEAR.Scry
 
-# Class Name	Clear Prereq.	Required Feat						Required Skill	PRETOTALAB
+# Class Name	Clear Prereq.	Required Ability								Required Skill	PRETOTALAB
 CLASS:Reaver.MOD	PRE:.CLEAR		PREABILITY:2,CATEGORY=FEAT,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6	PRETOTALAB:4
 
 # Class Name		Remove Class Skill																	Class Skill

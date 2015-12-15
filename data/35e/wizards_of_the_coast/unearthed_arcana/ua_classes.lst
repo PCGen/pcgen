@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Tir-Gwaith
 
 
@@ -23,13 +23,14 @@ CLASS:Barbarian.MOD	BONUS:ABILITYPOOL|Totem Barbarian|1	BONUS:ABILITYPOOL|Barbar
 # Class Name	Prohibited Class
 CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
 
-# Class Name		Abbreviation	Source Page		Save bonus
-CLASS:Bardic Sage	ABB:BrdSge		SOURCEPAGE:p.49		HD:6		TYPE:Base.PC	CLASSTYPE:PC		BONUS:SAVE|BASE.Reflex|floor(classlevel("APPLIEDAS=NONEPIC")/3)-floor(classlevel("APPLIEDAS=NONEPIC")/2+2)		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Clear Prereq.	Required AL		Prohibited Class
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page		Combat bonus															Save bonus
+CLASS:Bardic Sage	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:BrdSge		SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|floor(classlevel("APPLIEDAS=NONEPIC")/3)-floor(classlevel("APPLIEDAS=NONEPIC")/2+2)	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required AL		Prohibited Class
 CLASS:Bardic Sage	PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bardic Sage	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
-# Class Name		Spell Stat		Spell Stat Bonus		Caster level				Bonus DC					Use Spell List
-CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL		SPELLLIST:2|Bard|Bardic Sage
+# Class Name	Spell Stat		Spell Stat Bonus		Caster level				Use Spell List
+CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL	SPELLLIST:2|Bard|Bardic Sage
 # BONUS:DC|CLASS.Bardic Sage|CHA-INT
 ###Block:
 1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
@@ -88,13 +89,14 @@ CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage
 #
 
 
-# Class Name		Abbreviation	Source Page
-CLASS:Divine Bard	ABB:DvnBrd		SOURCEPAGE:p.50		HD:6		TYPE:Base.PC	CLASSTYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Prohibited Class
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page		Combat bonus															Save bonus
+CLASS:Divine Bard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:DvnBrd		SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Prohibited Class
 CLASS:Divine Bard	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
-CLASS:Divine Bard		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
-# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Caster level				Bonus DC					Use Spell List
-CLASS:Divine Bard		SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL		SPELLLIST:2|Bard|Divine Bard
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Divine Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Caster level				Use Spell List
+CLASS:Divine Bard	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL	SPELLLIST:2|Bard|Divine Bard
 # BONUS:DC|CLASS.Divine Bard|CHA-WIS
 ###Block:
 1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
@@ -137,14 +139,14 @@ CLASS:Divine Bard		SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTE
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 
-# Class Name		Abbreviation	Source Page		Save bonus
-CLASS:Savage Bard	ABB:SvgBrd	HD:6		TYPE:Base.PC	CLASSTYPE:PC		SOURCEPAGE:p.50	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Prohibited Class
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page		Define			Combat bonus															Save bonus																														Modify VAR				Monster Role
+CLASS:Savage Bard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:SvgBrd		SOURCEPAGE:p.50	DEFINE:Savage_BardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|Savage_BardLVL|CL	ROLE:Bard
+# Class Name	Required AL		Prohibited Class
 CLASS:Savage Bard	PREALIGN:CG,CN,CE	!PRECLASS:1,Bard=1,Bardic Sage=1,Divine Bard=1
-# Class Name		Remove Class Skill						Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Savage Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Swim|Tumble|Use Magic Device|Survival
-# Class Name		Caster level				Use Spell List
-CLASS:Savage Bard	BONUS:CASTERLEVEL|Savage Bard|Savage_BardLVL	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	DEFINE:Savage_BardLVL|0	BONUS:VAR|Savage_BardLVL|CL	ROLE:Bard
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Savage Bard	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Savage Bard|Savage_BardLVL
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
@@ -857,8 +859,8 @@ CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentr
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Combat bonus										Save bonus
 CLASS:Prestige Paladin	HD:8		TYPE:PC.Prestige	ABB:PPal		MAXLEVEL:15	EXCLASS:Ex Prestige Paladin	SOURCEPAGE:p.71	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|2+CL/2
-# Class Name		Required Ability							Required AL	Prohibited Class				Required Feat			Required Skill											Req. Known Spell				Required Text										PRETOTALAB
-CLASS:Prestige Paladin	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG	!PRECLASS:2,Paladin=1,Ex Paladin=1	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PRESKILL:3,Knowledge (Religion)=2,Knowledge(Nobility and Royalty)=2,Ride=4	PRESPELL:1,Protection from Evil	PRETEXT:Must be able to cast Protection from Evil as a Divine Spell	PRETOTALAB:4
+# Class Name		Required Ability														Required AL	Prohibited Class				Required Skill											Req. Known Spell				Required Text										PRETOTALAB
+CLASS:Prestige Paladin	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PREALIGN:LG	!PRECLASS:2,Paladin=1,Ex Paladin=1	PRESKILL:3,Knowledge (Religion)=2,Knowledge(Nobility and Royalty)=2,Ride=4	PRESPELL:1,Protection from Evil	PRETEXT:Must be able to cast Protection from Evil as a Divine Spell	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 ###Block:Proficiencies
@@ -896,8 +898,8 @@ CLASS:Ex Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplom
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Prestige Ranger	HD:8		TYPE:PC.Prestige	ABB:PRgr		MAXLEVEL:15	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|2+CL/2
-# Class Name		Prohibited Class		Required Feat										Required Skill						PRETOTALAB
-CLASS:Prestige Ranger	!PRECLASS:1,Ranger=1	PREABILITY:2,CATEGORY=FEAT,Endurance,Track	PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4	PRETOTALAB:4
+# Class Name		Required Ability																Prohibited Class		Required Skill						PRETOTALAB
+CLASS:Prestige Ranger	PREABILITY:2,CATEGORY=FEAT,Endurance,Track	PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting,Rapid Shot	!PRECLASS:1,Ranger=1	PRESKILL:2,Knowledge (Nature)=2,Survival=4	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies
@@ -1085,7 +1087,7 @@ CLASS:Tiefling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Disguise|Hide|Kno
 
 # Class Name	Max Level
 CLASS:Bloodline	MAXLEVEL:3
-1:REPEATLEVEL:1	BONUS:CASTERLEVEL|ALLSPELLS|1	DONOTADD:HITDIE|SKILLPOINTS
+1:REPEATLEVEL:1	DONOTADD:HITDIE|SKILLPOINTS	BONUS:CASTERLEVEL|ALLSPELLS|1
 
 
 

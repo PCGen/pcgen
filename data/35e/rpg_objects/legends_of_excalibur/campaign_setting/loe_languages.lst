@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 
 # Language	Type							Source Page
@@ -20,5 +20,5 @@ Infernal	TYPE:Spoken.Written.Read.Priest
 Sylvan	TYPE:Spoken.Written.Read.Druid
 Druidic	TYPE:Spoken.Written.Read.Druid.Secret
 
-Auran	TYPE:Spoken
-Ignan	TYPE:Spoken
+Auran		TYPE:Spoken
+Ignan		TYPE:Spoken

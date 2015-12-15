@@ -1,3 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-ABILITYCATEGORY:Technomancer Class Feature	CATEGORY:Special Ability	TYPE:Technomancer Class Feature	EDITABLE:NO	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY
+# Ability Category					Visible		Editable?	Change Pool?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Technomancer Class Feature	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Technomancer Class Feature	DISPLAYLOCATION:Class Features

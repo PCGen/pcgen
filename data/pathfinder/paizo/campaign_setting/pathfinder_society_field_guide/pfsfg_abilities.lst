@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Society Field Guide	SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/products/btpy8mfq	SOURCEDATE:2011-08
 # Original Entry by: Mark Means
 
@@ -78,7 +78,7 @@ Master (Lantern Lodge Faction)		KEY:Prestige Award ~ Master			SORTKEY:PrestigeAw
 Tales of the East (Lantern Lodge Faction)	KEY:Prestige Award ~ Tales of the East	SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Faction Prestige Award	VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Lantern Lodge Faction	DESC:Tales of the East (Lantern Lodge, Fame 40, 4 PP) Time spent listening to tales of Tian Xia has given you valuable insight into the distant land, granting you a +2 bonus on Knowledge (geography, history, local, and nobility) checks regarding Tian Xia.														COST:4	SOURCEPAGE:p.17
 
 ###Block: Prestige Award - Osirion
-# Ability Name					Unique Key							SORTKEY			Category of Ability		Type									Visible	Required Ability							Description																																																																																																																																															Bonus to skill				Class Skill		Cost		Source Page
+# Ability Name					Unique Key							SORTKEY			Category of Ability		Type									Visible	Required Ability							Description																																																																																																																																															Bonus to skill				Class Skill		Cost		Source Page		Aspects
 The Constant (Osirion Faction) (cskill)	KEY:Prestige Award ~ The Constant (cskill)	SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Faction Prestige Award	VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Osirion Faction	DESC:The Constant (Osirion, Fame 40, 1 PP, Risen Guard) For your dedication to the Risen Guard, you may take the honorific "the Constant" in place of "the Risen." You become specialized in Intimidate.																																																																																																																					CSKILL:Intimidate	COST:1	SOURCEPAGE:p.18
 The Constant (Osirion Faction) (+1)		KEY:Prestige Award ~ The Constant (+1)		SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Faction Prestige Award	VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Osirion Faction	DESC:The Constant (Osirion, Fame 40, 1 PP, Risen Guard) For your dedication to the Risen Guard, you may take the honorific "the Constant" in place of "the Risen." You become specialized in Intimidate.																																																																																																															BONUS:SKILL|Intimidate|1|Competence				COST:1	SOURCEPAGE:p.18
 Know the Sands (Osirion Faction)		KEY:Prestige Award ~ Know the Sands			SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Faction Prestige Award	VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Osirion Faction	DESC:Know the Sands (Osirion, Fame 20, 4 PP) Your affiliation with the Osirion faction grants you insight into navigating the desert wastes of the nation's interior. You gain a +2 circumstance bonus on Knowledge (geography) checks and Survival checks when in Osirion.																																																																																																													COST:4	SOURCEPAGE:p.18	ASPECT:SkillBonus|+2 circumstance bonus on Knowledge (geography) checks and Survival checks when in Osirion.
@@ -177,6 +177,7 @@ Messenger		KEY:Prestige Award ~ Messenger		SORTKEY:PrestigeAward_2	CATEGORY:Spec
 Trapped		KEY:Prestige Award ~ Trapper			SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Vanity Prestige Award					VISIBLE:YES	DESC:A wayfinder is trapped.																																																																																																																																																																																											COST:4	SOURCEPAGE:p.63
 
 ###Block: Amulet of Mighty Fist Support
+# Ability Name	Unique Key		Category of Ability		Type				Aspects
 Unarmed Agile	KEY:Unarmed Agile	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|dex bonus to damage using Weapon Finesse and Finessable weapon
 
 #

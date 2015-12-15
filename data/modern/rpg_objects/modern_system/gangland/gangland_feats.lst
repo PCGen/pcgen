@@ -1,30 +1,33 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74	SOURCEDATE:2005-01
 # Original Entry by: Paul W. King
 
 ###Block: feat
 # Feat Name		Type			Description														Bonus Ability Pool					Modify VAR			Source Page
-Criminal Record	CATEGORY:FEAT	TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	BONUS:ABILITYPOOL|Criminal Record Skills|2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
+# Ability Name	Category of Ability	Type			Description														Bonus Ability Pool					Modify VAR			Source Page
+Criminal Record	CATEGORY:FEAT		TYPE:General	DESC:You have had numerous brushes with the law and many of your friends are criminals.	BONUS:ABILITYPOOL|Criminal Record Skills|2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5
 
 ###Block: advanced occupations
 # Feat Name	Type						Required Feat						Required Skill				Description																																													Stackable?	Multiple?	Choose							Bonus to skill						Source Page
-Arsonist	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Craft (Chemical)=4		DESC:Whether the insurance on a building needs to be collected or you just love to watch things burn, a fire is sometimes just what you need.																							STACK:NO	MULT:YES	CHOOSE:STRING|Craft (Chemical)|Demolitions	BONUS:SKILL|Craft (Chemical),Demolitions|2	SOURCEPAGE:p.4
-Card Shark	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Gamble=4			DESC:You make your living in the world of professional gambling (both legal and illegal).																																STACK:NO	MULT:YES	CHOOSE:STRING|Gamble|Sleight of Hand		BONUS:SKILL|Gamble,Sleight of Hand|2		SOURCEPAGE:p.4
-Cat Burglar	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Climb=4			DESC:You area  skilled "second story man"																																								STACK:NO	MULT:YES	CHOOSE:STRING|Balance|Climb				BONUS:SKILL|Balance,Climb|2				SOURCEPAGE:p.5
-Con Artist	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Bluff=4			DESC:You are a master at gaining the trust of others for illicit purposes.																																		STACK:NO	MULT:YES	CHOOSE:STRING|Bluff|Diplomacy				BONUS:SKILL|Bluff,Diplomacy|2				SOURCEPAGE:p.5
-Fixer		CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Gamble=4			DESC:Similar to the card shark but rather than play the games yourself you make money from those who watch them. Sometimes this will involve finding out illicit information to predict what will happen and sometimes on convincing the participants to affect a desired outcome.	STACK:NO	MULT:YES	CHOOSE:STRING|Diplomacy|Gamble			BONUS:SKILL|Diplomacy,Gamble|2			SOURCEPAGE:p.5
-Hacker	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Computer Use=4		DESC:You are a criminal in the virtual world, using the virus instead of the gun. This advanced occupation also includes using identity theft to gain information required to gain illicit access to checking account and credit card accounts.							STACK:NO	MULT:YES	CHOOSE:STRING|Forgery|Gamble				BONUS:SKILL|Computer Use,Forgery|2			SOURCEPAGE:p.5
-Loan Shark	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Intimidate=4			DESC:You loan money at exorbitant rates and collect by any means necessary.																																		STACK:NO	MULT:YES	CHOOSE:STRING|Gamble|Intimidate			BONUS:SKILL|Gamble,Intimidate|2			SOURCEPAGE:p.5
-Safecracker	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Disable Device=4		DESC:You are skilled in the art of opening things without a key.																																				STACK:NO	MULT:YES	CHOOSE:STRING|Demolitions|Disable Device		BONUS:SKILL|Demolitions,Disable Device|2		SOURCEPAGE:p.5
-Stalker	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Gather Information=4	DESC:Whether you follow your targets for money or to indulge a sick fascination no one can stop you from knowing their whereabouts.																									STACK:NO	MULT:YES	CHOOSE:STRING|Gather Information|Hide		BONUS:SKILL|Gather Information,Hide|2		SOURCEPAGE:p.5
-Wheelman	CATEGORY:FEAT	TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Drive=4			DESC:You make your living driving criminals to their meetings, making sure they are not disturbed along the way by police or rival criminals																							STACK:NO	MULT:YES	CHOOSE:STRING|Drive|Spot				BONUS:SKILL|Drive,Spot|2				SOURCEPAGE:p.5
+# Ability Name	Category of Ability	Type						Required Ability									Required Skill				Description																																													Stackable?	Multiple?	Choose							Bonus to skill						Source Page
+Arsonist		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Craft (Chemical)=4		DESC:Whether the insurance on a building needs to be collected or you just love to watch things burn, a fire is sometimes just what you need.																							STACK:NO	MULT:YES	CHOOSE:STRING|Craft (Chemical)|Demolitions	BONUS:SKILL|Craft (Chemical),Demolitions|2	SOURCEPAGE:p.4
+Card Shark		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Gamble=4			DESC:You make your living in the world of professional gambling (both legal and illegal).																																STACK:NO	MULT:YES	CHOOSE:STRING|Gamble|Sleight of Hand		BONUS:SKILL|Gamble,Sleight of Hand|2		SOURCEPAGE:p.4
+Cat Burglar		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Climb=4			DESC:You area  skilled "second story man"																																								STACK:NO	MULT:YES	CHOOSE:STRING|Balance|Climb				BONUS:SKILL|Balance,Climb|2				SOURCEPAGE:p.5
+Con Artist		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Bluff=4			DESC:You are a master at gaining the trust of others for illicit purposes.																																		STACK:NO	MULT:YES	CHOOSE:STRING|Bluff|Diplomacy				BONUS:SKILL|Bluff,Diplomacy|2				SOURCEPAGE:p.5
+Fixer			CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Gamble=4			DESC:Similar to the card shark but rather than play the games yourself you make money from those who watch them. Sometimes this will involve finding out illicit information to predict what will happen and sometimes on convincing the participants to affect a desired outcome.	STACK:NO	MULT:YES	CHOOSE:STRING|Diplomacy|Gamble			BONUS:SKILL|Diplomacy,Gamble|2			SOURCEPAGE:p.5
+Hacker		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Computer Use=4		DESC:You are a criminal in the virtual world, using the virus instead of the gun. This advanced occupation also includes using identity theft to gain information required to gain illicit access to checking account and credit card accounts.							STACK:NO	MULT:YES	CHOOSE:STRING|Forgery|Gamble				BONUS:SKILL|Computer Use,Forgery|2			SOURCEPAGE:p.5
+Loan Shark		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Intimidate=4			DESC:You loan money at exorbitant rates and collect by any means necessary.																																		STACK:NO	MULT:YES	CHOOSE:STRING|Gamble|Intimidate			BONUS:SKILL|Gamble,Intimidate|2			SOURCEPAGE:p.5
+Safecracker		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Disable Device=4		DESC:You are skilled in the art of opening things without a key.																																				STACK:NO	MULT:YES	CHOOSE:STRING|Demolitions|Disable Device		BONUS:SKILL|Demolitions,Disable Device|2		SOURCEPAGE:p.5
+Stalker		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Gather Information=4	DESC:Whether you follow your targets for money or to indulge a sick fascination no one can stop you from knowing their whereabouts.																									STACK:NO	MULT:YES	CHOOSE:STRING|Gather Information|Hide		BONUS:SKILL|Gather Information,Hide|2		SOURCEPAGE:p.5
+Wheelman		CATEGORY:FEAT		TYPE:General.AdvancedOccupation	PREABILITY:1,CATEGORY=FEAT,Occupation (Criminal),Criminal Record	PRESKILL:1,Drive=4			DESC:You make your living driving criminals to their meetings, making sure they are not disturbed along the way by police or rival criminals																							STACK:NO	MULT:YES	CHOOSE:STRING|Drive|Spot				BONUS:SKILL|Drive,Spot|2				SOURCEPAGE:p.5
 
 
 ###Block: .MOD feats for TYPE addition
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Alertness.MOD				TYPE:Hitman
 CATEGORY=FEAT|Archaic Weapons Proficiency.MOD	TYPE:Hitman
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:Hitman.Vigilante
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:Hitman.Vigilante
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Hitman.Vigilante
 CATEGORY=FEAT|Brawl.MOD					TYPE:Hitman
 CATEGORY=FEAT|Burst Fire.MOD				TYPE:Vigilante
@@ -34,7 +37,7 @@ CATEGORY=FEAT|Drive-By Attack.MOD			TYPE:Hitman.Vigilante
 CATEGORY=FEAT|Far Shot.MOD				TYPE:Hitman
 CATEGORY=FEAT|Low Profile.MOD				TYPE:Hitman.Vigilante
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:Hitman.Vigilante
-CATEGORY=FEAT|Precise Shot.MOD				TYPE:Vigilante
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:Vigilante
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:Hitman.Vigilante
-CATEGORY=FEAT|Quick Reload.MOD				TYPE:Hitman.Vigilante
-CATEGORY=FEAT|Renown.MOD					TYPE:Hitman.Vigilante
+CATEGORY=FEAT|Quick Reload.MOD			TYPE:Hitman.Vigilante
+CATEGORY=FEAT|Renown.MOD				TYPE:Hitman.Vigilante

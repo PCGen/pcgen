@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 STARTPACK:Ape Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ape]
 RACE:Ape	!PRERACE:1,%
@@ -3710,7 +3710,7 @@ ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Improved Critical(Bite)
 ABILITY:CATEGORY=FEAT|Improved Natural Armor
 ABILITY:CATEGORY=Fighter Feat|Improved Critical(Sword (Bastard))
-ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)					FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)						FREE:YES
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped		EQMOD:MITHRAL_ARMR_LT.PLUS2A
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3S
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS2W

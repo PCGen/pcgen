@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by Emily and Tir Gwaith
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block:Special Mount
-# Class of the Master		Type				Hit Dice	Spell Res.					Ability																Auto Armor Prof				Define			Combat bonus					Stat bonus		Modify VAR					Main Race Type
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	DEFINESTAT:MINVALUE|INT|6		RACETYPE:Animal/Magical Beast
-FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	DEFINESTAT:MINVALUE|INT|7	
-FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Command Creatures of Own Kind																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	DEFINESTAT:MINVALUE|INT|8	
-FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:5+mastervar("SpecialMountLVL")																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	DEFINESTAT:MINVALUE|INT|9	
+# Class of the Master		Type				Hit Dice	Spell Res.					Ability																Auto Armor Prof				Define			Define Stat				Combat bonus					Stat bonus		Main Race Type
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:PHBFeatEvasion|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	RACETYPE:Animal/Magical Beast
+FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2																																			DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Command Creatures of Own Kind																	DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:5+mastervar("SpecialMountLVL")																												DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.				Ability																					Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Combat bonus					Modify VAR					Main Race Type
+# Class of the Master	Type			Spell Res.				Ability																					Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Define Stat									Combat bonus										Main Race Type
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:PHBFeatEvasion|0	DEFINESTAT:MINVALUE|INT|5+((mastervar("FamiliarLVL")+1)/2)	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Touch																																					
-FOLLOWER:FamiliarLVL=5	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Speak with Master																																			
-FOLLOWER:FamiliarLVL=7	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Own Type																																	
-FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:5+mastervar("FamiliarLVL")																																									
-FOLLOWER:FamiliarLVL=13	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Master Can Scry																																			
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Touch
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Speak with Master
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Own Type
+FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:5+mastervar("FamiliarLVL")
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Master Can Scry
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Save bonus			Bonus to skill			Stat bonus

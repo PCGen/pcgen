@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
-# Deity Name	Product Identity?	Domains												Description of Deity/Title							Holy Item	Deity Weapon		Align		Pantheon				Source Page
-Demortus		NAMEISPI:YES	DOMAINS:Evil,Spirit,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lord of Unlife, the Eternal One, Deathstealer			SYMBOL:None	DEITYWEAP:Dagger		ALIGN:LE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68
-Gnawbone		NAMEISPI:YES	DOMAINS:Chaos,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Ghoul King, Deatheater						SYMBOL:None	DEITYWEAP:Club		ALIGN:CE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68
-Lochai		NAMEISPI:YES	DOMAINS:Death,Destruction,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Deathbringer, Lifescourge						SYMBOL:None	DEITYWEAP:Scythe		ALIGN:CN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.68
-Rei sul Vadoch	NAMEISPI:YES	DOMAINS:Death,Knowledge,Rulership|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:King of the Dead, Death Lord						SYMBOL:None	DEITYWEAP:Longsword	ALIGN:LN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.69
-Necronius		NAMEISPI:YES	DOMAINS:Death,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Bloodletter, Lifedrainer							SYMBOL:None	DEITYWEAP:Rapier		ALIGN:LE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.69
-Necury		NAMEISPI:YES	DOMAINS:Death,Protection,Travel|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:the Guide, Death's Messenger, Soulfriend				SYMBOL:None	DEITYWEAP:Sword (Short)	ALIGN:LN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.69
-Selina		NAMEISPI:YES	DOMAINS:Death,Knowledge,Spirit|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lady of Spirits, the Ghost Queen					SYMBOL:None	DEITYWEAP:Sickle		ALIGN:CN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.69-70
-Shofayt		NAMEISPI:YES	DOMAINS:Death,Knowledge,Law|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Judge of the Dead, Incorruptible, the Final Justice	SYMBOL:None	DEITYWEAP:Warhammer	ALIGN:TN	PANTHEON:Lords of the Dead	SOURCEPAGE:p.70
+# Deity Name	Product Identity?	Domains												Description of Deity/Title							Deity Weapon		Align		Source Page			Holy Item	Pantheon
+Demortus		NAMEISPI:YES	DOMAINS:Evil,Spirit,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lord of Unlife, the Eternal One, Deathstealer			DEITYWEAP:Dagger		ALIGN:LE	SOURCEPAGE:p.68		SYMBOL:None	PANTHEON:Lords of the Undead
+Gnawbone		NAMEISPI:YES	DOMAINS:Chaos,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Ghoul King, Deatheater						DEITYWEAP:Club		ALIGN:CE	SOURCEPAGE:p.68		SYMBOL:None	PANTHEON:Lords of the Undead
+Lochai		NAMEISPI:YES	DOMAINS:Death,Destruction,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Deathbringer, Lifescourge						DEITYWEAP:Scythe		ALIGN:CN	SOURCEPAGE:p.68		SYMBOL:None	PANTHEON:Lords of the Dead
+Rei sul Vadoch	NAMEISPI:YES	DOMAINS:Death,Knowledge,Rulership|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:King of the Dead, Death Lord						DEITYWEAP:Longsword	ALIGN:LN	SOURCEPAGE:p.69		SYMBOL:None	PANTHEON:Lords of the Dead
+Necronius		NAMEISPI:YES	DOMAINS:Death,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Bloodletter, Lifedrainer							DEITYWEAP:Rapier		ALIGN:LE	SOURCEPAGE:p.69		SYMBOL:None	PANTHEON:Lords of the Undead
+Necury		NAMEISPI:YES	DOMAINS:Death,Protection,Travel|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:the Guide, Death's Messenger, Soulfriend				DEITYWEAP:Sword (Short)	ALIGN:LN	SOURCEPAGE:p.69		SYMBOL:None	PANTHEON:Lords of the Dead
+Selina		NAMEISPI:YES	DOMAINS:Death,Knowledge,Spirit|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lady of Spirits, the Ghost Queen					DEITYWEAP:Sickle		ALIGN:CN	SOURCEPAGE:p.69-70	SYMBOL:None	PANTHEON:Lords of the Dead
+Shofayt		NAMEISPI:YES	DOMAINS:Death,Knowledge,Law|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Judge of the Dead, Incorruptible, the Final Justice	DEITYWEAP:Warhammer	ALIGN:TN	SOURCEPAGE:p.70		SYMBOL:None	PANTHEON:Lords of the Dead
 
 # Plague and Rot domians are not present in this source, commenting out for now
 #Lochai.MOD		DOMAINS:Plague|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE

@@ -1,10 +1,10 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Religion Traits
 # Abadar
-# Ability Name			Unique Key						Category of Ability		Type						Required Deity			Multiple Requirements																					Description																																													Stackable?	Multiple?	Choose								Bonus to skill							Class Skill				Source Page		Aspects
+# Ability Name			Unique Key						Category of Ability		Type						Required Deity			Multiple Requirements																											Description																																													Stackable?	Multiple?	Choose								Bonus to skill							Class Skill				Source Page		Aspects
 Honey-Tongued			KEY:Trait ~ Honey-Tongued			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Abadar			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Honey-Tongued],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]				DESC:Your deep understanding of human nature and your readings on social philosophy grant you a +1 trait bonus on Diplomacy or Bluff checks when dealing with agents of the law, whether judges, guards, or paladins.																																						SOURCEPAGE:p.5
 Lover of the Law			KEY:Trait ~ Lover of the Law			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait.SaveBonus	PREDEITY:1,Abadar			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Lover of the Law],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You have a strong belief in the righteousness of law and justice. You receive a +1 trait bonus on saves vs. charm and compulsion spells, and may make a new save with an additional +1 bonus (for a total of +2) if directed to act against the law.																																SOURCEPAGE:p.5	ASPECT:SaveBonus|+1 trait bonus vs. charm and compulsion effects.
 # Calistria				# Calistria

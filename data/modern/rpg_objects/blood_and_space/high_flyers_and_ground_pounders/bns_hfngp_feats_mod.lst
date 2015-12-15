@@ -1,14 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56	SOURCEDATE:2004-01
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:StarshipGunner
-CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:StarshipMarine
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
+CATEGORY=FEAT|Armor Proficiency (Heavy).MOD	TYPE:StarshipMarine
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
 CATEGORY=FEAT|Armor Proficiency (Powered).MOD	TYPE:StarshipMarine
 CATEGORY=FEAT|Burst Fire.MOD				TYPE:StarshipGunner.StarshipMarine
-CATEGORY=FEAT|Builder.MOD					TYPE:OperationsExpert
+CATEGORY=FEAT|Builder.MOD				TYPE:OperationsExpert
 CATEGORY=FEAT|Cover Fire.MOD				TYPE:StarshipMarine
 CATEGORY=FEAT|Dead Aim.MOD				TYPE:StarshipGunner.StarshipNavigator
 CATEGORY=FEAT|Dodge.MOD					TYPE:StarshipMarine
@@ -16,13 +17,13 @@ CATEGORY=FEAT|Double Tap.MOD				TYPE:StarshipGunner
 CATEGORY=FEAT|Educated.MOD				TYPE:OperationsExpert
 CATEGORY=FEAT|Far Shot.MOD				TYPE:StarshipNavigator
 CATEGORY=FEAT|Gearhead.MOD				TYPE:OperationsExpert.StarshipNavigator
-CATEGORY=FEAT|Mastercrafter.MOD				TYPE:OperationsExpert
+CATEGORY=FEAT|Mastercrafter.MOD			TYPE:OperationsExpert
 CATEGORY=FEAT|Mobility.MOD				TYPE:StarshipMarine
 CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:OperationsExpert.StarshipGunner.StarshipNavigator
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:StarshipGunner
-CATEGORY=FEAT|Precise Shot.MOD				TYPE:StarshipGunner
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:StarshipGunner
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:StarshipGunner
-CATEGORY=FEAT|Spring Attack.MOD				TYPE:StarshipMarine
+CATEGORY=FEAT|Spring Attack.MOD			TYPE:StarshipMarine
 CATEGORY=FEAT|Starship Gunnery.MOD			TYPE:StarshipNavigator
-CATEGORY=FEAT|Starship Operation.MOD			TYPE:StarshipNavigator
+CATEGORY=FEAT|Starship Operation.MOD		TYPE:StarshipNavigator
 CATEGORY=FEAT|Zero G Training.MOD			TYPE:OperationsExpert

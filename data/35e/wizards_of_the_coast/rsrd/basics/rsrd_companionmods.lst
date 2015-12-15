@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # RSRD Entry by: jaymecox
 # COMMENT: Updates Jan 20, 2013 - HD Growth For Companions reimplemented; Mounts do not gain automatic Barding Proficiency. In fact, there is no 'Barding' proficiency.
 
 
 ###Block: Special Mount
-# Class of the Master		Type				Hit Dice	Spell Res.					Ability																Auto Armor Prof				Define Stat				Combat bonus					Add to base move																																					Stat bonus
+# Class of the Master		Type				Hit Dice	Spell Res.					Ability																										Auto Armor Prof				Define Stat				Combat bonus					Add to base move																																					Stat bonus
 FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Empathic Link|Special Mount ~ Improved Evasion|Special Mount ~ Share Saving Throws|Special Mount ~ Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Improved Speed																							DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Command																								DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
@@ -74,63 +74,63 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Shocker Lizard	KIT:1|
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Stirge			KIT:1|Stirge Familiar
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			
-MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Bat			
-MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Cat			
-MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Hawk			
-MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Lizard			
-MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Owl			
-MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Rat			
-MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Raven			
-MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Snake (Viper/Tiny)	
-MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Toad			
-MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Weasel			
+# Race of familiar					Type			Ability
+MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Bat
+MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Cat
+MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Hawk
+MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Lizard
+MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Owl
+MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Rat
+MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Raven
+MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Snake (Viper/Tiny)
+MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Toad
+MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Weasel
 
 ###Block:Animal Companion
-# Class of the Master			Type				Hit Dice	Ability															Auto Feat						Define							Combat bonus					Stat bonus					Modify VAR
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Animal Companion ~ Link|Animal Companion ~ Share Spells		DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Multiattack																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1	
-FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:2																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Improved Evasion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:2																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+# Class of the Master			Type				Hit Dice	Ability																					Define							Combat bonus					Stat bonus					Modify VAR
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Animal Companion ~ Link|Animal Companion ~ Share Spells	DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Multiattack																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:2																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Improved Evasion																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:2																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 #
 
 ###Block:Specific Animal Companions
 # Class of the Master		Type				Required Race							Apply Kit
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Ape					KIT:1|Ape Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Badger					KIT:1|Badger Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Black)				KIT:1|Bear (Black) Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Brown)				KIT:1|Bear (Brown) Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Polar)				KIT:1|Bear (Polar) Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bison					KIT:1|Bison Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Boar					KIT:1|Boar Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Camel					KIT:1|Camel Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Cheetah					KIT:1|Cheetah Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile				KIT:1|Crocodile Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion					
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog					KIT:1|Dog Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog (Riding)				KIT:1|Dog (Riding) Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Eagle					KIT:1|Eagle Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Elephant				KIT:1|Elephant Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Hawk					KIT:1|Hawk Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Heavy)				KIT:1|Horse (Heavy) Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Light)				KIT:1|Horse (Light) Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Leopard					KIT:1|Leopard Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lion					KIT:1|Lion Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion					
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Owl					KIT:1|Owl Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Pony					KIT:1|Pony Companion							
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Porpoise				KIT:1|Porpoise Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Rhinoceros				KIT:1|Rhinoceros Companion						
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Shark (Medium)			KIT:1|Shark (Medium) Companion					
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion					
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion				
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion					
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion					
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion				
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Ape					KIT:1|Ape Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Badger					KIT:1|Badger Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Black)				KIT:1|Bear (Black) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Brown)				KIT:1|Bear (Brown) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Polar)				KIT:1|Bear (Polar) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bison					KIT:1|Bison Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Boar					KIT:1|Boar Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Camel					KIT:1|Camel Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Cheetah					KIT:1|Cheetah Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile				KIT:1|Crocodile Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog					KIT:1|Dog Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog (Riding)				KIT:1|Dog (Riding) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Eagle					KIT:1|Eagle Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Elephant				KIT:1|Elephant Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Hawk					KIT:1|Hawk Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Heavy)				KIT:1|Horse (Heavy) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Light)				KIT:1|Horse (Light) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Leopard					KIT:1|Leopard Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lion					KIT:1|Lion Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Owl					KIT:1|Owl Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Pony					KIT:1|Pony Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Porpoise				KIT:1|Porpoise Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Rhinoceros				KIT:1|Rhinoceros Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Shark (Medium)			KIT:1|Shark (Medium) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
 
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion

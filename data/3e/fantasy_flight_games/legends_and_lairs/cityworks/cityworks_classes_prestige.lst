@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name	Required Feat		Required Skill					Required Text	PRETOTALAB
+# Class Name	Required Ability					Required Skill					Required Text	PRETOTALAB
 CLASS:Kingpin	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
@@ -43,7 +43,7 @@ CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentrat
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Feat				Multiple Requirements									PRETOTALAB
+# Class Name		Required Ability							Multiple Requirements									PRETOTALAB
 CLASS:Street Stalker	PREABILITY:2,CATEGORY=FEAT,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope

@@ -1,16 +1,17 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #108 - Teamwork Mechanics	SOURCESHORT:MD108-TM	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21050&	SOURCEDATE:2004-01
 
 # Feat Name			Type					Required Feat		Required Skill				Required Stat		Required Text		PRETOTALAB		Description		Stackable?	Multiple?	Choose		Source Page		Temporary Bonus
-Animal Lover		CATEGORY:FEAT	TYPE:General.Charismatic					PRESKILL:1,Handle Animal=4		PRESTAT:1,CHA=13									DESC:See Text								SOURCEPAGE:p.4
-Coordinated Attack	CATEGORY:FEAT	TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork															PRETOTALAB:5	DESC:See Text								SOURCEPAGE:p.4
-Cover Fire			CATEGORY:FEAT	TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork																		DESC:See Text								SOURCEPAGE:p.4
-Enemy				CATEGORY:FEAT	TYPE:General.Dedicated																							DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4	TEMPBONUS:PC|COMBAT|TOHIT|2	TEMPBONUS:PC|SKILL|ALL|1
-Networking			CATEGORY:FEAT	TYPE:General.Charismatic					PRESKILL:1,Diplomacy=4			PRESTAT:1,CHA=13									DESC:See Text								SOURCEPAGE:p.4
-Tactician			CATEGORY:FEAT	TYPE:General			PREABILITY:1,CATEGORY=FEAT,Teamwork	PRESKILL:1,Knowledge (Tactics)=5	PRESTAT:2,INT=13,CHA=13								DESC:See Text								SOURCEPAGE:p.4
-Teamwork			CATEGORY:FEAT	TYPE:General.Dedicated																PRETEXT:1 allegiance				DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4	TEMPBONUS:PC|COMBAT|TOHIT|2	TEMPBONUS:PC|SKILL|ALL|1
-Teamwork Plus		CATEGORY:FEAT	TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork																		DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4
-Unified Response		CATEGORY:FEAT	TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork																		DESC:See Text								SOURCEPAGE:p.4	TEMPBONUS:PC|SAVE|Reflex|1	TEMPBONUS:PC|COMBAT|INITIATIVE|4
+# Ability Name		Category of Ability	Type					Required Ability				Required Skill				Required Stat		Required Text		PRETOTALAB		Description		Stackable?	Multiple?	Choose		Source Page		Temporary Bonus
+Animal Lover		CATEGORY:FEAT		TYPE:General.Charismatic							PRESKILL:1,Handle Animal=4		PRESTAT:1,CHA=13									DESC:See Text								SOURCEPAGE:p.4
+Coordinated Attack	CATEGORY:FEAT		TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork															PRETOTALAB:5	DESC:See Text								SOURCEPAGE:p.4
+Cover Fire			CATEGORY:FEAT		TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork																		DESC:See Text								SOURCEPAGE:p.4
+Enemy				CATEGORY:FEAT		TYPE:General.Dedicated																									DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4	TEMPBONUS:PC|COMBAT|TOHIT|2	TEMPBONUS:PC|SKILL|ALL|1
+Networking			CATEGORY:FEAT		TYPE:General.Charismatic							PRESKILL:1,Diplomacy=4			PRESTAT:1,CHA=13									DESC:See Text								SOURCEPAGE:p.4
+Tactician			CATEGORY:FEAT		TYPE:General			PREABILITY:1,CATEGORY=FEAT,Teamwork	PRESKILL:1,Knowledge (Tactics)=5	PRESTAT:2,INT=13,CHA=13								DESC:See Text								SOURCEPAGE:p.4
+Teamwork			CATEGORY:FEAT		TYPE:General.Dedicated																		PRETEXT:1 allegiance				DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4	TEMPBONUS:PC|COMBAT|TOHIT|2	TEMPBONUS:PC|SKILL|ALL|1
+Teamwork Plus		CATEGORY:FEAT		TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork																		DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4
+Unified Response		CATEGORY:FEAT		TYPE:General.Dedicated		PREABILITY:1,CATEGORY=FEAT,Teamwork																		DESC:See Text								SOURCEPAGE:p.4	TEMPBONUS:PC|SAVE|Reflex|1	TEMPBONUS:PC|COMBAT|INITIATIVE|4
 
 #
 # End

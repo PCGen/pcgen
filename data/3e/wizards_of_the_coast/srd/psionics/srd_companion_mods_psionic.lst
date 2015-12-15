@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 #Original Entry: Arknight
 
@@ -17,7 +17,7 @@ FOLLOWER:PCrystalLevel=19	TYPE:Psicrystal																																							
 #
 
 ###Block:Psicrystal Bonuses to Master
-# Race of familiar					Type			Save bonus			Bonus to skill			Virtual Feat
+# Race of familiar					Type			Save bonus			Bonus to skill			Ability
 MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal					BONUS:SKILL|TYPE.Craft|2	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Psicrystal (Bully)			TYPE:Psicrystal					BONUS:SKILL|Intimidate|2	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Psicrystal (Coward)			TYPE:Psicrystal					BONUS:SKILL|Hide|2		ABILITY:FEAT|VIRTUAL|Alertness

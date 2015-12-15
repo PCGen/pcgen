@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
-# Spell Name		Type				Classes of caster								School			Sub-School			Components		Casting Time	Range			Item		Target Area or Effect			Duration					Save Info					Spell Resistance		Required Feat				Source Page		Description
-Erad's Silent Killer	TYPE:Arcane			CLASSES:Sorcerer,Wizard=2						SCHOOL:Evocation						COMPS:V, S, F	CASTTIME:1 action	RANGE:Long		ITEM:Potion	TARGETAREA:One creature			DURATION:Instantaneous			SAVEINFO:Fortitude half			SPELLRES:Yes								SOURCEPAGE:p.35	DESC:Deals 1d6 damage per caster level
-Friends			TYPE:Arcane			CLASSES:Bard,Sorcerer,Wizard=1					SCHOOL:Transmutation					COMPS:V, S, M	CASTTIME:1 action	RANGE:Personal			TARGETAREA:You				DURATION:(CASTERLEVEL) minutes	SAVEINFO:None				SPELLRES:None								SOURCEPAGE:p.36	DESC:You assume a friendly, welcoming countenance that puts others at ease
-Silent Steel		TYPE:Arcane.Divine	CLASSES:Bard,Ranger,Sorcerer,Wizard=1				SCHOOL:Transmutation					COMPS:F		CASTTIME:1 action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched		DURATION:(CASTERLEVEL) minutes	SAVEINFO:Will negates (Harmless)	SPELLRES:Yes (Harmless)							SOURCEPAGE:p.36	DESC:You create a magical buffer around weapons, armor and shields, eliminating the loud clangs they make as their bearer moves
+# Spell Name		Type				Classes of caster								School			Sub-School			Components		Casting Time	Range			Item		Target Area or Effect			Duration					Save Info					Spell Resistance		Required Ability							Source Page		Description
+Erad's Silent Killer	TYPE:Arcane			CLASSES:Sorcerer,Wizard=2						SCHOOL:Evocation						COMPS:V, S, F	CASTTIME:1 action	RANGE:Long		ITEM:Potion	TARGETAREA:One creature			DURATION:Instantaneous			SAVEINFO:Fortitude half			SPELLRES:Yes											SOURCEPAGE:p.35	DESC:Deals 1d6 damage per caster level
+Friends			TYPE:Arcane			CLASSES:Bard,Sorcerer,Wizard=1					SCHOOL:Transmutation					COMPS:V, S, M	CASTTIME:1 action	RANGE:Personal			TARGETAREA:You				DURATION:(CASTERLEVEL) minutes	SAVEINFO:None				SPELLRES:None											SOURCEPAGE:p.36	DESC:You assume a friendly, welcoming countenance that puts others at ease
+Silent Steel		TYPE:Arcane.Divine	CLASSES:Bard,Ranger,Sorcerer,Wizard=1				SCHOOL:Transmutation					COMPS:F		CASTTIME:1 action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched		DURATION:(CASTERLEVEL) minutes	SAVEINFO:Will negates (Harmless)	SPELLRES:Yes (Harmless)										SOURCEPAGE:p.36	DESC:You create a magical buffer around weapons, armor and shields, eliminating the loud clangs they make as their bearer moves
 
 # Urbanmancy Prestige Spells
 

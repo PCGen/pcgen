@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Original Entry By: Beaver
 
 ###Block: Racial Synergy Language Bonuses
@@ -16,7 +16,7 @@ Sarcosan Bonus Languages				VISIBLE:NO																																										
 Erenlander Automatic Languages			VISIBLE:NO																																																							AUTO:LANG|Erenlander																																TYPE:Internal.Languages
 Any Bonus Languages					VISIBLE:NO																																																																		LANGBONUS:TYPE=Unrestricted																				TYPE:Internal.Languages
 
-Dwarven Clan Dialect					VISIBLE:NO																				AUTO:LANG|%LIST	CHOOSE:LANG|Thedron|Fodrin|Durgis|Gorand|Black Blood																																																													TYPE:Internal.Languages
+Dwarven Clan Dialect					VISIBLE:NO																				CHOOSE:LANG|Thedron|Fodrin|Durgis|Gorand|Black Blood																											AUTO:LANG|%LIST																																	TYPE:Internal.Languages
 
 Dwarf Automatic Languages				VISIBLE:NO	TEMPLATE:Dwarven Clan Dialect																																																		AUTO:LANG|Old Dwarven																																TYPE:Internal.Languages
 Clan Dwarf Bonus Languages				VISIBLE:NO																																																																		LANGBONUS:TYPE=OldDwarven,TYPE=Orcish,TYPE=ClanDialect															TYPE:Internal.Languages
@@ -35,8 +35,8 @@ Snow Elf Bonus Languages				VISIBLE:NO																																										
 Sea Elf Automatic Languages				VISIBLE:NO																																																							AUTO:LANG|High Elven|Danisil																															TYPE:Internal.Languages
 Sea Elf Bonus Languages					VISIBLE:NO																																																																		LANGBONUS:TYPE=HighElven,TYPE=Danisil,TYPE=Halfling,TYPE=Sylvan,TYPE=TradersTongue											TYPE:Internal.Languages
 
-Any Automatic Basic Language				VISIBLE:NO																				AUTO:LANG|%LIST	CHOOSE:LANG|Colonial (1)|Courtier (1)|Erenlander (1)|Norther (1)|High Elven (1)|Danisil (1)|Halfling (1)|Orcish (1)|Old Dwarven (1)|Thedron (1)|Fodrin (1)|Durgis (1)|Gorand (1)|Black Blood (1)																																						TYPE:Internal.Languages
-Any Automatic Pidgin Language				VISIBLE:NO																				AUTO:LANG|%LIST	CHOOSE:LANG|Black Tongue|Colonial (2)|Courtier (2)|Erenlander (2)|Norther (2)|High Elven (2)|Danisil (2)|Halfling (2)|Orcish (2)|Old Dwarven (2)|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)																																				TYPE:Internal.Languages
+Any Automatic Basic Language				VISIBLE:NO																				CHOOSE:LANG|Colonial (1)|Courtier (1)|Erenlander (1)|Norther (1)|High Elven (1)|Danisil (1)|Halfling (1)|Orcish (1)|Old Dwarven (1)|Thedron (1)|Fodrin (1)|Durgis (1)|Gorand (1)|Black Blood (1)			AUTO:LANG|%LIST																																	TYPE:Internal.Languages
+Any Automatic Pidgin Language				VISIBLE:NO																				CHOOSE:LANG|Black Tongue|Colonial (2)|Courtier (2)|Erenlander (2)|Norther (2)|High Elven (2)|Danisil (2)|Halfling (2)|Orcish (2)|Old Dwarven (2)|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)	AUTO:LANG|%LIST																																	TYPE:Internal.Languages
 Gnome Automatic Languages				VISIBLE:NO	TEMPLATE:Any Automatic Basic Language|Any Automatic Pidgin Language																																											AUTO:LANG|Trader's Tongue																															TYPE:Internal.Languages
 
 Halfling Automatic Languages				VISIBLE:NO																																																							AUTO:LANG|Halfling|Colonial																															TYPE:Internal.Languages
@@ -44,9 +44,9 @@ Halfling Bonus Languages				VISIBLE:NO																																										
 
 Orcish Automatic Languages				VISIBLE:NO																																																							AUTO:LANG|Orcish|Old Dwarven (1)|High Elven (1)|Black Tongue																									TYPE:Internal.Languages
 
-Dwarven Clan Dialect Pidgin				VISIBLE:NO																				AUTO:LANG|%LIST	CHOOSE:LANG|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)																																																										TYPE:Internal.Languages
-Dwarrow Automatic Pidgin Language x1		VISIBLE:NO																				AUTO:LANG|%LIST	CHOOSE:LANG|Black Tongue|Colonial (2)|Courtier (2)|Erenlander (2)|Norther (2)|High Elven (2)|Danisil (2)|Halfling (2)|Orcish (2)|Old Dwarven (2)|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)																																				TYPE:Internal.Languages
-Dwarrow Automatic Pidgin Language x2		VISIBLE:NO																				AUTO:LANG|%LIST	CHOOSE:LANG|Black Tongue|Colonial (2)|Courtier (2)|Erenlander (2)|Norther (2)|High Elven (2)|Danisil (2)|Halfling (2)|Orcish (2)|Old Dwarven (2)|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)																																				TYPE:Internal.Languages
+Dwarven Clan Dialect Pidgin				VISIBLE:NO																				CHOOSE:LANG|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)																							AUTO:LANG|%LIST																																	TYPE:Internal.Languages
+Dwarrow Automatic Pidgin Language x1		VISIBLE:NO																				CHOOSE:LANG|Black Tongue|Colonial (2)|Courtier (2)|Erenlander (2)|Norther (2)|High Elven (2)|Danisil (2)|Halfling (2)|Orcish (2)|Old Dwarven (2)|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)	AUTO:LANG|%LIST																																	TYPE:Internal.Languages
+Dwarrow Automatic Pidgin Language x2		VISIBLE:NO																				CHOOSE:LANG|Black Tongue|Colonial (2)|Courtier (2)|Erenlander (2)|Norther (2)|High Elven (2)|Danisil (2)|Halfling (2)|Orcish (2)|Old Dwarven (2)|Thedron (2)|Fodrin (2)|Durgis (2)|Gorand (2)|Black Blood (2)	AUTO:LANG|%LIST																																	TYPE:Internal.Languages
 Gnome Raised Dwarrow Automatic Languages		VISIBLE:NO	TEMPLATE:Dwarven Clan Dialect Pidgin|Dwarrow Automatic Pidgin Language x1|Dwarrow Automatic Pidgin Language x2																																				AUTO:LANG|Trader's Tongue|Old Dwarven (1)																													TYPE:Internal.Languages
 
 Dwarf Raised Dwarrow Automatic Languages		VISIBLE:NO	TEMPLATE:Dwarven Clan Dialect																																																		AUTO:LANG|Trader's Tongue (1)|Old Dwarven																													TYPE:Internal.Languages

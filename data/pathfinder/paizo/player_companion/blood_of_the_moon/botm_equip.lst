@@ -1,28 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-Nose Ring Of Unearthly Scent	COST:11475	TYPE:SLOT_Head.Helm.Magic
+# Equipment Name			Type					Cost
+Nose Ring Of Unearthly Scent	TYPE:SLOT_Head.Helm.Magic	COST:11475
 
 ###Block: Gear & Alchemical
-Animal Disguise Kit		SOURCEPAGE:p.30	TYPE:Gear.Kit		COST:100	WT:8
-Memory Incense			SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:50	WT:1		QUALITY:Craft DC|20
-Palm Paws				SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:80	WT:2	
-Silver Drops			SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:180			QUALITY:Craft DC|30
-Silvercloud Oil			SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:60	WT:0.5	QUALITY:Craft DC|25
+# Equipment Name		Type				Cost		Weight	Source Page		Quality and value
+Animal Disguise Kit	TYPE:Gear.Kit		COST:100	WT:8		SOURCEPAGE:p.30
+Memory Incense		TYPE:Gear.Alchemical	COST:50	WT:1		SOURCEPAGE:p.30	QUALITY:Craft DC|20
+Palm Paws			TYPE:Gear.Alchemical	COST:80	WT:2		SOURCEPAGE:p.30
+Silver Drops		TYPE:Gear.Alchemical	COST:180			SOURCEPAGE:p.30	QUALITY:Craft DC|30
+Silvercloud Oil		TYPE:Gear.Alchemical	COST:60	WT:0.5	SOURCEPAGE:p.30	QUALITY:Craft DC|25
 
 ###Block: Magic
-Amulet of the True Form		SOURCEPAGE:p.30	TYPE:Magic.SLOT_NECK.Amulet	COST:6500
-Corpse Puppet			SOURCEPAGE:p.31	TYPE:Magic	COST:250	
-Globe of Moonlight		SOURCEPAGE:p.31	TYPE:Magic	COST:700		WT:1
-Moon Clock				SOURCEPAGE:p.31	TYPE:Magic	COST:2650	
-Pelt of the Beast (Bat)		SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Bear)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Boar)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Crocodile)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Rat)		SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Shark)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Tiger)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Pelt of the Beast (Wolf)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
-Spell Totem				SOURCEPAGE:p.31	TYPE:Magic	COST:12000
-
-
-
-
+# Equipment Name			Type						Cost		Weight	Source Page
+Amulet of the True Form		TYPE:Magic.SLOT_NECK.Amulet		COST:6500			SOURCEPAGE:p.30
+Corpse Puppet			TYPE:Magic					COST:250			SOURCEPAGE:p.31
+Globe of Moonlight		TYPE:Magic					COST:700	WT:1		SOURCEPAGE:p.31
+Moon Clock				TYPE:Magic					COST:2650			SOURCEPAGE:p.31
+Pelt of the Beast (Bat)		TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Bear)	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Boar)	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Crocodile)	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Rat)		TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Shark)	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Tiger)	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Pelt of the Beast (Wolf)	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8		SOURCEPAGE:p.31
+Spell Totem				TYPE:Magic					COST:12000			SOURCEPAGE:p.31

@@ -1,9 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-# Ability Category			Visible		Editable?		Change Pool?	Category of Object		Specific choices list			Display Location
-ABILITYCATEGORY:Power Sequestration	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	ABILITYLIST:Power Sequestration	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Kuresh Feat		TYPE:Metapsionic.Psionic		CATEGORY:FEAT	DISPLAYLOCATION:Feats	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# Ability Category			Visible		Editable?		Change Pool?	Category of Object		Type of Object				Specific choices list			Display Location
+ABILITYCATEGORY:Power Sequestration	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability							ABILITYLIST:Power Sequestration	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Kuresh Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT			TYPE:Metapsionic.Psionic								DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Slayer ITCK Feat	CATEGORY:FEAT			DISPLAYLOCATION:Feats			EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY	TYPE:General.Metapsionic.Psionic	
-ABILITYCATEGORY:Subdiscipline		CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY	TYPE:Subdiscipline	
-
-
+ABILITYCATEGORY:Slayer ITCK Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT			TYPE:General.Metapsionic.Psionic							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Subdiscipline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Subdiscipline									DISPLAYLOCATION:Class Abilities

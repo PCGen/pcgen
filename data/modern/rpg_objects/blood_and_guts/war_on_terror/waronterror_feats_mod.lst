@@ -1,13 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24	SOURCEDATE:2003-01
 
 # Feat Name					Type										Special ABility					Define				Description														Modify VAR					Source Page
+# Ability Name						Type										Special ABility					Define				Description														Modify VAR					Source Page
 CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:Guerilla.Terrorist.Y12SRT
-CATEGORY=FEAT|Aircraft Operation.MOD			TYPE:Terrorist
+CATEGORY=FEAT|Aircraft Operation.MOD		TYPE:Terrorist
 CATEGORY=FEAT|Alertness.MOD				TYPE:Demagogue.Guerilla.Psyop.SWAT.Y12SRT.Zealot
 CATEGORY=FEAT|Antithesis.MOD				TYPE:Demagogue
-CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:SWAT.Y12SRT
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:Guerilla.Psyop.SWAT.Terrorist.Y12SRT.Zealot
+CATEGORY=FEAT|Armor Proficiency (Heavy).MOD	TYPE:SWAT.Y12SRT
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:Guerilla.Psyop.SWAT.Terrorist.Y12SRT.Zealot
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Psyop.SWAT.Terrorist.Y12SRT
 CATEGORY=FEAT|Athletic.MOD				TYPE:Psyop.Terrorist.Y12SRT
 CATEGORY=FEAT|Attentive.MOD				TYPE:Demagogue.Psyop
@@ -15,7 +16,7 @@ CATEGORY=FEAT|Blind-Fight.MOD				TYPE:Terrorist
 CATEGORY=FEAT|Burst Fire.MOD				TYPE:Guerilla.Terrorist.Y12SRT
 CATEGORY=FEAT|Cautious.MOD				TYPE:Terrorist.Zealot
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:Terrorist
-CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:Y12SRT.Zealot
+CATEGORY=FEAT|Combat Martial Arts.MOD		TYPE:Y12SRT.Zealot
 CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:Terrorist.Y12SRT
 CATEGORY=FEAT|Confident.MOD				TYPE:Demagogue
 CATEGORY=FEAT|Conviction.MOD				TYPE:Demagogue.Zealot
@@ -32,36 +33,36 @@ CATEGORY=FEAT|Enemy.MOD					TYPE:Demagogue.Guerilla.Organizer.Zealot
 CATEGORY=FEAT|Exotic Firearms Proficiency.MOD	TYPE:Terrorist
 CATEGORY=FEAT|Far Shot.MOD				TYPE:Y12SRT
 CATEGORY=FEAT|Force Stop.MOD				TYPE:SWAT
-CATEGORY=FEAT|Frightful Presence.MOD			TYPE:Demagogue.Terrorist
+CATEGORY=FEAT|Frightful Presence.MOD		TYPE:Demagogue.Terrorist
 CATEGORY=FEAT|Guide.MOD					TYPE:Y12SRT
-CATEGORY=FEAT|Heroic Surge.MOD				TYPE:Y12SRT
+CATEGORY=FEAT|Heroic Surge.MOD			TYPE:Y12SRT
 CATEGORY=FEAT|Home Turf.MOD				TYPE:Demagogue.Organizer.Zealot
-CATEGORY=FEAT|Improved Damage Threshold.MOD		TYPE:Y12SRT
-CATEGORY=FEAT|Improved Initiative.MOD			TYPE:Terrorist
-CATEGORY=FEAT|Information Network.MOD			TYPE:Organizer
+CATEGORY=FEAT|Improved Damage Threshold.MOD	TYPE:Y12SRT
+CATEGORY=FEAT|Improved Initiative.MOD		TYPE:Terrorist
+CATEGORY=FEAT|Information Network.MOD		TYPE:Organizer
 CATEGORY=FEAT|Iron Will.MOD				TYPE:Psyop
 CATEGORY=FEAT|Leadership.MOD				TYPE:General								SAB:Leadership Score %|LeadershipScore	DEFINE:LeadershipScore|0	DESC:You are a natural leader who attracts followers and brings them under your command.	BONUS:VAR|LeadershipScore|TL+CHA	SOURCEPAGE:p.16
 CATEGORY=FEAT|Low Profile.MOD				TYPE:Guerilla.Psyop.Terrorist.Zealot
 CATEGORY=FEAT|Mobility.MOD				TYPE:Guerilla
 CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:Guerilla.Zealot
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:Guerilla.SWAT.Terrorist.Y12SRT.Zealot
-CATEGORY=FEAT|Precise Shot.MOD				TYPE:SWAT.Y12SRT
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:SWAT.Y12SRT
 CATEGORY=FEAT|Psychological Warfare.MOD		TYPE:General																				DESC:You are trained to cause Psychological damage to his opponents.										SOURCEPAGE:p.17
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:Y12SRT
-CATEGORY=FEAT|Quick Reload.MOD				TYPE:Y12SRT
-CATEGORY=FEAT|Renown.MOD					TYPE:Demagogue.Guerilla.Organizer.Terrorist.Y12SRT.Zealot
+CATEGORY=FEAT|Quick Reload.MOD			TYPE:Y12SRT
+CATEGORY=FEAT|Renown.MOD				TYPE:Demagogue.Guerilla.Organizer.Terrorist.Y12SRT.Zealot
 CATEGORY=FEAT|Shot on the Run.MOD			TYPE:Guerilla.Terrorist
 CATEGORY=FEAT|Stealthy.MOD				TYPE:Guerilla.Terrorist.Y12SRT.Zealot
-CATEGORY=FEAT|Strafe.MOD					TYPE:Guerilla.Y12SRT
-CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:SWAT.Terrorist.Y12SRT
+CATEGORY=FEAT|Strafe.MOD				TYPE:Guerilla.Y12SRT
+CATEGORY=FEAT|Surface Vehicle Operation.MOD	TYPE:SWAT.Terrorist.Y12SRT
 CATEGORY=FEAT|Tactician.MOD				TYPE:Y12SRT
-CATEGORY=FEAT|Tactician (Platoon).MOD			TYPE:Y12SRT
-CATEGORY=FEAT|Tactician (Company).MOD			TYPE:Y12SRT
+CATEGORY=FEAT|Tactician (Platoon).MOD		TYPE:Y12SRT
+CATEGORY=FEAT|Tactician (Company).MOD		TYPE:Y12SRT
 CATEGORY=FEAT|Tactician (Battalion).MOD		TYPE:Y12SRT
 CATEGORY=FEAT|Teamwork.MOD				TYPE:Guerilla.Zealot
 CATEGORY=FEAT|Toughness.MOD				TYPE:Y12SRT
 CATEGORY=FEAT|Track.MOD					TYPE:Y12SRT
 CATEGORY=FEAT|Trustworthy.MOD				TYPE:Demagogue.Organizer.Psyop
 CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:SWAT
-CATEGORY=FEAT|Weapon Focus.MOD				TYPE:Guerilla.SWAT.Y12SRT.Zealot
+CATEGORY=FEAT|Weapon Focus.MOD			TYPE:Guerilla.SWAT.Y12SRT.Zealot
 CATEGORY=FEAT|Windfall.MOD				TYPE:Demagogue.Zealot

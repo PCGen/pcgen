@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: Arknight
@@ -20,7 +20,7 @@ Maenad		VISIBLE:NO	SOURCEPAGE:p.15	RACESUBTYPE:Maenad
 Xeph			VISIBLE:NO	SOURCEPAGE:p.17	RACESUBTYPE:Xeph
 
 ###BLOCK: Determines whether a Soulknife gets Wild Talent or Psionic Talent
-# Template Name			Visible	Template						Required Var. value	Var. Min. Value		Auto Feat
+# Template Name			Visible	Template						Required Var. value	Var. Min. Value		Ability
 Wild Talent Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Is Psionic|Is Not Psionic
 Is Psionic				VISIBLE:NO												PREVARGTEQ:IsPsionic,1	ABILITY:FEAT|AUTOMATIC|Psionic Talent
 Is Not Psionic			VISIBLE:NO								PREVAREQ:IsPsionic,0					ABILITY:FEAT|AUTOMATIC|Wild Talent

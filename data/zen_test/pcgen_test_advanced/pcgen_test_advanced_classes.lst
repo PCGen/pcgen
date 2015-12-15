@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
@@ -128,7 +128,7 @@ CLASS:SpellCaster Three	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
 CLASS:Basic Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|BASEAB|TL|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Basic Fighter	STARTSKILLPTS:2	CSKILL:TYPE=TestSkills
-1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Extra Blade
+1	AUTO:WEAPONPROF|Extra Blade	AUTO:FEAT|Simple Weapon Proficiency
 
 
 
@@ -192,8 +192,8 @@ CLASS:Test Spell DC	HD:4
 CLASS:Companion	HD:8		TYPE:Monster	CLASSTYPE:Monster
 # Class Name	Skill Pts/Lvl
 CLASS:Companion	STARTSKILLPTS:0
-1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
-1:REPEATLEVEL:1												DONOTADD:SKILLPOINTS
+1							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 
 
 
@@ -351,31 +351,31 @@ CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	CLASSTYP
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
-1																																				TEMPLATE:01 Point Buy Master Template for All Levels
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																	ABILITY:Internal|AUTOMATIC|HD Taken d8													DONOTADD:SKILLPOINTS
-1																										ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities
-1										BONUS:VAR|CharacterPoints|-4*classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|EclipseClassLVL|CL
+1																																								TEMPLATE:01 Point Buy Master Template for All Levels
+1:REPEATLEVEL:1|SKIP=0|MAX=20	DONOTADD:SKILLPOINTS	CAST:9,9,9,9,9,9,9,9,9,9																	ABILITY:Internal|AUTOMATIC|HD Taken d8
+1																														ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities
+1														BONUS:VAR|CharacterPoints|-4*classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|EclipseClassLVL|CL
 # No Skill Points Added During Level Progression
-1																																													DONOTADD:SKILLPOINTS
-2																																													DONOTADD:SKILLPOINTS
-3																																													DONOTADD:SKILLPOINTS
-4																																													DONOTADD:SKILLPOINTS
-5																																													DONOTADD:SKILLPOINTS
-6																																													DONOTADD:SKILLPOINTS
-7																																													DONOTADD:SKILLPOINTS
-8																																													DONOTADD:SKILLPOINTS
-9																																													DONOTADD:SKILLPOINTS
-10																																													DONOTADD:SKILLPOINTS
-11																																													DONOTADD:SKILLPOINTS
-12																																													DONOTADD:SKILLPOINTS
-13																																													DONOTADD:SKILLPOINTS
-14																																													DONOTADD:SKILLPOINTS
-15																																													DONOTADD:SKILLPOINTS
-16																																													DONOTADD:SKILLPOINTS
-17																																													DONOTADD:SKILLPOINTS
-18																																													DONOTADD:SKILLPOINTS
-19																																													DONOTADD:SKILLPOINTS
-20																																													DONOTADD:SKILLPOINTS
+1					DONOTADD:SKILLPOINTS
+2					DONOTADD:SKILLPOINTS
+3					DONOTADD:SKILLPOINTS
+4					DONOTADD:SKILLPOINTS
+5					DONOTADD:SKILLPOINTS
+6					DONOTADD:SKILLPOINTS
+7					DONOTADD:SKILLPOINTS
+8					DONOTADD:SKILLPOINTS
+9					DONOTADD:SKILLPOINTS
+10					DONOTADD:SKILLPOINTS
+11					DONOTADD:SKILLPOINTS
+12					DONOTADD:SKILLPOINTS
+13					DONOTADD:SKILLPOINTS
+14					DONOTADD:SKILLPOINTS
+15					DONOTADD:SKILLPOINTS
+16					DONOTADD:SKILLPOINTS
+17					DONOTADD:SKILLPOINTS
+18					DONOTADD:SKILLPOINTS
+19					DONOTADD:SKILLPOINTS
+20					DONOTADD:SKILLPOINTS
 #
 
 ###BLOCK: This is a changing class - DO NOT BASE any Test Cases off of it

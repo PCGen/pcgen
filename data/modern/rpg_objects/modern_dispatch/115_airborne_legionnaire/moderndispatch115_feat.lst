@@ -1,13 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #115 - Airborne Legionnaire	SOURCESHORT:MD115	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=50353	SOURCEDATE:2007-01
 
 # Feat Name			Type
-CATEGORY=FEAT|Blind-Fight.MOD		TYPE:AirborneLegionnaire
-CATEGORY=FEAT|Brawl.MOD			TYPE:AirborneLegionnaire
-CATEGORY=FEAT|Combat Expertise.MOD	TYPE:AirborneLegionnaire
-CATEGORY=FEAT|Dead Aim.MOD		TYPE:AirborneLegionnaire
-CATEGORY=FEAT|Improved Brawl.MOD	TYPE:AirborneLegionnaire
-CATEGORY=FEAT|Improved Feint.MOD	TYPE:AirborneLegionnaire
-CATEGORY=FEAT|Iron Will.MOD		TYPE:AirborneLegionnaire
+# Ability Name					Type
+CATEGORY=FEAT|Blind-Fight.MOD			TYPE:AirborneLegionnaire
+CATEGORY=FEAT|Brawl.MOD				TYPE:AirborneLegionnaire
+CATEGORY=FEAT|Combat Expertise.MOD		TYPE:AirborneLegionnaire
+CATEGORY=FEAT|Dead Aim.MOD			TYPE:AirborneLegionnaire
+CATEGORY=FEAT|Improved Brawl.MOD		TYPE:AirborneLegionnaire
+CATEGORY=FEAT|Improved Feint.MOD		TYPE:AirborneLegionnaire
+CATEGORY=FEAT|Iron Will.MOD			TYPE:AirborneLegionnaire
 CATEGORY=FEAT|Lightning Reflexes.MOD	TYPE:AirborneLegionnaire
 CATEGORY=FEAT|Strafe.MOD			TYPE:AirborneLegionnaire

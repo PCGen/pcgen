@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 
 #Block:Battle-Rager ------------------------------------------------------------
@@ -59,10 +59,10 @@ Magical Deconstruction	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	
 Spell Absorption		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block:Stoneheart Ascetic Bonus Feats ----------------------------------------
-# Ability Name		Unique Key						Category of Ability		Type					Visible		Virtual Feat			Ability
+# Ability Name		Unique Key						Category of Ability		Type					Visible		Ability
 Deflect Arrows		KEY:Stoneheart Ascetic Deflect Arrows	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Deflect Arrows
 Dodge											CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Dodge
-Improved Grab		KEY:Stoneheart Ascetic Improved Grab	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY						ABILITY:Special Ability|VIRTUAL|Improved Grab
+Improved Grab		KEY:Stoneheart Ascetic Improved Grab	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:Special Ability|VIRTUAL|Improved Grab
 Improved Bull Rush								CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Bull Rush
 Improved Disarm		KEY:Stoneheart Ascetic Improved Disarm	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Disarm
 Improved Trip		KEY:Stoneheart Ascetic Improved Trip	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Trip

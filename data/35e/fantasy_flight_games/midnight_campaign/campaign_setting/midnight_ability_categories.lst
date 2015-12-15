@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Original Entry By: Dan Schofield
 
 # NAMEISPI:YES
@@ -8,7 +8,7 @@ ABILITYCATEGORY:Erenlander Ability Increase	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ABILITYCATEGORY:Erenlander Ability Decrease	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbilityDecrease																																				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Erenlander Weapon Familiarity	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ErenlanderWeaponFamiliarty																																		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Erenlander Favored Region		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Favored Region ~ Northlands|Favored Region ~ Central Erenland|Favored Region ~ Southern Erenland															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Dorn Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Fighter				ABILITYLIST:Shield Proficiency|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)						DISPLAYLOCATION:Feats		
+ABILITYCATEGORY:Dorn Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Fighter				ABILITYLIST:Shield Proficiency|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)						DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Dworg Weapon Familiarity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DworgWeaponFamiliarity																																			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Stout or Studious			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoutOrStudious																																				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Nomadic Halfling Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MageCraft				ABILITYLIST:Mounted Combat																													DISPLAYLOCATION:Feats
@@ -77,6 +77,7 @@ ABILITYCATEGORY:Worgen Rider Mounted Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPO
 ###Block: Covenant Weapon
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list								Display Location
 #	NAMEISPI:YES
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list								Display Location
 ABILITYCATEGORY:Fist of the Aruun Alignment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Fist of the Aruun (Good)|Fist of the Aruun (Evil)	DISPLAYLOCATION:Weapon Abilities
 #
 # End

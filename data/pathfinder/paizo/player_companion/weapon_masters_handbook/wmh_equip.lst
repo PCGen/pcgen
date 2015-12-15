@@ -1,9 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-Gnome Flick-Mace	COST:54	PROFICIENCY:WEAPON|Gnome Flick-Mace		TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Polearm	DAMAGE:1d12	CRITMULT:x2	CRITRANGE:1	WT:12	QUALITY:SPROP|QUALITIES additional DP (3), improved damage (5), spring-loaded (2), traditional (gnome) (1), weapon feature (reach) (1)
-Khakkhara		COST:7	PROFICIENCY:WEAPON|Khakkhara			TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Monk	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	WT:10	QUALITY:SPROP|QUALITIES improved critical multiplier (3), improved damage (3), weapon feature (monk) (1)
-War Flute		COST:16	PROFICIENCY:WEAPON|War Flute			TYPE:Weapon.Melee.Specialized.OneHanded.OneHandedMelee.Hammer	DAMAGE:1d8	CRITMULT:x2	CRITRANGE:1	WT:7	QUALITY:SPROP|QUALITIES improved damage (3), tool (musical instrument) (0), weapon feature (distracting, performance) (4)
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Quality and value
+Gnome Flick-Mace	PROFICIENCY:WEAPON|Gnome Flick-Mace	TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Polearm	COST:54	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d12	QUALITY:SPROP|QUALITIES additional DP (3), improved damage (5), spring-loaded (2), traditional (gnome) (1), weapon feature (reach) (1)
+Khakkhara		PROFICIENCY:WEAPON|Khakkhara		TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Monk		COST:7	WT:10		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	QUALITY:SPROP|QUALITIES improved critical multiplier (3), improved damage (3), weapon feature (monk) (1)
+War Flute		PROFICIENCY:WEAPON|War Flute		TYPE:Weapon.Melee.Specialized.OneHanded.OneHandedMelee.Hammer	COST:16	WT:7		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	QUALITY:SPROP|QUALITIES improved damage (3), tool (musical instrument) (0), weapon feature (distracting, performance) (4)
 
 ###Block: Specific Magic Weapons
+# Equipment Name							Product Identity?	Cost		Modifier
 Hammer (Light).COPY=Cailean Fighting Tankard
 Longsword.COPY=Crusader's Longsword
 Pistol (Double Barrelled).COPY=Shieldmarshal's Pistol
@@ -11,11 +14,9 @@ Scimitar.COPY=Valorous Blade
 Longbow (Composite).COPY=Windreader's Bow
 
 
-Cailean Fighting Tankard.MOD		EQMOD:PLUS1W						COST:10301	NAMEISPI:YES
-Crusader's Longsword.MOD		EQMOD:PLUS1W.Cold Iron.Holy.Bane|Demon		COST:47315
-Shieldmarshal's Pistol.MOD		EQMOD:PLUS1W						COST:20050
-Spear of the Honored Ancestors.MOD	EQMOD:PLUS1W.Ghost Touch				COST:15302
-Valorous Blade.MOD			EQMOD:PLUS1W.Valiant					COST:20315
-Windreader's Bow.MOD			EQMOD:PLUS1W.Adaptive.Seeking				COST:54400
-
-
+Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:PLUS1W
+Crusader's Longsword.MOD								COST:47315	EQMOD:PLUS1W.Cold Iron.Holy.Bane|Demon
+Shieldmarshal's Pistol.MOD								COST:20050	EQMOD:PLUS1W
+Spear of the Honored Ancestors.MOD							COST:15302	EQMOD:PLUS1W.Ghost Touch
+Valorous Blade.MOD									COST:20315	EQMOD:PLUS1W.Valiant
+Windreader's Bow.MOD									COST:54400	EQMOD:PLUS1W.Adaptive.Seeking

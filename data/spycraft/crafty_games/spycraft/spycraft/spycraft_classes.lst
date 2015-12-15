@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -20,8 +20,8 @@ CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguis
 10	ABILITY:Special Ability|AUTOMATIC|1000 Faces ~ Faceman
 14	ABILITY:Special Ability|AUTOMATIC|Bald-Faced Lie ~ Faceman
 ###Block:
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1	BONUS:VAR|FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken	TEMPLATE:Class Core Ability
+1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1	BONUS:VAR|FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken																																					TEMPLATE:Class Core Ability
 2	BONUS:VAR|ColdRead|1
 3	BONUS:VAR|QuickChange|(CL-1)/2
 4	BONUS:VAR|Backup|CL/4			ADD:LANGUAGE|TYPE=Spoken
@@ -50,7 +50,7 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Cr
 10	ABILITY:Special Ability|AUTOMATIC|Defensive Roll ~ Fixer
 14	ABILITY:Special Ability|AUTOMATIC|Wildcard Gadget ~ Fixer
 ###Block:
-1																										TEMPLATE:Class Core Ability	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1																										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)	TEMPLATE:Class Core Ability
 2								BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)
 3								BONUS:VAR|SneakAttackDice|(CL-1)/2
 4								BONUS:VAR|UncannyDodge|CL/4
@@ -75,8 +75,8 @@ CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Dri
 10	ABILITY:Special Ability|AUTOMATIC|Serendipity ~ Pointman
 14	ABILITY:Special Ability|AUTOMATIC|Strategy ~ Pointman
 ###Block:
-1																																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1	BONUS:ABILITYPOOL|Versatility Choice|6																				TEMPLATE:Class Core Ability
+1																											ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1	BONUS:ABILITYPOOL|Versatility Choice|6																																																		TEMPLATE:Class Core Ability
 2																BONUS:VAR|Assistance|2
 3	BONUS:ABILITYPOOL|Versatility Choice Choice|1								BONUS:VAR|PointmanLead|(CL-1)/2
 4																BONUS:VAR|TacticsBonus|1	BONUS:VAR|TacticsPerSession|CL/4
@@ -105,7 +105,7 @@ CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration
 10	ABILITY:Special Ability|AUTOMATIC|Master Cracker ~ Snoop
 14	ABILITY:Special Ability|AUTOMATIC|Global Search ~ Snoop
 ###Block:
-1													TEMPLATE:Class Core Ability	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
+1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)	TEMPLATE:Class Core Ability
 2								BONUS:VAR|Intuition|1
 3								BONUS:VAR|Juryrig|(CL+1)/2
 4								BONUS:VAR|BackDoor|CL/4
@@ -130,8 +130,8 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver
 10	ABILITY:Special Ability|AUTOMATIC|Portable Cover ~ Soldier
 14	ABILITY:Special Ability|AUTOMATIC|One in a Million ~ Soldier
 ###Block:
-1																														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-1			BONUS:ABILITYPOOL|Solder Class Ability|1																TEMPLATE:Class Core Ability
+1																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1			BONUS:ABILITYPOOL|Solder Class Ability|1																																																														TEMPLATE:Class Core Ability
 2	DR:1/-
 3			BONUS:ABILITYPOOL|Solder Class Ability|1
 4																				BONUS:VAR|ArmorUse|CL/4
@@ -163,8 +163,8 @@ CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Dis
 10	ABILITY:Special Ability|AUTOMATIC|Soup Her Up ~ Wheelman
 14	ABILITY:Special Ability|AUTOMATIC|That's Impossible ~ Wheelman
 ###Block:
-1																					ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-1									BONUS:VAR|CustomRide|(CL/4)+4			TEMPLATE:Class Core Ability
+1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1									BONUS:VAR|CustomRide|(CL/4)+4																																							TEMPLATE:Class Core Ability
 2									BONUS:VAR|KickStart|1
 3	BONUS:ABILITYPOOL|Wheelman Class Ability|1
 4									BONUS:VAR|Familiarity|CL/4
@@ -186,7 +186,7 @@ CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.244	BONUS:COM
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
 ###Block:
-1	TEMPLATE:Minion Vitality Dice	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	TEMPLATE:Minion Vitality Dice	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
 
 #
 # End

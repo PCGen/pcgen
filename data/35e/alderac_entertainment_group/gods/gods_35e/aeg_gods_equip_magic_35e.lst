@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
-# Equipment Name		Virtual Feat
+# Equipment Name		Ability
 Ring (Sundering).MOD	ABILITY:FEAT|VIRTUAL|Improved Sunder

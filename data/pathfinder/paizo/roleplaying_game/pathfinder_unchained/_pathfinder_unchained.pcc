@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Pathfinder Unchained
 KEY:Pathfinder Unchained
 GAMEMODE:Pathfinder
@@ -64,4 +65,4 @@ ABILITY:support/ability_um.lst|PRECAMPAIGN:1,INCLUDESBOOKTYPE=Ultimate Magic
 # Updated to work with version: -
 # MINVER:6.5
 # MINDEVVER:6.05.04
-# COMMENTS: 
+# COMMENTS:

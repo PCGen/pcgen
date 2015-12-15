@@ -1,5 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-ABILITYCATEGORY:Blackchanter Feat	ABILITYLIST:Skill Focus(Knowledge (Nobility and Royalty))|Skill Focus(Knowledge (Thanatology))|Skill Focus(Knowledge (Undead))		CATEGORY:FEAT	DISPLAYLOCATION:Feats	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY	
-
-
+# Ability Category			Visible		Editable?		Change Pool?	Category of Object	Specific choices list																			Display Location
+ABILITYCATEGORY:Blackchanter Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT		ABILITYLIST:Skill Focus(Knowledge (Nobility and Royalty))|Skill Focus(Knowledge (Thanatology))|Skill Focus(Knowledge (Undead))	DISPLAYLOCATION:Feats

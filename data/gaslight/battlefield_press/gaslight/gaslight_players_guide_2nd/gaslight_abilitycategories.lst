@@ -1,4 +1,4 @@
-# CVS $Revision: 25487 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 25487 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-05
 
 ###Block: Master Categories
@@ -15,24 +15,24 @@ ABILITYCATEGORY:Wealth Roll	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONAL
 ABILITYCATEGORY:Occupation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:1		CATEGORY:Starting Occupation	TYPE:Occupation	PLURAL:Occupations		DISPLAYLOCATION:Character Creation
 
 ###Block: Racial Abilities
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
-ABILITYCATEGORY:Bonus Stat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusStat										DISPLAYLOCATION:Character Creation
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Bonus Stat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusStat													DISPLAYLOCATION:Character Creation
 
-ABILITYCATEGORY:Human Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Human Talent.MultiRacial		PLURAL:Human Talents			DISPLAYLOCATION:Character Creation
-ABILITYCATEGORY:Beast Man Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Beast Man Talent.MultiRacial	PLURAL:Beast Man Talents		DISPLAYLOCATION:Character Creation
-ABILITYCATEGORY:Vampire Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Vampire Talent.MultiRacial	PLURAL:Vampire Talents			DISPLAYLOCATION:Character Creation
-ABILITYCATEGORY:Wildling Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Wildling Talent.MultiRacial	PLURAL:Wildling Talents			DISPLAYLOCATION:Character Creation
-ABILITYCATEGORY:Pixie Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.PixieTalent.MultiRacial		PLURAL:Pixie Talents			DISPLAYLOCATION:Character Creation
-ABILITYCATEGORY:Ghost Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.GhostTalent.MultiRacial		PLURAL:Ghost Talents			DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Human Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Human Talent.MultiRacial		PLURAL:Human Talents			DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Beast Man Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Beast Man Talent.MultiRacial	PLURAL:Beast Man Talents		DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Vampire Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Vampire Talent.MultiRacial		PLURAL:Vampire Talents			DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Wildling Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.Wildling Talent.MultiRacial		PLURAL:Wildling Talents			DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Pixie Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.PixieTalent.MultiRacial		PLURAL:Pixie Talents			DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Ghost Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:General Talent.GhostTalent.MultiRacial		PLURAL:Ghost Talents			DISPLAYLOCATION:Character Creation
 
-ABILITYCATEGORY:Inspiring Presence			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Inspiring Presence		PLURAL:Inspiring Presence			DISPLAYLOCATION:Character Creation
-
-
-
-ABILITYCATEGORY:Beast Man Subrace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Beast Man Subrace			PLURAL:Beast Man Racial Traits	DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Inspiring Presence			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Inspiring Presence						PLURAL:Inspiring Presence		DISPLAYLOCATION:Character Creation
 
 
-ABILITYCATEGORY:Additional Training Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Talent_Additional_Training			PLURAL:Additional Training	DISPLAYLOCATION:Character Creation
+
+ABILITYCATEGORY:Beast Man Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Beast Man Subrace						PLURAL:Beast Man Racial Traits	DISPLAYLOCATION:Character Creation
+
+
+ABILITYCATEGORY:Additional Training Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Talent_Additional_Training				PLURAL:Additional Training		DISPLAYLOCATION:Character Creation
 
 
 
@@ -126,7 +126,7 @@ ABILITYCATEGORY:Investigator Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 ABILITYCATEGORY:Explorer Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:ExplorerTalent						PLURAL:Explorer Talents		DISPLAYLOCATION:Character Creation
 ABILITYCATEGORY:Martial Artist Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:MartialArtistTalent					PLURAL:Martial Artist Talents	DISPLAYLOCATION:Character Creation
 ABILITYCATEGORY:Officer Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:OfficerTalent						PLURAL:Officer Talents		DISPLAYLOCATION:Character Creation
-ABILITYCATEGORY:Personality Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:Charm Talent						PLURAL:Personality Talents	DISPLAYLOCATION:Character Creation
+ABILITYCATEGORY:Personality Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:Charm Talent							PLURAL:Personality Talents	DISPLAYLOCATION:Character Creation
 ABILITYCATEGORY:Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:RogueTalent							PLURAL:Rogue Talents		DISPLAYLOCATION:Character Creation
 ABILITYCATEGORY:Sensitive Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:SensitiveTalent						PLURAL:Sensitive Talents	DISPLAYLOCATION:Character Creation
 ABILITYCATEGORY:Scholar Talent		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent		TYPE:ScholarTalent						PLURAL:Scholar Talents		DISPLAYLOCATION:Character Creation

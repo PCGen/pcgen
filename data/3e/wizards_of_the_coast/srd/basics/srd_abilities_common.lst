@@ -1,33 +1,33 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-# Ability Name							Category of Ability	Define																Auto Equip							Ability														Modify VAR
+# Ability Name							Category of Ability	Type			Required Var. value	Var. Min. Value			Define																Template			Auto Equip							Ability																																			Modify VAR														Cost		Aspects
 Default								CATEGORY:Internal
 
-CATEGORY=Internal|Default.MOD									DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0										AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
+CATEGORY=Internal|Default.MOD																					DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0														AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																																					BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
 
-CATEGORY=Internal|Default.MOD	DEFINE:FractionalHD|0	ABILITY:Fractional HD Progression|AUTOMATIC|Fractional Hit Die|PREVARGTEQ:FractionalHD,1
-Fractional Hit Die	CATEGORY:Internal		TYPE:FractionalHD	DEFINE:FractionalHDTier|0	BONUS:VAR|FractionalHDTier|FractionalHD	ASPECT:NAME|Hit Die Fraction Removed|PREVAREQ:FractionalHDTier,0	ASPECT:NAME|Hit Die Fraction 1/2|PREVAREQ:FractionalHDTier,1	ASPECT:NAME|Hit Die Fraction 1/4|PREVAREQ:FractionalHDTier,2	ASPECT:NAME|Hit Die Fraction 1/8|PREVAREQ:FractionalHDTier,3	ABILITY:Internal|AUTOMATIC|Hitdie ~ Half|PREVAREQ:FractionalHDTier,1	ABILITY:Internal|AUTOMATIC|Hitdie ~ Quarter|PREVAREQ:FractionalHDTier,2	ABILITY:Internal|AUTOMATIC|Hitdie ~ Eighth|PREVAREQ:FractionalHDTier,3
+CATEGORY=Internal|Default.MOD																					DEFINE:FractionalHD|0																										ABILITY:Fractional HD Progression|AUTOMATIC|Fractional Hit Die|PREVARGTEQ:FractionalHD,1
+Fractional Hit Die						CATEGORY:Internal		TYPE:FractionalHD										DEFINE:FractionalHDTier|0																									ABILITY:Internal|AUTOMATIC|Hitdie ~ Half|PREVAREQ:FractionalHDTier,1	ABILITY:Internal|AUTOMATIC|Hitdie ~ Quarter|PREVAREQ:FractionalHDTier,2	ABILITY:Internal|AUTOMATIC|Hitdie ~ Eighth|PREVAREQ:FractionalHDTier,3	BONUS:VAR|FractionalHDTier|FractionalHD											ASPECT:NAME|Hit Die Fraction Removed|PREVAREQ:FractionalHDTier,0	ASPECT:NAME|Hit Die Fraction 1/2|PREVAREQ:FractionalHDTier,1	ASPECT:NAME|Hit Die Fraction 1/4|PREVAREQ:FractionalHDTier,2	ASPECT:NAME|Hit Die Fraction 1/8|PREVAREQ:FractionalHDTier,3
 #
-Reduce Fraction to 1/4	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVAREQ:FractionalHD,3
-Reduce Fraction to 1/2	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVARGTEQ:FractionalHD,2
-Reduce Fraction to 1/1	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVARGTEQ:FractionalHD,1
+Reduce Fraction to 1/4						CATEGORY:Internal		TYPE:FractionalHD	PREVAREQ:FractionalHD,3																																																																							BONUS:VAR|FractionalHDTier|-1											COST:0
+Reduce Fraction to 1/2						CATEGORY:Internal		TYPE:FractionalHD					PREVARGTEQ:FractionalHD,2																																																																		BONUS:VAR|FractionalHDTier|-1											COST:0
+Reduce Fraction to 1/1						CATEGORY:Internal		TYPE:FractionalHD					PREVARGTEQ:FractionalHD,1																																																																		BONUS:VAR|FractionalHDTier|-1											COST:0
 #
-Hitdie ~ Full	CATEGORY:Internal					
-Hitdie ~ Half	CATEGORY:Internal	TEMPLATE:Half Hitdie	
-Hitdie ~ Quarter	CATEGORY:Internal	TEMPLATE:Quarter Hitdie	
-Hitdie ~ Eighth	CATEGORY:Internal	TEMPLATE:Eighth Hitdie
+Hitdie ~ Full							CATEGORY:Internal
+Hitdie ~ Half							CATEGORY:Internal																															TEMPLATE:Half Hitdie
+Hitdie ~ Quarter							CATEGORY:Internal																															TEMPLATE:Quarter Hitdie
+Hitdie ~ Eighth							CATEGORY:Internal																															TEMPLATE:Eighth Hitdie
 
 
 
 #BLOCK: Where to store Abilities
-Grants All Hidden Abilities					CATEGORY:Internal																											ABILITY:Internal|AUTOMATIC|Defines Required
+Grants All Hidden Abilities					CATEGORY:Internal																																											ABILITY:Internal|AUTOMATIC|Defines Required
 #COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
 
 # Bardic Abilities for Non-Bard Use
 #CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Master Traits
-CATEGORY=Internal|Grants All Hidden Abilities.MOD																														ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
+CATEGORY=Internal|Grants All Hidden Abilities.MOD																																														ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
-Defines Required							CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|0																								BONUS:VAR|LowLightRange|2
+Defines Required							CATEGORY:Internal														DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|0																																																	BONUS:VAR|LowLightRange|2
 #Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits

@@ -1,16 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-ABILITYCATEGORY:Evangelist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Class Feature.EvangelistClassFeatures					PLURAL:Evangelist Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Exalted Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Exalted Class Feature.ExaltedClassFeatures					PLURAL:Exalted Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sentinel Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sentinel Class Feature.SentinelClassFeatures					PLURAL:Sentinel Class Features			DISPLAYLOCATION:Class Features
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Evangelist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Class Feature.EvangelistClassFeatures	PLURAL:Evangelist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Exalted Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Exalted Class Feature.ExaltedClassFeatures		PLURAL:Exalted Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sentinel Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sentinel Class Feature.SentinelClassFeatures	PLURAL:Sentinel Class Features	DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Evangelist Aligned Class	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Evangelist Aligned Class
+ABILITYCATEGORY:Evangelist Aligned Class	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Aligned Class											DISPLAYLOCATION:Class Features
 # select any previously held class
 
-ABILITYCATEGORY:Evangelist Divine Boon	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Evangelist Divine Boon
-ABILITYCATEGORY:Exalted Divine Boon		CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Exalted Divine Boon
-ABILITYCATEGORY:Sentinel Divine Boon	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Features	VISIBLE:QUALIFY		TYPE:Sentinel Divine Boon
-
-
-
-
+ABILITYCATEGORY:Evangelist Divine Boon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Evangelist Divine Boon											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Exalted Divine Boon		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Exalted Divine Boon											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sentinel Divine Boon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sentinel Divine Boon											DISPLAYLOCATION:Class Features

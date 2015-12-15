@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -9,7 +9,7 @@ SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat		Required Lvl	Required Skill						Required Stat
+# Class Name	Required Ability					Required Lvl	Required Skill						Required Stat
 CLASS:Demagogue	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRELEVEL:MIN=5	PRESKILL:3,Bluff=4,Intimidate=4,Diplomacy=6	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|Listen|Perform|TYPE=Profession|Read Lips|Search|Sense Motive|Speak Language|Spot|Use Magic Device
@@ -31,8 +31,8 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat										Required Lvl	PRETOTALAB
-CLASS:Hone		PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5	PRETOTALAB:5
+# Class Name	Required Ability													Required AL		Required Lvl	PRETOTALAB
+CLASS:Hone		PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PREALIGN:LG,LN,LE	PRELEVEL:MIN=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Spot|Swim|Tumble
 ###Block: Class Defines
@@ -53,14 +53,14 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jum
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat						Required Lvl	Required Skill												Required Stat
+# Class Name	Required Ability									Required Lvl	Required Skill												Required Stat
 CLASS:Inquisitor	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion)=6,Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Read Lips|Ride|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Wilderness Lore
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Smite the Heathen (Ex)
 2	SAB:Divine Protection (Ex)													BONUS:SAVE|Fortitude,Reflex,Will|CHA																			ADD:SPELLCASTER|Divine
@@ -75,13 +75,13 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE=Craft|Diplo
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat		Required Lvl	Required Skill
+# Class Name	Required Ability					Required Lvl	Required Skill
 CLASS:Rafter	PREABILITY:1,CATEGORY=FEAT,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:4,Appraise=2,Intuit Direction=4,Knowledge (Arcana)=4,Craft (Maps)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Research (Ex)
 2	SAB:Escape (Ex)	SAB:Depth Perception (Ex)
@@ -96,7 +96,7 @@ CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE=
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat	Required Lvl	Required Skill
+# Class Name	Required Ability				Required Lvl	Required Skill
 CLASS:Stalker	PREABILITY:1,CATEGORY=FEAT,Track	PRELEVEL:MIN=5	PRESKILL:5,Balance=2,City Lore=2,Disguise=2,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
@@ -117,14 +117,14 @@ CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat					Required Lvl	PRETOTALAB
+# Class Name	Required Ability								Required Lvl	PRETOTALAB
 CLASS:Vigilante	PREABILITY:3,CATEGORY=FEAT,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1		SAB:Sense Attack (Ex)	SAB:Reflexive Awarness (Ex)
 2											BONUS:VAR|UncannyDodge|CL/5+1							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge

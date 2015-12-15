@@ -1,5 +1,5 @@
-# CVS $Revision: 25487 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+# CVS $Revision: 25487 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2013-11
 #Original Entry: Andrew Maitland
 
 
@@ -8,38 +8,38 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 Occupation		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1
 
 ###Block: Starting Class
-# Template Name	Visible	Template					Required Class			Bonus to HP
+# Template Name	Visible	Template					Required Class			Bonus to HP			Type
 Starting Class	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=StartingClass
 #
-Acolyte		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Acolyte=1		BONUS:HP|CURRENTMAX|16
-Apprentice		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Apprentice=1		BONUS:HP|CURRENTMAX|12
-Everyman		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Everyman=1		BONUS:HP|CURRENTMAX|12
-Explorer		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Explorer=1		BONUS:HP|CURRENTMAX|16
-Gunslinger		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Gunslinger=1		BONUS:HP|CURRENTMAX|20
-Inventor		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Inventor=1		BONUS:HP|CURRENTMAX|12
-Investigator	VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Investigator=1	BONUS:HP|CURRENTMAX|12
-Martial Artist	VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Martial Artist=1	BONUS:HP|CURRENTMAX|16
-Officer		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Officer=1		BONUS:HP|CURRENTMAX|16
-Personality		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Personality=1	BONUS:HP|CURRENTMAX|12
-Rogue			VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Rogue=1		BONUS:HP|CURRENTMAX|16
-Sensitive		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Sensitive=1		BONUS:HP|CURRENTMAX|16
-Scholar		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Scholar=1		BONUS:HP|CURRENTMAX|16
+Acolyte		VISIBLE:NO							PRECLASS:1,Acolyte=1		BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
+Apprentice		VISIBLE:NO							PRECLASS:1,Apprentice=1		BONUS:HP|CURRENTMAX|12	TYPE:StartingClass
+Everyman		VISIBLE:NO							PRECLASS:1,Everyman=1		BONUS:HP|CURRENTMAX|12	TYPE:StartingClass
+Explorer		VISIBLE:NO							PRECLASS:1,Explorer=1		BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
+Gunslinger		VISIBLE:NO							PRECLASS:1,Gunslinger=1		BONUS:HP|CURRENTMAX|20	TYPE:StartingClass
+Inventor		VISIBLE:NO							PRECLASS:1,Inventor=1		BONUS:HP|CURRENTMAX|12	TYPE:StartingClass
+Investigator	VISIBLE:NO							PRECLASS:1,Investigator=1	BONUS:HP|CURRENTMAX|12	TYPE:StartingClass
+Martial Artist	VISIBLE:NO							PRECLASS:1,Martial Artist=1	BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
+Officer		VISIBLE:NO							PRECLASS:1,Officer=1		BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
+Personality		VISIBLE:NO							PRECLASS:1,Personality=1	BONUS:HP|CURRENTMAX|12	TYPE:StartingClass
+Rogue			VISIBLE:NO							PRECLASS:1,Rogue=1		BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
+Sensitive		VISIBLE:NO							PRECLASS:1,Sensitive=1		BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
+Scholar		VISIBLE:NO							PRECLASS:1,Scholar=1		BONUS:HP|CURRENTMAX|16	TYPE:StartingClass
 
 
 
 ###Block: Beast Men
-# Template Name		Size		Visible	Subrace		Natural Attacks
-Beast Man ~ Bear		SIZE:L	VISIBLE:NO	SUBRACE:Bear
-Beast Man ~ Cat				VISIBLE:NO	SUBRACE:Cat
-Beast Man ~ Dog				VISIBLE:NO	SUBRACE:Dog
-Beast Man ~ Bat		SIZE:S	VISIBLE:NO	SUBRACE:Bat
+# Template Name	Size		Visible	Subrace		Natural Attacks
+Beast Man ~ Bear	SIZE:L	VISIBLE:NO	SUBRACE:Bear
+Beast Man ~ Cat			VISIBLE:NO	SUBRACE:Cat
+Beast Man ~ Dog			VISIBLE:NO	SUBRACE:Dog
+Beast Man ~ Bat	SIZE:S	VISIBLE:NO	SUBRACE:Bat
 
 
 #TODO: Wild Shape templates:  Bat|Dire Bat|Rat|Dire Rat|Wolf|Dire Wolf
 
-Claws						VISIBLE:NO				NATURALATTACKS:Claw,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*2,1d6
-Fangs						VISIBLE:NO				NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
-Horns						VISIBLE:NO				NATURALATTACKS:Gore,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
+Claws					VISIBLE:NO				NATURALATTACKS:Claw,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*2,1d6
+Fangs					VISIBLE:NO				NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
+Horns					VISIBLE:NO				NATURALATTACKS:Gore,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
 
 
 ###Block: Import from other source

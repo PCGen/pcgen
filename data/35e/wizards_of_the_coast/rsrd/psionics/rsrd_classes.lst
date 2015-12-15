@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -128,9 +128,9 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Cra
 1						ABILITY:Special Ability|AUTOMATIC|MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
 
 ###Block: Class Info
-1	TEMPLATE:Psionic	ABILITY:FEAT|AUTOMATIC|Weapon Focus(Mind Blade)|Wild Talent
-6				ABILITY:FEAT|AUTOMATIC|Speed of Thought
-9				ABILITY:FEAT|AUTOMATIC|Greater Weapon Focus(Mind Blade)
+1	ABILITY:FEAT|AUTOMATIC|Weapon Focus(Mind Blade)|Wild Talent	TEMPLATE:Psionic
+6	ABILITY:FEAT|AUTOMATIC|Speed of Thought
+9	ABILITY:FEAT|AUTOMATIC|Greater Weapon Focus(Mind Blade)
 
 # Class Name	Hit Dice	Type				Class Type		Max Level	Source Page				Combat bonus															Save bonus																					Modify VAR
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
@@ -224,15 +224,15 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus															Save bonus																					Modify VAR
 CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name	Required Feat				Required Skill			Req. Spell Type			PRETOTALAB
+# Class Name	Required Ability							Required Skill			Req. Spell Type			PRETOTALAB
 CLASS:Elocator	PREABILITY:2,CATEGORY=FEAT,Mobility,Spring Attack	PRESKILL:1,Concentration=8	PRESPELLTYPE:1,Psionic=1	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
-1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Scorn Earth															ABILITY:FEAT|AUTOMATIC|Sidestep Charge
+1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Scorn Earth	ABILITY:FEAT|AUTOMATIC|Sidestep Charge
 2								BONUS:VAR|OpportunisticStrike|2					ABILITY:Special Ability|AUTOMATIC|Opportunistic Strike
-3														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Dimension Step		SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
+3														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Dimension Step							SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Dimension Door (Psionic),14+INT
 4														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Flanker
 5								BONUS:VAR|OpportunisticStrike|2
 6	BONUS:ABILITYPOOL|Elocator Transporter|1							ADD:SPELLCASTER|Psionic
@@ -243,7 +243,7 @@ CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|T
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus															Save bonus																					Modify VAR
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name		Required Ability							Required Feat		Required Skill			PRETOTALAB
+# Class Name		Required Ability														Required Skill			PRETOTALAB
 CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:1,Concentration=9	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
@@ -275,7 +275,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus																					Modify VAR
 CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name	Required Feat	Required Skill					Required Template		PRETOTALAB
+# Class Name	Required Ability				Required Skill					Required Template		PRETOTALAB
 CLASS:Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
@@ -295,8 +295,8 @@ CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus																					Modify VAR
 CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name	Required Class				Required Feat			Required Skill
-CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=4
+# Class Name	Required Ability						Required Class				Required Skill
+CLASS:Metamind	PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	PRECLASS:1,SPELLCASTER.Psionic=4	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info
@@ -309,7 +309,7 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craf
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus																					Modify VAR
 CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name		Required Feat		Required Skill						Req. Spell Type
+# Class Name		Required Ability					Required Skill						Req. Spell Type
 CLASS:Psion Uncarnate	PREABILITY:1,CATEGORY=FEAT,Psionic Body	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=8	PRESPELLTYPE:1,Psionic=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disguise|Knowledge (The Planes)|Knowledge (Psionics)|Psicraft|Sense Motive
@@ -346,8 +346,8 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intim
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus
 CLASS:Thrallherd	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Class				Required Feat		Required Skill						Req. Known Spell
-CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=1	PREABILITY:1,CATEGORY=FEAT,Inquisitor	PRESKILL:2,Knowledge (Psionics)=8,Diplomacy=4	PRESPELL:1,Mindlink
+# Class Name	Required Ability					Required Class				Required Skill						Req. Known Spell
+CLASS:Thrallherd	PREABILITY:1,CATEGORY=FEAT,Inquisitor	PRECLASS:1,SPELLCASTER.Psionic=1	PRESKILL:2,Knowledge (Psionics)=8,Diplomacy=4	PRESPELL:1,Mindlink
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (Psionics)|Psicraft|Sense Motive
 ###Block: Class Info

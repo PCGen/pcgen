@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Original Author: kingpaul, Updated by Beaver and Tir Gwaith
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
@@ -18,8 +18,8 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=4|Cure Serious Wounds,Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Neutralize Poison,Remove Blindness/Deafness
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Turn Undead stuff
 3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|AllowImprovedTurning|1	DEFINE:AllowImprovedTurning|0	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
 3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0
@@ -55,8 +55,8 @@ CLASS:Ranger (BoHM)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TY
 CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ranger (BoHM)|CL
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=1|Alarm,Animal Friendship,Burning Brand,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Entangle,Magic Fang,Pass without Trace,Read Magic,Resist Elements,Speak with Animals,Summon Nature's Ally I
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=2|Animal Messenger,Blight Enemy,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Hold Animal,Protection from Elements,Sleep,Snare,Speak with Plants,Summon Nature's Ally II,Wild Stealth
@@ -65,7 +65,7 @@ CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 ###Block: Favored Enemy
 1	BONUS:ABILITYPOOL|Favored Enemy|var("RangerFavoredEnemyLVL")/5+1	BONUS:VAR|RangerFavoredEnemyLVL|CL	DEFINE:RangerFavoredEnemyLVL|0
 ###Block: Normal level progression
-1																																																																				ABILITY:FEAT|AUTOMATIC|Track
+1										ABILITY:FEAT|AUTOMATIC|Track
 4	CAST:0,0		BONUS:ABILITYPOOL|Ranger HM Feat|1
 5	CAST:0,0
 6	CAST:0,1
@@ -86,25 +86,25 @@ CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
 CLASS:Blessed Prelate	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BPr		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Required Feat								Required Skill
-CLASS:Blessed Prelate	PREALIGN:LG,NG,CG	PREABILITY:3,CATEGORY=FEAT,Devout Faith,Vow of Obedience,Vow of Stability	PRESKILL:1,Knowledge (Religion)=5
+# Class Name		Required Ability											Required AL		Required Skill
+CLASS:Blessed Prelate	PREABILITY:3,CATEGORY=FEAT,Devout Faith,Vow of Obedience,Vow of Stability	PREALIGN:LG,NG,CG	PRESKILL:1,Knowledge (Religion)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blessed Prelate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
-1																							ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blessed Prelate Feat|1
-2	SAB:Blessed Child (Dayod)																		ADD:SPELLCASTER|ANY
-3																							BONUS:ABILITYPOOL|Blessed Prelate Feat|1
-4	SAB:Enlightened State						BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|ANY
-5																							BONUS:ABILITYPOOL|Blessed Prelate Feat|1
-6	SAB:Blessed Child (Fealom)																		ADD:SPELLCASTER|ANY
-7																							BONUS:ABILITYPOOL|Blessed Prelate Feat|1
-8	SAB:Greater Enlightened State					BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|ANY
-9																							BONUS:ABILITYPOOL|Blessed Prelate Feat|1
-10	SAB:Blessed Child (Hallas)	SAB:Touch of Purity														ADD:SPELLCASTER|ANY
+1										BONUS:ABILITYPOOL|Blessed Prelate Feat|1														ADD:SPELLCASTER|ANY
+2	SAB:Blessed Child (Dayod)																									ADD:SPELLCASTER|ANY
+3										BONUS:ABILITYPOOL|Blessed Prelate Feat|1
+4	SAB:Enlightened State													BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|ANY
+5										BONUS:ABILITYPOOL|Blessed Prelate Feat|1
+6	SAB:Blessed Child (Fealom)																									ADD:SPELLCASTER|ANY
+7										BONUS:ABILITYPOOL|Blessed Prelate Feat|1
+8	SAB:Greater Enlightened State												BONUS:COMBAT|AC|2	BONUS:COMBAT|INITIATIVE|2	BONUS:SKILL|Spot,Listen|2	ADD:SPELLCASTER|ANY
+9										BONUS:ABILITYPOOL|Blessed Prelate Feat|1
+10	SAB:Blessed Child (Hallas)	SAB:Touch of Purity																					ADD:SPELLCASTER|ANY
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Hallowed Mage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:HMa		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Required Feat					Required Skill								Req. Spell Type
-CLASS:Hallowed Mage	PREALIGN:LG,NG,CG	PREABILITY:2,CATEGORY=FEAT,Devout Faith,Vow of Obedience	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Religion)=8	PRESPELLTYPE:1,Arcane=3	PRESPELLTYPE:1,Divine=3
+# Class Name		Required Ability								Required AL		Required Skill								Req. Spell Type
+CLASS:Hallowed Mage	PREABILITY:2,CATEGORY=FEAT,Devout Faith,Vow of Obedience	PREALIGN:LG,NG,CG	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Religion)=8	PRESPELLTYPE:1,Arcane=3	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hallowed Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -130,8 +130,8 @@ CLASS:Hallowed Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=4|LEVEL=5|L
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Knight of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:KoP		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required AL			Required Feat		Required Skill				PRETOTALAB
-CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PREABILITY:1,CATEGORY=FEAT,Devout Faith	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:7
+# Class Name			Required Ability					Required AL			Required Skill				PRETOTALAB
+CLASS:Knight of the Pale	PREABILITY:1,CATEGORY=FEAT,Devout Faith	PREALIGN:LG,LN,NG,TN	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Pale	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE=Profession|Sense Motive|Spot
 ###Block: Proficiencies

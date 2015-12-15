@@ -1,30 +1,32 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-Kasatha Spinal Sword	SPROP:The save DC of a nonmagical injury poison applied to a kasatha spinal sword increases by 2. Kasathas treat kasatha spinal swords as martial weapons.	DAMAGE:1d6	SIZE:M	WIELD:Light	TYPE:Exotic.Piercing.Slashing	CRITRANGE:1	CRITMULT:x3	WT:3	EQMOD:FRAGILE	COST:50	PROFICIENCY:WEAPON|Kasatha Spinal Sword
+# Equipment Name				Unique Key			Required Weapon Proficiency			Type					Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Size		Source Page		Special Property
+Kasatha Spinal Sword							PROFICIENCY:WEAPON|Kasatha Spinal Sword	TYPE:Exotic.Piercing.Slashing	COST:50	WT:3		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:FRAGILE	WIELD:Light		SIZE:M				SPROP:The save DC of a nonmagical injury poison applied to a kasatha spinal sword increases by 2. Kasathas treat kasatha spinal swords as martial weapons.
 
 # Interstellar Equipment
-Anchoring Balloon							TYPE:Interstellar Equipment	SOURCEPAGE:p.19	COST:300	WT:25
-Compressed Air							TYPE:Interstellar Equipment	SOURCEPAGE:p.19	COST:50	WT:10
-Leg Stabilizers							TYPE:Interstellar Equipment	SOURCEPAGE:p.19	COST:1000	WT:2
-Rations, Space (per day)	KEY:Rations (Space/Day)	TYPE:Interstellar Equipment	SOURCEPAGE:p.19	COST:1	WT:0.5
-Traveler's pocket watch						TYPE:Interstellar Equipment	SOURCEPAGE:p.19	COST:1000	WT:1
+Anchoring Balloon															TYPE:Interstellar Equipment	COST:300	WT:25																SOURCEPAGE:p.19
+Compressed Air															TYPE:Interstellar Equipment	COST:50	WT:10																SOURCEPAGE:p.19
+Leg Stabilizers															TYPE:Interstellar Equipment	COST:1000	WT:2																SOURCEPAGE:p.19
+Rations, Space (per day)		KEY:Rations (Space/Day)								TYPE:Interstellar Equipment	COST:1	WT:0.5															SOURCEPAGE:p.19
+Traveler's pocket watch														TYPE:Interstellar Equipment	COST:1000	WT:1																SOURCEPAGE:p.19
 
 # Atronomical Equipment
-Cosmogram					SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:200	WT:0.5
-Orrery (Tellurium)			SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:100	WT:2
-Orrery (Calculating Tellurium)	SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:200	WT:2
-Orrery (Standard)				SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:750	WT:5
-Orrery (Grand)				SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:1000	WT:12
-Orrery (Calculating Standard)		SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:1500	WT:5
-Orrery (Calculating Grand)		SOURCEPAGE:p.26	TYPE:Atronomical Equipment	COST:2000	WT:12
+Cosmogram																TYPE:Atronomical Equipment	COST:200	WT:0.5															SOURCEPAGE:p.26
+Orrery (Tellurium)														TYPE:Atronomical Equipment	COST:100	WT:2																SOURCEPAGE:p.26
+Orrery (Calculating Tellurium)												TYPE:Atronomical Equipment	COST:200	WT:2																SOURCEPAGE:p.26
+Orrery (Standard)															TYPE:Atronomical Equipment	COST:750	WT:5																SOURCEPAGE:p.26
+Orrery (Grand)															TYPE:Atronomical Equipment	COST:1000	WT:12																SOURCEPAGE:p.26
+Orrery (Calculating Standard)													TYPE:Atronomical Equipment	COST:1500	WT:5																SOURCEPAGE:p.26
+Orrery (Calculating Grand)													TYPE:Atronomical Equipment	COST:2000	WT:12																SOURCEPAGE:p.26
 
-Telescope (x10)	SOURCEPAGE:p.27	TYPE:Atronomical Equipment	COST:2000	WT:12
-Telescope (x50)	SOURCEPAGE:p.27	TYPE:Atronomical Equipment	COST:4000	WT:23
-Telescope (x250)	SOURCEPAGE:p.27	TYPE:Atronomical Equipment	COST:8000	WT:44
+Telescope (x10)															TYPE:Atronomical Equipment	COST:2000	WT:12																SOURCEPAGE:p.27
+Telescope (x50)															TYPE:Atronomical Equipment	COST:4000	WT:23																SOURCEPAGE:p.27
+Telescope (x250)															TYPE:Atronomical Equipment	COST:8000	WT:44																SOURCEPAGE:p.27
 
 # Interstellar Magic Items
-Astrologer's Telescope		SOURCEPAGE:p.30	TYPE:Interstellar Magic Items	COST:54000	WT:30
-Harvesting Lens			SOURCEPAGE:p.30	TYPE:Interstellar Magic Items	COST:5400	WT:1
-Lens of Starsight			SOURCEPAGE:p.30	TYPE:Interstellar Magic Items	COST:2600	WT:1
-Ointment of Void Sealing	SOURCEPAGE:p.30	TYPE:Interstellar Magic Items	COST:3000	WT:25
-Traveler's Translator		SOURCEPAGE:p.31	TYPE:Interstellar Magic Items	COST:1550	WT:0
-Wayfinder of the Stars		SOURCEPAGE:p.31	TYPE:Interstellar Magic Items	COST:70200	WT:2
+Astrologer's Telescope														TYPE:Interstellar Magic Items	COST:54000	WT:30																SOURCEPAGE:p.30
+Harvesting Lens															TYPE:Interstellar Magic Items	COST:5400	WT:1																SOURCEPAGE:p.30
+Lens of Starsight															TYPE:Interstellar Magic Items	COST:2600	WT:1																SOURCEPAGE:p.30
+Ointment of Void Sealing													TYPE:Interstellar Magic Items	COST:3000	WT:25																SOURCEPAGE:p.30
+Traveler's Translator														TYPE:Interstellar Magic Items	COST:1550	WT:0																SOURCEPAGE:p.31
+Wayfinder of the Stars														TYPE:Interstellar Magic Items	COST:70200	WT:2																SOURCEPAGE:p.31

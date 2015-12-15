@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57	SOURCEDATE:2052-01
 # Original Entry by: Paul W. King
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
 CLASS:Corporate Fixer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7
-# Class Name		Multiple Requirements																Required Skill
+# Class Name		Multiple Requirements																		Required Skill
 CLASS:Corporate Fixer	PREMULT:2,[PREABILITY:2,CATEGORY=FEAT,Track,Urban Tracking],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack,Swift Strike]	PRESKILL:5,Investigate=10,Survival=10,Craft (Chemical)=6,Demolitions=6,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Corporate Fixer	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Craft (Chemical)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Listen|Move Silently|Navigate|Pilot|Research|Sense Motive|Spot|Survival

@@ -1,20 +1,21 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Acrobatic.MOD				TYPE:Mundane
 CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:BountyHunterBNB
 CATEGORY=FEAT|Alertness.MOD				TYPE:Mundane.ProfilerBNB
 CATEGORY=FEAT|Animal Affinity.MOD			TYPE:Mundane
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:BountyHunterBNB
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:BountyHunterBNB
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:BountyHunterBNB
 CATEGORY=FEAT|Athletic.MOD				TYPE:Mundane
 CATEGORY=FEAT|Attentive.MOD				TYPE:Mundane
 CATEGORY=FEAT|Brawl.MOD					TYPE:BountyHunterBNB.Stalker.MentalPatient
-CATEGORY=FEAT|Builder.MOD					TYPE:Mundane
+CATEGORY=FEAT|Builder.MOD				TYPE:Mundane
 CATEGORY=FEAT|Cautious.MOD				TYPE:Mundane
-CATEGORY=FEAT|Cleave.MOD					TYPE:Stalker
+CATEGORY=FEAT|Cleave.MOD				TYPE:Stalker
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:Stalker
 CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:Stalker
 CATEGORY=FEAT|Confident.MOD				TYPE:Mundane.ProfilerBNB
@@ -26,29 +27,29 @@ CATEGORY=FEAT|Double Tap.MOD				TYPE:BountyHunterBNB
 CATEGORY=FEAT|Educated.MOD				TYPE:BountyHunterBNB.Mundane.ProfilerBNB
 CATEGORY=FEAT|Elusive Target.MOD			TYPE:Stalker
 CATEGORY=FEAT|Endurance.MOD				TYPE:Stalker
-CATEGORY=FEAT|Focused.MOD					TYPE:Mundane
-CATEGORY=FEAT|Frightful Presence.MOD			TYPE:Stalker
+CATEGORY=FEAT|Focused.MOD				TYPE:Mundane
+CATEGORY=FEAT|Frightful Presence.MOD		TYPE:Stalker
 CATEGORY=FEAT|Gearhead.MOD				TYPE:Mundane
-CATEGORY=FEAT|Great Cleave.MOD				TYPE:Stalker
+CATEGORY=FEAT|Great Cleave.MOD			TYPE:Stalker
 CATEGORY=FEAT|Guide.MOD					TYPE:Mundane
-CATEGORY=FEAT|Improved Bull Rush.MOD			TYPE:Stalker
+CATEGORY=FEAT|Improved Bull Rush.MOD		TYPE:Stalker
 CATEGORY=FEAT|Iron Will.MOD				TYPE:ProfilerBNB
 CATEGORY=FEAT|Knockout Punch.MOD			TYPE:BountyHunterBNB.Stalker
 CATEGORY=FEAT|Low Profile.MOD				TYPE:Mundane.ProfilerBNB
 CATEGORY=FEAT|Medical Expert.MOD			TYPE:Mundane
 CATEGORY=FEAT|Meticulous.MOD				TYPE:Mundane
 CATEGORY=FEAT|Mobility.MOD				TYPE:Stalker
-CATEGORY=FEAT|Nimble.MOD					TYPE:Mundane
+CATEGORY=FEAT|Nimble.MOD				TYPE:Mundane
 CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:BountyHunterBNB.ProfilerBNB
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:BountyHunterBNB
-CATEGORY=FEAT|Power Attack.MOD				TYPE:Stalker
-CATEGORY=FEAT|Renown.MOD					TYPE:ProfilerBNB
+CATEGORY=FEAT|Power Attack.MOD			TYPE:Stalker
+CATEGORY=FEAT|Renown.MOD				TYPE:ProfilerBNB
 CATEGORY=FEAT|Run.MOD					TYPE:Stalker
-CATEGORY=FEAT|Spring Attack.MOD				TYPE:Stalker
+CATEGORY=FEAT|Spring Attack.MOD			TYPE:Stalker
 CATEGORY=FEAT|Stealthy.MOD				TYPE:Mundane.DisorganizedKiller.MentalPatient
 CATEGORY=FEAT|Streetfighting.MOD			TYPE:Stalker
 CATEGORY=FEAT|Studious.MOD				TYPE:Mundane.ProfilerBNB
-CATEGORY=FEAT|Sunder.MOD					TYPE:Stalker
+CATEGORY=FEAT|Sunder.MOD				TYPE:Stalker
 CATEGORY=FEAT|Toughness.MOD				TYPE:Stalker
 CATEGORY=FEAT|Trustworthy.MOD				TYPE:Mundane.ProfilerBNB
 CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:Mundane

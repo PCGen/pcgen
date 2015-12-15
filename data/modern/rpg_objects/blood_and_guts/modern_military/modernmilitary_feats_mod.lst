@@ -1,20 +1,21 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
 # Need to figure out how to .MOD Surface Vehicle Operation to accept a new item in the CHOOSE
 
 # Feat Name					Type																															Source Page
+# Ability Name						Type																															Source Page
 CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:InfantryFeat.CombatControllers.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Alertness.MOD				TYPE:LawEnforcementFeat.CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:CombatControllers.Pararescue.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Armor Proficiency (Heavy).MOD	TYPE:CombatControllers.Pararescue.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Athletic.MOD				TYPE:CombatControllers.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Builder.MOD					TYPE:IntelligenceSpecialist
+CATEGORY=FEAT|Builder.MOD				TYPE:IntelligenceSpecialist
 CATEGORY=FEAT|Burst Fire.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Cautious.MOD				TYPE:SpecialBoat
-CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Combat Martial Arts.MOD		TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Cover Fire.MOD				TYPE:Ranger.WeaponsSergeant.SOAR.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Dead Aim.MOD				TYPE:CombatControllers.Pararescue
@@ -24,17 +25,17 @@ CATEGORY=FEAT|Exotic Firearms Proficiency.MOD	TYPE:Ranger.WeaponsSergeant.DeltaF
 CATEGORY=FEAT|Far Shot.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Gearhead.MOD				TYPE:MaintenanceFeat
 CATEGORY=FEAT|Guide.MOD					TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Heroic Surge.MOD				TYPE:CombatControllers.Pararescue
-CATEGORY=FEAT|Improved Damage Threshold.MOD		TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.Deltaforce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Heroic Surge.MOD			TYPE:CombatControllers.Pararescue
+CATEGORY=FEAT|Improved Damage Threshold.MOD	TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.Deltaforce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Medical Expert.MOD			TYPE:MedicalFeat.MedicalSergeant
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Precise Shot.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Quick Reload.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Renown.MOD					TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Quick Reload.MOD			TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Renown.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Stealthy.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Strafe.MOD					TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:CombatControllers.Pararescue.CombatEngineeringFeat.ArmorFeat.SEAL.SpecialBoat
+CATEGORY=FEAT|Strafe.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Surface Vehicle Operation.MOD	TYPE:CombatControllers.Pararescue.CombatEngineeringFeat.ArmorFeat.SEAL.SpecialBoat
 #Surface Vehicle Operation.MOD							TYPE:CombatControllers.Pararescue
 #Surface Vehilce Operation(Heavy Earth Movers and Bridgelayers).MOD	TYPE:CombatEngineeringFeat
 #Surface Vehicle Operation(Heavy Wheeled).MOD				TYPE:ArmorFeat
@@ -44,7 +45,7 @@ CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:CombatControllers.Pararescue.C
 ### Partial Feat MODing not possible, added types to main Surface Vehicle Operation entry
 CATEGORY=FEAT|Toughness.MOD				TYPE:CombatControllers.Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.Sniper.IntelligenceSpecialist.MedicalSergeant
 CATEGORY=FEAT|Track.MOD					TYPE:Ranger.WeaponsSergeant.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
-CATEGORY=FEAT|Weapon Focus.MOD				TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.SOAR.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
+CATEGORY=FEAT|Weapon Focus.MOD			TYPE:CombatControllers.Pararescue.Ranger.WeaponsSergeant.SOAR.DeltaForce.CommunicationsSergeant.ForceRecon.SEAL.SpecialBoat.Sniper.IntelligenceSpecialist.MedicalSergeant
 
 #Included from BloodandSecrets
 CATEGORY=FEAT|Cover Fire.MOD				TYPE:Pararescue.SOAR																												SOURCEPAGE:p.37

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
@@ -19,7 +19,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 ##Block: Quick Change
 1	SAB:Quick Change (% disguises)|Disguises	BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	BONUS:VAR|Disguises|(CL+10)/5		DEFINE:Disguises|0
 ###Block: Weapon and Armor proficiencies
-1							AUTO:WEAPONPROF|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
+1										AUTO:WEAPONPROF|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal progression
 1	CAST:2
@@ -75,19 +75,19 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal progression
-1	SAB:Delver Notebook	SAB:Traps						BONUS:ABILITYPOOL|Delver Proficiency|1
-2																																																		ABILITY:Special Ability|VIRTUAL|Evasion
-3							BONUS:VAR|UncannyDodge|1																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-7												BONUS:ABILITYPOOL|Delver Feat|1
-6							BONUS:VAR|UncannyDodge|1
-10												BONUS:ABILITYPOOL|Delver Feat|1
-11							BONUS:VAR|UncannyDodge|1
-13												BONUS:ABILITYPOOL|Delver Feat|1
-14							BONUS:VAR|UncannyDodge|1
-16												BONUS:ABILITYPOOL|Delver Feat|1
-17							BONUS:VAR|UncannyDodge|1
-19												BONUS:ABILITYPOOL|Delver Feat|1
-20							BONUS:VAR|UncannyDodge|1
+1	SAB:Delver Notebook	SAB:Traps	BONUS:ABILITYPOOL|Delver Proficiency|1
+2																			ABILITY:Special Ability|VIRTUAL|Evasion
+3														BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+7							BONUS:ABILITYPOOL|Delver Feat|1
+6														BONUS:VAR|UncannyDodge|1
+10							BONUS:ABILITYPOOL|Delver Feat|1
+11														BONUS:VAR|UncannyDodge|1
+13							BONUS:ABILITYPOOL|Delver Feat|1
+14														BONUS:VAR|UncannyDodge|1
+16							BONUS:ABILITYPOOL|Delver Feat|1
+17														BONUS:VAR|UncannyDodge|1
+19							BONUS:ABILITYPOOL|Delver Feat|1
+20														BONUS:VAR|UncannyDodge|1
 
 
 # Psychic Thief

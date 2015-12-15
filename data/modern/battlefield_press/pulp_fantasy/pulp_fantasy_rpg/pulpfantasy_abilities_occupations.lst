@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
@@ -25,23 +25,23 @@ CATEGORY=Starting Occupation|Emergency Services.FORGET
 CATEGORY=Starting Occupation|Technician.FORGET
 
 ###Block:Occupations
-# Ability Name	Category of Ability		Type			Visible		Required Feat		Required Stat	Bonus Ability Pool														Modify VAR							Source Page
-Antiques Dealer	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Antiques Dealer Occupation Skills|2	BONUS:ABILITYPOOL|Antiques Dealer Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.26
-Artist		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Artist Occupation Skills|4										BONUS:VAR|Reputation|1					SOURCEPAGE:p.26
-Bureaucrat		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Bureaucrat Occupation Skills|2	BONUS:ABILITYPOOL|Bureaucrat Feat|1			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.26
-Circus Performer	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Circus Performer Occupation Skills|3	BONUS:ABILITYPOOL|Circus Performer Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.26
-Craftsperson	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY					PRESTAT:1,DEX=13	BONUS:ABILITYPOOL|Craftsperson Occupation Skills|2	BONUS:ABILITYPOOL|Craftsperson Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.27
-Domestic		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Domestic Occupation Skills|3										BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.27
-Engineer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Engineer Occupation Skills|3										BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.27
-Escape Artist	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Escape Artist Occupation Skills|2	BONUS:ABILITYPOOL|Escape Artist Feat|1		BONUS:VAR|WealthBonus|1	BONUS:VAR|Reputation|1	SOURCEPAGE:p.27
-Fortuneteller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Fortuneteller Occupation Skills|2	BONUS:ABILITYPOOL|Fortuneteller Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.28
+# Ability Name	Category of Ability		Type			Visible		Required Ability				Required Stat	Bonus Ability Pool														Modify VAR							Source Page
+Antiques Dealer	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Antiques Dealer Occupation Skills|2	BONUS:ABILITYPOOL|Antiques Dealer Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.26
+Artist		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Artist Occupation Skills|4										BONUS:VAR|Reputation|1					SOURCEPAGE:p.26
+Bureaucrat		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Bureaucrat Occupation Skills|2	BONUS:ABILITYPOOL|Bureaucrat Feat|1			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.26
+Circus Performer	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Circus Performer Occupation Skills|3	BONUS:ABILITYPOOL|Circus Performer Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.26
+Craftsperson	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY							PRESTAT:1,DEX=13	BONUS:ABILITYPOOL|Craftsperson Occupation Skills|2	BONUS:ABILITYPOOL|Craftsperson Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.27
+Domestic		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Domestic Occupation Skills|3										BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.27
+Engineer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Engineer Occupation Skills|3										BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.27
+Escape Artist	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Escape Artist Occupation Skills|2	BONUS:ABILITYPOOL|Escape Artist Feat|1		BONUS:VAR|WealthBonus|1	BONUS:VAR|Reputation|1	SOURCEPAGE:p.27
+Fortuneteller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Fortuneteller Occupation Skills|2	BONUS:ABILITYPOOL|Fortuneteller Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.28
 Heir			CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Educated				BONUS:ABILITYPOOL|Heir Occupation Skills|4	BONUS:ABILITYPOOL|Heir's Wealth|1				BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p.28
-Hunter		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Hunter Occupation Skills|1	BONUS:ABILITYPOOL|Hunter Feat|1				BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.28
-Laborer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Laborer Occupation Skills|3										BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.28
-Outcast		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Outcast Occupation Skills|1	BONUS:ABILITYPOOL|Outcast Feat|1				BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.28
-Politician		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY					PRESTAT:1,CHA=13	BONUS:ABILITYPOOL|Politician Occupation Skills|2	BONUS:ABILITYPOOL|Politician Feat|1			BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.29
-Stage Magician	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Stage Magician Occupation Skills|3	BONUS:ABILITYPOOL|Stage Magician Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.29
-World Traveller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|World Traveller Occupation Skills|2	BONUS:ABILITYPOOL|World Traveller Feat|1		BONUS:VAR|WealthBonus|4					SOURCEPAGE:p.29
+Hunter		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Hunter Occupation Skills|1	BONUS:ABILITYPOOL|Hunter Feat|1				BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.28
+Laborer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Laborer Occupation Skills|3										BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.28
+Outcast		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Outcast Occupation Skills|1	BONUS:ABILITYPOOL|Outcast Feat|1				BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.28
+Politician		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY							PRESTAT:1,CHA=13	BONUS:ABILITYPOOL|Politician Occupation Skills|2	BONUS:ABILITYPOOL|Politician Feat|1			BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.29
+Stage Magician	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Stage Magician Occupation Skills|3	BONUS:ABILITYPOOL|Stage Magician Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.29
+World Traveller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY										BONUS:ABILITYPOOL|World Traveller Occupation Skills|2	BONUS:ABILITYPOOL|World Traveller Feat|1		BONUS:VAR|WealthBonus|4					SOURCEPAGE:p.29
 
 ###Block:Occupation Workarounds
 # Feat Name						Type				Visible	Add					Modify VAR

@@ -1,8 +1,8 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Race Name	SORTKEY		Skills/Level				Starting Feats	Size		Move			Face/Space	Reach		Serves As			Bonus Languages								Bonus Ability Pool			Save bonus							Stat bonus								Auto Language			Ability								Define				Main Race Type	Race Subtype		Type				Source Page
+# Race Name	SORTKEY		Skills/Level				Starting Feats	Size		Move			Face/Space	Reach		Serves As			Bonus Languages								Bonus Ability Pool			Save bonus							Stat bonus								Auto Language			Ability								Define				Main Race Type	Race Subtype		Type				Source Page		Fact
 Dwarf		SORTKEY:a_base_pc							STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5					LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon																BONUS:STAT|CON|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2						ABILITY:Internal|AUTOMATIC|Race Traits ~ Dwarf							RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.21	FACT:IsPC|True
 Elf		SORTKEY:a_base_pc							STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5					LANGBONUS:Celestial,Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan															BONUS:STAT|CON|-2	BONUS:STAT|DEX,INT|2			AUTO:LANG|Common|Elven		ABILITY:Internal|AUTOMATIC|Race Traits ~ Elf							RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.22	FACT:IsPC|True
 Gnome		SORTKEY:a_base_pc							STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5					LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc																BONUS:STAT|CON|2	BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|Common|Gnome|Sylvan	ABILITY:Internal|AUTOMATIC|Race Traits ~ Gnome							RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.23	FACT:IsPC|True

@@ -1,4 +1,4 @@
-# CVS $Revision: 21536 $ $Author: amaitland $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21536 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Eddy Anthony
 # Incorporated 11/22/2011 errata (Stefan Radermacher)
@@ -741,7 +741,7 @@ Shillelagh.MOD																																																																		
 Stoneskin.MOD																																																																				TEMPDESC:Grants DR 10/adamantine for a total of 10 points of damage per caster level (maximum 150 points).														TEMPBONUS:ANYPC|DR|Adamantine|10
 Unholy Aura.MOD																																																																				TEMPDESC:Grants a +4 deflection bonus to AC and a +4 resistance bonus on saves																		TEMPBONUS:ANYPC|SAVE|ALL|4|TYPE=Resistance	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Deflection
 
-Prayer.MOD	TEMPDESC:+1 luck to attack, damage, saves and skills	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|1|TYPE=Luck	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE=Base|1|TYPE=Luck	
+Prayer.MOD																																																																					TEMPDESC:+1 luck to attack, damage, saves and skills																							TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|1|TYPE=Luck	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE=Base|1|TYPE=Luck
 
 
 ###Block: Righteous Might (because it is so loooong)

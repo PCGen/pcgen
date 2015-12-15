@@ -1,7 +1,7 @@
-# CVS $Revision: 1058 $ $Author: eddyanthony $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: 1058 $ $Author: eddyanthony $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../../docs/sourcehelp/pcgen_ogc_help.html
 
-# Class Name			Output Name			Hit Dice	Type			Source Page				Virtual Feat		Template
+# Class Name			Output Name			Hit Dice	Type			Source Page				Ability						Template
 CLASS:Construct (Psicrystal)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	SOURCEPAGE:Improving_Monsters	ABILITY:FEAT|VIRTUAL|Psicrystal Traits	TEMPLATE:Psicrystal Skills (Spot)|Psicrystal Skills (Listen)|Psicrystal Skills (Move Silently)|Psicrystal Skills (Search)
 # Class Name			Reg. Race Type
 CLASS:Construct (Psicrystal)	PRERACETYPE:Construct

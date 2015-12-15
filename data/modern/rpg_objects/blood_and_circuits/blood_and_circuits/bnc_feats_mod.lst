@@ -1,18 +1,19 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51	SOURCEDATE:2004-01
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Advanced Armor Design.MOD		TYPE:Armorer.Inventor
 CATEGORY=FEAT|Advanced Weapon Design.MOD		TYPE:Inventor
-CATEGORY=FEAT|Armory.MOD					TYPE:Armorer
-CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:Armorer
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:CombatEngineer.Gadgeteer.GreaseMonkey.Inventor
+CATEGORY=FEAT|Armory.MOD				TYPE:Armorer
+CATEGORY=FEAT|Armor Proficiency (Heavy).MOD	TYPE:Armorer
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:CombatEngineer.Gadgeteer.GreaseMonkey.Inventor
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Armorer.CombatEngineer.Gadgeteer.GreaseMonkey
 
 ### This feat is in Future
 CATEGORY=FEAT|Armor Proficiency (Powered).MOD	TYPE:Armorer
 
-CATEGORY=FEAT|Builder.MOD					TYPE:Armorer.Arsenal.GreaseMonkey.Inventor
+CATEGORY=FEAT|Builder.MOD				TYPE:Armorer.Arsenal.GreaseMonkey.Inventor
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:Gadgeteer
 CATEGORY=FEAT|Dead Aim.MOD				TYPE:Arsenal
 CATEGORY=FEAT|Double Tap.MOD				TYPE:Arsenal
@@ -29,19 +30,19 @@ CATEGORY=FEAT|Force Stop.MOD				TYPE:GreaseMonkey
 CATEGORY=FEAT|Gearhead.MOD				TYPE:GreaseMonkey.Inventor
 CATEGORY=FEAT|Great Fortitude.MOD			TYPE:Armorer
 CATEGORY=FEAT|Handyman.MOD				TYPE:Gadgeteer.GreaseMonkey
-CATEGORY=FEAT|Improved Damage Threshold.MOD		TYPE:Armorer
+CATEGORY=FEAT|Improved Damage Threshold.MOD	TYPE:Armorer
 CATEGORY=FEAT|Mass Production.MOD			TYPE:GreaseMonkey
-CATEGORY=FEAT|Perfectionist.MOD				TYPE:Inventor
+CATEGORY=FEAT|Perfectionist.MOD			TYPE:Inventor
 CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:CombatEngineer.Gadgeteer.Inventor
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:Arsenal
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:Arsenal
-CATEGORY=FEAT|Quick Reload.MOD				TYPE:Arsenal
-CATEGORY=FEAT|Renown.MOD					TYPE:Gadgeteer.Inventor
-CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:GreaseMonkey
-CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:CombatEngineer
-CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:CombatEngineer
+CATEGORY=FEAT|Quick Reload.MOD			TYPE:Arsenal
+CATEGORY=FEAT|Renown.MOD				TYPE:Gadgeteer.Inventor
+CATEGORY=FEAT|Surface Vehicle Operation.MOD	TYPE:GreaseMonkey
+CATEGORY=FEAT|Surface Vehicle Operation.MOD	TYPE:CombatEngineer
+CATEGORY=FEAT|Surface Vehicle Operation.MOD	TYPE:CombatEngineer
 CATEGORY=FEAT|Toughness.MOD				TYPE:Armorer
-CATEGORY=FEAT|Vehicle Dodge.MOD				TYPE:GreaseMonkey
+CATEGORY=FEAT|Vehicle Dodge.MOD			TYPE:GreaseMonkey
 CATEGORY=FEAT|Weapon Finesse.MOD			TYPE:Arsenal
-CATEGORY=FEAT|Weapon Focus.MOD				TYPE:Arsenal
+CATEGORY=FEAT|Weapon Focus.MOD			TYPE:Arsenal
 CATEGORY=FEAT|Windfall.MOD				TYPE:Gadgeteer.Inventor

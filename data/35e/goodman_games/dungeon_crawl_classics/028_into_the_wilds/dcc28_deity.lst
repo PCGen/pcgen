@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:DCC 28 - Into the Wilds	SOURCESHORT:DCC28	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
-# Deity Name	Domains							Description of Deity/Title												Holy Item					Align		Pantheon			Source Page
-Sodoutym		DOMAINS:Evil,Law,Trickery|PREALIGN:LE,LN,NE	DESC:The Dark Foe, Blackhammer, Hellbeard. He is the lawful evil god of averice and tyranny.	SYMBOL:Swarm of attacking bats	ALIGN:LE	PANTHEON:DCC|Dwarven	SOURCEPAGE:p.25
+# Deity Name	Domains							Description of Deity/Title												Align		Source Page		Holy Item					Pantheon
+Sodoutym		DOMAINS:Evil,Law,Trickery|PREALIGN:LE,LN,NE	DESC:The Dark Foe, Blackhammer, Hellbeard. He is the lawful evil god of averice and tyranny.	ALIGN:LE	SOURCEPAGE:p.25	SYMBOL:Swarm of attacking bats	PANTHEON:DCC|Dwarven
