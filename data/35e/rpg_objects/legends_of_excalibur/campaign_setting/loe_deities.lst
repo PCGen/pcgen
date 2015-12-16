@@ -5,7 +5,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 # Original Entry by: dlm1065
 
 # Deity Name	Description of Deity/Title	Source Page						Holy Item
-None			DESC:None				SOURCEPAGE:Non file in RSRD why none	SYMBOL:None
-One God		DESC:The One True God		SOURCEPAGE:p50					SYMBOL:Crusifix
-Old Faith		DESC:The older pagan faiths	SOURCEPAGE:p50					SYMBOL:None
+None			DESC:None				SOURCEPAGE:Non file in RSRD why none	FACT:Symbol|None
+One God		DESC:The One True God		SOURCEPAGE:p50					FACT:Symbol|Crusifix
+Old Faith		DESC:The older pagan faiths	SOURCEPAGE:p50					FACT:Symbol|None
 # DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE

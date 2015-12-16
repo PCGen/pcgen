@@ -44,7 +44,7 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie
 #COMMENT: Familiar is an Animal that becomes a Magical Beast
 
 # Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Template
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link|Familiar ~ Alertness		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Alertness|Familiar ~ Empathic Link		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((mastervar("FamiliarLVL")+1)/2)	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
@@ -88,7 +88,7 @@ MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	ABILITY:Special Ability|AUTOM
 
 ###Block:Animal Companion
 # Class of the Master			Type				Hit Dice	Ability																					Define							Combat bonus					Stat bonus					Modify VAR
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Animal Companion ~ Link|Animal Companion ~ Share Spells	DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Link|Animal Companion ~ Share Spells|Animal Tricks and Training|Bonus Tricks	DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Multiattack																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1

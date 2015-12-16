@@ -10,7 +10,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 ###
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Save bonus
-CLASS:Force Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Force Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race
 CLASS:Force Dragon	PRERACE:1,Dragon (Force%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
@@ -22,7 +22,7 @@ CLASS:Force Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Save bonus
-CLASS:Prismatic Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Prismatic Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race
 CLASS:Prismatic Dragon	PRERACE:1,Dragon (Prismatic%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?

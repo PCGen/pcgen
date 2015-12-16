@@ -1,0 +1,19 @@
+File			Status
+_______________________________________________________
+level.lst		Fine as copied.
+
+load.lst		need to get working changed from lb to Kg have to redo.
+
+miscinfo.lst		Have to tweek as needed.
+			Changed HPNAME to Stamina.      -per sevarian
+			Changed HPABBREV to ST.         -per sevarian
+			Changed ALTHPNAME to Lifeblood. -per sevarian
+			Changed HPABBREV to LB.         -per sevarian
+
+statsandchecks.lst	Added Soc, EDU, and PSI may have to tweek.
+
+rules.lst		Turned AnyRangeForAbilities on by default.
+			Have to check with 5.8.0 some of the names may have changed.
+			changed FreeClothesAtFirst = from yes to no to avoid asking question.
+
+Added unitSet.lst in System Folder

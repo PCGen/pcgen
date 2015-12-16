@@ -74,9 +74,9 @@ CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BON
 # Class Name			Required Ability										Required Race		Required Skill						PRETOTALAB
 CLASS:Wayjik Demon Hunter	PREABILITY:3,CATEGORY=FEAT,Strength of Margalthas,Weapon Focus,Track	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (The Planes)=4,Survival=6	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Wayjik Demon Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Gather Information|Hide|Intimidate|Jump|Knowledge (the planes)|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spellcraft|Spot|Survival
+CLASS:Wayjik Demon Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Gather Information|Hide|Intimidate|Jump|Knowledge (the Planes)|Knowledge (arcana)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spellcraft|Spot|Survival
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
-CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Wayjik Demon Hunter|CL
+CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Wayjik Demon Hunter|CL
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
