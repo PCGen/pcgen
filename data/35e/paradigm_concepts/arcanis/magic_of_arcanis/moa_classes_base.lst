@@ -14,7 +14,7 @@ CLASS:Altherian Artificer	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.21	BONUS:C
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Artificer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Disable Device|Jump|TYPE=Knowledge|Listen|TYPE=Profession|Research|Ride|Search|Speak Language|Spellcraft|Spot|Swim|Use Magic Device|Use Psionic Device
 # Class Name			Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Altherian Artificer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Altherian Artificer|CL
+CLASS:Altherian Artificer	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Altherian Artificer|CL
 ###Block Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|Scimitar|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
 ###Block: Abilities
@@ -66,7 +66,7 @@ CLASS:Hedge Mage	PRERACE:1,Human,Half-Hobgoblins
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Local|TYPE=Nature|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
+CLASS:Hedge Mage	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
 #
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Level Progression
@@ -111,7 +111,7 @@ CLASS:Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Dreaming|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|Knowledge (The Planes ~ Spirit Creatures)|Knowledge (The Planes ~ Spirit World)|Listen|TYPE=Profession|Sense Motive|Spellcraft|Spot|Survival
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Shaman	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman|CL
+CLASS:Shaman	SPELLSTAT:CHA	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Shaman|CL
 ###COMMENT: Known Spells Remained Fixed
 ###Block: Level Progression
 1	BONUS:ABILITYPOOL|Shaman Spirit Guide|1		BONUS:VAR|BetweenWorlds|-1									ABILITY:Special Ability|AUTOMATIC|Between Worlds|Channeling|Spirit Calling|Spirit Guide
@@ -152,7 +152,7 @@ CLASS:Spellblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT|BAS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellblade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Examine Martial Technique|Handle Animal|Intimidate|TYPE=Arcana|Knowledge (Warfare & Tactics)|TYPE=Profession|Ride|Spellcraft|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Spellblade	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Spellblade|CL
+CLASS:Spellblade	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Spellblade|CL
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
@@ -189,7 +189,7 @@ CLASS:Suromar	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Suromar	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Gather Information|Hide|Jump|TYPE=Arcana|Knowledge (Psionics)|Knowledge (Warfare & Tactics)|Listen|Move Silently|TYPE=Profession|Psicraft|Search|Sense Motive|Spellcraft|Spot|Swim|Survival|Tumble|Use Psionic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Suromar|CL
+CLASS:Suromar	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Suromar|CL
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
@@ -232,7 +232,7 @@ CLASS:Warder	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warder	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=Dungeoneering|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Warder	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Warder|CL
+CLASS:Warder	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Warder|CL
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
