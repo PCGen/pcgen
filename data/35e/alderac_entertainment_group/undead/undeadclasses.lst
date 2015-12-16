@@ -7,7 +7,7 @@ CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOUR
 # Class Name			Required AL		Required Skill				PRETOTALAB
 CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PRESKILL:1,Knowledge (Arcana)=4	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Ride|Swim
+CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Ride|Swim
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -67,7 +67,7 @@ CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-4
 # Class Name	Required Ability					Required AL				Required Skill
 CLASS:Exorcist	PREABILITY:1,CATEGORY=FEAT,Extra Turning	PREALIGN:LG,LN,NG,TN,CG,CN	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
+CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Gather Information|Handle Animal|Knowledge (arcana)|Knowledge (religion)|Search|Sense Motive|Spellcraft
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base													ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
 1	BONUS:VAR|TurnLevelBase|CL*3/2|TYPE=Level.REPLACE	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0
@@ -93,7 +93,7 @@ CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p
 # Class Name		Required Ability					Required AL					Required Skill
 CLASS:Faith Hunter	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PRESKILL:2,Heal=4,Knowledge (Arcana)=5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Escape Artist|Gather Information|Heal|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot
+CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Escape Artist|Gather Information|Heal|Knowledge (arcana)|Knowledge (religion)|Listen|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
@@ -128,7 +128,7 @@ CLASS:Knight of the Eternal Eye	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10
 # Class Name				Required Ability					Required AL		Required Check Base
 CLASS:Knight of the Eternal Eye	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Will=5
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Move Silently|TYPE=Profession|Ride|Sense Motive
+CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Intimidate|Knowledge (arcana)|Knowledge (religion)|Move Silently|TYPE=Profession|Ride|Sense Motive
 1																								ABILITY:Special Ability|AUTOMATIC|Lure of Darkness ~ Knight of the Eternal Eye|Undying Loyalty ~ Knight of the Eternal Eye	TEMPLATE:Undeath
 2	VISION:Darkvision (60')
 3															BONUS:VAR|TurnResistance|2	DEFINE:TurnResistance|0	ABILITY:Special Ability|AUTOMATIC|Turn Resistance ~ Knight of the Eternal Eye
@@ -146,7 +146,7 @@ CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion)=8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Ride
 # Class Name			Spell Stat		Spell Type		Caster level
-CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
+CLASS:Paladin of the Pale	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -234,7 +234,7 @@ CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE
 # Class Name		Required AL		PRETOTALAB
 CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Religion)|Spellcraft
+CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (religion)|Spellcraft
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -256,7 +256,7 @@ CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE
 # Class Name		Required Ability						Required AL	Required Skill												Required Spell School		Req. Spell Type		Required Text
 CLASS:Wasteland Druid	PREABILITY:2,CATEGORY=FEAT,Iron Will,Toughness	PREALIGN:NE	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Diplomacy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Diplomacy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Diplomacy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (arcana)|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack								ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 1	BONUS:VAR|TurnLevelBase|CL	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0

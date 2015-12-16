@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 # Deity Name	Product Identity?	Domains												Description of Deity/Title						Align		Source Page			Holy Item	Pantheon
-Arym-Ahya		NAMEISPI:YES	DOMAINS:Air,Good,Healing,Law,Protection,Sun|PREALIGN:LG,LN,NG			DESC:Queen of the Sky, Starry Oracle, Mother of Dragons	ALIGN:LG	SOURCEPAGE:p.18-19	SYMBOL:None	PANTHEON:Draconic
-Nhym-Nadaal		NAMEISPI:YES	DOMAINS:Animal,Chaos,Magic,Strength,Travel,Water|PREALIGN:LN,NG,TN,NE,CN	DESC:King of the Sea, Leviathan					ALIGN:TN	SOURCEPAGE:p.18-19	SYMBOL:None	PANTHEON:Draconic
-Ragoth-Rhyx		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Fire,Trickery,War|PREALIGN:NE,CN,CE		DESC:Behemoth, Mad Prophet, Father of Dragons			ALIGN:CE	SOURCEPAGE:p.18-19	SYMBOL:None	PANTHEON:Draconic
+Arym-Ahya		NAMEISPI:YES	DOMAINS:Air,Good,Healing,Law,Protection,Sun|PREALIGN:LG,LN,NG			DESC:Queen of the Sky, Starry Oracle, Mother of Dragons	ALIGN:LG	SOURCEPAGE:p.18-19	FACT:Symbol|None	FACTSET:Pantheon|Draconic
+Nhym-Nadaal		NAMEISPI:YES	DOMAINS:Animal,Chaos,Magic,Strength,Travel,Water|PREALIGN:LN,NG,TN,NE,CN	DESC:King of the Sea, Leviathan					ALIGN:TN	SOURCEPAGE:p.18-19	FACT:Symbol|None	FACTSET:Pantheon|Draconic
+Ragoth-Rhyx		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Fire,Trickery,War|PREALIGN:NE,CN,CE		DESC:Behemoth, Mad Prophet, Father of Dragons			ALIGN:CE	SOURCEPAGE:p.18-19	FACT:Symbol|None	FACTSET:Pantheon|Draconic

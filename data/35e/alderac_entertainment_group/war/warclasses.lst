@@ -8,7 +8,7 @@ CLASS:Beast Handler	PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (Whip),
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL
+CLASS:Beast Handler	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
@@ -125,7 +125,7 @@ CLASS:Knight Chaplain	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Heal)	PRESKILL:2,C
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight Chaplain	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Listen|Ride|Search|Spot
 # Class Name		Spell Stat		Spell Type		Memorize		Caster level
-CLASS:Knight Chaplain	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:CASTERLEVEL|Knight Chaplain|CL
+CLASS:Knight Chaplain	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES	BONUS:CASTERLEVEL|Knight Chaplain|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Knight Chaplain=0|Create Water,Cure Minor Wounds,Detect Poison,Light,Mage Hand,Mending,Resistance
 1	SPELLLEVEL:CLASS|Knight Chaplain=1|Alarm,Bless,Cure Light Wounds,Deathwatch,Enlarge,Entropic Shield,Expeditious Retreat,Message,Obscuring Mist,Reduce,Sanctuary,Shield,Unseen Servant
@@ -250,7 +250,7 @@ CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	B
 # Class Name		Required Race	Required Skill						PRETOTALAB
 CLASS:Spellbreaker	PRERACE:1,Dwarf%	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Knowledge (Arcana)|Ride|Spellcraft|Swim
+CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Knowledge (arcana)|Ride|Spellcraft|Swim
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency

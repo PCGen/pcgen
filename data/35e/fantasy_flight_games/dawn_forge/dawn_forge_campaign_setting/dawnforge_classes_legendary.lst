@@ -27,7 +27,7 @@ CLASS:Fleetwind	HD:8		TYPE:PC.Prestige	ABB:Fle		MAXLEVEL:5	SOURCEPAGE:p.77	BONUS
 # Class Name	Multiple Requirements																Required Skill
 CLASS:Fleetwind	PREMULT:2,[PREABILITY:2,CATEGORY=FEAT,Endurance,Run],[PREABILITY:1,CATEGORY=FEAT,Path of the Swift 5th Circle]	PRESKILL:3,Balance=4,Climb=8,Jump=8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Fleetwind	STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Fleetwind	STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (geography)|Knowledge (local)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	BONUS:ABILITYPOOL|BONUS:ABILITYPOOL|Fleetwind Level 1 Choice|1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 2	BONUS:ABILITYPOOL|BONUS:ABILITYPOOL|Fleetwind Level 2 Choice|1
 3	BONUS:ABILITYPOOL|BONUS:ABILITYPOOL|Fleetwind Level 3 Choice|1
@@ -39,7 +39,7 @@ CLASS:Epic General	HD:10		TYPE:PC.Prestige	ABB:EpG		MAXLEVEL:5	SOURCEPAGE:p.78	B
 # Class Name		Required Ability																												Required Skill
 CLASS:Epic General	PREABILITY:3,CATEGORY=FEAT,Improved Initiative,Leadership,Weapon Specialization	PREABILITY:2,CATEGORY=FEAT,Path of the Persuasive 3rd Circle,Path of the Mighty 1st Circle	PRESKILL:3,Diplomacy=8,Intimidate=12,Knowledge (War)=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Epic General	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (War)|Listen|Ride|Spot|Swim
+CLASS:Epic General	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (geography)|Knowledge (history)|Knowledge (War)|Listen|Ride|Spot|Swim
 1	BONUS:ABILITYPOOL|Epic General Level 1 Choice|1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 2	BONUS:ABILITYPOOL|Epic General Level 2 Choice|1
 3	BONUS:ABILITYPOOL|Epic General Level 3 Choice|1

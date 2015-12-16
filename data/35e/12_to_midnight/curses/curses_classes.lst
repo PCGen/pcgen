@@ -7,7 +7,7 @@ CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p.14	
 # Class Name	Required Ability										Required AL		Required Skill						Req. Known Spell		Required Casting Type
 CLASS:Blood Hexer	PREABILITY:2,CATEGORY=FEAT,Curse of Blood,Curse of Blood - Greater	PREALIGN:CG,CN,CE	PRESKILL:1,Knowledge (Arcana)=10,Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
+CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
 1								BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blood Curse Reprieve|Metacurse Affinity
 2	BONUS:ABILITYPOOL|Curse Repertoire|CL/2	BONUS:VAR|BloodSweatProgression|(CL+3)/5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blood Sweat
 3	BONUS:ABILITYPOOL|Blood Hexer Feat|1	BONUS:VAR|MaliciousCurseProgression|CL/3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Malicious Curse

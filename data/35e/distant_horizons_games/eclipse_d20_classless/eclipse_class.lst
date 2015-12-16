@@ -138,7 +138,7 @@ CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Visible	Define			Modify VAR
 CLASS:Eclipse	HD:1		TYPE:Base.PC.Eclipse	ABB:EPB		MAXLEVEL:20	VISIBLE:NO	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name	Spell Type		Caster level
-CLASS:Eclipse	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eclipse|CL
+CLASS:Eclipse	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name	Multiple Requirements
 ##Block:
 1:REPEATLEVEL:1|SKIP=0|MAX=20	DONOTADD:SKILLPOINTS
@@ -148,7 +148,7 @@ CLASS:Eclipse	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
 CLASS:Eclipse SubTest	HD:1		TYPE:Base.PC.Eclipse	ABB:EPB		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1	BONUS:VAR|EclipseClassLvl|CL
 # Class Name		Spell Type		Caster level
-CLASS:Eclipse SubTest	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eclipse|CL
+CLASS:Eclipse SubTest	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name	Multiple Requirements
 # No Skill Points Added During Level Progression
 SUBSTITUTIONCLASS:d04									HD:4

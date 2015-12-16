@@ -6,7 +6,7 @@ CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:EMyt		MAXLEVEL:10	SOURCEPAGE:
 # Class Name		Required Ability																											Required Domain				Required Skill								Req. Spell Type						Required Text
 CLASS:Elemental Theurge	PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	PREABILITY:1,CATEGORY=FEAT,Empower Spell	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Evocation),Spell Focus (Conjuration)	PREDOMAIN:1,Air,Earth,Fire,Water	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Spellcraft
 1	BONUS:VAR|ElementalTurningLevel|CL	ADD:SPELLCASTER|ANY					ABILITY:Special Ability|AUTOMATIC|Elemental Familiar|Elemental Turning|Theurgy
 2	BONUS:VAR|DomainAccess|CL-1		ADD:SPELLCASTER|Divine	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Domain Access
 3							ADD:SPELLCASTER|ANY					ABILITY:Special Ability|AUTOMATIC|Invest Power
@@ -29,7 +29,7 @@ CLASS:Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LoU		MAXLEVEL:10	SOURCEPAGE:6	B
 # Class Name		Required Ability								Required Skill								Req. Known Spell		Required Spell School		Req. Spell Type						Required Text
 CLASS:Lord of Undeath	PREABILITY:2,CATEGORY=FEAT,Extra Turning,Rebuke Undead	PRESKILL:2,Knowledge (Religion)=6,Knowledge (Arcana)=6	PRESPELL:1,Animate Dead	PRESPELLSCHOOL:2,Necromancy=2	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Patron deity must not be adverse to the creation of undead. Must be able to cast 1 level 2 arcane/necromancy spell and 1 level 2 divine/necromancy spell.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Search|Spellcraft
+CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Search|Spellcraft
 1	BONUS:VAR|NegativeChannelLevel|CL	ADD:SPELLCASTER|Divine	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Negative Channel|Theurgy
 2							ADD:SPELLCASTER|Divine	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dance of the Dead
 3							ADD:SPELLCASTER|ANY					ABILITY:Special Ability|AUTOMATIC|High Necromancy

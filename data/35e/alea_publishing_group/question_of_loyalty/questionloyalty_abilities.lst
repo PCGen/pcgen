@@ -6,7 +6,7 @@ SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:Gui
 ### Solomon Brotherhood Class
 # Feat Name				Type							Visible	Var. Min. Value							Special ABility							Define							Modify VAR																			Allow Follower			Allowed Companions													Class Skill
 # Ability Name			Unique Key								Category of Ability		Type							Var. Min. Value							Define							Description																						Modify VAR																			Class Skill
-Knightly Order			KEY:hiddensolomonbrotherhood					CATEGORY:Special Ability	TYPE:SpecialQuality													DEFINE:BrotherhoodSolomonSecretEnlightenment|0																								BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|var("CL=Monk")	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|WIS	CSKILL:Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Arcana)|Profession (Soldier)|Ride
+Knightly Order			KEY:hiddensolomonbrotherhood					CATEGORY:Special Ability	TYPE:SpecialQuality													DEFINE:BrotherhoodSolomonSecretEnlightenment|0																								BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|var("CL=Monk")	BONUS:VAR|BrotherhoodSolomonSecretEnlightenment|WIS	CSKILL:Concentration|Diplomacy|Knowledge (arcana)|Knowledge (arcana)|Profession (Soldier)|Ride
 Enlightenment			KEY:hiddensolomonbrotherhood-4				CATEGORY:Special Ability	TYPE:SpecialQuality
 Knighthood				KEY:hiddensolomonbrotherhood-7				CATEGORY:Special Ability	TYPE:SpecialQuality
 
