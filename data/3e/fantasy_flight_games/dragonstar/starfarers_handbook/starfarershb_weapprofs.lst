@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Feb  5 22:31:33 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 #TINY
-# Weapon Name					Type				Nb Hands	Required Feat
+# Weapon Name					Type				Nb Hands	Required Ability
 Holdout Laser					TYPE:HighTechSimple
 #SIZE:T
 Holdout Pistol					TYPE:HighTechSimple

@@ -62,7 +62,7 @@ TEMPLATE:midnight_templates_races.lst
 COMPANIONMOD:midnight_companion_mods.lst
 KIT:midnight_kits_races_monsters.lst
 
-BONUS:LANGUAGES|NUMBER|INT
+BONUS:LANGUAGES:|NUMBER|INT
 
 # ENTRY DATE: 2015-11-30
 # LST MONKEY: Dan Schofield (schofida)
@@ -74,7 +74,7 @@ BONUS:LANGUAGES|NUMBER|INT
 # Updated to work with version: -
 # MINVER:6.5
 # MINDEVVER:6.05.05
-# COMMENTS: 
+# COMMENTS:
 
 #
 # End

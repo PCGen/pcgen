@@ -1,4 +1,4 @@
-# CVS $Revision: 21574 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21574 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Template name
 # Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
@@ -15,81 +15,81 @@ Mystic Past Life ~ INT		TEMPLATE:CHOOSE:Mystic Past Life ~ INT 1|Mystic Past Lif
 Mystic Past Life ~ WIS		TEMPLATE:CHOOSE:Mystic Past Life ~ WIS 1|Mystic Past Life ~ WIS 2|Mystic Past Life ~ WIS 3|Mystic Past Life ~ WIS 4|Mystic Past Life ~ WIS 5|Mystic Past Life ~ WIS 6|Mystic Past Life ~ WIS 7|Mystic Past Life ~ WIS 8|Mystic Past Life ~ WIS 9|Mystic Past Life ~ WIS 10|Mystic Past Life ~ WIS 11|Mystic Past Life ~ WIS 12|Mystic Past Life ~ WIS 13|Mystic Past Life ~ WIS 14|Mystic Past Life ~ WIS 15|Mystic Past Life ~ WIS 16|Mystic Past Life ~ WIS 17|Mystic Past Life ~ WIS 18|Mystic Past Life ~ WIS 19|Mystic Past Life ~ WIS 20|Mystic Past Life ~ WIS 21|Mystic Past Life ~ WIS 22|Mystic Past Life ~ WIS 23|Mystic Past Life ~ WIS 24																																																																						REMOVABLE:NO
 Mystic Past Life ~ CHA		TEMPLATE:CHOOSE:Mystic Past Life ~ CHA 1|Mystic Past Life ~ CHA 2|Mystic Past Life ~ CHA 3|Mystic Past Life ~ CHA 4|Mystic Past Life ~ CHA 5|Mystic Past Life ~ CHA 6|Mystic Past Life ~ CHA 7|Mystic Past Life ~ CHA 8|Mystic Past Life ~ CHA 9|Mystic Past Life ~ CHA 10|Mystic Past Life ~ CHA 11|Mystic Past Life ~ CHA 12|Mystic Past Life ~ CHA 13|Mystic Past Life ~ CHA 14|Mystic Past Life ~ CHA 15|Mystic Past Life ~ CHA 16|Mystic Past Life ~ CHA 17|Mystic Past Life ~ CHA 18|Mystic Past Life ~ CHA 19|Mystic Past Life ~ CHA 20|Mystic Past Life ~ CHA 21|Mystic Past Life ~ CHA 22|Mystic Past Life ~ CHA 23|Mystic Past Life ~ CHA 24																																																																						REMOVABLE:NO
 ###Block: Scores
-# Template Name				Visible	Required Var. value	Modify VAR							Auto Language			Bonus Languages												Removable?
-Mystic Past Life ~ INT 1				PREVAREQ:INTSCORE,1	BONUS:VAR|MysticPastLifeScoreINT|1|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 2				PREVAREQ:INTSCORE,2	BONUS:VAR|MysticPastLifeScoreINT|2|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 3				PREVAREQ:INTSCORE,3	BONUS:VAR|MysticPastLifeScoreINT|3|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 4				PREVAREQ:INTSCORE,4	BONUS:VAR|MysticPastLifeScoreINT|4|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 5				PREVAREQ:INTSCORE,5	BONUS:VAR|MysticPastLifeScoreINT|5|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 6				PREVAREQ:INTSCORE,6	BONUS:VAR|MysticPastLifeScoreINT|6|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 7				PREVAREQ:INTSCORE,7	BONUS:VAR|MysticPastLifeScoreINT|7|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 8				PREVAREQ:INTSCORE,8	BONUS:VAR|MysticPastLifeScoreINT|8|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 9				PREVAREQ:INTSCORE,9	BONUS:VAR|MysticPastLifeScoreINT|9|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 10				PREVAREQ:INTSCORE,10	BONUS:VAR|MysticPastLifeScoreINT|10|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 11				PREVAREQ:INTSCORE,11	BONUS:VAR|MysticPastLifeScoreINT|11|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 12				PREVAREQ:INTSCORE,12	BONUS:VAR|MysticPastLifeScoreINT|12|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 13				PREVAREQ:INTSCORE,13	BONUS:VAR|MysticPastLifeScoreINT|13|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 14				PREVAREQ:INTSCORE,14	BONUS:VAR|MysticPastLifeScoreINT|14|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 15				PREVAREQ:INTSCORE,15	BONUS:VAR|MysticPastLifeScoreINT|15|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 16				PREVAREQ:INTSCORE,16	BONUS:VAR|MysticPastLifeScoreINT|16|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 17				PREVAREQ:INTSCORE,17	BONUS:VAR|MysticPastLifeScoreINT|17|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 18				PREVAREQ:INTSCORE,18	BONUS:VAR|MysticPastLifeScoreINT|18|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 19				PREVAREQ:INTSCORE,19	BONUS:VAR|MysticPastLifeScoreINT|19|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 20				PREVAREQ:INTSCORE,20	BONUS:VAR|MysticPastLifeScoreINT|20|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 21				PREVAREQ:INTSCORE,21	BONUS:VAR|MysticPastLifeScoreINT|21|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 22				PREVAREQ:INTSCORE,22	BONUS:VAR|MysticPastLifeScoreINT|22|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 23				PREVAREQ:INTSCORE,23	BONUS:VAR|MysticPastLifeScoreINT|23|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ INT 24				PREVAREQ:INTSCORE,24	BONUS:VAR|MysticPastLifeScoreINT|24|TYPE=BASE																				REMOVABLE:NO
+# Template Name				Visible	Required Var. value	Modify VAR							Auto Language			Bonus Languages																Removable?
+Mystic Past Life ~ INT 1				PREVAREQ:INTSCORE,1	BONUS:VAR|MysticPastLifeScoreINT|1|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 2				PREVAREQ:INTSCORE,2	BONUS:VAR|MysticPastLifeScoreINT|2|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 3				PREVAREQ:INTSCORE,3	BONUS:VAR|MysticPastLifeScoreINT|3|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 4				PREVAREQ:INTSCORE,4	BONUS:VAR|MysticPastLifeScoreINT|4|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 5				PREVAREQ:INTSCORE,5	BONUS:VAR|MysticPastLifeScoreINT|5|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 6				PREVAREQ:INTSCORE,6	BONUS:VAR|MysticPastLifeScoreINT|6|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 7				PREVAREQ:INTSCORE,7	BONUS:VAR|MysticPastLifeScoreINT|7|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 8				PREVAREQ:INTSCORE,8	BONUS:VAR|MysticPastLifeScoreINT|8|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 9				PREVAREQ:INTSCORE,9	BONUS:VAR|MysticPastLifeScoreINT|9|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 10				PREVAREQ:INTSCORE,10	BONUS:VAR|MysticPastLifeScoreINT|10|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 11				PREVAREQ:INTSCORE,11	BONUS:VAR|MysticPastLifeScoreINT|11|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 12				PREVAREQ:INTSCORE,12	BONUS:VAR|MysticPastLifeScoreINT|12|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 13				PREVAREQ:INTSCORE,13	BONUS:VAR|MysticPastLifeScoreINT|13|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 14				PREVAREQ:INTSCORE,14	BONUS:VAR|MysticPastLifeScoreINT|14|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 15				PREVAREQ:INTSCORE,15	BONUS:VAR|MysticPastLifeScoreINT|15|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 16				PREVAREQ:INTSCORE,16	BONUS:VAR|MysticPastLifeScoreINT|16|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 17				PREVAREQ:INTSCORE,17	BONUS:VAR|MysticPastLifeScoreINT|17|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 18				PREVAREQ:INTSCORE,18	BONUS:VAR|MysticPastLifeScoreINT|18|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 19				PREVAREQ:INTSCORE,19	BONUS:VAR|MysticPastLifeScoreINT|19|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 20				PREVAREQ:INTSCORE,20	BONUS:VAR|MysticPastLifeScoreINT|20|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 21				PREVAREQ:INTSCORE,21	BONUS:VAR|MysticPastLifeScoreINT|21|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 22				PREVAREQ:INTSCORE,22	BONUS:VAR|MysticPastLifeScoreINT|22|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 23				PREVAREQ:INTSCORE,23	BONUS:VAR|MysticPastLifeScoreINT|23|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ INT 24				PREVAREQ:INTSCORE,24	BONUS:VAR|MysticPastLifeScoreINT|24|TYPE=BASE																								REMOVABLE:NO
 #
-Mystic Past Life ~ WIS 1				PREVAREQ:WISSCORE,1	BONUS:VAR|MysticPastLifeScoreWIS|1|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 2				PREVAREQ:WISSCORE,2	BONUS:VAR|MysticPastLifeScoreWIS|2|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 3				PREVAREQ:WISSCORE,3	BONUS:VAR|MysticPastLifeScoreWIS|3|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 4				PREVAREQ:WISSCORE,4	BONUS:VAR|MysticPastLifeScoreWIS|4|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 5				PREVAREQ:WISSCORE,5	BONUS:VAR|MysticPastLifeScoreWIS|5|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 6				PREVAREQ:WISSCORE,6	BONUS:VAR|MysticPastLifeScoreWIS|6|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 7				PREVAREQ:WISSCORE,7	BONUS:VAR|MysticPastLifeScoreWIS|7|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 8				PREVAREQ:WISSCORE,8	BONUS:VAR|MysticPastLifeScoreWIS|8|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 9				PREVAREQ:WISSCORE,9	BONUS:VAR|MysticPastLifeScoreWIS|9|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 10				PREVAREQ:WISSCORE,10	BONUS:VAR|MysticPastLifeScoreWIS|10|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 11				PREVAREQ:WISSCORE,11	BONUS:VAR|MysticPastLifeScoreWIS|11|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 12				PREVAREQ:WISSCORE,12	BONUS:VAR|MysticPastLifeScoreWIS|12|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 13				PREVAREQ:WISSCORE,13	BONUS:VAR|MysticPastLifeScoreWIS|13|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 14				PREVAREQ:WISSCORE,14	BONUS:VAR|MysticPastLifeScoreWIS|14|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 15				PREVAREQ:WISSCORE,15	BONUS:VAR|MysticPastLifeScoreWIS|15|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 16				PREVAREQ:WISSCORE,16	BONUS:VAR|MysticPastLifeScoreWIS|16|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 17				PREVAREQ:WISSCORE,17	BONUS:VAR|MysticPastLifeScoreWIS|17|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 18				PREVAREQ:WISSCORE,18	BONUS:VAR|MysticPastLifeScoreWIS|18|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 19				PREVAREQ:WISSCORE,19	BONUS:VAR|MysticPastLifeScoreWIS|19|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 20				PREVAREQ:WISSCORE,20	BONUS:VAR|MysticPastLifeScoreWIS|20|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 21				PREVAREQ:WISSCORE,21	BONUS:VAR|MysticPastLifeScoreWIS|21|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 22				PREVAREQ:WISSCORE,22	BONUS:VAR|MysticPastLifeScoreWIS|22|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 23				PREVAREQ:WISSCORE,23	BONUS:VAR|MysticPastLifeScoreWIS|23|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ WIS 24				PREVAREQ:WISSCORE,24	BONUS:VAR|MysticPastLifeScoreWIS|24|TYPE=BASE																				REMOVABLE:NO
+Mystic Past Life ~ WIS 1				PREVAREQ:WISSCORE,1	BONUS:VAR|MysticPastLifeScoreWIS|1|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 2				PREVAREQ:WISSCORE,2	BONUS:VAR|MysticPastLifeScoreWIS|2|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 3				PREVAREQ:WISSCORE,3	BONUS:VAR|MysticPastLifeScoreWIS|3|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 4				PREVAREQ:WISSCORE,4	BONUS:VAR|MysticPastLifeScoreWIS|4|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 5				PREVAREQ:WISSCORE,5	BONUS:VAR|MysticPastLifeScoreWIS|5|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 6				PREVAREQ:WISSCORE,6	BONUS:VAR|MysticPastLifeScoreWIS|6|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 7				PREVAREQ:WISSCORE,7	BONUS:VAR|MysticPastLifeScoreWIS|7|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 8				PREVAREQ:WISSCORE,8	BONUS:VAR|MysticPastLifeScoreWIS|8|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 9				PREVAREQ:WISSCORE,9	BONUS:VAR|MysticPastLifeScoreWIS|9|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 10				PREVAREQ:WISSCORE,10	BONUS:VAR|MysticPastLifeScoreWIS|10|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 11				PREVAREQ:WISSCORE,11	BONUS:VAR|MysticPastLifeScoreWIS|11|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 12				PREVAREQ:WISSCORE,12	BONUS:VAR|MysticPastLifeScoreWIS|12|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 13				PREVAREQ:WISSCORE,13	BONUS:VAR|MysticPastLifeScoreWIS|13|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 14				PREVAREQ:WISSCORE,14	BONUS:VAR|MysticPastLifeScoreWIS|14|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 15				PREVAREQ:WISSCORE,15	BONUS:VAR|MysticPastLifeScoreWIS|15|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 16				PREVAREQ:WISSCORE,16	BONUS:VAR|MysticPastLifeScoreWIS|16|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 17				PREVAREQ:WISSCORE,17	BONUS:VAR|MysticPastLifeScoreWIS|17|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 18				PREVAREQ:WISSCORE,18	BONUS:VAR|MysticPastLifeScoreWIS|18|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 19				PREVAREQ:WISSCORE,19	BONUS:VAR|MysticPastLifeScoreWIS|19|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 20				PREVAREQ:WISSCORE,20	BONUS:VAR|MysticPastLifeScoreWIS|20|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 21				PREVAREQ:WISSCORE,21	BONUS:VAR|MysticPastLifeScoreWIS|21|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 22				PREVAREQ:WISSCORE,22	BONUS:VAR|MysticPastLifeScoreWIS|22|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 23				PREVAREQ:WISSCORE,23	BONUS:VAR|MysticPastLifeScoreWIS|23|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ WIS 24				PREVAREQ:WISSCORE,24	BONUS:VAR|MysticPastLifeScoreWIS|24|TYPE=BASE																								REMOVABLE:NO
 #
-Mystic Past Life ~ CHA 1				PREVAREQ:CHASCORE,1	BONUS:VAR|MysticPastLifeScoreCHA|1|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 2				PREVAREQ:CHASCORE,2	BONUS:VAR|MysticPastLifeScoreCHA|2|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 3				PREVAREQ:CHASCORE,3	BONUS:VAR|MysticPastLifeScoreCHA|3|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 4				PREVAREQ:CHASCORE,4	BONUS:VAR|MysticPastLifeScoreCHA|4|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 5				PREVAREQ:CHASCORE,5	BONUS:VAR|MysticPastLifeScoreCHA|5|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 6				PREVAREQ:CHASCORE,6	BONUS:VAR|MysticPastLifeScoreCHA|6|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 7				PREVAREQ:CHASCORE,7	BONUS:VAR|MysticPastLifeScoreCHA|7|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 8				PREVAREQ:CHASCORE,8	BONUS:VAR|MysticPastLifeScoreCHA|8|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 9				PREVAREQ:CHASCORE,9	BONUS:VAR|MysticPastLifeScoreCHA|9|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 10				PREVAREQ:CHASCORE,10	BONUS:VAR|MysticPastLifeScoreCHA|10|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 11				PREVAREQ:CHASCORE,11	BONUS:VAR|MysticPastLifeScoreCHA|11|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 12				PREVAREQ:CHASCORE,12	BONUS:VAR|MysticPastLifeScoreCHA|12|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 13				PREVAREQ:CHASCORE,13	BONUS:VAR|MysticPastLifeScoreCHA|13|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 14				PREVAREQ:CHASCORE,14	BONUS:VAR|MysticPastLifeScoreCHA|14|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 15				PREVAREQ:CHASCORE,15	BONUS:VAR|MysticPastLifeScoreCHA|15|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 16				PREVAREQ:CHASCORE,16	BONUS:VAR|MysticPastLifeScoreCHA|16|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 17				PREVAREQ:CHASCORE,17	BONUS:VAR|MysticPastLifeScoreCHA|17|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 18				PREVAREQ:CHASCORE,18	BONUS:VAR|MysticPastLifeScoreCHA|18|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 19				PREVAREQ:CHASCORE,19	BONUS:VAR|MysticPastLifeScoreCHA|19|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 20				PREVAREQ:CHASCORE,20	BONUS:VAR|MysticPastLifeScoreCHA|20|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 21				PREVAREQ:CHASCORE,21	BONUS:VAR|MysticPastLifeScoreCHA|21|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 22				PREVAREQ:CHASCORE,22	BONUS:VAR|MysticPastLifeScoreCHA|22|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 23				PREVAREQ:CHASCORE,23	BONUS:VAR|MysticPastLifeScoreCHA|23|TYPE=BASE																				REMOVABLE:NO
-Mystic Past Life ~ CHA 24				PREVAREQ:CHASCORE,24	BONUS:VAR|MysticPastLifeScoreCHA|24|TYPE=BASE																				REMOVABLE:NO
+Mystic Past Life ~ CHA 1				PREVAREQ:CHASCORE,1	BONUS:VAR|MysticPastLifeScoreCHA|1|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 2				PREVAREQ:CHASCORE,2	BONUS:VAR|MysticPastLifeScoreCHA|2|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 3				PREVAREQ:CHASCORE,3	BONUS:VAR|MysticPastLifeScoreCHA|3|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 4				PREVAREQ:CHASCORE,4	BONUS:VAR|MysticPastLifeScoreCHA|4|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 5				PREVAREQ:CHASCORE,5	BONUS:VAR|MysticPastLifeScoreCHA|5|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 6				PREVAREQ:CHASCORE,6	BONUS:VAR|MysticPastLifeScoreCHA|6|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 7				PREVAREQ:CHASCORE,7	BONUS:VAR|MysticPastLifeScoreCHA|7|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 8				PREVAREQ:CHASCORE,8	BONUS:VAR|MysticPastLifeScoreCHA|8|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 9				PREVAREQ:CHASCORE,9	BONUS:VAR|MysticPastLifeScoreCHA|9|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 10				PREVAREQ:CHASCORE,10	BONUS:VAR|MysticPastLifeScoreCHA|10|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 11				PREVAREQ:CHASCORE,11	BONUS:VAR|MysticPastLifeScoreCHA|11|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 12				PREVAREQ:CHASCORE,12	BONUS:VAR|MysticPastLifeScoreCHA|12|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 13				PREVAREQ:CHASCORE,13	BONUS:VAR|MysticPastLifeScoreCHA|13|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 14				PREVAREQ:CHASCORE,14	BONUS:VAR|MysticPastLifeScoreCHA|14|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 15				PREVAREQ:CHASCORE,15	BONUS:VAR|MysticPastLifeScoreCHA|15|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 16				PREVAREQ:CHASCORE,16	BONUS:VAR|MysticPastLifeScoreCHA|16|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 17				PREVAREQ:CHASCORE,17	BONUS:VAR|MysticPastLifeScoreCHA|17|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 18				PREVAREQ:CHASCORE,18	BONUS:VAR|MysticPastLifeScoreCHA|18|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 19				PREVAREQ:CHASCORE,19	BONUS:VAR|MysticPastLifeScoreCHA|19|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 20				PREVAREQ:CHASCORE,20	BONUS:VAR|MysticPastLifeScoreCHA|20|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 21				PREVAREQ:CHASCORE,21	BONUS:VAR|MysticPastLifeScoreCHA|21|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 22				PREVAREQ:CHASCORE,22	BONUS:VAR|MysticPastLifeScoreCHA|22|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 23				PREVAREQ:CHASCORE,23	BONUS:VAR|MysticPastLifeScoreCHA|23|TYPE=BASE																								REMOVABLE:NO
+Mystic Past Life ~ CHA 24				PREVAREQ:CHASCORE,24	BONUS:VAR|MysticPastLifeScoreCHA|24|TYPE=BASE																								REMOVABLE:NO
 
 Default Language ~ Kitsune		VISIBLE:NO													AUTO:LANG|Common|Sylvan		LANGBONUS:Aklo,Celestial,Elven,Gnome,Tengu
 Default Language ~ Nagaji		VISIBLE:NO													AUTO:LANG|Common|Draconic	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan,TYPE=ModernHumanLanguage

@@ -1,4 +1,4 @@
-# CVS $Revision: 6289 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 6289 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
@@ -8,7 +8,7 @@ SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.
 #Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Scent %-ft. range (Ex)|ScentRange	DEFINE:ScentRange|0
 
 
-# Ability Name						Category of Ability		Type						Visible	Special ABility		Define				Template				Virtual Feat							Temporary effect description															Temporary Bonus
+# Ability Name						Category of Ability		Type						Visible	Special ABility		Define				Template				Ability										Temporary effect description															Temporary Bonus
 Onslaught							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Onslaught (Ex)
 Freedom							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Freedom (Su)
 CATEGORY=Special Ability|Natural Cunning.MOD																							TEMPLATE:Natural Cunning

@@ -1,2 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-Psicrystal Ability Progression						CATEGORY:Special Ability	VISIBLE:YES																																																																																																																																																															STACK:YES	MULT:YES	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1
+# Ability Name				Category of Ability		Visible	Stackable?	Multiple?	Choose		Stat bonus
+Psicrystal Ability Progression	CATEGORY:Special Ability	VISIBLE:YES	STACK:YES	MULT:YES	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1

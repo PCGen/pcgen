@@ -1,10 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-Death's Head Talisman (10 HD)	TYPE:Magic.SLOT_Amulet	WT:0	COST:1000	SPROP:CL = 5th	SOURCEPAGE:p.11
-Death's Head Talisman (14 HD)	TYPE:Magic.SLOT_Amulet	WT:0	COST:1400	SPROP:CL = 7th	SOURCEPAGE:p.11
-Death's Head Talisman (18 HD)	TYPE:Magic.SLOT_Amulet	WT:0	COST:1800	SPROP:CL = 9th	SOURCEPAGE:p.11
-Death's Head Talisman (24 HD)	TYPE:Magic.SLOT_Amulet	WT:0	COST:2400	SPROP:CL = 12th	SOURCEPAGE:p.11
+# Equipment Name			Type				Cost		Weight	Source Page		Special Property
+Death's Head Talisman (10 HD)	TYPE:Magic.SLOT_Amulet	COST:1000	WT:0		SOURCEPAGE:p.11	SPROP:CL = 5th
+Death's Head Talisman (14 HD)	TYPE:Magic.SLOT_Amulet	COST:1400	WT:0		SOURCEPAGE:p.11	SPROP:CL = 7th
+Death's Head Talisman (18 HD)	TYPE:Magic.SLOT_Amulet	COST:1800	WT:0		SOURCEPAGE:p.11	SPROP:CL = 9th
+Death's Head Talisman (24 HD)	TYPE:Magic.SLOT_Amulet	COST:2400	WT:0		SOURCEPAGE:p.11	SPROP:CL = 12th
 
-Halflight Charm			TYPE:Magic			WT:0	COST:2500	SPROP:CL = 3rd	SOURCEPAGE:p.50
+Halflight Charm			TYPE:Magic			COST:2500	WT:0		SOURCEPAGE:p.50	SPROP:CL = 3rd
 
 ###Block: Bloatmage Initiate feat support
 # Equipment Name	Cost		Weight	Source Page		Bonus Equip Mods

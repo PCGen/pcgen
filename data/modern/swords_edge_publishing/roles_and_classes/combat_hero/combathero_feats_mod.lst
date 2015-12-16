@@ -1,32 +1,33 @@
-# CVS $Revision$ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 #Original Entry by: Frank Kliewe
 
 # Feat Name					Type
-CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:CombatHero
-CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:CombatHero
-CATEGORY=FEAT|Archaic Weapons Proficiency.MOD	TYPE:CombatHero
+# Ability Name							Type
+CATEGORY=FEAT|Advanced Combat Martial Arts.MOD		TYPE:CombatHero
+CATEGORY=FEAT|Advanced Firearms Proficiency.MOD		TYPE:CombatHero
+CATEGORY=FEAT|Archaic Weapons Proficiency.MOD		TYPE:CombatHero
 CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:CombatHero
-CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:CombatHero
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD		TYPE:CombatHero
 CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:CombatHero
-CATEGORY=FEAT|Brawl.MOD					TYPE:CombatHero
-CATEGORY=FEAT|Burst Fire.MOD				TYPE:CombatHero
+CATEGORY=FEAT|Brawl.MOD						TYPE:CombatHero
+CATEGORY=FEAT|Burst Fire.MOD					TYPE:CombatHero
 CATEGORY=FEAT|Cleave.MOD					TYPE:CombatHero
 CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:CombatHero
-CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:CombatHero
-CATEGORY=FEAT|Dead Aim.MOD				TYPE:CombatHero
-CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:CombatHero
-CATEGORY=FEAT|Double Tap.MOD				TYPE:CombatHero
-CATEGORY=FEAT|Exotic Firearms Proficiency.MOD	TYPE:CombatHero
+CATEGORY=FEAT|Combat Reflexes.MOD				TYPE:CombatHero
+CATEGORY=FEAT|Dead Aim.MOD					TYPE:CombatHero
+CATEGORY=FEAT|Defensive Martial Arts.MOD			TYPE:CombatHero
+CATEGORY=FEAT|Double Tap.MOD					TYPE:CombatHero
+CATEGORY=FEAT|Exotic Firearms Proficiency.MOD		TYPE:CombatHero
 CATEGORY=FEAT|Exotic Melee Weapon Proficiency.MOD	TYPE:CombatHero
-CATEGORY=FEAT|Far Shot.MOD				TYPE:CombatHero
+CATEGORY=FEAT|Far Shot.MOD					TYPE:CombatHero
 CATEGORY=FEAT|Great Cleave.MOD				TYPE:CombatHero
-CATEGORY=FEAT|Improved Brawl.MOD			TYPE:CombatHero
-CATEGORY=FEAT|Improved Combat Martial Arts.MOD	TYPE:CombatHero
-CATEGORY=FEAT|Improved Knockout Punch.MOD		TYPE:CombatHero
-CATEGORY=FEAT|Knockout Punch.MOD			TYPE:CombatHero
-CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:CombatHero
-CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:CombatHero
+CATEGORY=FEAT|Improved Brawl.MOD				TYPE:CombatHero
+CATEGORY=FEAT|Improved Combat Martial Arts.MOD		TYPE:CombatHero
+CATEGORY=FEAT|Improved Knockout Punch.MOD			TYPE:CombatHero
+CATEGORY=FEAT|Knockout Punch.MOD				TYPE:CombatHero
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD		TYPE:CombatHero
+CATEGORY=FEAT|Point Blank Shot.MOD				TYPE:CombatHero
 CATEGORY=FEAT|Power Attack.MOD				TYPE:CombatHero
 CATEGORY=FEAT|Precise Shot.MOD				TYPE:CombatHero
 CATEGORY=FEAT|Strafe.MOD					TYPE:CombatHero

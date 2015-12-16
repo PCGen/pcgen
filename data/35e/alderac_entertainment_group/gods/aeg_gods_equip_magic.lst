@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Armor and Shields
@@ -31,11 +31,11 @@ ZohlUKahnUs Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:p.106
 ZohlUNahks Blood			TYPE:MAgic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:p.106
 
 ###Block: Rings
-# Equipment Name		Output Name				Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
+# Equipment Name		Output Name				Type			Cost		Weight	Modifier			Source Page		Ability				Innate Spells																											Combat bonus				Bonus to skill
 Ring (Shadow Walking)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:117600	WT:0		EQMOD:RING			SOURCEPAGE:p.28
 Ring (Sundering)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:p.96	ABILITY:FEAT|VIRTUAL|Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
-Ring (the Land)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:p.131				SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
-Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:p.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
+Ring (the Land)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:p.131						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
+Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:p.43						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 
 ###Block:Rods, Staves and Wands
 # Equipment Name		Output Name				Required Weapon Proficiency		Type													Alt Type					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier							Alt EQModifier			Size		Source Page		Innate Spells									Combat bonus					Special Property

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Templates - Local as listed in Docs.
 
@@ -6,7 +6,7 @@
 TL~AddLevel_Running With Scissors_5																																																																																																			ADDLEVEL:Running With Scissors|5
 TL~BONUSSKILLPOINTS_80																																															BONUSSKILLPOINTS:80
 TL~BONUSMONSKILLPTSLOCKNUMBER_6																																							BONUS:MONSKILLPTS|LOCKNUMBER|6
-TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta																																																AUTO:LANG|%LIST	CHOOSE:LANG|Terestial Alpha|Terestial Beta
+TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta																																																CHOOSE:LANG|Terestial Alpha|Terestial Beta									AUTO:LANG|%LIST
 TL~CR_9											CR:9
 TL~FAVOREDCLASS_MonKee																																																													FAVOREDCLASS:MonKee
 TL~FACE_20x40															FACE:20,40

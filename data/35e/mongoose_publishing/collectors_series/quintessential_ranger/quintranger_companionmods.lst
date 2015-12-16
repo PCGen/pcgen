@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
@@ -16,14 +16,14 @@ FOLLOWER:WildPackLvl=9	TYPE:Wild Pack			SAB:Devotion (Ex)																							
 FOLLOWER:WildPackLvl=1	TYPE:Wild Pack	PRERACE:1,Dog (Riding)	KIT:1|Dog (Riding) Companion
 
 ###Block:Animal Champion Companion
-# Class of the Master			Type						Hit Dice	Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Champion Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Champion Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Champion Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+# Class of the Master			Type						Hit Dice	Ability							Special ABility					Define			Combat bonus						Stat bonus
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Champion Companion											SAB:Link (Ex)	SAB:Share Spells (Ex)
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Champion Companion	HD:2										SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Champion Companion	HD:2										SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Champion Companion	HD:2		ABILITY:FEAT|VIRTUAL|Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Champion Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Champion Companion	HD:2																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Champion Companion	HD:2										SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Champion Companion	HD:2																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 
 ###Block: Kit Application
 # Class of the Master		Type						Required Race					Apply Kit

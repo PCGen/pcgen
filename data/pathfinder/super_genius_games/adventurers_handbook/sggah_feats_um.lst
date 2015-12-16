@@ -1,11 +1,12 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
 
 #Block: .MODs for MagisterMetamagic
 #UM
 # Feat Name			Type
-CATEGORY=FEAT|Flaring Spell.MOD		TYPE:MagisterMetamagic
+# Ability Name				Type
+CATEGORY=FEAT|Flaring Spell.MOD	TYPE:MagisterMetamagic
 CATEGORY=FEAT|Piercing Spell.MOD	TYPE:MagisterMetamagic
 CATEGORY=FEAT|Rime Spell.MOD		TYPE:MagisterMetamagic
 CATEGORY=FEAT|Toppling Spell.MOD	TYPE:MagisterMetamagic

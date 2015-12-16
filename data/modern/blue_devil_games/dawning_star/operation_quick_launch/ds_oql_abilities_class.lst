@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 ###BLOCK: Velin abilities
@@ -52,11 +52,11 @@ CATEGORY=Special Ability|Improved Critical.MOD						TYPE:VelinGuardian
 
 ###BLOCK: Shared abilities
 # Feat Name					Type						Visible	Required Feat		Special ABility																Define				Stackable?	Multiple?	Choose		Modify VAR
-# Ability Name				Category of Ability		Type						Visible	Required Feat		Special ABility																Define				Stackable?	Multiple?	Choose		Modify VAR
-Increased Massive Damage Threshold	CATEGORY:Special Ability	TYPE:RaceAbility				VISIBLE:NO					SAB:Increased Massive Damage Threshold (Ex)																							BONUS:VAR|DamageThreshold|3
-Force of Law				CATEGORY:Special Ability	TYPE:ClassAbility.ForceLaw		VISIBLE:NO					SAB:Force of Law
+# Ability Name				Category of Ability		Type						Visible	Required Ability					Special ABility																Define				Stackable?	Multiple?	Choose		Modify VAR
+Increased Massive Damage Threshold	CATEGORY:Special Ability	TYPE:RaceAbility				VISIBLE:NO								SAB:Increased Massive Damage Threshold (Ex)																							BONUS:VAR|DamageThreshold|3
+Force of Law				CATEGORY:Special Ability	TYPE:ClassAbility.ForceLaw		VISIBLE:NO								SAB:Force of Law
 Legal Authority				CATEGORY:Special Ability	TYPE:ClassAbility.ForceLaw.WordLaw	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Word of Law	SAB:+% bonus on all Charisma and Charisma based skill checks when asserting legal authority|LegalAuthority	DEFINE:LegalAuthority|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|LegalAuthority|2
-Region Familiarity			CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:NO					SAB:Region Familiarity, % regions|RegionFamiliarity										DEFINE:RegionFamiliarity|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Region Familiarity			CATEGORY:Special Ability	TYPE:ClassAbility				VISIBLE:NO								SAB:Region Familiarity, % regions|RegionFamiliarity										DEFINE:RegionFamiliarity|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Word of Law					CATEGORY:Special Ability	TYPE:ClassAbility.ForceLaw.WordLaw	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Force of Law	SAB:Word of Law
 
 ###BLOCK: Vaasi racial

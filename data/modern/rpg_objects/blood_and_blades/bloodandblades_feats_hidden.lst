@@ -1,55 +1,57 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe
 
 ###Block:Mental Disorders
 # Feat Name					Type					Visible	Special ABility																		Stackable?	Multiple?	Choose																						Combat bonus				Save bonus					Bonus to skill										Source Page
-Motor Tension				CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Motor Tension) - all checks involving STR,DEX or CON tak a -2 penalty																															BONUS:COMBAT|TOHIT|-2			BONUS:SAVE|Fortitude|-2			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution|-2		SOURCEPAGE:p.29
-Autonomic Hyperactivity			CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Autonomic Hyperactivity)																																						BONUS:COMBAT|TOHIT|-2			BONUS:SAVE|ALL|-2				BONUS:SKILL|ALL|-2									SOURCEPAGE:p.29
-Expectations of Doom			CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Expectations of Doom)																																							BONUS:COMBAT|TOHIT|-2|TYPE=Morale	BONUS:SAVE|ALL|-2|TYPE=Morale		BONUS:SKILL|ALL|-2|TYPE=Morale							SOURCEPAGE:p.29
-Vigilance					CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Vigilance)																																															BONUS:SAVE|Will|-4|TYPE=Morale	BONUS:SKILL|TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-4|TYPE=Morale	SOURCEPAGE:p.29
-Panic Disorder				CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Panic Disorder)																																																																SOURCEPAGE:p.29
-Agoraphobia					CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Agoraphobia)																																																																SOURCEPAGE:p.30
-Obsessive Disorder			CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Obsessive)																																																																	SOURCEPAGE:p.30
-Compulsive Disorder			CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Compulsion)																																																																	SOURCEPAGE:p.30
-Post-Traumatic Stress Disorder	CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Post-Traumatic Stress)																																																															SOURCEPAGE:p.30
-Phobias					CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Phobias: %)|var("COUNT[FEATNAME=Phobia]")									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
-Manias					CATEGORY:FEAT	TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Manias: %)|var("COUNT[FEATNAME=Mania]")									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
-Psychogenic Amnesia			CATEGORY:FEAT	TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Psychogenic Amnesia)																																																														SOURCEPAGE:p.31
-Dissociative Fugue			CATEGORY:FEAT	TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Dissociative Fugue)																																																														SOURCEPAGE:p.31
-Multiple Personality Disorder		CATEGORY:FEAT	TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Multiple Personalities: %)|1+var("COUNT[FEATNAME=Multiple Personality Disorder]")	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.31
-Intermittent Explosive Disorder	CATEGORY:FEAT	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Intermittent Explosive Disorder)																																																												SOURCEPAGE:p.31
-Compulsive Gambling			CATEGORY:FEAT	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Compulsive Gambling)																																																														SOURCEPAGE:p.31
-Kleptomania					CATEGORY:FEAT	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Kleptomania)																																																															SOURCEPAGE:p.31
-Pathological Lying			CATEGORY:FEAT	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pathological Lying)																																																														SOURCEPAGE:p.31
-Pyromania					CATEGORY:FEAT	TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pyromania)																																																															SOURCEPAGE:p.31
-Depression					CATEGORY:FEAT	TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Depression)																																									BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SAVE|ALL|-4|TYPE=Morale		BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
-Mania						CATEGORY:FEAT	TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Mania)																																										BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SAVE|ALL|-4|TYPE=Morale		BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
-Bipolar Disorder				CATEGORY:FEAT	TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Manic Depressive)																																																																SOURCEPAGE:p.31
-Antisocial					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Antisocial)																																																																SOURCEPAGE:p.31
-Avoidant					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Avoidant)																																																																SOURCEPAGE:p.31
-Borderline					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Borderline)																																																																SOURCEPAGE:p.31
-Obsessive-Compulsive			CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Obsessive-Compulsive)																																																														SOURCEPAGE:p.31
-Dependent					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Dependent)																																																																SOURCEPAGE:p.31
-Histrionic					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Histrionic)																																																																SOURCEPAGE:p.31
-Narcissistic				CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Narcissistic)																																																																SOURCEPAGE:p.31
-Passive-Aggressive			CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Passive-Aggressive)																																																															SOURCEPAGE:p.31
-Paranoid					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Paranoid)																																																																SOURCEPAGE:p.31
-Schizoid					CATEGORY:FEAT	TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Schizoid)																																																																SOURCEPAGE:p.31
-Transsexualism				CATEGORY:FEAT	TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Transsexualism)																																																															SOURCEPAGE:p.32
-Impaired Sexual Desire or Function	CATEGORY:FEAT	TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Impaired Sexual Desire or Function)																																																												SOURCEPAGE:p.32
-Nymphomania/Satyriasis			CATEGORY:FEAT	TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Nymphomania/Satyriasis)																																																														SOURCEPAGE:p.32
-Paraphilia					CATEGORY:FEAT	TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Paraphilia)																																																																SOURCEPAGE:p.32
-Schizophrenia				CATEGORY:FEAT	TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Schizophrenia(%CHOICE)													STACK:NO	MULT:YES	CHOOSE:STRING|Catatonic|Disorganized|Paranoid|Undifferentiated																																					SOURCEPAGE:p.32
-Other Psychotic Disorders		CATEGORY:FEAT	TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(%CHOICE)														STACK:NO	MULT:YES	CHOOSE:STRING|Amok running|Boufee Detirant|Brain Fag|Ghost Sickness|Piblofeio|Susro|Taijin Kyofusho|Voodoo Death|Wacinko|Wendigo Syndrome																									SOURCEPAGE:p.32
-Shared Paranoid Disorder		CATEGORY:FEAT	TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(Shared Paranoid Disorder)																																																														SOURCEPAGE:p.32
-Insomnia					CATEGORY:FEAT	TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Insomnia)																																																																	SOURCEPAGE:p.33
-Narcolepsy					CATEGORY:FEAT	TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Narcolepsy)																																																																	SOURCEPAGE:p.33
-Night Terrors				CATEGORY:FEAT	TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Night Terrors)																																																																SOURCEPAGE:p.33
-Somnambulism				CATEGORY:FEAT	TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Somnambulism)																																																																	SOURCEPAGE:p.33
+# Ability Name				Category of Ability	Type					Visible	Special ABility																		Stackable?	Multiple?	Choose																						Combat bonus				Save bonus					Bonus to skill										Source Page
+Motor Tension				CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Motor Tension) - all checks involving STR,DEX or CON tak a -2 penalty																															BONUS:COMBAT|TOHIT|-2			BONUS:SAVE|Fortitude|-2			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution|-2		SOURCEPAGE:p.29
+Autonomic Hyperactivity			CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Autonomic Hyperactivity)																																						BONUS:COMBAT|TOHIT|-2			BONUS:SAVE|ALL|-2				BONUS:SKILL|ALL|-2									SOURCEPAGE:p.29
+Expectations of Doom			CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Expectations of Doom)																																							BONUS:COMBAT|TOHIT|-2|TYPE=Morale	BONUS:SAVE|ALL|-2|TYPE=Morale		BONUS:SKILL|ALL|-2|TYPE=Morale							SOURCEPAGE:p.29
+Vigilance					CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Vigilance)																																															BONUS:SAVE|Will|-4|TYPE=Morale	BONUS:SKILL|TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-4|TYPE=Morale	SOURCEPAGE:p.29
+Panic Disorder				CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Panic Disorder)																																																																SOURCEPAGE:p.29
+Agoraphobia					CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Agoraphobia)																																																																SOURCEPAGE:p.30
+Obsessive Disorder			CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Obsessive)																																																																	SOURCEPAGE:p.30
+Compulsive Disorder			CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Compulsion)																																																																	SOURCEPAGE:p.30
+Post-Traumatic Stress Disorder	CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Post-Traumatic Stress)																																																															SOURCEPAGE:p.30
+Phobias					CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Phobias: %)|var("COUNT[FEATNAME=Phobia]")									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
+Manias					CATEGORY:FEAT		TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Manias: %)|var("COUNT[FEATNAME=Mania]")									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.30
+Psychogenic Amnesia			CATEGORY:FEAT		TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Psychogenic Amnesia)																																																														SOURCEPAGE:p.31
+Dissociative Fugue			CATEGORY:FEAT		TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Dissociative Fugue)																																																														SOURCEPAGE:p.31
+Multiple Personality Disorder		CATEGORY:FEAT		TYPE:Dissociative			VISIBLE:NO	SAB:Mental Disorder - Dissociative(Multiple Personalities: %)|1+var("COUNT[FEATNAME=Multiple Personality Disorder]")	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																													SOURCEPAGE:p.31
+Intermittent Explosive Disorder	CATEGORY:FEAT		TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Intermittent Explosive Disorder)																																																												SOURCEPAGE:p.31
+Compulsive Gambling			CATEGORY:FEAT		TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Compulsive Gambling)																																																														SOURCEPAGE:p.31
+Kleptomania					CATEGORY:FEAT		TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Kleptomania)																																																															SOURCEPAGE:p.31
+Pathological Lying			CATEGORY:FEAT		TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pathological Lying)																																																														SOURCEPAGE:p.31
+Pyromania					CATEGORY:FEAT		TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pyromania)																																																															SOURCEPAGE:p.31
+Depression					CATEGORY:FEAT		TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Depression)																																									BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SAVE|ALL|-4|TYPE=Morale		BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
+Mania						CATEGORY:FEAT		TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Mania)																																										BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SAVE|ALL|-4|TYPE=Morale		BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
+Bipolar Disorder				CATEGORY:FEAT		TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Manic Depressive)																																																																SOURCEPAGE:p.31
+Antisocial					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Antisocial)																																																																SOURCEPAGE:p.31
+Avoidant					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Avoidant)																																																																SOURCEPAGE:p.31
+Borderline					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Borderline)																																																																SOURCEPAGE:p.31
+Obsessive-Compulsive			CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Obsessive-Compulsive)																																																														SOURCEPAGE:p.31
+Dependent					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Dependent)																																																																SOURCEPAGE:p.31
+Histrionic					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Histrionic)																																																																SOURCEPAGE:p.31
+Narcissistic				CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Narcissistic)																																																																SOURCEPAGE:p.31
+Passive-Aggressive			CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Passive-Aggressive)																																																															SOURCEPAGE:p.31
+Paranoid					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Paranoid)																																																																SOURCEPAGE:p.31
+Schizoid					CATEGORY:FEAT		TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Schizoid)																																																																SOURCEPAGE:p.31
+Transsexualism				CATEGORY:FEAT		TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Transsexualism)																																																															SOURCEPAGE:p.32
+Impaired Sexual Desire or Function	CATEGORY:FEAT		TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Impaired Sexual Desire or Function)																																																												SOURCEPAGE:p.32
+Nymphomania/Satyriasis			CATEGORY:FEAT		TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Nymphomania/Satyriasis)																																																														SOURCEPAGE:p.32
+Paraphilia					CATEGORY:FEAT		TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Paraphilia)																																																																SOURCEPAGE:p.32
+Schizophrenia				CATEGORY:FEAT		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Schizophrenia(%CHOICE)													STACK:NO	MULT:YES	CHOOSE:STRING|Catatonic|Disorganized|Paranoid|Undifferentiated																																					SOURCEPAGE:p.32
+Other Psychotic Disorders		CATEGORY:FEAT		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(%CHOICE)														STACK:NO	MULT:YES	CHOOSE:STRING|Amok running|Boufee Detirant|Brain Fag|Ghost Sickness|Piblofeio|Susro|Taijin Kyofusho|Voodoo Death|Wacinko|Wendigo Syndrome																									SOURCEPAGE:p.32
+Shared Paranoid Disorder		CATEGORY:FEAT		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(Shared Paranoid Disorder)																																																														SOURCEPAGE:p.32
+Insomnia					CATEGORY:FEAT		TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Insomnia)																																																																	SOURCEPAGE:p.33
+Narcolepsy					CATEGORY:FEAT		TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Narcolepsy)																																																																	SOURCEPAGE:p.33
+Night Terrors				CATEGORY:FEAT		TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Night Terrors)																																																																SOURCEPAGE:p.33
+Somnambulism				CATEGORY:FEAT		TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Somnambulism)																																																																	SOURCEPAGE:p.33
 
 ###Block:Class Abilities
 # Feat Name		Type				Visible	Prohibited Damage Resistance	Special ABility			Stackable?	Multiple?	Choose									Bonus DR		Weapon prof. bonus													Damage Reduction	Source Page
-Smart Weapon	CATEGORY:FEAT	TYPE:MadGeniusAbility	VISIBLE:NO						SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[!TYPE=TwoHanded]|PC				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
+# Ability Name	Category of Ability	Type				Visible	Prohibited Damage Resistance	Special ABility			Stackable?	Multiple?	Choose									Bonus DR		Weapon prof. bonus													Damage Reduction	Source Page
+Smart Weapon	CATEGORY:FEAT		TYPE:MadGeniusAbility	VISIBLE:NO						SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[!TYPE=TwoHanded]|PC				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
 
-Initiate DR		CATEGORY:FEAT	TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1																						BONUS:DR|-|-1																	DR:1/-
+Initiate DR		CATEGORY:FEAT		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1																						BONUS:DR|-|-1																	DR:1/-

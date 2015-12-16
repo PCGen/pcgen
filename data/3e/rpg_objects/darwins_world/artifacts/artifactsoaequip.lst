@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:ArtifactsA	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 # Original entry by wizofice2001
 
@@ -13,40 +13,40 @@ SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:A
 # GOOD JUJU: Drugs and medical devices have DCs for Medical Incompatibility
 # VEHICLES (Transportation): They are also containers (trunks, etc.).  Need to get specs from publisher
 
-# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
+# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Ability									Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
 Book (Any Subject)					TYPE:Goods.Arcanum.Book																				COST:250	WT:7.5	SIZE:S	SOURCEPAGE:p.60,61
-CBI (Agility)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:27500	WT:0		SIZE:S	SOURCEPAGE:p.60,61																																									BONUS:STAT|DEX|1|TYPE=Enhancement
-CBI (Brain Wipe)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:36000	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																															SPROP:Memories are repressed and replaced by implant.
-CBI (Coordination)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:30000	WT:0		SIZE:S	SOURCEPAGE:p.61																							BONUS:COMBAT|INITIATIVE|2|TYPE=Enhancement																		SPROP:+4 Enhancement bonus to saves vs. Fear.
-CBI (Education Climb)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Climb|8|TYPE=Enhancement
-CBI (Education Craft Cybernetics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Craft (Cybernetics)|8|TYPE=Enhancement
-CBI (Education Craft Electrician)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Craft (Electrician)|8|TYPE=Enhancement
-CBI (Education Craft Mechanics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Craft (Mechanics)|8|TYPE=Enhancement
-CBI (Education Craft Robotics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Craft (Robotics)|8|TYPE=Enhancement
-CBI (Education Craft Technician)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Craft (Technician)|8|TYPE=Enhancement
-CBI (Education Craft Weaponsmithing)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Craft (Weaponsmithing)|8|TYPE=Enhancement
-CBI (Education Decipher Script)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Decipher Script|8|TYPE=Enhancement
-CBI (Education Disable Device)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Disable Device|8|TYPE=Enhancement
-CBI (Education Disguise)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Disguise|8|TYPE=Enhancement
-CBI (Education Forgery)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Forgery|8|TYPE=Enhancement
-CBI (Education Heal)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Heal|8|TYPE=Enhancement
-CBI (Education Knowledge Ancient Lore)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Ancient Lore)|8|TYPE=Enhancement
-CBI (Education Knowledge Computers)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Computers)|8|TYPE=Enhancement
-CBI (Education Knowledge Genetics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Genetics)|8|TYPE=Enhancement
-CBI (Education Knowledge Medicine)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Medicine)|8|TYPE=Enhancement
-CBI (Education Knowledge Pathology)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Pathology)|8|TYPE=Enhancement
-CBI (Education Knowledge Pharmology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Pharmacy)|8|TYPE=Enhancement
-CBI (Education Knowledge Technology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Technology)|8|TYPE=Enhancement
-CBI (Education Knowledge Vehicle Operations)	TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Knowledge (Vehicle Operations)|8|TYPE=Enhancement
-CBI (Education Open Lock)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Open Lock|8|TYPE=Enhancement
-CBI (Education Perform)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Perform|8|TYPE=Enhancement
-CBI (Education Profession/Any)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|TYPE.Profession|8|TYPE=Enhancement
-CBI (Education Speak Language/Computer)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62												BONUS:ABILITYPOOL|CBI (Education/Speak Language/Computer)|1
-CBI (Education Swim)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Swim|8|TYPE=Enhancement
-CBI (Education Use Rope)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Use Rope|8|TYPE=Enhancement
-CBI (Education Wilderness Lore)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|Wilderness Lore|8|TYPE=Enhancement
-CBI (Memory)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:27500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																														BONUS:SKILL|STAT=INT|6|TYPE=Enhancement
-CBI (Preservation)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:72000	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																															SPROP:Keeps body alive after brain-death.
+CBI (Agility)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:27500	WT:0		SIZE:S	SOURCEPAGE:p.60,61																																											BONUS:STAT|DEX|1|TYPE=Enhancement
+CBI (Brain Wipe)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:36000	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																																	SPROP:Memories are repressed and replaced by implant.
+CBI (Coordination)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:30000	WT:0		SIZE:S	SOURCEPAGE:p.61																									BONUS:COMBAT|INITIATIVE|2|TYPE=Enhancement																		SPROP:+4 Enhancement bonus to saves vs. Fear.
+CBI (Education Climb)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Climb|8|TYPE=Enhancement
+CBI (Education Craft Cybernetics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Craft (Cybernetics)|8|TYPE=Enhancement
+CBI (Education Craft Electrician)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Craft (Electrician)|8|TYPE=Enhancement
+CBI (Education Craft Mechanics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Craft (Mechanics)|8|TYPE=Enhancement
+CBI (Education Craft Robotics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Craft (Robotics)|8|TYPE=Enhancement
+CBI (Education Craft Technician)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Craft (Technician)|8|TYPE=Enhancement
+CBI (Education Craft Weaponsmithing)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Craft (Weaponsmithing)|8|TYPE=Enhancement
+CBI (Education Decipher Script)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Decipher Script|8|TYPE=Enhancement
+CBI (Education Disable Device)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Disable Device|8|TYPE=Enhancement
+CBI (Education Disguise)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Disguise|8|TYPE=Enhancement
+CBI (Education Forgery)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Forgery|8|TYPE=Enhancement
+CBI (Education Heal)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Heal|8|TYPE=Enhancement
+CBI (Education Knowledge Ancient Lore)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Ancient Lore)|8|TYPE=Enhancement
+CBI (Education Knowledge Computers)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Computers)|8|TYPE=Enhancement
+CBI (Education Knowledge Genetics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Genetics)|8|TYPE=Enhancement
+CBI (Education Knowledge Medicine)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Medicine)|8|TYPE=Enhancement
+CBI (Education Knowledge Pathology)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Pathology)|8|TYPE=Enhancement
+CBI (Education Knowledge Pharmology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Pharmacy)|8|TYPE=Enhancement
+CBI (Education Knowledge Technology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Technology)|8|TYPE=Enhancement
+CBI (Education Knowledge Vehicle Operations)	TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Knowledge (Vehicle Operations)|8|TYPE=Enhancement
+CBI (Education Open Lock)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Open Lock|8|TYPE=Enhancement
+CBI (Education Perform)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Perform|8|TYPE=Enhancement
+CBI (Education Profession/Any)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|TYPE.Profession|8|TYPE=Enhancement
+CBI (Education Speak Language/Computer)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62														BONUS:ABILITYPOOL|CBI (Education/Speak Language/Computer)|1
+CBI (Education Swim)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Swim|8|TYPE=Enhancement
+CBI (Education Use Rope)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Use Rope|8|TYPE=Enhancement
+CBI (Education Wilderness Lore)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|Wilderness Lore|8|TYPE=Enhancement
+CBI (Memory)						TYPE:Goods.Arcanum.CBI.Enhancement																		COST:27500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																BONUS:SKILL|STAT=INT|6|TYPE=Enhancement
+CBI (Preservation)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:72000	WT:0		SIZE:S	SOURCEPAGE:p.61,62																																																	SPROP:Keeps body alive after brain-death.
 Manual (Climb)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Climb)
 Manual (Craft Cybernetics)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Craft Cybernetics)
 Manual (Craft Electrician)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Craft Electrician)
@@ -70,7 +70,7 @@ Manual (Knowledge Vehicle Operations)		TYPE:Goods.Arcanum.Manual																
 Manual (Open Lock)					TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Open Lock)
 Manual (Perform)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Perform)
 Manual (Profession Any)					TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Profession Any)
-Manual (Speak Language Computer)			TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63												BONUS:ABILITYPOOL|Manual (Speak Language Computer)|1
+Manual (Speak Language Computer)			TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63														BONUS:ABILITYPOOL|Manual (Speak Language Computer)|1
 Manual (Swim)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Swim)
 Manual (Use Rope)						TYPE:Goods.Arcanum.Manual																			COST:3000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Use Rope)
 Manual (Wilderness Lore)				TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	ABILITY:FEAT|VIRTUAL|Manual (Wilderness Lore)
@@ -91,7 +91,7 @@ Soup Mix							TYPE:Goods.FoodStuffs.Consumable																		COST:1	WT:0		SI
 Synthihol (bottle)					TYPE:Goods.FoodStuffs.Consumable																		COST:10	WT:0		SIZE:T	SOURCEPAGE:pp.55,56
 
 #Gizmos
-# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
+# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Ability									Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
 Advanced Breathing Apparatus				TYPE:Goods.Gizmos.Protection																			COST:19000	WT:0		SIZE:S	SOURCEPAGE:pp.63,64
 Advanced Weapon Part					TYPE:Goods.Gizmos.Weapons																			COST:1000	WT:0		SIZE:S	SOURCEPAGE:pp.63,64
 Astronaut Pen						TYPE:Goods.Gizmos																					COST:90	WT:0		SIZE:T	SOURCEPAGE:pp.63,64
@@ -113,16 +113,16 @@ Communicator (10KM)					TYPE:Goods.Gizmos.Powered																			COST:2000	WT
 Electronic Notepad					TYPE:Goods.Gizmos.Powered																			COST:1800	WT:2		SIZE:S	SOURCEPAGE:pp.64,65
 Electronic Skeleton Key					TYPE:Goods.Gizmos.Powered																			COST:62000	WT:2		SIZE:S	SOURCEPAGE:pp.64,65
 Emergency Raft						TYPE:Goods.Gizmos																					COST:1000	WT:0		SIZE:S	SOURCEPAGE:pp.64,65
-Energy Shield A						TYPE:Goods.Gizmos.Powered.Protection																	COST:17500	WT:0		SIZE:S	SOURCEPAGE:pp.64,65									DR:5/Energy
-Energy Shield B						TYPE:Goods.Gizmos.Powered.Protection																	COST:37500	WT:0		SIZE:S	SOURCEPAGE:pp.64,65									DR:10/Energy
-Energy Shield C						TYPE:Goods.Gizmos.Powered.Protection																	COST:57500	WT:0		SIZE:S	SOURCEPAGE:pp.64,65									DR:15/Energy
+Energy Shield A						TYPE:Goods.Gizmos.Powered.Protection																	COST:17500	WT:0		SIZE:S	SOURCEPAGE:pp.64,65											DR:5/Energy
+Energy Shield B						TYPE:Goods.Gizmos.Powered.Protection																	COST:37500	WT:0		SIZE:S	SOURCEPAGE:pp.64,65											DR:10/Energy
+Energy Shield C						TYPE:Goods.Gizmos.Powered.Protection																	COST:57500	WT:0		SIZE:S	SOURCEPAGE:pp.64,65											DR:15/Energy
 Fire Extinguisher						TYPE:Goods.Gizmos																					COST:600	WT:4		SIZE:M	SOURCEPAGE:pp.64-66
 Firestarter Cube						TYPE:Goods.Gizmos																					COST:25	WT:0		SIZE:T	SOURCEPAGE:pp.64,66
 Flashlight							TYPE:Goods.Gizmos.Powered																			COST:90	WT:2		SIZE:S	SOURCEPAGE:pp.64,66
-Force Field Belt						TYPE:Goods.Gizmos.Powered.Protection																	COST:110000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66									DR:20/+1												BONUS:COMBAT|AC|4|TYPE=Deflection
+Force Field Belt						TYPE:Goods.Gizmos.Powered.Protection																	COST:110000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66											DR:20/+1												BONUS:COMBAT|AC|4|TYPE=Deflection
 Gas Mask							TYPE:Goods.Gizmos.Protection																			COST:12000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66
 Gas Mask Filter						TYPE:Goods.Gizmos																					COST:250	WT:0		SIZE:S	SOURCEPAGE:pp.64,66
-Gravity Boots						TYPE:Goods.Gizmos.Powered																			COST:7500	WT:0		SIZE:S	SOURCEPAGE:pp.64,66																														BONUS:SKILL|Climb,Jump|20|TYPE=Enhancement
+Gravity Boots						TYPE:Goods.Gizmos.Powered																			COST:7500	WT:0		SIZE:S	SOURCEPAGE:pp.64,66																																BONUS:SKILL|Climb,Jump|20|TYPE=Enhancement
 Harmonic Cell						TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:24000	WT:0		SIZE:S	SOURCEPAGE:pp.64,68,69
 Hazard Detection Device (Chemical Sensor)		TYPE:Goods.Gizmos.Powered																			COST:10500	WT:1		SIZE:S	SOURCEPAGE:pp.64,66
 Hazard Detection Device (Geiger Counter)		TYPE:Goods.Gizmos.Powered																			COST:12000	WT:3		SIZE:M	SOURCEPAGE:pp.64,66
@@ -130,9 +130,9 @@ Hazard Detection Device (Rad Tab)			TYPE:Goods.Gizmos																					COST:3
 Infra-Red Goggles						TYPE:Goods.Gizmos.Powered																			COST:3500	WT:2		SIZE:S	SOURCEPAGE:pp.64,66
 Jetpack							TYPE:Goods.Gizmos.Transportation																		COST:40000	WT:25		SIZE:M	SOURCEPAGE:pp.64,66
 Language Translator					TYPE:Goods.Gizmos.Powered																			COST:2600	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67
-Magnetic Shield A						TYPE:Goods.Gizmos.Powered.Protection																	COST:16000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67									DR:5/+1
-Magnetic Shield B						TYPE:Goods.Gizmos.Powered.Protection																	COST:36000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67									DR:10/+1
-Magnetic Shield C						TYPE:Goods.Gizmos.Powered.Protection																	COST:56000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67									DR:15/+1
+Magnetic Shield A						TYPE:Goods.Gizmos.Powered.Protection																	COST:16000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67											DR:5/+1
+Magnetic Shield B						TYPE:Goods.Gizmos.Powered.Protection																	COST:36000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67											DR:10/+1
+Magnetic Shield C						TYPE:Goods.Gizmos.Powered.Protection																	COST:56000	WT:0		SIZE:S	SOURCEPAGE:pp.64,66,67											DR:15/+1
 Memory Chip (Android/+6)				TYPE:Goods.Gizmos																					COST:18000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
 Memory Chip (Android/+12)				TYPE:Goods.Gizmos																					COST:36000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
 Memory Chip (Android/+18)				TYPE:Goods.Gizmos																					COST:54000	WT:0		SIZE:T	SOURCEPAGE:pp.64,67
@@ -150,8 +150,8 @@ Power Backpack						TYPE:Goods.Gizmos.Ammunition.Energy.Charges																C
 Power Beltpack						TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:1250	WT:2		SIZE:M	SOURCEPAGE:pp.64,68
 Power Cell							TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:90	WT:0		SIZE:T	SOURCEPAGE:pp.64,68
 Power Clip							TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:500	WT:0		SIZE:S	SOURCEPAGE:pp.64,68
-Power Fist							TYPE:Goods.Gizmos.Energy.Powered																		COST:4000	WT:8		SIZE:S	SOURCEPAGE:pp.64,67																																									BONUS:STAT|STR|4
-Power Fist (Pair)						TYPE:Goods.Gizmos.Energy.Powered																		COST:8000	WT:16		SIZE:S	SOURCEPAGE:pp.64,67																																									BONUS:STAT|STR|8
+Power Fist							TYPE:Goods.Gizmos.Energy.Powered																		COST:4000	WT:8		SIZE:S	SOURCEPAGE:pp.64,67																																											BONUS:STAT|STR|4
+Power Fist (Pair)						TYPE:Goods.Gizmos.Energy.Powered																		COST:8000	WT:16		SIZE:S	SOURCEPAGE:pp.64,67																																											BONUS:STAT|STR|8
 Power Pack							TYPE:Goods.Gizmos.Ammunition.Energy.Charges																COST:750	WT:3		SIZE:M	SOURCEPAGE:pp.64,68
 Stealth Pack						TYPE:Goods.Gizmos.Powered																			COST:52000	WT:3		SIZE:S	SOURCEPAGE:pp.64,69
 UV Sterilizer						TYPE:Goods.Gizmos.Powered																			COST:8000	WT:3		SIZE:S	SOURCEPAGE:pp.64,69
@@ -159,9 +159,9 @@ Water Purifier						TYPE:Goods.Gizmos.Powered																			COST:7500	WT:2		
 X-Ray Goggles						TYPE:Goods.Gizmos.Powered																			COST:25000	WT:2		SIZE:S	SOURCEPAGE:pp.64,69
 
 #Good Juju
-# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
+# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Ability									Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
 Antitox							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:375	WT:0		SIZE:T	SOURCEPAGE:pp.57,58
-Diagnostic Scanner					TYPE:Goods.GoodJuju.Medical.Device.Powered																COST:10500	WT:0		SIZE:S	SOURCEPAGE:pp.58,59																														BONUS:SKILL|Knowledge (Pathology)|10|TYPE=Enhancement
+Diagnostic Scanner					TYPE:Goods.GoodJuju.Medical.Device.Powered																COST:10500	WT:0		SIZE:S	SOURCEPAGE:pp.58,59																																BONUS:SKILL|Knowledge (Pathology)|10|TYPE=Enhancement
 Filter Dose							TYPE:Goods.GoodJuju.Drug.Consumable.Medical																COST:400	WT:0		SIZE:T	SOURCEPAGE:p.58
 Halazone Tablets						TYPE:Goods.GoodJuju.Consumable																		COST:50	WT:0		SIZE:T	SOURCEPAGE:p.58
 Healing Pack						TYPE:Goods.GoodJuju.Medical.Device.Powered																COST:70000	WT:2		SIZE:S	SOURCEPAGE:pp.58,59
@@ -185,7 +185,7 @@ Tailored Narcotics					TYPE:Goods.GoodJuju.Drug.Consumable																		COST
 Truth Serum							TYPE:Goods.GoodJuju.Drug.Consumable																		COST:250	WT:0		SIZE:T	SOURCEPAGE:pp.58,59
 
 #Junk Items
-# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Virtual Feat						Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
+# Equipment Name						Type									Contains													Cost		Weight	Size		Source Page			Ability									Damage Reduction	Bonus Ability Pool							Combat bonus						Bonus to skill									Stat bonus					Special Property
 Hologram Projector					TYPE:Goods.JunkItems.Container				CONTAINS:0|Total=1|Holocard=1										COST:1000	WT:0		SIZE:T	SOURCEPAGE:pp.54,55
 Hologram Projector Image Card				TYPE:Goods.JunkItems.HoloCard																			COST:50	WT:0		SIZE:T	SOURCEPAGE:pp.54,55
 Identity Card (Black)					TYPE:Goods.JunkItems.IdentityCard																		COST:30000	WT:0		SIZE:T	SOURCEPAGE:pp.54,55

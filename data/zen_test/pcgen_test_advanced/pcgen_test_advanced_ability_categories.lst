@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object																																				Specific choices list				Plural description for UI			Display Location
 ABILITYCATEGORY:Feat Test Subcategory			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Test97																																																			DISPLAYLOCATION:Feats
@@ -71,9 +71,9 @@ ABILITYCATEGORY:CODE-362				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONAL
 
 
 ###Block: TEST PFS issue
-ABILITYCATEGORY:Ocher Rhomboid Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Combat																		PLURAL:Ocher Rhomboid Feats		DISPLAYLOCATION:Feats
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display where?				Display Location
+ABILITYCATEGORY:Ocher Rhomboid Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Combat		PLURAL:Ocher Rhomboid Feats							DISPLAYLOCATION:Feats
 
 # This ability pool hold the list of chronicle sheets
-ABILITYCATEGORY:PFS Chronicle	VISIBLE:NO		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:PFS Chronicle
-ABILITYCATEGORY:PFSChronicle		DISPLAYNAME:PFS Chronicle Sheets		EDITABLE:YES	TYPE:PFSChronicle	CATEGORY:PFS Chronicle	DISPLAYLOCATION:Background	VISIBLE:YES	
-
+ABILITYCATEGORY:PFS Chronicle		VISIBLE:NO		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:PFS Chronicle
+ABILITYCATEGORY:PFSChronicle		VISIBLE:YES		EDITABLE:YES								CATEGORY:PFS Chronicle	TYPE:PFSChronicle						DISPLAYNAME:PFS Chronicle Sheets	DISPLAYLOCATION:Background

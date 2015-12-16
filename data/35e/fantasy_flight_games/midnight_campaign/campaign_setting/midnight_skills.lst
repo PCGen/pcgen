@@ -1,26 +1,26 @@
-# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Original Entry By: Beaver and Tir Gwaith
 
 ###BLOCK: New Skills
-# Skill Name					Key Stat	Untrained?		Exclusive?		Type					Source Page		Situational Skill																																																Bonus to skill
-Profession (Soldier)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
-Profession (Boater)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
-Profession (Sailor)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
-Profession (Herbalist)				KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
-Knowledge (Local/Central Erenland)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Erethor)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Caraheen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Aruun Jungle)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Miraleen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Varadeen)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Northern Marches)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Northlands)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Kaladrun Mountains)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Subterranean Kaladruns)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Surface Kaladruns)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Local/Southern Erenland)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	NAMEISPI:YES
-Knowledge (Spirits)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119																																																			BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Knowledge (Spirits)=5|TYPE=Synergy.STACK
-Knowledge (Shadow)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	SITUATION:In the Central Erenland region|In the Endless Ocean region|In the Erethor region|In the Northern Marches region|In the Northlands region|In the Kaladrun Mountains region|In the Icewall Mountains region|In the Pale Ocean region|In the Sea of Pelluria region|In the Southern Erenland region
+# Skill Name					Product Identity?	Key Stat	Untrained?		Exclusive?		Type					Source Page		Situational Skill																																																Bonus to skill
+Profession (Soldier)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Profession (Boater)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Profession (Sailor)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Profession (Herbalist)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Knowledge (Local/Central Erenland)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Erethor)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Caraheen)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Aruun Jungle)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Miraleen)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Varadeen)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Northern Marches)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Northlands)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Kaladrun Mountains)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Subterranean Kaladruns)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Surface Kaladruns)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Southern Erenland)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Spirits)							KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119																																																			BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Knowledge (Spirits)=5|TYPE=Synergy.STACK
+Knowledge (Shadow)							KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	SITUATION:In the Central Erenland region|In the Endless Ocean region|In the Erethor region|In the Northern Marches region|In the Northlands region|In the Kaladrun Mountains region|In the Icewall Mountains region|In the Pale Ocean region|In the Sea of Pelluria region|In the Southern Erenland region
 
 ###BLOCK: Mods
 # Skill Name					Choose						Situational Skill																																																																																							Bonus to Situation																																			Bonus to skill

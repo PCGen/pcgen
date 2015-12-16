@@ -1,9 +1,9 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
 ###Block:Exotic Pet
-# Class of the Master	Type			Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Combat bonus					Main Race Type
+# Class of the Master	Type			Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Modify VAR							Main Race Type
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Improved Evasion																						DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK	RACETYPE:Animal/Magical Beast
 FOLLOWER:ExoticPetLVL=3	TYPE:Exotic Pet																															DEFINESTAT:MINVALUE|INT|7	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK
@@ -12,35 +12,35 @@ FOLLOWER:ExoticPetLVL=7	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Famili
 FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																															DEFINESTAT:MINVALUE|INT|10	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK
 # Locking INT to 10 makes it a non-ability.
 
-# Race of familiar			Type			Bonus to skill			Ability
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3	
-MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3		
+# Race of familiar			Type			Bonus to skill
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3
+MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3
 
 # Class of the Master	Type			Required Race			Apply Kit
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
 
 ###Block: Plant Companion
-# Class of the Master		Type				Hit Dice	Ability																					Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR											Main Race Type
-FOLLOWER:PlantCompanionLVL=1	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1					RACETYPE:Plant
-FOLLOWER:PlantCompanionLVL=2	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																													BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																				BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																																				BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																								BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=13	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=14	TYPE:Plant Companion	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=15	TYPE:Plant Companion																																									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=16	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=17	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=18	TYPE:Plant Companion	HD:1																																								BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=19	TYPE:Plant Companion																																																				BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+# Class of the Master		Type				Hit Dice	Ability																					Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
+FOLLOWER:PlantCompanionLVL=1	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Plant
+FOLLOWER:PlantCompanionLVL=2	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																													BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=13	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=14	TYPE:Plant Companion	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=15	TYPE:Plant Companion																																									BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=16	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=17	TYPE:Plant Companion	HD:1																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=18	TYPE:Plant Companion	HD:1																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=19	TYPE:Plant Companion																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
 
 
 ###Block:Demonic Familiar (Demonic Apostle)
@@ -49,44 +49,44 @@ FOLLOWER:FamiliarLVL=3	TYPE:Familiar											TEMPLATE:Fiendish Creature	PREABI
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type				Bonus to HP			Save bonus			Bonus to skill			Ability
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3			
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3		
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3		
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3	
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2						
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3		
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3		
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3										
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2						
+# Race of familiar			Type				Bonus to HP			Save bonus			Bonus to skill
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2
 #
 
 ###Block Base Eidolon modded for Shaitan Binder
 # Base Eidolon
-# Class of the Master			Type					Hit Dice	Ability																				Define											Bonus Ability Pool													Combat bonus					Stat bonus			Modify VAR
-FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Link													DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
-FOLLOWER:ShaitanBinderEidolonLVL=2	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																											BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=3	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=4	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:ShaitanBinderEidolonLVL=5	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=6	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																								BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=7	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=8	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=9	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																												BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:ShaitanBinderEidolonLVL=10	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=11	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=12	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=13	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=14	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																									BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:ShaitanBinderEidolonLVL=15	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=16	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=17	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=18	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=19	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:ShaitanBinderEidolonLVL=20	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Shaitan Binder Eidolon Stat Bonus|1|PRERACE:1,Shaitan Binder Eidolon (Biped)
+# Class of the Master			Type					Hit Dice	Ability																					Define											Bonus Ability Pool													Stat bonus			Modify VAR
+FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Link														DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
+FOLLOWER:ShaitanBinderEidolonLVL=2	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																												BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=3	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=4	TYPE:Shaitan Binder Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|2														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:ShaitanBinderEidolonLVL=5	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=6	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																									BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=7	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=8	TYPE:Shaitan Binder Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=9	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																													BONUS:ABILITYPOOL|Eidolon Evolution|2														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:ShaitanBinderEidolonLVL=10	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=11	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=12	TYPE:Shaitan Binder Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=13	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=14	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																										BONUS:ABILITYPOOL|Eidolon Evolution|2														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:ShaitanBinderEidolonLVL=15	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=16	TYPE:Shaitan Binder Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=17	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=18	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|1														BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=19	TYPE:Shaitan Binder Eidolon	HD:1																																				BONUS:ABILITYPOOL|Eidolon Evolution|2														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:ShaitanBinderEidolonLVL=20	TYPE:Shaitan Binder Eidolon																																					BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon																																					BONUS:ABILITYPOOL|Shaitan Binder Eidolon Stat Bonus|1|PRERACE:1,Shaitan Binder Eidolon (Biped)
 FOLLOWER:ShaitanBinderEidolonLVL=4	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Basic Magic
 FOLLOWER:ShaitanBinderEidolonLVL=6	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Minor Magic
 FOLLOWER:ShaitanBinderEidolonLVL=8	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Major Magic
@@ -95,14 +95,14 @@ FOLLOWER:ShaitanBinderEidolonLVL=12	TYPE:Shaitan Binder Eidolon			ABILITY:Specia
 FOLLOWER:ShaitanBinderEidolonLVL=20	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Noble Eidolon ~ Shaitan Binder Eidolon
 
 ###Block Base Eidolon mods for Wild Caller
-# Class of the Master			Type			Ability										Bonus Ability Pool
-FOLLOWER:EidolonCompanionLVL=4			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonCompanionLVL=8			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonCompanionLVL=12			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonCompanionLVL=16			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonCompanionLVL=20			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Wild Caller Eidolon
+# Class of the Master			Type				Ability										Bonus Ability Pool									Save bonus
+FOLLOWER:EidolonCompanionLVL=4	TYPE:Eidolon													BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=8	TYPE:Eidolon													BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=12	TYPE:Eidolon													BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=16	TYPE:Eidolon													BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=20	TYPE:Eidolon													BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon		ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Wild Caller Eidolon
 
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")	
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																								BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")
 
-	
+

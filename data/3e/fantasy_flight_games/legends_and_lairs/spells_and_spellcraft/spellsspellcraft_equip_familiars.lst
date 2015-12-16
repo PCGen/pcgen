@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Original entry by: Knightcrawler
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-03
-# Equipment Name			Type			Cost		Source Page		Virtual Feat				Bonus Ability Pool			Save bonus			Bonus to skill		Stat bonus		Special Property
+# Equipment Name			Type			Cost		Source Page		Ability								Bonus Ability Pool			Save bonus			Bonus to skill		Stat bonus		Special Property
 Familiar (Bookworm)		TYPE:Familiar	COST:100	SOURCEPAGE:p.143	ABILITY:FEAT|VIRTUAL|Alertness				BONUS:ABILITYPOOL|Spell Mastery|1
 Familiar (Celestial Piper)	TYPE:Familiar	COST:100	SOURCEPAGE:p.143	ABILITY:FEAT|VIRTUAL|Alertness														BONUS:SKILL|Perform|2
 Familiar (Clockbug)		TYPE:Familiar	COST:100	SOURCEPAGE:p.143	ABILITY:FEAT|VIRTUAL|Alertness										BONUS:SAVE|Reflex|2

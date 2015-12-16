@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html	SOURCEDATE:2003-08
 # Original Entry by: Ratheof Blithwyn
 
@@ -19,16 +19,16 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 ###Block: Evocation DC bonus
 1	BONUS:DC|SCHOOL.Evocation|EvocationFocus	DEFINE:EvocationFocus|0
 ###Block: Normal Level Progression
-1	CAST:4,2				SAB:Devotion																		BONUS:ABILITYPOOL|Devoted Evoker|1
-2	CAST:5,3				SAB:Augment evocation (% levels)|AugmentEvocation	BONUS:VAR|AugmentEvocation|CL/4+1	DEFINE:AugmentEvocation|0
-3	CAST:5,3,2				SAB:Evocation focus (+%)|EvocationFocus			BONUS:VAR|EvocationFocus|CL/6+1
+1	CAST:4,2				SAB:Devotion							BONUS:ABILITYPOOL|Devoted Evoker|1
+2	CAST:5,3				SAB:Augment evocation (% levels)|AugmentEvocation							BONUS:VAR|AugmentEvocation|CL/4+1	DEFINE:AugmentEvocation|0
+3	CAST:5,3,2				SAB:Evocation focus (+%)|EvocationFocus									BONUS:VAR|EvocationFocus|CL/6+1
 4	CAST:5,4,3
 5	CAST:5,4,3,2																													ABILITY:Special Ability|VIRTUAL|Evasion
 6	CAST:5,4,4,3
 7	CAST:5,5,4,3,2
 8	CAST:5,5,4,4,3
 9	CAST:5,5,5,4,3,2
-10	CAST:5,5,5,4,4,3																							BONUS:ABILITYPOOL|Devoted Evoker|1
+10	CAST:5,5,5,4,4,3												BONUS:ABILITYPOOL|Devoted Evoker|1
 11	CAST:5,5,5,5,4,3,2
 12	CAST:5,5,5,5,4,4,3
 13	CAST:5,5,5,5,5,4,3,2
@@ -38,7 +38,7 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 17	CAST:5,5,5,5,5,5,5,4,3,2
 18	CAST:5,5,5,5,5,5,5,4,4,3
 19	CAST:5,5,5,5,5,5,5,5,4,4
-20	CAST:5,5,5,5,5,5,5,5,5,5																					BONUS:ABILITYPOOL|Devoted Evoker|1
+20	CAST:5,5,5,5,5,5,5,5,5,5										BONUS:ABILITYPOOL|Devoted Evoker|1
 
 
 #
@@ -47,7 +47,7 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Arcane Architect	HD:4		TYPE:PC.Prestige	ABB:Arch		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat						Required Skill														Req. Known Spell		Req. Spell Type
+# Class Name		Required Ability								Required Skill														Req. Known Spell		Req. Spell Type
 CLASS:Arcane Architect	PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Extend Spell	PRESKILL:1,TYPE.Craft=10	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=10	PRESPELL:1,Tiny Hut	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Architect	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Search|Speak Language|Spellcraft
@@ -65,8 +65,8 @@ CLASS:Arcane Architect	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|T
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Guardian of the Flame	HD:4		TYPE:PC.Prestige	ABB:GuFl		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required AL		Required Feat							Required Skill		Req. Known Spell		Req. Spell Type
-CLASS:Guardian of the Flame	PREALIGN:LG,NG,CG	PREABILITY:2,CATEGORY=FEAT,Lightning Reflexes,Spell Focus (Evocation)	PRESKILL:1,Spellcraft=8	PRESPELL:1,Fireball	PRESPELLTYPE:2,Arcane=3
+# Class Name			Required Ability										Required AL		Required Skill		Req. Known Spell		Req. Spell Type
+CLASS:Guardian of the Flame	PREABILITY:2,CATEGORY=FEAT,Lightning Reflexes,Spell Focus (Evocation)	PREALIGN:LG,NG,CG	PRESKILL:1,Spellcraft=8	PRESPELL:1,Fireball	PRESPELLTYPE:2,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Guardian of the Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Search|Speak Language|Spellcraft
 1	SAB:Shape Flames (+%)|ShapeFlames|PREVARLT:CL,9	BONUS:VAR|ShapeFlames|10	DEFINE:ShapeFlames|0	ADD:SPELLCASTER|ANY
@@ -99,27 +99,27 @@ CLASS:Illuminator	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Deciph
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Maestro of Dissonance	HD:4		TYPE:PC.Prestige	ABB:MaDi		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat		Required Skill						Req. Known Spell			Req. Spell Type
+# Class Name			Required Ability					Required Skill						Req. Known Spell			Req. Spell Type
 CLASS:Maestro of Dissonance	PREABILITY:1,CATEGORY=FEAT,Blindfight	PRESKILL:3,Listen=4,Perform=4,Spellcraft=8	PRESPELL:1,Discordant Bolt	PRESPELLTYPE:2,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|Listen|Perform|TYPE=Profession|Scry|Speak Language|Spellcraft
-1	VISION:Blindsight	SAB:Blindsight % ft.|MaestroBlindsight	BONUS:VAR|MaestroBlindsight|15	BONUS:VISION|Blindsight|MaestroBlindsight	DEFINE:MaestroBlindsight|0	ADD:SPELLCASTER|ANY
-2																													ADD:SPELLCASTER|ANY
-3				SAB:Amplify Sounds (+%)|AmplifySounds	BONUS:VAR|AmplifySounds|CL/3									DEFINE:AmplifySounds|0		ADD:SPELLCASTER|ANY
-4											BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
-5																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Maestro of Dissonance Feat|1
-6																													ADD:SPELLCASTER|ANY
-7											BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
-8																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Maestro of Dissonance Feat|1
-9																													ADD:SPELLCASTER|ANY
-10				SAB:Deafening Cry					BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
+1	VISION:Blindsight	SAB:Blindsight % ft.|MaestroBlindsight									BONUS:VAR|MaestroBlindsight|15	BONUS:VISION|Blindsight|MaestroBlindsight	DEFINE:MaestroBlindsight|0	ADD:SPELLCASTER|ANY
+2																																					ADD:SPELLCASTER|ANY
+3				SAB:Amplify Sounds (+%)|AmplifySounds									BONUS:VAR|AmplifySounds|CL/3									DEFINE:AmplifySounds|0		ADD:SPELLCASTER|ANY
+4																			BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
+5											BONUS:ABILITYPOOL|Maestro of Dissonance Feat|1																			ADD:SPELLCASTER|ANY
+6																																					ADD:SPELLCASTER|ANY
+7																			BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
+8											BONUS:ABILITYPOOL|Maestro of Dissonance Feat|1																			ADD:SPELLCASTER|ANY
+9																																					ADD:SPELLCASTER|ANY
+10				SAB:Deafening Cry													BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
 
 
 # Hammer (Gnome Hooked) not in the SRD
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat									Required Skill									Req. Known Spell		Req. Spell Type
+# Class Name		Required Ability											Required Skill									Req. Known Spell		Req. Spell Type
 CLASS:Order of Akmon	PREABILITY:3,CATEGORY=FEAT,Combat Casting,Spell Focus (Evocation),Still Spell	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|Listen|Perform|TYPE=Profession|Scry|Speak Language|Spellcraft
@@ -139,7 +139,7 @@ CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowle
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Spark		HD:4		TYPE:PC.Prestige	ABB:Sprk		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat				Required Skill		Req. Known Spell			Req. Spell Type
+# Class Name	Required Ability							Required Skill		Req. Known Spell			Req. Spell Type
 CLASS:Spark		PREABILITY:1,CATEGORY=FEAT,Spell Focus (Evocation)	PRESKILL:1,Spellcraft=8	PRESPELL:1,Lightning Bolt	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spark		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Speak Language|Spellcraft|Wilderness Lore
@@ -157,8 +157,8 @@ CLASS:Spark		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowle
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Unmaker	HD:4		TYPE:PC.Prestige	ABB:Unm		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required AL				Required Feat					Required Skill				Req. Known Spell		Req. Spell Type
-CLASS:Unmaker	PREALIGN:LN,LE,TN,NE,CN,CE	PREABILITY:1,CATEGORY=FEAT,Brew Potion,Great Fortitude	PRESKILL:1,Alchemy=8,Spellcraft=8	PRESPELL:1,Acid Burst	PRESPELLTYPE:3,Arcane=3
+# Class Name	Required Ability								Required AL				Required Skill				Req. Known Spell		Req. Spell Type
+CLASS:Unmaker	PREABILITY:1,CATEGORY=FEAT,Brew Potion,Great Fortitude	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Alchemy=8,Spellcraft=8	PRESPELL:1,Acid Burst	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1	SAB:Corrode Life (+%d4)|CorrodeLife				BONUS:VAR|CorrodeLife|(CL+3)/4	DEFINE:CorrodeLife|0		ADD:SPELLCASTER|ANY
@@ -175,7 +175,7 @@ CLASS:Unmaker	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|T
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Wintermage	HD:4		TYPE:PC.Prestige	ABB:Wnt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat				Multiple Requirements													Req. Known Spell					Req. Spell Type
+# Class Name	Required Ability							Multiple Requirements													Req. Known Spell					Req. Spell Type
 CLASS:Wintermage	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Evocation)	PREMULT:2,[PRESKILL:1,Knowledge (Nature)=4,Wilderness Lore=4],[PRESKILL:1,Knowledge (Arcana)=8]	PRESPELL:1,Breath of the Winter Wolf	PRESPELLTYPE:3,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wintermage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Hide|Listen|Knowledge (Nature)|Knowledge (Arcana)|Move Silently|TYPE=Profession|Scry|Spellcraft|Spot|Wilderness Lore

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 
@@ -26,23 +26,23 @@ Cloudkill					KEY:Dragon ~ Cloudkill					CATEGORY:Special Ability	TYPE:DragonSpe
 Telekinesis					KEY:Dragon ~ Telekinesis				CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Telekinesis,15+CHA
 
 ###Block: Vivilor swap table
-# Ability Name				Unique Key					Category of Ability		Type			Visible		Stackable?	Multiple?	Choose		Bonus Ability Pool
-2 Vivilor Type A Abilities		KEY:Vivilor ~ Type A Abilities	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor A Ability|2
-1 Vivilor Type B Ability		KEY:Vivilor ~ Type B Ability		CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor B Ability|1
+# Ability Name			Unique Key					Category of Ability		Type			Visible		Stackable?	Multiple?	Choose		Bonus Ability Pool
+2 Vivilor Type A Abilities	KEY:Vivilor ~ Type A Abilities	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor A Ability|2
+1 Vivilor Type B Ability	KEY:Vivilor ~ Type B Ability		CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor B Ability|1
 
 ###Block: Vivilor A
-# Ability Name				Unique Key							Category of Ability		Type		Visible		Restricted Ability										Special ABility					Move			Combat bonus					Add to base move			Stat bonus
-Aquatic					KEY:Vivilor ~ Aquatic					CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																					MOVE:Swim,60
-Bat Wings					KEY:Vivilor ~ Bat Wings					CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Feathered Wings										MOVE:Fly,60
-Acid Resistance 5				KEY:Vivilor ~ Acid Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Acid Resistance 15			SAB:Acid Resistance 5 (Ex)
-Cold Resistance 5				KEY:Vivilor ~ Cold Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Cold Resistance 15			SAB:Cold Resistance 5 (Ex)
-Electricity Resistance 5		KEY:Vivilor ~ Electricity Resistance 5		CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Electricity Resistance 15	SAB:Electricty Resistance 5 (Ex)
-Fire Resistance 5				KEY:Vivilor ~ Fire Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Fire Resistance 15			SAB:Fire Resistance 5 (Ex)
-Sonic/Concussion Resistance 5		KEY:Vivilor ~ Sonic/Concussion Resistance 5	CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Sonic/Concussion Resistance 15	SAB:Sonic/Concussion Resistance 5 (Ex)
-Improved Ability Scores			KEY:Vivilor ~ Improved Ability Scores		CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																																				BONUS:STAT|STR,CON|2
-Quadrupedal					KEY:Vivilor ~ Quadrupedal				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																															BONUS:MOVEADD|TYPE=Walk|20
-Tentacles					KEY:Vivilor ~ Tentacles					CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Grasping Tentacles													BONUS:COMBAT|REACH|10
-Tougher Skin				KEY:Vivilor ~ Tougher Skin				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Metallic Skin													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+# Ability Name			Unique Key							Category of Ability		Type		Visible		Restricted Ability										Special ABility					Move			Combat bonus					Add to base move			Stat bonus
+Aquatic				KEY:Vivilor ~ Aquatic					CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																					MOVE:Swim,60
+Bat Wings				KEY:Vivilor ~ Bat Wings					CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Feathered Wings										MOVE:Fly,60
+Acid Resistance 5			KEY:Vivilor ~ Acid Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Acid Resistance 15			SAB:Acid Resistance 5 (Ex)
+Cold Resistance 5			KEY:Vivilor ~ Cold Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Cold Resistance 15			SAB:Cold Resistance 5 (Ex)
+Electricity Resistance 5	KEY:Vivilor ~ Electricity Resistance 5		CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Electricity Resistance 15	SAB:Electricty Resistance 5 (Ex)
+Fire Resistance 5			KEY:Vivilor ~ Fire Resistance 5			CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Fire Resistance 15			SAB:Fire Resistance 5 (Ex)
+Sonic/Concussion Resistance 5	KEY:Vivilor ~ Sonic/Concussion Resistance 5	CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Sonic/Concussion Resistance 15	SAB:Sonic/Concussion Resistance 5 (Ex)
+Improved Ability Scores		KEY:Vivilor ~ Improved Ability Scores		CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																																				BONUS:STAT|STR,CON|2
+Quadrupedal				KEY:Vivilor ~ Quadrupedal				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY																															BONUS:MOVEADD|TYPE=Walk|20
+Tentacles				KEY:Vivilor ~ Tentacles					CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Grasping Tentacles													BONUS:COMBAT|REACH|10
+Tougher Skin			KEY:Vivilor ~ Tougher Skin				CATEGORY:Special Ability	TYPE:VivA	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Vivilor Metallic Skin													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 
 ###Block: Vivilor B
 # Ability Name				Unique Key							Category of Ability		Type		Visible		Restricted Ability										Special ABility									Move		Combat bonus
@@ -60,4 +60,3 @@ Serpentine					KEY:Vivilor ~ Serpentine				CATEGORY:Special Ability	TYPE:VivB	VI
 #
 # End
 #
-

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 23:23:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 #Errata applied as per http://shadow.wizards.com/dnd/files/DMGErrata.pdf
 
-# Equipment Name		Output Name				Type			Cost		Weight	Slot Needed	Source Page		Virtual Feat			Innate Spells				Special Property							Unarmed Damage
+# Equipment Name		Output Name				Type			Cost		Weight	Slot Needed	Source Page		Ability							Innate Spells				Special Property							Unarmed Damage
 Ring (Angel's Ring)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:10000	WT:0				SOURCEPAGE:p.169
 Ring (Devlin's Ring)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:2000	WT:0				SOURCEPAGE:p.169
 Ring (Flesh Golemfist)	OUTPUTNAME:[NAME]			TYPE:Magic.Ring	COST:20000	WT:0		SLOTS:2	SOURCEPAGE:p.169	ABILITY:FEAT|VIRTUAL|Improved Unarmed Strike																UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8,8d8

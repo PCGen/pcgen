@@ -1,38 +1,39 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
 # Feat Name					Type
-CATEGORY=FEAT|Action Boost.MOD				TYPE:Gambler
-CATEGORY=FEAT|Aircraft Operation.MOD			TYPE:HumanComputer
+# Ability Name						Type
+CATEGORY=FEAT|Action Boost.MOD			TYPE:Gambler
+CATEGORY=FEAT|Aircraft Operation.MOD		TYPE:HumanComputer
 CATEGORY=FEAT|Alertness.MOD				TYPE:Sensitive
 CATEGORY=FEAT|Animal Affinity.MOD			TYPE:Sensitive
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:HumanComputer.xenoArch
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:HumanComputer.xenoArch
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:HumanComputer.xenoArch
 CATEGORY=FEAT|Armor Proficiency (Powered).MOD	TYPE:HumanComputer
 CATEGORY=FEAT|Attentive.MOD				TYPE:HumanComputer.Sensitive
 CATEGORY=FEAT|Blind-Fight.MOD				TYPE:HumanComputer.Sensitive
 CATEGORY=FEAT|Cautious.MOD				TYPE:HumanComputer
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:HumanComputer
-CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:HumanComputer.Sensitive
+CATEGORY=FEAT|Combat Martial Arts.MOD		TYPE:HumanComputer.Sensitive
 CATEGORY=FEAT|Deceptive.MOD				TYPE:HumanComputer
 CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:HumanComputer.Sensitive
 CATEGORY=FEAT|Educated.MOD				TYPE:HumanComputer.xenoArch
 CATEGORY=FEAT|Elusive Target.MOD			TYPE:HumanComputer
-CATEGORY=FEAT|Focused.MOD					TYPE:Sensitive
+CATEGORY=FEAT|Focused.MOD				TYPE:Sensitive
 CATEGORY=FEAT|Gearhead.MOD				TYPE:HumanComputer.xenoArch
 CATEGORY=FEAT|Improved Disarm.MOD			TYPE:HumanComputer
-CATEGORY=FEAT|Improved Initiative.MOD			TYPE:HumanComputer
-CATEGORY=FEAT|Improved Trip.MOD				TYPE:HumanComputer
+CATEGORY=FEAT|Improved Initiative.MOD		TYPE:HumanComputer
+CATEGORY=FEAT|Improved Trip.MOD			TYPE:HumanComputer
 CATEGORY=FEAT|Iron Will.MOD				TYPE:Sensitive
 CATEGORY=FEAT|Meticulous.MOD				TYPE:HumanComputer
-CATEGORY=FEAT|Renown.MOD					TYPE:xenoArch
-CATEGORY=FEAT|Salvage.MOD					TYPE:xenoArch.Hauler.Pirate
-CATEGORY=FEAT|Spacer.MOD					TYPE:Hauler
-CATEGORY=FEAT|Starship Operation.MOD			TYPE:Hauler.Pirate
+CATEGORY=FEAT|Renown.MOD				TYPE:xenoArch
+CATEGORY=FEAT|Salvage.MOD				TYPE:xenoArch.Hauler.Pirate
+CATEGORY=FEAT|Spacer.MOD				TYPE:Hauler
+CATEGORY=FEAT|Starship Operation.MOD		TYPE:Hauler.Pirate
 CATEGORY=FEAT|Studious.MOD				TYPE:HumanComputer.XenoArch
 CATEGORY=FEAT|Trustworthy.MOD				TYPE:HumanComputer.Sensitive
-CATEGORY=FEAT|Ultra Immune System.MOD			TYPE:xenoArch
-CATEGORY=FEAT|Unbalance Opponent.MOD			TYPE:Sensitive
+CATEGORY=FEAT|Ultra Immune System.MOD		TYPE:xenoArch
+CATEGORY=FEAT|Unbalance Opponent.MOD		TYPE:Sensitive
 CATEGORY=FEAT|Windfall.MOD				TYPE:xenoArch
 CATEGORY=FEAT|Xenomedic.MOD				TYPE:xenoArch
 CATEGORY=FEAT|Zero G Training.MOD			TYPE:Pirate

@@ -1,25 +1,26 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 # Original Entry by: Stefan Radermacher
 
 ###Block: General Feats
 # Feat Name						Output Name						Type				Required Ability								Required Class			Required Feat								Min. nb of Hands	Required Movement Rate	Minimum Size	Required Stat	Required Text								PRETOTALAB		Var. Min. Value					Req. Weapond Prof.		Description															Stackable?	Multiple?	Choose								Combat bonus									Weapon prof. bonus			Source Page		Benefits
-CATEGORY=FEAT|Ability Focus.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Awesome Blow.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Craft Construct.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Empower Spell-Like Ability ~ Ability.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Flyby Attack.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Hover.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+# Ability Name								Type			!PRECHARACTERTYPE
+CATEGORY=FEAT|Ability Focus.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Awesome Blow.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Craft Construct.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Empower Spell-Like Ability ~ Ability.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Flyby Attack.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Hover.MOD							TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=FEAT|Improved Natural Armor.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=FEAT|Improved Natural Attack.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 #COMMENT: Use NaturalSecondary if a NATURALATTACK isn't going to be a second entry in the tag and be assigned the Secondary type automatically.
-CATEGORY=FEAT|Multiattack.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Multiattack.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=FEAT|Multiweapon Fighting.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Quicken Spell-Like Ability ~ Ability.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Snatch.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-CATEGORY=FEAT|Wingover.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Quicken Spell-Like Ability ~ Ability.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Snatch.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Wingover.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 
 # ORIGINAL ENTRY: Douglas Limmer
@@ -33,6 +34,7 @@ CATEGORY=FEAT|Wingover.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 ###Block:
 #Feat Name
 # Feat Name			Allowed Companions
+# Ability Name				Allowed Companions
 CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Paracletus)|PREALIGN:TN|PRECLASS:1,SPELLCASTER.Arcane=7
 CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Silvanshee)|PREALIGN:NG|PRECLASS:1,SPELLCASTER.Arcane=7
 CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cassisian)|PREALIGN:NG|PRECLASS:1,SPELLCASTER.Arcane=7

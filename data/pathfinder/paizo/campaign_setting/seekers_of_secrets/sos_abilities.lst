@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Paul Shipley
 
@@ -12,30 +12,32 @@ Flawed Gamboge Nodule Ability	CATEGORY:Special Ability	TYPE:Internal	ASPECT:Save
 
 
 ###Block: Boon Companion Selection
-Boon Companion Tracker		CATEGORY:Internal
+# Ability Name		Category of Ability
+Boon Companion Tracker	CATEGORY:Internal
 ###Block: Tracking
+# Ability Name						Define													Modify VAR
 CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_AnimalCompanion|0	DEFINE:AnimalCompanionLVL_Diff|0	BONUS:VAR|BoonCompanionBonus_AnimalCompanion|MAX(0,MIN(4,AnimalCompanionLVL_Diff))	BONUS:VAR|AnimalCompanionLVL_Diff|AnimalCompanionMasterLVL-TL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_Familiar|0		DEFINE:FamiliarLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_Familiar|MAX(0,MIN(4,FamiliarLVL_Diff))	BONUS:VAR|FamiliarLVL_Diff|FamiliarMasterLVL-TL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_SpecialMount|0		DEFINE:SpecialMountLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_SpecialMount|MAX(0,MIN(4,SpecialMountLVL_Diff))	BONUS:VAR|SpecialMountLVL_Diff|CompanionMasterLVL_Paladin-TL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_CavalierMount|0		DEFINE:CavalierMountLVL_Diff|0	BONUS:VAR|BoonCompanionBonus_CavalierMount|MAX(0,MIN(4,CavalierMountLVL_Diff))	BONUS:VAR|CavalierMountLVL_Diff|CompanionMasterLVL_Cavalier-TL
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_Familiar|0	DEFINE:FamiliarLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_Familiar|MAX(0,MIN(4,FamiliarLVL_Diff))	BONUS:VAR|FamiliarLVL_Diff|FamiliarMasterLVL-TL
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_SpecialMount|0	DEFINE:SpecialMountLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_SpecialMount|MAX(0,MIN(4,SpecialMountLVL_Diff))	BONUS:VAR|SpecialMountLVL_Diff|CompanionMasterLVL_Paladin-TL
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_CavalierMount|0	DEFINE:CavalierMountLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_CavalierMount|MAX(0,MIN(4,CavalierMountLVL_Diff))	BONUS:VAR|CavalierMountLVL_Diff|CompanionMasterLVL_Cavalier-TL
 
 
 ###Block: Selections
-# Ability Name			Unique Key						Category of Ability	Type					Multiple Requirements															Define				Stackable?	Multiple?	Choose							Auto Weapon Prof		Bonus to skill				Modify VAR
-Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																												BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus_AnimalCompanion|PREVARGTEQ:AnimalCompanionLVL,1
-Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																															BONUS:VAR|FamiliarLVL|BoonCompanionBonus_Familiar|PREVARGTEQ:FamiliarLVL,1
-Special Mount			KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]																													BONUS:VAR|SpecialMountLVL|BoonCompanionBonus_SpecialMount|PREVARGTEQ:SpecialMountLVL,1
-Cavalier Mount			KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]																													BONUS:VAR|CavalierMountLVL|BoonCompanionBonus_CavalierMount|PREVARGTEQ:CavalierMountLVL,1
+# Ability Name			Unique Key						Category of Ability	Type					Multiple Requirements															Stackable?	Multiple?	Choose							Auto Weapon Prof		Bonus to skill				Modify VAR
+Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus_AnimalCompanion|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|BoonCompanionBonus_Familiar|PREVARGTEQ:FamiliarLVL,1
+Special Mount			KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]																								BONUS:VAR|SpecialMountLVL|BoonCompanionBonus_SpecialMount|PREVARGTEQ:SpecialMountLVL,1
+Cavalier Mount			KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]																								BONUS:VAR|CavalierMountLVL|BoonCompanionBonus_CavalierMount|PREVARGTEQ:CavalierMountLVL,1
 
 #
-Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal																														STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
+Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal																									STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
 
 
-Deep Red Sphere			KEY:Equipment ~ Deep Red Sphere		CATEGORY:Internal																																MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Dexterity						BONUS:SKILL|LIST|1
-Incandescent Blue Sphere	KEY:Equipment ~ Incandescent Blue Sphere	CATEGORY:Internal																																MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Wisdom						BONUS:SKILL|LIST|1|TYPE=Competence
-Pale Blue Rhomboid		KEY:Equipment ~ Pale Blue Rhomboid		CATEGORY:Internal																																MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Strength						BONUS:SKILL|LIST|1
-Pink And Green Sphere		KEY:Equipment ~ Pink And Green Sphere	CATEGORY:Internal																																MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma						BONUS:SKILL|LIST|1
-Scarlet And Blue Sphere		KEY:Equipment ~ Scarlet and blue Sphere	CATEGORY:Internal																																MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Intelligence					BONUS:SKILL|LIST|1
+Deep Red Sphere			KEY:Equipment ~ Deep Red Sphere		CATEGORY:Internal																											MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Dexterity						BONUS:SKILL|LIST|1
+Incandescent Blue Sphere	KEY:Equipment ~ Incandescent Blue Sphere	CATEGORY:Internal																											MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Wisdom						BONUS:SKILL|LIST|1|TYPE=Competence
+Pale Blue Rhomboid		KEY:Equipment ~ Pale Blue Rhomboid		CATEGORY:Internal																											MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Strength						BONUS:SKILL|LIST|1
+Pink And Green Sphere		KEY:Equipment ~ Pink And Green Sphere	CATEGORY:Internal																											MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma						BONUS:SKILL|LIST|1
+Scarlet And Blue Sphere		KEY:Equipment ~ Scarlet and blue Sphere	CATEGORY:Internal																											MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Intelligence					BONUS:SKILL|LIST|1
 
 ###Block: Wayfinder
 # Ability Name		Category of Ability	Define				Bonus Ability Pool

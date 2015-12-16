@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
-SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:CiSc	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
 # Class Name	Class Skill
@@ -11,10 +11,10 @@ CLASS:Aristo	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Ari		SOURCEPAGE:p.	BONUS:COMBAT
 CLASS:Aristo	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE=Knowledge|Listen|Perform|Read Lips|Ride|Savoir Faire|Sense Motive|Speak Language|Swim|Wilderness Lore
 ###Block: Proficiencies
 1	BONUS:ABILITYPOOL|Aristo Feat|2
-1																																				ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1							ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Megabucks	BONUS:ABILITYPOOL|Contact|1
-2								ABILITY:FEAT|VIRTUAL|Command Voice
+2									ABILITY:FEAT|VIRTUAL|Command Voice
 3				BONUS:ABILITYPOOL|Contact|1
 5				BONUS:ABILITYPOOL|Contact|1
 7				BONUS:ABILITYPOOL|Contact|1
@@ -33,9 +33,9 @@ CLASS:Bard (CS)	PREALIGN:NG,TN,NE,CG,CN,CE
 CLASS:Bard (CS)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|Conceal Object|Criminology|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Linguistics|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scent/Taste|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Bard (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (CS)|CL	SPELLLIST:1|Bard
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency						WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Bardic abilities level definitions.
 1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
 1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Music
@@ -74,8 +74,8 @@ CLASS:Cleric (CS)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Know
 CLASS:Cleric (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (CS)|CL	SPELLLIST:1|Cleric
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Turn Undead stuff
 1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base												ABILITY:Special Ability|AUTOMATIC|Basic Turning
 1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0
@@ -111,7 +111,7 @@ CLASS:Corporate Super	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:CSpr		SOURCEPAGE:p.	BO
 CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal Object|Criminology|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Read Lips|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|Metahuman|1	BONUS:ABILITYPOOL|Contact|1	ABILITY:FEAT|AUTOMATIC|Metahuman Talent
 5	BONUS:ABILITYPOOL|Metahuman|1
@@ -126,7 +126,7 @@ CLASS:Dataman	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Data		SOURCEPAGE:p.	BONUS:COMB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|Conceal Object|Criminology|Decipher Script|Disable Device|Forgery|Gather Information|Hide|TYPE=Knowledge|Linguistics|Listen|Medical (First Aid)|Open Lock|TYPE=Profession|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Cybernetics Implant(Datajack)																																							ABILITY:FEAT|AUTOMATIC|Cybernetics Implant
 # Cybernetic Implant (Datajack) - Need to link to the feat eventually.
@@ -157,8 +157,8 @@ CLASS:Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|
 CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid (CS)|CL	SPELLLIST:1|Druid
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
-1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:3,1											BONUS:VAR|AnimalCompanionLVL|CL							ABILITY:Special Ability|AUTOMATIC|Nature Sense	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 2	CAST:4,2																							ABILITY:Special Ability|AUTOMATIC|Woodland Stride
@@ -187,8 +187,8 @@ CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:
 CLASS:Ex Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intuit Direction|Knowledge (Nature)|Listen|Medical (First Aid)|TYPE=Profession|Scry|Scent/Taste|Spellcraft|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
-1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Gadg		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -196,9 +196,9 @@ CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Gadg		SOURCEPAGE:p.	BONUS:CO
 CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE=Craft|Demolitions|Disable Device|Invention|Gather Information|Gunslinging|Intuit Direction|TYPE=Knowledge|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Initial Creation	SAB:Invention Level %|InventionLevel	BONUS:VAR|InventionLevel|CL+2	BONUS:VAR|CreateGadget|CL	DEFINE:InventionLevel|0	DEFINE:CreateGadget|0	BONUS:ABILITYPOOL|Gadget Creation Feat|1
+1	SAB:Initial Creation	SAB:Invention Level %|InventionLevel	BONUS:ABILITYPOOL|Gadget Creation Feat|1	BONUS:VAR|InventionLevel|CL+2	BONUS:VAR|CreateGadget|CL	DEFINE:InventionLevel|0	DEFINE:CreateGadget|0
 
 # NEED Weapon and Armor Profs for Gunslinger - going off all Firearms
 # Dead Aim and Skip Shot feats are not listed in the book or errata. Strongly suspect these come from the Modern SRD since the book says those are optional rules.
@@ -209,7 +209,7 @@ CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:Gun		SOURCEPAGE:p.	BONUS:C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Gunslinging|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|TYPE=Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Archaic Weapons Proficiency|Heavy Firearms Weapon Proficiency|Personal Firearms Weapon Proficiency
-1																															AUTO:WEAPONPROF|TYPE=Futuristic
+1																																	AUTO:WEAPONPROF|TYPE=Futuristic
 ###Block: Normal Level Progression
 1						BONUS:ABILITYPOOL|Gunslinger Feat|1
 2	SAB:Close Combat Shot
@@ -245,33 +245,33 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Di
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block:Level progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2																		ABILITY:Special Ability|AUTOMATIC|Evasion|Flurry of Blows|Stunning Attack											ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																												ABILITY:FEAT|AUTOMATIC|Deflect Arrows
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		UMULT:2																		ABILITY:Special Ability|AUTOMATIC|Evasion|Flurry of Blows|Stunning Attack	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																					ABILITY:FEAT|AUTOMATIC|Deflect Arrows
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																					ABILITY:Special Ability|AUTOMATIC|Still Mind
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										BONUS:VAR|SlowFallMonkProgression|1	BONUS:VAR|SlowFall|20	ABILITY:Special Ability|AUTOMATIC|Slow Fall
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																				ABILITY:Special Ability|AUTOMATIC|Purity of Body
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										BONUS:VAR|SlowFall|10																														ABILITY:FEAT|AUTOMATIC|Improved Trip
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10										BONUS:VAR|SlowFall|10							ABILITY:FEAT|AUTOMATIC|Improved Trip
 7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10						SAB:Leap of the Clouds											ABILITY:Special Ability|AUTOMATIC|Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12										BONUS:VAR|SlowFall|20
 9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																				ABILITY:Special Ability|VIRTUAL|Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																				ABILITY:Special Ability|AUTOMATIC|Ki Strike
 11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																				ABILITY:Special Ability|AUTOMATIC|Diamond Body
-12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																				ABILITY:Special Ability|AUTOMATIC|Abundant Step						SPELLS:Class|TIMES=1|Dimension Door
+12	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																				ABILITY:Special Ability|AUTOMATIC|Abundant Step														SPELLS:Class|TIMES=1|Dimension Door
 13	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SR:10+MonkSR															ABILITY:Special Ability|AUTOMATIC|Diamond Soul
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8										BONUS:VAR|QuiverPalm|1							ABILITY:Special Ability|AUTOMATIC|Quivering Palm
 16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10
-17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																				ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon							TEMPLATE:Timeless Body
+17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																				ABILITY:Special Ability|AUTOMATIC|Timeless Body|Tongue of the Sun and Moon															TEMPLATE:Timeless Body
 18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										BONUS:VAR|SlowFallMonkProgression|1
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										BONUS:VAR|EmptyBody|CL							ABILITY:Special Ability|AUTOMATIC|Empty Body
-20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																				ABILITY:Special Ability|AUTOMATIC|Perfect Self												TEMPLATE:Monk Outsider
+20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																				ABILITY:Special Ability|AUTOMATIC|Perfect Self																				TEMPLATE:Monk Outsider
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
 CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:MutH		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mutant Hero	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|Metahuman|1	ABILITY:FEAT|AUTOMATIC|Metahuman Talent
 5	BONUS:ABILITYPOOL|Metahuman|1
@@ -287,28 +287,28 @@ CLASS:Private Detective	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Private Detective	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Conceal Object|Criminology|Demolitions|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Investigation|Intimidate|Listen|Medical (First Aid)|Move Silently|Open Lock|TYPE=Profession|Read Lips|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Profile	SAB:Traps	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:ABILITYPOOL|Contact|1
+1	SAB:Profile	SAB:Traps	BONUS:ABILITYPOOL|Contact|1									BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 2	SAB:Lucky Break
-3					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-4					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:ABILITYPOOL|Private Detective Feat|1
-5												BONUS:ABILITYPOOL|Contact|1
-6	SAB:Nonlethal Force	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-7	SAB:Discern Lie		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-8					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:ABILITYPOOL|Private Detective Feat|1
-9					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-10					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:ABILITYPOOL|Contact|1
-11					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-12												BONUS:ABILITYPOOL|Private Detective Feat|1
-13					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-14					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-15	SAB:Sixth Sense		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-16					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:ABILITYPOOL|Contact|1	BONUS:ABILITYPOOL|Private Detective Feat|1
-17					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-18					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-19					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-20					BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:ABILITYPOOL|Contact|1	BONUS:ABILITYPOOL|Private Detective Feat|1
+3																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+4					BONUS:ABILITYPOOL|Private Detective Feat|1						BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+5					BONUS:ABILITYPOOL|Contact|1
+6	SAB:Nonlethal Force														BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+7	SAB:Discern Lie															BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+8					BONUS:ABILITYPOOL|Private Detective Feat|1						BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+9																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+10					BONUS:ABILITYPOOL|Contact|1									BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+11																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+12					BONUS:ABILITYPOOL|Private Detective Feat|1
+13																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+14																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+15	SAB:Sixth Sense															BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+16					BONUS:ABILITYPOOL|Contact|1	BONUS:ABILITYPOOL|Private Detective Feat|1	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+17																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+18																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+19																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
+20					BONUS:ABILITYPOOL|Contact|1	BONUS:ABILITYPOOL|Private Detective Feat|1	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 
 # Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Ranger (CS)	OUTPUTNAME:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -317,8 +317,8 @@ CLASS:Ranger (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level								Use Spell List
 CLASS:Ranger (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Bard (CS)|CL/2|PRECLASS:1,Ranger (CS)=4	SPELLLIST:1|Ranger
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Favored Enemy
 1	BONUS:ABILITYPOOL|Favored Enemy|var("RangerFavoredEnemyLVL")/5+1	BONUS:VAR|RangerFavoredEnemyLVL|CL	DEFINE:RangerFavoredEnemyLVL|0
 ###Block: Normal Level Progression
@@ -355,7 +355,7 @@ CLASS:Rogue (CS/High tech)	OUTPUTNAME:Rogue, High Tech (CS)	HD:6		TYPE:Base.PC	A
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Linguistics|Listen|Medical (First Aid)|Mesmerism|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Rogue Weapon Proficiencies
-1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Sneak attack and Uncany Dodge
 1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3	BONUS:VAR|UncannyDodge|1		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
@@ -374,7 +374,7 @@ CLASS:Scholar	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Sch		SOURCEPAGE:p.	BONUS:COMBA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scholar	STARTSKILLPTS:8	CSKILL:Computer Use|Criminology|Decipher Script|TYPE=Knowledge|Linguistics|Listen|TYPE=Medical|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Field of Study
 3	SAB:Field Specialist
@@ -389,24 +389,24 @@ CLASS:Soldier	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:Sol		SOURCEPAGE:p.	BONUS:COMBA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Demolitions|Drive|Forward Observer|Gather Information|Gunslinging|Handle Animal|Jump|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	BONUS:ABILITYPOOL|Soldier Proificiency Choice|1
-1																														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Powered)
-1														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Heavy Firearms Weapon Proficiency|Simple Weapon Proficiency
+1									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Powered)
+1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Heavy Firearms Weapon Proficiency|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SAB:Close-Order Fighting
-2	SAB:Favored Weapon																														BONUS:ABILITYPOOL|Favored Weapon|1			ABILITY:FEAT|AUTOMATIC|Combat Reflexes
-4	SAB:Quick Action +%|QuickAction	SAB:Tactical Aid	BONUS:COMBAT|INITIATIVE|QuickAction	BONUS:VAR|QuickAction|1	BONUS:VAR|WeapSpecQualify|1	DEFINE:QuickAction|0	DEFINE:WeapSpecQualify|0	BONUS:ABILITYPOOL|Weapon Specialization|1
-5																																		BONUS:ABILITYPOOL|Improved Critical|1
+2	SAB:Favored Weapon						BONUS:ABILITYPOOL|Favored Weapon|1																										ABILITY:FEAT|AUTOMATIC|Combat Reflexes
+4	SAB:Quick Action +%|QuickAction	SAB:Tactical Aid	BONUS:ABILITYPOOL|Weapon Specialization|1	BONUS:COMBAT|INITIATIVE|QuickAction	BONUS:VAR|QuickAction|1	BONUS:VAR|WeapSpecQualify|1	DEFINE:QuickAction|0	DEFINE:WeapSpecQualify|0
+5										BONUS:ABILITYPOOL|Improved Critical|1
 6	SAB:Superior Bull Rush
 8	SAB:Coordinated Strikes
-9																BONUS:VAR|QuickAction|1
+9																							BONUS:VAR|QuickAction|1
 10	SAB:Superior Trip
 11	SAB:Critical Strike
 12	SAB:Improved Close-Order Fighting
-13																BONUS:VAR|QuickAction|1
+13																							BONUS:VAR|QuickAction|1
 14	SAB:Lightning Reaction
-16	SAB:Maximize Cover												BONUS:VAR|QuickAction|1
+16	SAB:Maximize Cover																			BONUS:VAR|QuickAction|1
 18	SAB:Killing Strike
-19																BONUS:VAR|QuickAction|1
+19																							BONUS:VAR|QuickAction|1
 20	SAB:Reflexive Strike
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
@@ -444,8 +444,8 @@ CLASS:Warrior (CS)	OUTPUTNAME:Warrior	HD:10		TYPE:Base.PC	ABB:War		SOURCEPAGE:p.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Scent/Taste|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|Fighter|CL/2+1
 4							BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
@@ -497,33 +497,33 @@ CLASS:Martial Magician	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTER
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
-1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:2				SAB:Living Weapon																																																															ABILITY:FEAT|AUTOMATIC|Combat Martial Arts|Meditation
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3															BONUS:VAR|FamiliarLVL|CL																																									ABILITY:Special Ability|AUTOMATIC|Summon Familiar	ABILITY:FEAT|AUTOMATIC|Scribe Scroll
+1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:2				SAB:Living Weapon																					ABILITY:FEAT|AUTOMATIC|Combat Martial Arts|Meditation
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3																						BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar	ABILITY:FEAT|AUTOMATIC|Scribe Scroll
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3,1				SAB:Flying Kick
-4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,1																				BONUS:ABILITYPOOL|Martial Magician Feat|1
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,1										BONUS:ABILITYPOOL|Martial Magician Feat|1
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,2,1				SAB:Combat Throw
 6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,3,2				SAB:Iron Fist
 7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,3,2,1			SAB:Improved Combat Martial Arts
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,3,3,2																			BONUS:ABILITYPOOL|Martial Magician Feat|1
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,3,3,2									BONUS:ABILITYPOOL|Martial Magician Feat|1
 9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,3,2,1
 10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,3,3,2			SAB:Improved Combat Throw
 11	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,3,2,1
-12	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,3,3,2																			BONUS:ABILITYPOOL|Martial Magician Feat|1
+12	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,3,3,2									BONUS:ABILITYPOOL|Martial Magician Feat|1
 13	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,3,2,1
 14	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,3,3,2		SAB:Advanced Combat Martial Arts
 15	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,3,2,1
-16	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,3,3,2																		BONUS:ABILITYPOOL|Martial Magician Feat|1
-17	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,3,2,1																																																										ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+16	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,3,3,2								BONUS:ABILITYPOOL|Martial Magician Feat|1
+17	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,3,2,1																									ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
 18	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,3,3,2
 19	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,2,1
-20	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,3,2							BONUS:SAVE|BASE.Reflex|1						BONUS:ABILITYPOOL|Martial Magician Feat|1
+20	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,3,2							BONUS:ABILITYPOOL|Martial Magician Feat|1	BONUS:SAVE|BASE.Reflex|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Mechanist	NAMEISPI:YES	HD:6		TYPE:Base.PC	ABB:Mech		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptography|Demolitions|Disable Device|Freefall|Knowledge (Anatomy)|Knowledge (Archeology)|Knowledge (Astrology)|Knowledge (Astronomy)|Knowledge (Biology)|Knowledge (Botany)|Knowledge (Chemistry)|Knowledge (Epistemology)|Knowledge (Geology)|Knowledge (Mathematics)|Knowledge (Physics)|Knowledge (Psionics)|Knowledge (Technology)|Knowledge (Temporal Mechanics)|Knowledge (Zoology)|Open Lock|TYPE=Pilot|TYPE=Profession|Repair|Research|Search
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Traps	SAB:Jury Rig	SAB:Guerilla Repair	SAB:Minor Upgrade	BONUS:ABILITYPOOL|Mechanist Feat|1
 2	SAB:Sabotage (Ex)										BONUS:ABILITYPOOL|Favored Tech|1
@@ -541,52 +541,52 @@ CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptog
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
 CLASS:Battle Mind	NAMEISPI:YES	HD:8		TYPE:Prestige.PC	ABB:BtM		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat					Required Skill	PRETOTALAB
+# Class Name	Required Ability							Required Skill	PRETOTALAB
 CLASS:Battle Mind	PREABILITY:1,CATEGORY=FEAT,Wild Talent,Psionic Talent	PRESKILL:1,Jump=6	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Battle Mind	STARTSKILLPTS:3	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|TYPE=Profession|Read/Write Language|Speak Language|Spot|Swim
 ###Block:Level progression
 1	KNOWN:2
 2	KNOWN:3		SAB:Psi-Blade|PREVARLT:CL,3	SAB:Imprint Tattoo
-3	KNOWN:3,1		SAB:Psi-Blade +%|PsiBlade|PREVARLT:CL,7								BONUS:VAR|PsiBlade|(CL-1)/2	DEFINE:PsiBlade|0		BONUS:ABILITYPOOL|Battle Mind Feat|1
-4	KNOWN:3,2		SAB:Psychic Shield (+3 AC Equipment) for up to % rounds|PsyShield|PREVARLT:CL,8	BONUS:VAR|PsyShield|CL		DEFINE:PsyShield|0
-5	KNOWN:3,3,1																																																													ABILITY:FEAT|AUTOMATIC|Combat Manifestation
-6	KNOWN:3,3,2																									BONUS:ABILITYPOOL|Battle Mind Feat|1
+3	KNOWN:3,1		SAB:Psi-Blade +%|PsiBlade|PREVARLT:CL,7								BONUS:ABILITYPOOL|Battle Mind Feat|1	BONUS:VAR|PsiBlade|(CL-1)/2	DEFINE:PsiBlade|0
+4	KNOWN:3,2		SAB:Psychic Shield (+3 AC Equipment) for up to % rounds|PsyShield|PREVARLT:CL,8								BONUS:VAR|PsyShield|CL		DEFINE:PsyShield|0
+5	KNOWN:3,3,1																																ABILITY:FEAT|AUTOMATIC|Combat Manifestation
+6	KNOWN:3,3,2																BONUS:ABILITYPOOL|Battle Mind Feat|1
 7	KNOWN:3,3,2,1	SAB:Improved Psi-Blade|PREVARLT:CL,10
 8	KNOWN:3,3,3,1	SAB:Improved Psychic Shield (+6 AC Equipment) for up to % rounds|PsyShield
-9	KNOWN:3,3,3,2																								BONUS:ABILITYPOOL|Battle Mind Feat|1
+9	KNOWN:3,3,3,2															BONUS:ABILITYPOOL|Battle Mind Feat|1
 10	KNOWN:3,3,3,2,1	SAB:Ultimate Psi-Blade
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
 CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	ABB:BdG		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
-# Class Name	Required Feat						Required Skill					PRETOTALAB
+# Class Name	Required Ability									Required Skill					PRETOTALAB
 CLASS:Bodyguard	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Weapon Proficiency	PRESKILL:2,Concentration=6,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Medical (Psychology)|Knowledge (Current Events)|Knowledge (Political Science)|Knowledge (Streetwise)|Listen|TYPE=Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
 1	SAB:Harm's Way
-2	SAB:Combat sense +%|CombatSense			BONUS:VAR|CombatSense|1		DEFINE:CombatSense|0
-3																		BONUS:ABILITYPOOL|Bodyguard Feat|1
-4	SAB:Sudden Action 1/day (% max)|SuddenAction	BONUS:VAR|SuddenAction|CL	DEFINE:SuddenAction|0
+2	SAB:Combat sense +%|CombatSense									BONUS:VAR|CombatSense|1		DEFINE:CombatSense|0
+3									BONUS:ABILITYPOOL|Bodyguard Feat|1
+4	SAB:Sudden Action 1/day (% max)|SuddenAction							BONUS:VAR|SuddenAction|CL	DEFINE:SuddenAction|0
 5	SAB:Improved Charge
-6																		BONUS:ABILITYPOOL|Bodyguard Feat|1
+6									BONUS:ABILITYPOOL|Bodyguard Feat|1
 7	SAB:Defensive Strike
-8									BONUS:VAR|CombatSense|1
-9																		BONUS:ABILITYPOOL|Bodyguard Feat|1
+8															BONUS:VAR|CombatSense|1
+9									BONUS:ABILITYPOOL|Bodyguard Feat|1
 10	SAB:Blanket Protection
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:BHtr		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")
-# Class Name		Required Feat	Required Skill											Required Text				PRETOTALAB
+# Class Name		Required Ability				Required Skill											Required Text				PRETOTALAB
 CLASS:Bounty Hunter	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:4,Criminology=5,Gather Information=5,Intimidate=5,Move Silently=5	PRETEXT:Must be 18 years of age	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE=Craft|Criminology|Demolitions|Disguise|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Medical (First Aid)|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Archaic Weapons Proficiency|Futuristic Weapon Proficiency|Heavy Firearms Weapon Proficiency|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Powered)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Powered)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block:Level progression
-2	BONUS:VAR|SneakAttack|CL/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3						BONUS:ABILITYPOOL|Contact|1
-7						BONUS:ABILITYPOOL|Contact|1
+2						BONUS:VAR|SneakAttack|CL/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	BONUS:ABILITYPOOL|Contact|1
+7	BONUS:ABILITYPOOL|Contact|1
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:CPC Enforcement Officer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:CPCEO		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -595,15 +595,15 @@ CLASS:CPC Enforcement Officer	PRESKILL:1,Criminology=5	PRESTAT:2,INT=12,CON=10	P
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:CPC Enforcement Officer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Criminology|Demolitions|Drive|Forward Observer|Gather Information|Gunslinging|Handle Animal|Investigation|Jump|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	SAB:Officer of the Law
-2															BONUS:ABILITYPOOL|Contact|1
-3	SAB:Soldier Ability %|SolAbil		BONUS:VAR|SolAbil|1	DEFINE:SolAbil|0
-4	SAB:Quick Action +%|QuickAction	BONUS:VAR|QuickAction|1	DEFINE:QuickAction|0
-5															BONUS:ABILITYPOOL|Contact|1
+2							BONUS:ABILITYPOOL|Contact|1
+3	SAB:Soldier Ability %|SolAbil							BONUS:VAR|SolAbil|1	DEFINE:SolAbil|0
+4	SAB:Quick Action +%|QuickAction						BONUS:VAR|QuickAction|1	DEFINE:QuickAction|0
+5							BONUS:ABILITYPOOL|Contact|1
 6	SAB:Coordinate Strikes
-7							BONUS:VAR|QuickAction|1
-8							BONUS:VAR|SolAbil|1
-9															BONUS:ABILITYPOOL|Contact|1
-10	SAB:Senior Officer															ABILITY:FEAT|VIRTUAL|Leadership
+7												BONUS:VAR|QuickAction|1
+8												BONUS:VAR|SolAbil|1
+9							BONUS:ABILITYPOOL|Contact|1
+10	SAB:Senior Officer																ABILITY:FEAT|VIRTUAL|Leadership
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SecS		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -612,18 +612,18 @@ CLASS:Security Specialist	PRESKILL:1,Gather Information=5	PRETEXT:Must have achi
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Criminology|Demolitions|Drive|Gather Information|Investigation|Jump|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Electronic Tinkering	SAB:Sweep	BONUS:SKILL|Computer Use,Craft (Electronics),Knowledge (Technology)|SynergyBonus|TYPE=Synergy
+1	SAB:Electronic Tinkering	SAB:Sweep									BONUS:SKILL|Computer Use,Craft (Electronics),Knowledge (Technology)|SynergyBonus|TYPE=Synergy
 2	SAB:Improvised Implements
-3																								BONUS:ABILITYPOOL|Security Specialist Feat|1
-4																																																						ABILITY:Special Ability|VIRTUAL|Improved Evasion
+3								BONUS:ABILITYPOOL|Security Specialist Feat|1
+4																																ABILITY:Special Ability|VIRTUAL|Improved Evasion
 5	SAB:Skill Mastery
 # Same as Rogues?  Rogue uses feat...
-6	SAB:Traceless																					BONUS:ABILITYPOOL|Security Specialist Feat|1
+6	SAB:Traceless					BONUS:ABILITYPOOL|Security Specialist Feat|1
 7	SAB:Improvised Weapon Damage
 8	SAB:Improved Sweep
-9																								BONUS:ABILITYPOOL|Security Specialist Feat|1
+9								BONUS:ABILITYPOOL|Security Specialist Feat|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
 CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Spy		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -632,10 +632,10 @@ CLASS:Spy		PRELANG:2,ANY	PRESKILL:3,Diplomacy=8,Sense Motive=8,Savoir-Faire=5	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spy		STARTSKILLPTS:6	CSKILL:Climb|Bluff|Disable Device|Diplomacy|Disguise|Demolitions|Drive|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Savoir Faire|Search|Seduction|Sense Motive|Spot|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Obligation								BONUS:VAR|SneakAttack|(CL-1)/3+1	BONUS:VAR|SneakAttackDie|6|TYPE=Base	DEFINE:SneakAttackDie|0	DEFINE:SneakAttack|0								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2					BONUS:SKILLRANK|Speak Language|4																																					ABILITY:FEAT|AUTOMATIC|Spy Proficiencies
+1	SAB:Obligation								BONUS:VAR|SneakAttack|(CL-1)/3+1	BONUS:VAR|SneakAttackDie|6|TYPE=Base	DEFINE:SneakAttackDie|0	DEFINE:SneakAttack|0	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2					BONUS:SKILLRANK|Speak Language|4																						ABILITY:FEAT|AUTOMATIC|Spy Proficiencies
 # Languages - 4 ranks over Speak and Read/Write
 3	SAB:License to Kill
 #5	BONUS:SKILLRANK|Speak Language|4
@@ -648,21 +648,21 @@ CLASS:Techie	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tech		SOURCEPAGE:p.	BONUS:C
 CLASS:Techie	PRESKILL:2,Computer Use=6,Disable Device=6	PRESKILL:1,Craft (Electronics)=6,Craft (Mechanical)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronics)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Medical (Psychology)|Knowledge (Chemistry)|Knowledge (Earth Sciences)|Knowledge (Physics)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|TYPE=Profession|Read/Write Language|Repair|Research|Speak Language|Spot
-1	SAB:Jury-rig +%|JuryRig	BONUS:VAR|JuryRig|2	DEFINE:JuryRig|0
+1	SAB:Jury-rig +%|JuryRig							BONUS:VAR|JuryRig|2	DEFINE:JuryRig|0
 # Check on Mechanist's Jury Rig
 2	SAB:Extreme machine
-3												BONUS:ABILITYPOOL|Techie Feat 1|1
+3					BONUS:ABILITYPOOL|Techie Feat 1|1
 4	SAB:Build Robot
-5												BONUS:ABILITYPOOL|Techie Feat 2|1
-6												BONUS:ABILITYPOOL|Techie Feat 1|1
-7					BONUS:VAR|JuryRig|2
-8												BONUS:ABILITYPOOL|Techie Feat 2|1
-9												BONUS:ABILITYPOOL|Techie Feat 1|1
-10												BONUS:ABILITYPOOL|Techie Feat 2|1
+5					BONUS:ABILITYPOOL|Techie Feat 2|1
+6					BONUS:ABILITYPOOL|Techie Feat 1|1
+7											BONUS:VAR|JuryRig|2
+8					BONUS:ABILITYPOOL|Techie Feat 2|1
+9					BONUS:ABILITYPOOL|Techie Feat 1|1
+10					BONUS:ABILITYPOOL|Techie Feat 2|1
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Technomancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tcno		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat			Required Skill					Req. Spell Type
+# Class Name		Required Ability						Required Skill					Req. Spell Type
 CLASS:Technomancer	PREABILITY:1,CATEGORY=FEAT,TYPE=ItemCreation	PRESKILL:2,Repair=5,Use Magic Device=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE=Craft|Cryptography|Decipher Script|Disable Device|TYPE=Knowledge|TYPE=Profession|Repair|Research|Read/Write Language|Ritual Casting|Scry|Spellcraft|Use Magic Device
@@ -683,20 +683,20 @@ CLASS:Technomancer	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Technomancer|CL
 # Class Name	Unique Key		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
 CLASS:Telepath	KEY:Telepath ~ CS	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tele		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 
-# Class Name		Required Feat					Required Skill
+# Class Name		Required Ability							Required Skill
 CLASS:Telepath ~ CS	PREABILITY:1,CATEGORY=FEAT,Wild Talent,Psionic Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Telepath ~ CS	STARTSKILLPTS:5	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Medical (Psychology)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|TYPE=Profession|Psicraft|Read/Write Language|Sense Motive|Speak Language
 1	KNOWN:3,1
-2	KNOWN:3,2		SAB:Trigger Power %|TriggerPower	BONUS:VAR|TriggerPower|(CL+1)/3	DEFINE:TriggerPower|0
-3	KNOWN:3,3																		BONUS:ABILITYPOOL|Telepath (CS) Feat|1
+2	KNOWN:3,2		SAB:Trigger Power %|TriggerPower								BONUS:VAR|TriggerPower|(CL+1)/3	DEFINE:TriggerPower|0
+3	KNOWN:3,3								BONUS:ABILITYPOOL|Telepath (CS) Feat|1
 4	KNOWN:4,3,1		SAB:Power Crystal
 5	KNOWN:4,3,2
-6	KNOWN:4,3,2,1																	BONUS:ABILITYPOOL|Telepath (CS) Feat|1
-7	KNOWN:5,4,3,2																																														ABILITY:FEAT|AUTOMATIC|Combat Manifestation
+6	KNOWN:4,3,2,1							BONUS:ABILITYPOOL|Telepath (CS) Feat|1
+7	KNOWN:5,4,3,2																								ABILITY:FEAT|AUTOMATIC|Combat Manifestation
 8	KNOWN:5,4,3,2,1
-9	KNOWN:5,4,3,3,2																	BONUS:ABILITYPOOL|Telepath (CS) Feat|1
-10	KNOWN:6,4,3,3,2,1																																														ABILITY:FEAT|AUTOMATIC|Maximize Power
+9	KNOWN:5,4,3,3,2							BONUS:ABILITYPOOL|Telepath (CS) Feat|1
+10	KNOWN:6,4,3,3,2,1																								ABILITY:FEAT|AUTOMATIC|Maximize Power
 
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
@@ -707,9 +707,9 @@ CLASS:Weird Scientist	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:1,TYPE.Craft=8	PRESKI
 CLASS:Weird Scientist	STARTSKILLPTS:6	CSKILL:Alchemy|TYPE=Craft|Decipher Script|Demolitions|Disable Device|Drive|TYPE=Knowledge|Repair|Open Lock|TYPE=Profession|Read/Write Language|Speak Language|Weird Science!
 1	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	SAB:Jury Rig (+%)|WeirdJury	BONUS:VAR|CreateGadget|CL	BONUS:VAR|WeirdJury|floor((CL+1)/2)*2	DEFINE:CreateGadget|0	DEFINE:WeirdJury|0																																																																																																				ABILITY:FEAT|AUTOMATIC|Weird Science Creation
-2	SAB:Academic Mastery																						BONUS:ABILITYPOOL|Weird Scientist Feat|1
-4																										BONUS:ABILITYPOOL|Weird Scientist Feat|1
+1	SAB:Jury Rig (+%)|WeirdJury								BONUS:VAR|CreateGadget|CL	BONUS:VAR|WeirdJury|floor((CL+1)/2)*2	DEFINE:CreateGadget|0	DEFINE:WeirdJury|0	ABILITY:FEAT|AUTOMATIC|Weird Science Creation
+2	SAB:Academic Mastery		BONUS:ABILITYPOOL|Weird Scientist Feat|1
+4						BONUS:ABILITYPOOL|Weird Scientist Feat|1
 6	SAB:Jinx
-8																										BONUS:ABILITYPOOL|Weird Scientist Feat|1
-10																										BONUS:ABILITYPOOL|Weird Scientist Feat|1
+8						BONUS:ABILITYPOOL|Weird Scientist Feat|1
+10						BONUS:ABILITYPOOL|Weird Scientist Feat|1

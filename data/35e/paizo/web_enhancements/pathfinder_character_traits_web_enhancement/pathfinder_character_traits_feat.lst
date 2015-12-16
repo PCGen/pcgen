@@ -1,9 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Character Traits Web Enhancement	SOURCESHORT:PCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-02
 
 
 # Feat Name		Type			Description						Bonus Ability Pool		Source Page
-Additional Traits	CATEGORY:FEAT	TYPE:General	DESC:You have more traits than normal	BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p.6
+# Ability Name	Category of Ability	Type			Description						Bonus Ability Pool		Source Page
+Additional Traits	CATEGORY:FEAT		TYPE:General	DESC:You have more traits than normal	BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p.6
 
 #
 # End

@@ -1,5 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Group Firearms - Single Feat
+# Weapon Name	Type
 Arc Pistol		TYPE:Firearms.Proficiency_Group_Firearms
 Arc Rifle		TYPE:Firearms.Proficiency_Group_Firearms
 Autograpnel		TYPE:Firearms.Proficiency_Group_Firearms
@@ -37,5 +39,3 @@ Laser Torch		TYPE:Martial
 
 Firearms		TYPE:Exotic
 Heavy Weaponry	TYPE:Exotic
-
-

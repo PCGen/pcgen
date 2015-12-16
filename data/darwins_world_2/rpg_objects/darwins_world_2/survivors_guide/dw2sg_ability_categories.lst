@@ -1,4 +1,4 @@
-# CVS $Revision: 25523 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 25523 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Arknight
 #
 # Ability Categories
@@ -125,28 +125,29 @@ ABILITYCATEGORY:Smart Plus Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 ABILITYCATEGORY:Dedicated Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:DedicatedPlus														PLURAL:Dedicated Plus Talents				DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Charismatic Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:CharismaticPlus														PLURAL:Charismatic Plus Talents			DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Fractional HD Progression		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FractionalHD							DISPLAYLOCATION:Fraction HD
+ABILITYCATEGORY:Fractional HD Progression				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FractionalHD																							DISPLAYLOCATION:Fraction HD
 ###Block: Class Feature Section
 #ABILITYCATEGORY:Barbarian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Barbarian Class Feature									PLURAL:Barbarian Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Barbarian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Barbarian Class Feature									PLURAL:Barbarian Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Demagogue Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Demagogue Class Feature									PLURAL:Demagogue Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Guardian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Guardian Class Feature									PLURAL:Guardian Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Juju Doctor Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Juju Doctor Class Feature									PLURAL:Juju Doctor Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Psionic Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Psionic Class Feature									PLURAL:Psionic Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Raider Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Raider Class Feature									PLURAL:Raider Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Road Warrior Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Road Warrior Class Feature									PLURAL:Road Warrior Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Scav Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Scav Class Feature									PLURAL:Scav Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Scholar Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Scholar Class Feature									PLURAL:Scholar Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Skulk Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Skulk Class Feature									PLURAL:Skulk Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sister of the Desert Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Sister of the Desert Class Feature									PLURAL:Sister of the Desert Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Survivalist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Survivalist Class Feature									PLURAL:Survivalist Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Symbiote Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Symbiote Class Feature									PLURAL:Symbiote Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Tinker Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Tinker Class Feature									PLURAL:Tinker Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Trader Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Trader Class Feature									PLURAL:Trader Class Features		DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Barbarian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Barbarian Class Feature			PLURAL:Barbarian Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Demagogue Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Demagogue Class Feature			PLURAL:Demagogue Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Guardian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Guardian Class Feature			PLURAL:Guardian Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Juju Doctor Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Juju Doctor Class Feature		PLURAL:Juju Doctor Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psionic Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Psionic Class Feature			PLURAL:Psionic Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Raider Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Raider Class Feature			PLURAL:Raider Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Road Warrior Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Road Warrior Class Feature		PLURAL:Road Warrior Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Scav Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Scav Class Feature				PLURAL:Scav Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Scholar Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Scholar Class Feature			PLURAL:Scholar Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skulk Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Skulk Class Feature			PLURAL:Skulk Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sister of the Desert Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sister of the Desert Class Feature	PLURAL:Sister of the Desert Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Survivalist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Survivalist Class Feature		PLURAL:Survivalist Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Symbiote Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Symbiote Class Feature			PLURAL:Symbiote Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Tinker Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Tinker Class Feature			PLURAL:Tinker Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Trader Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Trader Class Feature			PLURAL:Trader Class Features				DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:DiNoc	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	DISPLAYLOCATION:Class Features	TYPE:DiNoc
-ABILITYCATEGORY:Limb	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	DISPLAYLOCATION:Class Features	TYPE:Limb
+ABILITYCATEGORY:DiNoc						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DiNoc														DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Limb						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Limb														DISPLAYLOCATION:Class Features
 
 #
 # End

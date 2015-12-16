@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Aaron Divinsky
 
 # Class Name		Visible
@@ -48,8 +48,8 @@ CLASS:Thaumaturgist.MOD	VISIBLE:NO
 
 # Class Name			Output Name					Hit Dice	Type			Max Level	Define					Combat bonus										Save bonus																						Modify VAR
 CLASS:Ancestral Bladebearer	OUTPUTNAME:Ancestral Bladebearer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:AncestralBladebearerLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|AncestralBladebearerLvl|CL
-# Class Name			Req. Equipement				Required Feat						Var. Min. Value
-CLASS:Ancestral Bladebearer	PREEQUIP:1,TYPE=Weapon.Covenant	PREABILITY:2,CATEGORY=FEAT,Weapon Specialization,Weapon Focus	PREVARGTEQ:BAB,6
+# Class Name			Required Ability									Req. Equipement				Var. Min. Value
+CLASS:Ancestral Bladebearer	PREABILITY:2,CATEGORY=FEAT,Weapon Specialization,Weapon Focus	PREEQUIP:1,TYPE=Weapon.Covenant	PREVARGTEQ:BAB,6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ancestral Bladebearer	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|TYPE.Profession|Ride|Speak Language|Swim
 # Class Name			Spell Stat Bonus		Spell Type		Spellbook		Caster level						Use Spell List
@@ -70,7 +70,7 @@ CLASS:Ancestral Bladebearer	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BO
 
 # Class Name		Output Name			Hit Dice	Type			Max Level	Define			Combat bonus																							Save bonus																					Modify VAR
 CLASS:Aradil's Eye	OUTPUTNAME:Aradil's Eye	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:AradilsEyeLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+(classlevel("APPLIEDAS=NONEPIC")>=3)+(classlevel("APPLIEDAS=NONEPIC")>=7)|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|AradilsEyeLvl|CL
-# Class Name		Required Feat		Required Race			Required Skill
+# Class Name		Required Ability					Required Race			Required Skill
 CLASS:Aradil's Eye	PREABILITY:1,CATEGORY=FEAT,Inconspicuous	PRERACE:1,Elf (Wood/Midnight)	PRESKILL:7,Bluff=8,Disguise=5,Gather Information=8,Hide=8,Move Silently=5,Sense Motive=5,Spot=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Survival|Swim|Tumble|Use Rope
@@ -90,8 +90,8 @@ CLASS:Aradil's Eye	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTE
 
 # Class Name		Output Name				Hit Dice	Type			Max Level	Define				Combat bonus																							Save bonus																						Modify VAR
 CLASS:Avenging Knife	OUTPUTNAME:Avenging Knife	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:AvengingKnifeLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+(classlevel("APPLIEDAS=NONEPIC")>=3)+(classlevel("APPLIEDAS=NONEPIC")>=7)|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|AvengingKnifeLvl|CL
-# Class Name		Required Ability							Restricted AL		Required Feat						Required Skill									Required Text
-CLASS:Avenging Knife	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	!PREALIGN:LE,NE,CE	PREABILITY:2,CATEGORY=FEAT,Inconspicuous,Improved Initiative	PRESKILL:4,Bluff=5,Gather Information=5,Hide=8,Move Silently=8	PRETEXT:Must have performed some heroic feat against the forces of Izrador; this feat must be passed along by word of mouth to reach the ears of a member of the Circle of Skulls.
+# Class Name		Required Ability																		Restricted AL		Required Skill									Required Text
+CLASS:Avenging Knife	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	PREABILITY:2,CATEGORY=FEAT,Inconspicuous,Improved Initiative	!PREALIGN:LE,NE,CE	PRESKILL:4,Bluff=5,Gather Information=5,Hide=8,Move Silently=8	PRETEXT:Must have performed some heroic feat against the forces of Izrador; this feat must be passed along by word of mouth to reach the ears of a member of the Circle of Skulls.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Avenging Knife	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Survival|Swim|Tumble|Use Rope
 # Class Name		Spell Stat Bonus		Spell Type		Spellbook		Caster level				Use Spell List
@@ -130,7 +130,7 @@ CLASS:Bane of Legates	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CA
 
 # Class Name		Output Name		Hit Dice	Type			Max Level	Define				Combat bonus											Save bonus																							Modify VAR
 CLASS:Druid (Midnight)	OUTPUTNAME:Druid	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:DruidMidnightLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DruidMidnightLvl|CL
-# Class Name		Required Ability														Required Feat									Required Skill
+# Class Name		Required Ability																															Required Skill
 CLASS:Druid (Midnight)	PREABILITY:1,CATEGORY=Special Ability,Master of Two Worlds (Mastery of Nature),Wild Empathy	PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)	PREABILITY:2,CATEGORY=FEAT,TYPE.Spellcasting	PRESKILL:2,Knowledge (Nature)=8,Survival=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Spirits)|TYPE.Profession|Speak Language|Spellcraft|Survival|Swim
@@ -150,7 +150,7 @@ CLASS:Druid (Midnight)	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:C
 
 # Class Name		Hit Dice	Type			Max Level	Define			Combat bonus										Save bonus																						Modify VAR
 CLASS:Elven Raider	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:ElvenRaiderLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ElvenRaiderLvl|CL
-# Class Name		Required Feat																Required Race	Required Skill						Var. Min. Value
+# Class Name		Required Ability																						Required Race	Required Skill						Var. Min. Value
 CLASS:Elven Raider	PREABILITY:1,CATEGORY=FEAT,Weapon Focus(Longbow),Weapon Focus(Longbow (Icewood))	PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Rapid Shot	PRERACE:1,Elf%	PRESKILL:3,Hide=8,Move Silently=8,Survival=8	PREVARGTEQ:BAB,5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elven Raider	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Heal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Ride|Search|Speak Language|Spot|Survival|Swim|Use Rope
@@ -168,7 +168,7 @@ CLASS:Elven Raider	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTE
 
 # Class Name	Hit Dice	Type			Max Level	Define			Combat bonus										Save bonus																						Modify VAR
 CLASS:Freerider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:FreeriderLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|FreeriderLvl|CL
-# Class Name	Required Feat								Required Race						Required Skill						Var. Min. Value
+# Class Name	Required Ability											Required Race						Required Skill						Var. Min. Value
 CLASS:Freerider	PREABILITY:3,CATEGORY=FEAT,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:1,Human (Sarcosan),Human (Erenlander)	PRESKILL:3,Handle Animal=4,Ride=8,Survival=4	PREVARGTEQ:BAB,6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Freerider	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|TYPE.Profession|Ride|Speak Language|Spot|Survival|Swim
@@ -189,7 +189,7 @@ CLASS:Freerider	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLE
 
 # Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Define			Combat bonus											Save bonus																					Modify VAR
 CLASS:Haunted One	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	ALLOWBASECLASS:YES	DEFINE:HauntedOneLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|HauntedOneLvl|CL
-# Class Name	Required Feat														Required Skill
+# Class Name	Required Ability																			Required Skill
 CLASS:Haunted One	PREABILITY:1,CATEGORY=FEAT,TYPE.Magecraft	PREABILITY:2,CATEGORY=FEAT,Spellcasting (Divination),Spellcasting (Necromancy)	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Spirits)=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Haunted One	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE.Knowledge|TYPE.Profession|Sense Motive|Speak Language|Spellcraft
@@ -204,7 +204,7 @@ CLASS:Haunted One	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTER
 
 # Class Name		Hit Dice	Type			Max Level	Define				Combat bonus											Save bonus																					Modify VAR
 CLASS:Insurgent Spy	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:InsurgentSpyLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|InsurgentSpyLvl|CL
-# Class Name		Required Feat		Required Skill										Required Text
+# Class Name		Required Ability					Required Skill										Required Text
 CLASS:Insurgent Spy	PREABILITY:1,CATEGORY=FEAT,Inconspicuous	PRESKILL:4,Bluff=8,Diplomacy=5,Gather Information=8,Sense Motive=5	PRETEXT:The character must have contacts within the armies of the Night Kings, whether on a local or greater scale. Even good relations with a local captain and some of his guards is sufficient to satisfy this requirement.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Insurgent Spy	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Shadow)|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
@@ -219,7 +219,7 @@ CLASS:Insurgent Spy	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CAST
 
 # Class Name	Hit Dice	Type			Max Level	Define			Combat bonus											Save bonus																					Modify VAR
 CLASS:Smuggler	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:SmugglerLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|SmugglerLvl|CL
-# Class Name	Required Feat			Required Skill
+# Class Name	Required Ability					Required Skill
 CLASS:Smuggler	PREABILITY:1,CATEGORY=FEAT,Friendly Agent	PRESKILL:4,Bluff=8,Forgery=5,Gather Information=8,Hide=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Smuggler	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE.Perform|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
@@ -236,7 +236,7 @@ CLASS:Smuggler	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEV
 
 # Class Name		Output Name				Hit Dice	Type			Max Level	Define				Combat bonus										Save bonus																						Modify VAR
 CLASS:Warrior Arcanist	OUTPUTNAME:Warrior Arcanist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:WarriorArcanistLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|WarriorArcanistLvl|CL
-# Class Name		Required Feat								Required Skill		Var. Min. Value
+# Class Name		Required Ability											Required Skill		Var. Min. Value
 CLASS:Warrior Arcanist	PREABILITY:3,CATEGORY=FEAT,TYPE.Spellcasting,TYPE.Magecraft,Weapon Focus	PRESKILL:1,Spellcraft=8	PREVARGTEQ:BAB,4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Intimidate|Jump|Knowledge (Arcana)|TYPE.Profession|Ride|Speak Language|Spellcraft|Swim
@@ -254,7 +254,7 @@ CLASS:Warrior Arcanist	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:C
 
 # Class Name		Hit Dice	Type			Max Level	Base class as subclass?	Define				Combat bonus											Save bonus																						Modify VAR
 CLASS:Whisper Adept	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	ALLOWBASECLASS:YES	DEFINE:WhisperAdeptLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2+2	BONUS:VAR|WhisperAdeptLvl|CL
-# Class Name		Required Feat								Required Race		Required Skill									Required Text
+# Class Name		Required Ability													Required Race		Required Skill									Required Text
 CLASS:Whisper Adept	PREABILITY:1,CATEGORY=FEAT,TYPE.Magecraft	PREABILITY:2,CATEGORY=FEAT,TYPE.Spellcasting	PRERACE:1,Elf%,Elfling	PRESKILL:3,Knowledge (Nature)=8,Knowledge (Spirits)=10,Survival=8	PRETEXT:The character must be in good standing with the Witch Queen.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Whisper Adept	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft|Survival
@@ -274,7 +274,7 @@ CLASS:Whisper Adept	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CAST
 
 # Class Name		Output Name		Hit Dice	Type			Max Level	Define				Combat bonus											Save bonus																						Modify VAR
 CLASS:Wizard (Midnight)	OUTPUTNAME:Wizard	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:WizardMidnightLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2+2	BONUS:VAR|WizardMidnightLvl|CL
-# Class Name		Required Feat														Required Skill						Req. Spell Type
+# Class Name		Required Ability																					Required Skill						Req. Spell Type
 CLASS:Wizard (Midnight)	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,TYPE.ItemCreation	PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)	PRESKILL:2,Knowledge (Arcana)=10,Spellcraft=10	PRESPELLTYPE:13,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wizard (Midnight)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Speak Language|Spellcraft
@@ -295,7 +295,7 @@ CLASS:Wizard (Midnight)	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS
 
 # Class Name		Hit Dice	Type			Max Level	Define			Combat bonus										Save bonus																						Modify VAR
 CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	DEFINE:WogrenRiderLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|WogrenRiderLvl|CL
-# Class Name		Required Feat					Multiple Requirements													Required Skill			Required Text
+# Class Name		Required Ability								Multiple Requirements													Required Skill			Required Text
 CLASS:Wogren Rider	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Mounted Archery	PREMULT:1,[PRERACE:1,Halfling],[PREMULT:2,[PRERACE:1,Elfling],[PRETEMPLATE:1,Raised On Plains]]	PRESKILL:2,Ride=8,Survival=4	PRETEXT:Must complete a quest given to them by the riders of their tribe.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Listen|Move Silently|TYPE.Profession|Ride|Speak Language|Spot|Survival|Swim

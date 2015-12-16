@@ -1,29 +1,29 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list				Plural description for UI			Display Location
-ABILITYCATEGORY:Psion Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Metapsionic.ItemCreation								PLURAL:Psion Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Psychic Warrior Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Fighter											PLURAL:Psychic Warrior Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Psionic Fist Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic												PLURAL:Psionic Fist Feats			DISPLAYLOCATION:Feats
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object					Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Psion Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:FEAT			TYPE:Psionic.Metapsionic.ItemCreation								PLURAL:Psion Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Warrior Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:FEAT			TYPE:Psionic.Fighter											PLURAL:Psychic Warrior Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psionic Fist Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:FEAT			TYPE:Psionic												PLURAL:Psionic Fist Feats			DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Psicrystal Personality		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalPersonality										PLURAL:Psicrystal Personalities		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psicrystal Personality		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:PsicrystalPersonality										PLURAL:Psicrystal Personalities		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Elocator Transporter		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocatorTransporter										PLURAL:Elocator Transporter			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Thrallherd Charm Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdCharm											PLURAL:Thrallherd Charm Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Thrallherd Dominate Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdDominate											PLURAL:Thrallherd Dominate Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Elocator Transporter		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ElocatorTransporter										PLURAL:Elocator Transporter			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Thrallherd Charm Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ThrallherdCharm											PLURAL:Thrallherd Charm Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Thrallherd Dominate Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ThrallherdDominate											PLURAL:Thrallherd Dominate Choices		DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Astral Construct Menu A Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuA										PLURAL:Astral Construct Menu A Abilities	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Astral Construct Menu B Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuB										PLURAL:Astral Construct Menu B Abilities	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Astral Construct Menu C Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuC										PLURAL:Astral Construct Menu C Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu A Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AstralConstructMenuA										PLURAL:Astral Construct Menu A Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu B Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AstralConstructMenuB										PLURAL:Astral Construct Menu B Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astral Construct Menu C Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AstralConstructMenuC										PLURAL:Astral Construct Menu C Abilities	DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Slayer Favored Enemy		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SlayerFavoredEnemy																		DISPLAYLOCATION:Class Abilities
-
-
-ABILITYCATEGORY:Crystal Mask				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal										ABILITYLIST:Equipment ~ Crystal Mask								DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Slayer Favored Enemy		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:SlayerFavoredEnemy																		DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Open Minded Skill		POOL:Pool_OpenMindedSkill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Open Minded Skill								PLURAL:Open Minded Skills				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Crystal Mask				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal										ABILITYLIST:Equipment ~ Crystal Mask								DISPLAYLOCATION:Equipment
+
+
+ABILITYCATEGORY:Open Minded Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_OpenMindedSkill	CATEGORY:Special Ability	TYPE:Open Minded Skill											PLURAL:Open Minded Skills			DISPLAYLOCATION:Feats
 #
 # End
 #

@@ -1,47 +1,47 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Society Field Guide	SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/products/btpy8mfq	SOURCEDATE:2011-08
 # Original Entry by: Mark Means
 
 #Chirurgeon's Bag			COST:2	WT:0.5	SOURCEPAGE:p.47	TYPE:Goods.Container.General	CONTAINS:4|Pouch (Belt)=1|Healer's Kit=1|Bottle (Stong Brandy)=1|Potion of Cure Light Wounds=1|Smelling Salts=1|Alchemist's Kindness=2|Antiplague (Vial)=1|Antitoxin (Vial)=1|Bloodblock=1|Soothe Syrup=1		DESC:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. Designed to contain: leather pouch, healer's kit, bottle of strong brandy, potion of cure light wounds, vial of smelling salts*, 2 doses each of alchemist's kindness*, antiplague*, antitoxin, bloodblock*, soothe syrup*. ([*] are detailed in the Advanced Player's Guide.)
 # Equipment Name				Type								Contains			Cost		Weight	Modifier					Source Page		Vision			Innate Spells																												Modify VAR				Special Property																																							Description
 Chirurgeon's Bag				TYPE:Goods.Container.General				CONTAINS:UNLIM|Any	COST:0.5	WT:0.5							SOURCEPAGE:p.47																																																																																	DESC:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. Designed to contain: leather pouch, healer's kit, bottle of strong brandy, potion of cure light wounds, vial of smelling salts*, 2 doses each of alchemist's kindness*, antiplague*, antitoxin, bloodblock*, soothe syrup*. ([*] are detailed in the Advanced Player's Guide.)
-Chronicler's Supplies				TYPE:Goods.General											COST:40	WT:4.5							SOURCEPAGE:p.47																																																																																	DESC:Contains: map case, 2 vials of ink, 2 inkpens, 10 sheets of paper, 2 blank journals, a pound of fine powder for drying ink, 20-foot measuring cord.
-Dragonslayer's Kit (Fire)			TYPE:Goods.General											COST:485	WT:64								SOURCEPAGE:p.47																																																																																	DESC:Contains: potion of cure moderate wounds, oil of bless weapon, longspear, backpack, 3 large sacks, sunrod, tower shield, 5 vials of alchemist's fire.
-Dragonslayer's Kit (Acid)			TYPE:Goods.General											COST:485	WT:64								SOURCEPAGE:p.47																																																																																	DESC:Contains: potion of cure moderate wounds, oil of bless weapon, longspear, backpack, 3 large sacks, sunrod, tower shield, 5 vials of acid.
-Dungeoneering Kit				TYPE:Goods.General												COST:15	WT:25								SOURCEPAGE:p.47																																																																																	DESC:Contains: 2 candles, chalk, hammer, 4 pitons, 50 feet of hemp rope, hooded lantern, 5 flasks of oil, 2 sacks, 2 torches, 4 tindertwigs.
-Dungeoneering Kit (Deluxe)			TYPE:Goods.General											COST:130	WT:15								SOURCEPAGE:p.47																																																																																	DESC:Contains: 2 candles, chalk, hammer, 4 pitons, 50 feet of silk rope, 2 sacks, 3 sunrods, 4 tindertwigs, everburning torch.
-Pathfinder's Kit				TYPE:Goods.General												COST:12	WT:22								SOURCEPAGE:p.47																																																																																	DESC:Contains: backpack, bedroll, belt pouch, clay mug, dagger, 2 fishhooks, flint and steel, sewing needle, signal whistle, 50 feet of string, 50 feet of thread, a waterskin, 7 days trail rations, whetstone.
-Pathfinder's Kit (Small)			TYPE:Goods.General											COST:12	WT:7.5							SOURCEPAGE:p.47																																																																																	DESC:Contains: backpack, bedroll, belt pouch, clay mug, dagger, 2 fishhooks, flint and steel, sewing needle, signal whistle, 50 feet of string, 50 feet of thread, a waterskin, 7 days trail rations, whetstone.
-Riding Tack					TYPE:Goods.General												COST:16	WT:54								SOURCEPAGE:p.47																																																																																	DESC:Contains: bit and bridle, saddle, saddlebags, 2 days' feed.
-Riding Tack (Exotic Mount)			TYPE:Goods.General											COST:36	WT:59								SOURCEPAGE:p.47																																																																																	DESC:Contains: bit and bridle, saddle, saddlebags, 2 days' feed.
-Spelunking Kit					TYPE:Goods.General											COST:174	WT:32								SOURCEPAGE:p.47																																																																																	DESC:Contains: miner's lantern,4 flasks of oil, hammer, 8 pitons, 100 feet of silk rope, grappling hook, climber's kit.
+Chronicler's Supplies			TYPE:Goods.General									COST:40	WT:4.5							SOURCEPAGE:p.47																																																																																	DESC:Contains: map case, 2 vials of ink, 2 inkpens, 10 sheets of paper, 2 blank journals, a pound of fine powder for drying ink, 20-foot measuring cord.
+Dragonslayer's Kit (Fire)		TYPE:Goods.General									COST:485	WT:64								SOURCEPAGE:p.47																																																																																	DESC:Contains: potion of cure moderate wounds, oil of bless weapon, longspear, backpack, 3 large sacks, sunrod, tower shield, 5 vials of alchemist's fire.
+Dragonslayer's Kit (Acid)		TYPE:Goods.General									COST:485	WT:64								SOURCEPAGE:p.47																																																																																	DESC:Contains: potion of cure moderate wounds, oil of bless weapon, longspear, backpack, 3 large sacks, sunrod, tower shield, 5 vials of acid.
+Dungeoneering Kit				TYPE:Goods.General									COST:15	WT:25								SOURCEPAGE:p.47																																																																																	DESC:Contains: 2 candles, chalk, hammer, 4 pitons, 50 feet of hemp rope, hooded lantern, 5 flasks of oil, 2 sacks, 2 torches, 4 tindertwigs.
+Dungeoneering Kit (Deluxe)		TYPE:Goods.General									COST:130	WT:15								SOURCEPAGE:p.47																																																																																	DESC:Contains: 2 candles, chalk, hammer, 4 pitons, 50 feet of silk rope, 2 sacks, 3 sunrods, 4 tindertwigs, everburning torch.
+Pathfinder's Kit				TYPE:Goods.General									COST:12	WT:22								SOURCEPAGE:p.47																																																																																	DESC:Contains: backpack, bedroll, belt pouch, clay mug, dagger, 2 fishhooks, flint and steel, sewing needle, signal whistle, 50 feet of string, 50 feet of thread, a waterskin, 7 days trail rations, whetstone.
+Pathfinder's Kit (Small)		TYPE:Goods.General									COST:12	WT:7.5							SOURCEPAGE:p.47																																																																																	DESC:Contains: backpack, bedroll, belt pouch, clay mug, dagger, 2 fishhooks, flint and steel, sewing needle, signal whistle, 50 feet of string, 50 feet of thread, a waterskin, 7 days trail rations, whetstone.
+Riding Tack					TYPE:Goods.General									COST:16	WT:54								SOURCEPAGE:p.47																																																																																	DESC:Contains: bit and bridle, saddle, saddlebags, 2 days' feed.
+Riding Tack (Exotic Mount)		TYPE:Goods.General									COST:36	WT:59								SOURCEPAGE:p.47																																																																																	DESC:Contains: bit and bridle, saddle, saddlebags, 2 days' feed.
+Spelunking Kit				TYPE:Goods.General									COST:174	WT:32								SOURCEPAGE:p.47																																																																																	DESC:Contains: miner's lantern,4 flasks of oil, hammer, 8 pitons, 100 feet of silk rope, grappling hook, climber's kit.
 
 # Special gear needed to complete the kits above
 Bottle (Stong Brandy)			TYPE:Goods.Food.Consumable.Goods.Liquid.Food					COST:10	WT:1.5							SOURCEPAGE:p.47
 
 #Adventuring Gear
 
-Journal					TYPE:Goods.Tools.Book												COST:10	WT:1								SOURCEPAGE:p.48
-Lantern (Miner's)			TYPE:Goods.General.LightSource.Lantern													COST:15	WT:2								SOURCEPAGE:p.48
-Measuring Cord (10 ft.)			TYPE:Goods.General												COST:1	WT:0.5							SOURCEPAGE:p.48
-Powder					TYPE:Goods.General.Consumable												COST:0.01	WT:0.5							SOURCEPAGE:p.48
-String (50 ft.)				TYPE:Goods.General												COST:0.01	WT:0.5							SOURCEPAGE:p.48
-Twine (50 ft.)				TYPE:Goods.General												COST:0.01	WT:0.5							SOURCEPAGE:p.48
-Thread (50 ft.)				TYPE:Goods.General												COST:0.01	WT:0.5							SOURCEPAGE:p.48
+Journal					TYPE:Goods.Tools.Book									COST:10	WT:1								SOURCEPAGE:p.48
+Lantern (Miner's)				TYPE:Goods.General.LightSource.Lantern						COST:15	WT:2								SOURCEPAGE:p.48
+Measuring Cord (10 ft.)			TYPE:Goods.General									COST:1	WT:0.5							SOURCEPAGE:p.48
+Powder					TYPE:Goods.General.Consumable								COST:0.01	WT:0.5							SOURCEPAGE:p.48
+String (50 ft.)				TYPE:Goods.General									COST:0.01	WT:0.5							SOURCEPAGE:p.48
+Twine (50 ft.)				TYPE:Goods.General									COST:0.01	WT:0.5							SOURCEPAGE:p.48
+Thread (50 ft.)				TYPE:Goods.General									COST:0.01	WT:0.5							SOURCEPAGE:p.48
 
 #Alchemical and Clockwork Items
 
-Air Crystals				TYPE:Goods.Alchemical.Consumable									COST:50	WT:0.01							SOURCEPAGE:p.49
-Clockwork Prowler			TYPE:Goods.General													COST:500	WT:25								SOURCEPAGE:p.49
-Clockwork Prowler (Advanced)		TYPE:Goods.General												COST:1500	WT:30								SOURCEPAGE:p.49
-Weapon Blanch (Ghost salt)		TYPE:Goods.Alchemical.Consumable								COST:200	WT:0.5							SOURCEPAGE:p.49
+Air Crystals				TYPE:Goods.Alchemical.Consumable							COST:50	WT:0.01							SOURCEPAGE:p.49
+Clockwork Prowler				TYPE:Goods.General									COST:500	WT:25								SOURCEPAGE:p.49
+Clockwork Prowler (Advanced)		TYPE:Goods.General									COST:1500	WT:30								SOURCEPAGE:p.49
+Weapon Blanch (Ghost salt)		TYPE:Goods.Alchemical.Consumable							COST:200	WT:0.5							SOURCEPAGE:p.49
 
 #Magic Items
 
 # Equipment Name				Type								Contains			Cost		Weight	Modifier					Source Page		Vision			Innate Spells																												Modify VAR				Special Property																																							Description
 Bracelet of Second Chances		TYPE:Magic.Wondrous.Wrist								COST:15750	WT:0.01							SOURCEPAGE:p.51
 Circlet of Mindsight			TYPE:Magic.Wondrous.Head								COST:22000	WT:0.01							SOURCEPAGE:p.51
-Decemvirate Helm	TYPE:Magic.Wondrous.Artifact.Minor								COST:0	WT:3								SOURCEPAGE:p.51
+Decemvirate Helm				TYPE:Magic.Wondrous.Artifact.Minor							COST:0	WT:3								SOURCEPAGE:p.51
 
 Dweomer's Essence				TYPE:Magic.Wondrous									COST:500	WT:0.01							SOURCEPAGE:p.52
 Eyes of the Owl				TYPE:Magic.Wondrous.Eyes								COST:4000	WT:0.01							SOURCEPAGE:p.52	VISION:Low-Light Vision																															BONUS:VAR|HasLowLightVision|1

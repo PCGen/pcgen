@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 # Class Feature Blank
-#	KEY:xxx ~ 
+#	KEY:xxx ~
 #	CATEGORY:Special Ability
 #	TYPE:xxx Class Feature.SpecialQuality
 #	SOURCEPAGE:p.
 #	DESC:
 
 # Race or Racial Trait Blank
-#	KEY:xxx ~ 
+#	KEY:xxx ~
 #	CATEGORY:Special Ability
 #	TYPE:xxx Race Trait.Race Trait.SpecialQuality
 #	SOURCEPAGE:p.

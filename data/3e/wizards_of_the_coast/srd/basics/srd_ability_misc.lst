@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original Entry: Andrew Maitland
 
@@ -31,6 +31,7 @@ Perform (Trumpet)		OUTPUTNAME:Perform Trumpet		CATEGORY:Special Ability	TYPE:Spe
 
 
 ###BLOCK: GM AWARD
-+1 Bonus Feat	TYPE:GM_Award.SpecialQuality	CATEGORY:Special Ability	MULT:YES	CHOOSE:NOCHOICE		STACK:YES	BONUS:ABILITYPOOL|FEAT|1	SORTKEY:Z_Award	COST:0	DESC:GM awarded PC with +1 feat.
-+1 Skill Rank	TYPE:GM_Award.SpecialQuality	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE=Base	STACK:YES	BONUS:SKILLRANK|%LIST|1		SORTKEY:Z_Award	COST:0	DESC:GM awarded PC with +1 skill rank (won't exceed max ranks).
-+1 Skill Bonus	TYPE:GM_Award.SpecialQuality	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE=Base	STACK:YES	BONUS:SKILL|%LIST|1		SORTKEY:Z_Award	COST:0	DESC:GM awarded PC with +1 skill bonus.
+# Ability Name	SORTKEY		Category of Ability		Type					Description										Stackable?	Multiple?	Choose			Bonus Ability Pool		Bonus to skill		Bonus to skill rank	Cost
++1 Bonus Feat	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 feat.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE		BONUS:ABILITYPOOL|FEAT|1									COST:0
++1 Skill Rank	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 skill rank (won't exceed max ranks).	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base										BONUS:SKILLRANK|%LIST|1	COST:0
++1 Skill Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 skill bonus.					STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Base						BONUS:SKILL|%LIST|1					COST:0

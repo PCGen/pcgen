@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Andrew Wilson (nuance)
 # ORIGINAL ENTRY DATE: 30 September 2013
@@ -7,7 +7,7 @@ SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/b
 
 # Ability Name											Unique Key								SORTKEY						Category of Ability		Type							Define																											Innate Spells														Description																																					Multiple?	Choose			Selections	Move			Ability									Bonus Ability Pool					Save bonus					Bonus to skill						Stat bonus		Modify VAR																																Spell Res.				Damage Reduction	Natural Attacks												Aspects																																									Benefits
 
-# Ability Name											Type			Visible
+# Ability Name											Type			!PRECHARACTERTYPE
 CATEGORY=Special Ability|Aasimar ~ Channel 1d6.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Aasimar ~ Stabilize 3/day.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Aasimar ~ Halo.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

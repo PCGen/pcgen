@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
 # Ability Category						Visible		Editable?		Category of Object		Type of Object			Display Location
@@ -6,4 +6,4 @@ ABILITYCATEGORY:Ironborn Secondary Ability Choice	VISIBLE:QUALIFY	EDITABLE:YES	C
 ABILITYCATEGORY:Ironborn Primary Ability Choice		VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:IronbornPrimaryAbility	DISPLAYLOCATION:Racial Abilities
 
 
-ABILITYCATEGORY:Arcane Battle Feat				VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:FEAT	TYPE:ArcaneBattle		DISPLAYLOCATION:Feats				
+ABILITYCATEGORY:Arcane Battle Feat				VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:FEAT			TYPE:ArcaneBattle			DISPLAYLOCATION:Feats

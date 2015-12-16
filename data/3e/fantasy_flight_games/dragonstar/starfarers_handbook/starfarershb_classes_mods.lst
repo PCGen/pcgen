@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:39:57 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -38,10 +38,10 @@ CLASS:Druid.MOD	CSKILL:Freefall|TYPE=Science|Navigate
 # Druid Subclasses
 #SUBCLASS:Traditional Druid	COST:0	CHOICE:Traditional
 SUBCLASS:Traditional Druid	COST:0
-SUBCLASSLEVEL:1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREABILITY:1,CATEGORY=FEAT,Technical Proficiency	ADD:SPELLCASTER|Druid
+SUBCLASSLEVEL:1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREABILITY:1,CATEGORY=FEAT,Technical Proficiency				ADD:SPELLCASTER|Druid
 #SUBCLASS:Liberal Druid		COST:0	CHOICE:Liberal
 SUBCLASS:Liberal Druid		COST:0
-SUBCLASSLEVEL:1																		ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|HighTechSimple Weapon Proficiency|Technical Proficiency
+SUBCLASSLEVEL:1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|HighTechSimple Weapon Proficiency|Technical Proficiency
 
 # Class Name	Remove Class Skill	Class Skill															Cross-Class Skill
 CLASS:Fighter.MOD	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Climb|TYPE=Craft|Jump|Swim|Demolitions|Freefall|Pilot	CCSKILL:Handle Animal|Ride
@@ -62,9 +62,9 @@ CLASS:Monk.MOD
 
 # Class Name	Remove Class Skill	Class Skill																										Cross-Class Skill
 CLASS:Paladin.MOD	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies																		ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																																		ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																																		ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREABILITY:1,CATEGORY=FEAT,Technical Proficiency
 1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency|PREABILITY:1,CATEGORY=FEAT,Technical Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechHeavy)|Armor Proficiency (HighTechLight)|Armor Proficiency (HighTechMedium)|Armor Proficiency (HighTechPowered)|PREABILITY:1,CATEGORY=FEAT,Technical Proficiency
@@ -145,8 +145,8 @@ CLASS:Loremaster.MOD	CSKILL:Cryptography|Research|Use Device
 # Class Name		Class Skill
 CLASS:Shadowdancer.MOD	CSKILL:Demolitions|Freefall
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREABILITY:1,CATEGORY=FEAT,Technical Proficiency
-1														ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency
-1														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)
+1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)
 
 #
 #

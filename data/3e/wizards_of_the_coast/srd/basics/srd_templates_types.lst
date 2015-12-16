@@ -1,27 +1,27 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
-# Template Name	Visible	Source Page					Define Stat			Combat bonus								Bonus to HP													Stat bonus		Ability																															Auto Feat			Apply Kit			Removable?		Type		Vision
-Spellbook		VISIBLE:NO																																																																										KIT:1|Wizard Spell Book
+# Template Name	Visible	Source Page					Define Stat			Combat bonus								Bonus to HP													Stat bonus		Ability																															Apply Kit			Removable?		Type		Vision
+Spellbook		VISIBLE:NO																																																																						KIT:1|Wizard Spell Book
 
 #
 # This File is for all "standard" templates used in multiple sources.
 #
 # - Tir Gwaith
-# Template Name	Visible	Source Page					Define Stat			Combat bonus								Bonus to HP													Stat bonus		Ability																															Auto Feat			Apply Kit			Removable?		Type		Vision
-Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|CON																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Poison																								REMOVABLE:YES
+# Template Name	Visible	Source Page					Define Stat			Combat bonus								Bonus to HP													Stat bonus		Ability																															Apply Kit			Removable?		Type		Vision
+Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|CON																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Poison																				REMOVABLE:YES
 # Added all dragons skills to keep the race files down in size.
-Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview																																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep																												REMOVABLE:YES	TYPE:Dragon
-Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Paralysis|Immunity To Poison|Immunity To Stunning																				REMOVABLE:YES
-Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|STR	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																					ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits																																REMOVABLE:YES
-Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|INT											BONUS:HP|CURRENTMAX|max((SIZE-2),0)*5	BONUS:HP|CURRENTMAX|max((SIZE-6),0)*5				ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Polymorph|Immunity To Sleep|Immunity To Stunning									REMOVABLE:YES
-Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning									REMOVABLE:YES
-Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|CON																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning														REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
-Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|INT																												ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting																														REMOVABLE:YES	TYPE:Vermin
+Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview																																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep																								REMOVABLE:YES	TYPE:Dragon
+Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Paralysis|Immunity To Poison|Immunity To Stunning																REMOVABLE:YES
+Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|STR	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																					ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits																												REMOVABLE:YES
+Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|INT											BONUS:HP|CURRENTMAX|max((SIZE-2),0)*5	BONUS:HP|CURRENTMAX|max((SIZE-6),0)*5				ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Polymorph|Immunity To Sleep|Immunity To Stunning					REMOVABLE:YES
+Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning					REMOVABLE:YES
+Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|CON																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning										REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
+Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|INT																												ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting																										REMOVABLE:YES	TYPE:Vermin
 #
 Mindless		VISIBLE:NO							DEFINESTAT:NONSTAT|INT
 
-Familiar				SOURCEPAGE:srdNPCsFamMntsComps					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.STACK															BONUS:STAT|INT|6	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells																				ABILITY:FEAT|AUTOMATIC|Alertness					REMOVABLE:YES
+Familiar				SOURCEPAGE:srdNPCsFamMntsComps					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.STACK															BONUS:STAT|INT|6	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	ABILITY:FEAT|AUTOMATIC|Alertness																		REMOVABLE:YES
 
 ###Block: For races which only have one gender - Satyr, Succubi, Dryads, and so on.
 # Template Name	Visible	Lock Gender Selection

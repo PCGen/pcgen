@@ -1,14 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
 #EDITED BY: Paul W. King, Jan 2007
 
 # Feat Name		Type				Required Feat																													Required Stat	Var. Min. Value			Description																																								Source Page
-Poison Mastery	CATEGORY:FEAT	TYPE:General		PREABILITY:1,CATEGORY=FEAT,Combat Expertise																											PRESTAT:1,INT=13	PREVARGTEQ:SneakAttackDice,2	DESC:You specialize in poisoning to your enemies during combat.																															SOURCEPAGE:p.29
-Silencing Attack	CATEGORY:FEAT	TYPE:General.Fighter	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Stunning Fist																								PRESTAT:1,WIS=17						DESC:You have been trained in skills that allow you to deliver a quick death to enemies unable to scream for help. When you strike, you block the ki flux in the victim's body, disabling his vocal cords for a short time.					SOURCEPAGE:p.29
-Star Shower		CATEGORY:FEAT	TYPE:General.Fighter	PREABILITY:1,CATEGORY=FEAT,Quick Draw	PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Shuriken),Exotic Weapon Proficiency (Bo Shuriken),Exotic Weapon Proficiency (Tsubute),Exotic Weapon Proficiency (Uchi Ne)	PRESTAT:1,DEX=15						DESC:You can produce an almost literal storm of attacks against an opponent, throwing dozens of shurikens with amazing speed, although with less power and accuracy. Using this technique, the ninja usually poison their enemies quickly and deadly.	SOURCEPAGE:p.29
-Superior Flanking	CATEGORY:FEAT	TYPE:General.Fighter	PREABILITY:1,CATEGORY=FEAT,Combat Expertise																											PRESTAT:1,INT=13						DESC:You are deeply adept to the arts of flanking. When you flank with an equally trained ally, your attacks become even more dangerous to your enemies.																SOURCEPAGE:p.29
+# Ability Name	Category of Ability	Type				Required Ability																																			Required Stat	Var. Min. Value			Description																																								Source Page
+Poison Mastery	CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Combat Expertise																														PRESTAT:1,INT=13	PREVARGTEQ:SneakAttackDice,2	DESC:You specialize in poisoning to your enemies during combat.																															SOURCEPAGE:p.29
+Silencing Attack	CATEGORY:FEAT		TYPE:General.Fighter	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Stunning Fist																											PRESTAT:1,WIS=17						DESC:You have been trained in skills that allow you to deliver a quick death to enemies unable to scream for help. When you strike, you block the ki flux in the victim's body, disabling his vocal cords for a short time.					SOURCEPAGE:p.29
+Star Shower		CATEGORY:FEAT		TYPE:General.Fighter	PREABILITY:1,CATEGORY=FEAT,Quick Draw	PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Shuriken),Exotic Weapon Proficiency (Bo Shuriken),Exotic Weapon Proficiency (Tsubute),Exotic Weapon Proficiency (Uchi Ne)	PRESTAT:1,DEX=15						DESC:You can produce an almost literal storm of attacks against an opponent, throwing dozens of shurikens with amazing speed, although with less power and accuracy. Using this technique, the ninja usually poison their enemies quickly and deadly.	SOURCEPAGE:p.29
+Superior Flanking	CATEGORY:FEAT		TYPE:General.Fighter	PREABILITY:1,CATEGORY=FEAT,Combat Expertise																														PRESTAT:1,INT=13						DESC:You are deeply adept to the arts of flanking. When you flank with an equally trained ally, your attacks become even more dangerous to your enemies.																SOURCEPAGE:p.29
 
 #
 # End

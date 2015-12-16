@@ -1,9 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Equipment Modifiers
-Fervent	SOURCEPAGE:p.30	PLUS:1	TYPE:Weapon	PRETYPE:1,Enhancement	VISIBLE:QUALIFY
-Heretical	SOURCEPAGE:p.30	PLUS:2	TYPE:Weapon	PRETYPE:1,Enhancement	VISIBLE:QUALIFY
-Kinslayer	SOURCEPAGE:p.30	PLUS:1	TYPE:Weapon	PRETYPE:1,Enhancement	VISIBLE:QUALIFY
-Patriotic	SOURCEPAGE:p.30	PLUS:1	TYPE:Weapon	PRETYPE:1,Enhancement	VISIBLE:QUALIFY
-Treasonous	SOURCEPAGE:p.30	PLUS:2	TYPE:Weapon	PRETYPE:1,Enhancement	VISIBLE:QUALIFY
-
-
+# Modifier Name	Type		Plus		Visible		Source Page		Required Type
+Fervent		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Heretical		TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Kinslayer		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Patriotic		TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Treasonous		TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement

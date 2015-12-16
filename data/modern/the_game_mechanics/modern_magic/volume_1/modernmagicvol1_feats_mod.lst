@@ -1,14 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp	SOURCEDATE:2004-01
 
 #CREATED BY:Paul W. King, Jan 2007
 #UPDATED BY:Paul W. King, Jan 2007
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:Thaumaturgical.MagicGrunt
 CATEGORY=FEAT|Alertness.MOD				TYPE:MagicGrunt
 CATEGORY=FEAT|Archaic Weapons Proficiency.MOD	TYPE:MagicGrunt
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:MagicGrunt
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:MagicGrunt
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:MagicGrunt
 CATEGORY=FEAT|Athletic.MOD				TYPE:MagicGrunt
 CATEGORY=FEAT|Attentive.MOD				TYPE:Thaumaturgical
@@ -16,28 +17,28 @@ CATEGORY=FEAT|Burst Fire.MOD				TYPE:MagicGrunt
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:Thaumaturgical.MagicGrunt
 CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:MagicGrunt
 CATEGORY=FEAT|Double Tap.MOD				TYPE:Thaumaturgical
-CATEGORY=FEAT|Empower Spell.MOD				TYPE:ArcaneSpecOp
+CATEGORY=FEAT|Empower Spell.MOD			TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Endurance.MOD				TYPE:MagicGrunt
-CATEGORY=FEAT|Enlarge Spell.MOD				TYPE:ArcaneSpecOp
+CATEGORY=FEAT|Enlarge Spell.MOD			TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Eschew Materials.MOD			TYPE:ArcaneSpecOp
-CATEGORY=FEAT|Extend Spell.MOD				TYPE:ArcaneSpecOp
-CATEGORY=FEAT|Frightful Presence.MOD			TYPE:MagicGrunt
+CATEGORY=FEAT|Extend Spell.MOD			TYPE:ArcaneSpecOp
+CATEGORY=FEAT|Frightful Presence.MOD		TYPE:MagicGrunt
 CATEGORY=FEAT|Greater Magic Defense.MOD		TYPE:Thaumaturgical
-CATEGORY=FEAT|Greater Spell Focus.MOD			TYPE:ArcaneSpecOp.Thaumaturgical
+CATEGORY=FEAT|Greater Spell Focus.MOD		TYPE:ArcaneSpecOp.Thaumaturgical
 CATEGORY=FEAT|Heighten Spell.MOD			TYPE:ArcaneSpecOp
-CATEGORY=FEAT|#Improved Autofire.MOD			TYPE:MagicGrunt
+CATEGORY=FEAT|#Improved Autofire.MOD		TYPE:MagicGrunt
 CATEGORY=FEAT|Improved Magic Defense.MOD		TYPE:Thaumaturgical
 CATEGORY=FEAT|Low Profile.MOD				TYPE:Thaumaturgical
 CATEGORY=FEAT|Magical Affinity.MOD			TYPE:Thaumaturgical
 CATEGORY=FEAT|Nonlethal Spell.MOD			TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:Thaumaturgical.MagicGrunt
-CATEGORY=FEAT|Precise Shot.MOD				TYPE:Thaumaturgical
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:Thaumaturgical
 CATEGORY=FEAT|Reach Spell.MOD				TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Shadowbane Spell.MOD			TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Signature Spell.MOD			TYPE:ArcaneSpecOp.Thaumaturgical
-CATEGORY=FEAT|Silent Spell.MOD				TYPE:ArcaneSpecOp
+CATEGORY=FEAT|Silent Spell.MOD			TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Spell Focus.MOD				TYPE:ArcaneSpecOp.Thaumaturgical.ArcaneSpecOpSpellFocus
-CATEGORY=FEAT|Spellslinger.MOD				TYPE:ArcaneSpecOp
+CATEGORY=FEAT|Spellslinger.MOD			TYPE:ArcaneSpecOp
 CATEGORY=FEAT|Still Spell.MOD				TYPE:ArcaneSpecOp
-CATEGORY=FEAT|Strafe.MOD					TYPE:MagicGrunt
+CATEGORY=FEAT|Strafe.MOD				TYPE:MagicGrunt
 CATEGORY=FEAT|Studious.MOD				TYPE:Thaumaturgical.MagicGrunt

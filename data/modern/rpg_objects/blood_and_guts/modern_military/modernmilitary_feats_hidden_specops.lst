@@ -1,23 +1,26 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
 ###Block: Mental Toughness
 # Feat Name		Type							Visible	Required Feat			Special ABility																																			Define		Modify VAR						Source Page
-Cat Nap		CATEGORY:FEAT	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Mental Toughness	SAB:Cat Nap - Instead of -10 on Listen checks while sleeping, the character has a penalty of % to Listen while sleeping|CatNap|PREVARLT:Catnap,0	SAB:Cat Nap - No penalty to Listen while sleeping|PREVARGTEQ:Catnap,0	DEFINE:CatNap|0	BONUS:VAR|CatNap|min(0,(SpecOpsLVL-10))	SOURCEPAGE:p.9
-Mental Toughness	CATEGORY:FEAT	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO						SAB:+% to any saving throw to resist fatigue, hunger, torture, brainwashing, fear, combat fatigue and intimidation|SpecOpsLVL																											SOURCEPAGE:p.8
+# Ability Name	Category of Ability	Type							Visible	Required Ability						Special ABility																																			Define		Modify VAR						Source Page
+Cat Nap		CATEGORY:FEAT		TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Mental Toughness	SAB:Cat Nap - Instead of -10 on Listen checks while sleeping, the character has a penalty of % to Listen while sleeping|CatNap|PREVARLT:Catnap,0	SAB:Cat Nap - No penalty to Listen while sleeping|PREVARGTEQ:Catnap,0	DEFINE:CatNap|0	BONUS:VAR|CatNap|min(0,(SpecOpsLVL-10))	SOURCEPAGE:p.9
+Mental Toughness	CATEGORY:FEAT		TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO									SAB:+% to any saving throw to resist fatigue, hunger, torture, brainwashing, fear, combat fatigue and intimidation|SpecOpsLVL																											SOURCEPAGE:p.8
 
 ###Block:Silent Kill
 # Feat Name		Type						Visible	Required Feat			Ability							Modify VAR				Source Page
-Silent Kill 1	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						SOURCEPAGE:p.9
-Silent Kill 2	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 1										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
-Silent Kill 3	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 2										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
-Silent Kill 4	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 3										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+# Ability Name	Category of Ability	Type						Visible	Required Ability						Ability							Modify VAR				Source Page
+Silent Kill 1	CATEGORY:FEAT		TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						SOURCEPAGE:p.9
+Silent Kill 2	CATEGORY:FEAT		TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 1										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 3	CATEGORY:FEAT		TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 2										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 4	CATEGORY:FEAT		TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 3										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
 
 ###Block: Strategy
 # Feat Name				Type							Visible	Required Feat						Required Skill				Special ABility			Bonus to skill				Source Page
-Ambush				CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Prepare												SAB:Ambush										SOURCEPAGE:p.9
-Improvise				CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Improvise									SOURCEPAGE:p.9
-Long Range Reconnaissance	CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Long Range Reconnaissance	BONUS:SKILL|Spot|SpecOpsLVL		SOURCEPAGE:p.9
-Prepare				CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Prepare				BONUS:SKILL|Knowledge (Tactics)|2	SOURCEPAGE:p.9
-Psychological Warfare		CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Improvise											SAB:Psychological Warfare							SOURCEPAGE:p.9
+# Ability Name			Category of Ability	Type							Visible	Required Ability									Required Skill				Special ABility			Bonus to skill				Source Page
+Ambush				CATEGORY:FEAT		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Prepare												SAB:Ambush										SOURCEPAGE:p.9
+Improvise				CATEGORY:FEAT		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Improvise									SOURCEPAGE:p.9
+Long Range Reconnaissance	CATEGORY:FEAT		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Long Range Reconnaissance	BONUS:SKILL|Spot|SpecOpsLVL		SOURCEPAGE:p.9
+Prepare				CATEGORY:FEAT		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Prepare				BONUS:SKILL|Knowledge (Tactics)|2	SOURCEPAGE:p.9
+Psychological Warfare		CATEGORY:FEAT		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Improvise											SAB:Psychological Warfare							SOURCEPAGE:p.9

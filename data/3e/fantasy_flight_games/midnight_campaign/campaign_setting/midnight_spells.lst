@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2002-01
 #Original Entry By: Eddy Anthony
 
 ###Block: Abjuration Spells
 
 # 0-level spells
-# Spell Name				Type		Classes of caster		Multiple Requirements										Var. Min. Value
+# Spell Name				Type		Classes of caster		Multiple Requirements													Var. Min. Value
 Resistance.MOD				TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Abjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 
 # 1-level spells
@@ -79,7 +79,7 @@ Prismatic Sphere.MOD			TYPE:Arcane	CLASSES:Channeler=9	PREMULT:1,[PREABILITY:1,C
 ###Block: Greater Conjuration Spells
 
 # 1-level spells
-# Spell Name			Type		Classes of caster		Clear School	School				Multiple Requirements													Var. Min. Value
+# Spell Name			Type		Classes of caster		Clear School	School				Multiple Requirements																Var. Min. Value
 Mount.MOD				TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:.CLEAR	SCHOOL:Greater Conjuration	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Greater Spellcasting (Greater Conjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,1
 Summon Monster I.MOD		TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:.CLEAR	SCHOOL:Greater Conjuration	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Greater Spellcasting (Greater Conjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,1
 Summon Nature's Ally I.MOD	TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:.CLEAR	SCHOOL:Greater Conjuration	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Greater Spellcasting (Greater Conjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,1
@@ -130,7 +130,7 @@ Summon Nature's Ally IX.MOD	TYPE:Arcane	CLASSES:Channeler=9	SCHOOL:.CLEAR	SCHOOL
 ###Block: Lesser Conjuration Spells
 
 # 0-level spells
-# Spell Name			Type		Classes of caster		Clear School	School				Multiple Requirements												Var. Min. Value
+# Spell Name			Type		Classes of caster		Clear School	School				Multiple Requirements														Var. Min. Value
 Create Water.MOD			TYPE:Arcane	CLASSES:Channeler=0	SCHOOL:.CLEAR	SCHOOL:Lesser Conjuration	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Lesser Conjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Ray of Frost.MOD			TYPE:Arcane	CLASSES:Channeler=0	SCHOOL:.CLEAR	SCHOOL:Lesser Conjuration	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Lesser Conjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Cure Minor Wounds.MOD		TYPE:Arcane	CLASSES:Channeler=0	SCHOOL:.CLEAR	SCHOOL:Lesser Conjuration	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Lesser Conjuration)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
@@ -201,7 +201,7 @@ Mass Heal.MOD			TYPE:Arcane	CLASSES:Channeler=9	SCHOOL:.CLEAR	SCHOOL:Lesser Conj
 ###Block: Divination Spells
 
 # 0-level spells
-# Spell Name				Type		Classes of caster		Multiple Requirements										Var. Min. Value
+# Spell Name				Type		Classes of caster		Multiple Requirements													Var. Min. Value
 Detect Poison.MOD				TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Divination)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Guidance.MOD				TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Divination)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Know Direction.MOD			TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Divination)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
@@ -260,7 +260,7 @@ Discern Location.MOD			TYPE:Arcane	CLASSES:Channeler=8	PREMULT:1,[PREABILITY:1,C
 ###Block: Enchantment Spells
 
 # 0-level spells
-# Spell Name			Type		Classes of caster		Multiple Requirements										Var. Min. Value
+# Spell Name			Type		Classes of caster		Multiple Requirements													Var. Min. Value
 Daze.MOD				TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Enchantment)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 
 # 1-level spells
@@ -318,7 +318,7 @@ Dominate Monster.MOD		TYPE:Arcane	CLASSES:Channeler=9	PREMULT:1,[PREABILITY:1,CA
 ###Block: Greater Evocation Spells
 
 # 1-level spells
-# Spell Name			Type		Classes of caster		Clear School	School				Multiple Requirements													Var. Min. Value
+# Spell Name			Type		Classes of caster		Clear School	School				Multiple Requirements																Var. Min. Value
 Magic Missile.MOD			TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:.CLEAR	SCHOOL:Greater Evocation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Greater Spellcasting (Greater Evocation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,1
 Floating Disk.MOD			TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:.CLEAR	SCHOOL:Greater Evocation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Greater Spellcasting (Greater Evocation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,1
 
@@ -369,7 +369,7 @@ Meteor Swarm.MOD			TYPE:Arcane	CLASSES:Channeler=9	SCHOOL:.CLEAR	SCHOOL:Greater 
 ###Block: Lesser Evocation Spells
 
 # 0-level spells
-# Spell Name		Type		Classes of caster		Clear School	School			Multiple Requirements											Var. Min. Value
+# Spell Name		Type		Classes of caster		Clear School	School			Multiple Requirements														Var. Min. Value
 Dancing Lights.MOD	TYPE:Arcane	CLASSES:Channeler=0	SCHOOL:.CLEAR	SCHOOL:Lesser Evocation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Lesser Evocation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Flare.MOD			TYPE:Arcane	CLASSES:Channeler=0	SCHOOL:.CLEAR	SCHOOL:Lesser Evocation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Lesser Evocation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Light.MOD			TYPE:Arcane	CLASSES:Channeler=0	SCHOOL:.CLEAR	SCHOOL:Lesser Evocation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Lesser Evocation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
@@ -413,7 +413,7 @@ Earthquake.MOD		TYPE:Arcane	CLASSES:Channeler=9	SCHOOL:.CLEAR	SCHOOL:Lesser Evoc
 ###Block: Illusion Spells
 
 # 0-level spells
-# Spell Name				Type		Classes of caster		Multiple Requirements										Var. Min. Value
+# Spell Name				Type		Classes of caster		Multiple Requirements													Var. Min. Value
 Ghost Sound.MOD				TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Illusion)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 
 # 1-level spells
@@ -481,7 +481,7 @@ Weird.MOD					TYPE:Arcane	CLASSES:Channeler=9	PREMULT:1,[PREABILITY:1,CATEGORY=F
 ###Block: Necromancy Spells
 
 # 0-level spells
-# Spell Name		Type		Classes of caster		Multiple Requirements										Var. Min. Value
+# Spell Name		Type		Classes of caster		Multiple Requirements													Var. Min. Value
 Disrupt Undead.MOD	TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Necromancy)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 
 # 1-level spells
@@ -531,7 +531,7 @@ Wail of the Banshee.MOD	TYPE:Arcane	CLASSES:Channeler=9	PREMULT:1,[PREABILITY:1,
 ###Block: Transmutation Spells
 
 # 0-level spells
-# Spell Name			Type		Classes of caster		Multiple Requirements											Var. Min. Value
+# Spell Name			Type		Classes of caster		Multiple Requirements														Var. Min. Value
 Mage Hand.MOD			TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Mending.MOD				TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Open/Close.MOD			TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
@@ -667,7 +667,7 @@ Time Stop.MOD			TYPE:Arcane	CLASSES:Channeler=9	PREMULT:1,[PREABILITY:1,CATEGORY
 ###Block: Universal Spells
 
 # 0-level spells
-# Spell Name		Type		Classes of caster		Multiple Requirements								Var. Min. Value
+# Spell Name		Type		Classes of caster		Multiple Requirements											Var. Min. Value
 Arcane Mark.MOD		TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,TYPE.Magecraft],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Detect Magic.MOD		TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,TYPE.Magecraft],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0
 Prestidigitation.MOD	TYPE:Arcane	CLASSES:Channeler=0	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,TYPE.Magecraft],[PREVARGT:UnlimitedSpells,0]	PREVARGTEQ:MaximumSpellLevel,0

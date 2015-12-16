@@ -1,13 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196	SOURCEDATE:2005-01
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Acrobatic.MOD				TYPE:Primitive_Feat.MysteryMan
 CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:MysteryMan
 CATEGORY=FEAT|Alertness.MOD				TYPE:Primitive_Feat.GMan.Hitman.IntrepidReporter.MysteryMan
 CATEGORY=FEAT|Animal Affinity.MOD			TYPE:Primitive_Feat
 CATEGORY=FEAT|Archaic Weapons Proficiency.MOD	TYPE:Primitive_Feat.Hitman
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:GMan.Hitman
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:GMan.Hitman
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:GMan.Hitman
 CATEGORY=FEAT|Athletic.MOD				TYPE:Primitive_Feat
 CATEGORY=FEAT|Attentive.MOD				TYPE:GMan.IntrepidReporter
@@ -22,23 +23,23 @@ CATEGORY=FEAT|Double Tap.MOD				TYPE:Hitman
 CATEGORY=FEAT|Drive-By Attack.MOD			TYPE:Hitman
 CATEGORY=FEAT|Educated.MOD				TYPE:Psychic_Roaring_Feat
 CATEGORY=FEAT|Far Shot.MOD				TYPE:Hitman
-CATEGORY=FEAT|Frightful Presence.MOD			TYPE:MobBoss
+CATEGORY=FEAT|Frightful Presence.MOD		TYPE:MobBoss
 CATEGORY=FEAT|Guide.MOD					TYPE:Primitive_Feat
 CATEGORY=FEAT|Improved Combat Martial Arts.MOD	TYPE:MysteryMan
-CATEGORY=FEAT|Information Network.MOD			TYPE:MobBoss
-CATEGORY=FEAT|Inspired Leadership.MOD			TYPE:MobBoss
+CATEGORY=FEAT|Information Network.MOD		TYPE:MobBoss
+CATEGORY=FEAT|Inspired Leadership.MOD		TYPE:MobBoss
 CATEGORY=FEAT|Iron Will.MOD				TYPE:IntrepidReporter.MobBoss
 CATEGORY=FEAT|Low Profile.MOD				TYPE:Hitman
 CATEGORY=FEAT|Meticulous.MOD				TYPE:IntrepidReporter
 CATEGORY=FEAT|Mobility.MOD				TYPE:MysteryMan
 CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:MobBoss
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:GMan.Hitman
-CATEGORY=FEAT|Precise Shot.MOD				TYPE:GMan
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:GMan
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:Hitman
-CATEGORY=FEAT|Quick Reload.MOD				TYPE:Hitman
-CATEGORY=FEAT|Renown.MOD					TYPE:GMan.Hitman.IntrepidReporter.MobBoss
+CATEGORY=FEAT|Quick Reload.MOD			TYPE:Hitman
+CATEGORY=FEAT|Renown.MOD				TYPE:GMan.Hitman.IntrepidReporter.MobBoss
 CATEGORY=FEAT|Run.MOD					TYPE:Primitive_Feat
-CATEGORY=FEAT|Spring Attack.MOD				TYPE:MysteryMan
+CATEGORY=FEAT|Spring Attack.MOD			TYPE:MysteryMan
 CATEGORY=FEAT|Trustworthy.MOD				TYPE:IntrepidReporter.MobBoss
 CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:GMan
 CATEGORY=FEAT|Wild Talent.MOD				TYPE:Psychic_Roaring_Feat

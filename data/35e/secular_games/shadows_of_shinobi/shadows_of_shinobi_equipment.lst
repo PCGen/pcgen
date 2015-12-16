@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
@@ -33,8 +33,8 @@ Ashiko			TYPE:Equipment.Goods	COST:45	WT:1		SOURCEPAGE:p.33	TEMPBONUS:ANYPC|SKIL
 Nagedepppo			TYPE:Equipment.Goods	COST:50	WT:1		SOURCEPAGE:p.33
 
 ###BLOCK: Magic
-# Equipment Name					Required Weapon Proficiency		Type										Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus			Weapon prop. bonus																	Temporary Bonus
-Kogiros Disguise Kit										TYPE:Magic.Wondrous							COST:60000	WT:4																									SOURCEPAGE:p.34																														TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Competence
+# Equipment Name					Required Weapon Proficiency		Type										Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus			Weapon prop. bonus																				Temporary Bonus
+Kogiros Disguise Kit										TYPE:Magic.Wondrous							COST:60000	WT:4																									SOURCEPAGE:p.34																																	TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Competence
 Liars Bane ~ The Sword of the Silver Lord	PROFICIENCY:WEAPON|Sword (Bastard)	TYPE:Weapon.Melee.Martial.Exotic.Standard.Slashing.Sword	COST:56035	WT:6					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	EQMOD:LAW_M.MWORKW.PLUS4W.STEEL	WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.35										BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:WEAPON|DAMAGE|SKILLRANK=Bluff
 Mail of Shadows											TYPE:Armor.Light.Suit.Standard					COST:6025	WT:20		ACCHECK:-1								EQMOD:MWORKA.PLUS3A.SHDW.SLK.STEEL				MAXDEX:5				SOURCEPAGE:p.35	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
 

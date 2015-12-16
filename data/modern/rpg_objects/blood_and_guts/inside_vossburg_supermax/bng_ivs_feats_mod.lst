@@ -1,11 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Inside Vossberg Supermax	SOURCESHORT:BnG-IVS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=45	SOURCEDATE:2003-01
 
 # Feat Name			Type
-CATEGORY=FEAT|Home Turf.MOD		TYPE:Banger
+# Ability Name					Type
+CATEGORY=FEAT|Home Turf.MOD			TYPE:Banger
 CATEGORY=FEAT|Information Network.MOD	TYPE:Banger
-CATEGORY=FEAT|Leadership.MOD		TYPE:Banger
+CATEGORY=FEAT|Leadership.MOD			TYPE:Banger
 CATEGORY=FEAT|Renown.MOD			TYPE:Banger
-CATEGORY=FEAT|Tactician.MOD		TYPE:Banger
-CATEGORY=FEAT|Teamwork.MOD		TYPE:Banger
-CATEGORY=FEAT|Windfall.MOD		TYPE:Banger
+CATEGORY=FEAT|Tactician.MOD			TYPE:Banger
+CATEGORY=FEAT|Teamwork.MOD			TYPE:Banger
+CATEGORY=FEAT|Windfall.MOD			TYPE:Banger

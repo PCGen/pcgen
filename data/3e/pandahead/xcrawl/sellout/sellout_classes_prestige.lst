@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Agent		HD:4		TYPE:PC.Prestige	ABB:Agt		MAXLEVEL:5	SOURCEPAGE:72	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat						Required Skill
+# Class Name	Required Ability								Required Skill
 CLASS:Agent		PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Agent))	PRESKILL:4,Bluff=4,Gather Information=4,Sense Motive=4,Profession (Agent)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Agent		STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Gather Information|Innuendo|Knowledge (XCrawl)|Knowledge (The Business)|Knowledge (Celebrities)|Profession (Agent)|Sense Motive
@@ -15,7 +15,7 @@ CLASS:Agent		STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Gather Information|Inn
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Bodyguard	HD:12		TYPE:PC.Prestige	ABB:Bdg		MAXLEVEL:5	SOURCEPAGE:74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
-# Class Name	Required Feat						Multiple Requirements																													Required Skill					PRETOTALAB
+# Class Name	Required Ability									Multiple Requirements																													Required Skill					PRETOTALAB
 CLASS:Bodyguard	PREABILITY:2,CATEGORY=FEAT,Alertness,Improved Unarmed Strike	PREMULT:1,[PREMULT:2,[PRERACE:1,Half-Orc],[PRESTAT:1,STR=18]],[PREMULT:2,[PRERACE:1,Human,Dwarf%,Half-Elf,Elf%],[PRESTAT:1,STR=16]],[PREMULT:2,[PRERACE:1,Gnome%,Halfling%],[PRESTAT:1,STR=14]]	PRESKILL:3,Sense Motive=8,Spot=8,Drive=4	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Intimidate|Jump|Listen|Profession (Bodyguard)|Search|Sense Motive|Spot
@@ -27,7 +27,7 @@ CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Intimidate|Jump|Listen|
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Coach		HD:8		TYPE:PC.Prestige	ABB:Cch		MAXLEVEL:5	SOURCEPAGE:76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat		Required Skill											PRETOTALAB
+# Class Name	Required Ability					Required Skill											PRETOTALAB
 CLASS:Coach		PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:5,Intimidate=8,Profession (Coach)=8,Sense Motive=8,Heal=4,Perform=4	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Coach		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Heal|Intimidate|Jump|Knowledge (Sports)|Knowledge (Tactics)|Knowledge (XCrawl)|Perform|Profession (Coach)|Read Lips|Sense Motive|Spot|Swim
@@ -41,18 +41,18 @@ CLASS:Coach		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Heal
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Free Agent	HD:6		TYPE:PC.Prestige	ABB:FrA		MAXLEVEL:10	SOURCEPAGE:78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat			Required Skill					Required Text								PRETOTALAB
+# Class Name	Required Ability					Required Skill					Required Text								PRETOTALAB
 CLASS:Free Agent	PREABILITY:1,CATEGORY=FEAT,Crowd Favorite	PRESKILL:2,Perform=6,Knowledge (XCrawl)=4	PRETEXT:Fame must be 55 at some point during the career.	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Free Agent	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Diplomacy|Drive|Jump|Knowledge (XCrawl)|Listen|TYPE=Profession|Spot|Swim|Tumble
 ### Assimilate special ability is rather involved, and its unknown if it can be properly coded.
 1	SAB:Adapt	SAB:Assimilate
-2	SAB:Extra Performance				BONUS:FEAT|POOL|1
-3	SAB:Signing Bonus: +% pct.|SigningBonus				BONUS:VAR|SigningBonus|(CL/3)*20	DEFINE:SigningBonus|0
-4	SAB:Training Bonus																	BONUS:ABILITYPOOL|Skill Focus|1
+2	SAB:Extra Performance										BONUS:FEAT|POOL|1
+3	SAB:Signing Bonus: +% pct.|SigningBonus										BONUS:VAR|SigningBonus|(CL/3)*20	DEFINE:SigningBonus|0
+4	SAB:Training Bonus				BONUS:ABILITYPOOL|Skill Focus|1
 5	SAB:Cameo
-7								BONUS:FEAT|POOL|1
-8																					BONUS:ABILITYPOOL|Skill Focus|1
+7														BONUS:FEAT|POOL|1
+8								BONUS:ABILITYPOOL|Skill Focus|1
 10	SAB:Rally the Troops
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
@@ -69,7 +69,7 @@ CLASS:Groupie	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Paparazzi	HD:6		TYPE:PC.Prestige	ABB:Pap		MAXLEVEL:5	SOURCEPAGE:83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat		Required Skill						PRETOTALAB
+# Class Name	Required Ability					Required Skill						PRETOTALAB
 CLASS:Paparazzi	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:3,Spot=8,Photography=4,Sense Motive=4	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Paparazzi	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Concentration|Craft (Printmaking)|Diplomacy|Disguise|Drive|Gather Information|Hide|Innuendo|Photography|Search|Sense Motive|Spot
@@ -81,7 +81,7 @@ CLASS:Paparazzi	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Concentration|Craft (Printmak
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Scrambler	HD:8		TYPE:PC.Prestige	ABB:Scr		MAXLEVEL:10	SOURCEPAGE:86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat				Required Skill			PRETOTALAB
+# Class Name	Required Ability							Required Skill			PRETOTALAB
 CLASS:Scrambler	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Serpentine	PRESKILL:2,Tumble=8,Bluff=8	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scrambler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Jump|Sense Motive|Tumble
@@ -99,7 +99,7 @@ CLASS:Scrambler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Jump|Sense Motive|Tum
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Superstar	HD:4		TYPE:PC.Prestige	ABB:SSt		MAXLEVEL:3	SOURCEPAGE:88	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat					Required Skill				Required Stat	Required Text																											PRETOTALAB
+# Class Name	Required Ability							Required Skill				Required Stat	Required Text																											PRETOTALAB
 CLASS:Superstar	PREABILITY:1,CATEGORY=FEAT,Crowd Favorite,The Profile	PRESKILL:2,Bluff=12,Perform=12	PRESTAT:1,FAM=50	PRETEXT:Must have 2 of the following: an obsessive stalker, 3+ magazine covers, entertainment news show dedicated to you, cameo as yourself in a movie or on TV, a fan club	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Superstar	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Diplomacy|Drive|Innuendo|Intimidate|Perform|Sense Motive|Speak Language|Use Magic Device

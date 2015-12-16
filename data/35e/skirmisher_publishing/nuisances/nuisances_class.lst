@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
 
@@ -22,11 +22,11 @@ CLASS:Prostitute	STARTSKILLPTS:0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Pimp		HD:8		TYPE:PC.Prestige	ABB:Pimp		MAXLEVEL:3	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat						Required Skill		PRETOTALAB
+# Class Name	Required Ability									Required Skill		PRETOTALAB
 CLASS:Pimp		PREABILITY:2,CATEGORY=FEAT,Pimp Slap,Skill Focus (Intimidate)	PRESKILL:1,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pimp		STARTSKILLPTS:3	CSKILL:Appraise|Bluff|Handle Animal|Intimidate|Profession (Pimp)|Sense Motive|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|Manage the Stable|Pimp Resistance to Disease		ABILITY:FEAT|AUTOMATIC|Killer 'Do|Simple Weapon Proficiency	AUTO:WEAPONPROF|Whip|Sap|TYPE=Dagger
+1	ABILITY:Special Ability|AUTOMATIC|Manage the Stable|Pimp Resistance to Disease	ABILITY:FEAT|AUTOMATIC|Killer 'Do|Simple Weapon Proficiency	AUTO:WEAPONPROF|Whip|Sap|TYPE=Dagger
 2	ABILITY:Special Ability|AUTOMATIC|Keep Your Pimp Hand Strong|Lookin' Sharp|Movin' On Up
 3	ABILITY:Special Ability|AUTOMATIC|King of the Tenderloin
 

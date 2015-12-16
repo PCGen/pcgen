@@ -1,31 +1,32 @@
-# CVS $Revision: 24815 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 24815 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
 # Original Entry by: Tir Gwaith
 
 # Feat Name					Type			Visible	Multiple?	Choose				Class Skill
-All Exotic Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO
-Craft Class Skills			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft		CSKILL:LIST
-Knowledge Class Skills			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	CSKILL:LIST
+# Ability Name							Category of Ability		Type			Visible	Define																Multiple?	Choose				Auto Equip							Ability														Modify VAR														Class Skill
+All Exotic Weapon Proficiencies				CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO
+Craft Class Skills						CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO																		MULT:YES	CHOOSE:SKILL|TYPE=Craft																																								CSKILL:LIST
+Knowledge Class Skills						CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO																		MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																																							CSKILL:LIST
 
 
 
-# Ability Name							Category of Ability	Define																Auto Equip							Ability														Modify VAR
+# Ability Name							Category of Ability		Type			Visible	Define																Multiple?	Choose				Auto Equip							Ability														Modify VAR														Class Skill
 Default								CATEGORY:Internal
 
-CATEGORY=Internal|Default.MOD									DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0										AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
+CATEGORY=Internal|Default.MOD															DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0																	AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
 
 
 
 #BLOCK: Where to store Abilities
-Grants All Hidden Abilities					CATEGORY:Internal																											ABILITY:Internal|AUTOMATIC|Defines Required
+Grants All Hidden Abilities					CATEGORY:Internal																																								ABILITY:Internal|AUTOMATIC|Defines Required
 #COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
 
 # Bardic Abilities for Non-Bard Use
 #CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Master Traits
-CATEGORY=Internal|Grants All Hidden Abilities.MOD																														ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
+CATEGORY=Internal|Grants All Hidden Abilities.MOD																																											ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
-Defines Required							CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|0																								BONUS:VAR|LowLightRange|2
+Defines Required							CATEGORY:Internal								DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|0																															BONUS:VAR|LowLightRange|2
 #Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits

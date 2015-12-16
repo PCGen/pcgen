@@ -1,5 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-ABILITYCATEGORY:TT Ranger Choice	ABILITYLIST:Shadow (TT)|Track	CATEGORY:FEAT	DISPLAYLOCATION:Feats	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
+# Ability Category			Visible		Editable?		Change Pool?	Category of Object		Type of Object			Specific choices list		Display Location
+ABILITYCATEGORY:TT Ranger Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Shadow (TT)|Track	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Discreet Companion	TYPE:DiscreetCompanionAbility	CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
+ABILITYCATEGORY:Discreet Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DiscreetCompanionAbility						DISPLAYLOCATION:Class Abilities

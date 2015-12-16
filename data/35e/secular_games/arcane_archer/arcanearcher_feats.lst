@@ -1,25 +1,26 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa	SOURCEDATE:2005-01
 #Originally done by Paul W. King
 
 ###Block: General
 # Feat Name				Type				Required Class				Required Feat					Required Race		Required Skill						Required Stat	PRETOTALAB		Stackable?	Multiple?	Choose		Add Spell Lvl	% bonus to range			Bonus to skill					Modify VAR			Weapon prof. bonus						Source Page
-Archer's Eyes			CATEGORY:FEAT	TYPE:General																																																BONUS:SKILL|Craft (Bowmaking),Spot|2														SOURCEPAGE:p.8
-Arrow Component			CATEGORY:FEAT	TYPE:General																			PRESKILL:1,Knowledge (Arcana)=6																																												SOURCEPAGE:p.8
-Arrow Spell				CATEGORY:FEAT	TYPE:Metamagic																			PRESKILL:2,Craft (Bowmaking)=6,Spellcraft=6														ADDSPELLLEVEL:2																										SOURCEPAGE:p.8
-Cunning Archery			CATEGORY:FEAT	TYPE:General.Fighter																													PRETOTALAB:1																											BONUS:WEAPONPROF=TYPE.Longbow|TOHIT|max(INT,DEX)-DEX	SOURCEPAGE:p.8
-Flames of Magic			CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Enhance Arrow																PRESTAT:1,CHA=13																																							SOURCEPAGE:p.8
-Improved Arrow Component	CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Arrow Component							PRESKILL:1,Knowledge (Arcana)=9																																												SOURCEPAGE:p.8
-Improved Low-light Vision	CATEGORY:FEAT	TYPE:General															PRERACE:1,Elf%,Half-Elf									PRESTAT:1,WIS=13																																							SOURCEPAGE:p.8
-Improved Mounted Archery	CATEGORY:FEAT	TYPE:General.Fighter							PREABILITY:2,CATEGORY=FEAT,Mounted Archery,Mounted Combat					PRESKILL:1,Ride=9																																															SOURCEPAGE:p.9
-Longbow Shot			CATEGORY:FEAT	TYPE:General.Fighter							PREABILITY:2,CATEGORY=FEAT,Far Shot,Point Blank Shot																	PRETOTALAB:9											BONUS:RANGEMULT|PROJECTILE|50																					SOURCEPAGE:p.9
-Mighty Arrow of Death		CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Arrow of Death																																																								SOURCEPAGE:p.9
-Power Shot				CATEGORY:FEAT	TYPE:General		PRECLASS:1,SPELLCASTER.Arcane=3	PREABILITY:1,CATEGORY=FEAT,Point Blank Shot																																																								SOURCEPAGE:p.9
-Repeating Hail			CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Hail of Arrows															PRESTAT:1,DEX=19																																							SOURCEPAGE:p.9
-Second Phase Arrow		CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Phase Arrow																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|PhaseArrow|1										SOURCEPAGE:p.9
-Second Phase Bolt			CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Phase Bolt																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|PhaseBolt|1										SOURCEPAGE:p.9
-Second Seeker Arrow		CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Seeker Arrow																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|SeekerArrow|1										SOURCEPAGE:p.9
-Second Seeker Bolt		CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Seeker Bolt																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|SeekerBolt|1										SOURCEPAGE:p.9
-Superior Bowmaking		CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor					PRESKILL:1,Craft (Bowmaking)=9																																												SOURCEPAGE:p.9
-Sure Striker			CATEGORY:FEAT	TYPE:General.Fighter							PREABILITY:1,CATEGORY=FEAT,Point Blank Shot							PRESKILL:1,Spot=9																																															SOURCEPAGE:p.9
-Unavoidable Fire			CATEGORY:FEAT	TYPE:General								PREABILITY:1,CATEGORY=FEAT,Power Shot																PRESTAT:1,DEX=13	PRETOTALAB:4																																				SOURCEPAGE:p.9
+# Ability Name			Category of Ability	Type				Required Ability								Required Class				Required Race		Required Skill						Required Stat	PRETOTALAB		Stackable?	Multiple?	Choose		Add Spell Lvl	% bonus to range			Bonus to skill					Modify VAR			Weapon prof. bonus						Source Page
+Archer's Eyes			CATEGORY:FEAT		TYPE:General																																																			BONUS:SKILL|Craft (Bowmaking),Spot|2														SOURCEPAGE:p.8
+Arrow Component			CATEGORY:FEAT		TYPE:General																						PRESKILL:1,Knowledge (Arcana)=6																																												SOURCEPAGE:p.8
+Arrow Spell				CATEGORY:FEAT		TYPE:Metamagic																						PRESKILL:2,Craft (Bowmaking)=6,Spellcraft=6														ADDSPELLLEVEL:2																										SOURCEPAGE:p.8
+Cunning Archery			CATEGORY:FEAT		TYPE:General.Fighter																																PRETOTALAB:1																											BONUS:WEAPONPROF=TYPE.Longbow|TOHIT|max(INT,DEX)-DEX	SOURCEPAGE:p.8
+Flames of Magic			CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Enhance Arrow																						PRESTAT:1,CHA=13																																							SOURCEPAGE:p.8
+Improved Arrow Component	CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Arrow Component													PRESKILL:1,Knowledge (Arcana)=9																																												SOURCEPAGE:p.8
+Improved Low-light Vision	CATEGORY:FEAT		TYPE:General																		PRERACE:1,Elf%,Half-Elf									PRESTAT:1,WIS=13																																							SOURCEPAGE:p.8
+Improved Mounted Archery	CATEGORY:FEAT		TYPE:General.Fighter	PREABILITY:2,CATEGORY=FEAT,Mounted Archery,Mounted Combat											PRESKILL:1,Ride=9																																															SOURCEPAGE:p.9
+Longbow Shot			CATEGORY:FEAT		TYPE:General.Fighter	PREABILITY:2,CATEGORY=FEAT,Far Shot,Point Blank Shot																							PRETOTALAB:9											BONUS:RANGEMULT|PROJECTILE|50																					SOURCEPAGE:p.9
+Mighty Arrow of Death		CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Arrow of Death																																																															SOURCEPAGE:p.9
+Power Shot				CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Point Blank Shot			PRECLASS:1,SPELLCASTER.Arcane=3																																																						SOURCEPAGE:p.9
+Repeating Hail			CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Hail of Arrows																						PRESTAT:1,DEX=19																																							SOURCEPAGE:p.9
+Second Phase Arrow		CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Phase Arrow																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|PhaseArrow|1										SOURCEPAGE:p.9
+Second Phase Bolt			CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Phase Bolt																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|PhaseBolt|1										SOURCEPAGE:p.9
+Second Seeker Arrow		CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Seeker Arrow																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|SeekerArrow|1										SOURCEPAGE:p.9
+Second Seeker Bolt		CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Seeker Bolt																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|SeekerBolt|1										SOURCEPAGE:p.9
+Superior Bowmaking		CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor												PRESKILL:1,Craft (Bowmaking)=9																																												SOURCEPAGE:p.9
+Sure Striker			CATEGORY:FEAT		TYPE:General.Fighter	PREABILITY:1,CATEGORY=FEAT,Point Blank Shot													PRESKILL:1,Spot=9																																															SOURCEPAGE:p.9
+Unavoidable Fire			CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=FEAT,Power Shot																						PRESTAT:1,DEX=13	PRETOTALAB:4																																				SOURCEPAGE:p.9
