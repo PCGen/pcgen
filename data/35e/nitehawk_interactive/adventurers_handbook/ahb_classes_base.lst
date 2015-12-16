@@ -31,7 +31,7 @@ CLASS:Outcast	HD:6		SOURCEPAGE:p.38
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Handle Animal|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Sailing|Search|Sense Motive|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device|Use Rope|Survival
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Outcast	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Outcast|CL
+CLASS:Outcast	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Outcast|CL
 ###Block:Proficiencies
 1	BONUS:ABILITYPOOL|Outcast Exotic Weapon|1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1								ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
@@ -66,7 +66,7 @@ CLASS:Shaman (Alternate)	PREALIGN:LG,LN,TN,NG,CG
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Shaman (Alternate)	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Dreams)|Knowledge (Nature)|Knowledge (Spirits)|Spellcraft|Survival
 # Class Name			Spell Stat		Spell Type		Caster level					Use Spell List
-CLASS:Shaman (Alternate)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman (Alternate)|CL	SPELLLIST:1|Shaman
+CLASS:Shaman (Alternate)	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Shaman (Alternate)|CL	SPELLLIST:1|Shaman
 ###Block:Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -133,7 +133,7 @@ CLASS:Witch		PREALIGN:LN,NG,TN,CN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Craft (Alchemy)|Craft (Apothecary)|Diplomacy|Heal|Intimidate|Knowledge (Cultures)|Listen|Search|Seduction|Spellcraft|Spot|Star Reading|Survival|Witchcraft
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
+CLASS:Witch		SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Witch|CL
 ###Block:Proficiencies
 1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 #Block: Level Progression

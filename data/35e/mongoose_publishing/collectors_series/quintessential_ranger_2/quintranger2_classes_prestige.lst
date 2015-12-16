@@ -12,7 +12,7 @@ CLASS:The Bowman	HD:8		TYPE:PC.Prestige	ABB:TBM		MAXLEVEL:10	SOURCEPAGE:p.56	DEF
 # Class Name	Required Ability												Required Skill					Required Text								PRETOTALAB
 CLASS:The Bowman	PREABILITY:5,CATEGORY=FEAT,Dodge,Point Blank Shot,Manyshot,Mobility,Rapid Shot	PRESKILL:3,Listen=10,Spot=10,Tumble=4	PRETEXT:See The Bowman Special Entry Requirement, p.58	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:The Bowman	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Craft (Bowyer)|Escape Artist|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim|Tumble
+CLASS:The Bowman	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Craft (Bowyer)|Escape Artist|Handle Animal|Hide|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim|Tumble
 
 1							ABILITY:Special Ability|AUTOMATIC|Wind in the Trees
 2	BONUS:VAR|DartingMongooseBonus|CL/2	ABILITY:Special Ability|AUTOMATIC|Darting Mongoose
@@ -32,7 +32,7 @@ CLASS:The Chameleon	HD:8		TYPE:PC.Prestige	ABB:TC		MAXLEVEL:10	SOURCEPAGE:p.58	D
 # Class Name		Required Ability												Required Class		Required Skill
 CLASS:The Chameleon	PREABILITY:3,CATEGORY=FEAT,Skill Focus (Hide),Skill Focus (Move Silently),Stealthy	PRECLASS:1,Ranger=4	PRESKILL:3,Hide=10,Knowledge (Nature)=10,Move Silently=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:The Chameleon	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Disguise|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
+CLASS:The Chameleon	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Disguise|Hide|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 
 1						ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Chameleon Camouflage|TC ~ Silent Phantom
 2						ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|TC ~ Moving Shadow
@@ -53,11 +53,11 @@ CLASS:King of the Wilderness	HD:6		TYPE:PC.Prestige	ABB:KotW		MAXLEVEL:10	SOURCE
 # Class Name			Required Ability												Required Skill
 CLASS:King of the Wilderness	PREABILITY:3,CATEGORY=FEAT,Skill Focus (Knowledge (Geography)),Endurance,Track	PRESKILL:3,Knowledge (Geography)=10,Knowledge (Nature)=10,Survival=10
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
+CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
 
 1														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|King of the Wilderness Tireless Voyager|Natural Explorer
 2	BONUS:ABILITYPOOL|Terrain Immersion|CL/2							ADD:SPELLCASTER|Ranger
-3														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Self-Contained|Druid ~ Trackless Step
+3														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step|Self-Contained
 4														ADD:SPELLCASTER|Ranger
 5								BONUS:VAR|FastMovementBonus|10	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|King of the Road
 6														ADD:SPELLCASTER|Ranger
@@ -74,7 +74,7 @@ CLASS:The Mighty Hunter	HD:8		TYPE:PC.Prestige	ABB:TMH		MAXLEVEL:10	SOURCEPAGE:p
 # Class Name		Required Ability								Required Skill								PRETOTALAB
 CLASS:The Mighty Hunter	PREABILITY:3,CATEGORY=FEAT,Alertness,Self-Sufficient,Track	PRESKILL:4,Listen=10,Move Silently=10,Spot=10,Survival=10	PRETOTALAB:9
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:The Mighty Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
+CLASS:The Mighty Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
 1														BONUS:VAR|TheMightyHunterLVL|CL
 1	BONUS:ABILITYPOOL|Favored Enemy|1	BONUS:ABILITYPOOL|Favored Enemy Bonus|1									ABILITY:Special Ability|AUTOMATIC|Hunter's Instincts
 2																						ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
@@ -109,7 +109,7 @@ CLASS:The Wolf Master	HD:8		TYPE:PC.Prestige	ABB:TWM		MAXLEVEL:10	SOURCEPAGE:p.6
 # Class Name		Required Ability						Required Skill
 CLASS:The Wolf Master	PREABILITY:3,CATEGORY=FEAT,Alertness,Run,Track	PRESKILL:3,Listen=8,Spot=8,Survival=8
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:The Wolf Master	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
+CLASS:The Wolf Master	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 #
 1	BONUS:VAR|FastMovementBonus|10	BONUS:VAR|AnimalAnimalCompanionLVL|CL	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|Night Eyes|TWM ~ Animal Companion
 2														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Scent

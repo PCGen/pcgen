@@ -3,16 +3,16 @@ SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.nec
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
 # Deity Name		Domains									Description of Deity/Title		Source Page		Holy Item
-The Oinodaemon		DOMAINS:Death,Destruction,Evil|PREALIGN:LE,NE,CE		DESC:The Oinodaemon			SOURCEPAGE:p.84	SYMBOL:None
-Baphomet			DOMAINS:Chaos,Evil,War|PREALIGN:NE,CN,CE				DESC:Demon Lord				SOURCEPAGE:p.101	SYMBOL:None
-Dagon				DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:Demon Prince of Sea Creatures	SOURCEPAGE:p.105	SYMBOL:None
-Fraz-Urb'luu		DOMAINS:Chaos,Evil,Knowledge,Trickery|PREALIGN:NE,CN,CE	DESC:Demon Prince				SOURCEPAGE:p.111	SYMBOL:None
-Geryon			DOMAINS:Evil,Law,Strength|PREALIGN:LN,LE,NE			DESC:Arch-Devil				SOURCEPAGE:p.141	SYMBOL:None
-Orcus				DOMAINS:Chaos,Death,Destruction,Evil,War|PREALIGN:NE,CN,CE	DESC:Demon Prince of Undead		SOURCEPAGE:p.125	SYMBOL:None
-Pazuzu			DOMAINS:Air,Chaos,Evil|PREALIGN:NE,CN,CE				DESC:Demon Prince of Air		SOURCEPAGE:p.127	SYMBOL:None
-Tsathogga			DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:The Frog Demon God			SOURCEPAGE:p.134	SYMBOL:None
-Lucifer			DOMAINS:Evil,Law,Strength,War|PREALIGN:LN,LE,NE			DESC:Devil					SOURCEPAGE:p.147	SYMBOL:None
-Moloch			DOMAINS:Evil,Law,Strength|PREALIGN:LN,LE,NE			DESC:Arch Devil				SOURCEPAGE:p.151	SYMBOL:None
+The Oinodaemon		DOMAINS:Death,Destruction,Evil|PREALIGN:LE,NE,CE		DESC:The Oinodaemon			SOURCEPAGE:p.84	FACT:Symbol|None
+Baphomet			DOMAINS:Chaos,Evil,War|PREALIGN:NE,CN,CE				DESC:Demon Lord				SOURCEPAGE:p.101	FACT:Symbol|None
+Dagon				DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:Demon Prince of Sea Creatures	SOURCEPAGE:p.105	FACT:Symbol|None
+Fraz-Urb'luu		DOMAINS:Chaos,Evil,Knowledge,Trickery|PREALIGN:NE,CN,CE	DESC:Demon Prince				SOURCEPAGE:p.111	FACT:Symbol|None
+Geryon			DOMAINS:Evil,Law,Strength|PREALIGN:LN,LE,NE			DESC:Arch-Devil				SOURCEPAGE:p.141	FACT:Symbol|None
+Orcus				DOMAINS:Chaos,Death,Destruction,Evil,War|PREALIGN:NE,CN,CE	DESC:Demon Prince of Undead		SOURCEPAGE:p.125	FACT:Symbol|None
+Pazuzu			DOMAINS:Air,Chaos,Evil|PREALIGN:NE,CN,CE				DESC:Demon Prince of Air		SOURCEPAGE:p.127	FACT:Symbol|None
+Tsathogga			DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:The Frog Demon God			SOURCEPAGE:p.134	FACT:Symbol|None
+Lucifer			DOMAINS:Evil,Law,Strength,War|PREALIGN:LN,LE,NE			DESC:Devil					SOURCEPAGE:p.147	FACT:Symbol|None
+Moloch			DOMAINS:Evil,Law,Strength|PREALIGN:LN,LE,NE			DESC:Arch Devil				SOURCEPAGE:p.151	FACT:Symbol|None
 
-Demon Prince of Gnolls	DOMAINS:Chaos,Evil,Trickery|PREALIGN:LE,NE,CE			DESC:Demon Prince				SOURCEPAGE:p.199	SYMBOL:None
-The Destroyer		DOMAINS:Chaos,Evil,Strength,War|PREALIGN:LE,NE,CE		DESC:"The Destroyer"			SOURCEPAGE:p.281	SYMBOL:None
+Demon Prince of Gnolls	DOMAINS:Chaos,Evil,Trickery|PREALIGN:LE,NE,CE			DESC:Demon Prince				SOURCEPAGE:p.199	FACT:Symbol|None
+The Destroyer		DOMAINS:Chaos,Evil,Strength,War|PREALIGN:LE,NE,CE		DESC:"The Destroyer"			SOURCEPAGE:p.281	FACT:Symbol|None
