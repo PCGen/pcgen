@@ -110,7 +110,7 @@ CLASS:Soulless	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:COMBA
 # Class Name	Required AL				Required Check Base	Required Race	Required Skill								Required Text
 CLASS:Soulless	PREALIGN:LN,LE,TN,NE,CN,CE	PRECHECKBASE:1,Will=5	PRERACE:1,Curst	PRESKILL:2,Knowledge (Arcana)=9,Knowledge (The Planes)=4	PRETEXT:See text
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|KNOWLEDGE (THE PLANES)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Swim
+CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Swim
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Normal Level Progression
@@ -398,13 +398,13 @@ CLASS:Siarran Bladedancer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Climb|Concentrati
 10	SAB:Free the Tempest	BONUS:PCLEVEL|Bard|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						List of Class Spells by Level
-CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of Movement,Protection from Elements,Summon Nature's Ally II
+CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of movement,Protection from Elements,Summon Nature's Ally II
 # Class Name		Required Ability								Required AL		Required Race	Required Skill								PRETOTALAB
 CLASS:Sktak Windrider	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Mounted Archery	PREALIGN:LG,LN	PRERACE:1,Sktak	PRESKILL:3,Knowledge (Religion)=4,Ride=8,Wilderness Lore=8	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sktak Windrider	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Hide|Heal|Intuit Direction|Jump|Knowledge (Nature)|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spellcraft|Spot|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Sktak Windrider	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Sktak Windrider|CL
+CLASS:Sktak Windrider	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Sktak Windrider|CL
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -485,7 +485,7 @@ CLASS:Verman Corrupter	PREALIGN:NE,CE	PRERACE:1,Vermen	PRESKILL:5,Bluff=4,Sense 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Verman Corrupter	STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|TYPE=Profession|Read Lips|Search|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Verman Corrupter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Verman Corrupter|CL
+CLASS:Verman Corrupter	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Verman Corrupter|CL
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)

@@ -53,7 +53,7 @@ CLASS:Trapmaster	PREABILITY:1,CATEGORY=FEAT,Mechanical Aptitude	PREALIGN:LG,LN,L
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapmaster	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Trapmaster|CL
+CLASS:Trapmaster	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Trapmaster|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Trapmaster=1|Animate Rope,Detect Secret Doors,Feather Fall,Invisible Object,Jump,Spider Climb
 1	SPELLLEVEL:CLASS|Trapmaster=2|Cat's Grace,Darkvision,Daylight,Invisibility,Knock,Protection from Arrows

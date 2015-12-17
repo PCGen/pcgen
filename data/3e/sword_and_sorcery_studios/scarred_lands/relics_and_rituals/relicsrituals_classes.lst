@@ -12,7 +12,7 @@ CLASS:Blood Witch	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Concentrati
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Witch	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Knowledge (Arcana)|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level				Use Spell List
-CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL	SPELLLIST:1|Druid
+CLASS:Blood Witch	SPELLSTAT:WIS	FACT:SpellType|Any	BONUS:CASTERLEVEL|Blood Witch|CL	SPELLLIST:1|Druid
 1	BONUS:ABILITYPOOL|Blood Enhancement|1					ADD:SPELLCASTER|ANY
 2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Nature Magic
 3	BONUS:ABILITYPOOL|Blood Enhancement|1					ADD:SPELLCASTER|ANY
@@ -75,7 +75,7 @@ CLASS:Penumbral Lord	PREABILITY:1,CATEGORY=FEAT,Silent Spell	PRESKILL:1,Hide=5	P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Penumbral Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Decipher Script|Hide|Knowledge (Arcana)|Move Silently|TYPE=Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral Lord|CL
+CLASS:Penumbral Lord	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Penumbral Lord|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Penumbral Lord=0|Arcane Mark,Dancing Lights,Detect Magic,Distort Shadow,Prestidigitation,Read Magic
 1	SPELLLEVEL:CLASS|Penumbral Lord=1|Gloom,Obscure Shadow,Reshape Shadow,Shade's Sight,Trap
@@ -108,7 +108,7 @@ CLASS:Sea Witch	PRESKILL:2,Concentration=8,Profession (Sailor)=8	PRESPELLTYPE:1,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sea Witch	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Handle Animal|Intuit Direction|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language|Swim|Use Rope
 # Class Name	Spell Type		Caster level
-CLASS:Sea Witch	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Sea Witch|CL
+CLASS:Sea Witch	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Sea Witch|CL
 SUBCLASS:Intelligence Base	COST:0	SPELLSTAT:INT
 SUBCLASS:Wisdom Base		COST:0	SPELLSTAT:WIS
 SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA
@@ -162,7 +162,7 @@ CLASS:Vigilant	PREABILITY:2,CATEGORY=FEAT,Endurance,Track	PREALIGN:LG,LN,NG,TN,C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilant	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intuit Direction|Jump|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
-CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Vigilant|CL
+CLASS:Vigilant	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Vigilant|CL
 ###Block: Spell List
 11	SPELLLEVEL:CLASS|Vigilant=1|Alarm,Calm Animals,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Goodberry,Pass without Trace,Resist Elements,Speak with Animals
 1	SPELLLEVEL:CLASS|Vigilant=2|Animal Messenger,Detect Chaos,Detect Evil,Detect Good,Detect Law,Protection from Elements,Snare,Speak with Plants,Warp Wood

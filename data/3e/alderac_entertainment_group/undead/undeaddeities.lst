@@ -3,14 +3,14 @@
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Deity Name	Product Identity?	Domains												Description of Deity/Title							Deity Weapon		Align		Source Page			Holy Item	Pantheon
-Demortus		NAMEISPI:YES	DOMAINS:Evil,Spirit,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lord of Unlife, the Eternal One, Deathstealer			DEITYWEAP:Dagger		ALIGN:LE	SOURCEPAGE:p.68		SYMBOL:None	PANTHEON:Lords of the Undead
-Gnawbone		NAMEISPI:YES	DOMAINS:Chaos,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Ghoul King, Deatheater						DEITYWEAP:Club		ALIGN:CE	SOURCEPAGE:p.68		SYMBOL:None	PANTHEON:Lords of the Undead
-Lochai		NAMEISPI:YES	DOMAINS:Death,Destruction,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Deathbringer, Lifescourge						DEITYWEAP:Scythe		ALIGN:CN	SOURCEPAGE:p.68		SYMBOL:None	PANTHEON:Lords of the Dead
-Rei sul Vadoch	NAMEISPI:YES	DOMAINS:Death,Knowledge,Rulership|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:King of the Dead, Death Lord						DEITYWEAP:Longsword	ALIGN:LN	SOURCEPAGE:p.69		SYMBOL:None	PANTHEON:Lords of the Dead
-Necronius		NAMEISPI:YES	DOMAINS:Death,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Bloodletter, Lifedrainer							DEITYWEAP:Rapier		ALIGN:LE	SOURCEPAGE:p.69		SYMBOL:None	PANTHEON:Lords of the Undead
-Necury		NAMEISPI:YES	DOMAINS:Death,Protection,Travel|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:the Guide, Death's Messenger, Soulfriend				DEITYWEAP:Sword (Short)	ALIGN:LN	SOURCEPAGE:p.69		SYMBOL:None	PANTHEON:Lords of the Dead
-Selina		NAMEISPI:YES	DOMAINS:Death,Knowledge,Spirit|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lady of Spirits, the Ghost Queen					DEITYWEAP:Sickle		ALIGN:CN	SOURCEPAGE:p.69-70	SYMBOL:None	PANTHEON:Lords of the Dead
-Shofayt		NAMEISPI:YES	DOMAINS:Death,Knowledge,Law|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Judge of the Dead, Incorruptible, the Final Justice	DEITYWEAP:Warhammer	ALIGN:TN	SOURCEPAGE:p.70		SYMBOL:None	PANTHEON:Lords of the Dead
+Demortus		NAMEISPI:YES	DOMAINS:Evil,Spirit,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lord of Unlife, the Eternal One, Deathstealer			DEITYWEAP:Dagger		ALIGN:LE	SOURCEPAGE:p.68		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Undead
+Gnawbone		NAMEISPI:YES	DOMAINS:Chaos,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Ghoul King, Deatheater						DEITYWEAP:Club		ALIGN:CE	SOURCEPAGE:p.68		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Undead
+Lochai		NAMEISPI:YES	DOMAINS:Death,Destruction,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Deathbringer, Lifescourge						DEITYWEAP:Scythe		ALIGN:CN	SOURCEPAGE:p.68		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Dead
+Rei sul Vadoch	NAMEISPI:YES	DOMAINS:Death,Knowledge,Rulership|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:King of the Dead, Death Lord						DEITYWEAP:Longsword	ALIGN:LN	SOURCEPAGE:p.69		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Dead
+Necronius		NAMEISPI:YES	DOMAINS:Death,Evil,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Bloodletter, Lifedrainer							DEITYWEAP:Rapier		ALIGN:LE	SOURCEPAGE:p.69		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Undead
+Necury		NAMEISPI:YES	DOMAINS:Death,Protection,Travel|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:the Guide, Death's Messenger, Soulfriend				DEITYWEAP:Sword (Short)	ALIGN:LN	SOURCEPAGE:p.69		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Dead
+Selina		NAMEISPI:YES	DOMAINS:Death,Knowledge,Spirit|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lady of Spirits, the Ghost Queen					DEITYWEAP:Sickle		ALIGN:CN	SOURCEPAGE:p.69-70	FACT:Symbol|None	FACTSET:Pantheon|Lords of the Dead
+Shofayt		NAMEISPI:YES	DOMAINS:Death,Knowledge,Law|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:the Judge of the Dead, Incorruptible, the Final Justice	DEITYWEAP:Warhammer	ALIGN:TN	SOURCEPAGE:p.70		FACT:Symbol|None	FACTSET:Pantheon|Lords of the Dead
 
 # Plague and Rot domians are not present in this source, commenting out for now
 #Lochai.MOD		DOMAINS:Plague|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE

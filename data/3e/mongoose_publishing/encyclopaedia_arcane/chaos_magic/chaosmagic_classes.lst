@@ -8,7 +8,7 @@ CLASS:Chaos Mage	PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chaos Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Chaos Mage	SPELLSTAT:CHA	FACT:SpellType|Chaos	BONUS:CASTERLEVEL|Chaos Mage|classlevel("APPLIEDAS=NONEPIC")
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Normal Level Progression
@@ -25,7 +25,7 @@ CLASS:Bloodcarver	PREALIGN:CG,CN,CE	PRESKILL:1,Concentration=12	PREVARGTEQ:Chaos
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bloodcarver	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Intimidate|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
+CLASS:Bloodcarver	SPELLSTAT:CHA	FACT:SpellType|Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
 1										ABILITY:Special Ability|AUTOMATIC|Bloodletting ~ Bloodcarver
 2										ABILITY:Special Ability|AUTOMATIC|Ignore Pain ~ Bloodcarver	ABILITY:FEAT|AUTOMATIC|Combat Casting
 3	DR:1/-								ABILITY:Special Ability|AUTOMATIC|Damage Reduction 1 ~ Bloodcarver
@@ -39,7 +39,7 @@ CLASS:Doomringer	PREALIGN:CE	PRESKILL:1,Concentration=12	PREVARGTEQ:ChaosCasting
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Doomringer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Craft (Coppersmith)|Knowledge (Necrology)|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Doomringer	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Doomringer|CL
+CLASS:Doomringer	SPELLSTAT:CHA	FACT:SpellType|Chaos	BONUS:CASTERLEVEL|Doomringer|CL
 1	ABILITY:Special Ability|AUTOMATIC|Corpse Pact ~ Doomringer
 2	ABILITY:Special Ability|AUTOMATIC|Preserve Corpse ~ Doomringer
 3	ABILITY:Special Ability|AUTOMATIC|Blood Shunt ~ Doomringer

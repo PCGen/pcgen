@@ -13,7 +13,7 @@ CLASS:Devoted Illusionist	PREALIGN:CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Devoted Illusionist	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level					Use Spell List
-CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Illusionist|CL	SPELLLIST:1|Wizard
+CLASS:Devoted Illusionist	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Illusionist|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Devoted Illusionist Weapon Proficiencies
 ###Block: Illusion DC bonus
@@ -176,7 +176,7 @@ CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	B
 # Class Name		Required Ability							Required Skill				Req. Known Spell			Req. Spell Type
 CLASS:Shadowmancer	PREABILITY:2,CATEGORY=FEAT,Silent Spell,Still Spell	PRESKILL:2,Hide=8,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|KNOWLEDGE (THE PLANES)|Move Silently|TYPE=Profession|Spellcraft
+CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|TYPE=Profession|Spellcraft
 1	SAB:Dark Research										ADD:SPELLCASTER|ANY	AUTO:ARMORPROF|ARMORTYPE=Light
 2	SAB:Shadow Channel									ADD:SPELLCASTER|ANY
 3	SAB:Summmon Shadow (1st shadow)|PREVARLT:CL,5					ADD:SPELLCASTER|ANY

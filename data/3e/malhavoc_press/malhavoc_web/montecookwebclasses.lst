@@ -6,7 +6,7 @@ CLASS:Ranger (Monte Cook's)	HD:8		TYPE:Base.PC	ABB:MCR		SOURCEWEB:http://www.mon
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ranger (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Use Rope|Search|Spot|Swim|Wilderness Lore
 # Class Name			Spell Stat		Spell Type		Craft Level Mult.	Caster level
-CLASS:Ranger (Monte Cook's)	SPELLSTAT:WIS	SPELLTYPE:Divine	ITEMCREATE:.5	BONUS:CASTERLEVEL|Ranger (Monte Cook's)|CL/2
+CLASS:Ranger (Monte Cook's)	SPELLSTAT:WIS	FACT:SpellType|Divine	ITEMCREATE:.5	BONUS:CASTERLEVEL|Ranger (Monte Cook's)|CL/2
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)

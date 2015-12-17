@@ -117,7 +117,7 @@ CLASS:Wine Drinker	PREALIGN:LN,LE,TN,NE,CN,CE	!PRECLASS:1,SPELLCASTER.Arcane=1	P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE=Profession|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
+CLASS:Wine Drinker	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
 1																												AUTO:WEAPONPROF|TYPE=Simple	WEAPONBONUS:TYPE=Martial
 1							SAB:Blood Dependence (Ex)	SAB:Blood Tolerance (Su)	SAB:School Access (Ex)
 1	CAST:0,1		KNOWN:0,1
@@ -134,7 +134,7 @@ CLASS:Warriors of the Eternal Flame	PREABILITY:1,CATEGORY=FEAT,Toughness	PREDEIT
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Warriors of the Eternal Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Religion)|Knowledge (Arcana)|Knowledge (History)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name				Spell Stat		Spell Type		Memorize		Caster level
-CLASS:Warriors of the Eternal Flame	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Warriors of the Eternal Flame|CL
+CLASS:Warriors of the Eternal Flame	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Warriors of the Eternal Flame|CL
 1																																		AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1	CAST:0,0		KNOWN:0,0		SAB:Child of Nier
@@ -156,7 +156,7 @@ CLASS:Ehtzara	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREABILITY:1,CATEGORY=FEAT,Sk
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=Craft|Decipher Script|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Scry|Spellcraft|Spot|Use Magic Device|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Ehtzara	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtzara|CL
+CLASS:Ehtzara	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtzara|CL
 1																																																						AUTO:WEAPONPROF|TYPE=Simple
 1	CAST:5,3,0			KNOWN:4,2,1			SAB:Spot Bonus +%|EhtzaraSpotBonus	SAB:Craft Fetish	SAB:Frightful Presence	BONUS:SKILL|Spot|EhtzaraSpotBonus	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|EhtzaraSpotBonus|CL	DEFINE:EhtzaraSpotBonus|0			ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:6,4,3			KNOWN:5,3,2			SAB:Healing Touch SAB:Speak with Animals %/day|SpeakWithAnimals									BONUS:VAR|SpeakWithAnimals|CL/2					DEFINE:SpeakWithAnimals|0
@@ -177,7 +177,7 @@ CLASS:Blackchanter	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:5,Concentration=4,Knowled
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blackchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|Perform|TYPE=Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Blackchanter	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Blackchanter|CL
+CLASS:Blackchanter	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Blackchanter|CL
 1									BONUS:ABILITYPOOL|Blackchanter Feat|1	ADD:SPELLCASTER|ANY
 2	SAB:Requiem (Ex)													ADD:SPELLCASTER|ANY
 3									BONUS:ABILITYPOOL|Blackchanter Feat|1	ADD:SPELLCASTER|ANY
