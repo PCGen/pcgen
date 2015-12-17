@@ -286,19 +286,23 @@ public class DataInstaller extends JFrame
 		private boolean readDataSet(File dataSet)
 		{
 			// Open the ZIP file
-			try (ZipFile in = new ZipFile(dataSet)) {
+			try (ZipFile in = new ZipFile(dataSet))
+				{
 				// Get the install file in a case insensitive manner
 				ZipEntry installEntry = null;
 				@SuppressWarnings("rawtypes")
 				Enumeration entries = in.entries();
-				while (entries.hasMoreElements()) {
+				while (entries.hasMoreElements())
+				{
 					ZipEntry entry = (ZipEntry) entries.nextElement();
-					if (entry.getName().equalsIgnoreCase("install.lst")) {
+					if (entry.getName().equalsIgnoreCase("install.lst"))
+					{
 						installEntry = entry;
 						break;
 					}
 				}
-				if (installEntry == null) {
+				if (installEntry == null)
+				{
 					// Report that it isn't a valid data set
 					Logging.errorPrint("File " + dataSet
 							+ " is not a valid datsset - no Install.lst file");
