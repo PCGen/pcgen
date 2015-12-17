@@ -261,7 +261,7 @@ public final class PCGIOHandler extends IOHandler
 		}
 	}
 
-	private static boolean isPCGCersion2(List<String> lines)
+	private boolean isPCGCersion2(List<String> lines)
 	{
 		for (String aLine : lines)
 		{
@@ -277,7 +277,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param in
 	 * @return
 	 */
-	private static List<String> readPcgLines(InputStream in)
+	private List<String> readPcgLines(InputStream in)
 	{
 		final List<String> lines = new ArrayList<String>();
 

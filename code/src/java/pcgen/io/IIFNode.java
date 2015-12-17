@@ -36,7 +36,7 @@ class IIFNode
 	private final List<Object> trueChildren;
 	private final String expr;
 
-	IIFNode(String expr)
+	IIFNode(final String expr)
 	{
 		this.expr = expr;
 		trueChildren = new ArrayList<>();
