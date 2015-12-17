@@ -51,7 +51,7 @@ GEAR:Bracers of Armor +2			LOCATION:Equipped
 GEAR:Cloak of Resistance +1			LOCATION:Equipped
 GEAR:Gloves of Dexterity +2			LOCATION:Equipped
 GEAR:Pearl of Power (1st Level)		LOCATION:Equipped
-GEAR:Ring (Protection +1)			LOCATION:Equipped
+GEAR:Ring of Protection +1			LOCATION:Equipped
 GEAR:Climber's Kit				LOCATION:Handy Haversack	EQMOD:MWORKT
 GEAR:Handy Haversack				LOCATION:Carried
 GEAR:Scroll (Charm Person)			LOCATION:Handy Haversack
@@ -134,7 +134,7 @@ ABILITY:CATEGORY=FEAT|Veiled Vileness
 GEAR:Studded Leather					LOCATION:Equipped			EQMOD:PLUS3A
 GEAR:Buckler						LOCATION:Equipped			EQMOD:PLUS1S
 GEAR:Gloves of Dexterity +2				LOCATION:Equipped
-GEAR:Ring (Protection +1)				LOCATION:Equipped
+GEAR:Ring of Protection +1				LOCATION:Equipped
 GEAR:Hat of Disguise					LOCATION:Equipped
 GEAR:Circlet of Persuasion				LOCATION:Equipped
 GEAR:Stone of Alarm					LOCATION:Equipped
