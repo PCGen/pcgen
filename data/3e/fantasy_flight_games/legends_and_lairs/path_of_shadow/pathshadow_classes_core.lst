@@ -13,7 +13,7 @@ CLASS:Chameleon	HD:6		TYPE:Base.PC	ABB:Chm		MAXLEVEL:20	SOURCEPAGE:Chap.3, Chame
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Speak Language|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Spell Scoll Prohibited							Caster level				Use Spell List
-CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Chameleon|CL	SPELLLIST:1|Wizard
+CLASS:Chameleon	SPELLSTAT:INT	FACT:SpellType|Arcane	PROHIBITED:Conjuration,Evocation,Necromancy,Transmutation	BONUS:CASTERLEVEL|Chameleon|CL	SPELLLIST:1|Wizard
 ###Block: Sneak Attack
 1																BONUS:VAR|SneakAttackDice|(CL+1)/4					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ##Block: Quick Change
@@ -97,7 +97,7 @@ CLASS:Psychic Thief	HD:6		TYPE:Base.PC	ABB:PsyThf		MAXLEVEL:20	SOURCEPAGE:Chap.3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Thief|CL
+CLASS:Psychic Thief	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Thief|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Psychic Thief=0|Bolt,Burst,Catfall,Control Shadow,Daze,Detect Psionics,Distract,Elfsight,Far Hand,Float,Know Direction,Talons,Valor,Verve
 1	SPELLLEVEL:CLASS|Psychic Thief=1|Call Weaponry,Compression,Conceal Thoughts,Expanded Vision,Feather Fall,Feel Light,Feel Sound,Hear Light,Hustle,Know Location,Lesser Mindlink (Psionic),Object Reading,Spider Climb

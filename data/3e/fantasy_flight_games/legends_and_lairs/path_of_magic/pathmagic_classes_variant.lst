@@ -12,7 +12,7 @@ CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BO
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Engineer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Arcane Engineer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcane Engineer|CL
+CLASS:Arcane Engineer	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcane Engineer|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
@@ -43,7 +43,7 @@ CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Arsenalist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Search|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arsenalist|CL
+CLASS:Arsenalist	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arsenalist|CL
 1	ABILITY:Special Ability|AUTOMATIC|Arsenalist Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
@@ -75,7 +75,7 @@ CLASS:Mind Weaver	HD:6		TYPE:Base.PC	ABB:MiW		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Scry|Search|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Mind Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mind Weaver|CL
+CLASS:Mind Weaver	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mind Weaver|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
@@ -106,7 +106,7 @@ CLASS:Sun Mage	HD:4		TYPE:Base.PC	ABB:SuM		MAXLEVEL:20	SOURCEPAGE:p.72	BONUS:COM
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sun Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Sun Mage	SPELLSTAT:CON	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sun Mage|CL
+CLASS:Sun Mage	SPELLSTAT:CON	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sun Mage|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	CAST:5,3				KNOWN:4,2				SAB:Solar Spellcasting

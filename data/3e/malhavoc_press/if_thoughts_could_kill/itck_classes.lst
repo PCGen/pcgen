@@ -25,7 +25,7 @@ CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	ALLOWBASECLASS:NO		SOURCEPA
 # Class Name	Skill Pts/Lvl
 CLASS:Psion ITCK	STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion ITCK	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
+CLASS:Psion ITCK	SPELLSTAT:OTHER	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
 SUBCLASS:Seer ITCK	OUTPUTNAME:Seer		COST:0	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Shaper ITCK	OUTPUTNAME:Shaper		COST:0	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View

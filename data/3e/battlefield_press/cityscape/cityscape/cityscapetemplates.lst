@@ -9,4 +9,4 @@ Gadgeteer				VISIBLE:NO														FAVOREDCLASS:Gadgeteer
 Rogue					VISIBLE:NO														FAVOREDCLASS:Rogue
 
 
-Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off					TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary
+Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats	TEMPVALUE:MIN=1|MAX=5|TITLE=Combat Expertise trade off					TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary

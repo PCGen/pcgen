@@ -3,4 +3,4 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 #Original Entry By: Beaver
 
 # Deity Name	Product Identity?	Domains									Deity Weapon		Align		Source Page		Pantheon
-Izrador		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Magic,War|PREALIGN:LE,NE,CE	DEITYWEAP:Longsword	ALIGN:NE	SOURCEPAGE:p.44	PANTHEON:MDNT|Eredane
+Izrador		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Magic,War|PREALIGN:LE,NE,CE	DEITYWEAP:Longsword	ALIGN:NE	SOURCEPAGE:p.44	FACTSET:Pantheon|MDNT|Eredane

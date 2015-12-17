@@ -27,7 +27,7 @@ CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	ABB:SpC		MAXLEVEL:10	SOURCEPAGE
 CLASS:Speaker of the City	PRESKILL:2,Hide=4,Scry=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Special
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Gather Information|Handle Animal|Hide|TYPE=Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Speaker of the City in an urban setting	ABILITY:Feat|AUTOMATIC|SpeakerSpells
+1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Speaker of the City in an urban setting	ABILITY:FEAT|AUTOMATIC|SpeakerSpells
 2												ADD:SPELLCASTER|Divine
 3	SAB:Spirit of the City (City Sense)						ADD:SPELLCASTER|Divine
 4												ADD:SPELLCASTER|Divine

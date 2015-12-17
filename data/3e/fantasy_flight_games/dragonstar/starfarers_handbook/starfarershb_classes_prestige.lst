@@ -53,7 +53,7 @@ CLASS:Technomancer	PREABILITY:2,CATEGORY=FEAT,Technical Proficiency,TYPE=ItemCre
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE=Craft|Cryptography|Decipher Script|Disable Device|TYPE=Knowledge|TYPE=Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Technomancer	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Technomancer|CL
+CLASS:Technomancer	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Technomancer|CL
 1	CAST:0		SAB:Arcane Tools
 2	CAST:1		SAB:Energy Flux
 3	CAST:1,0		SAB:Confuse Construct

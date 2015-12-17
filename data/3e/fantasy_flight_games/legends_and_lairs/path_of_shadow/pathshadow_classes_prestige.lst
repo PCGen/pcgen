@@ -76,7 +76,7 @@ CLASS:Falconer	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:4,Bluff=5,Diplomacy
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Falconer	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Falconer	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Falconer|CL
+CLASS:Falconer	SPELLSTAT:INT	FACT:SpellType|Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Falconer|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Falconer=1|Animal Friendship,Change Self,Expeditious Retreat,Message,Pass without Trace,Sanctuary
 1	SPELLLEVEL:CLASS|Falconer=2|Alter Self,Animal Messenger,Cure Light Wounds,Invisibility,Speak with Animals,Whispering Wind
@@ -182,7 +182,7 @@ CLASS:Ossorus	PREALIGN:LG,LN,NG	PRESKILL:4,Disguise=4,Knowledge (Religion)=4,Hid
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ossorus	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels
-CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
+CLASS:Ossorus	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
 1	SPELLLEVEL:CLASS|Ossorus=1|Cure Light Wounds,Detect Poison,Invisibility to Undead,Message,Obscuring Mist
 1	SPELLLEVEL:CLASS|Ossorus=2|Animal Messenger,Cure Moderate Wounds,Darkness,Delay Poison,Undetectable Alignment
 1	SPELLLEVEL:CLASS|Ossorus=3|Cure Serious Wounds,Detect Thoughts,Meld into Stone,Water Breathing
@@ -311,7 +311,7 @@ CLASS:Sailmaster	PRESKILL:4,Profession (Sailor)=8,Use Rope=8,Climb=6,Balance=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Move Silently|PROFESSION (SAILOR)|Spot|Swim|Tumble|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
+CLASS:Sailmaster	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Sailmaster=1|Animate Rope,Comprehend Languages,Create Water,Obscuring Mist
 1	SPELLLEVEL:CLASS|Sailmaster=2|Cat's Grace,Fog Cloud,Protection from Elements
@@ -340,7 +340,7 @@ CLASS:Shadow Hunter	PREABILITY:2,CATEGORY=FEAT,Alertness,Blind-Fight	PREALIGN:LG
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Open Lock|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Shadow Hunter|CL
+CLASS:Shadow Hunter	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Shadow Hunter|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Shadow Hunter=1|Bless Water,Cure Light Wounds,Detect Undead,Disrupt Undead,Halt Undead,Invisibility to Undead,Protection from Evil,Remove Fear
 1	SPELLLEVEL:CLASS|Shadow Hunter=2|Consecrate,Cure Moderate Wounds,Gentle Repose,Lesser Restoration,Remove Paralysis

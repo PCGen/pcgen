@@ -1,4 +1,4 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mongoose Publishing - Slayer's Guide to Troglodytes	SOURCESHORT:SGtTroglod	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 # Deity Name	Domains									Description of Deity/Title	Align		Source Page			Holy Item	Pantheon
-Lizard Toad		DOMAINS:Chaos,Evil|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:God of Troglodytes		ALIGN:CE	SOURCEPAGE:p.31,13-14	SYMBOL:None	PANTHEON:Troglodyte
+Lizard Toad		DOMAINS:Chaos,Evil|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:God of Troglodytes		ALIGN:CE	SOURCEPAGE:p.31,13-14	FACT:Symbol|None	FACTSET:Pantheon|Troglodyte

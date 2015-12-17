@@ -143,7 +143,7 @@ CLASS:Master Burglar	PREABILITY:3,CATEGORY=FEAT,Alertness,Dodge,Improved Initiat
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	BONUS:ABILITYPOOL|Master Burglar I|1
-2	BONUS:ABILITYPOOL|Master Burglar II		|1:
+2	BONUS:ABILITYPOOL|Master Burglar II|1
 3	BONUS:ABILITYPOOL|Master Burglar III|1
 4	BONUS:ABILITYPOOL|Master Burglar IV|1
 5	BONUS:ABILITYPOOL|Master Burglar V|1

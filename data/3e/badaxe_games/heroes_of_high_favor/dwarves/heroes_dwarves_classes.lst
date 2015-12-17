@@ -52,7 +52,7 @@ CLASS:Rune-Priest	PREDOMAIN:2,ANY	PREMULT:5,[PRESKILL:2,Craft (Armorsmithing)=4,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rune-Priest	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|Jump|Knowledge (Arcana)|Knowledge (Religion)|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
-CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Rune-Priest|CL
+CLASS:Rune-Priest	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Rune-Priest|CL
 ###Block: Dwarven Runes:(Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance)1
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)

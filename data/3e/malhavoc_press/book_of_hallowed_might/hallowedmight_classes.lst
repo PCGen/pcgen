@@ -10,7 +10,7 @@ CLASS:Paladin (BoHM)	PREALIGN:LG
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Paladin (BoHM)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
-CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin (BoHM)|CL/2|PRECLASS:1,Paladin (BoHM)=4
+CLASS:Paladin (BoHM)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin (BoHM)|CL/2|PRECLASS:1,Paladin (BoHM)=4
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=1|Bless,Bless Water,Bless Weapon,Burning Hands,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Evil,Read Magic,Resistance,Virtue
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=2|Delay Poison,Remove Paralysis,Resist Elements,Shield Other,Undetectable Alignment
@@ -52,7 +52,7 @@ CLASS:Ranger (BoHM)	HD:10		TYPE:Base.PC	ABB:HMR		MAXLEVEL:20	SOURCEPAGE:p.9	BONU
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ranger (BoHM)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Use Rope|Search|Spot|Swim|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ranger (BoHM)|CL
+CLASS:Ranger (BoHM)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ranger (BoHM)|CL
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -108,7 +108,7 @@ CLASS:Hallowed Mage	PREABILITY:2,CATEGORY=FEAT,Devout Faith,Vow of Obedience	PRE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hallowed Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
-CLASS:Hallowed Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Hallowed Mage|CL
+CLASS:Hallowed Mage	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Hallowed Mage|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Hallowed Mage=4|Confusion,Cure Critical Wounds,Detect Scrying,Dimensional Anchor,Dimension Door,Ethereal Prison,Halo of Glory,Ice Storm,Minor Creation,Solid Fog,Summon Monster IV,Truth's Wings,Wall of Fire,Wall of Ice
 1	SPELLLEVEL:CLASS|Hallowed Mage=5|Cone of Cold,Fabricate,Hallow,Halo of Shelter,Hold Monster,Improved Invisibility,Major Creation,Polymorph Other,Polymorph Self,Scrying,Shield of Light,Summon Monster V,Telekinesis,Wall of Stone

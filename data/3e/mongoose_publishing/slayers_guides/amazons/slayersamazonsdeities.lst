@@ -2,4 +2,4 @@
 SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons	SOURCESHORT:SGtAmazons	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Deity Name	Domains												Description of Deity/Title	Align		Source Page		Holy Item	Pantheon
-Goddess		DOMAINS:Moon,Sisterhood,Sun,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:Goddess of the Amazons	ALIGN:NE	SOURCEPAGE:p.24	SYMBOL:None	PANTHEON:Amazon
+Goddess		DOMAINS:Moon,Sisterhood,Sun,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE	DESC:Goddess of the Amazons	ALIGN:NE	SOURCEPAGE:p.24	FACT:Symbol|None	FACTSET:Pantheon|Amazon

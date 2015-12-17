@@ -10,7 +10,7 @@ CLASS:Crusader	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (%)	PRESKILL:1,Knowledge 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Subterranean Cultures)|Knowledge (Religion)|Scry|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
+CLASS:Crusader	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -33,7 +33,7 @@ CLASS:Demolitionist	PREABILITY:1,CATEGORY=FEAT,Craft Wondrous Item	PREMULT:2,[PR
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Demolitionist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitionist|CL
+CLASS:Demolitionist	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Demolitionist|CL
 1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
