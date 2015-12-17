@@ -9,8 +9,8 @@ Human Computer Fortitude		CATEGORY:FEAT		TYPE:HumanComputerSaves	VISIBLE:NO					
 Human Computer Reflex			CATEGORY:FEAT		TYPE:HumanComputerSaves	VISIBLE:NO																														BONUS:SAVE|Reflex|INT
 Human Computer Will			CATEGORY:FEAT		TYPE:HumanComputerSaves	VISIBLE:NO																														BONUS:SAVE|Will|INT
 
-Sensitive Base Psioninc			CATEGORY:FEAT		TYPE:SensitiveAwakening	VISIBLE:NO									!PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic								ADD:FEAT|TYPE=BasePsionic
-Sensitive Psionic				CATEGORY:FEAT		TYPE:SensitiveAwakening	VISIBLE:NO	PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic																ADD:FEAT|TYPE=PsionicPowerFeat
+Sensitive Base Psioninc			CATEGORY:FEAT		TYPE:SensitiveAwakening	VISIBLE:NO									!PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic								ADD:ABILITY|FEAT|NORMAL|TYPE=BasePsionic
+Sensitive Psionic				CATEGORY:FEAT		TYPE:SensitiveAwakening	VISIBLE:NO	PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic																ADD:ABILITY|FEAT|NORMAL|TYPE=PsionicPowerFeat
 
 Xeno Archaelogist Wealth Bonus	CATEGORY:FEAT		TYPE:XenoMajorDiscovery	VISIBLE:NO																																			BONUS:VAR|WealthBonus|3
 Xeno Archaelogist Reputation Bonus	CATEGORY:FEAT		TYPE:XenoMajorDiscovery	VISIBLE:NO																																			BONUS:VAR|Reputation|3

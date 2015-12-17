@@ -4,8 +4,8 @@ SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://
 
 # Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add				Modify VAR
 # Ability Name				Category of Ability	Type				Visible	Required Ability								Special ABility																	Define				Stackable?	Multiple?	Choose		Add				Modify VAR
-Psychotherapy Qualify			CATEGORY:FEAT		TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:FEAT|Psychotherapy
-Surgery Qualify				CATEGORY:FEAT		TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:FEAT|Surgery
+Psychotherapy Qualify			CATEGORY:FEAT		TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:ABILITY|FEAT|NORMAL|Psychotherapy
+Surgery Qualify				CATEGORY:FEAT		TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:ABILITY|FEAT|NORMAL|Surgery
 
 Advanced Amphibious Training		CATEGORY:FEAT		TYPE:Terrain.NavyBoat	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Amphibious Assault Training																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AmphibiousTraining|1
 Advanced Arctic Training		CATEGORY:FEAT		TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Arctic Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ArcticTraining|1

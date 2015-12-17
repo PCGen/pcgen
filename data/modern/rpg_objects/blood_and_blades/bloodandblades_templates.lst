@@ -13,7 +13,7 @@ Child			VISIBLE:YES	SOURCEPAGE:p.5	PREPCLEVEL:MAX=1			BONUS:STAT|STR|-3	BONUS:ST
 ###Block:Sanity
 # Template Name		Visible	Source Page		Special ABility									Define							Modify VAR								Choose							Removable?		Temporary effect description						Temporary Bonus
 Starting Sanity		VISIBLE:NO	SOURCEPAGE:p.24	SAB:Sanity: Starting % - Current %|StartingSanity|CurrentSanity	DEFINE:StartingSanity|0	DEFINE:CurrentSanity|0	BONUS:VAR|StartingSanity,CurrentSanity|WISSCORE*5									REMOVABLE:NO
-Sanity Loss Tracker	VISIBLE:NO	SOURCEPAGE:p.24																													CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Sanity Loss				TEMPDESC:You have temporarily lost 1 or more Sanity points.	TEMPBONUS:ANYPC|VAR|CurrentSanity|-1*(%CHOICE)
+Sanity Loss Tracker	VISIBLE:NO	SOURCEPAGE:p.24																													TEMPVALUE:MIN=1|MAX=20|TITLE=Sanity Loss				TEMPDESC:You have temporarily lost 1 or more Sanity points.	TEMPBONUS:ANYPC|VAR|CurrentSanity|-1*(%CHOICE)
 
 ###Block:Slasher Templates (Creatures)
 # Template Name	Hit Dice Size	Challenge Rating	Visible	Damage Reduction	Level Adjustment	Template						Source Page		Special ABility																																												Define Stat			Required Race								Required Stat	Combat bonus					Add to base move				Save bonus				Bonus to skill							Stat bonus					Ability													Move		Main Race Type		Race Subtype		Natural Attacks

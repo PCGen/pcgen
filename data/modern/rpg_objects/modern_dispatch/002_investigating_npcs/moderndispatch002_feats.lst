@@ -4,7 +4,7 @@ SOURCELONG:Modern Dispatch #2 - Investigating NPCs	SOURCESHORT:MD02-INPCs	SOURCE
 
 # Feat Name			Output Name				Type			Special ABility							Define				Description				Add					Source Page
 # Ability Name		Output Name				Category of Ability	Type			Special ABility							Define				Description				Add					Source Page
-Secret Identity (RPGO)	OUTPUTNAME:Secret Identity	CATEGORY:FEAT		TYPE:General	SAB:Reputation: % (Secret Identity)|SecretReputation	DEFINE:SecretReputation|0	DESC:You lead a double life	ADD:FEAT|TYPE=MoveReputation	SOURCEPAGE:p.3
+Secret Identity (RPGO)	OUTPUTNAME:Secret Identity	CATEGORY:FEAT		TYPE:General	SAB:Reputation: % (Secret Identity)|SecretReputation	DEFINE:SecretReputation|0	DESC:You lead a double life	ADD:ABILITY|FEAT|NORMAL|TYPE=MoveReputation	SOURCEPAGE:p.3
 
 ###Block:Move Reputation
 # Feat Name							Type				Visible	Var. Min. Value			Modify VAR

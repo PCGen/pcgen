@@ -12,7 +12,7 @@ CLASS:Stim Freak	HD:10		TYPE:Advanced.PC	ABB:StFrk		MAXLEVEL:10	BONUS:COMBAT|BAS
 # Class Name	Required Ability				Required Check Base		PRETOTALAB
 CLASS:Stim Freak	PREABILITY:1,CATEGORY=FEAT,Brawl	PRECHECKBASE:1,Fortitude=2	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|SPEAK LANGUAGE|Spot|Swim
+CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|Speak Language|Spot|Swim
 1																						ADD:ABILITY|Special Ability|VIRTUAL|Shot in the Arm
 2	SAB:Relentless
 3																						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=StimFreak
@@ -29,7 +29,7 @@ CLASS:Super Soldier	HD:10		TYPE:Advanced.PC	ABB:SSldr		MAXLEVEL:10	BONUS:COMBAT|
 # Class Name		Required Ability											Required Skill				Required Text																																					PRETOTALAB
 CLASS:Super Soldier	PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=6	PRETEXT:The character must be part of an organization with the technology to continue to alter her DNA. Should she lose this status, she can no longer advance in this advanced class, but keeps any abilities she has already gained.	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Super Soldier	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|SPEAK LANGUAGE|Spot|Swim
+CLASS:Super Soldier	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|Speak Language|Spot|Swim
 1	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=PhysicalEnhancement
 2	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=MentalEnhancement
 3	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=SuperSoldier
@@ -48,7 +48,7 @@ CLASS:Eldritch Monk	PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Focused	PRESK
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Monk	STARTSKILLPTS:3	CSKILL:Balance|Climb|Concentration|Craft (Visual Art)|Escape Artist|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Theology and Philosophy)|Move Silently|Profession|Read/Write Language|Spot|Swim|Tumble|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Eldritch Monk	SPELLSTAT:CHA	SPELLTYPE:Any	BONUS:CASTERLEVEL|Eldritch Monk|CL
+CLASS:Eldritch Monk	SPELLSTAT:CHA	FACT:SpellType|Any	BONUS:CASTERLEVEL|Eldritch Monk|CL
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Eldritch Monk=0|Cure Minor Wounds,Detect Magical Aura,Read Magic,Resistance,Virtue|Eldritch Monk=1|Change Self,Comprehend Languages,Cure Light Wounds,Feather Fall,Jump,Mage Armor,Magic Weapon,Shield,True Strike|Eldritch Monk=2|Aid,Blur,Cure Moderate Wounds,Darkvision,Delay Poison,Enhance Ability,Lesser Restoration,Protection from Arrows/Bullets,Remove Paralysis,Resist Energy,See Invisibility,Spider Climb|Eldritch Monk=3|Displacement,Greater Magic Weapon,Haste,Keen Edge,Remove Disease,Tongues,Water Breathing|Eldritch Monk=4|Dimension Door,Freedom of Movement,Neutralize Poison,Stoneskin
 ###Block: Standard block
@@ -68,7 +68,7 @@ CLASS:Explorer (Dk_Inh)	OUTPUTNAME:Explorer	HD:10		TYPE:Advanced.PC	ABB:Expl		MA
 # Class Name		Required Ability				Required Skill						PRETOTALAB
 CLASS:Explorer (Dk_Inh)	PREABILITY:1,CATEGORY=FEAT,Athletic	PRESKILL:2,Gather Information=3,Survival=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Explorer (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Balance|Climb|Decipher Script|Drive|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Listen|Pilot|Profession|Read/Write Language|Search|SPEAK LANGUAGE|Spot|Survival|Treat Injury
+CLASS:Explorer (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Balance|Climb|Decipher Script|Drive|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Listen|Pilot|Profession|Read/Write Language|Search|Speak Language|Spot|Survival|Treat Injury
 1	SAB:Survive Extremes
 2														ADD:ABILITY|Special Ability|VIRTUAL|Favored Terrain
 3														ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Explorer_DI
@@ -85,9 +85,9 @@ CLASS:Initiate	HD:6		TYPE:Advanced.PC	ABB:Init		MAXLEVEL:10	BONUS:COMBAT|BASEAB|
 # Class Name	Required Ability				Required Skill									Required Text
 CLASS:Initiate	PREABILITY:1,CATEGORY=FEAT,Educated	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6	PRETEXT:Must be accepted as a novitiate into a magical order.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Initiate	STARTSKILLPTS:7	CSKILL:Computer Use|Concentration|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Search|SPEAK LANGUAGE|Spellcraft
+CLASS:Initiate	STARTSKILLPTS:7	CSKILL:Computer Use|Concentration|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Search|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level			Use Spell List
-CLASS:Initiate	SPELLSTAT:INT	SPELLTYPE:Any	SPELLBOOK:YES	BONUS:CASTERLEVEL|Initiate|CL	SPELLLIST:2|Acolyte|Mage
+CLASS:Initiate	SPELLSTAT:INT	FACT:SpellType|Any	SPELLBOOK:YES	BONUS:CASTERLEVEL|Initiate|CL	SPELLLIST:2|Acolyte|Mage
 1	CAST:4,1		SAB:Magical Skills
 2	CAST:4,2		SAB:Eldritch Protection
 3	CAST:4,2,1							ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Initiate
@@ -104,9 +104,9 @@ CLASS:Mystic (Dk_Inh)	OUTPUTNAME:Mystic	HD:6		TYPE:Advanced.PC	ABB:Myst		MAXLEVE
 # Class Name		Required Ability					Required Skill
 CLASS:Mystic (Dk_Inh)	PREABILITY:1,CATEGORY=Talent,Empathy	PRESKILL:4,Knowledge (Arcane Lore)=6,Sense Motive=6,Knowledge (History)=4,Knowledge (Theology and Philosophy)=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Mystic (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Concentration|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|SPEAK LANGUAGE|Spellcraft|Treat Injury
+CLASS:Mystic (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Concentration|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Decipher Script|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Listen|Profession|Read/Write Language|Sense Motive|Speak Language|Spellcraft|Treat Injury
 # Class Name		Spell Stat		Spell Type		Spell Scoll Prohibited									Caster level					Use Spell List
-CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	SPELLTYPE:Any	PROHIBITED:Conjuration,Evocation,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Mystic (Dk_Inh)|CL	SPELLLIST:2|Acolyte|Mage
+CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	FACT:SpellType|Any	PROHIBITED:Conjuration,Evocation,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Mystic (Dk_Inh)|CL	SPELLLIST:2|Acolyte|Mage
 1	CAST:3,2		SAB:Magical Skills
 2	CAST:4,3		SAB:Arcane Sense
 3	CAST:4,3,2						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Mystic_DI
@@ -123,7 +123,7 @@ CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:COM
 # Class Name			Required Ability					Multiple Requirements
 CLASS:Crusading Advocate	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Knowledge=6,TYPE.Craft=6]
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE=Craft|Diplomacy|Gather Information|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sense Motive|SPEAK LANGUAGE
+CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE=Craft|Diplomacy|Gather Information|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sense Motive|Speak Language
 1											ADD:ABILITY|Special Ability|VIRTUAL|Driven
 2	SAB:Higher Cause
 3											ADD:ABILITY|Special Ability|VIRTUAL|TYPE=CrusadingAdvocate
@@ -154,7 +154,7 @@ CLASS:Two Fisted God of Guns	OUTPUTNAME:Two-Fisted God of Guns	HD:8		TYPE:Advanc
 # Class Name			Required Ability																			Required Skill					Required Text																											PRETOTALAB
 CLASS:Two Fisted God of Guns	PREABILITY:5,CATEGORY=FEAT,Advanced Firearms Proficiency,Dodge,Personal Firearms Proficiency,Precise Shot,Two-Weapon Fighting	PRESKILL:2,Sleight of Hand=10,Tumble=10	PRETEXT:You must possess the ability to make ranged attacks with a Medium-size or smaller firearm while in a threatened area without provoking an attack of opportunity.	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Two Fisted God of Guns	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Demolitions|Drive|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Sense Motive|SPEAK LANGUAGE
+CLASS:Two Fisted God of Guns	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Demolitions|Drive|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Sense Motive|Speak Language
 1	SAB:Gun-Fu		ABILITY:FEAT|AUTOMATIC|Blind Shot
 2	SAB:Backfire
 3	SAB:Deadeye
