@@ -107,7 +107,7 @@ ABILITYCATEGORY:Wizard Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRA
 
 ###Block: Class Feature Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object						Plural description for UI			Display Location
-ABILITYCATEGORY:Rage Power					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RagePower.Rage Power				PLURAL:Rage Powers				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Rage Power					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Rage_Power				CATEGORY:Special Ability	TYPE:RagePower.Rage Power				PLURAL:Rage Powers				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Versatile Performance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:VersatilePerformance				PLURAL:Versatile Performances			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Channel Energy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Cleric_Channeling			CATEGORY:Special Ability	TYPE:ChannelEnergySelection				PLURAL:Channel Energy				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Weapon Training I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:WeaponTraining1					PLURAL:Weapon Training I			DISPLAYLOCATION:Class Features
