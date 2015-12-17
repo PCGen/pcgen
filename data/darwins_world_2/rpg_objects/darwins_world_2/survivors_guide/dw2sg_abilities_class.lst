@@ -31,8 +31,8 @@ Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	P
 # Ability Name			Output Name		Category of Ability	Type							Visible	Description						Stackable?	Multiple?	Choose																													Ability								Bonus to skill rank
 Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																																			BONUS:SKILLRANK|%LIST|4
 Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE				MULT:YES	CHOOSE:SKILL|TYPE=Craft																																				BONUS:SKILLRANK|%LIST|4
-Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE			MULT:YES	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																		ABILITY:FEAT|AUTOMATIC|%LIST
-Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE				MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|Ancient Vehicles (Pilot)|Ancient Vehicles (Drive)|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
+Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																		ABILITY:FEAT|AUTOMATIC|%LIST
+Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE				MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Aircraft Operation|Ancient Vehicles (Drive)|Ancient Vehicles (Pilot)|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
 
 Ancient Vehicles (Pilot)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
 Ancient Vehicles (Drive)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
@@ -85,9 +85,9 @@ Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart 
 
 ###Block: Warrior Monk
 # Ability Name				Category of Ability	Type				Visible	Required Ability					Description								Stackable?	Multiple?	Choose							Weapon prof. bonus			Source Page
-Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
+Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
 Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Reflexes																							SOURCEPAGE:p.58
-Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
+Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
 Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Expertise																						SOURCEPAGE:p.58
 
 ###Block: Companion support
@@ -227,8 +227,8 @@ Improved Evasion	CATEGORY:Special Ability	TYPE:Special.Extraordinary.RogueAbilit
 ###Block: Warrior Monk
 # Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
 # Ability Name			Category of Ability		Type			Required Ability									Var. Min. Value				Description		Multiple?	Choose							Weapon prof. bonus			Source Page
-Weapon Specialization		CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:1,CATEGORY=FEAT,Weapon Focus											DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
-Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:2,CATEGORY=FEAT,Weapon Focus,Weapon Specialization	PREVARGTEQ:GreatWeapSpecQualify,1	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+Weapon Specialization		CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:1,CATEGORY=FEAT,Weapon Focus											DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
+Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:2,CATEGORY=FEAT,Weapon Focus,Weapon Specialization	PREVARGTEQ:GreatWeapSpecQualify,1	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
 
 #
 # EoF
