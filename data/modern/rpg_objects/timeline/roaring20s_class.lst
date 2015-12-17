@@ -9,7 +9,7 @@ CLASS:G Man		PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:1
 CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Search|Sense Motive|Spot
 1															ABILITY:FEAT|AUTOMATIC|Weapon Focus(Thompson Submachine Gun)
 2			SAB:Witness Protect
-3:REPEATLEVEL:3									ADD:FEAT|TYPE=GMan
+3:REPEATLEVEL:3									ADD:ABILITY|FEAT|NORMAL|TYPE=GMan
 4							BONUS:VAR|StillBuster|1					ABILITY:FEAT|AUTOMATIC|Still Buster
 5			SAB:Dead or Alive
 7			SAB:Untouchable
@@ -24,7 +24,7 @@ CLASS:Hitman	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:1
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
 1						BONUS:VAR|BloodMoney|((CL+4)/4)*2					ABILITY:FEAT|AUTOMATIC|Blood Money
 2						BONUS:VAR|DirtyDeeds|(CL+5)/5						ABILITY:FEAT|AUTOMATIC|Dirty Deeds
-3:REPEATLEVEL:3										ADD:FEAT|TYPE=Hitman
+3:REPEATLEVEL:3										ADD:ABILITY|FEAT|NORMAL|TYPE=Hitman
 7			SAB:Calling Card
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																														Modify VAR
@@ -35,7 +35,7 @@ CLASS:Intrepid Reporter	PREABILITY:1,CATEGORY=FEAT,Trustworthy	PRESKILL:2,Gather
 CLASS:Intrepid Reporter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Diplomacy|Drive|Forgery|Gather Information|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Listen|Research|Search|Sense Motive|Spot
 1						BONUS:VAR|ReliableSources|CL							ABILITY:FEAT|AUTOMATIC|Reliable Sources
 2						BONUS:VAR|HumanPolygraph|CL							ABILITY:FEAT|AUTOMATIC|Human Polygraph
-3:REPEATLEVEL:3									ADD:FEAT|TYPE=IntrepidReporter
+3:REPEATLEVEL:3									ADD:ABILITY|FEAT|NORMAL|TYPE=IntrepidReporter
 4			SAB:Newshound
 7			SAB:Hunch
 8			SAB:Extra!
@@ -48,7 +48,7 @@ CLASS:Mob Boss	PREABILITY:1,CATEGORY=FEAT,Henchmen	PRESKILL:2,Bluff=6,Knowledge 
 CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Sense Motive
 1						BONUS:VAR|UndueInfluence|CL					ABILITY:FEAT|AUTOMATIC|Undue Influence
 2															ABILITY:FEAT|AUTOMATIC|Contraband
-3:REPEATLEVEL:3									ADD:FEAT|TYPE=MobBoss
+3:REPEATLEVEL:3									ADD:ABILITY|FEAT|NORMAL|TYPE=MobBoss
 3			SAB:Captain
 5			SAB:Vendetta
 8			SAB:Capo
@@ -62,7 +62,7 @@ CLASS:Mystery Man	PREABILITY:1,CATEGORY=FEAT,Secret Identity	PRESKILL:2,Intimida
 CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
 1							BONUS:VAR|Persona|CL						ABILITY:FEAT|AUTOMATIC|Persona
 2			SAB:Cloak of Secrecy
-3:REPEATLEVEL:3									ADD:FEAT|TYPE=MysteryMan
+3:REPEATLEVEL:3									ADD:ABILITY|FEAT|NORMAL|TYPE=MysteryMan
 4			SAB:Cloak of Fear
 7			SAB:Phantom
 8			SAB:Quick Change

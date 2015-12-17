@@ -10,10 +10,10 @@ CLASS:Banger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Gamble|Intimidate|Jump|Kno
 1	SAB:Gang Signs
 2	SAB:Street Cred
 3	SAB:Turf +%|Turf	BONUS:VAR|Turf|CL/3			DEFINE:Turf|0
-4													ADD:FEAT|TYPE=Banger
+4													ADD:ABILITY|FEAT|NORMAL|TYPE=Banger
 5	SAB:Contraband	BONUS:VAR|WealthBonus|Reputation
 7	SAB:Commission
-8													ADD:FEAT|TYPE=Banger
+8													ADD:ABILITY|FEAT|NORMAL|TYPE=Banger
 10	SAB:Ganglord
 
 # Class Name						Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR

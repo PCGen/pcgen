@@ -4,7 +4,7 @@ SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Editi
 
 
 # Ability Name							Modify VAR								Allow Follower			Allowed Companions
-ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Armadillo,Bat,Cat,Fox,Goat,Hawk,Hedgehog,Lizard,Monkey,Owl,Pig,Platypus,Raccoon,Rat,Raven,Scorpion (Greensting),Skunk,Squirrel,Toad,Turtle,Snake (Viper/Tiny),Weasel
+ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Armadillo,Bat,Cat,Fox,Goat,Hawk,Hedgehog,Lizard,Monkey,Owl,Pig,Platypus,Raccoon,Rat,Raven,Scorpion (Greensting),Skunk,Snake (Viper/Tiny),Squirrel,Toad,Turtle,Weasel
 ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|AnimalCompanionLVL|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Wolf
 
 ###Block: Familiar specific

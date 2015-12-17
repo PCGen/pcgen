@@ -8,6 +8,6 @@ Tripping Twirl						KEY:Combat Trick ~ Tripping Twirl		CATEGORY:Special Ability	
 
 
 
-CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Quarterstaff Master|PREABILITY:1,CATEGORY=FEAT,
-CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Staff|PREABILITY:1,CATEGORY=FEAT,
-CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Twirl|PREABILITY:1,CATEGORY=FEAT,
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Quarterstaff Master|PREABILITY:1,CATEGORY=FEAT,Quarterstaff Master
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Staff|PREABILITY:1,CATEGORY=FEAT,Tripping Staff
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Twirl|PREABILITY:1,CATEGORY=FEAT,Tripping Twirl

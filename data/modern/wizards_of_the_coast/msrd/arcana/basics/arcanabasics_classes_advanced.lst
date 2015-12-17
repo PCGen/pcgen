@@ -31,7 +31,7 @@ CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCla
 # Class Name	Required Skill
 CLASS:Glamourist	PRESKILL:2,Bluff=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Glamourist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Decipher Script|Disguise|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Act)|Perform (Sing)|Profession|Read/Write Language|Sense Motive|SPEAK LANGUAGE|Spot
+CLASS:Glamourist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Decipher Script|Disguise|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Act)|Perform (Sing)|Profession|Read/Write Language|Sense Motive|Speak Language|Spot
 1							ABILITY:Special Ability|AUTOMATIC|Glamourist ~ Self Confidence
 2							ABILITY:Special Ability|AUTOMATIC|Glamourist ~ Hidden Motives
 3	BONUS:ABILITYPOOL|Glamourist Feat|1
@@ -48,7 +48,7 @@ CLASS:Mystic	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses
 # Class Name	Required Skill
 CLASS:Mystic	PRESKILL:3,Diplomacy=6,Knowledge (Theology and Philosophy)=6,Listen=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Diplomacy|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spellcraft|Spot|Treat Injury
+CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Diplomacy|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Treat Injury
 # Class Name	Spell Stat		Memorize	Caster level
 CLASS:Mystic	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
 ###Block: Turning
@@ -82,7 +82,7 @@ CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvanced
 # Class Name		Required Ability																			Required Skill									PRETOTALAB
 CLASS:Shadow Hunter	PREABILITY:1,CATEGORY=FEAT,Track	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival
+CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot|Survival
 1								BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0	ABILITY:Special Ability|AUTOMATIC|Shadow Hunter ~ Target Bonus
 2																		ABILITY:Special Ability|AUTOMATIC|Shadow Hunter ~ Swift Track
 3	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
@@ -98,7 +98,7 @@ CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCla
 # Class Name	Required Skill
 CLASS:Shadowjack	PRESKILL:3,Computer Use=6,Craft (Electronic)=6,Disable Device=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Writing)|Decipher Script|Disable Device|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Repair|Research|SPEAK LANGUAGE|Search
+CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Writing)|Decipher Script|Disable Device|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Repair|Research|Speak Language|Search
 1														ABILITY:Special Ability|AUTOMATIC|Shadowjack ~ Read Write Code
 2														ABILITY:Special Ability|AUTOMATIC|Shadowjack ~ Online Presence
 3	BONUS:ABILITYPOOL|Shadowjack Feat|1
@@ -115,7 +115,7 @@ CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCl
 # Class Name	Required Ability					Required Check Base	Required Skill
 CLASS:Speed Demon	PREABILITY:1,CATEGORY=FEAT,Vehicle Expert	PRECHECKBASE:1,Reflex=2	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|SPEAK LANGUAGE|Tumble
+CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
 1																				TEMPLATE:Uncanny Dodger
 2								ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ Hit the Weak Spot
 3	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ Vehicle Empathy
@@ -166,7 +166,7 @@ CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCl
 # Class Name	Required Skill
 CLASS:Techno Mage	PRESKILL:4,Computer Use=6,Craft (Electronic)=6,Knowledge (Arcane Lore)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Techno Mage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Read/Write Language|Repair|Research|SPEAK LANGUAGE|Spellcraft
+CLASS:Techno Mage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Read/Write Language|Repair|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Techno Mage	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Techno Mage|CL
 ###Block: Spells
@@ -188,7 +188,7 @@ CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClas
 # Class Name	Required Ability						Required Skill					PRETOTALAB
 CLASS:Thrasher	PREABILITY:1,CATEGORY=FEAT,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Spot|Swim|Survival|Tumble
+CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|Speak Language|Spot|Swim|Survival|Tumble
 1																		ABILITY:Special Ability|AUTOMATIC|Thrasher ~ Tough Defense
 2												BONUS:VAR|AbilitySurge|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Thrasher ~ Ability Surge
 3			BONUS:ABILITYPOOL|Thrasher Feat|1

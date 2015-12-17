@@ -29,7 +29,7 @@ Hand Buzzer of Voltage								TYPE:Equipment.Goods.FX												COST:28	WT:0			
 Hood Ornament of Accuracy							TYPE:Equipment.Goods.FX												COST:24	WT:1																		SOURCEPAGE:p.36
 Leather Personnel Carriers							TYPE:Equipment.Goods.FX.Boot											COST:31	WT:2																		SOURCEPAGE:p.34
 Light Bulb of True Seeing							TYPE:Equipment.Goods.FX												COST:37	WT:0																		SOURCEPAGE:p.36	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=9|True Seeing,17
-Lucky Saltshaker									TYPE:Equipment.Goods.FX												COST:27	WT:0.5	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Choose bonus									SOURCEPAGE:p.36																					TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|%CHOICE|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|ALL|%CHOICE|TYPE=Luck
+Lucky Saltshaker									TYPE:Equipment.Goods.FX												COST:27	WT:0.5	TEMPVALUE:MIN=1|MAX=5|TITLE=Choose bonus									SOURCEPAGE:p.36																					TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|%CHOICE|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|ALL|%CHOICE|TYPE=Luck
 Madam Zuzus Advice Column							TYPE:Equipment.Goods.FX												COST:25	WT:0																		SOURCEPAGE:p.36
 Marksmans Bullet									TYPE:Equipment.Goods.FX.Ammunition.Bullet.Standard.Metal						COST:35	WT:0																		SOURCEPAGE:p.34												BONUS:COMBAT|TOHIT|4	BONUS:EQMWEAPON|RANGEMULT|2
 Nosferatu Fangs									TYPE:Equipment.Goods.FX												COST:31	WT:0																		SOURCEPAGE:p.37
