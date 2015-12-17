@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Templates - Local as listed in Docs.
 
@@ -6,7 +6,7 @@
 TL~AddLevel_Running With Scissors_5																																																																																																			ADDLEVEL:Running With Scissors|5
 TL~BONUSSKILLPOINTS_80																																															BONUSSKILLPOINTS:80
 TL~BONUSMONSKILLPTSLOCKNUMBER_6																																							BONUS:MONSKILLPTS|LOCKNUMBER|6
-TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta																																																AUTO:LANG|%LIST	CHOOSE:LANG|Terestial Alpha|Terestial Beta
+TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta																																																CHOOSE:LANG|Terestial Alpha|Terestial Beta									AUTO:LANG|%LIST
 TL~CR_9											CR:9
 TL~FAVOREDCLASS_MonKee																																																													FAVOREDCLASS:MonKee
 TL~FACE_20x40															FACE:20,40
@@ -26,7 +26,7 @@ TL~RACETYPE_Not Listed																																																										
 TL~REACH_20																		REACH:20
 TL~REGION_Bahmamas																																																																													REGION:Bahmamas
 TL~REMOVABLE_NO																																																																																					REMOVABLE:NO
-TL~REPEATLEVEL_2_0_20_1_Feat_ABonusFeat																																																																																																																								REPEATLEVEL:2|0|20:1:AUTO:FEAT|ABonusFeat
+TL~REPEATLEVEL_2_0_20_1_Feat_ABonusFeat																																																																																																																								REPEATLEVEL:2|0|20:1:ABILITY:FEAT|AUTOMATIC|ABonusFeat
 TL~SIZE_C_Colossal												SIZE:C
 TL~SUBRACE_ArticMonkey																																																																																							SUBRACE:ArticMonkey
 TL~SUBREGION_Little Isle																																																																															SUBREGION:Little Isle

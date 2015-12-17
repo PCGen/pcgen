@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:35:34 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Tir Gwaith
-SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
+SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:CiSc	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 
 # Equipment Name				Output Name						Type							Contains			Cost		Weight	Size		Source Page		Bonus to skill																Special Property
 Acid (Flask).MOD																						COST:10

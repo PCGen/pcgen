@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Equip
 # Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type												Cost		Weight	Slot Needed	!PREEQUIP							Define			Crit Mult	Crit Range	Damage	Modifier		Wield Category	Requires Modification?	Range		Size		Source Page		Add				Ability													Combat bonus				Bonus to nb of slots					Modify VAR			Weapon prop. bonus																				Special Property
 Test Equipment																				TYPE:CODE433																																																							ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
@@ -37,8 +37,8 @@ Longsword				PROFICIENCY:WEAPON|Longsword													TYPE:Weapon.Melee.Sword			
 Longsword.COPY=Test Gear
 Test Gear.MOD																				TYPE:Gear
 
-Mount			TYPE:Mount.Transportation
-Transportation	TYPE:Transportation
+Mount																						TYPE:Mount.Transportation
+Transportation																				TYPE:Transportation
 
 
 # Armor Basic Test
@@ -53,7 +53,7 @@ Light Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light.Weapon.Mel
 Buckler Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light																																																																					BONUS:COMBAT|AC|2|TYPE=Shield
 Heavy Shield															PROFICIENCY:SHIELD|Heavy	TYPE:Shield.Heavy																																																																					BONUS:COMBAT|AC|2|TYPE=Shield
 
-Test Equip Feat																				TYPE:FeatTestEquip.Any.Misc																																																	ADD:FEAT|Add Feat Equip
+Test Equip Feat																				TYPE:FeatTestEquip.Any.Misc																																																	ADD:ABILITY|FEAT|NORMAL|Add Feat Equip
 
 
 # Sprop repeat issue

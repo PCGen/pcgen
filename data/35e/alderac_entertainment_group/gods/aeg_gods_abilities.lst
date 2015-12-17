@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
-# Ability Name			Unique Key			Category of Ability		Type						Visible	Special ABility																						Define																									Description						Stackable?	Multiple?	Choose				Modify VAR
-Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|0	DEFINE:TurnLevelGiant|0	DEFINE:TurnDiceGiant|0	DEFINE:TurnDieSizeGiant|0	DEFINE:TurnDamagePlusGiant|0	DEFINE:TurnCheckGiant|0																	BONUS:VAR|TurnTimesGiant|TurnTimesBase	BONUS:VAR|TurnLevelGiant|TurnLevelBase	BONUS:VAR|TurnDiceGiant|TurnDiceBase	BONUS:VAR|TurnDieSizeGiant|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusGiant|TurnDamagePlusBase	BONUS:VAR|TurnCheckGiant|TurnCheckBase
+# Ability Name			Unique Key			Category of Ability		Type						Visible	Define																									Description																					Stackable?	Multiple?	Choose				Modify VAR
+Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	DEFINE:TurnTimesGiant|0	DEFINE:TurnLevelGiant|0	DEFINE:TurnDiceGiant|0	DEFINE:TurnDieSizeGiant|0	DEFINE:TurnDamagePlusGiant|0	DEFINE:TurnCheckGiant|0	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant										BONUS:VAR|TurnTimesGiant|TurnTimesBase	BONUS:VAR|TurnLevelGiant|TurnLevelBase	BONUS:VAR|TurnDiceGiant|TurnDiceBase	BONUS:VAR|TurnDieSizeGiant|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusGiant|TurnDamagePlusBase	BONUS:VAR|TurnCheckGiant|TurnCheckBase
 
 #Voice of Thunder	CATEGORY:Special Ability	TYPE:SpecialQuality
 Bounty of Vendak							CATEGORY:Special Ability	TYPE:SpecialQuality
 Voice of Vendak							CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #Issue: Rebuke Giants table isn't showing up on the OS.
-Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality	VISIBLE:YES																																																			DESC:Favored Humanoid Enemy (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
+Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality	VISIBLE:YES																											DESC:Favored Humanoid Enemy (%1)|%CHOICE																STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
 
 
 ###Block: Favored Enemies
@@ -54,8 +54,8 @@ Bonus Known Spell 9	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISP
 
 ###Block: Barbarian Totem Animal Templates
 
-# Ability Name	Category of Ability		Type					Visible	Special ABility		Template			Virtual Feat	Ability
-Totem (Badger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Rage (Ex)									ABILITY:Special Ability|AUTOMATIC|Rage
+# Ability Name	Category of Ability		Type					Visible	Special ABility		Template			Ability
+Totem (Badger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Rage (Ex)						ABILITY:Special Ability|AUTOMATIC|Rage
 Totem (Bat)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Blindsight (Ex)
 Totem (Bear)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Tough (Ex)
 Totem (Boar)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Ferocity (Ex)
@@ -78,7 +78,7 @@ Totem (Snake)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	S
 Totem (Tiger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Ambush (Ex)
 Totem (Weasle)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wild Weasel (Ex)
 Totem (Wolf)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolf Scent (Ex)
-Totem (Wolverine)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolverine Totem								ABILITY:Special Ability|AUTOMATIC|Rage
+Totem (Wolverine)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolverine Totem					ABILITY:Special Ability|AUTOMATIC|Rage
 
 
 

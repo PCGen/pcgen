@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 # Pathfinder version of Skills and how we handle Skill Focus
-#Skill Blank					
+#Skill Blank
 #	KEYSTAT:
 #	ACHECK:YES/NO
 #	TYPE:AttributeName.Base
 #	SOURCEPAGE:p.#
 #	BONUS:SKILL|Skill Blank|3|TYPE=ClassSkill|PRECSKILL:1,Skill Blank|PRESKILL:1,Skill Blank=1
-#Skill Blank.MOD					
-#	BONUS:SKILL|Skill Blank|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Skill Blank)	
+#Skill Blank.MOD
+#	BONUS:SKILL|Skill Blank|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Skill Blank)
 #	BONUS:SKILL|Skill Blank|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Skill Blank)|PRESKILL:1,Skill Blank=10
 
 

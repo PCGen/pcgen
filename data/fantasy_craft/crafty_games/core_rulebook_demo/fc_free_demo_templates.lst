@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -138,11 +138,11 @@ Granite		VISIBLE:NO	SUBRACE:Granite
 Living Metal	VISIBLE:NO	SUBRACE:Living Metal
 
 ###Block: Cover
-# Template Name	Visible	Temporary Bonus												SORTKEY
-Cover 1/4		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|1|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=Cover	SORTKEY:Cover 1
-Cover 1/2		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|2|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Cover	SORTKEY:Cover 2
-Cover 3/4		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|3|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|6|TYPE=Cover	SORTKEY:Cover 3
-Cover Total		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|4|TYPE=Cover								SORTKEY:Cover 4
+# Template Name	SORTKEY		Visible	Temporary Bonus
+Cover 1/4		SORTKEY:Cover 1	VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|1|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=Cover
+Cover 1/2		SORTKEY:Cover 2	VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|2|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Cover
+Cover 3/4		SORTKEY:Cover 3	VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|3|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|6|TYPE=Cover
+Cover Total		SORTKEY:Cover 4	VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|4|TYPE=Cover
 
 
 #

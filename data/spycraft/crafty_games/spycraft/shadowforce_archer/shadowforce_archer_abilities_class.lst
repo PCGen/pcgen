@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -8,7 +8,7 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 ### Prestige Classes -------------------------------------------------------------------------------------------------------------
 
 # ~ Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE=Craft|Driver|Electronics|Escape Artist|Hide|TYPE=Hobby|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE=Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
-# Ability Name				Unique Key							Category of Ability		Type								Visible		Required Var. value				Var. Max. Value				Define				Description																															Stackable?	Multiple?	Choose				Save bonus				Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
+# Ability Name				Unique Key							Category of Ability		Type								Visible		Required Var. value				Var. Max. Value				Define				Description																															Stackable?	Multiple?	Choose				Save bonus				Bonus to skill				Bonus to skill point for a level			Stat bonus											Modify VAR
 Case						KEY:Case ~ Cat Burglar					CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC: (scout)|PREVARLT:CatBurglarLvl,5	DESC: (foil)|PREVARGTEQ:CatBurglarLvl,5|PREVARLT:CatBurglarLvl,9	DESC:(penetrate)|PREVARGTEQ:CatBurglarLvl,9
 Honor Among Thieves			KEY:Honor Among Thieves ~ Cat Burglar		CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:HonorAmongThieves|0	DESC: +%1|HonorAmongThieves
 Go to ground				KEY:Go to ground ~ Cat Burglar			CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC: (hiding)|PREVARLT:CatBurglarLvl,8	DESC: (chases)|PREVARGTEQ:CatBurglarLvl,8
@@ -52,7 +52,7 @@ Channel					KEY:Channel ~ Shadespeaker				CATEGORY:Special Ability	TYPE:SpecialQ
 
 # ~ Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE=Craft|Cryptography|Electronics|TYPE=Hobby|TYPE=Knowledge|Mechanics|TYPE=Profession|Sense Motive
 Mental Leap					KEY:Mental Leap ~ Mentalist				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:MentalLeap|0		DESC: (%1/session)|MentalLeap
-More Toys					KEY:More Toys ~ Mentalist				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:MoreToys|0			DESC: (+%1)|MoreToys																																																																		BONUS:VAR|GADGETPOINTS|MoreToys
+More Toys					KEY:More Toys ~ Mentalist				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:MoreToys|0			DESC: (+%1)|MoreToys																																																																					BONUS:VAR|GADGETPOINTS|MoreToys
 Masterpiece					KEY:Masterpiece ~ Mentalist				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Driver|Handle Animal|TYPE=Hobby|Intimidate|Jump|TYPE=Knowledge|Move Silently|TYPE=Profession|Sense Motive|TYPE=Sport|Swim
@@ -86,7 +86,7 @@ Nimble					KEY:Cat Burglar Core Ability				CATEGORY:Special Ability	TYPE:Special
 Quick-Thinking				KEY:Counter Terrorist Core Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility			VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1						DESC:Quick-Thinking
 Custom-Built System			KEY:Hacker Core Ability					CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility			VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1
 Precise					KEY:Sniper Core Ability					CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility			VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1
-Dedication					KEY:Shadespeaker Core Ability				CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility			VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1						DESC:Dedication																																																																			BONUS:VAR|ACTIONDICE|1
+Dedication					KEY:Shadespeaker Core Ability				CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility			VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1						DESC:Dedication																																																																						BONUS:VAR|ACTIONDICE|1
 
 # Psion Core Abilities
 

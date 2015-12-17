@@ -1,4 +1,4 @@
-# CVS $Revision: 25136 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 25136 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Waytraveler
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
@@ -9,7 +9,7 @@ CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:COMB
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Post Apocalyptic Hero	STARTSKILLPTS:5	CSKILL:Climb|Hide|Jump|Knowledge (Mutant Lore)|Knowledge (Ancient Lore)|Knowledge (Twisted Earth)|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival
 #
-1	TEMPLATE:Starting Background|Occupation	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+1																										ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency	TEMPLATE:Starting Background|Occupation
 #
 1	BONUS:ABILITYPOOL|PA Hero Talent|(CL+1)/2	BONUS:VAR|Action|CL*5	BONUS:VAR|Action|floor((TL-MonsterLevel)/2*(TL-MonsterLevel)/2)|TYPE=NonStackingAP
 2	BONUS:ABILITYPOOL|PA Hero Feat|CL/2
@@ -61,7 +61,7 @@ CLASS:Mutant Beast	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																															Modify VAR
 CLASS:Barbarian	HD:12		TYPE:Base.Advanced	ABB:Bbn		MAXLEVEL:10	SOURCEPAGE:p.75	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Ability						Required Feat					Prohibited Feat					Required Skill		PRETOTALAB
+# Class Name	Required Ability																Restricted Ability							Required Skill		PRETOTALAB
 CLASS:Barbarian	PREABILITY:1,CATEGORY=Background,Feral,Tribal	PREABILITY:1,CATEGORY=FEAT,Archaic Weapons Proficiency	!PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology	PRESKILL:1,Survival=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Search|Spot|Survival
@@ -104,7 +104,7 @@ CLASS:Demagogue	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplo
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																															Modify VAR
 CLASS:Guardian	HD:10		TYPE:Base.Advanced	ABB:Gua		MAXLEVEL:10	SOURCEPAGE:p.79	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat										Required Skill				PRETOTALAB
+# Class Name	Required Ability													Required Skill				PRETOTALAB
 CLASS:Guardian	PREABILITY:1,CATEGORY=FEAT,Archaic Weapons Proficiency,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:3	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Tactics)|Knowledge (Current Events)|Knowledge (Mutant Lore)|Listen|Ride|Sense Motive|Spot|Survival
@@ -123,14 +123,14 @@ CLASS:Guardian	STARTSKILLPTS:3	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledg
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																															Modify VAR
 CLASS:Juju Doctor	HD:8		TYPE:Base.Advanced	ABB:JujuD		MAXLEVEL:10	SOURCEPAGE:p.81	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat		Required Skill			PRETOTALAB
+# Class Name	Required Ability					Required Skill			PRETOTALAB
 CLASS:Juju Doctor	PREABILITY:1,CATEGORY=FEAT,Juju Medicine	PRESKILL:1,Treat Injury=6	PRETOTALAB:1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Juju Doctor	STARTSKILLPTS:7	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Knowledge (Technology)|Listen|TYPE=Perform|Read/Write Language|Research|Sense Motive|Speak Language|Spot
 1	BONUS:ABILITYPOOL|Juju Doctor Feat|(CL/3)
 ###Block:
 1	ABILITY:Juju Doctor Class Feature|AUTOMATIC|Juju Doctor ~ Juju Specialist
-2	ABILITY:Juju Doctor Class Feature|AUTOMATIC|Juju Doctor ~ Brew Potion	
+2	ABILITY:Juju Doctor Class Feature|AUTOMATIC|Juju Doctor ~ Brew Potion
 2	ABILITY:Juju Doctor Class Feature|AUTOMATIC|Juju Doctor ~ Expert Healer
 4	ABILITY:Juju Doctor Class Feature|AUTOMATIC|Juju Doctor ~ Juju Mastery
 7	ABILITY:Juju Doctor Class Feature|AUTOMATIC|Juju Doctor ~ Potion Mastery
@@ -150,7 +150,7 @@ CLASS:Psionic	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Diplomacy|Intimidate|Kn
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																															Modify VAR
 CLASS:Raider	HD:10		TYPE:Base.Advanced	ABB:Rai		MAXLEVEL:10	SOURCEPAGE:p.84	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat										Required Skill		PRETOTALAB
+# Class Name	Required Ability													Required Skill		PRETOTALAB
 CLASS:Raider	PREABILITY:1,CATEGORY=FEAT,Archaic Weapons Proficiency,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Raider	STARTSKILLPTS:3	CSKILL:Climb|Drive|Gather Information|Intimidate|Jump|Knowledge (Tactics)|Knowledge (Current Events)|Ride|Survival
@@ -164,23 +164,23 @@ CLASS:Raider	STARTSKILLPTS:3	CSKILL:Climb|Drive|Gather Information|Intimidate|Ju
 
 # Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																															Modify VAR
 CLASS:Road Warrior	HD:10		TYPE:Base.Advanced	ABB:RdWar		MAXLEVEL:10	SOURCEPAGE:p.86	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+(CL/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name		Required Feat			Required Skill			PRETOTALAB
+# Class Name		Required Ability					Required Skill			PRETOTALAB
 CLASS:Road Warrior	PREABILITY:1,CATEGORY=FEAT,Vehicle Expert	PRESKILL:2,Repair=6,Drive=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Road Warrior	STARTSKILLPTS:3	CSKILL:Balance|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Tactics)|Knowledge (Technology)|Pilot|Repair|Spot|Survival|Tumble
 1	BONUS:ABILITYPOOL|Road Warrior Feat|(CL/3)
 ###Block:
-1	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Boarding Party
-2	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Offensive Driving
-4	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Vehicular Evasion
-5	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Master Mechanic									BONUS:SKILL|Repair|4|TYPE=Competence
-7	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Improved Sideswipe
-8	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Improved Hardness
-10	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Improved Ramming
+1								ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Boarding Party
+2								ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Offensive Driving
+4								ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Vehicular Evasion
+5	BONUS:SKILL|Repair|4|TYPE=Competence	ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Master Mechanic
+7								ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Improved Sideswipe
+8								ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Improved Hardness
+10								ABILITY:Road Warrior Class Feature|AUTOMATIC|Road Warrior ~ Improved Ramming
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus								Save bonus																															Modify VAR
 CLASS:Scav		HD:10		TYPE:Base.Advanced	ABB:Scav		MAXLEVEL:10	SOURCEPAGE:p.88	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat			Required Skill				PRETOTALAB
+# Class Name	Required Ability						Required Skill				PRETOTALAB
 CLASS:Scav		PREABILITY:1,CATEGORY=FEAT,Radiation Sense	PRESKILL:2,Survival=6,Search=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scav		STARTSKILLPTS:5	CSKILL:Bluff|Decipher Script|Disable Device|Drive|Escape Artist|Gather Information|Hide|Knowledge (Current Events)|Knowledge (Mutant Lore)|Knowledge (Technology)|Move Silently|Navigate|Repair|Search|Spot|Survival
@@ -221,7 +221,7 @@ CLASS:Skulk		STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Disguise|Disable Device|
 
 # Class Name			Product Identity?	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																																Modify VAR
 CLASS:Sister of the Desert	NAMEISPI:YES	HD:8		TYPE:Base.Advanced	ABB:SotD		MAXLEVEL:10	SOURCEPAGE:p.93	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|2+((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name			Required Feat		Required Gender	Required Skill							PRETOTALAB
+# Class Name			Required Ability					Required Gender	Required Skill							PRETOTALAB
 CLASS:Sister of the Desert	PREABILITY:1,CATEGORY=FEAT,Concubine	PREGENDER:F		PRESKILL:1,Survival=6	PRESKILL:1,Treat Injury=3	PRETOTALAB:2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sister of the Desert	STARTSKILLPTS:5	CSKILL:Bluff|Climb|Diplomacy|Escape Artist|Handle Animal|Hide|Move Silently|Ride|Sense Motive|Spot|Survival|Treat Injury|Tumble
@@ -237,7 +237,7 @@ CLASS:Sister of the Desert	STARTSKILLPTS:5	CSKILL:Bluff|Climb|Diplomacy|Escape A
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																															Modify VAR
 CLASS:Survivalist	HD:10		TYPE:Base.Advanced	ABB:Surv		MAXLEVEL:10	SOURCEPAGE:p.96	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat	Required Skill				PRETOTALAB
+# Class Name	Required Ability				Required Skill				PRETOTALAB
 CLASS:Survivalist	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Survival=6,Navigate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Survivalist	STARTSKILLPTS:5	CSKILL:Climb|Handle Animal|Hide|Jump|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Knowledge (Twisted Earth)|Listen|Navigate|Ride|Spot|Survival|Treat Injury
@@ -249,9 +249,9 @@ CLASS:Survivalist	STARTSKILLPTS:5	CSKILL:Climb|Handle Animal|Hide|Jump|Knowledge
 7	ABILITY:Survivalist Class Feature|AUTOMATIC|Survivalist ~ Superior Camouflage
 #TODO: Survivalist can take a Survivalist Region in place of a bonus feat
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Combat bonus								Save bonus																															Modify VAR
-CLASS:Symbiote	HD:8		TYPE:Base.Advanced	ABB:Symb		MAXLEVEL:10	SOURCEPAGE:p.99	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	DEFINE:SymbioteLVL|0	BONUS:VAR|SymbioteLVL|CL
-# Class Name	Required Feat			Required Skill					PRETOTALAB
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define										Combat bonus								Save bonus																															Modify VAR
+CLASS:Symbiote	HD:8		TYPE:Base.Advanced	ABB:Symb		MAXLEVEL:10	SOURCEPAGE:p.99	DEFINE:Reputation|0	DEFINE:Wealth|0	DEFINE:SymbioteLVL|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:VAR|SymbioteLVL|CL
+# Class Name	Required Ability						Required Skill					PRETOTALAB
 CLASS:Symbiote	PREABILITY:1,CATEGORY=FEAT,Animal Affinity	PRESKILL:2,Handle Animal=6,Survival=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Symbiote	STARTSKILLPTS:3	CSKILL:Handle Animal|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Listen|Navigate|Ride|Sense Motive|Spot|Survival|Treat Injury
@@ -296,9 +296,10 @@ CLASS:Trader	STARTSKILLPTS:7	CSKILL:Bluff|Drive|Diplomacy|Forgery|Gather Informa
 10	ABILITY:Trader Class Feature|AUTOMATIC|Trader ~ Professional Courtesy
 
 ###Block: Epic - Not converted to abilities yet.
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																						Modify VAR
 CLASS:Champion	HD:12		TYPE:Base.Epic	ABB:Chm		MAXLEVEL:10	SOURCEPAGE:p.44	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL+1)/2)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat			Req. Special Ability	Required Skill						PRETOTALAB
+# Class Name	Required Ability						Req. Special Ability	Required Skill						PRETOTALAB
 CLASS:Champion	PREABILITY:2,CATEGORY=FEAT,Iron Will,Toughness	PRESA:1,Defender%		PRESKILL:2,Knowledge (Tactics)=8,Intimidate=10	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Search|Spot|Survival
@@ -315,7 +316,7 @@ CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidat
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus								Save bonus																					Modify VAR
 CLASS:Mech		HD:6		TYPE:Base.Epic	ABB:Mec		MAXLEVEL:10	SOURCEPAGE:p.46	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/2)	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat		Required Skill
+# Class Name	Required Ability				Required Skill
 CLASS:Mech		PREABILITY:1,CATEGORY=FEAT,Gearhead	PRESKILL:4,Craft (Electronic)=10,Knowledge (Technology)=10,Craft (Mechanical)=12,Repair=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mech		STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Decipher Script|Demolitions|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Ancient Lore)|Navigate|Read/Write Language|Repair|Research|Speak Language|Spot
@@ -331,7 +332,7 @@ CLASS:Mech		STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechan
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus								Save bonus																						Modify VAR
 CLASS:Medicine Man	HD:8		TYPE:Base.Epic	ABB:Med		MAXLEVEL:10	SOURCEPAGE:p.46	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/2)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name		Required Feat				Required Skill
+# Class Name		Required Ability							Required Skill
 CLASS:Medicine Man	PREABILITY:2,CATEGORY=FEAT,Surgery,Medical Expert	PRESKILL:5,Treat Injury=13,Craft (Pharmaceutical)=8,Knowledge (Earth and Life Sciences)=6,Knowledge (Mutant Lore)=6,Knowledge (Technology)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Medicine Man	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Ancient Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Knowledge (Technology)|Listen|Read/Write Language|Research|Speak Language|Spot|Treat Injury
@@ -349,7 +350,7 @@ CLASS:Medicine Man	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Pharmaceutical)|D
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus														Modify VAR
 CLASS:Mutant Hunter	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	SOURCEPAGE:p.49	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name		Required Ability						Required Feat													Prohibited Template
+# Class Name		Required Ability																											Prohibited Template
 CLASS:Mutant Hunter	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency,Archaic Weapons Proficiency	PREABILITY:1,CATEGORY=FEAT,Track	!PRETEMPLATE:1,Mutant
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mutant Hunter	STARTSKILLPTS:5	CSKILL:Disguise|Escape Artist|Gather Information|Hide|Intimidate|Navigate|Knowledge (Mutant Lore)|Listen|Move Silently|Spot|Survival|Treat Injury|Tumble
@@ -383,7 +384,7 @@ CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE=Craft|Decipher Script|D
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus								Save bonus																						Modify VAR
 CLASS:Tech Looter	HD:8		TYPE:Base.Epic	ABB:TLtr		MAXLEVEL:10	SOURCEPAGE:p.54	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name	Required Feat			Required Skill																				PRETOTALAB
+# Class Name	Required Ability						Required Skill																				PRETOTALAB
 CLASS:Tech Looter	PREABILITY:1,CATEGORY=FEAT,Advanced Technology	PRESKILL:6,Knowledge (Technology)=13,Disable Device=8,Knowledge (Ancient Lore)=8,Gather Information=10,Computer Use=6,Repair=6	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable Device|Drive|Gather Information|Hide|Knowledge (Ancient Lore)|Knowledge (Technology)|Listen|Move Silently|Navigate|Repair|Search|Sleight of Hand|Spot|Survival
@@ -399,7 +400,7 @@ CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable De
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus								Save bonus																						Modify VAR
 CLASS:Trade Master	HD:6		TYPE:Base.Epic	ABB:TMstr		MAXLEVEL:10	SOURCEPAGE:p.55	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/2)	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)+2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
-# Class Name		Required Feat			Required Skill
+# Class Name		Required Ability						Required Skill
 CLASS:Trade Master	PREABILITY:2,CATEGORY=FEAT,Leadership,Market	PRESKILL:3,Bluff=10,Diplomacy=13,Gather Information=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Trade Master	STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gather Information|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (Business)|Navigate|Ride|Search|Sense Motive|Speak Language|Spot
@@ -417,7 +418,7 @@ CLASS:Trade Master	STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gather I
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																						Modify VAR
 CLASS:Warrior Monk	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	SOURCEPAGE:p.57	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:VAR|WeapSpecQualify|1
-# Class Name		Required Feat								Required Skill				PRETOTALAB
+# Class Name		Required Ability											Required Skill				PRETOTALAB
 CLASS:Warrior Monk	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Combat Reflexes,Weapon Focus	PRESKILL:1,Knowledge (Tactics)=8	PRETOTALAB:10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior Monk	STARTSKILLPTS:3	CSKILL:Drive|Intimidate|Jump|Knowledge (Tactics)|Listen|Ride|Sense Motive|Spot|Survival

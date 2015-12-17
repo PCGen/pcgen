@@ -1,13 +1,14 @@
-# CVS $Revision: 20472 $ $Author: zaister $ -- Fri Jul 12 11:09:20 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 20472 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2013-05
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 12 July 2013
 
 ###Block: Modify default ability
-# Ability Name			Bonus to Ability Pool
+# Ability Name			Bonus Ability Pool
 CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|1|PRECHARACTERTYPE:1,PC|PREABILITY:1,CATEGORY=Special Ability,TYPE.Drawback
 
 ###Block: Drawbacks
+# Ability Name							Type			!PRECHARACTERTYPE
 CATEGORY=Special Ability|Drawback ~ Attached.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Drawback ~ Avarice.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Drawback ~ Dependent.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

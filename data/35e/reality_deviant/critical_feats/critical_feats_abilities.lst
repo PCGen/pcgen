@@ -1,25 +1,25 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Critical Feats	SOURCESHORT:CritFeat	SOURCEWEB:http://www.realitydeviants.net/content/critfeat.html	SOURCEDATE:2006-01
 # Original entry by Paul W. King
 
-# Ability Name			Category of Ability		Type				Visible		Required Feat				Modify VAR
+# Ability Name			Category of Ability		Type				Visible		Required Ability							Modify VAR
 Arm Breaker DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Arm Breaker			BONUS:VAR|ArmBreakerDC|2
 Arterial Bleeding DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Arterial Bleeding		BONUS:VAR|ArterialBleedingDC|2
 Back Breaker DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Back Breaker			BONUS:VAR|BackBreakerDC|2
-Blackout DC				CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Blackout			BONUS:VAR|BlackoutDC|2
+Blackout DC				CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Blackout				BONUS:VAR|BlackoutDC|2
 Brutal Uppercut DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Brutal Uppercut		BONUS:VAR|BrutalUppercutDC|2
 Concussing Blow DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Concussing Blow		BONUS:VAR|ConcussingBlowDC|2
 Distracting Blow DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Distracting Blow		BONUS:VAR|DistractingBlowDC|2
-Eye Shot DC				CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Eye Shot			BONUS:VAR|EyeShotDC|2
+Eye Shot DC				CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Eye Shot				BONUS:VAR|EyeShotDC|2
 Giant Cutter DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Giant Cutter			BONUS:VAR|GiantCutterDC|2
 Greater Shield Slam DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Greater Shield Slam		BONUS:VAR|GreaterShieldSlamDC|2
 Gut Wrench DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Gut Wrench			BONUS:VAR|GutWrenchDC|2
 Hamstring DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Hamstring			BONUS:VAR|HamstringDC|2
-Improved Shield Slam DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Improved Shield Slam	BONUS:VAR|ImprovedShieldSlamDC|2
+Improved Shield Slam DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Improved Shield Slam		BONUS:VAR|ImprovedShieldSlamDC|2
 Leg Breaker DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Leg Breaker			BONUS:VAR|LegBreakerDC|2
 Multiple Strikes Mastery DC	CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Multiple Strikes Mastery	BONUS:VAR|MultipleStrikesMasteryDC|2
 Nauseating Blow DC		CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Nauseating Blow		BONUS:VAR|NauseatingBlowDC|2
-Pinning Charge DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Pinning Charge		BONUS:VAR|PinningChargeDC|2
+Pinning Charge DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Pinning Charge			BONUS:VAR|PinningChargeDC|2
 Puncture Lung DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Puncture Lung			BONUS:VAR|PunctureLungDC|2
 Ricochet Shot DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Ricochet Shot			BONUS:VAR|RicochetShotDC|2
 Slice Tendon DC			CATEGORY:Special Ability	TYPE:HiddenCriticalDC	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Slice Tendon			BONUS:VAR|SliceTendonDC|2

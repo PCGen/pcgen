@@ -1,25 +1,26 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58	SOURCEDATE:2005-01
 #Original Entry By: Sean Silva-Miramon
 
 # Feat Name					Type
-CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:StarshipDesigner
+# Ability Name						Type
+CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:StarshipDesigner
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:StarshipDesigner
 CATEGORY=FEAT|Barrel Roll.MOD				TYPE:StarshipTestPilot
-CATEGORY=FEAT|Builder.MOD					TYPE:StarshipDesigner
+CATEGORY=FEAT|Builder.MOD				TYPE:StarshipDesigner
 CATEGORY=FEAT|Evasive Maneuvers.MOD			TYPE:StarshipTestPilot
 CATEGORY=FEAT|Formation Flying.MOD			TYPE:StarshipTestPilot
 CATEGORY=FEAT|Gearhead.MOD				TYPE:StarshipDesigner.StarshipTestPilot
-CATEGORY=FEAT|Mastercrafter.MOD				TYPE:StarshipDesigner
-CATEGORY=FEAT|Renown.MOD					TYPE:StarshipTestPilot
-CATEGORY=FEAT|Salvage.MOD					TYPE:StarshipDesigner
-CATEGORY=FEAT|Spacer.MOD					TYPE:StarshipTestPilot
-CATEGORY=FEAT|Starship Battle Run.MOD			TYPE:StarshipTestPilot
+CATEGORY=FEAT|Mastercrafter.MOD			TYPE:StarshipDesigner
+CATEGORY=FEAT|Renown.MOD				TYPE:StarshipTestPilot
+CATEGORY=FEAT|Salvage.MOD				TYPE:StarshipDesigner
+CATEGORY=FEAT|Spacer.MOD				TYPE:StarshipTestPilot
+CATEGORY=FEAT|Starship Battle Run.MOD		TYPE:StarshipTestPilot
 CATEGORY=FEAT|Starship Dodge.MOD			TYPE:StarshipDesigner.StarshipTestPilot
 CATEGORY=FEAT|Starship Gunnery.MOD			TYPE:StarshipDesigner.StarshipTestPilot
 CATEGORY=FEAT|Starship Mobility.MOD			TYPE:StarshipDesigner.StarshipTestPilot
-CATEGORY=FEAT|Starship Operation.MOD			TYPE:StarshipDesigner.StarshipTestPilot
+CATEGORY=FEAT|Starship Operation.MOD		TYPE:StarshipDesigner.StarshipTestPilot
 CATEGORY=FEAT|Starship Strafe.MOD			TYPE:StarshipDesigner.StarshipTestPilot
 CATEGORY=FEAT|Teamwork.MOD				TYPE:StarshipTestPilot
-CATEGORY=FEAT|Wingman.MOD					TYPE:StarshipTestPilot
+CATEGORY=FEAT|Wingman.MOD				TYPE:StarshipTestPilot
 CATEGORY=FEAT|Zero G Training.MOD			TYPE:StarshipTestPilot

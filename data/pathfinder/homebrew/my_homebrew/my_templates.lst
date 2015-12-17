@@ -1,7 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
-Ninja Monkey	HITDIE:12	CR:2	DR:15/Epic	LEVELADJUSTMENT:2	RACESUBTYPE:Extraplanar|Evil	DEFINE:NinjaMonkeyEvilAura|0	BONUS:VAR|NinjaMonkeyEvilAura|TL	ABILITY:FEAT|AUTOMATIC|Dodge	PREALIGN:LE
+# Template Name	Hit Dice Size	Challenge Rating	Damage Reduction	Level Adjustment	Define				Required AL	Modify VAR					Ability				Race Subtype
+Ninja Monkey	HITDIE:12		CR:2			DR:15/Epic		LEVELADJUSTMENT:2	DEFINE:NinjaMonkeyEvilAura|0	PREALIGN:LE	BONUS:VAR|NinjaMonkeyEvilAura|TL	ABILITY:FEAT|AUTOMATIC|Dodge	RACESUBTYPE:Extraplanar|Evil
 
 
 #insert your data here
@@ -19,7 +20,7 @@ Ninja Monkey	HITDIE:12	CR:2	DR:15/Epic	LEVELADJUSTMENT:2	RACESUBTYPE:Extraplanar
 #####Example
 
 #Vampire		HITDIE:12		CR:2	DR:10/Silver and Magic		LEVELADJUSTMENT:8	TEMPLATE:Undead	TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:MonstersT-Z	SAB:Blood Drain (Ex)	SAB:Children of the Night (Su)	SAB:Dominate (Su) DC%|VampireAbilityDC	SAB:Energy Drain (Su)	SAB:Create Spawn (Su)	SAB:Alternate Form (Su)	SAB:Fast Healing 5 (Ex)	SAB:Gaseous Form (Su)	SAB:Energy Resistance Cold/Electricity 10	SAB:Turn Resistance +4 (Ex)	SAB:Spider Climb (Ex)	DEFINE:VampireAbilityDC|0		PREALIGN:2,5,8		BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK		BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|VampireAbilityDC|15+CHA			RACETYPE:Undead
-#Vampire Feat	ABILITYLIST:Alertness,Combat Reflexes,Dodge,Improved Initiative,Lightning Reflexes	
+#Vampire Feat	ABILITYLIST:Alertness,Combat Reflexes,Dodge,Improved Initiative,Lightning Reflexes
 
 #####
 #Vampire is the name of the template. It will appear in the templates list on PCGen's Races tab and will be used if a template
@@ -58,7 +59,7 @@ Ninja Monkey	HITDIE:12	CR:2	DR:15/Epic	LEVELADJUSTMENT:2	RACESUBTYPE:Extraplanar
 #description of them, look in the List File Tag Index under the topic "Bonus tags".
 #
 #The ABILITY:FEAT|AUTOMATIC tag gives an Ability as a Feat to the character. You can grant multiple Feats by listing them seperated by the | (pipe)
-#delimiter. 
+#delimiter.
 # Format is:
 #	ABILITY:AbilityPool|AbilityNature|AbilityName1|AbilityName2
 #

@@ -40,6 +40,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCCheck;
@@ -134,6 +135,8 @@ public class LSTConverter extends Observable
 				savesLoader.loadLstFiles(context,
 					campaign.getSafeListFor(ListKey.FILE_SAVE));
 				alignmentLoader.loadLstFiles(context,
+					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+				alignmentLoader.loadLstFiles(Globals.getContext(),
 					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
 				
 			}

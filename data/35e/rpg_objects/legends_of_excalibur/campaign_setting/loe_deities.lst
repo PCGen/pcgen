@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 # Author: David Culliford (dculliford@yahoo.com)
 
 # Original Entry by: dlm1065
 
-# Deity Name	Description of Deity/Title	Holy Item		Source Page
-None			DESC:None				SYMBOL:None		SOURCEPAGE:Non file in RSRD why none
-One God		DESC:The One True God		SYMBOL:Crusifix	SOURCEPAGE:p50
-Old Faith		DESC:The older pagan faiths	SYMBOL:None		SOURCEPAGE:p50
+# Deity Name	Description of Deity/Title	Source Page						Holy Item
+None			DESC:None				SOURCEPAGE:Non file in RSRD why none	FACT:Symbol|None
+One God		DESC:The One True God		SOURCEPAGE:p50					FACT:Symbol|Crusifix
+Old Faith		DESC:The older pagan faiths	SOURCEPAGE:p50					FACT:Symbol|None
 # DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE

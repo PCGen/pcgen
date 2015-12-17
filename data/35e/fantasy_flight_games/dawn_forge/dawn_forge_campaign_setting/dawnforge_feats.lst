@@ -1,58 +1,60 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
 ### Regional Feats Chapter One
 # Feat Name				Type				Required Class			Required Skill				PRETOTALAB		Description																						Stackable?	Multiple?	Choose								Source Page
-Exotic Shield Proficiency	CATEGORY:FEAT	TYPE:General.Fighter												PRETOTALAB:1	DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat	STACK:NO	MULT:YES	CHOOSE:SHIELDPROFICIENCY|!PC|EQUIPMENT[TYPE=Exotic]	SOURCEPAGE:p.87
+# Ability Name			Category of Ability	Type				Required Class			Required Skill				PRETOTALAB		Description																						Stackable?	Multiple?	Choose								Source Page
+Exotic Shield Proficiency	CATEGORY:FEAT		TYPE:General.Fighter												PRETOTALAB:1	DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat	STACK:NO	MULT:YES	CHOOSE:SHIELDPROFICIENCY|!PC|EQUIPMENT[TYPE=Exotic]	SOURCEPAGE:p.87
 #Chooser won't work, waiting for redesign of chooser....
-Craft Magic Pouch			CATEGORY:FEAT	TYPE:ItemCreation		PRECLASS:1,Spellcaster=5										DESC:You can create magic pouches, which carry spells within themselves																									SOURCEPAGE:p.87
-Craft Spell Fetish		CATEGORY:FEAT	TYPE:ItemCreation		PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5				DESC:You can create spell fetishes, which carry spells within themselves																								SOURCEPAGE:p.87
+Craft Magic Pouch			CATEGORY:FEAT		TYPE:ItemCreation		PRECLASS:1,Spellcaster=5										DESC:You can create magic pouches, which carry spells within themselves																									SOURCEPAGE:p.87
+Craft Spell Fetish		CATEGORY:FEAT		TYPE:ItemCreation		PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5				DESC:You can create spell fetishes, which carry spells within themselves																								SOURCEPAGE:p.87
 
 
 ###Block: Feat Mods
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Alertness.MOD				TYPE:GnomeTalentFeat.HighlanderTalentFeat
 CATEGORY=FEAT|Augment Summoning.MOD			TYPE:TieflingTalentFeat
 CATEGORY=FEAT|Blind-Fight.MOD				TYPE:MinotaurTalentFeat.OgreTalentFeat
 CATEGORY=FEAT|Brew Potion.MOD				TYPE:OrcTalentFeat
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:HalflingTalentFeat
 CATEGORY=FEAT|Craft Magic Arms and Armor.MOD	TYPE:OrcTalentFeat
-CATEGORY=FEAT|Diehard.MOD					TYPE:LowlanderTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+CATEGORY=FEAT|Diehard.MOD				TYPE:LowlanderTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
 CATEGORY=FEAT|Dodge.MOD					TYPE:DoppelTransformationFeat.DawnElfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OrcTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
 CATEGORY=FEAT|Endurance.MOD				TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTalentFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
 CATEGORY=FEAT|Eschew Materials.MOD			TYPE:LizardTalentFeat
-CATEGORY=FEAT|Exotic Weapon Proficiency.MOD		TYPE:TruebornTalentFeat.MinotaurTalentFeat.OrcTalentFeat
+CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	TYPE:TruebornTalentFeat.MinotaurTalentFeat.OrcTalentFeat
 CATEGORY=FEAT|Great Fortitude.MOD			TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
 CATEGORY=FEAT|Greater Weapon Focus.MOD		TYPE:LizardTalentFeat.MinotaurTalentFeat
-CATEGORY=FEAT|Improved Initiative.MOD			TYPE:DoppelTalentFeat.NightElfTransformationFeat.GnomeTalentFeat.HighlanderTalentFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
+CATEGORY=FEAT|Improved Initiative.MOD		TYPE:DoppelTalentFeat.NightElfTransformationFeat.GnomeTalentFeat.HighlanderTalentFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
 CATEGORY=FEAT|Improved Unarmed Strike.MOD		TYPE:OgreTalentFeat
 CATEGORY=FEAT|Iron Will.MOD				TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.OrcTalentFeat.ThinbloodTransformationFeat
 CATEGORY=FEAT|Leadership.MOD				TYPE:DwarfTalentFeat.LowlanderTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat.MinotaurTalentFeat
-CATEGORY=FEAT|Lightning Reflexes.MOD			TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
+CATEGORY=FEAT|Lightning Reflexes.MOD		TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
 CATEGORY=FEAT|Martial Weapon Proficiency.MOD	TYPE:DwarfTalentFeat.HighlanderTalentFeat
 CATEGORY=FEAT|Mounted Combat.MOD			TYPE:TruebornTalentFeat
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:DawnElfTalentFeat
-CATEGORY=FEAT|Power Attack.MOD				TYPE:DwarfTalentFeat.OgreTalentFeat.OrcTalentFeat
+CATEGORY=FEAT|Power Attack.MOD			TYPE:DwarfTalentFeat.OgreTalentFeat.OrcTalentFeat
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:DawnElfTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat
-CATEGORY=FEAT|Rapid Reload.MOD				TYPE:NightElfTalentFeat.HalflingTalentFeat.SaltbloodTalentFeat
+CATEGORY=FEAT|Rapid Reload.MOD			TYPE:NightElfTalentFeat.HalflingTalentFeat.SaltbloodTalentFeat
 CATEGORY=FEAT|Run.MOD					TYPE:HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.OrcTransformationFeat
 CATEGORY=FEAT|Spell Focus.MOD				TYPE:DawnElfTalentFeat.GnomeTalentFeat.TruebornTalentFeat.TieflingTalentFeat
 CATEGORY=FEAT|Toughness.MOD				TYPE:DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
 CATEGORY=FEAT|Track.MOD					TYPE:NightElfTalentFeat.HighlanderTalentFeat.LowlanderTalentFeat
-CATEGORY=FEAT|Trample.MOD					TYPE:TruebornTalentFeat
+CATEGORY=FEAT|Trample.MOD				TYPE:TruebornTalentFeat
 CATEGORY=FEAT|Weapon Finesse.MOD			TYPE:HighlanderTalentFeat
-CATEGORY=FEAT|Weapon Focus.MOD				TYPE:LizardTalentFeat.MinotaurTalentFeat
+CATEGORY=FEAT|Weapon Focus.MOD			TYPE:LizardTalentFeat.MinotaurTalentFeat
 
 # Psionics
-CATEGORY=FEAT|Craft Cognizance Crystal.MOD		TYPE:ThinbloodTalentFeat
+CATEGORY=FEAT|Craft Cognizance Crystal.MOD	TYPE:ThinbloodTalentFeat
 CATEGORY=FEAT|Craft Dorje.MOD				TYPE:ThinbloodTalentFeat
 CATEGORY=FEAT|Craft Psicrown.MOD			TYPE:ThinbloodTalentFeat
 CATEGORY=FEAT|Craft Psionic Arms and Armor.MOD	TYPE:ThinbloodTalentFeat
 CATEGORY=FEAT|Craft Psionic Construct.MOD		TYPE:ThinbloodTalentFeat
 CATEGORY=FEAT|Craft Universal Item.MOD		TYPE:ThinbloodTalentFeat
-CATEGORY=FEAT|Imprint Stone.MOD				TYPE:ThinbloodTalentFeat
-CATEGORY=FEAT|Scribe Tattoo.MOD				TYPE:ThinbloodTalentFeat
+CATEGORY=FEAT|Imprint Stone.MOD			TYPE:ThinbloodTalentFeat
+CATEGORY=FEAT|Scribe Tattoo.MOD			TYPE:ThinbloodTalentFeat
 
 #
 # End

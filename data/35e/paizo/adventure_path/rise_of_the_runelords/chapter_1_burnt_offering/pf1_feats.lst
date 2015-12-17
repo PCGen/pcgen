@@ -1,5 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
 
 # Feat Name		Type			Required Deity		Required Stat	Description										Source Page		Temporary Bonus
-Lamashtu's Mark	CATEGORY:FEAT	TYPE:General	PREDEITY:1,Lamashtu	PRESTAT:1,CON=13	DESC:You have been marked as one of Lamashtu's favored minions.	SOURCEPAGE:p.56	TEMPBONUS:PC|SKILL|Intimidate|2	TEMPBONUS:PC|SKILL|Diplomacy|-2
+# Ability Name	Category of Ability	Type			Required Deity		Required Stat	Description										Source Page		Temporary Bonus
+Lamashtu's Mark	CATEGORY:FEAT		TYPE:General	PREDEITY:1,Lamashtu	PRESTAT:1,CON=13	DESC:You have been marked as one of Lamashtu's favored minions.	SOURCEPAGE:p.56	TEMPBONUS:PC|SKILL|Intimidate|2	TEMPBONUS:PC|SKILL|Diplomacy|-2

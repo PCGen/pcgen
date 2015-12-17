@@ -1,4 +1,4 @@
-# CVS $Revision: 12957 $ $Author: jbaril $ -- Mon Jun 22 00:01:05 2015 -- reformated by PCGen PrettyLST v6.05.01
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy95d1	SOURCEDATE:2013-11
 # Original Entry by: Stefan Radermacher and Douglas Limmer
 
@@ -105,7 +105,7 @@ ABILITYCATEGORY:Shaman Witch Hex				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 
 ABILITYCATEGORY:Slayer Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SlayerTalent										PLURAL:Slayer Talents					DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Swashbuckler Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat											PLURAL:Swashbuckler Bonus Feats			DISPLAYLOCATION:Feats			POOL:Pool_Swashbuckler_Feat
+ABILITYCATEGORY:Swashbuckler Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Swashbuckler_Feat		CATEGORY:FEAT			TYPE:Combat											PLURAL:Swashbuckler Bonus Feats			DISPLAYLOCATION:Feats
 
 ###Block: Class Feature Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
@@ -115,33 +115,36 @@ ABILITYCATEGORY:Warpriest Focus Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Warpriest Unarmed Strike		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:WarpriestIUS											DISPLAYLOCATION:Class Features
 
 ###Block: Favoured Class Choice Categories
-# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Display Location
-ABILITYCATEGORY:Elf Hunter Critial Confirmation Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfHunterCritialConfirmationChoice		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Elf Shaman Hex Range Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfShamanHexRangeChoice				DISPLAYLOCATION:Class Features
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object						Display Location
+ABILITYCATEGORY:Elf Hunter Critial Confirmation Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ElfHunterCritialConfirmationChoice		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elf Shaman Hex Range Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ElfShamanHexRangeChoice				DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Halfling Skald Critial Confirmation Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingSkaldCritialConfirmationChoice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Halfling Skald Critial Confirmation Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:HalflingSkaldCritialConfirmationChoice	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Skald Bonus Spell Known Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSkald				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skald Bonus Spell Known Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:BonusSpellKnownSkald				DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Dare							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dare							DISPLAYLOCATION:Class Features	POOL:Pool_Dare
-ABILITYCATEGORY:Swashbuckler Bonus Feat Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Swashbuckler Bonus Feat Selection		DISPLAYLOCATION:Feats			POOL:Pool_SwashbucklerBonusFeat
+ABILITYCATEGORY:Dare							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Dare				CATEGORY:Special Ability	TYPE:Dare							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Swashbuckler Bonus Feat Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_SwashbucklerBonusFeat	CATEGORY:Internal			TYPE:Swashbuckler Bonus Feat Selection		DISPLAYLOCATION:Feats
 
 
 
 
 ###Block: Feat categories
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object			Specific choices list		Display Location
-ABILITYCATEGORY:Raging Blood Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RagingBloodBloodline						DISPLAYLOCATION:Feats
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object						Specific choices list				Plural description for UI					Display Location
+ABILITYCATEGORY:Raging Blood Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RagingBloodBloodline																				DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Firearm Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_FirearmChoice	CATEGORY:Special Ability	TYPE:FirearmProfChoice							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Firearm Proficiency Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_FirearmChoice				CATEGORY:Special Ability	TYPE:FirearmProfChoice																					DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Rapid Reload				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT								ABILITYLIST:Rapid Reload	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT											ABILITYLIST:Rapid Reload												DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:Combat				ABILITYLIST:Arcane Strike|Combat Casting					DISPLAYLOCATION:Feats	POOL:Pool_Temp_Eldritch_Scrapper_Feat
+ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Eldritch_Scrapper_Feat	CATEGORY:FEAT			TYPE:Combat							ABILITYLIST:Arcane Strike|Combat Casting										DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Packmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice												PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features	POOL:Pool_PackmasterCompanion
-ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Boon Companion Select Packmaster Companion	PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Packmaster Companion Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_PackmasterCompanion			CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice										PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Boon Companion Select Packmaster Companion								PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Primal Choice						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice		CATEGORY:Internal			TYPE:Primal Choice								PLURAL:Primal Choices	DISPLAYLOCATION:Class Features
+
 
 #
 # End

@@ -16,7 +16,7 @@ Marsh Giant Abilities						CATEGORY:Special Ability																													
 Marsh Giant Rock Throwing					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			SAB:Rock Throwing (Ex) %'|RockThrowRange										DEFINE:RockThrowRange|0
 Marsh Giant Rock Catching					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			SAB:Rock Catching (Ex)
 #Variant -------------------------------------------
-Brineborn Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Speak with Animals	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Contagion,15|Diminish Plants,14|Quench,14
+Brineborn Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Speak With Animals	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Contagion,15|Diminish Plants,14|Quench,14
 ###
 
 Withfire Abilities						CATEGORY:Special Ability																																						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Dancing Lights|Disguise Self|Ghost Sound,17|Invisibility|Pyrotechnics,18|Ray of Enfeeblement

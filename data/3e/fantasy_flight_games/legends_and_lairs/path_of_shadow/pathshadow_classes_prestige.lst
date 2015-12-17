@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 
@@ -27,17 +27,17 @@ CLASS:Acolyte of Chance	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Di
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus							Save bonus
 CLASS:Aerialist	HD:6		TYPE:PC.Prestige	ABB:Aer		MAXLEVEL:10	SOURCEPAGE:Chap.1, Aerialist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat						Required Skill
+# Class Name	Required Ability									Required Skill
 CLASS:Aerialist	PREABILITY:2,CATEGORY=FEAT,Ambidexterity,Skill Focus (Tumble)	PRESKILL:4,Escape Artist=8,Jump=8,Perform=8,Tumble=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aerialist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spellcraft|Spot|Tumble|Use Rope
-1							ABILITY:FEAT|AUTOMATIC|Aerialist Weapon Proficiencies|Simple Weapon Proficiency
+1									ABILITY:FEAT|AUTOMATIC|Aerialist Weapon Proficiencies|Simple Weapon Proficiency
 1	BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 ###Block: Normal Level Progression
 1	SAB:Untouchable (+% dodge bonus to AC)|UntouchableDodgeBonus	BONUS:VAR|UntouchableDodgeBonus|CL/2	BONUS:VAR|SneakAttackDice|(CL+1)/2	DEFINE:UntouchableDodgeBonus|0	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Pefect Balance (Ex)
 3												BONUS:VAR|UncannyDodge|1															ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-4																																							ABILITY:FEAT|VIRTUAL|Aerialist Evasion
+4																															ABILITY:FEAT|VIRTUAL|Aerialist Evasion
 6												BONUS:VAR|UncannyDodge|1
 8	SAB:Blink of an Eye (Ex)
 10	SAB:Defensive Roll (Ex)
@@ -50,17 +50,17 @@ CLASS:Aerialist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diploma
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Ebon Link	HD:6		TYPE:PC.Prestige	ABB:Ebo		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ebon Link	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat								Required Skill
+# Class Name	Required Ability										Required Skill
 CLASS:Ebon Link	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:4,Climb=9,Hide=9,Move Silently=9,Open Lock=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ebon Link	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Scry|Search|Sense Motive|Spellcraft|Spot|Tumble|Use Magic Device|Use Rope
 1	SAB:Spell Resistance (Ex)	BONUS:MISC|SR|10+CL|TYPE=EbonLink
 2	SAB:Magic Sight (Su)
-3																							ABILITY:Special Ability|VIRTUAL|Improved Evasion
+3																	ABILITY:Special Ability|VIRTUAL|Improved Evasion
 4																	ABILITY:Special Ability|AUTOMATIC|Trace Enchantment I
 5	SAB:Slippery Mind (Ex)
 6																	ABILITY:Special Ability|AUTOMATIC|Trace Enchantment II
-7												BONUS:VAR|UncannyDodge|1							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+7												BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 8																	ABILITY:Special Ability|AUTOMATIC|Trace Enchantment III
 9	SAB:Magic Dodge (Su)
 10																	ABILITY:Special Ability|AUTOMATIC|Trace Enchantment IV
@@ -71,12 +71,12 @@ CLASS:Ebon Link	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Scr
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Falconer	HD:6		TYPE:PC.Prestige	ABB:Fal		MAXLEVEL:10	SOURCEPAGE:Chap.1, Falconer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat		Required Skill
+# Class Name	Required Ability					Required Skill
 CLASS:Falconer	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:4,Bluff=5,Diplomacy=5,Innuendo=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Falconer	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Falconer	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Falconer|CL
+CLASS:Falconer	SPELLSTAT:INT	FACT:SpellType|Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Falconer|CL
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Falconer=1|Animal Friendship,Change Self,Expeditious Retreat,Message,Pass without Trace,Sanctuary
 1	SPELLLEVEL:CLASS|Falconer=2|Alter Self,Animal Messenger,Cure Light Wounds,Invisibility,Speak with Animals,Whispering Wind
@@ -119,7 +119,7 @@ CLASS:Halfling Clanwarden	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Myste		HD:6		TYPE:PC.Prestige	ABB:Mys		MAXLEVEL:10	SOURCEPAGE:Chap.1, Myste	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat					Required Skill
+# Class Name	Required Ability								Required Skill
 CLASS:Myste		PREABILITY:1,CATEGORY=FEAT,Skill Focus (Use Magic Device)	PRESKILL:3,Knowledge (Arcana)=4,Spellcraft=4,Use Magic Device=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Myste		STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Gather Information|Hide|Innuendo|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Magic Device
@@ -140,7 +140,7 @@ CLASS:Myste		STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Save bonus
 CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	ABB:NiH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Night Hunter	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Feat	Req. Special Ability	Required Skill										PRETOTALAB
+# Class Name		Required Ability				Req. Special Ability	Required Skill										PRETOTALAB
 CLASS:Night Hunter	PREABILITY:1,CATEGORY=FEAT,Track	PRESA:1,Sneak Attack	PRESKILL:4,Alchemy=3,Knowledge (Lycanthropes)=3,Hide=8,Move Silently=8	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Lycanthropes)|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
@@ -157,21 +157,21 @@ CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Save bonus
 CLASS:Noble Decoy	HD:6		TYPE:PC.Prestige	ABB:NoDe		MAXLEVEL:10	SOURCEPAGE:Chap.1, Noble Decoy	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat				Required Skill
+# Class Name	Required Ability							Required Skill
 CLASS:Noble Decoy	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disguise)	PRESKILL:4,Perform=3,Tumble=3,Disguise=8,Bluff=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble Decoy	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1	ABILITY:FEAT|AUTOMATIC|Noble Decoy Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Avoid Death (+%)|AvoidDeath	BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0																					ABILITY:Special Ability|VIRTUAL|Improved Evasion
+1	SAB:Avoid Death (+%)|AvoidDeath								BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0	ABILITY:Special Ability|VIRTUAL|Improved Evasion
 2	SAB:Detect Evil (%/day)|CL
-3															BONUS:ABILITYPOOL|Noble Decoy Feat|1
+3							BONUS:ABILITYPOOL|Noble Decoy Feat|1
 4	SAB:Blur (%/day)|CHA
 5	SAB:Perfect Double (Ex)
-6															BONUS:ABILITYPOOL|Noble Decoy Feat|1	
+6							BONUS:ABILITYPOOL|Noble Decoy Feat|1
 8	SAB:Mislead (%/day)|CHA
-9															BONUS:ABILITYPOOL|Noble Decoy Feat|1	
+9							BONUS:ABILITYPOOL|Noble Decoy Feat|1
 10	SAB:Iron Body (1/day) (Sp)
 
 
@@ -182,7 +182,7 @@ CLASS:Ossorus	PREALIGN:LG,LN,NG	PRESKILL:4,Disguise=4,Knowledge (Religion)=4,Hid
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ossorus	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels
-CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
+CLASS:Ossorus	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
 1	SPELLLEVEL:CLASS|Ossorus=1|Cure Light Wounds,Detect Poison,Invisibility to Undead,Message,Obscuring Mist
 1	SPELLLEVEL:CLASS|Ossorus=2|Animal Messenger,Cure Moderate Wounds,Darkness,Delay Poison,Undetectable Alignment
 1	SPELLLEVEL:CLASS|Ossorus=3|Cure Serious Wounds,Detect Thoughts,Meld into Stone,Water Breathing
@@ -209,17 +209,17 @@ CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Packrat	HD:6		TYPE:PC.Prestige	ABB:Rat		MAXLEVEL:5	SOURCEPAGE:Chap.1, Packrat	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat			Required Skill
+# Class Name	Required Ability						Required Skill
 CLASS:Packrat	PREABILITY:1,CATEGORY=FEAT,Lightning Reflexes	PRESKILL:3,Bluff=5,Escape Artist=8,Pick Pocket=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 #1	BONUS:VAR|SneakAttackDice|(COUNT[FEATNAME=PackratRogueIncrease]+1-PackratRogueLevelOdd)/2	DEFINE:PackratRogueLevelOdd|((CL=Rogue/2)-(CL=Rogue/2.TRUNC))*2
-1							BONUS:VAR|SneakAttackDice|((var("CL=Rogue")+1+COUNT[FEATNAME=PackratRogueIncrease.ALL])/2-floor((var("CL=Rogue")+1)/2))
-1	SAB:Packrat (Ex)																								BONUS:ABILITYPOOL|Packrat Increase|1
+1														BONUS:VAR|SneakAttackDice|((var("CL=Rogue")+1+COUNT[FEATNAME=PackratRogueIncrease.ALL])/2-floor((var("CL=Rogue")+1)/2))
+1	SAB:Packrat (Ex)				BONUS:ABILITYPOOL|Packrat Increase|1
 2	SAB:Right Tool for the Job (Ex)
-3	SAB:Quicker than the Eye (Ex)																						BONUS:ABILITYPOOL|Packrat Increase|1
+3	SAB:Quicker than the Eye (Ex)		BONUS:ABILITYPOOL|Packrat Increase|1
 4	SAB:Hard to Hold (Ex)
-5																											BONUS:ABILITYPOOL|Packrat Increase|1
+5							BONUS:ABILITYPOOL|Packrat Increase|1
 
 
 # zzz Psychic Interloper
@@ -228,8 +228,8 @@ CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Dec
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Combat bonus								Save bonus
 CLASS:Psychic Interloper	HD:6		TYPE:PC.Prestige	ABB:PsIn		MAXLEVEL:10	SOURCEPAGE:Chap.1, Psychic Interloper	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required Check Base	Required Feat		Required Race				Required Skill
-CLASS:Psychic Interloper	PRECHECKBASE:1,Reflex=3	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Human,Half-Elf,Half-Orc	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4
+# Class Name			Required Ability					Required Check Base	Required Race				Required Skill
+CLASS:Psychic Interloper	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRECHECKBASE:1,Reflex=3	PRERACE:1,Human,Half-Elf,Half-Orc	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psychic Interloper	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Psionics)|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Psicraft|Read Lips|Search|Sense Motive|Spot|Stabilize Self|Swim|Tumble|Use Rope
 # Class Name			Spell Stat		Spell Type		Memorize
@@ -254,28 +254,28 @@ CLASS:Queen's Coronet	HD:6		TYPE:PC.Prestige	ABB:QCor		MAXLEVEL:10	SOURCEPAGE:Ch
 CLASS:Queen's Coronet	PRESKILL:4,Listen=6,Search=6,Innuendo=8,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Queen's Coronet	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot|Use Magic Device
-1													ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Encode Missive (Ex)
 2	SAB:Seduction (Ex)
-3	SAB:Composure (+%) (Ex)|Composure												BONUS:VAR|Composure|floor((CL-1)/2)*2	DEFINE:Composure|0
+3	SAB:Composure (+%) (Ex)|Composure																					BONUS:VAR|Composure|floor((CL-1)/2)*2	DEFINE:Composure|0
 4	SAB:Slippery Mind (Ex)
-6	SAB:Eidetic Memory (Ex)			BONUS:SKILL|TYPE.Knowledge,Appraise,Search,Spot|4|TYPE=Competence
-8	SAB:Keen Ear (Ex)				BONUS:SKILL|Listen|4|TYPE=Competence
-10																													BONUS:ABILITYPOOL|Skill Mastery Queen's Coronet|1
+6	SAB:Eidetic Memory (Ex)												BONUS:SKILL|TYPE.Knowledge,Appraise,Search,Spot|4|TYPE=Competence
+8	SAB:Keen Ear (Ex)													BONUS:SKILL|Listen|4|TYPE=Competence
+10							BONUS:ABILITYPOOL|Skill Mastery Queen's Coronet|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus							Save bonus
 CLASS:Questioner	HD:6		TYPE:PC.Prestige	ABB:Que		MAXLEVEL:10	SOURCEPAGE:Chap.1, Questioner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat		Required Skill
-CLASS:Questioner	PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:3,Gather Information=8,Search=8,Sense Motive=8
+# Class Name	Required Ability					Required AL		Required Skill
+CLASS:Questioner	PREABILITY:1,CATEGORY=FEAT,Alertness	PREALIGN:LG,NG,CG	PRESKILL:3,Gather Information=8,Search=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Questioner	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Urban Lore|Use Magic Device|Use Rope|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies
-1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
 1	BONUS:ABILITYPOOL|Questioner Feat|1
 2									BONUS:VAR|SneakAttackDice|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
@@ -297,11 +297,11 @@ CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disab
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
 1	SAB:Death Attack
-2								BONUS:VAR|SneakAttackDice|CL/2					BONUS:ABILITYPOOL|Royal Assassin Feat|1
-5	SAB:Assassin of Evil +%|AssassinofEvil	BONUS:VAR|AssassinofEvil|1		DEFINE:AssassinofEvil|0
-6																		BONUS:ABILITYPOOL|Royal Assassin Feat|1
-9								BONUS:VAR|AssassinofEvil|1
-10																		BONUS:ABILITYPOOL|Royal Assassin Feat|1
+2								BONUS:ABILITYPOOL|Royal Assassin Feat|1	BONUS:VAR|SneakAttackDice|CL/2
+5	SAB:Assassin of Evil +%|AssassinofEvil								BONUS:VAR|AssassinofEvil|1		DEFINE:AssassinofEvil|0
+6								BONUS:ABILITYPOOL|Royal Assassin Feat|1
+9															BONUS:VAR|AssassinofEvil|1
+10								BONUS:ABILITYPOOL|Royal Assassin Feat|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
@@ -311,7 +311,7 @@ CLASS:Sailmaster	PRESKILL:4,Profession (Sailor)=8,Use Rope=8,Climb=6,Balance=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Move Silently|PROFESSION (SAILOR)|Spot|Swim|Tumble|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
+CLASS:Sailmaster	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Sailmaster=1|Animate Rope,Comprehend Languages,Create Water,Obscuring Mist
 1	SPELLLEVEL:CLASS|Sailmaster=2|Cat's Grace,Fog Cloud,Protection from Elements
@@ -321,26 +321,26 @@ CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVE
 1	ABILITY:FEAT|AUTOMATIC|Sailmaster Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
-1	CAST:0,0															BONUS:ABILITYPOOL|Sailmaster Feat|1
-2	CAST:0,1										BONUS:VAR|UncannyDodge|1																																																																				ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+1	CAST:0,0		BONUS:ABILITYPOOL|Sailmaster Feat|1
+2	CAST:0,1										BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 3	CAST:0,1,0
-4	CAST:0,1,1															BONUS:ABILITYPOOL|Sailmaster Feat|1
+4	CAST:0,1,1		BONUS:ABILITYPOOL|Sailmaster Feat|1
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1									BONUS:VAR|UncannyDodge|1
-7	CAST:0,2,1,1,0														BONUS:ABILITYPOOL|Sailmaster Feat|1
+7	CAST:0,2,1,1,0	BONUS:ABILITYPOOL|Sailmaster Feat|1
 8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1	BONUS:ABILITYPOOL|Sailmaster Skill Mastery|1
-10	CAST:0,2,2,2,1									BONUS:VAR|UncannyDodge|1	BONUS:ABILITYPOOL|Sailmaster Feat|1
+10	CAST:0,2,2,2,1	BONUS:ABILITYPOOL|Sailmaster Feat|1			BONUS:VAR|UncannyDodge|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Save bonus
 CLASS:Shadow Hunter	HD:6		TYPE:PC.Prestige	ABB:ShH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Shadow Hunter	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Required Feat				Multiple Requirements
-CLASS:Shadow Hunter	PREALIGN:LG,NG,CG	PREABILITY:2,CATEGORY=FEAT,Alertness,Blind-Fight	PREMULT:2,[PRESKILL:3,Hide=5,Move Silently=5,Spot=8],[PRESKILL:1,Knowledge (Religion)=5,Knowledge (The Planes)=5]
+# Class Name		Required Ability							Required AL		Multiple Requirements
+CLASS:Shadow Hunter	PREABILITY:2,CATEGORY=FEAT,Alertness,Blind-Fight	PREALIGN:LG,NG,CG	PREMULT:2,[PRESKILL:3,Hide=5,Move Silently=5,Spot=8],[PRESKILL:1,Knowledge (Religion)=5,Knowledge (The Planes)=5]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Open Lock|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Shadow Hunter|CL
+CLASS:Shadow Hunter	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Shadow Hunter|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Shadow Hunter=1|Bless Water,Cure Light Wounds,Detect Undead,Disrupt Undead,Halt Undead,Invisibility to Undead,Protection from Evil,Remove Fear
 1	SPELLLEVEL:CLASS|Shadow Hunter=2|Consecrate,Cure Moderate Wounds,Gentle Repose,Lesser Restoration,Remove Paralysis
@@ -384,19 +384,19 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat									Required Race		Required Skill							PRETOTALAB
+# Class Name	Required Ability															Required Race		Required Skill							PRETOTALAB
 CLASS:White Rose	PREABILITY:2,CATEGORY=FEAT,Dodge,Expertise	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Sword)	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Balance=8,Hide=8,Jump=8,Move Silently=8	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble
 1	ABILITY:FEAT|AUTOMATIC|White Rose Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1							BONUS:ABILITYPOOL|White Rose Special Ability|1
-2	BONUS:VAR|SneakAttackDice|(CL+2)/4								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3							BONUS:ABILITYPOOL|White Rose Special Ability|1
-5							BONUS:ABILITYPOOL|White Rose Special Ability|1
-7							BONUS:ABILITYPOOL|White Rose Special Ability|1
-9							BONUS:ABILITYPOOL|White Rose Special Ability|1
+1	BONUS:ABILITYPOOL|White Rose Special Ability|1
+2									BONUS:VAR|SneakAttackDice|(CL+2)/4	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	BONUS:ABILITYPOOL|White Rose Special Ability|1
+5	BONUS:ABILITYPOOL|White Rose Special Ability|1
+7	BONUS:ABILITYPOOL|White Rose Special Ability|1
+9	BONUS:ABILITYPOOL|White Rose Special Ability|1
 
 # zzz Windrider
 
@@ -406,7 +406,7 @@ CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, 
 CLASS:Windrider	PRESKILL:6,Intimidate=5,Ride=5,Wilderness Lore=5,Listen=8,Move Silently=8,Spot=8	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Windrider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope|Wilderness Lore
-1													ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Normal progression
 1	SAB:Track	SAB:Sand-Sight I|PREVARLT:CL,5

@@ -1,21 +1,21 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
 # Original Entry by: Stefan Radermacher
 
 ###Block: Minor Deities
-# Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Align		Pantheon					Source Page
-Apsu			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Travel|PREALIGN:LG,LN,NG			DESC:God of dragons, glory, leadership, peace	DEITYWEAP:Bite|Quarterstaff	ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.18
-Kurgess		NAMEISPI:YES	DOMAINS:Community,Good,Luck,Strength,Travel|PREALIGN:LG,NG,CG,TN		DESC:God of bravery, competition, sport		DEITYWEAP:Javelin			ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.18
-Milani		NAMEISPI:YES	DOMAINS:Chaos,Good,Healing,Liberation,Protection|PREALIGN:NG,CG,CN	DESC:Goddess of devotion, hope, uprisings		DEITYWEAP:Morningstar		ALIGN:CG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.18
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Align		Source Page		Pantheon
+Apsu			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Travel|PREALIGN:LG,LN,NG			DESC:God of dragons, glory, leadership, peace	DEITYWEAP:Bite|Quarterstaff	ALIGN:LG	SOURCEPAGE:p.18	PANTHEON:Pathfinder Chronicles
+Kurgess		NAMEISPI:YES	DOMAINS:Community,Good,Luck,Strength,Travel|PREALIGN:LG,NG,CG,TN		DESC:God of bravery, competition, sport		DEITYWEAP:Javelin			ALIGN:NG	SOURCEPAGE:p.18	PANTHEON:Pathfinder Chronicles
+Milani		NAMEISPI:YES	DOMAINS:Chaos,Good,Healing,Liberation,Protection|PREALIGN:NG,CG,CN	DESC:Goddess of devotion, hope, uprisings		DEITYWEAP:Morningstar		ALIGN:CG	SOURCEPAGE:p.18	PANTHEON:Pathfinder Chronicles
 
 ###Block: Empyreal Lords
-# Deity Name	Product Identity?	Domains									Description of Deity/Title						Deity Weapon			Align		Pantheon			Source Page
-Andoletta		NAMEISPI:YES	DOMAINS:Good,Knowledge,Law,Protection|PREALIGN:LG,LN,NG	DESC:Empyreal lord of consolation, respect, security		DEITYWEAP:Quarterstaff		ALIGN:LG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
-Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of freedom, physical beauty, sexuality	DEITYWEAP:Flail			ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
-Korada		NAMEISPI:YES	DOMAINS:Good,Healing,Magic,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		DEITYWEAP:Unarmed Strike	ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
-Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG	DESC:Empyreal lord of chivalry, duty, vengeance			DEITYWEAP:Sword (Bastard)	ALIGN:LG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
-Sinashakti		NAMEISPI:YES	DOMAINS:Chaos,Good,Luck,Travel|PREALIGN:NG,CG,CN		DESC:Empyreal lord of journeys, joy, messengers			DEITYWEAP:Shortbow		ALIGN:CG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
-Valani		NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Weather|PREALIGN:NG,CG,CN		DESC:Empyreal lord of change, growth, primality			DEITYWEAP:Club			ALIGN:CG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
+# Deity Name	Product Identity?	Domains									Description of Deity/Title						Deity Weapon			Align		Source Page		Pantheon
+Andoletta		NAMEISPI:YES	DOMAINS:Good,Knowledge,Law,Protection|PREALIGN:LG,LN,NG	DESC:Empyreal lord of consolation, respect, security		DEITYWEAP:Quarterstaff		ALIGN:LG	SOURCEPAGE:p.21	PANTHEON:Empyreal Lords
+Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of freedom, physical beauty, sexuality	DEITYWEAP:Flail			ALIGN:NG	SOURCEPAGE:p.21	PANTHEON:Empyreal Lords
+Korada		NAMEISPI:YES	DOMAINS:Good,Healing,Magic,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		DEITYWEAP:Unarmed Strike	ALIGN:NG	SOURCEPAGE:p.21	PANTHEON:Empyreal Lords
+Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG	DESC:Empyreal lord of chivalry, duty, vengeance			DEITYWEAP:Sword (Bastard)	ALIGN:LG	SOURCEPAGE:p.21	PANTHEON:Empyreal Lords
+Sinashakti		NAMEISPI:YES	DOMAINS:Chaos,Good,Luck,Travel|PREALIGN:NG,CG,CN		DESC:Empyreal lord of journeys, joy, messengers			DEITYWEAP:Shortbow		ALIGN:CG	SOURCEPAGE:p.21	PANTHEON:Empyreal Lords
+Valani		NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Weather|PREALIGN:NG,CG,CN		DESC:Empyreal lord of change, growth, primality			DEITYWEAP:Club			ALIGN:CG	SOURCEPAGE:p.21	PANTHEON:Empyreal Lords
 
 #
 # End

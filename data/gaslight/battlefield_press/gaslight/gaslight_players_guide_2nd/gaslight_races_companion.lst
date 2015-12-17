@@ -1,4 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 ###Block: These are listed, but don't exist in MSRD.
+# Race Name
 Armadillo
 Fox
 Goat
@@ -44,6 +46,3 @@ Squid								STARTFEATS:1	SIZE:M	MOVE:Swim,60			FACE:5		REACH:5	VISION:Low-Light
 Tiger											SIZE:L	MOVE:Walk,40			FACE:10,10		REACH:5	VISION:Low-Light Vision				BONUS:COMBAT|AC|3|TYPE=NaturalArmor														BONUS:SKILL|Acrobatics,Stealth|4																			BONUS:SKILLPOOL|CLASS=Animal;LEVEL=1|5	BONUS:STAT|STR|12	BONUS:STAT|DEX|4	BONUS:STAT|CON|6	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4																								MONCSKILL:Acrobatics|Athletics|Notice|Stealth					ABILITY:Special Ability|AUTOMATIC|Hide in Undergrowth|Improved Grab|Pounce|Rake	LEGS:4	HANDS:3	NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d8|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d6					SKILLMULT:1		MONSTERCLASS:Animal:6				RACETYPE:Animal					HITDICEADVANCEMENT:12,18	CR:4
 Toad											SIZE:D	MOVE:Walk,5				FACE:1,1		REACH:0																											BONUS:SKILL|Stealth|4																												BONUS:STAT|STR|-9	BONUS:STAT|DEX|2	BONUS:STAT|INT|-9	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-6																											MONCSKILL:Notice|Stealth																						LEGS:4																													SKILLMULT:1		MONSTERCLASS:Animal:1				RACETYPE:Animal										CR:1/10
 Wolf											SIZE:M	MOVE:Walk,50			FACE:5,5		REACH:5	VISION:Low-Light Vision				BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																						BONUS:SKILLPOOL|CLASS=Animal;LEVEL=1|1	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4																								MONCSKILL:Notice|Stealth|Survival							ABILITY:Special Ability|AUTOMATIC|Scent|Tracking by Scent|Trip				LEGS:4			NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6														SKILLMULT:1		MONSTERCLASS:Animal:2				RACETYPE:Animal					HITDICEADVANCEMENT:2,3,4	CR:1
-
-
-

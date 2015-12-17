@@ -3,7 +3,7 @@
 ###EQMODs
 
 # Modifier Name			Unique Key		Type					Plus		Visible		Source Page		Required Type					Bonus to skill rank		Special Property													Ability																																					Choose					Apply to both heads	Add
-Test EQMOD							TYPE:Weapon.Shield.Armor.Misc																																																																																				ADD:FEAT|Add Feat Equipmod
+Test EQMOD							TYPE:Weapon.Shield.Armor.Misc																																																																																				ADD:ABILITY|FEAT|NORMAL|Add Feat Equipmod
 
 
 #Eqmod

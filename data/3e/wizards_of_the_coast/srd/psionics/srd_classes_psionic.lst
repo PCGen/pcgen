@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Class Name	Hit Dice	Type				Class Type		Max Level	Base class as subclass?	Source Page				Combat bonus										Save bonus																					Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Psicrystal
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	FACT:ClassType|PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Psicrystal
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion		SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Psion		SPELLSTAT:OTHER	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|classlevel("APPLIEDAS=NONEPIC")
 SUBCLASS:Seer	COST:0	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
 #SUBCLASS:Seer	CHOICE:SCHOOL|Clairsentience
 SUBCLASS:Shaper	COST:0	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
@@ -66,11 +66,11 @@ SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration
 20	KNOWN:7,4,4,4,4,3,3,2,2,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
 
 # Class Name		Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page				Combat bonus											Save bonus
-CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	CLASSTYPE:PC	ABB:PsyWar		MAXLEVEL:20	SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	FACT:ClassType|PC	ABB:PsyWar		MAXLEVEL:20	SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Stabilize Self|Swim|Tumble|Use Psionic Device
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Psychic Warrior	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|classlevel("APPLIEDAS=NONEPIC")
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1																																														ABILITY:Special Ability|AUTOMATIC|PsionicClass
 1	BONUS:VAR|PsychicWarriorML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																						DEFINE:PsychicWarriorML|0
@@ -81,8 +81,8 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 1	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,17	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,18	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,19	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,20
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Powers per day
 1	BONUS:VAR|PsyWarFreePowers|classlevel("APPLIEDAS=NONEPIC")+var("BL=Psychic Warrior")+2	ABILITY:Special Ability|AUTOMATIC|PsychicWarriorBasePowers
 ###Block: Level progression
@@ -91,7 +91,7 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 3	KNOWN:3,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:3,2
 5	KNOWN:3,3,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1
-6	KNOWN:3,3,2																	ADD:VFEAT|Weapon Specialization
+6	KNOWN:3,3,2																	ADD:ABILITY|FEAT|VIRTUAL|Weapon Specialization
 7	KNOWN:3,3,2,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:3,3,3,1		BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 9	KNOWN:3,3,3,2		BONUS:ABILITYPOOL|Psionic Combat Mode|1
@@ -108,13 +108,13 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 20	KNOWN:3,4,3,3,3,3,3	BONUS:ABILITYPOOL|Psychic Warrior Feat|1
 
 # Class Name	Hit Dice	Type					Class Type			Max Level	Base class as subclass?	Source Page				Combat bonus										Save bonus																													Modify VAR
-CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	CLASSTYPE:Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Psicrystal
-# Class Name	Required Feat			Required Skill						Req. Spell Type
+CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	FACT:ClassType|Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Psicrystal
+# Class Name	Required Ability					Required Skill						Req. Spell Type
 CLASS:Metamind	PREABILITY:1,CATEGORY=FEAT,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metamind	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
-CLASS:Metamind	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Metamind|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
+CLASS:Metamind	SPELLSTAT:OTHER	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Metamind|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
 SUBCLASS:Metamind(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion=1]
 SUBCLASS:Metamind(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion=1]
 SUBCLASS:Metamind(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion=1]
@@ -147,13 +147,13 @@ SUBCLASS:Metamind(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESUB
 10	KNOWN:3,3,3,2,1	BONUS:ABILITYPOOL|Psionic Combat Mode|1							ABILITY:Special Ability|AUTOMATIC|Apotheosis
 
 # Class Name		Hit Dice	Type					Class Type			Max Level	Base class as subclass?	Source Page				Combat bonus											Save bonus
-CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	CLASSTYPE:Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	FACT:ClassType|Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Skill						Req. Known Spell			Required Text											Var. Min. Value
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy=1,Knowledge (Psionics)=1	PRESPELL:1,Control Flames	PRETEXT:Must have set fire to a structure of any size just to watch it burn	PREVARGTEQ:BasePowerPoints,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level									Use Spell List
-CLASS:Pyrokineticist	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Pyrokineticist|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
+CLASS:Pyrokineticist	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Pyrokineticist|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
 SUBCLASS:Pyrokineticist(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion=1]
 SUBCLASS:Pyrokineticist(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion=1]
 SUBCLASS:Pyrokineticist(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion=1]
@@ -186,13 +186,13 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[
 
 
 # Class Name	Hit Dice	Type					Class Type			Max Level	Source Page				Combat bonus										Save bonus
-CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	CLASSTYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat	Required Skill									Required Text																		PRETOTALAB		Var. Min. Value
+CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	FACT:ClassType|Prestige	MAXLEVEL:10	SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Ability				Required Skill									Required Text																		PRETOTALAB		Var. Min. Value
 CLASS:Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
-CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Slayer|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
+CLASS:Slayer	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Slayer|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
 ###Block: Base Psionic
 1	ABILITY:Special Ability|AUTOMATIC|PsionicClass
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
@@ -207,8 +207,8 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:SlayerML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:SlayerML,19
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level progression
 1				BONUS:ABILITYPOOL|Psionic Combat Mode|2							ABILITY:Special Ability|AUTOMATIC|Favored Enemy (Mortal Enemy)|Mortal Enemy Sense
 2																	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
@@ -222,13 +222,13 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 10	KNOWN:2,2,2,1	BONUS:ABILITYPOOL|Psionic Combat Mode|1							ABILITY:Special Ability|AUTOMATIC|Blast Feedback
 
 # Class Name	Hit Dice	Type					Class Type			Max Level	Base class as subclass?	Source Page				Combat bonus											Save bonus
-CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	CLASSTYPE:Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	FACT:ClassType|Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Skill							PRETOTALAB		Var. Min. Value
 CLASS:Soulknife	PRESKILL:2,Move Silently=3,Knowledge (Psionics)=3	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Concentration|Hide|Knowledge (Psionics)|Move Silently|Sense Motive|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
-CLASS:Soulknife	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Soulknife|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
+CLASS:Soulknife	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Soulknife|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psion
 SUBCLASS:Soulknife(Wis)	CHOICE:SCHOOL|Clairsentience		SPELLSTAT:WIS	PREMULT:1,[PRESUBCLASS:1,Seer],[!PRECLASS:1,Psion=1]
 SUBCLASS:Soulknife(Int)	CHOICE:SCHOOL|Metacreativity		SPELLSTAT:INT	PREMULT:1,[PRESUBCLASS:1,Shaper],[!PRECLASS:1,Psion=1]
 SUBCLASS:Soulknife(Con)	CHOICE:SCHOOL|Psychokinesis		SPELLSTAT:CON	PREMULT:1,[PRESUBCLASS:1,Savant],[!PRECLASS:1,Psion=1]

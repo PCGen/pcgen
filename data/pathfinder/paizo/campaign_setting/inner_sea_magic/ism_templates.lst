@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Mon Nov  3 11:31:49 2014 -- reformated by prettylst.pl v1.51 (build 25135)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
 # Original Entry by: Andrew Wilson
 
-# Template Name	Visible		CR	Bonus Ability Pool
-Fleshwarped		VISIBLE:DISPLAY	CR:1	BONUS:ABILITYPOOL|Fleshwarped Special Ability|1	BONUS:ABILITYPOOL|Fleshwarped Ability Bonus|1	BONUS:ABILITYPOOL|Fleshwarped Ability Penalty|2	BONUS:ABILITYPOOL|Fleshwarped Skill Bonus|1
-Magic School	VISIBLE:DISPLAY		BONUS:ABILITYPOOL|Magic School Choice|1
+# Template Name	Challenge Rating	Visible		Bonus Ability Pool
+Fleshwarped		CR:1			VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Fleshwarped Special Ability|1	BONUS:ABILITYPOOL|Fleshwarped Ability Bonus|1	BONUS:ABILITYPOOL|Fleshwarped Ability Penalty|2	BONUS:ABILITYPOOL|Fleshwarped Skill Bonus|1
+Magic School				VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Magic School Choice|1
 
 #
 # End

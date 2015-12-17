@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
@@ -6,14 +6,14 @@
 # ORIGINAL ENTRY DATE: Unknown
 
 ###Block: Archetype Buckets
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI	Display Location
-ABILITYCATEGORY:Magus Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:MagusArchetype										PLURAL:Magus Archetypes		DISPLAYLOCATION:Archetype
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object			Specific choices list						Plural description for UI	Display Location
+ABILITYCATEGORY:Magus Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Archetype		TYPE:MagusArchetype											PLURAL:Magus Archetypes		DISPLAYLOCATION:Archetype
 
-ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Animal Speaker ~ Animal Friend Choice						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Geisha Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal							ABILITYLIST:Geisha Weapon Proficiency Choice							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Geisha Knowledge Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Geisha Knowledge Choice									DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Secrets of the Grave Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Secrets of the Grave Spell Choice							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Magus Spell Blending			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Magus Spell Blending														DISPLAYLOCATION:Class Features	POOL:Pool_SpellBlending
+ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability						ABILITYLIST:Animal Speaker ~ Animal Friend Choice						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Geisha Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Internal								ABILITYLIST:Geisha Weapon Proficiency Choice							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Geisha Knowledge Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability						ABILITYLIST:Geisha Knowledge Choice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Secrets of the Grave Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability						ABILITYLIST:Secrets of the Grave Spell Choice							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Spell Blending			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_SpellBlending	CATEGORY:Internal			TYPE:Magus Spell Blending															DISPLAYLOCATION:Class Features
 
 
 ###Block: Bonus Feats
@@ -24,9 +24,9 @@ ABILITYCATEGORY:Saurian Shaman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 ABILITYCATEGORY:Shark Shaman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SharkShamanBonus	PLURAL:Shark Shaman Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Magus ability categories
-# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
-ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana				PLURAL:Magus Arcana		DISPLAYLOCATION:Class Features	POOL:Pool_Magus_Arcana
-ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.ItemCreation.Metamagic	PLURAL:Magus Bonus Feats	DISPLAYLOCATION:Feats
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Magus_Arcana	CATEGORY:Special Ability	TYPE:MagusArcana				PLURAL:Magus Arcana		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:Combat.ItemCreation.Metamagic	PLURAL:Magus Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Summoner/Eidolon ability categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
@@ -113,27 +113,27 @@ ABILITYCATEGORY:Greater Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES
 ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice											DISPLAYLOCATION:Class Features
 
 ###Block: Crossblooded Sorcerer ability categories
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Specific choices list					Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline									PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Sorcerer			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer																					DISPLAYLOCATION:Class Features
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Specific choices list					Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility									PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Bonus Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice									PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat										PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object						Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Crossblooded Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline												PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Sorcerer			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer																								DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object						Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Crossblooded Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility												PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Bonus Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice												PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat													PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures.Magus Class Feature										PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain									PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures.Magus Class Feature									PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain												PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Inquisition					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:Inquisition											PLURAL:Inquisitions				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Domain Alternative ~ Inquisition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition									PLURAL:Inquisitions				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisition					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:Inquisition														PLURAL:Inquisitions				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Domain Alternative ~ Inquisition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition												PLURAL:Inquisitions				DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability							ABILITYLIST:Unsanctioned Knowledge ~ Level 1								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability							ABILITYLIST:Unsanctioned Knowledge ~ Level 2								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability							ABILITYLIST:Unsanctioned Knowledge ~ Level 3								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability							ABILITYLIST:Unsanctioned Knowledge ~ Level 4								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability										ABILITYLIST:Unsanctioned Knowledge ~ Level 1								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability										ABILITYLIST:Unsanctioned Knowledge ~ Level 2								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability										ABILITYLIST:Unsanctioned Knowledge ~ Level 3								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability										ABILITYLIST:Unsanctioned Knowledge ~ Level 4								DISPLAYLOCATION:Feats
 #
 # End
 #

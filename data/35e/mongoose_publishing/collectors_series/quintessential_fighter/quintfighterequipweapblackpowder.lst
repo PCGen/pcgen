@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #A tag needs to be made for accuracy penalties that these weapons suffer.
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-02
 
 #Firearms ----------------------------------------------------------------------------------------------------------
 # Equipment Name			Type										Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page

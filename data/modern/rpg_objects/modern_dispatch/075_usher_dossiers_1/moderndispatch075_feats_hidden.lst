@@ -1,7 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198	SOURCEDATE:2004-01
 # Original Entry by: Paul W. King
 
 # Feat Name			Type			Visible	Special ABility										Define								Bonus to skill						Modify VAR											Source Page
-Sneak Attack		CATEGORY:FEAT	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie				DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0									BONUS:VAR|SneakAttackDie|6|TYPE=Base	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII
-Tactical Expertise	CATEGORY:FEAT	TYPE:ClassAbility	VISIBLE:NO	SAB:Tactical Expertise, can command up to % characters|2*min(CHA,0)										BONUS:SKILL|Knowledge (Tactics)|Reputation
+# Ability Name		Category of Ability	Type			Visible	Special ABility										Define								Bonus to skill						Modify VAR											Source Page
+Sneak Attack		CATEGORY:FEAT		TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie				DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0									BONUS:VAR|SneakAttackDie|6|TYPE=Base	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII
+Tactical Expertise	CATEGORY:FEAT		TYPE:ClassAbility	VISIBLE:NO	SAB:Tactical Expertise, can command up to % characters|2*min(CHA,0)										BONUS:SKILL|Knowledge (Tactics)|Reputation

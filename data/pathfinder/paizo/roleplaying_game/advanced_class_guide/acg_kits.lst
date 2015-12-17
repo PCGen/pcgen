@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat May  9 00:54:12 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
 
 ###Block: Arcanist Starting Spellbook
@@ -78,7 +78,7 @@ GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Spell Component Pouch		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
@@ -109,7 +109,7 @@ GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Spell Component Pouch	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
@@ -126,7 +126,7 @@ GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Spell Component Pouch	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
@@ -194,7 +194,7 @@ GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Soap (per lb)		QTY:1		SIZE:PC	LOCATION:Backpack
-GEAR:Spell Component Pouch	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Spell Component Pouch	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack

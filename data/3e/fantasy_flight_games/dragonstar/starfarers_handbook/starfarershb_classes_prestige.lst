@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -16,13 +16,13 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Ability						Required Feat										Required Skill			PRETOTALAB
+# Class Name	Required Ability																					Required Skill			PRETOTALAB
 CLASS:Gundancer	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump=5,Tumble=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1													ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency
-1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)
+1	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
 1	SAB:Backfire	SAB:Gun Mastery +%|GunMastery	BONUS:VAR|GunMastery|(CL+2)/3	DEFINE:GunMastery|0
 3	SAB:Dead Aim
@@ -33,7 +33,7 @@ CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Concentration|Fr
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
 CLASS:Negotiator	HD:6		TYPE:PC.Prestige	ABB:Neg		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat				Required Skill
+# Class Name	Required Ability						Required Skill
 CLASS:Negotiator	PREABILITY:2,CATEGORY=FEAT,Iron Will,Leadership	PRESKILL:4,Bluff=8,Diplomacy=8,Innuendo=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE=Knowledge|Listen|Move Silently|Perform|TYPE=Profession|Research|Search|Sense Motive|Speak Language|Spot
@@ -48,12 +48,12 @@ CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forger
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Technomancer	HD:6		TYPE:PC.Prestige	ABB:Tnm		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat							Required Skill				Req. Spell Type
+# Class Name		Required Ability										Required Skill				Req. Spell Type
 CLASS:Technomancer	PREABILITY:2,CATEGORY=FEAT,Technical Proficiency,TYPE=ItemCreation	PRESKILL:2,Repair=5,Use Device=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technomancer	STARTSKILLPTS:6	CSKILL:Alchemy|Concentration|TYPE=Craft|Cryptography|Decipher Script|Disable Device|TYPE=Knowledge|TYPE=Profession|Repair|Research|Scry|Spellcraft|Use Device|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Technomancer	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Technomancer|CL
+CLASS:Technomancer	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Technomancer|CL
 1	CAST:0		SAB:Arcane Tools
 2	CAST:1		SAB:Energy Flux
 3	CAST:1,0		SAB:Confuse Construct

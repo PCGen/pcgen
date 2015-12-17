@@ -1,74 +1,75 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
 # Feat Name					Type												Clear Prereq.	Required Feat
-CATEGORY=FEAT|Advanced Amphibious Training.MOD	TYPE:LeatherneckTerrain
-CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:Grunt
+# Ability Name							Type												Clear Prereq.	Required Ability
+CATEGORY=FEAT|Advanced Amphibious Training.MOD		TYPE:LeatherneckTerrain
+CATEGORY=FEAT|Advanced Firearms Proficiency.MOD		TYPE:Grunt
 CATEGORY=FEAT|Advanced Jungle/Swamp Training.MOD	TYPE:LeatherneckTerrain
-CATEGORY=FEAT|Air Traffic Control Expert.MOD	TYPE:Specialist
-CATEGORY=FEAT|Alertness.MOD				TYPE:Airman
+CATEGORY=FEAT|Air Traffic Control Expert.MOD		TYPE:Specialist
+CATEGORY=FEAT|Alertness.MOD					TYPE:Airman
 CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:Grunt.Leatherneck
 CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:Grunt.Leatherneck
-CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Grunt.Leatherneck
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD		TYPE:Grunt.Leatherneck
 CATEGORY=FEAT|Black Market.MOD				TYPE:SupplyFeat
 CATEGORY=FEAT|Builder.MOD					TYPE:Grunt
-CATEGORY=FEAT|Burst Fire.MOD				TYPE:Grunt.Leatherneck
+CATEGORY=FEAT|Burst Fire.MOD					TYPE:Grunt.Leatherneck
 CATEGORY=FEAT|Combat Pilot.MOD				TYPE:Airman
-CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:Grunt.Leatherneck
-CATEGORY=FEAT|Commando Training.MOD			TYPE:Grunt.Leatherneck
-CATEGORY=FEAT|Conviction.MOD				TYPE:Airman.Grunt.Leatherneck.ReligiousFeat
-CATEGORY=FEAT|Creative.MOD				TYPE:AdministrativeFeat
+CATEGORY=FEAT|Combat Reflexes.MOD				TYPE:Grunt.Leatherneck
+CATEGORY=FEAT|Commando Training.MOD				TYPE:Grunt.Leatherneck
+CATEGORY=FEAT|Conviction.MOD					TYPE:Airman.Grunt.Leatherneck.ReligiousFeat
+CATEGORY=FEAT|Creative.MOD					TYPE:AdministrativeFeat
 CATEGORY=FEAT|Cryptographer.MOD				TYPE:Specialist
-CATEGORY=FEAT|Deceptive.MOD				TYPE:LegalServicesFeat
-CATEGORY=FEAT|Defense Language Institute.MOD	TYPE:Specialist
-CATEGORY=FEAT|Desk Jockey.MOD				TYPE:AdministrativeFeat.RecruitingFeat.SupplyFeat
-CATEGORY=FEAT|Educated.MOD				TYPE:AdministrativeFeat.LegalServicesFeat.RecruitingFeat.ReligiousFeat
+CATEGORY=FEAT|Deceptive.MOD					TYPE:LegalServicesFeat
+CATEGORY=FEAT|Defense Language Institute.MOD		TYPE:Specialist
+CATEGORY=FEAT|Desk Jockey.MOD					TYPE:AdministrativeFeat.RecruitingFeat.SupplyFeat
+CATEGORY=FEAT|Educated.MOD					TYPE:AdministrativeFeat.LegalServicesFeat.RecruitingFeat.ReligiousFeat
 CATEGORY=FEAT|Electronic Warfare.MOD			TYPE:Specialist
-CATEGORY=FEAT|Evasive Maneuvers.MOD			TYPE:Airman
-CATEGORY=FEAT|Fighter Escort.MOD			TYPE:Airman
-CATEGORY=FEAT|Formation Flying.MOD			TYPE:Airman
-CATEGORY=FEAT|Grenadier.MOD				TYPE:Grunt.Leatherneck
-CATEGORY=FEAT|Guide.MOD					TYPE:Leatherneck
+CATEGORY=FEAT|Evasive Maneuvers.MOD				TYPE:Airman
+CATEGORY=FEAT|Fighter Escort.MOD				TYPE:Airman
+CATEGORY=FEAT|Formation Flying.MOD				TYPE:Airman
+CATEGORY=FEAT|Grenadier.MOD					TYPE:Grunt.Leatherneck
+CATEGORY=FEAT|Guide.MOD						TYPE:Leatherneck
 CATEGORY=FEAT|Hawkeye.MOD					TYPE:Airman
 CATEGORY=FEAT|Improved Initiative.MOD			TYPE:Airman
 CATEGORY=FEAT|Interrogation.MOD				TYPE:Specialist
 CATEGORY=FEAT|Lightning Reflexes.MOD			TYPE:Airman
-CATEGORY=FEAT|Marksman.MOD				TYPE:Grunt.Leatherneck
-CATEGORY=FEAT|MOS Armor 1.MOD																PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Aviation 1.MOD			TYPE:Airman											PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Aviation 2.MOD			TYPE:Airman
-CATEGORY=FEAT|MOS Aviation 3.MOD			TYPE:Airman
-CATEGORY=FEAT|MOS Aviation 4.MOD			TYPE:Airman
-CATEGORY=FEAT|MOS Aviation 5.MOD			TYPE:Airman
+CATEGORY=FEAT|Marksman.MOD					TYPE:Grunt.Leatherneck
+CATEGORY=FEAT|MOS Armor 1.MOD																	PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Aviation 1.MOD				TYPE:Airman											PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Aviation 2.MOD				TYPE:Airman
+CATEGORY=FEAT|MOS Aviation 3.MOD				TYPE:Airman
+CATEGORY=FEAT|MOS Aviation 4.MOD				TYPE:Airman
+CATEGORY=FEAT|MOS Aviation 5.MOD				TYPE:Airman
 CATEGORY=FEAT|MOS Combat Engineering 1.MOD														PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Diver 1.MOD																PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Field Artillery 1.MOD														PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Infantry/Rifleman 1.MOD														PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Diver 1.MOD																	PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Field Artillery 1.MOD															PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Infantry/Rifleman 1.MOD															PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
 CATEGORY=FEAT|MOS Intelligence 1.MOD															PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Law Enforcement 1.MOD														PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Maintenance 1.MOD															PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Mastery.MOD				TYPE:Grunt.Leatherneck.Specialist
+CATEGORY=FEAT|MOS Law Enforcement 1.MOD															PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Maintenance 1.MOD																PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Mastery.MOD					TYPE:Grunt.Leatherneck.Specialist
 CATEGORY=FEAT|MOS Medical 1.MOD																PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS NBC 1.MOD																PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Pilot 1.MOD				TYPE:Airman											PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|MOS Pilot 2.MOD				TYPE:Airman
-CATEGORY=FEAT|MOS Pilot 3.MOD				TYPE:Airman
-CATEGORY=FEAT|MOS Pilot 4.MOD				TYPE:Airman
-CATEGORY=FEAT|MOS Pilot 5.MOD				TYPE:Airman
+CATEGORY=FEAT|MOS NBC 1.MOD																	PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Pilot 1.MOD					TYPE:Airman											PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
+CATEGORY=FEAT|MOS Pilot 2.MOD					TYPE:Airman
+CATEGORY=FEAT|MOS Pilot 3.MOD					TYPE:Airman
+CATEGORY=FEAT|MOS Pilot 4.MOD					TYPE:Airman
+CATEGORY=FEAT|MOS Pilot 5.MOD					TYPE:Airman
 CATEGORY=FEAT|MOS Signals 1.MOD																PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Occupation (Military),Basic Training
-CATEGORY=FEAT|NBC.MOD					TYPE:Grunt.Leatherneck.Specialist
+CATEGORY=FEAT|NBC.MOD						TYPE:Grunt.Leatherneck.Specialist
 CATEGORY=FEAT|Psychotherapy.MOD				TYPE:Specialist.ReligiousFeat
-CATEGORY=FEAT|Radar Operation.MOD			TYPE:Airman.Specialist.AirDefenseFeat
+CATEGORY=FEAT|Radar Operation.MOD				TYPE:Airman.Specialist.AirDefenseFeat
 CATEGORY=FEAT|Renown.MOD					TYPE:Airman.Grunt.Leatherneck
-CATEGORY=FEAT|Sonar Operation.MOD			TYPE:Specialist
-CATEGORY=FEAT|Stealthy.MOD				TYPE:Leatherneck
+CATEGORY=FEAT|Sonar Operation.MOD				TYPE:Specialist
+CATEGORY=FEAT|Stealthy.MOD					TYPE:Leatherneck
 CATEGORY=FEAT|Strafe.MOD					TYPE:Grunt.Leatherneck
-CATEGORY=FEAT|Studious.MOD				TYPE:LegalServicesFeat.ReligiousFeat
+CATEGORY=FEAT|Studious.MOD					TYPE:LegalServicesFeat.ReligiousFeat
 CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:Grunt.Leatherneck.AirDefenseFeat
-CATEGORY=FEAT|Tank/APC Weapons.MOD			TYPE:AirDefenseFeat
-CATEGORY=FEAT|Teamwork.MOD				TYPE:Airman.Grunt.Leatherneck.AirDefenseFeat
-CATEGORY=FEAT|Trustworthy.MOD				TYPE:LegalServicesFeat.RecruitingFeat.ReligiousFeat
-CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:Airman
+CATEGORY=FEAT|Tank/APC Weapons.MOD				TYPE:AirDefenseFeat
+CATEGORY=FEAT|Teamwork.MOD					TYPE:Airman.Grunt.Leatherneck.AirDefenseFeat
+CATEGORY=FEAT|Trustworthy.MOD					TYPE:LegalServicesFeat.RecruitingFeat.ReligiousFeat
+CATEGORY=FEAT|Vehicle Expert.MOD				TYPE:Airman
 CATEGORY=FEAT|War Profiteer.MOD				TYPE:SupplyFeat
 CATEGORY=FEAT|Weapon Focus.MOD				TYPE:Grunt.Leatherneck
 CATEGORY=FEAT|Wingman.MOD					TYPE:Airman

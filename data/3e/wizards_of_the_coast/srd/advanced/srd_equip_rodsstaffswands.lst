@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 #Wands don't mention their base material. Maybe 'Wand' itself should be a BaseMaterial EQMOD? - Frank
 
 ###Block:Rods
-# Equipment Name				Output Name				Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Alt Damage		Modifier						Size		Source Page				Virtual Feat					Combat bonus			Stat bonus					Weapon prop. bonus					Special Property
+# Equipment Name				Output Name				Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Alt Damage		Modifier						Size		Source Page				Ability									Combat bonus			Stat bonus					Weapon prop. bonus					Special Property
 Rod (Absorption)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:50000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
-Rod (Alertness)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:72000	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods								BONUS:COMBAT|INITIATIVE|1							BONUS:WEAPON|DAMAGE,TOHIT|1TYPE=Enhancement
+Rod (Alertness)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:72000	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods											BONUS:COMBAT|INITIATIVE|1							BONUS:WEAPON|DAMAGE,TOHIT|1TYPE=Enhancement
 Rod (Cancellation)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:11000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
 Rod (Enemy Detection)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:23500	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
 Rod (Flailing)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Flail		TYPE:Magic.Rod.Weapon.Exotic.Melee.Bludgeoning.Double.Flail			COST:40000	WT:20		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8	EQMOD:STEEL						SIZE:L	SOURCEPAGE:srdmagicitemsrods	ABILITY:FEAT|VIRTUAL|Ambidexterity|Two-Weapon Fighting												BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
@@ -15,13 +15,13 @@ Rod (Immovable)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:7
 Rod (Lordly Might)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:70000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
 Rod (Metal and Mineral Detection)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:10500	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
 Rod (Negation)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:35000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
-Rod (Python)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	COST:13000	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:STEEL						SIZE:L	SOURCEPAGE:srdmagicitemsrods																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Rod (Python)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	COST:13000	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:STEEL						SIZE:L	SOURCEPAGE:srdmagicitemsrods																						BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 Rod (Rulership)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:60000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
 Rod (Security)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:61000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
-Rod (Splendor)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:25000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods													BONUS:STAT|CHA|4|TYPE=Enhancement
-Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:23000	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
-Rod (Viper)					OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:19000	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8				EQMOD:STEEL						SIZE:M	SOURCEPAGE:srdmagicitemsrods																			BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:17000	WT:6											EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods																			BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
+Rod (Splendor)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:25000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods																BONUS:STAT|CHA|4|TYPE=Enhancement
+Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:23000	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods																						BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Rod (Viper)					OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:19000	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8				EQMOD:STEEL						SIZE:M	SOURCEPAGE:srdmagicitemsrods																						BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:17000	WT:6											EQMOD:STEEL						SIZE:S	SOURCEPAGE:srdmagicitemsrods																						BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
 Rod (Wonder)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod										COST:12000	WT:0											EQMOD:STEEL								SOURCEPAGE:srdmagicitemsrods
 
 ###Block:Staves

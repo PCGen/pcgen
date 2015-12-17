@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat May  9 00:54:12 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # COMMENT: Some non-defined weapons commented out; may be wrong names, may not exist
 # COMMENT: Some may require a bestiary to be loaded
 
@@ -170,7 +170,7 @@ Cork Vest				TYPE:Goods.Shirt			COST:25	WT:1								SOURCEPAGE:p.203						SPROP:
 Courtesan's Kit			TYPE:Goods.Tools			COST:10	WT:5								SOURCEPAGE:p.204						SPROP:Includes razor, scented oils and salves, frangrances, warming pot, variety of outfits, books of poetry, literature, plays
 Fire Pump				TYPE:Goods.Tools			COST:200	WT:500	EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.204						SPROP:Kit for heavy wagon; DC 20 Strength check to spray water to extinguish 5 sq. ft. of nonmagical fire
 # COMMENT: (Small) added to avoid conflict with UE item
-Footprint Cast (Small)		TYPE:Goods.Tools		COST:2	WT:1								SOURCEPAGE:p.204						SPROP:preserve a set of footprints to examine later by spending 1 minute for cast to set and dry so that they can be examined later with no penalry due to time or weather.
+Footprint Cast (Small)		TYPE:Goods.Tools			COST:2	WT:1								SOURCEPAGE:p.204						SPROP:preserve a set of footprints to examine later by spending 1 minute for cast to set and dry so that they can be examined later with no penalry due to time or weather.
 Grappler's Grease			TYPE:Goods.Tools.Consumable	COST:5	WT:0.5	EQMOD:CHARGED_ITEM_5|CHARGES[5]	SOURCEPAGE:p.204						SPROP:Gain +4 to CMD against Grapple; 1 minute to apply, lasts 10 minutes																									TEMPBONUS:ANYPC|VAR|CMD_Grapple|4
 Hand Rotary Quern			TYPE:Goods.Tools			COST:10	WT:20								SOURCEPAGE:p.204						SPROP:Grinds substances into powder
 # TODO: Reduce range penalty by 2

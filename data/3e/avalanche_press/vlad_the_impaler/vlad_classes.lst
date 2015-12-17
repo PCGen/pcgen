@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php	SOURCEDATE:2002-01
 # Original Entry by: Jerril
 
@@ -18,8 +18,8 @@ CLASS:Boyar		PRESKILL:1,Intimidate=8	PRESTAT:1,CHA=13	PRETEXT:Must own a Castle
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handle Animal|Intimidate|Ride|Sense Motive|TYPE=Craft
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
 1
 1							BONUS:VAR|BoyarIncome|1		ABILITY:Special Ability|AUTOMATIC|Income
@@ -41,8 +41,8 @@ CLASS:Black Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Nobility
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|Intuit Direction
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
 1							ABILITY:FEAT|AUTOMATIC|Ride-By Attack|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Mounted Combat],[PRESKILL:1,Ride=1]
 2							ABILITY:Special Ability|AUTOMATIC|Courser's Fury
@@ -62,7 +62,7 @@ CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBA
 CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE=Craft
-1							AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
+1										AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
@@ -113,5 +113,5 @@ CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=Cr
 14								BONUS:VAR|TalismanProgression|1
 16	BONUS:ABILITYPOOL|Lautar Song of Power|1
 17								BONUS:VAR|TalismanProgression|1
-19																																		ABILITY:FEAT|AUTOMATIC|Craft Magic Arms and Armor
+19														ABILITY:FEAT|AUTOMATIC|Craft Magic Arms and Armor
 20	BONUS:ABILITYPOOL|Lautar Song of Power|1

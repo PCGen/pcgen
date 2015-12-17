@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
-# Class Name	Required Feat					Required Skill							PRETOTALAB
+# Class Name	Required Ability								Required Skill							PRETOTALAB
 CLASS:Bad Cop	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=3	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Repair|Sense Motive|Swim
@@ -19,7 +19,7 @@ CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Kno
 
 # Class Name	Hit Dice	Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Good Cop	HD:8		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
-# Class Name	Required Feat		Required Skill
+# Class Name	Required Ability					Required Skill
 CLASS:Good Cop	PREABILITY:1,CATEGORY=FEAT,Trustworthy	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Good Cop	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Drive|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Investigate|Listen|Sense Motive|Spot

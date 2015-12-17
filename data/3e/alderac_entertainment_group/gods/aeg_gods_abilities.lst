@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
@@ -52,8 +52,8 @@ Bonus Known Spell 9	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISP
 
 ###Block: Barbarian Totem Animal Templates
 
-# Ability Name	Category of Ability		Type					Visible	Special ABility		Template			Virtual Feat	Ability
-Totem (Badger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Rage (Ex)									ABILITY:Special Ability|AUTOMATIC|Rage
+# Ability Name	Category of Ability		Type					Visible	Special ABility		Template			Ability
+Totem (Badger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Rage (Ex)						ABILITY:Special Ability|AUTOMATIC|Rage
 Totem (Bat)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Blindsight (Ex)
 Totem (Bear)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Tough (Ex)
 Totem (Boar)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Ferocity (Ex)
@@ -76,7 +76,7 @@ Totem (Snake)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	S
 Totem (Tiger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Ambush (Ex)
 Totem (Weasle)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wild Weasel (Ex)
 Totem (Wolf)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolf Scent (Ex)
-Totem (Wolverine)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolverine Totem								ABILITY:Special Ability|AUTOMATIC|Rage
+Totem (Wolverine)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolverine Totem					ABILITY:Special Ability|AUTOMATIC|Rage
 
 
 

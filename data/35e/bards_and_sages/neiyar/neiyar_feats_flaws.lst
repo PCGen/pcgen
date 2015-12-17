@@ -1,34 +1,36 @@
-# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 
 #FLAWS - Add a bonus feat when each is taken. -- Andrew
 # changed to feats -- Frank
 
 # Feat Name			Unique Key		Output Name			Type		Visible	Prohibited Feat						Prohibited Template		Special ABility				Cost		Source Page
-Achilles' Heel									CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Achilles' Heel			COST:-1	SOURCEPAGE:p.46
-Animal Magnetism									CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Animal Magnetism		COST:-1	SOURCEPAGE:p.46
-Creepy										CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Eccentric Personality,Leadership	!PRETEMPLATE:1,Shalraeku	SAB:FLAW:Creepy				COST:-1	SOURCEPAGE:p.46
-Demonic Persecution								CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Demonic Persecution		COST:-1	SOURCEPAGE:p.46
-Easily Bruised									CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Toughness										SAB:FLAW:Easily Bruised			COST:-1	SOURCEPAGE:p.47
-Gullible										CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Investigator,Investigator ~ Neiyar						SAB:FLAW:Gullible				COST:-1	SOURCEPAGE:p.47
-Haunted										CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Haunted				COST:-1	SOURCEPAGE:p.47
-Imperfect Spellcaster								CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Imperfect Spellcaster	COST:-1	SOURCEPAGE:p.47
-Phobia										CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Phobia				COST:-1	SOURCEPAGE:p.47
-Rage				KEY:RAGE_FLAW					CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Rage				COST:-1	SOURCEPAGE:p.47
-Skittish										CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Lightning Reflexes,Combat Reflexes						SAB:FLAW:Skittish				COST:-1	SOURCEPAGE:p.47
-Tainted Aura									CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES									!PRETEMPLATE:1,Shalraeku	SAB:FLAW:Tainted Aura			COST:-1	SOURCEPAGE:p.47
-Traveling Circus									CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Traveling Circus		COST:-1	SOURCEPAGE:p.47
-Vulnerability									CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Vulnerability			COST:-1	SOURCEPAGE:p.47
-Weak-willed										CATEGORY:FEAT	TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Iron Will										SAB:FLAW:Weak-willed			COST:-1	SOURCEPAGE:p.48
+# Ability Name		Unique Key		Category of Ability	Type		Visible	Restricted Ability								Prohibited Template		Special ABility				Cost		Source Page
+Achilles' Heel					CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Achilles' Heel			COST:-1	SOURCEPAGE:p.46
+Animal Magnetism					CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Animal Magnetism		COST:-1	SOURCEPAGE:p.46
+Creepy						CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Eccentric Personality,Leadership	!PRETEMPLATE:1,Shalraeku	SAB:FLAW:Creepy				COST:-1	SOURCEPAGE:p.46
+Demonic Persecution				CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Demonic Persecution		COST:-1	SOURCEPAGE:p.46
+Easily Bruised					CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Toughness										SAB:FLAW:Easily Bruised			COST:-1	SOURCEPAGE:p.47
+Gullible						CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Investigator,Investigator ~ Neiyar						SAB:FLAW:Gullible				COST:-1	SOURCEPAGE:p.47
+Haunted						CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Haunted				COST:-1	SOURCEPAGE:p.47
+Imperfect Spellcaster				CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Imperfect Spellcaster	COST:-1	SOURCEPAGE:p.47
+Phobia						CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Phobia				COST:-1	SOURCEPAGE:p.47
+Rage				KEY:RAGE_FLAW	CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Rage				COST:-1	SOURCEPAGE:p.47
+Skittish						CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Lightning Reflexes,Combat Reflexes						SAB:FLAW:Skittish				COST:-1	SOURCEPAGE:p.47
+Tainted Aura					CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES												!PRETEMPLATE:1,Shalraeku	SAB:FLAW:Tainted Aura			COST:-1	SOURCEPAGE:p.47
+Traveling Circus					CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Traveling Circus		COST:-1	SOURCEPAGE:p.47
+Vulnerability					CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES																	SAB:FLAW:Vulnerability			COST:-1	SOURCEPAGE:p.47
+Weak-willed						CATEGORY:FEAT		TYPE:Flaw	VISIBLE:YES	!PREABILITY:1,CATEGORY=FEAT,Iron Will										SAB:FLAW:Weak-willed			COST:-1	SOURCEPAGE:p.48
 # End Flaws
 
 
 ###Block:Flaw Modifications:
 # Feat Name			Prohibited Feat
-CATEGORY=FEAT|Iron Will.MOD		!PREABILITY:1,CATEGORY=FEAT,Weak willed
+# Ability Name					Restricted Ability
+CATEGORY=FEAT|Iron Will.MOD			!PREABILITY:1,CATEGORY=FEAT,Weak willed
 CATEGORY=FEAT|Investigator.MOD		!PREABILITY:1,CATEGORY=FEAT,Gullible
-CATEGORY=FEAT|Leadership.MOD		!PREABILITY:1,CATEGORY=FEAT,Creepy
+CATEGORY=FEAT|Leadership.MOD			!PREABILITY:1,CATEGORY=FEAT,Creepy
 CATEGORY=FEAT|Lightning Reflexes.MOD	!PREABILITY:1,CATEGORY=FEAT,Skittish
-CATEGORY=FEAT|Combat Reflexes.MOD	!PREABILITY:1,CATEGORY=FEAT,Skittish
-CATEGORY=FEAT|Toughness.MOD		!PREABILITY:1,CATEGORY=FEAT,Easily Bruised
+CATEGORY=FEAT|Combat Reflexes.MOD		!PREABILITY:1,CATEGORY=FEAT,Skittish
+CATEGORY=FEAT|Toughness.MOD			!PREABILITY:1,CATEGORY=FEAT,Easily Bruised
 ###Flaws changed to Feats, redid the PRExxx -- Andrew

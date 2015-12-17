@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 # Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
 
 # Class Name		Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat										Required Skill				Req. Spell Type
+# Class Name		Required Ability																Required Skill				Req. Spell Type
 CLASS:Colorless Adept	PREABILITY:1,CATEGORY=FEAT,Sequester Power	PREABILITY:2,CATEGORY=FEAT,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
@@ -25,7 +25,7 @@ CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	ALLOWBASECLASS:NO		SOURCEPA
 # Class Name	Skill Pts/Lvl
 CLASS:Psion ITCK	STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion ITCK	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
+CLASS:Psion ITCK	SPELLSTAT:OTHER	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
 SUBCLASS:Seer ITCK	OUTPUTNAME:Seer		COST:0	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
 SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Shaper ITCK	OUTPUTNAME:Shaper		COST:0	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
@@ -88,7 +88,7 @@ SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 
 # Class Name		Output Name			Hit Dice	Type					Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat			Required Skill						Req. Spell Type
+# Class Name		Required Ability					Required Skill						Req. Spell Type
 CLASS:Metamind ITCK	PREABILITY:1,CATEGORY=FEAT,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
@@ -127,25 +127,25 @@ CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craf
 
 # Class Name	Output Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Slayer ITCK	OUTPUTNAME:Slayer	HD:10		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat	Required Skill									Required Text																		PRETOTALAB		Var. Min. Value
+# Class Name	Required Ability				Required Skill									Required Text																		PRETOTALAB		Var. Min. Value
 CLASS:Slayer ITCK	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level progression
-1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	BONUS:VAR|EnemySense|60	DEFINE:EnemySense|0	ADD:SPELLCASTER|Psionic										ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
-2																											BONUS:ABILITYPOOL|Slayer ITCK Feat|1
-3	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
-4																																								ABILITY:Special Ability|AUTOMATIC|Lucid Buffer ~ Slayer ITCK
-5	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
-6																																								ABILITY:Special Ability|AUTOMATIC|Cerebral Blind ~ Slayer ITCK
-7	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
-8																																								ABILITY:Special Ability|AUTOMATIC|Breach Power Resistance ~ Slayer ITCK
-9	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
-10																																								ABILITY:Special Ability|AUTOMATIC|Blast Feedback ~ Slayer ITCK
+1								BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	BONUS:VAR|EnemySense|60	DEFINE:EnemySense|0	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
+2	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
+3	BONUS:ABILITYPOOL|Slayer ITCK Feat|1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic
+4																																						ABILITY:Special Ability|AUTOMATIC|Lucid Buffer ~ Slayer ITCK
+5	BONUS:ABILITYPOOL|Slayer ITCK Feat|1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic
+6																																						ABILITY:Special Ability|AUTOMATIC|Cerebral Blind ~ Slayer ITCK
+7	BONUS:ABILITYPOOL|Slayer ITCK Feat|1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic
+8																																						ABILITY:Special Ability|AUTOMATIC|Breach Power Resistance ~ Slayer ITCK
+9	BONUS:ABILITYPOOL|Slayer ITCK Feat|1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic
+10																																						ABILITY:Special Ability|AUTOMATIC|Blast Feedback ~ Slayer ITCK
 
 # Class Name		Output Name			Hit Dice	Type					Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
