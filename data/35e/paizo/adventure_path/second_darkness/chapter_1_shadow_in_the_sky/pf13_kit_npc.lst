@@ -343,7 +343,7 @@ RACE:Human	!PRERACE:1,%
 STAT:STR=14|DEX=13|CON=15|INT=8|WIS=12|CHA=10
 NAME:Bojask
 CLASS:Ranger	LEVEL:2
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
 ABILITY:CATEGORY=Ranger Combat Style|Two-Weapon Fighting Combat Style
 SKILL:Handle Animal		RANK:5
 SKILL:Hide				RANK:5

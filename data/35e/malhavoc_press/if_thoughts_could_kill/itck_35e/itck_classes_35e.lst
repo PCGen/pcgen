@@ -53,7 +53,7 @@ CLASS:Blade Manifester	PREABILITY:2,CATEGORY=FEAT,MindBlade Wielder,MindBlade Sh
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blade Manifester	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
-CLASS:Blade Manifester	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Blade Manifester|CL	SPELLLIST:1|Psychic Warrior
+CLASS:Blade Manifester	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Blade Manifester|CL	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|BladeManifesterML|CL	BONUS:VAR|BladeManifesterML|var("BL=Blade Manifester")																									DEFINE:BladeManifesterML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BladeManifesterML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BladeManifesterML,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:BladeManifesterML,4

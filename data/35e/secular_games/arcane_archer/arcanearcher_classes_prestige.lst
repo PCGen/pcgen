@@ -69,7 +69,7 @@ CLASS:Divine Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p
 # Class Name		Multiple Requirements																																																																					Required Race
 CLASS:Divine Archer	PREMULT:1,[PRECLASS:1,Divine Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:8,[PREALIGN:LG,NG,CG],[PRETOTALAB:5],[PREABILITY:1,CATEGORY=FEAT,Point Blank Shot],[PREABILITY:1,CATEGORY=FEAT,Precise Shot],[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Concentration=5],[PRESKILL:1,Knowledge (Religion)=10],[PRESPELLTYPE:1,Divine=1],[PREABILITY:1,CATEGORY=FEAT,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spot
+CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (religion)|TYPE=Profession|Ride|Sense Motive|Spot
 ###Block: proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -89,7 +89,7 @@ CLASS:Eldritch Bow	HD:6		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Multiple Requirements																																																											Required Race
 CLASS:Eldritch Bow	PREMULT:1,[PRECLASS:1,Eldritch Bow=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PRETOTALAB:4],[PREABILITY:1,CATEGORY=FEAT,Cunning Archery],[PREABILITY:1,CATEGORY=FEAT,Point Blank Shot],[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Knowledge (Arcana)=8],[PRESPELLTYPE:1,Arcane=3],[PREABILITY:1,CATEGORY=FEAT,TYPE.ArcherySchool]	PRERACE:1,Elf (Grey),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Knowledge (Arcana)|Listen|Move Silently|Spellcraft|Spot|Survival
+CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Knowledge (arcana)|Listen|Move Silently|Spellcraft|Spot|Survival
 ###Block: proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)

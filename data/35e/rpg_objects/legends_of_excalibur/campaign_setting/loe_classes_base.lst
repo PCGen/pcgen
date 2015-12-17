@@ -8,12 +8,12 @@ CLASS:Bard ~ LoE	HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI	ABI
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard ~ LoE	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Bard ~ LoE	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Bard ~ LoE|CL
+CLASS:Bard ~ LoE	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Bard ~ LoE|CL
 ###Bardic abilities level definitions.
 1	BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0
 1	BONUS:VAR|BardicMusicLevel|CL	BONUS:VAR|BardicMusicTimes|BardicMusicLevel		DEFINE:BardicMusicLevel|0
 ###Block: Level progression
-1	CAST:1,2,12			KNOWN:4,2,1			BONUS:VAR|BASEPOWERPOINTS|1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Bard ~ Bardic Music	ABILITY:Feat|VIRTUAL|Power Source(Hedge Mage)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip|TYPE=Simple
+1	CAST:1,2,12			KNOWN:4,2,1			BONUS:VAR|BASEPOWERPOINTS|1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Bard ~ Bardic Music	ABILITY:FEAT|VIRTUAL|Power Source(Hedge Mage)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip|TYPE=Simple
 2	CAST:1,1,8			KNOWN:5,2,1			BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15		KNOWN:5,3,2,1		BONUS:VAR|BASEPOWERPOINTS|2
 4	CAST:1,1,3,10		KNOWN:6,3,2,1		BONUS:VAR|BASEPOWERPOINTS|3
@@ -39,8 +39,8 @@ CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI	LA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Druid ~ LoE	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Druid ~ LoE|CL
-1	CAST:1,2,12												BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|BASEPOWERPOINTS|1							ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|Druid ~ Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion	ABILITY:Feat|VIRTUAL|Power Source(Druid/Minstrel)					AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Shortspear|Longspear
+CLASS:Druid ~ LoE	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Druid ~ LoE|CL
+1	CAST:1,2,12												BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|BASEPOWERPOINTS|1							ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|Druid ~ Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion	ABILITY:FEAT|VIRTUAL|Power Source(Druid/Minstrel)					AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Shortspear|Longspear
 # ABILITY:FEAT|VIRTUAL|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2	CAST:1,1,8												BONUS:VAR|BASEPOWERPOINTS|1													ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
 3	CAST:1,1,4,15											BONUS:VAR|BASEPOWERPOINTS|2													ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step
@@ -67,7 +67,7 @@ CLASS:Druid ~ LoE	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																		Combat bonus											Save bonus
 CLASS:Fool		HD:6		TYPE:Base.PC	ABB:Foo		MAXLEVEL:20	SOURCEPAGE:p.10	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE:Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
+CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (local)|Listen|Move Silently|TYPE=Perform|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 1										AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Shortbow|Sword (Short)|TYPE=Simple
 ###Block: Normal Level Progression
@@ -86,10 +86,10 @@ CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Diplo
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																		Define														Combat bonus										Save bonus																					Modify VAR
 CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		MAXLEVEL:20	SOURCEPAGE:p.12	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE:Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|BONUSPOWERPOINTS|CHA	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcana)|TYPE=Profession|Prophecy|Spellcraft
+CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (arcana)|TYPE=Profession|Prophecy|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Hedge Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Hedge Mage|CL
-1	CAST:1,2,12				KNOWN:4,2,1				SAB:Superstition		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar	ABILITY:Feat|VIRTUAL|Power Source(Hedge Mage)	AUTO:WEAPONPROF|TYPE=Simple
+CLASS:Hedge Mage	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Hedge Mage|CL
+1	CAST:1,2,12				KNOWN:4,2,1				SAB:Superstition		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar	ABILITY:FEAT|VIRTUAL|Power Source(Hedge Mage)	AUTO:WEAPONPROF|TYPE=Simple
 2	CAST:1,1,8				KNOWN:5,2,1				SAB:Dream Reader		BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15			KNOWN:5,3,2,1							BONUS:VAR|BASEPOWERPOINTS|2
 4	CAST:1,1,3,10			KNOWN:6,3,2,1							BONUS:VAR|BASEPOWERPOINTS|3
@@ -113,9 +113,9 @@ CLASS:Hedge Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																		Define														Combat bonus										Save bonus																					Modify VAR
 CLASS:Hermit	HD:6		TYPE:Base.PC	ABB:Hrm		MAXLEVEL:20	SOURCEPAGE:p.14	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE:Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|BONUSPOWERPOINTS|WIS	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Hermit	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Heal|Knowledge (Nature)|Knowledge (Religion)|Listen|Prophecy|Ride|Survival|Swim
+CLASS:Hermit	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Heal|Knowledge (Nature)|Knowledge (religion)|Listen|Prophecy|Ride|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Hermit	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Hermit|CL
+CLASS:Hermit	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Hermit|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 1										AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
@@ -165,13 +165,13 @@ CLASS:Minstrel	HD:6		TYPE:Base.PC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.19	ABILITY:S
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minstrel	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Spellcraft|Spot|Survival|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Minstrel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Minstrel|CL-3|PRECLASS:1,Minstrel=4	BONUS:CASTERLEVEL|CLASS=Minstrel|CL-3|PRECLASS:1,Minstrel=4
+CLASS:Minstrel	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Minstrel|CL-3|PRECLASS:1,Minstrel=4	BONUS:CASTERLEVEL|CLASS=Minstrel|CL-3|PRECLASS:1,Minstrel=4
 1	BONUS:VAR|MinstrelLoreLevel|CL	BONUS:VAR|MinstrelLore|MinstrelLoreLevel		DEFINE:MinstrelLoreLevel|0
 1	BONUS:VAR|MinstrelMusicLevel|CL	BONUS:VAR|MinstrelMusicTimes|MinstrelMusicLevel	DEFINE:MinstrelMusicLevel|0
 ###Block: Normal Level Progression
 1																																																					AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple
 2						SAB:Soothe the Savage Beast (Ex)
-4	CAST:1,2,12										BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS					ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense	ABILITY:Feat|VIRTUAL|Power Source(Druid/Minstrel)
+4	CAST:1,2,12										BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS					ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense	ABILITY:FEAT|VIRTUAL|Power Source(Druid/Minstrel)
 5	CAST:1,1,8																	BONUS:VAR|BASEPOWERPOINTS|1											ABILITY:FEAT|AUTOMATIC|Track
 6	CAST:1,1,4,15																BONUS:VAR|BASEPOWERPOINTS|2
 7	CAST:1,1,3,10																BONUS:VAR|BASEPOWERPOINTS|3											ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step
@@ -194,7 +194,7 @@ CLASS:Noble		HD:8		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.23	ABILITY:Spe
 # Class Name	Required Stat
 CLASS:Noble		PRESTAT:1,NOB=51
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Sense Motive
+CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (history)|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Sense Motive
 1	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)	BONUS:SKILL|Intimidate|AuraNobility	BONUS:VAR|AuraNobility|NOB/2	DEFINE:AuraNobility|0											AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2																														ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Grace
 3	SAB:Quest +% (Ex)|Qust																	BONUS:VAR|Qust|CL/3		DEFINE:Qust|0
@@ -211,9 +211,9 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Int
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																		Define														Combat bonus											Save bonus																					Modify VAR
 CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.26	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE:Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Priest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
+CLASS:Priest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (history)|Knowledge (local)|Knowledge (Nobility and Royalty)|Knowledge (religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Priest|CL
+CLASS:Priest	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Priest|CL
 1	CAST:1,2,12				SAB:Aura of Piety (Ex)	SAB:Turn the Other Cheek (Ex)	BONUS:VAR|BASEPOWERPOINTS|1								ABILITY:FEAT|VIRTUAL|Ordination|Power Source(Priest)	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple
 2	CAST:1,1,8				SAB:Sacraments (Su)						BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15			SAB:Crusade (Ex) +%|Crus					BONUS:VAR|BASEPOWERPOINTS|2	BONUS:VAR|Crus|CL/3	DEFINE:Crus|0
@@ -266,7 +266,7 @@ CLASS:Skald		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Heal|Intimi
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																		Combat bonus										Save bonus
 CLASS:Yeoman	HD:8		TYPE:Base.PC	ABB:Yeo		MAXLEVEL:20	SOURCEPAGE:p.33	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE:Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Yeoman	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
+CLASS:Yeoman	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
 1	SAB:Archer +%|Arch		BONUS:COMBAT|TOHIT.Bow|Arch	BONUS:COMBAT|TOHIT.Crossbow|Arch	BONUS:VAR|Arch|CL/4+1	DEFINE:Arch|0	ABILITY:FEAT|AUTOMATIC|Point Blank Shot	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2																								ABILITY:FEAT|AUTOMATIC|Track
 3																								ABILITY:FEAT|AUTOMATIC|Far Shot

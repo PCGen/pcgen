@@ -325,7 +325,7 @@ CLASS:Ehtzara	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Ehtzara|CL
 #Weapon and Armor Proficiency: Ehtzara are proficient with the following weapons: club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, and spear. The Ehtzara are prohibited from wearing any items that grant an armor bonus to AC save his Spirit Robes, even bracers of armor, as wearing such meager means of protection show a lack of faith and anger the Ehtzara's patron sprits. An Ehtzara who wears prohibited armor finds himselfunable to cast any Ehtzara spells or use any of her supernatural or spell-like class abilities for 24 hours thereafter.
 1	ABILITY:Special Ability|AUTOMATIC|Ehtzara Proficiencies
 ###Block:
-1							ABILITY:Special Ability|AUTOMATIC|Fetish Crafting|Spirit Robes|Wizard ~ Familiar|Taboos
+1							ABILITY:Special Ability|AUTOMATIC|Fetish Crafting|Spirit Robes|Taboos|Wizard ~ Familiar
 2	BONUS:ABILITYPOOL|Binding Fetish|1	ABILITY:Special Ability|AUTOMATIC|Binding Fetish|Craft Esters Salves
 3							ABILITY:Special Ability|AUTOMATIC|Detect Spirits|Imbue Fetish
 5	BONUS:ABILITYPOOL|Binding Fetish|1	ABILITY:Special Ability|AUTOMATIC|Speak with Spirits
@@ -581,7 +581,7 @@ CLASS:Vispilio de Magus	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disable Device)	
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Vispilio de Magus	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|TYPE=Arcana|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Speak Language|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name		Spell Type		Caster level
-CLASS:Vispilio de Magus	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
+CLASS:Vispilio de Magus	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
 #Weapon and Armor Proficiency: A Vispilio de Magus gains no proficiency with any weapon or armor. A Vispilio de Magus can cast his class spells while wearing light armor without incurring the normal arcane spell failure chance. However, like any other arcane spellcaster, a Vispilio de Magus wearing medium or heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component (which most do). A multiclassed Vispilio de Magus still incurs the normal arcane spell failure chance when casting arcane spells received from his other classes.
 #Block: Vispilio de Magus Spell List
 1	SPELLLEVEL:CLASS|Vispilio de Magus=1|Comprehend Languages,Detect Magic,Feather Fall,Hold Portal,Identify,Jump,Read Magic
@@ -657,7 +657,7 @@ CLASS:Afatkuq	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Iron Will,Skill Focus (
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Afatkuq	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|TYPE=Nature|TYPE=Local|TYPE=Religion|TYPE=Profession|Spellcraft|Sense Motive|Survival
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Afatkuq	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Afatkuq|CL
+CLASS:Afatkuq	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Afatkuq|CL
 #Weapon and Armor Proficiency: Afatkuq are proficient with the following weapons:
 1	ABILITY:Special Ability|AUTOMATIC|Afatkuq Proficiencies
 ###Block:
@@ -946,7 +946,7 @@ CLASS:Wine Drinker	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Alchemy))	!PRE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Intimidate|TYPE=Arcana|TYPE=Profession|Research|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
+CLASS:Wine Drinker	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
 ###Block: Proficiencies
 #Weapon and Armor Proficiency: A Wind Drinker retains all previous weapon and armor proficiency. They also gain proficiency in any one Martial weapon of their choice to assist them in hunting down their prey.
 1	BONUS:ABILITYPOOL|Wine Drinker Weapon|1

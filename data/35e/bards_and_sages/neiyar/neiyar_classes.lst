@@ -20,7 +20,7 @@ CLASS:Tiger Shaman	PREALIGN:NG,TN,NE	PREDEITY:1,Tiger Lord	PREGENDER:Male	PRERAC
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tiger Shaman	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Knowledge (Nature)|Listen|Move Silently|Search|Spellcraft|Spot|Survival|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Spellbook		Caster level				Use Spell List
-CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Tiger Shaman|CL	SPELLLIST:1|Cleric
+CLASS:Tiger Shaman	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Tiger Shaman|CL	SPELLLIST:1|Cleric
 ###Block: Saves Abnormal Progression:
 1	BONUS:SAVE|BASE.Will|2
 2	BONUS:SAVE|BASE.Will|1
@@ -120,7 +120,7 @@ CLASS:Arcane Warrior	HD:6		TYPE:PC.Prestige	ABB:AW		MAXLEVEL:6	SOURCEPAGE:p.53	B
 # Class Name		Required Ability																Required Skill									Required Stat				PRETOTALAB
 CLASS:Arcane Warrior	PREABILITY:4,CATEGORY=FEAT,Quicken Spell,Weapon Focus,Combat Casting,Expertise,Armor Proficiency (Light)	PRESKILL:3,Spellcraft=8,Knowledge (Arcana)=8,Concentration=10	PRESTAT:3,STR=12,DEX=14,INT=14	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|TYPE=Profession|Search|Spellcraft|Swim|Tumble
+CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (arcana)|TYPE=Profession|Search|Spellcraft|Swim|Tumble
 ###3e - Scry
 ###Block: Caster Level
 2	ADD:SPELLCASTER|Arcane
@@ -140,7 +140,7 @@ CLASS:Chosen of Agri	HD:8		TYPE:PC.Prestige	ABB:CA		MAXLEVEL:6	SOURCEPAGE:p.54	B
 # Class Name		Required AL		Required Deity	Required Skill						Required Stat		Required Text					PRETOTALAB
 CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREDEITY:1,Agri	PRESKILL:2,Survival=8,Knowledge (Nature)=8	PRESTAT:2,WIS=15,CON=12	PRETEXT:Ability to cast Speak with Plants	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Religion)|Listen|Search|Spot|Spellcraft|Survival
+CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (geography)|Knowledge (Nature)|Knowledge (religion)|Listen|Search|Spot|Spellcraft|Survival
 ###Block: Caster Level
 1	BONUS:DOMAIN|NUMBER|1
 2					ADD:SPELLCASTER|Divine
@@ -226,7 +226,7 @@ CLASS:Soulreaper	HD:6		TYPE:PC.Prestige	ABB:SHBL		MAXLEVEL:7	SOURCEPAGE:p.59	BON
 # Class Name	Required Ability							Restricted AL		Required Skill						Required Stat				Required Text								PRETOTALAB
 CLASS:Soulreaper	PREABILITY:3,CATEGORY=FEAT,Power Attack,Cleave,Track	!PREALIGN:LG,LN,LE	PRESKILL:3,Intimidate=8,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
+CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:
 1	BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0						ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Soulreaper
 2	BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	ABILITY:Special Ability|AUTOMATIC|DR ~ Soulreaper
@@ -245,7 +245,7 @@ CLASS:Swan Bard	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff),Skill Focus (Dipl
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Gather Information|Listen|Move Silently|TYPE=Perform|Sense Motive|Spot|Tumble
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
-CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
+CLASS:Swan Bard	SPELLSTAT:CHA	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
 1	DOMAIN:Air|PREABILITY:1,CATEGORY=Special Ability,Swan Bard ~ Domain Selection (Air)
 1	DOMAIN:Animal|PREABILITY:1,CATEGORY=Special Ability,Swan Bard ~ Domain Selection (Animal)
 1	DOMAIN:Chaos|PREABILITY:1,CATEGORY=Special Ability,Swan Bard ~ Domain Selection (Chaos)
@@ -270,7 +270,7 @@ CLASS:Wild Walker	HD:10		TYPE:PC.Prestige	ABB:WW		MAXLEVEL:6	SOURCEPAGE:p.64	BON
 # Class Name	Required AL		Required Deity		Required Race	Required Skill		Required Stat		PRETOTALAB
 CLASS:Wild Walker	PREALIGN:CG,CN,CE	PREDEITY:1,Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
+CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
 1						ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
 2						ABILITY:Special Ability|AUTOMATIC|Charm Monster

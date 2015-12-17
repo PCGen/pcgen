@@ -9,7 +9,7 @@ CLASS:Arcane Archer ~ Core	PREMULT:1,[PREPCLEVEL:MAX=1],[PREMULT:1,[!PRECLASS:1,
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer ~ Core	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
 # Class Name			Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcane Archer ~ Core|CL
+CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	FACT:SpellType|Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcane Archer ~ Core|CL
 ###Block: spells
 1	SPELLLEVEL:CLASS|Arcane Archer ~ Core=1|Arcane Mark,Burning Hands,Color Spray,Detect Magic,Eye of the Hawk,Light,Mage Hand,Magic Weapon,Obscuring Mist,Prestidigitation,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Read Magic,Shield,Sleep,True Strike
 1	SPELLLEVEL:CLASS|Arcane Archer ~ Core=2|Acid Arrow,Bear's Endurance,Blur,Cat's Grace,Darkness,Fog Cloud,Freezing Shot,Glitterdust,Gust of Wind,Hold Person,Invisibility,Protection from Arrows,See Invisibility,Summon Swarm,Web

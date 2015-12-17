@@ -1,11 +1,11 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	FACT:ClassType|PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Sorcerer	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|classlevel("APPLIEDAS=NONEPIC")
 ###Block:Proficiencies
 ###Block: Familiar
 ###Block: Level progression
@@ -41,7 +41,7 @@ CLASS:Variable Test Cases	TYPE:PC.BASE.TEST	DEFINE:VarTestCase|0	DEFINE:Var_Test
 # Class Name		Output Name					Hit Dice
 CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
 #1	ABILITY:Special Ability|AUTOMATIC|TYPE.CodeBugOfTheDayTester
-1	ADD:FEAT|TYPE=Code1730
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=Code1730
 
 
 # Class Name		Required Skill
@@ -50,23 +50,23 @@ CLASS:Test Bug Harrow	PRESKILL:1,TYPE.Perform=5
 ###Class
 
 # Class Name	Hit Dice	Type			Class Type		Combat bonus														Add domain number		Save bonus
-CLASS:MonKee	HD:12		TYPE:PC.Base	CLASSTYPE:PC	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+3|TYPE=Base.REPLACE	BONUS:COMBAT|AC|TL	BONUS:DOMAIN|NUMBER|3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+4
+CLASS:MonKee	HD:12		TYPE:PC.Base	FACT:ClassType|PC	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+3|TYPE=Base.REPLACE	BONUS:COMBAT|AC|TL	BONUS:DOMAIN|NUMBER|3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+4
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:MonKee	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|MonKee|classlevel("APPLIEDAS=NONEPIC")	BONUS:CASTERLEVEL|MonKee|classlevel("APPLIEDAS=NONEPIC")+4
+CLASS:MonKee	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|MonKee|classlevel("APPLIEDAS=NONEPIC")	BONUS:CASTERLEVEL|MonKee|classlevel("APPLIEDAS=NONEPIC")+4
 SUBCLASS:MonKee Junior	COST:0	TYPE:SubclassMonkee
 SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC|Monkee Jr Test
 1	CAST:8,7,6,5,4,3,2,1,0							SPELLLEVEL:CLASS|MonKee=1|Spell Test ~ MM|PREVAREQ:classlevel("APPLIEDAS=NONEPIC"),4
 2					CSKILL:Test Skill (Class Level)
 
 # Class Name	Hit Dice	Type			Class Type
-CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster
+CLASS:Animal	HD:8		TYPE:Monster	FACT:ClassType|Monster
 
 # Class Name			Type			Class Type
-CLASS:KeePer of Knowledge	TYPE:PC.Base	CLASSTYPE:PC
+CLASS:KeePer of Knowledge	TYPE:PC.Base	FACT:ClassType|PC
 # Class Name			Class Skill
 CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=Craft
 # Class Name			Spell Type		Caster level
-CLASS:KeePer of Knowledge	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|classlevel("APPLIEDAS=NONEPIC")
+CLASS:KeePer of Knowledge	FACT:SpellType|Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|classlevel("APPLIEDAS=NONEPIC")
 SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
 SUBSTITUTIONLEVEL:1	BONUS:VAR|SubstitutionLevelTracker|classlevel("APPLIEDAS=NONEPIC")+25	ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker
 SUBSTITUTIONCLASS:KeePer of Knowledge (Suns)
@@ -74,15 +74,15 @@ SUBSTITUTIONLEVEL:1																																							AUTO:WEAPONPROF|Suns W
 SUBSTITUTIONCLASS:KeePer of Knowledge (Moons)
 SUBSTITUTIONLEVEL:1																															AUTO:ARMORPROF|Moon Cloth
 SUBSTITUTIONCLASS:KeePer of Knowledge (Celestial Events)
-SUBSTITUTIONLEVEL:1																							ADD:FEAT|Dodge,Test Case Extreme,Toughness
+SUBSTITUTIONLEVEL:1																							ADD:ABILITY|FEAT|NORMAL|Dodge,Test Case Extreme,Toughness
 SUBSTITUTIONCLASS:KeePer of Knowledge (Cosmic Master)
-SUBSTITUTIONLEVEL:1																																				AUTO:FEAT|Dodge
-1																			AUTO:FEAT|Not Dodge
+SUBSTITUTIONLEVEL:1																																				ABILITY:FEAT|AUTOMATIC|Dodge
+1																			ABILITY:FEAT|AUTOMATIC|Not Dodge
 2	CAST:5,4,3,2,1						BONUS:DOMAIN|NUMBER|3+(classlevel("APPLIEDAS=NONEPIC")/2)
 3	CAST:10,9,8,7,6,5,4,3,2,1,0,0,0,0,0,0,0,0,0,0,0
 
 # Class Name			Type			Class Type
-CLASS:Running With Scissors	TYPE:NPC.Monster	CLASSTYPE:Monster
+CLASS:Running With Scissors	TYPE:NPC.Monster	FACT:ClassType|Monster
 # Class Name			Class Skill
 CLASS:Running With Scissors	CSKILL:Monkey Building Sensation
 
@@ -90,7 +90,7 @@ CLASS:Running With Scissors	CSKILL:Monkey Building Sensation
 # Older Testing Stuff
 
 # Class Name			Hit Dice	Type			Class Type
-CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC	CLASSTYPE:PC
+CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC	FACT:ClassType|PC
 #SAB:Tom Test Works
 #SAB:Tom Test Works|PREVARGTEQ:classlevel("APPLIEDAS=NONEPIC"),2
 1	SAB:Tom Test Works|PREABILITY:1,CATEGORY=FEAT,Dodge
@@ -100,57 +100,57 @@ CLASS:Tom Test Copy Deal.COPY=Testing the Copy
 
 
 # Class Name		Type			Class Type		Combat bonus		Save bonus		Innate Spells
-CLASS:SpellCaster One	TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|BASEAB|1	BONUS:SAVE|ALL|1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
+CLASS:SpellCaster One	TYPE:Base.PC	FACT:ClassType|PC	BONUS:COMBAT|BASEAB|1	BONUS:SAVE|ALL|1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 # Class Name		Spell Stat		Spell Type		Memorize
-CLASS:SpellCaster One	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
+CLASS:SpellCaster One	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES
 1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:classlevel("APPLIEDAS=NONEPIC"),BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:classlevel("APPLIEDAS=NONEPIC"),1	BONUS:VAR|MyVar|10	DEFINE:MyVar|0
 2																																				SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 
 # Class Name		Type			Class Type		Combat bonus		Save bonus
-CLASS:SpellCaster Two	TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|BASEAB|1	BONUS:SAVE|ALL|1
+CLASS:SpellCaster Two	TYPE:Base.PC	FACT:ClassType|PC	BONUS:COMBAT|BASEAB|1	BONUS:SAVE|ALL|1
 # Class Name		Var. Must Be Grater
 CLASS:SpellCaster Two	PREVARGT:2,BASESPELLSTAT
 # Class Name		Spell Stat		Spell Type		Memorize
-CLASS:SpellCaster Two	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
+CLASS:SpellCaster Two	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES
 1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:MyVar,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:classlevel("APPLIEDAS=NONEPIC"),1
 
 
 # Class Name		Type			Class Type		Combat bonus		Save bonus
-CLASS:SpellCaster Three	TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|BASEAB|1	BONUS:SAVE|ALL|1
+CLASS:SpellCaster Three	TYPE:Base.PC	FACT:ClassType|PC	BONUS:COMBAT|BASEAB|1	BONUS:SAVE|ALL|1
 # Class Name		Var. Min. Value
 CLASS:SpellCaster Three	PREVARGTEQ:MyVar,1
 # Class Name		Spell Stat		Spell Type		Memorize
-CLASS:SpellCaster Three	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
+CLASS:SpellCaster Three	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES
 1	CAST:6,6
 
 
 # Class Name		Hit Dice	Type			Class Type		Combat bonus					Save bonus
-CLASS:Basic Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|BASEAB|TL|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Basic Fighter	HD:10		TYPE:Base.PC	FACT:ClassType|PC	BONUS:COMBAT|BASEAB|TL|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Basic Fighter	STARTSKILLPTS:2	CSKILL:TYPE=TestSkills
-1	AUTO:WEAPONPROF|Extra Blade	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:WEAPONPROF|Extra Blade	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 
 
 
 # Alice and Charlie Classes -
 
 # Class Name	Hit Dice	Type			Class Type		Add														Combat bonus										Add domain number		Save bonus
-CLASS:Alice Class	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	ADD:FEAT|Add Feat Class Line	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Alice Class	HD:10		TYPE:Base.PC	FACT:ClassType|PC	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	ADD:ABILITY|FEAT|NORMAL|Add Feat Class Line	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alice Class	STARTSKILLPTS:2	CSKILL:Class Skill 1
 # Class Name	Spell Type		Memorize		Automatically Known Spell Levels			Caster level
-CLASS:Alice Class	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:Alice Class Known Spell|LEVEL=5	BONUS:CASTERLEVEL|Alice Class|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Alice Class	FACT:SpellType|Arcane	MEMORIZE:YES	KNOWNSPELLS:Alice Class Known Spell|LEVEL=5	BONUS:CASTERLEVEL|Alice Class|classlevel("APPLIEDAS=NONEPIC")
 1	CAST:1,1,1,1,1,1,1,1,1,1,1
 2						CSKILL:Class Skill 2	ADD:CLASSSKILLS|Exclusing Skill_4,Exclusing Skill_5
-3										ADD:FEAT|Add Feat Class Level
+3										ADD:ABILITY|FEAT|NORMAL|Add Feat Class Level
 
 
 # Class Name		Hit Dice	Type			Class Type		Combat bonus
-CLASS:Charlie Class	HD:10		TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|AC|22|TYPE=Deflection
+CLASS:Charlie Class	HD:10		TYPE:Base.PC	FACT:ClassType|PC	BONUS:COMBAT|AC|22|TYPE=Deflection
 # Class Name		Skill Pts/Lvl
 CLASS:Charlie Class	STARTSKILLPTS:2
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Charlie Class	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Charlie Class|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Charlie Class	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Charlie Class|classlevel("APPLIEDAS=NONEPIC")
 1	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,1,1,1,1,1,1,1,1,1,1
 1											BONUS:COMBAT|AC|22|TYPE=Shield								ABILITY:Special Ability|AUTOMATIC|Charlie Explanation
 2																	BONUS:HP|CURRENTMAX|22
@@ -189,7 +189,7 @@ CLASS:Test Spell DC	HD:4
 #CLASS:Cleric.MOD	SPELLLIST:1|Druid
 
 # Class Name	Hit Dice	Type			Class Type
-CLASS:Companion	HD:8		TYPE:Monster	CLASSTYPE:Monster
+CLASS:Companion	HD:8		TYPE:Monster	FACT:ClassType|Monster
 # Class Name	Skill Pts/Lvl
 CLASS:Companion	STARTSKILLPTS:0
 1							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
@@ -198,18 +198,18 @@ CLASS:Companion	STARTSKILLPTS:0
 
 
 # Class Name	Hit Dice	Type			Class Type
-CLASS:Domain Test	HD:4		TYPE:PC.Base	CLASSTYPE:PC
+CLASS:Domain Test	HD:4		TYPE:PC.Base	FACT:ClassType|PC
 2	BONUS:DOMAIN|NUMBER|4
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
-CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Bard		HD:6		TYPE:Base.PC	FACT:ClassType|PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard		STARTSKILLPTS:6	CSKILL:TYPE=Knowledge|TYPE=Perform
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Bard		SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|classlevel("APPLIEDAS=NONEPIC")
 ###Block: Level progression
 1	CAST:2			KNOWN:4
 2	CAST:3,0			KNOWN:5,2
@@ -242,7 +242,7 @@ CLASS:Wizard Test	HD:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard Test	STARTSKILLPTS:2	CSKILL:ALL
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Wizard Test	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:TYPE=Foo,LEVEL=3		BONUS:CASTERLEVEL|Wizard Test|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Wizard Test	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:TYPE=Foo,LEVEL=3		BONUS:CASTERLEVEL|Wizard Test|classlevel("APPLIEDAS=NONEPIC")
 1	CAST:10,10,10,10,10
 2	CAST:10,10,10,10,10
 3	CAST:10,10,10,10,10
@@ -260,10 +260,10 @@ CLASS:Wizard Test	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:TYPE=Foo,LEVEL=3		B
 # More Test Cases
 
 # Class Name		Hit Dice	Type			Class Type
-CLASS:Test Nothing	HD:4		TYPE:PC.Base	CLASSTYPE:PC
+CLASS:Test Nothing	HD:4		TYPE:PC.Base	FACT:ClassType|PC
 
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Test13	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|classlevel("APPLIEDAS=NONEPIC")
 #	SPELLLIST:1|Druid
 1	CAST:5,3	KNOWN:4,2
 2	CAST:6,4	KNOWN:5,2
@@ -347,7 +347,7 @@ CLASS:Test56
 ### Eclipse Set Test Class
 
 # Class Name			Output Name		Hit Dice	Type				Class Type		Abbreviation	Max Level	Define			Combat bonus							Modify VAR
-CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	CLASSTYPE:PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:COMBAT|BASEAB|var("Warcraft Bonus")|TYPE=Base	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	FACT:ClassType|PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:COMBAT|BASEAB|var("Warcraft Bonus")|TYPE=Base	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
@@ -381,7 +381,7 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###BLOCK: This is a changing class - DO NOT BASE any Test Cases off of it
 
 # Class Name		Hit Dice	Type			Class Type
-CLASS:Test Current	HD:4		TYPE:PC.Base	CLASSTYPE:PC
+CLASS:Test Current	HD:4		TYPE:PC.Base	FACT:ClassType|PC
 # Class Name		Class Skill
 CLASS:Test Current	CSKILL:Speak Language
 #1		ADD:ABILITY|1|Special Ability|VIRTUAL|Test Current

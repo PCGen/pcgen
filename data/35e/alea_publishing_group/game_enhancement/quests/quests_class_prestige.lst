@@ -6,7 +6,7 @@ CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBA
 # Class Name	Required Ability					Required AL		Required Skill								Required Text					PRETOTALAB
 CLASS:Honor Guard	PREABILITY:1,CATEGORY=FEAT,Alertness	PREALIGN:LG,NG,CG	PRESKILL:2,Diplomacy=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
+CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
 1							ABILITY:Special Ability|AUTOMATIC|Harm's Way ~ Honor Guard|Honor Guard ~ Honor Guard	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil,11+WIS
 2	BONUS:VAR|CombatSense|(CL+4)/6	ABILITY:Special Ability|AUTOMATIC|Combat Sense ~ Honor Guard
 3							ABILITY:Special Ability|AUTOMATIC|Lawful Strike ~ Honor Guard
@@ -21,7 +21,7 @@ CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:C
 # Class Name		Required Ability				Required Skill									Required Text			PRETOTALAB
 CLASS:Questing Knight	PREABILITY:1,CATEGORY=FEAT,Quest	PRESKILL:2,Knowledge (Local)=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Sense Motive
+CLASS:Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (local)|Knowledge (Nobility and Royalty)|Sense Motive
 1								BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Questing Knight	ABILITY:Special Ability|AUTOMATIC|Knowledge Local ~ Questing Knight
 2:REPEATLEVEL:2	BONUS:ABILITYPOOL|Quest|1
 4															ABILITY:Special Ability|AUTOMATIC|Honorable Surge ~ Questing Knight

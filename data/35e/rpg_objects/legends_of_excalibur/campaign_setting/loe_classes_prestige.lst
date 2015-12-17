@@ -10,11 +10,11 @@ CLASS:Assassin ~ LoE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Assassin ~ LoE	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Assassin ~ LoE	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin ~ LoE|CL
+CLASS:Assassin ~ LoE	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin ~ LoE|CL
 1										AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|TYPE=Crossbow|TYPE=Dagger
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,2,12		KNOWN:0,2,1		SAB:Poison Use	SAB:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|DeathAttack|10+INT	DEFINE:DeathAttack|0		ABILITY:Special Ability|AUTOMATIC|Sneak Attack	ABILITY:Feat|VIRTUAL|Power Source(Hedge Mage)
+1	CAST:0,2,12		KNOWN:0,2,1		SAB:Poison Use	SAB:Death Attack (DC %)|DeathAttack	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|DeathAttack|10+INT	DEFINE:DeathAttack|0		ABILITY:Special Ability|AUTOMATIC|Sneak Attack	ABILITY:FEAT|VIRTUAL|Power Source(Hedge Mage)
 2	CAST:0,1,8		KNOWN:0,2,1		SAB:+% save against poisons|AssassinPoisonSave		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3															DEFINE:AssassinPoisonSave|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 3	CAST:0,1,4,15	KNOWN:0,3,2,1
 4	CAST:0,1,3,10	KNOWN:0,3,2,1
@@ -33,7 +33,7 @@ CLASS:Alchemist	HD:4		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:35	BONUS:
 # Class Name	Required Ability					Required Skill										Required Casting Type
 CLASS:Alchemist	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PRESKILL:3,Concentration=5,Knowledge (Arcana)=5,Craft (Alchemy)=10	PRESPELLCAST:TYPE=Arcane,TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (Arcana)|Open Lock|TYPE=Profession|Spellcraft
+CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|Open Lock|TYPE=Profession|Spellcraft
 1	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Quarterstaff
 ###Block: Normal Level Progression
 1	SAB:Master Alchemist (Ex)							BONUS:SKILL|Craft (Alchemy)|CL	ADD:SPELLCASTER|ANY
@@ -86,7 +86,7 @@ CLASS:Court Mage	HD:4		TYPE:PC.Prestige	ABB:CtM		MAXLEVEL:10	SOURCEPAGE:38	BONUS
 # Class Name	Req. Special Ability	Required Skill				Required Stat
 CLASS:Court Mage	PRESA:1,Lesser Prophecy	PRESKILL:2,Prophecy=10,Diplomacy=10	PRESTAT:1,NOB=50
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Court Mage	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Listen|TYPE=Profession|Prophecy|Sense Motive|Spellcraft
+CLASS:Court Mage	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Listen|TYPE=Profession|Prophecy|Sense Motive|Spellcraft
 1	SAB:Word is Your Bond (Ex)	SAB:Aura of Wisdom (Ex)							BONUS:SKILL|TYPE=Charisma|NOB/2	BONUS:SKILL|Intimidate|(-1)*(NOB/2)	BONUS:VAR|BONUSPOWERPOINTS|NOB				ADD:SPELLCASTER|ANY
 2	SAB:Quest +% (Ex)|Qust																								BONUS:VAR|Qust|(CL+1)/3			DEFINE:Qust|0	ADD:SPELLCASTER|ANY
 3										BONUS:ABILITYPOOL|Court Mage Feat|1																						ADD:SPELLCASTER|ANY
@@ -103,14 +103,14 @@ CLASS:Crusader	HD:10		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE
 # Class Name	Required Ability					Req. Special Ability		Required Skill											Required Stat	PRETOTALAB
 CLASS:Crusader	PREABILITY:2,CATEGORY=FEAT,Faith,Zealot	PRESA:1,Code of Chivalry	PRESKILL:3,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5,Ride=8	PRESTAT:1,NOB=41	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (religion)|TYPE=Profession|Ride|Sense Motive
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
-CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Crusader|CL-2|PRECLASS:1,Crusader=3
+CLASS:Crusader	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Crusader|CL-2|PRECLASS:1,Crusader=3
 1																						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0	ABILITY:Feat|VIRTUAL|Power Source(Crusader)
+1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0	ABILITY:FEAT|VIRTUAL|Power Source(Crusader)
 2				SAB:Lay on Hands (Su) % hp/day|LayOnHands		BONUS:VAR|LayOnHands|max(CHA,0)*CL											DEFINE:LayOnHands|0	ABILITY:FEAT|AUTOMATIC|Mounted Combat
 3	CAST:1,2,12		SAB:Aura of Piety (Ex)	SAB:Crusade +%|Crus	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|Crus|CL/3		DEFINE:Crus|0
 4	CAST:1,1,8		SAB:Mounted Combat +% (Ex)|MountedCombat		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0	ABILITY:Special Ability|AUTOMATIC|Knight's Warhorse
@@ -126,7 +126,7 @@ CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:COMBAT|BAS
 # Class Name	Required Ability							Required Skill				Req. Spell Type		Required Stat
 CLASS:Enchantress	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Enchantment)	PRESKILL:2,Bluff=8,Diplomacy=8	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Enchantress	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Local)|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft
+CLASS:Enchantress	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (local)|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SAB:Enchantress	BONUS:SKILL|TYPE=Charisma|CL	BONUS:SKILL|Intimidate|(-1)*CL	ADD:SPELLCASTER|Arcane
@@ -145,7 +145,7 @@ CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	ABB:LoL		MAXLEVEL:5	SOURCEPAGE:42	
 # Class Name		Required Gender	Req. Special Ability	Required Skill					Required Stat
 CLASS:Lady of the Lake	PREGENDER:F		PRESA:1,Wildshape		PRESKILL:2,Knowledge (Nature)=8,Swim=8	PRESTAT:1,NOB=51
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Listen|Ride|Sense Motive|Spellcraft|Spot|Survival|Swim
+CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Animal|Heal|Knowledge (geography)|Knowledge (history)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Knowledge (religion)|Listen|Ride|Sense Motive|Spellcraft|Spot|Survival|Swim
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block:Normal Level Progression
@@ -181,7 +181,7 @@ CLASS:Saint		HD:6		TYPE:PC.Prestige	ABB:St		MAXLEVEL:10	SOURCEPAGE:44	BONUS:COMB
 # Class Name	Required Ability					Required Language		Req. Special Ability						Required Skill						Required Stat	Required Text
 CLASS:Saint		PREABILITY:2,CATEGORY=FEAT,Faith,Piety	PRELANG:1,Literacy	PRESA:3,Ordination,Turn the other cheek,Aura of Piety	PRESKILL:2,Knowledge (Religion)=10,Diplomacy=8	PRESTAT:1,NOB=65	PRETEXT:Before taking a level in this prestige class, a character must take a vow of poverty and chastity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Saint		STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (Local)|Knowledge (History)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Prophecy|Ride|Sense Motive|Spellcraft
+CLASS:Saint		STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (local)|Knowledge (history)|Knowledge (Nobility and Royalty)|Knowledge (religion)|TYPE=Profession|Prophecy|Ride|Sense Motive|Spellcraft
 1	SAB:Aura of Sanctity (Ex)	BONUS:SKILL|TYPE.Charisma|NOB/2	BONUS:SKILL|Intimidate|(-1)*NOB/2	BONUS:VAR|BONUSPOWERPOINTS|NOB				ADD:SPELLCASTER|Hermit,Priest
 2	SAB:Litany %/day (Su)|Litany													BONUS:VAR|Litany|CL/2			DEFINE:Litany|0	ADD:SPELLCASTER|Hermit,Priest
 3	SAB:Proselytize (Ex)																							ADD:SPELLCASTER|Hermit,Priest
@@ -215,16 +215,16 @@ CLASS:Blue Knight	HD:10		TYPE:PC.Prestige	ABB:BlKn		MAXLEVEL:10	SOURCEPAGE:47	DE
 # Class Name	Required Ability					Req. Special Ability		Required Skill						Required Stat	PRETOTALAB
 CLASS:Blue Knight	PREABILITY:2,CATEGORY=FEAT,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nature)=5,Swim=5	PRESTAT:1,NOB=50	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Blue Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
+CLASS:Blue Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
-CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Blue Knight|CL-2|PRECLASS:1,Blue Knight=3
+CLASS:Blue Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Blue Knight|CL-2|PRECLASS:1,Blue Knight=3
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
 1				SAB:Breathe Water (Su)																															SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Water Breathing,13+CHA
 2														BONUS:VAR|KnightLevel|CL											ABILITY:Special Ability|AUTOMATIC|Knight's Warhorse
-3	CAST:1,2,12												BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS					ABILITY:Feat|VIRTUAL|Power Source(Druid/Minstrel)
+3	CAST:1,2,12												BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS					ABILITY:FEAT|VIRTUAL|Power Source(Druid/Minstrel)
 4	CAST:1,1,8												BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4		DEFINE:MountedCombat|0
 5	CAST:1,1,4,15	SAB:Walk on Water (Su)							BONUS:VAR|BASEPOWERPOINTS|2																				SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Water Walk,13+CHA
 6	CAST:1,1,3,10					BONUS:ABILITYPOOL|Fighter Feat|1	BONUS:VAR|BASEPOWERPOINTS|3
@@ -238,7 +238,7 @@ CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	B
 # Class Name		Required Ability								PRETOTALAB
 CLASS:Green Knight	PREABILITY:3,CATEGORY=FEAT,Alertness,Animal Affinity,Track	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
+CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
@@ -273,14 +273,14 @@ CLASS:Red Knight	PRESKILL:3,Hide=5,Bluff=5,Ride=5	PRETOTALAB:5	PREVARGTEQ:SneakA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Knight	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE=Profession|Ride|Sleight of Hand
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Red Knight	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Red Knight|CL-2|PRECLASS:1,Red Knight=3
+CLASS:Red Knight	SPELLSTAT:WIS	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Red Knight|CL-2|PRECLASS:1,Red Knight=3
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
 1							SAB:Mounted Combat +%|MountedCombat							BONUS:VAR|MountedCombat|CL/5+1						DEFINE:MountedCombat|0	ABILITY:FEAT|AUTOMATIC|Mounted Combat
 2																			BONUS:VAR|SneakAttackDice|CL/2
-3	CAST:1,2,12		KNOWN:4,2,1														BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|CHA					ABILITY:Feat|VIRTUAL|Power Source(Hedge Mage)
+3	CAST:1,2,12		KNOWN:4,2,1														BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|CHA					ABILITY:FEAT|VIRTUAL|Power Source(Hedge Mage)
 4	CAST:1,1,8		KNOWN:5,2,1														BONUS:VAR|BASEPOWERPOINTS|1
 5	CAST:1,1,4,15	KNOWN:5,3,2,1													BONUS:VAR|BASEPOWERPOINTS|2
 6	CAST:1,1,3,10	KNOWN:6,3,2,1													BONUS:VAR|BASEPOWERPOINTS|3
@@ -294,9 +294,9 @@ CLASS:White Knight	HD:10		TYPE:PC.Prestige	ABB:WKn		MAXLEVEL:10	SOURCEPAGE:52	DE
 # Class Name		Required Ability					Req. Special Ability		Required Skill											Required Stat	PRETOTALAB
 CLASS:White Knight	PREABILITY:2,CATEGORY=FEAT,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5	PRESTAT:1,NOB=65	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:White Knight	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Prophecy|Ride|Sense Motive
+CLASS:White Knight	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (religion)|TYPE=Profession|Prophecy|Ride|Sense Motive
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
-CLASS:White Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|White Knight|CL-2|PRECLASS:1,White Knight=3
+CLASS:White Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|White Knight|CL-2|PRECLASS:1,White Knight=3
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light

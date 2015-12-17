@@ -38,7 +38,7 @@ Green Thumb			CATEGORY:FEAT		TYPE:Regional				PRETEXT:Harvest Dale native.		DESC
 # Nezria
 Swamprat			CATEGORY:FEAT		TYPE:Regional				PRETEXT:Nezria native.			DESC:Living with swamps all around, you have grown accustomed to surviving in that particular environment.																																																																																			SOURCEPAGE:p.163
 # Outcastia
-Cultural Chameleon	CATEGORY:FEAT		TYPE:Regional				PRETEXT:Outcastia native.		DESC:Rubbing shoulders with other outcasts has taught you much about the different cultures of the world; particularly how different social classes interact with each other.																																	BONUS:SKILL|Diplomacy|2|TYPE=Competence																					CSKILL:Knowledge (Local)|Knowledge (Nobility and Royalty)|Diplomacy	SOURCEPAGE:p.163
+Cultural Chameleon	CATEGORY:FEAT		TYPE:Regional				PRETEXT:Outcastia native.		DESC:Rubbing shoulders with other outcasts has taught you much about the different cultures of the world; particularly how different social classes interact with each other.																																	BONUS:SKILL|Diplomacy|2|TYPE=Competence																					CSKILL:Knowledge (local)|Knowledge (Nobility and Royalty)|Diplomacy	SOURCEPAGE:p.163
 # Qal'mont
 Rock Climber		CATEGORY:FEAT		TYPE:Regional				PRETEXT:Qal'mont native.		DESC:Growing up in the mountains, you have developed the ability to scramble up rock faces almost as easily as walking down a smooth path.																																																																													SOURCEPAGE:p.163
 # Saddleridge

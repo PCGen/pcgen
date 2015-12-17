@@ -324,7 +324,7 @@ CLASS:Master of the Hounds	PREABILITY:1,CATEGORY=FEAT,Track	PREABILITY:1,CATEGOR
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Hounds	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Jump|TYPE=Nature|TYPE=Nobility|Listen|TYPE=Profession|Ride|Search|Spellcraft|Spot|Survival|Swim|Use Rope
 # Class Name			Spell Stat		Spell Type		Caster level
-CLASS:Master of the Hounds	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Master of the Hounds|CL
+CLASS:Master of the Hounds	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Master of the Hounds|CL
 1																									SPELLLEVEL:CLASS|Master of the Hounds=1|Calm Animals,Charm Animal,Command,Cure Light Wounds,Jump,Longstrider,Mage Armor,Magic Fang,Summon Nature's Ally I (MoH)
 1			CAST:0,0							ABILITY:Special Ability|AUTOMATIC|Hound Companion|Status|Wild Empathy (Canines)
 2			CAST:0,1							ABILITY:Special Ability|AUTOMATIC|Head of the Pack
@@ -402,7 +402,7 @@ CLASS:Onaran Templar	PREABILITY:2,CATEGORY=FEAT,Iron Will,Church Education	PRESK
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Onaran Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=History|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels																																											Caster level
-CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Aid|Bear's Endurance|Beltine's Blessed Strike|Bless|Bless Weapon|Bull's Strength|Cat's Grace|Cure Light Wounds|Cure Moderate Wounds|Death Ward|Dispel Magic|Divine Favor|Divine Smite|Magic Weapon|Magic Weapon (Greater)|Prayer|Restoration|Restoration (Lesser)|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
+CLASS:Onaran Templar	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:Aid|Bear's Endurance|Beltine's Blessed Strike|Bless|Bless Weapon|Bull's Strength|Cat's Grace|Cure Light Wounds|Cure Moderate Wounds|Death Ward|Dispel Magic|Divine Favor|Divine Smite|Magic Weapon|Magic Weapon (Greater)|Prayer|Restoration|Restoration (Lesser)|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
 1																																																																									SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)
 1					CAST:0,1																					ABILITY:Special Ability|AUTOMATIC|Relentless	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 2																																																																									SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace
@@ -593,7 +593,7 @@ CLASS:Ulfilan Ranger	PREABILITY:2,CATEGORY=FEAT,Endurance,Track	PREMULT:1,[PREDE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ulfilan Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|TYPE=Geography|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Ulfilan Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ulfilan Ranger|CL
+CLASS:Ulfilan Ranger	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Ulfilan Ranger|CL
 
 # Resist Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
 1																																								SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
@@ -648,7 +648,7 @@ CLASS:Warrior of the Eternal Flame	PREABILITY:2,CATEGORY=FEAT,Iron Will,Improved
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft
 # Class Name				Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Warrior of the Eternal Flame|CL|PRECLASS:1,Warrior of the Eternal Flame=2
+CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Warrior of the Eternal Flame|CL|PRECLASS:1,Warrior of the Eternal Flame=2
 1											BONUS:ABILITYPOOL|Blessings of Flame|1						ABILITY:Special Ability|AUTOMATIC|Child of Nier	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 2																																																																					SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon
 2					CAST:0,0		KNOWN:0,1														ABILITY:Special Ability|AUTOMATIC|To Tap the Fire Within

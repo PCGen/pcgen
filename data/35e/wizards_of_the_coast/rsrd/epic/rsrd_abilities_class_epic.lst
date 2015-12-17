@@ -115,5 +115,5 @@ Safekeeping		KEY:Living Vault ~ Safekeeping		CATEGORY:Special Ability	TYPE:Speci
 
 ###Block:
 # Ability Name		Category of Ability		Type					Required Class				Stackable?	Multiple?	Choose							Bonus to spell known/L		Source Page
-Spell Knowledge Arcane	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Arcane=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
-Spell Knowledge Divine	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Divine=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Divine|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
+Spell Knowledge Arcane	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Arcane=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
+Spell Knowledge Divine	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Divine=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Divine|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats

@@ -35,7 +35,7 @@ CLASS:Priest	PREDEITY:1,Y	!PRESUBCLASS:1,Hospitaler
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|Intimidate|TYPE=Arcana|TYPE=History|TYPE=Nobility|TYPE=Local|TYPE=Religion|TYPE=Planes|Perform (Oratory)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels											Caster level
-CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Priest|CL
+CLASS:Priest	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Priest|CL
 SUBCLASS:Priest of Althares		COST:0	PREDEITY:1,Althares			AUTO:LANG|Ancient Altharin(Imperial)
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Priest=2|Discern Value,Epiphany,Summon Tome																													BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1																												BONUS:VAR|RitualPoints|skillinfo("RANK", "Knowledge (Religion:Althares)")/5				ABILITY:Special Ability|VIRTUAL|Right to Carry																									AUTO:WEAPONPROF|Warhammer
 SUBCLASSLEVEL:5																																																																											BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel		ABILITY:Special Ability|VIRTUAL|Bard ~ Bardic Knowledge|Knowledge of the Ages
@@ -72,7 +72,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Priest=2|Crushing Weight|Priest=3|Battle Spines
 SUBCLASSLEVEL:1																																																																																																																											AUTO:WEAPONPROF|Spear
 SUBCLASSLEVEL:3																																																																											BONUS:VAR|WildEmpathy|CL	BONUS:VAR|WildEmpathyMagicalBeast|WildEmpathy-4				ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Empathy	ABILITY:FEAT|AUTOMATIC|Track
 # COMMENT: Added VAR|WildEmpathyMagicalBeast|WildEmpathy-4
-SUBCLASSLEVEL:4																																																																											BONUS:VAR|CompLevel|CL													ABILITY:Special Ability|NORMAL|Druid ~ Animal Companion|Arcanis Animal Companion
+SUBCLASSLEVEL:4																																																																											BONUS:VAR|CompLevel|CL													ABILITY:Special Ability|NORMAL|Arcanis Animal Companion|Druid ~ Animal Companion
 # supposed to not prohibit based on alignment for Summoning spells - no idea how at this time, so not prohibiting any
 SUBCLASS:Priest of Sarish		COST:0	PREDEITY:1,Sarish				AUTO:LANG|Ancient Altharin(Imperial)
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Priest=2|My Master Allows|Priest=5|Summon Thy Own (Lesser)|Priest=7|Summon Thy Own|Priest=9|Summon Thy Own (Greater)																																																				BONUS:VAR|RitualPoints|skillinfo("RANK","Knowledge (Religion:Sarish)")/5				ABILITY:Special Ability|VIRTUAL|Thy Master Calls																		ADD:EQUIP|Dagger (Sarishan Steel)	AUTO:WEAPONPROF|Dagger		AUTO:LANG|Infernal
@@ -137,7 +137,7 @@ CLASS:Urban Sentinel	!PRECLASS:1,Ranger=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Urban Sentinel	STARTSKILLPTS:6	CSKILL:Balance|Black Market|Climb|Concentration|TYPE=Craft|Escape Artist|Gather Information|Handle Animal|Hide|Intimidate|Jump|TYPE=Local|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
-CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Sentinel|CL/2|PRECLASS:1,Urban Sentinel=4
+CLASS:Urban Sentinel	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Sentinel|CL/2|PRECLASS:1,Urban Sentinel=4
 1										ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency|Streetwise|Track
 1				BONUS:VAR|RangerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Favored Enemy
 1				BONUS:VAR|RangerCombatTreeLVL|CL	ABILITY:Special Ability|VIRTUAL|Ranger ~ Combat Style
@@ -170,7 +170,7 @@ CLASS:Holy Champion (Philosophic Warrior)	PREALIGN:LG,LN,LE	PREDEITY:1,Y	PREDEIT
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Philosophic Warrior)	STARTSKILLPTS:6	CSKILL:Examine Martial Technique
 # Class Name					Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Philosophic Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Philosophic Warrior)|CL/2|PRECLASS:1,Holy Champion (Philosophic Warrior)=4
+CLASS:Holy Champion (Philosophic Warrior)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Philosophic Warrior)|CL/2|PRECLASS:1,Holy Champion (Philosophic Warrior)=4
 # Philosophic Warrior - Althares #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1				ABILITY:Special Ability|VIRTUAL|Paladin ~ Detect Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency													AUTO:WEAPONPROF|TYPE=Flintlock	CHANGEPROF:Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)=Martial
 2				ABILITY:Special Ability|VIRTUAL|Wisdom of Althares																																			SPELLS:ClassAbility|TIMES=ATWILL|CASTERLEVEL=TL|Comprehend Languages
@@ -224,7 +224,7 @@ CLASS:Holy Champion (Bearer of Woe)	PREALIGN:LG	PREDEITY:1,Y	PREDEITY:1,Anshar	!
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Bearer of Woe)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|TYPE=Geography|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Bearer of Woe)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Bearer of Woe)|CL/2|PRECLASS:1,Holy Champion (Bearer of Woe)=4
+CLASS:Holy Champion (Bearer of Woe)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Bearer of Woe)|CL/2|PRECLASS:1,Holy Champion (Bearer of Woe)=4
 1																							BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|2									ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
 2				BONUS:COMBAT|AC|max(CON,1)|TYPE=NaturalArmor|!PREEQUIP:1,TYPE=Armor																								ABILITY:Special Ability|VIRTUAL|I Feel Your Pain|Mind Over Matter
 3																																							ABILITY:Special Ability|VIRTUAL|You Shall Know My Pain	ABILITY:FEAT|AUTOMATIC|Endurance
@@ -236,7 +236,7 @@ CLASS:Holy Champion (Bearer of Woe)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:L
 9	CAST:0,1,0
 10	CAST:0,1,1																																					ABILITY:Special Ability|VIRTUAL|Improved Pain Tolerance
 11	CAST:0,1,1,0																																																					SPELLLEVEL:CLASS|Holy Champion (Bearer of Woe)=3|Crushing Despair,Inflict Serious Wounds,Vampiric Touch
-12	CAST:0,1,1,1													BONUS:VAR|ChannelTimesBase|max(CON,1)																	ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Inner Strength
+12	CAST:0,1,1,1													BONUS:VAR|ChannelTimesBase|max(CON,1)																	ABILITY:Special Ability|VIRTUAL|Inner Strength|Paladin ~ Aura of Courage
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0																																				ABILITY:Special Ability|VIRTUAL|Travail Stasis										SPELLLEVEL:CLASS|Holy Champion (Bearer of Woe)=4|Inflict Critical Wounds
 15	CAST:0,2,1,1,1
@@ -277,10 +277,10 @@ CLASS:Holy Champion (Twelve Oaks)	PREALIGN:LG,NG,CG	PREDEITY:1,Y	PREDEITY:1,Beli
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Twelve Oaks)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Twelve Oaks)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Twelve Oaks)|CL/2|PRECLASS:1,Holy Champion (Twelve Oaks)=4
+CLASS:Holy Champion (Twelve Oaks)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Twelve Oaks)|CL/2|PRECLASS:1,Holy Champion (Twelve Oaks)=4
 1				BONUS:VAR|SmiteEvil|1		ABILITY:Special Ability|VIRTUAL|Smite Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 2				BONUS:VAR|LayOnHandsLVL|CL	ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Paladin ~ Lay on Hands
-3									ABILITY:Special Ability|VIRTUAL|Paladin ~ Divine Health|Know Thy Friends
+3									ABILITY:Special Ability|VIRTUAL|Know Thy Friends|Paladin ~ Divine Health
 4	CAST:0,0							ABILITY:Special Ability|VIRTUAL|Defender of the Children																																	SPELLLEVEL:CLASS|Holy Champion (Twelve Oaks)=1|Bane,Comprehend Languages,Undetectable Alignment
 5	CAST:0,0							ABILITY:FEAT|AUTOMATIC|Memories of Lives Past
 6	CAST:0,1		BONUS:VAR|SmiteEvil|1		ABILITY:Special Ability|VIRTUAL|Shield Other SP|Special Mount Sp
@@ -329,9 +329,9 @@ CLASS:Holy Champion (Hospitaler)	PREALIGN:LN	PREDEITY:1,Y	PREDEITY:1,Beltine	!PR
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Hospitaler)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Hospitaler)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Hospitaler)|CL/2|PRECLASS:1,Holy Champion (Hospitaler)=4
+CLASS:Holy Champion (Hospitaler)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Hospitaler)|CL/2|PRECLASS:1,Holy Champion (Hospitaler)=4
 1																									ABILITY:Special Ability|VIRTUAL|Mercy for All|Weapons of Our Mother	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
-2	CAST:0,0											BONUS:VAR|LayOnHandsLVL|CL								ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Paladin ~ Lay on Hands|Merciful Strike																																SPELLLEVEL:CLASS|Holy Champion (Hospitaler)=1|Deathwatch,Detect Undead,Glimpse of the Cauldron,Hide from Undead,Protection from Evil,Sanctuary
+2	CAST:0,0											BONUS:VAR|LayOnHandsLVL|CL								ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Merciful Strike|Paladin ~ Lay on Hands																																SPELLLEVEL:CLASS|Holy Champion (Hospitaler)=1|Deathwatch,Detect Undead,Glimpse of the Cauldron,Hide from Undead,Protection from Evil,Sanctuary
 3	CAST:0,1																							ABILITY:Special Ability|VIRTUAL|Paladin ~ Divine Health
 4	CAST:0,2,0		BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL-3|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Turn or Rebuke Undead																																				SPELLLEVEL:CLASS|Holy Champion (Hospitaler)=2|Aid,Calm Emotions,Consecrate,Cure Moderate Wounds,Gentle Repose
 5	CAST:0,3,1
@@ -383,7 +383,7 @@ CLASS:Holy Champion (Twilight Warrior)	PREALIGN:LN	PREDEITY:1,Y	PREDEITY:1,Cadic
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Twilight Warrior)	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE=Religion|TYPE=Local|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope	CSKILL:Examine Martial Technique
 # Class Name					Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Twilight Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Twilight Warrior)|CL/2|PRECLASS:1,Holy Champion (Twilight Warrior)=4
+CLASS:Holy Champion (Twilight Warrior)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Twilight Warrior)|CL/2|PRECLASS:1,Holy Champion (Twilight Warrior)=4
 1																																			ABILITY:Special Ability|VIRTUAL|Pierce the Veil of Shadow	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2																																			ABILITY:Special Ability|VIRTUAL|Cloak of Cadic
 3													BONUS:VAR|SneakAttack|(CL+1)/4	BONUS:VAR|ShadowJump|(20*ShadowJump)										ABILITY:Special Ability|VIRTUAL|Shadowdancer ~ Shadow Jump|Sneak Attack
@@ -397,7 +397,7 @@ CLASS:Holy Champion (Twilight Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELL
 11	CAST:0,1,1,0																																																																								SPELLLEVEL:CLASS|Holy Champion (Twilight Warrior)=3|Not Where You Think,Shadow Conjuration,Shadow Stride
 12	CAST:0,1,1,1																																ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Rogue Special Ability ~ Slippery Mind
 13	CAST:0,1,1,1
-14	CAST:0,2,1,1,0																																ABILITY:Special Ability|VIRTUAL|Cloak of Cadic (Cover of Night)|Assassin ~ Hide in Plain Sight																									SPELLLEVEL:CLASS|Holy Champion (Twilight Warrior)=4|Dispel Evil,Nondetection,Shadow Evocation,Zone of Silence
+14	CAST:0,2,1,1,0																																ABILITY:Special Ability|VIRTUAL|Assassin ~ Hide in Plain Sight|Cloak of Cadic (Cover of Night)																									SPELLLEVEL:CLASS|Holy Champion (Twilight Warrior)=4|Dispel Evil,Nondetection,Shadow Evocation,Zone of Silence
 15	CAST:0,2,1,1,1
 16	CAST:0,2,2,1,1																																ABILITY:Special Ability|VIRTUAL|Shadow Mage
 17	CAST:0,2,2,2,1
@@ -437,10 +437,10 @@ CLASS:Holy Champion (Blazing Wyrm)	PREALIGN:LG,LN	PREDEITY:1,Y	PREDEITY:1,Fire D
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Blazing Wyrm)	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Jump|Knowledge (Geography/Ssethregore)|Knowledge (Nature/Ssethregore)|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Swim	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Blazing Wyrm)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Blazing Wyrm)|CL/2|PRECLASS:1,Holy Champion (Blazing Wyrm)=4
+CLASS:Holy Champion (Blazing Wyrm)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Blazing Wyrm)|CL/2|PRECLASS:1,Holy Champion (Blazing Wyrm)=4
 1				BONUS:HD|MAX|2														ABILITY:Special Ability|VIRTUAL|Paladin ~ Detect Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
-2							BONUS:VAR|DefensiveStanceTimes|max(CHA,1)	BONUS:VAR|DefensiveStanceDuration|3	ABILITY:Special Ability|VIRTUAL|Holy Champion (Blazing Wyrm) ~ Defensive Stance|Divine Grace PGtA|Talons of Flame
-3																				ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Burning Blood
+2							BONUS:VAR|DefensiveStanceTimes|max(CHA,1)	BONUS:VAR|DefensiveStanceDuration|3	ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Holy Champion (Blazing Wyrm) ~ Defensive Stance|Talons of Flame
+3																				ABILITY:Special Ability|VIRTUAL|Burning Blood|Paladin ~ Aura of Courage
 4	CAST:0,0																		ABILITY:Special Ability|VIRTUAL|Ssethric Enforcer																																			SPELLLEVEL:CLASS|Holy Champion (Blazing Wyrm)=1|Burning Hands,Faerie Fire,Produce Flame,Protection from Evil
 6	CAST:0,1																		ABILITY:FEAT|AUTOMATIC|Dragon's Hide
 7	CAST:0,1
@@ -489,7 +489,7 @@ CLASS:Holy Champion (Storm Lord)	PREALIGN:LG,NG,CG	PREDEITY:1,Y	PREDEITY:1,Hurri
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Storm Lord)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Jump|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Storm Lord)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Storm Lord)|CL/2|PRECLASS:1,Holy Champion (Storm Lord)=4
+CLASS:Holy Champion (Storm Lord)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Storm Lord)|CL/2|PRECLASS:1,Holy Champion (Storm Lord)=4
 1				BONUS:HD|MAX|2	BONUS:VAR|SmiteEvil|1	ABILITY:Special Ability|VIRTUAL|Smite Evil|PREVARLT:CL,14	ABILITY:Special Ability|VIRTUAL|Paladin ~ Detect Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 2											ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Lightning Resistance
 3											ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Paladin ~ Divine Health
@@ -544,7 +544,7 @@ CLASS:Holy Champion (Harbingers)	PREALIGN:LG,LN,LE	PREDEITY:1,Y	PREDEITY:1,Illii
 # Class Name				Class Skill
 CLASS:Holy Champion (Harbingers)	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Harbingers)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Harbingers)|CL/2|PRECLASS:1,Holy Champion (Harbingers)=4
+CLASS:Holy Champion (Harbingers)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Harbingers)|CL/2|PRECLASS:1,Holy Champion (Harbingers)=4
 1				BONUS:HD|MAX|2										BONUS:VAR|SmiteInfidel|1	BONUS:VAR|SmiteChaos|1				DEFINE:SmiteInfidel|0	DEFINE:SmiteChaos|0	ABILITY:Special Ability|VIRTUAL|Smite Chaos|PREVARLT:CL,10	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency	SPELLS:ClassAbility|TIMES=ATWILL|CASTERLEVEL=CL|Detect Chaos
 2																BONUS:VAR|LayOnHandsLVL|CL																ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Paladin ~ Lay on Hands
 3																																				ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Paladin ~ Divine Health
@@ -597,7 +597,7 @@ CLASS:Holy Champion (Fate Spinner)	PREALIGN:CG,CN,CE	PREDEITY:1,Y	PREDEITY:1,Lar
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Fate Spinner)	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|TYPE=Arcana|TYPE=Nobility|TYPE=Religion|Listen|TYPE=Profession|Ride|Spot|Sense Motive	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Fate Spinner)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Fate Spinner)|CL/2|PRECLASS:1,Holy Champion (Fate Spinner)=4
+CLASS:Holy Champion (Fate Spinner)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Fate Spinner)|CL/2|PRECLASS:1,Holy Champion (Fate Spinner)=4
 1				BONUS:HD|MAX|2						ABILITY:Special Ability|VIRTUAL|Detect Aura	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2												ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA	ABILITY:Special Ability|VIRTUAL|Borrowed Time|PREVARLT:CL,6
 3												ABILITY:Special Ability|VIRTUAL|Paladin ~ Divine Health
@@ -651,7 +651,7 @@ CLASS:Holy Champion (Deathbringer)	PREALIGN:LG	PREALIGN:LG	PREDEITY:1,Neroth	PRE
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Deathbringer)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Religion|TYPE=Profession|Ride|Sense Motive	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Deathbringer)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Deathbringer)|CL/2|PRECLASS:1,Holy Champion (Deathbringer)=4
+CLASS:Holy Champion (Deathbringer)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Deathbringer)|CL/2|PRECLASS:1,Holy Champion (Deathbringer)=4
 1				BONUS:HD|MAX|2										BONUS:VAR|SmiteEvil|1													ABILITY:Special Ability|VIRTUAL|Smite Evil|PREVARLT:CL,10	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency	AUTO:LANG|Ancient Altharin(Imperial)
 2																																ABILITY:Special Ability|VIRTUAL|Discern Living|Paladin ~ Divine Grace
 3																																ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Paladin ~ Divine Health
@@ -705,7 +705,7 @@ CLASS:Holy Champion (Holy Judge)	PREALIGN:LG,LN,LE	PREDEITY:1,Y	PREDEITY:1,Nier	
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Holy Judge)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nobility|TYPE=Religion|TYPE=Local|TYPE=Profession|Ride|Sense Motive	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Holy Judge)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Holy Judge)|CL/2|PRECLASS:1,Holy Champion (Holy Judge)=4
+CLASS:Holy Champion (Holy Judge)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Holy Judge)|CL/2|PRECLASS:1,Holy Champion (Holy Judge)=4
 1				BONUS:HD|MAX|2	BONUS:VAR|SmiteInfidel|1		DEFINE:SmiteInfidel|0	ABILITY:Special Ability|VIRTUAL|Detect Aura	ABILITY:Special Ability|VIRTUAL|Smite Infidel|PREVARLT:CL,10	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 2																	ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Fiery Touch PGtA
 3																	ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Paladin ~ Divine Health
@@ -749,7 +749,7 @@ CLASS:Holy Champion (Verdant Champion)	PREALIGN:LN	PREDEITY:1,Y	PREDEITY:1,Saluw
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Verdant Champion)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival	CSKILL:Examine Martial Technique
 # Class Name					Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Verdant Champion)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Verdant Champion)|CL/2|PRECLASS:1,Holy Champion (Verdant Champion)=4
+CLASS:Holy Champion (Verdant Champion)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Verdant Champion)|CL/2|PRECLASS:1,Holy Champion (Verdant Champion)=4
 # errata for Terramancer and Tree Shaper of Saluwe as favored classes not applied - no other info on those classes
 1				BONUS:HD|MAX|2						ABILITY:Special Ability|VIRTUAL|Strength of the Earth|Verdant Champion Stability	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2							BONUS:VAR|LayOnHandsLVL|CL	ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Paladin ~ Lay on Hands
@@ -796,7 +796,7 @@ CLASS:Holy Champion (Inner Demon)	PREALIGN:LG	PREDEITY:1,Y	PREDEITY:1,Sarish	PRE
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Inner Demon)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Planes|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Inner Demon)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Inner Demon)|CL/2|PRECLASS:1,Holy Champion (Inner Demon)=4
+CLASS:Holy Champion (Inner Demon)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Inner Demon)|CL/2|PRECLASS:1,Holy Champion (Inner Demon)=4
 1				BONUS:HD|MAX|2	BONUS:ABILITYPOOL|Path of the Tainted Feat|1															ABILITY:Special Ability|VIRTUAL|Discern Infernal|The Infernal Within	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2																													ABILITY:Special Ability|VIRTUAL|Favored Enemy Infernal|Lure of Darkness|The Night Hides Not
 3																													ABILITY:Special Ability|VIRTUAL|Immunity Poison|Infernal Resistances
@@ -808,7 +808,7 @@ CLASS:Holy Champion (Inner Demon)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEV
 9	CAST:0,1,0
 10	CAST:0,1,1					BONUS:ABILITYPOOL|Second Symbiosis|1																ABILITY:Special Ability|VIRTUAL|SymbiosisII
 11	CAST:0,1,1,0																																																																				SPELLLEVEL:CLASS|Holy Champion (Inner Demon)=3|Deeper Darkness,Fear,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Law,Nondetection	SPELLLEVEL:CLASS|Holy Champion (Inner Demon)=3|Oath|PRETEMPLATE:1,Mehan,HolrynMehan
-12	CAST:0,1,1,1												DEFINE:GreaterResistLevel|0										ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Infernal Resistances Grtr
+12	CAST:0,1,1,1												DEFINE:GreaterResistLevel|0										ABILITY:Special Ability|VIRTUAL|Infernal Resistances Grtr|Paladin ~ Aura of Courage
 13	CAST:0,1,1,1
 14	CAST:0,2,1,1,0				BONUS:ABILITYPOOL|Third Symbiosis|1																	ABILITY:Special Ability|VIRTUAL|SymbiosisIII																																			SPELLLEVEL:CLASS|Holy Champion (Inner Demon)=4|Dispel Chaos,Dispel Evil,Summon Thy Own (Lesser),Zone of Silence
 15	CAST:0,2,1,1,1
@@ -850,7 +850,7 @@ CLASS:Holy Champion (Sea Lord)	PREALIGN:LG,NG,CG	PREDEITY:1,Y	PREDEITY:1,Yarris	
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Holy Champion (Sea Lord)	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Sea|Ride|Search|Spot|Survival|Swim|Use Rope	CSKILL:Examine Martial Technique
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion (Sea Lord)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Sea Lord)|CL/2|PRECLASS:1,Holy Champion (Sea Lord)=4
+CLASS:Holy Champion (Sea Lord)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion (Sea Lord)|CL/2|PRECLASS:1,Holy Champion (Sea Lord)=4
 1				ABILITY:Special Ability|VIRTUAL|Sea is My Home	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2				ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA
 3				ABILITY:Special Ability|VIRTUAL|Paladin ~ Divine Health|Yarris' Embrace
@@ -920,7 +920,7 @@ CLASS:Holy Champion	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine
 # Class Name		Class Skill
 CLASS:Holy Champion	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
-CLASS:Holy Champion	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion|CL/2|PRECLASS:1,Holy Champion=4
+CLASS:Holy Champion	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Holy Champion|CL/2|PRECLASS:1,Holy Champion=4
 # Philosophic Warrior - Althares #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SUBCLASS:Philosophic Warrior	NAMEISPI:YES	COST:0				BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TEMPLATE:AltherianTriggermageFavClass	STARTSKILLPTS:6	PREALIGN:LG,LN,LE	PREDEITY:1,Althares																													!PRERACE:1,Elorii,Dwarf,Ss'ressen																																																				SOURCEPAGE:p.70	AUTO:LANG|Ancient Altharin(Imperial)
 SUBCLASSLEVEL:1																																																																																																							ABILITY:Special Ability|VIRTUAL|Paladin ~ Detect Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency																																								AUTO:WEAPONPROF|TYPE=Flintlock	CHANGEPROF:Altherian Flintlock (Pistol),Altherian Flintlock (Rifle)=Martial
@@ -956,7 +956,7 @@ SUBCLASSLEVEL:8	SPELLLEVEL:CLASS|Holy Champion=2|Inflict Moderate Wounds,Share M
 SUBCLASSLEVEL:9																																						CAST:0,1,0
 SUBCLASSLEVEL:10																																						CAST:0,1,1																																																																ABILITY:Special Ability|VIRTUAL|Improved Pain Tolerance
 SUBCLASSLEVEL:11	SPELLLEVEL:CLASS|Holy Champion=3|Crushing Despair,Inflict Serious Wounds,Vampiric Touch																							CAST:0,1,1,0
-SUBCLASSLEVEL:12																																						CAST:0,1,1,1																									BONUS:VAR|ChannelTimesBase|max(CON,1)																																ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Inner Strength
+SUBCLASSLEVEL:12																																						CAST:0,1,1,1																									BONUS:VAR|ChannelTimesBase|max(CON,1)																																ABILITY:Special Ability|VIRTUAL|Inner Strength|Paladin ~ Aura of Courage
 SUBCLASSLEVEL:13																																						CAST:0,1,1,1
 SUBCLASSLEVEL:14	SPELLLEVEL:CLASS|Holy Champion=4|Inflict Critical Wounds																												CAST:0,2,1,1,0																																																															ABILITY:Special Ability|VIRTUAL|Travail Stasis
 SUBCLASSLEVEL:15																																						CAST:0,2,1,1,1
@@ -969,7 +969,7 @@ SUBCLASSLEVEL:20																																						CAST:0,3,3,3,3												
 SUBCLASS:Twelve Oaks		NAMEISPI:YES	COST:0	BONUS:HD|MIN|2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	TEMPLATE:TwelveOaksFavClass			STARTSKILLPTS:2	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda																							PRERACE:1,Elorii																	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival																			SOURCEPAGE:p.77	AUTO:LANG|Literacy
 SUBCLASSLEVEL:1																																																																	BONUS:VAR|SmiteEvil|1																																			ABILITY:Special Ability|VIRTUAL|Smite Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 SUBCLASSLEVEL:2																																																																	BONUS:VAR|LayOnHandsLVL|CL																																		ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Paladin ~ Lay on Hands
-SUBCLASSLEVEL:3																																																																																																							ABILITY:Special Ability|VIRTUAL|Paladin ~ Divine Health|Know Thy Friends
+SUBCLASSLEVEL:3																																																																																																							ABILITY:Special Ability|VIRTUAL|Know Thy Friends|Paladin ~ Divine Health
 SUBCLASSLEVEL:4	SPELLLEVEL:CLASS|Holy Champion=1|Bane,Comprehend Languages,Undetectable Alignment																								CAST:0,0																																																																ABILITY:Special Ability|VIRTUAL|Defender of the Children
 SUBCLASSLEVEL:5																																						CAST:0,0																																																																ABILITY:FEAT|AUTOMATIC|Memories of Lives Past
 SUBCLASSLEVEL:6																																						CAST:0,1																										BONUS:VAR|SmiteEvil|1																																			ABILITY:Special Ability|VIRTUAL|Shield Other SP|Special Mount Sp
@@ -990,7 +990,7 @@ SUBCLASSLEVEL:20																																						CAST:0,3,3,3,3												
 # Order of the Beltinian Hospitalers #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SUBCLASS:Hospitaler		NAMEISPI:YES	COST:0				BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		TEMPLATE:BeltinianHospitalerFavClass	STARTSKILLPTS:2	PREALIGN:LN		PREDEITY:1,Beltine																													!PRERACE:1,Elorii,Dwarf,Ss'ressen								CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive																								SOURCEPAGE:p.79	AUTO:LANG|Ancient Altharin(Imperial)	AUTO:LANG|Literacy
 SUBCLASSLEVEL:1																																																																																																							ABILITY:Special Ability|VIRTUAL|Mercy for All|Weapons of Our Mother	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
-SUBCLASSLEVEL:2	SPELLLEVEL:CLASS|Holy Champion=1|Deathwatch,Detect Undead,Glimpse of the Cauldron,Hide from Undead,Protection from Evil,Sanctuary																CAST:0,0																										BONUS:VAR|LayOnHandsLVL|CL																																		ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Paladin ~ Lay on Hands|Merciful Strike
+SUBCLASSLEVEL:2	SPELLLEVEL:CLASS|Holy Champion=1|Deathwatch,Detect Undead,Glimpse of the Cauldron,Hide from Undead,Protection from Evil,Sanctuary																CAST:0,0																										BONUS:VAR|LayOnHandsLVL|CL																																		ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Merciful Strike|Paladin ~ Lay on Hands
 SUBCLASSLEVEL:3																																						CAST:0,1																																																																ABILITY:Special Ability|VIRTUAL|Paladin ~ Divine Health
 SUBCLASSLEVEL:4	SPELLLEVEL:CLASS|Holy Champion=2|Aid,Calm Emotions,Consecrate,Cure Moderate Wounds,Gentle Repose																					CAST:0,2,0					BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility													BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL-3|TYPE=Level.REPLACE																											ABILITY:Special Ability|AUTOMATIC|Cleric ~ Turn or Rebuke Undead
 SUBCLASSLEVEL:5																																						CAST:0,3,1
@@ -1024,7 +1024,7 @@ SUBCLASSLEVEL:10																																						CAST:0,1,1																
 SUBCLASSLEVEL:11	SPELLLEVEL:CLASS|Holy Champion=3|Not Where You Think,Shadow Conjuration,Shadow Stride																							CAST:0,1,1,0
 SUBCLASSLEVEL:12																																						CAST:0,1,1,1																																																															ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Rogue Special Ability ~ Slippery Mind
 SUBCLASSLEVEL:13																																						CAST:0,1,1,1
-SUBCLASSLEVEL:14	SPELLLEVEL:CLASS|Holy Champion=4|Dispel Evil,Nondetection,Shadow Evocation,Zone of Silence																						CAST:0,2,1,1,0																																																															ABILITY:Special Ability|VIRTUAL|Cloak of Cadic (Cover of Night)|Assassin ~ Hide in Plain Sight
+SUBCLASSLEVEL:14	SPELLLEVEL:CLASS|Holy Champion=4|Dispel Evil,Nondetection,Shadow Evocation,Zone of Silence																						CAST:0,2,1,1,0																																																															ABILITY:Special Ability|VIRTUAL|Assassin ~ Hide in Plain Sight|Cloak of Cadic (Cover of Night)
 SUBCLASSLEVEL:15																																						CAST:0,2,1,1,1
 SUBCLASSLEVEL:16																																						CAST:0,2,2,1,1																																																															ABILITY:Special Ability|VIRTUAL|Shadow Mage
 SUBCLASSLEVEL:17																																						CAST:0,2,2,2,1
@@ -1034,8 +1034,8 @@ SUBCLASSLEVEL:20																																						CAST:0,3,3,3,3												
 # Sentinels of the Blazing Wyrm - Fire Dragon #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SUBCLASS:Blazing Wyrm		NAMEISPI:YES	COST:0				BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	TEMPLATE:BlazingWyrmFavClass			STARTSKILLPTS:2	PREALIGN:LG,LN	PREDEITY:1,Fire Dragon																							PRERACE:1,Ss'ressen									PRETEMPLATE:1,Black Talon,Ashen Hide	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Jump|Knowledge (Geography/Ssethregore)|Knowledge (Nature/Ssethregore)|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Swim							SOURCEPAGE:p.83
 SUBCLASSLEVEL:1																																									BONUS:HD|MAX|2																																																												ABILITY:Special Ability|VIRTUAL|Paladin ~ Detect Evil	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
-SUBCLASSLEVEL:2																																																																	BONUS:VAR|DefensiveStanceTimes|max(CHA,1)	BONUS:VAR|DefensiveStanceDuration|3																										ABILITY:Special Ability|VIRTUAL|Dwarven Defender ~ Defensive Stance|Divine Grace PGtA|Talons of Flame
-SUBCLASSLEVEL:3																																																																																																							ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Burning Blood
+SUBCLASSLEVEL:2																																																																	BONUS:VAR|DefensiveStanceTimes|max(CHA,1)	BONUS:VAR|DefensiveStanceDuration|3																										ABILITY:Special Ability|VIRTUAL|Divine Grace PGtA|Dwarven Defender ~ Defensive Stance|Talons of Flame
+SUBCLASSLEVEL:3																																																																																																							ABILITY:Special Ability|VIRTUAL|Burning Blood|Paladin ~ Aura of Courage
 SUBCLASSLEVEL:4	SPELLLEVEL:CLASS|Holy Champion=1|Burning Hands,Faerie Fire,Produce Flame,Protection from Evil																						CAST:0,0																																																																ABILITY:Special Ability|VIRTUAL|Ssethric Enforcer
 SUBCLASSLEVEL:6																																						CAST:0,1																																																																ABILITY:FEAT|AUTOMATIC|Dragon's Hide
 SUBCLASSLEVEL:7																																						CAST:0,1
@@ -1199,7 +1199,7 @@ SUBCLASSLEVEL:8	SPELLLEVEL:CLASS|Holy Champion=2|Darkness,Produce Flame,Protecti
 SUBCLASSLEVEL:9																																						CAST:0,1,0
 SUBCLASSLEVEL:10																																						CAST:0,1,1					BONUS:ABILITYPOOL|Second Symbiosis|1																																																					ABILITY:Special Ability|VIRTUAL|SymbiosisII
 SUBCLASSLEVEL:11	SPELLLEVEL:CLASS|Holy Champion=3|Deeper Darkness,Fear,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Law,Nondetection	SPELLLEVEL:CLASS|Holy Champion=3|Oath|PRETEMPLATE:1,Mehan,HolrynMehan	CAST:0,1,1,0
-SUBCLASSLEVEL:12																																						CAST:0,1,1,1																																																															ABILITY:Special Ability|VIRTUAL|Paladin ~ Aura of Courage|Infernal Resistances Grtr																																								DEFINE:GreaterResistLevel|0
+SUBCLASSLEVEL:12																																						CAST:0,1,1,1																																																															ABILITY:Special Ability|VIRTUAL|Infernal Resistances Grtr|Paladin ~ Aura of Courage																																								DEFINE:GreaterResistLevel|0
 SUBCLASSLEVEL:13																																						CAST:0,1,1,1
 SUBCLASSLEVEL:14	SPELLLEVEL:CLASS|Holy Champion=4|Dispel Chaos,Dispel Evil,Summon Thy Own (Lesser),Zone of Silence																					CAST:0,2,1,1,0				BONUS:ABILITYPOOL|Third Symbiosis|1																																																						ABILITY:Special Ability|VIRTUAL|SymbiosisIII
 SUBCLASSLEVEL:15																																						CAST:0,2,1,1,1

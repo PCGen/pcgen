@@ -4,10 +4,10 @@ SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/produc
 
 ###Block: Controls for Triggering Unchained Versions
 # Ability Name			Modify VAR
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Pool_Barbarian_Class_Selection|1	BONUS:VAR|BarbarianClassSelection|1
-CATEGORY=Class|Monk.MOD		BONUS:VAR|Pool_Monk_Class_Selection|1	BONUS:VAR|MonkClassSelection|1
-CATEGORY=Class|Rogue.MOD	BONUS:VAR|Pool_Rogue_Class_Selection|1	BONUS:VAR|RogueClassSelection|1
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|Pool_Summoner_Class_Selection|1	BONUS:VAR|SummonerClassSelection|1
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Pool_Barbarian_Class_Selection|1|TYPE=Base
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Pool_Monk_Class_Selection|1|TYPE=Base	
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Pool_Rogue_Class_Selection|1|TYPE=Base
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base
 
 
 ###Block:

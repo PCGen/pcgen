@@ -12,7 +12,7 @@ CLASS:Medicine Man	HD:8		TYPE:PC.Prestige	ABB:MedMn		MAXLEVEL:10	SOURCEPAGE:p.8	
 # Class Name		Required Ability								Required AL		Required Race	Required Skill								Req. Spell Type		Required Stat	PRETOTALAB
 CLASS:Medicine Man	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Toughness,Track	PREALIGN:LG,NG,CG	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Wilderness Lore=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Perform|Ride|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope|Wilderness Lore
+CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (religion)|Listen|Move Silently|Perform|Ride|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 ###Block: Weapon, Armor, and Shield Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
@@ -143,7 +143,7 @@ CLASS:Karhollan Guard	HD:10		TYPE:PC.Prestige	ABB:KarGrd		MAXLEVEL:10	SOURCEPAGE
 # Class Name		Required Ability								Required Race	Required Stat
 CLASS:Karhollan Guard	PREABILITY:3,CATEGORY=FEAT,Cleave,Great Cleave,Power Attack	PRERACE:1,Giant%	PRESTAT:1,STR=24
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Swim|Wilderness Lore
+CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (arcana)|Knowledge (Nature)|Knowledge (religion)|Swim|Wilderness Lore
 ###Block: Class Features
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
@@ -170,7 +170,7 @@ CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:p.50	
 # Class Name		Required AL					Prohibited Check		Required Text																PRETOTALAB
 CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Listen|Spellcraft|Swim
+CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (arcana)|Listen|Spellcraft|Swim
 ###Block: Class Features
 ###Block: Normal Progression
 1	SAB:Demons Heart	SAB:Demons Mark
@@ -195,7 +195,7 @@ CLASS:Exemplar	HD:8		TYPE:PC.Prestige	ABB:Explr		MAXLEVEL:10	SOURCEPAGE:p.58	BON
 # Class Name	Required Ability					Required AL			Required Check Base	Required Domain				Required Race	Required Text
 CLASS:Exemplar	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
+CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (religion)|Perform|Scry|Spellcraft
 ###Block: Class Features
 1	BONUS:ABILITYPOOL|Deity Weapon|1
 ###Block: Normal Progression
@@ -217,7 +217,7 @@ CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	ABB:ExEx		MAXLEVEL:10	SOURCEPAGE:p.58	B
 # Class Name	Required Ability					Required Check Base	Required Domain				Required Race	Required Text
 CLASS:Ex Exemplar	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
+CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (religion)|Perform|Scry|Spellcraft
 ###Block:
 
 #
@@ -231,7 +231,7 @@ CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPA
 # Class Name			Required Ability						Required AL	Required Race		Required Skill								Required Text
 CLASS:Servants of the One	PREABILITY:2,CATEGORY=FEAT,Iron Will,Toughness	PREALIGN:LE	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRETEXT:Character must be able to cast 3rd level spells from the domain of Conquest and be responsible for the desecration of no fewer than three holy sites of other races.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
+CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (arcana)|Knowledge (religion)|Scry|Sense Motive|Spellcraft
 ###Block: Class Features
 1	SAB:Lost Souls - You may contact your fellow servants by sendings %/day.|CL
 ###Block: Normal Progression
@@ -279,7 +279,7 @@ CLASS:The Broken	TYPE:PC.Prestige	ABB:Brkn		MAXLEVEL:10	SOURCEPAGE:p.80	BONUS:CO
 # Class Name	Required AL		Req. Spell Type		Required Text
 CLASS:The Broken	PREALIGN:LE,NE,CE	PRESPELLTYPE:1,ANY=3	PRETEXT:Must find and enter the Broken One's hiden sanctum.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Spellcraft
+CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (religion)|Scry|Spellcraft
 ###Block: Class Features
 1:REPEATLEVEL:1									BONUS:STAT|CON|-1	ADD:SPELLCASTER|ANY
 #1:REPEATLEVEL:1	BONUS:STAT|INT|1|PREMULT:3,[PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
@@ -356,7 +356,7 @@ CLASS:Chaos Crusader	HD:8		TYPE:PC.Prestige	ABB:ChsCr		MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Required Ability					Required AL		Required Race			Req. Spell Type		Required Stat	PRETOTALAB
 CLASS:Chaos Crusader	PREABILITY:3,CATEGORY=FEAT,TYPE=Metamagic	PREALIGN:LE,CE	PRERACE:1,Ogre,Ogre Mage	PRESPELLTYPE:1,Divine=4	PRESTAT:1,CHA=13	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Listen|Gather Information|Scry|Sense Motive|Spellcraft|Search|Spot
+CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (religion)|Listen|Gather Information|Scry|Sense Motive|Spellcraft|Search|Spot
 ###Block: Weapon and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)

@@ -10,7 +10,7 @@ CLASS:Agent of the Crown	HD:6		TYPE:PC.Prestige	ABB:AgC		MAXLEVEL:5	SOURCEPAGE:p
 # Class Name			Required Ability											Multiple Requirements																						Required Text
 CLASS:Agent of the Crown	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Diplomacy),Skill Focus (Sense Motive)	PREMULT:2,[PRESKILL:2,Diplomacy=8,Sense Motive=8],[PRESKILL:1,Knowledge (Local)=8,Knowledge (Nobility and Royalty)=8,Knowledge (Court Protocol)=8]	PRETEXT:Gain an officially recognised position within a government as an operative.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Court Protocol)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Tumble
+CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (local)|Knowledge (Nobility and Royalty)|Knowledge (Court Protocol)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Tumble
 1	AUTO:WEAPONPROF|Dagger|Rapier|Sap
 1	AUTO:WEAPONPROF|Mace (Light)|PRESIZEGTEQ:S
 ###Block: Normal Level Progression
@@ -41,7 +41,7 @@ CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p
 # Class Name		Required Ability						Required AL		Required Skill				Req. Spell Type		PRETOTALAB
 CLASS:Crusading Footpad	PREABILITY:2,CATEGORY=FEAT,Dodge,Iron Will	PREALIGN:LG,NG,CG	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1																											ABILITY:Special Ability|AUTOMATIC|Divine Companion ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Divine Luck ~ Crusading Footpad
 #	BONUS:SAVE|2	- Um... To what?  Tir Gwaith
 2									BONUS:VAR|SmiteUndead|CL/2	BONUS:VAR|SmiteUndeadDie|6	DEFINE:SmiteUndeadDie|0	DEFINE:SmiteUndead|0	ABILITY:Special Ability|AUTOMATIC|Smite Undead ~ Crusading Footpad

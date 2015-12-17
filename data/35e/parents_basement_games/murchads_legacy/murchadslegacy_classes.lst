@@ -42,8 +42,8 @@ CLASS:Imperial Legionnaire	PREABILITY:1,CATEGORY=FEAT,Remarian	PREMULT:2,[PRESKI
 CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Swim|Use Rope
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-###Block: Normal Progression
-1					BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire				TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary
+###Block: Normal Progression	COMMENT: REVIEW THIS AS NOT SURE TEMPBONUS WORKS IN CLASS FILE
+1					BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	TEMPVALUE:MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire				TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary
 2					BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0												ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire								TEMPBONUS:PC|COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense
 3																														ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
 4																														ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
@@ -73,7 +73,7 @@ CLASS:Orc Skin Artist	PREABILITY:1,CATEGORY=FEAT,Scribe Scroll	PRERACE:1,Half-Or
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Orc Skin Artist	STARTSKILLPTS:3	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
-CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Orc Skin Artist|CL
+CLASS:Orc Skin Artist	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Orc Skin Artist|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Orc Skin Artist=0|Create Water,Cure Minor Wounds,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Touch of Fatigue
 1	SPELLLEVEL:CLASS|Orc Skin Artist=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
@@ -143,7 +143,7 @@ CLASS:Steadfast Knight	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)	PRES
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge (Local/Launhym)|Knowledge (Nature)|Ride|Swim|Use Rope|Survival
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level					Use Spell List
-CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
+CLASS:Steadfast Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)

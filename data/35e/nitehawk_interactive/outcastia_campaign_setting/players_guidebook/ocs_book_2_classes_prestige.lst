@@ -10,7 +10,7 @@ SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.ni
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																													Modify VAR
 CLASS:Arcane Juggler	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (Local)|Knowledge (History)|Listen|TYPE=Perform|TYPE=Profession|Tumble
+CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (history)|Listen|TYPE=Perform|TYPE=Profession|Tumble
 ###Block:
 #all simple weapons|as well as with the shuriken. The juggler is proficient with light armor|is not proficient with shields
 1							AUTO:WEAPONPROF|Shuriken|TYPE=Simple
@@ -32,7 +32,7 @@ CLASS:Beast Lord	HD:8		TYPE:Prestige.PC	ABB:Bel		MAXLEVEL:10	SOURCEPAGE:p.83	BON
 # Class Name	Required Ability							Required Skill
 CLASS:Beast Lord	PREABILITY:2,CATEGORY=FEAT,Animal Affinity,Track	PRESKILL:3,Handle Animal=8,Knowledge (nature)=4,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Beast Lord	STARTSKILLPTS:6	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Spot|Survival|Swim
+CLASS:Beast Lord	STARTSKILLPTS:6	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Spot|Survival|Swim
 ###Block:
 #Weapon and Armor Proficiency: Beast lords are proficient with all simple and martial weapons, but are restricted from wearing armor or using shields. If he wears any armor or uses a shield (including a buckler)|he loses the benefits of a few of his abilities (see individual ability entries)
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -65,7 +65,7 @@ CLASS:Bone Mage	HD:12		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT
 # Class Name	Required Ability						Required AL	Required Race		Required Text
 CLASS:Bone Mage	PREABILITY:1,CATEGORY=FEAT,Improved Initiative	PREALIGN:NE	PRERACE:1,Skeleton	PRETEXT:Special: Must have been the target of the create bone mage spell (see the spells chapter).
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Spellcraft
+CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Spellcraft
 ###Block:
 # Weapon and Armor Proficiency: The bone mage gains proficiency in all simple weapons. The bone mage gains no proficiencies in any type of armor or shield.
 # TODO: In fact|it loses any proficiencies it might have had in any type of armor or shield
@@ -104,7 +104,7 @@ CLASS:Cerberus Agent	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CO
 # Class Name		Required Ability					Required AL		Required Skill
 CLASS:Cerberus Agent	PREABILITY:1,CATEGORY=FEAT,Deceitful	PREALIGN:LE,NE,CE	PRESKILL:4,Bluff=4,Hide=4,Listen=4,Gather Information=8
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Cerberus Agent	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Forgery|Gather Information|Hide|Improvised Trap Setting|Intimidate|Knowledge (Local)|Listen|Move Silently|Search|Seduction|Sense Motive
+CLASS:Cerberus Agent	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Forgery|Gather Information|Hide|Improvised Trap Setting|Intimidate|Knowledge (local)|Listen|Move Silently|Search|Seduction|Sense Motive
 ###Block: Cerberus agents are proficient with all simple and martial weapons, light and medium armor, and with light shields.
 # If he wears any armor or uses a shield (including a buckler), however, he loses the benefits of a few of his abilities (see individual ability entries)
 # NEED ARMOR / WEAPON PROF
@@ -132,7 +132,7 @@ CLASS:Cord		HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:COMBAT|BASE
 # Class Name	Required Ability						Req. Spell Type		Required Text
 CLASS:Cord		PREABILITY:2,CATEGORY=FEAT,Craft Wand,Dodge	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Must have worked onboard a ship for an extended period (at least one month at sea)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artist|Hide|Knowledge (Arcana)|Move Silently|TYPE=Profession|Sailing|Spellcraft|Use Rope
+CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artist|Hide|Knowledge (arcana)|Move Silently|TYPE=Profession|Sailing|Spellcraft|Use Rope
 ###Block:
 # No Weapon / Armor Profs
 ###Block:
@@ -261,7 +261,7 @@ CLASS:Feral Raider	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COM
 # Class Name		Required Ability						Required Skill							Required Text						PRETOTALAB
 CLASS:Feral Raider	PREABILITY:1,CATEGORY=FEAT,Improved Initiative	PRESKILL:3,Climb=3,Knowledge (geography)=3,Survival=3	PRETEXT:Special: Must be a Feral Lands native	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Feral Raider	STARTSKILLPTS:6	CSKILL:Balance|Climb|Escape Artist|Jump|Hide|Knowledge (Geography)|Listen|Move Silently|Spot|Survival|Tactics (guerrilla warfare only)|Tumble
+CLASS:Feral Raider	STARTSKILLPTS:6	CSKILL:Balance|Climb|Escape Artist|Jump|Hide|Knowledge (geography)|Listen|Move Silently|Spot|Survival|Tactics (guerrilla warfare only)|Tumble
 ###Block:
 #	Weapon and Armor Proficiency: A feral raider is proficient with all simple and martial weapons|light armor|but not shields. Using a shield or wearing anything heavier than light armor results in the inability to use his Increased Movement|Running Attack|Irresistible Charge
 1							AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -301,7 +301,7 @@ CLASS:Holy Terror	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.107	BONUS:COM
 # Class Name	Required Ability									Required Skill											Required Text																																																						PRETOTALAB
 CLASS:Holy Terror	PREABILITY:3,CATEGORY=FEAT,Leadership,Mounted Combat,Power Attack	PRESKILL:4,Diplomacy=4,Dragon Lore=10,Knowledge (religion)=4,Intimidate=6	PRETEXT:Special: In order to become a holy terror, a dragon lord must first achieve the rank of captain within the dragon lords. Currently there are only ten captains within the dragon lords. A new holy terror can only be accepted into their if a previous one has passed away. There can be no more than 5 holy terrors at any given time	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lore|Handle Animal|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Ride|Search|Spellcraft|Spot
+CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lore|Handle Animal|Hide|Intimidate|Knowledge (religion)|Listen|Move Silently|Ride|Search|Spellcraft|Spot
 ###Block:
 #Weapon and Armor Proficiency: Holy terrors are proficient with simple and martial weapons They are proficient with all types of armor, but not with shields
 1												AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -357,7 +357,7 @@ CLASS:Hundite Dragon	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:C
 # Class Name		Required Ability					Required Skill				Required Text																													PRETOTALAB
 CLASS:Hundite Dragon	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:1,Knowledge (history)=5	PRETEXT:Special: To become a hundite dragon a character must be from a hundite tribe. Additionally, he must fast for 14 days in the volcanic base of the mountain known as Dragon Forge	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Hundite Dragon	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Dragon Lore|Jump|Knowledge (History)|Intimidate|Listen|Spot|Survival
+CLASS:Hundite Dragon	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Dragon Lore|Jump|Knowledge (history)|Intimidate|Listen|Spot|Survival
 ###Block:
 #Weapon and Armor Proficiency: A hundite dragon is proficient with all simple and martial weapons, all types of armor, shields
 1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -406,7 +406,7 @@ CLASS:Knight of Manunzul	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.115	BON
 # Class Name			Required Ability											Required AL		Required Skill									Required Text
 CLASS:Knight of Manunzul	PREABILITY:4,CATEGORY=FEAT,Alertness,Blind-Fight,Leadership,Mounted Combat	PREALIGN:LG,NG,CG	PRESKILL:3,Knowledge (religion)=4,Knowledge (undead)=6,Ride=2	PRETEXT:Special: A knight of manunzul must come from the ranks of the watchmen|undergo their required training program
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Knight of Manunzul	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (Undead)|Knowledge (Religion)|Listen|Ride|Search|Spot
+CLASS:Knight of Manunzul	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (Undead)|Knowledge (religion)|Listen|Ride|Search|Spot
 ###Block:
 #Weapon and Armor Proficiency: Knights of manunzul are skilled with all martial and simple weapons
 # are required to carry at least a mace at all times. They are proficient with light and medium armor
@@ -431,7 +431,7 @@ CLASS:Living Compass	HD:6		TYPE:Prestige.PC	ABB:LvC		MAXLEVEL:5	SOURCEPAGE:p.117
 # Class Name		Required Ability				Multiple Requirements																																																				Required Skill
 CLASS:Living Compass	PREABILITY:1,CATEGORY=FEAT,Track	PREMULT:1,[PREMULT:2,[PREMULT:3,[PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenSensing],[PRECLASS:1,Mystic Knight=1]],[PREMULT:2,[!PRECLASS:1,Mystic Knight=1],[PREABILITY:5,CATEGORY=FEAT,Alertness,Combat Reflexes,Deflect Arrows,Endurance,Great Fortitude,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw]]]	PRESKILL:3,Concentration=4,Sense Motive=8,Survival=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Living Compass	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Jump|Knowledge (Geography)|Knowledge (Religion)|Listen|Search|Sense Motive|Spot|Survival|Tumble
+CLASS:Living Compass	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Jump|Knowledge (geography)|Knowledge (religion)|Listen|Search|Sense Motive|Spot|Survival|Tumble
 ###Block:
 #Weapon and Armor Proficiency: Living compasses are proficient with all simple and martial weapons|with all armor and light shields
 1																AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -473,7 +473,7 @@ CLASS:Metaphysician	HD:4		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.121	BONUS:COM
 # Class Name		Required Ability						Required Skill							Req. Spell Type
 CLASS:Metaphysician	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude	PRESKILL:3,Heal=6,Knowledge (nature)=2,Spellcraft=8	PRESPELLTYPE:1,Arcane=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Metaphysician	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Heal|Knowledge (Arcana)|Knowledge (Nature)|TYPE=Profession|Spellcraft|Witchcraft
+CLASS:Metaphysician	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Heal|Knowledge (arcana)|Knowledge (Nature)|TYPE=Profession|Spellcraft|Witchcraft
 ###Block: No New Profs
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Supernatural Healer ~ Metaphysician
@@ -560,7 +560,7 @@ CLASS:Permissionist	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:CO
 # Class Name		Required Ability											Multiple Requirements																			Req. Known Spell
 CLASS:Permissionist	PREABILITY:2,CATEGORY=FEAT,Improved Counterspell,Skill Focus (Concentration)	PREMULT:2,[PRESKILL:2,Concentration=8,Spellcraft=8],[PRESKILL:1,Knowledge (arcana)=5,Knowledge (nature)=5,Knowledge (religion)=5]	PRESPELL:1,dispel magic,dispel magic (Greater),stop,power word dispel,power word unbind,reflection,word of averting,word of dispelling,word of reflection,word of undoing
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Permissionist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Sense Motive|Spellcraft
+CLASS:Permissionist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (Nature)|Knowledge (religion)|Sense Motive|Spellcraft
 ###Block:
 #Weapon and Armor Proficiency: A permissionist gains no proficiencies with any type of weapon|armor|or shield
 ###Block:
@@ -583,7 +583,7 @@ CLASS:Scarlet Rose	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:COM
 # Class Name		Required Ability														Restricted AL		Required Domain		Req. Spell Type		PRETOTALAB
 CLASS:Scarlet Rose	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREABILITY:1,CATEGORY=FEAT,Extra Turning	!PREALIGN:LE,NE,CE	PREDOMAIN:1,Sun,Glory	PRESPELLTYPE:1,Divine=3	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Scarlet Rose	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Undead)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Scarlet Rose	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (religion)|Knowledge (Undead)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block:
 #Weapon and Armor Proficiency: The scarlet rose gains no new proficiencies in any weapon on armor
 ###Block:

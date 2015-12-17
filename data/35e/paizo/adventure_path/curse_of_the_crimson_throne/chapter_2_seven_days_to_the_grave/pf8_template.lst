@@ -35,8 +35,8 @@ Lady Andaisin's Magic Buffs		VISIBLE:YES	BONUS:COMBAT|AC|1|TYPE=Enhancement	BONU
 
 ###Block: Expert Skills
 # Template Name			Visible	Class Skill
-Dr. Davaulus Expert Skills	VISIBLE:NO	CSKILL:Heal|Move Silently|Knowledge (Nature)|Knowledge (Religion)|Open Lock|Profession (Doctor)|Search|Sense Motive|Sleight of Hand|Spot
-Vendra Loaggri Expert Skills	VISIBLE:NO	CSKILL:Bluff|Craft (Alchemy)|Diplomacy|Escape Artist|Forgery|Knowledge (Local)|Listen|Move Silently|Spot|Use Magic Device
+Dr. Davaulus Expert Skills	VISIBLE:NO	CSKILL:Heal|Move Silently|Knowledge (Nature)|Knowledge (religion)|Open Lock|Profession (Doctor)|Search|Sense Motive|Sleight of Hand|Spot
+Vendra Loaggri Expert Skills	VISIBLE:NO	CSKILL:Bluff|Craft (Alchemy)|Diplomacy|Escape Artist|Forgery|Knowledge (local)|Listen|Move Silently|Spot|Use Magic Device
 
 #
 # End
