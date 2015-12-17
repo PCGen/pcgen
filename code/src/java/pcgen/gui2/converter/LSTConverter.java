@@ -41,6 +41,9 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Language;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.ShieldProf;
@@ -55,16 +58,23 @@ import pcgen.gui2.converter.loader.CopyLoader;
 import pcgen.gui2.converter.loader.EquipmentLoader;
 import pcgen.gui2.converter.loader.SelfCopyLoader;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.persistence.CDOMControlLoader;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
+	private final GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
+	private final GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
+	private final GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
+	private final CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private final EditorLoadContext context;
 	private List<Loader> loaders;
 	private Set<URI> written = new HashSet<URI>();
@@ -110,6 +120,7 @@ public class LSTConverter extends Observable
 	 */
 	public void initCampaigns(List<Campaign> campaigns)
 	{
+		List<CampaignSourceEntry> dataDefFileList = new ArrayList<>();
 		for (Campaign campaign : campaigns)
 		{
 			// load ability categories first as they used to only be at the game
@@ -118,13 +129,38 @@ public class LSTConverter extends Observable
 			{
 				catLoader.loadLstFiles(context, campaign
 						.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+				statLoader.loadLstFiles(context,
+					campaign.getSafeListFor(ListKey.FILE_STAT));
+				savesLoader.loadLstFiles(context,
+					campaign.getSafeListFor(ListKey.FILE_SAVE));
+				alignmentLoader.loadLstFiles(context,
+					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+				
 			}
 			catch (PersistenceLayerException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			dataDefFileList.addAll(campaign
+				.getSafeListFor(ListKey.FILE_DATACTRL));
+
 		}
+		
+
+		// Load using the new LstFileLoaders
+		try
+		{
+			SourceFileLoader.addDefaultDataControlIfNeeded(dataDefFileList);
+			dataControlLoader.loadLstFiles(context, dataDefFileList);
+			SourceFileLoader.processFactDefinitions(context);
+		}
+		catch (PersistenceLayerException e)
+		{
+			// TODO Auto-generated catch block
+			Logging.errorPrint("LSTConverter.initCampaigns failed", e);
+		}
+		
 	}
 	
 	public void processCampaign(Campaign campaign)
@@ -266,6 +302,10 @@ public class LSTConverter extends Observable
 		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
 		loaderList.add(new CopyLoader(ListKey.FILE_KIT));
 		loaderList.add(new CopyLoader(ListKey.FILE_BIO_SET));
+		loaderList.add(new CopyLoader(ListKey.FILE_DATACTRL));
+		loaderList.add(new CopyLoader(ListKey.FILE_STAT));
+		loaderList.add(new CopyLoader(ListKey.FILE_SAVE));
+		loaderList.add(new CopyLoader(ListKey.FILE_ALIGNMENT));
 		loaderList.add(new CopyLoader(ListKey.FILE_PCC));
 		loaderList.add(new SelfCopyLoader());
 		return loaderList;

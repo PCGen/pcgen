@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > LST File Class > Lesson 10" to find
+#out how the tags in the languages file work.
+#
+#
+#
+#
+#
+#####1st Example
+
+#Halfling			TYPE:Spoken.Written.Read
+
+#####
+#
+#####2nd Example
+
+#Druidic			TYPE:Spoken.Written.Read.Druid.Secret	PREVARGTEQ:DruidicLanguage,1
+
+#####
+#
+#Druidic and Halfling are language names. The name must be the first field on each line. Other LST files will reference a
+#language by the name. Every language needs a name.
+#
+#The TYPE tag is used to set the type/group of the language. It may take multiple types delimited by periods. The types used
+#are usually Spoken, Read, and Written. Every language should have at least one type.
+#
+#In the second Example the PREVARGTEQ tag is used to allow selection of the language only, if the character has the
+#DruidicLanguage variable at a value of 1 or higher. The DruidicLanguage will only be set elsewhere, when a character becomes
+#eligible to learn the language, for instance by acquiring the Druid class. There is a multitude of existing prerequiste tags
+#in PCGen. If you are looking into the documentation under List File Tag Index, you can find them listed under the topic
+#"PRExxx tags".

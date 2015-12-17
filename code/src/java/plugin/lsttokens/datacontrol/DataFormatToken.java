@@ -15,14 +15,13 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.rules.types.FormatManager;
-import pcgen.rules.types.FormatManagerLibrary;
 import pcgen.util.Logging;
 
 public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
@@ -43,7 +42,8 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		ContentDefinition def, String value)
 	{
-		FormatManager<?> fmtMgr = FormatManagerLibrary.getFormatManager(value);
+		FormatManager<?> fmtMgr =
+				context.getReferenceContext().getFormatManager(value);
 		FormatManager<?> old = def.setFormatManager(fmtMgr);
 		if ((old != null) && (!old.equals(fmtMgr)))
 		{

@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
-# Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add 					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
+# Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
 CATEGORY=Internal|Min Skill.MOD																										DEFINE:CharacterSkillPts|0																	BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																								BONUS:VAR|CharacterSkillPts|TL|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|EclipseClassLvl*INT|PRESTAT:1,INT=12
-# Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add 					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
+# Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
 CATEGORY=Special Ability|All Automatic Abilities.MOD																												ABILITY:Internal Abilities|AUTOMATIC|Pathfinder Feat Gain Bypass
 # This adds a gamemode Specific Bonus Feat Level Character Points.
 
@@ -14,7 +14,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 #COMMENT: These are used to set up the Caster Class. They have Both the ADD and BONUS:PCLEVEL. Establish the DEFINES. These are Free to Buy as they are only required to "Set Up". Until the Rest is Bought they'll still be level 0.
-# Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add 					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
+# Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
 Initial Paladin Magic Level					KEY:Initial Paladin Magic Level	SORTKEY:Magic_Level_01_Paladin	CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:PaladinCasterLevel|0												ADD:SPELLCASTER|Paladin																														BONUS:CASTERLEVEL|Paladin|PaladinCasterLevel	BONUS:PCLEVEL|Paladin|var("PaladinMagicLvls")-1	BONUS:PCLEVEL|Paladin|3	BONUS:VAR|PaladinCasterLevel|-var("PaladinMagicLvls")	BONUS:VAR|PaladinCasterLevel|var("PointBuyPaladinCasterLvl")+var("CasterLevelAll")					COST:0
 Initial Ranger Magic Level					KEY:Initial Ranger Magic Level	SORTKEY:Magic_Level_01_Ranger		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:RangerCasterLevel|0												ADD:SPELLCASTER|Ranger																														BONUS:CASTERLEVEL|Ranger|RangerCasterLevel	BONUS:PCLEVEL|Ranger|var("RangerMagicLvls")-1	BONUS:PCLEVEL|Ranger|3	BONUS:VAR|RangerCasterLevel|-var("RangerMagicLvls")	BONUS:VAR|RangerCasterLevel|var("PointBuyRangerCasterLvl")+var("CasterLevelAll")					COST:0
 Initial Adept Magic Level					KEY:Initial Adept Magic Level		SORTKEY:Magic_Level_01_Adept		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:AdeptCasterLevel|0												ADD:SPELLCASTER|Adept																														BONUS:CASTERLEVEL|Adept|AdeptCasterLevel		BONUS:PCLEVEL|Adept|var("AdeptMagicLvls")-1					BONUS:VAR|AdeptCasterLevel|-var("AdeptMagicLvls")	BONUS:VAR|AdeptCasterLevel|var("PointBuyAdeptCasterLvl")+var("CasterLevelAll")					COST:0

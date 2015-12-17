@@ -32,3 +32,6 @@ Team Flanking				CATEGORY:FEAT	TYPE:General.Fighter																							PRETOT
 Total Defence				CATEGORY:FEAT	TYPE:General.Fighter					PREABILITY:2,CATEGORY=FEAT,Dodge,Defensive Fighter									PRESTAT:1,DEX=15					DESC:You can use your weapons to full effect making you harder to hit.																																													SOURCEPAGE:p.41
 Twin Shot					CATEGORY:FEAT	TYPE:General						PREABILITY:1,CATEGORY=FEAT,Ambidexterity																		DESC:You are able to use small ranged weapons in each hand, effectively making you a 'double-barrel' threat.						STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Ranged]|SPELLCASTER[Ray]																		SOURCEPAGE:p.41
 Two-Handed Power Strike			CATEGORY:FEAT	TYPE:General.Fighter					PREABILITY:1,CATEGORY=FEAT,Power Attack																		DESC:You utilize larger weapons' weight and size againt your opponents in combat.																																											SOURCEPAGE:p.41
+
+# Feat Name		Clear Prereq.
+CATEGORY=FEAT|Twin Shot.MOD	PRE:.CLEAR

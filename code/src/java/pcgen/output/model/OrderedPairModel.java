@@ -17,7 +17,7 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.geom.OrderedPair;
+import pcgen.base.math.OrderedPair;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;

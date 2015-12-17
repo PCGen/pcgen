@@ -48,6 +48,6 @@ public class pcGenGUIAliceTest extends pcGenGUITestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("Alice", "35e");
+		runTest("35e_Alice", "35e");
 	}
 }

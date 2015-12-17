@@ -50,7 +50,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
@@ -82,7 +81,6 @@ public class AboutDialog extends JDialog
 		pack();
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		Utility.setDialogRelativeLocation(frame, this);
-		
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -104,22 +102,6 @@ final class MainAbout extends JPanel
 	static final long serialVersionUID = -423796320641536943L;
 	private JButton mailingList;
 	private JButton wwwSite;
-	private JLabel dateLabel;
-	private JLabel emailLabel;
-	private JLabel helperLabel;
-	private JLabel leaderLabel;
-	private JLabel versionLabel;
-	private JLabel javaVersionLabel;
-	private JLabel wwwLink;
-	private JScrollPane license;
-	private JTabbedPane mainPane;
-	private JTabbedPane monkeyTabPane;
-	private JTextArea LGPLArea;
-	private JTextArea otherLibrariesField;
-	private JTextField projectLead;
-	private JTextField releaseDate;
-	private JTextField version;
-	private JTextField javaVersion;
 
 	/** Creates new form MainAbout */
 	MainAbout()
@@ -133,7 +115,7 @@ final class MainAbout extends JPanel
 	 */
 	private void initComponents()
 	{
-		mainPane = new JTabbedPane();
+		JTabbedPane mainPane = new JTabbedPane();
 		mainPane.add(LanguageBundle.getString("in_abt_credits"), buildCreditsPanel()); //$NON-NLS-1$
 		mainPane.add(LanguageBundle.getString("in_abt_libraries"), buildIncludesPanel()); //$NON-NLS-1$
 		mainPane.add(LanguageBundle.getString("in_abt_license"), buildLicensePanel()); //$NON-NLS-1$
@@ -154,32 +136,29 @@ final class MainAbout extends JPanel
 	 */
 	private JPanel buildCreditsPanel()
 	{
-		JPanel aCreditsPanel = new JPanel();
 
-		versionLabel = new JLabel();
-		dateLabel = new JLabel();
-		javaVersionLabel = new JLabel();
-		leaderLabel = new JLabel();
-		helperLabel = new JLabel();
-		wwwLink = new JLabel();
-		emailLabel = new JLabel();
-		version = new JTextField();
-		releaseDate = new JTextField();
-		javaVersion = new JTextField();
-		projectLead = new JTextField();
+		JLabel versionLabel = new JLabel();
+		JLabel dateLabel = new JLabel();
+		JLabel javaVersionLabel = new JLabel();
+		JLabel leaderLabel = new JLabel();
+		JLabel helperLabel = new JLabel();
+		JLabel wwwLink = new JLabel();
+		JLabel emailLabel = new JLabel();
+		JTextField version = new JTextField();
+		JTextField releaseDate = new JTextField();
+		JTextField javaVersion = new JTextField();
+		JTextField projectLead = new JTextField();
 		wwwSite = new JButton();
 		mailingList = new JButton();
-		monkeyTabPane = new JTabbedPane();
+		JTabbedPane monkeyTabPane = new JTabbedPane();
 
-		aCreditsPanel = new JPanel();
+		JPanel aCreditsPanel = new JPanel();
 		aCreditsPanel.setLayout(new GridBagLayout());
-
-		GridBagConstraints gridBagConstraints1;
 
 		// Labels
 
 		versionLabel.setText(LanguageBundle.getString("in_abt_version")); //$NON-NLS-1$
-		gridBagConstraints1 = buildConstraints(0, 0, GridBagConstraints.WEST);
+		GridBagConstraints gridBagConstraints1 = buildConstraints(0, 0, GridBagConstraints.WEST);
 		gridBagConstraints1.weightx = 0.2;
 		aCreditsPanel.add(versionLabel, gridBagConstraints1);
 
@@ -374,7 +353,7 @@ final class MainAbout extends JPanel
 	{
 		JPanel iPanel = new JPanel();
 
-		otherLibrariesField = new JTextArea();
+		JTextArea otherLibrariesField = new JTextArea();
 
 		iPanel.setLayout(new BorderLayout());
 
@@ -406,10 +385,10 @@ final class MainAbout extends JPanel
 		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new GridBoxLayout(2, 2));
 		aPanel.setBackground(Color.WHITE);
-		Icon icon = Icons.createImageIcon("gold200x200-2005.gif");
-		if (icon != null)
+		Icon goldIcon = Icons.createImageIcon("gold200x200-2005.gif");
+		if (goldIcon != null)
 		{
-			JLabel e2005 = new JLabel(icon);
+			JLabel e2005 = new JLabel(goldIcon);
 			aPanel.add(e2005);
 
 			JTextArea title = new JTextArea();
@@ -420,10 +399,10 @@ final class MainAbout extends JPanel
 			aPanel.add(title);
 		}
 
-		icon = Icons.createImageIcon("bronze200x200-2003.gif");
-		if (icon != null)
+		Icon bronzeIcon = Icons.createImageIcon("bronze200x200-2003.gif");
+		if (bronzeIcon != null)
 		{
-			JLabel e2003 = new JLabel(icon);
+			JLabel e2003 = new JLabel(bronzeIcon);
 			aPanel.add(e2003);
 
 			JTextArea title = new JTextArea();
@@ -441,9 +420,8 @@ final class MainAbout extends JPanel
 
 	private JPanel buildSponsorsPanel()
 	{
-		Border etched = null;
 		TitledBorder title =
-				BorderFactory.createTitledBorder(etched,
+				BorderFactory.createTitledBorder(null,
 					LanguageBundle.getString("in_abt_sponsorsTitle")); //$NON-NLS-1$
 		title.setTitleJustification(TitledBorder.CENTER);
 		JLabelPane sponsorLabel = new JLabelPane();
@@ -481,8 +459,8 @@ final class MainAbout extends JPanel
 	{
 		JPanel lPanel = new JPanel();
 
-		license = new JScrollPane();
-		LGPLArea = new JTextArea();
+		JScrollPane license = new JScrollPane();
+		JTextArea LGPLArea = new JTextArea();
 
 		lPanel.setLayout(new BorderLayout());
 

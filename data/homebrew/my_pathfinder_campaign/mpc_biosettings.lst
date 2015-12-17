@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+#SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPFC	SOURCEWEB:http://www.mywebsite.com
+#Biosetting files cannot have SOURCE tags in them so if you want to keep them in you must comment them out.
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Bio Settings tags" to find
+#out how the tags in the biosettings file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+
+#AGESET:0|Adulthood
+#RACENAME:Half-Giant%	CLASS:Barbarian,Rogue,Sorcerer,Soulknife,Wilder[BASEAGEADD:3d6]|Bard,Fighter,Paladin,Ranger,Psychic Warrior[BASEAGEADD:2d6]|Cleric,Druid,Monk,Psion,Wizard[BASEAGEADD:4d6]
+#RACENAME:Half-Giant%	SEX:Male[BASEHT:76|HTDIEROLL:2d4|BASEWT:220|WTDIEROLL:2d6|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:73|HTDIEROLL:2d12|BASEWT:180|WTDIEROLL:2d6|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
+#RACENAME:Half-Giant%	BASEAGE:30	MAXAGE:59	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	SKINTONE:Tanned|Pasty
+#
+#AGESET:1|Middle Age	BONUS:STAT|STR,CON,DEX|-1	BONUS:STAT|INT,WIS,CHA|1
+#RACENAME:Half-Giant%	BASEAGE:60	MAXAGE:79	AGEDIEROLL:6d4+1
+#
+#AGESET:2|Old		BONUS:STAT|STR,CON,DEX|-3	BONUS:STAT|INT,WIS,CHA|2
+#RACENAME:Half-Giant%	BASEAGE:80	MAXAGE:119	AGEDIEROLL:6d4+1
+#
+#AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3
+#RACENAME:Half-Giant%	BASEAGE:120		MAXAGE:520	AGEDIEROLL:6d4+1
+
+#####
+#Bio Settings set the parameters for height, weight, eye color and other traits which can be randomly choosen in the description
+#tab.
+#
+#The AGESET tag defines the age ranges for each race and age category. Each age category should have it's own AGESET tag
+#with a different Text field for a name. Each AGESET tag should be sequentially numbered starting at 0, for the youngest
+#age category.
+#
+#The RACENAME tag Defines the name of the race. Will appear under every AGESET tag. If the name is followed by a "%" symbol
+#then that BIOSET will apply to all subsets of that race name. For example RACENAME:Elf% will apply to Elf (Drow), Elf (Wood)
+#and all other Elf races.
+#
+#The CLASS / BASEAGEADD combination is used in AGESET:0 to define the number of years to add to the base age, for each character
+#class of this race.
+#
+#The SEX / BASEHT / HTDIEROLL / BASEWT / WTDIEROLL / TOTALWT combination determines how the Description tab randomizer generates
+#height and weight for the different genders.
+#
+#The BASEAGE, MAXAGE and AGEDIEROLL tags are used to set the limits for character age within the ageset for the given race.
+#
+#The HAIR, EYES, and SKINTONE tags are used by the Description tabs randomizing function.
+#
+#The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
+#of them, look in the List File Tag Index under the topic "Bonus tags".

@@ -344,15 +344,15 @@ CLASS:Fake Monk	TYPE:PC	ABB:Buy		VISIBLE:NO
 ###Block: Special Choose 7 OR 8 using the Bonus UDAM as this is a Split in choice
 #7	UDAM:2d10
 #8	UDAM:1d20
-1	UDAM:1d3,1d3,1d3,1d3,1d3,1d3,1d3,1d3,1d3,1d3
-2	UDAM:1d4,1d4,1d4,1d4,1d4,1d4,1d4,1d4,1d4,1d4
-3	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6
-4	UDAM:1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8
-5	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
-6	UDAM:1d12,1d12,1d12,1d12,1d12,1d12,1d12,1d12,1d12,1d12
+1	UDAM:1d3
+2	UDAM:1d4
+3	UDAM:1d6
+4	UDAM:1d8
+5	UDAM:1d10
+6	UDAM:1d12
 ###Block: Special Choose 7 OR 8 using the Bonus UDAM as this is a Split in choice
-7	UDAM:2d10,2d10,2d10,2d10,2d10,2d10,2d10,2d10,2d10,2d10
-8	UDAM:1d20,1d20,1d20,1d20,1d20,1d10,1d20,1d20,1d20,1d20
+7	UDAM:2d10
+8	UDAM:1d20
 
 
 ###Block: Extra HD workaround.

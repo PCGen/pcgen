@@ -106,6 +106,13 @@ public class PreSpellCastParser extends AbstractPrerequisiteParser implements
 				subprereq.setOperator(PrerequisiteOperator.GTEQ);
 				subprereq.setKey(token.substring(5));
 			}
+			else
+			{
+				throw new PersistenceLayerException(
+					"Each argument in PRESPELLCAST "
+						+ " must start wth either MEMORIZE= or TYPE= : "
+						+ formula);
+			}
 		}
 
 		if ((prereq.getPrerequisiteCount() == 1)

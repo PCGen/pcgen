@@ -20,7 +20,7 @@ Stunning Fist	KEY:Astral_Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAtta
 ###Block: Menu C
 # Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Combat bonus					Weapon prof. bonus													Natural Attacks
 Greater Might	KEY:Astral_Greater Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	BONUS:COMBAT|DAMAGE.Melee|5|TYPE=Might
-Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct								BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|TOHIT|3|PREFEAT:1,Multiattack	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct								BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|TOHIT|3|PREABILITY:1,CATEGORY=FEAT,Multiattack	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 
 ###Block: Astral Warrior abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description																																																																																																																		Source Page
@@ -28,7 +28,7 @@ Link			KEY:Link ~ Astral Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality.Ex
 
 ###Block: Ectoplasmic Swarm abilities
 # Ability Name		Unique Key							Category of Ability		Type						Define					Description																						Ability								Modify VAR																					Source Page		Aspects
-Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|0	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	BONUS:VAR|EctoplasmicSwarmPoisonDC|10+TL/2+CON	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
+Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|0	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	BONUS:VAR|EctoplasmicSwarmPoisonDC|10+TL/2+CON	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
 
 ###Block: Horror abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define																						Description																																																																																																															Modify VAR																												Source Page

@@ -1,0 +1,21 @@
+I've worked through a lot of this, and I'm sure there are going to be more issues... but every step, right?
+
+Artifacts:
+1.) The sorcere blades have been coded as individual, unfortunatly I'm unaware of any tag to list the protection that they offer to the weilder
+2.) Same as above, but also there are two long swords that have no special name...
+
+Specific Armor:
+1.) Shifting Armor (I don't really think I need to say any more) if someone would like to take a hack at it, feel free.
+
+Specific Melee:
+1.) I'm working on getting the pick of halfling to recognize dwarfes and small people
+2.) The sword of rage thing has me completely befuddled (perhaps it's because I'm tired)
+
+Potions:
+1.) While the .pdf has a small list of possible potions, the main idea behind the quick write-up is that you can make any spell a potion (and that is just too much work (seeing as we keep adding more spells into the mix)
+
+Wondrous Items:
+1.) The Demiform Boots are way over my head, and possibly too much for PCGen's capabilities at the present moment.  If someone wants a challenge I'm all for you attacking this small (but insanely tough) section.
+
+Rods, Staves, and Wands:
+1.) The Rod of Punishment is interesting because it acts as two seperate weapons with different +'s to hit and damage... I'm working on getting an idea of how to fix this.

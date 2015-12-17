@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Sun Apr  6 18:01:10 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Knowledge (Humanoids)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.73

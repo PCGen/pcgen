@@ -23,7 +23,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.geom.OrderedPair;
+import pcgen.base.math.OrderedPair;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;

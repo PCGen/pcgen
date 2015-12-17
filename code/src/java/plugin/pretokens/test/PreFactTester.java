@@ -21,7 +21,6 @@ import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactKey;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -66,7 +65,7 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 
 		String[] factinfo = prereq.getKey().split("=");
 		FactKey<?> fk = FactKey.valueOf(factinfo[0]);
-		Object targetVal = fk.getFormatManager().convertIndirect(Globals.getContext(), factinfo[1]);
+		Object targetVal = fk.getFormatManager().convertIndirect(factinfo[1]);
 
 		int runningTotal = 0;
 		for (Reducible r : objModel)

@@ -25,7 +25,7 @@ Wood Mystery Final Revelation	VISIBLE:NO	BONUS:COMBAT|AC|4|TYPE=Natural	ABILITY:
 Planar Oracle Final Revelation	VISIBLE:NO	DR:10/magic		RACETYPE:Outsider	RACESUBTYPE:Extraplanar
 
 ###Block: Familiar template
-# Template Name			Visible	Template															Add 					Ability										Apply Kit
+# Template Name			Visible	Template															Add					Ability										Apply Kit
 Thrush Familiar Language	VISIBLE:NO																	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language
 
 

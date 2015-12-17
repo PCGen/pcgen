@@ -31,6 +31,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -58,6 +60,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 public abstract class AbstractReferenceContext
 {
@@ -525,4 +528,30 @@ public abstract class AbstractReferenceContext
 
 	public abstract <T extends CDOMObject> T performMod(T obj);
 
+	public <T> FormatManager<T> getFormatManager(Class<T> cl)
+	{
+		if (Categorized.class.isAssignableFrom(cl))
+		{
+			throw new IllegalArgumentException(
+				"Cannot support Categorized items");
+		}
+		else if (Loadable.class.isAssignableFrom(cl))
+		{
+			return getManufacturer((Class) cl);
+		}
+		else
+		{
+			return FormatManagerLibrary.getFormatManager(cl);
+		}
+	}
+
+	public FormatManager<?> getFormatManager(String clName)
+	{
+		Class<? extends Loadable> cl = StringPClassUtil.getClassFor(clName);
+		if (cl != null)
+		{
+			return getManufacturer(cl);
+		}
+		return FormatManagerLibrary.getFormatManager(clName);
+	}
 }

@@ -52,6 +52,7 @@ $Date$
 <b>Total Classes</b> |VAR.COUNT[CLASSES]|<br>
 <b>Face</b> |FACE|<br>
 <b>Reach</b> |REACH|<br>
+<b>Encumbrance Category:</b> |TOTAL.LOAD|<br>
 
 <hr />
 
@@ -541,6 +542,16 @@ To Hit:
 <blockquote>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Weapon")-1,1,0|
 <b>|ABILITYALL.Weapon.%ability|</b> [<i>|ABILITYALL.Weapon.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
+
+|IIF(count("ABILITIES";"CATEGORY=Class")==0)|
+|ELSE|
+<b>Class</b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Class")-1,1,0|
+<b>|ABILITYALL.Class.%ability|</b> [<i>|ABILITYALL.Class.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 

@@ -38,6 +38,9 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 #EXTRAFILE:to do.txt
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 
+SAVE:dw2sg__saves.lst
+STAT:dw2sg__stats.lst
+
 #Load required msrd information
 #msrd files
 ABILITYCATEGORY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst

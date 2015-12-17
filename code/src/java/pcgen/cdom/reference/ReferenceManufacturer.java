@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
 
@@ -50,7 +51,8 @@ import pcgen.cdom.base.Loadable;
  * @param <T>
  *            The Class of object this ReferenceManufacturer can manufacture
  */
-public interface ReferenceManufacturer<T extends Loadable> extends SelectionCreator<T>
+public interface ReferenceManufacturer<T extends Loadable> extends
+		SelectionCreator<T>, FormatManager<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by

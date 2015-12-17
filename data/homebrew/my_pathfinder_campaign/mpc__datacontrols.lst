@@ -1,0 +1,73 @@
+# Created January, 2015 Tom Parker
+# This file represents a conversion mechanism for items that were previously
+# stand-alone tokens, but are now handled internally as FACT or FACTSET.
+#
+# This file does not need to be referenced by a set of data or game mode
+# unless that data uses a data control file (DATACONTROL: in a PCC file)
+#
+# Once a dataset takes on the responsibility of a DATACONTROL file, then it 
+# MUST include these entries (or something near equivalent [additional
+# SELECT-ability would be legal]) in one of the DATACONTROL files.
+
+# This MUST be included if you enable the datacontrol file....
+#	
+#FACTDEF:ABILITY|AppliedName	DATAFORMAT:String		VISIBLE:YES
+#
+#FACTDEF:CLASS|Abb			DATAFORMAT:String		VISIBLE:YES
+#FACTDEF:CLASS|ClassType		DATAFORMAT:String		VISIBLE:YES
+#FACTDEF:CLASS|SpellType		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+#
+#FACTDEF:DEITY|Symbol			DATAFORMAT:String		VISIBLE:YES
+#FACTDEF:DEITY|Worshippers		DATAFORMAT:String		VISIBLE:YES
+#FACTDEF:DEITY|Title			DATAFORMAT:String		VISIBLE:YES
+#FACTDEF:DEITY|Appearance		DATAFORMAT:String		VISIBLE:YES
+#
+#FACTDEF:EQUIPMENT|RateOfFire	DATAFORMAT:String		VISIBLE:YES
+#
+#FACTDEF:TEMPLATE|AppliedName	DATAFORMAT:String		VISIBLE:YES
+#
+#FACTSETDEF:DEITY|Pantheon		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+#FACTSETDEF:DEITY|Race			DATAFORMAT:String		VISIBLE:YES
+#
+#
+## This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
+#FACTDEF:RACE|IsPC				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+#FACTDEF:RACE|IsCompanion		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a Companion to begin with.
+#
+#FACTDEF:RACE|Hands			DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Hands.
+#FACTDEF:RACE|Legs				DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Legs.
+#
+#FACTDEF:RACE|BaseMove_Walk		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Walk.
+#FACTDEF:RACE|BaseMove_Fly		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Fly.
+#FACTDEF:RACE|BaseMove_Climb		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Climb.
+#FACTDEF:RACE|BaseMove_Swim		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Swim.
+#FACTDEF:RACE|BaseMove_Burrow		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Burrow.
+#
+#FACTDEF:ABILITY|IsPC			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+
+
+
+
+
+###Block: RACE "TYPE" replacement
+# Currently we use PRERACETYPE - A CLASS tag only - to allow a changed creature RACETYPE to still access their original racial HD class.
+# This transition aims to remove that reliance. Switching to a simple Boolean based upon the starting racetype "FACT"
+
+#FACTDEF:RACE|RACETYPE								DATAFORMAT:String	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:RaceType							EXPLANATION:Determines what the 'RACE TYPE' is.
+
+###Block: Racial Traits
+#FACTDEF:ABILITY|Dwarf_Trait_DefensiveTraining				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+
+###Block: Saves File
+#FACTDEF:CHECK|MainStat	DATAFORMAT:STRING			EXPLANATION:Output the Stat a save uses to the OS
+
+
+#############################
+#	Formula Parser
+############################
+
+
+# Subdomain / Domain Support
+
+#FACTDEF:DOMAIN|Domain						DATAFORMAT:STRING		VISIBLE:NO	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Domain	EXPLANATION:Makes referencing the domain easier
+

@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 
 import org.junit.Test;
 
+import pcgen.base.format.StringManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -30,7 +31,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
-import plugin.format.StringManager;
 import plugin.lsttokens.FactLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
@@ -53,7 +53,6 @@ public class FactIntegrationTest extends
 	{
 		TokenRegistration.clearTokens();
 		super.setUp();
-		TokenRegistration.register(STRING_MGR);
 		cd = new FactDefinition();
 		cd.setDisplayName(PROP_1);
 		cd.setFormatManager(STRING_MGR);

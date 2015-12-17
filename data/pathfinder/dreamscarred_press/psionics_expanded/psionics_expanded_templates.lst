@@ -6,22 +6,22 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 ###Block: Determines whether a Constructor gets Advanced Construct or Boost Construct
 # Template Name				Visible	Template													Required Feat						Prohibited Feat				Bonus Ability Pool				Auto Feat
 Improved Constructs Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Advanced Constructs|Get Boost Construct|Get Bonus Psionic Feat
-Get Advanced Constructs			VISIBLE:NO																							!PREFEAT:1,Advanced Constructs								AUTO:FEAT|Advanced Constructs
-Get Boost Construct			VISIBLE:NO																							!PREFEAT:1,Boost Construct									AUTO:FEAT|Boost Construct
-Get Bonus Psionic Feat			VISIBLE:NO															PREFEAT:2,Advanced Construct,Boost Construct							BONUS:ABILITYPOOL|Bonus Psionic Feat|1
+Get Advanced Constructs			VISIBLE:NO																							!PREABILITY:1,CATEGORY=FEAT,Advanced Constructs								AUTO:FEAT|Advanced Constructs
+Get Boost Construct			VISIBLE:NO																							!PREABILITY:1,CATEGORY=FEAT,Boost Construct									AUTO:FEAT|Boost Construct
+Get Bonus Psionic Feat			VISIBLE:NO															PREABILITY:2,CATEGORY=FEAT,Advanced Construct,Boost Construct							BONUS:ABILITYPOOL|Bonus Psionic Feat|1
 
 ###Block: Determines Psicrystal Bond choice
 # Template Name		Visible	Template										Required Feat			Prohibited Feat				Auto Feat
 Psicrystal Bond Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Get Psicrystal Affinity|Get Improved Psicrystal
-Get Psicrystal Affinity	VISIBLE:NO																	!PREFEAT:1,Psicrystal Affinity	AUTO:FEAT|Psicrystal Affinity
-Get Improved Psicrystal	VISIBLE:NO												PREFEAT:1,Psicrystal Affinity							AUTO:FEAT|Improved Psicrystal
+Get Psicrystal Affinity	VISIBLE:NO																	!PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	AUTO:FEAT|Psicrystal Affinity
+Get Improved Psicrystal	VISIBLE:NO												PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity							AUTO:FEAT|Improved Psicrystal
 
 ###Block: Determines whether a Metamorph gets Swift Shapeshifter or Master of Forms
 # Template Name			Visible	Template												Required Feat							Prohibited Feat				Auto Feat
 Quick Shift Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Swift Shapeshifter|Get Master of All Forms|Get Nothing
-Get Swift Shapeshifter		VISIBLE:NO																							!PREFEAT:1,Swift Shapeshifter		AUTO:FEAT|Swift Shapeshifter
-Get Master of All Forms		VISIBLE:NO														PREFEAT:1,Swift Shapeshifter					!PREFEAT:1,Master of All Forms	AUTO:FEAT|Master of All Forms
-Get Nothing				VISIBLE:NO														PREFEAT:2,Swift Shapeshifter,Master of All Forms
+Get Swift Shapeshifter		VISIBLE:NO																							!PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter		AUTO:FEAT|Swift Shapeshifter
+Get Master of All Forms		VISIBLE:NO														PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter					!PREABILITY:1,CATEGORY=FEAT,Master of All Forms	AUTO:FEAT|Master of All Forms
+Get Nothing				VISIBLE:NO														PREABILITY:2,CATEGORY=FEAT,Swift Shapeshifter,Master of All Forms
 
 ###Block: Determines whether a Metamorph gets Major Metamorphosis or some other power.
 # Template Name				Visible	Template										Req. Known Spell				!PRESPELL					Bonus Ability Pool

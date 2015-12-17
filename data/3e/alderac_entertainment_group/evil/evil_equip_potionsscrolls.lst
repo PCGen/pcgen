@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+###Block: Potions
+# Equipment Name			Product Identity?	Output Name				Type					Cost		Weight	Source Page
+Potion (Belarosh's Law)		NAMEISPI:YES	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.34
+Potion (Bone Spikes)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.62
+Potion (Iron Fist)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.64
+Potion (Hideous Appearance)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.65
+Potion (Shadow Cloak)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.65
+Potion (Summon Shadow Raven)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.66
+Potion (Undead Attraction)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.67
+Potion (Waking Nightmares)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.68
+
+###Block: Scrolls
+# Equipment Name				Product Identity?	Type								Cost		Weight	Source Page
+Scroll (Belarosh's Law)			NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	SOURCEPAGE:p.34
+Scroll (Bone Spikes)						TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:0.01	SOURCEPAGE:p.62
+Scroll (Bonewand)							TYPE:Magic.Scroll.Consumable.Arcane			COST:1650	WT:0.01	SOURCEPAGE:p.62
+Scroll (Dimensional Rupture)					TYPE:Magic.Scroll.Consumable.Arcane			COST:3825	WT:0.01	SOURCEPAGE:p.62
+Scroll (Disrupt Soul)						TYPE:Magic.Scroll.Consumable.Arcane			COST:3000	WT:0.01	SOURCEPAGE:p.63
+Scroll (Ill Omen)							TYPE:Magic.Scroll.Consumable.Divine			COST:150	WT:0.01	SOURCEPAGE:p.64
+Scroll (Iron Fist)						TYPE:Magic.Scroll.Consumable.Arcane			COST:150	WT:0.01	SOURCEPAGE:p.64
+Scroll (Hideous Appearance)					TYPE:Magic.Scroll.Consumable.Arcane			COST:375	WT:0.01	SOURCEPAGE:p.65
+Scroll (Necromantic Channel)					TYPE:Magic.Scroll.Consumable.Arcane			COST:1650	WT:0.01	SOURCEPAGE:p.65
+Scroll (Shadow Cloak)						TYPE:Magic.Scroll.Consumable.Arcane			COST:375	WT:0.01	SOURCEPAGE:p.65
+Scroll (Spirit Link)						TYPE:Magic.Scroll.Consumable.Arcane			COST:1125	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu I)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:25	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu II)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:150	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu III)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu IV)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:700	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu V)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1125	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu VI)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:1650	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu VII)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:2275	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu VIII)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:3000	WT:0.01	SOURCEPAGE:p.66
+Scroll (Strength of Yeenoghu IX)	NAMEISPI:YES	TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:3825	WT:0.01	SOURCEPAGE:p.66
+Scroll (Summon Shadow Raven)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	SOURCEPAGE:p.66
+Scroll (Undead Attraction)					TYPE:Magic.Scroll.Consumable.Arcane.Divine	COST:375	WT:0.01	SOURCEPAGE:p.67
+Scroll (Waking Nightmares)					TYPE:Magic.Scroll.Consumable.Arcane			COST:375	WT:0.01	SOURCEPAGE:p.68
+Scroll (Wounding)							TYPE:Magic.Scroll.Consumable.Divine			COST:700	WT:0.01	SOURCEPAGE:p.68

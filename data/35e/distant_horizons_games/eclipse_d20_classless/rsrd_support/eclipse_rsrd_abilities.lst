@@ -29,7 +29,7 @@ CATEGORY=Special Ability|Companion ~ Psicrystal.MOD																													
 
 ###Block: Base Caster Level
 #COMMENT: These are used to set up the Caster Class. They have Both the ADD and BONUS:PCLEVEL. Establish the DEFINES. These are Free to Buy as they are only required to "Set Up". Until the Rest is Bought they'll still be level 0.
-# Ability Name					Unique Key						SORTKEY						Category of Ability		Type					Define					Add 						Bonus Ability Pool					Caster level								Caster level bonus									Modify VAR																												Cost
+# Ability Name					Unique Key						SORTKEY						Category of Ability		Type					Define					Add						Bonus Ability Pool					Caster level								Caster level bonus									Modify VAR																												Cost
 Initial Paladin Magic Level			KEY:Initial Paladin Magic Level		SORTKEY:Magic_Level_01_Paladin		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:PaladinCasterLevel|0		ADD:SPELLCASTER|Paladin											BONUS:CASTERLEVEL|Paladin|PaladinCasterLevel			BONUS:PCLEVEL|Paladin|var("PaladinMagicLvls")-1	BONUS:PCLEVEL|Paladin|3	BONUS:VAR|PaladinCasterLevel|-var("PaladinMagicLvls")	BONUS:VAR|PaladinCasterLevel|var("PointBuyPaladinCasterLvl")+var("CasterLevelAll")							COST:0
 Initial Ranger Magic Level			KEY:Initial Ranger Magic Level		SORTKEY:Magic_Level_01_Ranger			CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:RangerCasterLevel|0		ADD:SPELLCASTER|Ranger											BONUS:CASTERLEVEL|Ranger|RangerCasterLevel			BONUS:PCLEVEL|Ranger|var("RangerMagicLvls")-1	BONUS:PCLEVEL|Ranger|3	BONUS:VAR|RangerCasterLevel|-var("RangerMagicLvls")	BONUS:VAR|RangerCasterLevel|var("PointBuyRangerCasterLvl")+var("CasterLevelAll")							COST:0
 Initial Adept Magic Level			KEY:Initial Adept Magic Level			SORTKEY:Magic_Level_01_Adept			CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:AdeptCasterLevel|0		ADD:SPELLCASTER|Adept											BONUS:CASTERLEVEL|Adept|AdeptCasterLevel				BONUS:PCLEVEL|Adept|var("AdeptMagicLvls")-1					BONUS:VAR|AdeptCasterLevel|-var("AdeptMagicLvls")	BONUS:VAR|AdeptCasterLevel|var("PointBuyAdeptCasterLvl")+var("CasterLevelAll")							COST:0
@@ -413,7 +413,7 @@ Innate Enchantment / Whispering Sage										KEY:Innate Enchantment ~ L1 ~ Whis
 
 
 
-#Innate Enchantment / 							KEY:Innate Enchantment ~ L1 ~ 					CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice.EclipseAbilityOutput	SORTKEY:Innate Enchantment_Level_01_				COST:1400	DESC:x
+#Innate Enchantment /							KEY:Innate Enchantment ~ L1 ~					CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice.EclipseAbilityOutput	SORTKEY:Innate Enchantment_Level_01_				COST:1400	DESC:x
 
 #L2
 Innate Enchantment / Enhanced Attribute (+4 Strength)								KEY:Innate Enchantment ~ L2 ~ STR +4						SORTKEY:Innate Enchantment_Level_02_Enhance_Attribute_1			CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice.EclipseAbilityOutput																																																																																																																																																																																																																																																																																																																																																																							BONUS:STAT|STR|4|TYPE=Enchantment																									COST:8400	BENEFIT:[At Will] Grants +4 Enhancement Bonus to Strength

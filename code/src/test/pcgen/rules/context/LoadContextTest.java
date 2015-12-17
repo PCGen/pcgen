@@ -25,6 +25,7 @@ package pcgen.rules.context;
 import java.util.Collection;
 
 import junit.framework.TestCase;
+import pcgen.base.format.StringManager;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
@@ -36,7 +37,6 @@ import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
-import plugin.format.StringManager;
 
 /**
  * The Class <code>LoadContextTest</code> checks the fucntion fo the LoadCOntext class.

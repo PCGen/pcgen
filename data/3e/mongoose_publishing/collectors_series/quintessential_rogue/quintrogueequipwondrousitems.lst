@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# Equipment Name			Type					Cost		Weight	Source Page		Bonus to skill
+Gliding Stick			TYPE:Magic.Wondrous		COST:19800	WT:0		SOURCEPAGE:p.60
+Infinite Ladder			TYPE:Magic.Wondrous		COST:5400	WT:0		SOURCEPAGE:p.60
+Thieves' Tools of Speed		TYPE:Magic.Wondrous.Tools	COST:1320	WT:0		SOURCEPAGE:p.60	BONUS:SKILL|Disable Device,Open Lock|CircumstanceAdjustment|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|4|TYPE=Competence
+Tools of the Master Thief	TYPE:Magic.Wondrous.Tools	COST:4000	WT:0		SOURCEPAGE:p.60	BONUS:SKILL|Disable Device,Open Lock|CircumstanceAdjustment|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|10|TYPE=Competence
+
+Magical Lock (Alarm)		TYPE:Magic.Wondrous		COST:1500	WT:1		SOURCEPAGE:p.61
+Magical Lock (Devourer)		TYPE:Magic.Wondrous		COST:2000	WT:1		SOURCEPAGE:p.61
+Magical Lock (Shifter)		TYPE:Magic.Wondrous		COST:12000	WT:1		SOURCEPAGE:p.61
+Magical Lock (Silent Alarm)	TYPE:Magic.Wondrous		COST:5000	WT:1		SOURCEPAGE:p.61
+Magical Lock (Snapper)		TYPE:Magic.Wondrous		COST:1500	WT:1		SOURCEPAGE:p.61
+Magical Lock (Trojan Horse)	TYPE:Magic.Wondrous		COST:8000	WT:1		SOURCEPAGE:p.61

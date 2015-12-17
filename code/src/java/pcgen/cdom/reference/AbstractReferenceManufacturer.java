@@ -24,20 +24,24 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import javax.swing.event.EventListenerList;
 
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.util.FixedStringList;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToInstanceList;
+import pcgen.base.util.Indirect;
 import pcgen.base.util.KeyMap;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.RollMethod;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 /**
  * An AbstractReferenceManufacturer is a concrete, but abstract object capable
@@ -1311,5 +1315,55 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public Collection<T> getDerivativeObjects()
 	{
 		return new ArrayList<T>(derivatives);
+	}
+
+	@Override
+	public T convert(String key)
+	{
+		return getActiveObject(key);
+	}
+
+	@Override
+	public Indirect<T> convertIndirect(String key)
+	{
+		return factory.getReference(key);
+	}
+
+	@Override
+	public ObjectContainer<T> convertObjectContainer(String typeStr)
+	{
+		/*
+		 * TODO Really needs to do a Primitive search... :/
+		 */
+		if (typeStr.startsWith("TYPE=") || typeStr.startsWith("TYPE."))
+		{
+			return factory.getTypeReference(typeStr.substring(5).split("\\."));
+		}
+		throw new IllegalArgumentException("ObjectContainer does not support: "
+			+ typeStr);
+	}
+
+	@Override
+	public String getIdentifierType()
+	{
+		return StringPClassUtil.getStringFor(getManagedClass());
+	}
+
+	@Override
+	public Class<T> getManagedClass()
+	{
+		return factory.getReferenceClass();
+	}
+
+	@Override
+	public String unconvert(T arg0)
+	{
+		return arg0.getKeyName();
+	}
+
+	@Override
+	public FormatManager<?> getComponentManager()
+	{
+		return null;
 	}
 }

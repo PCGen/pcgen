@@ -5,7 +5,7 @@ Craft (Tattoos)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARL
 
 ###Block: Skill Focus implementation
 # Skill Name		Bonus to skill
-Craft (Tattoos).MOD	BONUS:SKILL|Craft (Tattoos)|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Craft (Tattoos))	BONUS:SKILL|Craft (Tattoos)|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Craft (Tattoos))|PRESKILL:1,Craft (Tattoos)=10
+Craft (Tattoos).MOD	BONUS:SKILL|Craft (Tattoos)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Tattoos))	BONUS:SKILL|Craft (Tattoos)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Tattoos))|PRESKILL:1,Craft (Tattoos)=10
 
 ###Block: Situations
 Bluff.MOD			SITUATION:Region of fame

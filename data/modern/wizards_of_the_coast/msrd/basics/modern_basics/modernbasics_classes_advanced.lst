@@ -5,7 +5,7 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 #Advanced classes
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
-CLASS:Soldier	HD:10		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Sol		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+CLASS:Soldier	HD:10		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Sol		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill				PRETOTALAB
 CLASS:Soldier	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -22,7 +22,7 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge
 10																											ABILITY:Special Ability|AUTOMATIC|Critical Strike
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Define				Combat bonus							Save bonus																																								Modify VAR
-CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Mart		MAXLEVEL:10	DEFINE:MartialArtistLVL|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC"))	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:VAR|MartialArtistLVL|CL
+CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Mart		MAXLEVEL:10	DEFINE:MartialArtistLVL|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC"))	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:VAR|MartialArtistLVL|CL
 # Class Name		Required Feat							Required Skill	PRETOTALAB
 CLASS:Martial Artist	PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -51,7 +51,7 @@ CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Int
 10
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
-CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Guns		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Guns		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill					PRETOTALAB
 CLASS:Gunslinger	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand=6,Tumble=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -68,7 +68,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Ga
 10								ABILITY:Special Ability|AUTOMATIC|Bullseye
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																																								Modify VAR
-CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Infi		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
+CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Infi		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill				PRETOTALAB
 CLASS:Infiltrator	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -85,7 +85,7 @@ CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|E
 10												ABILITY:Special Ability|AUTOMATIC|Without a Trace
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																														Modify VAR
-CLASS:Daredevil	HD:10		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Dare		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+CLASS:Daredevil	HD:10		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Dare		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill				PRETOTALAB
 CLASS:Daredevil	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:2,Concentration=6,Drive=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -102,7 +102,7 @@ CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|D
 10												ABILITY:Special Ability|AUTOMATIC|Damage Threshold
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
-CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Body		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Body		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill					PRETOTALAB
 CLASS:Bodyguard	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Concentration=6,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -119,7 +119,7 @@ CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gath
 10											ABILITY:Special Ability|AUTOMATIC|Blanket Protection
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																															Modify VAR
-CLASS:Field Scientist	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Fiel		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+CLASS:Field Scientist	HD:8		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Fiel		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Multiple Requirements
 CLASS:Field Scientist	PREMULT:3,[PRESKILL:1,Craft (Chemical)=6,Craft (Electronic)=6],[PRESKILL:1,Knowledge (Earth and Life Sciences)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6],[PRESKILL:1,Research=6]
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -136,7 +136,7 @@ CLASS:Field Scientist	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Chemical)|Craft
 10								ABILITY:Special Ability|AUTOMATIC|Major Breakthrough
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																													Modify VAR
-CLASS:Techie	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Techi		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+CLASS:Techie	HD:6		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Techi		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Techie	PRESKILL:2,Computer Use=6,Disable Device=6	PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -154,7 +154,7 @@ CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mecha
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus			Save bonus																															Modify VAR
-CLASS:Field Medic	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Fiel		MAXLEVEL:10	BONUS:COMBAT|BASEAB|CL/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
+CLASS:Field Medic	HD:8		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Fiel		MAXLEVEL:10	BONUS:COMBAT|BASEAB|CL/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill				PRETOTALAB
 CLASS:Field Medic	PREABILITY:1,CATEGORY=FEAT,Surgery	PRESKILL:2,Treat Injury=6,Spot=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -171,7 +171,7 @@ CLASS:Field Medic	STARTSKILLPTS:4	CSKILL:Computer Use|Concentration|Craft (Pharm
 10								BONUS:VAR|MedicalMiracle|1
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
-CLASS:Investigator	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Inve		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
+CLASS:Investigator	HD:6		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Inve		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name		Required Skill							PRETOTALAB
 CLASS:Investigator	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -188,7 +188,7 @@ CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Driv
 10												ABILITY:Special Ability|AUTOMATIC|Sixth Sense
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																															Modify VAR
-CLASS:Personality	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Pers		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
+CLASS:Personality	HD:6		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Pers		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill
 CLASS:Personality	PREABILITY:1,CATEGORY=FEAT,Renown	PRESKILL:2,Diplomacy=6,TYPE.Perform=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -205,7 +205,7 @@ CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing
 10																	ABILITY:Special Ability|AUTOMATIC|Compelling Performance
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																														Modify VAR
-CLASS:Negotiator	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Nego		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
+CLASS:Negotiator	HD:8		TYPE:Advanced.PC	FACT:ClassType|PC	FACT:Abb|Nego		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
 CLASS:Negotiator	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:2,Diplomacy=6,Bluff=6
 # Class Name	Skill Pts/Lvl	Class Skill

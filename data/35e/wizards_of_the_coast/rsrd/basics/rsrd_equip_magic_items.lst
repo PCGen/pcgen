@@ -355,7 +355,7 @@ Wand (Web)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BA
 
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 # Commas should not be part of names.  OUTPUTNAME for that.
-# 	Replaced all commas by '/', specified the complete name in OUTPUTNAME. That better ? Thomas/Chipoulou
+#	Replaced all commas by '/', specified the complete name in OUTPUTNAME. That better ? Thomas/Chipoulou
 # WT:.01 for negligible items for Wizards items per Wizard request. - Tir Gwaith
 
 # removed non-existent Scroll (Control Weather/Arcane/Lvl 6) -- Frank
@@ -368,8 +368,8 @@ Wand (Web)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BA
 # Scroll (Gate/Arcane)                   has KEY:Scroll (Gate)
 # Scroll (Summon Monster IX/Arcane)      has KEY:Scroll (Summon Monster IX)
 # Scroll (Analyze Dweomer)               has KEY:Scroll (Analayze Dweomer)
-# Scroll (Control Weather/Arcane)	     has KEY:Scroll (Control Weather/Arcane/Lvl 7)
-# Scroll (Banishment/Arcane)		     has KEY:Scroll (Banishement/Arcane)
+# Scroll (Control Weather/Arcane)	has KEY:Scroll (Control Weather/Arcane/Lvl 7)
+# Scroll (Banishment/Arcane)		has KEY:Scroll (Banishement/Arcane)
 # Scroll (Protection from Energy/Arcane) has KEY:Scroll (Protection from Energy)
 # DIVINE
 # Scroll (Control Water/Divine)     has KEY:Scroll (Control Water)
@@ -1243,7 +1243,7 @@ Bag of Tricks (Gray)											OUTPUTNAME:Bag of Tricks, [NAME]		TYPE:Magic.Wond
 Bag of Tricks (Rust)											OUTPUTNAME:Bag of Tricks, [NAME]		TYPE:Magic.Wondrous																		COST:3000	WT:0										SOURCEPAGE:MagicItemsV
 Bag of Tricks (Tan)											OUTPUTNAME:Bag of Tricks, [NAME]		TYPE:Magic.Wondrous																		COST:6300	WT:0										SOURCEPAGE:MagicItemsV
 Bead of Force																			TYPE:Magic.Wondrous.Consumable																COST:3000	WT:0										SOURCEPAGE:MagicItemsV
-Belt (Monk's)												OUTPUTNAME:Belt, Monk's				TYPE:Magic.Wondrous.Belt																	COST:13000	WT:1										SOURCEPAGE:MagicItemsV																						BONUS:COMBAT|AC|1+max(0,WIS)|PREVAREQ:ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0|PREVAREQ:MonkACLVL,0																							BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLVL|5	BONUS:VAR|StunningFistAttack|1	BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|3|PREVAREQ:MonkACLVL,0
+Belt (Monk's)												OUTPUTNAME:Belt, Monk's				TYPE:Magic.Wondrous.Belt																	COST:13000	WT:1										SOURCEPAGE:MagicItemsV	ABILITY:Special Ability|AUTOMATIC|Monk ~ AC Bonus	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage																																																																																																																																																	BONUS:UDAM|CLASS.Monk|5		BONUS:VAR|MonkACLVL|5	BONUS:VAR|StunningFistAttack|1|PREABILITY:1,CATEGORY=FEAT,Stunning Fist	BONUS:VAR|MonkUnarmedDamageLVL|5
 Belt of Dwarvenkind																		TYPE:Magic.Wondrous.Belt																	COST:14900	WT:1										SOURCEPAGE:MagicItemsV	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Poison Save Bonus|Dwarf ~ Spell Save Bonus|Dwarf ~ Stonecunning|!PRERACE:1,Dwarf%																																				BONUS:STAT|CON|2|!PRERACE:1,Dwarf%						BONUS:VAR|DarkvisionRange|60|TYPE=Base																																																																																		SPROP:This belt gives the wearer a +4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halflings, and a -2 competence penalty on similar checks when dealing with anyone else.	AUTO:LANG|Dwarven
 Belt of Giant Strength +4				SORTKEY:Belt of Strength +04									TYPE:Magic.Wondrous.Belt																	COST:16000	WT:1										SOURCEPAGE:MagicItemsV																																																									BONUS:STAT|STR|4|TYPE=Enhancement
 Belt of Giant Strength +6				SORTKEY:Belt of Strength +06									TYPE:Magic.Wondrous.Belt																	COST:36000	WT:1										SOURCEPAGE:MagicItemsV																																																									BONUS:STAT|STR|6|TYPE=Enhancement
@@ -1378,7 +1378,7 @@ Golem Manual (Iron)																	OUTPUTNAME:Golem Manual, [NAME]								TYPE:
 Golem Manual (Stone)																	OUTPUTNAME:Golem Manual, [NAME]								TYPE:Magic.Wondrous.Book.Consumable																					COST:22000	WT:5																					SOURCEPAGE:MagicItemsV
 Golem Manual (Greater Stone)																OUTPUTNAME:Golem Manual, [NAME]								TYPE:Magic.Wondrous.Book.Consumable																					COST:44000	WT:5																					SOURCEPAGE:MagicItemsV
 ###Block: H's
-# Equipment Name						Unique Key								SORTKEY					Output Name								Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page			Add 				Virtual Feat	Ability									Innate Spells										Combat bonus					Add to base move										Save bonus								Bonus to skill																			Bonus to skill point/L		Bonus to nb of slots	Stat bonus					Modify VAR							Special Property
+# Equipment Name						Unique Key								SORTKEY					Output Name								Type						Contains		Cost		Weight	Slot Needed	Modifier					Source Page			Add				Virtual Feat	Ability									Innate Spells										Combat bonus					Add to base move										Save bonus								Bonus to skill																			Bonus to skill point/L		Bonus to nb of slots	Stat bonus					Modify VAR							Special Property
 Hand of Glory																														TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2										SOURCEPAGE:MagicItemsV																		SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Daylight,13|See Invisibility,13																																																							BONUS:SLOTS|RING|1
 Hand of the Mage																														TYPE:Magic.Wondrous.Amulet					COST:900	WT:2										SOURCEPAGE:MagicItemsV																		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand,10
 Handy Haversack																														TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5										SOURCEPAGE:MagicItemsV

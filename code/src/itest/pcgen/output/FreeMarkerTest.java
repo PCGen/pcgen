@@ -17,6 +17,7 @@
  */
 package pcgen.output;
 
+import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.model.CheckFacet;
@@ -25,7 +26,6 @@ import pcgen.output.actor.FactKeyActor;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
-import plugin.format.StringManager;
 
 public class FreeMarkerTest extends AbstractOutputTestCase
 {

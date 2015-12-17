@@ -50,8 +50,6 @@ import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.rules.persistence.util.TokenFamily;
-import pcgen.rules.types.FormatManager;
-import pcgen.rules.types.FormatManagerLibrary;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
@@ -312,10 +310,6 @@ public final class TokenLibrary implements PluginLoader
 		{
 			addToPrimitiveMap((PrimitiveToken<?>) token);
 		}
-		if (FormatManager.class.isAssignableFrom(clazz))
-		{
-			FormatManagerLibrary.addFormatManager((FormatManager<?>) token);
-		}
 	}
 
 	@Override
@@ -325,7 +319,6 @@ public final class TokenLibrary implements PluginLoader
 				{
 					LstToken.class,
 					BonusObj.class,
-					FormatManager.class,
 					PrerequisiteParserInterface.class
 				};
 	}

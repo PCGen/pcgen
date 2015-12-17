@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <code>IIFNode</code>.
+ * {@code IIFNode}.
  *
  * @author Mark Hulsman <mark_hulsman@users.sourceforge.net>
  * @version $Revision$
@@ -36,7 +36,7 @@ class IIFNode
 	private final List<Object> trueChildren;
 	private final String expr;
 
-	IIFNode(final String expr)
+	IIFNode(String expr)
 	{
 		this.expr = expr;
 		trueChildren = new ArrayList<>();

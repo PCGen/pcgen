@@ -1,0 +1,9 @@
+
+
+Race Traits ~ Horror	CATEGORY:Internal	BONUS:VAR|Pool_HorrorType|1	DEFINE:Pool_HorrorType|0	BONUS:ABILITYPOOL|Eidolon Evolution|5
+
+# Selection
+Biped		KEY:Horror Type ~ Biped				TYPE:Horror Type	CATEGORY:Internal	BONUS:VAR|HorrorFortitudeGood|1	BONUS:VAR|HorrorWillGood|1	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Legs	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Legs	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Bite
+Quadruped	KEY:Horror Type ~ Quadruped			TYPE:Horror Type	CATEGORY:Internal	BONUS:VAR|HorrorFortitudeGood|1	BONUS:VAR|HorrorReflexGood|1	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Arms	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Legs	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Clawed_Hands
+Serpentine	KEY:Horror Type ~ Serpentine			TYPE:Horror Type	CATEGORY:Internal	BONUS:VAR|HorrorReflexGood|1		BONUS:VAR|HorrorWillGood|1	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Bite	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Tail	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Climb	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Reach (Bite)	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Tail_Slap
+

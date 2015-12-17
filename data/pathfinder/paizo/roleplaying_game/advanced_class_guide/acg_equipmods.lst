@@ -22,13 +22,13 @@ Vouchsafing		KEY:Vouchsafing	TYPE:Armor	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.21
 ###Block: Weapons
 ###Block: Weapon Special Abilities
 # Modifier Name		Unique Key			Type								Plus		Cost		Visible		Source Page		Multiple Requirements																		Required Type											Prohibited Type			Special Property																																					Choose
-Answering			KEY:Answering		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:Enhancement bonus increases by 4 (to a max of 5) when wielder isusing the opportune parry and riposte deed
+Answering			KEY:Answering		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:3,Enhancement,Weapon,Melee														SPROP:Enhancement bonus increases by 4 (to a max of 5) for the purpose of the opportune parry and riposte deed
 # COMMENT: CHOOSE window not showing up
-Blood-hunting		KEY:BloodHunting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																												CHOOSE:USERINPUT|1|TITLE=Designated Foe
+Blood-hunting		KEY:BloodHunting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																												SELECT:1	CHOOSE:USERINPUT|TITLE=Designated Foe
 Bloodsong			KEY:Bloodsong		TYPE:Weapon.Melee.Piercing.Slashing			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Weapon],[PRETYPE:1,Piercing,Slashing]																										SPROP:weapon gains keen ability when wielder benefits from raging song; gain 1d10 temporary hit points if wearer confirms critical while under raging song (2d10 if crit multiplier is x3, 3d10 if crit multiplier is x4)
 # COMMENT: Can CMB be bonused based on the plus of the weapon?
 Brawling			KEY:Brawling		TYPE:Weapon.Bludgeoning.Light				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Weapon],[PREMULT:1,[PRETYPE:2,Light,Bludgeoning],[PRETYPE:1,BrawlingAbilityOK]]																			SPROP:wielder gains enhancement bonus on combat maneuver checks equal to the enhancement bonus of the weapon
-Confounding			KEY:Confounding		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:wielder can spend 1 panache point when confirming critical to attempt disarm, reposition, sunder, or trip, as an immediate action with no attack of opportunity provoked, with a bonus equal to the weapon's enhancement bonus
+Confounding			KEY:Confounding		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:wielder can spend 1 panache point when confirming critical to attempt disarm, reposition, sunder, or trip, as an immediate action with no attack of opportunity provoked, with a enhancement bonus equal to the weapon's enhancement bonus
 Distracting			KEY:Distracting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:increase target's concentration DC by 5 for 1 minute; can't be affected again for 24 hours
 Distracting (Greater)	KEY:Distracting_Greater	TYPE:Weapon							PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:increase target's concentration DC by 10 for 1 minute; can't be affected again for 24 hours
 Exclusionary		KEY:Exclusionary		TYPE:Weapon									COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:can choose not to include target in channel ability for next minute; maximum of Wisdom bonus plus enhancement bonus exclusions
@@ -44,14 +44,14 @@ Prehensile			KEY:Prehensile		TYPE:Weapon.Melee								COST:2500	VISIBLE:QUALIFY	
 Sacred			KEY:Sacred			TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:acts as holy symbol; if wielder has blessings class feature, when channeling energy can choose one ally or ally's weapon within the area to get one of his minor blessings at a cost of one use of that blessing
 Sneaky			KEY:Sneaky			TYPE:Weapon.Melee								COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:1/day designate foe as prey: get sneak attack damage on next attack; use 2/day if user is rogue or slayer with hunter's surprise talent
 # COMMENT: CHOOSE window not showing up
-Spirit-hunting		KEY:SpiritHunting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																											CHOOSE:USERINPUT|1|TITLE=Designated Foe
+Spirit-hunting		KEY:SpiritHunting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																											SELECT:1	CHOOSE:USERINPUT|TITLE=Designated Foe
 
 
 ###Block: Amulet of Mighty Fists
 # Modifier Name		Unique Key				Type					Plus		Cost		Visible		Source Page		Required Type									Prohibited Type			Special Property																																					Choose
-Answering			KEY:Answering_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:2,Enhancement,Weapon												SPROP:Enhancement bonus increases by 4 (to a max of 5) when wielder isusing the opportune parry and riposte deed
+Answering			KEY:Answering_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:2,Enhancement,Weapon												SPROP:Enhancement bonus increases by 4 (to a max of 5) when wielder is using the opportune parry and riposte deed
 # COMMENT: CHOOSE window not showing up
-Blood-hunting		KEY:BloodHunting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																												CHOOSE:USERINPUT|1|TITLE=Designated Foe
+Blood-hunting		KEY:BloodHunting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																												SELECT:1	CHOOSE:USERINPUT|TITLE=Designated Foe
 Bloodsong			KEY:Bloodsong_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:weapon gains keen ability when wielder benefits from raging song; gain 1d10 temporary hit points if wearer confirms critical while under raging song (2d10 if crit multiplier is x3, 3d10 if crit multiplier is x4)
 # COMMENT: Can CMB be bonused based on the plus of the weapon?
 Brawling			KEY:Brawling_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:wielder gains enhancement bonus on combat maneuver checks equal to the enhancement bonus of the weapon
@@ -69,7 +69,7 @@ Inspired			KEY:Inspired_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	
 Sacred			KEY:Sacred_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:acts as holy symbol; if wielder has blessings class feature, when channeling energy can choose one ally or ally's weapon within the area to get one of his minor blessings at a cost of one use of that blessing
 Sneaky			KEY:Sneaky_AMF			TYPE:AmuletOfMightyFists			COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:1/day designate foe as prey: get sneak attack damage on next attack; use 2/day if user is rogue or slayer with hunter's surprise talent
 # COMMENT: CHOOSE window not showing up
-Spirit-hunting		KEY:SpiritHunting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																											CHOOSE:USERINPUT|1|TITLE=Designated Foe
+Spirit-hunting		KEY:SpiritHunting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																											SELECT:1	CHOOSE:USERINPUT|TITLE=Designated Foe
 
 
 #

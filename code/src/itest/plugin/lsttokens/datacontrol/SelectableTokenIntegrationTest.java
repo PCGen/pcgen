@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -26,7 +27,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
-import plugin.format.StringManager;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class SelectableTokenIntegrationTest extends TestCase
@@ -62,7 +62,6 @@ public class SelectableTokenIntegrationTest extends TestCase
 		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
-		TokenRegistration.register(STRING_MGR);
 		resetContext();
 	}
 

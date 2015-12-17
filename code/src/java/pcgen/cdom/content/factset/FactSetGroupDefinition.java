@@ -17,12 +17,12 @@
  */
 package pcgen.cdom.content.factset;
 
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.types.FormatManager;
 
 /**
  * A FactSetGroupDefinition is a GroupDefinition built around a Fact Set,

@@ -19,7 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.math.BigDecimal;
 
-import pcgen.base.geom.OrderedPair;
+import pcgen.base.math.OrderedPair;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;

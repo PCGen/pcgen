@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+###Block: Barbarian Totem Animal Templates
+# Template Name	Hit Dice Size			Visible
+Totem (Stag)	HITDIE:10|CLASS=Medicine Man	VISIBLE:NO

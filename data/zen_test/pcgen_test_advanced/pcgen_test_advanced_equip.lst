@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #Equip
-# Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type												Cost		Weight	Slot Needed	!PREEQUIP							Define			Crit Mult	Crit Range	Damage	Modifier		Wield Category	Requires Modification?	Range		Size		Source Page		Add 				Ability													Combat bonus				Bonus to nb of slots					Modify VAR			Weapon prop. bonus																				Special Property
+# Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type												Cost		Weight	Slot Needed	!PREEQUIP							Define			Crit Mult	Crit Range	Damage	Modifier		Wield Category	Requires Modification?	Range		Size		Source Page		Add				Ability													Combat bonus				Bonus to nb of slots					Modify VAR			Weapon prop. bonus																				Special Property
 Test Equipment																				TYPE:CODE433																																																							ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
 
 Greatcoat																					TYPE:Armor.Light										COST:20	WT:5				!PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Medium											EQMOD:LEATHER												SOURCEPAGE:p.196																			BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:SLOTS|TORSO|1	BONUS:SLOTS|Ring|1																												SPROP:Can be worn over Light Armor.

@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
-# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add 					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
+# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
 Allow_Casting										TYPE:Allow_Casting																DESC:Allows Casting
 Incompetent (-3 to Group)	KEY:Disadvantage ~ Incompetent Group	TYPE:Disadvantage.DisadvantageCounter										DESCISPI:YES	DESC:You suffer from a '-3' modifier on a group of related skills (e.g., anything 'high-tech').			MULT:YES	CHOOSE:STRING|Charisma|Craft|Dexterity|Intelligence|Knowledge|Perform|Profession|Wisdom																													BONUS:SKILL|TYPE=%LIST|-3					COST:1	SOURCEPAGE:p.19											BENEFIT:You have a -3 to selected group of skills.
 
@@ -30,10 +30,10 @@ Test97 ~ Auto Normal																																												STACK:YES	MULT:Y
 
 
 
-# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add 					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
+# Feat Name				Unique Key						Type							Required Feat							Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
 MyTest ~ No Prexxx									TYPE:Code1730
-MyTest ~ Yes Prexxx									TYPE:Code1730					PREFEAT:1,MyTest ~ No Prexxx
-MyTest ~ Yes x2 Prexxx									TYPE:Code1730					PREFEAT:2,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
+MyTest ~ Yes Prexxx									TYPE:Code1730					PREABILITY:1,CATEGORY=FEAT,MyTest ~ No Prexxx
+MyTest ~ Yes x2 Prexxx									TYPE:Code1730					PREABILITY:2,CATEGORY=FEAT,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
 
 Add Foo Spell										TYPE:Test.TomTest																																																																																																																	SPELLLEVEL:CLASS|Wizard Test=3|Test Foo Spell
 
@@ -71,7 +71,7 @@ Test-78											TYPE:Test78																																																			
 
 
 
-# Feat Name							Unique Key					Type								Visible		Req. Spell Type			Define				Description											Stackable?			Multiple?	Choose																		Selections	Template			Auto Armor Prof		Auto Feat		Auto Language	Auto Shield Prof		Auto Weapon Prof		Virtual Feat			Ability																													Add 										Combat bonus				Bonus to HP			Caster level bonus		Modify VAR																																															Cost		Source Page		Benefits																			SORTKEY
+# Feat Name							Unique Key					Type								Visible		Req. Spell Type			Define				Description											Stackable?			Multiple?	Choose																		Selections	Template			Auto Armor Prof		Auto Feat		Auto Language	Auto Shield Prof		Auto Weapon Prof		Virtual Feat			Ability																													Add										Combat bonus				Bonus to HP			Caster level bonus		Modify VAR																																															Cost		Source Page		Benefits																			SORTKEY
 Test-57 Apply A1												TYPE:TEST-57																																																																																																																			ADD:VFEAT|Dodge,Test-57-Ability-1
 Test-57 Apply A2												TYPE:TEST-57																																																																																																																			ADD:VFEAT|Test-57-Ability-2
 #Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
@@ -295,9 +295,9 @@ Agile											TYPE:General
 
 # Copies from RSRD set
 
-Armor Proficiency (Heavy)							TYPE:General							PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Heavy																														SOURCEPAGE:Feats
+Armor Proficiency (Heavy)							TYPE:General							PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Heavy																														SOURCEPAGE:Feats
 Armor Proficiency (Light)							TYPE:General																																							DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Light																														SOURCEPAGE:Feats
-Armor Proficiency (Medium)							TYPE:General							PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREFEAT:1,Armor Proficiency (Light)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Medium																														SOURCEPAGE:Feats
+Armor Proficiency (Medium)							TYPE:General							PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Medium																														SOURCEPAGE:Feats
 
 Simple Weapon Proficiency							TYPE:General																																							DESC:See Text																																												AUTO:WEAPONPROF|TYPE=Simple																					SOURCEPAGE:Feats
 Martial Weapon Proficiency							TYPE:General																																							DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial]												AUTO:WEAPONPROF|%LIST																						SOURCEPAGE:Feats
@@ -307,7 +307,7 @@ Exotic Weapon Proficiency							TYPE:General.Fighter																				PRETOTAL
 
 Weapon Finesse									TYPE:General.Fighter																				PRETOTALAB:1																DESC:See Text																																																	BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX+SHIELDACCHECK)-STR)|TYPE=NotRanged							SOURCEPAGE:Feats
 Weapon Focus									TYPE:General.Fighter																																						DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats
-Weapon Specialization								TYPE:Special.Fighter		PREFEAT:1,Weapon Focus																		PREVARGTEQ:WeapSpecQualify,1											DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																															BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+Weapon Specialization								TYPE:Special.Fighter		PREABILITY:1,CATEGORY=FEAT,Weapon Focus																		PREVARGTEQ:WeapSpecQualify,1											DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																															BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
 
 
 

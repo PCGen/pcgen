@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+# Armor special qualities
+
+# Modifier Name	Unique Key			Type				Plus		Source Page		Required Type		Special Property
+Trackless		KEY:FEY_TRACKLESS		TYPE:Armor			PLUS:1	SOURCEPAGE:p.47	PRETYPE:1,Enhancement	SPROP:Pass without Trace
+Unseen		KEY:FEY_UNSEEN		TYPE:Armor			PLUS:3	SOURCEPAGE:p.47	PRETYPE:1,Enhancement	SPROP:Invisible
+Tree			KEY:FEY_TREE		TYPE:Armor			PLUS:2	SOURCEPAGE:p.48	PRETYPE:1,Enhancement	SPROP:Tree Shape
+Earthen Grasp	KEY:FEY_EARTHEN_GRASP	TYPE:Armor			PLUS:2	SOURCEPAGE:p.48	PRETYPE:1,Enhancement	SPROP:Meld into Stone
+
+# Weapon special qualities
+
+Slumber		KEY:FEY_SLUMBER		TYPE:Weapon.Ranged	PLUS:2	SOURCEPAGE:p.48	PRETYPE:1,Enhancement	SPROP:Sleep (DC 15)

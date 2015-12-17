@@ -63,6 +63,7 @@ ABILITYCATEGORY:up_abilitycategories.lst
 ABILITY:up_abilities.lst
 ABILITY:up_abilities_class.lst
 ABILITY:up_abilities_race.lst
+ABILITY:up_abilities_companion.lst
 
 CLASS:up_classes.lst
 

@@ -46,7 +46,7 @@ public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		String addType = sep.next();
 		if (!"FEAT".equals(addType))
 		{
-			return new ParseResult.Fail("Incomatible with ADD:FEAT:" + value);
+			return new ParseResult.Fail("Incompatible with ADD:FEAT:" + value);
 		}
 		String activeValue = sep.next();
 		Formula count;

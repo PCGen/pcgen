@@ -45,7 +45,7 @@ Template First Class Select	CATEGORY:Internal																																			
 
 
 ###Block: The Skill choices
-# Ability Name							Category of Ability		Type																														Visible		Required Template													Add 					Bonus to skill									Class Skill
+# Ability Name							Category of Ability		Type																														Visible		Required Template													Add					Bonus to skill									Class Skill
 Balance(class skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																	CSKILL:Balance
 Balance(+1 to skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																BONUS:SKILL|Balance|1|TYPE=Competance					CSKILL:Balance
 

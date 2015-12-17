@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Domain File tags" to find
+#out how the tags in the races file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#
+#
+#
+#####Example
+
+#Travel		CSKILL:Survival		SOURCEPAGE:SpellListI	DESC:For a total time per day of 1 round per cleric level you possess, you can act normally regardless of magical effects that impede movement as if you were affected by the spell freedom of movement. This effect occurs automatically as soon as it applies, lasts until it runs out or is no longer needed, and can operate multiple times per day (up to the total daily limit of rounds).This granted power is a supernatural ability.	SPELLLEVEL:DOMAIN|Travel=1|Longstrider|Travel=2|Locate Object|Travel=3|Fly|Travel=4|Dimension Door|Travel=5|Teleport|Travel=6|Find the Path|Travel=7|Teleport (Greater)|Travel=8|Phase Door|Travel=9|Astral Projection
+
+#####
+#The Domain files are used to specify domain pertinent information The first field is the Domain Name, this is a required
+#field and does not have a tag. In the Example the Domain Name is "Travel"
+#
+#The CSKILL tag grants the listed skills as class skills. When used in a domains.lst, it grants the class skills only to the
+#classes that grant the domain.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the domain. This will be displayed in PCGen.
+#
+#The DESC tag is used for a simple explanation of the domains granted powers.
+#
+#The SPELLLEVEL:DOMAIN tag assigns spells to a domain at a level specified.

@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs	SOURCESHORT:SGtM	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+
+# Skill Name	Key Stat	Untrained?		Exclusive?		Type			Source Page		Temporary effect description													Temporary Bonus
+Craft (Labyrinth)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Craft	SOURCEPAGE:p.19	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Labyrinth)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=LabyrinthTools
+Craft (Alter)	KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Craft	SOURCEPAGE:p.19	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Alter)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=AlterTools

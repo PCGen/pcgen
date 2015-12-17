@@ -6,6 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 #
 # The Ability "Aura of Madness" of the Madness Domain doesn't list a level when it is first granted. Errata from Paizo confirms level 8 like most of the other abilities of this kind. (SR)
 #
+# Implement Pharasma-Friendly Death Domain from http://paizo.com/paizo/blog/v5748dyo5lbvp
 
 # Domain Name	Required AL		Multiple Requirements										Class Skill				Ability																											Define																													Add to base move			Save bonus									Modify VAR								Source Page		Description																																					List of Domain Spells by Level
 Air						PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainAir,1]							ABILITY:Internal|AUTOMATIC|Core Domain ~ Air Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AirDomainReplacement									DEFINE:DomainAirLVL|0	DEFINE:DomainAirAbilityTriggerLVL|0	DEFINE:DomainAirDC|0	DEFINE:DomainAirTimes|0																																					SOURCEPAGE:p.41	DESC:You can manipulate lightning, mist, and wind, traffic with air creatures, and are resistant to electricity damage.																			SPELLLEVEL:DOMAIN|Air=1|Obscuring Mist|Air=2|Wind Wall|Air=3|Gaseous Form|Air=4|Air Walk|Air=5|Control Winds|Air=6|Chain Lightning|Air=7|Elemental Body IV (Air Only)|Air=8|Whirlwind|Air=9|Elemental Swarm (Air Spell Only)
@@ -15,7 +16,6 @@ Chaos			PREALIGN:CG,CN,CE	PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:Allo
 Charm						PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainCharm,1]							ABILITY:Internal|AUTOMATIC|Core Domain ~ Charm Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CharmDomainReplacement								DEFINE:DomainCharmLVL|0	DEFINE:DomainCharmDC|0	DEFINE:DomainCharmTimes|0	DEFINE:DomainCharmAbilityTriggerLVL|0																																			SOURCEPAGE:p.42	DESC:You can baffle and befuddle foes with a touch or a smile, and your beauty and grace are divine.																						SPELLLEVEL:DOMAIN|Charm=1|Charm Person|Charm=2|Calm Emotions|Charm=3|Suggestion|Charm=4|Heroism|Charm=5|Charm Monster|Charm=6|Geas/Quest|Charm=7|Insanity|Charm=8|Demand|Charm=9|Dominate Monster
 Community					PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainCommunity,1]						ABILITY:Internal|AUTOMATIC|Core Domain ~ Community Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CommunityDomainReplacement							DEFINE:DomainCommunityLVL|0	DEFINE:DomainCommunityDC|0	DEFINE:DomainCommunityTimes|0	DEFINE:DomainCommunityAbilityTriggerLVL|0																																	SOURCEPAGE:p.42	DESC:Your touch can heal wounds, and your presence instills unity and strengthens emotional bonds.																						SPELLLEVEL:DOMAIN|Community=1|Bless|Community=2|Shield Other|Community=3|Prayer|Community=4|Imbue with Spell Ability|Community=5|Telepathic Bond|Community=6|Heroes' Feast|Community=7|Refuge|Community=8|Cure Critical Wounds (Mass)|Community=9|Miracle
 Darkness					PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainDarkness,1]						ABILITY:Internal|AUTOMATIC|Core Domain ~ Darkness Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DarknessDomainReplacement	ABILITY:FEAT|AUTOMATIC|Blind-Fight	DEFINE:DomainDarknessLVL|0	DEFINE:DomainDarknessDC|0	DEFINE:DomainDarknessTimes|0	DEFINE:DomainDarknessAbilityTriggerLVL|0																																	SOURCEPAGE:p.42	DESC:You manipulate shadows and darkness. In addition, you receive Blind-Fight as a bonus feat.																							SPELLLEVEL:DOMAIN|Darkness=1|Obscuring Mist|Darkness=2|Blindness/Deafness (Blindness Only)|Darkness=3|Deeper Darkness|Darkness=4|Shadow Conjuration|Darkness=5|Summon Monster V (1d3 Shadows)|Darkness=6|Shadow Walk|Darkness=7|Power Word Blind|Darkness=8|Shadow Evocation (Greater)|Darkness=9|Shades
-# Implement Pharasma-Friendly Death Domain from http://paizo.com/paizo/blog/v5748dyo5lbvp
 Death						PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainDeath,1]							ABILITY:Internal|AUTOMATIC|Core Domain ~ Death Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathDomainReplacement								DEFINE:DomainDeathLVL|0	DEFINE:DomainDeathDC|0	DEFINE:DomainDeathTimes|0	DEFINE:DomainDeathAbilityTriggerLVL|0																																			SOURCEPAGE:p.42	DESC:You can cause the living to bleed at a touch, and find comfort in the presence of the dead.																						SPELLLEVEL:DOMAIN|Death=1|Cause Fear|Death=2|Death Knell|Death=3|Animate Dead|Death=4|Death Ward|Death=5|Slay Living|Death=6|Create Undead|Death=7|Destruction|Death=8|Create Greater Undead|Death=9|Wail of the Banshee|!PREDEITY:1,Pharasma	SPELLLEVEL:DOMAIN|Death=1|Cause Fear|Death=2|Death Knell|Death=3|Speak with Dead|Death=4|Death Ward|Death=5|Slay Living|Death=6|Antilife Shell|Death=7|Destruction|Death=8|Symbol of Death|Death=9|Wail of the Banshee|PREDEITY:1,Pharasma
 Destruction					PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainDestruction,1]						ABILITY:Internal|AUTOMATIC|Core Domain ~ Destruction Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DestructionDomainReplacement						DEFINE:DomainDestructionLVL|0	DEFINE:DomainDestructionDC|0	DEFINE:DomainDestructionTimes|0	DEFINE:DomainDestructionAbilityTriggerLVL|0																															SOURCEPAGE:p.43	DESC:You revel in ruin and devastation, and can deliver particularly destructive attacks.																								SPELLLEVEL:DOMAIN|Destruction=1|True Strike|Destruction=2|Shatter|Destruction=3|Rage|Destruction=4|Inflict Critical Wounds|Destruction=5|Shout|Destruction=6|Harm|Destruction=7|Disintegrate|Destruction=8|Earthquake|Destruction=9|Implosion
 Earth						PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomainEarth,1]							ABILITY:Internal|AUTOMATIC|Core Domain ~ Earth Domain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.EarthDomainReplacement								DEFINE:DomainEarthLVL|0	DEFINE:DomainEarthDC|0	DEFINE:DomainEarthTimes|0	DEFINE:DomainEarthAbilityTriggerLVL|0																																			SOURCEPAGE:p.43	DESC:You have mastery over earth, metal, and stone, can fire darts of acid, and command earth creatures.																					SPELLLEVEL:DOMAIN|Earth=1|Magic Stone|Earth=2|Soften Earth and Stone|Earth=3|Stone Shape|Earth=4|Spike Stones|Earth=5|Wall of Stone|Earth=6|Stoneskin|Earth=7|Elemental Body IV (Earth Only)|Earth=8|Earthquake|Earth=9|Elemental Swarm (Earth Spell Only)
@@ -47,37 +47,37 @@ Death (Pharasma)				PREMULT:1,[PREVARLT:DomainNotAllowed,1],[PREVAREQ:AllowDomai
 
 ###Block:
 # Domain Name		Modify VAR
-Air.MOD			BONUS:VAR|DomainTaken|1
-Animal.MOD			BONUS:VAR|DomainTaken|1
-Artifice.MOD		BONUS:VAR|DomainTaken|1
-Chaos.MOD			BONUS:VAR|DomainTaken|1
-Charm.MOD			BONUS:VAR|DomainTaken|1
-Community.MOD		BONUS:VAR|DomainTaken|1
-Darkness.MOD		BONUS:VAR|DomainTaken|1
-Death.MOD			BONUS:VAR|DomainTaken|1
-Destruction.MOD		BONUS:VAR|DomainTaken|1
-Earth.MOD			BONUS:VAR|DomainTaken|1
-Evil.MOD			BONUS:VAR|DomainTaken|1
-Fire.MOD			BONUS:VAR|DomainTaken|1
-Glory.MOD			BONUS:VAR|DomainTaken|1
-Good.MOD			BONUS:VAR|DomainTaken|1
-Healing.MOD			BONUS:VAR|DomainTaken|1
-Knowledge.MOD		BONUS:VAR|DomainTaken|1
-Law.MOD			BONUS:VAR|DomainTaken|1
-Liberation.MOD		BONUS:VAR|DomainTaken|1
-Luck.MOD			BONUS:VAR|DomainTaken|1
-Madness.MOD			BONUS:VAR|DomainTaken|1
-Magic.MOD			BONUS:VAR|DomainTaken|1
-Nobility.MOD		BONUS:VAR|DomainTaken|1
-Plant.MOD			BONUS:VAR|DomainTaken|1
-Protection.MOD		BONUS:VAR|DomainTaken|1
-Repose.MOD			BONUS:VAR|DomainTaken|1
-Rune.MOD			BONUS:VAR|DomainTaken|1
-Strength.MOD		BONUS:VAR|DomainTaken|1
-Sun.MOD			BONUS:VAR|DomainTaken|1
-Travel.MOD			BONUS:VAR|DomainTaken|1
-Trickery.MOD		BONUS:VAR|DomainTaken|1
-War.MOD			BONUS:VAR|DomainTaken|1
-Water.MOD			BONUS:VAR|DomainTaken|1
-Weather.MOD			BONUS:VAR|DomainTaken|1
+Air.MOD			PREMULT:1,[PREDOMAIN:1,Air],[PREVARLT:AirDomain,1]				
+Animal.MOD			PREMULT:1,[PREDOMAIN:1,Animal],[PREVARLT:AnimalDomain,1]			
+Artifice.MOD		PREMULT:1,[PREDOMAIN:1,Artifice],[PREVARLT:ArtificeDomain,1]		
+Chaos.MOD			PREMULT:1,[PREDOMAIN:1,Chaos],[PREVARLT:ChaosDomain,1]			
+Charm.MOD			PREMULT:1,[PREDOMAIN:1,Charm],[PREVARLT:CharmDomain,1]			
+Community.MOD		PREMULT:1,[PREDOMAIN:1,Community],[PREVARLT:CommunityDomain,1]		
+Darkness.MOD		PREMULT:1,[PREDOMAIN:1,Darkness],[PREVARLT:DarknessDomain,1]		
+Death.MOD			PREMULT:1,[PREDOMAIN:1,Death],[PREVARLT:DeathDomain,1]			
+Destruction.MOD		PREMULT:1,[PREDOMAIN:1,Destruction],[PREVARLT:DestructionDomain,1]	
+Earth.MOD			PREMULT:1,[PREDOMAIN:1,Earth],[PREVARLT:EarthDomain,1]			
+Evil.MOD			PREMULT:1,[PREDOMAIN:1,Evil],[PREVARLT:EvilDomain,1]				
+Fire.MOD			PREMULT:1,[PREDOMAIN:1,Fire],[PREVARLT:FireDomain,1]				
+Glory.MOD			PREMULT:1,[PREDOMAIN:1,Glory],[PREVARLT:GloryDomain,1]			
+Good.MOD			PREMULT:1,[PREDOMAIN:1,Good],[PREVARLT:GoodDomain,1]				
+Healing.MOD			PREMULT:1,[PREDOMAIN:1,Healing],[PREVARLT:HealingDomain,1]			
+Knowledge.MOD		PREMULT:1,[PREDOMAIN:1,Knowledge],[PREVARLT:KnowledgeDomain,1]		
+Law.MOD			PREMULT:1,[PREDOMAIN:1,Law],[PREVARLT:LawDomain,1]				
+Liberation.MOD		PREMULT:1,[PREDOMAIN:1,Liberation],[PREVARLT:LiberationDomain,1]		
+Luck.MOD			PREMULT:1,[PREDOMAIN:1,Luck],[PREVARLT:LuckDomain,1]				
+Madness.MOD			PREMULT:1,[PREDOMAIN:1,Madness],[PREVARLT:MadnessDomain,1]			
+Magic.MOD			PREMULT:1,[PREDOMAIN:1,Magic],[PREVARLT:MagicDomain,1]			
+Nobility.MOD		PREMULT:1,[PREDOMAIN:1,Nobility],[PREVARLT:NobilityDomain,1]		
+Plant.MOD			PREMULT:1,[PREDOMAIN:1,Plant],[PREVARLT:PlantDomain,1]			
+Protection.MOD		PREMULT:1,[PREDOMAIN:1,Protection],[PREVARLT:ProtectionDomain,1]		
+Repose.MOD			PREMULT:1,[PREDOMAIN:1,Repose],[PREVARLT:ReposeDomain,1]			
+Rune.MOD			PREMULT:1,[PREDOMAIN:1,Rune],[PREVARLT:RuneDomain,1]				
+Strength.MOD		PREMULT:1,[PREDOMAIN:1,Strength],[PREVARLT:StrengthDomain,1]		
+Sun.MOD			PREMULT:1,[PREDOMAIN:1,Sun],[PREVARLT:SunDomain,1]				
+Travel.MOD			PREMULT:1,[PREDOMAIN:1,Travel],[PREVARLT:TravelDomain,1]			
+Trickery.MOD		PREMULT:1,[PREDOMAIN:1,Trickery],[PREVARLT:TrickeryDomain,1]		
+War.MOD			PREMULT:1,[PREDOMAIN:1,War],[PREVARLT:WarDomain,1]				
+Water.MOD			PREMULT:1,[PREDOMAIN:1,Water],[PREVARLT:WaterDomain,1]			
+Weather.MOD			PREMULT:1,[PREDOMAIN:1,Weather],[PREVARLT:WeatherDomain,1]			
 Death (Pharasma).MOD	BONUS:VAR|DomainTaken|1

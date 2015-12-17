@@ -290,7 +290,8 @@ ABILITYCATEGORY:Special Ability	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONAL
 
 
 PREVIEWDIR:d20/fantasy
-PREVIEWSHEET:standard.htm
+PREVIEWSHEET:Standard.htm.ftl
+
 INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 

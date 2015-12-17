@@ -1,0 +1,56 @@
+
+CLASS:Gun Priest	MAXLEVEL:20
+CLASS:Gun Priest	HD:8	TYPE:Base.PC
+CLASS:Gun Priest	FACT:Abb|GPr	FACT:ClassType|Support	SPELLLIST:1|Cleric	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6
+CLASS:Gun Priest	DEFINE:GunPriestLVL|0	BONUS:VAR|GunPriestLVL|CL
+CLASS:Gun Priest	SOURCEPAGE:p.3	
+CLASS:Gun Priest	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Gun Priest	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Gun Priest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Gun Priest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Gun Priest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Gun Priest	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Gun Priest	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Gun Priest	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Gun Priest	STARTSKILLPTS:2	CSKILL:Acrobatics|Appraise|Bluff|TYPE=Craft|Heal|Intimidate|Knowledge (engineering)|Knowledge (religion)|Perception|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Gun Priest	FACT:SpellType|Divine
+CLASS:Gun Priest	SPELLSTAT:WIS	MEMORIZE:YES
+CLASS:Gun Priest	BONUS:CASTERLEVEL|Gun Priest|Caster_Level_BL_Stripped_GunPriest	DEFINE:Caster_Level_BL_Stripped_GunPriest|0	BONUS:VAR|Caster_Level_BL_Stripped_GunPriest|Caster_Level_GunPriest-CasterLevelBLGunPriest	BONUS:VAR|Caster_Level_GunPriest|CL+Caster_Level_Bonus+CasterLevelBLGunPriest	DEFINE:CasterLevelBLGunPriest|0	BONUS:VAR|CasterLevelBL_GunPriest|charbonusto("PCLEVEL","Gun Priest")	
+CLASS:Gun Priest	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_GunPriest|TYPE=Base
+###Block	
+1	CAST:0,1
+2	CAST:0,2
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,4,3
+6	CAST:0,4,3
+7	CAST:0,4,3,1
+8	CAST:0,4,3,2
+9	CAST:0,5,4,3
+10	CAST:0,5,4,3
+11	CAST:0,5,4,4
+12	CAST:0,5,5,4
+13	CAST:0,5,5,4,1
+14	CAST:0,5,5,4,2
+15	CAST:0,5,5,5,3
+16	CAST:0,5,5,5,3,1
+17	CAST:0,5,5,5,4,2
+18	CAST:0,5,5,5,4,3
+19	CAST:0,5,5,5,5,4
+20	CAST:0,5,5,5,5,5
+###Block	
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Aura					
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Bonus Feats			
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Gunsmith				
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Orisons
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Sacred Gun				
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Vested Weapon			
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Weapon and Armor Proficiencies	
+1	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Domains
+2	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Nimble
+3	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Channel Energy			
+4	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Deeds					
+4	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Grit					
+20	ABILITY:Gun Priest Class Feature|AUTOMATIC|Gun Priest ~ Gun Master's Wrath			
+###Block	
+1	BONUS:DOMAIN|NUMBER|1

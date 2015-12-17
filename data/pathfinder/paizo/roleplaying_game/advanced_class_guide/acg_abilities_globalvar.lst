@@ -22,36 +22,38 @@ CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcaneReservoir|0
 CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploits|0
 CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Cantrips|0
 CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_GreaterArcanistExploits|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_MagicalSupremacy|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistMagicalSupremacy|0
 
 CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Proficiencies|0
 CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_WeaponProficiencies|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistSpellbooks|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistSpells|0
 
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit1|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit3|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit5|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit7|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit9|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit11|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit13|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit15|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit17|0
-CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_Exploit19|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit1|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit3|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit5|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit7|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit9|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit11|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit13|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit15|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit17|0
+CATEGORY=Class|Arcanist.MOD	DEFINE:Arcanist_CF_ArcanistExploit19|0
 
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit1=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit3=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit5=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit7=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit9=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit11=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit13=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit15=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit17=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Exploit19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Exploit19=True
-
-
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit1|01|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit1=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit3|01|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit3=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit5|01|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit5=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit7|01|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit7=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit9|01|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit9=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit11=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit13=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit15=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit17=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploit19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit19=True
 
 
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistSpellbooks|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistSpellbooks=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistSpells=True
 
 
 
@@ -63,7 +65,7 @@ CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcaneReservoir|1|TYPE=Boolean
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploits|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploits=True
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Cantrips=True
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_GreaterArcanistExploits|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_GreaterArcanistExploits=True
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_MagicalSupremacy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_MagicalSupremacy=True
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistMagicalSupremacy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_MagicalSupremacy=True
 
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.Arcanist
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ArcanistWeaponProficiencies
@@ -73,7 +75,7 @@ CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcaneReservoir|1|TYPE=Boolean
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistExploits|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ArcanistArcanistExploits
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ArcanistCantrips
 CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_GreaterArcanistExploits|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ArcanistGreaterArcanistExploits
-CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_MagicalSupremacy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ArcanistMagicalSupremacy
+CATEGORY=Class|Arcanist.MOD	BONUS:VAR|Arcanist_CF_ArcanistMagicalSupremacy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ArcanistMagicalSupremacy
 
 #
 CATEGORY=Class|Bloodrager.MOD	ABILITY:Internal|AUTOMATIC|Bloodrager ~ Class Skills|PREVAREQ:Bloodrager_CF_ClassSkills,0
@@ -131,9 +133,17 @@ CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_IndomitableWill|1|TYPE=Boo
 CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_TirelessBloodrage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerTirelessBloodrage
 CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_MightyBloodrage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerMightyBloodrage
 
+CATEGORY=Class|Bloodrager.MOD	DEFINE:Bloodrager_CF_UncannyDodge|0
+CATEGORY=Class|Bloodrager.MOD	DEFINE:Bloodrager_CF_ImprovedUncannyDodge|0
+CATEGORY=Class|Bloodrager.MOD	DEFINE:Bloodrager_CF_ArmorProficiency|0
+CATEGORY=Class|Bloodrager.MOD	DEFINE:Bloodrager_CF_Spells|0
 
 
 
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_UncannyDodge=True
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_ImprovedUncannyDodge=True
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_ArmorProficiency=True	
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Spells=True		
 
 
 CATEGORY=Class|Brawler.MOD	ABILITY:Internal|AUTOMATIC|Brawler ~ Class Skills|PREVAREQ:Brawler_CF_ClassSkills,0

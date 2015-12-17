@@ -4,7 +4,6 @@ SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB
 
 # Feat Name			Output Name					Type					Required Class		Required Race	Required Stat	Required Text				Description																																																	Stackable?	Multiple?	Choose		Combat bonus								Bonus to skill			Cost		Source Page
 Bonus Feat									CATEGORY:FEAT	TYPE:General																			DESC:Choose any one feat from Feats																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																COST:0	SOURCEPAGE:p.143
-#CHOOSE:FEATADD|ALL don't know if that'd work...
 Cool										CATEGORY:FEAT	TYPE:General			PRECLASS:1,Rogue=1				PRESTAT:1,CHA=13							DESC:You are just that cool and everyone knows it																																																	BONUS:COMBAT|AC|1|TYPE=Circumstantial|PREEQUIP:1,Leather	BONUS:SKILL|TYPE.Charisma|1			SOURCEPAGE:p.143
 Elven Blood (Keebler)	OUTPUTNAME:Elven Blood, Keebler	CATEGORY:FEAT	TYPE:Background.Bloodgift																	DESC:you gan a +4 racial bonus to all Craft (Baking) checks and Profession (Cook) checks to make sweet, delicious treats																																																						SOURCEPAGE:p.143
 Garden Gnome								CATEGORY:FEAT	TYPE:Background													PRETEXT:Isn't being a gnome enough?	DESC:You gain a +3 competence bonus to Hide checks and Move Silently checks while in tall grass and rose bushes.																																																								SOURCEPAGE:p.143

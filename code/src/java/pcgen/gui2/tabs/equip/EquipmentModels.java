@@ -331,7 +331,7 @@ public class EquipmentModels
 				{
 					EquipNode path = paths.get(i);
 					data[i][0] = path.getEquipment();
-					data[i][1] = equipSet.getEquippedItems().getQuantity(path.getEquipment());
+					data[i][1] = equipSet.getQuantity(path);
 				}
 				Object[] columns = new Object[]
 				{

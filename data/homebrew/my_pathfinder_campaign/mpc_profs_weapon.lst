@@ -1,0 +1,32 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > LST File Class > Lesson #9" to learn more about
+#the weaponprofs file.
+#
+#
+#
+#
+#
+#####1st Example
+
+#Dagger				TYPE:Simple
+
+#####
+#Dagger is the name of the weapon proficiency. This needs to be the same text that appears in the weapon's PROFICIENCY tag.
+#The TYPE tag defines what type of weapon proficiency group the weapon belongs to.
+#
+#
+#####2nd Example
+
+#Greataxe				TYPE:Martial	HANDS:2
+
+#####
+#This example has an additional tag HANDS. HANDS:2 means that it must be wielded with 2 hands. Other than the name and the
+#TYPE, the HANDS tag is not mandatory for a weapon proficiency. It can be used when necessary.
+# HANDS is being PHASED OUT. Equipment should dictate number of Slots used.

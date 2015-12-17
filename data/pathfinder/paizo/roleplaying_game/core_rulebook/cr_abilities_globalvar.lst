@@ -53,35 +53,6 @@ CATEGORY=Internal|Race Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_Trait_Language|1|TYPE=
 # COMMENT: When the New Formula Parser BOOLEAN is implemented, these will be moved to the correct file.
 # COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
 # COMMENT: This will be moved into the GLOBALVARs file when it exists.
-Barbarian			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0
-Bard				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0
-Cleric			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|PREVAREQ:Cleric_CF_ClassSkills,0
-Druid				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|PREVAREQ:Druid_CF_ClassSkills,0
-Fighter			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|PREVAREQ:Fighter_CF_ClassSkills,0
-Monk				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
-Paladin			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|PREVAREQ:Paladin_CF_ClassSkills,0
-Ranger			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|PREVAREQ:Ranger_CF_ClassSkills,0
-Rogue				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0
-Sorcerer			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|PREVAREQ:Sorcerer_CF_ClassSkills,0
-Wizard			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|PREVAREQ:Wizard_CF_ClassSkills,0
-
-Arcane Trickster		CATEGORY:Class
-Assassin			CATEGORY:Class
-Dragon Disciple		CATEGORY:Class
-Duelist			CATEGORY:Class
-Eldritch Knight		CATEGORY:Class
-Loremaster			CATEGORY:Class
-Mystic Theurge		CATEGORY:Class
-Pathfinder Chronicler	CATEGORY:Class
-Shadowdancer		CATEGORY:Class
-
-Adept				CATEGORY:Class
-Aristocrat			CATEGORY:Class
-Commoner			CATEGORY:Class
-Expert			CATEGORY:Class
-Warrior			CATEGORY:Class
-
-
 
 # Class Specific Vars - This is meant to replace the old style "TYPE" system with the better robust FACT system.
 

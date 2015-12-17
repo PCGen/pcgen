@@ -4,31 +4,15 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 # ORIGINAL ENTRY DATE: 2013/07/05
 
 # CONSIDER:
-#   Add aquatic horror?
-
-###Block: Horror
-STARTPACK:Horror (Quadruped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horror (Quadruped)]
-RACE:Horror (Quadruped)	!PRERACE:1,%
+STARTPACK:Horror	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horror]
+RACE:Horror	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Horror Quadruped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Horror Quadruped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Horror Quadruped Evolution|Evolution_Bite
 
-STARTPACK:Horror (Biped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horror (Biped)]
-RACE:Horror (Biped)	!PRERACE:1,%
-STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Horror Biped Evolution|Evolution_Arms
-ABILITY:CATEGORY=Horror Biped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Horror Biped Evolution|Evolution_Clawed_Hands
 
-STARTPACK:Horror (Serpentine)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horror (Serpentine)]
-RACE:Horror (Serpentine)	!PRERACE:1,%
-STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Horror Serpentine Evolution|Evolution_Bite
-ABILITY:CATEGORY=Horror Serpentine Evolution|Evolution_Tail
-ABILITY:CATEGORY=Horror Serpentine Evolution|Evolution_Climb
-ABILITY:CATEGORY=Horror Serpentine Evolution|Evolution_Reach (Bite)
-ABILITY:CATEGORY=Horror Serpentine Evolution|Evolution_Tail_Slap
+
+
+
+
 
 #
 # End

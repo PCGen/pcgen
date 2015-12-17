@@ -803,6 +803,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 		
 		String pid = ((EquipNodeImpl) parentNode).idPath;
+		boolean isBodyStructure = parentNode.getBodyStructure() instanceof BodyStructure;
 		List<EquipNodeImpl> childList = new ArrayList<EquipmentSetFacadeImpl.EquipNodeImpl>();
 		Map<String, EquipNodeImpl> origPathToNode = buildPathNodeMap();
 		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
@@ -826,7 +827,8 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		Collections.sort(childList, new EquipNameComparator());
 		
 		// Renumber paths
-		int id = 1;
+		// need to start from a unique id if only sorting some nodes at a level
+		int id = isBodyStructure ? theCharacter.getNewChildId(pid) : 1;
 		NumberFormat format = new DecimalFormat("00");
 		for (EquipNodeImpl childNode : childList)
 		{
@@ -1721,11 +1723,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				final String slotName = node.getSlot().toString();
 				if (Constants.EQUIP_LOCATION_BOTH.equals(slotName))
 				{
-					return 2;
+					return 1;	// Set to 1, we should only have 1 object here. - Andrew
 				}
 				if (Constants.EQUIP_LOCATION_DOUBLE.equals(slotName))
 				{
-					return 2;
+					return 1;	// Set to 1, we should only have 1 object here. - Andrew
 				}
 				return node.singleOnly ? 1 : node.getSlot().getSlotCount()
 					+ (int) theCharacter.getTotalBonusTo("SLOTS", node

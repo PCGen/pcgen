@@ -6,7 +6,23 @@ FACTDEF:ABILITY|Arcanist_Archetype_ArcaneReservoir					DATAFORMAT:BOOLEAN	VISIBL
 FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploits					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Arcanist_Archetype_Cantrips						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Arcanist_Archetype_GreaterArcanistExploits				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Arcanist_Archetype_MagicalSupremacy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistMagicalSupremacy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit1						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit3						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit5						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit7						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit9						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit11					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit13					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit15					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit17					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit19					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistSpellbooks					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_Archetype_ArcanistSpells					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+
+
+FACTDEF:ABILITY|Arcanist_CF_ArcanistSpellbooks					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistSpells					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
 
 
 FACTDEF:ABILITY|Arcanist_CF_Proficiencies					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
@@ -17,18 +33,18 @@ FACTDEF:ABILITY|Arcanist_CF_ArcaneReservoir					DATAFORMAT:BOOLEAN	VISIBLE:YES	S
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploits					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_Cantrips						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_GreaterArcanistExploits				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_MagicalSupremacy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistMagicalSupremacy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
 
-FACTDEF:ABILITY|Arcanist_CF_Exploit1						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit3						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit5						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit7						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit9						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit11					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit13					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit15					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit17					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Exploit19					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit1						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit3						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit5						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit7						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit9						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit11					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit13					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit15					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit17					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit19					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Arcanist Proficiencies removed
 
 
 # Bloodrager
@@ -45,6 +61,35 @@ FACTDEF:ABILITY|Bloodrager_Archetype_TirelessBloodrage						DATAFORMAT:BOOLEAN	V
 FACTDEF:ABILITY|Bloodrager_Archetype_MightyBloodrage							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 
 FACTDEF:ABILITY|Bloodrager_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat6								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat9								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat12								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat15								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat18								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+
+
+
+FACTDEF:ABILITY|Bloodrager_Archetype_ArmorProficiency								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_Spells								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+
+
+
+FACTDEF:ABILITY|Bloodrager_CF_ArmorProficiency								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_CF_Spells								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+
+
+FACTDEF:ABILITY|Bloodrager_Archetype_UncannyDodge								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_ImprovedUncannyDodge								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+
+
+
+FACTDEF:ABILITY|Bloodrager_CF_UncannyDodge								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_CF_ImprovedUncannyDodge								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
+
+
+
+
+
 FACTDEF:ABILITY|Bloodrager_CF_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bloodrager Proficiencies removed
 
 
@@ -82,6 +127,9 @@ FACTDEF:ABILITY|Brawler_Archetype_BrawlersStrike							DATAFORMAT:BOOLEAN	VISIBL
 FACTDEF:ABILITY|Brawler_Archetype_CloseWeaponMastery							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - CloseWeaponMastery				
 FACTDEF:ABILITY|Brawler_Archetype_AwesomeBlow								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - AwesomeBlow					
 FACTDEF:ABILITY|Brawler_Archetype_ImprovedAwesomeBlow						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow				
+FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow				
+
+
 
 
 FACTDEF:ABILITY|Brawler_CF_WeaponProficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:WeaponProficiencies			
@@ -303,46 +351,47 @@ FACTDEF:ABILITY|Skald_CF_RagePower3								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECT
 
 
 # Slayer
-FACTDEF:ABILITY|Slayer_Archetype_Proficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_StudiedTarget								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_Track									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_Talents									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_SneakAttack								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_Stalker									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_SwiftTracker								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_SlayersAdvance								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_Quarry									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_ImprovedQuarry								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
-FACTDEF:ABILITY|Slayer_Archetype_MasterSlayer								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Slayer_Archetype_Proficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies					EXPLANATION:Determines whether the archetype affects - Proficiencies				
+FACTDEF:ABILITY|Slayer_Archetype_ArmorProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorProficiencies				EXPLANATION:Determines whether the archetype affects - ArmorProficiencies			
+FACTDEF:ABILITY|Slayer_Archetype_StudiedTarget								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StudiedTarget					EXPLANATION:Determines whether the archetype affects - StudiedTarget				
+FACTDEF:ABILITY|Slayer_Archetype_Track									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Track						EXPLANATION:Determines whether the archetype affects - Track					
+FACTDEF:ABILITY|Slayer_Archetype_Talents									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talents						EXPLANATION:Determines whether the archetype affects - Talents					
+FACTDEF:ABILITY|Slayer_Archetype_SneakAttack								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SneakAttack					EXPLANATION:Determines whether the archetype affects - SneakAttack				
+FACTDEF:ABILITY|Slayer_Archetype_Stalker									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Stalker						EXPLANATION:Determines whether the archetype affects - Stalker					
+FACTDEF:ABILITY|Slayer_Archetype_SwiftTracker								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SwiftTracker					EXPLANATION:Determines whether the archetype affects - SwiftTracker				
+FACTDEF:ABILITY|Slayer_Archetype_SlayersAdvance								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SlayersAdvance					EXPLANATION:Determines whether the archetype affects - SlayersAdvance				
+FACTDEF:ABILITY|Slayer_Archetype_Quarry									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry						EXPLANATION:Determines whether the archetype affects - Quarry					
+FACTDEF:ABILITY|Slayer_Archetype_ImprovedQuarry								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedQuarry					EXPLANATION:Determines whether the archetype affects - ImprovedQuarry				
+FACTDEF:ABILITY|Slayer_Archetype_MasterSlayer								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MasterSlayer					EXPLANATION:Determines whether the archetype affects - MasterSlayer				
+FACTDEF:ABILITY|Slayer_Archetype_ClassSkills								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills					EXPLANATION:Determines whether the archetype affects - ClassSkills				
 
-FACTDEF:ABILITY|Slayer_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Slayer_CF_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
 
-FACTDEF:ABILITY|Slayer_CF_ArmorProficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_WeaponProficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_LightArmorProficiency							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_MediumArmorProficiency							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_ShieldProficiency								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_StudiedTarget									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Track										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talents										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_SneakAttack									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Stalker										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_SwiftTracker									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_SlayersAdvance									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Quarry										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_ImprovedQuarry									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_MasterSlayer									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent2										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent4										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent6										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent8										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent10										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent12										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent14										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent16										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent18										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
-FACTDEF:ABILITY|Slayer_CF_Talent20										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Slayer Proficiencies removed
+FACTDEF:ABILITY|Slayer_CF_ArmorProficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorProficiencies				EXPLANATION:Slayer class feature altered or removed ~ ArmorProficiencies	
+FACTDEF:ABILITY|Slayer_CF_WeaponProficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies				EXPLANATION:Slayer class feature altered or removed ~ WeaponProficiencies	
+FACTDEF:ABILITY|Slayer_CF_LightArmorProficiency								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LightArmorProficiency				EXPLANATION:Slayer class feature altered or removed ~ LightArmorProficiency	
+FACTDEF:ABILITY|Slayer_CF_MediumArmorProficiency							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MediumArmorProficiency			EXPLANATION:Slayer class feature altered or removed ~ MediumArmorProficiency
+FACTDEF:ABILITY|Slayer_CF_ShieldProficiency								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ShieldProficiency				EXPLANATION:Slayer class feature altered or removed ~ ShieldProficiency	
+FACTDEF:ABILITY|Slayer_CF_StudiedTarget									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StudiedTarget					EXPLANATION:Slayer class feature altered or removed ~ StudiedTarget		
+FACTDEF:ABILITY|Slayer_CF_Track										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Track						EXPLANATION:Slayer class feature altered or removed ~ Track			
+FACTDEF:ABILITY|Slayer_CF_Talents										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talents						EXPLANATION:Slayer class feature altered or removed ~ Talents			
+FACTDEF:ABILITY|Slayer_CF_SneakAttack									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SneakAttack					EXPLANATION:Slayer class feature altered or removed ~ SneakAttack		
+FACTDEF:ABILITY|Slayer_CF_Stalker										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Stalker						EXPLANATION:Slayer class feature altered or removed ~ Stalker			
+FACTDEF:ABILITY|Slayer_CF_SwiftTracker									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SwiftTracker					EXPLANATION:Slayer class feature altered or removed ~ SwiftTracker		
+FACTDEF:ABILITY|Slayer_CF_SlayersAdvance									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SlayersAdvance					EXPLANATION:Slayer class feature altered or removed ~ SlayersAdvance		
+FACTDEF:ABILITY|Slayer_CF_Quarry										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry						EXPLANATION:Slayer class feature altered or removed ~ Quarry			
+FACTDEF:ABILITY|Slayer_CF_ImprovedQuarry									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedQuarry					EXPLANATION:Slayer class feature altered or removed ~ ImprovedQuarry		
+FACTDEF:ABILITY|Slayer_CF_MasterSlayer									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MasterSlayer					EXPLANATION:Slayer class feature altered or removed ~ MasterSlayer		
+FACTDEF:ABILITY|Slayer_CF_Talent2										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent2						EXPLANATION:Slayer class feature altered or removed ~ Talent2			
+FACTDEF:ABILITY|Slayer_CF_Talent4										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent4						EXPLANATION:Slayer class feature altered or removed ~ Talent4			
+FACTDEF:ABILITY|Slayer_CF_Talent6										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent6						EXPLANATION:Slayer class feature altered or removed ~ Talent6			
+FACTDEF:ABILITY|Slayer_CF_Talent8										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent8						EXPLANATION:Slayer class feature altered or removed ~ Talent8			
+FACTDEF:ABILITY|Slayer_CF_Talent10										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent10						EXPLANATION:Slayer class feature altered or removed ~ Talent10			
+FACTDEF:ABILITY|Slayer_CF_Talent12										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent12						EXPLANATION:Slayer class feature altered or removed ~ Talent12			
+FACTDEF:ABILITY|Slayer_CF_Talent14										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent14						EXPLANATION:Slayer class feature altered or removed ~ Talent14			
+FACTDEF:ABILITY|Slayer_CF_Talent16										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent16						EXPLANATION:Slayer class feature altered or removed ~ Talent16			
+FACTDEF:ABILITY|Slayer_CF_Talent18										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent18						EXPLANATION:Slayer class feature altered or removed ~ Talent18			
+FACTDEF:ABILITY|Slayer_CF_Talent20										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talent20						EXPLANATION:Slayer class feature altered or removed ~ Talent20			
 
 # Swashbuckler
 FACTDEF:ABILITY|Swashbuckler_Archetype_Proficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		

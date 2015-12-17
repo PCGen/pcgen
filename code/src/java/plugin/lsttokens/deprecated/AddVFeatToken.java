@@ -45,7 +45,7 @@ public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		String addType = sep.next();
 		if (!"VFEAT".equals(addType))
 		{
-			return new ParseResult.Fail("Incomatible with ADD:VFEAT: " + value);
+			return new ParseResult.Fail("Incompatible with ADD:VFEAT: " + value);
 		}
 		String activeValue = sep.next();
 		Formula count;
