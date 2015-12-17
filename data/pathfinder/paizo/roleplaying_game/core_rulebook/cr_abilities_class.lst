@@ -7,14 +7,14 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Incorporated 05/30/2013 errata (Stefan Radermacher)
 
 #					Ability Pool
-# Ability Name			Define																											Bonus Ability Pool						Modify VAR
-CATEGORY=Internal|Default.MOD	DEFINE:Divine_Bond_Mount|0	DEFINE:Hunters_Bond_Animal_Companion|0	DEFINE:BypassClassAlignment_All_Class|0	DEFINE:BypassProhibitSpellAlignment_Restriction|0	BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
+# Ability Name			Define																																Bonus Ability Pool						Modify VAR
+CATEGORY=Internal|Default.MOD	DEFINE:Divine_Bond_Mount|0	DEFINE:Hunters_Bond_Animal_Companion|0	DEFINE:BypassClassAlignment_All_Class|0	DEFINE:BypassProhibitSpellAlignment_Restriction|0	DEFINE:Pool_Rage_Power|0	BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
 
 # Handles the Prohibited spell issue based upon alignment - Supports disabling for Mythic Adventures or Homebrew
-CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Good|0																															BONUS:VAR|ProhibitSpell_Alignment_Good|1|PREMULT:2,[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
-CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Evil|0																															BONUS:VAR|ProhibitSpell_Alignment_Evil|1|PREMULT:2,[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
-CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Lawful|0																															BONUS:VAR|ProhibitSpell_Alignment_Lawful|1|PREMULT:2,[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
-CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Chaotic|0																															BONUS:VAR|ProhibitSpell_Alignment_Chaotic|1|PREMULT:2,[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
+CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Good|0																																				BONUS:VAR|ProhibitSpell_Alignment_Good|1|PREMULT:2,[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
+CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Evil|0																																				BONUS:VAR|ProhibitSpell_Alignment_Evil|1|PREMULT:2,[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
+CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Lawful|0																																				BONUS:VAR|ProhibitSpell_Alignment_Lawful|1|PREMULT:2,[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
+CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Chaotic|0																																				BONUS:VAR|ProhibitSpell_Alignment_Chaotic|1|PREMULT:2,[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
 
 # Keep defines for Caster level in one location for easier modification - for classes outside the core, the DEFINES will be with their classes.
 # Due to a Code Bug, had to use BL_Stripped_Class to make this system work consistently.
