@@ -1,0 +1,212 @@
+#
+# Current Ver: $Revision: 1.47 $
+# Last Editor: $Author: fdiniz $
+# Last Edited: $Date: 2003/08/15 23:31:02 $
+#
+# message displayed when experience added allows character to advance a level
+#
+LEVELMSG:Congratulations, you can advance with that much experience!
+#
+#
+#ALIGNMENTNAME:Alignment
+HPNAME:Stamina
+HPABBREV:ST
+ALTHPNAME:LifeBlood
+ALTHPABBREV:LB
+# AC tags can be used to display AC info by using appropriate name and abbrev.
+# ACNAME: and ACABBREV: are required for proper usage.
+# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
+ACNAME:Armor Class
+ACABBREV:AC
+
+#
+#misc. DnD specific items
+#
+CURRENCYUNIT:Credit
+CURRENCYUNITABBREV:Cr
+# Depreciated Using unitSet.lst in System folder - Have a problem with it the Settings Are not Automatic 
+# You have to set the language Units to metric.
+#HEIGHTUNITABBREV:cm
+#MOVEUNIT:Meter
+#MOVEUNITABBREV:m
+#WEIGHTUNITABBREV:Kg
+
+# The following determine whether some Class-related variables are displayed
+# on the Classes tab.
+# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
+# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
+# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
+# variable in order to be displayed
+# up to 3 variables can be displayed in this manner
+
+SHOWCLASSDEFENSE:NO
+#DISPLAYVARIABLE1TEXT:
+#DISPLAYVARIABLE1NAME:
+#DISPLAYVARIABLE2TEXT:
+#DISPLAYVARIABLE2NAME:
+#DISPLAYVARIABLE3TEXT:
+#DISPLAYVARIABLE3NAME:
+
+#
+# Whether or not the game mode displays these tabs
+#
+#
+TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
+TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
+TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html
+TAB:FEATS		NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
+TAB:INVENTORY	NAME:in_inventory		CONTEXT:tabpages\tabinventory.html
+TAB:RACE		NAME:in_race		CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html
+TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
+# Inventory subpanels
+TAB:PURCHASE	NAME:in_purchase		CONTEXT:tabpages\tabinventory.html
+TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
+TAB:COMPANIONS	NAME:in_companions	CONTEXT:tabpages\tabcompanions.html
+TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
+#
+# Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
+# use & for mnemonic, && for & (MENUENTRY only)
+#
+MENUENTRY:Traveller
+MENUTOOLTIP:Use Traveller character creation settings
+DISPLAYORDER:1
+ALLOWEDMODES:Traveller20|T20
+
+#
+#SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
+# Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
+SHORTRANGE:1
+
+#SPELLRANGExxx specifies the formula used to compute spell ranges
+#The formula is evaluated by the PlayerCharacter.getVariableValue() routine
+SPELLRANGE:CLOSE|((CASTERLEVEL/2)*5)+25
+SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
+SPELLRANGE:LONG|(CASTERLEVEL*40)+400
+
+#SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list
+#e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
+SKILLMULTIPLIER:4
+SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
+
+#BONUSFEATLEVELSTARTINTERVAL:level|interval
+#level = first level where you gain an additional feat (use more than one of these tags for additional feats)
+#interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
+#this is handled in the races.lst by the STARTFEATS tag
+#BONUSFEATLEVELSTARTINTERVAL:1|0
+BONUSFEATLEVELSTARTINTERVAL:3|3
+
+#BONUSSTATLEVELSTARTINTERVAL:level|interval
+#level = first level where you gain an additional stat (use more than one of these tags for additional stat)
+#interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
+BONUSSTATLEVELSTARTINTERVAL:4|4
+
+#DEITY:None		DOMAINS:ALL		FOLLOWERALIGN:012345678		DESC:None	SYMBOL:None		SOURCEPAGE:None
+
+# Calculations for AC. Same as those used on the output sheets with the 'BONUS.' stripped off
+#BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
+#BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
+
+WEAPONTYPE:Bludgeoning|B
+WEAPONTYPE:Piercing|P
+WEAPONTYPE:Slashing|S
+WEAPONTYPE:Fire|F
+WEAPONTYPE:Acid|A
+WEAPONTYPE:Electricity|E
+WEAPONTYPE:Cold|C
+WEAPONTYPE:Poison|Po
+WEAPONTYPE:Laser|L
+WEAPONTYPE:Energy|En
+
+WEAPONCATEGORY:Archer
+WEAPONCATEGORY:Armsman
+WEAPONCATEGORY:Combat Rifleman
+WEAPONCATEGORY:Field Artillery
+WEAPONCATEGORY:Heavy Weapons
+WEAPONCATEGORY:High Energy Weapons
+WEAPONCATEGORY:Lasers
+WEAPONCATEGORY:Marksman
+WEAPONCATEGORY:Ship's Weaponry
+WEAPONCATEGORY:Swordsman
+
+#WEAPONCATEGORY:Simple
+#WEAPONCATEGORY:Martial
+#WEAPONCATEGORY:Exotic
+#WEAPONCATEGORY:Natural
+
+# Ammo is made in batches of 50, so the "plus" cost per unit should be 2000*(PLUS*PLUS)/50
+PLUSCOST:AMMUNITION|BASEQTY*40*PLUS*PLUS
+PLUSCOST:ARMOR|1000*PLUS*PLUS
+PLUSCOST:SHIELD|1000*PLUS*PLUS
+PLUSCOST:WEAPON|2000*(PLUS+ALTPLUS)*(PLUS+ALTPLUS)
+
+#Attack/Check Cycle attributes
+BABMAXATT:4
+BABATTCYC:5
+BABMINVAL:1
+
+#Class Types
+CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:YES
+CLASSTYPE:NPC		CRFORMULA:(CL-1)MIN1	ISMONSTER:NO	XPPENALTY:YES
+CLASSTYPE:Prestige	CRFORMULA:0			ISMONSTER:NO	XPPENALTY:NO
+CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
+
+#AC Types
+ACTYPE:Total				ADD:TOTAL
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
+ACTYPE:Base					ADD:Base
+ACTYPE:Armor				ADD:Armor|ArmorEnhancement
+ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
+ACTYPE:Shield				ADD:Shield|ShieldEnhancement
+ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement
+ACTYPE:Ability				ADD:Ability
+ACTYPE:Size					ADD:Size
+ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
+ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
+ACTYPE:Dodge				ADD:Dodge
+ACTYPE:Deflection				ADD:Deflection
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
+ACTYPE:Circumstance			ADD:Circumstance
+ACTYPE:Insight				ADD:Insight
+ACTYPE:Morale				ADD:Morale
+ACTYPE:Profane				ADD:Profane
+ACTYPE:Sacred				ADD:Sacred
+ACTYPE:ClassDefense			ADD:ClassDefense
+
+
+# Damage die changes on size
+BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
+BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6		DOWN:1d2,1,0
+BASEDICE:1d4	UP:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d3,1d2,1,0
+BASEDICE:1d6	UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d4,1d3,1d2,1
+BASEDICE:1d8	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
+BASEDICE:1d10	UP:2d8,3d8,4d8,6d8,8d8,12d8				DOWN:1d8,1d6,1d4,1d3
+BASEDICE:1d12	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
+BASEDICE:2d4	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
+BASEDICE:2d6	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
+BASEDICE:2d8	UP:3d8,4d8,6d8,8d8,12d8					DOWN:2d6,1d10,1d8,1d6
+BASEDICE:2d10	UP:4d8,6d8,8d8,12d8					DOWN:2d8,2d6,1d10,1d8
+
+###Block: Default Categories ---
+ABILITYCATEGORY:FEAT				CATEGORY:FEAT																			DISPLAYLOCATION:Feats			EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	PLURAL:Feats
+ABILITYCATEGORY:Special Ability		CATEGORY:Special Ability	VISIBLE:NO	
+ABILITYCATEGORY:Internal								VISIBLE:NO									CATEGORY:Internal
+
+# COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack							PLURAL:Class Abilities		DISPLAYLOCATION:Class Abilities
+
+
+PREVIEWDIR:d20/fantasy
+PREVIEWSHEET:preview.html
+INFOSHEET:SUMMARY|preview/summary/35e_info.html
+INFOSHEET:SKILLS|preview/skills/35e_skills.html
+
+# DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
+DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
+
+#
+# DONE
+
