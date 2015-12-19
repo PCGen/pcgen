@@ -1,7 +1,0 @@
-# Stat definitions for T20 mode
-#
-
-#	STATMOD:(SCORE/2).TRUNC-5
-#Currently the code supports exactly three checks. Will fix later.
-#
-
