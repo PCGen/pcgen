@@ -618,7 +618,7 @@ Racial Traits ~ Bronze Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Bronze Dragon|Immunity To Electricity|Skills ~ Bronze Dragon|Water Breathing ~ Bronze Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Bronze Dragon|Immunity to Electricity|Skills ~ Bronze Dragon|Water Breathing ~ Bronze Dragon
 	ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Bronze Dragon|PREVARGTEQ:DragonAge,3
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Bronze Dragon|PREVARGTEQ:DragonAge,6
 
