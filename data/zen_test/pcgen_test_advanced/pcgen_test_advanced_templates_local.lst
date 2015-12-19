@@ -26,7 +26,7 @@ TL~RACETYPE_Not Listed																																																										
 TL~REACH_20																		REACH:20
 TL~REGION_Bahmamas																																																																													REGION:Bahmamas
 TL~REMOVABLE_NO																																																																																					REMOVABLE:NO
-TL~REPEATLEVEL_2_0_20_1_Feat_ABonusFeat																																																																																																																								REPEATLEVEL:2|0|20:1:AUTO:FEAT|ABonusFeat
+TL~REPEATLEVEL_2_0_20_1_Feat_ABonusFeat																																																																																																																								REPEATLEVEL:2|0|20:1:ABILITY:FEAT|AUTOMATIC|ABonusFeat
 TL~SIZE_C_Colossal												SIZE:C
 TL~SUBRACE_ArticMonkey																																																																																							SUBRACE:ArticMonkey
 TL~SUBREGION_Little Isle																																																																															SUBREGION:Little Isle
