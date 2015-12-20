@@ -29,6 +29,7 @@ import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.system.Main;
+import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenTask;
 
 public class StartupPanel extends ConvertSubPanel
@@ -52,7 +53,8 @@ public class StartupPanel extends ConvertSubPanel
 		this.campaignFileLoader = campaignFileLoader;
 		message = new JPanel();
 		message.setLayout(new UnstretchingGridLayout(0, 1));
-		message.add(new JLabel("Welcome to the PCGen 6.4 Data Converter..."));
+		message.add(new JLabel("Welcome to the PCGen "
+			+ PCGenPropBundle.getProdVersionSeries() + " Data Converter..."));
 		message.add(new JLabel(" "));
 		message.add(new JLabel("Loading Game Modes and Campaign Information."));
 		message.add(new JLabel(" "));
