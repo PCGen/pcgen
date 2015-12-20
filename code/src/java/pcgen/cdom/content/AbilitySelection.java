@@ -1,12 +1,16 @@
 package pcgen.cdom.content;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Reducible;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 
@@ -36,6 +40,10 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
 		LoadContext context, String persistentFormat)
 	{
+		if (persistentFormat.indexOf(Constants.PIPE) < 0)
+		{
+			return decodeFeatSelectionChoice(context, persistentFormat);
+		}
 		StringTokenizer st =
 				new StringTokenizer(persistentFormat, Constants.PIPE);
 		String catString = st.nextToken();
@@ -86,6 +94,62 @@ public class AbilitySelection extends Selection<Ability, String> implements
 					+ persistentFormat);
 		}
 		return new AbilitySelection(a, sel);
+	}
+
+
+	/**
+	 * Decode a legacy feat selection format. This may come from a character 
+	 * saved when an ability was coded with a FEATSELECTION but is loaded with 
+	 * the same tag migrated to an ABILITYSELECTION.
+	 *   
+	 * @param context
+	 *            The data loading context in use. 
+	 * @param persistentFormat
+	 *            The String which should be decoded to provide an
+	 *            AbilitySelection.
+	 * 
+	 * @return An AbilitySelection that was encoded in the given String.
+	 */
+	private static AbilitySelection decodeFeatSelectionChoice(
+		LoadContext context, String persistentFormat)
+	{
+		Ability ability =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
+					Ability.class, AbilityCategory.FEAT, persistentFormat);
+
+		if (ability == null)
+		{
+			List<String> choices = new ArrayList<String>();
+			String baseKey =
+					AbilityUtilities.getUndecoratedName(persistentFormat,
+						choices);
+			ability =
+					context.getReferenceContext()
+						.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.FEAT, baseKey);
+			if (ability == null)
+			{
+				throw new IllegalArgumentException("String in decodeChoice "
+					+ "must be a Feat Key "
+					+ "(or Feat Key with Selection if appropriate), was: "
+					+ persistentFormat);
+			}
+			return new AbilitySelection(ability, choices.get(0));
+		}
+		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			/*
+			 * MULT:YES, CHOOSE:NOCHOICE can land here
+			 * 
+			 * TODO There needs to be better validation at some point that this
+			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
+			 */
+			return new AbilitySelection(ability, "");
+		}
+		else
+		{
+			return new AbilitySelection(ability, null);
+		}
 	}
 
 	/**

@@ -10,28 +10,28 @@ CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Clim
 1	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 
 ###Block: Normal Progression
-1																									DEFINE:DragonAge|1
+1																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 9			BONUS:VAR|ColdResistanceBonus|20|TYPE=Resistance																		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
-10																									DEFINE:DragonAge|2
-13																									DEFINE:DragonAge|3
+10																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
+13																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity|Resistance To Fire
-16																									DEFINE:DragonAge|4
+16																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 18	DR:5/Magic	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL/2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Channel Negative Energy|Cleric ~ Channel Energy
-19																									DEFINE:DragonAge|5
+19																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 21
-22																									DEFINE:DragonAge|6
+22																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 24	DR:10/Magic
-25																									DEFINE:DragonAge|7
+25																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 27
-28																									DEFINE:DragonAge|8
+28																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 30	DR:15/Magic
-31																									DEFINE:DragonAge|9
+31																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 33
-34																									DEFINE:DragonAge|10
+34																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 36	DR:20/Magic
-37																									DEFINE:DragonAge|11
+37																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 39
-40																									DEFINE:DragonAge|12
+40																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1
 
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Umbral Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Umbral Dragon|CL	SPELLLIST:2|Cleric|Sorcerer

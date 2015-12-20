@@ -255,7 +255,7 @@ Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Evas
 # Ability Name			Type				Visible	Special ABility						Multiple?	Choose									Add																									Source Page
 Jurisdiction			TYPE:GManAbility		VISIBLE:NO	SAB:Jurisdiction																																											SOURCEPAGE:p.103
 Big Brother				TYPE:GManAbility		VISIBLE:NO	SAB:Big Brother																																											SOURCEPAGE:p.103
-Signature Kit			TYPE:GManAbility		VISIBLE:NO																					ADD:FEAT|Signature Kit - Firearm	ADD:FEAT|Signature Kit - Melee weapon	ADD:FEAT|Signature Kit - Equipment	ADD:FEAT|Signature Kit - Vehicle	SOURCEPAGE:p.104
+Signature Kit			TYPE:GManAbility		VISIBLE:NO																					ADD:ABILITY|FEAT|NORMAL|Signature Kit - Firearm	ADD:ABILITY|FEAT|NORMAL|Signature Kit - Melee weapon	ADD:ABILITY|FEAT|NORMAL|Signature Kit - Equipment	ADD:ABILITY|FEAT|NORMAL|Signature Kit - Vehicle	SOURCEPAGE:p.104
 Signature Kit - Firearm		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Personal Firearm (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Firearm.Personal.Weapon																										SOURCEPAGE:p.104
 Signature Kit - Melee weapon	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Melee Weapon (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Melee.Weapon																												SOURCEPAGE:p.104
 Signature Kit - Equipment	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Special Equipment (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Tools																												SOURCEPAGE:p.104

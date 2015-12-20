@@ -5,7 +5,7 @@ SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Editi
 # Class Name	Visible
 CLASS:Divine	VISIBLE:NO
 # Class Name	Spell Stat		Spell Type
-CLASS:Divine	SPELLSTAT:WIS	SPELLTYPE:Divine
+CLASS:Divine	SPELLSTAT:WIS	FACT:SpellType|Divine
 1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
@@ -40,7 +40,7 @@ CLASS:Divine	SPELLSTAT:WIS	SPELLTYPE:Divine
 # Class Name	Visible
 CLASS:Arcane	VISIBLE:NO
 # Class Name	Spell Stat		Spell Type
-CLASS:Arcane	SPELLSTAT:INT	SPELLTYPE:Arcane
+CLASS:Arcane	SPELLSTAT:INT	FACT:SpellType|Arcane
 1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
@@ -89,7 +89,7 @@ CLASS:Acolyte	HD:8		TYPE:Base.PC	ABB:Aclyt		MAXLEVEL:10	SOURCEPAGE:p.93	DEFINE:A
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Expression)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Occult Sciences)|Knowledge (Theology and Philosophy)|Knowledge (The Planes)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Speak Language|Treat Injury
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level			Use Spell List
-CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Acolyte|CL	SPELLLIST:2|Acolyte|Divine
+CLASS:Acolyte	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Acolyte|CL	SPELLLIST:2|Acolyte|Divine
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Starting Level
@@ -142,7 +142,7 @@ CLASS:Apprentice	HD:6		TYPE:Base.PC	ABB:Appr		MAXLEVEL:10	SOURCEPAGE:p.95	BONUS:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Apprentice	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Expression)|Decipher Script|TYPE=OperateVehicle|Escape Artist|Forgery|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Device
 # Class Name	Spell Type		Caster level
-CLASS:Apprentice	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Aprentice|CL
+CLASS:Apprentice	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Aprentice|CL
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
@@ -250,7 +250,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamb
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus															Modify VAR
 CLASS:Inventor	HD:6		TYPE:Base.PC	ABB:Ivt		MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Inventor	STARTSKILLPTS:6	CSKILL:Benchthumping|Craft (chemical)|Craft (mechanical)|Craft (Structural)|Deception|Decipher Script|Demolitions|Disable Device|Operate Vehicle (Ground Vehicles)|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|Profession|Read/Write Language|Speak Language
+CLASS:Inventor	STARTSKILLPTS:6	CSKILL:Benchthumping|Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Deception|Decipher Script|Demolitions|Disable Device|Operate Vehicle (Ground Vehicles)|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|Profession|Read/Write Language|Speak Language
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
@@ -382,7 +382,7 @@ CLASS:Scholar	STARTSKILLPTS:6	CSKILL:Craft (Chemical)|Craft (Expression)|Craft (
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus																						Save bonus																Modify VAR
 CLASS:Sensitive	HD:8		TYPE:Base.PC	ABB:Sen		MAXLEVEL:10	SOURCEPAGE:p.117	DEFINE:SensitiveLVL|0	BONUS:COMBAT|BASEAB|(SensitiveLVL>1)+(SensitiveLVL>1)+(SensitiveLVL>2)+(SensitiveLVL>3)+(SensitiveLVL>4)+(SensitiveLVL>6)+(SensitiveLVL>8)	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel()-1/2	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|SensitiveLVL|CL	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sensitive	STARTSKILLPTS:7	CSKILL:Craft (Expression)|Deception|Handle Animal|Knowledge (Earth and Life Sciences)|Knowledge (history)|Knowledge (psychic)|Knowledge (streetwise)|Knowledge (theology and philosophy)|Knowledge (nobility and royalty)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language
+CLASS:Sensitive	STARTSKILLPTS:7	CSKILL:Craft (Expression)|Deception|Handle Animal|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (psychic)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Knowledge (nobility and royalty)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
@@ -400,7 +400,7 @@ CLASS:Agent		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.121	DEFINE:AgentLVL
 # Class Name	Required Skill					Required Stat		Required Text																																PRETOTALAB
 CLASS:Agent		PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Ability Score: Int 13 or higher, Cha 11 or higher Base Attack Bonus: +2 Allegiance: Must have at least one allegiance to a specific organization Skills: Speak Language 1 rank, Research 1 rank	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Agent		STARTSKILLPTS:4	CSKILL:Athletics|Concentration|Decipher Script|Demolitions|Disable Device|Deception|Forgery|Gather Information|Investigate|Knowledge (civics)|Notice|TYPE=Operate Vehicle|Persuasion|Profession|Read/Write Language|Repair|Research|Search|Sense Motive|Stealth|Speak Language|Treat Injury
+CLASS:Agent		STARTSKILLPTS:4	CSKILL:Athletics|Concentration|Decipher Script|Demolitions|Disable Device|Deception|Forgery|Gather Information|Investigate|Knowledge (Civics)|Notice|TYPE=Operate Vehicle|Persuasion|Profession|Read/Write Language|Repair|Research|Search|Sense Motive|Stealth|Speak Language|Treat Injury
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Agent ~ Jurisdiction
 2	ABILITY:Special Ability|AUTOMATIC|Agent ~ Big Brother
@@ -417,7 +417,7 @@ CLASS:Magician	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.122	DEFINE:Magici
 # Class Name	Required Skill													Required Text
 CLASS:Magician	PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Occult Sciences)=6,Research=6	PRETEXT:Skills: Craft (chemical) 6 ranks, Decipher Script 6 ranks, Knowledge (occult sciences) 6 ranks, Research 6 ranks.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Magician	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Chemical)|Craft (Expression)|Decipher Script|Investigate|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth And Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Occult Sciences)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Knowledge (Popular Culture)
+CLASS:Magician	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Chemical)|Craft (Expression)|Decipher Script|Investigate|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Occult Sciences)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Knowledge (Popular Culture)
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
 4	ABILITY:Special Ability|AUTOMATIC|Magician ~ Scribe Tattoo
@@ -463,7 +463,7 @@ CLASS:Relic Hunter	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Required Skill																Required Text
 CLASS:Relic Hunter	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:1,Craft (Mechanical)=8,Craft (Structural)=8	PRESKILL:1,Repair=8	PRETEXT:Skills: Knowledge (any) 8 ranks, Repair 8 ranks, Craft (mechanical or structural) 8 ranks
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Relic Hunter	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Decipher Script|Disable Device|Escape Artist|Knowledge (Occult sciences)|Knowledge (history)|Navigate|Notice|Research|Ride|Search|Stealth|Survival
+CLASS:Relic Hunter	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Decipher Script|Disable Device|Escape Artist|Knowledge (Occult Sciences)|Knowledge (History)|Navigate|Notice|Research|Ride|Search|Stealth|Survival
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Evasion
 2	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Improvised Tools
@@ -494,7 +494,7 @@ CLASS:Archmage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.129	DEFINE:Archma
 # Class Name	Required Skill								Req. Spell Type		Required Text
 CLASS:Archmage	PRESKILL:2,Knowledge (Occult Sciences)=12,Concentration=12	PRESPELLTYPE:1,Arcane=1	PRETEXT:Skills: Knowledge (Occult Sciences) 12 ranks, Concentration 12 ranks. Special: Ability to cast arcane spells.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Archmage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (chemical)|Craft (mechanical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (art)|Knowledge (behavioral sciences)|Knowledge (business)|Knowledge (civics)|Knowledge (current events)|Knowledge (earth and life sciences)|Knowledge (history)|Knowledge (Occult Sciences)|Knowledge (physical sciences)|Knowledge (streetwise)|Knowledge (technology)|Knowledge (theology and philosophy)|Profession|Read/Write Language|Repair|Research|Speak Language|Knowledge (popular culture)
+CLASS:Archmage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Chemical)|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Occult Sciences)|Knowledge (Physical Sciences)|Knowledge (Streetwise)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Speak Language|Knowledge (Popular Culture)
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Total Spellcasting
 1	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Increased Spells/Day
@@ -556,10 +556,10 @@ CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Notice|Persuasion|Knowledge (Natu
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus							Save bonus																				Modify VAR
 CLASS:Paladin	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.133	DEFINE:PaladinLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|if(PaladinLVL==3,2,0)+(PaladinLVL>=5)+(PaladinLVL>=9)	BONUS:VAR|PaladinLVL|CL
-# Class Name	Required Ability														Required Skill													Required Casting Type							Req. Spell Type		Required Text																																																																																																				PRETOTALAB
-CLASS:Paladin	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PRESKILL:3,Knowledge (Theology and Religion)=8,Knowledge (Nobility and Royalty)=8,Ride=8	PRESPELLCAST:1,Protection from Good,Protection from Evil	PRESPELLTYPE:1,Divine=1	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (theology and religion) 8 ranks, Knowledge (nobility and royalty) 8 ranks, Ride 8 ranks.  Feats: Mounted Combat.  Spellcasting: Ability to cast protection from good/evil as a divine spell.  Special: Ability to turn undead.  Other: At the time that the character receives his 1st level in the Paladin prestige class, he must decide whether his faith leans toward the positive (good) or negative (evil) energy of the universe. This choice adds either the good or evil allegiance to the character, and determines how the Paladin uses certain aspects of his faith.	PRETOTALAB:4
+# Class Name	Required Ability														Required Skill													Required Spell							Req. Spell Type		Required Text																																																																																																				PRETOTALAB
+CLASS:Paladin	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PRESKILL:3,Knowledge (Theology and Religion)=8,Knowledge (Nobility and Royalty)=8,Ride=8	PRESPELL:1,Protection from Good,Protection from Evil	PRESPELLTYPE:1,Divine=1	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (theology and religion) 8 ranks, Knowledge (nobility and royalty) 8 ranks, Ride 8 ranks.  Feats: Mounted Combat.  Spellcasting: Ability to cast protection from good/evil as a divine spell.  Special: Ability to turn undead.  Other: At the time that the character receives his 1st level in the Paladin prestige class, he must decide whether his faith leans toward the positive (good) or negative (evil) energy of the universe. This choice adds either the good or evil allegiance to the character, and determines how the Paladin uses certain aspects of his faith.	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (Nobility and Royalty)|Persuasion|Profession|Ride|Sense Motive|Treat Injury|Knowledge (Theology and Philosophy)
+CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (nobility and royalty)|Persuasion|Profession|Ride|Sense Motive|Treat Injury|Knowledge (Theology and Philosophy)
 1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency

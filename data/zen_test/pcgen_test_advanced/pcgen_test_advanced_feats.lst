@@ -1,13 +1,13 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Feat Name				Unique Key						Type							Required Ability									Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
-Allow_Casting										TYPE:Allow_Casting																		DESC:Allows Casting
-Incompetent (-3 to Group)	KEY:Disadvantage ~ Incompetent Group	TYPE:Disadvantage.DisadvantageCounter												DESCISPI:YES	DESC:You suffer from a '-3' modifier on a group of related skills (e.g., anything 'high-tech').			MULT:YES	CHOOSE:STRING|Charisma|Craft|Dexterity|Intelligence|Knowledge|Perform|Profession|Wisdom																													BONUS:SKILL|TYPE=%LIST|-3					COST:1	SOURCEPAGE:p.19											BENEFIT:You have a -3 to selected group of skills.
+Allow_Casting										CATEGORY:FEAT	TYPE:Allow_Casting																		DESC:Allows Casting
+Incompetent (-3 to Group)	KEY:Disadvantage ~ Incompetent Group	CATEGORY:FEAT	TYPE:Disadvantage.DisadvantageCounter												DESCISPI:YES	DESC:You suffer from a '-3' modifier on a group of related skills (e.g., anything 'high-tech').			MULT:YES	CHOOSE:STRING|Charisma|Craft|Dexterity|Intelligence|Knowledge|Perform|Profession|Wisdom																													BONUS:SKILL|TYPE=%LIST|-3					COST:1	SOURCEPAGE:p.19											BENEFIT:You have a -3 to selected group of skills.
 
 #Tom Test
-Test91											TYPE:Test.Test91																																			STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim
-Test92											TYPE:Test.Test92																			DESC:Look at all the Things (%1)|%LIST										STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim
-Test93											TYPE:Test.Test93																																			STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim																																																		ASPECT:DisplaySomething|Look at all the Things (%1)|%LIST
-Test94											TYPE:Test.Test94																																			STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim																																									BONUS:SKILLRANK|%LIST|1
+Test91											CATEGORY:FEAT	TYPE:Test.Test91																																			STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim
+Test92											CATEGORY:FEAT	TYPE:Test.Test92																			DESC:Look at all the Things (%1)|%LIST										STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim
+Test93											CATEGORY:FEAT	TYPE:Test.Test93																																			STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim																																																		ASPECT:DisplaySomething|Look at all the Things (%1)|%LIST
+Test94											CATEGORY:FEAT	TYPE:Test.Test94																																			STACK:NO	MULT:YES	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim																																									BONUS:SKILLRANK|%LIST|1
 # 97 - Test of Check Bonuses
 #Create a MULT:YES Feat with:
 #BONUS:SAVE|x|1
@@ -21,39 +21,39 @@ Test94											TYPE:Test.Test94																																			STACK:NO	MUL
 #(2) Assign the feat twice in the Feat Pool, once in a subcategory pool, both of the same nature.
 #(3) Assign the feat twice in NORMAL (Feat Pool), once in AUTOMATIC (subcategory pool)
 
-Test97											TYPE:Test.Test97																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																						BONUS:SAVE|Will|1
+Test97											CATEGORY:FEAT	TYPE:Test.Test97																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																						BONUS:SAVE|Will|1
 
-Test97 ~ Virtual																																																																							ABILITY:FEAT|VIRTUAL|Test97
+Test97 ~ Virtual										CATEGORY:FEAT																																																													ABILITY:FEAT|VIRTUAL|Test97
 
-Test97 ~ Auto Pool																																																																									ABILITY:Feat Test Subcategory|AUTOMATIC|Test97
-Test97 ~ Auto Normal																																														STACK:YES	MULT:YES	CHOOSE:NOCHOICE													ABILITY:FEAT|AUTOMATIC|Test97
+Test97 ~ Auto Pool									CATEGORY:FEAT																																																																ABILITY:Feat Test Subcategory|AUTOMATIC|Test97
+Test97 ~ Auto Normal									CATEGORY:FEAT																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE													ABILITY:FEAT|AUTOMATIC|Test97
 
 
 
 # Feat Name				Unique Key						Type							Required Ability									Desc is PI?		Description															Stackable?	Multiple?	Choose														Auto Feat				Virtual Feat	Ability											Add					Save bonus		Bonus to skill			Bonus to skill rank	Cost		Source Page		Aspects									Benefits								List of Class Spells by Level
-MyTest ~ No Prexxx									TYPE:Code1730
-MyTest ~ Yes Prexxx									TYPE:Code1730					PREABILITY:1,CATEGORY=FEAT,MyTest ~ No Prexxx
-MyTest ~ Yes x2 Prexxx									TYPE:Code1730					PREABILITY:2,CATEGORY=FEAT,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
+MyTest ~ No Prexxx									CATEGORY:FEAT	TYPE:Code1730
+MyTest ~ Yes Prexxx									CATEGORY:FEAT	TYPE:Code1730					PREABILITY:1,CATEGORY=FEAT,MyTest ~ No Prexxx
+MyTest ~ Yes x2 Prexxx									CATEGORY:FEAT	TYPE:Code1730					PREABILITY:2,CATEGORY=FEAT,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
 
-Add Foo Spell										TYPE:Test.TomTest																																																																																																																			SPELLLEVEL:CLASS|Wizard Test=3|Test Foo Spell
-
-
-
-Feat Main											TYPE:General																																			STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS												ABILITY:FEAT|AUTOMATIC|Feat Choice (%LIST)
-
-Feat Choice											TYPE:General																																			STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS
-
-Feat Selector										TYPE:GENERAL																																			STACK:YES	MULT:YES	CHOOSE:SKILL|ABILITY=FEAT[Feat Choice]																																							BONUS:SKILL|%LIST|1
+Add Foo Spell										CATEGORY:FEAT	TYPE:Test.TomTest																																																																																																																			SPELLLEVEL:CLASS|Wizard Test=3|Test Foo Spell
 
 
 
+Feat Main											CATEGORY:FEAT	TYPE:General																																			STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS												ABILITY:FEAT|AUTOMATIC|Feat Choice (%LIST)
 
-Test-72											TYPE:Test71.Test72																																																													ABILITY:Special Ability|AUTOMATIC|Grant Template Chosen (Template-71)
-Test-74											TYPE:Test74																																																																											ADD:EQUIP|Torch
-Test-75											TYPE:Test75																																																																											ADD:LANGUAGE|Draconic
-Test-76											TYPE:Test76																																																																											ADD:SKILL|5|Athletics
-Test-77											TYPE:Test77																																																																											ADD:SPELLCASTER|Sorcerer
-Test-78											TYPE:Test78																																																																											ADD:TEMPLATE|Template-73
+Feat Choice											CATEGORY:FEAT	TYPE:General																																			STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS
+
+Feat Selector										CATEGORY:FEAT	TYPE:GENERAL																																			STACK:YES	MULT:YES	CHOOSE:SKILL|ABILITY=FEAT[Feat Choice]																																							BONUS:SKILL|%LIST|1
+
+
+
+
+Test-72											CATEGORY:FEAT	TYPE:Test71.Test72																																																													ABILITY:Special Ability|AUTOMATIC|Grant Template Chosen (Template-71)
+Test-74											CATEGORY:FEAT	TYPE:Test74																																																																											ADD:EQUIP|Torch
+Test-75											CATEGORY:FEAT	TYPE:Test75																																																																											ADD:LANGUAGE|Draconic
+Test-76											CATEGORY:FEAT	TYPE:Test76																																																																											ADD:SKILL|5|Athletics
+Test-77											CATEGORY:FEAT	TYPE:Test77																																																																											ADD:SPELLCASTER|Sorcerer
+Test-78											CATEGORY:FEAT	TYPE:Test78																																																																											ADD:TEMPLATE|Template-73
 
 
 ###Block: TEST-57
@@ -72,15 +72,15 @@ Test-78											TYPE:Test78																																																			
 
 
 # Feat Name							Unique Key					Type								Visible		Req. Spell Type			Define				Description											Stackable?			Multiple?	Choose																		Selections	Template			Auto Armor Prof		Auto Feat		Auto Language	Auto Shield Prof		Auto Weapon Prof		Virtual Feat			Ability																													Add										Combat bonus				Bonus to HP			Caster level bonus		Modify VAR																																															Cost		Source Page		Benefits																			SORTKEY
-Test-57 Apply A1												TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57-Ability-1
-Test-57 Apply A2												TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-2
-#Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
-Test-57 Apply A4												TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-4
-#Test-57 Apply A5	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
-Test-57 Apply A6												TYPE:TEST-57																															STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																												ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-6
-Test-57 Apply A7												TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-7
-#Test-57 Apply A8	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
-#Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
+Test-57 Apply A1												CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57-Ability-1
+Test-57 Apply A2												CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-2
+#Test-57 Apply A3	CATEGORY:FEAT	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
+Test-57 Apply A4												CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-4
+#Test-57 Apply A5	CATEGORY:FEAT	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
+Test-57 Apply A6												CATEGORY:FEAT	TYPE:TEST-57																															STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																												ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-6
+Test-57 Apply A7												CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Test-57-Ability-7
+#Test-57 Apply A8	CATEGORY:FEAT	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
+#Test-57 Apply A9	CATEGORY:FEAT	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
 
 
 #1) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:NO
@@ -95,9 +95,9 @@ Test-57 Apply A7												TYPE:TEST-57																																								
 
 #With that, let me give you data for 3, 8, and 9. Hopefully you can derive 1-2 and 4-7 from 3...
 
-Test-57 Apply A3 LangGrant										TYPE:TestFooB						VISIBLE:EXPORT																											MULT:YES	CHOOSE:LANG|ALL																														AUTO:LANG|%LIST
-Test-57 Apply A3 FeatSelector																		VISIBLE:EXPORT																											MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=TestFooB
-Test-57 Apply A3 MyAddingFeat										TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A3 FeatSelector
+Test-57 Apply A3 LangGrant										CATEGORY:FEAT	TYPE:TestFooB						VISIBLE:EXPORT																											MULT:YES	CHOOSE:LANG|ALL																														AUTO:LANG|%LIST
+Test-57 Apply A3 FeatSelector										CATEGORY:FEAT								VISIBLE:EXPORT																											MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=TestFooB
+Test-57 Apply A3 MyAddingFeat										CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A3 FeatSelector
 
 #Think about how this works when MyAddingFeat is selected. It asks FeatSelector to expand the possible choices, which are "any TYPE=Foo" feat. So it says, "any permutation of LangGrant". Well, THAT is CHOOSE as well, so that gets expanded too... so the choice window looks something like:
 #FeatSelector (LangGrant(English))
@@ -107,17 +107,17 @@ Test-57 Apply A3 MyAddingFeat										TYPE:TEST-57																													
 #===
 
 
-Test-57 Apply A5 LangGrant										TYPE:TestFooB						VISIBLE:EXPORT																											MULT:YES	CHOOSE:LANG|ALL																														AUTO:LANG|%LIST
-Test-57 Apply A5 FeatSelector																		VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=TestFooB
-Test-57 Apply A5 MyAddingFeat										TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A5 FeatSelector
+Test-57 Apply A5 LangGrant										CATEGORY:FEAT	TYPE:TestFooB						VISIBLE:EXPORT																											MULT:YES	CHOOSE:LANG|ALL																														AUTO:LANG|%LIST
+Test-57 Apply A5 FeatSelector										CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=TestFooB
+Test-57 Apply A5 MyAddingFeat										CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A5 FeatSelector
 
 
 
 #8)
 #Feat file:
-Test-57 Apply A8 MyFeat (is Really Cool)								TYPE:Foo
-Test-57 Apply A8 MySelectableFeat																																														MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=Foo
-Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A8 MySelectableFeat
+Test-57 Apply A8 MyFeat (is Really Cool)								CATEGORY:FEAT	TYPE:Foo
+Test-57 Apply A8 MySelectableFeat									CATEGORY:FEAT																																					MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=Foo
+Test-57 Apply A8 ToBeAdded										CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A8 MySelectableFeat
 
 #Note the choices you will receive in the window are:
 #MySelectableFeat(My Feat (is Really Cool))
@@ -126,126 +126,126 @@ Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																
 #Note also in 1-8 when I say "target", I'm referring to the "subitem" like "MyFeat (is Really Cool)"
 #===
 #9)
-Test-57 Apply A9 MyOtherFeat (is Also Cool)							TYPE:TEST-57						VISIBLE:EXPORT
-Test-57 Apply A9 ToBeAdded										TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A9 MyOtherFeat (is Also Cool)
+Test-57 Apply A9 MyOtherFeat (is Also Cool)							CATEGORY:FEAT	TYPE:TEST-57						VISIBLE:EXPORT
+Test-57 Apply A9 ToBeAdded										CATEGORY:FEAT	TYPE:TEST-57																																																																																																																			ADD:ABILITY|FEAT|VIRTUAL|Dodge,Test-57 Apply A9 MyOtherFeat (is Also Cool)
 
 
 
 
 
-Test-57-Ability-1																				VISIBLE:EXPORT																											MULT:NO
+Test-57-Ability-1												CATEGORY:FEAT								VISIBLE:EXPORT																											MULT:NO
 # Was STACK:NO changed to YES to prevent Error
-Test-57-Ability-2																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
-Test-57-Ability-3																				VISIBLE:EXPORT																							STACK:NO			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-2a|Ability-57-2b
-Test-57-Ability-4																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
-Test-57-Ability-5																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-3a|Ability-57-3b
-Test-57-Ability-6																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
-Test-57-Ability-7																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-4a|Ability-57-4b
+Test-57-Ability-2												CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
+Test-57-Ability-3												CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:NO			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-2a|Ability-57-2b
+Test-57-Ability-4												CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
+Test-57-Ability-5												CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-3a|Ability-57-3b
+Test-57-Ability-6												CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
+Test-57-Ability-7												CATEGORY:FEAT								VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-4a|Ability-57-4b
 #Test-57-Ability-8			VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:WEAPONPROFICIENCY|Sword (Short)
-Test-57-Ability-9 (Natural)																		VISIBLE:EXPORT
+Test-57-Ability-9 (Natural)										CATEGORY:FEAT								VISIBLE:EXPORT
 
 
 
-CODE-1712A													TYPE:BugReport.Test.CODE																	DESC:Select Skills									STACK:NO			MULT:YES	CHOOSE:SKILL|ALL
-CODE-1712B													TYPE:BugReport.Test.CODE																	DESC:Select Skills Taken								STACK:NO			MULT:YES	CHOOSE:SKILL|ABILITY=FEAT[CODE-1712A]
+CODE-1712A													CATEGORY:FEAT	TYPE:BugReport.Test.CODE																	DESC:Select Skills									STACK:NO			MULT:YES	CHOOSE:SKILL|ALL
+CODE-1712B													CATEGORY:FEAT	TYPE:BugReport.Test.CODE																	DESC:Select Skills Taken								STACK:NO			MULT:YES	CHOOSE:SKILL|ABILITY=FEAT[CODE-1712A]
 
 
 
-A NEW CHOOSE SELECTION ISSUE										TYPE:Hi.Test.Chooser																														STACK:NO			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Evasion|Extreme Effort|Increased Speed|Remain Conscious|Robust|Stamina|TITLE=Add a Feat											ABILITY:FEAT|AUTOMATIC|%LIST
+A NEW CHOOSE SELECTION ISSUE										CATEGORY:FEAT	TYPE:Hi.Test.Chooser																														STACK:NO			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Evasion|Extreme Effort|Increased Speed|Remain Conscious|Robust|Stamina|TITLE=Add a Feat											ABILITY:FEAT|AUTOMATIC|%LIST
 
-Evasion													TYPE:Hi.MySelectableFeat																	DESC:Hi, test
-Extreme Effort												TYPE:Hi.MySelectableFeat																	DESC:Hi, test
-Increased Speed												TYPE:Hi																				DESC:Hi, test
-Remain Conscious												TYPE:Hi																				DESC:Hi, test
-Robust													TYPE:Hi																				DESC:Hi, test
-Stamina													TYPE:Hi																				DESC:Hi, test
-
-
-
-Chooser UserInput												TYPE:Test																																				MULT:YES	CHOOSE:USERINPUT|TITLE=Test Case Usage
-Fast Learner (Focused on Skills /Human)		KEY:Fast Learner ~ 2 Skills ~ Human	TYPE:Character Creation.CharCreation.General									DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.					MULT:YES	CHOOSE:STRING|Child|Youth																																																																																																			BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Youth)	COST:2	SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. [+%1 total Skill Points Granted].|HumanOffsetBonus+(2*var("EclipseClassLvl"))	SORTKEY:Character Creation Fast Learner / Specialized for Skills
-Power Gained ~ 1												TYPE:Test															DEFINE:PowerDieSelectLevel|0													STACK:NO			MULT:YES	CHOOSE:STRING|1|2|3|4|5|6|TITLE="1d6 Result"																																																																																																BONUS:VAR|PowerPoints|%LIST	BONUS:VAR|PowerDieSelectLevel|1
+Evasion													CATEGORY:FEAT	TYPE:Hi.MySelectableFeat																	DESC:Hi, test
+Extreme Effort												CATEGORY:FEAT	TYPE:Hi.MySelectableFeat																	DESC:Hi, test
+Increased Speed												CATEGORY:FEAT	TYPE:Hi																				DESC:Hi, test
+Remain Conscious												CATEGORY:FEAT	TYPE:Hi																				DESC:Hi, test
+Robust													CATEGORY:FEAT	TYPE:Hi																				DESC:Hi, test
+Stamina													CATEGORY:FEAT	TYPE:Hi																				DESC:Hi, test
 
 
-AFC 1														TYPE:TestingVirtualAddition
-AFC 2														TYPE:TestingVirtualAddition
 
-A-Test Choose Class PC											TYPE:Test																																				MULT:YES	CHOOSE:CLASS|PC
-A-Test Choose Class Base										TYPE:Test																																				MULT:YES	CHOOSE:CLASS|TYPE=Base
+Chooser UserInput												CATEGORY:FEAT	TYPE:Test																																				MULT:YES	CHOOSE:USERINPUT|TITLE=Test Case Usage
+Fast Learner (Focused on Skills /Human)		KEY:Fast Learner ~ 2 Skills ~ Human	CATEGORY:FEAT	TYPE:Character Creation.CharCreation.General									DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.					MULT:YES	CHOOSE:STRING|Child|Youth																																																																																																			BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Youth)	COST:2	SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. [+%1 total Skill Points Granted].|HumanOffsetBonus+(2*var("EclipseClassLvl"))	SORTKEY:Character Creation Fast Learner / Specialized for Skills
+Power Gained ~ 1												CATEGORY:FEAT	TYPE:Test															DEFINE:PowerDieSelectLevel|0													STACK:NO			MULT:YES	CHOOSE:STRING|1|2|3|4|5|6|TITLE="1d6 Result"																																																																																																BONUS:VAR|PowerPoints|%LIST	BONUS:VAR|PowerDieSelectLevel|1
+
+
+AFC 1														CATEGORY:FEAT	TYPE:TestingVirtualAddition
+AFC 2														CATEGORY:FEAT	TYPE:TestingVirtualAddition
+
+A-Test Choose Class PC											CATEGORY:FEAT	TYPE:Test																																				MULT:YES	CHOOSE:CLASS|PC
+A-Test Choose Class Base										CATEGORY:FEAT	TYPE:Test																																				MULT:YES	CHOOSE:CLASS|TYPE=Base
 
 #TEST-53
 #Ability (can be feat):
-TargetedAbility ~ WeaponProf										TYPE:TEST-53																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY																																							ABILITY:FEAT|VIRTUAL|Weapon Focus(%LIST)
+TargetedAbility ~ WeaponProf										CATEGORY:FEAT	TYPE:TEST-53																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY																																							ABILITY:FEAT|VIRTUAL|Weapon Focus(%LIST)
 
-Give 5 Dodge AC												TYPE:Test																																																																																																																														BONUS:COMBAT|AC|5|TYPE=Dodge																																																											COST:0
-Give 5 Deflection AC											TYPE:Test																																																																																																																														BONUS:COMBAT|AC|5|TYPE=Deflection																																																										COST:0
-
-
-
-
-Test-xx Spell Level 2 Divine Test									TYPE:Test-xx									PRESPELLTYPE:1,Divine=2
-Test-xx Spell Level 1 Divine Test									TYPE:Test-xx									PRESPELLTYPE:1,Divine=1
-Test-xx Spell Level 0 Divine Test									TYPE:Test-xx									PRESPELLTYPE:1,Divine=0
-
-Test-xx Spell Level 2 Arcane Test									TYPE:Test-xx									PRESPELLTYPE:1,Arcane=2
-Test-xx Spell Level 1 Arcane Test									TYPE:Test-xx									PRESPELLTYPE:1,Arcane=1
-Test-xx Spell Level 0 Arcane Test									TYPE:Test-xx									PRESPELLTYPE:1,Arcane=0
-
-Test-xx Spell Level 2 Psionic Test									TYPE:Test-xx									PRESPELLTYPE:1,Psionic=2
-Test-xx Spell Level 1 Psionic Test									TYPE:Test-xx									PRESPELLTYPE:1,Psionic=1
-Test-xx Spell Level 0 Psionic Test									TYPE:Test-xx									PRESPELLTYPE:1,Psionic=0
+Give 5 Dodge AC												CATEGORY:FEAT	TYPE:Test																																																																																																																														BONUS:COMBAT|AC|5|TYPE=Dodge																																																											COST:0
+Give 5 Deflection AC											CATEGORY:FEAT	TYPE:Test																																																																																																																														BONUS:COMBAT|AC|5|TYPE=Deflection																																																										COST:0
 
 
 
 
-Test-88 Weapon Proficiency										TYPE:TEST																																				MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL																																			AUTO:WEAPONPROF|%LIST
-Test-88 Armor Proficiency										TYPE:TEST																																				MULT:YES	CHOOSE:ARMORPROFICIENCY|ALL																					AUTO:ARMORPROF|%LIST
+Test-xx Spell Level 2 Divine Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Divine=2
+Test-xx Spell Level 1 Divine Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Divine=1
+Test-xx Spell Level 0 Divine Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Divine=0
+
+Test-xx Spell Level 2 Arcane Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Arcane=2
+Test-xx Spell Level 1 Arcane Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Arcane=1
+Test-xx Spell Level 0 Arcane Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Arcane=0
+
+Test-xx Spell Level 2 Psionic Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Psionic=2
+Test-xx Spell Level 1 Psionic Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Psionic=1
+Test-xx Spell Level 0 Psionic Test									CATEGORY:FEAT	TYPE:Test-xx										PRESPELLTYPE:1,Psionic=0
 
 
-Application Test-43-A											TYPE:Test43																																																											TEMPLATE:Test-43-A
 
-Application Test-43-B											TYPE:Test43																																																											TEMPLATE:Test-43-B
 
-Application Test-43-C											TYPE:Test43																																																											TEMPLATE:Test-43-C
+Test-88 Weapon Proficiency										CATEGORY:FEAT	TYPE:TEST																																				MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL																																			AUTO:WEAPONPROF|%LIST
+Test-88 Armor Proficiency										CATEGORY:FEAT	TYPE:TEST																																				MULT:YES	CHOOSE:ARMORPROFICIENCY|ALL																					AUTO:ARMORPROF|%LIST
 
-Test-43-Master												TYPE:Test43																																																																																						ABILITY:FEAT|VIRTUAL|Application Test-43-A|PRELEVEL:MAX=2	ABILITY:FEAT|VIRTUAL|Application Test-43-B|PRELEVEL:MAX=3	ABILITY:FEAT|VIRTUAL|Application Test-43-C|PRELEVEL:MAX=4
+
+Application Test-43-A											CATEGORY:FEAT	TYPE:Test43																																																											TEMPLATE:Test-43-A
+
+Application Test-43-B											CATEGORY:FEAT	TYPE:Test43																																																											TEMPLATE:Test-43-B
+
+Application Test-43-C											CATEGORY:FEAT	TYPE:Test43																																																											TEMPLATE:Test-43-C
+
+Test-43-Master												CATEGORY:FEAT	TYPE:Test43																																																																																						ABILITY:FEAT|VIRTUAL|Application Test-43-A|PRELEVEL:MAX=2	ABILITY:FEAT|VIRTUAL|Application Test-43-B|PRELEVEL:MAX=3	ABILITY:FEAT|VIRTUAL|Application Test-43-C|PRELEVEL:MAX=4
 
 
 ###Add Stuff
-Add Feat Ability												TYPE:Test
-Add Feat Race												TYPE:Test
-Add Feat Deity												TYPE:Test
-Add Feat Domain												TYPE:Test
-Add Feat Skill												TYPE:Test
-Add Feat Template												TYPE:Test
-Add Feat CompanionMod											TYPE:Test
-Add Feat Master Bonus Race										TYPE:Test
-Add Feat Class Line											TYPE:Test
-Add Feat Class Level											TYPE:Test
+Add Feat Ability												CATEGORY:FEAT	TYPE:Test
+Add Feat Race												CATEGORY:FEAT	TYPE:Test
+Add Feat Deity												CATEGORY:FEAT	TYPE:Test
+Add Feat Domain												CATEGORY:FEAT	TYPE:Test
+Add Feat Skill												CATEGORY:FEAT	TYPE:Test
+Add Feat Template												CATEGORY:FEAT	TYPE:Test
+Add Feat CompanionMod											CATEGORY:FEAT	TYPE:Test
+Add Feat Master Bonus Race										CATEGORY:FEAT	TYPE:Test
+Add Feat Class Line											CATEGORY:FEAT	TYPE:Test
+Add Feat Class Level											CATEGORY:FEAT	TYPE:Test
 
 
-Add Feat Equipmod												TYPE:Test
-Add Feat Equip												TYPE:Test
-Add Feat PCC												TYPE:Test
+Add Feat Equipmod												CATEGORY:FEAT	TYPE:Test
+Add Feat Equip												CATEGORY:FEAT	TYPE:Test
+Add Feat PCC												CATEGORY:FEAT	TYPE:Test
 #
 #Class - part of the ADD:CLASSSKILLS test
 #Class Level - Part of the
 
-Test Spells of Sorcerer vs. Bard									TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]
+Test Spells of Sorcerer vs. Bard									CATEGORY:FEAT	TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]
 # Fails - leaks over.
 #
-Bonus PCLEVEL Wizard 10											TYPE:OutsiderTest																																																																																																																																							BONUS:PCLEVEL|Wizard|10
-Choose Wizard												TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
+Bonus PCLEVEL Wizard 10											CATEGORY:FEAT	TYPE:OutsiderTest																																																																																																																																							BONUS:PCLEVEL|Wizard|10
+Choose Wizard												CATEGORY:FEAT	TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
 
-Bonus PCLEVEL Base 10											TYPE:OutsiderTest																																																																																																																																							BONUS:PCLEVEL|TYPE=Base|10
-Choose Base													TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
+Bonus PCLEVEL Base 10											CATEGORY:FEAT	TYPE:OutsiderTest																																																																																																																																							BONUS:PCLEVEL|TYPE=Base|10
+Choose Base													CATEGORY:FEAT	TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
 
-Bonus PCLEVEL Arcane 10											TYPE:OutsiderTest																																																																																																																																							BONUS:PCLEVEL|TYPE=Arcane|10
-Choose Arcane												TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
+Bonus PCLEVEL Arcane 10											CATEGORY:FEAT	TYPE:OutsiderTest																																																																																																																																							BONUS:PCLEVEL|TYPE=Arcane|10
+Choose Arcane												CATEGORY:FEAT	TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
 
-Choose Arcane w lock											TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
+Choose Arcane w lock											CATEGORY:FEAT	TYPE:OutsiderTest																																			MULT:YES	CHOOSE:SPELLLEVEL|Wizard|1|MAXLEVEL														SELECT:1
 
-#Then try this with <blah> being TYPE=y where Y is a type defined in the TYPE: token of the Class (must not be Arcane, Divine or the same as the SPELLTYPE: token in the Class)
+#Then try this with <blah> being TYPE=y where Y is a type defined in the CATEGORY:FEAT	TYPE: token of the Class (must not be Arcane, Divine or the same as the SPELLCATEGORY:FEAT	TYPE: token in the Class)
 
 #Lastly, try this with <blah> being TYPE=z where Z is a type defined in the SPELLTYPE token of the Class.
 
@@ -253,87 +253,87 @@ Choose Arcane w lock											TYPE:OutsiderTest																																
 
 
 
-a Choose Armor Prof Test										TYPE:Test																																				MULT:YES	CHOOSE:ARMORPROFICIENCY|ALL																					AUTO:ARMORPROF|%LIST
+a Choose Armor Prof Test										CATEGORY:FEAT	TYPE:Test																																				MULT:YES	CHOOSE:ARMORPROFICIENCY|ALL																					AUTO:ARMORPROF|%LIST
 
-a Choose Shield Prof Test										TYPE:Test																																				MULT:YES	CHOOSE:SHIELDPROFICIENCY|ALL																															AUTO:SHIELDPROF|%LIST
+a Choose Shield Prof Test										CATEGORY:FEAT	TYPE:Test																																				MULT:YES	CHOOSE:SHIELDPROFICIENCY|ALL																															AUTO:SHIELDPROF|%LIST
 
-#A test Movement ~ MOVEMULT			TYPE:Test		BONUS:MOVEMULT|TYPE=Walk|2.5
-#A test Movement ~ MOVEMULT formula		TYPE:Test		BONUS:MOVEMULT|TYPE=Walk|1/2
-
-
-#A test Movement ~ MOVECLONE			TYPE:Test		MOVECLONE:Walk,Fly,*2.5
-#A test Movement ~ MOVECLONE formula		TYPE:Test		MOVECLONE:Walk,Fly,*1/2
-
-#A Add Spells					TYPE:Test		SPELLLEVEL:CLASS|Druid=1|Magic Missile
+#A test Movement ~ MOVEMULT			CATEGORY:FEAT	TYPE:Test		BONUS:MOVEMULT|TYPE=Walk|2.5
+#A test Movement ~ MOVEMULT formula		CATEGORY:FEAT	TYPE:Test		BONUS:MOVEMULT|TYPE=Walk|1/2
 
 
+#A test Movement ~ MOVECLONE			CATEGORY:FEAT	TYPE:Test		MOVECLONE:Walk,Fly,*2.5
+#A test Movement ~ MOVECLONE formula		CATEGORY:FEAT	TYPE:Test		MOVECLONE:Walk,Fly,*1/2
 
-DodgeBall													TYPE:TestMonkey
-MonkeyFu													TYPE:TestMonkey
-
-
-ABonusFeat													TYPE:TestMonkey
+#A Add Spells					CATEGORY:FEAT	TYPE:Test		SPELLLEVEL:CLASS|Druid=1|Magic Missile
 
 
 
-Dodge														TYPE:TestMonkey
-Not Dodge													TYPE:TestMonkey
-Test Case Extreme												TYPE:TestMonkey.Fighter
-Toughness													TYPE:TestMonkey.Fighter																														STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																																												BONUS:HP|CURRENTMAX|3
-Toughness B													TYPE:TestMonkey.Fighter																														STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																																												BONUS:HP|CURRENTMAX|3																																																						COST:2
-Choose No Choice												TYPE:TestMonkey.Chooser																														STACK:YES	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
-Choose String Stack Yes											TYPE:TestMonkey.Chooser																														STACK:YES			MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3
-Choose String Stack No											TYPE:TestMonkey.Chooser																														STACK:NO			MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3
+DodgeBall													CATEGORY:FEAT	TYPE:TestMonkey
+MonkeyFu													CATEGORY:FEAT	TYPE:TestMonkey
+
+
+ABonusFeat													CATEGORY:FEAT	TYPE:TestMonkey
+
+
+
+Dodge														CATEGORY:FEAT	TYPE:TestMonkey
+Not Dodge													CATEGORY:FEAT	TYPE:TestMonkey
+Test Case Extreme												CATEGORY:FEAT	TYPE:TestMonkey.Fighter
+Toughness													CATEGORY:FEAT	TYPE:TestMonkey.Fighter																														STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																																												BONUS:HP|CURRENTMAX|3
+Toughness B													CATEGORY:FEAT	TYPE:TestMonkey.Fighter																														STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																																												BONUS:HP|CURRENTMAX|3																																																						COST:2
+Choose No Choice												CATEGORY:FEAT	TYPE:TestMonkey.Chooser																														STACK:YES	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Choose String Stack Yes											CATEGORY:FEAT	TYPE:TestMonkey.Chooser																														STACK:YES			MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3
+Choose String Stack No											CATEGORY:FEAT	TYPE:TestMonkey.Chooser																														STACK:NO			MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3
 
 ###Block: How to Break a PC
 # Feat Name							Unique Key		Type					Required Ability					Multiple Requirements														PRETOTALAB		Var. Min. Value			Innate Spells								Description																						Stackable?	Multiple?	Choose								Auto Armor Prof				Auto Feat			Auto Weapon Prof			Combat bonus												Weapon prof. bonus			Source Page
-Feat G										TYPE:ATest
+Feat G										CATEGORY:FEAT	TYPE:ATest
 
-Agile											TYPE:General
+Agile											CATEGORY:FEAT	TYPE:General
 
 
 
 # Copies from RSRD set
 
-Armor Proficiency (Heavy)							TYPE:General										PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Heavy																														SOURCEPAGE:Feats
-Armor Proficiency (Light)							TYPE:General																																													DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Light																														SOURCEPAGE:Feats
-Armor Proficiency (Medium)							TYPE:General										PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Medium																														SOURCEPAGE:Feats
+Armor Proficiency (Heavy)							CATEGORY:FEAT	TYPE:General										PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Heavy																														SOURCEPAGE:Feats
+Armor Proficiency (Light)							CATEGORY:FEAT	TYPE:General																																													DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Light																														SOURCEPAGE:Feats
+Armor Proficiency (Medium)							CATEGORY:FEAT	TYPE:General										PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)]																			DESC:See Text																																		AUTO:ARMORPROF|ARMORTYPE=Medium																														SOURCEPAGE:Feats
 
-Simple Weapon Proficiency							TYPE:General																																													DESC:See Text																																												AUTO:WEAPONPROF|TYPE=Simple																					SOURCEPAGE:Feats
-Martial Weapon Proficiency							TYPE:General																																													DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial]												AUTO:WEAPONPROF|%LIST																						SOURCEPAGE:Feats
-Exotic Weapon Proficiency							TYPE:General.Fighter																										PRETOTALAB:1																DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]													AUTO:WEAPONPROF|%LIST																						SOURCEPAGE:Feats
-
-
-
-Weapon Finesse									TYPE:General.Fighter																										PRETOTALAB:1																DESC:See Text																																																	BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX+SHIELDACCHECK)-STR)|TYPE=NotRanged							SOURCEPAGE:Feats
-Weapon Focus									TYPE:General.Fighter																																												DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats
-Weapon Specialization								TYPE:Special.Fighter		PREABILITY:1,CATEGORY=FEAT,Weapon Focus																					PREVARGTEQ:WeapSpecQualify,1											DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]																															BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+Simple Weapon Proficiency							CATEGORY:FEAT	TYPE:General																																													DESC:See Text																																												AUTO:WEAPONPROF|TYPE=Simple																					SOURCEPAGE:Feats
+Martial Weapon Proficiency							CATEGORY:FEAT	TYPE:General																																													DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial]												AUTO:WEAPONPROF|%LIST																						SOURCEPAGE:Feats
+Exotic Weapon Proficiency							CATEGORY:FEAT	TYPE:General.Fighter																										PRETOTALAB:1																DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]													AUTO:WEAPONPROF|%LIST																						SOURCEPAGE:Feats
 
 
 
-Bob Test Feat Choose Spells Monkee						TYPE:General.Tests.BobTest																																																																				MULT:YES	CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1]
-Bob Test Feat Choose Spelllevel Arcane					TYPE:General.Tests.BobTest																																																																				MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|MAXLEVEL
+Weapon Finesse									CATEGORY:FEAT	TYPE:General.Fighter																										PRETOTALAB:1																DESC:See Text																																																	BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX+SHIELDACCHECK)-STR)|TYPE=NotRanged							SOURCEPAGE:Feats
+Weapon Focus									CATEGORY:FEAT	TYPE:General.Fighter																																												DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats
+Weapon Specialization								CATEGORY:FEAT	TYPE:Special.Fighter		PREABILITY:1,CATEGORY=FEAT,Weapon Focus																					PREVARGTEQ:WeapSpecQualify,1											DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]																															BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+
+
+
+Bob Test Feat Choose Spells Monkee						CATEGORY:FEAT	TYPE:General.Tests.BobTest																																																																				MULT:YES	CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1]
+Bob Test Feat Choose Spelllevel Arcane					CATEGORY:FEAT	TYPE:General.Tests.BobTest																																																																				MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|MAXLEVEL
 # BONUS:SPELLCAST|%LIST|1
 
-Bob Testing Type Group A							TYPE:GroupA																																														DESC:Freebie to Add B
-Bob Testing Type Group B							TYPE:GroupB																																														DESC:B added by A
+Bob Testing Type Group A							CATEGORY:FEAT	TYPE:GroupA																																														DESC:Freebie to Add B
+Bob Testing Type Group B							CATEGORY:FEAT	TYPE:GroupB																																														DESC:B added by A
 
-Bob Testing Type Group C							TYPE:GroupC																																														DESC:Triggered by having PREFEAT TYPE=GroupB which is found in Bob Testing Type Group B which is triggered by TYPE=Sword in Weapon Focus.
+Bob Testing Type Group C							CATEGORY:FEAT	TYPE:GroupC																																														DESC:Triggered by having PREFEAT TYPE=GroupB which is found in Bob Testing Type Group B which is triggered by TYPE=Sword in Weapon Focus.
 
-Bob Weapon Prof Chooser which Grants Weapon	KEY:Bob Feat	TYPE:General.Bob																																																																						MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL															AUTO:WEAPONPROF|%LIST
+Bob Weapon Prof Chooser which Grants Weapon	KEY:Bob Feat	CATEGORY:FEAT	TYPE:General.Bob																																																																						MULT:YES	CHOOSE:WEAPONPROFICIENCY|ALL															AUTO:WEAPONPROF|%LIST
 
 # Test-27 Spells Identical
-Spell Test ~ 30									TYPE:Test27																																				SPELLS:Innate|TIMES=30|CASTERLEVEL=30|Magic Missile,30
+Spell Test ~ 30									CATEGORY:FEAT	TYPE:Test27																																				SPELLS:Innate|TIMES=30|CASTERLEVEL=30|Magic Missile,30
 #DC, Times/Day, CasterLevel, Times
 
 
 
 
 
-Grant Auto Feat									TYPE:TestFeat																																																																																							ABILITY:FEAT|AUTOMATIC|Toughness
+Grant Auto Feat									CATEGORY:FEAT	TYPE:TestFeat																																																																																							ABILITY:FEAT|AUTOMATIC|Toughness
 
 
 # Test 63 Feats
-Test63a										TYPE:TEST-63																																																																				STACK:NO	MULT:YES	CHOOSE:STRING|One|Two
-Test63b										TYPE:TEST-63																																																																				STACK:YES	MULT:YES	CHOOSE:STRING|One|Two
-Test63c										TYPE:TEST-63																																																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Test63a										CATEGORY:FEAT	TYPE:TEST-63																																																																				STACK:NO	MULT:YES	CHOOSE:STRING|One|Two
+Test63b										CATEGORY:FEAT	TYPE:TEST-63																																																																				STACK:YES	MULT:YES	CHOOSE:STRING|One|Two
+Test63c										CATEGORY:FEAT	TYPE:TEST-63																																																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE

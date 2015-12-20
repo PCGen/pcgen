@@ -8811,6 +8811,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return getExpandedAssociations(obj, info);
 	}
 
+	/**
+	 * Return a list of the choice assications in an export compatible string 
+	 * format. Note that this is not sufficient for the choice to be 
+	 * reconstructed, so this format should never be saved, only output.
+	 * 
+	 * @param obj The choice to be output.
+	 * @return The list of choices.
+	 */
+	public List<String> getAssociationExportList(ChooseDriver obj)
+	{
+		ChooseInformation<?> info = obj.getChooseInfo();
+		if (info == null)
+		{
+			return Collections.emptyList();
+		}
+		return getExportAssociations(obj, info);
+	}
+
 	public boolean hasAssociations(ChooseDriver obj)
 	{
 		ChooseInformation<?> info = obj.getChooseInfo();
@@ -8852,6 +8870,23 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		for (T sel : selections)
 		{
 			ret.add(info.encodeChoice(sel));
+		}
+		return ret;
+	}
+
+	private <T> List<String> getExportAssociations(ChooseDriver obj,
+		ChooseInformation<T> info)
+	{
+		List<? extends T> selections =
+				info.getChoiceActor().getCurrentlySelected(obj, this);
+		if ((selections == null) || selections.isEmpty())
+		{
+			return Collections.emptyList();
+		}
+		List<String> ret = new ArrayList<String>(selections.size());
+		for (T sel : selections)
+		{
+			ret.add(String.valueOf(sel));
 		}
 		return ret;
 	}

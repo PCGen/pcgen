@@ -98,7 +98,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 				new DefaultReferenceFacade<SizeAdjustmentFacade>(
 					equip.getSizeAdjustment());
 
-		final String sBaseKey = equip.getBaseItemName();
+		final String sBaseKey = equip.getBaseItemKeyName();
 		baseEquipment = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			Equipment.class, sBaseKey);
 		

@@ -7,5 +7,5 @@ SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peg
 Mad Science				CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Mad Science													SOURCEPAGE:p.13
 S and R Catalog 1876 Edition	CATEGORY:Special Ability	TYPE:ClassAbility	SAB:S and R Catalog 1876 Edition										SOURCEPAGE:p.13
 Alchemy				CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Alchemy														SOURCEPAGE:p.13
-Diffusionist Spell increase	CATEGORY:Special Ability	TYPE:ClassAbility							MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|9	SOURCEPAGE:p.13
+Diffusionist Spell increase	CATEGORY:Special Ability	TYPE:ClassAbility							MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|9	SOURCEPAGE:p.13
 # BONUS:SPELLCAST|%LIST|1

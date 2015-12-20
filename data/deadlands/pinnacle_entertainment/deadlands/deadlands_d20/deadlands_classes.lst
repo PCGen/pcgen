@@ -23,7 +23,7 @@ CLASS:Black Magician	PREALIGN:LE,NE,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Magician	STARTSKILLPTS:2	CSKILL:Alchemy|Black Magic|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Ridicule|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Caster level
-CLASS:Black Magician	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Black Magician|CL
+CLASS:Black Magician	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Black Magician|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1	BONUS:ABILITYPOOL|Black Magician up to 1st level Black Magic|4								BONUS:VAR|BlackMagicPoints|(CL*INT)+INTSCORE	ABILITY:Special Ability|AUTOMATIC|Black Magician Black Magic Points
@@ -54,7 +54,7 @@ CLASS:Blessed	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blessed	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Faith|Heal|Intimidate|Knowledge (Local)|Knowledge (Occult)|Knowledge (Religion)|Perform|TYPE=Profession|Sense Motive|TYPE=Language|Tale Tellin'
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Caster level
-CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blessed|CL
+CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Blessed|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base												ABILITY:Special Ability|VIRTUAL|Turn Undead|PREALIGN:LG,NG,CG	ABILITY:Special Ability|AUTOMATIC|Basic Turning
@@ -126,7 +126,7 @@ CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|B
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE=Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE=Language|Spellcraft
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
+CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 #		SPELLLIST:1|Sorcerer
@@ -233,7 +233,7 @@ CLASS:Shaman (DL)	HD:6		TYPE:PC	ABB:Shm		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:COMBA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman (DL)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Indian Lore)|Knowledge (Nature)|Ritual|Sense Motive|TYPE=Language|Swim|Wilderness Lore
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Caster level
-CLASS:Shaman (DL)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman (DL)|CL
+CLASS:Shaman (DL)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Shaman (DL)|CL
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple	WEAPONBONUS:Shortbow
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)

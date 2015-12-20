@@ -7,7 +7,7 @@ CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics
 # Class Name		Required Ability					Required Skill				PRETOTALAB
 CLASS:Psionic Agent	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
+CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
 # Class Name		Spell Stat		Memorize	Caster level
 CLASS:Psionic Agent	SPELLSTAT:SPELL	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Agent|CL
 ###Block: powers

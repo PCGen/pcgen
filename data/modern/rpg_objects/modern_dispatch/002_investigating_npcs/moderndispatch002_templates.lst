@@ -3,4 +3,4 @@ SOURCELONG:Modern Dispatch #2 - Investigating NPCs	SOURCESHORT:MD02-INPCs	SOURCE
 #Original Entry by: Frank Kliewe
 
 # Template Name				Visible	Source Page		Required Ability						Var. Min. Value		Choose														Temporary effect description																Temporary Bonus
-Move Reputation to Secret Identity	VISIBLE:NO	SOURCEPAGE:p.3	PREABILITY:1,CATEGORY=FEAT,Secret Identity	PREVARGTEQ:Reputation,1	CHOOSE:NUMBER|MIN=1|MAX=var("Reputation")|TITLE=Reputation: Public ==> Secret Identity	TEMPDESC:Use this tracker item to move reputation points from your public identity to you secret identity instead.	TEMPBONUS:ANYPC|VAR|Reputation|-1*%CHOICE	TEMPBONUS:ANYPC|VAR|SecretReputation|%CHOICE
+Move Reputation to Secret Identity	VISIBLE:NO	SOURCEPAGE:p.3	PREABILITY:1,CATEGORY=FEAT,Secret Identity	PREVARGTEQ:Reputation,1	TEMPVALUE:MIN=1|MAX=var("Reputation")|TITLE=Reputation: Public ==> Secret Identity	TEMPDESC:Use this tracker item to move reputation points from your public identity to you secret identity instead.	TEMPBONUS:ANYPC|VAR|Reputation|-1*%CHOICE	TEMPBONUS:ANYPC|VAR|SecretReputation|%CHOICE

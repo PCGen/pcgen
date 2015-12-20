@@ -51,7 +51,7 @@ Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	
 
 ###Block: Finesse Tree
 # Ability Name		Category of Ability	Type						Visible	Required Ability						Restricted Ability					Multiple Requirements															Add				Combat bonus												Source Page
-Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Weapon Finesse																			ADD:FEAT|Weapon Finesse															SOURCEPAGE:p.5
+Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Weapon Finesse																			ADD:ABILITY|FEAT|NORMAL|Weapon Finesse															SOURCEPAGE:p.5
 Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES																	PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Weapon Finesse Talent],[PREABILITY:1,CATEGORY=FEAT,Weapon Finesse]					BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
 Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																															BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
 
