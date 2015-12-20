@@ -1143,10 +1143,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Bob Test Feat Choose Spelllevel Arcane (CLASS.MonKee;LEVEL.1)</name>
+			<name>Bob Test Feat Choose Spelllevel Arcane (MonKee 1)</name>
 			<description></description>
 			<type>GENERAL.TESTS.BOBTEST</type>
-			<associated>CLASS.MonKee;LEVEL.1</associated>
+			<associated>MonKee 1</associated>
 			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
@@ -1764,10 +1764,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose ALIGNMENT (LG)</name>
+			<name>Chooser ~ Choose ALIGNMENT (Lawful Good)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>LG</associated>
+			<associated>Lawful Good</associated>
 			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1907,10 +1907,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose SIZE (M)</name>
+			<name>Chooser ~ Choose SIZE (Medium)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>M</associated>
+			<associated>Medium</associated>
 			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
