@@ -173,6 +173,17 @@ public class PCGenPropBundle
 	}
 
 	/**
+	 * This method gets the Production Version Series, the major.minor version 
+	 * of the prod release the current version is targeting.
+	 * 
+	 * @return String containing the Production Version Series number
+	 */
+	public static String getProdVersionSeries()
+	{
+		return getPropValue("ProdVersionSeries", null);
+	}
+
+	/**
 	 * This method gets the Release Date.
 	 * @return String containing the Release Date
 	 */
