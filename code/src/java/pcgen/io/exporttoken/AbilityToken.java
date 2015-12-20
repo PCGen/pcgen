@@ -558,7 +558,7 @@ public class AbilityToken extends Token
 				List<String> assocs = new ArrayList<String>();
 				for (CNAbility cna : abilities)
 				{
-					assocs.addAll(pc.getAssociationList(cna));
+					assocs.addAll(pc.getAssociationExportList(cna));
 				}
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
@@ -658,7 +658,7 @@ public class AbilityToken extends Token
 		List<String> assocs  = new ArrayList<String>();
 		for (CNAbility cna : abilities)
 		{
-			assocs.addAll(pc.getAssociationList(cna));
+			assocs.addAll(pc.getAssociationExportList(cna));
 		}
 		Collections.sort(assocs);
 		int count = assocs.size();

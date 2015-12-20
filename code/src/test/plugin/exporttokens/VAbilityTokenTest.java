@@ -274,11 +274,11 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 
 		assertEquals("",
 			tok.getToken("VABILITY.FEAT.0.ASSOCIATED", character, eh));
-		assertEquals("KEY_Bluff,KEY_Listen",
+		assertEquals("Bluff,Listen",
 			tok.getToken("VABILITY.FEAT.1.ASSOCIATED", character, eh));
-		assertEquals("KEY_Bluff",
+		assertEquals("Bluff",
 			tok.getToken("VABILITY.FEAT.1.ASSOCIATED.0", character, eh));
-		assertEquals("KEY_Listen",
+		assertEquals("Listen",
 			tok.getToken("VABILITY.FEAT.1.ASSOCIATED.1", character, eh));
 	}
 
