@@ -687,49 +687,49 @@ CLASS:Combat Styles of Onara	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PRESKIL
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Combat Styles of Onara	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Examine Martial Technique|Intimidate|Jump|Swim|Tumble
 # added errata of weapon focus/specialization kio sword equivalent to longsword
-SUBCLASS:Red Sword Fencing School	ABB:RSFS	PREABILITY:5,CATEGORY=FEAT,Dodge,Power Attack,Mobility,Spring Attack,Whirlwind Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longsword),Weapon Focus (Sword (Kio)),Weapon Focus (Sword (Short)),Weapon Focus (Sword (Bastard)),Weapon Focus (Greatsword),Weapon Focus (Rapier),Weapon Focus (Gladius)	PREABILITY:1,CATEGORY=FEAT,Weapon Specialization (Longsword),Weapon Specialization (Sword (Kio),Weapon Specialization (Sword (short)),Weapon Specialization (Sword (Bastard)),Weapon Specialization (Greatsword),Weapon Specialization (Rapier),Weapon Specialization (Gladius)
+SUBCLASS:Red Sword Fencing School		PREABILITY:5,CATEGORY=FEAT,Dodge,Power Attack,Mobility,Spring Attack,Whirlwind Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longsword),Weapon Focus (Sword (Kio)),Weapon Focus (Sword (Short)),Weapon Focus (Sword (Bastard)),Weapon Focus (Greatsword),Weapon Focus (Rapier),Weapon Focus (Gladius)	PREABILITY:1,CATEGORY=FEAT,Weapon Specialization (Longsword),Weapon Specialization (Sword (Kio),Weapon Specialization (Sword (short)),Weapon Specialization (Sword (Bastard)),Weapon Specialization (Greatsword),Weapon Specialization (Rapier),Weapon Specialization (Gladius)
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Demi-Volt
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Punto Riverso|To Meet the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Spinning Strike
-SUBCLASS:Steel Wall			ABB:StlWl	PREABILITY:2,CATEGORY=FEAT,Dodge,Quick Draw																																																																																													PRESKILL:1,Sense Motive=5					CSKILL:Sense Motive
+SUBCLASS:Steel Wall				PREABILITY:2,CATEGORY=FEAT,Dodge,Quick Draw																																																																																													PRESKILL:1,Sense Motive=5					CSKILL:Sense Motive
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Passing the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Defensive Perfection
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Defensive Spin Ability
-SUBCLASS:Twin Sting			ABB:TwnStg	PREABILITY:4,CATEGORY=FEAT,Dodge,Two-Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
+SUBCLASS:Twin Sting				PREABILITY:4,CATEGORY=FEAT,Dodge,Two-Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Double Lunge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Balance and Grace|Trap and Cut
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|The Cruelest Cut
-SUBCLASS:Twin Storms			ABB:TwnStm	PREABILITY:3,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Two-Bladed)),Weapon Focus (Sword (Two-Bladed)),Two-Weapon Fighting
+SUBCLASS:Twin Storms				PREABILITY:3,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Two-Bladed)),Weapon Focus (Sword (Two-Bladed)),Two-Weapon Fighting
 SUBCLASSLEVEL:1						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Cutting High and Low|Passing the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
-SUBCLASS:Haven's Blade			ABB:HvnBl	PREABILITY:4,CATEGORY=FEAT,Cleave,Great Cleave,Weapon Focus (Greatsword),Power Attack
+SUBCLASS:Haven's Blade				PREABILITY:4,CATEGORY=FEAT,Cleave,Great Cleave,Weapon Focus (Greatsword),Power Attack
 SUBCLASSLEVEL:1						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|To Meet the Charge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Mighty Swing
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Mighty Cleave
-SUBCLASS:Steel Dragon			ABB:StlDrg	PREABILITY:4,CATEGORY=FEAT,Exotic Weapon Proficiency (Steel Whip),Two-Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
+SUBCLASS:Steel Dragon				PREABILITY:4,CATEGORY=FEAT,Exotic Weapon Proficiency (Steel Whip),Two-Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Spinning Strike
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Reaping the Whirlwind
-SUBCLASS:Hand Blade and Mind		ABB:HBaM	PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio)),Quick Draw																																																																															PREITEM:1,Sword (Kio)	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4	CSKILL:Concentration|TYPE=Psionics
+SUBCLASS:Hand Blade and Mind			PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio)),Quick Draw																																																																															PREITEM:1,Sword (Kio)	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4	CSKILL:Concentration|TYPE=Psionics
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Parry
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pressing Attack	ABILITY:FEAT|AUTOMATIC|Improved Quick Draw
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
-SUBCLASS:Sword That Believes		ABB:StBlv	PREABILITY:4,CATEGORY=FEAT,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio))																																																																									PREITEM:1,Sword (Kio)
+SUBCLASS:Sword That Believes			PREABILITY:4,CATEGORY=FEAT,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio))																																																																									PREITEM:1,Sword (Kio)
 SUBCLASSLEVEL:1						ABILITY:FEAT|AUTOMATIC|Blind-Fight
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts|Instinctual Defense
