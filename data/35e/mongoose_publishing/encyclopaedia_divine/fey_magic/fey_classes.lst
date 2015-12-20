@@ -2,7 +2,7 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Feydancer	HD:4		TYPE:PC.Prestige	FACT:Abb|Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Required Language	Required Skill
 CLASS:Feydancer	PRELANG:1,Sylvan	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Reverie)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -20,7 +20,7 @@ CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE=Craft|Knowledge (Fey)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	FACT:Abb|Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Required Ability								Multiple Requirements											Req. Spell Type
 CLASS:Spellbinder	PREABILITY:2,CATEGORY=FEAT,Craft Token,TYPE.ItemCreation	PREMULT:2,[PRESKILL:2,TYPE.Craft=8,TYPE.Craft=8],[PRESKILL:1,Knowledge (Reverie)=6]	PRESPELLTYPE:1,Arcane=2,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -38,7 +38,7 @@ CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=K
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Wylding	HD:6		TYPE:PC.Prestige	FACT:Abb|Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Required Ability					Required Skill										Req. Known Spell
 CLASS:Wylding	PREABILITY:1,CATEGORY=FEAT,Forge Bond	PRESKILL:3,Wilderness Lore=8,Knowledge (Nature)=8,Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -56,7 +56,7 @@ CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Intuit Direction|Know
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	FACT:Abb|Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name		Required Ability				Required Skill						PRETOTALAB
 CLASS:Chosen Protector	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Wilderness Lore=8,Knowledge (Fey)=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill

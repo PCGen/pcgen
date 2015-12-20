@@ -6,7 +6,7 @@ SOURCELONG:Alderac Entertainment Group (AEG) - Empire	SOURCESHORT:Empire	SOURCEW
 ########
 
 # Class Name	Unique Key	Hit Dice	Abbreviation	Combat bonus										Save bonus
-CLASS:Noble		KEY:Noble	HD:6		ABB:Nob		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Noble		KEY:Noble	HD:6		FACT:Abb|Nob		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
@@ -33,7 +33,7 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 #Prestige Class - Hero of the People
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus
-CLASS:Hero of the People	HD:6		TYPE:PC.Prestige	ABB:HoP		MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hero of the People	HD:6		TYPE:PC.Prestige	FACT:Abb|HoP		MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Ability										Required Skill
 CLASS:Hero of the People	PREABILITY:3,CATEGORY=FEAT,Heroic Leader,Inspiring Leader,Leadership	PRESKILL:1,TYPE.Perform=13	PRESKILL:1,Diplomacy=13
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -51,7 +51,7 @@ CLASS:Hero of the People	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Informati
 #Prestige Class - Political Mastermind
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus
-CLASS:Political Mastermind	HD:6		TYPE:PC.Prestige	ABB:PMM		MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Political Mastermind	HD:6		TYPE:PC.Prestige	FACT:Abb|PMM		MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Ability								Required Skill																		Required Stat
 CLASS:Political Mastermind	PREABILITY:2,CATEGORY=FEAT,Clever Businessman,Leadership	PRESKILL:1,Diplomacy=13	PRESKILL:1,Gather Information=13	PRESKILL:1,Intimidate=13	PRESKILL:1,Sense Motive=13	PRESTAT:1,CHA=16
 # Class Name			Skill Pts/Lvl	Class Skill

@@ -4,7 +4,7 @@
 ###Block:Simple Weapons
 # Equipment Name		Type													Contains		Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Range		Size		Special Property
 Sling (Great)		TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM	COST:3	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:LEATHER	WIELD:TwoHanded	RANGE:60	SIZE:M
-Shard Arrows		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart							COST:12	WT:0.5	CRITMULT:x1	CRITRANGE:4	DAMAGE:1d6	EQMOD:SILVER.BONE	WIELD:Light				SIZE:M	SPROP:On critical, deals no damage but incapacities foes.
+Shard Arrows		TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart							COST:12	WT:0.5	CRITMULT:x1	CRITRANGE:4	DAMAGE:1d6	EQMOD:BONE.SILVER	WIELD:Light				SIZE:M	SPROP:On critical, deals no damage but incapacities foes.
 Farmer's Rope		TYPE:Weapon.Simple.Melee.Light.Standard.Bludgeoning.Rope							COST:0	WT:5		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2				WIELD:Light				SIZE:M	SPROP:+2 circumstance bonus on attack rolls when used to distract an opponent with the aid another combat action.
 Tack Whip			TYPE:Weapon.Melee.Simple.Finesseable.Subdual.Slashing.Light							COST:12	WT:7		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:LEATHER	WIELD:Light				SIZE:M
 Unarmed Strike.MOD																																					SPROP:May ignore %1 points of damage reduction of any type whenever he inflicts damage|PreciseStrike|PREABILITY:1,CATEGORY=Special Ability,Defender ~ Precise Strike

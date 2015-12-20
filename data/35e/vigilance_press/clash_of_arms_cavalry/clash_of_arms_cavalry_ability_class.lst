@@ -17,8 +17,8 @@ Terrifying Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption
 Terrifying Charge ~ Formation					CATEGORY:Special Ability							VISIBLE:DISPLAY																																																																		TEMPBONUS:PC|VAR|TerrifyingCharge|5
 Terrifying Charge ~ Formation and Terrifying Charge	CATEGORY:Special Ability							VISIBLE:DISPLAY																																																																		TEMPBONUS:PC|VAR|TerrifyingCharge|10
 Dragoon								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY
-Mounted Archer							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	DEFINE:MountedArchery|0																						BONUS:VAR|MountedArchery|1		ASPECT:NAME|Mounted Archery +%|MountedArchery		TEMPDESC:While mounted the horse archer adds this bonus to ranged attack rolls.												TEMPBONUS:PC|COMBAT|TOHIT.RANGED|MountedArchery|TYPE=MountedArchery
-Spur									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	DEFINE:SpurMount|0																						BONUS:VAR|SpurMount|5			ASPECT:NAME|Spur +% ft|SpurMount
+Mounted Archer							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	DEFINE:MountedArchery|0																						BONUS:VAR|MountedArchery|1		ASPECT:NAME|Mounted Archery +%%|MountedArchery		TEMPDESC:While mounted the horse archer adds this bonus to ranged attack rolls.												TEMPBONUS:PC|COMBAT|TOHIT.RANGED|MountedArchery|TYPE=MountedArchery
+Spur									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	DEFINE:SpurMount|0																						BONUS:VAR|SpurMount|5			ASPECT:NAME|Spur +%% ft|SpurMount
 Shot on the Run ~ Mounted					CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY
 Manyshot ~ Mounted						CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY
 Lightning Attack							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	DEFINE:LightningAttack|0																					BONUS:VAR|LightningAttack|2		ASPECT:NAME|Lightning Attack +%1|LightningAttack

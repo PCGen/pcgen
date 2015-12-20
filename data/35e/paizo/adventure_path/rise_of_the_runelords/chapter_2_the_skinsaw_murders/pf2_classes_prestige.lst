@@ -3,7 +3,7 @@ SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF
 # Original Entry by: Stefan Radermacher
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Spherewalker	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Sph		MAXLEVEL:5	SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Spherewalker	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Sph		MAXLEVEL:5	SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Ability																								Required Deity	Required Skill																				PRETOTALAB		Req. Weapond Prof.
 CLASS:Spherewalker	PREABILITY:1,CATEGORY=FEAT,Great Fortitude,Iron Will,Lightning Reflexes	PREABILITY:1,CATEGORY=FEAT,Acrobatic,Agile,Athletic,Endurance,Run,Self-Sufficient	PREDEITY:1,Desna	PRESKILL:2,Climb=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Knowledge (Religion)=5,TYPE.Perform=5,Ride=5,Survival=5,Swim=5	PRETOTALAB:5	PREWEAPONPROF:1,Starknife
 # Class Name		Skill Pts/Lvl	Class Skill

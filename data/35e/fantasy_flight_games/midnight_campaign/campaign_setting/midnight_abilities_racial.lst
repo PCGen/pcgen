@@ -60,7 +60,7 @@ Natural Traders																CATEGORY:Special Ability	TYPE:Intneral				VISIBLE
 +1 racial bonus on attack rolls when fighting in groups of five or more Dorns										SORTKEY:Racial_Dorn	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DornRacialAbilities	VISIBLE:EXPORT																																	SOURCEPAGE:36	ASPECT:CombatBonus|+1 racial bonus on attack rolls when fighting in groups of five or more Dorns
 +1 racial bonus on attack rolls when using a melee weapon two-handed											SORTKEY:Racial_Dorn	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DornRacialAbilities	VISIBLE:EXPORT																																	SOURCEPAGE:36	ASPECT:CombatBonus|+1 racial bonus on attack rolls when using a melee weapon two-handed
 1 extra feat at 1st level									KEY:Dorn ~ 1 extra feat at 1st level			SORTKEY:Racial_Dorn	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DornRacialAbilities	VISIBLE:EXPORT														BONUS:ABILITYPOOL|Dorn Bonus Feat|1|PREPCLEVEL:MIN=1											SOURCEPAGE:36
-Weapon Familiarity										KEY:Dorn ~ Weapon Familiarity					SORTKEY:Racial_Dorn	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DornRacialAbilities		VISIBLE:NO																								CHANGEPROF:Sword (Bastard),Spear (Dornish Horse)=Martial
+Weapon Familiarity										KEY:Dorn ~ Weapon Familiarity					SORTKEY:Racial_Dorn	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DornRacialAbilities		VISIBLE:NO																								CHANGEPROF:Spear (Dornish Horse),Sword (Bastard)=Martial
 Favored Region											KEY:Dorn ~ Favored Region					SORTKEY:Racial_Dorn	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DornRacialAbilities		VISIBLE:NO		ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Northlands
 
 ###Block: Racial Abilities: Sarcosan
@@ -68,7 +68,7 @@ Favored Region											KEY:Dorn ~ Favored Region					SORTKEY:Racial_Dorn	CATEG
 May begin play with a Sarcosan riding horse or a Sarcosan warhorse (at one-quarter the normal cost)												CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SarcosanRacialAbilities	VISIBLE:EXPORT																						SOURCEPAGE:37
 +1 racial bonus on Reflex saves and on attack rolls with light melee weapons																CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SarcosanRacialAbilities	VISIBLE:EXPORT								BONUS:SAVE|Reflex|1|TYPE=Racial									SOURCEPAGE:37	ASPECT:CombatBonus|+1 racial bonus on attack rolls when using light melee weapons
 1 extra feat at 1st level													KEY:Sarcosan ~ 1 extra feat at 1st level	SORTKEY:Racial_Sarcosan	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SarcosanRacialAbilities	VISIBLE:EXPORT	BONUS:ABILITYPOOL|FEAT|1|PREPCLEVEL:MIN=1
-Weapon Familiarity														KEY:Sarcosan ~ Weapon Familiarity		SORTKEY:Racial_Sarcosan	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.SarcosanRacialAbilities		VISIBLE:NO															CHANGEPROF:Lance (Sarcosan),Cedeku=Martial	SOURCEPAGE:37
+Weapon Familiarity														KEY:Sarcosan ~ Weapon Familiarity		SORTKEY:Racial_Sarcosan	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.SarcosanRacialAbilities		VISIBLE:NO															CHANGEPROF:Cedeku,Lance (Sarcosan)=Martial	SOURCEPAGE:37
 
 ###Block: Racial Abilities: Sarcosan (Plains)
 # Ability Name	Unique Key						SORTKEY				Category of Ability		Type											Visible	Description																								Ability											Bonus to Situation											Source Page		Aspects															Temporary Bonus
@@ -95,8 +95,8 @@ Favored Region ~ Special						KEY:Urban Sarcosan ~ Favored Region	SORTKEY:Racial
 -2 Wis ~ Erenlander						CATEGORY:Special Ability	TYPE:Internal.ErendlanderStatBonuses.AbilityDecrease		VISIBLE:DISPLAY								BONUS:STAT|WIS|-2|TYPE=Racial
 -2 Cha ~ Erenlander						CATEGORY:Special Ability	TYPE:Internal.ErendlanderStatBonuses.AbilityDecrease		VISIBLE:DISPLAY								BONUS:STAT|CHA|-2|TYPE=Racial
 2 extra feats at 1st level					CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.ErenlanderRacialAbilities	VISIBLE:YES		BONUS:ABILITYPOOL|FEAT|2|PREPCLEVEL:MIN=1																SOURCEPAGE:38
-Weapon Familiarity ~ Dornish Spear/Bastard Sword	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.ErenlanderWeaponFamiliarity	VISIBLE:DISPLAY													CHANGEPROF:Sword (Bastard),Spear (Dornish Horse)=Martial
-Weapon Familiarity ~ Sarcosan Lance/Cedeku		CATEGORY:Special Ability	TYPE:RacialTraits.Internal.ErenlanderWeaponFamiliarity	VISIBLE:DISPLAY													CHANGEPROF:Lance (Sarcosan),Cedeku=Martial
+Weapon Familiarity ~ Dornish Spear/Bastard Sword	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.ErenlanderWeaponFamiliarity	VISIBLE:DISPLAY													CHANGEPROF:Spear (Dornish Horse),Sword (Bastard)=Martial
+Weapon Familiarity ~ Sarcosan Lance/Cedeku		CATEGORY:Special Ability	TYPE:RacialTraits.Internal.ErenlanderWeaponFamiliarity	VISIBLE:DISPLAY													CHANGEPROF:Cedeku,Lance (Sarcosan)=Martial
 
 ###Block: Racial Abilities: Dwarf
 # Ability Name													Unique Key																SORTKEY				Category of Ability		Type											Visible		Description														Ability																			Modify VAR				Weapon prof. bonus												Change Weapon Prof. Category					Source Page		Aspects
@@ -107,7 +107,7 @@ Resilient														KEY:Dwarf Midnight ~ Resiliant												SORTKEY:Racial_
 Spell Resistant													KEY:Dwarf Midnight ~ Spell Resistant											SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DwarfRacialAbilities			VISIBLE:EXPORT	DESC:Dwarves are innately resistant to the power of magic.						ABILITY:Special Ability|AUTOMATIC|Spell Resistant ~ Save Bonus|Spell Resistant ~ Spell Energy Penalty																																	SOURCEPAGE:39
 Darkvision														KEY:Dwarf Midnight ~ Darkvision												SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities.DwarfDarkVision	VISIBLE:NO																	ABILITY:Special Ability|AUTOMATIC|Darkvision																																										SOURCEPAGE:39
 Favored Region ~ Kaladrun Mountains										KEY:Dwarf Midnight ~ Favored Region												SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																	ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Kaladrun Mountains																																						SOURCEPAGE:39
-Weapon Familiarity												KEY:Dwarf Midnight ~ Weapon Familiarity											SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																																																									CHANGEPROF:Waraxe (Dwarven),Urgosh (Dwarven)=Martial	SOURCEPAGE:39
+Weapon Familiarity												KEY:Dwarf Midnight ~ Weapon Familiarity											SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																																																									CHANGEPROF:Urgosh (Dwarven),Waraxe (Dwarven)=Martial	SOURCEPAGE:39
 
 ###Block: Racial Abilities: Dwarf Clan
 # Ability Name						Unique Key									Category of Ability		Type										Visible		Ability												Modify VAR																Source Page		Aspects
@@ -189,7 +189,7 @@ Bound to the Spirits or Bound to the Beasts	KEY:Nomadic Halfling ~ Bound to the 
 ###Block: Racial Abilities: Agrarian Halfling
 # Ability Name			Unique Key						SORTKEY					Category of Ability		Type														Visible		Ability							Add							Bonus to Situation								Bonus to skill				Source Page		Aspects
 Dexterous Hands			KEY:Agrarian Halfling ~ Dexterous Hands	SORTKEY:Racial_AgrarianHalfling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.AgrarianHalflingRacialAbilities				VISIBLE:EXPORT																BONUS:SITUATION|TYPE.Craft=Non-metal or Non-wood|2|TYPE=Racial	BONUS:SKILL|Heal|2|TYPE=Racial	SOURCEPAGE:46	ASPECT:SkillBonus|+2 racial bonus on all non-metal and non-wood Craft checks and all Heal checks.
-Stout or Studious ~ Stout								SORTKEY:Racial_AgrarianHalfling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.AgrarianHalflingRacialAbilities.StoutOrStudious	VISIBLE:DISPLAY	ABILITY:FEAT|AUTOMATIC|Toughness|Endurance																									SOURCEPAGE:46
+Stout or Studious ~ Stout								SORTKEY:Racial_AgrarianHalfling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.AgrarianHalflingRacialAbilities.StoutOrStudious	VISIBLE:DISPLAY	ABILITY:FEAT|AUTOMATIC|Endurance|Toughness																									SOURCEPAGE:46
 Stout or Studious ~ Studious								SORTKEY:Racial_AgrarianHalfling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.AgrarianHalflingRacialAbilities.StoutOrStudious	VISIBLE:DISPLAY									ADD:ABILITY|FEAT|VIRTUAL|TYPE=Magecraft																		SOURCEPAGE:46
 
 ###Block: Racial Abilities: Orc
@@ -216,7 +216,7 @@ Darkvision			KEY:Dwarrow ~ Darkvision	SORTKEY:Racial_Dwarrow	CATEGORY:Special Ab
 Skilled Traders		KEY:Gnome Dwarrow ~ Skilled Traders		SORTKEY:Racial_GnomeDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.GnomeDwarrowRacialAbilities	VISIBLE:EXPORT	DESC:While not as outgoing or adept as their gnome kin, dwarrow that grow up on the river learn a good deal about making deals and manipulating information.	ABILITY:Special Ability|AUTOMATIC|Natural Traders				BONUS:VAR|NaturalTraderBonus|4								SOURCEPAGE:48
 Natural Riverfolk		KEY:Gnome Dwarrow ~ Natural Riverfolk	SORTKEY:Racial_GnomeDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.GnomeDwarrowRacialAbilities	VISIBLE:EXPORT																												ABILITY:Special Ability|AUTOMATIC|Natural Riverfolk																	SOURCEPAGE:48
 Favored Region		KEY:Gnome Dwarrow ~ Favored Region		SORTKEY:Racial_GnomeDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.GnomeDwarrowRacialAbilities		VISIBLE:NO																													ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Central Erenland														SOURCEPAGE:48
-Weapon Familiarity	KEY:Gnome Dwarrow ~ Weapon Familiarity	SORTKEY:Racial_GnomeDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.GnomeDwarrowRacialAbilities		VISIBLE:NO																																															CHANGEPROF:Inutek,Crossbow (Hand)=Martial	SOURCEPAGE:48
+Weapon Familiarity	KEY:Gnome Dwarrow ~ Weapon Familiarity	SORTKEY:Racial_GnomeDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.GnomeDwarrowRacialAbilities		VISIBLE:NO																																															CHANGEPROF:Crossbow (Hand),Inutek=Martial	SOURCEPAGE:48
 
 ###Block: Racial Abilities: Dwarrow (Raised By Dwarves)
 # Ability Name													Unique Key																	SORTKEY				Category of Ability		Type											Visible		Ability																			Bonus Ability Pool					Change Weapon Prof. Category								Source Page
@@ -224,7 +224,7 @@ Favored Region													KEY:Dwarf Dwarrow ~ Favored Region													SORTKE
 Clan or Kurgan													KEY:Dwarf Dwarrow ~ Clan or Kurgan													SORTKEY:Racial_DwarfDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfDwarrowRacialAbilities		VISIBLE:NO																						BONUS:ABILITYPOOL|Clan or Kurgun Ability|1													SOURCEPAGE:49
 +2 racial bonus on Appraise and Craft checks that are related to stone or metal items	KEY:Dwarf Dwarrow ~ +2 racial bonus on Appraise and Craft checks that are related to stone or metal items	SORTKEY:Racial_DwarfDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DwarfDwarrowRacialAbilities	VISIBLE:EXPORT	ABILITY:Special Ability|AUTOMATIC|+2 racial bonus on Appraise and Craft checks that are related to stone or metal items																					SOURCEPAGE:49
 +1 dodge bonus to Armor Class against orcs								KEY:Clan Dwarf ~ +1 dodge bonus to Armor Class against orcs									SORTKEY:Racial_DwarfDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DwarfDwarrowRacialAbilities	VISIBLE:EXPORT	ABILITY:Special Ability|AUTOMATIC|+1 dodge bonus to Armor Class against orcs																												SOURCEPAGE:49
-Weapon Familiarity												KEY:Dwarf Dwarrow ~ Weapon Familiarity												SORTKEY:Racial_DwarfDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfDwarrowRacialAbilities		VISIBLE:NO																														CHANGEPROF:Waraxe (Dwarven),Urgosh (Dwarven),Urutuk Hatchet=Martial	SOURCEPAGE:49
+Weapon Familiarity												KEY:Dwarf Dwarrow ~ Weapon Familiarity												SORTKEY:Racial_DwarfDwarrow	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfDwarrowRacialAbilities		VISIBLE:NO																														CHANGEPROF:Urgosh (Dwarven),Urutuk Hatchet,Waraxe (Dwarven)=Martial	SOURCEPAGE:49
 
 ###Block: Racial Abilites: Dworg
 # Ability Name								Unique Key					SORTKEY			Category of Ability		Type									Visible		Description													Ability																Bonus Ability Pool					Save bonus				Change Weapon Prof. Category		Source Page		Aspects
