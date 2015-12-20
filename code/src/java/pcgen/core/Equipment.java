@@ -682,6 +682,21 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Gets the keyName attribute of the base item of this Equipment object.
+	 * 
+	 * @return The base item's keyName value
+	 */
+	public String getBaseItemKeyName()
+	{
+		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+		if (baseItem == null)
+		{
+			return getKeyName();
+		}
+		return baseItem.resolvesTo().getKeyName();
+	}
+
+	/**
 	 * Gets the cost attribute of the Equipment object
 	 * 
 	 * @param aPC The PC with the Equipment
