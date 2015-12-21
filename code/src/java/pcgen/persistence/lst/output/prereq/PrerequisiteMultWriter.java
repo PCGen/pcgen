@@ -83,7 +83,6 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 			}
 			if (isNegatedPreability(prereq))
 			{
-				Logging.errorPrint("Got [ability]");
 				handleNegatedPreAbility(writer, prereq);
 				return;
 			}
