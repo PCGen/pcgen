@@ -9,4 +9,4 @@ CATEGORY=FEAT|Blood of Heroes.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=FEAT|Hero's Fortune.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=FEAT|Luck of Heroes.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
-CATEGORY=FEAT|Master Alchemist.MOD									PREMULT:1,[PRECLASS:1,Alchemist],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+CATEGORY=FEAT|Master Alchemist.MOD									PREMULT:1,[PRECLASS:1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]

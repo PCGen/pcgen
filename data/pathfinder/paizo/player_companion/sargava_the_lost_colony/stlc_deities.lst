@@ -3,8 +3,8 @@ SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:STLC	SOURCEWEB:http://paizo.com/
 # Original Entry by: Stefan Radermacher
 
 # Deity Name	Product Identity?	Domains							Description of Deity/Title	Pantheon
-Aroden		NAMEISPI:YES									DESC:Dead God			PANTHEON:Pathfinder Chronicles
-Mwangi Shamanism	NAMEISPI:YES	DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE						PANTHEON:Pathfinder Chronicles
+Aroden		NAMEISPI:YES									DESC:Dead God			FACTSET:Pantheon|Pathfinder Chronicles
+Mwangi Shamanism	NAMEISPI:YES	DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE						FACTSET:Pantheon|Pathfinder Chronicles
 
 #
 # End

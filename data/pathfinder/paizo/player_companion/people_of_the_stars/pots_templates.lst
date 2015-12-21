@@ -2,4 +2,4 @@
 
 # Template Name			Visible	Bonus Languages
 Bonus Language ~ Any Spoken	VISIBLE:NO	LANGBONUS:TYPE=Spoken
-Bonus Language ~ Kasathas	VISIBLE:NO	LANGBONUS:Dwarven,Draconic,Gnoll,Orc,Sphinx
+Bonus Language ~ Kasathas	VISIBLE:NO	LANGBONUS:Draconic,Dwarven,Gnoll,Orc,Sphinx

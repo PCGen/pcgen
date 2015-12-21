@@ -4,68 +4,68 @@ SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Minor Deities
 # Deity Name	Product Identity?	Domains											Description of Deity/Title						Deity Weapon			Align		Source Page		Pantheon
-Achaekek		NAMEISPI:YES	DOMAINS:Death,Evil,Law,Trickery,War|PREALIGN:LN,LE,NE				DESC:God of The Red Mantis, assassination				DEITYWEAP:Sawtooth Sabre	ALIGN:LE	SOURCEPAGE:p.16	PANTHEON:Pathfinder Chronicles
-Dahak			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Scalykind,Trickery|PREALIGN:NE,CN,CE	DESC:God of destruction, evil dragons, greed, treachery	DEITYWEAP:Bite|Whip		ALIGN:CE	SOURCEPAGE:p.17	PANTHEON:Pathfinder Chronicles
-Ghlaunder		NAMEISPI:YES	DOMAINS:Air,Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE			DESC:God of parasites, infection, stagnation			DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.19	PANTHEON:Pathfinder Chronicles
-Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Goddess of bad luck						DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.21	PANTHEON:Pathfinder Chronicles
-Lissala		NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Nobility,Rune|PREALIGN:LN,LE,NE			DESC:Goddess of duty, obedience, rune magic			DEITYWEAP:Whip			ALIGN:LE	SOURCEPAGE:p.21	PANTHEON:Forgotten Gods
-Ydersius		NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,CE			DESC:God of the serpentfolk						DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.21	PANTHEON:Forgotten Gods
-Zyphus		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Plant,War|PREALIGN:TN,LE,NE,CE		DESC:God of accidental death, graveyards, tragedy		DEITYWEAP:Pick (Heavy)		ALIGN:NE	SOURCEPAGE:p.21	PANTHEON:Pathfinder Chronicles
+Achaekek		NAMEISPI:YES	DOMAINS:Death,Evil,Law,Trickery,War|PREALIGN:LN,LE,NE				DESC:God of The Red Mantis, assassination				DEITYWEAP:Sawtooth Sabre	ALIGN:LE	SOURCEPAGE:p.16	FACTSET:Pantheon|Pathfinder Chronicles
+Dahak			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Scalykind,Trickery|PREALIGN:NE,CN,CE	DESC:God of destruction, evil dragons, greed, treachery	DEITYWEAP:Bite|Whip		ALIGN:CE	SOURCEPAGE:p.17	FACTSET:Pantheon|Pathfinder Chronicles
+Ghlaunder		NAMEISPI:YES	DOMAINS:Air,Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE			DESC:God of parasites, infection, stagnation			DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.19	FACTSET:Pantheon|Pathfinder Chronicles
+Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Goddess of bad luck						DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.21	FACTSET:Pantheon|Pathfinder Chronicles
+Lissala		NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Nobility,Rune|PREALIGN:LN,LE,NE			DESC:Goddess of duty, obedience, rune magic			DEITYWEAP:Whip			ALIGN:LE	SOURCEPAGE:p.21	FACTSET:Pantheon|Forgotten Gods
+Ydersius		NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,CE			DESC:God of the serpentfolk						DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.21	FACTSET:Pantheon|Forgotten Gods
+Zyphus		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Plant,War|PREALIGN:TN,LE,NE,CE		DESC:God of accidental death, graveyards, tragedy		DEITYWEAP:Pick (Heavy)		ALIGN:NE	SOURCEPAGE:p.21	FACTSET:Pantheon|Pathfinder Chronicles
 
 ###Block: Archdevils
 # Deity Name	Product Identity?	Domains								Description of Deity/Title					Deity Weapon		Align		Source Page		Pantheon
-Baalzebul		NAMEISPI:YES	DOMAINS:Air,Death,Evil,Law|PREALIGN:LN,LE,NE		DESC:Devil lord arrogance, flies, lies			DEITYWEAP:Spear		ALIGN:LE	SOURCEPAGE:p.16	PANTHEON:Archdevils
-Barbatos		NAMEISPI:YES	DOMAINS:Evil,Law,Magic,Travel|PREALIGN:LN,LE,NE		DESC:Devil lord of animals, corruption, gateways	DEITYWEAP:Quarterstaff	ALIGN:LE	SOURCEPAGE:p.16	PANTHEON:Archdevils
-Belial		NAMEISPI:YES	DOMAINS:Charm,Destruction,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of adultery, deception, desire		DEITYWEAP:Ranseur		ALIGN:LE	SOURCEPAGE:p.16	PANTHEON:Archdevils
-Dispater		NAMEISPI:YES	DOMAINS:Evil,Law,Nobility,Trickery|PREALIGN:LN,LE,NE	DESC:Devil lord of cities, prisons, rulership		DEITYWEAP:Mace (Heavy)	ALIGN:LE	SOURCEPAGE:p.16	PANTHEON:Archdevils
-Geryon		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,Water|PREALIGN:LN,LE,NE	DESC:Devil lord of forbidden lore, heresy, snakes	DEITYWEAP:Flail (Heavy)	ALIGN:LE	SOURCEPAGE:p.17	PANTHEON:Archdevils
-Mammon		NAMEISPI:YES	DOMAINS:Artifice,Earth,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of avarice, watchfulness, wealth	DEITYWEAP:Shortspear	ALIGN:LE	SOURCEPAGE:p.17	PANTHEON:Archdevils
-Mephistopheles	NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Rune|PREALIGN:LN,LE,NE	DESC:Devil lord of contracts, devils, secrets		DEITYWEAP:Trident		ALIGN:LE	SOURCEPAGE:p.17	PANTHEON:Archdevils
-Moloch		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,War|PREALIGN:LN,LE,NE		DESC:Devil lord of fire, obedience, war			DEITYWEAP:Whip		ALIGN:LE	SOURCEPAGE:p.17	PANTHEON:Archdevils
+Baalzebul		NAMEISPI:YES	DOMAINS:Air,Death,Evil,Law|PREALIGN:LN,LE,NE		DESC:Devil lord arrogance, flies, lies			DEITYWEAP:Spear		ALIGN:LE	SOURCEPAGE:p.16	FACTSET:Pantheon|Archdevils
+Barbatos		NAMEISPI:YES	DOMAINS:Evil,Law,Magic,Travel|PREALIGN:LN,LE,NE		DESC:Devil lord of animals, corruption, gateways	DEITYWEAP:Quarterstaff	ALIGN:LE	SOURCEPAGE:p.16	FACTSET:Pantheon|Archdevils
+Belial		NAMEISPI:YES	DOMAINS:Charm,Destruction,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of adultery, deception, desire		DEITYWEAP:Ranseur		ALIGN:LE	SOURCEPAGE:p.16	FACTSET:Pantheon|Archdevils
+Dispater		NAMEISPI:YES	DOMAINS:Evil,Law,Nobility,Trickery|PREALIGN:LN,LE,NE	DESC:Devil lord of cities, prisons, rulership		DEITYWEAP:Mace (Heavy)	ALIGN:LE	SOURCEPAGE:p.16	FACTSET:Pantheon|Archdevils
+Geryon		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,Water|PREALIGN:LN,LE,NE	DESC:Devil lord of forbidden lore, heresy, snakes	DEITYWEAP:Flail (Heavy)	ALIGN:LE	SOURCEPAGE:p.17	FACTSET:Pantheon|Archdevils
+Mammon		NAMEISPI:YES	DOMAINS:Artifice,Earth,Evil,Law|PREALIGN:LN,LE,NE	DESC:Devil lord of avarice, watchfulness, wealth	DEITYWEAP:Shortspear	ALIGN:LE	SOURCEPAGE:p.17	FACTSET:Pantheon|Archdevils
+Mephistopheles	NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Rune|PREALIGN:LN,LE,NE	DESC:Devil lord of contracts, devils, secrets		DEITYWEAP:Trident		ALIGN:LE	SOURCEPAGE:p.17	FACTSET:Pantheon|Archdevils
+Moloch		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,War|PREALIGN:LN,LE,NE		DESC:Devil lord of fire, obedience, war			DEITYWEAP:Whip		ALIGN:LE	SOURCEPAGE:p.17	FACTSET:Pantheon|Archdevils
 
 ###Block: Demon Lords
 # Deity Name	Product Identity?	Domains									Description of Deity/Title					Deity Weapon			Align		Source Page		Pantheon
-Abraxas		NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of forbidden lore, magic, snakes	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Angazhan		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of apes, jungles, tyrants			DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Baphomet		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		DESC:Demon lord of beasts, labyrinths, minotaurs	DEITYWEAP:Glaive			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Cyth-V'sug		NAMEISPI:YES	DOMAINS:Chaos,Earth,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of disease, fungus, parasites		DEITYWEAP:Scimitar		ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Dagon			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:Demon lord of deformities, sea monsters, the sea	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Deskari		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War|PREALIGN:NE,CN,CE		DESC:Demon lord of chasms, infestation, locusts		DEITYWEAP:Scythe			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Gogunta		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Water|PREALIGN:NE,CN,CE		DESC:Demon lord of amphibians, boggards, swamps		DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DESC:Demon lord of cold, giants, revenge			DEITYWEAP:Warhammer		ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		DEITYWEAP:Crossbow (Hand)	ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of necromancy, undead, wrath		DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Demon lord of sky, temptation, winged creatures	DEITYWEAP:Longsword		ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		DEITYWEAP:Quarterstaff		ALIGN:CE	SOURCEPAGE:p.18	PANTHEON:Demon Lords
-Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.19	PANTHEON:Demon Lords
+Abraxas		NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of forbidden lore, magic, snakes	DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Angazhan		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of apes, jungles, tyrants			DEITYWEAP:Spear			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Baphomet		NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Strength|PREALIGN:NE,CN,CE		DESC:Demon lord of beasts, labyrinths, minotaurs	DEITYWEAP:Glaive			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Cyth-V'sug		NAMEISPI:YES	DOMAINS:Chaos,Earth,Evil,Plant|PREALIGN:NE,CN,CE		DESC:Demon lord of disease, fungus, parasites		DEITYWEAP:Scimitar		ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Dagon			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC:Demon lord of deformities, sea monsters, the sea	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Deskari		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War|PREALIGN:NE,CN,CE		DESC:Demon lord of chasms, infestation, locusts		DEITYWEAP:Scythe			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Gogunta		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Water|PREALIGN:NE,CN,CE		DESC:Demon lord of amphibians, boggards, swamps		DEITYWEAP:Whip			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DESC:Demon lord of cold, giants, revenge			DEITYWEAP:Warhammer		ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		DEITYWEAP:Crossbow (Hand)	ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of necromancy, undead, wrath		DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Demon lord of sky, temptation, winged creatures	DEITYWEAP:Longsword		ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		DEITYWEAP:Quarterstaff		ALIGN:CE	SOURCEPAGE:p.18	FACTSET:Pantheon|Demon Lords
+Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.19	FACTSET:Pantheon|Demon Lords
 
 ###Block: Elemental Lords
 # Deity Name	Product Identity?	Domains									Description of Deity/Title	Deity Weapon		Align		Source Page		Pantheon
-Ayrzul		NAMEISPI:YES	DOMAINS:Destruction,Earth,Strength|PREALIGN:TN,LE,NE,CE	DESC:Elemental lord of earth	DEITYWEAP:Morningstar	ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Elemental Lords
-Hshurha		NAMEISPI:YES	DOMAINS:Air,Destruction,Weather|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of air	DEITYWEAP:Longbow		ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Elemental Lords
-Kelizandri		NAMEISPI:YES	DOMAINS:Destruction,Travel,Water|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of water	DEITYWEAP:Trident		ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Elemental Lords
-Ymeri			NAMEISPI:YES	DOMAINS:Destruction,Fire,War|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of fire	DEITYWEAP:Longsword	ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Elemental Lords
+Ayrzul		NAMEISPI:YES	DOMAINS:Destruction,Earth,Strength|PREALIGN:TN,LE,NE,CE	DESC:Elemental lord of earth	DEITYWEAP:Morningstar	ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Elemental Lords
+Hshurha		NAMEISPI:YES	DOMAINS:Air,Destruction,Weather|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of air	DEITYWEAP:Longbow		ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Elemental Lords
+Kelizandri		NAMEISPI:YES	DOMAINS:Destruction,Travel,Water|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of water	DEITYWEAP:Trident		ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Elemental Lords
+Ymeri			NAMEISPI:YES	DOMAINS:Destruction,Fire,War|PREALIGN:TN,LE,NE,CE		DESC:Elemental lord of fire	DEITYWEAP:Longsword	ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Elemental Lords
 
 ###Block: Horsemen
 # Deity Name	Product Identity?	Domains									Description of Deity/Title	Deity Weapon			Align		Source Page		Pantheon
-Apollyon		NAMEISPI:YES	DOMAINS:Air,Darkness,Destruction,Evil|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Pestilence	DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Horsemen
-Charon		NAMEISPI:YES	DOMAINS:Death,Evil,Knowledge,Water|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Death		DEITYWEAP:Quarterstaff		ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Horsemen
-Szuriel		NAMEISPI:YES	DOMAINS:Evil,Fire,Strength,War|PREALIGN:TN,LE,NE,CE		DESC:Horseman of War		DEITYWEAP:Greatsword		ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Horsemen
-Trelmarixian	NAMEISPI:YES	DOMAINS:Earth,Evil,Madness,Weather|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Famine		DEITYWEAP:Gauntlet (Spiked)	ALIGN:NE	SOURCEPAGE:p.19	PANTHEON:Horsemen
+Apollyon		NAMEISPI:YES	DOMAINS:Air,Darkness,Destruction,Evil|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Pestilence	DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Horsemen
+Charon		NAMEISPI:YES	DOMAINS:Death,Evil,Knowledge,Water|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Death		DEITYWEAP:Quarterstaff		ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Horsemen
+Szuriel		NAMEISPI:YES	DOMAINS:Evil,Fire,Strength,War|PREALIGN:TN,LE,NE,CE		DESC:Horseman of War		DEITYWEAP:Greatsword		ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Horsemen
+Trelmarixian	NAMEISPI:YES	DOMAINS:Earth,Evil,Madness,Weather|PREALIGN:TN,LE,NE,CE	DESC:Horseman of Famine		DEITYWEAP:Gauntlet (Spiked)	ALIGN:NE	SOURCEPAGE:p.19	FACTSET:Pantheon|Horsemen
 
 ###Block: Great Old Ones
 # Deity Name	Product Identity?	Domains										Deity Weapon		Align		Source Page		Pantheon
-Great Old Ones	NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Madness,Rune,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Azathoth		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Madness,Sun,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Warhammer	ALIGN:CN	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Bokrug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Water,Weather|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Ranseur		ALIGN:CN	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Cthulhu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Void|PREALIGN:NE,CN,CE			DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Hastur		NAMEISPI:YES	DOMAINS:Chaos,Evil,Rune,Void|PREALIGN:NE,CN,CE				DEITYWEAP:Rapier		ALIGN:CE	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Mhar			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Earth,Fire|PREALIGN:CG,TN,CN,CE		DEITYWEAP:Pick (Heavy)	ALIGN:CN	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Nyarlathotep	NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic,Trickery|PREALIGN:NE,CN,CE	DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Shub-Niggurath	NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant,Void|PREALIGN:NE,CN,CE		DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Xhamen-Dor		NAMEISPI:YES	DOMAINS:Death,Evil,Plant,Trickery|PREALIGN:TN,LE,NE,CE		DEITYWEAP:Spear		ALIGN:NE	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
-Yog-Sothoth		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.20	PANTHEON:Great Old Ones & Outer Gods
+Great Old Ones	NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Madness,Rune,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Azathoth		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Madness,Sun,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Warhammer	ALIGN:CN	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Bokrug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Water,Weather|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Ranseur		ALIGN:CN	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Cthulhu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Void|PREALIGN:NE,CN,CE			DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Hastur		NAMEISPI:YES	DOMAINS:Chaos,Evil,Rune,Void|PREALIGN:NE,CN,CE				DEITYWEAP:Rapier		ALIGN:CE	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Mhar			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Earth,Fire|PREALIGN:CG,TN,CN,CE		DEITYWEAP:Pick (Heavy)	ALIGN:CN	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Nyarlathotep	NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic,Trickery|PREALIGN:NE,CN,CE	DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Shub-Niggurath	NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant,Void|PREALIGN:NE,CN,CE		DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Xhamen-Dor		NAMEISPI:YES	DOMAINS:Death,Evil,Plant,Trickery|PREALIGN:TN,LE,NE,CE		DEITYWEAP:Spear		ALIGN:NE	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
+Yog-Sothoth		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.20	FACTSET:Pantheon|Great Old Ones & Outer Gods
 
 #
 # End

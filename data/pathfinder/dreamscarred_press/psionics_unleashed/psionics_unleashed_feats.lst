@@ -77,7 +77,7 @@ Up the Walls								CATEGORY:FEAT		TYPE:Psionic																																	
 Wounding Attack								CATEGORY:FEAT		TYPE:Psionic																																			PREMULT:1,[PRETOTALAB:8],[PREVARGTEQ:PrereqBAB,8]															PREVARGT:IsPsionic,0															DESC:Wound opponents with your attack																																																																																					SOURCEPAGE:p.53
 
 #Ghost Psionic Talent used for Naturally Psionic ability
-Ghost Psionic Talent		OUTPUTNAME:Psionic Talent	CATEGORY:FEAT		TYPE:Psionic			VISIBLE:EXPORT																																																	PRESTAT:1,STR=999										SERVESAS:FEAT|Psionic Talent						DESC:Gain additional power points																																																																																						SOURCEPAGE:p.51
+Ghost Psionic Talent		OUTPUTNAME:Psionic Talent	CATEGORY:FEAT		TYPE:Psionic			VISIBLE:EXPORT																																																	PRESTAT:1,STR=999										SERVESAS:ABILITY=Feat|Psionic Talent						DESC:Gain additional power points																																																																																						SOURCEPAGE:p.51
 
 ###Block: Metapsionics
 # Feat Name			Type			Required Feat			Required Skill		Var. Must Be Grater	Description									Source Page

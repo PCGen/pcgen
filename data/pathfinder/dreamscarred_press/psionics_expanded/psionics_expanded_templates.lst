@@ -6,21 +6,21 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 ###Block: Determines whether a Constructor gets Advanced Construct or Boost Construct
 # Template Name				Visible	Template													Required Ability									Restricted Ability					Bonus Ability Pool				Auto Feat
 Improved Constructs Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Advanced Constructs|Get Boost Construct|Get Bonus Psionic Feat
-Get Advanced Constructs			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Advanced Constructs								AUTO:FEAT|Advanced Constructs
-Get Boost Construct			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Boost Construct								AUTO:FEAT|Boost Construct
+Get Advanced Constructs			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Advanced Constructs								ABILITY:FEAT|AUTOMATIC|Advanced Constructs
+Get Boost Construct			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Boost Construct								ABILITY:FEAT|AUTOMATIC|Boost Construct
 Get Bonus Psionic Feat			VISIBLE:NO															PREABILITY:2,CATEGORY=FEAT,Advanced Construct,Boost Construct									BONUS:ABILITYPOOL|Bonus Psionic Feat|1
 
 ###Block: Determines Psicrystal Bond choice
 # Template Name		Visible	Template										Required Ability						Restricted Ability					Auto Feat
 Psicrystal Bond Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Get Psicrystal Affinity|Get Improved Psicrystal
-Get Psicrystal Affinity	VISIBLE:NO																				!PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	AUTO:FEAT|Psicrystal Affinity
-Get Improved Psicrystal	VISIBLE:NO												PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity									AUTO:FEAT|Improved Psicrystal
+Get Psicrystal Affinity	VISIBLE:NO																				!PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	ABILITY:FEAT|AUTOMATIC|Psicrystal Affinity
+Get Improved Psicrystal	VISIBLE:NO												PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity									ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 
 ###Block: Determines whether a Metamorph gets Swift Shapeshifter or Master of Forms
 # Template Name			Visible	Template												Required Ability									Restricted Ability					Auto Feat
 Quick Shift Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Swift Shapeshifter|Get Master of All Forms|Get Nothing
-Get Swift Shapeshifter		VISIBLE:NO																									!PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter	AUTO:FEAT|Swift Shapeshifter
-Get Master of All Forms		VISIBLE:NO														PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter				!PREABILITY:1,CATEGORY=FEAT,Master of All Forms	AUTO:FEAT|Master of All Forms
+Get Swift Shapeshifter		VISIBLE:NO																									!PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter	ABILITY:FEAT|AUTOMATIC|Swift Shapeshifter
+Get Master of All Forms		VISIBLE:NO														PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter				!PREABILITY:1,CATEGORY=FEAT,Master of All Forms	ABILITY:FEAT|AUTOMATIC|Master of All Forms
 Get Nothing				VISIBLE:NO														PREABILITY:2,CATEGORY=FEAT,Swift Shapeshifter,Master of All Forms
 
 ###Block: Determines whether a Metamorph gets Major Metamorphosis or some other power.
@@ -52,10 +52,10 @@ Fear Incarnate	VISIBLE:NO	TEMPLATE:Native	RACETYPE:Outsider
 
 ###Block: Battlesense templates
 # Template Name				Visible		Choose											Temporary Bonus
-Battlesense attack bonus		VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices		TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance
-Battlesense AC bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices			TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance
-Battlesense weapon damage bonus	VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance
-Battlesense speed bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices		TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance
+Battlesense attack bonus		VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of attack bonus choices		TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance
+Battlesense AC bonus			VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of AC bonus choices			TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance
+Battlesense speed bonus			VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of movement bonus choices		TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance
 
 ###Block: Activate Advanced Construct abilities
 # Template Name		Required Race

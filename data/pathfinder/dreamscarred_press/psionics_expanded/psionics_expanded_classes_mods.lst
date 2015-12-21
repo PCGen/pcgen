@@ -61,7 +61,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL		ABILITY:Special Ability
 # Class Name
 CLASS:Psion.MOD
 SUBCLASS:Bombardier	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
-SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Psion Feat|-1	ABILITY:Special Ability|AUTOMATIC|Exploding Stone ~ Bombardier|Talents ~ Bombardier	AUTO:FEAT|Scribe Scroll
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Psion Feat|-1	ABILITY:Special Ability|AUTOMATIC|Exploding Stone ~ Bombardier|Talents ~ Bombardier	ABILITY:FEAT|AUTOMATIC|Scribe Scroll
 
 SUBCLASS:Mindwright	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 SUBCLASSLEVEL:1							ABILITY:Internal|AUTOMATIC|Mindwright Abilities
