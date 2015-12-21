@@ -6,7 +6,7 @@ CLASS:Human Survivor	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.48	BONUS:COMBAT|
 # Class Name		Required Lvl	Required Race
 CLASS:Human Survivor	PRELEVEL:MIN=2	PRERACE:1,Human
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Human Survivor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Drive|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Local)|Knowledge (Popular Culture)|Listen|Profession|Search|Speak Language|Spot|Survival|Swim|Treat Injury
+CLASS:Human Survivor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Drive|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Local)|Knowledge (Popular Culture)|Listen|Profession|Search|SPEAK LANGUAGE|Spot|Survival|Swim|Treat Injury
 1	SAB:Adaptable		BONUS:STAT|CON|1	BONUS:VAR|SurvivalInstinct|CL						ABILITY:Special Ability|AUTOMATIC|Survival Instinct
 2					BONUS:STAT|WIS|1						ADD:ABILITY|FEAT|NORMAL|TYPE=HumanSurvivor
 3	SAB:Last Man Standing	BONUS:STAT|CHA|1

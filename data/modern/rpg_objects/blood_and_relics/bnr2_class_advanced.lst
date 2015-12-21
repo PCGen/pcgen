@@ -27,7 +27,7 @@ CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BAS
 # Class Name	Required Ability								Required Skill					Required Text
 CLASS:Cultist	PREABILITY:2,CATEGORY=FEAT,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (Arcane Lore)=6	PRETEXT:The character?s first allegiance must be to a Dark Power.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|Speak Language|Research
+CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Research
 ###Block: Turning
 1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL	BONUS:VAR|ExtraTurningQual|1				DEFINE:ExtraTurningQual|0

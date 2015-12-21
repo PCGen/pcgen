@@ -6,7 +6,7 @@ CLASS:Air Runner	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT
 # Class Name	Required Ability						Required Skill
 CLASS:Air Runner	PREABILITY:1,CATEGORY=FEAT,Aircraft Operation	PRESKILL:3,Navigate=4,Survival=4,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Air Runner	STARTSKILLPTS:4	CSKILL:Barter|Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Drive|Knowledge (Local)|Navigate|Pilot|Repair|Search|Sense Motive|Speak Language|Spot|Survival
+CLASS:Air Runner	STARTSKILLPTS:4	CSKILL:Barter|Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Drive|Knowledge (Local)|Navigate|Pilot|Repair|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival
 1			SAB:Any Place-Any Time	SAB:Push It!
 2			SAB:She'll Make It
 3:REPEATLEVEL:3								BONUS:ABILITYPOOL|Air Runner Feat|1
@@ -21,7 +21,7 @@ CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBA
 # Class Name	Required Skill
 CLASS:Barter Jack	PRESKILL:1,Barter=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE=Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Survival
+CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE=Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Survival
 1																								ABILITY:Special Ability|AUTOMATIC|Region Familiarity
 1:REPEATLEVEL:7														BONUS:VAR|RegionFamiliarity|1
 1																BONUS:VAR|BigMoney|CL					ABILITY:Special Ability|AUTOMATIC|Big Money

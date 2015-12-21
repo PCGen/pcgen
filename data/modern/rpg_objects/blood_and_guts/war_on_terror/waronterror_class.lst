@@ -55,7 +55,7 @@ CLASS:Psyop		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:COMBAT|BASE
 # Class Name	Required Ability																								Required Skill							Required Text
 CLASS:Psyop		PREABILITY:6,CATEGORY=FEAT,Interrogation,Psychological Warfare,Personal Firearms Proficiency,MOS Intelligence 3,Jump School,Defense Language Institute	PRESKILL:3,Craft (Writing)=5,Diplomacy=5,Intimidate=5	PRETEXT:Active or Reserve Duty (US Army)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Psyop		STARTSKILLPTS:8	CSKILL:Bluff|Climb|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Tactics)|Move Silently|Paradrop|READ/WRITE LANGUAGE|Sense Motive|Speak Language
+CLASS:Psyop		STARTSKILLPTS:8	CSKILL:Bluff|Climb|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Tactics)|Move Silently|Paradrop|READ/WRITE LANGUAGE|Sense Motive|SPEAK LANGUAGE
 1	SAB:Talk Down One Opponent within 15 ft, Will DC %|10+CL+CHA|PREVARLT:CL,5
 2																												ADD:ABILITY|FEAT|NORMAL|TYPE=Psyop
 3	SAB:Grace Under Pressure (Psyop) %/day|GraceUnderPressurePsyop				BONUS:VAR|GraceUnderPressurePsyop|CL/3	DEFINE:GraceUnderPressurePsyop|0
@@ -87,7 +87,7 @@ CLASS:Terrorist	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|
 # Class Name	Required Ability								Required Skill									Required Text									PRETOTALAB
 CLASS:Terrorist	PREABILITY:3,CATEGORY=FEAT,Antithesis,Conviction,Enemy	PRESKILL:4,Demolitions=8,Disable Device=8,Hide=8,Move Silently=8	PRETEXT:One group or cause related to Enemy and Antithesis feats	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Intimidate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|READ/WRITE LANGUAGE|Search|Sense Motive|Speak Language|Survival
+CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Intimidate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|READ/WRITE LANGUAGE|Search|Sense Motive|SPEAK LANGUAGE|Survival
 1	SAB:Suicidal Attack
 ### will need help on figuring out how to deal with Fanaticism
 2	SAB:Fanaticism									ADD:ABILITY|FEAT|NORMAL|TYPE=Terrorist
