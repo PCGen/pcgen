@@ -22,7 +22,7 @@ CLASS:Exorcist	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:COMBAT|
 # Class Name	Required Ability																		Required Skill													Required Text
 CLASS:Exorcist	PREABILITY:5,CATEGORY=FEAT,Castigation,Conviction (Higher Power),Exorcism,Sacred Ritual,Secret Society (Doctrine/6)	PRESKILL:3,Knowledge (Theology and Philosophy)=10,Read/Write Language=1,Speak Language=1	PRETEXT:Must be able to speak, read and write latin
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|READ/WRITE LANGUAGE|Research|Search|Sense Motive|Speak Language|Treat Injury
+CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|READ/WRITE LANGUAGE|Research|Search|Sense Motive|SPEAK LANGUAGE|Treat Injury
 1	SAB:Power of Faith +%d6|PowerOfFaith	BONUS:VAR|PowerOfFaith|CL/4+1	DEFINE:PowerOfFaith|0
 2	SAB:Divine Fervor +%|DivineFervor		BONUS:VAR|DivineFervor|CL/2	DEFINE:DivineFervor|0
 3																	ADD:ABILITY|FEAT|NORMAL|TYPE=Exorcist,TYPE=SacredRitual

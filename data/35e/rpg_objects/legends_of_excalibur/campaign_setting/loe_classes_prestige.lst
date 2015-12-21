@@ -4,7 +4,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 # due to .MOD issues of CAST and KNOWN, Assassin copy here
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus											Save bonus
-CLASS:Assassin ~ LoE	HD:6		TYPE:PC.Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:prestigeclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Assassin ~ LoE	HD:6		TYPE:PC.Prestige	FACT:Abb|Asn		MAXLEVEL:10	SOURCEPAGE:prestigeclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill
 CLASS:Assassin ~ LoE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -29,7 +29,7 @@ CLASS:Assassin ~ LoE	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTE
 # Legends of Excalibur block
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Alchemist	HD:4		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Alchemist	HD:4		TYPE:PC.Prestige	FACT:Abb|Alc		MAXLEVEL:10	SOURCEPAGE:35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required Skill										Required Casting Type
 CLASS:Alchemist	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PRESKILL:3,Concentration=5,Knowledge (Arcana)=5,Craft (Alchemy)=10	PRESPELLCAST:TYPE=Arcane,TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -48,7 +48,7 @@ CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable
 10																		ADD:SPELLCASTER|ANY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Berserker	HD:12		TYPE:PC.Prestige	ABB:Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Berserker	HD:12		TYPE:PC.Prestige	FACT:Abb|Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability																Required Text									PRETOTALAB
 CLASS:Berserker	PREABILITY:1,CATEGORY=Special Ability,Rage	PREABILITY:3,CATEGORY=FEAT,Power Attack,Cleave,Great Cleave	PRETEXT:If nationalities are used, only Saxons can be this class	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -65,7 +65,7 @@ CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 10	SAB:Blood Rage (Ex)					BONUS:VAR|MightyRage|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Changeling	HD:10		TYPE:PC.Prestige	ABB:Chg		MAXLEVEL:10	SOURCEPAGE:37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Changeling	HD:10		TYPE:PC.Prestige	FACT:Abb|Chg		MAXLEVEL:10	SOURCEPAGE:37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability								Req. Special Ability	Required Skill								PRETOTALAB
 CLASS:Changeling	PREABILITY:2,CATEGORY=FEAT,Animal Affinity,Self Sufficient	PRESA:1,Wild shape	PRESKILL:1,Concentration=5,Knowledge (Nature)=8,Survival=8	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -82,7 +82,7 @@ CLASS:Changeling	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handl
 10	SAB:Alpha One (Su)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Court Mage	HD:4		TYPE:PC.Prestige	ABB:CtM		MAXLEVEL:10	SOURCEPAGE:38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.Replace	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Court Mage	HD:4		TYPE:PC.Prestige	FACT:Abb|CtM		MAXLEVEL:10	SOURCEPAGE:38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.Replace	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Special Ability	Required Skill				Required Stat
 CLASS:Court Mage	PRESA:1,Lesser Prophecy	PRESKILL:2,Prophecy=10,Diplomacy=10	PRESTAT:1,NOB=50
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -99,7 +99,7 @@ CLASS:Court Mage	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy
 10										BONUS:ABILITYPOOL|Court Mage Feat|1																						ADD:SPELLCASTER|ANY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Save bonus																						Modify VAR
-CLASS:Crusader	HD:10		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
+CLASS:Crusader	HD:10		TYPE:PC.Prestige	FACT:Abb|Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name	Required Ability					Req. Special Ability		Required Skill											Required Stat	PRETOTALAB
 CLASS:Crusader	PREABILITY:2,CATEGORY=FEAT,Faith,Zealot	PRESA:1,Code of Chivalry	PRESKILL:3,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5,Ride=8	PRESTAT:1,NOB=41	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -122,7 +122,7 @@ CLASS:Crusader	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 10	CAST:0,1,2,3,5,14									BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Enchantress	HD:4		TYPE:PC.Prestige	FACT:Abb|Enc		SOURCEPAGE:41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill				Req. Spell Type		Required Stat
 CLASS:Enchantress	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Enchantment)	PRESKILL:2,Bluff=8,Diplomacy=8	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -141,7 +141,7 @@ CLASS:Enchantress	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplom
 10															ADD:SPELLCASTER|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	ABB:LoL		MAXLEVEL:5	SOURCEPAGE:42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.Replace	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Lady of the Lake	HD:8		TYPE:PC.Prestige	FACT:Abb|LoL		MAXLEVEL:5	SOURCEPAGE:42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.Replace	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Gender	Req. Special Ability	Required Skill					Required Stat
 CLASS:Lady of the Lake	PREGENDER:F		PRESA:1,Wildshape		PRESKILL:2,Knowledge (Nature)=8,Swim=8	PRESTAT:1,NOB=51
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -156,7 +156,7 @@ CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Ani
 5	SAB:Tap Water (Ex)	ADD:SPELLCASTER|ANY
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	FACT:Abb|QKn		MAXLEVEL:10	SOURCEPAGE:43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Req. Special Ability		Required Skill								Required Stat	PRETOTALAB
 CLASS:Quest Knight	PREABILITY:3,CATEGORY=FEAT,Faith,Piety,Mounted Combat	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty)=10,Ride=10	PRESTAT:1,NOB=71	PRETOTALAB:10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -177,7 +177,7 @@ CLASS:Quest Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (N
 10	SAB:Vision Quest (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Saint		HD:6		TYPE:PC.Prestige	ABB:St		MAXLEVEL:10	SOURCEPAGE:44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Saint		HD:6		TYPE:PC.Prestige	FACT:Abb|St		MAXLEVEL:10	SOURCEPAGE:44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required Language		Req. Special Ability						Required Skill						Required Stat	Required Text
 CLASS:Saint		PREABILITY:2,CATEGORY=FEAT,Faith,Piety	PRELANG:1,Literacy	PRESA:3,Ordination,Turn the other cheek,Aura of Piety	PRESKILL:2,Knowledge (Religion)=10,Diplomacy=8	PRESTAT:1,NOB=65	PRETEXT:Before taking a level in this prestige class, a character must take a vow of poverty and chastity
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -195,7 +195,7 @@ CLASS:Saint		STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Dip
 # Spectral Knight block
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Black Knight	HD:12		TYPE:PC.Prestige	ABB:BkKn		MAXLEVEL:10	SOURCEPAGE:46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Black Knight	HD:12		TYPE:PC.Prestige	FACT:Abb|BkKn		MAXLEVEL:10	SOURCEPAGE:46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill										PRETOTALAB
 CLASS:Black Knight	PRESKILL:3,Ride=10,Intimidate=10,Knowledge (Nobility and Royalty)=5	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -211,7 +211,7 @@ CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 7	SAB:Black Shield (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Save bonus																						Modify VAR
-CLASS:Blue Knight	HD:10		TYPE:PC.Prestige	ABB:BlKn		MAXLEVEL:10	SOURCEPAGE:47	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
+CLASS:Blue Knight	HD:10		TYPE:PC.Prestige	FACT:Abb|BlKn		MAXLEVEL:10	SOURCEPAGE:47	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name	Required Ability					Req. Special Ability		Required Skill						Required Stat	PRETOTALAB
 CLASS:Blue Knight	PREABILITY:2,CATEGORY=FEAT,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nature)=5,Swim=5	PRESTAT:1,NOB=50	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -234,7 +234,7 @@ CLASS:Blue Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 10	CAST:0,1,2,3,5,14	SAB:Tap Water (Ex)							BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Green Knight	HD:10		TYPE:PC.Prestige	FACT:Abb|GrKn		MAXLEVEL:10	SOURCEPAGE:48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability								PRETOTALAB
 CLASS:Green Knight	PREABILITY:3,CATEGORY=FEAT,Alertness,Animal Affinity,Track	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -253,7 +253,7 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle 
 9																									ABILITY:Special Ability|AUTOMATIC|Druid ~ Venom Immunity
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	FACT:Abb|PKn		MAXLEVEL:10	SOURCEPAGE:49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill						Required Stat	PRETOTALAB
 CLASS:Purple Knight	PRESKILL:3,Diplomacy=5,Ride=10,Handle Animal=10	PRESTAT:1,NOB=50	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -267,7 +267,7 @@ CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Ani
 3	SAB:Like the Wind +%|LikeTheWind					BONUS:VAR|LikeTheWind|min(CL/2-1,0)						DEFINE:LikeTheWind|0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Save bonus																					Modify VAR
-CLASS:Red Knight	HD:8		TYPE:PC.Prestige	ABB:RKn		MAXLEVEL:10	SOURCEPAGE:51	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
+CLASS:Red Knight	HD:8		TYPE:PC.Prestige	FACT:Abb|RKn		MAXLEVEL:10	SOURCEPAGE:51	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name	Required Skill				PRETOTALAB		Var. Min. Value
 CLASS:Red Knight	PRESKILL:3,Hide=5,Bluff=5,Ride=5	PRETOTALAB:5	PREVARGTEQ:SneakAttackDice,2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -290,7 +290,7 @@ CLASS:Red Knight	SPELLSTAT:WIS	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEV
 10	CAST:0,1,2,3,5,14	KNOWN:8,5,3,3,2,1													BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Save bonus																						Modify VAR
-CLASS:White Knight	HD:10		TYPE:PC.Prestige	ABB:WKn		MAXLEVEL:10	SOURCEPAGE:52	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.Replace	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
+CLASS:White Knight	HD:10		TYPE:PC.Prestige	FACT:Abb|WKn		MAXLEVEL:10	SOURCEPAGE:52	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.Replace	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS
 # Class Name		Required Ability					Req. Special Ability		Required Skill											Required Stat	PRETOTALAB
 CLASS:White Knight	PREABILITY:2,CATEGORY=FEAT,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5	PRESTAT:1,NOB=65	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill

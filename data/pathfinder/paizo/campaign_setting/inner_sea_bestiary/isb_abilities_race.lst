@@ -70,7 +70,7 @@ Natural Magic		KEY:Ghoran ~ Natural Magic		CATEGORY:Special Ability	TYPE:Special
 
 ###Block: Giant (Shadow) Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																							Auto Weapon Prof					Add						Source Page
-Militant		KEY:Shadow Giant ~ Militant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Proficient with all simple and martial weapons and 1 exotic weapon of choice.											AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:VFEAT|Exotic Weapon Proficiency	SOURCEPAGE:p.15
+Militant		KEY:Shadow Giant ~ Militant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Proficient with all simple and martial weapons and 1 exotic weapon of choice.											AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:ABILITY|FEAT|VIRTUAL|Exotic Weapon Proficiency	SOURCEPAGE:p.15
 Shadow Cloak	KEY:Shadow Giant ~ Shadow Cloak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.														SOURCEPAGE:p.15
 
 ###Block: Goblin (Monkey) Abilities

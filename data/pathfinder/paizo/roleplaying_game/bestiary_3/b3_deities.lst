@@ -5,4 +5,4 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 
 
 # Deity Name	Product Identity?	Domains								Description of Deity/Title			Deity Weapon	Align		Source Page		Pantheon
-Ahriman		NAMEISPI:YES	DOMAINS:Darkness,Death,Destruction|PREALIGN:NE,LE,CE	DESC:God of wrath, disaster, destruction	DEITYWEAP:Whip	ALIGN:NE	SOURCEPAGE:p.45	PANTHEON:Pathfinder Chronicles
+Ahriman		NAMEISPI:YES	DOMAINS:Darkness,Death,Destruction|PREALIGN:NE,LE,CE	DESC:God of wrath, disaster, destruction	DEITYWEAP:Whip	ALIGN:NE	SOURCEPAGE:p.45	FACTSET:Pantheon|Pathfinder Chronicles

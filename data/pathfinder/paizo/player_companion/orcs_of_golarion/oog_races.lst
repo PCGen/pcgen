@@ -3,4 +3,4 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 # Author: Henk Slaaf
 
 # Race Name	Type			Challenge Rating	Fact
-Orc.MOD	TYPE:Base.PC	CR:1/2		FACT:IsPC|True
+Orc.MOD	TYPE:Base.PC	CR:1/2		FACT:IsPC|true

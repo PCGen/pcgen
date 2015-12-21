@@ -17,7 +17,7 @@ CLASS:Bard.MOD	CSKILL:Black Market|Research
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page			Bonus Languages			Combat bonus															Add domain number		Save bonus																					Modify VAR
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI	LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Cleric	HD:8		TYPE:Base.PC	FACT:Abb|Clr		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI	LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Deity
 CLASS:Cleric	PREDEITY:1,Y
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -506,7 +506,7 @@ CLASS:Companion (Psicrystal)	TYPE:Monster	MAXLEVEL:1
 # Slayer need to be able to choose what type of psionic creature as Favored Enemy
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus															Save bonus																					Modify VAR
-CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name		Required Ability														Required Skill			PRETOTALAB
 CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:1,Concentration=9	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -538,7 +538,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTER
 
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus																					Modify VAR
-CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Required Ability				Required Skill					Required Template		PRETOTALAB
 CLASS:Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -558,7 +558,7 @@ CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering
 10								BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Blast Feedback
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus																					Modify VAR
-CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Required Ability						Required Class				Required Skill
 CLASS:Metamind	PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	PRECLASS:1,SPELLCASTER.Psionic=4	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -572,7 +572,7 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craf
 10									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus															Save bonus																						Modify VAR
-CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name		Required AL		Required Skill										Required Template
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:1,Psionic
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -591,7 +591,7 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intim
 10	BONUS:VAR|ConflagrationDC|15+CHA	ABILITY:Special Ability|AUTOMATIC|Conflagration
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus																						Modify VAR
-CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
 # Class Name	Restricted AL		Required Skill								Required Template		PRETOTALAB
 CLASS:War Mind	!PREALIGN:CG,CN,CE	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:1,Psionic	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill

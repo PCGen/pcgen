@@ -247,8 +247,8 @@ Elf Traits			CATEGORY:Special Ability	VISIBLE:NO																																
 Elemental Traits		CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Elemental Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Critical Hits|Immunity to Flanking|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Sneak Attacks|Immunity to Stunning	ABILITY:Special Ability|AUTOMATIC|Elemental Traits																																							SOURCEPAGE:p.311
 Earth Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.311
 Dwarf Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.311
-Devil Traits		CATEGORY:Special Ability	VISIBLE:NO											AUTO:LANG|Infernal|Celestial|Draconic|PREVAREQ:OverrideSubtypeLanguage,0	ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)|Aligned (Lawful)|Devil ~ See in Darkness|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|Telepathy																																									BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus|10|TYPE=Resistance														SOURCEPAGE:p.311
-Demon Traits		CATEGORY:Special Ability	VISIBLE:NO											AUTO:LANG|Abyssal|Celestial|Draconic|PREVAREQ:OverrideSubtypeLanguage,0		ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)|Aligned (Evil)|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																																								BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|10|TYPE=Resistance											SOURCEPAGE:p.311
+Devil Traits		CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Devil Traits ~ Languages|PREVAREQ:OverrideSubtypeLanguage,0	ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)|Aligned (Lawful)|Devil ~ See in Darkness|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|Telepathy																																									BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus|10|TYPE=Resistance														SOURCEPAGE:p.311
+Demon Traits		CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Demon Traits ~ Languages|PREVAREQ:OverrideSubtypeLanguage,0	ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)|Aligned (Evil)|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																																								BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|10|TYPE=Resistance											SOURCEPAGE:p.311
 Cold Traits			CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Vulnerability to Fire																																																																																		SOURCEPAGE:p.311
 Chaotic Traits		CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)																																																																																						SOURCEPAGE:p.311
 Azata Traits		CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Azata ~ Truespeech|Immunity to Electricity|Immunity to Petrification	ABILITY:Special Ability|AUTOMATIC|Darkvision|Low-Light Vision|PREVAREQ:HasRacialVision,1																																					BONUS:VAR|DarkvisionRange|60|TYPE=Base																			SOURCEPAGE:p.311
@@ -319,6 +319,16 @@ See in Darkness	KEY:Devil ~ See in Darkness	CATEGORY:Special Ability	TYPE:Specia
 ###Block: Oni Subtype Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description																								Source Page		Aspects
 Change Shape	KEY:Oni ~ Change Shape	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:You have the ability to assume the appearance of creatures similar in shape to your true form, but retain most of your own physical qualities.	SOURCEPAGE:p.221	ASPECT:Ability Benefit|(Small, Medium or Large Humanoid; Alter Self of Giant Form I)
+
+# Converter issue
+#	AUTO:LANG|Infernal|Celestial|Draconic|PREVAREQ:OverrideSubtypeLanguage,0
+#	AUTO:LANG|Abyssal|Celestial|Draconic|PREVAREQ:OverrideSubtypeLanguage,0	
+###Block:
+Devil Traits ~ Languages	CATEGORY:Special Ability		AUTO:LANG|Infernal|Celestial|Draconic
+Demon Traits ~ Languages	CATEGORY:Special Ability		AUTO:LANG|Abyssal|Celestial|Draconic
+
+
+
 
 ########################
 # Implement Permanency #

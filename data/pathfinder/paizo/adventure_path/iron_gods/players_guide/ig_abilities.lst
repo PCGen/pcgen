@@ -37,5 +37,3 @@ CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Android Traits|P
 ###Block: Creature Subtype Traits
 # Ability Name		Category of Ability		Visible	Define			Template					Auto Language											Ability																																																							Combat bonus											Modify VAR																			Class Skill				Source Page
 Android Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.312
-
-

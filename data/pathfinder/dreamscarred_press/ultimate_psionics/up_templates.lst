@@ -155,10 +155,10 @@ Untyped bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4				DESC:Untyped bonu
 
 ###Block: Battlesense templates
 # Template Name				Visible		Choose											Temporary Bonus
-Battlesense attack bonus		VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices		TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance
-Battlesense AC bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices			TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance
-Battlesense weapon damage bonus	VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance
-Battlesense speed bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices		TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance
+Battlesense attack bonus		VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of attack bonus choices		TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance
+Battlesense AC bonus			VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of AC bonus choices			TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance
+Battlesense speed bonus			VISIBLE:DISPLAY	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of movement bonus choices		TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance
 
 ###Block: Starting Gold
 # Template Name				Visible	Template																	Apply Kit

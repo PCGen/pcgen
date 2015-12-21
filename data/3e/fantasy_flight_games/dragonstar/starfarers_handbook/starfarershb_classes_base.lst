@@ -12,7 +12,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 ##############
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
-CLASS:Pilot		HD:6		TYPE:Base.PC	ABB:Plt		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Pilot		HD:6		TYPE:Base.PC	FACT:Abb|Plt		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE=Profession|Repair|Spot|Swim|Use Device|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
@@ -30,7 +30,7 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Freefall|Intuit Direc
 17										BONUS:ABILITYPOOL|Pilot Feat|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Mechanist	HD:6		TYPE:Base.PC	ABB:Mech		MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Mechanist	HD:6		TYPE:Base.PC	FACT:Abb|Mech		MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptography|Demolitions|Disable Device|Freefall|TYPE=Knowledge|Open Lock|Pilot|TYPE=Profession|Repair|Research|Search|Use Device
 1	ABILITY:FEAT|AUTOMATIC|Technical Proficiency

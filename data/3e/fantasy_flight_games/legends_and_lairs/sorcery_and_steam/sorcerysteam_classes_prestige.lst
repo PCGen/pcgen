@@ -5,7 +5,7 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 # Arcane Airman -------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	FACT:Abb|ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability				Required Skill						Req. Spell Type
 CLASS:Arcane Airman	PREABILITY:1,CATEGORY=FEAT,Pilot	PRESKILL:2,Knowledge (Steamcraft)=8,Drive=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -27,7 +27,7 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 # Arcane Performer ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	FACT:Abb|ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Ability					Multiple Requirements																								Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Arcane Performer	PREABILITY:1,CATEGORY=FEAT,Child Prodigy	PREMULT:2,[PRESKILL:3,Bluff=8,Perform=8,Spellcraft=8],[PRESKILL:1,Craft (Carpentry)=5,Craft (Woodworking)=5,Craft (Metalworking)=5,Craft (Musical Instrument)=5]	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -59,7 +59,7 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 # Brawler -------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Brawler	HD:10		TYPE:PC.Prestige	FACT:Abb|Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability										Required Skill		PRETOTALAB
 CLASS:Brawler	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Great Fortitude	PRESKILL:1,Intimidate=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -81,7 +81,7 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Intimi
 # Demolitionist -------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	ABB:Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	FACT:Abb|Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Required Skill
 CLASS:Demolitionist	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Munitions)	PRESKILL:5,Alchemy=8,Craft (Explosives)=8,Munitions=8,Concentration=5,Disable Device=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -101,7 +101,7 @@ CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Disa
 # Detective -----------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Detective	HD:6		TYPE:PC.Prestige	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Detective	HD:6		TYPE:PC.Prestige	FACT:Abb|Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability											Required Skill
 CLASS:Detective	PREABILITY:2,CATEGORY=FEAT,Skill Focus (Search),Skill Focus (Sense Motive)	PRESKILL:6,Diplomacy=5,Knowledge (Local)=5,Profession (Detective)=5,Gather Information=8,Search=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -123,7 +123,7 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher S
 # Game Hunter ---------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	FACT:Abb|GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill											PRETOTALAB
 CLASS:Game Hunter	PREABILITY:2,CATEGORY=FEAT,Track,Point Blank Shot	PRESKILL:4,Hide=8,Knowledge (Nature)=8,Move Silently=8,Wilderness Lore=8	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -143,7 +143,7 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle 
 # Gun Glyph ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	FACT:Abb|GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability																																																									Required Skill										Req. Spell Type		Required Text													Req. Weapond Prof.
 CLASS:Gun Glyph	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Flintlock Pistol),Weapon Focus (Matchlock Pistol),Weapon Focus (Percussion Cap Pistol),Weapon Focus (Flintlock Pistol),Weapon Focus (Percussion Cap Pistol),Weapon Focus (Dwarven Tunnel Gun),Weapon Focus (Flintlock Musket),Weapon Focus (Blunderbuss),Weapon Focus (Percussion Cap Musket),Weapon Focus (Ogre Gun)	PRESKILL:3,Alchemy=8,Craft (Gunsmithing)=8,Knowledge (Steamcraft)=5	PRESPELLTYPE:1,Arcane=3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:1,TYPE=Firearms
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -164,7 +164,7 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimida
 # Hypnotist -----------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	FACT:Abb|Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability					Required Skill						Required Spell School
 CLASS:Hypnotist	PREABILITY:1,CATEGORY=FEAT,Hypnotist	PRESKILL:3,Bluff=5,Concentration=5,Spellcraft=8	PRESPELLSCHOOL:1,Enchantment=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -186,7 +186,7 @@ CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Di
 # Noble Bodyguard ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	FACT:Abb|NoB		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability						Required Skill					PRETOTALAB
 CLASS:Noble Bodyguard	PREABILITY:1,CATEGORY=FEAT,Improved Initiative	PRESKILL:2,Intimidate=5,Sense Motive=5	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -204,7 +204,7 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 # Physician -----------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Physician	HD:6		TYPE:PC.Prestige	FACT:Abb|Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Multiple Requirements
 CLASS:Physician	PREABILITY:1,CATEGORY=FEAT,Physician	PREMULT:2,[PRESKILL:2,Alchemy=8,Heal=8],[PRESKILL:1,Profession (Surgeon)=8,Profession (Doctor)=8]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -223,7 +223,7 @@ CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Hide|Intuit Direction|Listen|M
 # Pilot ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Pilot		HD:8		TYPE:PC.Prestige	ABB:Pil		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Pilot		HD:8		TYPE:PC.Prestige	FACT:Abb|Pil		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill
 CLASS:Pilot		PREABILITY:2,CATEGORY=FEAT,Skill Focus (Drive),Pilot	PRESKILL:1,Drive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -242,7 +242,7 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Driv
 # Rocket Ace ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	FACT:Abb|Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill								Required Text
 CLASS:Rocket Ace	PREABILITY:2,CATEGORY=FEAT,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive=8,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -264,7 +264,7 @@ CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE=Craft|Disable
 # Steamcraft Mage -----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	FACT:Abb|StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Ability										Required Skill															Req. Spell Type
 CLASS:Steamcraft Mage	PREABILITY:2,CATEGORY=FEAT,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks)=8,Knowledge (Steamcraft)=8,Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -285,7 +285,7 @@ CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TY
 # Street Runner ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Street Runner	HD:6		TYPE:PC.Prestige	FACT:Abb|SRn		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability				Required Skill																	PRETOTALAB
 CLASS:Street Runner	PREABILITY:1,CATEGORY=FEAT,Run	PRESKILL:5,Balance=5,Hide=5,Intuit Direction=5,Move Silently=5,Pick Pocket=5	PRESKILL:3,Climb=8,Jump=8,Tumble=8	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -303,7 +303,7 @@ CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cra
 # Watchman ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Watchman	HD:10		TYPE:PC.Prestige	FACT:Abb|Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Skill																Required Text						PRETOTALAB
 CLASS:Watchman	PRESKILL:2,Intimidate=3,Sense Motive=3	PRESKILL:1,Knowledge (Law)=3,Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -13,7 +13,7 @@ Antipaladin		CATEGORY:Class
 
 
 # Ability Name				Define							Auto Weapon Prof																					Ability																								Bonus Ability Pool				Modify VAR
-CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfLight
+CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
 
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Alchemy|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Bomb|0
@@ -183,7 +183,7 @@ CATEGORY=Class|Inquisitor.MOD																																																			
 CATEGORY=Class|Inquisitor.MOD																																																																	BONUS:VAR|Inquisitor_CF_TrueJudgment|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
 
 # Oracle
-CATEGORY=Class|Oracle.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf
+CATEGORY=Class|Oracle.MOD																																	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf|TYPE=WeaponProfSimple
 CATEGORY=Class|Oracle.MOD																																																										BONUS:ABILITYPOOL|Oracle Spell Choice|1
 CATEGORY=Class|Oracle.MOD		DEFINE:Oracle_CF_OraclesCurse|0
 CATEGORY=Class|Oracle.MOD		DEFINE:Oracle_CF_OraclesMystery|0
@@ -340,7 +340,7 @@ CATEGORY=Class|Witch.MOD																																																								
 CATEGORY=Class|Witch.MOD																																																																	BONUS:VAR|Witch_CF_PatronSpell18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell18
 
 # Antipaladin
-CATEGORY=Class|Antipaladin.MOD																																ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
+CATEGORY=Class|Antipaladin.MOD																																ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|DetectGoodLVL|AntipaladinLVL
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|SmiteGoodLVL|AntipaladinLVL
 CATEGORY=Class|Antipaladin.MOD																																																																BONUS:VAR|TouchOfCorruptionLVL|AntipaladinLVL

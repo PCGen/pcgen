@@ -3,7 +3,7 @@ SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:Gui
 # Original Entry: Andrew Maitland
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page
-CLASS:Grandmaster	HD:10		TYPE:PC.Prestige	ABB:GrMstr		MAXLEVEL:10	SOURCEPAGE:p.27
+CLASS:Grandmaster	HD:10		TYPE:PC.Prestige	FACT:Abb|GrMstr		MAXLEVEL:10	SOURCEPAGE:p.27
 # Class Name	Required Ability				Required Skill								PRETOTALAB
 CLASS:Grandmaster	PREABILITY:1,CATEGORY=FEAT,Marshal	PRESKILL:2,Diplomacy=24,Knowledge (Nobility and Royalty)=15	PRETOTALAB:15
 # Class Name	Skill Pts/Lvl	Class Skill

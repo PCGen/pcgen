@@ -2,7 +2,7 @@
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Agency Operative	HD:8		TYPE:PC.Prestige	ABB:AOp		MAXLEVEL:10	SOURCEPAGE:p.90	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Agency Operative	HD:8		TYPE:PC.Prestige	FACT:Abb|AOp		MAXLEVEL:10	SOURCEPAGE:p.90	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Skill								PRETOTALAB
 CLASS:Agency Operative	PRESKILL:3,Knowledge (Law)=4,Knowledge (Occult)=3,Spot=8	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -17,7 +17,7 @@ CLASS:Agency Operative	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Decipher Script|D
 9	BONUS:ABILITYPOOL|Skill Focus|1
 
 # Class Name		Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Black Magician	HD:6		TYPE:NPC	ABB:Blm		MAXLEVEL:20	SOURCEPAGE:p.124	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Black Magician	HD:6		TYPE:NPC	FACT:Abb|Blm		MAXLEVEL:20	SOURCEPAGE:p.124	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name		Required AL
 CLASS:Black Magician	PREALIGN:LE,NE,CE
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -48,7 +48,7 @@ CLASS:Black Magician	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcane	BON
 20	BONUS:ABILITYPOOL|Black Magician up to 9th level Black Magic|INT	BONUS:ABILITYPOOL|Black Magician Feat|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Blessed	HD:6		TYPE:PC	ABB:Bls		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Blessed	HD:6		TYPE:PC	FACT:Abb|Bls		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Blessed	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -84,7 +84,7 @@ CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Divine	BONUS:CAST
 20	BONUS:ABILITYPOOL|Blessed up to 9th level Miracles|WIS	BONUS:ABILITYPOOL|Gift|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Brave		HD:10		TYPE:PC	ABB:Brv		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Brave		HD:10		TYPE:PC	FACT:Abb|Brv		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brave		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Indian Lore)|Knowledge (Nature)|Listen|Move Silently|Ride|TYPE=Language|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -102,7 +102,7 @@ CLASS:Brave		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Innuendo
 
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Gunslinger	HD:10		TYPE:PC	ABB:Gns		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Gunslinger	HD:10		TYPE:PC	FACT:Abb|Gns		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Gamblin'|Gunplay|Holdout|Intimidate|Knowledge (Local)|TYPE=Profession|Ride|Ridicule|Sense Motive|TYPE=Language|Speed Load|Spot|Use Rope
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
@@ -122,7 +122,7 @@ CLASS:Gunslinger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Gambl
 19	BONUS:ABILITYPOOL|Gunslinger Feat|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Huckster	HD:6		TYPE:PC	FACT:Abb|Hck		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE=Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE=Language|Spellcraft
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
@@ -153,7 +153,7 @@ CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcane	MEMORIZE:
 20	BONUS:ABILITYPOOL|Huckster up to 9th level Hexes|INT
 
 # Class Name		Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Mad Scientist	HD:6		TYPE:PC	ABB:Mds		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Mad Scientist	HD:6		TYPE:PC	FACT:Abb|Mds		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mad Scientist	STARTSKILLPTS:6	CSKILL:Alchemy|TYPE=Craft|Decipher Script|Demolitions|Disable Device|TYPE=Drivin'|Heal|TYPE=Knowledge|Mad Science|Open Lock|TYPE=Profession|TYPE=Language|Tinkerin'
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
@@ -171,7 +171,7 @@ CLASS:Mad Scientist	STARTSKILLPTS:6	CSKILL:Alchemy|TYPE=Craft|Decipher Script|De
 20	BONUS:ABILITYPOOL|Academic Mastery|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Maverick	HD:6		TYPE:PC	ABB:Mvr		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Maverick	HD:6		TYPE:PC	FACT:Abb|Mvr		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Maverick	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamblin'|Gather Information|Hide|Holdout|Innuendo|Intimidate|Jump|Knowledge (History)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Ridicule|Search|Sense Motive|Sleight o' Hand|TYPE=Language|Spot|Tale Tellin'|Tumble
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
@@ -193,7 +193,7 @@ CLASS:Maverick	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|De
 20	BONUS:ABILITYPOOL|Maverick|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Rowdy		HD:10		TYPE:PC	ABB:Rwd		MAXLEVEL:20	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Rowdy		HD:10		TYPE:PC	FACT:Abb|Rwd		MAXLEVEL:20	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rowdy		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Demolitions|TYPE=Drivin'|Handle Animal|Holdout|Intimidate|Jump|Knowledge (Local)|Listen|TYPE=Profession|Ridicule|Ride|TYPE=Language|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -209,7 +209,7 @@ CLASS:Rowdy		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Demolitions|TYPE=Drivin'|Ha
 17	BONUS:ABILITYPOOL|Rowdy Feat|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Scout		HD:8		TYPE:PC	ABB:Sct		MAXLEVEL:20	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Scout		HD:8		TYPE:PC	FACT:Abb|Sct		MAXLEVEL:20	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Gather Information|Handle Animal|Hide|Holdout|Intuit Direction|Jump|Knowledge (Local)|Knowledge (Indian Lore)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|TYPE=Language|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -229,7 +229,7 @@ CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Gather Information|Handle A
 20	BONUS:ABILITYPOOL|Scout Language Bonus +2|1
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Shaman (DL)	HD:6		TYPE:PC	ABB:Shm		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Shaman (DL)	HD:6		TYPE:PC	FACT:Abb|Shm		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman (DL)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Indian Lore)|Knowledge (Nature)|Ritual|Sense Motive|TYPE=Language|Swim|Wilderness Lore
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Caster level
@@ -260,7 +260,7 @@ CLASS:Shaman (DL)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Divine	BONUS:
 20	BONUS:ABILITYPOOL|Shaman up to 9th level Favors|WIS	BONUS:ABILITYPOOL|Guardian4|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Texas Ranger	HD:10		TYPE:PC.Prestige	ABB:TxR		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|floor((classlevel("APPLIEDAS=NONEPIC")+3)*2/5)
+CLASS:Texas Ranger	HD:10		TYPE:PC.Prestige	FACT:Abb|TxR		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|floor((classlevel("APPLIEDAS=NONEPIC")+3)*2/5)
 # Class Name		Required Ability				Required Skill							PRETOTALAB
 CLASS:Texas Ranger	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Gather Information=4,Wilderness Lore=5	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill

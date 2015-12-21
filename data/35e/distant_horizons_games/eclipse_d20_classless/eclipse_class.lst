@@ -6,7 +6,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 ###BLOCK: Eclipse Point Buy HD variation for individual HD acquisition. Should delevop BONUS:HD using a Class Level Line specific Var - See "Point Buy" class for usage
 
 # Class Name				Output Name				Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (Template)	OUTPUTNAME:Eclipse Template	TYPE:Base.PC.Eclipse	ABB:EdT		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (Template)	OUTPUTNAME:Eclipse Template	TYPE:Base.PC.Eclipse	FACT:Abb|EdT		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name				Skill Pts/Lvl
 CLASS:Eclipse Point Buy (Template)	STARTSKILLPTS:0
 ###Block:
@@ -20,7 +20,7 @@ CLASS:Eclipse Point Buy (Template)	STARTSKILLPTS:0
 
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d0)	OUTPUTNAME:d0E	HD:1		TYPE:Base.PC.Eclipse	ABB:d0E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d0)	OUTPUTNAME:d0E	HD:1		TYPE:Base.PC.Eclipse	FACT:Abb|d0E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d0)	STARTSKILLPTS:0
 ###Block:
@@ -33,7 +33,7 @@ CLASS:Eclipse Point Buy (d0)	STARTSKILLPTS:0
 1	BONUS:VAR|CharacterPointsLevelOffSet|4*CL	BONUS:VAR|EclipseClassLvl|CL
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d02)	OUTPUTNAME:d2E	HD:2		TYPE:Base.PC.Eclipse	ABB:d2E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d02)	OUTPUTNAME:d2E	HD:2		TYPE:Base.PC.Eclipse	FACT:Abb|d2E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d02)	STARTSKILLPTS:0
 ###Block:
@@ -47,7 +47,7 @@ CLASS:Eclipse Point Buy (d02)	STARTSKILLPTS:0
 
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d04)	OUTPUTNAME:d4E	HD:4		TYPE:Base.PC.Eclipse	ABB:d4E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d04)	OUTPUTNAME:d4E	HD:4		TYPE:Base.PC.Eclipse	FACT:Abb|d4E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 ###Block:
@@ -62,7 +62,7 @@ CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 1	BONUS:VAR|EclipseClassLvl|CL
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d06)	OUTPUTNAME:d6E	HD:6		TYPE:Base.PC.Eclipse	ABB:d6E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d06)	OUTPUTNAME:d6E	HD:6		TYPE:Base.PC.Eclipse	FACT:Abb|d6E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d06)	STARTSKILLPTS:0
 ###Block:
@@ -76,7 +76,7 @@ CLASS:Eclipse Point Buy (d06)	STARTSKILLPTS:0
 #
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	FACT:Abb|d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
@@ -91,7 +91,7 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d10)	OUTPUTNAME:d10E	HD:10		TYPE:Base.PC.Eclipse	ABB:d10E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d10)	OUTPUTNAME:d10E	HD:10		TYPE:Base.PC.Eclipse	FACT:Abb|d10E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d10)	STARTSKILLPTS:0
 ###Block:
@@ -105,7 +105,7 @@ CLASS:Eclipse Point Buy (d10)	STARTSKILLPTS:0
 #
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d12)	OUTPUTNAME:d12E	HD:12		TYPE:Base.PC.Eclipse	ABB:d12E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d12)	OUTPUTNAME:d12E	HD:12		TYPE:Base.PC.Eclipse	FACT:Abb|d12E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d12)	STARTSKILLPTS:0
 ###Block:
@@ -119,7 +119,7 @@ CLASS:Eclipse Point Buy (d12)	STARTSKILLPTS:0
 #
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse Point Buy (d20)	OUTPUTNAME:d20E	HD:20		TYPE:Base.PC.Eclipse	ABB:d20E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d20)	OUTPUTNAME:d20E	HD:20		TYPE:Base.PC.Eclipse	FACT:Abb|d20E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 ###Block:
@@ -136,7 +136,7 @@ CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 ###Block: Workaround - Allows Eclipse only Classes to have a Spell Casting Class
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Visible	Define			Modify VAR
-CLASS:Eclipse	HD:1		TYPE:Base.PC.Eclipse	ABB:EPB		MAXLEVEL:20	VISIBLE:NO	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse	HD:1		TYPE:Base.PC.Eclipse	FACT:Abb|EPB		MAXLEVEL:20	VISIBLE:NO	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name	Spell Type		Caster level
 CLASS:Eclipse	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name	Multiple Requirements
@@ -146,7 +146,7 @@ CLASS:Eclipse	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 
 
 # Class Name		Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Eclipse SubTest	HD:1		TYPE:Base.PC.Eclipse	ABB:EPB		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1	BONUS:VAR|EclipseClassLvl|CL
+CLASS:Eclipse SubTest	HD:1		TYPE:Base.PC.Eclipse	FACT:Abb|EPB		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1	BONUS:VAR|EclipseClassLvl|CL
 # Class Name		Spell Type		Caster level
 CLASS:Eclipse SubTest	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name	Multiple Requirements
@@ -264,7 +264,7 @@ SUBSTITUTIONCLASS:d20	BONUS:VAR|CharacterPointsLevelOffSet|-16*CL	HD:20
 ###Block: Original Demo Class
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Point Buy	HD:4		TYPE:Base.PC.Eclipse	FACT:Abb|Point		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Point Buy	STARTSKILLPTS:0
 ###Block:
@@ -297,7 +297,7 @@ CLASS:Point Buy	STARTSKILLPTS:0
 
 
 # Class Name			Hit Dice	Type				Abbreviation	Max Level	Define			Modify VAR
-CLASS:Classless Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
+CLASS:Classless Point Buy	HD:4		TYPE:Base.PC.Eclipse	FACT:Abb|Point		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block:
@@ -334,7 +334,7 @@ CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block: For Martial Arts Work Around
 
 # Class Name	Type		Abbreviation	Visible
-CLASS:Fake Monk	TYPE:PC	ABB:Buy		VISIBLE:NO
+CLASS:Fake Monk	TYPE:PC	FACT:Abb|Buy		VISIBLE:NO
 1	DONOTADD:HITDIE|SKILLPOINTS	BONUS:ABILITYPOOL|FEAT|-1
 #2	UDAM:1d4
 #3	UDAM:1d6
@@ -358,7 +358,7 @@ CLASS:Fake Monk	TYPE:PC	ABB:Buy		VISIBLE:NO
 ###Block: Extra HD workaround.
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Visible
-CLASS:Extra HD 4	HD:4		TYPE:PC	ABB:ed4		MAXLEVEL:6	VISIBLE:NO
+CLASS:Extra HD 4	HD:4		TYPE:PC	FACT:Abb|ed4		MAXLEVEL:6	VISIBLE:NO
 1	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L1
 2	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L2
 3	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L3
@@ -367,7 +367,7 @@ CLASS:Extra HD 4	HD:4		TYPE:PC	ABB:ed4		MAXLEVEL:6	VISIBLE:NO
 6	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L6
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Visible
-CLASS:Extra HD 6	HD:6		TYPE:PC	ABB:x			MAXLEVEL:6	VISIBLE:NO
+CLASS:Extra HD 6	HD:6		TYPE:PC	FACT:Abb|x			MAXLEVEL:6	VISIBLE:NO
 1	DONOTADD:SKILLPOINTS	TEMPLATE:HD6L1
 1	DONOTADD:SKILLPOINTS	TEMPLATE:HD6L2
 1	DONOTADD:SKILLPOINTS	TEMPLATE:HD6L3
@@ -377,19 +377,19 @@ CLASS:Extra HD 6	HD:6		TYPE:PC	ABB:x			MAXLEVEL:6	VISIBLE:NO
 
 
 # Class Name	Hit Dice	Type		Abbreviation	Visible
-CLASS:Extra HD 8	HD:8		TYPE:PC	ABB:x			VISIBLE:NO
+CLASS:Extra HD 8	HD:8		TYPE:PC	FACT:Abb|x			VISIBLE:NO
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L1
 
 # Class Name	Hit Dice	Type		Abbreviation	Visible
-CLASS:Extra HD 10	HD:10		TYPE:PC	ABB:x			VISIBLE:NO
+CLASS:Extra HD 10	HD:10		TYPE:PC	FACT:Abb|x			VISIBLE:NO
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L1
 
 # Class Name	Hit Dice	Type		Abbreviation	Visible
-CLASS:Extra HD 12	HD:12		TYPE:PC	ABB:x			VISIBLE:NO
+CLASS:Extra HD 12	HD:12		TYPE:PC	FACT:Abb|x			VISIBLE:NO
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L1
 
 # Class Name	Hit Dice	Type		Abbreviation	Visible
-CLASS:Extra HD 20	HD:20		TYPE:PC	ABB:x			VISIBLE:NO
+CLASS:Extra HD 20	HD:20		TYPE:PC	FACT:Abb|x			VISIBLE:NO
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS	TEMPLATE:HD4L1
 
 

@@ -5,7 +5,7 @@ CLASS:Evangelist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.198	DEFINE:Evan
 # Class Name	Required Ability						Multiple Requirements										Required Text
 CLASS:Evangelist	PREABILITY:1,CATEGORY=FEAT,Deific Obedience	PREMULT:1,[PRETOTALAB:5],[PRESPELLTYPE:1,Divine=3],[PRESKILL:1,TYPE.Base=5]	PRETEXT:Alignment: Within one step of chosen deity. Deity: Must worship a single, specific deity. Feat: Deific Obedience* Special: Any one of the following: base attack bonus +5, 5 ranks in any skill other than Knowledge (religion), or ability to cast 3rd-level spells.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (religion)|Perception|TYPE=Profession
+CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|Perception|TYPE=Profession
 ###Block
 1	ADD:CLASSSKILLS|2|ANY
 ###Block
@@ -24,11 +24,11 @@ CLASS:Exalted	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.200	DEFINE:Exalted
 # Class Name	Required Ability												Required AL		Required Deity	Required Skill						Req. Spell Type		Required Text
 CLASS:Exalted	PREABILITY:2,CATEGORY=FEAT,deific obedience,skill focus (knowledge (religion))	PREALIGN:DEITY	PREDEITY:1,Y	PRESKILL:2,Diplomacy=5,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=3	PRETEXT:Alignment: Same as chosen deity. Deity: Must worship a single, specific deity. Feats: Deific Obedience*, Skill Focus (Knowledge [religion]). Skills: Diplomacy 5 ranks, Knowledge (religion) 5 ranks. Spells: Ability to cast 3rd-level divine spells.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Exalted	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (planes)|Knowledge (religion)|Linguistics|Perform (oratory)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Exalted	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Linguistics|Perform (Oratory)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
-1	ADD:CLASSSKILLS|1|TYPE=Knowledge
+1	ADD:CLASSSKILLS|TYPE=Knowledge
 ###Block
 1	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Weapon and Armor Proficiency
 1	ABILITY:Exalted Class Feature|AUTOMATIC|Exalted ~ Divine Brand
@@ -47,7 +47,7 @@ CLASS:Sentinel	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.202	DEFINE:Senti
 # Class Name	Required Ability								Required Deity	Required Text																																PRETOTALAB
 CLASS:Sentinel	PREABILITY:2,CATEGORY=FEAT,Deific obedience,Weapon Focus	PREDEITY:1,Y	PRETEXT:Alignment: Within one step of chosen deity. Deity: Must worship a single, specific deity. Feats: Deific Obedience*, Weapon Focus (deity's favored weapon). Special: Base attack bonus +5 or higher.	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sentinel	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (religion)|Perception|TYPE=Profession|Ride|Survival|Swim
+CLASS:Sentinel	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Survival|Swim
 ###Block
 1	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Weapon and Armor Proficiency
 1	ABILITY:Sentinel Class Feature|AUTOMATIC|Sentinel ~ Obedience

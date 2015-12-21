@@ -150,11 +150,11 @@ CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraf
 1													ABILITY:Special Ability|AUTOMATIC|Psicrystal Bond ~ Psicrystal Imprinter|Psicrystal Receptacle ~ Psicrystal Imprinter
 2	BONUS:VAR|SkilledCrafter|CL/2								ABILITY:Special Ability|AUTOMATIC|Skilled Crafter ~ Psicrystal Imprinter
 3	BONUS:VAR|PsicrystalResonanceLVL|CL							ABILITY:Special Ability|AUTOMATIC|Psicrystal Resonance ~ Psicrystal Imprinter
-4																																	AUTO:FEAT|Improved Psicrystal
+4																																	ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 5													ABILITY:Special Ability|AUTOMATIC|Efficient Receptacle ~ Psicrystal Imprinter
-7																																	AUTO:FEAT|Improved Psicrystal
+7																																	ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 9													ABILITY:Special Ability|AUTOMATIC|Essence Crystal ~ Psicrystal Imprinter
-10	BONUS:VAR|EfficientReceptacle|-1							ABILITY:Special Ability|AUTOMATIC|Crystalline Infusion ~ Psicrystal Imprinter								AUTO:FEAT|Improved Psicrystal
+10	BONUS:VAR|EfficientReceptacle|-1							ABILITY:Special Ability|AUTOMATIC|Crystalline Infusion ~ Psicrystal Imprinter								ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 
 ###Block: Psicrystal Imprinter enhance psionic ability
 1	BONUS:ABILITYPOOL|Psicrystal Imprinter Enhancement Choice|1									DEFINE:PsicrystalImprinterEnhancementCount|0
@@ -178,7 +178,7 @@ CLASS:Sighted Seeker	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Survival
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Sighted Seeker	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker|SightedSeekerML
+CLASS:Sighted Seeker	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker|SightedSeekerML
 
 ###Block: Sighted Seeker setup for possible manifesting
 1	BONUS:VAR|IsPsionic|1																											DEFINE:IsPsionic|0	DEFINE:OwnManifesting|0			ABILITY:Special Ability|AUTOMATIC|Psionic

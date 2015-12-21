@@ -3,7 +3,7 @@ SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://w
 #Original entry by Greg G (Phantom of Krankor)
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Altherian Sharp Shooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:5	SOURCEPAGE:p.165	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Altherian Sharp Shooter	HD:8		TYPE:PC.Prestige	FACT:Abb|Shp		MAXLEVEL:5	SOURCEPAGE:p.165	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name			Required Ability																					Required Skill			Required Template		PRETOTALAB
 CLASS:Altherian Sharp Shooter	PREABILITY:5,CATEGORY=FEAT,Precise Shot,Quick Reload,Combat Firing,Exotic Weapon Proficiency (Flintlock %),Weapon Focus (Flintlock %)	PRESKILL:1,Concentration=2	PRETEMPLATE:1,Altheria	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -16,7 +16,7 @@ CLASS:Altherian Sharp Shooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concent
 
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Bretheren of the Missionary	HD:8		TYPE:PC.Prestige	ABB:BoO		MAXLEVEL:5	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Bretheren of the Missionary	HD:8		TYPE:PC.Prestige	FACT:Abb|BoO		MAXLEVEL:5	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name				Required Ability					Required AL			Required Skill				PRETOTALAB
 CLASS:Bretheren of the Missionary	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:LG,LN,NG,TN	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:4
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -29,7 +29,7 @@ CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentra
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	FACT:Abb|DoE		MAXLEVEL:5	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name			Required Ability																								Required AL		Required Race	Required Skill					PRETOTALAB
 CLASS:Dancer of the Elements	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:6,CATEGORY=FEAT,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PREALIGN:LG,LN,LE	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -43,7 +43,7 @@ CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silen
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Blight Bearer	HD:8		TYPE:PC.Prestige	ABB:BlB		MAXLEVEL:4	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Blight Bearer	HD:8		TYPE:PC.Prestige	FACT:Abb|BlB		MAXLEVEL:4	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Required AL		Required Deity	Required Domain		Required Skill					Req. Spell Type
 CLASS:Blight Bearer	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Necromancy)	PREALIGN:LE,NE,CE	PREDEITY:1,Neroth	PREDOMAIN:1,Disease	PRESKILL:2,Knowledge (Religion)=5,Heal=5	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -56,7 +56,7 @@ CLASS:Blight Bearer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowled
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Blight Apostle	HD:8		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:1	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Blight Apostle	HD:8		TYPE:PC.Prestige	FACT:Abb|BlA		MAXLEVEL:1	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability						Required Class			Required Skill									Req. Spell Type
 CLASS:Blight Apostle	PREABILITY:1,CATEGORY=FEAT,Great Fortitude	PRECLASS:1,Blight Bearer=4	PRESKILL:3,Knowledge (Religion)=10,Knowledge (Disease)=10,Heal=10	PRESPELLTYPE:1,Divine=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -65,7 +65,7 @@ CLASS:Blight Apostle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowle
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:val'Mehan Emissary	HD:6		TYPE:PC.Prestige	ABB:vME		MAXLEVEL:5	SOURCEPAGE:p.169	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|2+((classlevel("APPLIEDAS=NONEPIC")/7)*5)	BONUS:SAVE|BASE.Will|2+((classlevel("APPLIEDAS=NONEPIC")/5)*3)
+CLASS:val'Mehan Emissary	HD:6		TYPE:PC.Prestige	FACT:Abb|vME		MAXLEVEL:5	SOURCEPAGE:p.169	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|2+((classlevel("APPLIEDAS=NONEPIC")/7)*5)	BONUS:SAVE|BASE.Will|2+((classlevel("APPLIEDAS=NONEPIC")/5)*3)
 # Class Name			Required Skill												Required Stat
 CLASS:val'Mehan Emissary	PRESKILL:4,Knowledge (Nobility and Royalty)=8,Diplomacy=4,Sense Motive=4,Bluff=4	PRESTAT:1,CHA=16
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -79,7 +79,7 @@ CLASS:val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentratio
 
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Order of the Emerald Flame	HD:4		TYPE:PC.Prestige	ABB:OEF		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/10)*3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Order of the Emerald Flame	HD:4		TYPE:PC.Prestige	FACT:Abb|OEF		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/10)*3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name				Required Ability									Required AL				Required Check Base		Required Skill									Req. Spell Type
 CLASS:Order of the Emerald Flame	PREABILITY:2,CATEGORY=FEAT,Spell Focus (Evocation),Toughness	PREALIGN:NG,TN,NE,CG,CN,CE	PRECHECKBASE:1,Fortitude=8	PRESKILL:3,Concentration=8,Knowledge (Arcana)=4,Spellcraft=4	PRESPELLTYPE:1,Arcane=4
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -98,7 +98,7 @@ CLASS:Order of the Emerald Flame	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TY
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Ordained Seekers	HD:4		TYPE:PC.Prestige	ABB:OrS		MAXLEVEL:5	SOURCEPAGE:p.171	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Ordained Seekers	HD:4		TYPE:PC.Prestige	FACT:Abb|OrS		MAXLEVEL:5	SOURCEPAGE:p.171	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name		Required Ability					Required AL				Required Skill									Req. Spell Type
 CLASS:Ordained Seekers	PREABILITY:2,CATEGORY=FEAT,TYPE=Metamagic	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -111,7 +111,7 @@ CLASS:Ordained Seekers	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|D
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Wine Drinker	HD:8		TYPE:PC.Prestige	ABB:WnD		MAXLEVEL:5	SOURCEPAGE:p.172	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*(1/2)	BONUS:SAVE|BASE.Reflex,BASE.Will|(9/10)+((classlevel("APPLIEDAS=NONEPIC")-1)/10)
+CLASS:Wine Drinker	HD:8		TYPE:PC.Prestige	FACT:Abb|WnD		MAXLEVEL:5	SOURCEPAGE:p.172	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*(1/2)	BONUS:SAVE|BASE.Reflex,BASE.Will|(9/10)+((classlevel("APPLIEDAS=NONEPIC")-1)/10)
 # Class Name		Required AL				Prohibited Class				Required Skill
 CLASS:Wine Drinker	PREALIGN:LN,LE,TN,NE,CN,CE	!PRECLASS:1,SPELLCASTER.Arcane=1	PRESKILL:2,Alchemy=4,Knowledge (Arcana)=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -128,7 +128,7 @@ CLASS:Wine Drinker	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wine Dr
 
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Warriors of the Eternal Flame	HD:10		TYPE:PC.Prestige	ABB:WEF		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Warriors of the Eternal Flame	HD:10		TYPE:PC.Prestige	FACT:Abb|WEF		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name				Required Ability					Required Deity	Required Skill				PRETOTALAB
 CLASS:Warriors of the Eternal Flame	PREABILITY:1,CATEGORY=FEAT,Toughness	PREDEITY:1,Nier	PRESKILL:1,Knowledge (Religion)=5	PRETOTALAB:5
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -150,7 +150,7 @@ CLASS:Warriors of the Eternal Flame	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Ehtzara	HD:6		TYPE:PC.Prestige	ABB:Eht		MAXLEVEL:10	SOURCEPAGE:p.174	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Ehtzara	HD:6		TYPE:PC.Prestige	FACT:Abb|Eht		MAXLEVEL:10	SOURCEPAGE:p.174	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Required Ability																			Required AL		Multiple Requirements																Required Stat
 CLASS:Ehtzara	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Scry),Skill Focus (Knowledge (Arcana))	PREALIGN:CG,CN,CE	PREMULT:3,[PRESKILL:1,Knowledge (Arcana)=8,Spellcraft=8],[PRESKILL:1,Alchemy=4,Scry=4],[PRESKILL:1,TYPE.Craft=1]	PRESTAT:1,INT=14,WIS=14
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -171,7 +171,7 @@ CLASS:Ehtzara	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus
-CLASS:Blackchanter	HD:6		TYPE:PC.Prestige	ABB:Blc		MAXLEVEL:5	SOURCEPAGE:Compendium p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Blackchanter	HD:6		TYPE:PC.Prestige	FACT:Abb|Blc		MAXLEVEL:5	SOURCEPAGE:Compendium p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name		Required AL				Required Skill															Req. Spell Type		Required Stat	Var. Min. Value
 CLASS:Blackchanter	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:5,Concentration=4,Knowledge (Heraldry)=4,Knowledge (Thanatology)=4,Spellcraft=4,Perform=8	PRESPELLTYPE:1,Arcane=4	PRESTAT:1,INT=14	PREVARGTEQ:BardicMusic,1
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -8,7 +8,7 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 ### Faceman -------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																Save bonus																																			Modify VAR
-CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		MAXLEVEL:20	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)-(classlevel("APPLIEDAS=NONEPIC")==15)-(classlevel("APPLIEDAS=NONEPIC")==17)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
+CLASS:Faceman	HD:10		TYPE:Base.PC	FACT:Abb|Fac		MAXLEVEL:20	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)-(classlevel("APPLIEDAS=NONEPIC")==15)-(classlevel("APPLIEDAS=NONEPIC")==17)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|LANGUAGES|TYPE=Language|Open Lock|Perform|TYPE=Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
 ###Block:
@@ -37,7 +37,7 @@ CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguis
 ### Fixer ---------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																			Save bonus																																Modify VAR
-CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
+CLASS:Fixer		HD:8		TYPE:Base.PC	FACT:Abb|Fix		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE=Hobby|Innuendo|Jump|TYPE=Knowledge|LANGUAGES|TYPE=Language|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble
 ###Block:
@@ -65,7 +65,7 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Cr
 ### Pointman ------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																		Save bonus																							Modify VAR
-CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+CLASS:Pointman	HD:10		TYPE:Base.PC	FACT:Abb|Ptm		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Driver|First Aid|TYPE=Knowledge|TYPE=Profession|Sense Motive|TYPE=Sport
 ###Block:
@@ -94,7 +94,7 @@ CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Dri
 ### Snoop ---------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																														Save bonus																						Modify VAR
-CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
+CLASS:Snoop		HD:8		TYPE:Base.PC	FACT:Abb|Snp		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|First Aid|Gather Information|Hide|TYPE=Hobby|TYPE=Knowledge|LANGUAGES|TYPE=Language|Listen|Mechanics|Move Silently|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Surveillance
 ###Block:
@@ -122,7 +122,7 @@ CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration
 ### Soldier -------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																		Save bonus																																Modify VAR
-CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
+CLASS:Soldier	HD:12		TYPE:Base.PC	FACT:Abb|Sol		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
 ###Block:
@@ -152,7 +152,7 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver
 ### Wheelman ------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																											Save bonus																						Modify VAR
-CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+CLASS:Wheelman	HD:12		TYPE:Base.PC	FACT:Abb|Whl		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Disguise|Driver|Escape Artist|Handle Animal|Intimidate|Jump|Mechanics|Open Lock|Perform|Pilot|TYPE=Profession|TYPE=Sport|Spot|Surveillance|Survival|Swim
 ###Block:
@@ -182,7 +182,7 @@ CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Dis
 ### Non-Player Classes ------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																					Save bonus
-CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.244	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)
+CLASS:Minion	HD:4		TYPE:Base.NPC	FACT:Abb|Min		MAXLEVEL:20	SOURCEPAGE:p.244	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
 ###Block:

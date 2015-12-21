@@ -28,7 +28,7 @@ CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Dip
 ###Block: ~ Beast Lord
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																															Modify VAR
-CLASS:Beast Lord	HD:8		TYPE:Prestige.PC	ABB:Bel		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Beast Lord	HD:8		TYPE:Prestige.PC	FACT:Abb|Bel		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Ability							Required Skill
 CLASS:Beast Lord	PREABILITY:2,CATEGORY=FEAT,Animal Affinity,Track	PRESKILL:3,Handle Animal=8,Knowledge (nature)=4,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -151,7 +151,7 @@ CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artis
 ###Block: Dark Mystic
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Dark Mystic	HD:6		TYPE:Prestige.PC	ABB:DkM		MAXLEVEL:5	SOURCEPAGE:p.94	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Dark Mystic	HD:6		TYPE:Prestige.PC	FACT:Abb|DkM		MAXLEVEL:5	SOURCEPAGE:p.94	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Required Ability													Required AL		Required Skill						PRETOTALAB
 CLASS:Dark Mystic	PREABILITY:2,CATEGORY=Special Ability,TYPE.MavitusFlemenSense,TYPE.MavitusFlemenControl	PREALIGN:LE,NE,CE	PRESKILL:2,Intimidate=4,Knowledge (undead)=4	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -214,7 +214,7 @@ CLASS:Dark Path	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Disguise|Hi
 ###Block: Dragon Rider
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Dragon Rider	HD:10		TYPE:Prestige.PC	ABB:DrR		MAXLEVEL:5	SOURCEPAGE:p.99	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dragon Rider	HD:10		TYPE:Prestige.PC	FACT:Abb|DrR		MAXLEVEL:5	SOURCEPAGE:p.99	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability												Required Language		Required Skill
 CLASS:Dragon Rider	PREABILITY:4,CATEGORY=FEAT,Mounted Archery,Mounted Combat,Ride-By Attack,Far Shot	PRELANG:1,Draconic	PRESKILL:5,Dragon Lore=10,Handle Animal=6,Knowledge (dragons)=6,Ride=10,Speak Language=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -427,7 +427,7 @@ CLASS:Knight of Manunzul	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (Un
 ###Block: ~ Living Compass
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Living Compass	HD:6		TYPE:Prestige.PC	ABB:LvC		MAXLEVEL:5	SOURCEPAGE:p.117	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+CLASS:Living Compass	HD:6		TYPE:Prestige.PC	FACT:Abb|LvC		MAXLEVEL:5	SOURCEPAGE:p.117	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name		Required Ability				Multiple Requirements																																																				Required Skill
 CLASS:Living Compass	PREABILITY:1,CATEGORY=FEAT,Track	PREMULT:1,[PREMULT:2,[PREMULT:3,[PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenSensing],[PRECLASS:1,Mystic Knight=1]],[PREMULT:2,[!PRECLASS:1,Mystic Knight=1],[PREABILITY:5,CATEGORY=FEAT,Alertness,Combat Reflexes,Deflect Arrows,Endurance,Great Fortitude,Improved Initiative,Iron Will,Lightning Reflexes,Quick Draw]]]	PRESKILL:3,Concentration=4,Sense Motive=8,Survival=4
 # Class Name		Skill Pts/Lvl	Class Skill

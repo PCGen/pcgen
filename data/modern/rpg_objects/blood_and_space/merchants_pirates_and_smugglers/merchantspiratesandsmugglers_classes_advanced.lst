@@ -6,7 +6,7 @@ CLASS:Mercenary	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|
 # Class Name	Multiple Requirements																		Required Skill				PRETOTALAB
 CLASS:Mercenary	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency],[PREABILITY:1,CATEGORY=FEAT,Brawl,Combat Martial Arts]	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|READ/WRITE LANGUAGE|Speak Language|Spot|Survival|Swim
+CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Survival|Swim
 ###Block: Rage variables
 1	BONUS:VAR|BarbRageTimesLVL|CL					DEFINE:BarbRageTimesLVL|0
 1	BONUS:VAR|BarbRagePowerLVL|CL					DEFINE:BarbRagePowerLVL|0
@@ -26,7 +26,7 @@ CLASS:Merchant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:COMBAT|BA
 # Class Name	Required Ability					Required Skill
 CLASS:Merchant	PREABILITY:1,CATEGORY=FEAT,Trustworthy	PRESKILL:2,Bluff=6,Diplomacy=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE=Perform|Pilot|Profession|READ/WRITE LANGUAGE|Sense Motive|Speak Language
+CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE=Perform|Pilot|Profession|READ/WRITE LANGUAGE|Sense Motive|SPEAK LANGUAGE
 1	SAB:1st Market
 2	SAB:Ear to the Ground
 3								ADD:ABILITY|FEAT|NORMAL|TYPE=Merchant
@@ -43,7 +43,7 @@ CLASS:Pirate	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASE
 # Class Name	Required Ability									Required Skill			PRETOTALAB
 CLASS:Pirate	PREABILITY:2,CATEGORY=FEAT,Starship Operation,Zero G Training	PRESKILL:2,Pilot=6,Tumble=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|READ/WRITE LANGUAGE|Speak Language|Tumble
+CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Tumble
 ###Block:Sneak Attack
 1	BONUS:VAR|SneakAttackDice|CL/4+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block:Normal Progression

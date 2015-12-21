@@ -2,7 +2,7 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Chaos Mage	HD:4		TYPE:Base.PC	ABB:cmc		MAXLEVEL:20	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Chaos Mage	HD:4		TYPE:Base.PC	FACT:Abb|cmc		MAXLEVEL:20	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Chaos Mage	PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -19,7 +19,7 @@ CLASS:Chaos Mage	SPELLSTAT:CHA	FACT:SpellType|Chaos	BONUS:CASTERLEVEL|Chaos Mage
 12																ABILITY:Special Ability|AUTOMATIC|Purge Chaos ~ Chaos Mage
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	ABB:bcc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ChaosCasting|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	FACT:Abb|bcc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ChaosCasting|classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Required AL		Required Skill			Var. Min. Value
 CLASS:Bloodcarver	PREALIGN:CG,CN,CE	PRESKILL:1,Concentration=12	PREVARGTEQ:ChaosCasting,2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -33,7 +33,7 @@ CLASS:Bloodcarver	SPELLSTAT:CHA	FACT:SpellType|Chaos	BONUS:CASTERLEVEL|Bloodcarv
 5										ABILITY:Special Ability|AUTOMATIC|Bloodcarving ~ Bloodcarver
 
 # Class Name	Hit Dice	Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Doomringer	HD:4		ABB:dmc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ChaosCasting|CL
+CLASS:Doomringer	HD:4		FACT:Abb|dmc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ChaosCasting|CL
 # Class Name	Required AL	Required Skill			Var. Min. Value
 CLASS:Doomringer	PREALIGN:CE	PRESKILL:1,Concentration=12	PREVARGTEQ:ChaosCasting,2
 # Class Name	Skill Pts/Lvl	Class Skill

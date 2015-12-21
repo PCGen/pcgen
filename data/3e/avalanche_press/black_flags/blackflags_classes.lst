@@ -16,7 +16,7 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:B
 # Checked website and no errata appears to have been published.
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:Mch		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Merchant	NAMEISPI:NO		HD:8		TYPE:Base.PC	FACT:Abb|Mch		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE=Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
@@ -32,7 +32,7 @@ CLASS:Merchant	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|TYPE=Craft|Diplomacy|
 17									BONUS:VAR|BFResources|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Nbl		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Noble		NAMEISPI:NO		HD:6		TYPE:Base.PC	FACT:Abb|Nbl		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gather Information|Innuendo|Intimidate|TYPE=Knowledge|Read Lips|Ride|Sense Motive|Speak Language|Spot
 ###Block: Proficiency
@@ -52,7 +52,7 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gathe
 19															BONUS:VAR|BFResources|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	FACT:Abb|Pri		MAXLEVEL:20	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Gender
 CLASS:Priest	PREGENDER:M
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -79,7 +79,7 @@ CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Deci
 20																			BONUS:FEAT|POOL|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		MAXLEVEL:20	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	FACT:Abb|Slr		MAXLEVEL:20	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disable Device|Heal|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Navigation|Piloting|TYPE=Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -98,7 +98,7 @@ CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disab
 20					BONUS:FEAT|POOL|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	FACT:Abb|FtSol		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Swim
 ###Block: Proficiency
@@ -119,31 +119,31 @@ CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Sw
 20	BONUS:ABILITYPOOL|Fighter Feat|1
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus
-CLASS:Escaped Slave	NAMEISPI:NO		HD:8		TYPE:Base.PC	ABB:ESl		MAXLEVEL:1	SOURCEPAGE:p.40	BONUS:SAVE|BASE.Fortitude|2
+CLASS:Escaped Slave	NAMEISPI:NO		HD:8		TYPE:Base.PC	FACT:Abb|ESl		MAXLEVEL:1	SOURCEPAGE:p.40	BONUS:SAVE|BASE.Fortitude|2
 # Class Name		Prohibited Class		Required Lvl
 CLASS:Escaped Slave	!PRECLASS:1,Priest=1	PRELEVEL:MIN=1
 1	BONUS:SKILL|Disguise,Escape Artist,Hide,Move Silently|2|TYPE=Class	ABILITY:FEAT|AUTOMATIC|Endurance|Run
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus
-CLASS:Carpenter	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Car		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Reflex|2
+CLASS:Carpenter	NAMEISPI:NO		HD:6		TYPE:Base.PC	FACT:Abb|Car		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Reflex|2
 # Class Name	Prohibited Class			Required Lvl
 CLASS:Carpenter	!PRECLASS:1,Priest=1,Noble=1	PRELEVEL:MIN=1
 1	SAB:Damage Control (Ex)	BONUS:SKILL|Balance,Climb|2|TYPE=Class	BONUS:SKILL|Craft (Carpentry)|4|TYPE=Class	ABILITY:FEAT|AUTOMATIC|Amputate
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus
-CLASS:Cook		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Cok		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Reflex|2
+CLASS:Cook		NAMEISPI:NO		HD:6		TYPE:Base.PC	FACT:Abb|Cok		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Reflex|2
 # Class Name	Prohibited Class		Required Lvl
 CLASS:Cook		!PRECLASS:1,Priest=1	PRELEVEL:MIN=1
 1	SAB:Forage (Ex)	BONUS:SKILL|Profession (Cook),Haggle|4|TYPE=Class	ABILITY:FEAT|AUTOMATIC|Alertness
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus
-CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:SAVE|BASE.Will|2
+CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	FACT:Abb|Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:SAVE|BASE.Will|2
 # Class Name	Required Lvl
 CLASS:Officer	PRELEVEL:MIN=1
 1	SAB:Forage (Ex)	BONUS:ABILITYPOOL|Panache Feat|1	BONUS:SKILL|Balance,Intimidate,Navigation,Piloting|2|TYPE=Class	ABILITY:FEAT|AUTOMATIC|Weapon Finesse(Rapier)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	ABB:Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Captain	NAMEISPI:NO		HD:10		TYPE:Prestige.PC	FACT:Abb|Cap		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability					Required Skill				Required Stat
 CLASS:Captain	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:2,Navigation=8,Piloting=8	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -163,7 +163,7 @@ CLASS:Captain	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Intu
 1						BONUS:ABILITYPOOL|Panache Feat|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	FACT:Abb|Cnl		MAXLEVEL:10	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability					Required Class		Required Skill		Required Stat	Required Text
 CLASS:Cardinal	PREABILITY:1,CATEGORY=FEAT,Leadership	PRECLASS:1,Priest=7	PRESKILL:1,Diplomacy=12	PRESTAT:1,CHA=13	PRETEXT:Must have been promoted to Bishop.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -180,7 +180,7 @@ CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Scri
 10	SAB:Excommunicate (Su)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Navigator	NAMEISPI:NO		HD:8		TYPE:Prestige.PC	ABB:Nav		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Navigator	NAMEISPI:NO		HD:8		TYPE:Prestige.PC	FACT:Abb|Nav		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Skill												Required Stat
 CLASS:Navigator	PRESKILL:1,Navigation=12	PRESKILL:1,Intuit Direction=8	PRESKILL:1,Piloting=6	PRESTAT:1,WIS=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -195,7 +195,7 @@ CLASS:Navigator	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Decipher Scri
 10	SAB:Never Lost (Su)
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	FACT:Abb|Phy		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Skill						Required Stat
 CLASS:Physician	PRESKILL:3,Alchemy=6,Wilderness Lore=6,Heal=8	PRESTAT:1,INT=12
 # Class Name	Skill Pts/Lvl	Class Skill

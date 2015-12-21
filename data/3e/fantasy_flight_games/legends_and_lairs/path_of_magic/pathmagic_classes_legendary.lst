@@ -9,7 +9,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Death Lord	HD:6		TYPE:PC.Prestige	ABB:DLo		MAXLEVEL:5	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Death Lord	HD:6		TYPE:PC.Prestige	FACT:Abb|DLo		MAXLEVEL:5	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability									Required AL				Required Skill											Req. Spell Type		Required Text
 CLASS:Death Lord	PREABILITY:2,CATEGORY=FEAT,Leadership,Spell Focus (Necromancy)	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Knowledge (Undead)=10	PRESKILL:2,Knowledge (Arcana)=15,Heal=5	PRESPELLTYPE:1,Arcane=5	PRETEXT:Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -24,7 +24,7 @@ CLASS:Death Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Kn
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Elemental Lord	HD:6		TYPE:PC.Prestige	ABB:ELo		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Elemental Lord	HD:6		TYPE:PC.Prestige	FACT:Abb|ELo		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability										Required Skill										Required Text
 CLASS:Elemental Lord	PREABILITY:2,CATEGORY=FEAT,Great Fortitude,Spell Focus (Evocation)	PRESKILL:3,Knowledge (The Planes)=7,Knowledge (Arcana)=15,Spellcraft=12	PRETEXT:At least half of the character's spells known must have an elemental descriptor or be elemental in nature. Quests: See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -39,7 +39,7 @@ CLASS:Elemental Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYP
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Infiltrator	HD:8		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:5	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Infiltrator	HD:8		TYPE:PC.Prestige	FACT:Abb|Inf		MAXLEVEL:5	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability																												Required AL				Required Skill													Req. Spell Type		Required Text
 CLASS:Infiltrator	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Enchantment)	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Disguise),Skill Focus (Sense Motive)	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:6,Forgery=2,Diplomacy=8,Gather Information=8,Sense Motive=8,Bluff=12,Disguise=15	PRESPELLTYPE:1,Arcane=3	PRETEXT:Able to cast 3rd-level Bard spells. Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -56,7 +56,7 @@ CLASS:Infiltrator	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Co
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Landwalker	HD:6		TYPE:PC.Prestige	ABB:Lan		MAXLEVEL:5	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Landwalker	HD:6		TYPE:PC.Prestige	FACT:Abb|Lan		MAXLEVEL:5	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability						Required AL		Required Skill							Req. Known Spell									Required Text
 CLASS:Landwalker	PREABILITY:2,CATEGORY=FEAT,Alertness,Toughness	PREALIGN:CG,CN,CE	PRESKILL:2,Knowledge (Nature)=6,Knowledge (Arcana)=15	PRESPELL:2,Animal Growth,Control Water,Locate Creature,Move Earth	PRETEXT:Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -73,7 +73,7 @@ CLASS:Landwalker	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Kn
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Maestro	HD:8		TYPE:PC.Prestige	ABB:Mae		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Maestro	HD:8		TYPE:PC.Prestige	FACT:Abb|Mae		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability																									Required Language	Required Skill								Req. Spell Type		Required Text
 CLASS:Maestro	PREABILITY:1,CATEGORY=FEAT,Leadership	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Perform),Skill Focus (Sense Motive)	PRELANG:3,ANY	PRESKILL:4,Bluff=8,Sense Motive=8,Perform=12,Diplomacy=15	PRESPELLTYPE:1,Arcane=3	PRETEXT:Able to cast 3rd-level Bard spells. Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -90,7 +90,7 @@ CLASS:Maestro	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concen
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Oracle	HD:6		TYPE:PC.Prestige	ABB:Ora		MAXLEVEL:5	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Ora		MAXLEVEL:5	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability						Multiple Requirements																										Required Skill							Required Text
 CLASS:Oracle	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Scry)	PREMULT:5,[PRESPELLSCHOOL:5,Divination=1],[PRESPELLSCHOOL:4,Divination=2],[PRESPELLSCHOOL:3,Divination=3],[PRESPELLSCHOOL:2,Divination=4],[PRESPELLSCHOOL:1,Divination=5]	PRESKILL:3,Concentration=8,Sense Motive=5,Scry=15	PRETEXT:The character must suffer some physical deformity, such as being blind or missing a hand or foot. Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -107,7 +107,7 @@ CLASS:Oracle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowle
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Puppetmaster	HD:6		TYPE:PC.Prestige	ABB:Ppt		MAXLEVEL:5	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Puppetmaster	HD:6		TYPE:PC.Prestige	FACT:Abb|Ppt		MAXLEVEL:5	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability								Required Skill									Req. Known Spell			Required Stat	Required Text
 CLASS:Puppetmaster	PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Iron Will	PRESKILL:3,Spellcraft=10,Knowledge (Arcana)=12,TYPE.Craft=15	PRESPELL:1,Charm Monster	PRESTAT:1,CHA=13	PRETEXT:Quests: See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -122,7 +122,7 @@ CLASS:Puppetmaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplo
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Puzzlemaster	HD:8		TYPE:PC.Prestige	ABB:Pzl		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Puzzlemaster	HD:8		TYPE:PC.Prestige	FACT:Abb|Pzl		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability																				Required AL				Req. Special Ability		Required Skill										Required Text
 CLASS:Puzzlemaster	PREABILITY:1,CATEGORY=FEAT,Alertness	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disable Device),Skill Focus (Use Magic Device)	PREALIGN:LG,LN,LE,NG,TN,NE	PRESA:1,Bardic knowledge	PRESKILL:3,Disable Device=10,Use Magic Device=10,Decipher Script=15	PRETEXT:Quests: See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -139,7 +139,7 @@ CLASS:Puzzlemaster	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|C
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Traveler	HD:6		TYPE:PC.Prestige	ABB:Tra		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Traveler	HD:6		TYPE:PC.Prestige	FACT:Abb|Tra		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability												Required Class				Required Skill										Required Stat	Required Text
 CLASS:Traveler	PREABILITY:2,CATEGORY=FEAT,Skill Focus (Diplomacy),Spell Focus (Transmutation)	PRECLASS:1,SPELLCASTER.Arcane=9	PRESKILL:3,Diplomacy=7,Knowledge (Arcana)=10,Knowledge (The Planes)=15	PRESTAT:1,CHA=13	PRETEXT:Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -159,7 +159,7 @@ CLASS:Traveler	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Know
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Wizard King	HD:6		TYPE:PC.Prestige	ABB:WKi		MAXLEVEL:5	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Wizard King	HD:6		TYPE:PC.Prestige	FACT:Abb|WKi		MAXLEVEL:5	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability								Required Skill								Req. Spell Type		Required Text
 CLASS:Wizard King	PREABILITY:5,CATEGORY=FEAT,TYPE.Metamagic,TYPE.ItemCreation	PRESKILL:3,Scry=10,Spellcraft=10,Knowledge (Arcana)=15	PRESPELLTYPE:1,Arcane=6	PRETEXT:Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
