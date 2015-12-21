@@ -2,7 +2,7 @@
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Agent		HD:4		TYPE:PC.Prestige	ABB:Agt		MAXLEVEL:5	SOURCEPAGE:72	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Agent		HD:4		TYPE:PC.Prestige	FACT:Abb|Agt		MAXLEVEL:5	SOURCEPAGE:72	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability								Required Skill
 CLASS:Agent		PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Agent))	PRESKILL:4,Bluff=4,Gather Information=4,Sense Motive=4,Profession (Agent)=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -14,7 +14,7 @@ CLASS:Agent		STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Gather Information|Inn
 5	SAB:Old Guard															BONUS:VAR|AgentSalary|2
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Bodyguard	HD:12		TYPE:PC.Prestige	ABB:Bdg		MAXLEVEL:5	SOURCEPAGE:74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
+CLASS:Bodyguard	HD:12		TYPE:PC.Prestige	FACT:Abb|Bdg		MAXLEVEL:5	SOURCEPAGE:74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
 # Class Name	Required Ability									Multiple Requirements																													Required Skill					PRETOTALAB
 CLASS:Bodyguard	PREABILITY:2,CATEGORY=FEAT,Alertness,Improved Unarmed Strike	PREMULT:1,[PREMULT:2,[PRERACE:1,Half-Orc],[PRESTAT:1,STR=18]],[PREMULT:2,[PRERACE:1,Human,Dwarf%,Half-Elf,Elf%],[PRESTAT:1,STR=16]],[PREMULT:2,[PRERACE:1,Gnome%,Halfling%],[PRESTAT:1,STR=14]]	PRESKILL:3,Sense Motive=8,Spot=8,Drive=4	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -26,7 +26,7 @@ CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Intimidate|Jump|Listen|
 5	SAB:Stature							BONUS:COMBAT|TOHIT.Grapple|4										BONUS:STAT|CON|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Coach		HD:8		TYPE:PC.Prestige	ABB:Cch		MAXLEVEL:5	SOURCEPAGE:76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Coach		HD:8		TYPE:PC.Prestige	FACT:Abb|Cch		MAXLEVEL:5	SOURCEPAGE:76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required Skill											PRETOTALAB
 CLASS:Coach		PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:5,Intimidate=8,Profession (Coach)=8,Sense Motive=8,Heal=4,Perform=4	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -40,7 +40,7 @@ CLASS:Coach		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Heal
 5	SAB:Fundamentals (any class)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Free Agent	HD:6		TYPE:PC.Prestige	ABB:FrA		MAXLEVEL:10	SOURCEPAGE:78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Free Agent	HD:6		TYPE:PC.Prestige	FACT:Abb|FrA		MAXLEVEL:10	SOURCEPAGE:78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required Skill					Required Text								PRETOTALAB
 CLASS:Free Agent	PREABILITY:1,CATEGORY=FEAT,Crowd Favorite	PRESKILL:2,Perform=6,Knowledge (XCrawl)=4	PRETEXT:Fame must be 55 at some point during the career.	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -56,7 +56,7 @@ CLASS:Free Agent	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Diplomacy|Dr
 10	SAB:Rally the Troops
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Groupie	HD:4		TYPE:PC.Prestige	ABB:Grp		MAXLEVEL:5	SOURCEPAGE:81	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|min((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)
+CLASS:Groupie	HD:4		TYPE:PC.Prestige	FACT:Abb|Grp		MAXLEVEL:5	SOURCEPAGE:81	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|min((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)
 # Class Name	Required Skill		Required Stat	Required Text
 CLASS:Groupie	PRESKILL:1,Bluff=4	PRESTAT:1,CHA=15	PRETEXT:To qualify for this prestige class, a candidte must pass the groupie trifecta: they must get back stage, meet an XCrawler, and convince him to carry a token of theirs on their person when they fight.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -68,7 +68,7 @@ CLASS:Groupie	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo
 5	SAB:Almost Famous
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Paparazzi	HD:6		TYPE:PC.Prestige	ABB:Pap		MAXLEVEL:5	SOURCEPAGE:83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Paparazzi	HD:6		TYPE:PC.Prestige	FACT:Abb|Pap		MAXLEVEL:5	SOURCEPAGE:83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required Skill						PRETOTALAB
 CLASS:Paparazzi	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:3,Spot=8,Photography=4,Sense Motive=4	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -80,7 +80,7 @@ CLASS:Paparazzi	STARTSKILLPTS:8	CSKILL:Bluff|Climb|Concentration|Craft (Printmak
 5	SAB:Impossible Shot							BONUS:VAR|FavoredCeleb|3
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Scrambler	HD:8		TYPE:PC.Prestige	ABB:Scr		MAXLEVEL:10	SOURCEPAGE:86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Scrambler	HD:8		TYPE:PC.Prestige	FACT:Abb|Scr		MAXLEVEL:10	SOURCEPAGE:86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3*4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill			PRETOTALAB
 CLASS:Scrambler	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Serpentine	PRESKILL:2,Tumble=8,Bluff=8	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,7 +98,7 @@ CLASS:Scrambler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Jump|Sense Motive|Tum
 10	SAB:Ultimate Two-Buckler Style
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Superstar	HD:4		TYPE:PC.Prestige	ABB:SSt		MAXLEVEL:3	SOURCEPAGE:88	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Superstar	HD:4		TYPE:PC.Prestige	FACT:Abb|SSt		MAXLEVEL:3	SOURCEPAGE:88	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill				Required Stat	Required Text																											PRETOTALAB
 CLASS:Superstar	PREABILITY:1,CATEGORY=FEAT,Crowd Favorite,The Profile	PRESKILL:2,Bluff=12,Perform=12	PRESTAT:1,FAM=50	PRETEXT:Must have 2 of the following: an obsessive stalker, 3+ magazine covers, entertainment news show dedicated to you, cameo as yourself in a movie or on TV, a fan club	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill

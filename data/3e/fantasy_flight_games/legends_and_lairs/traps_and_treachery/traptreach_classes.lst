@@ -4,7 +4,7 @@ SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOU
 # Applied errata from http://www.fantasyflightgames.com/lltterrata.html (Roofrunner) - Byngl
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
-CLASS:Discreet Companion	HD:4		TYPE:PC.Prestige	ABB:DCO		MAXLEVEL:10	SOURCEPAGE:p.20-23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Discreet Companion	HD:4		TYPE:PC.Prestige	FACT:Abb|DCO		MAXLEVEL:10	SOURCEPAGE:p.20-23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability										Required AL				Required Skill
 CLASS:Discreet Companion	PREABILITY:2,CATEGORY=FEAT,Alertness,Skill Focus (Gather Information)	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort)=5,Profession (Courtesan)=5,Profession (Prostitute)=5	PRESKILL:2,Innuendo=4,Perform=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -15,7 +15,7 @@ CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery
 10	SAB:Charmtouch		BONUS:ABILITYPOOL|Discreet Companion|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
-CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	FACT:Abb|fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability									Required AL				Required Skill											PRETOTALAB		Var. Min. Value
 CLASS:Guildmaster	PREABILITY:2,CATEGORY=FEAT,Leadership,Skill Focus (Intimidate)	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PRETOTALAB:3	PREVARGTEQ:SneakAttackDice,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -31,7 +31,7 @@ CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Dis
 5	SAB:Just the Man for the Job.
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
-CLASS:Roofrunner	HD:6		TYPE:PC.Prestige	ABB:RRN		MAXLEVEL:10	SOURCEPAGE:p.26-29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Roofrunner	HD:6		TYPE:PC.Prestige	FACT:Abb|RRN		MAXLEVEL:10	SOURCEPAGE:p.26-29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Skill
 CLASS:Roofrunner	PRESKILL:7,Knowledge (Home City)=5,Urban Lore=8,Climb=5,Balance=5,Jump=5,Move Silently=5,Gather Information=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -47,7 +47,7 @@ CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable De
 7	SAB:Turn the Tables
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
-CLASS:Trapmaster	HD:6		TYPE:PC.Prestige	ABB:TMS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Trapmaster	HD:6		TYPE:PC.Prestige	FACT:Abb|TMS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability						Required AL				Required Skill
 CLASS:Trapmaster	PREABILITY:1,CATEGORY=FEAT,Mechanical Aptitude	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:2,Craft (Trapmaking)=6,Disable Device=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -74,7 +74,7 @@ CLASS:Trapmaster	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2
 10	CAST:0,2,2,1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
-CLASS:Thug		HD:6		TYPE:Base.NPC	ABB:THG		MAXLEVEL:20	SOURCEPAGE:p.31-33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Thug		HD:6		TYPE:Base.NPC	FACT:Abb|THG		MAXLEVEL:20	SOURCEPAGE:p.31-33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Urban Lore
 ###Block: Proficiencies

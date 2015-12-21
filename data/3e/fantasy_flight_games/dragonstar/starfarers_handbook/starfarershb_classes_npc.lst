@@ -12,7 +12,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 #################
 
 # Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
-CLASS:Thug		HD:6		TYPE:NPC	ABB:Thg		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Thug		HD:6		TYPE:NPC	FACT:Abb|Thg		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREABILITY:1,CATEGORY=FEAT,Technical Proficiency

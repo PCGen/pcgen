@@ -124,7 +124,7 @@ Juju Miracle			KEY:Juju Doctor ~ Juju Miracle			CATEGORY:Special Ability	TYPE:Sp
 
 Neural Specialization		KEY:Psionic ~ Neural Specialization			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Psionic Class Feature																																																																			DESC:(+%1 to DC of Neural Mutations used)|(CL/2)
 
-Chaps and Chains			KEY:Raider ~ Chaps and Chains				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature																																								DEFINE:chapchain|0																																																		BONUS:VAR|chapchain|1	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=4	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=8																		ASPECT:NAME|Chaps and Chains (+%)|chapchain
+Chaps and Chains			KEY:Raider ~ Chaps and Chains				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature																																								DEFINE:chapchain|0																																																		BONUS:VAR|chapchain|1	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=4	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=8																		ASPECT:NAME|Chaps and Chains (+%%)|chapchain
 Bloodthirsty Cry			KEY:Raider ~ Bloodthirsty Cry				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature
 Horrifying Kill			KEY:Raider ~ Horrifying Kill				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature
 No Survivors			KEY:Raider ~ No Survivors				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature

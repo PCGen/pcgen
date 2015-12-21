@@ -2,7 +2,7 @@
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus										Save bonus
-CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Arc		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability																	Required Race		Req. Spell Type		PRETOTALAB
 CLASS:Arcane Archer	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Bow)	PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot	PRERACE:1,Half-Elf,Elf%	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -18,7 +18,7 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Intuit Direction|List
 10							ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus											Save bonus
-CLASS:Assassin	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Assassin	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Asn		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Skill
 CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Move Silently=8,Hide=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -40,7 +40,7 @@ CLASS:Assassin	SPELLSTAT:INT	FACT:SpellType|Arcane	SPELLBOOK:YES	BONUS:CASTERLEV
 10	CAST:0,2,2,2,1	BONUS:VAR|UncannyDodge|1
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page				Combat bonus										Save bonus
-CLASS:Blackguard	HD:10		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:prestigeclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Blackguard	HD:10		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Bgd		MAXLEVEL:10	SOURCEPAGE:prestigeclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required AL		Required Skill					PRETOTALAB
 CLASS:Blackguard	PREABILITY:2,CATEGORY=FEAT,Cleave,Sunder	PREALIGN:LE,NE,CE	PRESKILL:2,Hide=5,Knowledge (Religion)=2	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -74,7 +74,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 10	CAST:0,2,2,2,1
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus										Save bonus
-CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Def		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Def		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Required AL		Required Race	PRETOTALAB
 CLASS:Dwarven Defender	PREABILITY:3,CATEGORY=FEAT,Dodge,Endurance,Toughness	PREALIGN:LG,LN,LE	PRERACE:1,Dwarf%	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -89,7 +89,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spo
 10	DR:6/-						BONUS:VAR|UncannyDodge|1
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus										Save bonus
-CLASS:Loremaster	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Loremaster	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Lor		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Multiple Requirements																			Required Skill						Required Spell School
 CLASS:Loremaster	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge %)],[PREABILITY:3,CATEGORY=FEAT,TYPE=Metamagic,TYPE=ItemCreation]	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -106,7 +106,7 @@ CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|Decipher 
 10														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus											Save bonus
-CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesii	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Shd		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesii	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Ability								Required Skill
 CLASS:Shadowdancer	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Hide=10,Move Silently=8,Perform=5
 # Class Name		Skill Pts/Lvl	Class Skill

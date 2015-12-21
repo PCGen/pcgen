@@ -2,7 +2,7 @@
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																																		List of Class Spells by Level
-CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PRECLASS:1,Beast Handler=3	SPELLLEVEL:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Ally II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
+CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	FACT:Abb|BHd		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PRECLASS:1,Beast Handler=3	SPELLLEVEL:CLASS|Beast Handler=1|Animal Friendship,Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Ally II,Summon Swarm|Beast Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III
 # Class Name		Required Ability													Required Skill			PRETOTALAB
 CLASS:Beast Handler	PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (Whip),Skill Focus (Handle Animal)	PRESKILL:1,Handle Animal=8	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -25,7 +25,7 @@ CLASS:Beast Handler	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTER
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Brute		HD:10		TYPE:PC.Prestige	ABB:Brt		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Brute		HD:10		TYPE:PC.Prestige	FACT:Abb|Brt		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability							Required Skill		PRETOTALAB
 CLASS:Brute		PREABILITY:2,CATEGORY=FEAT,Power Attack,Toughness	PRESKILL:1,Intimidate=5	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -46,7 +46,7 @@ CLASS:Brute		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Ride|Swim
 10										ABILITY:Special Ability|AUTOMATIC|Brutal Assault ~ Brute
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	ABB:ETr		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	FACT:Abb|ETr		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Ability							Required Race		Required Skill							PRETOTALAB
 CLASS:Elf Treerunner	PREABILITY:2,CATEGORY=FEAT,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Climb=8,Wilderness Lore=4,Jump=6,Balance=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -66,7 +66,7 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	FACT:Abb|Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Ability									Prohibited Class		Required Skill							PRETOTALAB
 CLASS:Epic Athlete	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Run,Toughness	!PRECLASS:1,Monk=1	PRESKILL:5,Jump=8,Balance=4,Tumble=4,Climb=6,Swim=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -85,7 +85,7 @@ CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intim
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																										BONUS:VAR|Regen|max(CON,0)	DEFINE:Regen|0	ABILITY:Special Ability|AUTOMATIC|Immunity to disease and poison ~ Epic Athlete|Regeneration ~ Epic Athlete
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Footman	HD:8		TYPE:PC.Prestige	ABB:Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Footman	HD:8		TYPE:PC.Prestige	FACT:Abb|Ftm		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability						Maximum Size	PRETOTALAB
 CLASS:Footman	PREABILITY:2,CATEGORY=FEAT,Dodge,Expertise	PRESIZELTEQ:S	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -99,7 +99,7 @@ CLASS:Footman	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|TYPE=Profession|Ride|
 4											ABILITY:Special Ability|AUTOMATIC|Defend Ally ~ Footman
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Gutter Fighter	HD:10		TYPE:PC.Prestige	ABB:Gtr		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Gutter Fighter	HD:10		TYPE:PC.Prestige	FACT:Abb|Gtr		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability					Required AL				Maximum Size	Required Skill				PRETOTALAB
 CLASS:Gutter Fighter	PREABILITY:1,CATEGORY=FEAT,Weapon Finesse	PREALIGN:LN,LE,TN,NE,CN,CE	PRESIZELTEQ:S	PRESKILL:2,Intimidate=6,Hide=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -119,7 +119,7 @@ CLASS:Gutter Fighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Escape Artist
 10																		ABILITY:Special Ability|AUTOMATIC|Agonizing Strike ~ Gutter Fighter
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Knight Chaplain	HD:8		TYPE:PC.Prestige	ABB:KCh		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Knight Chaplain	HD:8		TYPE:PC.Prestige	FACT:Abb|KCh		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability						Required Skill				PRETOTALAB
 CLASS:Knight Chaplain	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Heal)	PRESKILL:2,Concentration=4,Heal=4	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -150,7 +150,7 @@ CLASS:Knight Chaplain	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:YES	BONUS:CAS
 10	CAST:6,4,4,3,3,2							ABILITY:Special Ability|AUTOMATIC|Combat Healing ~ Knight Chaplain
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Lancer	HD:10		TYPE:PC.Prestige	ABB:Lnc		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Lancer	HD:10		TYPE:PC.Prestige	FACT:Abb|Lnc		MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability																																	Required Skill			PRETOTALAB
 CLASS:Lancer	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longspear),Weapon Focus (Glaive),Weapon Focus (Guisarme),Weapon Focus (Ranseur),Weapon Focus (Lance%)	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Skill Focus (Jump)	PRESKILL:2,Jump=4,Tumble=4	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -169,7 +169,7 @@ CLASS:Lancer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Jump|
 10											ABILITY:Special Ability|AUTOMATIC|Spin Attack ~ Lancer
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Mercenary Captain	HD:10		TYPE:PC.Prestige	ABB:MCp		MAXLEVEL:10	SOURCEPAGE:p.67	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/3
+CLASS:Mercenary Captain	HD:10		TYPE:PC.Prestige	FACT:Abb|MCp		MAXLEVEL:10	SOURCEPAGE:p.67	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/3
 # Class Name		Required Ability														Required AL		Required Skill							PRETOTALAB
 CLASS:Mercenary Captain	PREABILITY:4,CATEGORY=FEAT,Improved Initiative,Leadership,Weapon Focus,Weapon Specialization	PREALIGN:LG,LN,LE	PRESKILL:4,Intimidate=6,Bluff=4,Ride=4,Sense Motive=4	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -190,7 +190,7 @@ CLASS:Mercenary Captain	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Innuendo|Intimidate|L
 10									ABILITY:Special Ability|AUTOMATIC|Battle Master ~ Mercenary Captain
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Rake		HD:6		TYPE:PC.Prestige	ABB:Rak		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Rake		HD:6		TYPE:PC.Prestige	FACT:Abb|Rak		MAXLEVEL:10	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability					Required Skill				PRETOTALAB
 CLASS:Rake		PREABILITY:1,CATEGORY=FEAT,Expertise	PRESKILL:2,Bluff=8,Intimidate=8	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -208,7 +208,7 @@ CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuen
 10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	FACT:Abb|Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability																										Required AL		PRETOTALAB
 CLASS:Sharpshooter	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Shortbow%),Weapon Focus (Longbow%),Weapon Focus (Crossbow%)	PREABILITY:3,CATEGORY=FEAT,Far Shot,Point Blank Shot,Precise Shot	PREALIGN:LG,LN,LE	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -225,7 +225,7 @@ CLASS:Sharpshooter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 10																		ABILITY:Special Ability|AUTOMATIC|Killing Shot ~ Sharpshooter
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	FACT:Abb|Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability										PRETOTALAB
 CLASS:Shieldbearer	PREABILITY:3,CATEGORY=FEAT,Alertness,Combat Reflexes,Lightning Reflexes	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -246,7 +246,7 @@ CLASS:Shieldbearer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist
 10																	ABILITY:Special Ability|AUTOMATIC|Fortify ~ Shieldbearer
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	FACT:Abb|SpB		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Race	Required Skill						PRETOTALAB
 CLASS:Spellbreaker	PRERACE:1,Dwarf%	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -263,7 +263,7 @@ CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Kn
 10										ABILITY:Special Ability|AUTOMATIC|Empty Mind ~ Spellbreaker|Shattering Strike ~ Spellbreaker
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Wandering Squire	HD:10		TYPE:PC.Prestige	ABB:WSq		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Wandering Squire	HD:10		TYPE:PC.Prestige	FACT:Abb|WSq		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability												PRETOTALAB
 CLASS:Wandering Squire	PREABILITY:3,CATEGORY=FEAT,Dodge,Two-Weapon Fighting,Weapon Focus (Quarterstaff)	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -284,7 +284,7 @@ CLASS:Wandering Squire	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather 
 10							BONUS:COMBAT|AC|1|TYPE=Dodge							ABILITY:Special Ability|AUTOMATIC|Staff Mastery ~ Wandering Squire
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Warleader	HD:10		TYPE:PC.Prestige	ABB:Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warleader	HD:10		TYPE:PC.Prestige	FACT:Abb|Wrl		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability					Required Skill		PRETOTALAB
 CLASS:Warleader	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:1,Diplomacy=4	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -305,7 +305,7 @@ CLASS:Warleader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|
 10										BONUS:VAR|Motivate|1				ABILITY:Special Ability|AUTOMATIC|Rally the Troops ~ Warleader
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Warmage	HD:6		TYPE:PC.Prestige	ABB:WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warmage	HD:6		TYPE:PC.Prestige	FACT:Abb|WMg		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability													Required Skill						Req. Spell Type
 CLASS:Warmage	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PREABILITY:2,CATEGORY=FEAT,Combat Casting,Dodge	PRESKILL:2,Concentration=8,Knowledge (Arcana)=6	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -325,7 +325,7 @@ CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowl
 10																																	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Arcane Warrior ~ Warmage
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	ABB:Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Wild Rider	HD:10		TYPE:PC.Prestige	FACT:Abb|Wld		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability								Required Skill								PRETOTALAB		Var. Min. Value
 CLASS:Wild Rider	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Mounted Archery	PRESKILL:4,Ride=8,Animal Empathy=6,Heal=6,Wilderness Lore=6	PRETOTALAB:5	PREVARGTEQ:RageTimes,1
 # Class Name	Skill Pts/Lvl	Class Skill
