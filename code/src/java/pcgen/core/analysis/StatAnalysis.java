@@ -50,10 +50,7 @@ public class StatAnalysis
 			}
 		}
 
-		int y = aPC.getBaseStatFor(stat);
-
-		y += aPC.getPartialStatBonusFor(stat, useTemp, useEquip);
-
+		int y = aPC.getPartialStatFor(stat, useTemp, useEquip);
 		return y;
 	}
 
