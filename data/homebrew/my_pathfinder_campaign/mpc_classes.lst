@@ -87,13 +87,13 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mpcwebsit
 #The TYPE tag is used within the filters of PCGen to sort the classes by their respective types (makes it easier to find a
 #specific class).
 #
-#The ABB tag can be used to hold a 3-5 letter abbreviation of the class name.
+#The FACT:Abb tag can be used to hold a 3-5 letter abbreviation of the class name.
 #
 #The MAXLEVEL tag sets the maximum number of levels of the class you can add to a character. You can use MAXLEVEL:NOLIMIT in addition to a number.
 #
 #The SOURCEPAGE tag can be used to hold a reference to where you can find the class. This will be displayed in PCGen.
 #
-#The LANGAUTO tag is holding a list of languages that the character automatically gains.
+#The AUTO:LANG tag is holding a list of languages that the character automatically gains.
 #
 #The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
 #of them, look in the List File Tag Index under the topic "Bonus tags".
@@ -103,9 +103,9 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mpcwebsit
 #The CSKILL tag grants the listed skills as class skills. When used in a classes.lst, it grants the class skills only to the
 #class it is actually in.
 #
-#The FEATAUTO tag holds a list of feats that the class automatically gets.
+#The ABILITY:FEAT|AUTOMATIC| tag holds a list of feats that the class automatically gets.
 #
-#The SA tag is holding a text that will be displayed as Special Ability on the output sheet.
+#The SAB tag is holding a text that will be displayed as Special Ability on the output sheet.
 #
 #The ADD:FEAT tag will give the character a choice of one from the feats listed in the parentheses. If the feat being added
 #has a chooser ADD:FEAT is the only tag which will activate it (VFEAT, MFEAT and FEATAUTO will not). Besides of ADD:FEAT, there
