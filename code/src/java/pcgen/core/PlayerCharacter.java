@@ -7649,7 +7649,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Retrieve the bonus for the stat excluding either temporary bonuses,
+	 * Retrieve the value of the stat excluding either temporary bonuses,
 	 * equipment bonuses or both. This method ensure stacking rules are applied
 	 * to all included bonuses. If not excluding either, it is quicker to use
 	 * getTotalBonusTo.
@@ -7662,9 +7662,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 *            Should equipment bonuses be included?
 	 * @return The bonus to the stat.
 	 */
-	public int getPartialStatBonusFor(PCStat stat, boolean useTemp, boolean useEquip)
+	public int getPartialStatFor(PCStat stat, boolean useTemp, boolean useEquip)
 	{
-		return bonusManager.getPartialStatBonusFor(stat, useTemp, useEquip);
+		int partialStatBonus =
+				bonusManager.getPartialStatBonusFor(stat, useTemp, useEquip);
+		return statCalcFacet.getPartialStatFor(id, stat, partialStatBonus);
 	}
 
 	/**
