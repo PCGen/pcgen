@@ -5053,13 +5053,6 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 
 	<target name="jar-converter-plugins" depends="makeplugindirs" description="Build (Link) Converter plugin jar files">
-		<jar jarfile="${converterplugins.dir}/ConverterPlugin-ABB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/converter/AbbConvertPlugin.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${converterplugins.dir}/ConverterPlugin-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
