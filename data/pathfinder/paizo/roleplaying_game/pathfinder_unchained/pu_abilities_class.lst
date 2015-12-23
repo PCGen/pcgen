@@ -2,6 +2,10 @@
 SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
 # Original Entry by: Stefan Radermacher, Andrew Wilson & Andrew Maitland
 
+CATEGORY=Internal|Default.MOD		ABILITY:Internal|AUTOMATIC|Artistry is a Class Skill|PRECSKILL:1,TYPE.Craft,TYPE.Perform
+
+Artistry is a Class Skill	CATEGORY:Internal	CSKILL:Artistry
+
 ###Block: Controls for Triggering Unchained Versions
 # Ability Name			Modify VAR
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Pool_Barbarian_Class_Selection|1|TYPE=Base
