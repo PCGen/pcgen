@@ -49,7 +49,7 @@ Race Traits ~ Thought Slayer				CATEGORY:Internal		ABILITY:Special Ability|AUTOM
 Race Traits ~ Udoroot					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Double Manifest|Immunity To Electricity|Resistance To Cold|Resistance To Fire
 Race Traits ~ Unbodied					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Assume Likeness|Flight Maneuverability|Hide Mind|Telekinetic Force|Telepathy
 Race Traits ~ Dromite					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Compound Eyes|Naturally Psionic|Scent
-Race Traits ~ Duergar					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Dodge Giant|Dwarf Appraise|Dwarf Attacks|Dwarf Craft|Dwarf Spell Resistance|Immunity to Paralysis|Immunity To Phantasms|Immunity To Poison|Light Sensitivity|Naturally Psionic|Stability|Stonecunning
+Race Traits ~ Duergar					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Dodge Giant|Dwarf Appraise|Dwarf Attacks|Dwarf Craft|Dwarf Spell Resistance|Immunity To Paralysis|Immunity To Phantasms|Immunity To Poison|Light Sensitivity|Naturally Psionic|Stability|Stonecunning
 Race Traits ~ Elan					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Naturally Psionic|Repletion|Resilience|Resistance
 Race Traits ~ Half-Giant				CATEGORY:Internal																																									BONUS:VAR|HasLowLightVision|1|TYPE=Base
 Race Traits ~ Maenad					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Naturally Psionic|Outburst

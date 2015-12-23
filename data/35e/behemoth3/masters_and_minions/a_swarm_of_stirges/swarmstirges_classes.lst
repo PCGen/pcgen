@@ -3,7 +3,7 @@ SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.co
 #Original Entry by: Eddy Anthony
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	FACT:Abb|WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Ability					Required Skill
 CLASS:Wing Jockey	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill

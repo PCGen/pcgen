@@ -8,7 +8,7 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOUR
 ###The Bowman --------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Save bonus
-CLASS:The Bowman	HD:8		TYPE:PC.Prestige	ABB:TBM		MAXLEVEL:10	SOURCEPAGE:p.56	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:The Bowman	HD:8		TYPE:PC.Prestige	FACT:Abb|TBM		MAXLEVEL:10	SOURCEPAGE:p.56	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability												Required Skill					Required Text								PRETOTALAB
 CLASS:The Bowman	PREABILITY:5,CATEGORY=FEAT,Dodge,Point Blank Shot,Manyshot,Mobility,Rapid Shot	PRESKILL:3,Listen=10,Spot=10,Tumble=4	PRETEXT:See The Bowman Special Entry Requirement, p.58	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -28,7 +28,7 @@ CLASS:The Bowman	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Craft 
 ###Block: The Chameleon ----------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Save bonus																						Modify VAR
-CLASS:The Chameleon	HD:8		TYPE:PC.Prestige	ABB:TC		MAXLEVEL:10	SOURCEPAGE:p.58	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TheChameleonLVL|CL
+CLASS:The Chameleon	HD:8		TYPE:PC.Prestige	FACT:Abb|TC		MAXLEVEL:10	SOURCEPAGE:p.58	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|TheChameleonLVL|CL
 # Class Name		Required Ability												Required Class		Required Skill
 CLASS:The Chameleon	PREABILITY:3,CATEGORY=FEAT,Skill Focus (Hide),Skill Focus (Move Silently),Stealthy	PRECLASS:1,Ranger=4	PRESKILL:3,Hide=10,Knowledge (Nature)=10,Move Silently=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -49,7 +49,7 @@ CLASS:The Chameleon	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Dis
 #Block: King of the Wilderness --------------------------------------------------------------------------------------------
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																						Modify VAR
-CLASS:King of the Wilderness	HD:6		TYPE:PC.Prestige	ABB:KotW		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|KingOfTheWildernessLVL|CL
+CLASS:King of the Wilderness	HD:6		TYPE:PC.Prestige	FACT:Abb|KotW		MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|KingOfTheWildernessLVL|CL
 # Class Name			Required Ability												Required Skill
 CLASS:King of the Wilderness	PREABILITY:3,CATEGORY=FEAT,Skill Focus (Knowledge (Geography)),Endurance,Track	PRESKILL:3,Knowledge (Geography)=10,Knowledge (Nature)=10,Survival=10
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -70,7 +70,7 @@ CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Cra
 ###Block: The Mighty Hunter -----------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:The Mighty Hunter	HD:8		TYPE:PC.Prestige	ABB:TMH		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:The Mighty Hunter	HD:8		TYPE:PC.Prestige	FACT:Abb|TMH		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability								Required Skill								PRETOTALAB
 CLASS:The Mighty Hunter	PREABILITY:3,CATEGORY=FEAT,Alertness,Self-Sufficient,Track	PRESKILL:4,Listen=10,Move Silently=10,Spot=10,Survival=10	PRETOTALAB:9
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -89,7 +89,7 @@ CLASS:The Mighty Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle Animal
 ###Block: The Obsessed Hunter ---------------------------------------------------------------------------------------------
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Save bonus
-CLASS:The Obsessed Hunter	HD:8		TYPE:PC.Prestige	ABB:TMH		MAXLEVEL:5	SOURCEPAGE:p.65	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:The Obsessed Hunter	HD:8		TYPE:PC.Prestige	FACT:Abb|TMH		MAXLEVEL:5	SOURCEPAGE:p.65	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability							Required Class		Required Skill
 CLASS:The Obsessed Hunter	PREABILITY:3,CATEGORY=FEAT,Endurance,Iron Will,Track	PRECLASS:1,Ranger=4	PRESKILL:3,Listen=7,Search=7,Survival=7
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -105,7 +105,7 @@ CLASS:The Obsessed Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handl
 ###Block: The Wolf Master ----------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Save bonus
-CLASS:The Wolf Master	HD:8		TYPE:PC.Prestige	ABB:TWM		MAXLEVEL:10	SOURCEPAGE:p.68	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:The Wolf Master	HD:8		TYPE:PC.Prestige	FACT:Abb|TWM		MAXLEVEL:10	SOURCEPAGE:p.68	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability						Required Skill
 CLASS:The Wolf Master	PREABILITY:3,CATEGORY=FEAT,Alertness,Run,Track	PRESKILL:3,Listen=8,Spot=8,Survival=8
 # Class Name		Skill Pts/Lvl	Class Skill

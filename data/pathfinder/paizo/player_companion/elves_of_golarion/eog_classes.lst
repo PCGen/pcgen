@@ -5,7 +5,7 @@ CLASS:Brightness Seeker	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.28	DEFINE
 # Class Name		Required Ability					Multiple Requirements																		Required Race				Required Skill				Required Text
 CLASS:Brightness Seeker	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Perception=4,Survival=4	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Perception 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Heal|Stealth|Knowledge (nature)|Knowledge (religion)|Perception|TYPE=Profession|Survival|Swim
+CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Heal|Stealth|Knowledge (Nature)|Knowledge (Religion)|Perception|TYPE=Profession|Survival|Swim
 # 35e version
 #CLASS:Brightness Seeker	PRETEXT:Feat: Iron Will; Race: Elf; Skills: Spot 4 ranks, Survival 4 ranks, Knowledge (nature) 4 ranks and Knowledge (religion) 8 ranks (or vice versa).	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Elf%,RACESUBTYPE=Elf	PRESKILL:2,Spot=4,Survival=4	PREMULT:1,[PRESKILL:2,Knowledge (Nature)=4,Knowledge (Religion)=8],[PRESKILL:2,Knowledge (Nature)=8,Knowledge (Religion)=4]
 #CLASS:Brightness Seeker	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Knowledge (nature)|Knowledge (religion)|Listen|Profession|Spot|Survival|Swim

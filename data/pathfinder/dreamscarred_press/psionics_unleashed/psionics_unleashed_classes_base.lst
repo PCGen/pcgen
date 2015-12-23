@@ -9,7 +9,7 @@ CLASS:Psion		HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAG
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
+CLASS:Psion		SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Discipline	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
@@ -57,7 +57,7 @@ CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.25	BON
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Knowledge (Psionics)|Perception|TYPE=Profession|Ride|Spellcraft|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
+CLASS:Psychic Warrior	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
@@ -129,7 +129,7 @@ CLASS:Wilder	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.33	BONUS:COMBAT
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
+CLASS:Wilder	SPELLSTAT:CHA	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency

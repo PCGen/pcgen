@@ -2,7 +2,7 @@
 SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2001-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Totem		HD:6		TYPE:PC.Prestige	ABB:Ttm		MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Totem		HD:6		TYPE:PC.Prestige	FACT:Abb|Ttm		MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL	Required Text
 CLASS:Totem		PREALIGN:TN	PRETEXT:Must be Human or Humaniod that has been transformed into an animal. Must be committed to the ideals of the Reborn. Must go through the Ritual of Rebirth.
 # Class Name	Skill Pts/Lvl	Class Skill

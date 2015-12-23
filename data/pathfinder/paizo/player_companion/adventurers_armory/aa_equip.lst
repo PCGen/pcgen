@@ -17,8 +17,8 @@ Chest (Medium)							OUTPUTNAME:Chest, medium									TYPE:Goods.General								
 Chest (Large)							OUTPUTNAME:Chest, large										TYPE:Goods.General									COST:10	WT:100																	SOURCEPAGE:p.6
 Chest (Huge)							OUTPUTNAME:Chest, huge										TYPE:Goods.General									COST:25	WT:250																	SOURCEPAGE:p.6
 Collapsible Plank																				TYPE:Goods.General									COST:0.4	WT:10																		SOURCEPAGE:p.6
-Coffin (Common)																				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM	COST:10	WT:30																		SOURCEPAGE:p.6
-Coffin (Ornate)																				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any=UNLIM	COST:100	WT:50																		SOURCEPAGE:p.6
+Coffin (Common)																				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any	COST:10	WT:30																		SOURCEPAGE:p.6
+Coffin (Ornate)																				TYPE:Goods.Container.General			CONTAINS:UNLIM|Any	COST:100	WT:50																		SOURCEPAGE:p.6
 Key (Copy)																					TYPE:Goods.General									COST:1	WT:0																		SOURCEPAGE:p.6
 Earplugs																					TYPE:Goods.General									COST:0.03	WT:0																		SOURCEPAGE:p.6					SPROP:+2 circumstance bonus to saves for effect requiring hearing but −5 on hearing-based Perception checks.
 False-Bottomed Chest																			TYPE:Goods.Container.General								COST:52	WT:25																		SOURCEPAGE:p.6
@@ -39,7 +39,7 @@ Hourglass.FORGET
 Hourglass (One Hour).MOD																		TYPE:Goods.General									COST:25	WT:1																		SOURCEPAGE:p.7
 Hourglass (One minute)																			TYPE:Goods.General									COST:20	WT:0.5																	SOURCEPAGE:p.7
 Hourglass (Six seconds)																			TYPE:Goods.General									COST:10	WT:0																		SOURCEPAGE:p.7
-Iron Spike																					TYPE:Goods.General									COST:.05	WT:1																		SOURCEPAGE:p.7
+Iron Spike																					TYPE:Goods.General									COST:0.05	WT:1																		SOURCEPAGE:p.7
 Vial (Iron)																					TYPE:Goods.General									COST:0.1	WT:1																		SOURCEPAGE:p.7					SPROP:hardness 5, 3 hit points, and break DC 14
 # Waterproof lantern is an EQMOD for Lantern (might be good to switch it to LightSource to apply to non core lantern?)
 Lantern (Bullseye).MOD																			TYPE:Lantern
@@ -85,7 +85,7 @@ Tent (Pavilion) (10 people)					OUTPUTNAME:Tent, Pavilion (10 people)							TYPE
 Thurible (Censer)																				TYPE:Goods.General									COST:50	WT:3																		SOURCEPAGE:p.8					SPROP:When filled: 30ft smoke for 1 hr, +2 fortitude save
 Thurible Herbs																				TYPE:Goods.General.Consumable								COST:0.2	WT:0																		SOURCEPAGE:p.8					SPROP:Used to fill Thurible
 Wandermeal																					TYPE:Goods.Food.Resizable.Consumable						COST:0.01	WT:0.5																	SOURCEPAGE:p.8					SPROP:Filling meal, if used as only food source for over a week user must make DC15+1/day Fortitude check or be sickened until 1 day after better food eaten.
-Waterproof Bag																				TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST:0.5	WT:0.5																	SOURCEPAGE:p.9
+Waterproof Bag																				TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any	COST:0.5	WT:0.5																	SOURCEPAGE:p.9
 Wax Key Blank																				TYPE:Goods.General									COST:15	WT:0.5																	SOURCEPAGE:p.9
 Weapon Cord																					TYPE:Goods.General									COST:0.1	WT:0																		SOURCEPAGE:p.9
 #Whetstone	already in Core
@@ -214,7 +214,7 @@ Dog (Guard).MOD																				TYPE:Pet													WT:90																SIZ
 Dog (Riding).MOD																				TYPE:Pet													WT:120																	SOURCEPAGE:p.15
 Dog Sled																					TYPE:Goods.General.Transportation.Vehicle						COST:20	WT:300																	SOURCEPAGE:p.15
 Donkey Rat																					TYPE:Goods.Animal.Pet									COST:1	WT:50																SIZE:T	SOURCEPAGE:p.15
-Elephant																					TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any=UNLIM		COST:1000																	SIZE:H	SOURCEPAGE:p.16
+Elephant																					TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any		COST:1000																	SIZE:H	SOURCEPAGE:p.16
 Falcon																					TYPE:Goods.Animal.Pet									COST:40	WT:20																SIZE:T	SOURCEPAGE:p.15
 Falconry Gauntlet																				TYPE:Goods.General									COST:10	WT:1																		SOURCEPAGE:p.15
 Hawk																						TYPE:Goods.Animal.Pet									COST:18	WT:20																SIZE:T	SOURCEPAGE:p.15
@@ -236,7 +236,7 @@ Ox.COPY=Pack Animal (Ox)
 Ox.FORGET
 Pack Animal (Ox).MOD						OUTPUTNAME:Pack animal, ox																							WT:1000																	SOURCEPAGE:p.16
 
-Pack Animal (Yak)							OUTPUTNAME:Pack animal, yak									TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any=UNLIM		COST:24	WT:2000															SIZE:L	SOURCEPAGE:p.16
+Pack Animal (Yak)							OUTPUTNAME:Pack animal, yak									TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any		COST:24	WT:2000															SIZE:L	SOURCEPAGE:p.16
 Pseudodragon																				TYPE:Goods.Animal.Pet									COST:200	WT:7																		SOURCEPAGE:16					SPROP:Generally considered slavery to own one as a pet
 Rat																						TYPE:Goods.Animal.Pet									COST:0.01	WT:1																SIZE:T	SOURCEPAGE:16
 Rat (Blue)								OUTPUTNAME:Rat, blue										TYPE:Goods.Animal.Pet									COST:1	WT:1																SIZE:T	SOURCEPAGE:16

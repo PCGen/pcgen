@@ -12,8 +12,8 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly
 
 ###Block: Aegis Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMartialWeaponProficiency						AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMartialWeaponProficiency	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisSimpleWeaponProficiency
-1																								AUTO:ARMORPROF|Astral Suit	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisLightArmorProficiency	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisShieldProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMartialWeaponProficiency						ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisSimpleWeaponProficiency
+1																								AUTO:ARMORPROF|Astral Suit	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisShieldProficiency
 
 ###Block: Aegis Psionic Ability
 1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -53,10 +53,10 @@ CLASS:Cryptic	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Int
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE=Craft|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryptic|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Cryptic	SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryptic|classlevel("APPLIEDAS=NONEPIC")
 
 ###Block: Cryptic Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:WEAPONPROF|Rapier|Shortbow	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticSimpleWeaponProficiency	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticLightArmorProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:WEAPONPROF|Rapier|Shortbow	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticSimpleWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticLightArmorProficiency
 
 ###Block: Cryptic Psionic Ability
 1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0											ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -124,12 +124,12 @@ CLASS:Dread		HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Stealth|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Dread		SPELLSTAT:CHA	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|classlevel("APPLIEDAS=NONEPIC")
 
 ###Block: Dread Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency
-1																								AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadSimpleWeaponProficiency	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadLightArmorProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency
+1																								ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadSimpleWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadLightArmorProficiency
 
 ###Block: Dread Psionic Ability
 1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -195,10 +195,10 @@ CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.47	BONUS:COM
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Stealth|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|classlevel("APPLIEDAS=NONEPIC")
 
 ###Block: Marksman Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanBucklerProficiency	AUTO:WEAPONPROF|TYPE=Light.Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightMartialProficiency	AUTO:WEAPONPROF|TYPE=Martial.Ranged|TYPE=Martial.Thrown|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanRangedProficiency	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanSimpleWeaponProficiency	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightArmorProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanBucklerProficiency	AUTO:WEAPONPROF|TYPE=Light.Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightMartialProficiency	AUTO:WEAPONPROF|TYPE=Martial.Ranged|TYPE=Martial.Thrown|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanRangedProficiency	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanSimpleWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightArmorProficiency
 
 ###Block: Marksman Psionic Ability
 1	BONUS:VAR|MarksmanML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|MarksmanML|var("BL=Marksman")	BONUS:VAR|IsPsionic|1																	DEFINE:MarksmanML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -234,7 +234,7 @@ CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	B
 ###Block: Marksman Class Abilities
 1	BONUS:ABILITYPOOL|Marksman Combat Style|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanCombatStyle	BONUS:VAR|MarksmanStyleLVL|CL							DEFINE:MarksmanStyleLVL|0
 1																		BONUS:VAR|WindReaderLVL|CL							DEFINE:WindReaderLVL|0		ABILITY:Special Ability|AUTOMATIC|Wind Reader ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanWindReader
-1																																																							AUTO:FEAT|Point-Blank Shot|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanPointBlankShot
+1																																																							ABILITY:FEAT|AUTOMATIC|Point-Blank Shot|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanPointBlankShot
 2	BONUS:ABILITYPOOL|Favored Weapon|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanFavoredWeapon		BONUS:VAR|FavoredWeaponBase|(classlevel("APPLIEDAS=NONEPIC")+2)/4	DEFINE:FavoredWeaponBase|0	ABILITY:Special Ability|AUTOMATIC|Favored Weapon ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanFavoredWeapon
 2																		BONUS:VAR|EvadeArrows|(classlevel("APPLIEDAS=NONEPIC")+2)/4		DEFINE:EvadeArrows|0		ABILITY:Special Ability|AUTOMATIC|Evade Arrows ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanEvadeArrows
 3																		BONUS:VAR|StyleSkill|classlevel("APPLIEDAS=NONEPIC")/3		DEFINE:StyleSkill|0
@@ -251,12 +251,12 @@ CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COM
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
+CLASS:Tactician	SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
 
 ###Block: Tactician Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMartialWeaponProficiency	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMartialWeaponProficiency	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianSimpleWeaponProficiency
-1																									AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianLightArmorProficiency	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMediumArmorProficiency	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianShieldProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianSimpleWeaponProficiency
+1																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMediumArmorProficiency	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianShieldProficiency
 
 ###Block: Tactician Psionic Ability
 1	BONUS:VAR|IsPsionic|1																											DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -317,11 +317,11 @@ CLASS:Vitalist	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.57	BONUS:COMB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vitalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Vitalist|CL
+CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Vitalist|CL
 
 ###Block: Vitalist Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSimpleWeaponProficiency
-1												AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistLightArmorProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSimpleWeaponProficiency
+1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistLightArmorProficiency
 
 ###Block: Vitalist Psionic Ability
 1	BONUS:VAR|VitalistML|CL	BONUS:VAR|VitalistML|var("BL=Vitalist")	BONUS:VAR|IsPsionic|1																						DEFINE:VitalistML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -377,7 +377,7 @@ CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	B
 # Class Name		Type			Visible
 CLASS:Gifted Blade	TYPE:Psionic	VISIBLE:NO
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Gifted Blade	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Gifted Blade|CL
+CLASS:Gifted Blade	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Gifted Blade|CL
 
 ###Block: Gifted Blade Powers Known
 1	KNOWN:0,1

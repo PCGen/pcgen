@@ -6,7 +6,7 @@ CLASS:Covert Hero	HD:6		TYPE:PC.Specialized	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMB
 # Class Name	Required Ability									Required Skill
 CLASS:Covert Hero	PREABILITY:1,CATEGORY=FEAT,Alertness,Deceptive,Nimble,Stealthy	PRESKILL:1,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Covert Hero	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Drive|Escape Artist|Forgery|Gamble|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|Profession|READ/WRITE LANGUAGE|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble
+CLASS:Covert Hero	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Drive|Escape Artist|Forgery|Gamble|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|Profession|READ/WRITE LANGUAGE|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spot|Swim|Tumble
 1	BONUS:ABILITYPOOL|Covert Hero Talent|1
 2								ADD:ABILITY|FEAT|NORMAL|TYPE=CovertHero
 3	BONUS:ABILITYPOOL|Covert Hero Talent|1

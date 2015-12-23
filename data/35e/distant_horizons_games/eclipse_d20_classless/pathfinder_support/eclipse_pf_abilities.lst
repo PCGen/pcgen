@@ -310,5 +310,3 @@ Druid Learn Level 9								CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK
 #
 
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Sure Step.MOD																							BONUS:SKILL|Acrobatics,Climb|10|TYPE=Competence
-
-

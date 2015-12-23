@@ -51,7 +51,7 @@ CATEGORY=FEAT|Draconic Companion.MOD																													COMPANIONLIST:D
 #	CATEGORY=FEAT|Draconic Companion.MOD	COMPANIONLIST:Draconic Companion|Dragon Companion ~ Vortex
 #	CATEGORY=FEAT|Draconic Companion.MOD	COMPANIONLIST:Draconic Companion|Dragon Companion ~ White
 
-Racial Traits ~ Dragon Companion		CATEGORY:Internal		DEFINE:Pool_Dragon_Companion_Subrace|0	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dragon|Bite|Claw	BONUS:VAR|Pool_Dragon_Companion_Subrace|1
+Racial Traits ~ Dragon Companion		CATEGORY:Internal		DEFINE:Pool_Dragon_Companion_Subrace|0	ABILITY:Internal|AUTOMATIC|Bite|Claw|Racial Traits ~ Dragon	BONUS:VAR|Pool_Dragon_Companion_Subrace|1
 
 ###Block: Racial Traits
 # Ability Name			Unique Key								Category of Ability	Type					Required Text						Move							Ability																																																		Bonus Ability Pool										Stat bonus																													Modify VAR						Apply Kit					Source Page

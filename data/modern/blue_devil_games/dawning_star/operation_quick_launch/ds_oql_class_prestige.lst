@@ -18,7 +18,7 @@ CLASS:Velin Chief	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBA
 # Class Name	Required Check Base	Multiple Requirements										Required Skill								Required Text								Var. Min. Value
 CLASS:Velin Chief	PRECHECKBASE:1,Will=4	PREMULT:1,[PRERACE:1,Velin],[PREABILITY:1,CATEGORY=FEAT,Velin Tribal Guest]	PRESKILL:3,Diplomacy=12,Knowledge (Species)=12,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance	PREVARGTEQ:Reputation,5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Velin Chief	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Craft (Tribal)|Diplomacy|Handle Animal|Hide|Intimidate|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Species)|Listen|Move Silently|Navigate|Perform (Act)|Perform (Dance)|Perform (Oratory)|Perform (Percussion Instruments)|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
+CLASS:Velin Chief	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Craft (Tribal)|Diplomacy|Handle Animal|Hide|Intimidate|Knowledge (Civics)|Knowledge (History)|Knowledge (Local)|Knowledge (Species)|Listen|Move Silently|Navigate|Perform (Act)|Perform (Dance)|Perform (Oratory)|Perform (Percussion Instruments)|Ride|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival|Swim|Treat Injury
 1			SAB:Chief Reputation	SAB:Tribal Authority
 2			SAB:Protect the Tribe					ADD:ABILITY|Special Ability|NORMAL|Region Familiarity
 3:REPEATLEVEL:3									ADD:ABILITY|FEAT|NORMAL|TYPE=VelinChief

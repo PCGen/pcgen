@@ -8,7 +8,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 #
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	FACT:Abb|AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Engineer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -39,7 +39,7 @@ CLASS:Arcane Engineer	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arsenalist	HD:4		TYPE:Base.PC	FACT:Abb|AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Arsenalist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Search|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -71,7 +71,7 @@ CLASS:Arsenalist	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELL
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Mind Weaver	HD:6		TYPE:Base.PC	ABB:MiW		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Mind Weaver	HD:6		TYPE:Base.PC	FACT:Abb|MiW		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Scry|Search|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -102,7 +102,7 @@ CLASS:Mind Weaver	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLE
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Sun Mage	HD:4		TYPE:Base.PC	ABB:SuM		MAXLEVEL:20	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sun Mage	HD:4		TYPE:Base.PC	FACT:Abb|SuM		MAXLEVEL:20	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sun Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level

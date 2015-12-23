@@ -116,7 +116,7 @@ Mental Acuity 20	VISIBLE:NO	PREVAREQ:OracleLVL,20	BONUS:VAR|MentalAcuityLVL|20	T
 
 ###BLOCK:
 # Template Name	Choose											Ability
-Class ~ Summoner	CHOOSE:ABILITYSELECTION|CLASS|QUALIFIED[TYPE=Summoner Class Selection]	ABILITY:Summoner Class Selection|AUTOMATIC|%LIST
+Class ~ Summoner	CHOOSE:ABILITYSELECTION|Class|QUALIFIED[TYPE=Summoner Class Selection]	ABILITY:Summoner Class Selection|AUTOMATIC|%LIST
 #	TEMPLATE:CHOOSE:TYPE=SummonerClass	TEMPLATE:%LIST
 #
 

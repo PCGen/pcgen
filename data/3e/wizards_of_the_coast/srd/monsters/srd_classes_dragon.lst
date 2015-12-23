@@ -8,7 +8,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 #
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Black Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:BkDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Black Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|BkDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -44,7 +44,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 49														BONUS:PCLEVEL|Sorcerer|1
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Blue Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:BlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Blue Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|BlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name	Required Race		Reg. Race Type
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -101,7 +101,7 @@ CLASS:Blue Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:5|Cl
 44	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Green Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:GnDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Green Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|GnDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -135,7 +135,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 # Errata (3/18/02 applied) to (Red) Dragon
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Red Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:RdDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Red Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|RdDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name	Required Race		Reg. Race Type
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -192,7 +192,7 @@ CLASS:Red Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:5|Cle
 42	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:White Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:WhDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:White Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|WhDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -229,7 +229,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 #
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Brass Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:BsDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Brass Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|BsDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -287,7 +287,7 @@ CLASS:Brass Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:4|C
 39	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Bronze Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:BzDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Bronze Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|BzDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -345,7 +345,7 @@ CLASS:Bronze Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:5|
 41	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Copper Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:CuDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Copper Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|CuDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -402,7 +402,7 @@ CLASS:Copper Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:5|
 40	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Gold Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:GlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Gold Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|GlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name	Required Race		Reg. Race Type
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -460,7 +460,7 @@ CLASS:Gold Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:5|Cl
 43	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page				Levels per Feat	Combat bonus										Save bonus													Modify VAR
-CLASS:Silver Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	ABB:SlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
+CLASS:Silver Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|SlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|DragonAge|1
 # Class Name		Required Race			Reg. Race Type
 CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -6,7 +6,7 @@ CLASS:Ambassador	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedCla
 # Class Name	Required Ability					Required Skill
 CLASS:Ambassador	PREABILITY:2,CATEGORY=Talent,Charm,Favor	PRESKILL:3,Diplomacy=6,Knowledge (Civics)=6,Knowledge (Theology and Philosophy)=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sense Motive|Speak Language
+CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sense Motive|SPEAK LANGUAGE
 1												ABILITY:Special Ability|AUTOMATIC|Diplomatic Immunity
 2							BONUS:SKILL|Diplomacy|CL/2	ABILITY:Special Ability|AUTOMATIC|Open Arms
 3	BONUS:ABILITYPOOL|Ambassador Feat|1
@@ -53,7 +53,7 @@ CLASS:Engineer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClass
 # Class Name	Required Skill
 CLASS:Engineer	PRESKILL:5,Computer Use=6,Craft (Electronic)=6,Craft (Mechanical)=6,Knowledge (Technology)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Engineer	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Search|Speak Language
+CLASS:Engineer	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Search|SPEAK LANGUAGE
 1	BONUS:ABILITYPOOL|Builder|1		BONUS:VAR|ImproveKit|1		ABILITY:Special Ability|AUTOMATIC|Improve Kit
 2												ABILITY:Special Ability|AUTOMATIC|Quick Craft|Superior Repair
 3	BONUS:ABILITYPOOL|Engineer Feat|1
@@ -70,7 +70,7 @@ CLASS:Explorer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClass
 # Class Name	Multiple Requirements
 CLASS:Explorer	PREMULT:2,[PRESKILL:3,Knowledge (Earth and Life Sciences)=6,Survival=6,Search=4],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Pilot|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
+CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Pilot|Read/Write Language|Research|Ride|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival|Swim|Treat Injury
 1							BONUS:VAR|ExplorerLore|CL+INT	ABILITY:Special Ability|AUTOMATIC|Explorer Lore|Survivalist	ABILITY:FEAT|AUTOMATIC|Guide|Track
 2												ABILITY:Special Ability|AUTOMATIC|Resolve|Skilled Researcher
 3	BONUS:ABILITYPOOL|Explorer Feat|1
@@ -85,7 +85,7 @@ CLASS:Field Officer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvanced
 # Class Name		Required Ability								Required Skill						PRETOTALAB
 CLASS:Field Officer	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Diplomacy=6,Knowledge (Tactics)=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Read/Write Language|Sense Motive|Speak Language
+CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Read/Write Language|Sense Motive|SPEAK LANGUAGE
 1								ABILITY:Special Ability|AUTOMATIC|Leadership
 2								ABILITY:Special Ability|AUTOMATIC|Uncanny Survival
 3	BONUS:ABILITYPOOL|FieldOfficer Feat|1
@@ -136,7 +136,7 @@ CLASS:Swindler	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClass
 # Class Name	Required Ability								Required Skill
 CLASS:Swindler	PREABILITY:2,CATEGORY=Talent,Charm,Coordinate,Fast-Talk	PRESKILL:3,Bluff=6,Gamble=6,Disguise=4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Read/Write Language|Research|Sense Motive|Sleight of Hand|Speak Language|Tumble
+CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Perform (Act)|Read/Write Language|Research|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Tumble
 1														ABILITY:Special Ability|AUTOMATIC|Cheat Fate
 2														ABILITY:Special Ability|AUTOMATIC|Thousand Faces
 3	BONUS:ABILITYPOOL|Swindler Feat|1
@@ -150,7 +150,7 @@ CLASS:Technosavant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedC
 # Class Name		Multiple Requirements
 CLASS:Technosavant	PREMULT:2,[PRESKILL:3,Computer Use=6,Disable Device=6,Knowledge (Technology)=6],[PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6]
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|Speak Language|Spot
+CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|SPEAK LANGUAGE|Spot
 1														ABILITY:Special Ability|AUTOMATIC|Technocrat	ABILITY:FEAT|AUTOMATIC|Salvage
 2														ABILITY:Special Ability|AUTOMATIC|Robomancer|Technophile
 3	BONUS:ABILITYPOOL|Technosavant Feat|1
@@ -182,7 +182,7 @@ CLASS:Xenophile	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClas
 # Class Name	Required Ability								Required Skill
 CLASS:Xenophile	PREABILITY:1,CATEGORY=Talent,Linguist,Exploit Weakness	PRESKILL:2,Knowledge (Earth and Life Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
+CLASS:Xenophile	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|SPEAK LANGUAGE|Treat Injury
 1	BONUS:ABILITYPOOL|Xenotype|1												ABILITY:Special Ability|AUTOMATIC|Base Xenotype|Xenolore
 2												BONUS:VAR|Xenoresist|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Xenoresistance
 3	BONUS:ABILITYPOOL|Xenophile Feat|1

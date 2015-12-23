@@ -91,12 +91,12 @@ Nationality - Vietnamese	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:Nation
 ###Block: Temporary Bonus Templates
 
 # Template Name				Visible	Source Page		Choose								Temporary effect description										Temporary Bonus
-Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points		TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
-Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points		TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
-Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
-Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
-Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
-Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPVALUE:MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points		TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points		TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:p.177	TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.177	TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)
 Blinded					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You cannot see											TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK	TEMPBONUS:ANYPC|SKILL|STAT.STR,STAT.DEX|-4
 Deafened					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You cannot hear										TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4
 Entangled					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You are ensnared										TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|STAT|DEX|-4

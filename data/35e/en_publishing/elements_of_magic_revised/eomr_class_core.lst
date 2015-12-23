@@ -6,7 +6,7 @@ SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enwo
 ###Block: The Mage ----------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Mage		HD:4		TYPE:Base.PC.EOM	ABB:Mage		MAXLEVEL:20	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Mage		HD:4		TYPE:Base.PC.EOM	FACT:Abb|Mage		MAXLEVEL:20	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:4	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
@@ -37,7 +37,7 @@ CLASS:Mage		SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0
 ###Block: Mageknight ----------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Mageknight	HD:8		TYPE:Base.PC.EOM	ABB:MgeKnt		MAXLEVEL:20	SOURCEPAGE:8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5
+CLASS:Mageknight	HD:8		TYPE:Base.PC.EOM	FACT:Abb|MgeKnt		MAXLEVEL:20	SOURCEPAGE:8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mageknight	STARTSKILLPTS:2	CSKILL:Spellcraft|Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession|Ride|Climb|Intimidate|Jump|Swim
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
@@ -68,7 +68,7 @@ CLASS:Mageknight	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:YES	SPELLBOOK:YES	
 ###Block: The Taskmage ----------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	ABB:TskMge		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|ALL|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5
+CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	FACT:Abb|TskMge		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|ALL|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Taskmage	STARTSKILLPTS:8	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level

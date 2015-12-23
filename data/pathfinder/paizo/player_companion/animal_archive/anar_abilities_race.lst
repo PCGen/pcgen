@@ -43,13 +43,13 @@ Companion Advancement (Walrus)	KEY:Companion Advancement ~ Walrus	CATEGORY:Speci
 Race Traits ~ Companion (Llama)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite
 Race Traits ~ Llama									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite	ABILITY:Special Ability|AUTOMATIC|Llama ~ Spit
 
-Race Traits ~ Moose									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Scent|Powerful Charge
+Race Traits ~ Moose									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Powerful Charge|Scent
 Race Traits ~ Companion (Moose)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof
 
 Race Traits ~ Panda									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite
 Race Traits ~ Companion (Panda)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw
 
-Race Traits ~ Walrus									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Walrus ~ Fatal Gore|Hold Breath
+Race Traits ~ Walrus									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath|Walrus ~ Fatal Gore
 Race Traits ~ Companion (Walrus)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath
 
 

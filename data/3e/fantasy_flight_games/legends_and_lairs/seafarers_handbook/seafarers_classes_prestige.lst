@@ -4,7 +4,7 @@ SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	ABB:RfW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	FACT:Abb|RfW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability						Required AL		Required Race	Required Skill			Required Template		PRETOTALAB
 CLASS:Reef Warrior	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Swim)	PREALIGN:LN,NG,TN	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill

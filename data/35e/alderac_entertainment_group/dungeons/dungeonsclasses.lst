@@ -4,7 +4,7 @@ SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB
 # COMMENT: Need to review and see if the Crusader should be using the RANGER FAVORED ENEMY TABLE - If So, we do need to convert this to using the proper method.
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	FACT:Abb|ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Ability						Required Skill				Req. Spell Type		PRETOTALAB
 CLASS:Crusader	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (%)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -27,7 +27,7 @@ CLASS:Crusader	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Crusader|CL
 10									ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Turn Chosen Enemy ~ Crusader
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	FACT:Abb|ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Ability						Multiple Requirements													Req. Spell Type
 CLASS:Demolitionist	PREABILITY:1,CATEGORY=FEAT,Craft Wondrous Item	PREMULT:2,[PRESKILL:1,Alchemy=8],[PRESKILL:1,Craft (Blacksmithing)=8,Craft (Metalworking)=8]	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -49,7 +49,7 @@ CLASS:Demolitionist	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Demoli
 10								ADD:SPELLCASTER|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	ABB:ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Shock Trooper	HD:10		TYPE:PC.Prestige	FACT:Abb|ae3		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability								Required Race		PRETOTALAB
 CLASS:Shock Trooper	PREABILITY:3,CATEGORY=FEAT,Power Attack,Quick Draw,Run	PRERACE:1,Dwarf%,Gnome%	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -70,7 +70,7 @@ CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Intuit Direc
 10																					ABILITY:Special Ability|AUTOMATIC|Improved Critical ~ Shock Trooper
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	FACT:Abb|ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Ability						Required Skill
 CLASS:Treasure Hunter	PREABILITY:1,CATEGORY=FEAT,Lightning Reflexes	PRESKILL:3,Knowledge (Ancient History)=4,Disable Device=8,Search=8
 # Class Name		Skill Pts/Lvl	Class Skill

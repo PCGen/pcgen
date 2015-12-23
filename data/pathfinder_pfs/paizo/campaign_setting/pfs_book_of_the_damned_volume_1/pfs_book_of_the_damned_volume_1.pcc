@@ -45,4 +45,3 @@ LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_kits_race.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_races.lst
 SPELL:pfs_botd1_spells.lst|PRECAMPAIGN:1,Princes of Darkness - Book of the Damned - Volume 1
-

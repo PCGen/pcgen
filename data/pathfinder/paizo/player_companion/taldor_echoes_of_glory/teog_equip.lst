@@ -5,7 +5,7 @@
 Costume Bureau								TYPE:Slot_none.Magic				COST:7000	WT:500	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|9th
 Gossip Glass								TYPE:Slot_eyes.Magic.Eyewear.Goggles	COST:3600	WT:1		SOURCEPAGE:p.26	QUALITY:Aura|faint divination	QUALITY:CasterLevel|1st
 Missive Stone								TYPE:Slot_neck.Magic.Necklace.Amulet	COST:10000	WT:0		SOURCEPAGE:p.26	QUALITY:Aura|faint transmutation	QUALITY:CasterLevel|3rd
-The Pendulate Divan of Emperor Fortigré	NAMEISPI:YES	TYPE:Slot_none.Magic				COST:66000	WT:100	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|11th
+The Pendulate Divan of Emperor Fortigrï¿½	NAMEISPI:YES	TYPE:Slot_none.Magic				COST:66000	WT:100	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|11th
 Philanderous Compact							TYPE:Slot_none.Magic				COST:1500	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint illusion	QUALITY:CasterLevel|1st
 Raucous Canard								TYPE:Slot_none.Magic				COST:100	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|moderate transmutation	QUALITY:CasterLevel|1st
 Ring of the Sublime							TYPE:Slot_ring.Magic.Ring			COST:2000	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint abjuration	QUALITY:CasterLevel|1st						SPROP:the ring of the sublime protects its wearer from fear effects as if constantly under the effects of remove fear.

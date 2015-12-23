@@ -153,4 +153,34 @@ public class StatCalcFacet
 			Integer.toString(aNum)).intValue();
 	}
 
+	/**
+	 * Retrieve the value of the stat with just the included bonuses. This may exclude things such as temporary or equipment bonuses at the caller's discretion.
+	 * 
+	 * @param stat
+	 *            The stat to calculate the bonus for.
+	 * @param id
+	 *            The id of the character being processed.
+	 * @param partialStatBonus
+	 *            The precalculated bonuses to be included.
+	 * @return The stat value.
+	 */
+	public int getPartialStatFor(CharID id, PCStat stat, int partialStatBonus)
+	{
+		int statValue = getBaseStatFor(id, stat);
+
+		statValue += partialStatBonus;
+		Number val = statMinValueFacet.getStatMinValue(id, stat);
+		if (val != null)
+		{
+			statValue = Math.max(val.intValue(), statValue);
+		}
+
+		val = statMaxValueFacet.getStatMaxValue(id, stat);
+		if (val != null)
+		{
+			statValue = Math.min(val.intValue(), statValue);
+		}
+		return statValue;
+	}
+
 }

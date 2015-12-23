@@ -104,5 +104,3 @@ FOLLOWER:EidolonCompanionLVL=20	TYPE:Eidolon													BONUS:ABILITYPOOL|Eidol
 FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon		ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Wild Caller Eidolon
 
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																								BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")
-
-

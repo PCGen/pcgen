@@ -10,7 +10,7 @@ CLASS:Unbodied Monstrous Humanoid	PRERACE:1,Unbodied	PRERACETYPE:Monstrous Human
 # Class Name				Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Unbodied Monstrous Humanoid	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Perception|Ride|Stealth|Survival|Swim
 # Class Name				Spell Stat		Spell Type		Memorize	Caster level							Use Spell List
-CLASS:Unbodied Monstrous Humanoid	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Unbodied Monstrous Humanoid|CL	SPELLLIST:2|Psion|Telepath
+CLASS:Unbodied Monstrous Humanoid	SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Unbodied Monstrous Humanoid|CL	SPELLLIST:2|Psion|Telepath
 1			ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 4	KNOWN:0,5,4
 ###Block: Psionic Power Points

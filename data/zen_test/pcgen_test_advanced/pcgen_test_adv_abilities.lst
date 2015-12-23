@@ -13,6 +13,9 @@ Second Choice																																								CATEGORY:Special Ability	TY
 Granted Choice																																								CATEGORY:Special Ability	TYPE:SpecialQuality
 Master Ability 2																																								CATEGORY:Special Ability	TYPE:Test777.SpecialQuality													PREABILITY:1,CATEGORY=Special Ability,Master Ability (Second Choice)
 
+# Converter issue
+Devil Traits Conversion issue	CATEGORY:Internal	AUTO:LANG|Infernal|Celestial|Draconic|PREVAREQ:OverrideSubtypeLanguage,0
+Demon Traits Conversion issue	CATEGORY:Internal	AUTO:LANG|Abyssal|Celestial|Draconic|PREVAREQ:OverrideSubtypeLanguage,0	
 
 
 

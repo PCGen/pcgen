@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	FACT:ClassType|PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	FACT:ClassType|PC	FACT:Abb|Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -203,7 +203,7 @@ CLASS:Domain Test	HD:4		TYPE:PC.Base	FACT:ClassType|PC
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
-CLASS:Bard		HD:6		TYPE:Base.PC	FACT:ClassType|PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Bard		HD:6		TYPE:Base.PC	FACT:ClassType|PC	FACT:Abb|Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -347,7 +347,7 @@ CLASS:Test56
 ### Eclipse Set Test Class
 
 # Class Name			Output Name		Hit Dice	Type				Class Type		Abbreviation	Max Level	Define			Combat bonus							Modify VAR
-CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	FACT:ClassType|PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:COMBAT|BASEAB|var("Warcraft Bonus")|TYPE=Base	BONUS:VAR|EclipseClass|1
+CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	FACT:ClassType|PC	FACT:Abb|d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:COMBAT|BASEAB|var("Warcraft Bonus")|TYPE=Base	BONUS:VAR|EclipseClass|1
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:

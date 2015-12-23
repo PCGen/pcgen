@@ -2,7 +2,7 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Empath	HD:4		TYPE:PC.Prestige	ABB:Emp		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Empath	HD:4		TYPE:PC.Prestige	FACT:Abb|Emp		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Required Ability							Required Skill										Req. Known Spell			Required Spell School		Required Sub-school			Req. Spell Type		Required Stat
 CLASS:Empath	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Enchantment)	PRESKILL:4,Bluff=5,Diplomacy=5,Gather Information=5,Sense Motive=5	PRESPELL:1,Vampiric Touch	PRESPELLSCHOOL:3,Necromancy=1	PRESPELLSCHOOLSUB:3,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,CHA=14
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -19,7 +19,7 @@ CLASS:Empath	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gat
 10	SAB:Willcrafting (DC %)|WillCraftDC														BONUS:VAR|StrikingAppearance|1	DEFINE:WillCraftDC|0		ADD:SPELLCASTER|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Puppeteer	HD:4		TYPE:PC.Prestige	ABB:Pup		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Puppeteer	HD:4		TYPE:PC.Prestige	FACT:Abb|Pup		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Required Ability											Required Skill						Required Sub-school			Req. Spell Type		Required Stat
 CLASS:Puppeteer	PREABILITY:3,CATEGORY=FEAT,Spell Focus (Enchantment),Iron Will,Skill Focus	PRESKILL:3,Bluff=5,Diplomacy=5,Sense Motive=5	PRESPELLSCHOOLSUB:3,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:2,CHA=16,WIS=14
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -36,7 +36,7 @@ CLASS:Puppeteer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|
 10	SAB:Lord and Master
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Dark Temptress	HD:4		TYPE:PC.Prestige	ABB:DkT		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Dark Temptress	HD:4		TYPE:PC.Prestige	FACT:Abb|DkT		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name		Required Ability							Required Skill										Req. Known Spell			Required Spell School		Required Sub-school			Req. Spell Type		Required Stat
 CLASS:Dark Temptress	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Enchantment)	PRESKILL:4,Bluff=5,Diplomacy=5,Gather Information=5,Sense Motive=5	PRESPELL:1,Vampiric Touch	PRESPELLSCHOOL:3,Necromancy=1	PRESPELLSCHOOLSUB:3,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,CHA=16
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -53,7 +53,7 @@ CLASS:Dark Temptress	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplo
 10	MOVE:Fly,50	SR:12	DR:20/+2	SAB:The Epiphany of Extacy	SAB:Energy Drain	SAB:Alternate Form	SAB:Summon Tanar'ri	SAB:Tanar'ri Qualities							BONUS:SKILL|Listen,Spot|8											ADD:SPELLCASTER|Arcane	SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Unholy Blight,14+CHA																						TEMPLATE:Dark Temptress Level 10
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Mindmender	HD:4		TYPE:PC.Prestige	ABB:Mmn		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+CLASS:Mindmender	HD:4		TYPE:PC.Prestige	FACT:Abb|Mmn		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Required Ability													Required Skill					Required Sub-school			Req. Spell Type		Required Stat
 CLASS:Mindmender	PREABILITY:3,CATEGORY=FEAT,Iron Will,Skill Focus (Diplomacy),Spell Focus (Enchantment)	PRESKILL:2,Diplomacy=6,Sense Motive=6	PRESPELLSCHOOLSUB:2,Compulsion=1	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,WIS=16
 # Class Name	Skill Pts/Lvl	Class Skill

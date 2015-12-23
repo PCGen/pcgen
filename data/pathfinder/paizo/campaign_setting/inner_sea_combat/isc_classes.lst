@@ -6,7 +6,7 @@ CLASS:Pure Legion Enforcer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.32	D
 # Class Name			Required Ability						Required AL		Multiple Requirements																				Required Skill							!PRESPELLTYPE			Required Text
 CLASS:Pure Legion Enforcer	PREABILITY:1,CATEGORY=FEAT,Godless Healing	PREALIGN:LG,LN,LE	PREMULT:1,[!PRECLASS:1,SPELLCASTER.Divine=1],[PREVARLT:Caster_Level_Highest__Divine,1]	PREMULT:1,[!PREDEITY:1,ANY],[PREDEITY:1,None]	PRESKILL:2,Knowledge (religion)=5,Sense Motive=4	!PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any lawful. Deity: Cannot worship a deity. Feats: Godless Healing. Skills: Knowledge (religion) 5 ranks, Sense Motive 4 ranks. Special: Cannot cast divine spells.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Pure Legion Enforcer	STARTSKILLPTS:4	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (local)|Knowledge (religion)|Perception|Sense Motive|Spellcraft|Survival
+CLASS:Pure Legion Enforcer	STARTSKILLPTS:4	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (Local)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Survival
 ###Block
 1	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Weapon and Armor Proficiency
 1	ABILITY:Pure Legion Enforcer Class Feature|AUTOMATIC|Pure Legion Enforcer ~ Aura Sense
@@ -30,7 +30,7 @@ CLASS:Ulfen Guard	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.34	DEFINE:Ulfen_GuardLVL|
 # Class Name	Required Skill									Required Text																					PRETOTALAB
 CLASS:Ulfen Guard	PRESKILL:3,Knowledge (nobility)=2,Perception=5,Sense Motive=3	PRETEXT:Base Attack Bonus: +5. Skills: Knowledge (nobility) 2 ranks, Perception 5 ranks, Sense Motive 3 ranks. Special: Ulfen descent.	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ulfen Guard	STARTSKILLPTS:4	CSKILL:Diplomacy|Knowledge (nobility)|Perception|Sense Motive
+CLASS:Ulfen Guard	STARTSKILLPTS:4	CSKILL:Diplomacy|Knowledge (Nobility)|Perception|Sense Motive
 ###Block
 1	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Chosen Ally
 1	ABILITY:Ulfen Guard Class Feature|AUTOMATIC|Ulfen Guard ~ Guard Dedications

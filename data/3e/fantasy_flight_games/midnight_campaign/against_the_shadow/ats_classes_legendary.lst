@@ -5,7 +5,7 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 ### TODO: There are a bunch of constraints on taking and maintaining Legendary classes that I can't enforce.
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Avatar of the Witch Queen	HD:10		TYPE:PC.Legendary	ABB:AotWQ		MAXLEVEL:5	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|2
+CLASS:Avatar of the Witch Queen	HD:10		TYPE:PC.Legendary	FACT:Abb|AotWQ		MAXLEVEL:5	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|2
 # Class Name				Required Ability					Required Check Base	Required Skill																		Required Stat	Required Text
 CLASS:Avatar of the Witch Queen	PREABILITY:1,CATEGORY=FEAT,TYPE.Magecraft	PRECHECKBASE:1,Will=6	PRESKILL:3,TYPE.Strength=15,TYPE.Intelligence=15,TYPE.Wisdom=15,TYPE.Dexterity=15,TYPE.Constitution=15,TYPE.Charisma=15	PRESTAT:1,WIS=15	PRETEXT:Any 1 feat of the DM's choice, Must be judged a loyal follower of the Witch Queen and must have done many services for the elves and against the Night Kings.
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -13,7 +13,7 @@ CLASS:Avatar of the Witch Queen	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Di
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Avatar of the Witch Queen|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Bleak Knight	HD:10		TYPE:PC.Legendary	ABB:BlKn		MAXLEVEL:5	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Bleak Knight	HD:10		TYPE:PC.Legendary	FACT:Abb|BlKn		MAXLEVEL:5	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability										Required Skill					Required Text																			PRETOTALAB
 CLASS:Bleak Knight	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Iron Will,Improved Critical	PRESKILL:2,Intimidate=5,Wilderness Lore=5	PRETEXT:1 feat of DM's choice, Must have lost a loved one or home to the agents of Izrador and have witnessed it occuring	PRETOTALAB:12
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -23,7 +23,7 @@ CLASS:Bleak Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Liste
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Bleak Knight|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Living Nexus	HD:8		TYPE:PC.Legendary	ABB:LvNx		MAXLEVEL:5	SOURCEPAGE:p.72	BONUS:COMBAT|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Living Nexus	HD:8		TYPE:PC.Legendary	FACT:Abb|LvNx		MAXLEVEL:5	SOURCEPAGE:p.72	BONUS:COMBAT|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements														Required Skill						Required Text
 CLASS:Living Nexus	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Sense Nexus],[PREABILITY:4,CATEGORY=FEAT,TYPE.ItemCreation]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRETEXT:1 feat of DM's choice, Scribe Scroll and Brew Potion do not count towards Item Creation feat requirments
 # Class Name		Skill Pts/Lvl	Class Skill

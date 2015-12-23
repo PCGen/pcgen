@@ -6,4 +6,4 @@ SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/produ
 # Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play;
 
 # Deity Name	Domains			Description of Deity/Title					Deity Weapon	Align		Source Page		Holy Item								Pantheon					Deity Title
-Zogmugot.MOD	DOMAINS:.CLEAR.Flotsam	DESC:Goddess of drowning, flotsam, and scavenging	DEITYWEAP:Sickle	ALIGN:CE	SOURCEPAGE:p.26	SYMBOL:A seaweed-draped, dripping treasure chest	PANTHEON:Pathfinder Chronicles	TITLE:Lady Lastbreath
+Zogmugot.MOD	DOMAINS:.CLEAR.Flotsam	DESC:Goddess of drowning, flotsam, and scavenging	DEITYWEAP:Sickle	ALIGN:CE	SOURCEPAGE:p.26	FACT:Symbol|A seaweed-draped, dripping treasure chest	FACTSET:Pantheon|Pathfinder Chronicles	FACT:Title|Lady Lastbreath

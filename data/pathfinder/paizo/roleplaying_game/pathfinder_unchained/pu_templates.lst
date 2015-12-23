@@ -4,10 +4,10 @@
 # Template Name		Hit Dice Size		Nb Legs	Visible
 Monk ~ Unchained HD	HITDIE:10|CLASS=Monk			VISIBLE:NO
 
-Legs 02							LEGS:02	VISIBLE:NO
-Legs 04							LEGS:04	VISIBLE:NO
-Legs 06							LEGS:06	VISIBLE:NO
-Legs 08							LEGS:08	VISIBLE:NO
+Legs 02							LEGS:2	VISIBLE:NO
+Legs 04							LEGS:4	VISIBLE:NO
+Legs 06							LEGS:6	VISIBLE:NO
+Legs 08							LEGS:8	VISIBLE:NO
 Legs 10							LEGS:10	VISIBLE:NO
 Legs 12							LEGS:12	VISIBLE:NO
 Legs 14							LEGS:14	VISIBLE:NO

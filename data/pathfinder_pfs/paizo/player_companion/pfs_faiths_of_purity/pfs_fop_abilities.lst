@@ -8,4 +8,3 @@ SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/gam
 # Ability Name								Unique Key				Category of Ability		Type					Required Deity	Multiple Requirements																			Description																																							Bonus to skill				Class Skill		Source Page
 CATEGORY=Special Ability|Trait ~ Eye of the Father.FORGET
 Eye of the Father								KEY:Trait ~ Eye of the Father	CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREDEITY:1,Torag	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Eye of the Father],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]	DESC:You have an innate sense of what is right and wrong in the works you craft, based on your years studying with the church fathers at their forges. You gain +1 trait bonus to Appraise skill, and Appraise is always a class skill for you.	BONUS:SKILL|Appraise|1|TYPE:Trait	CSKILL:Appraise	SOURCEPAGE:p.17
-
