@@ -120,7 +120,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Equipment.class, OriginalKey);
 
 		eqDouble = eqLoader.parseLine(Globals.getContext(), null,
-			"Dummy	SIZE:M 	KEY:DoubleKey	TYPE:Weapon.Double", source);
+			"Double	SIZE:M 	KEY:DoubleKey	TYPE:Weapon.Double", source);
 
 		eqDouble = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Equipment.class, "DoubleKey");
@@ -599,6 +599,16 @@ assertNotNull("Eqmod should be present", eqMod);
 		assertEquals("Dummy", name);
 		name = eq.nameItemFromModifiers(getCharacter());
 		assertEquals("Dummy", name);
+		
+		name = eqDouble.nameItemFromModifiers(getCharacter());
+		assertEquals("Double", name);
+		Equipment item = eqDouble.clone();
+		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+			EquipmentModifier.class, "PLUS1W");
+		item.addEqModifier(eqModPlus, true, getCharacter());
+		item.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eqDouble));
+		name = item.nameItemFromModifiers(getCharacter());
+		assertEquals("Double +1_-", name);
 	}
 	
 	/**
