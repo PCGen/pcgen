@@ -36,7 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 
 
 # Data files
-DATACONTROL:uc_datacontrols.lst
+DATACONTROL:uc__datacontrols.lst
 ABILITY:uc_abilities_globalvar.lst
 
 
