@@ -401,6 +401,14 @@ CLASS:Ex-Warpriest	STARTSKILLPTS:2
 1	ABILITY:Special Ability|AUTOMATIC|Warpriest ~ Weapon and Armor Proficiency
 3	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Bonus Feats|PREVAREQ:Warpriest_CF_BonusFeats,0
 
+CLASS:Summoner.MOD
+1	SPELLLEVEL:CLASS|Summoner=1|Blurred Movement,Glue Seal,Long Arm|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=2|Blood Armor,Time Shudder,Whip of Spiders|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=3|Creeping Ice,Shield Companion|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=4|Adjustable Polymorph|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=5|Whip of Centipedes|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=6|Dimensional Bounce,Whip of Ants|PREVAREQ:StandardSummoner,1
+
 #
 # End
 #

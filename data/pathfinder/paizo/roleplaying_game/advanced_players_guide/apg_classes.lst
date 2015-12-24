@@ -219,6 +219,29 @@ CLASS:Summoner	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
 19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+###Block: Spell Support
+1	SPELLLEVEL:CLASS|Summoner=1|Ant Haul,Rejuvenate Eidolon (Lesser),Unfetter|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=2|Create Pit,Evolution Surge (Lesser),Glide,Summon Eidolon|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=3|Aqueous Orb,Devolution,Evolution Surge,Rejuvenate Eidolon,Seek Thoughts,Spiked Pit|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=4|Acid Pit,Evolution Surge (Greater),Purified Calling,Transmogrify|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=5|Hungry Pit,Planar Adaptation,Rejuvenate Eidolon (Greater)|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=6|Planar Adaptation (Mass)|PREVAREQ:StandardSummoner,1
+# CRB
+1	SPELLLEVEL:CLASS|Summoner=0|Acid Splash,Arcane Mark,Daze,Detect Magic,Guidance,Light,Mage Hand,Mending,Message,Open/Close,Read Magic,Resistance|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=1|Alarm,Daze Monster,Endure Elements,Enlarge Person,Expeditious Retreat,Feather Fall,Grease,Identify,Jump,Mage Armor,Magic Fang,Magic Mouth,Mount,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Reduce Person,Shield,Unseen Servant,Ventriloquism|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=2|Alter Self,Barkskin,Bear's Endurance,Blur,Bull's Strength,Cat's Grace,Detect Thoughts,Eagle's Splendor,Fox's Cunning,Glitterdust,Haste,Invisibility,Levitate,Misdirection,Owl's Wisdom,Phantom Steed,Protection from Arrows,Resist Energy,See Invisibility,Slow,Spider Climb,Summon Swarm,Wind Wall|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=3|Black Tentacles,Charm Monster,Dimension Door,Dimensional Anchor,Dispel Magic,Displacement,Enlarge Person (Mass),Fire Shield,Fly,Heroism,Invisibility (Greater),Locate Creature,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Magic Fang (Greater),Minor Creation,Nondetection,Protection from Energy,Rage,Reduce Person (Mass),Stoneskin,Tongues,Wall of Fire,Wall of Ice,Water Breathing|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=4|Baleful Polymorph,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Contact Other Plane,Dismissal,Eagle's Splendor (Mass),Fox's Cunning (Mass),Hold Monster,Insect Plague,Mage's Faithful Hound,Magic Jar,Major Creation,Overland Flight,Owl's Wisdom (Mass),Planar Binding (Lesser),Sending,Teleport,Wall of Stone|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=5|Banishment,Creeping Doom,Dispel Magic (Greater),Ethereal Jaunt,Heroism (Greater),Invisibility (Mass),Planar Binding,Plane Shift,Repulsion,Sequester,Simulacrum,Spell Turning,True Seeing,Teleport (Greater),Wall of Iron|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=6|Antipathy,Binding,Charm Monster (Mass),Dimensional Lock,Discern Location,Dominate Monster,Incendiary Cloud,Maze,Planar Binding (Greater),Protection from Spells,Sympathy,Teleportation Circle|PREVAREQ:StandardSummoner,1
+# Summon Monster
+1	SPELLLEVEL:CLASS|Summoner=1|Summon Monster I|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=2|Summon Monster II|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=3|Summon Monster IV|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=4|Summon Monster V|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=5|Summon Monster VII|PREVAREQ:StandardSummoner,1
+1	SPELLLEVEL:CLASS|Summoner=6|Summon Monster VIII|PREVAREQ:StandardSummoner,1
+
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define																			Combat bonus																	Save bonus																																		Modify VAR
 CLASS:Witch		HD:6		TYPE:Base.PC	FACT:ClassType|PC	FACT:Abb|Wit		MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLVL|0	DEFINE:CasterLevelBLWitch|0	DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	BONUS:VAR|CasterLevelBL_x_Witch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base

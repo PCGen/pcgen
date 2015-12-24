@@ -490,7 +490,7 @@ Word of Chaos.MOD				CLASSES:Inquisitor=6
 #Unfetter.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
 #
 ##Summoner Spells - CRB
-#Acid Splash.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Acid Splash.MOD				CLASSES:Summoner=0
 #Arcane Mark.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
 #Daze.MOD					CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
 #Detect Magic.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
