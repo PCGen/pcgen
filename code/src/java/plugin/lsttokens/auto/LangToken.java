@@ -221,6 +221,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (added != null)
 		{
 			boolean needPipe = sb.length() > 0;
+			Prerequisite prereq = null;
 			for (QualifiedObject<CDOMReference<Language>> spp : added)
 			{
 				CDOMReference<Language> lang = spp.getRawObject();
@@ -244,19 +245,30 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 						return null;
 					}
 					Prerequisite p = prereqs.get(0);
-					StringWriter swriter = new StringWriter();
-					try
+					if (prereq != null && !p.equals(prereq))
 					{
-						prereqWriter.write(swriter, p);
-					}
-					catch (PersistenceLayerException e)
-					{
-						context.addWriteMessage("Error writing Prerequisite: " + e);
+						context.addWriteMessage("Error: "
+								+ obj.getClass().getSimpleName()
+								+ " had differing Prerequisites for " + getFullName());
 						return null;
 					}
-					ab = ab + '|' + swriter.toString();
+					prereq = p;
 				}
 				sb.append(ab);
+			}
+			if (prereq != null)
+			{
+				StringWriter swriter = new StringWriter();
+				try
+				{
+					prereqWriter.write(swriter, prereq);
+				}
+				catch (PersistenceLayerException e)
+				{
+					context.addWriteMessage("Error writing Prerequisite: " + e);
+					return null;
+				}
+				sb.append('|').append(swriter.toString());
 			}
 		}
 		if (foundAny && foundOther)
