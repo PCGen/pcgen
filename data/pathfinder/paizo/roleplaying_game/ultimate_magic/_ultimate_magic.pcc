@@ -60,7 +60,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright
 #EXTRAFILE:OGL.txt
 
 # Data files
-DATACONTROL:_datacontrols.lst
+DATACONTROL:um__datacontrols.lst
 ABILITY:um_abilities_globalvar.lst
 
 ABILITY:um_abilities.lst
