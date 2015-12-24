@@ -46,7 +46,7 @@ import pcgen.util.Logging;
  */
 public class MigrationLoader extends LstLineFileLoader
 {
-	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|\\.|%|\\*|=|\\[|\\]].*";
+	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|%|\\*|=|\\[|\\]].*";
 	private String invalidSourceKeyPattern = ".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*";
 
 	/* (non-Javadoc)
