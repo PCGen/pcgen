@@ -29,8 +29,8 @@ CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_MagicalSupremacy|0
 
 CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_Proficiencies|0
 CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_WeaponProficiencies|0
-CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_ArcanistSpellbooks|0
-CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_ArcanistSpells|0
+CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_Spellbooks|0
+CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_Spells|0
 
 CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_ArcanistExploit1|0
 CATEGORY=Class|Arcanist.MOD		DEFINE:Arcanist_CF_ArcanistExploit3|0
@@ -55,8 +55,8 @@ CATEGORY=Class|Arcanist.MOD																																								BONUS:VAR|Arc
 CATEGORY=Class|Arcanist.MOD																																								BONUS:VAR|Arcanist_CF_ArcanistExploit19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistExploit19=True
 
 
-CATEGORY=Class|Arcanist.MOD																																								BONUS:VAR|Arcanist_CF_ArcanistSpellbooks|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistSpellbooks=True
-CATEGORY=Class|Arcanist.MOD																																								BONUS:VAR|Arcanist_CF_ArcanistSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_ArcanistSpells=True
+CATEGORY=Class|Arcanist.MOD																																								BONUS:VAR|Arcanist_CF_Spellbooks|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Spellbooks=True
+CATEGORY=Class|Arcanist.MOD																																								BONUS:VAR|Arcanist_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Arcanist_CF_Spells=True
 
 
 
