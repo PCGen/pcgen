@@ -47,6 +47,9 @@ Serpentine Squeeze		KEY:Trait ~ Serpentine Squeeze					CATEGORY:Special Ability	
 # Zyphus				# Zyphus
 Fatal Trapper			KEY:Trait ~ Fatal Trapper						CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Zyphus						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fatal Trapper],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You gain a +1 trait bonus on Craft (traps) checks and a +1 trait bonus on Disable Device checks made to disable traps.																																																																																	BONUS:SITUATION|Disable Device=Traps|1|TYPE=Trait			BONUS:SKILL|Craft (Traps)|1|TYPE=Trait																	SOURCEPAGE:p.22
 
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Shared Sacrifice|PREVAREQ:StandardSummoner,1
+
 #
 # End
 #

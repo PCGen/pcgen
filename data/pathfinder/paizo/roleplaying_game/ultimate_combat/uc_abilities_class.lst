@@ -1632,3 +1632,11 @@ CATEGORY=Archetype|Wizard Archetype ~ Spellslinger.MOD																								PR
 Ranger Companion	KEY:Samurai Mount Boost ~ Ranger	CATEGORY:Internal		TYPE:Multiple Companions	PREABILITY:1,CATEGORY=Special Ability,Hunter's Bond ~ Animal Companion	PRECLASS:2,Samurai=1,Ranger=1		DESC:Remove Ranger companion and boost Samurai Mount.		BONUS:VAR|CompanionDisable_AnimalCompanion|1	BONUS:VAR|SamuraiMountLVL-3|RangerLVL|PREVARGTEQ:RangerLVL,4
 Druid Companion	KEY:Samurai Mount Boost ~ Druid	CATEGORY:Internal		TYPE:Multiple Companions	PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	PRECLASS:2,Samurai=1,Druid=1		DESC:Remove Druid companion and boost Samurai Mount.		BONUS:VAR|CompanionDisable_AnimalCompanion|1	BONUS:VAR|SamuraiMountLVL|DruidLVL
 Paladin Mount	KEY:Samurai Mount Boost ~ Paladin	CATEGORY:Internal		TYPE:Multiple Companions	PREABILITY:1,CATEGORY=Special Ability,Divine Bond ~ Special Mount		PRECLASS:2,Samurai=1,Paladin=1	DESC:Remove Paladin companion and boost Samurai Mount.	BONUS:VAR|CompanionDisable_PaladinMount|1	BONUS:VAR|SamuraiMountLVL|PaladinLVL
+
+###Block:
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Compel Hostility,Jury-Rig,Life Conduit|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Ablative Barrier,Ant Haul (Communal),Mount (Communal),Protection from Chaos (Communal),Protection from Evil (Communal),Protection from Good (Communal),Protection from Law (Communal),Twisted Space,Warding Weapon|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Life Conduit (Improved),Obsidian Flow,Pellet Blast,Phantom Chariot,Phantom Steed (Communal),Protection from Arrows (Communal),Resist Energy (Communal),Spider Climb (Communal)|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Hostile Juxtaposition,Protection from Energy (Communal),Stoneskin (Communal),Summoner Conduit,Tongues (Communal)|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Energy Siege Shot,Life Conduit (Greater),Tar Pool,Wreath of Blades|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Energy Siege Shot (Greater),Hostile Juxtaposition (Greater),Walk through Space|PREVAREQ:StandardSummoner,1

@@ -157,10 +157,3 @@ CLASS:Cleric.MOD
 0	DOMAIN:Water|PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Water Domain
 0	DOMAIN:Weather|PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Weather Domain
 
-CLASS:Summoner.MOD
-1	SPELLLEVEL:CLASS|Summoner=1|Corrosive Touch,Icicle Dagger,Ray of Sickening,Summon Minor Monster|PREVAREQ:StandardSummoner,1
-1	SPELLLEVEL:CLASS|Summoner=2|Cushioning Bands,Restore Eidolon (Lesser),Web Shelter|PREVAREQ:StandardSummoner,1
-1	SPELLLEVEL:CLASS|Summoner=3|Agonize,Control Summoned Creature,Mad Monkeys,Marionette Possession,Rain of Frogs,Restore Eidolon|PREVAREQ:StandardSummoner,1
-1	SPELLLEVEL:CLASS|Summoner=4|Daze (Mass),Vitriolic Mist|PREVAREQ:StandardSummoner,1
-1	SPELLLEVEL:CLASS|Summoner=5|Conjure Black Pudding,Create Demiplane (Lesser),Ice Crystal Teleport|PREVAREQ:StandardSummoner,1
-1	SPELLLEVEL:CLASS|Summoner=6|Create Demiplane,Eagle Aerie|PREVAREQ:StandardSummoner,1

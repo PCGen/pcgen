@@ -267,6 +267,12 @@ Know Weakness	KEY:Lore Warden ~ Know Weakness	CATEGORY:Special Ability	TYPE:Spec
 #
 Add Skills		KEY:Skills ~ Int Based			CATEGORY:Special Ability	TYPE:IntBaseSkill																																																																																																																																														STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Intelligence																		BONUS:SKILLRANK|%LIST|1
 # !RANKS=MAXRANK,
+
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Bite the Hand|Summoner=6|Bite the Hand (Mass)|PREVAREQ:StandardSummoner,1
+
+
+
 #
 ###END
 #

@@ -41,7 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Pathfinder Unchained" Cop
 ABILITY:pu_abilities_class.lst
 ABILITY:pu_abilities_race.lst
 ABILITYCATEGORY:pu_abilitycategories.lst
-CLASS:pu_classes.lst
 COMPANIONMOD:pu_companionmods.lst
 EQUIPMENT:pu_equip.lst
 ABILITY:pu_feats.lst

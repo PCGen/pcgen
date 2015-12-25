@@ -686,9 +686,9 @@ CATEGORY=Internal|Default.MOD																																																			
 
 # COMMENT: Next to tackle, fixing the Summoner class feature set up.
 
-Summoner												CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner																					BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base
+Summoner												CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner																					BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|TYPE=Base|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base
 #
-Standard							KEY:Summoner ~ Standard Class	CATEGORY:Class		TYPE:Summoner Class Selection	PREVAREQ:StandardSummonerAllowed,1	DEFINE:StandardSummoner|0																																																		BONUS:VAR|StandardSummoner|1																													CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device	COST:1
+Standard							KEY:Summoner ~ Standard Class	CATEGORY:Class		TYPE:Summoner Class Selection	PREVAREQ:StandardSummonerAllowed,1	DEFINE:StandardSummoner|0																																																		BONUS:VAR|StandardSummoner|1|TYPE=Base																													CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device	COST:1
 
 ###Block: Class Feature Progression
 CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Weapon and Armor Proficiency|PREVARGTEQ:Summoner_CFP_Level,1
@@ -709,29 +709,27 @@ CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTO
 CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Twin Eidolon|PREVARGTEQ:Summoner_CFP_Level,20
 
 ###Block: Standard
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=1|Ant Haul,Rejuvenate Eidolon (Lesser),Unfetter
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=2|Create Pit,Evolution Surge (Lesser),Glide,Summon Eidolon
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=3|Aqueous Orb,Devolution,Evolution Surge,Rejuvenate Eidolon,Seek Thoughts,Spiked Pit
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=4|Acid Pit,Evolution Surge (Greater),Purified Calling,Transmogrify
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=5|Hungry Pit,Planar Adaptation,Rejuvenate Eidolon (Greater)
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=6|Planar Adaptation (Mass)
-#
-#
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=0|Acid Splash,Arcane Mark,Daze,Detect Magic,Guidance,Light,Mage Hand,Mending,Message,Open/Close,Read Magic,Resistance
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=1|Alarm,Daze Monster,Endure Elements,Enlarge Person,Expeditious Retreat,Feather Fall,Grease,Identify,Jump,Mage Armor,Magic Fang,Magic Mouth,Mount,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Reduce Person,Shield,Unseen Servant,Ventriloquism
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=2|Alter Self,Barkskin,Bear's Endurance,Blur,Bull's Strength,Cat's Grace,Detect Thoughts,Eagle's Splendor,Fox's Cunning,Glitterdust,Haste,Invisibility,Levitate,Misdirection,Owl's Wisdom,Phantom Steed,Protection from Arrows,Resist Energy,See Invisibility,Slow,Spider Climb,Summon Swarm,Wind Wall
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=3|Black Tentacles,Charm Monster,Dimension Door,Dimensional Anchor,Dispel Magic,Displacement,Enlarge Person (Mass),Fire Shield,Fly,Heroism,Invisibility (Greater),Locate Creature,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Magic Fang (Greater),Minor Creation,Nondetection,Protection from Energy,Rage,Reduce Person (Mass),Stoneskin,Tongues,Wall of Fire,Wall of Ice,Water Breathing
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=4|Baleful Polymorph,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Contact Other Plane,Dismissal,Eagle's Splendor (Mass),Fox's Cunning (Mass),Hold Monster,Insect Plague,Mage's Faithful Hound,Magic Jar,Major Creation,Overland Flight,Owl's Wisdom (Mass),Planar Binding (Lesser),Sending,Teleport,Wall of Stone
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=5|Banishment,Creeping Doom,Dispel Magic (Greater),Ethereal Jaunt,Heroism (Greater),Invisibility (Mass),Planar Binding,Plane Shift,Repulsion,Sequester,Simulacrum,Spell Turning,True Seeing,Teleport (Greater),Wall of Iron
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=6|Antipathy,Binding,Charm Monster (Mass),Dimensional Lock,Discern Location,Dominate Monster,Incendiary Cloud,Maze,Planar Binding (Greater),Protection from Spells,Sympathy,Teleportation Circle
-#
-####Block: Summoner Summon Monster Support
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=1|Summon Monster I
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=2|Summon Monster II
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=3|Summon Monster IV
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=4|Summon Monster V
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=5|Summon Monster VII
-#CATEGORY=Class|Summoner ~ Standard Class.MOD	SPELLLEVEL:CLASS|Summoner=6|Summon Monster VIII
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Ant Haul,Rejuvenate Eidolon (Lesser),Unfetter|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Create Pit,Evolution Surge (Lesser),Glide,Summon Eidolon|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Aqueous Orb,Devolution,Evolution Surge,Rejuvenate Eidolon,Seek Thoughts,Spiked Pit|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Acid Pit,Evolution Surge (Greater),Purified Calling,Transmogrify|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Hungry Pit,Planar Adaptation,Rejuvenate Eidolon (Greater)|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Planar Adaptation (Mass)|PREVAREQ:StandardSummoner,1
+# CRB
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=0|Acid Splash,Arcane Mark,Daze,Detect Magic,Guidance,Light,Mage Hand,Mending,Message,Open/Close,Read Magic,Resistance|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Alarm,Daze Monster,Endure Elements,Enlarge Person,Expeditious Retreat,Feather Fall,Grease,Identify,Jump,Mage Armor,Magic Fang,Magic Mouth,Mount,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Reduce Person,Shield,Unseen Servant,Ventriloquism|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Alter Self,Barkskin,Bear's Endurance,Blur,Bull's Strength,Cat's Grace,Detect Thoughts,Eagle's Splendor,Fox's Cunning,Glitterdust,Haste,Invisibility,Levitate,Misdirection,Owl's Wisdom,Phantom Steed,Protection from Arrows,Resist Energy,See Invisibility,Slow,Spider Climb,Summon Swarm,Wind Wall|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Black Tentacles,Charm Monster,Dimension Door,Dimensional Anchor,Dispel Magic,Displacement,Enlarge Person (Mass),Fire Shield,Fly,Heroism,Invisibility (Greater),Locate Creature,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Magic Fang (Greater),Minor Creation,Nondetection,Protection from Energy,Rage,Reduce Person (Mass),Stoneskin,Tongues,Wall of Fire,Wall of Ice,Water Breathing|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Baleful Polymorph,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Contact Other Plane,Dismissal,Eagle's Splendor (Mass),Fox's Cunning (Mass),Hold Monster,Insect Plague,Mage's Faithful Hound,Magic Jar,Major Creation,Overland Flight,Owl's Wisdom (Mass),Planar Binding (Lesser),Sending,Teleport,Wall of Stone|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Banishment,Creeping Doom,Dispel Magic (Greater),Ethereal Jaunt,Heroism (Greater),Invisibility (Mass),Planar Binding,Plane Shift,Repulsion,Sequester,Simulacrum,Spell Turning,True Seeing,Teleport (Greater),Wall of Iron|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Antipathy,Binding,Charm Monster (Mass),Dimensional Lock,Discern Location,Dominate Monster,Incendiary Cloud,Maze,Planar Binding (Greater),Protection from Spells,Sympathy,Teleportation Circle|PREVAREQ:StandardSummoner,1
+# Summon Monster
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Summon Monster I|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Summon Monster II|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Summon Monster IV|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Summon Monster V|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Summon Monster VII|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Summon Monster VIII|PREVAREQ:StandardSummoner,1
 
 
 #
