@@ -677,7 +677,7 @@ CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_WoodlandStride|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_SwiftTracker|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Evasion|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Quarry|0
-CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Camoflage|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Camouflage|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Evasion|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_HideInPlainSight|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Quarry|0
@@ -730,7 +730,7 @@ CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Woodland
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_SwiftTracker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_SwiftTracker=True
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Quarry=True
-CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Camoflage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Camoflage=True
+CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Camouflage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Camouflage=True
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_HideInPlainSight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HideInPlainSight=True
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Quarry=True
@@ -747,7 +747,7 @@ CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Woodland
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_SwiftTracker|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
-CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Camoflage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCamoflage
+CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Camouflage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCamoflage,TYPE.RangerCamouflage
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_HideInPlainSight|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHideInPlainSight
 CATEGORY=Class|Ranger.MOD																											BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
