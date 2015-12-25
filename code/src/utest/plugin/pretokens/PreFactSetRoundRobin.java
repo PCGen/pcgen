@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27 Aug 2015 9:11:34 am
+ * Created on 24 Dec 2015
  */
 package plugin.pretokens;
 
@@ -24,11 +24,11 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.base.format.StringManager;
-import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.facet.FacetInitialization;
 import plugin.lsttokens.testsupport.TokenRegistration;
-import plugin.pretokens.parser.PreFactParser;
-import plugin.pretokens.writer.PreFactWriter;
+import plugin.pretokens.parser.PreFactSetParser;
+import plugin.pretokens.writer.PreFactSetWriter;
 
 /**
  * The Class <code>PreFactRoundRobin</code> tests the parsing and unparsing of 
@@ -36,7 +36,7 @@ import plugin.pretokens.writer.PreFactWriter;
 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class PreFactRoundRobin extends AbstractPreRoundRobin
+public class PreFactSetRoundRobin extends AbstractPreRoundRobin
 {
 	private static boolean initialised = false;
 	private static final StringManager STR_MGR = new StringManager();
@@ -44,7 +44,7 @@ public class PreFactRoundRobin extends AbstractPreRoundRobin
 	
 	public static void main(String args[])
 	{
-		TestRunner.run(PreFactRoundRobin.class);
+		TestRunner.run(PreFactSetRoundRobin.class);
 	}
 
 	
@@ -53,19 +53,19 @@ public class PreFactRoundRobin extends AbstractPreRoundRobin
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(PreFactRoundRobin.class);
+		return new TestSuite(PreFactSetRoundRobin.class);
 	}
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		TokenRegistration.register(new PreFactParser());
-		TokenRegistration.register(new PreFactWriter());
-		FactKey.getConstant("Foo", STR_MGR);
-		FactKey.getConstant("Bard_Archetype_BardicKnowledge", STR_MGR);
-		FactKey.getConstant("Bard_Archetype_Countersong", STR_MGR);
-		FactKey.getConstant("Bard_Archetype_BardicPerformance", STR_MGR);
+		TokenRegistration.register(new PreFactSetParser());
+		TokenRegistration.register(new PreFactSetWriter());
+		FactSetKey.getConstant("Foo", STR_MGR);
+		FactSetKey.getConstant("Bard_Archetype_BardicKnowledge", STR_MGR);
+		FactSetKey.getConstant("Bard_Archetype_Countersong", STR_MGR);
+		FactSetKey.getConstant("Bard_Archetype_BardicPerformance", STR_MGR);
 		
 		if (!initialised)
 		{
@@ -76,17 +76,17 @@ public class PreFactRoundRobin extends AbstractPreRoundRobin
 
 	public void testBoolean()
 	{
-		runPositiveRoundRobin("PREFACT:1,RACE,Foo=true");
+		runPositiveRoundRobin("PREFACTSET:1,RACE,Foo=true");
 	}
 
 	public void testString()
 	{
-		runPositiveRoundRobin("PREFACT:1,RACE,Foo=Bar");
+		runPositiveRoundRobin("PREFACTSET:1,RACE,Foo=Bar");
 	}
 	
 	public void testMultipleBoolean()
 	{
-		runPositiveRoundRobin("PREFACT:1,RACE,"
+		runPositiveRoundRobin("PREFACTSET:1,RACE,"
 			+ "Bard_Archetype_BardicKnowledge=True,"
 			+ "Bard_Archetype_Countersong=True,"
 			+ "Bard_Archetype_BardicPerformance=True");

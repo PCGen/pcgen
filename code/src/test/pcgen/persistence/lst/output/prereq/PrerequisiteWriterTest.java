@@ -36,6 +36,9 @@ import java.io.Writer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import pcgen.base.format.StringManager;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -51,6 +54,8 @@ import pcgen.util.TestHelper;
  */
 public class PrerequisiteWriterTest extends TestCase
 {
+	private static final StringManager STR_MGR = new StringManager();
+
 	/**
 	 * Constructs a test case with the given name.
 	 * @param name
@@ -463,6 +468,9 @@ public class PrerequisiteWriterTest extends TestCase
 		SettingsHandler.setGame("3.5");
 		TestHelper.createAllAlignments();
 		TestHelper.makeSizeAdjustments();
+		FactKey.getConstant("IsPC", STR_MGR);
+		FactKey.getConstant("LEGS", STR_MGR);
+		FactSetKey.getConstant("PANTHEONS", STR_MGR);
 	}
 
 	/**
