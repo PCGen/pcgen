@@ -69,7 +69,6 @@ FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat15			DATAFORMAT:BOOLEAN	REQUIR
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat18			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 
 
-
 FACTDEF:ABILITY|Bloodrager_Archetype_ArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_Spells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 
