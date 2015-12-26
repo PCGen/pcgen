@@ -3726,6 +3726,14 @@ Quarterstaff Master	KEY:Warpriest Bonus Feat ~ Quarterstaff Master	CATEGORY:Spec
 Tripping Staff		KEY:Warpriest Bonus Feat ~ Tripping Staff		CATEGORY:Special Ability	TYPE:Warpriest Bonus Feat	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Improved Trip,Weapon Focus (Quarterstaff)									PREMULT:1,[PRESTAT:1,INT=13],[PREVARGTEQ:CombatFeatIntRequirement,13]	PREMULT:1,[PRETOTALAB:6],[PREVARGTEQ:WarpriestBonusFeatBAB,6]						DESC:You can make a trip attack with your quarterstaff.					ABILITY:FEAT|VIRTUAL|Tripping Staff		SOURCEPAGE:p.158	BENEFIT:You treat quarterstaves as if they had the trip special feature. If you are a magus with the staff magus archetype, you can use spellstrike on any trip combat maneuver you make with the staff.
 Tripping Twirl		KEY:Warpriest Bonus Feat ~ Tripping Twirl		CATEGORY:Special Ability	TYPE:Warpriest Bonus Feat	PREABILITY:5,CATEGORY=FEAT,Combat Expertise,Improved Trip,Tripping Staff,Weapon Focus (Quarterstaff),Weapon Specialization (Quarterstaff)	PREMULT:1,[PRESTAT:1,INT=13],[PREVARGTEQ:CombatFeatIntRequirement,13]	PREMULT:1,[PRETOTALAB:12],[PREVARGTEQ:WarpriestBonusFeatBAB,12]						DESC:You can make a trip attack with a quarterstaff on all adjacent enemies.		ABILITY:FEAT|VIRTUAL|Tripping Twirl					BENEFIT:As a full-round action, while wielding a quarterstaff two-handed, you can attempt a trip combat maneuver against each enemy adjacent to you.	BENEFIT:Special - If you are a magus with the staff magus archetype, you can use spellstrike on any one trip combat maneuver you make with the staff.
 
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Blurred Movement,Glue Seal,Long Arm|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Blood Armor,Time Shudder,Whip of Spiders|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Creeping Ice,Shield Companion|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Adjustable Polymorph|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Whip of Centipedes|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Dimensional Bounce,Whip of Ants|PREVAREQ:StandardSummoner,1
+
 #
 # End
 #

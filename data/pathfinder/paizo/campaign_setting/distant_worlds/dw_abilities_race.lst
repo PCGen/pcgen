@@ -39,4 +39,7 @@ Starflight			KEY:Oma ~ Starflight						CATEGORY:Special Ability	TYPE:Oma Racial 
 
 Spell-Like Abilities	KEY:Contemplative of Ashok ~ Spell-Like Abilities	CATEGORY:Special Ability	TYPE:Contemplative of Ashok Racial Trait.SpecialQuality.SpellLike	DESC:(CL 4th; concentration +9) Constant-detect magic, mage hand, read magic, tongues At will-daze (DC 15), detect thoughts (DC 17), ghost sound (DC 15), magic missile 3/day-telekinesis (DC 20)																																																																																												SOURCEPAGE:p.60
 
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Planetary Adaptation|Summoner=6|Planetary Adaptation (Mass)|PREVAREQ:StandardSummoner,1
+
 # END

@@ -77,3 +77,6 @@ Field Improvisation		KEY:Technomancer ~ Field Improvisation		CATEGORY:Special Ab
 Equipment ~ Smart Armor	CATEGORY:Internal		DEFINE:SmartArmorAC|0	DEFINE:SmartArmorDeactivated|0	BONUS:VAR|SmartArmorAC|4|PREVARGTEQ:SmartArmorDeactivated,1														TEMPBONUS:PC|VAR|SmartArmorDeactivated|1
 
 Noqual Armor Save Bonus	CATEGORY:Internal																						ASPECT:SaveBonus|+2 resistance bonus vs. spells and spell-like abilities
+
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Irradiate|PREVAREQ:StandardSummoner,1
