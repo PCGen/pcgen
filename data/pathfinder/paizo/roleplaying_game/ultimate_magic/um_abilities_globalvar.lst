@@ -40,11 +40,11 @@ CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArmorProficiency|1|TYPE=Boolean|PREF
 CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_FighterTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Magus_CF_FighterTraining=True
 CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_WeaponProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Magus_CF_WeaponProficiency=True
 
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Arcana3|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanaLvl3
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArcanePool|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Arcana|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_SpellRecall|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Spellstrike|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArmorProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_FighterTraining|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
-CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_WeaponProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Arcana3|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanaLvl3
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArcanePool|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Arcana|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_SpellRecall|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Spellstrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_FighterTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_WeaponProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
