@@ -620,6 +620,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		//availableTreeViewPanel.setTransferHandler(handler);
 		((TreeRendererHandler) state.get(TreeRendererHandler.class)).install();
 		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));
+		selectedTreeViewPanel.sortModel();
 		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();
 		addButton.setAction((AddAction) state.get(AddAction.class));
 		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));

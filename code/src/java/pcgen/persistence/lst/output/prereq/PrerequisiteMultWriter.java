@@ -28,13 +28,12 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
+import java.io.IOException;
+import java.io.Writer;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.Logging;
-
-import java.io.IOException;
-import java.io.Writer;
 
 public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 		implements PrerequisiteWriterInterface

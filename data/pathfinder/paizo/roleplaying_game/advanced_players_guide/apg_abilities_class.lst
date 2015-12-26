@@ -658,9 +658,83 @@ Wings of Air						KEY:Wind Mystery ~ Wings of Air			CATEGORY:Special Ability	TYP
 Final Revelation (Wind)					KEY:Wind Mystery ~ Final Revelation			CATEGORY:Special Ability	TYPE:OracleClassFeatures.SpecialQuality.FinalWindRevelation																																																																																																																																																												DESC:You become a master of air and electricity. You can apply any one of the following feats to any air or electricity spell without increasing the level or casting time: Enlarge Spell, Extend Spell, Silent Spell, or Still Spell.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								SOURCEPAGE:p.54
 
 
+###Block: Unchained Summoner Update
+# CFP = "Class Feature Progression"
+# Forces an irreversible choice at level 1 - this is required to 1) Force a Selection by the user (More visibility), 2) Spells will not work to refresh until Level up or reload which is unacceptable. The Choice propogates the correct spells at level 1.
+# Ability Name						Unique Key				Category of Ability	Type					Required Var. value			Define																							Ability																													Modify VAR																																Class Skill																		Cost
+CATEGORY=Internal|Default.MOD																								DEFINE:CLASS_SummonerAllowed|0	DEFINE:StandardSummonerAllowed|0																																											BONUS:VAR|CLASS_SummonerAllowed|StandardSummonerAllowed|TYPE=Base
+# For now, placing this to 1.
+CATEGORY=Internal|Default.MOD																																																																														BONUS:VAR|StandardSummonerAllowed|1
+
+# DEFINE:Rule_SeasonLVL|0
+
+
+#CATEGORY=Class|Summoner|.MOD	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:NoSummonerSelection,1
+# Template:Class ~ Summoner	Forces a Choice to prompt the spell list before the Level 1 is applied.
+
+#
+
+# ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:StandardSummonerAllowed,0|PREVAREQ:SummonerClassHasAlternative,0	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base|PREVARNEQ:SummonerClassHasAlternative,0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0
+
+# Summoner Archetype Placeholder moved to "Standard Class" to only be used when the Standard Class is used. If an Unchained version is required, then it's own placeholder and category can be created.
+
+# Redirection Necessary to allow old summoners work
+#	SpellName.MOD	CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+#	TEMPLATE:Class ~ Summoner
+
+# Class Skills can either go directly on the Ability, or make a separate call if the class skills can be altered.
+
+# COMMENT: Next to tackle, fixing the Summoner class feature set up.
+
+Summoner												CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner																					BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|TYPE=Base|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base
+#
+Standard							KEY:Summoner ~ Standard Class	CATEGORY:Class		TYPE:Summoner Class Selection	PREVAREQ:StandardSummonerAllowed,1	DEFINE:StandardSummoner|0																																																		BONUS:VAR|StandardSummoner|1|TYPE=Base																													CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device	COST:1
+
+###Block: Class Feature Progression
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Weapon and Armor Proficiency|PREVARGTEQ:Summoner_CFP_Level,1
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Cantrips|PREVARGTEQ:Summoner_CFP_Level,1
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Eidolon|PREVAREQ:Summoner_CF_Eidolon,0|PREVARGTEQ:Summoner_CFP_Level,1
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Life Link|PREVAREQ:Summoner_CF_LifeLink,0|PREVARGTEQ:Summoner_CFP_Level,1
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Summon Monster|PREVAREQ:Summoner_CF_SummonMonster,0|PREVARGTEQ:Summoner_CFP_Level,1
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Bond Senses|PREVAREQ:Summoner_CF_BondSenses,0|PREVARGTEQ:Summoner_CFP_Level,2
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Shield Ally|PREMULT:2,[PREVARLT:Summoner_CFP_Level,12],[PREVAREQ:Summoner_CF_ShieldAlly,0]|PREVARGTEQ:Summoner_CFP_Level,4
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Maker's Call|PREVAREQ:Summoner_CF_MakersCall,0|PREVARGTEQ:Summoner_CFP_Level,6
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Transposition|PREVAREQ:Summoner_CF_Transposition,0|PREVARGTEQ:Summoner_CFP_Level,8
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Aspect|PREVARGTEQ:Summoner_CFP_Level,10|PREVARLT:Summoner_CFP_Level,18
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Greater Shield Ally|PREVAREQ:Summoner_CF_GreaterShieldAlly,0|PREVARGTEQ:Summoner_CFP_Level,12
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Life Bond|PREVAREQ:Summoner_CF_LifeBond,0|PREVARGTEQ:Summoner_CFP_Level,14
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Merge Forms|PREVAREQ:Summoner_CF_MergeForms,0|PREVARGTEQ:Summoner_CFP_Level,16
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Greater Aspect|PREVARGTEQ:Summoner_CFP_Level,18
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Gate|PREVAREQ:Summoner_CF_SummonMonster,0|PREVARGTEQ:Summoner_CFP_Level,19
+CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Twin Eidolon|PREVARGTEQ:Summoner_CFP_Level,20
+
+###Block: Standard
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Ant Haul,Rejuvenate Eidolon (Lesser),Unfetter|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Create Pit,Evolution Surge (Lesser),Glide,Summon Eidolon|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Aqueous Orb,Devolution,Evolution Surge,Rejuvenate Eidolon,Seek Thoughts,Spiked Pit|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Acid Pit,Evolution Surge (Greater),Purified Calling,Transmogrify|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Hungry Pit,Planar Adaptation,Rejuvenate Eidolon (Greater)|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Planar Adaptation (Mass)|PREVAREQ:StandardSummoner,1
+# CRB
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=0|Acid Splash,Arcane Mark,Daze,Detect Magic,Guidance,Light,Mage Hand,Mending,Message,Open/Close,Read Magic,Resistance|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Alarm,Daze Monster,Endure Elements,Enlarge Person,Expeditious Retreat,Feather Fall,Grease,Identify,Jump,Mage Armor,Magic Fang,Magic Mouth,Mount,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Reduce Person,Shield,Unseen Servant,Ventriloquism|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Alter Self,Barkskin,Bear's Endurance,Blur,Bull's Strength,Cat's Grace,Detect Thoughts,Eagle's Splendor,Fox's Cunning,Glitterdust,Haste,Invisibility,Levitate,Misdirection,Owl's Wisdom,Phantom Steed,Protection from Arrows,Resist Energy,See Invisibility,Slow,Spider Climb,Summon Swarm,Wind Wall|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Black Tentacles,Charm Monster,Dimension Door,Dimensional Anchor,Dispel Magic,Displacement,Enlarge Person (Mass),Fire Shield,Fly,Heroism,Invisibility (Greater),Locate Creature,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Magic Fang (Greater),Minor Creation,Nondetection,Protection from Energy,Rage,Reduce Person (Mass),Stoneskin,Tongues,Wall of Fire,Wall of Ice,Water Breathing|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Baleful Polymorph,Bear's Endurance (Mass),Bull's Strength (Mass),Cat's Grace (Mass),Contact Other Plane,Dismissal,Eagle's Splendor (Mass),Fox's Cunning (Mass),Hold Monster,Insect Plague,Mage's Faithful Hound,Magic Jar,Major Creation,Overland Flight,Owl's Wisdom (Mass),Planar Binding (Lesser),Sending,Teleport,Wall of Stone|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Banishment,Creeping Doom,Dispel Magic (Greater),Ethereal Jaunt,Heroism (Greater),Invisibility (Mass),Planar Binding,Plane Shift,Repulsion,Sequester,Simulacrum,Spell Turning,True Seeing,Teleport (Greater),Wall of Iron|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Antipathy,Binding,Charm Monster (Mass),Dimensional Lock,Discern Location,Dominate Monster,Incendiary Cloud,Maze,Planar Binding (Greater),Protection from Spells,Sympathy,Teleportation Circle|PREVAREQ:StandardSummoner,1
+# Summon Monster
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Summon Monster I|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Summon Monster II|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Summon Monster IV|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Summon Monster V|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Summon Monster VII|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Summon Monster VIII|PREVAREQ:StandardSummoner,1
+
+
 #
 # Summoner Special Abilities by gjorbjond
-#
+###Block:
 # Ability Name						Unique Key							Category of Ability		Type																								Visible		Restricted Ability						Required AL		Required Class		Multiple Requirements																																																		Serves As													Define																																		Innate Spells																		Description																																																																																																																																																																																																			Multiple?	Choose				Template							Auto Armor Prof				Auto Weapon Prof			Ability																																															Bonus Ability Pool											Combat bonus						Add to base move					Save bonus									Bonus to Situation				Bonus to skill							Bonus to spell known/L																																																																																																																																																																																																																	Modify VAR																																																																																																												Allow Follower			Allowed Companions																																																													Class Skill									Vision								Source Page			Aspects																															Temporary effect description									List of Known Class Spells by Level																																																																																																																																																																																																									List of Class Spells by Level																												Ignore Encumberance		Temporary Bonus									Bonus Armor Mods
 Weapon and Armor Proficiency				KEY:Summoner ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:SummonerClassFeatures.SpecialQuality																																																																																																																																																																																																																																																																																																																																																																																													ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|PREVAREQ:Summoner_CF_ArmorProficiencies,0	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|PREVAREQ:Summoner_CF_SimpleWeapons,0
 Cantrips							KEY:Summoner ~ Cantrips					CATEGORY:Special Ability	TYPE:SummonerClassFeatures.SpecialQuality																																																																																																																																																															DESC:You have learned a number of cantrips, or 0-level spells. These spells are cast like any other spells, but they do not consume any slots and may be used again.
@@ -688,7 +762,7 @@ CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=Summon
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VI|PREVAREQ:SummonerSummonMonsterLVL,6
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VII|PREVAREQ:SummonerSummonMonsterLVL,7
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VIII|PREVAREQ:SummonerSummonMonsterLVL,8
-CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster IX|PREVAREQ:SummonerSummonMonsterLVL,9
+CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster IX|PREVARGTEQ:SummonerSummonMonsterLVL,9
 
 
 ###Block: Aspect evolution divertion
@@ -3196,55 +3270,6 @@ Wall of Suppression		KEY:Magus Spellblend ~ Wall of Suppression	CATEGORY:Interna
 Wandering Star Motes		KEY:Magus Spellblend ~ Wandering Star Motes	CATEGORY:Internal		TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Wandering Star Motes
 Winds of Vengeance		KEY:Magus Spellblend ~ Winds of Vengeance		CATEGORY:Internal		TYPE:MagusSpellblend.MagusSpellBlendLVL9	SPELLKNOWN:CLASS|Magus=9|Winds of Vengeance
 World Wave				KEY:Magus Spellblend ~ World Wave			CATEGORY:Internal		TYPE:MagusSpellblend.MagusSpellBlendLVL9	SPELLKNOWN:CLASS|Magus=9|World Wave
-
-###Block: Unchained Summoner Update
-# CFP = "Class Feature Progression"
-# Forces an irreversible choice at level 1 - this is required to 1) Force a Selection by the user (More visibility), 2) Spells will not work to refresh until Level up or reload which is unacceptable. The Choice propogates the correct spells at level 1.
-# Ability Name						Unique Key				Category of Ability	Type					Required Var. value			Define																							Ability																													Modify VAR																																Class Skill																		Cost
-CATEGORY=Internal|Default.MOD																								DEFINE:CLASS_SummonerAllowed|0	DEFINE:StandardSummonerAllowed|0																																											BONUS:VAR|CLASS_SummonerAllowed|StandardSummonerAllowed|TYPE=Base
-# For now, placing this to 1.
-CATEGORY=Internal|Default.MOD																																																																														BONUS:VAR|StandardSummonerAllowed|1
-
-# DEFINE:Rule_SeasonLVL|0
-
-Summoner												CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner																					BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base
-
-#CATEGORY=Class|Summoner|.MOD	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:NoSummonerSelection,1
-# Template:Class ~ Summoner	Forces a Choice to prompt the spell list before the Level 1 is applied.
-
-#
-
-# ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:StandardSummonerAllowed,0|PREVAREQ:SummonerClassHasAlternative,0	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base|PREVARNEQ:SummonerClassHasAlternative,0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0
-
-# Summoner Archetype Placeholder moved to "Standard Class" to only be used when the Standard Class is used. If an Unchained version is required, then it's own placeholder and category can be created.
-
-# Redirection Necessary to allow old summoners work
-#	SpellName.MOD	CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
-#	TEMPLATE:Class ~ Summoner
-
-# Class Skills can either go directly on the Ability, or make a separate call if the class skills can be altered.
-
-# COMMENT: Next to tackle, fixing the Summoner class feature set up.
-
-Standard							KEY:Summoner ~ Standard Class	CATEGORY:Class		TYPE:Summoner Class Selection	PREVAREQ:StandardSummonerAllowed,1	DEFINE:StandardSummoner|0																																																		BONUS:VAR|StandardSummoner|1																													CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device	COST:1
-
-# Class Feature Progression
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Weapon and Armor Proficiency|PREVARGTEQ:Summoner_CFP_Level,1
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Cantrips|PREVARGTEQ:Summoner_CFP_Level,1
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Eidolon|PREVAREQ:Summoner_CF_Eidolon,0|PREVARGTEQ:Summoner_CFP_Level,1
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Life Link|PREVAREQ:Summoner_CF_LifeLink,0|PREVARGTEQ:Summoner_CFP_Level,1
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Summon Monster|PREVAREQ:Summoner_CF_SummonMonster,0|PREVARGTEQ:Summoner_CFP_Level,1
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Bond Senses|PREVAREQ:Summoner_CF_BondSenses,0|PREVARGTEQ:Summoner_CFP_Level,2
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Shield Ally|PREMULT:2,[PREVARLT:Summoner_CFP_Level,12],[PREVAREQ:Summoner_CF_ShieldAlly,0]|PREVARGTEQ:Summoner_CFP_Level,4
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Maker's Call|PREVAREQ:Summoner_CF_MakersCall,0|PREVARGTEQ:Summoner_CFP_Level,6
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Transposition|PREVAREQ:Summoner_CF_Transposition,0|PREVARGTEQ:Summoner_CFP_Level,8
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Aspect|PREVARGTEQ:Summoner_CFP_Level,10|PREVARLT:Summoner_CFP_Level,18
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Greater Shield Ally|PREVAREQ:Summoner_CF_GreaterShieldAlly,0|PREVARGTEQ:Summoner_CFP_Level,12
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Life Bond|PREVAREQ:Summoner_CF_LifeBond,0|PREVARGTEQ:Summoner_CFP_Level,14
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Merge Forms|PREVAREQ:Summoner_CF_MergeForms,0|PREVARGTEQ:Summoner_CFP_Level,16
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Greater Aspect|PREVARGTEQ:Summoner_CFP_Level,18
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Gate|PREVAREQ:Summoner_CF_SummonMonster,0|PREVARGTEQ:Summoner_CFP_Level,19
-CATEGORY=Class|Summoner ~ Standard Class.MOD																																													ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Twin Eidolon|PREVARGTEQ:Summoner_CFP_Level,20
 
 
 

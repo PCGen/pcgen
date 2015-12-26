@@ -301,7 +301,7 @@ CLASS:Ranger	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|PREVAREQ:Ranger_CF_SwiftTracker,0
 9	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|PREVAREQ:Ranger_CF_Evasion,0
 11	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Quarry|PREVAREQ:Ranger_CF_Quarry,0
-12	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|PREVAREQ:Ranger_CF_Camoflage,0
+12	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|PREVAREQ:Ranger_CF_Camouflage,0
 16	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Evasion|PREVAREQ:Ranger_CF_Evasion,0
 17	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|PREVAREQ:Ranger_CF_HideInPlainSight,0
 19	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Quarry|PREVAREQ:Ranger_CF_Quarry,0

@@ -101,3 +101,6 @@ Shundar-Quah (Spire Clan)	KEY:Shundar-Quah		NAMEISPI:YES	CATEGORY:Background	TYP
 Sklar-Quah (Sun Clan)		KEY:Sklar-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Sun Clan	SOURCEPAGE:p.18
 Skoan-Quah (Skull Clan)		KEY:Skoan-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Skull Clan	SOURCEPAGE:p.18
 Tamiir-Quah (Wind Clan)		KEY:Tamiir-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Wind Clan	SOURCEPAGE:p.18
+
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Summon Totem Creature|PREVAREQ:StandardSummoner,1

@@ -766,18 +766,18 @@ Summon Nature's Ally IX.MOD		CLASSES:Shaman=9
 
 ###Block: Standard Summoner
 # Spell Name			Classes of caster
-Adjustable Polymorph.MOD	CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
-Blood Armor.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
-Blurred Movement.MOD		CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
-Creeping Ice.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
-Dimensional Bounce.MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
-Glue Seal.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
-Long Arm.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
-Shield Companion.MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
-Time Shudder.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
-Whip of Ants.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
-Whip of Centipedes.MOD		CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
-Whip of Spiders.MOD		CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+#Adjustable Polymorph.MOD	CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+#Blood Armor.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+#Blurred Movement.MOD		CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+#Creeping Ice.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+#Dimensional Bounce.MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+#Glue Seal.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+#Long Arm.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+#Shield Companion.MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+#Time Shudder.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+#Whip of Ants.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+#Whip of Centipedes.MOD		CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+#Whip of Spiders.MOD		CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
 
 #
 # End

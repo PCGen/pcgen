@@ -54,3 +54,6 @@ CATEGORY=Special Ability|Sorcerer Bloodline ~ Draconic.MOD	ASPECT:NAME|Draconic 
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Time)|PREVAREQ:DraconicBloodline_Time,1
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Void)|PREVAREQ:DraconicBloodline_Void,1
 CATEGORY=Special Ability|Sorcerer Bloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Vortex)|PREVAREQ:DraconicBloodline_Vortex,1
+
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Planetarium|Summoner=4|Reboot|Summoner=5|Planetary Adaptation|Summoner=6|Planetary Adaptation (Mass)|PREVAREQ:StandardSummoner,1

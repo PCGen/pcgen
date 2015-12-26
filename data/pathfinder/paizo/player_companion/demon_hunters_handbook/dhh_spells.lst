@@ -3,7 +3,7 @@
 
 ###Block: Spells
 # Spell Name			Classes of caster								School		Descriptor			Components		Casting Time			Range			Target Area or Effect				Duration									Save Info					Spell Resistance		Source Page
-Anti-Summoning Shield		CLASSES:Bard,Sorcerer,Summoner,Wizard=2|Inquisitor=3	SCHOOL:Abjuration					COMPS:V		CASTTIME:1 standard action	RANGE:medium	TARGETAREA:50-ft.-radius			DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates			SPELLRES:yes		SOURCEPAGE:p.26
+Anti-Summoning Shield		CLASSES:Bard,Sorcerer,Wizard=2|Inquisitor=3	SCHOOL:Abjuration					COMPS:V		CASTTIME:1 standard action	RANGE:medium	TARGETAREA:50-ft.-radius			DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates			SPELLRES:yes		SOURCEPAGE:p.26
 Burst With Light			CLASSES:Cleric,Paladin=4						SCHOOL:Evocation	DESCRIPTOR:light		COMPS:V, s		CASTTIME:1 standard action	RANGE:close		TARGETAREA:one creature				DURATION:1 round/4 levels						SAVEINFO:see text				SPELLRES:yes		SOURCEPAGE:p.26
 Detect Demon			CLASSES:Cleric,Inquisitor,Paladin=1				SCHOOL:Divination					COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:cone-shaped emanation		DURATION:concentration, up to (CASTERLEVEL*10) minutes (D)	SAVEINFO:none (see text)		SPELLRES:no			SOURCEPAGE:p.26
 Protection From Outsiders	CLASSES:Cleric,Inquisitor,Paladin=2				SCHOOL:Abjuration	DESCRIPTOR:see text	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:touch		TARGETAREA:creature touched			DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates (harmless)	SPELLRES:no; see text	SOURCEPAGE:p.26

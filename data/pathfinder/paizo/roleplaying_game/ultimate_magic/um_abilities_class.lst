@@ -3052,6 +3052,13 @@ CATEGORY=Archetype|Witch Archetype ~ Hedge Witch.MOD						PREMULT:1,[PREABILITY:
 CATEGORY=Archetype|Witch Archetype ~ Sea Witch.MOD						PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Sea Witch],[!PREFACT:1,ABILITIES,Witch_Archetype_PatronSpell2=True,Witch_Archetype_PatronSpell4=True,Witch_Archetype_PatronSpell6=True,Witch_Archetype_PatronSpell8=True,Witch_Archetype_PatronSpell10=True,Witch_Archetype_PatronSpell12=True,Witch_Archetype_PatronSpell14=True,Witch_Archetype_PatronSpell16=True,Witch_Archetype_PatronSpell18=True,Witch_Archetype_Hex1=True]																					FACT:Witch_CF_PatronSpell2|true	FACT:Witch_CF_PatronSpell4|true	FACT:Witch_CF_PatronSpell6|true	FACT:Witch_CF_PatronSpell8|true	FACT:Witch_CF_PatronSpell10|true	FACT:Witch_CF_PatronSpell12|true	FACT:Witch_CF_PatronSpell14|true	FACT:Witch_CF_PatronSpell16|true	FACT:Witch_CF_PatronSpell18|true	FACT:Witch_CF_Hex1|true	FACT:Witch_Archetype_PatronSpell2|true	FACT:Witch_Archetype_PatronSpell4|true	FACT:Witch_Archetype_PatronSpell6|true	FACT:Witch_Archetype_PatronSpell8|true	FACT:Witch_Archetype_PatronSpell10|true	FACT:Witch_Archetype_PatronSpell12|true	FACT:Witch_Archetype_PatronSpell14|true	FACT:Witch_Archetype_PatronSpell16|true	FACT:Witch_Archetype_PatronSpell18|true	FACT:Witch_Archetype_Hex1|true
 CATEGORY=Archetype|Wizard Archetype ~ Scrollmaster.MOD					PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Wizard Archetype ~ Scrollmaster],[!PREFACT:1,ABILITIES,Wizard_Archetype_ArcaneBond=True,Wizard_Archetype_BonusFeat10=True]																																																																	FACT:Wizard_CF_ArcaneBond|true	FACT:Wizard_CF_BonusFeat10|true	FACT:Wizard_Archetype_ArcaneBond|true	FACT:Wizard_Archetype_BonusFeat10|true
 
+###Block: Summoner Spell Support
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Corrosive Touch,Icicle Dagger,Ray of Sickening,Summon Minor Monster|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Cushioning Bands,Restore Eidolon (Lesser),Web Shelter|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Agonize,Control Summoned Creature,Mad Monkeys,Marionette Possession,Rain of Frogs,Restore Eidolon|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Daze (Mass),Vitriolic Mist|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Conjure Black Pudding,Create Demiplane (Lesser),Ice Crystal Teleport|PREVAREQ:StandardSummoner,1
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=6|Create Demiplane,Eagle Aerie|PREVAREQ:StandardSummoner,1
 
 #
 # End
