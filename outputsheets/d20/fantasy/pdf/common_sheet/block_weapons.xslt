@@ -353,8 +353,8 @@
 ====================================-->
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
-		<xsl:choose>
-		<xsl:when test="(weapons/naturalattack) &lt; 1">
+		<!--<xsl:choose>
+			<xsl:when test="(weapons/naturalattack) &lt; 1">	-->
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -365,7 +365,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
-											<xsl:message>Test</xsl:message>
+					<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -398,39 +398,39 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
-												<xsl:message>Test</xsl:message>
-				<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="total"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="damage"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="critical"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="reach"/>
-						</fo:block>
-					</fo:table-cell>
+						<xsl:message>Test</xsl:message>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="total"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="damage"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="critical"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="reach"/>
+							</fo:block>
+						</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
@@ -444,7 +444,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 			<xsl:choose>
-				<xsl:when test="string-length(special_property) &gt; 1">	
+				<xsl:when test="string-length(special_property) &gt; 0">	
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="1">
@@ -465,15 +465,137 @@
 					</fo:table-cell>
 				</fo:table-row>
 				</xsl:when>
-				<xsl:otherwise/>
 			</xsl:choose>	
-			</fo:table-body>
-		</fo:table>
-		</xsl:when>	
-		<xsl:otherwise/>
-		</xsl:choose>
-		
-		<!-- STOP Unarmed Attack Table -->
+		<!--	</xsl:when>		
+		</xsl:choose>-->
+				<xsl:if test="flurry_level &gt; 0">
+		<!-- Start Flurry Attack Table 
+				Currently set up using the Monk Workaround -->
+				<fo:table-row>
+					<xsl:message>Test</xsl:message>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-weight="bold" font-size="9pt">Flurry of Blows</fo:block>
+					</fo:table-cell>
+					<fo:table-cell  number-rows-spanned="1" number-columns-spanned="4">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+					<xsl:variable name="monk_level" select="flurry_level"/>
+					<xsl:variable name="to_hit">
+					<xsl:choose>
+						<xsl:when test="contains(to_hit,'-') and contains(to_hit,'/')">
+							<xsl:value-of select="number(substring-before(to_hit,'/'))"/>
+						</xsl:when>
+						<xsl:when test="(contains(to_hit,'-') = false) and contains(to_hit,'/')">
+							<xsl:value-of select="number(substring-before(substring(to_hit,2),'/'))"/>
+						</xsl:when>
+						<xsl:when test="contains(to_hit,'-') and (contains(to_hit,'/') = false)">
+							<xsl:value-of select="number(to_hit)"/>
+						</xsl:when>
+						<xsl:when test="(contains(to_hit,'-') = false) and (contains(to_hit,'/') = false)">
+							<xsl:value-of select="number(substring(to_hit,2))"/>
+						</xsl:when>
+					</xsl:choose>
+					</xsl:variable>
+				<fo:table-row>
+						<xsl:message>Test</xsl:message>
+						<fo:table-cell number-columns-spanned="4">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:choose>
+								<xsl:when test="($monk_level &gt; 0) and ($monk_level &lt; 5)">
+									<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="$monk_level = 5">
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="($monk_level &gt; 5) and ($monk_level &lt; 8)">
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="$monk_level = 8">
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="($monk_level &gt; 8) and ($monk_level &lt; 11)">
+									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="($monk_level &gt; 10) and ($monk_level &lt; 13)">
+									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 9,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="($monk_level &gt; 12) and ($monk_level &lt; 15)">
+									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="$monk_level = 15">
+									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="$monk_level = 16">
+									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 13,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="$monk_level &gt;= 17">
+									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 12,'+#;-#')"/>
+								</xsl:when>
+								<xsl:when test="$monk_level = 20">
+									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
+									<xsl:value-of select="format-number($to_hit - 12,'+#;-#')"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>
+								</xsl:otherwise>
+							</xsl:choose>
+							</fo:block>
+						</fo:table-cell>
+				</fo:table-row>
+				</xsl:if>
+		<!-- STOP Flurry Attack Table -->
+		</fo:table-body>
+	</fo:table>
 	</xsl:template>
 
 
@@ -1880,102 +2002,10 @@
 			</xsl:choose>
 			</fo:table-body>
 			</xsl:if>
-
 <!-- END AMMO Section	-->
-
-
-
 		</fo:table>
 	</xsl:template>
 
-<!--
-====================================
-====================================
-		TEMPLATE - flurry block
-====================================
-====================================-->
-	<xsl:template match="flurry">
-		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
-		<!-- This should be altered to activate when pcvar for MonkLVL > 1 and instead of direct names, grab TYPE from Equipment "Weapon" and "Monk"-->
-		<xsl:if test="contains(class, 'Mnk') and (contains(name, 'Brass Knuckles') or contains(name, 'Cestus') or contains(name, 'Hanbo') or contains(name, 'Kama') or contains(name, 'Nunchaku') or contains(name, 'Quarterstaff') or contains(name, 'Sai') or contains(name, 'Shuriken') or contains(name, 'Siangham') or contains(name, 'Temple'))">
-		<xsl:variable name="monk_level" select="number(substring-before(substring-after(class,'Mnk'),' '))"/>
-		<xsl:variable name="to_hit">
-		<xsl:choose>
-			<xsl:when test="contains(to_hit,'-') and contains(to_hit,'/')"><xsl:value-of select="number(substring-before(to_hit,'/'))"/></xsl:when>
-			<xsl:when test="(contains(to_hit,'-') = false) and contains(to_hit,'/')"><xsl:value-of select="number(substring-before(substring(to_hit,2),'/'))"/></xsl:when>
-			<xsl:when test="contains(to_hit,'-') and (contains(to_hit,'/') = false)"><xsl:value-of select="number(to_hit)"/></xsl:when>
-			<xsl:when test="(contains(to_hit,'-') = false) and (contains(to_hit,'/') = false)"><xsl:value-of select="number(substring(to_hit,2))"/></xsl:when>
-		</xsl:choose>
-		</xsl:variable>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
-			<fo:table-column column-width="20mm"/>
-			<fo:table-column column-width="10mm"/>
-			<fo:table-column column-width="40mm"/>
-			<fo:table-column column-width="10mm"/>
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 80" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-body>
-				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="bold" space-before="1pt">Flurry of Blows</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="bold" space-before="1pt">To Hit</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="normal" space-before="1pt">
-							<xsl:choose>
-								<xsl:when test="($monk_level &gt;= 1) and ($monk_level &lt;= 4)">
-									<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 5">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 6) and ($monk_level &lt;= 7)">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 8">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 9) and ($monk_level &lt;= 10)">
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 11) and ($monk_level &lt;= 12)">
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 9,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 13) and ($monk_level &lt;= 14)">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 15">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 16">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 13,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level &gt;= 17">
-									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 12,'+#;-#')"/>
-								</xsl:when>
-							</xsl:choose>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="bold" space-before="1pt">Dam</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="normal" space-before="1pt">
-								<xsl:value-of select="damage"/>
-							</fo:block>
-					</fo:table-cell>
-				</fo:table-row>
-			</fo:table-body>
-		</fo:table>
-		</xsl:if>
-	</xsl:template>
+
 
 </xsl:stylesheet>

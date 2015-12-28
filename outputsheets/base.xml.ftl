@@ -760,7 +760,9 @@
 		</martialarts>
 		<#else>
 		<unarmed>
+			<flurry_level>${pcstring('VAR.MonkLVL.INTVAL')}</flurry_level>
 			<total>${pcstring('WEAPONH.TOTALHIT')}</total>
+			<to_hit>${pcstring('WEAPONH.TOTALHIT')}</to_hit>
 			<damage>${pcstring('WEAPONH.DAMAGE')}</damage>
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->

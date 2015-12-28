@@ -662,6 +662,38 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
    <font style="font-size:2pt"><br /></font>
 <!-- STOP Unarmed Attack Table -->
 
+<#if (pcvar("MonkLVL") >= 1)>
+<!-- START Flurry Attack Table -->
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Flurry Attack">
+    <tr>
+     <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>Flurry of Blows</b></font></td>
+     <td align="center" bgcolor="black" width="60%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>
+     ${pcstring('VAR.FAB_1.INTVAL.SIGN')}/
+     ${pcstring('VAR.FAB_2.INTVAL.SIGN')}
+     <#if (pcvar("FlurryAttacks") >= 3)>
+     /${pcstring('VAR.FAB_3.INTVAL.SIGN')}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 4)>
+     /${pcstring('VAR.FAB_4.INTVAL.SIGN')}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 5)>
+     /${pcstring('VAR.FAB_5.INTVAL.SIGN')}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 6)>
+     /${pcstring('VAR.FAB_6.INTVAL.SIGN')}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 7)>
+     /${pcstring('VAR.FAB_7.INTVAL.SIGN')}
+     </#if>
+     <br /></b></font></td>
+    </tr>
+   </table>
+   <font style="font-size:2pt"><br /></font>
+<!-- STOP Flurry Attack Table -->
+</#if>
 
 
 
