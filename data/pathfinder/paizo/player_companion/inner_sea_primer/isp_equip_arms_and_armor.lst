@@ -3,8 +3,8 @@ SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byC
 # Original Entry by:Stefan Radermacher
 
 ###Block: Buckler Shieldbash for Rondelero Duelist
-# Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Required Ability												Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Weapon prop. bonus																					Special Property
-Buckler.MOD								TYPE:Shield.Buckler.Standard.Close.Weapon.Resizable.Melee.ShieldBash																						CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:STEEL	WIELD:Light		SIZE:M	BONUS:WEAPON|TOHIT|4|PREMULT:2,[PREWEAPONPROF:1,Shieldbash],[PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash]	SPROP:Applies a -1 to hit to Two-Handed Weapon, or Off-hand held weapon.
+# Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Required Ability												Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Weapon prop. bonus																				
+Buckler.MOD								TYPE:Shield.Buckler.Standard.Close.Weapon.Resizable.Melee.ShieldBash																						CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:STEEL	WIELD:Light		SIZE:M	BONUS:WEAPON|TOHIT|4|PREMULT:2,[PREWEAPONPROF:1,Shieldbash],[PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash]
 #
 Shieldbash (Buckler)	PROFICIENCY:WEAPON|Shieldbash	TYPE:Weapon.Resizable.Melee.Light.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash	COST:0	WT:0		PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3			WIELD:Light		SIZE:M
 

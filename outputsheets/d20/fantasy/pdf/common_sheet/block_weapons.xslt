@@ -991,7 +991,9 @@
 ====================================-->
 	<xsl:template match="common">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" space-before="2mm" keep-with-next="always" keep-together="always">
+				<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
+
+	<!--	<fo:table table-layout="fixed" space-before="2mm" keep-with-next="always" keep-together="always">	-->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 48" />mm</xsl:attribute>
 			</fo:table-column>

@@ -18,7 +18,9 @@
 ====================================-->
 	<xsl:template match="equipment">
 		<fo:block>
-			<fo:table table-layout="fixed" space-before.optimum="2mm">
+			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
+
+		<!--	<fo:table table-layout="fixed" space-before.optimum="2mm"> -->
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'equipment.border'"/>
 				</xsl:call-template>
