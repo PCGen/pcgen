@@ -539,7 +539,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						{
 							equip = character.getEquipmentSizedForCharacter(equip);
 						}
-						character.addPurchasedEquipment(equip, 1, false);
+						character.addPurchasedEquipment(equip, 1, false, false);
 					}
 				}
 				availableTable.refilter();
@@ -585,7 +585,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						{
 							equip = character.getEquipmentSizedForCharacter(equip);
 						}
-						character.addPurchasedEquipment(equip, 1, true);
+						character.addPurchasedEquipment(equip, 1, true, false);
 					}
 				}
 			}
@@ -673,7 +673,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					character.removePurchasedEquipment((EquipmentFacade) object, 1);
+					character.removePurchasedEquipment((EquipmentFacade) object, 1, false);
 				}
 				availableTable.refilter();
 			}
@@ -1314,7 +1314,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (EquipmentFacade equipmentFacade : equipmentArray)
 				{
-					character.removePurchasedEquipment(equipmentFacade, 1);
+					character.removePurchasedEquipment(equipmentFacade, 1, false);
 				}
 			}
 			else if (support.getComponent() == purchasedTable)
@@ -1322,7 +1322,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				for (EquipmentFacade equipmentFacade : equipmentArray)
 				{
 					EquipmentFacade equip = character.getEquipmentSizedForCharacter(equipmentFacade);
-					character.addPurchasedEquipment(equip, 1, false);
+					character.addPurchasedEquipment(equip, 1, false, false);
 				}
 			}
 			availableTable.refilter();
@@ -1446,7 +1446,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					{
 						equip = character.getEquipmentSizedForCharacter(equip);
 					}
-					character.addPurchasedEquipment(equip, num, false);
+					character.addPurchasedEquipment(equip, num, false, false);
 					availableTable.refilter();
 				}
 			}
@@ -1600,7 +1600,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					{
 						num = character.getPurchasedEquipment().getQuantity(equip);
 					}
-					character.removePurchasedEquipment(equip, num);
+					character.removePurchasedEquipment(equip, num, false);
 				}
 				availableTable.refilter();
 			}
@@ -1678,15 +1678,15 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		/**
-		 * Action to modify the number of charges on the items.
+		 * Action to move the items between characters.
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			for (EquipmentFacade item : targets)
 			{
-				character.removePurchasedEquipment(item, 1);
-				destination.addPurchasedEquipment(item, 1, false);
+				character.removePurchasedEquipment(item, 1, true);
+				destination.addPurchasedEquipment(item, 1, false, true);
 			}
 		}
 
@@ -1710,14 +1710,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		/**
-		 * Action to modify the number of charges on the items.
+		 * Action to copy the items to another character.
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			for (EquipmentFacade item : targets)
 			{
-				destination.addPurchasedEquipment(item, 1, false);
+				destination.addPurchasedEquipment(item, 1, false, true);
 			}
 		}
 
