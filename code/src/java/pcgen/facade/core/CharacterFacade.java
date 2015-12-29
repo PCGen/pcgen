@@ -223,9 +223,9 @@ public interface CharacterFacade extends CompanionFacade
 
 	public EquipmentListFacade getPurchasedEquipment();
 
-	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize);
+	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize, boolean free);
 
-	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity);
+	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity, boolean free);
 
 	//public int getQuantity(EquipmentFacade equipment);
 	public boolean isQualifiedFor(EquipmentFacade equipment);
