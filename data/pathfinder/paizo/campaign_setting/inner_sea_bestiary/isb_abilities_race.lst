@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
 
 # Original Entry by: Scott Meyer
@@ -69,9 +69,9 @@ Past-Life Knowledge	KEY:Ghoran ~ Past-Life Knowledge	CATEGORY:Special Ability	TY
 Natural Magic		KEY:Ghoran ~ Natural Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Detect Poison,10+CHA|Goodberry,11+CHA|Purify Food and Drink,10+CHA	DESC:Ghorans gains spell-like abilities																													SOURCEPAGE:p.14
 
 ###Block: Giant (Shadow) Abilities
-# Ability Name	Unique Key					Category of Ability		Type						Description																							Auto Weapon Prof					Add						Source Page
+# Ability Name	Unique Key					Category of Ability		Type						Description																							Auto Weapon Prof					Add									Source Page
 Militant		KEY:Shadow Giant ~ Militant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Proficient with all simple and martial weapons and 1 exotic weapon of choice.											AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:ABILITY|FEAT|VIRTUAL|Exotic Weapon Proficiency	SOURCEPAGE:p.15
-Shadow Cloak	KEY:Shadow Giant ~ Shadow Cloak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.														SOURCEPAGE:p.15
+Shadow Cloak	KEY:Shadow Giant ~ Shadow Cloak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.																	SOURCEPAGE:p.15
 
 ###Block: Goblin (Monkey) Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																				Source Page

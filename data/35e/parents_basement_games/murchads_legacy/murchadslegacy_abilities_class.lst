@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
 
 #Chain Dancer
-# Ability Name						Unique Key										Category of Ability		Type							Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Define					Description																																											Stackable?	Multiple?	Choose															Auto Language	Auto Weapon Prof			Ability										Bonus Ability Pool		Bonus to skill							Modify VAR					Weapon prof. bonus							Temporary effect description																																							Temporary Bonus
+# Ability Name						Unique Key										Category of Ability		Type							Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Define					Description																																											Stackable?	Multiple?	Choose															Auto Language	Auto Weapon Prof			Ability										Bonus Ability Pool		Bonus to skill							Modify VAR					Weapon prof. bonus							Temporary effect description																																							Temporary Bonus							TEMPVALUE
 Enthrall							KEY:Enthrall ~ Chain Dancer							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:EnthralledCreatures|0		DESC:%1d4 creatures effected for %2 rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4																																																																															BONUS:VAR|EnthralledCreatures|CL
 Master Enthrall						KEY:Master Enthrall ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:EnthrallDuration|0		DESC:%1d4 creatures effected for %2 rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4																																																																															BONUS:VAR|EnthrallDuration|CL
 Chain Parry							KEY:Chain Parry ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:ChainParryAC|0			DESC:+%1|ChainParryAC																																																																					ABILITY:FEAT|AUTOMATIC|Weapon Specialization(Chain (Spiked))															BONUS:VAR|ChainParryAC|CL												TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary
@@ -20,7 +20,7 @@ Homeblood Immunity					KEY:Homeblood Immunity ~ Homefront Guardian				CATEGORY:S
 
 #Imperial Legionnaire
 Aid Soul							KEY:Aid Soul ~ Imperial Legionnaire						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																												DESC:+%1|AidSoulHitPoints
-Soulbind							KEY:Soulbind ~ Imperial Legionnaire						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DEFINE:AidSoulHitPoints|0		DESC:At first level the Legionnaire gains 2 hit points per other Legionnaire that he is currently bound with, this benefit increases at higher levels. This temporary bonus will add these hit points.															TEMPVALUE:MIN=1|MAX=7|TITLE=Number of bound Legionnaires
+Soulbind							KEY:Soulbind ~ Imperial Legionnaire						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DEFINE:AidSoulHitPoints|0		DESC:At first level the Legionnaire gains 2 hit points per other Legionnaire that he is currently bound with, this benefit increases at higher levels. This temporary bonus will add these hit points.																																																																																																																																				TEMPVALUE:MIN=1|MAX=7|TITLE=Number of bound Legionnaires
 Enhanced Defense						KEY:Enhanced Defense ~ Imperial Legionnaire				CATEGORY:Special Ability	TYPE:SpecialQuality																								DEFINE:EnhancedDefenseAC|0		DESC:+%1|EnhancedDefenseAC	DESC:The Legionnaire is more aware of the area around him, granting him a bonus to Armor Class, but it is dependent on being near the other members of the octus and being soulbound.
 Awareness							KEY:Awareness ~ Imperial Legionnaire					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Protect Comrade						KEY:Protect Comrade ~ Imperial Legionnaire				CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -147,11 +147,11 @@ Fortune Telling				KEY:Fortune Telling ~ Stargazer	CATEGORY:Special Ability	TYPE
 
 ###Block: Steadfast Knight
 # Feat Name				Type			Visible	Define				Choose										Save checks bonus					Combat bonus					Bonus to HP										Stat bonus													Temporary effect description
-# Ability Name			Category of Ability		Type					Define				Choose										Temporary effect description																Temporary Bonus
-Oath (Active)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special	DEFINE:SteadfastHitPoints|0												TEMPDESC:While an Oath is active the Steadfast Knight gains temporary hit points							TEMPBONUS:PC|HP|CURRENTMAX|SteadfastHitPoints|TYPE=Oath
-Oath (Direct Action)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|SAVE|ALL|2|TYPE=Oath	TEMPBONUS:PC|COMBAT|AC|1|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|1|TYPE=Oath
-Blood Oath (Active)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special						TEMPVALUE:MIN=1|MAX=10|TITLE=Temporarily Lost Hit Points	TEMPDESC:The Steadfast Knight loses one hit point per week until the Oath is fulfilled						TEMPBONUS:PC|HP|CURRENTMAX|-1*(%CHOICE)
-Blood Oath (Direct Action)	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|COMBAT|AC|2|TYPE=Oath	TEMPBONUS:PC|STAT|STR|4|TYPE=Oath	TEMPBONUS:PC|STAT|DEX|2|TYPE=Oath
+# Ability Name			Category of Ability		Type					Define				Temporary effect description																Temporary Bonus																TEMPVALUE
+Oath (Active)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special	DEFINE:SteadfastHitPoints|0	TEMPDESC:While an Oath is active the Steadfast Knight gains temporary hit points							TEMPBONUS:PC|HP|CURRENTMAX|SteadfastHitPoints|TYPE=Oath
+Oath (Direct Action)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special						TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|SAVE|ALL|2|TYPE=Oath	TEMPBONUS:PC|COMBAT|AC|1|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|1|TYPE=Oath
+Blood Oath (Active)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special						TEMPDESC:The Steadfast Knight loses one hit point per week until the Oath is fulfilled						TEMPBONUS:PC|HP|CURRENTMAX|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=10|TITLE=Temporarily Lost Hit Points
+Blood Oath (Direct Action)	CATEGORY:Special Ability	TYPE:SpecialQuality.Special						TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|COMBAT|AC|2|TYPE=Oath	TEMPBONUS:PC|STAT|STR|4|TYPE=Oath	TEMPBONUS:PC|STAT|DEX|2|TYPE=Oath
 
 ###Block: Shadowtamer
 # Feat Name			Type			Visible	Special ABility		Define			Allow Follower			Allowed Companions

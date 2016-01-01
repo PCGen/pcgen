@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we	SOURCEDATE:2006-01
 # Original Entry by: Paul W. King, Jan 2007
 
@@ -69,14 +69,14 @@ CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft
 8								ADD:SPELLCASTER|Divine
 10								ADD:SPELLCASTER|Divine
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:SpellType|Divine
 # Class Name			Required Ability										Required Race		Required Skill						PRETOTALAB
 CLASS:Wayjik Demon Hunter	PREABILITY:3,CATEGORY=FEAT,Strength of Margalthas,Weapon Focus,Track	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (The Planes)=4,Survival=6	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Wayjik Demon Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Gather Information|Hide|Intimidate|Jump|Knowledge (the planes)|Knowledge (arcana)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spellcraft|Spot|Survival
-# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
-CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Wayjik Demon Hunter|CL
+# Class Name			Spell Stat		Automatically Known Spell Levels				Caster level
+CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Wayjik Demon Hunter|CL
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)

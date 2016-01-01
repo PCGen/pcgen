@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Racial Traits
 # Ability Name					Unique Key							Category of Ability		Type						Multiple Requirements																												Description																																																																																									Multiple?	Choose								Selections	Combat bonus					Save bonus				Bonus to skill									Modify VAR					Class Skill	Source Page		Aspects
@@ -103,4 +103,5 @@ Skoan-Quah (Skull Clan)		KEY:Skoan-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:S
 Tamiir-Quah (Wind Clan)		KEY:Tamiir-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:ShoantiClan	VISIBLE:DISPLAY	DESC:You are a member of the Shoanti Wind Clan	SOURCEPAGE:p.18
 
 ###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Summon Totem Creature|PREVAREQ:StandardSummoner,1

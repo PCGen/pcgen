@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74	SOURCEDATE:2005-01
 # Original Entry by: Paul W. King
 
@@ -8,8 +8,8 @@ CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:COMBAT|BAS
 CLASS:Hitman	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
-1				BONUS:VAR|BloodMoney|floor((CL+4)/4)*2					ABILITY:FEAT|AUTOMATIC|Blood Money
-2				BONUS:VAR|DirtyDeeds|(CL+5)/5							ABILITY:FEAT|AUTOMATIC|Dirty Deeds
+1				BONUS:VAR|BloodMoney|floor((CL+4)/4)*2							ABILITY:FEAT|AUTOMATIC|Blood Money
+2				BONUS:VAR|DirtyDeeds|(CL+5)/5									ABILITY:FEAT|AUTOMATIC|Dirty Deeds
 3											ADD:ABILITY|FEAT|NORMAL|TYPE=Hitman
 6											ADD:ABILITY|FEAT|NORMAL|TYPE=Hitman
 7	SAB:Calling Card
@@ -22,7 +22,7 @@ CLASS:Vigilante	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKIL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Structural)|Demolitions|Disguise|Drive|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Sense Motive
 1					BONUS:ABILITYPOOL|Weapon Focus|1
-2											BONUS:VAR|VigilanteBonus|CL/2					ABILITY:FEAT|AUTOMATIC|Vigilante
+2											BONUS:VAR|VigilanteBonus|CL/2								ABILITY:FEAT|AUTOMATIC|Vigilante
 3																ADD:ABILITY|FEAT|NORMAL|TYPE=Vigilante
 5	SAB:Hunter and Hunted
 6																ADD:ABILITY|FEAT|NORMAL|TYPE=Vigilante

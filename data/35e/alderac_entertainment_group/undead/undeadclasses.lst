@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
@@ -139,14 +139,14 @@ CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|
 8																								ABILITY:Special Ability|AUTOMATIC|Incorporeality ~ Knight of the Eternal Eye
 10																								ABILITY:Special Ability|AUTOMATIC|Darkness form Darkness ~ Knight of the Eternal Eye
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
-CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus																						FACT
+CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:SpellType|Divine
 # Class Name			Required Class		Required Skill					Required Text
 CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion)=8,Heal=8	PRETEXT:Special (see text)
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Ride
-# Class Name			Spell Stat		Spell Type		Caster level
-CLASS:Paladin of the Pale	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
+# Class Name			Spell Stat		Caster level
+CLASS:Paladin of the Pale	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Paladin of the Pale|CL
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency

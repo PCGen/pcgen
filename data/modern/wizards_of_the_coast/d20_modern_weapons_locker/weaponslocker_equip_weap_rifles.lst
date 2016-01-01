@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern	SOURCEDATE:2004-01
 # Author Terry FitzSimons	Date 14 May 2006
 
 # Assault Rifles
-# Equipment Name											Output Name												Required Weapon Proficiency						Type																													Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Range		Size		Source Page		Special Property																			Auto Equip														Rate of Fire
+# Equipment Name											Output Name												Required Weapon Proficiency						Type																													Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Range		Size		Source Page		Special Property																			Auto Equip														FACT
 A-91 Compact 9x39mm (9x39mm assault carbine)						OUTPUTNAME:A-91 Compact (9x39mm assault carbine)					PROFICIENCY:WEAPON|A-91 Compact					TYPE:Weapon.Ranged.Standard.Firearm.Carbine.Container.Ballistic.Military.SpecialOperations.Automatic.Semiauto.Projectile.Personal.Longarm							CONTAINS:1|Bullet=20	COST:22	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8						RANGE:70	SIZE:L	SOURCEPAGE:p.56	SPROP:Magazine 20,Mil(+3), see text																															FACT:RateOfFire|S,A
 A-91 Compact 5.45mm (5.45mm assault carbine)						OUTPUTNAME:A-91 Compact (5.45mm assault carbine)					PROFICIENCY:WEAPON|A-91 Compact					TYPE:Weapon.Ranged.Standard.Firearm.Carbine.Container.Ballistic.Military.SpecialOperations.Automatic.Semiauto.Projectile.Personal.Longarm							CONTAINS:1|Bullet=20	COST:22	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8						RANGE:70	SIZE:L	SOURCEPAGE:p.56	SPROP:Magazine 20,Mil(+3), see text																															FACT:RateOfFire|S,A
 A-91 Compact 5.56mm (5.56mm assault carbine)						OUTPUTNAME:A-91 Compact (5.56mm assault carbine)					PROFICIENCY:WEAPON|A-91 Compact					TYPE:Weapon.Ranged.Standard.Firearm.Carbine.Container.Ballistic.Military.SpecialOperations.Automatic.Semiauto.Projectile.Personal.Longarm							CONTAINS:1|Bullet=20	COST:22	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8						RANGE:70	SIZE:L	SOURCEPAGE:p.56	SPROP:Magazine 20,Mil(+3), see text																															FACT:RateOfFire|S,A

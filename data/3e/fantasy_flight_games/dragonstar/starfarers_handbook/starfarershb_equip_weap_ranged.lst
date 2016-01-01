@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 ###Block: MODs
@@ -21,13 +21,13 @@ Longbow (+4 Mighty/Composite).MOD	TYPE:HandDrawn
 ###Block: New weapons
 #Simple Ranged/Thrown Weapons
 #TINY ----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Holdout Laser					PROFICIENCY:WEAPON|Holdout Laser					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Handgun.Fire			COST:200	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10		RANGE:75	SIZE:T	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Holdout Pistol					PROFICIENCY:WEAPON|Holdout Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Handgun.Piercing			COST:150	WT:2		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8		RANGE:100	SIZE:T	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Taser Pistol					PROFICIENCY:WEAPON|Taser Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Handgun.Electrical		COST:100	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6		RANGE:100	SIZE:T	SOURCEPAGE:p.98	SPROP:Fort save DC15 or stunned 1 round, electrical	FACT:RateOfFire|Single Dart/Attack
 #not book did not state wether taser is one-shot, semi, auto from description I have to assume semi
 #SMALL ----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Blaster Pistol					PROFICIENCY:WEAPON|Blaster pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Electrical.Handgun		COST:600	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:3d8		RANGE:100	SIZE:S	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Laser Pistol					PROFICIENCY:WEAPON|Laser Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Fire.Handgun			COST:500	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10		RANGE:100	SIZE:S	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Light AutoPistol					PROFICIENCY:WEAPON|Light Autopistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Piercing.Handgun			COST:300	WT:5		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10		RANGE:150	SIZE:S	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
@@ -35,14 +35,14 @@ Heavy AutoPistol					PROFICIENCY:WEAPON|Heavy Autopistol					TYPE:Weapon.HighTec
 Screamer Pistol					PROFICIENCY:WEAPON|Screamer Pistol					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Sonic.Handgun			COST:450	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6		RANGE:100	SIZE:S	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 
 #MEDIUM----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Blaster Carbine					PROFICIENCY:WEAPON|Blaster Carbine					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Electrical.Carbine		COST:900	WT:9		CRITMULT:x2	CRITRANGE:1	DAMAGE:4d8		RANGE:150	SIZE:M	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Automatic Crossbow				PROFICIENCY:WEAPON|Automatic Crossbow				TYPE:Weapon.HighTechSimple.Ranged.Standard.Bow					COST:200	WT:8		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6		RANGE:150	SIZE:M	SOURCEPAGE:p.98										FACT:RateOfFire|Arrow/Attack
 Hunting Carbine					PROFICIENCY:WEAPON|Hunting Carbine					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Piercing.Carbine			COST:350	WT:7		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10		RANGE:250	SIZE:M	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Laser Carbine					PROFICIENCY:WEAPON|Laser Carbine					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Fire.Carbinee			COST:700	WT:7		CRITMULT:x2	CRITRANGE:1	DAMAGE:3d8		RANGE:150	SIZE:M	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 
 #LARGE ----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Blaster Rifle					PROFICIENCY:WEAPON|Blaster Rifle					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Rifle.Electrical			COST:1000	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:4d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Hunting Rifle					PROFICIENCY:WEAPON|Hunting Rifle					TYPE:Weapon.HighTechSimple.Ranged.Firearm.Rifle.Piercing			COST:450	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d12		RANGE:250	SIZE:L	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Compound Longbow					PROFICIENCY:WEAPON|Compound Longbow					TYPE:Weapon.HighTechSimple.Ranged.Standard.Bow					COST:200	WT:2		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d12+4	RANGE:150	SIZE:L	SOURCEPAGE:p.98										FACT:RateOfFire|Arrow/Attack
@@ -52,12 +52,12 @@ Shotgun						PROFICIENCY:WEAPON|Shotgun						TYPE:Weapon.HighTechSimple.Ranged.F
 
 #Martial Ranged/Thrown Weapons
 #MEDIUM----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Assault Carbine					PROFICIENCY:WEAPON|Assault Carbine					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Carbine.Piercing	COST:650	WT:10		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10		RANGE:250	SIZE:M	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Submachine Gun					PROFICIENCY:WEAPON|Submachine Gun					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Piercing				COST:500	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10		RANGE:200	SIZE:M	SOURCEPAGE:p.98										FACT:RateOfFire|3 Round Burst/Attack
 
 #LARGE----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Assault Blaster					PROFICIENCY:WEAPON|Assault Blaster					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Electrical		COST:2000	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:4d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										FACT:RateOfFire|3 Pulse Burst/Attack
 Assault Laser					PROFICIENCY:WEAPON|Assault Laser					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Fire			COST:1500	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:3d10		RANGE:200	SIZE:L	SOURCEPAGE:p.98										FACT:RateOfFire|3 Pulse Burst/Attack
 Assault Rifle					PROFICIENCY:WEAPON|Assault Rifle					TYPE:Weapon.HighTechMartial.Ranged.Firearm.Assault.Rifle.Piercing		COST:750	WT:12		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d12		RANGE:250	SIZE:L	SOURCEPAGE:p.98										FACT:RateOfFire|3 Round Burst/Attack
@@ -72,13 +72,13 @@ Sniper Rifle					PROFICIENCY:WEAPON|Sniper Rifle					TYPE:Weapon.HighTechMartial
 
 
 #HUGE----------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Blaster Cannon					PROFICIENCY:WEAPON|Blaster Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Electrical			COST:5000	WT:65		CRITMULT:x2	CRITRANGE:1	DAMAGE:8d10		RANGE:500	SIZE:H	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 Heavy Machinegun					PROFICIENCY:WEAPON|Heavy Machinegun					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Piercing			COST:1500	WT:20		CRITMULT:x2	CRITRANGE:1	DAMAGE:3d6		RANGE:400	SIZE:H	SOURCEPAGE:p.98										FACT:RateOfFire|5 Round Burst/Attack
 Laser Cannon					PROFICIENCY:WEAPON|Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire				COST:4000	WT:50		CRITMULT:x2	CRITRANGE:1	DAMAGE:6d10		RANGE:500	SIZE:H	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 
 #GARGANTUAN------------------------------------------------------------------------------------------------------
-# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							Rate of Fire
+# Equipment Name					Required Weapon Proficiency						Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property							FACT
 Plasma Cannon					PROFICIENCY:WEAPON|Plasma Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire				COST:7500	WT:80		CRITMULT:x2	CRITRANGE:1	DAMAGE:10d10	RANGE:750	SIZE:G	SOURCEPAGE:p.98										FACT:RateOfFire|Single Pulse/Attack
 #EB Mod: uppercase on Launcher :)
 Missile Launcher (Multishot-4 shot)		PROFICIENCY:WEAPON|Missile launcher (Multishot-4 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive			COST:12000	WT:90		CRITMULT:x2	CRITRANGE:1	DAMAGE:0		RANGE:0	SIZE:G	SOURCEPAGE:p.98										FACT:RateOfFire|1 Missile/Attack
@@ -98,7 +98,7 @@ Grenade (Smoke)		PROFICIENCY:WEAPON|Grenade (Smoke)		TYPE:Weapon.HighTechMartial
 Grenade (Stun)		PROFICIENCY:WEAPON|Grenade (Stun)		TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:50	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast damage is subdual
 
 ###Block: Ship Weapons
-# Equipment Name							Type										Crit Mult	Crit Range	Damage		Range		Size		Source Page			Special Property											Rate of Fire
+# Equipment Name							Type										Crit Mult	Crit Range	Damage		Range		Size		Source Page			Special Property											FACT
 Scout Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2	CRITRANGE:1	DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)			FACT:RateOfFire|Single Pulse/Attack
 Assault Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2	CRITRANGE:1	DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)			FACT:RateOfFire|Single Pulse/Attack
 Assault Walker Missile launcher (Multishot-4 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2	CRITRANGE:1	DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Turret(1)									FACT:RateOfFire|1 Missile/Attack

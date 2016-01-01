@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Rage Powers
 # Ability Name	Unique Key					Category of Ability		Type								Var. Min. Value				Description																																																																																																																																																															Source Page
@@ -41,4 +41,5 @@ Stolen Fury (Champion)			KEY:Trait ~ Stolen Fury			CATEGORY:Special Ability	TYPE
 Touched by Divinity (Hierophant)	KEY:Trait ~ Touched by Divinity	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CampaignTrait	PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Touched by Divinity]		DESC:As long as you can remember, you've had an unexplainable interest in one deity in particular. One of your parents might have been a priest of the deity, but even this can't explain your deep connection to the faith. You begin play with a silver holy symbol of your chosen deity for free. In addition, choose one domain associated with your chosen deity. You gain the use of that domain's ist-level domain spell as a spell-like ability usable once per day (CL equals your character level).																			SOURCEPAGE:p.31
 
 ###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=2|Anti-Summoning Shield|PREVAREQ:StandardSummoner,1

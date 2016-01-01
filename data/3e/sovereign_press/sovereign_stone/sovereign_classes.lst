@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 # Class Name	Class Skill
@@ -11,8 +11,8 @@ CLASS:Rogue.MOD	CSKILL:Literacy|Sign Language|Appraise|Balance|Bluff|Climb|TYPE=
 CLASS:Barbarian.MOD	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Intuit Direction|Jump|Listen|Ride|Swim|Wilderness Lore
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Archer	HD:8		TYPE:Base.PC	FACT:Abb|Acr		MAXLEVEL:20	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Archer	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Acr
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Literacy|Spot|Swim
 ###Block:Proficiencies
@@ -29,8 +29,8 @@ CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Literacy|Sp
 20													ABILITY:Special Ability|AUTOMATIC|Extended Range
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	FACT:Abb|MtW		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Mounted Warrior	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|MtW
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|Intimidate|Jump|Literacy|Ride|Speak Language|Swim
 ###Block:Proficiencies
@@ -51,8 +51,8 @@ CLASS:Mounted Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|Handle Animal|
 20									ABILITY:Special Ability|AUTOMATIC|Devastating Trample
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Noble		HD:8		TYPE:Base.PC	FACT:Abb|Nbl		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Noble		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Nbl
 # Class Name	Multiple Requirements
 CLASS:Noble		PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,ANY=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -74,8 +74,8 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 20																							BONUS:VAR|NobleLeadership|1
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Sailor	HD:6		TYPE:Base.PC	FACT:Abb|sv4		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																														FACT
+CLASS:Sailor	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|sv4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|PROFESSION (SAILOR)|Speak Language|Spot|Swim|Tumble|Use Rope
 ###Block:Proficiencies
@@ -96,8 +96,8 @@ CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledg
 20	BONUS:ABILITYPOOL|Sailor Weapon Bonus|1																ABILITY:Special Ability|VIRTUAL|Improved Evasion
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Soldier	HD:8		TYPE:Base.PC	FACT:Abb|sv5		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Soldier	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|sv5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 ###Block:Proficiencies
@@ -120,8 +120,8 @@ CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Literacy|Swim
 19	BONUS:VAR|QuickAction|1
 20					ABILITY:Special Ability|AUTOMATIC|Reflexive Strike
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Stalker	HD:8		TYPE:Base.PC	FACT:Abb|sv6		MAXLEVEL:20	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																														FACT
+CLASS:Stalker	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|sv6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Listen|Literacy|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 ###Block:Proficiencies

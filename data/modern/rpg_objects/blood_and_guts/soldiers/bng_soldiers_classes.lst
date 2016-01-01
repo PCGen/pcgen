@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
@@ -7,8 +7,8 @@ CLASS:Airman	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.1	BONUS:COMBAT|BASE
 CLASS:Airman	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Aircraft Operation],[PREABILITY:1,CATEGORY=FEAT,Fixed Wing Vehicle Weapons,Helicopter Vehicle Weapons]	PRESKILL:1,Pilot=6	PRETEXT:Active or Reserve Duty (any one branch of service)	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Airman	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations|Concentration|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Paradrop|Pilot|Repair|Spot
-1						BONUS:VAR|AirSuperiority|1									ABILITY:FEAT|AUTOMATIC|Air Superiority
-2						BONUS:VAR|Strafing|(CL+3)/5									ABILITY:FEAT|AUTOMATIC|Strafing
+1						BONUS:VAR|AirSuperiority|1											ABILITY:FEAT|AUTOMATIC|Air Superiority
+2						BONUS:VAR|Strafing|(CL+3)/5											ABILITY:FEAT|AUTOMATIC|Strafing
 3															ADD:ABILITY|FEAT|NORMAL|TYPE=Airman
 4	SAB:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL/4)+2	DEFINE:AirSupport|0
 5						BONUS:VAR|AirSuperiority|1
@@ -27,7 +27,7 @@ CLASS:Grunt		STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|G
 3																					ADD:ABILITY|FEAT|NORMAL|TYPE=Grunt,TYPE=MOS
 4	SAB:Hurry Up (Medium)
 6																					ADD:ABILITY|FEAT|NORMAL|TYPE=Grunt,TYPE=MOS
-8	SAB:Hurry Up and Wait																						ABILITY:FEAT|VIRTUAL|Forced March
+8	SAB:Hurry Up and Wait																									ABILITY:FEAT|VIRTUAL|Forced March
 9																					ADD:ABILITY|FEAT|NORMAL|TYPE=Grunt,TYPE=MOS
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																															Modify VAR
@@ -45,7 +45,7 @@ CLASS:Leatherneck	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Dr
 7															BONUS:VAR|FirstWave|1
 8																							ADD:ABILITY|FEAT|NORMAL|TYPE=LeatherneckTerrain
 9																							ADD:ABILITY|FEAT|NORMAL|TYPE=Leatherneck
-10																													ABILITY:FEAT|AUTOMATIC|Semper Fi
+10																															ABILITY:FEAT|AUTOMATIC|Semper Fi
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																														Modify VAR
 CLASS:Specialist	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
