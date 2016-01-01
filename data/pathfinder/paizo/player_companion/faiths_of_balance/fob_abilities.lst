@@ -1,4 +1,4 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
 # Original Entry by: Stefan Radermacher
 
@@ -46,6 +46,7 @@ Strip the Veils			KEY:Trait ~ Strip the Veils			CATEGORY:Special Ability	TYPE:Tr
 
 
 ###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Lighten Object|Summoner=5|Lighten Object (Mass)|PREVAREQ:StandardSummoner,1
 
 #

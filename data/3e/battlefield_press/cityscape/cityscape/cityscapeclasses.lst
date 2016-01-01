@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:CiSc	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
 # Class Name	Class Skill
 CLASS:Fighter.MOD	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Scent/Taste|Swim
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Aristo	NAMEISPI:YES	HD:8		TYPE:Base.PC	FACT:Abb|Ari		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Aristo	NAMEISPI:YES	HD:8		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Ari
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristo	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE=Knowledge|Listen|Perform|Read Lips|Ride|Savoir Faire|Sense Motive|Speak Language|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -25,14 +25,14 @@ CLASS:Aristo	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 17				BONUS:ABILITYPOOL|Contact|1
 19				BONUS:ABILITYPOOL|Contact|1
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Bard (CS)	OUTPUTNAME:Bard	HD:6		TYPE:Base.PC	FACT:Abb|Brd		SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Output Name		Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Bard (CS)	OUTPUTNAME:Bard	HD:6		TYPE:Base.PC	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Brd	FACT:SpellType|Arcane
 # Class Name	Required AL
 CLASS:Bard (CS)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard (CS)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|Conceal Object|Criminology|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Linguistics|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scent/Taste|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Bard (CS)	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (CS)|CL	SPELLLIST:1|Bard
+# Class Name	Spell Stat		Memorize	Caster level				Use Spell List
+CLASS:Bard (CS)	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (CS)|CL	SPELLLIST:1|Bard
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -66,12 +66,12 @@ CLASS:Bard (CS)	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVE
 19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Bonus Languages					Combat bonus											Add domain number		Save bonus
-CLASS:Cleric (CS)	OUTPUTNAME:Cleric	HD:8		TYPE:Base.PC	FACT:Abb|Clr		SOURCEPAGE:p.29	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Output Name		Hit Dice	Type			Source Page		Bonus Languages					Combat bonus											Add domain number		Save bonus																					FACT
+CLASS:Cleric (CS)	OUTPUTNAME:Cleric	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Clr	FACT:SpellType|Divine
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric (CS)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Scent/Taste|Search|Spot|Scry|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
-CLASS:Cleric (CS)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (CS)|CL	SPELLLIST:1|Cleric
+# Class Name	Spell Stat		Automatically Known Spell Levels											Caster level				Use Spell List
+CLASS:Cleric (CS)	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (CS)|CL	SPELLLIST:1|Cleric
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -105,8 +105,8 @@ CLASS:Cleric (CS)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Corporate Super	NAMEISPI:YES	HD:8		TYPE:Base.PC	FACT:Abb|CSpr		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																																				FACT
+CLASS:Corporate Super	NAMEISPI:YES	HD:8		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|CSpr
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal Object|Criminology|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Read Lips|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Use Rope
 ###Block: Proficiencies
@@ -121,8 +121,8 @@ CLASS:Corporate Super	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Computer Use|Conceal
 18	BONUS:ABILITYPOOL|Contact|1
 20	BONUS:ABILITYPOOL|Metahuman|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Dataman	NAMEISPI:YES	HD:8		TYPE:Base.PC	FACT:Abb|Data		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Dataman	NAMEISPI:YES	HD:8		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Data
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|Conceal Object|Criminology|Decipher Script|Disable Device|Forgery|Gather Information|Hide|TYPE=Knowledge|Linguistics|Listen|Medical (First Aid)|Open Lock|TYPE=Profession|Read/Write Language|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
@@ -147,14 +147,14 @@ CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|C
 19																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
 20																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Ex Class			Source Page		Bonus Languages	Auto Language	Combat bonus											Save bonus
-CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	FACT:Abb|Drd		EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	LANGBONUS:Sylvan	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Output Name		Hit Dice	Type			Ex Class			Source Page		Bonus Languages	Auto Language	Combat bonus											Save bonus																					FACT
+CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	LANGBONUS:Sylvan	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Drd	FACT:SpellType|Divine
 # Class Name	Required AL
 CLASS:Druid (CS)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intuit Direction|Knowledge (Nature)|Listen|Medical (First Aid)|TYPE=Profession|Scry|Scent/Taste|Spellcraft|Spot|Swim|Wilderness Lore
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
-CLASS:Druid (CS)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid (CS)|CL	SPELLLIST:1|Druid
+# Class Name	Spell Stat		Automatically Known Spell Levels											Caster level				Use Spell List
+CLASS:Druid (CS)	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid (CS)|CL	SPELLLIST:1|Druid
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -181,8 +181,8 @@ CLASS:Druid (CS)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Bonus Languages	Visible	Auto Language	Combat bonus											Save bonus
-CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	FACT:Abb|XDrd		SOURCEPAGE:p.33	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Output Name			Hit Dice	Type			Source Page		Bonus Languages	Visible	Auto Language	Combat bonus											Save bonus																					FACT
+CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	SOURCEPAGE:p.33	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|XDrd
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intuit Direction|Knowledge (Nature)|Listen|Medical (First Aid)|TYPE=Profession|Scry|Scent/Taste|Spellcraft|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -190,8 +190,8 @@ CLASS:Ex Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Cra
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	FACT:Abb|Gadg		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Gadgeteer	NAMEISPI:YES	HD:8		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Gadg
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE=Craft|Demolitions|Disable Device|Invention|Gather Information|Gunslinging|Intuit Direction|TYPE=Knowledge|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 ###Block: Proficiencies
@@ -204,8 +204,8 @@ CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE=Craft|Dem
 # Dead Aim and Skip Shot feats are not listed in the book or errata. Strongly suspect these come from the Modern SRD since the book says those are optional rules.
 # Advanced Two-Weapon Fighting feat is listed in the feats table on p.81 but no description is given later in the book. Suspect this also comes from the Modern SRD.
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	FACT:Abb|Gun		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																														FACT
+CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/2	FACT:Abb|Gun
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Gunslinging|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|TYPE=Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Archaic Weapons Proficiency|Heavy Firearms Weapon Proficiency|Personal Firearms Weapon Proficiency
@@ -231,8 +231,8 @@ CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Ga
 #  The Monk would be a WHOLE Lot simpler with .MOD CSKILL:.CLEAR
 #	This is basically a copy of the SRD Monk, without PREALIGN, and different CSKILLS.
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Combat bonus											Save bonus
-CLASS:Monk (CS)	HD:8		TYPE:Base.PC	FACT:Abb|Mnk		SOURCEPAGE:p.	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Source Page		Attack Cycle	Combat bonus											Save bonus													FACT
+CLASS:Monk (CS)	HD:8		TYPE:Base.PC	SOURCEPAGE:p.	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Mnk
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE=Profession|Scent/Taste|Search|Spot|Swim|Tumble
 ###Block:DEFINEs and BONUSes associated.
@@ -266,8 +266,8 @@ CLASS:Monk (CS)	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Di
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										BONUS:VAR|EmptyBody|CL							ABILITY:Special Ability|AUTOMATIC|Empty Body
 20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																				ABILITY:Special Ability|AUTOMATIC|Perfect Self																				TEMPLATE:Monk Outsider
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	FACT:Abb|MutH		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Mutant Hero	NAMEISPI:YES	HD:10		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|MutH
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mutant Hero	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
@@ -280,8 +280,8 @@ CLASS:Mutant Hero	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|Escape Artist
 17	BONUS:ABILITYPOOL|Metahuman|1
 20	BONUS:ABILITYPOOL|Metahuman|1
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save bonus
-CLASS:Private Detective	NAMEISPI:YES	HD:6		TYPE:Base.PC	FACT:Abb|PvtD		SOURCEPAGE:p.	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Save bonus																					FACT
+CLASS:Private Detective	NAMEISPI:YES	HD:6		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|PvtD
 # Class Name		Required AL
 CLASS:Private Detective	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -310,12 +310,12 @@ CLASS:Private Detective	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Conceal Object|Cri
 19																		BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 20					BONUS:ABILITYPOOL|Contact|1	BONUS:ABILITYPOOL|Private Detective Feat|1	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Ranger (CS)	OUTPUTNAME:Ranger	HD:10		TYPE:Base.PC	FACT:Abb|Rgr		SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Output Name		Hit Dice	Type			Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Ranger (CS)	OUTPUTNAME:Ranger	HD:10		TYPE:Base.PC	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Rgr	FACT:SpellType|Divine
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Agriculture)|Knowledge (Nature)|Knowledge (Zoology)|Listen|Medical (First Aid)|Move Silently|TYPE=Profession|Ride|Scent/Taste|Search|Spot|Swim|Use Rope|Wilderness Lore
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level								Use Spell List
-CLASS:Ranger (CS)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Bard (CS)|CL/2|PRECLASS:1,Ranger (CS)=4	SPELLLIST:1|Ranger
+# Class Name	Spell Stat		Automatically Known Spell Levels				Craft Level Mult.	Caster level								Use Spell List
+CLASS:Ranger (CS)	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Bard (CS)|CL/2|PRECLASS:1,Ranger (CS)=4	SPELLLIST:1|Ranger
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -350,8 +350,8 @@ CLASS:Rogue.COPY=Rogue (CS)
 # Class Name		Class Skill
 CLASS:Rogue (CS).MOD	CSKILL:Demolitions|Linguistics|Medical (First Aid)|Mesmerism|Scent/Taste|Speak Language
 
-# Class Name			Output Name					Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Rogue (CS/High tech)	OUTPUTNAME:Rogue, High Tech (CS)	HD:6		TYPE:Base.PC	FACT:Abb|Rog		SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Output Name					Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Rogue (CS/High tech)	OUTPUTNAME:Rogue, High Tech (CS)	HD:6		TYPE:Base.PC	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Rog
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Linguistics|Listen|Medical (First Aid)|Mesmerism|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Scent/Taste|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Rogue Weapon Proficiencies
@@ -369,8 +369,8 @@ CLASS:Rogue (CS/High tech)	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|T
 2												ABILITY:Special Ability|AUTOMATIC|Evasion
 10			BONUS:ABILITYPOOL|Rogue Special Ability|(CL-7)/3
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Scholar	NAMEISPI:YES	HD:6		TYPE:Base.PC	FACT:Abb|Sch		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Scholar	NAMEISPI:YES	HD:6		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Sch
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scholar	STARTSKILLPTS:8	CSKILL:Computer Use|Criminology|Decipher Script|TYPE=Knowledge|Linguistics|Listen|TYPE=Medical|Read/Write Language|Scent/Taste|Search|Speak Language|Spot
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
@@ -384,8 +384,8 @@ CLASS:Scholar	STARTSKILLPTS:8	CSKILL:Computer Use|Criminology|Decipher Script|TY
 17	SAB:Field Master
 19					ADD:LANGUAGE|TYPE=Spoken,TYPE=Written
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Soldier	NAMEISPI:YES	HD:8		TYPE:Base.PC	FACT:Abb|Sol		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Soldier	NAMEISPI:YES	HD:8		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Sol
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Demolitions|Drive|Forward Observer|Gather Information|Gunslinging|Handle Animal|Jump|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	BONUS:ABILITYPOOL|Soldier Proificiency Choice|1
@@ -409,12 +409,12 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Demolitions|D
 19																							BONUS:VAR|QuickAction|1
 20	SAB:Reflexive Strike
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Sorcerer (CS)	OUTPUTNAME:Sorcerer	HD:4		TYPE:Base.PC	FACT:Abb|Sor		SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Output Name			Hit Dice	Type			Source Page		Combat bonus										Save bonus																													FACT
+CLASS:Sorcerer (CS)	OUTPUTNAME:Sorcerer	HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Sor	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Read/Write Language|Ritual Casting|Scry|Spellcraft
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Sorcerer (CS)	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (CS)|CL	SPELLLIST:1|Wizard
+# Class Name		Spell Stat		Memorize	Caster level				Use Spell List
+CLASS:Sorcerer (CS)	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (CS)|CL	SPELLLIST:1|Wizard
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Level progression
@@ -439,8 +439,8 @@ CLASS:Sorcerer (CS)	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTER
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Warrior (CS)	OUTPUTNAME:Warrior	HD:10		TYPE:Base.PC	FACT:Abb|War		SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Output Name			Hit Dice	Type			Source Page		Combat bonus										Save bonus																														FACT
+CLASS:Warrior (CS)	OUTPUTNAME:Warrior	HD:10		TYPE:Base.PC	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|War
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Scent/Taste|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
@@ -450,12 +450,12 @@ CLASS:Warrior (CS)	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ri
 1	BONUS:ABILITYPOOL|Fighter|CL/2+1
 4							BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 
-# Class Name	Output Name		Hit Dice	Type			Abbreviation	Source Page		Bonus Languages		Combat bonus										Save bonus
-CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	FACT:Abb|Wiz		SOURCEPAGE:p.52	LANGBONUS:Draconic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Output Name		Hit Dice	Type			Source Page		Bonus Languages		Combat bonus										Save bonus																													FACT
+CLASS:Wizard (CS)	OUTPUTNAME:Wizard	HD:4		TYPE:Base.PC	SOURCEPAGE:p.52	LANGBONUS:Draconic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Wiz	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (CS)	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Jump|TYPE=Knowledge|Linguistics|TYPE=Profession|Read/Write Language|Ritual Casting|Scent/Taste|Scry|Search|Spellcraft|Spot
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List
-CLASS:Wizard (CS)	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard (CS)|CL	SPELLLIST:1|Wizard
+# Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List
+CLASS:Wizard (CS)	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard (CS)|CL	SPELLLIST:1|Wizard
 SUBCLASS:Abjurer (CS)		COST:2	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Conjurer (CS)		COST:4	CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASS:Diviner (CS)		COST:1	CHOICE:SCHOOL|Divination	KNOWNSPELLSFROMSPECIALTY:1
@@ -488,12 +488,12 @@ SUBCLASS:Transmuter (CS)	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECI
 19	CAST:4,4,4,4,4,4,4,4,3,3
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Bonus Languages		Combat bonus											Save bonus
-CLASS:Martial Magician	NAMEISPI:YES	HD:6		TYPE:Base.PC	FACT:Abb|MarM		SOURCEPAGE:p.	LANGBONUS:Draconic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Bonus Languages		Combat bonus											Save bonus																					FACT
+CLASS:Martial Magician	NAMEISPI:YES	HD:6		TYPE:Base.PC	SOURCEPAGE:p.	LANGBONUS:Draconic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|MarM	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Martial Magician	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Jump|TYPE=Knowledge|Linguistics|Move Silently|TYPE=Profession|Read/Write Language|Scent/Taste|Scry|Search|Spellcraft|Spot
-# Class Name		Spell Stat		Spell Type		Spellbook		Caster level					Use Spell List
-CLASS:Martial Magician	SPELLSTAT:INT	FACT:SpellType|Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Martial Magician|CL	SPELLLIST:1|Wizard
+# Class Name		Spell Stat		Spellbook		Caster level					Use Spell List
+CLASS:Martial Magician	SPELLSTAT:INT	SPELLBOOK:YES	BONUS:CASTERLEVEL|Martial Magician|CL	SPELLLIST:1|Wizard
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
@@ -518,8 +518,8 @@ CLASS:Martial Magician	SPELLSTAT:INT	FACT:SpellType|Arcane	SPELLBOOK:YES	BONUS:C
 19	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,2,1
 20	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	CAST:4,4,4,4,4,4,4,3,3,2							BONUS:ABILITYPOOL|Martial Magician Feat|1	BONUS:SAVE|BASE.Reflex|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Mechanist	NAMEISPI:YES	HD:6		TYPE:Base.PC	FACT:Abb|Mech		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Mechanist	NAMEISPI:YES	HD:6		TYPE:Base.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Mech
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptography|Demolitions|Disable Device|Freefall|Knowledge (Anatomy)|Knowledge (Archeology)|Knowledge (Astrology)|Knowledge (Astronomy)|Knowledge (Biology)|Knowledge (Botany)|Knowledge (Chemistry)|Knowledge (Epistemology)|Knowledge (Geology)|Knowledge (Mathematics)|Knowledge (Physics)|Knowledge (Psionics)|Knowledge (Technology)|Knowledge (Temporal Mechanics)|Knowledge (Zoology)|Open Lock|TYPE=Pilot|TYPE=Profession|Repair|Research|Search
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
@@ -539,8 +539,8 @@ CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptog
 
 # Battlemind - Psionics
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Battle Mind	NAMEISPI:YES	HD:8		TYPE:Prestige.PC	FACT:Abb|BtM		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Battle Mind	NAMEISPI:YES	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|BtM
 # Class Name	Required Ability							Required Skill	PRETOTALAB
 CLASS:Battle Mind	PREABILITY:1,CATEGORY=FEAT,Wild Talent,Psionic Talent	PRESKILL:1,Jump=6	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -557,8 +557,8 @@ CLASS:Battle Mind	STARTSKILLPTS:3	CSKILL:Autohypnosis|Balance|Climb|Concentratio
 9	KNOWN:3,3,3,2															BONUS:ABILITYPOOL|Battle Mind Feat|1
 10	KNOWN:3,3,3,2,1	SAB:Ultimate Psi-Blade
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	FACT:Abb|BdG		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																																				FACT
+CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	FACT:Abb|BdG
 # Class Name	Required Ability									Required Skill					PRETOTALAB
 CLASS:Bodyguard	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Weapon Proficiency	PRESKILL:2,Concentration=6,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -574,8 +574,8 @@ CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gath
 9									BONUS:ABILITYPOOL|Bodyguard Feat|1
 10	SAB:Blanket Protection
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	FACT:Abb|BHtr		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus													FACT
+CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")	FACT:Abb|BHtr
 # Class Name		Required Ability				Required Skill											Required Text				PRETOTALAB
 CLASS:Bounty Hunter	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:4,Criminology=5,Gather Information=5,Intimidate=5,Move Silently=5	PRETEXT:Must be 18 years of age	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -588,8 +588,8 @@ CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE=Craft|C
 3	BONUS:ABILITYPOOL|Contact|1
 7	BONUS:ABILITYPOOL|Contact|1
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:CPC Enforcement Officer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	FACT:Abb|CPCEO		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																						FACT
+CLASS:CPC Enforcement Officer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|CPCEO
 # Class Name			Required Skill			Required Stat		Required Text				PRETOTALAB
 CLASS:CPC Enforcement Officer	PRESKILL:1,Criminology=5	PRESTAT:2,INT=12,CON=10	PRETEXT:Must be 18 years of age	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -605,8 +605,8 @@ CLASS:CPC Enforcement Officer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Cra
 9							BONUS:ABILITYPOOL|Contact|1
 10	SAB:Senior Officer																ABILITY:FEAT|VIRTUAL|Leadership
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	FACT:Abb|SecS		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																														FACT
+CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SecS
 # Class Name			Required Skill				Required Text						PRETOTALAB
 CLASS:Security Specialist	PRESKILL:1,Gather Information=5	PRETEXT:Must have achieved 21 years of age	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -625,8 +625,8 @@ CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|C
 8	SAB:Improved Sweep
 9								BONUS:ABILITYPOOL|Security Specialist Feat|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Save bonus
-CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	FACT:Abb|Spy		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Spy		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Spy
 # Class Name	Required Language	Required Skill							Required Text
 CLASS:Spy		PRELANG:2,ANY	PRESKILL:3,Diplomacy=8,Sense Motive=8,Savoir-Faire=5	PRETEXT:The character must know at least one language other than his native one
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -642,8 +642,8 @@ CLASS:Spy		STARTSKILLPTS:6	CSKILL:Climb|Bluff|Disable Device|Diplomacy|Disguise|
 6											BONUS:VAR|WeapSpecQualify|1									DEFINE:WeapSpecQualify|0				ABILITY:FEAT|AUTOMATIC|Weapon Specialization (Garrote)
 8					BONUS:SKILLRANK|Speak Language|4
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Techie	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	FACT:Abb|Tech		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Techie	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Tech
 # Class Name	Required Skill
 CLASS:Techie	PRESKILL:2,Computer Use=6,Disable Device=6	PRESKILL:1,Craft (Electronics)=6,Craft (Mechanical)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -660,8 +660,8 @@ CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronics)|Craft (Mech
 9					BONUS:ABILITYPOOL|Techie Feat 1|1
 10					BONUS:ABILITYPOOL|Techie Feat 2|1
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Technomancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	FACT:Abb|Tcno		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Technomancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Tcno
 # Class Name		Required Ability						Required Skill					Req. Spell Type
 CLASS:Technomancer	PREABILITY:1,CATEGORY=FEAT,TYPE=ItemCreation	PRESKILL:2,Repair=5,Use Magic Device=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -680,8 +680,8 @@ CLASS:Technomancer	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Technomancer|CL
 10	CAST:0,2,2,2,1	SAB:Meld with Construct (Su)
 
 
-# Class Name	Unique Key		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Telepath	KEY:Telepath ~ CS	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	FACT:Abb|Tele		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Unique Key		Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Telepath	KEY:Telepath ~ CS	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Tele
 
 # Class Name		Required Ability							Required Skill
 CLASS:Telepath ~ CS	PREABILITY:1,CATEGORY=FEAT,Wild Talent,Psionic Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
@@ -699,8 +699,8 @@ CLASS:Telepath ~ CS	STARTSKILLPTS:5	CSKILL:Autohypnosis|Bluff|Concentration|Dipl
 10	KNOWN:6,4,3,3,2,1																								ABILITY:FEAT|AUTOMATIC|Maximize Power
 
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Save bonus
-CLASS:Weird Scientist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	FACT:Abb|WrdS		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Weird Scientist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|WrdS
 # Class Name		Required Skill
 CLASS:Weird Scientist	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Repair=8
 # Class Name		Skill Pts/Lvl	Class Skill

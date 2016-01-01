@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Ability Name																																	Unique Key					Output Name					Category of Ability		Type									Visible	Define											Description																	Multiple?	Choose											Bonus to skill						Modify VAR													Aspects
@@ -483,8 +483,8 @@ Racial Save Bonus	KEY:Racial Save Bonus ~ Drow	CATEGORY:Special Ability	TYPE:Spe
 
 
 ###Block: Flight Maneuverability
-# Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Temporary effect description												Temporary Bonus
-Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	TEMPVALUE:MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE
+# Ability Name		Category of Ability		Visible	Define				Ability																																																																								Temporary effect description												Temporary Bonus					TEMPVALUE
+Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE	TEMPVALUE:MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment
 
 ###Block: Maneuverability
 # Ability Name			Category of Ability		Type				Visible	Aspects

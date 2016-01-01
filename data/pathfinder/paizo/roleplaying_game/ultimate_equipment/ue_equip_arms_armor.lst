@@ -1,4 +1,4 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # Equipment Name		Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
@@ -107,6 +107,7 @@ Demon Prince Armor						PROFICIENCY:ARMOR|Full Plate			TYPE:Artifact.Major.Armor
 ###Block: Shields
 # Equipment Name				Product Identity?	Output Name						Required Shield Proficiency		Type														Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability																						Spell Res.	Caster level				Combat bonus			Bonus to spell cast/day																									Modify VAR																						List of Known Class Spells by Level
 #Buckler.MOD																																			COST:5	WT:5																										SOURCEPAGE:p.10
+# Equipment Name				Product Identity?	Output Name						Required Shield Proficiency		Type														Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability																						Spell Res.	Caster level				Combat bonus			Bonus to spell cast/day																									Modify VAR																						List of Known Class Spells by Level
 Klar																PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:12	WT:6		ACCHECK:-1																							SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield
 Shield (Light/Steel/Quickdraw)				OUTPUTNAME:Shield, Light Steel Quickdraw	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard.Close									COST:59	WT:7		ACCHECK:-2								EQMOD:STEEL														SOURCEPAGE:p.12	SPELLFAILURE:5																																	BONUS:COMBAT|AC|1|TYPE=Shield
 Shield (Light/Steel).MOD																																COST:9	WT:6																										SOURCEPAGE:p.12

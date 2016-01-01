@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
-# Class Name		Hit Dice	Type			Max Level	Source Page				Combat bonus								Save bonus																					Modify VAR										Fact
+# Class Name		Hit Dice	Type			Max Level	Source Page				Combat bonus								Save bonus																					Modify VAR										FACT
 CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	FACT:ClassType|PC	FACT:SpellType|Psionic
 # Class Name		Required Ability					Required Skill				PRETOTALAB
 CLASS:Psionic Agent	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2

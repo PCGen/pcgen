@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Kits
 # Equipment Name		Type			Cost		Weight	Source Page
@@ -16,7 +16,7 @@ Holy fountain firework		KEY:Holy fountain firework		TYPE:Gear	COST:110	WT:1		SOU
 Portable altar, standard	KEY:Portable altar (standard)		TYPE:Gear	COST:250	WT:40		SOURCEPAGE:p.18
 Portable altar, masterwork	KEY:Portable altar (masterwork)	TYPE:Gear	COST:400	WT:40		SOURCEPAGE:p.18
 Sun cinder				KEY:Sun cinder				TYPE:Gear	COST:25	WT:1		SOURCEPAGE:p.18
-Slime slow				KEY:Slime slow				TYPE:Gear	COST:15	WT:0.5		SOURCEPAGE:p.18
+Slime slow				KEY:Slime slow				TYPE:Gear	COST:15	WT:0.5	SOURCEPAGE:p.18
 
 ###Block: Magic Items
 # Equipment Name

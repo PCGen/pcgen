@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 
 
@@ -13,7 +13,7 @@ FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeats				DATAFORMAT:BOOLEAN	REQUIRED:N
 FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:GunTraining				EXPLANATION:Determines whether the archetype affects - GunTraining
 FACTDEF:ABILITY|Gunslinger_Archetype_TrueGrit				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:TrueGrit				EXPLANATION:Determines whether the archetype affects - TrueGrit
 
-FACTDEF:ABILITY|Gunslinger_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gunsmith				EXPLANATION:Remove Gunslinger Gunsmith
+FACTDEF:ABILITY|Gunslinger_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gunsmith				EXPLANATION:Remove Gunslinger Gunsmith
 FACTDEF:ABILITY|Gunslinger_Archetype_Gunsmith				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gunsmith				EXPLANATION:Remove Gunslinger Gunsmith
 FACTDEF:ABILITY|Gunslinger_Archetype_Deeds				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Deeds					EXPLANATION:Remove Gunslinger Deeds
 FACTDEF:ABILITY|Gunslinger_Archetype_Grit					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Grit					EXPLANATION:Remove Gunslinger Grit

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2003-01
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Alchemist	HD:6		TYPE:PC.Prestige	FACT:Abb|Alc		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Alchemist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Alc
 # Class Name	Required Ability									Required Skill		Req. Spell Type
 CLASS:Alchemist	PREABILITY:2,CATEGORY=FEAT,Brew Potion,Skill Focus (Alchemy)	PRESKILL:1,Alchemy=10	PRESPELLTYPE:1,Arcane=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft
 9	SAB:Brew Gas					ADD:SPELLCASTER|Arcane
 10	SAB:Elixir of Life				ADD:SPELLCASTER|Arcane
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Combat bonus											Save bonus
-CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	FACT:Abb|DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Hit Dice	Type			Max Level	Source Page		Attack Cycle	Combat bonus											Save bonus													FACT
+CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|DMk
 # Class Name			Required Ability													Required AL		PRETOTALAB
 CLASS:Dim Mak Practitioner	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Improved Trip,Improved Initiative	PREALIGN:LG,LN,LE	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -35,8 +35,8 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																																																ABILITY:Special Ability|AUTOMATIC|Quivering Palm
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8	SAB:Distant Blow
 
-# Class Name	Unique Key		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Diviner	KEY:Diviner ~JS	HD:4		TYPE:PC.Prestige	FACT:Abb|Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Unique Key		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Diviner	KEY:Diviner ~JS	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Div
 
 # Class Name	Required Ability							Required Skill					Required Spell School
 CLASS:Diviner ~JS	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana)=8,Scry=8	PRESPELLSCHOOL:7,Divination=3
@@ -55,8 +55,8 @@ CLASS:Diviner ~JS	SPELLLIST:1|Wizard
 9																ADD:SPELLCASTER|Arcane
 10																ADD:SPELLCASTER|Arcane
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Geometer	HD:8		TYPE:PC.Prestige	FACT:Abb|Geo		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Geometer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Geo
 # Class Name	Required Ability								Required Skill										Req. Spell Type
 CLASS:Geometer	PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana)=8,Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -74,8 +74,8 @@ CLASS:Geometer	SPELLLIST:1|Cleric
 9																					ADD:SPELLCASTER|ANY
 10	SAB:Perfect Harmony																	ADD:SPELLCASTER|ANY
 
-# Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Combat bonus											Save bonus
-CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	FACT:Abb|IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Hit Dice	Type			Source Page		Attack Cycle	Combat bonus											Save bonus													FACT
+CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|IHD
 # Class Name			Required Ability												Required AL		PRETOTALAB
 CLASS:Iron Hand Disciple	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Great Fortitude,Power Attack	PREALIGN:LG,LN,LE	PRETOTALAB:4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -91,8 +91,8 @@ CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8			SAB:Heart of Steel
 10	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10			SAB:Iron Body
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	FACT:Abb|SwS		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SwS
 # Class Name	Required Ability												PRETOTALAB
 CLASS:Sword Saint	PREABILITY:4,CATEGORY=FEAT,Weapon Specialization,Expertise,Quick Draw,Spring Attack	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill

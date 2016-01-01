@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp	SOURCEDATE:2004-01
 
 #CREATED BY:Paul W. King, Jan 2007
@@ -6,8 +6,8 @@ SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.theg
 
 ### Advanced Classes
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
-CLASS:The Ritualist	HD:6		TYPE:PC.Advanced	FACT:Abb|Rit		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR														FACT
+CLASS:The Ritualist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	FACT:Abb|Rit
 # Class Name		Required Skill
 CLASS:The Ritualist	PRESKILL:3,Knowledge (Arcane Lore)=6,Knowledge (Theology and Philosophy)=6,Research=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -20,14 +20,14 @@ CLASS:The Ritualist	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft 
 9				SAB:Cast Without Circle
 10												ADD:ABILITY|FEAT|NORMAL|Elemental Mastery
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
-CLASS:Magic Grunt	HD:6		TYPE:PC.Advanced	FACT:Abb|MGrnt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR														FACT
+CLASS:Magic Grunt	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	FACT:Abb|MGrnt	FACT:SpellType|Arcane
 # Class Name	Required Ability								Required Skill								Required Stat	PRETOTALAB
 CLASS:Magic Grunt	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Knowledge (Tactics)=3,Knowledge (Arcane Lore)=3	PRESTAT:1,INT=10	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magic Grunt	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Craft (Chemical)|Decipher Script|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Profession|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spellcraft|Spot|Survival|Swim|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List
-CLASS:Magic Grunt	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magic Grunt|CL	SPELLLIST:1|Mage
+# Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List
+CLASS:Magic Grunt	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magic Grunt|CL	SPELLLIST:1|Mage
 ###BLOCK: casting
 4	CAST:3,1
 5	CAST:4,2
@@ -49,8 +49,8 @@ CLASS:Magic Grunt	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPEL
 
 ###Prestige Classes
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
-CLASS:Arcane Spec Op	HD:8		TYPE:PC.Prestige	FACT:Abb|ASOp		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR														FACT
+CLASS:Arcane Spec Op	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	FACT:Abb|ASOp
 # Class Name		Required Ability																				Multiple Requirements														Required Skill								Req. Spell Type		PRETOTALAB
 CLASS:Arcane Spec Op	PREABILITY:6,CATEGORY=FEAT,Advanced Firearms Proficiency,Athletic,Endurance,Personal Firearms Proficiency,Stealthy,Weapon Focus	PREMULT:1,[PRESKILL:1,Treat Injury=5,Knowledge (Tactics)=10],[PREABILITY:1,CATEGORY=FEAT,Burst Fire]	PRESKILL:2,Knowledge (Tactics)=6,Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,ANY=3	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -63,8 +63,8 @@ CLASS:Arcane Spec Op	STARTSKILLPTS:6	CSKILL:Climb|Craft (Chemical)|Diplomacy|Dem
 4													ADD:ABILITY|FEAT|NORMAL|Swift Strike
 5			SAB:Light It Up
 
-# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
-CLASS:Thaumaturgical Specialist	HD:6		TYPE:PC.Prestige	FACT:Abb|ThSp		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name				Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR														FACT
+CLASS:Thaumaturgical Specialist	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	FACT:Abb|ThSp
 # Class Name				Required Ability												Required Check Base	Required Skill								Req. Spell Type		PRETOTALAB
 CLASS:Thaumaturgical Specialist	PREABILITY:3,CATEGORY=FEAT,Combat Casting,Fork Spell,Personal Firearms Proficiency	PRECHECKBASE:1,Will=6	PRESKILL:2,Knowledge (Tactics)=6,Knowledge (Arcane Lore)=6	PRESPELLTYPE:1,Arcane=3	PRETOTALAB:6
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -72,5 +72,5 @@ CLASS:Thaumaturgical Specialist	STARTSKILLPTS:6	CSKILL:Climb|Concentration|Craft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Mage
 1:REPEATLEVEL:2	ADD:ABILITY|FEAT|NORMAL|TYPE=Thaumaturgical
 2:REPEATLEVEL:2	ADD:ABILITY|FEAT|NORMAL|TYPE=Metamagic
-2								ABILITY:FEAT|AUTOMATIC|Brew Potion
-4								ABILITY:FEAT|AUTOMATIC|Scribe Scroll
+2											ABILITY:FEAT|AUTOMATIC|Brew Potion
+4											ABILITY:FEAT|AUTOMATIC|Scribe Scroll

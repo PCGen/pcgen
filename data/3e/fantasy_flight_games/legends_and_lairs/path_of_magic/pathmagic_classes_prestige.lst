@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html	SOURCEDATE:2002-01
 # Original Entry by: Ratheof Blithwyn
 
@@ -7,8 +7,8 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 # Prestige classes
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Arcane Negotiator	HD:4		TYPE:PC.Prestige	FACT:Abb|ArN		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Arcane Negotiator	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|ArN
 # Class Name		Required Ability							Required Skill									Req. Spell Type		Required Subclass
 CLASS:Arcane Negotiator	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Conjuration)	PRESKILL:3,Diplomacy=10,Sense Motive=10,Knowledge (The Planes)=5	PRESPELLTYPE:1,Arcane=5	PRESUBCLASS:1,Conjurer
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -27,8 +27,8 @@ CLASS:Arcane Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Di
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Chanter	HD:6		TYPE:PC.Prestige	FACT:Abb|Cha		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Chanter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Cha
 # Class Name	Required Ability						Required Skill					Required Stat	Var. Min. Value
 CLASS:Chanter	PREABILITY:1,CATEGORY=FEAT,Great Fortitude	PRESKILL:2,Concentration=8,Perform=8	PRESTAT:1,CON=13	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -49,8 +49,8 @@ CLASS:Chanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concen
 # no description of spellcasting: ANY or Arcane?
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Force Weaver	HD:6		TYPE:PC.Prestige	FACT:Abb|FoW		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Force Weaver	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|FoW
 # Class Name		Required Ability							Required Skill						Req. Spell Type		Required Text
 CLASS:Force Weaver	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Evocation)	PRESKILL:2,Spellcraft=6,Knowledge (Arcana)=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Must know three spells with the Force descriptor.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -67,8 +67,8 @@ CLASS:Force Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=
 10	SAB:Force Magic Immunity															ADD:SPELLCASTER|Arcane
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Grand Diva	HD:6		TYPE:PC.Prestige	FACT:Abb|GrD		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Grand Diva	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|GrD
 # Class Name	Required Ability							Required Gender	Required Skill								Required Text
 CLASS:Grand Diva	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perform)	PREGENDER:F		PRESKILL:3,Gather Information=3,Sense Motive=3,Perform=8	PRETEXT:The character must earn a position of notoriety within an area of public musical performance.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -85,8 +85,8 @@ CLASS:Grand Diva	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher 
 10	SAB:Diva's Wail																			ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Jester	HD:6		TYPE:PC.Prestige	FACT:Abb|Jes		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Jester	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Jes
 # Class Name	Required Ability						Required AL		Required Skill										Var. Min. Value
 CLASS:Jester	PREABILITY:1,CATEGORY=FEAT,Improved Initiative	PREALIGN:CG,CN,CE	PRESKILL:4,Escape Artist=4,Jump=4,Perform (Juggling/Wit)=8,Tumble=4	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -107,8 +107,8 @@ CLASS:Jester	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|T
 # no description of spellcasting: ANY or Arcane?
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Ring Sage	HD:6		TYPE:PC.Prestige	FACT:Abb|RiS		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Ring Sage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|RiS
 # Class Name	Required Skill						Req. Spell Type		Required Text
 CLASS:Ring Sage	PRESKILL:2,Knowledge (Arcana)=10,Spellcraft=10	PRESPELLTYPE:1,Arcane=5	PRETEXT:A character must study a magic ring, experiment with it, and attempt to understand its power.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -126,8 +126,8 @@ CLASS:Ring Sage	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|TYPE=Kn
 # no description of spellcasting: ANY or Arcane?
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	FACT:Abb|Spb		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Spb
 # Class Name	Required Ability										Required Skill					Required Text
 CLASS:Spellbinder	PREABILITY:2,CATEGORY=FEAT,Spell Focus (Enchantment),Spell Penetration	PRESKILL:2,Knowledge (Arcana)=8,Perform=5	PRETEXT:Ability to cast arcane Enchantment spells as a bard or sorcerer.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -148,8 +148,8 @@ CLASS:Spellbinder	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=K
 #zzz Extra Spell needs to be implemented
 #zzz This class needs lots of love
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Summoner	HD:4		TYPE:PC.Prestige	FACT:Abb|Sum		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Summoner	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Sum
 # Class Name	Required Ability										Required Skill								Required Spell School
 CLASS:Summoner	PREABILITY:2,CATEGORY=FEAT,Spell Focus (Conjuration),Heighten Spell	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Outsiders)=6	PRESPELLSCHOOL:1,Conjuration=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -169,8 +169,8 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Know
 # no description of spellcasting: ANY or Arcane?
 #zzz Extra Spell needs to be implemented, see also Spellbinder
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Swamp Witch	HD:4		TYPE:PC.Prestige	FACT:Abb|Sww		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Swamp Witch	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Sww
 # Class Name	Required Ability					Required Skill					Required Spell School
 CLASS:Swamp Witch	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PRESKILL:2,Scry=10,Wilderness Lore=6	PRESPELLSCHOOL:7,Divination=1
 # Class Name	Skill Pts/Lvl	Class Skill

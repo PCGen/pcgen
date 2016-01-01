@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com	SOURCEDATE:2003-01
 #Original Entry by: Frank Kliewe
 
 ###Block:Simple Weapons
-# Equipment Name	Output Name			Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prof. bonus																													Weapon prop. bonus								Rate of Fire
+# Equipment Name	Output Name			Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prof. bonus																													Weapon prop. bonus								FACT
 Aikuchi						PROFICIENCY:WEAPON|Aikuchi		TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal.Finesseable			COST:5	WT:2		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4			SIZE:S	SOURCEPAGE:p.37
 Arit							PROFICIENCY:WEAPON|Arit			TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal.Finesseable			COST:3	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6			SIZE:S	SOURCEPAGE:p.42
 Bundi							PROFICIENCY:WEAPON|Bundi		TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal.Finesseable			COST:5	WT:2		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4			SIZE:T	SOURCEPAGE:p.40
@@ -47,7 +47,7 @@ Trench Knife					PROFICIENCY:WEAPON|Trench Knife	TYPE:Weapon.Simple.Melee.Pierci
 Yawara						PROFICIENCY:WEAPON|Yawara		TYPE:Weapon.Simple.Melee.Bludgeoning.Standard.Metal					COST:4	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:0			SIZE:T	SOURCEPAGE:p.37	BONUS:WEAPONPROF=Unarmed Strike|DAMAGE|1|PREABILITY:1,CATEGORY=FEAT,Brawl,Combat Martial Arts	BONUS:WEAPONPROF=Unarmed Strike|TOHIT|-4|!PREABILITY:1,CATEGORY=FEAT,Simple Weapons Proficiency
 
 ###Block:Archaic Weapons
-# Equipment Name		Output Name			Required Weapon Proficiency			Type												Alt Type					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Range		Size		Source Page		Special Property	Rate of Fire
+# Equipment Name		Output Name			Required Weapon Proficiency			Type												Alt Type					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Range		Size		Source Page		Special Property	FACT
 Arbir								PROFICIENCY:WEAPON|Arbir			TYPE:Weapon.Archaic.Melee.Standard.Slashing.Double.Metal			ALTTYPE:Weapon.Melee.Piercing		COST:8	WT:10		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d10	ALTDAMAGE:1d8			SIZE:L	SOURCEPAGE:p.38
 Axe (Chinese)		OUTPUTNAME:Axe, Chinese	PROFICIENCY:WEAPON|Chinese Axe		TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal										COST:11	WT:7		CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8						SIZE:M	SOURCEPAGE:p.38
 Ba								PROFICIENCY:WEAPON|Ba				TYPE:Weapon:Archaic.Melee.Standard.Piercing.Metal.Double			ALTTYPE:Weapon.Melee.Bludgeoning	COST:6	WT:9		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d6			SIZE:L	SOURCEPAGE:p.42
@@ -111,7 +111,7 @@ Willow Leaf Knife						PROFICIENCY:WEAPON|Willow Leaf Knife	TYPE:Weapon.Archaic.
 Wolf's Teeth Staff					PROFICIENCY:WEAPON|Wolf's Teeth Staff	TYPE:Weapon:Archaic.Melee.Standard.Bludgeoning.Metal										COST:9	WT:8		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8						SIZE:L	SOURCEPAGE:p.38
 
 ###Block:Exotic Weapons
-# Equipment Name		Output Name		Required Weapon Proficiency			Type												Alt Type				Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Range		Size		Source Page		Weapon prop. bonus														Special Property			Rate of Fire
+# Equipment Name		Output Name		Required Weapon Proficiency			Type												Alt Type				Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Range		Size		Source Page		Weapon prop. bonus														Special Property			FACT
 Ashiko (Weapon)		OUTPUTNAME:Ashiko	PROFICIENCY:WEAPON|Ashiko			TYPE:Weapon.Exotic.Melee.Piercing.Standard														CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4						SIZE:T	SOURCEPAGE:p.39
 #Bagh nakh						PROFICIENCY:WEAPON|Bagh Nakh			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Metal										COST:8	WT:2		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4							SIZE:T	SOURCEPAGE:p.42
 Bian							PROFICIENCY:WEAPON|Bian				TYPE:Weapon.Exotic.Melee.Ranged.Slashing.Standard.Metal								COST:6	WT:3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				RANGE:15	SIZE:S	SOURCEPAGE:p.40																		SPROP:Trip, Disarm		FACT:RateOfFire|1
