@@ -4,7 +4,7 @@
 
 ###Block: Class Feature Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object						Specific choices list					Plural description for UI	Display Location
-ABILITYCATEGORY:Unchained Rage Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:UnchainedRagePower													PLURAL:Unchained Rage Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Rage Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Unchained Rage Power.UnchainedRagePower									PLURAL:Unchained Rage Powers	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Unchained Raging Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:UnchainedRageSelection																	DISPLAYLOCATION:Class Features
 
 
