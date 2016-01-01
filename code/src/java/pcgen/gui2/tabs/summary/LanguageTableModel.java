@@ -23,11 +23,10 @@ package pcgen.gui2.tabs.summary;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Frame;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
@@ -55,300 +54,305 @@ import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
 public class LanguageTableModel extends AbstractTableModel
-		implements MouseMotionListener, ListListener<LanguageFacade>
+        implements ListListener<LanguageFacade>
 {
 
-	private ListFacade<LanguageFacade> languages;
-	private ListFacade<LanguageChooserFacade> choosers;
-	private CharacterFacade character;
-	private JTable table;
-	private int dirtyRow = -1;
-	private Renderer renderer = new Renderer();
-	private Editor editor = new Editor();
+    private ListFacade<LanguageFacade> languages;
+    private ListFacade<LanguageChooserFacade> choosers;
+    private CharacterFacade character;
+    private JTable table;
+    private Renderer renderer = new Renderer();
+    private Editor editor = new Editor();
+    private MouseListener mouseListener = new MouseListener();
 
-	public LanguageTableModel(CharacterFacade character)
-	{
-		super();
-		this.character = character;
-		languages = character.getLanguages();
-		choosers = character.getLanguageChoosers();
-		languages.addListListener(this);
-	}
+    private int dirtyRow = -1;
 
-	public static void initializeTable(JTable table)
-	{
-		table.setCellSelectionEnabled(false);
-		table.setRowSelectionAllowed(false);
-		table.setColumnSelectionAllowed(false);
-		table.setFocusable(false);
-		table.setRowHeight(21);
-		table.getTableHeader().setReorderingAllowed(false);
-	}
+    public LanguageTableModel(CharacterFacade character, JTable table)
+    {
+        super();
+        this.table = table;
+        this.character = character;
+        languages = character.getLanguages();
+        choosers = character.getLanguageChoosers();
+        languages.addListListener(this);
+    }
 
-	public void install(JTable jTable)
-	{
-		this.table = jTable;
-		jTable.addMouseMotionListener(this);
-		jTable.setModel(this);
+    public static void initializeTable(JTable table)
+    {
+        table.setCellSelectionEnabled(false);
+        table.setRowSelectionAllowed(false);
+        table.setColumnSelectionAllowed(false);
+        table.setFocusable(false);
+        table.setRowHeight(21);
+        table.getTableHeader().setReorderingAllowed(false);
+    }
 
-		jTable.setDefaultRenderer(Object.class, renderer);
-		jTable.setDefaultEditor(Object.class, editor);
-	}
+    public void install()
+    {
+        table.addMouseListener(mouseListener);
+        table.addMouseMotionListener(mouseListener);
+        table.setModel(this);
 
-	public void uninstall()
-	{
-		if (table != null)
-		{
-			table.removeMouseMotionListener(this);
-		}
-	}
+        table.setDefaultRenderer(Object.class, renderer);
+        table.setDefaultEditor(Object.class, editor);
+    }
 
-	@Override
-	public int getRowCount()
-	{
-		return languages.getSize() + choosers.getSize();
-	}
+    public void uninstall()
+    {
+        table.removeMouseListener(mouseListener);
+        table.removeMouseMotionListener(mouseListener);
+    }
 
-	@Override
-	public String getColumnName(int column)
-	{
-		return LanguageBundle.getString("in_sumLanguages"); //$NON-NLS-1$
-	}
+    @Override
+    public int getRowCount()
+    {
+        return languages.getSize() + choosers.getSize();
+    }
 
-	@Override
-	public int getColumnCount()
-	{
-		return 1;
-	}
+    @Override
+    public String getColumnName(int column)
+    {
+        return LanguageBundle.getString("in_sumLanguages"); //$NON-NLS-1$
+    }
 
-	@Override
-	public Object getValueAt(int rowIndex, int columnIndex)
-	{
-		if (rowIndex < languages.getSize())
-		{
-			return languages.getElementAt(rowIndex);
-		}
-		else
-		{
-			return choosers.getElementAt(rowIndex - languages.getSize());
-		}
-	}
+    @Override
+    public int getColumnCount()
+    {
+        return 1;
+    }
 
-	@Override
-	public void mouseDragged(MouseEvent e)
-	{
-		//Do nothing
-	}
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex)
+    {
+        if (rowIndex < languages.getSize())
+        {
+            return languages.getElementAt(rowIndex);
+        }
+        else
+        {
+            return choosers.getElementAt(rowIndex - languages.getSize());
+        }
+    }
 
-	@Override
-	public void mouseMoved(MouseEvent e)
-	{
-		int row = table.rowAtPoint(e.getPoint());
-		if (row == dirtyRow)
-		{
-			return;
-		}
-		editor.cancelCellEditing();
-		table.repaint(table.getCellRect(dirtyRow, 0, true));
-		table.repaint(table.getCellRect(row, 0, true));
-		dirtyRow = row;
-	}
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex)
+    {
+        if (rowIndex < languages.getSize()
+                && !character.isRemovable(languages.getElementAt(rowIndex)))
+        {
+            return false;
+        }
+        return true;
+    }
 
-	@Override
-	public boolean isCellEditable(int rowIndex, int columnIndex)
-	{
-		if (rowIndex < languages.getSize()
-				&& !character.isRemovable(languages.getElementAt(rowIndex)))
-		{
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public void elementAdded(ListEvent<LanguageFacade> e)
+    {
+        fireTableRowsInserted(e.getIndex(), e.getIndex());
+        editor.cancelCellEditing();
+    }
 
-	@Override
-	public void elementAdded(ListEvent<LanguageFacade> e)
-	{
-		fireTableRowsInserted(e.getIndex(), e.getIndex());
-		editor.cancelCellEditing();
-	}
+    @Override
+    public void elementRemoved(ListEvent<LanguageFacade> e)
+    {
+        fireTableRowsDeleted(e.getIndex(), e.getIndex());
+        editor.cancelCellEditing();
+    }
 
-	@Override
-	public void elementRemoved(ListEvent<LanguageFacade> e)
-	{
-		fireTableRowsDeleted(e.getIndex(), e.getIndex());
-		editor.cancelCellEditing();
-	}
+    @Override
+    public void elementsChanged(ListEvent<LanguageFacade> e)
+    {
+        fireTableDataChanged();
+        editor.cancelCellEditing();
+    }
 
-	@Override
-	public void elementsChanged(ListEvent<LanguageFacade> e)
-	{
-		fireTableDataChanged();
-		editor.cancelCellEditing();
-	}
+    @Override
+    public void elementModified(ListEvent<LanguageFacade> e)
+    {
+        fireTableRowsUpdated(e.getIndex(), e.getIndex());
+    }
 
-	@Override
-	public void elementModified(ListEvent<LanguageFacade> e)
-	{
-		fireTableRowsUpdated(e.getIndex(), e.getIndex());
-	}
+    private class MouseListener extends MouseAdapter
+    {
 
-	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
-	{
+        @Override
+        public void mouseExited(MouseEvent e)
+        {
+            table.repaint(table.getCellRect(dirtyRow, 0, true));
+            dirtyRow = -1;
+        }
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
-		private JPanel cellPanel = new JPanel();
-		private CardLayout cardLayout = new CardLayout();
-		private JLabel addLabel = new JLabel();
-		private JLabel cellLabel = new JLabel();
+        @Override
+        public void mouseMoved(MouseEvent e)
+        {
+            int row = table.rowAtPoint(e.getPoint());
+            if (row == dirtyRow)
+            {
+                return;
+            }
+            editor.cancelCellEditing();
+            table.repaint(table.getCellRect(dirtyRow, 0, true));
+            table.repaint(table.getCellRect(row, 0, true));
+            dirtyRow = row;
+        }
 
-		public Editor()
-		{
-			cellPanel.setLayout(cardLayout);
-			cellPanel.setOpaque(true);
+    }
 
-			JButton addButton = Utilities.createSignButton(Sign.Plus);
-			JButton removeButton = Utilities.createSignButton(Sign.Minus);
-			addButton.setActionCommand(ADD_ID);
-			removeButton.setActionCommand(REMOVE_ID);
-			addButton.setFocusable(false);
-			removeButton.setFocusable(false);
-			addButton.addActionListener(this);
-			removeButton.addActionListener(this);
-			Box box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalGlue());
-			box.add(addLabel);
-			box.add(Box.createHorizontalStrut(3));
-			box.add(addButton);
-			box.add(Box.createHorizontalStrut(2));
-			cellPanel.add(box, ADD_ID);
+    private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
+    {
 
-			box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalStrut(3));
-			box.add(cellLabel);
-			box.add(Box.createHorizontalGlue());
-			box.add(removeButton);
-			box.add(Box.createHorizontalStrut(2));
-			cellPanel.add(box, REMOVE_ID);
-		}
+        private final String ADD_ID = "Add";
+        private final String REMOVE_ID = "Remove";
+        private JPanel cellPanel = new JPanel();
+        private CardLayout cardLayout = new CardLayout();
+        private JLabel addLabel = new JLabel();
+        private JLabel cellLabel = new JLabel();
 
-		@Override
-		public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row, int column)
-		{
-			TableCellUtilities.setToRowBackground(cellPanel, jTable, row);
-			if (row >= languages.getSize())
-			{
-				addLabel.setForeground(jTable.getForeground());
-				addLabel.setFont(jTable.getFont());
-				addLabel.setText(((LanguageChooserFacade) value).getName());
-				cardLayout.show(cellPanel, ADD_ID);
-			}
-			else
-			{
-				cellLabel.setForeground(jTable.getForeground());
-				cellLabel.setFont(jTable.getFont());
-				cellLabel.setText(value.toString());
-				cardLayout.show(cellPanel, REMOVE_ID);
-			}
-			return cellPanel;
-		}
+        public Editor()
+        {
+            cellPanel.setLayout(cardLayout);
+            cellPanel.setOpaque(true);
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			if (ADD_ID.equals(e.getActionCommand()))
-			{
-				Frame frame = JOptionPane.getFrameForComponent(table);
-				LanguageChooserFacade chooser = choosers.getElementAt(
-						table.getEditingRow() - languages.getSize());
-				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
-				Utility.setDialogRelativeLocation(frame, dialog);
-				dialog.setVisible(true);
-			}
-			else
-			{
-				LanguageFacade lang = (LanguageFacade) getValueAt(table.getEditingRow(), 0);
-				character.removeLanguage(lang);
-			}
-			cancelCellEditing();
-		}
+            JButton addButton = Utilities.createSignButton(Sign.Plus);
+            JButton removeButton = Utilities.createSignButton(Sign.Minus);
+            addButton.setActionCommand(ADD_ID);
+            removeButton.setActionCommand(REMOVE_ID);
+            addButton.setFocusable(false);
+            removeButton.setFocusable(false);
+            addButton.addActionListener(this);
+            removeButton.addActionListener(this);
+            Box box = Box.createHorizontalBox();
+            box.add(Box.createHorizontalGlue());
+            box.add(addLabel);
+            box.add(Box.createHorizontalStrut(3));
+            box.add(addButton);
+            box.add(Box.createHorizontalStrut(2));
+            cellPanel.add(box, ADD_ID);
 
-		@Override
-		public Object getCellEditorValue()
-		{
-			return null;
-		}
+            box = Box.createHorizontalBox();
+            box.add(Box.createHorizontalStrut(3));
+            box.add(cellLabel);
+            box.add(Box.createHorizontalGlue());
+            box.add(removeButton);
+            box.add(Box.createHorizontalStrut(2));
+            cellPanel.add(box, REMOVE_ID);
+        }
 
-	}
+        @Override
+        public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row, int column)
+        {
+            TableCellUtilities.setToRowBackground(cellPanel, jTable, row);
+            if (row >= languages.getSize())
+            {
+                addLabel.setForeground(jTable.getForeground());
+                addLabel.setFont(jTable.getFont());
+                addLabel.setText(((LanguageChooserFacade) value).getName());
+                cardLayout.show(cellPanel, ADD_ID);
+            }
+            else
+            {
+                cellLabel.setForeground(jTable.getForeground());
+                cellLabel.setFont(jTable.getFont());
+                cellLabel.setText(value.toString());
+                cardLayout.show(cellPanel, REMOVE_ID);
+            }
+            return cellPanel;
+        }
 
-	private class Renderer extends JPanel implements TableCellRenderer
-	{
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            if (ADD_ID.equals(e.getActionCommand()))
+            {
+                Frame frame = JOptionPane.getFrameForComponent(table);
+                LanguageChooserFacade chooser = choosers.getElementAt(
+                        table.getEditingRow() - languages.getSize());
+                LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
+                Utility.setDialogRelativeLocation(frame, dialog);
+                dialog.setVisible(true);
+            }
+            else
+            {
+                LanguageFacade lang = (LanguageFacade) getValueAt(table.getEditingRow(), 0);
+                character.removeLanguage(lang);
+            }
+            cancelCellEditing();
+        }
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
-		private CardLayout cardLayout = new CardLayout();
-		//private JPanel cellPanel = new JPanel();
-		private JLabel cellLabel = new JLabel();
-		private JButton addButton = Utilities.createSignButton(Sign.Plus);
-		private JButton removeButton = Utilities.createSignButton(Sign.Minus);
-		private JLabel addLabel = new JLabel();
+        @Override
+        public Object getCellEditorValue()
+        {
+            return null;
+        }
 
-		public Renderer()
-		{
-			setLayout(cardLayout);
-			Box box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalStrut(3));
-			box.add(cellLabel);
-			box.add(Box.createHorizontalGlue());
-			box.add(removeButton);
-			box.add(Box.createHorizontalStrut(2));
-			add(box, REMOVE_ID);
+    }
 
-			box = Box.createHorizontalBox();
-			box.add(Box.createHorizontalGlue());
-			box.add(addLabel);
-			box.add(Box.createHorizontalStrut(3));
-			box.add(addButton);
-			box.add(Box.createHorizontalStrut(2));
-			add(box, ADD_ID);
-		}
+    private class Renderer extends JPanel implements TableCellRenderer
+    {
 
-		@Override
-		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column)
-		{
-			TableCellUtilities.setToRowBackground(this, jTable, row);
-			if (row < languages.getSize())
-			{
-				boolean automatic = value instanceof LanguageFacade
-						&& character.isAutomatic((LanguageFacade) value);
-				boolean removable = value instanceof LanguageFacade
-						&& character.isRemovable((LanguageFacade) value);
-				Point mouse = jTable.getMousePosition();
+        private final String ADD_ID = "Add";
+        private final String REMOVE_ID = "Remove";
+        private CardLayout cardLayout = new CardLayout();
+        //private JPanel cellPanel = new JPanel();
+        private JLabel cellLabel = new JLabel();
+        private JButton addButton = Utilities.createSignButton(Sign.Plus);
+        private JButton removeButton = Utilities.createSignButton(Sign.Minus);
+        private JLabel addLabel = new JLabel();
 
-				if (automatic)
-				{
-					cellLabel.setForeground(UIPropertyContext.getAutomaticColor());
-				}
-				else
-				{
-					cellLabel.setForeground(jTable.getForeground());
-				}
-				cellLabel.setText(value.toString());
-				cellLabel.setFont(jTable.getFont());
-				removeButton.setVisible(mouse != null && jTable.rowAtPoint(mouse) == row
-						&& removable);
-				cardLayout.show(this, REMOVE_ID);
-			}
-			else
-			{
-				addLabel.setText(((LanguageChooserFacade) value).getName());
-				addLabel.setFont(jTable.getFont());
-				addLabel.setForeground(jTable.getForeground());
-				cardLayout.show(this, ADD_ID);
-			}
-			return this;
-		}
+        public Renderer()
+        {
+            setLayout(cardLayout);
+            Box box = Box.createHorizontalBox();
+            box.add(Box.createHorizontalStrut(3));
+            box.add(cellLabel);
+            box.add(Box.createHorizontalGlue());
+            box.add(removeButton);
+            box.add(Box.createHorizontalStrut(2));
+            add(box, REMOVE_ID);
 
-	}
+            box = Box.createHorizontalBox();
+            box.add(Box.createHorizontalGlue());
+            box.add(addLabel);
+            box.add(Box.createHorizontalStrut(3));
+            box.add(addButton);
+            box.add(Box.createHorizontalStrut(2));
+            add(box, ADD_ID);
+        }
+
+        @Override
+        public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+        {
+            TableCellUtilities.setToRowBackground(this, jTable, row);
+            if (row < languages.getSize())
+            {
+                boolean automatic = value instanceof LanguageFacade
+                        && character.isAutomatic((LanguageFacade) value);
+                boolean removable = value instanceof LanguageFacade
+                        && character.isRemovable((LanguageFacade) value);
+                if (automatic)
+                {
+                    cellLabel.setForeground(UIPropertyContext.getAutomaticColor());
+                }
+                else
+                {
+                    cellLabel.setForeground(jTable.getForeground());
+                }
+                cellLabel.setText(value.toString());
+                cellLabel.setFont(jTable.getFont());
+                removeButton.setEnabled(dirtyRow == row && removable);
+                removeButton.setVisible(!automatic);
+                cardLayout.show(this, REMOVE_ID);
+            }
+            else
+            {
+                addLabel.setText(((LanguageChooserFacade) value).getName());
+                addLabel.setFont(jTable.getFont());
+                addLabel.setForeground(jTable.getForeground());
+                cardLayout.show(this, ADD_ID);
+            }
+            return this;
+        }
+
+    }
 
 }
