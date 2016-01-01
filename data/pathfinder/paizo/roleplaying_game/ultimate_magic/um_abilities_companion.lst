@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 # ORIGINAL ENTRY: ? and Douglas Limmer
 # ORIGINAL ENTRY DATE: unknown
 
@@ -228,14 +228,14 @@ Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQ
 
 ###Block: Fused Eidolon
 
-# Ability Name			Category of Ability	Type							Define			Define Stat																	Choose										Ability														Combat bonus									Bonus to HP									Modify VAR																									Temporary Bonus
-Fused Eidolon HP			CATEGORY:Internal		TYPE:FusedEidolonTemps																										TEMPVALUE:MIN=1|MAX=500|TITLE=Max HP of Eidolon																													BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1																											TEMPBONUS:PC|VAR|EidolonHP|%CHOICE
-Fused Eidolon BAB			CATEGORY:Internal		TYPE:FusedEidolonTemps																																																				BONUS:COMBAT|BASEAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1											BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|var("FusedEidolonLVL")	BONUS:VAR|EidolonBAB|-1-(var("FusedEidolonLVL")/4)
-Fused Eidolon Stats		CATEGORY:Internal		TYPE:FusedEidolonTemps																																					ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1
+# Ability Name			Category of Ability	Type							Define			Define Stat																	Ability														Combat bonus									Bonus to HP									Modify VAR																									Temporary Bonus					TEMPVALUE
+Fused Eidolon HP			CATEGORY:Internal		TYPE:FusedEidolonTemps																																																				BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1																											TEMPBONUS:PC|VAR|EidolonHP|%CHOICE		TEMPVALUE:MIN=1|MAX=500|TITLE=Max HP of Eidolon
+Fused Eidolon BAB			CATEGORY:Internal		TYPE:FusedEidolonTemps																																									BONUS:COMBAT|BASEAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1											BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|var("FusedEidolonLVL")	BONUS:VAR|EidolonBAB|-1-(var("FusedEidolonLVL")/4)
+Fused Eidolon Stats		CATEGORY:Internal		TYPE:FusedEidolonTemps																										ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1
 
-Fused Eidolon Stats Str		CATEGORY:Internal		TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatSTR|0																			TEMPVALUE:MIN=1|MAX=40|TITLE=Strength Score of Eidolon																																																																TEMPBONUS:PC|VAR|EidolonStatSTR|%CHOICE
-Fused Eidolon Stats Dex		CATEGORY:Internal		TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatDEX|0																			TEMPVALUE:MIN=1|MAX=40|TITLE=Dexterity Score of Eidolon																																																																TEMPBONUS:PC|VAR|EidolonStatDEX|%CHOICE
-Fused Eidolon Stats Con		CATEGORY:Internal		TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatCON|0																			TEMPVALUE:MIN=1|MAX=40|TITLE=Constitution Score of Eidolon																																																															TEMPBONUS:PC|VAR|EidolonStatCON|%CHOICE
+Fused Eidolon Stats Str		CATEGORY:Internal		TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatSTR|0																																																																																	TEMPBONUS:PC|VAR|EidolonStatSTR|%CHOICE	TEMPVALUE:MIN=1|MAX=40|TITLE=Strength Score of Eidolon
+Fused Eidolon Stats Dex		CATEGORY:Internal		TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatDEX|0																																																																																	TEMPBONUS:PC|VAR|EidolonStatDEX|%CHOICE	TEMPVALUE:MIN=1|MAX=40|TITLE=Dexterity Score of Eidolon
+Fused Eidolon Stats Con		CATEGORY:Internal		TYPE:FusedEidolonTemps.FusedEidolonStats	DEFINE:EidolonStatCON|0																																																																																	TEMPBONUS:PC|VAR|EidolonStatCON|%CHOICE	TEMPVALUE:MIN=1|MAX=40|TITLE=Constitution Score of Eidolon
 
 Fused Eidolon Stats ~ Active	CATEGORY:Internal													DEFINESTAT:LOCK|STR|EidolonStatSTR	DEFINESTAT:LOCK|DEX|EidolonStatDEX	DEFINESTAT:LOCK|CON|EidolonStatCON
 

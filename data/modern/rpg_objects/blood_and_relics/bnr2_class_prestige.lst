@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
@@ -8,7 +8,7 @@ CLASS:Inquisitor	PREABILITY:3,CATEGORY=FEAT,Conviction (Higher Power),Faith's Pr
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Search|Sense Motive
 1	SAB:Detect Allegiances
-2					BONUS:VAR|InflictWounds|(CL+11)/5						ABILITY:FEAT|AUTOMATIC|Inflict Wounds
+2					BONUS:VAR|InflictWounds|(CL+11)/5								ABILITY:FEAT|AUTOMATIC|Inflict Wounds
 3											ADD:ABILITY|FEAT|NORMAL|TYPE=Inquisitor
 4	SAB:Detect Lies
 5	SAB:Torturer's Art

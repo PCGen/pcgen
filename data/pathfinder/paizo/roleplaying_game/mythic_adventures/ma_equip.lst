@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 
 ###Block: Base Item.COPY= New Item
@@ -58,7 +58,7 @@ Book of Banishing								TYPE:OtherMagic					COST:50000	WT:2		SOURCEPAGE:p.147
 Book of Perfect Jokes							TYPE:OtherMagic					COST:27000	WT:1		SOURCEPAGE:p.147
 Boots of Earth and Wind							TYPE:OtherMagic					COST:20000	WT:3		SOURCEPAGE:p.147
 Bountiful Bottle								TYPE:OtherMagic					COST:60000	WT:1		SOURCEPAGE:p.148
-Bracers of Might								TYPE:OtherMagic					COST:60000	WT:0.5		SOURCEPAGE:p.148
+Bracers of Might								TYPE:OtherMagic					COST:60000	WT:0.5	SOURCEPAGE:p.148
 Bracers of the Shield Mates						TYPE:OtherMagic					COST:60000	WT:2		SOURCEPAGE:p.148
 Canopic Jar									TYPE:OtherMagic					COST:60000	WT:2		SOURCEPAGE:p.148
 Cape of Free Will +1							TYPE:OtherMagic					COST:1500	WT:1		SOURCEPAGE:p.148

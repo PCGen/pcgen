@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Pathfinder Society Field Guide		SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
 # Original Entry by: Mark Means
 
@@ -269,6 +269,7 @@ Add Skills		KEY:Skills ~ Int Based			CATEGORY:Special Ability	TYPE:IntBaseSkill	
 # !RANKS=MAXRANK,
 
 ###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Bite the Hand|Summoner=6|Bite the Hand (Mass)|PREVAREQ:StandardSummoner,1
 
 

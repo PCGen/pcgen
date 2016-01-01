@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #Original Entry By: Eddy Anthony
 
 ###Block: Abjuration Spells
@@ -590,144 +590,144 @@ Wail of the Banshee.MOD		TYPE:Arcane	CLASSES:Channeler=9				PREMULT:1,[PREABILIT
 ###Block: Transmutation Spells
 
 # 0-level spells
-# Spell Name			Type		Classes of caster		School			Multiple Requirements																																							Var. Min. Value
-Mage Hand.MOD			TYPE:Arcane	CLASSES:Channeler=0					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,0
-Mending.MOD				TYPE:Arcane	CLASSES:Channeler=0					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]	PREVARGTEQ:SpellLevelMx,0
-Open/Close.MOD			TYPE:Arcane	CLASSES:Channeler=0					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,0
-Virtue.MOD				TYPE:Arcane	CLASSES:Channeler=0					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,0
-Message.MOD				TYPE:Arcane	CLASSES:Channeler=0					PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic),Magecraft (Charismatic)																								PREVARGTEQ:SpellLevelMx,0
-Purify Food and Drink.MOD	TYPE:Arcane	CLASSES:Channeler=0					PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)																																PREVARGTEQ:SpellLevelMx,0
+# Spell Name			Type		Classes of caster		School			Required Ability										Multiple Requirements																																							Var. Min. Value
+Mage Hand.MOD			TYPE:Arcane	CLASSES:Channeler=0																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,0
+Mending.MOD				TYPE:Arcane	CLASSES:Channeler=0																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]	PREVARGTEQ:SpellLevelMx,0
+Open/Close.MOD			TYPE:Arcane	CLASSES:Channeler=0																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,0
+Virtue.MOD				TYPE:Arcane	CLASSES:Channeler=0																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,0
+Message.MOD				TYPE:Arcane	CLASSES:Channeler=0					PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic),Magecraft (Charismatic)																																											PREVARGTEQ:SpellLevelMx,0
+Purify Food and Drink.MOD	TYPE:Arcane	CLASSES:Channeler=0					PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)																																														PREVARGTEQ:SpellLevelMx,0
 
 # 1-level spells
-Animate Rope.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,1
-Enlarge Person.MOD		TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)]																		PREVARGTEQ:SpellLevelMx,1
-Entangle.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Erase.MOD				TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,1
-Expeditious Retreat.MOD		TYPE:Arcane	CLASSES:Channeler=1					PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic),Magecraft (Charismatic)																								PREVARGTEQ:SpellLevelMx,1
-Feather Fall.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,1
-Goodberry.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Jump.MOD				TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]										PREVARGTEQ:SpellLevelMx,1
-Longstrider.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Magic Fang.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Magic Stone.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Magic Weapon.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)]																		PREVARGTEQ:SpellLevelMx,1
-Pass without Trace.MOD		TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Reduce Person.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)]																		PREVARGTEQ:SpellLevelMx,1
-Shillelagh.MOD			TYPE:Arcane	CLASSES:Channeler=1					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
-Stone Soup				TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,1
+Animate Rope.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,1
+Enlarge Person.MOD		TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)]																		PREVARGTEQ:SpellLevelMx,1
+Entangle.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Erase.MOD				TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,1
+Expeditious Retreat.MOD		TYPE:Arcane	CLASSES:Channeler=1					PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic),Magecraft (Charismatic)																																											PREVARGTEQ:SpellLevelMx,1
+Feather Fall.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Charismatic)]									PREVARGTEQ:SpellLevelMx,1
+Goodberry.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Jump.MOD				TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]										PREVARGTEQ:SpellLevelMx,1
+Longstrider.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Magic Fang.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Magic Stone.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Magic Weapon.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)]																		PREVARGTEQ:SpellLevelMx,1
+Pass without Trace.MOD		TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Reduce Person.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic)]																		PREVARGTEQ:SpellLevelMx,1
+Shillelagh.MOD			TYPE:Arcane	CLASSES:Channeler=1																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0],[PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual)]																		PREVARGTEQ:SpellLevelMx,1
+Stone Soup				TYPE:Arcane	CLASSES:Channeler=1	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,1
 
 # 2-level spells
-Alter Self.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Barkskin.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Bull's Strength.MOD		TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Cat's Grace.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Chill Metal.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Darkvision.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Bear's Endurance.MOD		TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Fox's Cunning.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Eagle's Splendor.MOD		TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Heat Metal.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Knock.MOD				TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Levitate.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Lifetrap				TYPE:Arcane	CLASSES:Channeler=2	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Nature's Revelation		TYPE:Arcane	CLASSES:Channeler=2	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Owl's Wisdom.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Pyrotechnics.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Rope Trick.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Silver Blood			TYPE:Arcane	CLASSES:Channeler=2	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Soften Earth and Stone.MOD	TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Spider Climb.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Tree Shape.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Warp Wood.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Whispering Wind.MOD		TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
-Wood Shape.MOD			TYPE:Arcane	CLASSES:Channeler=2					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Alter Self.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Barkskin.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Bull's Strength.MOD		TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Cat's Grace.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Chill Metal.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Darkvision.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Bear's Endurance.MOD		TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Fox's Cunning.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Eagle's Splendor.MOD		TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Heat Metal.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Knock.MOD				TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Levitate.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Lifetrap				TYPE:Arcane	CLASSES:Channeler=2	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Nature's Revelation		TYPE:Arcane	CLASSES:Channeler=2	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Owl's Wisdom.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Pyrotechnics.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Rope Trick.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Silver Blood			TYPE:Arcane	CLASSES:Channeler=2	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Soften Earth and Stone.MOD	TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Spider Climb.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Tree Shape.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Warp Wood.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Whispering Wind.MOD		TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
+Wood Shape.MOD			TYPE:Arcane	CLASSES:Channeler=2																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,2
 
 # 3-level spells
-Charm Repair			TYPE:Arcane	CLASSES:Channeler=3	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Diminish Plants.MOD		TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Flame Arrow.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Fly.MOD				TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Gaseous Form.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Halfling Burrow			TYPE:Arcane	CLASSES:Channeler=3	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Haste.MOD				TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Magic Fang (Greater).MOD	TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Magic Weapon (Greater).MOD	TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Haste.MOD				TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Keen Edge.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Meld into Stone.MOD		TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Plant Growth.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Quench.MOD				TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Secret Page.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Shrink Item.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Slow.MOD				TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Snare.MOD				TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Spike Growth.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Water Breathing.MOD		TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
-Water Walk.MOD			TYPE:Arcane	CLASSES:Channeler=3					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Charm Repair			TYPE:Arcane	CLASSES:Channeler=3	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Diminish Plants.MOD		TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Flame Arrow.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Fly.MOD				TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Gaseous Form.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Halfling Burrow			TYPE:Arcane	CLASSES:Channeler=3	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Haste.MOD				TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Magic Fang (Greater).MOD	TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Magic Weapon (Greater).MOD	TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Haste.MOD				TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Keen Edge.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Meld into Stone.MOD		TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Plant Growth.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Quench.MOD				TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Secret Page.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Shrink Item.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Slow.MOD				TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Snare.MOD				TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Spike Growth.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Water Breathing.MOD		TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
+Water Walk.MOD			TYPE:Arcane	CLASSES:Channeler=3																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,3
 
 # 4-level spells
-Air Walk.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Enlarge Person (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Giant Vermin.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Polymorph.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Mnemonic Enhancer.MOD		TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Reincarnate.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Reduce Person (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Rusting Grasp.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Silver Storm			TYPE:Arcane	CLASSES:Channeler=4	SCHOOL:Transformation	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Spike Stones.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
-Stone Shape.MOD			TYPE:Arcane	CLASSES:Channeler=4					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Air Walk.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Enlarge Person (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Giant Vermin.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Polymorph.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Mnemonic Enhancer.MOD		TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Reincarnate.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Reduce Person (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Rusting Grasp.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Silver Storm			TYPE:Arcane	CLASSES:Channeler=4	SCHOOL:Transformation													PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Spike Stones.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
+Stone Shape.MOD			TYPE:Arcane	CLASSES:Channeler=4																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,4
 
 # 5-level spells
-Animal Growth.MOD			TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Awaken.MOD				TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Baleful Polymorph.MOD		TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Control Winds.MOD			TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Fabricate.MOD			TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Passwall.MOD			TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Overland Flight.MOD		TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Telekinesis.MOD			TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Transmute Mud to Rock.MOD	TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
-Transmute Rock to Mud.MOD	TYPE:Arcane	CLASSES:Channeler=5					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Animal Growth.MOD			TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Awaken.MOD				TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Baleful Polymorph.MOD		TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Control Winds.MOD			TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Fabricate.MOD			TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Passwall.MOD			TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Overland Flight.MOD		TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Telekinesis.MOD			TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Transmute Mud to Rock.MOD	TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
+Transmute Rock to Mud.MOD	TYPE:Arcane	CLASSES:Channeler=5																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,5
 
 # 6-level spells
-Bear's Endurance (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Bull's Strength (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Cat's Grace (Mass).MOD		TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Control Water.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Eagle's Splendor (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Disintegrate.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Fox's Cunning (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Flesh to Stone.MOD		TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Ironwood.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Liveoak.MOD				TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Owl's Wisdom (Mass).MOD		TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Mage's Lucubration.MOD		TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Move Earth.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Repel Wood.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Spellstaff.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Stone to Flesh.MOD		TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Transformation.MOD		TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
-Wind Walk.MOD			TYPE:Arcane	CLASSES:Channeler=6					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Bear's Endurance (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Bull's Strength (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Cat's Grace (Mass).MOD		TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Control Water.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Eagle's Splendor (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Disintegrate.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Fox's Cunning (Mass).MOD	TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Flesh to Stone.MOD		TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Ironwood.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Liveoak.MOD				TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Owl's Wisdom (Mass).MOD		TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Mage's Lucubration.MOD		TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Move Earth.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Repel Wood.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Spellstaff.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Stone to Flesh.MOD		TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Transformation.MOD		TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
+Wind Walk.MOD			TYPE:Arcane	CLASSES:Channeler=6																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,6
 
 # 7-level spells
-Changestaff.MOD			TYPE:Arcane	CLASSES:Channeler=7					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
-Control Weather.MOD		TYPE:Arcane	CLASSES:Channeler=7					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
-Reverse Gravity.MOD		TYPE:Arcane	CLASSES:Channeler=7					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
-Statue.MOD				TYPE:Arcane	CLASSES:Channeler=7					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
-Transmute Metal to Wood.MOD	TYPE:Arcane	CLASSES:Channeler=7					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
-Whirlwind.MOD			TYPE:Arcane	CLASSES:Channeler=7					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
+Changestaff.MOD			TYPE:Arcane	CLASSES:Channeler=7																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
+Control Weather.MOD		TYPE:Arcane	CLASSES:Channeler=7																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
+Reverse Gravity.MOD		TYPE:Arcane	CLASSES:Channeler=7																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
+Statue.MOD				TYPE:Arcane	CLASSES:Channeler=7																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
+Transmute Metal to Wood.MOD	TYPE:Arcane	CLASSES:Channeler=7																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
+Whirlwind.MOD			TYPE:Arcane	CLASSES:Channeler=7																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,7
 
 # 8-level spells
-Animal Shapes.MOD			TYPE:Arcane	CLASSES:Channeler=8					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
-Etherealness.MOD			TYPE:Arcane	CLASSES:Channeler=8					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
-Iron Body.MOD			TYPE:Arcane	CLASSES:Channeler=8					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
-Polymorph Any Object.MOD	TYPE:Arcane	CLASSES:Channeler=8					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
-Temporal Stasis.MOD		TYPE:Arcane	CLASSES:Channeler=8					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
+Animal Shapes.MOD			TYPE:Arcane	CLASSES:Channeler=8																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
+Etherealness.MOD			TYPE:Arcane	CLASSES:Channeler=8																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
+Iron Body.MOD			TYPE:Arcane	CLASSES:Channeler=8																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
+Polymorph Any Object.MOD	TYPE:Arcane	CLASSES:Channeler=8																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
+Temporal Stasis.MOD		TYPE:Arcane	CLASSES:Channeler=8																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,8
 
 # 9-level spells
-Shapechange.MOD			TYPE:Arcane	CLASSES:Channeler=9					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,9
-Time Stop.MOD			TYPE:Arcane	CLASSES:Channeler=9					PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,9
+Shapechange.MOD			TYPE:Arcane	CLASSES:Channeler=9																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,9
+Time Stop.MOD			TYPE:Arcane	CLASSES:Channeler=9																	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																										PREVARGTEQ:SpellLevelMx,9
 
 #
 # End

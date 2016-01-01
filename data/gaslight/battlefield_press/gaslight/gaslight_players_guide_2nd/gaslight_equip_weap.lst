@@ -1,10 +1,10 @@
-# CVS $Revision: 25050 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 25050 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 
 #Handguns (require the Personal Firearms Proficiency feat)
 # Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Required Shield Proficiency		Type																Alternative Type				Contains			Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Wield Category	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page				% of Spell Failure	Combat bonus																											Weapon prop. bonus					Special Property								Rate of Fire
 # Muzzleloaders & Breechloaders
-# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	Rate of Fire
+# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	FACT
 Pocket Deringer								PROFICIENCY:WEAPON|Pocket Deringer			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:13	WT:0.5			CRITRANGE:1							DAMAGE:2d6								RANGE:10				SIZE:M	SOURCEPAGE:p.206												SPROP:1 mzl		FACT:RateOfFire|S
 Remington Double Derringer						PROFICIENCY:WEAPON|Remington Double Derringer	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:12	WT:0.5			CRITRANGE:1							DAMAGE:2d6								RANGE:10				SIZE:M	SOURCEPAGE:p.205												SPROP:2 int.	FACT:RateOfFire|SS
 Sharps Pepperbox								PROFICIENCY:WEAPON|Sharps Pepperbox			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:13	WT:1.5			CRITRANGE:1							DAMAGE:2d4								RANGE:10				SIZE:M	SOURCEPAGE:p.205												SPROP:4 int.	FACT:RateOfFire|SS
@@ -51,7 +51,7 @@ Maxim Machine Gun								PROFICIENCY:WEAPON|Maxim Machine Gun		TYPE:Weapon.Range
 
 
 # Other Ranged Weapons
-# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	Rate of Fire
+# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	FACT
 Bow										PROFICIENCY:WEAPON|Bow					TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container												CONTAINS:UNLIM|Arrow=1	COST:10	WT:3		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6								RANGE:40				SIZE:L	SOURCEPAGE:p.206	BONUS:WEAPON|DAMAGE|STR								SPROP:1 Arrow	FACT:RateOfFire|1
 Crossbow									PROFICIENCY:WEAPON|Crossbow				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container												CONTAINS:UNLIM|Bolt=1	COST:9	WT:7		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10								RANGE:40				SIZE:M	SOURCEPAGE:p.206												SPROP:1 Bolt	FACT:RateOfFire|1
 Javelin									PROFICIENCY:WEAPON|Javelin				TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden																	COST:4	WT:2		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6								RANGE:30				SIZE:M	SOURCEPAGE:p.206															FACT:RateOfFire|1
@@ -60,7 +60,7 @@ Whip										PROFICIENCY:WEAPON|Whip					TYPE:Weapon.Simple.Ranged.Slashing.Sta
 
 
 #	Simple Weapons Melee
-# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	Rate of Fire
+# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	FACT
 Unarmed Strike								PROFICIENCY:WEAPON|Unarmed Strike			TYPE:Weapon.Simple.Unarmed.Melee.Bludgeoning.Standard																		COST:0	WT:0		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3				MODS:NO								SIZE:T	SOURCEPAGE:p.214
 Brass Knuckles								PROFICIENCY:WEAPON|Brass Knuckles			TYPE:Weapon.Simple.Melee.Bludgeoning																				COST:5	WT:1		CRITMULT:x2	CRITRANGE:1							DAMAGE:1													SIZE:T	SOURCEPAGE:p.214
 Cleaver									PROFICIENCY:WEAPON|Cleaver				TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal																		COST:5	WT:2		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d6													SIZE:S	SOURCEPAGE:p.214
@@ -74,7 +74,7 @@ Tonfa										PROFICIENCY:WEAPON|Tonfa				TYPE:Weapon.Simple.Melee.Bludgeoning.
 
 
 #	Archaic Melee Weapons
-# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	Rate of Fire
+# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	FACT
 Bayonet (Fixed)								PROFICIENCY:WEAPON|Fixed Bayonet			TYPE:Weapon.Archaic.Melee.Standard.Piercing.Double.Metal							ALTTYPE:Weapon.Melee.Piercing						COST:7	WT:1		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d4	ALTDAMAGE:1d6										SIZE:L	SOURCEPAGE:p.214
 Hatchet									PROFICIENCY:WEAPON|Hatchet				TYPE:Weapon.Archaic.Melee.Ranged.Standard.Slashing.Metal.Thrown																COST:4	WT:4		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6								RANGE:10				SIZE:S	SOURCEPAGE:p.214
 Longsword									PROFICIENCY:WEAPON|Longsword				TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal.Sword																	COST:11	WT:4		CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8													SIZE:M	SOURCEPAGE:p.214
@@ -86,7 +86,7 @@ Sword Cane									PROFICIENCY:WEAPON|Sword Cane				TYPE:Weapon.Archaic.Melee.Pi
 
 
 #	Exotic Melee Weapons
-# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	Rate of Fire
+# Equipment Name			Output Name				Required Weapon Proficiency				Type																Alt Type					Contains			Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Requires Modification?	Range		Reach Multiplier	Size		Source Page		Weapon prop. bonus								Special Property	FACT
 Chain										PROFICIENCY:WEAPON|Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal.Finesseable					ALTTYPE:Weapon.Melee.Bludgeoning					COST:5	WT:5		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6										SIZE:L	SOURCEPAGE:p.214
 Chain (1 handed)								PROFICIENCY:WEAPON|Chain				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Metal.Finesseable.Reach															COST:5	WT:5		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6										REACHMULT:2		SIZE:L	SOURCEPAGE:p.214
 Chain Saw									PROFICIENCY:WEAPON|Chain Saw				TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal																		COST:9	WT:10		CRITMULT:x2	CRITRANGE:1							DAMAGE:3d6													SIZE:L	SOURCEPAGE:p.214

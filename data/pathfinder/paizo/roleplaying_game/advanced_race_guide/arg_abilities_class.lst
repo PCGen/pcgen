@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
@@ -973,7 +973,7 @@ Divine Favor	KEY:Umbral Scion Spell ~ Divine Favor	CATEGORY:Special Ability	TYPE
 Suggestion		KEY:Umbral Scion Spell ~ Suggestion		CATEGORY:Special Ability	TYPE:Umbral Scion Spell	ABILITY:Spell-Like Ability|AUTOMATIC|Suggestion		BONUS:VAR|SuggestionTimes|1|TYPE=Base	BONUS:VAR|SuggestionLVL|TL|TYPE=Base
 
 ###Block: Magus Spellblend
-# Ability Name										Unique Key								Category of Ability	Type							Multiple Requirements																																																																																		List of Known Class Spells by Level				Fact
+# Ability Name										Unique Key								Category of Ability	Type							Multiple Requirements																																																																																		List of Known Class Spells by Level				FACT
 Blend												KEY:Magus Spellblend ~ Blend					CATEGORY:Internal		TYPE:MagusSpellblend.MagusSpellBlendLVL1																																																																																						SPELLKNOWN:CLASS|Magus=1|Blend
 Death From Below										KEY:Magus Spellblend ~ Death From Below			CATEGORY:Internal		TYPE:MagusSpellblend.MagusSpellBlendLVL2																																																																																						SPELLKNOWN:CLASS|Magus=2|Death From Below
 Jitterbugs											KEY:Magus Spellblend ~ Jitterbugs				CATEGORY:Internal		TYPE:MagusSpellblend.MagusSpellBlendLVL2																																																																																						SPELLKNOWN:CLASS|Magus=2|Jitterbugs

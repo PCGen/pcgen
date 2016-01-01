@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
@@ -252,17 +252,17 @@ Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Evas
 
 ###Block:G-man Class Abilities
 # Feat Name				Type				Visible	Special ABility						Multiple?	Choose									Add																									Source Page
-# Ability Name			Type				Visible	Special ABility						Multiple?	Choose									Add																									Source Page
-Jurisdiction			TYPE:GManAbility		VISIBLE:NO	SAB:Jurisdiction																																											SOURCEPAGE:p.103
-Big Brother				TYPE:GManAbility		VISIBLE:NO	SAB:Big Brother																																											SOURCEPAGE:p.103
+# Ability Name			Type				Visible	Special ABility						Multiple?	Choose									Add																																		Source Page
+Jurisdiction			TYPE:GManAbility		VISIBLE:NO	SAB:Jurisdiction																																																				SOURCEPAGE:p.103
+Big Brother				TYPE:GManAbility		VISIBLE:NO	SAB:Big Brother																																																				SOURCEPAGE:p.103
 Signature Kit			TYPE:GManAbility		VISIBLE:NO																					ADD:ABILITY|FEAT|NORMAL|Signature Kit - Firearm	ADD:ABILITY|FEAT|NORMAL|Signature Kit - Melee weapon	ADD:ABILITY|FEAT|NORMAL|Signature Kit - Equipment	ADD:ABILITY|FEAT|NORMAL|Signature Kit - Vehicle	SOURCEPAGE:p.104
-Signature Kit - Firearm		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Personal Firearm (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Firearm.Personal.Weapon																										SOURCEPAGE:p.104
-Signature Kit - Melee weapon	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Melee Weapon (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Melee.Weapon																												SOURCEPAGE:p.104
-Signature Kit - Equipment	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Special Equipment (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Tools																												SOURCEPAGE:p.104
-Signature Kit - Vehicle		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Vehicle (%CHOICE)			MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Transportation																										SOURCEPAGE:p.104
-Only the Best			TYPE:GManAbility		VISIBLE:NO	SAB:Only the Best																																											SOURCEPAGE:p.103
-Team Effort				TYPE:GManAbility		VISIBLE:NO	SAB:Team Effort																																											SOURCEPAGE:p.104
-Safe House				TYPE:GManAbility		VISIBLE:NO	SAB:Safe House																																											SOURCEPAGE:p.104
+Signature Kit - Firearm		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Personal Firearm (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Firearm.Personal.Weapon																																			SOURCEPAGE:p.104
+Signature Kit - Melee weapon	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Melee Weapon (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Melee.Weapon																																					SOURCEPAGE:p.104
+Signature Kit - Equipment	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Special Equipment (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Tools																																					SOURCEPAGE:p.104
+Signature Kit - Vehicle		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Vehicle (%CHOICE)			MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Transportation																																			SOURCEPAGE:p.104
+Only the Best			TYPE:GManAbility		VISIBLE:NO	SAB:Only the Best																																																				SOURCEPAGE:p.103
+Team Effort				TYPE:GManAbility		VISIBLE:NO	SAB:Team Effort																																																				SOURCEPAGE:p.104
+Safe House				TYPE:GManAbility		VISIBLE:NO	SAB:Safe House																																																				SOURCEPAGE:p.104
 
 ###Block:Gangster Class Abilities
 # Feat Name			Type				Visible	Special ABility							Define				Stackable?	Multiple?	Choose		Modify VAR					Source Page

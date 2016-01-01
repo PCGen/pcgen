@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
 
-# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus										Save bonus
-CLASS:Umbral Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Max Level		Source Page		Combat bonus										Save bonus													FACT
+CLASS:Umbral Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:ClassType|Monster
 # Class Name		Required Race			Reg. Race Type
 CLASS:Umbral Dragon	PRERACE:1,Dragon (Umbral%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -33,8 +33,10 @@ CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Conc
 39
 40																									DEFINE:DragonAge|12
 
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Umbral Dragon	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Umbral Dragon|CL	SPELLLIST:2|Cleric|Sorcerer
+# Class Name		FACT
+CLASS:Umbral Dragon	FACT:SpellType|Arcane
+# Class Name		Spell Stat		Memorize	Caster level				Use Spell List
+CLASS:Umbral Dragon	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Umbral Dragon|CL	SPELLLIST:2|Cleric|Sorcerer
 
 13	CAST:5,3				KNOWN:4,2				BONUS:CASTERLEVEL|Umbral Dragon|1
 15	CAST:6,4				KNOWN:5,2				BONUS:CASTERLEVEL|Umbral Dragon|1

@@ -1,4 +1,4 @@
-# CVS $Revision: 25136 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 25136 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #Waytraveler
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
@@ -28,18 +28,18 @@ Necropoli Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES		
 Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Wasteland Lore,Necropoli Lore																																	DESC:Survival Sense (+2 Init.; +2 Spot for detecting Ambushes)																BONUS:COMBAT|INITIATIVE|2																																	SOURCEPAGE:p.15
 
 ###Block: Scholar Abilities
-# Ability Name			Output Name		Category of Ability	Type							Visible	Description						Stackable?	Multiple?	Choose																													Ability								Bonus to skill rank
-Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																																			BONUS:SKILLRANK|%LIST|4
-Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE				MULT:YES	CHOOSE:SKILL|TYPE=Craft																																				BONUS:SKILLRANK|%LIST|4
+# Ability Name			Output Name		Category of Ability	Type							Visible	Description						Stackable?	Multiple?	Choose																														Ability								Bonus to skill rank
+Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																																				BONUS:SKILLRANK|%LIST|4
+Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE				MULT:YES	CHOOSE:SKILL|TYPE=Craft																																					BONUS:SKILLRANK|%LIST|4
 Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																		ABILITY:FEAT|AUTOMATIC|%LIST
 Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE				MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Aircraft Operation|Ancient Vehicles (Drive)|Ancient Vehicles (Pilot)|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
 
-Ancient Vehicles (Pilot)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
-Ancient Vehicles (Drive)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
+Ancient Vehicles (Pilot)				CATEGORY:FEAT									VISIBLE:NO																																											ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
+Ancient Vehicles (Drive)				CATEGORY:FEAT									VISIBLE:NO																																											ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
 
 
-Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																			BONUS:SKILLRANK|Pilot|4
-Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																			BONUS:SKILLRANK|Drive|4
+Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																				BONUS:SKILLRANK|Pilot|4
+Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																				BONUS:SKILLRANK|Drive|4
 
 ###Block: Survivalist
 # Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add								Bonus to skill					Modify VAR
@@ -84,11 +84,11 @@ MedTech (Zombie Plague Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.Anc
 Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%CHOICE) - USE INT instead of STR or DEX for attack bonus.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC	BONUS:COMBAT|TOHIT.Melee|-STR	BONUS:COMBAT|TOHIT.Ranged|-DEX	BONUS:COMBAT|TOHIT.Melee|STR|TYPE=Stat	BONUS:COMBAT|TOHIT.Ranged|DEX|TYPE=Stat	BONUS:COMBAT|TOHIT.%LIST|TOHIT|INT|TYPE=Stat	SOURCEPAGE:p.52
 
 ###Block: Warrior Monk
-# Ability Name				Category of Ability	Type				Visible	Required Ability					Description								Stackable?	Multiple?	Choose							Weapon prof. bonus			Source Page
+# Ability Name				Category of Ability	Type				Visible	Required Ability					Description								Stackable?	Multiple?	Choose								Weapon prof. bonus			Source Page
 Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
-Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Reflexes																							SOURCEPAGE:p.58
+Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Reflexes																								SOURCEPAGE:p.58
 Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
-Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Expertise																						SOURCEPAGE:p.58
+Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Expertise																							SOURCEPAGE:p.58
 
 ###Block: Companion support
 # Ability Name	Category of Ability	Type							Visible	Special ABility		Define				Allow Follower			Allowed Companions
@@ -226,7 +226,7 @@ Improved Evasion	CATEGORY:Special Ability	TYPE:Special.Extraordinary.RogueAbilit
 
 ###Block: Warrior Monk
 # Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
-# Ability Name			Category of Ability		Type			Required Ability									Var. Min. Value				Description		Multiple?	Choose							Weapon prof. bonus			Source Page
+# Ability Name			Category of Ability		Type			Required Ability									Var. Min. Value				Description		Multiple?	Choose								Weapon prof. bonus			Source Page
 Weapon Specialization		CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:1,CATEGORY=FEAT,Weapon Focus											DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
 Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:2,CATEGORY=FEAT,Weapon Focus,Weapon Specialization	PREVARGTEQ:GreatWeapSpecQualify,1	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
 

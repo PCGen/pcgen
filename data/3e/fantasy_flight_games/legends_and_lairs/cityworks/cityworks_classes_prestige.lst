@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Kingpin	HD:6		TYPE:PC.Prestige	FACT:Abb|Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Kingpin	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	FACT:Abb|Kpn
 # Class Name	Required Ability					Required Skill					Required Text	PRETOTALAB
 CLASS:Kingpin	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -21,8 +21,8 @@ CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable
 10	SAB:Crime Lord
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus
-CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	FACT:Abb|SpC		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")*3/4
+# Class Name			Hit Dice	Type			Max Level	Source Page		Save bonus																																FACT
+CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")*3/4	FACT:Abb|SpC
 # Class Name			Required Skill			Req. Spell Type		Required Text
 CLASS:Speaker of the City	PRESKILL:2,Hide=4,Scry=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Special
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -41,8 +41,8 @@ CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentrat
 
 #Street Stalker
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	FACT:Abb|StS		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|StS
 # Class Name		Required Ability							Multiple Requirements									PRETOTALAB
 CLASS:Street Stalker	PREABILITY:2,CATEGORY=FEAT,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill

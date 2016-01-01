@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original Entry by Tir Gwaith
 
@@ -32,8 +32,8 @@ Smite Evil		CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural	VISIB
 Smite Good		CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural	VISIBLE:YES	DEFINE:SmiteGood|0	DESC:%1 times per day|SmiteGood				SOURCEPAGE:srdmonsterstemplates
 
 ###Block: Leadership feat support
-# Ability Name	Category of Ability		Type			Visible	Choose										Temporary effect description																			Temporary Bonus
-Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
+# Ability Name	Category of Ability		Type			Visible	Temporary effect description																			Temporary Bonus					TEMPVALUE
+Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE	TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment
 
 ###Block:Hidden Feat for Negative Levels
 # Ability Name	Category of Ability		Type				Visible	Define			Description																					Combat bonus				Bonus to HP					Save bonus							Bonus to skill																		Aspects
@@ -41,35 +41,35 @@ Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 
 
 ###Block: Class Proficiencies
-# Ability Name				Unique Key						Category of Ability		Type												Visible		Serves As						Description											Auto Weapon Prof
-All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
+# Ability Name				Unique Key						Category of Ability		Type												Visible		Serves As								Description											Auto Weapon Prof
+All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
 All Martial Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO		SERVESAS:ABILITY=Feat|Martial Weapon Proficiency													AUTO:WEAPONPROF|TYPE=Martial
-Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
-Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
-Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
-Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
-Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																					AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|TYPE=Dagger
+Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
+Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
+Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
+Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
+Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal										VISIBLE:NO																							AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|TYPE=Dagger
 
-Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal										VISIBLE:EXPORT								DESC:You understand how to use all types of martial weapons in combat.
+Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal										VISIBLE:EXPORT										DESC:You understand how to use all types of martial weapons in combat.
 
 
-# Ability Name				Unique Key						Category of Ability		Type												Visible		Serves As						Description											Auto Weapon Prof
-Weapon Prof ~ Auto										CATEGORY:Internal			TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial.WeaponProfExotic																							AUTO:WEAPONPROF|Unarmed Strike|Gauntlet|Grapple
-Weapon Prof ~ Simple										CATEGORY:Internal			TYPE:WeaponProfSimple.WeaponProfMartial.WeaponProfExotic						SERVESAS:ABILITY=Feat|Simple Weapon Proficiency													AUTO:WEAPONPROF|TYPE=Simple
+# Ability Name				Unique Key						Category of Ability		Type												Visible		Serves As								Description											Auto Weapon Prof
+Weapon Prof ~ Auto										CATEGORY:Internal			TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial.WeaponProfExotic																									AUTO:WEAPONPROF|Unarmed Strike|Gauntlet|Grapple
+Weapon Prof ~ Simple										CATEGORY:Internal			TYPE:WeaponProfSimple.WeaponProfMartial.WeaponProfExotic						SERVESAS:ABILITY=Feat|Simple Weapon Proficiency														AUTO:WEAPONPROF|TYPE=Simple
 Weapon Prof ~ Martial										CATEGORY:Internal			TYPE:WeaponProfMartial.WeaponProfExotic									SERVESAS:ABILITY=Feat|Martial Weapon Proficiency													AUTO:WEAPONPROF|TYPE=Martial
-Weapon Prof ~ Exotic										CATEGORY:Internal			TYPE:WeaponProfExotic												SERVESAS:ABILITY=Feat|Exotic Weapon Proficiency													AUTO:WEAPONPROF|TYPE=Exotic
+Weapon Prof ~ Exotic										CATEGORY:Internal			TYPE:WeaponProfExotic												SERVESAS:ABILITY=Feat|Exotic Weapon Proficiency														AUTO:WEAPONPROF|TYPE=Exotic
 
 ###Block: Armor Types
-# Ability Name		Category of Ability	Type									Serves As						Auto Armor Prof
-Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:ABILITY=Feat|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=Light
+# Ability Name		Category of Ability	Type									Serves As								Auto Armor Prof
+Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:ABILITY=Feat|Armor Proficiency (Light)		AUTO:ARMORPROF|ARMORTYPE=Light
 Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:ABILITY=Feat|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
-Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:ABILITY=Feat|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=Heavy
+Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:ABILITY=Feat|Armor Proficiency (Heavy)		AUTO:ARMORPROF|ARMORTYPE=Heavy
 
 ###Block: Shield Types
 # Ability Name		Category of Ability	Type						Serves As						Automatically Gained Shield Prof.
 #Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
-# Ability Name	Category of Ability	Type						Serves As					Auto Shield Prof
+# Ability Name	Category of Ability	Type						Serves As						Auto Shield Prof
 Shield Prof		CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:ABILITY=Feat|Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 
 

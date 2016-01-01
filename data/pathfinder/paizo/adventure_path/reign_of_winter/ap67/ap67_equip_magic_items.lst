@@ -1,4 +1,4 @@
-# CVS $Revision: 17892 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEWEB:http://paizo.com/products/btpy8w7d/discuss?Pathfinder-Adventure-Path-67-The-Snows-of-Summer	SOURCEDATE:2013-02
 # ORIGINAL ENTRY: Stefan Radermacher
 
@@ -10,7 +10,7 @@ Spear of Manhunting	PROFICIENCY:WEAPON|Spear (Boar)	TYPE:Weapon.Melee.TwoHanded.
 
 ###Block: Wondrous Items
 # Equipment Name				Type						Cost		Weight	Source Page		Bonus to skill					Modify VAR						Special Property
-Attentive Mirror				TYPE:Magic.Wondrous			COST:1700	WT:0.5		SOURCEPAGE:p.60
+Attentive Mirror				TYPE:Magic.Wondrous			COST:1700	WT:0.5	SOURCEPAGE:p.60
 Cauldron of Overwhelming Allies	TYPE:Magic.Wondrous			COST:4500	WT:5		SOURCEPAGE:p.60															SPROP:Once per day, when used as focus for Summon Monster or Summon Nature's Ally, summons 1d3 additional creatures of the same kind from the next lower level list.
 Cloak of the Yeti				TYPE:Magic.Wondrous.Cloak		COST:4000	WT:5		SOURCEPAGE:p.60	BONUS:SKILL|Intimidate|2|TYPE=Competence	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	SPROP:provides constant Endure Elements in cold weather
 Ice Floe Elixir				TYPE:Magic.Wondrous.Consumable	COST:2250			SOURCEPAGE:p.60

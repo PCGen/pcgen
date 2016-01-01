@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
@@ -91,7 +91,7 @@ CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Elect
 1	SAB:Suicidal Attack
 ### will need help on figuring out how to deal with Fanaticism
 2	SAB:Fanaticism									ADD:ABILITY|FEAT|NORMAL|TYPE=Terrorist
-3						BONUS:VAR|SneakAttackDice|(CL-1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3						BONUS:VAR|SneakAttackDice|(CL-1)/2								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 4												ADD:ABILITY|FEAT|NORMAL|TYPE=Terrorist
 5	SAB:Improved Suicidal Attack
 6												ADD:ABILITY|FEAT|NORMAL|TYPE=Terrorist
@@ -125,7 +125,7 @@ CLASS:Y12 SRT	STARTSKILLPTS:6	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|
 2																									ADD:ABILITY|FEAT|NORMAL|TYPE=PoliceTraining,TYPE=Y12SRT
 3	SAB:Grace Under Pressure (Y12 SRT) +%|GraceUnderPressureY12SRT	BONUS:VAR|GraceUnderPressureY12SRT|CL/3	DEFINE:GraceUnderPressureY12SRT|0
 4																									ADD:ABILITY|FEAT|NORMAL|TYPE=PoliceTraining,TYPE=Y12SRT
-5												BONUS:VAR|DefensivePosition|1																ABILITY:Special Ability|AUTOMATIC|Defensive Position
+5												BONUS:VAR|DefensivePosition|1																			ABILITY:Special Ability|AUTOMATIC|Defensive Position
 6																									ADD:ABILITY|FEAT|NORMAL|TYPE=PoliceTraining,TYPE=Y12SRT
 7												BONUS:VAR|DefensivePosition|1
 8																									ADD:ABILITY|FEAT|NORMAL|TYPE=PoliceTraining,TYPE=Y12SRT

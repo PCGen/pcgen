@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.									Combat bonus															Save bonus																					Modify VAR
-CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	FACT:Abb|Brd(MC)		MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Optionnal Weapon Prof.									Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Brd(MC)	FACT:SpellType|Arcane
 # Class Name			Required AL
 CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bard (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Survival|Swim|Tumble|Use Magic Device
-# Class Name			Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
+# Class Name			Spell Stat		Spell Stat Bonus		Memorize	Caster level
+CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block:
 1	BONUS:SPELLCAST|CLASS=Bard (Monte Cook's);LEVEL=1|BonusSpellSongNotes
@@ -47,12 +47,12 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcan
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
 20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5					ABILITY:Special Ability|AUTOMATIC|Weave Melodies ~ Bard (Monte Cook's)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Sorcerer (Monte Cook's)	HD:6		TYPE:Base.PC	FACT:Abb|Sor(MC)		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR													FACT
+CLASS:Sorcerer (Monte Cook's)	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Sor(MC)	FACT:SpellType|Arcane
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (arcana)|TYPE=Profession|Spellcraft
-# Class Name			Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
+# Class Name			Spell Stat		Memorize	Caster level
+CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Familiar
 1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar
