@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 
-# Class Name		Hit Dice	Type			Max Level	Combat bonus										Save bonus														Modify VAR														Fact
+# Class Name		Hit Dice	Type			Max Level	Combat bonus										Save bonus														Modify VAR														FACT
 CLASS:Shadow Slayer	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL/2)+(1/2)	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:Abb|Shad
 # Class Name		Required Ability								PRETOTALAB
 CLASS:Shadow Slayer	PREABILITY:1,CATEGORY=FEAT,Archaic Weapons Proficiency	PRETOTALAB:3
@@ -19,7 +19,7 @@ CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Informat
 9	BONUS:ABILITYPOOL|Shadow Slayer Feat|1
 10																ABILITY:Special Ability|AUTOMATIC|Word of Slaying
 
-# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																						Modify VAR														Fact
+# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																						Modify VAR														FACT
 CLASS:Occultist	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:SpellType|Arcane
 # Class Name	Required Ability						Required Skill
 CLASS:Occultist	PREABILITY:2,CATEGORY=FEAT,Educated,Studious	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
@@ -38,7 +38,7 @@ CLASS:Occultist	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:NO	BONUS:CASTERLEV
 9	BONUS:ABILITYPOOL|Occultist Feat|1
 10													ABILITY:Special Ability|AUTOMATIC|Banish
 
-# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																					Modify VAR															Fact
+# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																					Modify VAR															FACT
 CLASS:Telepath	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:Abb|Tele	FACT:SpellType|Psionic
 # Class Name	Required Ability					Required Skill
 CLASS:Telepath	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
@@ -72,7 +72,7 @@ CLASS:Telepath	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Telepath|CL
 9	KNOWN:5,4,3,3,2	BONUS:ABILITYPOOL|Telepath Feat|1
 10	KNOWN:6,4,3,3,2,1													ABILITY:Special Ability|AUTOMATIC|Maximize Power
 
-# Class Name	Hit Dice	Type			Max Level	Combat bonus											Save bonus																						Modify VAR														Fact
+# Class Name	Hit Dice	Type			Max Level	Combat bonus											Save bonus																						Modify VAR														FACT
 CLASS:Battle Mind	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:Abb|Batt	FACT:SpellType|Psionic
 # Class Name	Required Ability					Required Skill	PRETOTALAB
 CLASS:Battle Mind	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:1,Jump=6	PRETOTALAB:3
@@ -109,7 +109,7 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Mind|CL
 10	KNOWN:3,3,3,2,1
 
 
-# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																					Modify VAR																					Fact
+# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																					Modify VAR																					FACT
 CLASS:Mage		HD:6		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:Abb|Mage	FACT:SpellType|Arcane
 # Class Name	Required Skill
 CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
@@ -134,7 +134,7 @@ CLASS:Dragon (True).MOD
 13	ADD:SPELLCASTER|Mage
 
 
-# Class Name	Hit Dice	Type			Max Level	Combat bonus											Save bonus																						Modify VAR																Fact
+# Class Name	Hit Dice	Type			Max Level	Combat bonus											Save bonus																						Modify VAR																FACT
 CLASS:Acolyte	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:SpellType|Divine
 # Class Name	Required Skill											PRETOTALAB
 CLASS:Acolyte	PRESKILL:3,Knowledge (Theology and Philosophy)=6,Listen=6,Sense Motive=6	PRETOTALAB:2

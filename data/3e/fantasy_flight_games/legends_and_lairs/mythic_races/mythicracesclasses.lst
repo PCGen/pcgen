@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
@@ -397,14 +397,14 @@ CLASS:Siarran Bladedancer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Climb|Concentrati
 9					BONUS:PCLEVEL|Bard|1
 10	SAB:Free the Tempest	BONUS:PCLEVEL|Bard|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						List of Class Spells by Level
-CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of movement,Protection from Elements,Summon Nature's Ally II
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						List of Class Spells by Level																																																									FACT
+CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of movement,Protection from Elements,Summon Nature's Ally II	FACT:SpellType|Divine
 # Class Name		Required Ability								Required AL		Required Race	Required Skill								PRETOTALAB
 CLASS:Sktak Windrider	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Mounted Archery	PREALIGN:LG,LN	PRERACE:1,Sktak	PRESKILL:3,Knowledge (Religion)=4,Ride=8,Wilderness Lore=8	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sktak Windrider	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Hide|Heal|Intuit Direction|Jump|Knowledge (Nature)|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spellcraft|Spot|Use Rope|Wilderness Lore
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Sktak Windrider	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Sktak Windrider|CL
+# Class Name		Spell Stat		Caster level
+CLASS:Sktak Windrider	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Sktak Windrider|CL
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -478,14 +478,14 @@ CLASS:Uthuk Qi'nok	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 9																		ADD:SPELLCASTER|Arcane
 10	SAB:Earthspears															ADD:SPELLCASTER|Arcane
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Verman Corrupter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Verman Corrupter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:SpellType|Divine
 # Class Name		Required AL		Required Race	Required Skill											Required Text	PRETOTALAB
 CLASS:Verman Corrupter	PREALIGN:NE,CE	PRERACE:1,Vermen	PRESKILL:5,Bluff=4,Sense Motive=5,Gather Information=6,Intimidate=6,Forgery=6	PRETEXT:See Text	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Verman Corrupter	STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|TYPE=Profession|Read Lips|Search|Sense Motive
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Verman Corrupter	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Verman Corrupter|CL
+# Class Name		Spell Stat		Caster level
+CLASS:Verman Corrupter	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Verman Corrupter|CL
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)

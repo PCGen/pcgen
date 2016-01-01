@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
-# Deity Name	Product Identity?	Domains									Description of Deity/Title			Deity Weapon		Align		Source Page			Holy Item	Pantheon
-Saaneeraa		NAMEISPI:YES	DOMAINS:Corruption,Evil,Law|PREALIGN:LE,TN,NE,CN,CE		DESC:Lady of Corruption				DEITYWEAP:Dagger		ALIGN:LE	SOURCEPAGE:p.41		FACT:Symbol|None	FACTSET:Pantheon|Evil
-Menetor		NAMEISPI:YES	DOMAINS:Evil,Law,Pain|PREALIGN:LE,TN,NE,CN,CE			DESC:Lord of Pain, The Painbringer		DEITYWEAP:Whip		ALIGN:LE	SOURCEPAGE:p.41		FACT:Symbol|None	FACTSET:Pantheon|Evil
-Draam			NAMEISPI:YES	DOMAINS:Death,Evil,Law|PREALIGN:LE,TN,NE,CN,CE			DESC:Lord of the Undead				DEITYWEAP:Club		ALIGN:LE	SOURCEPAGE:p.41-42	FACT:Symbol|None	FACTSET:Pantheon|Evil
-Fenestraal		NAMEISPI:YES	DOMAINS:Chaos,Disease,Evil|PREALIGN:LE,TN,NE,CN,CE		DESC:Lady of Disease/The Plaguebringer	DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.42		FACT:Symbol|None	FACTSET:Pantheon|Evil
-Rolish'kah		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Evil|PREALIGN:LE,TN,NE,CN,CE		DESC:Lord of the Dark				DEITYWEAP:Sap		ALIGN:CE	SOURCEPAGE:p.42		FACT:Symbol|None	FACTSET:Pantheon|Evil
-Elri'kah		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil|PREALIGN:LE,TN,NE,CN,CE	DESC:Lord of Destruction, The Destroyer	DEITYWEAP:Greataxe	ALIGN:CE	SOURCEPAGE:p.42		FACT:Symbol|None	FACTSET:Pantheon|Evil
+# Deity Name	Product Identity?	Domains									Description of Deity/Title			FACT			FACTSET			Deity Weapon		Align		Source Page
+Saaneeraa		NAMEISPI:YES	DOMAINS:Corruption,Evil,Law|PREALIGN:LE,TN,NE,CN,CE		DESC:Lady of Corruption				FACT:Symbol|None	FACTSET:Pantheon|Evil	DEITYWEAP:Dagger		ALIGN:LE	SOURCEPAGE:p.41
+Menetor		NAMEISPI:YES	DOMAINS:Evil,Law,Pain|PREALIGN:LE,TN,NE,CN,CE			DESC:Lord of Pain, The Painbringer		FACT:Symbol|None	FACTSET:Pantheon|Evil	DEITYWEAP:Whip		ALIGN:LE	SOURCEPAGE:p.41
+Draam			NAMEISPI:YES	DOMAINS:Death,Evil,Law|PREALIGN:LE,TN,NE,CN,CE			DESC:Lord of the Undead				FACT:Symbol|None	FACTSET:Pantheon|Evil	DEITYWEAP:Club		ALIGN:LE	SOURCEPAGE:p.41-42
+Fenestraal		NAMEISPI:YES	DOMAINS:Chaos,Disease,Evil|PREALIGN:LE,TN,NE,CN,CE		DESC:Lady of Disease/The Plaguebringer	FACT:Symbol|None	FACTSET:Pantheon|Evil	DEITYWEAP:Dagger		ALIGN:CE	SOURCEPAGE:p.42
+Rolish'kah		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Evil|PREALIGN:LE,TN,NE,CN,CE		DESC:Lord of the Dark				FACT:Symbol|None	FACTSET:Pantheon|Evil	DEITYWEAP:Sap		ALIGN:CE	SOURCEPAGE:p.42
+Elri'kah		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil|PREALIGN:LE,TN,NE,CN,CE	DESC:Lord of Destruction, The Destroyer	FACT:Symbol|None	FACTSET:Pantheon|Evil	DEITYWEAP:Greataxe	ALIGN:CE	SOURCEPAGE:p.42
 #Comment: Removing (Thrown) as those don't exist

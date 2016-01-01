@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 #Original Entry by: Frank Kliewe
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																																Modify VAR
-CLASS:Combat Hero	HD:10		TYPE:PC.Specialized	FACT:Abb|Cmbt		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5+1	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+4)*2/5	BONUS:VAR|Reputation|(CL+2)/5	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus										Save bonus																																Modify VAR														FACT
+CLASS:Combat Hero	HD:10		TYPE:PC.Specialized	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5+1	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+4)*2/5	BONUS:VAR|Reputation|(CL+2)/5	BONUS:VAR|Action|CL*6	FACT:Abb|Cmbt
 # Class Name	Required Ability																PRETOTALAB
 CLASS:Combat Hero	PREABILITY:1,CATEGORY=FEAT,Brawl,Combat Martial Arts,Defensive Martial Arts,Personal Firearms Proficiency	PRETOTALAB:1
 # Class Name	Skill Pts/Lvl	Class Skill

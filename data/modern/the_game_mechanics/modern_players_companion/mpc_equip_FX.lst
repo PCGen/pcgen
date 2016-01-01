@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
 # Original Entry by: Frank Kliewe
 
 #Wondrous Items
-# Equipment Name			Required Weapon Proficiency				Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Range		Size		Source Page		Special Property																			Rate of Fire
+# Equipment Name			Required Weapon Proficiency				Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Range		Size		Source Page		Special Property																			FACT
 Back-Up Disk											TYPE:FX.Wondrous.Magic									COST:34	WT:0																		SOURCEPAGE:p.68
 Barrel of Monkeys											TYPE:FX.Wondrous.Magic									COST:32	WT:1																		SOURCEPAGE:p.69
 Grinder Organ of Obedience									TYPE:FX.Wondrous.Magic									COST:36	WT:5																		SOURCEPAGE:p.69	SPROP:Playing grants a +5 competence bonus on all Handle Animal checks (double for a monkey, ape or other nonhuman primate)

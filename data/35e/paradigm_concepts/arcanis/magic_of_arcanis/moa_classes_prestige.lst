@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 # Original Entry: Andrew Maitland (LegacyKing)
 # Original Entry Date: 2008
@@ -574,14 +574,14 @@ CLASS:Terramancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge
 
 ###Block: Vispilio de Magus ----------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Vispilio de Magus	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Vispilio de Magus	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
 # Class Name		Required Ability																		Required Skill													Required Text
 CLASS:Vispilio de Magus	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disable Device)	PREABILITY:1,CATEGORY=FEAT,Arcane Knack,Arcane Training	PRESKILL:5,Decipher Script=5,Disable Device=8,Spellcraft=5,Search=8,Use Magic Device=5	PRETEXT:Special: The character must have Trap Finding and Evasion as class features. Additionally, the character must be able to cast the following spells: detect magic, and read magic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Vispilio de Magus	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|TYPE=Arcana|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Speak Language|Swim|Tumble|Use Magic Device|Use Rope
-# Class Name		Spell Type		Caster level
-CLASS:Vispilio de Magus	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
+# Class Name		Caster level
+CLASS:Vispilio de Magus	BONUS:CASTERLEVEL|Vispilio de Magus|CL
 #Weapon and Armor Proficiency: A Vispilio de Magus gains no proficiency with any weapon or armor. A Vispilio de Magus can cast his class spells while wearing light armor without incurring the normal arcane spell failure chance. However, like any other arcane spellcaster, a Vispilio de Magus wearing medium or heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component (which most do). A multiclassed Vispilio de Magus still incurs the normal arcane spell failure chance when casting arcane spells received from his other classes.
 #Block: Vispilio de Magus Spell List
 1	SPELLLEVEL:CLASS|Vispilio de Magus=1|Comprehend Languages,Detect Magic,Feather Fall,Hold Portal,Identify,Jump,Read Magic
@@ -650,14 +650,14 @@ CLASS:Weather Witch	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|
 
 ###Block: Afatkuq --------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Afatkuq	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR													FACT
+CLASS:Afatkuq	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Divine
 # Class Name	Required Ability										Required AL		Required Skill																			Required Text
 CLASS:Afatkuq	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Iron Will,Skill Focus (Heal)	PREALIGN:LG,LN	PRESKILL:5,Heal=8,Knowledge (Local/Pengik)=5,Knowledge (Local/Ssethragore)=5,TYPE.Nature=8,Knowledge (Religion/Pengik)=8	PRETEXT:Must be able to understand Ssethric. Must have mundane blood and be unable to cast spells or manifest powers. Pengik
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Afatkuq	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|TYPE=Nature|TYPE=Local|TYPE=Religion|TYPE=Profession|Spellcraft|Sense Motive|Survival
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Afatkuq	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Afatkuq|CL
+# Class Name	Spell Stat		Caster level
+CLASS:Afatkuq	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Afatkuq|CL
 #Weapon and Armor Proficiency: Afatkuq are proficient with the following weapons:
 1	ABILITY:Special Ability|AUTOMATIC|Afatkuq Proficiencies
 ###Block:
@@ -939,14 +939,14 @@ CLASS:Shard Shaper	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Gemsmith)|TYPE=Ar
 
 ###Block: Wine Drinker ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type						Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Wine Drinker	HD:8		TYPE:Prestige.PC	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.213	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type						Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Wine Drinker	HD:8		TYPE:Prestige.PC	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.213	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:SpellType|Arcane
 # Class Name		Required Ability								Restricted AL		Required Skill						Required Text
 CLASS:Wine Drinker	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Alchemy))	!PREALIGN:LG,NG,CG	PRESKILL:2,Craft (Alchemy)=5,TYPE.Arcana=5	PRETEXT:Special: Must not be able to cast arcane spells prior to membership. Must make a substantial donation (minimum 5,000 gp) to the finger before the society will accept the applicant.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Intimidate|TYPE=Arcana|TYPE=Profession|Research|Sense Motive
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Wine Drinker	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
+# Class Name		Spell Stat		Caster level
+CLASS:Wine Drinker	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Wine Drinker|CL
 ###Block: Proficiencies
 #Weapon and Armor Proficiency: A Wind Drinker retains all previous weapon and armor proficiency. They also gain proficiency in any one Martial weapon of their choice to assist them in hunting down their prey.
 1	BONUS:ABILITYPOOL|Wine Drinker Weapon|1

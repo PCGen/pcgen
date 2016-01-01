@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -89,12 +89,12 @@ Navitus Flemen / Control Discipline Level 3						CATEGORY:Special Ability	TYPE:S
 
 Navitus Flemen Mastery					KEY:Navitus Flemen Mastery	CATEGORY:Special Ability											DEFINE:NavitusFlemenMasteryCount|0	BONUS:ABILITYPOOL|Navitus Flemen Mastery|NavitusFlemenMasteryCount
 ###Block:
-# Ability Name						Category of Ability		Type							Visible	Required Ability									Multiple?	Choose										Ability											Source Page
-Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenMend																										SOURCEPAGE:p.60
-Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																										SOURCEPAGE:p.61
-Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																										SOURCEPAGE:p.61
+# Ability Name						Category of Ability		Type							Visible	Required Ability									Multiple?	Choose												Ability											Source Page
+Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenMend																												SOURCEPAGE:p.60
+Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																												SOURCEPAGE:p.61
+Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																												SOURCEPAGE:p.61
 #
-Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]			ABILITY:FEAT|AUTOMATIC|Mystic Knight Martial Weapon Choice (%LIST)
+Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]					ABILITY:FEAT|AUTOMATIC|Mystic Knight Martial Weapon Choice (%LIST)
 Mystic Knight Weapon Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Mystic Knight Martial Weapon Choice]
 Mystic Knight Skill Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:SKILL|CLASS
 ###

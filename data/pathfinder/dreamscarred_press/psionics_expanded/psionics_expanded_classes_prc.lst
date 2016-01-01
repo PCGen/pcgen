@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -150,11 +150,11 @@ CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraf
 1													ABILITY:Special Ability|AUTOMATIC|Psicrystal Bond ~ Psicrystal Imprinter|Psicrystal Receptacle ~ Psicrystal Imprinter
 2	BONUS:VAR|SkilledCrafter|CL/2								ABILITY:Special Ability|AUTOMATIC|Skilled Crafter ~ Psicrystal Imprinter
 3	BONUS:VAR|PsicrystalResonanceLVL|CL							ABILITY:Special Ability|AUTOMATIC|Psicrystal Resonance ~ Psicrystal Imprinter
-4																																	ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
+4													ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 5													ABILITY:Special Ability|AUTOMATIC|Efficient Receptacle ~ Psicrystal Imprinter
-7																																	ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
+7													ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 9													ABILITY:Special Ability|AUTOMATIC|Essence Crystal ~ Psicrystal Imprinter
-10	BONUS:VAR|EfficientReceptacle|-1							ABILITY:Special Ability|AUTOMATIC|Crystalline Infusion ~ Psicrystal Imprinter								ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
+10	BONUS:VAR|EfficientReceptacle|-1							ABILITY:Special Ability|AUTOMATIC|Crystalline Infusion ~ Psicrystal Imprinter	ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 
 ###Block: Psicrystal Imprinter enhance psionic ability
 1	BONUS:ABILITYPOOL|Psicrystal Imprinter Enhancement Choice|1									DEFINE:PsicrystalImprinterEnhancementCount|0
@@ -171,14 +171,14 @@ CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraf
 
 ###Block: Sighted Seeker prestige class
 
-# Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Combat bonus																	Save bonus																																				Modify VAR
-CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PCrystalLevel|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Combat bonus																	Save bonus																																				Modify VAR																																																																										FACT
+CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PCrystalLevel|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|PSIONIC
 # Class Name		Multiple Requirements															Required Skill						PRETOTALAB		Var. Must Be Grater
 CLASS:Sighted Seeker	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PRETOTALAB:4	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
-# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Sighted Seeker	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker|SightedSeekerML
+# Class Name		Spell Stat		Spell Stat Bonus		Memorize	Caster level
+CLASS:Sighted Seeker	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker|SightedSeekerML
 
 ###Block: Sighted Seeker setup for possible manifesting
 1	BONUS:VAR|IsPsionic|1																											DEFINE:IsPsionic|0	DEFINE:OwnManifesting|0			ABILITY:Special Ability|AUTOMATIC|Psionic

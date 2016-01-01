@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
@@ -22,12 +22,12 @@ CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBA
 CLASS:Barter Jack	PRESKILL:1,Barter=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE=Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Survival
-1																								ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+1																											ABILITY:Special Ability|AUTOMATIC|Region Familiarity
 1:REPEATLEVEL:7														BONUS:VAR|RegionFamiliarity|1
-1																BONUS:VAR|BigMoney|CL					ABILITY:Special Ability|AUTOMATIC|Big Money
-2			SAB:License Permit										BONUS:VAR|HagglingKing|CL/2				ABILITY:Special Ability|AUTOMATIC|Haggling King
+1																BONUS:VAR|BigMoney|CL								ABILITY:Special Ability|AUTOMATIC|Big Money
+2			SAB:License Permit										BONUS:VAR|HagglingKing|CL/2							ABILITY:Special Ability|AUTOMATIC|Haggling King
 3:REPEATLEVEL:3							BONUS:ABILITYPOOL|Barter Jack Feat|1
-4			SAB:Find the Goods																		ABILITY:Special Ability|AUTOMATIC|Deliveryman
+4			SAB:Find the Goods																					ABILITY:Special Ability|AUTOMATIC|Deliveryman
 5			SAB:Black Marketer	SAB:Hardy
 7			SAB:Restricted Permit
 7:REPEATLEVEL:3																			ADD:ABILITY|FEAT|NORMAL|Windfall

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 #Androids are defined by their class levels-they do not have racial Hit Dice. All androids have the following racial traits.
 
@@ -28,12 +28,12 @@ Lost Item		KEY:Skymetal Smith ~ Lost Item		CATEGORY:Special Ability	TYPE:Skymeta
 Sold Item		KEY:Skymetal Smith ~ Sold Item		CATEGORY:Special Ability	TYPE:Skymetal Smith
 
 ###Block: Favored Enemies
-# Ability Name	Unique Key	Category of Ability	Type	Visible	Define	Description	Modify VAR	Source Page	Aspects
-Humanoid (Android)	KEY:Favored Enemy ~ Humanoid (Android)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidAndroid|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against androids. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidAndroid	BONUS:VAR|FavoredHumanoidAndroid|FavoredBaseBonus	SOURCEPAGE:p.5	ASPECT:Ability Benefit|+%1|FavoredHumanoidAndroid	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against android.|FavoredHumanoidAndroid	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against android.|FavoredHumanoidAndroid
+# Ability Name			Unique Key						Category of Ability		Type														Define					Description																																																					Ability													Modify VAR								Source Page		Aspects
+Humanoid (Android)		KEY:Favored Enemy ~ Humanoid (Android)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidAndroid|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against androids. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidAndroid															BONUS:VAR|FavoredHumanoidAndroid|FavoredBaseBonus	SOURCEPAGE:p.5	ASPECT:Ability Benefit|+%1|FavoredHumanoidAndroid	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against android.|FavoredHumanoidAndroid	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against android.|FavoredHumanoidAndroid
 
 
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Android Traits|PRERACE:1,RACESUBTYPE=Android
+CATEGORY=Internal|Default.MOD																																																																																							ABILITY:Special Ability|AUTOMATIC|Android Traits|PRERACE:1,RACESUBTYPE=Android
 
 ###Block: Creature Subtype Traits
-# Ability Name		Category of Ability		Visible	Define			Template					Auto Language											Ability																																																							Combat bonus											Modify VAR																			Class Skill				Source Page
-Android Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.312
+# Ability Name	Category of Ability		Visible	Source Page
+Android Traits	CATEGORY:Special Ability	VISIBLE:NO	SOURCEPAGE:p.312
