@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -40,7 +40,7 @@ CLASS:Mundane	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Mundane=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mundane	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Drive|TYPE=Knowledge|Profession
 1:REPEATLEVEL:1																		ADD:ABILITY|FEAT|NORMAL|TYPE=Mundane
-1			SAB:You MUST continue to advance in the Mundane class until you have reached 5th level|PREVARLT:CL,5					TEMPLATE:Starting Sanity
+1			SAB:You MUST continue to advance in the Mundane class until you have reached 5th level|PREVARLT:CL,5								TEMPLATE:Starting Sanity
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
 CLASS:Nerd		HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57	SOURCEDATE:2052-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
@@ -47,11 +47,11 @@ CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Devic
 ###Block:Sneak Attack
 1	BONUS:VAR|SneakAttackDice|CL/4+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block:Normal Progression
-2	SAB:Black Sail	BONUS:VAR|LeadershipScore|CL					ABILITY:FEAT|AUTOMATIC|Henchmen
+2	SAB:Black Sail	BONUS:VAR|LeadershipScore|CL							ABILITY:FEAT|AUTOMATIC|Henchmen
 3									ADD:ABILITY|FEAT|NORMAL|TYPE=Pirate
 5	SAB:Black Flag
 6									ADD:ABILITY|FEAT|NORMAL|TYPE=Pirate
-7	SAB:Pirate Lord										ABILITY:FEAT|AUTOMATIC|Sidekick
+7	SAB:Pirate Lord												ABILITY:FEAT|AUTOMATIC|Sidekick
 9									ADD:ABILITY|FEAT|NORMAL|TYPE=Pirate
 10	SAB:Pirate King
 

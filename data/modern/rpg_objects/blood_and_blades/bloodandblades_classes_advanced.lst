@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -11,7 +11,7 @@ CLASS:Bounty Hunter (BNB)	OUTPUTNAME:Bounty Hunter	HD:6		TYPE:PC.Advanced	MAXLEV
 CLASS:Bounty Hunter (BNB)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6	PRETOTALAB:2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|READ/WRITE LANGUAGE|Research|Sense Motive|SPEAK LANGUAGE|Spot
-1														ABILITY:FEAT|AUTOMATIC|Track
+1																	ABILITY:FEAT|AUTOMATIC|Track
 2	SAB:Low-level Contact(Ex)
 3									ADD:ABILITY|FEAT|NORMAL|TYPE=BountyHunterBNB
 4	SAB:Nonlethal Force(Ex)
@@ -41,8 +41,8 @@ CLASS:Profiler (BNB)	STARTSKILLPTS:7	CSKILL:Craft (Visual Art)|Craft (Writing)|D
 
 ###Slasher Advanced Classes
 
-# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
-CLASS:Alter Ego	HD:6		TYPE:PC.Advanced.Slasher	FACT:Abb|AEgo		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/5+1	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|6
+# Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR														FACT
+CLASS:Alter Ego	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/5+1	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|6	FACT:Abb|AEgo
 # Class Name	Required Ability														Var. Max. Value
 CLASS:Alter Ego	PREABILITY:2,CATEGORY=FEAT,Mental Disorder (Dissociative),Slasher Occupation (Organized Killer)	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -58,14 +58,14 @@ CLASS:Alter Ego	STARTSKILLPTS:3	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimida
 9	SAB:Mental Retreat(Ex)
 10													BONUS:VAR|Ladykiller|2
 
-# Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																					Modify VAR
-CLASS:Arawnite Guardian	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/5+1	BONUS:VAR|Reputation|CL/2+1	BONUS:VAR|Action|6
+# Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																					Modify VAR														FACT
+CLASS:Arawnite Guardian	HD:6		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/5+1	BONUS:VAR|Reputation|CL/2+1	BONUS:VAR|Action|6	FACT:SpellType|Divine
 # Class Name		Required Skill							Required Text
 CLASS:Arawnite Guardian	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Allegiance to Arawn
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arawnite Guardian	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Treat Injury|Knowledge (Earth and Life Sciences)|Listen|Profession|Ride|Spellcraft|Spot|Survival|Swim
-# Class Name		Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels					Caster level
-CLASS:Arawnite Guardian	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Arawnite Guardian|CL
+# Class Name		Spell Stat		Memorize	Automatically Known Spell Levels					Caster level
+CLASS:Arawnite Guardian	SPELLSTAT:WIS	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Arawnite Guardian|CL
 ###Block:Spells
 1	SPELLLEVEL:CLASS|Arawnite Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read Magic,Resistance,Virtue
 1	SPELLLEVEL:CLASS|Arawnite Guardian=1|Bane,Bless,Cause Fear,Clean,Command,Cure Light Wounds,Degauss,Faerie Fire,Feather Fall (Spell),Jump,Magic Weapon,Mask Metal,Obscuring Mist,Power Device,Sanctuary,Sleep,Trace Purge
@@ -103,14 +103,14 @@ CLASS:Mad Genius	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Intimid
 9	SAB:One Step Ahead(Ex)
 10	SAB:Sow Distrust(Ex) Will save DC %|10+CL/2+CHA
 
-# Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
-CLASS:Psychogene	HD:4		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|6
+# Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR													FACT
+CLASS:Psychogene	HD:4		TYPE:PC.Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|6	FACT:SpellType|Psionic
 # Class Name	Required Ability																																				Required Skill							Var. Max. Value
 CLASS:Psychogene	PREABILITY:1,CATEGORY=FEAT,Wild Talent,Wild Talent (Burst),Wild Talent (Daze),Wild Talent (Detect Psionics),Wild Talent (Far Hand),Wild Talent (Far Punch),Wild Talent (Finger of Fire),Wild Talent (Missive),Wild Talent (Verve)	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psychogene	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Profession|Psicraft|READ/WRITE LANGUAGE|Sense Motive|SPEAK LANGUAGE
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psychogene	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychogene|CL
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Psychogene	SPELLSTAT:SPELL	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychogene|CL
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychogeneML|var("CL=Psychogene")	BONUS:VAR|PsychogeneML|var("BL=Psychogene")			DEFINE:PsychogeneML|0	ABILITY:Special Ability|NORMAL|PsionicClass
 1	BONUS:VAR|BasePowerPoints|2

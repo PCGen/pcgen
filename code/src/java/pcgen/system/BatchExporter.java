@@ -471,7 +471,7 @@ public class BatchExporter
 		});
 	}
 
-	private static void printToXMLFile(File outFile, CharacterFacade character)
+	public static void printToXMLFile(File outFile, CharacterFacade character)
 		throws IOException, ExportException
 	{
 		final BufferedWriter bw =
@@ -482,7 +482,7 @@ public class BatchExporter
 		bw.close();
 	}
 
-	private static void printToXMLFile(File outFile, PartyFacade party)
+	public static void printToXMLFile(File outFile, PartyFacade party)
 		throws IOException, ExportException
 	{
 		final BufferedWriter bw =
@@ -527,7 +527,7 @@ public class BatchExporter
 		bw.close();
 	}
 
-	private static File getXMLTemplate(CharacterFacade character)
+	public static File getXMLTemplate(CharacterFacade character)
 	{
 		File template =
 				FileUtils.getFile(ConfigurationSettings.getSystemsDir(),

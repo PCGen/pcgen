@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -183,22 +183,22 @@ Heroic Level 20			VISIBLE:NO																																																				
 
 ###BLOCK: Conditional
 ###Block: Ability Damage
-# Template Name			Visible	Source Page		Define												Choose								Temporary effect description			Temporary Bonus
-Ability Damaged (Strength)	VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageStrength|0	DEFINE:AbilityDamagePenaltyStrength|0	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Damage	TEMPDESC:You have taken Strength damage	TEMPBONUS:ANYPC|COMBAT|TOHIT.Melee,DAMAGE.Melee|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageStrength|%CHOICE	TEMPBONUS:ANYPC|VAR|AbilityDamagePenaltyStrength|AbilityDamageStrength/2	TEMPBONUS:ANYPC|VAR|CMB|AbilityDamagePenaltyStrength|TYPE=AbilityDamage|PRESIZEGTEQ:S	TEMPBONUS:ANYPC|VAR|CMD|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage
+# Template Name			Visible	Source Page		Define												Temporary effect description			Temporary Bonus																																																																																TEMPVALUE
+Ability Damaged (Strength)	VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageStrength|0	DEFINE:AbilityDamagePenaltyStrength|0	TEMPDESC:You have taken Strength damage	TEMPBONUS:ANYPC|COMBAT|TOHIT.Melee,DAMAGE.Melee|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageStrength|%CHOICE	TEMPBONUS:ANYPC|VAR|AbilityDamagePenaltyStrength|AbilityDamageStrength/2	TEMPBONUS:ANYPC|VAR|CMB|AbilityDamagePenaltyStrength|TYPE=AbilityDamage|PRESIZEGTEQ:S	TEMPBONUS:ANYPC|VAR|CMD|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Damage
 
 
 ###Block: Ability Drain
-# Template Name				Visible	Source Page		Choose								Temporary effect description										Temporary Bonus
-Ability Drained (Strength)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Drain		TEMPDESC:You have temporarily lost 1 or more Strength ability score points		TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
-Ability Drained (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Drain	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points		TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
-Ability Drained (Constitution)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Drain	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
-Ability Drained (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Drain	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
-Ability Drained (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Drain		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
-Ability Drained (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Drain		TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)
+# Template Name				Visible	Source Page		Temporary effect description										Temporary Bonus					TEMPVALUE
+Ability Drained (Strength)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Strength ability score points		TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Drain
+Ability Drained (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points		TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Drain
+Ability Drained (Constitution)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Drain
+Ability Drained (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Drain
+Ability Drained (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Drain
+Ability Drained (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Drain
 
 ###Block: Negative Levels
-# Template Name	Visible	Source Page		Choose								Temporary effect description					Temporary Bonus
-Energy Drained	VISIBLE:NO	SOURCEPAGE:p.562	TEMPVALUE:MIN=1|MAX=20|TITLE=Negative Levels	TEMPDESC:You have gained one or more negative levels	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)
+# Template Name	Visible	Source Page		Temporary effect description					Temporary Bonus																																									TEMPVALUE
+Energy Drained	VISIBLE:NO	SOURCEPAGE:p.562	TEMPDESC:You have gained one or more negative levels	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Negative Levels
 
 ###Block: Conditions
 # Template Name	Visible	Source Page		Temporary effect description																																																																																												Temporary Bonus

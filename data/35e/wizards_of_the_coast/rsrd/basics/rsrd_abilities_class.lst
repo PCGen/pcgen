@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 # COMMENT: Method to track first assigned class.
 # Ability Name			Category of Ability	Define																																																				Ability																																											Modify VAR
 CATEGORY=Internal|Default.MOD																																																										ABILITY:Internal|AUTOMATIC|Defines Required	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Special Ability,TYPE.Uncanny Dodge	ABILITY:Internal|AUTOMATIC|Temp Bonus Aspect ~ Inspire Courage|PREVARGTEQ:OtherInspireCourageSaves,1
@@ -11,47 +11,47 @@ CATEGORY=Internal|Default.MOD																																																			
 Defines Required			CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:ActivateSizeMaster|0	DEFINE:RaceSizeIsLong|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageBonus|0	DEFINE:OtherInspireCompetenceBonus|0																																													BONUS:VAR|RaceSizeIsLong|1|PRELEGSGTEQ:4|PREVAREQ:OverrideReach,0
 ###Block:
 # TEMP BONUS - When using TEMPBONUS and the ability is not granted to the PC, remember that other tags will be considered on that ability.
-# Ability Name				Unique Key							Category of Ability	Choose							Template				Aspects																	Temporary Bonus
-Bardic Inspire Courage			KEY:Temp Bonus ~ Bardic Inspire Courage		CATEGORY:Internal		TEMPVALUE:MIN=1|MAX=20|TITLE=Bonus Granted																								TEMPBONUS:ANYPC|COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=Morale	TEMPBONUS:ANYPC|VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|OtherInspireCourageBonus	TEMPBONUS:ANYPC|VAR|OtherInspireCourageBonus|%CHOICE
-Bardic Inspire Competence		KEY:Temp Bonus ~ Bardic Inspire Competence	CATEGORY:Internal																																	TEMPBONUS:ANYPC|SKILL|TYPE=Standard|2
+# Ability Name				Unique Key							Category of Ability	Template				Aspects																	Temporary Bonus																																																							TEMPVALUE
+Bardic Inspire Courage			KEY:Temp Bonus ~ Bardic Inspire Courage		CATEGORY:Internal																									TEMPBONUS:ANYPC|COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=Morale	TEMPBONUS:ANYPC|VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|OtherInspireCourageBonus	TEMPBONUS:ANYPC|VAR|OtherInspireCourageBonus|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Bonus Granted
+Bardic Inspire Competence		KEY:Temp Bonus ~ Bardic Inspire Competence	CATEGORY:Internal																									TEMPBONUS:ANYPC|SKILL|TYPE=Standard|2
 
 # Must be added to display - set in default
-Temp Bonus Aspect ~ Inspire Courage									CATEGORY:Internal															ASPECT:SaveBonus|+%1 Morale bonus to Will saving throw vs. fear and charm effects.|OtherInspireCourageSaves
+Temp Bonus Aspect ~ Inspire Courage									CATEGORY:Internal							ASPECT:SaveBonus|+%1 Morale bonus to Will saving throw vs. fear and charm effects.|OtherInspireCourageSaves
 
 # COMMENT: Experimental Multiclass Barbarian Support
-First Base Class												CATEGORY:Internal										TEMPLATE:First Base Class
+First Base Class												CATEGORY:Internal		TEMPLATE:First Base Class
 
 ###Block:
 # COMMENT: PCGen Standard Ability -
 #Displayed Name	KEY:<GrantingObject> ~ <Name>	SORTKEY:Class_<class> (OR) Race	CATEGORY:<Cat>	TYPE:ClassFeatures.<ClassName>ClassFeatures.SpecialQuality(Or)SpecialAttack.<Ex/Su/Sp/Ps if appropriate>	DESC:Full Body of Text
 # COMMENT: Due to Substitution Class Support, strive to keep all variables within the originating ability i.e. class feature. Use of CL should be replaced by "<ClassName>LVL"
-# Ability Name				Unique Key						Category of Ability		Type						Visible		Serves As						Description											Multiple?	Choose						Auto Weapon Prof
+# Ability Name				Unique Key						Category of Ability		Type						Visible		Serves As								Description											Multiple?	Choose						Auto Weapon Prof
 All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO
 All Martial Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO		SERVESAS:ABILITY=Feat|Martial Weapon Proficiency																						AUTO:WEAPONPROF|TYPE=Martial
-Bard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
-Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
-Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
-Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
-Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
-Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
+Bard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
+Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
+Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
+Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
+Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
+Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																																AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
 #
-Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal				VISIBLE:EXPORT								DESC:You understand how to use all types of martial weapons in combat.
+Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal				VISIBLE:EXPORT										DESC:You understand how to use all types of martial weapons in combat.
 # NPC Single Simple Weapon Prof.
-Single Simple Weapon Proficiency								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality											DESC:You understand how to use %1|%LIST						MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Simple]	AUTO:WEAPONPROF|%LIST
+Single Simple Weapon Proficiency								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality													DESC:You understand how to use %1|%LIST						MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Simple]	AUTO:WEAPONPROF|%LIST
 
 ###Block: Proficiency Master Groups - Cut Down on Cross Referencing
-# Ability Name		Category of Ability	Type										Serves As						Auto Weapon Prof
-Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)|Gauntlet|Grapple|Spells (Ray)
-Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:ABILITY=Feat|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
+# Ability Name		Category of Ability	Type										Serves As								Auto Weapon Prof
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial										AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)|Gauntlet|Grapple|Spells (Ray)
+Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:ABILITY=Feat|Simple Weapon Proficiency		AUTO:WEAPONPROF|TYPE=Simple
 Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:ABILITY=Feat|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Armor Types
-# Ability Name		Category of Ability	Type									Serves As						Auto Armor Prof
-Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:ABILITY=Feat|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=Light
+# Ability Name		Category of Ability	Type									Serves As								Auto Armor Prof
+Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:ABILITY=Feat|Armor Proficiency (Light)		AUTO:ARMORPROF|ARMORTYPE=Light
 Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:ABILITY=Feat|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
-Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:ABILITY=Feat|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=Heavy
+Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:ABILITY=Feat|Armor Proficiency (Heavy)		AUTO:ARMORPROF|ARMORTYPE=Heavy
 ###Block: Shield Types
-# Ability Name		Category of Ability	Type						Serves As						Auto Shield Prof
+# Ability Name		Category of Ability	Type						Serves As							Auto Shield Prof
 Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:ABILITY=Feat|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
 Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:ABILITY=Feat|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 
@@ -107,13 +107,13 @@ Aura of Good													CATEGORY:Special Ability	TYPE:ClassFeatures.ClericClass
 Aura of Law														CATEGORY:Special Ability	TYPE:ClassFeatures.ClericClassFeatures.SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLawLVL|0																															DESC:Faint|PREVAREQ:AuraLawLVL,1	DESC:Moderate|PREVARGTEQ:AuraLawLVL,2|PREVARLTEQ:AuraLawLVL,4	DESC:Strong|PREVARGTEQ:AuraLawLVL,5|PREVARLTEQ:AuraLawLVL,10	DESC:Overwhelming|PREVARGTEQ:AuraLawLVL,11																																																																																																																																																																																																																																																																															BONUS:VAR|AuraLawLVL|AlignmentAuraBase|!PREDOMAIN:1,Law
 
 ###Block: Domain Abilities
-# Ability Name	Output Name										Category of Ability		Type								Visible	Define			Description																						Choose										Temporary effect description																			Temporary Bonus
+# Ability Name	Output Name										Category of Ability		Type								Visible	Define			Description																						Temporary effect description																			Temporary Bonus					TEMPVALUE
 Insanity													CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality			VISIBLE:YES	DEFINE:Insanity|0		DESC:Insanity score %1|Insanity
 Death Touch													CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialAttack.SpellLike	VISIBLE:YES	DEFINE:DeathTouch|0	DESC:1/day, melee touch attack, %1d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch
 Mind Will Save	OUTPUTNAME:+2 on Will saves vs. Enchantment spells and effects	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality.RacialTrait	VISIBLE:YES
 
 # Leadership Feat Support
-Leadership Score												CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																												TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
+Leadership Score												CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																												TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE	TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment
 
 
 ###Block: Barbarian Class Features

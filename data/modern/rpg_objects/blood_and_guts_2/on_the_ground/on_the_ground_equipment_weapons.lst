@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts 2: On the Ground	SOURCESHORT:BnG2-OtG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=285	SOURCEDATE:2007-01
 
 #CREATED BY: Paul W. King, Jan 2007
 #EDITED BY: Paul W. King, Feb 2007
 
 ###Block: vehicle weapons
-# Equipment Name	Output Name			Type										Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property			Rate of Fire
+# Equipment Name	Output Name			Type										Crit Mult	Crit Range	Damage		Range		Size		Source Page		Special Property			FACT
 .50 Machine gun					TYPE:Weapon.Ranged.Military.Vehicle.Projectile.Ballistic	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d12		RANGE:150	SIZE:H	SOURCEPAGE:p.7	SPROP:Linked magazine		FACT:RateOfFire|A
 20mm Cannon						TYPE:Weapon.Ranged.Military.Vehicle.Projectile.Ballistic	CRITMULT:x2	CRITRANGE:1	DAMAGE:4d10		RANGE:150	SIZE:H	SOURCEPAGE:p.7	SPROP:Linked magazine		FACT:RateOfFire|A
 25mm Cannon						TYPE:Weapon.Ranged.Military.Vehicle.Projectile.Ballistic	CRITMULT:x2	CRITRANGE:1	DAMAGE:4d12		RANGE:150	SIZE:H	SOURCEPAGE:p.7	SPROP:Linked magazine		FACT:RateOfFire|A
@@ -21,7 +21,7 @@ Stinger (Vehicle)	OUTPUTNAME:Stinger	TYPE:Weapon.Ranged.Military.Vehicle.Project
 TOW (Vehicle)	OUTPUTNAME:TOW		TYPE:Weapon.Ranged.Military.Vehicle.Projectile.Ballistic	CRITMULT:x2	CRITRANGE:1	DAMAGE:8d12		RANGE:150	SIZE:H	SOURCEPAGE:p.7	SPROP:Magazine varies		FACT:RateOfFire|Single
 
 ###BLOCK: indirect fire wewapons
-# Equipment Name	Type										Define		Crit Mult	Crit Range	Damage	Modifier		Range		Size		Source Page		Modify VAR		Special Property			Rate of Fire
+# Equipment Name	Type										Define		Crit Mult	Crit Range	Damage	Modifier		Range		Size		Source Page		Modify VAR		Special Property			FACT
 Howitzer		TYPE:Weapon.Ranged.Military.Indirect.Pojectile.Ballistic	DEFINE:vcrew|0	CRITMULT:x2	CRITRANGE:1	DAMAGE:14d6	EQMOD:AAVEHICLE	RANGE:76560	SIZE:H	SOURCEPAGE:p.7	BONUS:VAR|vcrew|4	SPROP:1 internal magazine	FACT:RateOfFire|1/6 rounds
 
 ###BLOCK: personal
@@ -29,7 +29,7 @@ Howitzer		TYPE:Weapon.Ranged.Military.Indirect.Pojectile.Ballistic	DEFINE:vcrew|
 M9 Bayonet		TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal	COST:15	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	SOURCEPAGE:p.9
 
 ###BLOCK: firearms
-# Equipment Name		Output Name			Required Weapon Proficiency			Type												Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Special Property				Rate of Fire
+# Equipment Name		Output Name			Required Weapon Proficiency			Type												Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Special Property				FACT
 HK Mk 23 SOCOM Pistol					PROFICIENCY:WEAPON|HK Mk 23 SOCOM Pistol	TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Handgun			COST:20	WT:3		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.10	SPROP:Mil +3, 12 box magazine		FACT:RateOfFire|S
 
 M4/203							PROFICIENCY:WEAPON|M4/203			TYPE:Weapon.Ranged.Projectile.Military.Ballistic.Longarm			COST:20	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.10	SPROP:Mil +3, 30 box magazine		FACT:RateOfFire|S, A
@@ -53,7 +53,7 @@ Claymore		TYPE:Weapon.Ranged.Military.PersonalMunitions.Slashing	COST:20	WT:3		C
 Flash Bang		TYPE:Weapon.Ranged.Military.PersonalMunitions			COST:14	WT:1								RANGE:10	SIZE:T	SOURCEPAGE:p.11	SPROP:Mil +3, 10' radius
 
 ###BLOCK: indirect fire weapons
-# Equipment Name	Required Weapon Proficiency	Type								Cost		Weight	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+# Equipment Name	Required Weapon Proficiency	Type								Cost		Weight	Damage	Range		Size		Source Page		Special Property		FACT
 M120 Mortar		PROFICIENCY:WEAPON|Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:33	WT:320	DAMAGE:10d6	RANGE:23760	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 4/1	FACT:RateOfFire|5 rounds
 M224 Mortar		PROFICIENCY:WEAPON|Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:20	WT:47		DAMAGE:8d6	RANGE:11616	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 2/1	FACT:RateOfFire|1 round
 M252 Mortar		PROFICIENCY:WEAPON|Mortar	TYPE:Weapon.Ranged.Military.Exotic.Projectile	COST:25	WT:91		DAMAGE:9d6	RANGE:18480	SIZE:H	SOURCEPAGE:p.12	SPROP:Mil +3, crew 3/1	FACT:RateOfFire|2 rounds

@@ -84,6 +84,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
+import pcgen.system.BatchExporter;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.fop.FOPHandler;
 import pcgen.util.fop.FOPHandlerFactory;
@@ -526,7 +527,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
 			temp = File.createTempFile("currentPC_", ".xml");
-			printToXMLFile(temp, character);
+			BatchExporter.printToXMLFile(temp, character);
 			handler.setInputFile(temp, xsltFile);
 			handler.run();
 			return (Pageable) handler.getPageable();
@@ -561,29 +562,6 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			}
 		}
 
-	}
-
-	private static File getXMLTemplate(CharacterFacade character)
-	{
-		File template = FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
-										  "gameModes",
-										  character.getDataSet().getGameMode().getName(),
-										  "base.xml");
-		if (!template.exists())
-		{
-			template = new File(ConfigurationSettings.getOutputSheetsDir(), "base.xml");
-		}
-		return template;
-	}
-
-	private static void printToXMLFile(File outFile, CharacterFacade character)
-			throws IOException, ExportException
-	{
-		final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-
-		File template = getXMLTemplate(character);
-		character.export(new ExportHandler(template), bw);
-		bw.close();
 	}
 
 	private static ComboBoxModel createPagesModel(int pages)

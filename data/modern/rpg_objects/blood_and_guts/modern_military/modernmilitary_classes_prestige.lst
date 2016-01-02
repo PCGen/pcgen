@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
@@ -83,7 +83,7 @@ CLASS:Army 160th SOAR	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Climb|Communica
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Normal progression
-1						BONUS:VAR|Strafing|CL/4+1									ABILITY:FEAT|AUTOMATIC|Strafing
+1						BONUS:VAR|Strafing|CL/4+1											ABILITY:FEAT|AUTOMATIC|Strafing
 2	SAB:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL+7)/3	DEFINE:AirSupport|0
 3															ADD:ABILITY|FEAT|NORMAL|TYPE=SOAR
 

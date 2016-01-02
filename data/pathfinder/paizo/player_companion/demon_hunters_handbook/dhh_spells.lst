@@ -1,14 +1,14 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 
 ###Block: Spells
-# Spell Name			Classes of caster								School		Descriptor			Components		Casting Time			Range			Target Area or Effect				Duration									Save Info					Spell Resistance		Source Page
+# Spell Name			Classes of caster						School		Descriptor			Components		Casting Time			Range			Target Area or Effect				Duration									Save Info					Spell Resistance		Source Page
 Anti-Summoning Shield		CLASSES:Bard,Sorcerer,Wizard=2|Inquisitor=3	SCHOOL:Abjuration					COMPS:V		CASTTIME:1 standard action	RANGE:medium	TARGETAREA:50-ft.-radius			DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates			SPELLRES:yes		SOURCEPAGE:p.26
-Burst With Light			CLASSES:Cleric,Paladin=4						SCHOOL:Evocation	DESCRIPTOR:light		COMPS:V, s		CASTTIME:1 standard action	RANGE:close		TARGETAREA:one creature				DURATION:1 round/4 levels						SAVEINFO:see text				SPELLRES:yes		SOURCEPAGE:p.26
-Detect Demon			CLASSES:Cleric,Inquisitor,Paladin=1				SCHOOL:Divination					COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:cone-shaped emanation		DURATION:concentration, up to (CASTERLEVEL*10) minutes (D)	SAVEINFO:none (see text)		SPELLRES:no			SOURCEPAGE:p.26
-Protection From Outsiders	CLASSES:Cleric,Inquisitor,Paladin=2				SCHOOL:Abjuration	DESCRIPTOR:see text	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:touch		TARGETAREA:creature touched			DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates (harmless)	SPELLRES:no; see text	SOURCEPAGE:p.26
-Righteous Blood			CLASSES:Inquisitor,Paladin=2						SCHOOL:Abjuration	DESCRIPTOR:good		COMPS:V, 5, DF	CASTTIME:1 standard action	RANGE:touch		TARGETAREA:one creature of good alignment	DURATION:(CASTERLEVEL*10) minutes (D)				SAVEINFO:Will negates (harmless)	SPELLRES:yes (harmless)	SOURCEPAGE:p.27
-Telepathic Censure		CLASSES:Bard,Inquisitor=2						SCHOOL:Abjuration					COMPS:V		CASTTIME:1 standard action	RANGE:medium	TARGETAREA:one creature (see text)		DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates			SPELLRES:yes		SOURCEPAGE:p.27
+Burst With Light			CLASSES:Cleric,Paladin=4				SCHOOL:Evocation	DESCRIPTOR:light		COMPS:V, s		CASTTIME:1 standard action	RANGE:close		TARGETAREA:one creature				DURATION:1 round/4 levels						SAVEINFO:see text				SPELLRES:yes		SOURCEPAGE:p.26
+Detect Demon			CLASSES:Cleric,Inquisitor,Paladin=1			SCHOOL:Divination					COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:cone-shaped emanation		DURATION:concentration, up to (CASTERLEVEL*10) minutes (D)	SAVEINFO:none (see text)		SPELLRES:no			SOURCEPAGE:p.26
+Protection From Outsiders	CLASSES:Cleric,Inquisitor,Paladin=2			SCHOOL:Abjuration	DESCRIPTOR:see text	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:touch		TARGETAREA:creature touched			DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates (harmless)	SPELLRES:no; see text	SOURCEPAGE:p.26
+Righteous Blood			CLASSES:Inquisitor,Paladin=2				SCHOOL:Abjuration	DESCRIPTOR:good		COMPS:V, 5, DF	CASTTIME:1 standard action	RANGE:touch		TARGETAREA:one creature of good alignment	DURATION:(CASTERLEVEL*10) minutes (D)				SAVEINFO:Will negates (harmless)	SPELLRES:yes (harmless)	SOURCEPAGE:p.27
+Telepathic Censure		CLASSES:Bard,Inquisitor=2				SCHOOL:Abjuration					COMPS:V		CASTTIME:1 standard action	RANGE:medium	TARGETAREA:one creature (see text)		DURATION:(CASTERLEVEL*1) minutes (D)				SAVEINFO:Will negates			SPELLRES:yes		SOURCEPAGE:p.27
 
 ###Block:
 # Spell Name			Description

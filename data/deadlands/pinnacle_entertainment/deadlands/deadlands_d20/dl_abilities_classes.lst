@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
 # Ability Name		Category of Ability		Type						Define			Description							Source Page
@@ -134,14 +134,14 @@ Chapter 13				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC
 
 ###Block: Special abilities (used by multiple classes)
 # Feat Name		Type					Visible		Special ABility																										Define																			Description						Stackable?	Multiple?	Choose										Selections		Modify VAR							Source Page						Temporary effect description
-# Ability Name	Category of Ability		Type							Visible		Define												Description																		Stackable?	Multiple?	Choose										Selections		Modify VAR																								Source Page						Temporary effect description																			Temporary Bonus
-Defensive Roll	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality																	DESC:Defensive Roll																																																											SOURCEPAGE:srdbasiccharacterclassesii
-Evasion		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFINE:PHBFeatEvasion|0										DESC:Evasion (Ex)|PHBFeatEvasion																																BONUS:VAR|PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1														SOURCEPAGE:srdbasiccharacterclassesii
-Improved Evasion	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality																	DESC:Improved Evasion (Ex)																																																										SOURCEPAGE:srdbasiccharacterclassesii
-Leadership Score	CATEGORY:Special Ability	TYPE:Special.SpecialQuality																																										TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment																																				TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
-Sneak Attack	CATEGORY:Special Ability	TYPE:Special.SpecialQuality						DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|0					DESC:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																												BONUS:VAR|SneakAttackDie|6																					SOURCEPAGE:srdbasiccharacterclassesii
-Skill Mastery	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality	VISIBLE:EXPORT														DESC:Take 10 on listed skills, %1|%LIST													STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT																										SOURCEPAGE:srdbasiccharacterclassesii
-Uncanny Dodge	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|0	DEFINE:UncannyTraps|0	DESC:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	DESC:Uncanny Dodge (+%1 against traps)|UncannyTraps																			BONUS:VAR|ImprovedUncannyDodge|max(UncannyDodge-1,0)	BONUS:VAR|UncannyTraps|max(UncannyDodge-2,0)DESC:Uncanny Dodge (Dex bonus to AC)|UncannyDodge
+# Ability Name	Category of Ability		Type							Visible		Define												Description																		Stackable?	Multiple?	Choose		Selections		Modify VAR																								Source Page						Temporary effect description																			Temporary Bonus					TEMPVALUE
+Defensive Roll	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality																	DESC:Defensive Roll																																																			SOURCEPAGE:srdbasiccharacterclassesii
+Evasion		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFINE:PHBFeatEvasion|0										DESC:Evasion (Ex)|PHBFeatEvasion																								BONUS:VAR|PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1														SOURCEPAGE:srdbasiccharacterclassesii
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality																	DESC:Improved Evasion (Ex)																																																		SOURCEPAGE:srdbasiccharacterclassesii
+Leadership Score	CATEGORY:Special Ability	TYPE:Special.SpecialQuality																																																																																TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE	TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment
+Sneak Attack	CATEGORY:Special Ability	TYPE:Special.SpecialQuality						DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|0					DESC:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																				BONUS:VAR|SneakAttackDie|6																					SOURCEPAGE:srdbasiccharacterclassesii
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality	VISIBLE:EXPORT														DESC:Take 10 on listed skills, %1|%LIST													STACK:NO	MULT:YES	CHOOSE:SKILL|ALL	SELECT:3+INT																										SOURCEPAGE:srdbasiccharacterclassesii
+Uncanny Dodge	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|0	DEFINE:UncannyTraps|0	DESC:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	DESC:Uncanny Dodge (+%1 against traps)|UncannyTraps											BONUS:VAR|ImprovedUncannyDodge|max(UncannyDodge-1,0)	BONUS:VAR|UncannyTraps|max(UncannyDodge-2,0)DESC:Uncanny Dodge (Dex bonus to AC)|UncannyDodge
 
 ###Block: Turning
 # Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																																									Source Page

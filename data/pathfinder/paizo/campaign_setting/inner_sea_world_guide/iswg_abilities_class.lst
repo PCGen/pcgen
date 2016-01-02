@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by:Stefan Radermacher
 
@@ -247,4 +247,5 @@ Stars Subdomain		KEY:Inquisitor Domain ~ Stars Subdomain		CATEGORY:Special Abili
 Saurian Subdomain		KEY:Inquisitor Domain ~ Saurian Subdomain		CATEGORY:Special Ability	TYPE:InquisitorDomain	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Inquisitor Domain ~ Saurian Subdomain],[PREVARLT:Scalykind,1]	PREMULT:1,[PREVARGTEQ:BypassInquisititorDomain,1],[PREVARGTEQ:InquisitorDomainSaurianSubdomain,1]			ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Venomous Stare|!PREABILITY:1,CATEGORY=Internal,DisableDomainLVL1 (Scalykind)	ABILITY:Special Ability|AUTOMATIC|Domain Power ~ Dinosaur Companion|PREVARGTEQ:DomainScalykindLVL,4	ABILITY:Internal|AUTOMATIC|Domain Base ~ Scalykind
 
 ###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Infernal Healing|Summoner=4|Infernal Healing (Greater)|PREVAREQ:StandardSummoner,1

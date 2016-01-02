@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Exile		HD:8		TYPE:Base.NPC	FACT:Abb|Exile		MAXLEVEL:20	SOURCEPAGE:p.138	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Exile		HD:8		TYPE:Base.NPC	MAXLEVEL:20	SOURCEPAGE:p.138	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Exile
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exile		STARTSKILLPTS:2	CSKILL:Bluff|Hide|Intimidate|TYPE=Knowledge|Jump|Listen|Move Silently|TYPE=Perform|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
