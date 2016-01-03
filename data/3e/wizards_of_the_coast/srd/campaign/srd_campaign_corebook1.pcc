@@ -22,9 +22,15 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 INFOTEXT:This is a subset of the SRD containing rules generally found in Core Book I, this should not be loaded with any other SRD sets.
 
+ALIGNMENT:@/3e/wizards_of_the_coast/srd/basics/srd__align.lst
+SAVE:@/3e/wizards_of_the_coast/srd/basics/srd__saves.lst
+STAT:@/3e/wizards_of_the_coast/srd/basics/srd__stats.lst
+DATACONTROL:@/3e/wizards_of_the_coast/srd/basics/srd__datacontrols.lst
+
+
+
 # Basics
 ABILITYCATEGORY:@/3e/wizards_of_the_coast/srd/basics/srd_ability_categories_core.lst
-
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_ability_class.lst
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_ability_monster.lst
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_ability_misc.lst
@@ -32,16 +38,11 @@ ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_abilities_common.lst
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_abilities_racial.lst
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_abilities_companions.lst
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_abilities_prestige.lst
-
 CLASS:@/3e/wizards_of_the_coast/srd/basics/srd_classes_base.lst
 CLASS:@/3e/wizards_of_the_coast/srd/basics/srd_classes_creature_types.lst|(INCLUDE:Animal|Magical Beast)
-
 COMPANIONMOD:@/3e/wizards_of_the_coast/srd/basics/srd_companion_mods.lst
-
 DEITY:@/3e/wizards_of_the_coast/srd/basics/srd_deities.lst
-
 DOMAIN:@/3e/wizards_of_the_coast/srd/basics/srd_domains.lst
-
 EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip_armorshields.lst
 EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip_basetypes.lst
 EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip_coinsgems.lst
@@ -50,7 +51,6 @@ EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip_weap_melee.lst
 EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip_weap_ranged.lst
 EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip.lst
 EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_mundane.lst
-
 ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Leadership,Flyby Attack,Hover,Improved Control Shape,Multidexterity,Multiweapon Fighting,Multiattack,Quicken Spell-Like Ability,Snatch,Spell-Like Ability Focus,Unearthly Beauty,Wingover)
 
 KIT:@/3e/wizards_of_the_coast/srd/basics/srd_kits_races__animals.lst|(INCLUDE:Bat Default|Cat Default|Hawk Default|Lizard Default|Owl Default|Rat Default|Raven Default|Snake (Tiny Viper) Default|Toad Default|Weasel Default|Dog (Riding) Default|Donkey Default|Horse (Heavy) Default|Horse (Light) Default|Horse (Heavy War) Default|Horse (Light War) Default|Mule Default|Pony Default|Pony (War) Default)
