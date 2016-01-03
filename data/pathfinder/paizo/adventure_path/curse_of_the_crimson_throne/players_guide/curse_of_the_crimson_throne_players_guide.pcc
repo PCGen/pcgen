@@ -46,3 +46,5 @@ KIT:cotctpg_kits_companion.lst
 RACE:cotctpg_races_companion.lst
 ARMORPROF:cotctpg_profs_armor.lst
 WEAPONPROF:cotctpg_profs_weapon.lst
+
+LANGUAGE:cotctpg_languages.lst

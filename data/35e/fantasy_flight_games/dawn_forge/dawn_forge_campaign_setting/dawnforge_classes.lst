@@ -13,7 +13,7 @@ CLASS:Disciple	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.57	BONUS:COMBAT|BASEA
 # Class Name	Required Text
 CLASS:Disciple	PRETEXT:A Disciple's alignment must be within one step of the immortal that grants him his spells.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (history)|Knowledge (religion)|Knowledge (the planes)|Listen|TYPE=Profession|Spellcraft
+CLASS:Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (history)|Knowledge (religion)|Knowledge (the Planes)|Listen|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Automatically Known Spell Levels											Caster level			Use Spell List
 CLASS:Disciple	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Disciple|CL	SPELLLIST:1|Cleric
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency									AUTO:WEAPONPROF|TYPE=Simple
@@ -81,7 +81,7 @@ CLASS:Shaper	KEY:Shaper (DF)	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.65	BONU
 # Class Name	FACT
 CLASS:Shaper (DF)	FACT:SpellType|Divine
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Shaper (DF)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (arcana)|Knowledge (religion)|Knowledge (the planes)|Listen|TYPE=Profession|Search|Spellcraft
+CLASS:Shaper (DF)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (arcana)|Knowledge (religion)|Knowledge (the Planes)|Listen|TYPE=Profession|Search|Spellcraft
 # Class Name	Spell Stat		Memorize	Caster level				Use Spell List
 CLASS:Shaper (DF)	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper (DF)|CL	SPELLLIST:1|Cleric
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency					AUTO:WEAPONPROF|TYPE=Simple
