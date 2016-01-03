@@ -38,26 +38,29 @@ ext {
 }
 
 mainClassName = 'pcgen.system.Main'
-applicationDistribution.from('plugins') {
-    into "plugins"
-}
-applicationDistribution.from('docs') {
-    into "docs"
-}
-applicationDistribution.from('data') {
-    into "data"
-}
-applicationDistribution.from('outputsheets') {
-    into "outputsheets"
-}
-applicationDistribution.from('system') {
-    into "system"
-}
-applicationDistribution.from('preview') {
-    into "preview"
-}
-applicationDistribution.from(artifacts) {
-    into ""
+
+configure applicationDistribution,{
+    from('plugins') {
+        into "plugins"
+    }
+    from('docs') {
+        into "docs"
+    }
+    from('data') {
+        into "data"
+    }
+    from('outputsheets') {
+        into "outputsheets"
+    }
+    from('system') {
+        into "system"
+    }
+    from('preview') {
+        into "preview"
+    }
+    from(artifacts) {
+        into ""
+    }
 }
 
 repositories {
@@ -65,7 +68,7 @@ repositories {
 	ivy {
 	    url "http://pcgen.sourceforge.net/mvnrepo"
 	    layout "pattern", {
-	       artifact "[organisation]/jars/[artifact]-[revision].[ext]"
+            artifact "[organisation]/jars/[artifact]-[revision].[ext]"
 	    }
     }     
     ivy {
@@ -114,20 +117,13 @@ task copyMasterSheets(type: Copy) {
     include 'psheet_fantasy_std.htm'
     from 'outputsheets/d20/fantasy/htmlxml'
     into 'outputsheets/d20/historical/htmlxml'
-
-    into ('../../horror/htmlxml') {
-	    from 'outputsheets/d20/fantasy/htmlxml'
-    }
-    into ('../../sciencefiction/htmlxml') {
-	    from 'outputsheets/d20/fantasy/htmlxml'
-    }
-    into ('../../western/htmlxml') {
-	    from 'outputsheets/d20/fantasy/htmlxml'
-    }
+    into 'outputsheets/d20/horror/htmlxml'
+    into 'outputsheets/d20/sciencefiction/htmlxml'
+    into 'outputsheets/d20/western/htmlxml'
 }
 
 compileJava {
-	it.dependsOn 'copyMasterSheets'
+	dependsOn 'copyMasterSheets'
 }
 
 
@@ -190,7 +186,7 @@ ext {
 }
 
 jar {
-    it.dependsOn 'jar-all-plugins'
+    dependsOn 'jar-all-plugins'
     manifest {
         attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version, 
         	'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
@@ -218,18 +214,18 @@ task copyToLibs(type: Copy) {
 }
 
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    //	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
 	from "$buildDir/libs/pcgen-${version}.jar"
 	from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-	from "$projectDir/code/pcgen.exe"
-	from "$projectDir/code/pcgen.sh"
-	into "$projectDir"
+	from "code/pcgen.exe"
+	from "code/pcgen.sh"
+	into projectDir
  	rename "(.+)-$version(.+)", '$1$2'
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    //	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
 	from "${buildDir}/libs"
 	into "$projectDir/libs"
@@ -238,28 +234,28 @@ task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
 
 task cleanRoot(type: Delete) {
 	description="Clean up things copied to the root folder by the build"
-	delete "$projectDir/pcgen.jar"
-	delete "$projectDir/pcgen-batch-convert.jar"
-	delete "$projectDir/batch-convert.jar"
-	delete "$projectDir/pcgen.exe"
-	delete "$projectDir/pcgen.sh"
-	delete "$projectDir/libs"
-	delete "$projectDir/autobuild.properties"
-	delete "$projectDir/svn.properties"
+	delete "pcgen.jar"
+	delete "pcgen-batch-convert.jar"
+	delete "batch-convert.jar"
+	delete "pcgen.exe"
+	delete "pcgen.sh"
+	delete "libs"
+	delete "autobuild.properties"
+	delete "svn.properties"
 }
 
 build {
-	it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+	dependsOn 'copyToRoot', 'syncLibsToRoot'
 }
 
 clean {
-	it.dependsOn 'clean-plugins'
-	it.dependsOn 'cleanRoot'
+	dependsOn 'clean-plugins'
+	dependsOn 'cleanRoot'
 }
  
 test {
 	exclude 'pcgen/testsupport/**'
-//	maxParallelForks 4
+    //	maxParallelForks 4
     testLogging {
         exceptionFormat = 'full'
     }
