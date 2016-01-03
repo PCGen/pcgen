@@ -356,4 +356,3 @@ Telekinetic Charge.MOD		ITEM:POTION
 #Walk through Space.MOD				CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
 #Warding Weapon.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
 #Wreath of Blades.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
-
