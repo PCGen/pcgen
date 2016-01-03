@@ -6,7 +6,7 @@ CLASS:Demon Summoner	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS
 # Class Name		Required AL		Required Class					Required Language			Required Skill
 CLASS:Demon Summoner	PREALIGN:LE,NE,CE	PRECLASS:1,Cleric=7,Wizard=5,Sorcerer=6	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Knowledge (Demonology)=6,Spellcraft=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Demon Summoner	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Demonology)|Knowledge (the planes)|Spellcraft
+CLASS:Demon Summoner	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Demonology)|Knowledge (the Planes)|Spellcraft
 1	BONUS:VAR|SpecialMeta|1	DEFINE:SpecialMeta|0	ABILITY:Special Ability|AUTOMATIC|Special Metamagic feat ~ Demon Summoner
 2	BONUS:VAR|SpecialMeta|1
 3	BONUS:VAR|DemonApp|1	DEFINE:DemonApp|0		ABILITY:Special Ability|AUTOMATIC|Apprentice ~ Demon Summoner

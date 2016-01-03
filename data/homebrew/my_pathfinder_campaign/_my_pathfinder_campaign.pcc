@@ -33,7 +33,6 @@ DEITY:mpc_deities.lst
 DOMAIN:mpc_domains.lst
 EQUIPMENT:mpc_equip_arms_armor.lst
 EQUIPMENT:mpc_equip_general.lst
-EQUIPMENT:mpc_equip_magic_items.lst
 EQUIPMOD:mpc_equipmods.lst
 ABILITY:mpc_feats.lst
 KIT:mpc_kits.lst

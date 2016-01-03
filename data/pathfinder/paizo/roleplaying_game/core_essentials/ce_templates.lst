@@ -993,7 +993,7 @@ Size Change (Decrease by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-2
 
 ###Block: Template for ability bonuses for creatures with class levels, applied automatically.
 # Template Name				Challenge Rating	Visible	Required Race				Bonus Ability Pool																																										Stat bonus					Modify VAR							Weapon prof. bonus																Natural Attacks															FACT
-Creature with Class Levels					VISIBLE:NO							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PRECLASS:2,TYPE.Monster=1,TYPE.PC=1	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PRECLASS:2,TYPE.Monster=1,TYPE.PC=1	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PRECLASS:2,TYPE.Monster=1,TYPE.PC=1
+Creature with Class Levels					VISIBLE:NO							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster=1],[PRECLASS:1,TYPE.PC=1]	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster=1],[PRECLASS:1,TYPE.PC=1]	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PREMULT:2,[PRECLASS:1,TYPE.Monster=1],[PRECLASS:1,TYPE.PC=1]
 
 # Companion Shared Templates:
 Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																														BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4	FACT:AppliedName|Advanced
