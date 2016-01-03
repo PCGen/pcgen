@@ -43,7 +43,7 @@ public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 	{
 		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
-		if ("".equals(obj) || obj == null) //$NON-NLS-1$
+		if (obj == null || "".equals(obj.toString())) //$NON-NLS-1$
 		{
 			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 		}

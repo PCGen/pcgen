@@ -20,16 +20,15 @@
  */
 package pcgen.gui2.tabs.models;
 
-import javax.swing.tree.DefaultTreeCellRenderer;
-
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.util.TreeColumnCellRenderer;
 
 /**
  *
  * @author Connor
  */
-public abstract class CharacterTreeCellRenderer extends DefaultTreeCellRenderer
+public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 {
 
 	protected CharacterFacade character = null;
@@ -37,9 +36,6 @@ public abstract class CharacterTreeCellRenderer extends DefaultTreeCellRenderer
 	public CharacterTreeCellRenderer()
 	{
 		setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-		setClosedIcon(null);
-		setLeafIcon(null);
-		setOpenIcon(null);
 	}
 
 	public void setCharacter(CharacterFacade character)

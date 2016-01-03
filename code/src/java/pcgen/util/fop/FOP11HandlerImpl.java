@@ -21,6 +21,7 @@
 package pcgen.util.fop;
 
 
+import java.awt.print.Pageable;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,7 +45,7 @@ import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
-import org.apache.fop.render.awt.AWTRenderer;
+import org.apache.fop.render.print.PageableRenderer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.system.ConfigurationSettings;
@@ -60,7 +61,7 @@ public class FOP11HandlerImpl implements FOPHandler
 	
 //	private InputHandler inputHandler;
     private Source src = null;
-	private AWTRenderer renderer;
+	private PageableRenderer renderer;
 	private StringBuffer errBuffer;
 	private int mode;
 
@@ -229,7 +230,7 @@ public class FOP11HandlerImpl implements FOPHandler
 	 * @return Renderer
 	 */
 	@Override
-	public AWTRenderer getPageable()
+	public Pageable getPageable()
 	{
 		return renderer;
 	}
@@ -278,7 +279,7 @@ public class FOP11HandlerImpl implements FOPHandler
 //                userAgent.setRendererOverride(renderer);
             } else if (mode == AWT_MODE) {
                 userAgent.setKeywords("PCGEN FOP AWT");
-                renderer = new AWTRenderer();
+                renderer = new PageableRenderer();
                 renderer.setUserAgent(userAgent);
                 userAgent.setRendererOverride(renderer);
             } else {

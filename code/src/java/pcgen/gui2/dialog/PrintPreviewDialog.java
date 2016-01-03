@@ -39,12 +39,8 @@ import java.awt.image.BufferedImage;
 import java.awt.print.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.URI;
 import java.text.NumberFormat;
 import java.util.Collection;
@@ -82,8 +78,6 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
-import pcgen.io.ExportException;
-import pcgen.io.ExportHandler;
 import pcgen.system.BatchExporter;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.fop.FOPHandler;
@@ -92,7 +86,7 @@ import pcgen.util.Logging;
 
 /**
  * Dialog to allow the preview of character export.
- * 
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
@@ -210,7 +204,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		cancelButton.addActionListener(this);
 
 		enableEditGroup(false);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -251,10 +245,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 		else if (PRINT_COMMAND.equals(e.getActionCommand()))
 		{
-			Pageable renderer = sheetPreview.getPageable();
 			PrinterJob printerJob = PrinterJob.getPrinterJob();
 			printerJob.setPageable(sheetPreview.getPageable());
-			//printerJob.setPageable((Pageable)sheetPreview.getPageable());
 			if (printerJob.printDialog())
 			{
 				try
@@ -329,7 +321,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			super(NumberFormat.getPercentInstance());
 			addPropertyChangeListener("value", this);
-			//We steal the border from the LAF's editor
+            //We steal the border from the LAF's editor
 			//Note: this doesn't work for Nimbus
 			JComponent oldEditor = (JComponent) comboBox.getEditor().getEditorComponent();
 			setBorder(oldEditor.getBorder());
@@ -364,7 +356,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private static class SheetPreview extends JComponent
 	{
 
-		private static final PageFormat format = new PageFormat();
+		private static final PageFormat DEFAULT_FORMAT = new PageFormat();
+		private PageFormat format = DEFAULT_FORMAT;
 		private Image[] pageCache;
 		private double scaleFactor = .75;
 		private Pageable renderer;
@@ -449,7 +442,16 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		public void setPageIndex(int page)
 		{
 			currentPage = page;
+			if (renderer.getNumberOfPages() > 0)
+			{
+				format = renderer.getPageFormat(currentPage);
+			}
+			else
+			{
+				format = DEFAULT_FORMAT;
+			}
 			resetPreviewImage();
+			revalidate();
 			repaint();
 		}
 
@@ -458,14 +460,14 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			Image pageImage = pageCache[currentPage];
 			if (pageImage == null)
 			{
-				pageImage = createNewPage();
+				pageImage = createNewPage(format);
 				Graphics g = pageImage.getGraphics();
 				Graphics2D g2 = (Graphics2D) g;
 				g2.scale(4, 4);
 				try
 				{
 					Printable printable = renderer.getPrintable(currentPage);
-					printable.print(g, format, currentPage);
+					printable.print(g2, format, currentPage);
 				}
 				catch (PrinterException ex)
 				{
@@ -477,29 +479,29 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			previewImage = pageImage.getScaledInstance(getPreviewWidth(), getPreviewHeight(), Image.SCALE_SMOOTH);
 		}
 
-		private static BufferedImage createNewPage()
+		private static BufferedImage createNewPage(PageFormat format)
 		{
 			int pageWidth = (int) format.getWidth();
 			int pageHeight = (int) format.getHeight();
-			return new BufferedImage(4*pageWidth, 4*pageHeight, BufferedImage.TYPE_INT_ARGB);
+			return new BufferedImage(4 * pageWidth, 4 * pageHeight, BufferedImage.TYPE_INT_ARGB);
 		}
 
 		private static Image createBrokenPage()
 		{
-			BufferedImage image = createNewPage();
+			BufferedImage image = createNewPage(DEFAULT_FORMAT);
 			Graphics g = image.getGraphics();
 			ImageIcon icon = Icons.stock_broken_image.getImageIcon();
 			Rectangle viewRect = new Rectangle(0, 0, image.getWidth(), image.getHeight());
 			Rectangle iconRect = new Rectangle();
 			SwingUtilities.layoutCompoundLabel(null, null, icon,
-											   SwingConstants.CENTER,
-											   SwingConstants.CENTER,
-											   SwingConstants.CENTER,
-											   SwingConstants.CENTER,
-											   viewRect,
-											   iconRect,
-											   new Rectangle(),
-											   0);
+					SwingConstants.CENTER,
+					SwingConstants.CENTER,
+					SwingConstants.CENTER,
+					SwingConstants.CENTER,
+					viewRect,
+					iconRect,
+					new Rectangle(),
+					0);
 			icon.paintIcon(null, g, iconRect.x, iconRect.y);
 			g.dispose();
 			return image;

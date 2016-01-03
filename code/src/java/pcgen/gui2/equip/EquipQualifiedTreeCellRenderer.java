@@ -32,6 +32,7 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.TreeColumnCellRenderer;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -41,7 +42,7 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class EquipQualifiedTreeCellRenderer extends DefaultTreeCellRenderer
+public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer
 {
 
 	private CharacterFacade character;
@@ -57,9 +58,6 @@ public class EquipQualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 		this.character = character;
 		this.equip = equip;
 		setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-		setClosedIcon(null);
-		setLeafIcon(null);
-		setOpenIcon(null);
 	}
 
 	@Override
