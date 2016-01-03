@@ -20,7 +20,6 @@
  */
 package pcgen.gui2.tabs.models;
 
-
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.TreeColumnCellRenderer;
@@ -32,41 +31,41 @@ import pcgen.gui2.util.TreeColumnCellRenderer;
 public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 {
 
-    protected CharacterFacade character = null;
+	protected CharacterFacade character = null;
 
-    public CharacterTreeCellRenderer()
-    {
-        setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-    }
+	public CharacterTreeCellRenderer()
+	{
+		setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
+	}
 
-    public void setCharacter(CharacterFacade character)
-    {
-        this.character = character;
-    }
+	public void setCharacter(CharacterFacade character)
+	{
+		this.character = character;
+	}
 
-    public Handler createHandler(CharacterFacade character)
-    {
-        return new Handler(character);
-    }
+	public Handler createHandler(CharacterFacade character)
+	{
+		return new Handler(character);
+	}
 
-    public class Handler
-    {
+	public class Handler
+	{
 
-        private final CharacterFacade character;
+		private final CharacterFacade character;
 
-        public Handler(CharacterFacade character)
-        {
-            this.character = character;
-        }
+		public Handler(CharacterFacade character)
+		{
+			this.character = character;
+		}
 
-        public void install()
-        {
-            setCharacter(character);
-        }
+		public void install()
+		{
+			setCharacter(character);
+		}
 
-        public void uninstall()
-        {
-            setCharacter(null);
-        }
-    }
+		public void uninstall()
+		{
+			setCharacter(null);
+		}
+	}
 }
