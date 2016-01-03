@@ -18,6 +18,7 @@
  **/
 package pcgen.gui2.util;
 
+import java.awt.Color;
 import java.util.Comparator;
 import java.util.List;
 import pcgen.gui2.util.treetable.TreeTableModel;
@@ -207,7 +208,7 @@ public class JTreeTable extends JTableEx
 		return tree.getCellRenderer();
 	}
 
-	public void setTreeCellRenderer(TreeCellRenderer renderer)
+	public void setTreeCellRenderer(TreeColumnCellRenderer renderer)
 	{
 		tree.setCellRenderer(renderer);
 	}
@@ -571,12 +572,7 @@ public class JTreeTable extends JTableEx
 				}
 
 			};
-			//TODO: this code doesn't belong here
-			DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-			renderer.setClosedIcon(null);
-			renderer.setLeafIcon(null);
-			renderer.setOpenIcon(null);
-			this.setCellRenderer(renderer);
+			this.setCellRenderer(new TreeColumnCellRenderer());
 			this.setOpaque(false);
 		}
 
@@ -633,21 +629,14 @@ public class JTreeTable extends JTableEx
 													   int row,
 													   int column)
 		{
-			if (isSelected)
-			{
-				this.setBackground(table.getSelectionBackground());
-			}
-			else
-			{
-				this.setBackground(table.getBackground());
-			}
-
 			visibleRow = row;
-
-			return tableCellRenderer.getTableCellRendererComponent(table, value,
+            
+            Component comp = tableCellRenderer.getTableCellRendererComponent(table, value,
 																   isSelected,
 																   hasFocus, row,
 																   column);
+            setBackground(comp.getBackground());
+            return comp;
 		}
 
 		/**

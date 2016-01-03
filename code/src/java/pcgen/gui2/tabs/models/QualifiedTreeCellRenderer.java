@@ -38,29 +38,29 @@ import pcgen.system.LanguageBundle;
 public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 {
 
-	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value,
-			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
-	{
-		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
-		if ("".equals(obj) || obj == null) //$NON-NLS-1$
-		{
-			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
-		}
-		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-		if (obj instanceof InfoFacade && character != null && !character.isQualifiedFor((InfoFacade) obj))
-		{
-			setForeground(UIPropertyContext.getNotQualifiedColor());
-		}
-		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
-		{
-			setFont(FontManipulation.bold_italic(getFont()));
-		}
-		else
-		{
-			setFont(FontManipulation.plain(getFont()));
-		}
-		return this;
-	}
-
+    @Override
+    public Component getTreeCellRendererComponent(JTree tree, Object value,
+            boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+    {
+        Object obj = ((DefaultMutableTreeNode) value).getUserObject();
+        if (obj == null || "".equals(obj.toString())) //$NON-NLS-1$
+        {
+            obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
+        }
+        super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
+        if (obj instanceof InfoFacade && character != null && !character.isQualifiedFor((InfoFacade) obj))
+        {
+            setForeground(UIPropertyContext.getNotQualifiedColor());
+        }
+        if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
+        {
+            setFont(FontManipulation.bold_italic(getFont()));
+        }
+        else
+        {
+            setFont(FontManipulation.plain(getFont()));
+        }
+        return this;
+    }
+    
 }
