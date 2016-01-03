@@ -6,7 +6,7 @@ CLASS:Umbral Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.86	BONUS:C
 # Class Name		Required Race			Reg. Race Type
 CLASS:Umbral Dragon	PRERACE:1,Dragon (Umbral%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Concentration|Diplomacy|Hide|Knowledge (arcana)|Knowledge (local)|Knowledge (the planes)|Listen|Move Silently|Search|Sense Motive|Spot|Survival|Survival (The Planes)
+CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Concentration|Diplomacy|Hide|Knowledge (arcana)|Knowledge (local)|Knowledge (the Planes)|Listen|Move Silently|Search|Sense Motive|Spot|Survival|Survival (The Planes)
 1	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 
 ###Block: Normal Progression

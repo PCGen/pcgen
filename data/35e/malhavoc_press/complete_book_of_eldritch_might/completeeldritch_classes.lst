@@ -111,7 +111,7 @@ CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:
 # Class Name		Required Ability								Required Skill									PRETOTALAB
 CLASS:Eldritch Warrior	PREABILITY:2,CATEGORY=FEAT,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (arcana)|Knowledge (the planes)|Move Silently|Ride|Spellcraft
+CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (arcana)|Knowledge (the Planes)|Move Silently|Ride|Spellcraft
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
@@ -188,7 +188,7 @@ CLASS:Mirror Master	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COM
 # Class Name		Required Ability								Required Skill							Req. Spell Type
 CLASS:Mirror Master	PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Mirror Sight	PRESKILL:2,Knowledge (Arcana)=5,Craft (Glassmaking)=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (the planes)|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Survival
+CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (the Planes)|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Survival
 ###Block: Spells
 2	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=1|Command,Hypnotism,Message
 2	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=2|Mirror Image,See Invisibility,Shatter
