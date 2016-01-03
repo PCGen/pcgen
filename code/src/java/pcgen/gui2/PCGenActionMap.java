@@ -499,7 +499,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			DataInstaller di = new DataInstaller(frame);
+			DataInstaller di = new DataInstaller();
 			di.setVisible(true);			
 		}
 
