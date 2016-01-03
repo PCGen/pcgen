@@ -42,18 +42,18 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 {
 
-    public TreeColumnCellRenderer()
-    {
-        setClosedIcon(null);
-        setLeafIcon(null);
-        setOpenIcon(null);
-    }
+	public TreeColumnCellRenderer()
+	{
+		setClosedIcon(null);
+		setLeafIcon(null);
+		setOpenIcon(null);
+	}
 
-    @Override
-    public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
-    {
-        setBackgroundNonSelectionColor(tree.getBackground());
-        return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
-    }
+	@Override
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
+	{
+		setBackgroundNonSelectionColor(tree.getBackground());
+		return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+	}
 
 }
