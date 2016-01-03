@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
 
-# Deity Name		Product Identity?	Domains									Pantheon
+# Deity Name		Product Identity?	Domains									FACTSET
 Adri Myst			NAMEISPI:YES	DOMAINS:Knowledge,MAGIC,RUNE						FACTSET:Pantheon|Outcastia
 Ale'chea			NAMEISPI:YES	DOMAINS:ANIMAL,Death,Evil,SCALYKIND					FACTSET:Pantheon|Outcastia
 Alfheim-Rigel		NAMEISPI:YES	DOMAINS:ANIMAL,GOOD,PLANT,War						FACTSET:Pantheon|Outcastia

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
 # Original Entry by: Eddy Anthony (MoSaT)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	FACT:Abb|BldHx		MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|BldHx
 # Class Name	Required Ability										Required AL		Required Skill						Req. Known Spell		Required Casting Type
 CLASS:Blood Hexer	PREABILITY:2,CATEGORY=FEAT,Curse of Blood,Curse of Blood - Greater	PREALIGN:CG,CN,CE	PRESKILL:1,Knowledge (Arcana)=10,Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -20,8 +20,8 @@ CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Kno
 10	BONUS:ABILITYPOOL|Blood Hexer Feat|1								ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	FACT:Abb|EvlEy		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|EvlEy
 # Class Name	Required Ability									Required AL		Required Skill					Req. Spell Type
 CLASS:Evil Eye	PREABILITY:2,CATEGORY=FEAT,Death Curse Contingency,Iron Will	PREALIGN:LE,NE,CE	PRESKILL:3,Bluff=4,Intimidate=4,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -38,8 +38,8 @@ CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|
 5																	ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	FACT:Abb|Hexo		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Hexo
 # Class Name	Required Ability															Required AL		Required Skill														Required Casting Type	Req. Spell Type
 CLASS:Hexomancer	PREABILITY:5,CATEGORY=FEAT,Enlarge Spell,Extend Spell,Heighten Spell,Persistent Curse,Potent Curse	PREALIGN:LE,NE,CE	PRESKILL:1,Craft (Doll-Making)=5	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,Intimidate=6	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -57,8 +57,8 @@ CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script
 10																	ADD:SPELLCASTER|ANY
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	FACT:Abb|SrVen		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SrVen
 # Class Name			Required Ability								Required AL		Required Skill							Req. Known Spell
 CLASS:Servant of Vengeance	PREABILITY:3,CATEGORY=FEAT,Endurance,Diehard,Iron Will	PREALIGN:LE,LN,LG	PRESKILL:2,Knowledge (Religion)=5,Sense Motive=5	PRESPELL:1,Mark of Justice
 # Class Name			Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Original entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 
@@ -9,8 +9,8 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 # THINKER: Skill Focus does not prompt for skill.
 # TRADER: Bonus Language: Must exchange one Background language for Language(Trade)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Combat bonus										Save bonus
-CLASS:Guardian	HD:10		TYPE:Base.PC	FACT:Abb|Grd		SOURCEPAGE:pp.17-19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Source Page			Combat bonus										Save bonus																						FACT
+CLASS:Guardian	HD:10		TYPE:Base.PC	SOURCEPAGE:pp.17-19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Grd
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidate|Knowledge (Vehicle Operations)|Listen|Ride|Sense Motive|Spot
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
@@ -30,8 +30,8 @@ CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidat
 18									BONUS:ABILITYPOOL|Guardian Feat|1
 20	SAB:Shoot to Kill						BONUS:ABILITYPOOL|Guardian Feat|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Combat bonus										Save bonus
-CLASS:Raider	HD:10		TYPE:Base.PC	FACT:Abb|Rdr		SOURCEPAGE:pp.19-21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Source Page			Combat bonus										Save bonus																						FACT
+CLASS:Raider	HD:10		TYPE:Base.PC	SOURCEPAGE:pp.19-21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Rdr
 # Class Name	Required AL
 CLASS:Raider	PREALIGN:LE,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -53,8 +53,8 @@ CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle 
 18	SAB:Terrifying Presence
 20							BONUS:ABILITYPOOL|Raider Feat|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Combat bonus											Save bonus
-CLASS:Scav		HD:8		TYPE:Base.PC	FACT:Abb|Scv		SOURCEPAGE:pp.21-23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Source Page			Combat bonus											Save bonus																						FACT
+CLASS:Scav		HD:8		TYPE:Base.PC	SOURCEPAGE:pp.21-23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Scv
 # Class Name	Required AL
 CLASS:Scav		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -68,8 +68,8 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|For
 12	SAB:Feign Death (% rounds)|FeignDeathRounds																	BONUS:VAR|FeignDeathRounds|CL*10												DEFINE:FeignDeathRounds|0
 16	SAB:Shadow in the Open
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Combat bonus										Save bonus
-CLASS:Thinker	HD:4		TYPE:Base.PC	FACT:Abb|Thn		SOURCEPAGE:pp.23-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Source Page			Combat bonus										Save bonus																					FACT
+CLASS:Thinker	HD:4		TYPE:Base.PC	SOURCEPAGE:pp.23-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Thn
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|Diplomacy|Forgery|Heal|TYPE=Knowledge|Open Lock|TYPE=Profession
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
@@ -86,8 +86,8 @@ CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|D
 18									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 20									BONUS:ABILITYPOOL|Skill Focus|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Combat bonus											Save bonus
-CLASS:Trader	HD:6		TYPE:Base.PC	FACT:Abb|Trd		SOURCEPAGE:pp.26-28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Source Page			Combat bonus											Save bonus																					FACT
+CLASS:Trader	HD:6		TYPE:Base.PC	SOURCEPAGE:pp.26-28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Trd
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|Intuit Direction|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial

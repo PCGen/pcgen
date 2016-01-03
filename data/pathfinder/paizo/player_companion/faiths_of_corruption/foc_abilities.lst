@@ -1,4 +1,4 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
 # Original Entry by: Stefan Radermacher
 
@@ -48,6 +48,7 @@ Serpentine Squeeze		KEY:Trait ~ Serpentine Squeeze					CATEGORY:Special Ability	
 Fatal Trapper			KEY:Trait ~ Fatal Trapper						CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Zyphus						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fatal Trapper],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You gain a +1 trait bonus on Craft (traps) checks and a +1 trait bonus on Disable Device checks made to disable traps.																																																																																	BONUS:SITUATION|Disable Device=Traps|1|TYPE=Trait			BONUS:SKILL|Craft (Traps)|1|TYPE=Trait																	SOURCEPAGE:p.22
 
 ###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Shared Sacrifice|PREVAREQ:StandardSummoner,1
 
 #

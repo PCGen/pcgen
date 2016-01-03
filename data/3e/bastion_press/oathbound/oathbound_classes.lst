@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -7,8 +7,8 @@ SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http
 # All classes require 5th level before taking them.
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Demagogue	HD:6		TYPE:PC.Prestige	FACT:Abb|Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Demagogue	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Dem
 # Class Name	Required Ability					Required Lvl	Required Skill						Required Stat
 CLASS:Demagogue	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRELEVEL:MIN=5	PRESKILL:3,Bluff=4,Intimidate=4,Diplomacy=6	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -29,8 +29,8 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 9	SAB:Charm (Sp) %/day (DC%)|DemPowerUse|DemPowerDC
 10	SAB:Control Crowd (Sp) %/day (% ft)|DemPowerUse|DemPowerRange													BONUS:VAR|DemPowerRange|(CHA*250)	DEFINE:DemPowerRange|0
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Hone		HD:10		TYPE:PC.Prestige	FACT:Abb|Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Hone		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Hn
 # Class Name	Required Ability													Required AL		Required Lvl	PRETOTALAB
 CLASS:Hone		PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PREALIGN:LG,LN,LE	PRELEVEL:MIN=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -51,8 +51,8 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jum
 
 # Divine Protection bonus type depends on alignment. Advice on implementing required.
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	FACT:Abb|Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Inq
 # Class Name	Required Ability									Required Lvl	Required Skill												Required Stat
 CLASS:Inquisitor	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion)=6,Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -73,8 +73,8 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE=Craft|Diplo
 9	SAB:Enrapture (Ex) %/day|EmpowerUse																																					ADD:SPELLCASTER|Divine
 10	SAB:Convert the Masses (Su)																																						ADD:SPELLCASTER|Divine
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Rafter	HD:8		TYPE:PC.Prestige	FACT:Abb|Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Rafter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Raf
 # Class Name	Required Ability					Required Lvl	Required Skill
 CLASS:Rafter	PREABILITY:1,CATEGORY=FEAT,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:4,Appraise=2,Intuit Direction=4,Knowledge (Arcana)=4,Craft (Maps)=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -94,8 +94,8 @@ CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE=
 9	SAB:Sense Danger (Ex)
 10	SAB:Greater Make Map (Ex)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Stalker	HD:6		TYPE:PC.Prestige	FACT:Abb|Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Stalker	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Sta
 # Class Name	Required Ability				Required Lvl	Required Skill
 CLASS:Stalker	PREABILITY:1,CATEGORY=FEAT,Track	PRELEVEL:MIN=5	PRESKILL:5,Balance=2,City Lore=2,Disguise=2,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -115,8 +115,8 @@ CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE
 9	SAB:Find Trail (Ex)
 10	SAB:Nondetection (Su)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Vigilante	HD:8		TYPE:PC.Prestige	FACT:Abb|Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Vigilante	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Vig
 # Class Name	Required Ability								Required Lvl	PRETOTALAB
 CLASS:Vigilante	PREABILITY:3,CATEGORY=FEAT,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill

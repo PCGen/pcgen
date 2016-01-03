@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 # Entries by: Tir Gwaith, Doug Mcmillan, and Ian Dale
 
@@ -20,7 +20,7 @@ Undercover Vest of Landing +3	PROFICIENCY:ARMOR|Undercover Vest	TYPE:Armor.Light
 
 ###Block: Weapons
 
-# Equipment Name					Required Weapon Proficiency			Type														Contains			Cost		Weight	Base Item for EQMOD			Crit Mult	Crit Range	Damage	Modifier					Range		Size		Source Page			Special Property													Fact
+# Equipment Name					Required Weapon Proficiency			Type														Contains			Cost		Weight	Base Item for EQMOD			Crit Mult	Crit Range	Damage	Modifier					Range		Size		Source Page			Special Property													FACT
 Charged Nunchaku +1				PROFICIENCY:WEAPON|Nunchaku			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:13	WT:2		BASEITEM:Nunchaku				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:PLUS1W						SIZE:S	SOURCEPAGE:msrdfxitems	SPROP:Psionic energy deals +1d4 damage
 Charged Nunchaku +2				PROFICIENCY:WEAPON|Nunchaku			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:13	WT:2		BASEITEM:Nunchaku				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:PLUS2W						SIZE:S	SOURCEPAGE:msrdfxitems	SPROP:Psionic energy deals +1d4 damage
 Charged Nunchaku +3				PROFICIENCY:WEAPON|Nunchaku			TYPE:FX.Specific.Weapon.Exotic.Melee.Bludgeoning.Standard.Wooden								COST:13	WT:2		BASEITEM:Nunchaku				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:PLUS3W						SIZE:S	SOURCEPAGE:msrdfxitems	SPROP:Psionic energy deals +1d4 damage

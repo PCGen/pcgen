@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
@@ -21,14 +21,14 @@ CLASS:Igasaki Disciple	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Decipher Sc
 7								ABILITY:Special Ability|AUTOMATIC|Igasaki Poison
 10								ABILITY:Special Ability|AUTOMATIC|Face in the Shadows
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Inpo Agent	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Inpo Agent	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
 # Class Name	Required Ability								Required AL				Required Skill
 CLASS:Inpo Agent	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Dodge,Mobility	PREALIGN:LN,TN,CN,LE,NE,CE	PRESKILL:4,Gather Information=5,Tumble=5,Hide=10,Move Silently=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inpo Agent	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Inpo Agent	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Inpo Agent|CL
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Inpo Agent	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Inpo Agent|CL
 ###Block:Proficiencies
 1	BONUS:ABILITYPOOL|Inpo Agent Proficiencies|4	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)

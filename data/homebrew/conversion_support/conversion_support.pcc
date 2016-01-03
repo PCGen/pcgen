@@ -16,7 +16,6 @@ INFOTEXT:Revised Conversion Set
 # DATA FILES
 
 ABILITY:cs_abilities.lst
-ABILITY:cs_feats.lst
 
 #
 # End

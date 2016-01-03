@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	FACT:Abb|Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																							FACT
+CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	FACT:Abb|Bht
 # Class Name		Required Skill							PRETOTALAB
 CLASS:Bounty Hunter	PRESKILL:2,Gather Information=6,Wilderness Lore=6	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -19,8 +19,8 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Gather Informa
 9										BONUS:ABILITYPOOL|Bounty Hunter Feat|1
 10																	BONUS:VAR|DetectVulnerability|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	FACT:Abb|Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																							FACT
+CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Cds
 # Class Name	Required Skill								PRETOTALAB
 CLASS:Card Sharp	PRESKILL:4,Bluff=6,Gamblin'=9,Sleight o' Hand=9,Spot=6	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -37,8 +37,8 @@ CLASS:Card Sharp	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Gambli
 8											BONUS:ABILITYPOOL|Dinero|1
 10																BONUS:VAR|Cheating|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Crusader	HD:8		TYPE:PC.Prestige	FACT:Abb|Cru		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																							FACT
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	FACT:Abb|Cru
 # Class Name	Required AL		PRETOTALAB
 CLASS:Crusader	PREALIGN:LG,NG,CG	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -57,8 +57,8 @@ CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gunplay|Holdout|Int
 9														BONUS:VAR|ArcaneShield|3
 10														BONUS:VAR|ArcaneShield|3
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Desperado	HD:8		TYPE:PC.Prestige	FACT:Abb|Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																							FACT
+CLASS:Desperado	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	FACT:Abb|Dsp
 # Class Name	Required AL			Required Skill						PRETOTALAB
 CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PRESKILL:3,Gunplay=4,Ride=6,Wilderness Lore=4	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -73,8 +73,8 @@ CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Forger
 8																	BONUS:VAR|Hideout|1
 9																	BONUS:VAR|Paunch|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Auto Weapon Prof									Combat bonus											Save bonus
-CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	FACT:Abb|Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Auto Weapon Prof									Combat bonus											Save bonus																																						FACT
+CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Gsm
 # Class Name	Required Skill				PRETOTALAB
 CLASS:Gunsmith	PRESKILL:2,Gunplay=4,Tinkerin'=9	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -90,8 +90,8 @@ CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE=Craft|Demolitions|Disable Dev
 9										BONUS:VAR|Arsenal|1
 10										BONUS:VAR|FieldMods|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Law Dog	HD:8		TYPE:PC.Prestige	FACT:Abb|Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																							FACT
+CLASS:Law Dog	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	FACT:Abb|Lwd
 # Class Name	Required AL		Required Skill					PRETOTALAB
 CLASS:Law Dog	PREALIGN:LG,NG,CG	PRESKILL:3,Diplomacy=4,Gunplay=6,Ride=6	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -106,8 +106,8 @@ CLASS:Law Dog	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gamblin'|G
 7						BONUS:ABILITYPOOL|Law Dog Feat|1
 10						BONUS:ABILITYPOOL|Law Dog Feat|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Auto Weapon Prof									Combat bonus										Save bonus
-CLASS:Rifleman	HD:8		TYPE:PC.Prestige	FACT:Abb|Rfm		MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Auto Weapon Prof									Combat bonus										Save bonus																																FACT
+CLASS:Rifleman	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Rfm
 # Class Name	Required Ability																		PRETOTALAB
 CLASS:Rifleman	PREABILITY:1,CATEGORY=FEAT,Firearms Proficiency (Pistol),Firearms Proficiency (Rifle),Firearms Proficiency (Shotgun)	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -117,8 +117,8 @@ CLASS:Rifleman	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gunplay|Hide|Intimi
 3	SAB:Sneak Attack (% feet)|RifleSneak							BONUS:VAR|RifleSneak|100+(floor(CL/3)*100)	DEFINE:RifleSneak|0
 5	SAB:Coup de Grace
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Auto Weapon Prof									Combat bonus											Save bonus
-CLASS:Spy		HD:6		TYPE:PC.Prestige	FACT:Abb|Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Auto Weapon Prof									Combat bonus											Save bonus																															FACT
+CLASS:Spy		HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Spy
 # Class Name	Required AL			Required Skill						PRETOTALAB
 CLASS:Spy		PREALIGN:LE,TN,NE,CE	PRESKILL:3,Gunplay=4,Ride=6,Wilderness Lore=4	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill

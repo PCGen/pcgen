@@ -1,4 +1,4 @@
-# CVS $Revision: 12957 $ $Author: jbaril $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
 # Original Entry by: Stefan Radermacher
 
@@ -278,20 +278,20 @@ Whip of Spiders.MOD				DESC:Create a whip made of poisonous spiders.|!PRERULE:1,
 Widen Auras.MOD					DESC:Increase the range of auras bestowed by your class.|!PRERULE:1,DisplayFullSpell
 
 ###BLOCK: TEMPBONUSes
-# Spell Name				Choose								Temporary effect description								Temporary Bonus
-Air Step.MOD																									TEMPBONUS:PC|MOVEADD|TYPE.Walk|-10|!PRESKILL:1,Fly=1	TEMPBONUS:PC|SKILL|Acrobatics,Climb,Ride|-4|!PRESKILL:1,Fly=5
-Anchored Step.MOD																									TEMPBONUS:PC|VAR|CMD_BullRush,CMD_Overrun,CMD_Pull,CMD_Push,CMD_Reposition,CMD_Trip|10	TEMPBONUS:PC|MOVEADD|TYPE.Walk|-10
-Blessed Fist.MOD													TEMPDESC:If target can already make lethal or nonlethal unarmed strikes	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|1|TYPE=Enhancement
-Blood Armor.MOD				TEMPVALUE:MIN=1|MAX=5|TITLE=Current AC bonus													TEMPBONUS:PC|COMBAT|AC|%CHOICE|TYPE=Enhancement
-Extreme Flexibility.MOD																								TEMPBONUS:PC|COMBAT|AC|1|TYPE=Dodge	TEMPBONUS:PC|SKILL|Escape Artist|4|TYPE=Circumstance	TEMPBONUS:PC|VAR|CMB_Grapple,CMD_Grapple|4|TYPE=Circumstance
-Heightened Awareness.MOD																							TEMPBONUS:PC|SKILL|Perception,TYPE.Knowledge|2|TYPE=Competence
-Longstrider (Greater).MOD																							TEMPBONUS:PC|MOVEADD|TYPE.Walk|20|TYPE=Enhancement	TEMPBONUS:PC|MOVEADD|TYPE.All|10|TYPE=Enhancement
-Mantle of Calm.MOD																								TEMPBONUS:PC|COMBAT|TOHIT|-2
-Muffle Sound.MOD																									TEMPBONUS:ANYPC|SKILL|Stealth|4
-Shield Companion.MOD																								TEMPBONUS:ANYPC|COMBAT|AC|1|TYPE=Deflection	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
-Stunning Barrier.MOD																								TEMPBONUS:PC|COMBAT|AC|1|TYPE=Deflection	TEMPBONUS:PC|SAVE|ALL|1|TYPE=Resistance
-Stunning Barrier (Greater).MOD																						TEMPBONUS:PC|COMBAT|AC|2|TYPE=Deflection	TEMPBONUS:PC|SAVE|ALL|2|TYPE=Resistance
-Unliving Rage.MOD																									TEMPBONUS:ANYPC|STAT|STR,CON|2|TYPE=Profane	TEMPBONUS:ANYPC|SAVE|Will|1|TYPE=Profane	TEMPBONUS:ANYPC|COMBAT|AC|-2
+# Spell Name				Temporary effect description								Temporary Bonus																								TEMPVALUE
+Air Step.MOD																TEMPBONUS:PC|MOVEADD|TYPE.Walk|-10|!PRESKILL:1,Fly=1	TEMPBONUS:PC|SKILL|Acrobatics,Climb,Ride|-4|!PRESKILL:1,Fly=5
+Anchored Step.MOD																TEMPBONUS:PC|VAR|CMD_BullRush,CMD_Overrun,CMD_Pull,CMD_Push,CMD_Reposition,CMD_Trip|10	TEMPBONUS:PC|MOVEADD|TYPE.Walk|-10
+Blessed Fist.MOD				TEMPDESC:If target can already make lethal or nonlethal unarmed strikes	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|1|TYPE=Enhancement
+Blood Armor.MOD																TEMPBONUS:PC|COMBAT|AC|%CHOICE|TYPE=Enhancement																			TEMPVALUE:MIN=1|MAX=5|TITLE=Current AC bonus
+Extreme Flexibility.MOD															TEMPBONUS:PC|COMBAT|AC|1|TYPE=Dodge	TEMPBONUS:PC|SKILL|Escape Artist|4|TYPE=Circumstance	TEMPBONUS:PC|VAR|CMB_Grapple,CMD_Grapple|4|TYPE=Circumstance
+Heightened Awareness.MOD														TEMPBONUS:PC|SKILL|Perception,TYPE.Knowledge|2|TYPE=Competence
+Longstrider (Greater).MOD														TEMPBONUS:PC|MOVEADD|TYPE.Walk|20|TYPE=Enhancement	TEMPBONUS:PC|MOVEADD|TYPE.All|10|TYPE=Enhancement
+Mantle of Calm.MOD															TEMPBONUS:PC|COMBAT|TOHIT|-2
+Muffle Sound.MOD																TEMPBONUS:ANYPC|SKILL|Stealth|4
+Shield Companion.MOD															TEMPBONUS:ANYPC|COMBAT|AC|1|TYPE=Deflection	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
+Stunning Barrier.MOD															TEMPBONUS:PC|COMBAT|AC|1|TYPE=Deflection	TEMPBONUS:PC|SAVE|ALL|1|TYPE=Resistance
+Stunning Barrier (Greater).MOD													TEMPBONUS:PC|COMBAT|AC|2|TYPE=Deflection	TEMPBONUS:PC|SAVE|ALL|2|TYPE=Resistance
+Unliving Rage.MOD																TEMPBONUS:ANYPC|STAT|STR,CON|2|TYPE=Profane	TEMPBONUS:ANYPC|SAVE|Will|1|TYPE=Profane	TEMPBONUS:ANYPC|COMBAT|AC|-2
 
 
 ###BLOCK: Bloodrager Spells

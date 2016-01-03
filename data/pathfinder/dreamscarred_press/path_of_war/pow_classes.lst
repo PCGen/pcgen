@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Douglas Limmer
 # Original Entry Date: 2015-06-02 or earlier
 
@@ -10,12 +10,12 @@
 
 ###Block: Stalker
 
-# Class Name	Hit Dice	Type							Class Type		Abbreviation	Max Level	Source Page		Ability																										Define			Combat bonus																	Save bonus																																		Modify VAR																																																																	Monster Role
-CLASS:Stalker	HD:8		TYPE:Base.PC.MartialDisciple.Initiator	FACT:ClassType|PC	FACT:Abb|Stk		MAXLEVEL:20	SOURCEPAGE:p.4	ABILITY:Internal|AUTOMATIC|Stalker ~ Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerClassSkills	ABILITY:Internal|AUTOMATIC|Stalker ~ Class Variables	DEFINE:StalkerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|StalkerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Skill
+# Class Name	Hit Dice	Type							Max Level	Source Page		Ability																										Define			Combat bonus																	Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Stalker	HD:8		TYPE:Base.PC.MartialDisciple.Initiator	MAXLEVEL:20	SOURCEPAGE:p.4	ABILITY:Internal|AUTOMATIC|Stalker ~ Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerClassSkills	ABILITY:Internal|AUTOMATIC|Stalker ~ Class Variables	DEFINE:StalkerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|StalkerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Skill	FACT:ClassType|PC	FACT:Abb|Stk	FACT:SpellType|Initiator
 # Class Name	Skill Pts/Lvl
 CLASS:Stalker	STARTSKILLPTS:6
-# Class Name	Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Stalker	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Stalker|StalkerInitiatorLVL|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerInitiating
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Stalker	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Stalker|StalkerInitiatorLVL|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerInitiating
 ###Block:Proficiencies
 # COMMENT: Weapon and Armor proficiencies separated out from each other for archetypes' sake; not technically as written
 1	ABILITY:Stalker Class Feature|AUTOMATIC|Stalker ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerWeaponAndArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerWeaponProficiencies
@@ -38,10 +38,10 @@ CLASS:Stalker	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTER
 
 ###Block: Stalker Stances pseudo-class
 
-# Class Name		Type				Visible
-CLASS:Stalker Stances	TYPE:InitiatorStances	VISIBLE:NO
-# Class Name		Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Stalker Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Stalker Stances|StalkerInitiatorLVL|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerInitiating
+# Class Name		Type				Visible	FACT
+CLASS:Stalker Stances	TYPE:InitiatorStances	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name		Spell Stat		Memorize		Caster level
+CLASS:Stalker Stances	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Stalker Stances|StalkerInitiatorLVL|!PREABILITY:1,CATEGORY=Archetype,TYPE.StalkerInitiating
 ###Block: Stalker Stances Known/Cast
 1																																										KNOWN:0,StalkerStancesKnownOne,StalkerStancesKnownTwo,StalkerStancesKnownThree,StalkerStancesKnownFour,StalkerStancesKnownFive,StalkerStancesKnownSix,StalkerStancesKnownSeven,StalkerStancesKnownEight,StalkerStancesKnownNine
 1	CAST:0,StalkerStancesReadiedOne,StalkerStancesReadiedTwo,StalkerStancesReadiedThree,StalkerStancesReadiedFour,StalkerStancesReadiedFive,StalkerStancesReadiedSix,StalkerStancesReadiedSeven,StalkerStancesReadiedEight,StalkerStancesReadiedNine
@@ -49,12 +49,12 @@ CLASS:Stalker Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONU
 
 ###Block: Warder
 
-# Class Name	Hit Dice	Type							Class Type		Abbreviation	Max Level	Source Page		Ability																										Define			Combat bonus											Save bonus																																		Modify VAR																																																												Monster Role
-CLASS:Warder	HD:12		TYPE:Base.PC.MartialDisciple.Initiator	FACT:ClassType|PC	FACT:Abb|Wdr		MAXLEVEL:20	SOURCEPAGE:p.10	ABILITY:Internal|AUTOMATIC|Warder ~ Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarderClassSkills	ABILITY:Internal|AUTOMATIC|Warder ~ Class Variables	DEFINE:WarderLVL|0	BONUS:VAR|WarderLVL|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name	Hit Dice	Type							Max Level	Source Page		Ability																										Define			Combat bonus											Save bonus																																		Modify VAR																																																																Monster Role	FACT
+CLASS:Warder	HD:12		TYPE:Base.PC.MartialDisciple.Initiator	MAXLEVEL:20	SOURCEPAGE:p.10	ABILITY:Internal|AUTOMATIC|Warder ~ Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarderClassSkills	ABILITY:Internal|AUTOMATIC|Warder ~ Class Variables	DEFINE:WarderLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WarderLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|Wdr	FACT:SpellType|Initiator
 # Class Name	Skill Pts/Lvl
 CLASS:Warder	STARTSKILLPTS:4
-# Class Name	Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Warder	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Warder|WarderInitiatorLVL
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Warder	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Warder|WarderInitiatorLVL
 
 ###Block:Proficiencies
 1	ABILITY:Warder Class Feature|AUTOMATIC|Warder ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarderArmorAndWeaponProficiencies
@@ -83,10 +83,10 @@ CLASS:Warder	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERL
 
 ###Block: Warder Stances pseudo-class
 
-# Class Name		Type				Visible
-CLASS:Warder Stances	TYPE:InitiatorStances	VISIBLE:NO
-# Class Name		Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Warder Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Warder Stances|WarderInitiatorLVL
+# Class Name		Type				Visible	FACT
+CLASS:Warder Stances	TYPE:InitiatorStances	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name		Spell Stat		Memorize		Caster level
+CLASS:Warder Stances	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Warder Stances|WarderInitiatorLVL
 
 ###Block: Warder Stances Known/Cast
 1																																								KNOWN:0,WarderStancesKnownOne,WarderStancesKnownTwo,WarderStancesKnownThree,WarderStancesKnownFour,WarderStancesKnownFive,WarderStancesKnownSix,WarderStancesKnownSeven,WarderStancesKnownEight,WarderStancesKnownNine
@@ -96,12 +96,12 @@ CLASS:Warder Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS
 
 ###Block: Warlord
 
-# Class Name	Hit Dice	Type							Class Type		Abbreviation	Max Level	Source Page		Ability																										Define			Combat bonus											Save bonus																								Modify VAR																																																												Monster Role
-CLASS:Warlord	HD:10		TYPE:Base.PC.MartialDisciple.Initiator	FACT:ClassType|PC	FACT:Abb|Wrl		MAXLEVEL:20	SOURCEPAGE:p.14	ABILITY:Internal|AUTOMATIC|Warlord ~ Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarlordClassSkills	ABILITY:Internal|AUTOMATIC|Warlord ~ Class Variables	DEFINE:WarlordLVL|0	BONUS:VAR|WarlordLVL|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|CL/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|CL/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name	Hit Dice	Type							Max Level	Source Page		Ability																										Define			Combat bonus											Save bonus																								Modify VAR																																																																Monster Role	FACT
+CLASS:Warlord	HD:10		TYPE:Base.PC.MartialDisciple.Initiator	MAXLEVEL:20	SOURCEPAGE:p.14	ABILITY:Internal|AUTOMATIC|Warlord ~ Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarlordClassSkills	ABILITY:Internal|AUTOMATIC|Warlord ~ Class Variables	DEFINE:WarlordLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|CL/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|CL/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WarlordLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|Wrl	FACT:SpellType|Initiator
 # Class Name	Skill Pts/Lvl
 CLASS:Warlord	STARTSKILLPTS:4
-# Class Name	Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Warlord	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlord|WarlordInitiatorLVL
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Warlord	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlord|WarlordInitiatorLVL
 
 ###Block:Proficiencies
 1	ABILITY:Warlord Class Feature|AUTOMATIC|Warlord ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarlordWeaponAndArmorProficiencies
@@ -132,10 +132,10 @@ CLASS:Warlord	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTER
 
 ###Block: Warlord Stances pseudo-class
 
-# Class Name		Type				Visible
-CLASS:Warlord Stances	TYPE:InitiatorStances	VISIBLE:NO
-# Class Name		Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Warlord Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlord Stances|WarlordInitiatorLVL
+# Class Name		Type				Visible	FACT
+CLASS:Warlord Stances	TYPE:InitiatorStances	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name		Spell Stat		Memorize		Caster level
+CLASS:Warlord Stances	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlord Stances|WarlordInitiatorLVL
 
 ###Block: Warlord Stances Known/Cast
 1																																										KNOWN:0,WarlordStancesKnownOne,WarlordStancesKnownTwo,WarlordStancesKnownThree,WarlordStancesKnownFour,WarlordStancesKnownFive,WarlordStancesKnownSix,WarlordStancesKnownSeven,WarlordStancesKnownEight,WarlordStancesKnownNine
@@ -147,8 +147,8 @@ CLASS:Warlord Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONU
 
 ###Block: Battle Templar
 
-# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																			Define				Combat bonus												Save bonus																																		Modify VAR																																																													Monster Role
-CLASS:Battle Templar	HD:8		TYPE:PC.Prestige	FACT:ClassType|PC	FACT:Abb|BtT		MAXLEVEL:10	SOURCEPAGE:p.139	ABILITY:Internal|AUTOMATIC|Battle Templar ~ Class Skills	ABILITY:Internal|AUTOMATIC|Battle Templar ~ Class Variables	DEFINE:BattleTemplarLVL|0	BONUS:VAR|BattleTemplarLVL|CL	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name		Hit Dice	Type			Max Level	Source Page		Ability																			Define				Combat bonus												Save bonus																																		Modify VAR																																																																		Monster Role	FACT
+CLASS:Battle Templar	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.139	ABILITY:Internal|AUTOMATIC|Battle Templar ~ Class Skills	ABILITY:Internal|AUTOMATIC|Battle Templar ~ Class Variables	DEFINE:BattleTemplarLVL|0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|BattleTemplarLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|BtT
 # Class Name		Required Ability																					Required Skill										Required Spell School					Required Sub-school							Req. Spell Type
 CLASS:Battle Templar	PREABILITY:1,CATEGORY=FEAT,Discipline Focus (Golden Lion),Discipline Focus (Iron Tortoise)	PREABILITY:1,CATEGORY=FEAT,Martial Power	PRESKILL:3,Knowledge (Martial)=2,Knowledge (Religion)=2,Spellcraft=5	PRESPELLSCHOOL:1,Golden Lion=1,Iron Tortoise=1	PRESPELLSCHOOLSUB:1,Strike=1	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLTYPE:1,Divine=2
 # Class Name		Skill Pts/Lvl
@@ -185,8 +185,8 @@ CLASS:Battle Templar	STARTSKILLPTS:4
 
 ###Block: Bladecaster
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																		Define				Combat bonus											Save bonus																																		Modify VAR																																																												Monster Role
-CLASS:Bladecaster	HD:10		TYPE:PC.Prestige	FACT:ClassType|PC	FACT:Abb|Bdc		MAXLEVEL:10	SOURCEPAGE:p.141	ABILITY:Internal|AUTOMATIC|Bladecaster ~ Class Skills	ABILITY:Internal|AUTOMATIC|Bladecaster ~ Class Variables	DEFINE:BladecasterLVL|0	BONUS:VAR|BladecasterLVL|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name	Hit Dice	Type			Max Level	Source Page		Ability																		Define			Combat bonus											Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Bladecaster	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.141	ABILITY:Internal|AUTOMATIC|Bladecaster ~ Class Skills	ABILITY:Internal|AUTOMATIC|Bladecaster ~ Class Variables	DEFINE:BladecasterLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|BladecasterLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|Bdc
 # Class Name	Required Ability									Req. Att.	Required Skill						Required Sub-school		Req. Spell Type
 CLASS:Bladecaster	PREABILITY:2,CATEGORY=FEAT,Combat Casting,Improved Counterspell	PREATT:4	PRESKILL:2,Knowledge (Martial)=5,Spellcraft=5	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLTYPE:1,Arcane=2
 # Class Name	Skill Pts/Lvl
@@ -219,8 +219,8 @@ CLASS:Bladecaster	STARTSKILLPTS:4
 
 ###Block: Dragon Fury
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																		Define			Combat bonus											Save bonus																																		Modify VAR																																																												Monster Role
-CLASS:Dragon Fury	HD:12		TYPE:PC.Prestige	FACT:ClassType|PC	FACT:Abb|DrF		MAXLEVEL:10	SOURCEPAGE:p.144	ABILITY:Internal|AUTOMATIC|Dragon Fury ~ Class Skills	ABILITY:Internal|AUTOMATIC|Dragon Fury ~ Class Variables	DEFINE:DragonFuryLVL|0	BONUS:VAR|DragonFuryLVL|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name	Hit Dice	Type			Max Level	Source Page		Ability																		Define			Combat bonus											Save bonus																																		Modify VAR																																																																	Monster Role	FACT
+CLASS:Dragon Fury	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.144	ABILITY:Internal|AUTOMATIC|Dragon Fury ~ Class Skills	ABILITY:Internal|AUTOMATIC|Dragon Fury ~ Class Variables	DEFINE:DragonFuryLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|DragonFuryLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|DrF
 # Class Name	Required Ability												Req. Att.	Required Skill						Required Spell School			Required Sub-school							Req. Spell Type
 CLASS:Dragon Fury	PREABILITY:2,CATEGORY=FEAT,Discipline Focus (Thrashing Dragon),Two-Weapon Fighting	PREATT:4	PRESKILL:2,Acrobatics=6,Knowledge (Martial)=6	PRESPELLSCHOOL:2,Thrashing Dragon=1	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLTYPE:1,Initiator=3,Initiator=4,Initiator=5,Initiator=6,Initiator=7,Initiator=8,Initiator=9
 # Class Name	Skill Pts/Lvl
@@ -242,14 +242,14 @@ CLASS:Dragon Fury	STARTSKILLPTS:4
 
 ###Block: Mage Hunter
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																		Define			Combat bonus												Save bonus																																			Modify VAR																																																													Monster Role
-CLASS:Mage Hunter	HD:8		TYPE:PC.Prestige	FACT:ClassType|PC	FACT:Abb|MgH		MAXLEVEL:10	SOURCEPAGE:p.146	ABILITY:Internal|AUTOMATIC|Mage Hunter ~ Class Skills	ABILITY:Internal|AUTOMATIC|Mage Hunter ~ Class Variables	DEFINE:MageHunterLVL|0	BONUS:VAR|MageHunterLVL|CL	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name	Hit Dice	Type			Max Level	Source Page		Ability																		Define			Combat bonus												Save bonus																																			Modify VAR																																																																		Monster Role	FACT
+CLASS:Mage Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.146	ABILITY:Internal|AUTOMATIC|Mage Hunter ~ Class Skills	ABILITY:Internal|AUTOMATIC|Mage Hunter ~ Class Variables	DEFINE:MageHunterLVL|0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|MageHunterLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|MgH	FACT:SpellType|Arcane
 # Class Name	Required Ability								Req. Att.	Required Language		Required Skill							Required Sub-school							Req. Spell Type																	Required Text
 CLASS:Mage Hunter	PREABILITY:2,CATEGORY=FEAT,Improved Initiative,Step Up	PREATT:3	PRELANG:1,Draconic	PRESKILL:4,Acrobatics=2,Heal=2,Spellcraft=5,Stealth=2	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLSCHOOLSUB:1,Stance=1	PRESPELLTYPE:1,Initiator=2,Initiator=3,Initiator=4,Initiator=5,Initiator=6,Initiator=7,Initiator=8,Initiator=9	PRETEXT:Must read the Grimoire Serpentis Ferra, or study with a willing instructor who has done so.
 # Class Name	Skill Pts/Lvl
 CLASS:Mage Hunter	STARTSKILLPTS:4
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level							Use Spell List
-CLASS:Mage Hunter	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage Hunter|MageHunterInitiatorLVL	SPELLLIST:1|Sorcerer
+# Class Name	Spell Stat		Memorize	Caster level							Use Spell List
+CLASS:Mage Hunter	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage Hunter|MageHunterInitiatorLVL	SPELLLIST:1|Sorcerer
 ###Block: Level Progression
 1	ABILITY:Mage Hunter Class Feature|AUTOMATIC|Mage Hunter ~ Martial Arcanist|PREVARGTEQ:MageHunterLVL,1
 1	ABILITY:Mage Hunter Class Feature|AUTOMATIC|Mage Hunter ~ Arcane Tenacity|PREVARGTEQ:MageHunterLVL,1
@@ -278,8 +278,8 @@ CLASS:Mage Hunter	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLE
 
 ###Block: Umbral Blade
 
-# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																			Define				Combat bonus											Save bonus																																			Modify VAR																																																												Monster Role
-CLASS:Umbral Blade	HD:10		TYPE:PC.Prestige	FACT:ClassType|PC	FACT:Abb|UmB		MAXLEVEL:10	SOURCEPAGE:p.149	ABILITY:Internal|AUTOMATIC|Umbral Blade ~ Class Skills	ABILITY:Internal|AUTOMATIC|Umbral Blade ~ Class Variables	DEFINE:UmbralBladeLVL|0	BONUS:VAR|UmbralBladeLVL|CL	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat
+# Class Name		Hit Dice	Type			Max Level	Source Page		Ability																			Define			Combat bonus											Save bonus																																			Modify VAR																																																																	Monster Role	FACT
+CLASS:Umbral Blade	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.149	ABILITY:Internal|AUTOMATIC|Umbral Blade ~ Class Skills	ABILITY:Internal|AUTOMATIC|Umbral Blade ~ Class Variables	DEFINE:UmbralBladeLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|UmbralBladeLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|UmB
 # Class Name		Required Ability								Restricted AL		Req. Att.	Required Skill					Required Spell School
 CLASS:Umbral Blade	PREABILITY:1,CATEGORY=FEAT,Discipline Focus (Veiled Moon)	!PREALIGN:1,LG,NG,CG	PREATT:4	PRESKILL:2,Stealth=6,Knowledge (Planes)=6	PRESPELLSCHOOL:1,Veiled Moon=3
 # Class Name		Skill Pts/Lvl
@@ -302,20 +302,20 @@ CLASS:Umbral Blade	STARTSKILLPTS:4
 
 ###Block: Martial Training pseudo-class
 
-# Class Name		Type			Visible
-CLASS:Martial Training	TYPE:Initiator	VISIBLE:NO
-# Class Name		Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Martial Training	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Martial Training|MartialTrainingInitiatorLVL
+# Class Name		Type			Visible	FACT
+CLASS:Martial Training	TYPE:Initiator	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name		Spell Stat		Memorize		Caster level
+CLASS:Martial Training	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Martial Training|MartialTrainingInitiatorLVL
 ###Block: Martial Training Maneuvers Known/Cast
 1																																																									KNOWN:0,MartialTrainingManeuversKnownOne,MartialTrainingManeuversKnownTwo,MartialTrainingManeuversKnownThree,MartialTrainingManeuversKnownFour,MartialTrainingManeuversKnownFive,MartialTrainingManeuversKnownSix,MartialTrainingManeuversKnownSeven,MartialTrainingManeuversKnownEight,MartialTrainingManeuversKnownNine
 1	CAST:0,MartialTrainingManeuversReadiedOne,MartialTrainingManeuversReadiedTwo,MartialTrainingManeuversReadiedThree,MartialTrainingManeuversReadiedFour,MartialTrainingManeuversReadiedFive,MartialTrainingManeuversReadiedSix,MartialTrainingManeuversReadiedSeven,MartialTrainingManeuversReadiedEight,MartialTrainingManeuversReadiedNine
 
 ###Block: Martial Training Stances pseudo-class
 
-# Class Name				Type				Visible
-CLASS:Martial Training Stances	TYPE:InitiatorStances	VISIBLE:NO
-# Class Name				Spell Stat		Spell Type			Memorize		Caster level
-CLASS:Martial Training Stances	SPELLSTAT:OTHER	FACT:SpellType|Initiator	MEMORIZE:YES	BONUS:CASTERLEVEL|Martial Training Stances|MartialTrainingInitiatorLVL
+# Class Name				Type				Visible	FACT
+CLASS:Martial Training Stances	TYPE:InitiatorStances	VISIBLE:NO	FACT:SpellType|Initiator
+# Class Name				Spell Stat		Memorize		Caster level
+CLASS:Martial Training Stances	SPELLSTAT:OTHER	MEMORIZE:YES	BONUS:CASTERLEVEL|Martial Training Stances|MartialTrainingInitiatorLVL
 ###Block: Martial Training Stances Known/Cast
 1																																																						KNOWN:0,MartialTrainingStancesKnownOne,MartialTrainingStancesKnownTwo,MartialTrainingStancesKnownThree,MartialTrainingStancesKnownFour,MartialTrainingStancesKnownFive,MartialTrainingStancesKnownSix,MartialTrainingStancesKnownSeven,MartialTrainingStancesKnownEight,MartialTrainingStancesKnownNine
 1	CAST:0,MartialTrainingStancesReadiedOne,MartialTrainingStancesReadiedTwo,MartialTrainingStancesReadiedThree,MartialTrainingStancesReadiedFour,MartialTrainingStancesReadiedFive,MartialTrainingStancesReadiedSix,MartialTrainingStancesReadiedSeven,MartialTrainingStancesReadiedEight,MartialTrainingStancesReadiedNine

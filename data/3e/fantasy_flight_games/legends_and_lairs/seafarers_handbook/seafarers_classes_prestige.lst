@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html	SOURCEDATE:2002-01
 # Original Entry by: Eddy Anthony
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	FACT:Abb|RfW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																					FACT
+CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|RfW
 # Class Name		Required Ability						Required AL		Required Race	Required Skill			Required Template		PRETOTALAB
 CLASS:Reef Warrior	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Swim)	PREALIGN:LN,NG,TN	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill

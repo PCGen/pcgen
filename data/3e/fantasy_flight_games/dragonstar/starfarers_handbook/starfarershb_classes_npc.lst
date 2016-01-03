@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Moved all .MOD classes to starfarershb_classes_mods.lst (Base, Prestige, and NPC)
@@ -11,8 +11,8 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 #new NPC classes
 #################
 
-# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
-CLASS:Thug		HD:6		TYPE:NPC	FACT:Abb|Thg		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type		Max Level	Source Page		Combat bonus								Save bonus																					FACT
+CLASS:Thug		HD:6		TYPE:NPC	MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Thg
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Cryptography|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Device|Use Rope
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREABILITY:1,CATEGORY=FEAT,Technical Proficiency

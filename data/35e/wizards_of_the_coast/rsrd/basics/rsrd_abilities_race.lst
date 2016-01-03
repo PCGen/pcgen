@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Common Racial Abilities
 
@@ -718,7 +718,7 @@ Race Traits ~ Dire Animal (Dire Weasel)								CATEGORY:Internal																
 Race Traits ~ Dire Animal (Dire Wolf)								CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Dire Wolf ~ Skills|Dire Wolf ~ Trip|Scent
 Race Traits ~ Dire Animal (Dire Wolverine)							CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Dire Wolverine ~ Rage|Dire Wolverine ~ Skills|Scent
 Race Traits ~ Doppelganger										CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Doppelganger ~ Change Shape|Doppelganger ~ Detect Thoughts|Doppelganger ~ Skills|Immunity To Charm Effects|Immunity To Sleep
-Race Traits ~ Dragon Turtle										CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Dragon Turtle ~ Breath Weapon|Dragon Turtle ~ Capsize|Dragon Turtle ~ Skills|Immunity To Fire|Immunity to Paralysis|Scent
+Race Traits ~ Dragon Turtle										CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Dragon Turtle ~ Breath Weapon|Dragon Turtle ~ Capsize|Dragon Turtle ~ Skills|Immunity To Fire|Immunity To Paralysis|Scent
 Race Traits ~ Dragonne											CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Dragonne ~ Pounce|Dragonne ~ Roar|Dragonne ~ Skills|Flight Maneuverability|Scent
 Race Traits ~ Drider											CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Drider ~ Poison|Drider ~ Skills|Drider ~ Spell-Like Abilities|Drider ~ Spells
 Race Traits ~ Dryad											CATEGORY:Internal																																																												ABILITY:Special Ability|AUTOMATIC|Dryad ~ Spell-Like Abilities|Dryad ~ Tree Dependent|Dryad ~ Wild Empathy
@@ -3041,8 +3041,8 @@ Paralyzing Touch ~ Lich	OUTPUTNAME:Paralyzing Touch	CATEGORY:Special Ability	TYP
 Touch Attack ~ Lich	OUTPUTNAME:Touch Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES					DESC:Negative Energy 1d8+5 DC %1|LichAbilityDC
 
 ###Block: Flight Maneuverability
-# Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Temporary effect description												Temporary Bonus
-Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	TEMPVALUE:MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE
+# Ability Name		Category of Ability		Visible	Define				Ability																																																																								Temporary effect description												Temporary Bonus					TEMPVALUE
+Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE	TEMPVALUE:MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment
 
 ###Block: Maneuverability
 # Ability Name			Unique Key						Category of Ability		Type				Visible	Description									Auto Weapon Prof					Aspects
