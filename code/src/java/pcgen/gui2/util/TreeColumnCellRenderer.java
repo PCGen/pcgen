@@ -25,21 +25,33 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
+ * The parent class for all TreeCellRenderers used in JTreeTable. The whole point of this class is
+ * to solve a very particular quirk in how tree cells are rendered vs how table cells are rendered.
+ * Without forcefully setting the cell's background prior to rendering it will use some default
+ * color (usually white) instead of the table's background color to render the tree cell. As a
+ * consequence you will see an outer background (the table cell's background) and an inner
+ * background (the tree cell's background) on top of it which don't match. We solve this problem by
+ * setting the tree's background color before rendering the tree cell to that of the rendering table
+ * cell. Then in this class we assign this tree cell's background color to the one that was set for
+ * the tree.
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class TreeColumnCellRenderer extends DefaultTreeCellRenderer {
+public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
+{
 
-    public TreeColumnCellRenderer() {
-        setClosedIcon(null);
-        setLeafIcon(null);
-        setOpenIcon(null);
-    }
+	public TreeColumnCellRenderer()
+	{
+		setClosedIcon(null);
+		setLeafIcon(null);
+		setOpenIcon(null);
+	}
 
-    @Override
-    public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
-        setBackgroundNonSelectionColor(tree.getBackground());
-        return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
-    }
-    
+	@Override
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
+	{
+		setBackgroundNonSelectionColor(tree.getBackground());
+		return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+	}
+
 }
