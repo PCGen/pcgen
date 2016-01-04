@@ -23,7 +23,6 @@
 
 package pcgen.gui2.dialog;
 
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -39,6 +38,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -77,7 +77,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>DataInstaller</code> is responsible for managing the installation of
+ * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
  * 
  * Last Editor: $Author$
@@ -107,13 +107,9 @@ public class DataInstaller extends JFrame
 			{
 				return true;
 			}
-			String nameLc = f.getName().toLowerCase();
-			if (nameLc.endsWith(".zip") || nameLc.endsWith(".pcz"))
-			{
-				return true;
-			}
+			final String nameLc = f.getName().toLowerCase();
+			return nameLc.endsWith(".zip") || nameLc.endsWith(".pcz");
 
-			return false;
 		}
 
 		/* (non-Javadoc)
@@ -133,6 +129,104 @@ public class DataInstaller extends JFrame
 	private final class InstallerButtonListener implements ActionListener
 	{
 
+		/**
+		 * Gets the currently selected destination.
+		 *
+		 * @return the selected destination
+		 */
+		private Destination getSelectedDestination()
+		{
+			if (locDataButton.isSelected())
+			{
+				return Destination.DATA;
+			}
+			if (locVendorDataButton.isSelected())
+			{
+				return Destination.VENDORDATA;
+			}
+			if (locHomebrewDataButton.isSelected())
+			{
+				return Destination.HOMEBREWDATA;
+			}
+			return null;
+		}
+
+		/**
+		 * Install a data set (campaign) into the current PCGen install.
+		 *
+		 * @param dataSet the data set (campaign) to be installed.
+		 * @param dest The location the data is to be installed to.
+		 *
+		 * @return true, if install data source
+		 */
+		private boolean installDataSource(File dataSet, Destination dest)
+		{
+			// Get the directory the data is to be stored in
+			if (dataSet == null)
+			{
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+								.getFormattedString("in_diDataSetNotSelected"), TITLE,
+						MessageType.ERROR);
+				return false;
+			}
+			if (dest == null)
+			{
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+								.getFormattedString("in_diDataFolderNotSelected"), TITLE,
+						MessageType.ERROR);
+				return false;
+			}
+			File destDir;
+			switch (dest)
+			{
+				case VENDORDATA:
+					destDir = new File(PCGenSettings.getVendorDataDir());
+					break;
+
+				case HOMEBREWDATA:
+					destDir = new File(PCGenSettings.getHomebrewDataDir());
+					break;
+
+				case DATA:
+				default:
+					destDir = new File(ConfigurationSettings.getPccFilesDir());
+					break;
+			}
+
+			// Check chosen dir exists
+			if (!destDir.exists())
+			{
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+						.getFormattedString("in_diDataFolderNotExist", destDir
+								.getAbsoluteFile()), TITLE, MessageType.ERROR);
+				return false;
+			}
+
+			// Scan for non standard files and files that would be overwritten
+			List<String> directories = new ArrayList<>();
+			List<String> files = new ArrayList<>();
+			if (!populateFileAndDirLists(dataSet, directories, files))
+			{
+				return false;
+			}
+			if (!checkNonStandardOK(files))
+			{
+				return false;
+			}
+			if (!checkOverwriteOK(files, destDir))
+			{
+				return false;
+			}
+
+			if (!createDirectories(directories, destDir))
+			{
+				return false;
+			}
+
+			// Navigate through the zip file, processing each file
+			return createFiles(dataSet, destDir, files);
+		}
+
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
@@ -145,12 +239,12 @@ public class DataInstaller extends JFrame
 			{
 				// Do nothing
 			}
-			else if (source == closeButton)
+			else if (source.equals(closeButton))
 			{
 				setVisible(false);
-				DataInstaller.this.dispose();
+				dispose();
 			}
-			else if (source == selectButton)
+			else if (source.equals(selectButton))
 			{
 				JFileChooser chooser =
 						new JFileChooser(currFolder);
@@ -166,7 +260,7 @@ public class DataInstaller extends JFrame
 				currFolder = dataset.getParentFile();
 				readDataSet(dataset);
 			}
-			else if (source == installButton)
+			else if (source.equals(installButton))
 			{
 				if (installDataSource(currDataSet, getSelectedDestination()))
 				{
@@ -179,6 +273,138 @@ public class DataInstaller extends JFrame
 							.getDisplayName()), TITLE, MessageType.INFORMATION);
 				}
 			}
+		}
+
+
+		/**
+		 * Read data set.
+		 *
+		 * @param dataSet the data set
+		 *
+		 * @return true, if successful
+		 */
+		private boolean readDataSet(File dataSet)
+		{
+			// Open the ZIP file
+			try (ZipFile in = new ZipFile(dataSet))
+				{
+				// Get the install file in a case insensitive manner
+				ZipEntry installEntry = null;
+				@SuppressWarnings("rawtypes")
+				Enumeration entries = in.entries();
+				while (entries.hasMoreElements())
+				{
+					ZipEntry entry = (ZipEntry) entries.nextElement();
+					if (entry.getName().equalsIgnoreCase("install.lst"))
+					{
+						installEntry = entry;
+						break;
+					}
+				}
+				if (installEntry == null)
+				{
+					// Report that it isn't a valid data set
+					Logging.errorPrint("File " + dataSet
+							+ " is not a valid datsset - no Install.lst file");
+					ShowMessageDelegate.showMessageDialog(
+							LanguageBundle.getFormattedString("in_diNoInstallFile",
+									dataSet.getName()), TITLE, MessageType.WARNING);
+					in.close();
+					return false;
+				}
+
+				// Parse the install file
+				InputStream inStream = in.getInputStream(installEntry);
+				BufferedReader reader
+						= new BufferedReader(new InputStreamReader(inStream, "UTF-8")); //$NON-NLS-1$
+
+				StringBuilder installInfo = new StringBuilder();
+				String line;
+				while ((line = reader.readLine()) != null) {
+					installInfo.append(line).append("\n");
+				}
+
+				final InstallLoader loader = new InstallLoader();
+				loader.loadLstString(null, dataSet.toURI(), installInfo.toString());
+				campaign = loader.getCampaign();
+				in.close();
+			}
+			catch (IOException e)
+			{
+				// Report the error
+				Logging.errorPrint("Failed to read data set " + dataSet
+						+ " due to ", e);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+								.getFormattedString("in_diBadDataSet", dataSet), TITLE,
+						MessageType.ERROR);
+				return false;
+			}
+			catch (PersistenceLayerException e)
+			{
+				Logging.errorPrint("Failed to parse data set " + dataSet
+						+ " due to ", e);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+								.getFormattedString("in_diBadDataSet", dataSet), TITLE,
+						MessageType.ERROR);
+				return false;
+			}
+
+			// Validate that the campaign is compatible with our version
+			if (campaign.getSafe(StringKey.MINDEVVER) != null
+					&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
+			{
+				if (CoreUtility.isCurrMinorVer(campaign.getSafe(StringKey.MINDEVVER)))
+				{
+					Logging.errorPrint("Dataset " + campaign.getDisplayName()
+							+ " needs at least PCGen version "
+							+ campaign.getSafe(StringKey.MINDEVVER)
+							+ " to run. It could not be installed.");
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
+									.getFormattedString("in_diVersionTooOldDev", campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)), TITLE,
+							MessageType.WARNING);
+					return false;
+				}
+			}
+			if (campaign.getSafe(StringKey.MINVER) != null
+					&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
+			{
+				Logging.errorPrint("Dataset " + campaign.getDisplayName()
+						+ " needs at least PCGen version " + campaign.getSafe(StringKey.MINVER)
+						+ " to run. It could not be installed.");
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+								.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)),
+						TITLE, MessageType.WARNING);
+				return false;
+			}
+
+			// Display the info
+			dataSetSel.setText(dataSet.getAbsolutePath());
+			dataSetDetails.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
+			if (campaign.get(ObjectKey.DESTINATION) == null)
+			{
+				locDataButton.setSelected(false);
+				locVendorDataButton.setSelected(false);
+				locHomebrewDataButton.setSelected(false);
+			}
+			else
+			{
+				switch (campaign.get(ObjectKey.DESTINATION))
+				{
+					case DATA:
+						locDataButton.setSelected(true);
+						break;
+					case VENDORDATA:
+						locVendorDataButton.setSelected(true);
+						break;
+					case HOMEBREWDATA:
+						locHomebrewDataButton.setSelected(true);
+						break;
+				}
+			}
+			currDataSet = dataSet;
+
+			toFront();
+			return true;
 		}
 	}
 	
@@ -216,7 +442,7 @@ public class DataInstaller extends JFrame
 	private JButton closeButton;
 	
 	/** The listener. */
-	private InstallerButtonListener listener = new InstallerButtonListener();
+	private ActionListener listener = new InstallerButtonListener();
 	
 	/** The campaign. */
 	private InstallableCampaign campaign;
@@ -229,10 +455,9 @@ public class DataInstaller extends JFrame
 
 	/**
 	 * Instantiates a new data installer.
-	 * 
-	 * @param owner the parent window of the dialog.
+	 *
 	 */
-	public DataInstaller(Component owner)
+	public DataInstaller()
 	{
 		currFolder = new File(System.getProperty("user.dir"));
 		initComponents();
@@ -250,9 +475,9 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return Should the install process continue
 	 */
-	private boolean checkNonStandardOK(List<String> files)
+	private boolean checkNonStandardOK(Collection<String> files)
 	{
-		List<String> nonStandardFiles = new ArrayList<String>();
+		Collection<String> nonStandardFiles = new ArrayList<>();
 		for (String filename : files)
 		{
 			if (!filename.toLowerCase().startsWith(DATA_FOLDER)
@@ -299,10 +524,10 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean checkOverwriteOK(List<String> files, File destDir)
+	private boolean checkOverwriteOK(Collection<String> files, File destDir)
 	{
-		List<String> existingFiles = new ArrayList<String>();
-		List<String> existingFilesCorr = new ArrayList<String>();
+		Collection<String> existingFiles = new ArrayList<>();
+		Collection<String> existingFilesCorr = new ArrayList<>();
 		for (String filename : files)
 		{
 			String correctedFilename = correctFileName(destDir, filename); 
@@ -350,7 +575,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	private final void copyInputStream(InputStream in, OutputStream out)
+	private void copyInputStream(InputStream in, OutputStream out)
 		throws IOException
 	{
 		byte[] buffer = new byte[1024];
@@ -398,7 +623,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean createDirectories(List<String> directories, File destDir)
+	private boolean createDirectories(Iterable<String> directories, File destDir)
 	{
 		for (String dirname : directories)
 		{
@@ -428,76 +653,34 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if all files created ok
 	 */
-	private boolean createFiles(File dataSet, File destDir, List<String> files)
+	private boolean createFiles(File dataSet, File destDir, Iterable<String> files)
 	{
 		String corrFilename = "";
-		ZipFile in;
-		// Open the ZIP file
-		try
-		{
-			in = new ZipFile(dataSet);
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint("Failed to read data set " + dataSet
-				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
-				MessageType.ERROR);
-			return false;
-		}
-
-		try
-		{
-			for (String filename : files)
-			{
-				ZipEntry entry = in.getEntry(filename);
-				corrFilename = correctFileName(destDir, filename);
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("Extracting file: " + filename + " to "
-						+ corrFilename);
-				}
-				copyInputStream(
-					in.getInputStream(entry),
-					new BufferedOutputStream(new FileOutputStream(corrFilename)));
+		try (ZipFile in = new ZipFile(dataSet)) {
+				for (String filename : files) {
+					ZipEntry entry = in.getEntry(filename);
+					corrFilename = correctFileName(destDir, filename);
+					if (Logging.isDebugMode()) {
+						Logging.debugPrint("Extracting file: " + filename + " to "
+								+ corrFilename);
+					}
+					copyInputStream(
+							in.getInputStream(entry),
+							new BufferedOutputStream(new FileOutputStream(corrFilename)));
 			}
-			in.close();
-		}
-		catch (IOException e)
-		{
+			return true;
+		} catch (IOException e) {
 			// Report the error
 			Logging.errorPrint("Failed to read data set " + dataSet
-				+ " or write file " + corrFilename + " due to ", e);
+					+ " or write file " + corrFilename + " due to ", e);
 			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diWriteFail", corrFilename), TITLE,
-				MessageType.ERROR);
+							.getFormattedString("in_diWriteFail", corrFilename), TITLE,
+					MessageType.ERROR);
 			return false;
 		}
-		return true;
 	}
 
-	/**
-	 * Gets the currently selected destination.
-	 * 
-	 * @return the selected destination
-	 */
-	private Destination getSelectedDestination()
-	{
-		if (locDataButton.isSelected())
-		{
-			return Destination.DATA;
-		}
-		if (locVendorDataButton.isSelected())
-		{
-			return Destination.VENDORDATA;
-		}
-		if (locHomebrewDataButton.isSelected())
-		{
-			return Destination.HOMEBREWDATA;
-		}
-		return null;
-	}
+
 
 	/**
 	 * Build the user interface ready for display.
@@ -599,84 +782,7 @@ public class DataInstaller extends JFrame
 		pack();
 	}
 
-	/**
-	 * Install a data set (campaign) into the current PCGen install.
-	 * 
-	 * @param dataSet the data set (campaign) to be installed.
-	 * @param dest The location the data is to be installed to.
-	 * 
-	 * @return true, if install data source
-	 */
-	private boolean installDataSource(File dataSet, Destination dest)
-	{
-		// Get the directory the data is to be stored in
-		if (dataSet == null)
-		{
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diDataSetNotSelected"), TITLE,
-				MessageType.ERROR);
-			return false;
-		}
-		if (dest == null)
-		{
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diDataFolderNotSelected"), TITLE,
-				MessageType.ERROR);
-			return false;
-		}
-		File destDir;
-		switch (dest)
-		{
-			case VENDORDATA:
-				destDir = new File(PCGenSettings.getVendorDataDir());
-				break;
-
-			case HOMEBREWDATA:
-				destDir = new File(PCGenSettings.getHomebrewDataDir());
-				break;
-
-			case DATA:
-			default:
-				destDir = new File(ConfigurationSettings.getPccFilesDir());
-				break;
-		}
-
-		// Check chosen dir exists
-		if (!destDir.exists())
-		{
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diDataFolderNotExist", destDir
-					.getAbsoluteFile()), TITLE, MessageType.ERROR);
-			return false;
-		}
-		
-		// Scan for non standard files and files that would be overwritten
-		List<String> directories = new ArrayList<String>();
-		List<String> files = new ArrayList<String>();
-		if (!populateFileAndDirLists(dataSet, directories, files))
-		{
-			return false;
-		}
-		if (!checkNonStandardOK(files))
-		{
-			return false;
-		}
-		if (!checkOverwriteOK(files, destDir))
-		{
-			return false;
-		}
-		
-		if (!createDirectories(directories, destDir))
-		{
-			return false;
-		}
-		
-		// Navigate through the zip file, processing each file
-		return createFiles(dataSet, destDir, files);
-	}
-
-	
-	/**
+		/**
 	 * Populate the lists of files and directories to be installed.
 	 * 
 	 * @param dataSet the data set (campaign) to be installed.
@@ -687,24 +793,18 @@ public class DataInstaller extends JFrame
 	 */
 	@SuppressWarnings("rawtypes")
 	private boolean populateFileAndDirLists(File dataSet,
-		List<String> directories, List<String> files)
+		Collection<String> directories, Collection<String> files)
 	{
 		// Navigate through the zip file, processing each file
-		try
-		{
-			// Open the ZIP file
-			ZipFile in = new ZipFile(dataSet);
+		// Open the ZIP file
+		try (ZipFile in = new ZipFile(dataSet)) {
 
-		    Enumeration entries = in.entries();
-			while (entries.hasMoreElements())
-			{
+			Enumeration entries = in.entries();
+			while (entries.hasMoreElements()) {
 				ZipEntry entry = (ZipEntry) entries.nextElement();
-				if (entry.isDirectory())
-				{
+				if (entry.isDirectory()) {
 					directories.add(entry.getName());
-				}
-				else if (!entry.getName().equalsIgnoreCase("install.lst"))
-				{
+				} else if (!entry.getName().equalsIgnoreCase("install.lst")) {
 					files.add(entry.getName());
 				}
 			}
@@ -720,141 +820,6 @@ public class DataInstaller extends JFrame
 				MessageType.ERROR);
 			return false;
 		}
-		return true;
-	}
-
-	/**
-	 * Read data set.
-	 * 
-	 * @param dataSet the data set
-	 * 
-	 * @return true, if successful
-	 */
-	private boolean readDataSet(File dataSet)
-	{
-		try
-		{
-			// Open the ZIP file
-			ZipFile in = new ZipFile(dataSet);
-
-			// Get the install file in a case insensitive manner
-			ZipEntry installEntry = null;
-			@SuppressWarnings("rawtypes")
-		    Enumeration entries = in.entries();
-			while (entries.hasMoreElements())
-			{
-				ZipEntry entry = (ZipEntry) entries.nextElement();
-				if (entry.getName().equalsIgnoreCase("install.lst"))
-				{
-					installEntry = entry;
-					break;
-				}
-			}
-			if (installEntry == null)
-			{
-				// Report that it isn't a valid data set
-				Logging.errorPrint("File " + dataSet
-					+ " is not a valid datsset - no Install.lst file");
-				ShowMessageDelegate.showMessageDialog(
-					LanguageBundle.getFormattedString("in_diNoInstallFile",
-						dataSet.getName()), TITLE, MessageType.WARNING);
-				in.close();
-				return false;
-			}
-			
-			// Parse the install file
-			InputStream inStream = in.getInputStream(installEntry);
-			BufferedReader reader
-			   = new BufferedReader(new InputStreamReader(inStream, "UTF-8")); //$NON-NLS-1$
-			
-			StringBuilder installInfo = new StringBuilder();
-			String line;
-			while ((line = reader.readLine()) != null)
-			{
-				installInfo.append(line);
-				installInfo.append("\n");
-			}
-
-			final InstallLoader loader = new InstallLoader();
-			loader.loadLstString(null, dataSet.toURI(), installInfo.toString());
-			campaign = loader.getCampaign();
-			in.close();
-		}
-		catch (IOException e)
-		{
-			// Report the error
-			Logging.errorPrint("Failed to read data set " + dataSet
-				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
-				MessageType.ERROR);
-			return false;
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Failed to parse data set " + dataSet
-				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
-				MessageType.ERROR);
-			return false;
-		}
-
-		// Validate that the campaign is compatible with our version
-		if (campaign.getSafe(StringKey.MINDEVVER) != null
-			&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINDEVVER)))
-		{
-			if (CoreUtility.isCurrMinorVer(campaign.getSafe(StringKey.MINDEVVER)))
-			{
-				Logging.errorPrint("Dataset " + campaign.getDisplayName()
-					+ " needs at least PCGen version "
-					+ campaign.getSafe(StringKey.MINDEVVER)
-					+ " to run. It could not be installed.");
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-					.getFormattedString("in_diVersionTooOldDev", campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)), TITLE,
-					MessageType.WARNING);
-				return false;
-			}
-		}
-		if (campaign.getSafe(StringKey.MINVER) != null
-			&& !CoreUtility.isPriorToCurrent(campaign.getSafe(StringKey.MINVER)))
-		{
-			Logging.errorPrint("Dataset " + campaign.getDisplayName()
-				+ " needs at least PCGen version " + campaign.getSafe(StringKey.MINVER)
-				+ " to run. It could not be installed.");
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)),
-				TITLE, MessageType.WARNING);
-			return false;
-		}
-		
-		// Display the info
-		dataSetSel.setText(dataSet.getAbsolutePath());
-		dataSetDetails.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
-		if (campaign.get(ObjectKey.DESTINATION) == null)
-		{
-			locDataButton.setSelected(false);
-			locVendorDataButton.setSelected(false);
-			locHomebrewDataButton.setSelected(false);
-		}
-		else
-		{
-			switch (campaign.get(ObjectKey.DESTINATION))
-			{
-				case DATA:
-					locDataButton.setSelected(true);
-					break;
-				case VENDORDATA:
-					locVendorDataButton.setSelected(true);
-					break;
-				case HOMEBREWDATA:
-					locHomebrewDataButton.setSelected(true);
-					break;
-			}
-		}
-		currDataSet = dataSet;
-		
-		toFront();
 		return true;
 	}
 }

@@ -370,7 +370,6 @@ public final class PCGIOHandler extends IOHandler
 	 * the save fails, the file system is untouched.
 	 * 
 	 * @param pcToBeWritten the PlayerCharacter to write
-	 * @param out           the stream to be written to
 	 * @param mode          The character's game mode.
 	 * @param campaigns     The character's sources.
 	 * @param outFile       The file to write the character to.
@@ -424,7 +423,7 @@ public final class PCGIOHandler extends IOHandler
 	private void sanityChecks(PlayerCharacter currentPC, PCGParser parser)
 	{
 		// Hit point sanity check
-		boolean bFixMade = false;
+		boolean fixMade = false;
 
 		resolveDuplicateEquipmentSets(currentPC);
 		
@@ -491,13 +490,13 @@ public final class PCGIOHandler extends IOHandler
 					if (iRoll > iSides)
 					{
 						currentPC.setHP(pcl, Integer.valueOf(iSides));
-						bFixMade = true;
+						fixMade = true;
 					}
 				}
 			}
 		}
 
-		if (bFixMade)
+		if (fixMade)
 		{
 			final String message =
 					"Fixed illegal value in hit points. "
@@ -506,7 +505,6 @@ public final class PCGIOHandler extends IOHandler
 			warnings.add(message);
 		}
 
-		//
 		// Sometimes another class, feat, item, whatever can affect
 		// what spells or whatever would have been available for a
 		// class, so this simply lets the level advancement routine

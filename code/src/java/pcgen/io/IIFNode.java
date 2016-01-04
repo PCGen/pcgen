@@ -36,7 +36,7 @@ class IIFNode
 	private final List<Object> trueChildren;
 	private final String expr;
 
-	IIFNode(String expr)
+	IIFNode(final String expr)
 	{
 		this.expr = expr;
 		trueChildren = new ArrayList<>();
@@ -65,7 +65,7 @@ class IIFNode
 	 * Add a false child
 	 * @param child
 	 */
-	public void addFalseChild(Object child)
+	public void addFalseChild(final Object child)
 	{
 		falseChildren.add(child);
 	}
