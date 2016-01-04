@@ -45,7 +45,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -68,6 +67,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.InfoPaneLinkAction;
 import pcgen.gui2.util.FacadeComboBoxModel;
+import pcgen.gui2.util.TreeColumnCellRenderer;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.treeview.DataView;
@@ -697,7 +697,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 * The Class <code>CampaignRenderer</code> displays the tree cells of the
 	 * source table.  
 	 */
-	private class CampaignRenderer extends DefaultTreeCellRenderer
+	private class CampaignRenderer extends TreeColumnCellRenderer
 	{
 
 		/**
@@ -707,9 +707,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		public CampaignRenderer()
 		{
 			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-			setClosedIcon(null);
-			setLeafIcon(null);
-			setOpenIcon(null);
 		}
 
 		@Override
