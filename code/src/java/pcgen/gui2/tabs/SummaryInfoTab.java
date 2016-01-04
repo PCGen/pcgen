@@ -679,7 +679,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.put(AddLevelsAction.class, new AddLevelsAction(character));
 		models.put(RemoveLevelsAction.class, new RemoveLevelsAction(character));
 		models.put(StatTableModel.class, new StatTableModel(character, statsTable));
-		models.put(LanguageTableModel.class, new LanguageTableModel(character));
+		models.put(LanguageTableModel.class, new LanguageTableModel(character, languageTable));
 		models.put(InfoPaneHandler.class, new InfoPaneHandler(character, infoPane));
 		models.put(ExpAddAction.class, new ExpAddAction(character));
 		models.put(ExpSubtractAction.class, new ExpSubtractAction(character));
@@ -720,7 +720,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.get(ComboBoxModelHandler.class).install();
 
 		models.get(InfoPaneHandler.class).install();
-		models.get(LanguageTableModel.class).install(languageTable);
+		models.get(LanguageTableModel.class).install();
 		models.get(StatTableModel.class).install();
 		models.get(ClassLevelTableModel.class).install();
 		models.get(TodoListHandler.class).install();
