@@ -23,11 +23,10 @@ package pcgen.gui2.tabs.summary;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Frame;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
@@ -55,7 +54,7 @@ import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
 public class LanguageTableModel extends AbstractTableModel
-		implements MouseMotionListener, ListListener<LanguageFacade>
+		implements ListListener<LanguageFacade>
 {
 
 	private ListFacade<LanguageFacade> languages;
@@ -63,12 +62,14 @@ public class LanguageTableModel extends AbstractTableModel
 	private CharacterFacade character;
 	private JTable table;
 	private int dirtyRow = -1;
+	private MouseListener mouseListener = new MouseListener();
 	private Renderer renderer = new Renderer();
 	private Editor editor = new Editor();
 
-	public LanguageTableModel(CharacterFacade character)
+	public LanguageTableModel(CharacterFacade character, JTable table)
 	{
 		super();
+		this.table = table;
 		this.character = character;
 		languages = character.getLanguages();
 		choosers = character.getLanguageChoosers();
@@ -85,22 +86,21 @@ public class LanguageTableModel extends AbstractTableModel
 		table.getTableHeader().setReorderingAllowed(false);
 	}
 
-	public void install(JTable jTable)
+	public void install()
 	{
-		this.table = jTable;
-		jTable.addMouseMotionListener(this);
-		jTable.setModel(this);
+		table.addMouseListener(mouseListener);
+		table.addMouseMotionListener(mouseListener);
+		table.setModel(this);
 
-		jTable.setDefaultRenderer(Object.class, renderer);
-		jTable.setDefaultEditor(Object.class, editor);
+		table.setDefaultRenderer(Object.class, renderer);
+		table.setDefaultEditor(Object.class, editor);
 	}
 
 	public void uninstall()
 	{
-		if (table != null)
-		{
-			table.removeMouseMotionListener(this);
-		}
+		table.removeMouseListener(mouseListener);
+		table.removeMouseMotionListener(mouseListener);
+		dirtyRow = -1;
 	}
 
 	@Override
@@ -132,26 +132,6 @@ public class LanguageTableModel extends AbstractTableModel
 		{
 			return choosers.getElementAt(rowIndex - languages.getSize());
 		}
-	}
-
-	@Override
-	public void mouseDragged(MouseEvent e)
-	{
-		//Do nothing
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e)
-	{
-		int row = table.rowAtPoint(e.getPoint());
-		if (row == dirtyRow)
-		{
-			return;
-		}
-		editor.cancelCellEditing();
-		table.repaint(table.getCellRect(dirtyRow, 0, true));
-		table.repaint(table.getCellRect(row, 0, true));
-		dirtyRow = row;
 	}
 
 	@Override
@@ -190,6 +170,31 @@ public class LanguageTableModel extends AbstractTableModel
 	public void elementModified(ListEvent<LanguageFacade> e)
 	{
 		fireTableRowsUpdated(e.getIndex(), e.getIndex());
+	}
+
+	private class MouseListener extends MouseAdapter
+	{
+
+		@Override
+		public void mouseExited(MouseEvent e)
+		{
+			table.repaint(table.getCellRect(dirtyRow, 0, true));
+			dirtyRow = -1;
+		}
+
+		@Override
+		public void mouseMoved(MouseEvent e)
+		{
+			int row = table.rowAtPoint(e.getPoint());
+			if (row != dirtyRow)
+			{
+				editor.cancelCellEditing();
+				table.repaint(table.getCellRect(dirtyRow, 0, true));
+				dirtyRow = row;
+				table.repaint(table.getCellRect(dirtyRow, 0, true));
+			}
+		}
+
 	}
 
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
@@ -323,8 +328,6 @@ public class LanguageTableModel extends AbstractTableModel
 						&& character.isAutomatic((LanguageFacade) value);
 				boolean removable = value instanceof LanguageFacade
 						&& character.isRemovable((LanguageFacade) value);
-				Point mouse = jTable.getMousePosition();
-
 				if (automatic)
 				{
 					cellLabel.setForeground(UIPropertyContext.getAutomaticColor());
@@ -335,8 +338,8 @@ public class LanguageTableModel extends AbstractTableModel
 				}
 				cellLabel.setText(value.toString());
 				cellLabel.setFont(jTable.getFont());
-				removeButton.setVisible(mouse != null && jTable.rowAtPoint(mouse) == row
-						&& removable);
+				removeButton.setEnabled(dirtyRow == row);
+				removeButton.setVisible(removable);
 				cardLayout.show(this, REMOVE_ID);
 			}
 			else
