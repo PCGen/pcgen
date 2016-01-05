@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
@@ -469,6 +470,16 @@ public class BatchExporter
 				return false;
 			}
 		});
+	}
+
+	public static void printToXmlStream(CharacterFacade character, OutputStream outputStream)
+			throws IOException, ExportException
+	{
+		final BufferedWriter bw
+				= new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+		File template = getXMLTemplate(character);
+		character.export(new ExportHandler(template), bw);
+		bw.close();
 	}
 
 	public static void printToXMLFile(File outFile, CharacterFacade character)
