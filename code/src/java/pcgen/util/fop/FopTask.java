@@ -197,18 +197,18 @@ public class FopTask implements Runnable
 		catch (TransformerException e)
 		{
 			errorBuilder.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
-			Logging.errorPrint("Exception in FOPHandler:run", e);
+			Logging.errorPrint("Exception in FopTask:run", e);
 		}
 		catch (FOPException fopex)
 		{
 			errorBuilder.append(fopex.getMessage()).append(Constants.LINE_SEPARATOR);
-			Logging.errorPrint("Exception in FOPHandler:run", fopex);
+			Logging.errorPrint("Exception in FopTask:run", fopex);
 		}
 		catch (RuntimeException ex)
 		{
 			errorBuilder.append(ex.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint(
-					"Unexpected exception in FOPHandler:run: "
+					"Unexpected exception in FopTask:run: "
 					+ ex.getMessage());
 		}
 		finally
