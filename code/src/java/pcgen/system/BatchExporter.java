@@ -22,10 +22,7 @@
  */
 package pcgen.system;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
@@ -51,8 +48,9 @@ import pcgen.io.ExportHandler;
 import pcgen.io.ExportUtilities;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
+import pcgen.util.fop.FOPHandler;
+import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
-import pcgen.util.fop.FopTask;
 
 /**
  * The Class <code>BatchExporter</code> manages character sheet output to a 
@@ -225,30 +223,36 @@ public class BatchExporter
 	{
 		String extension =
 				StringUtils.substringAfterLast(templateFile.getName(), ".");
-		try(BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile)))
+		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
+		File tempFile = null;
+		try
 		{
-			FopTask task;
 			if ("xslt".equalsIgnoreCase(extension)
 				|| "xsl".equalsIgnoreCase(extension))
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				printToXmlStream(character, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
+				tempFile = File.createTempFile("currentPC_", ".xml");
+				printToXMLFile(tempFile, character);
+				handler.setInputFile(tempFile, templateFile);
 			}
 			else
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				printToXmlStream(character, templateFile, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, fileStream);
+				tempFile = File.createTempFile("currentPC_", ".fo");
+				printToFile(tempFile, templateFile, character);
+				handler.setInputFile(tempFile);
 			}
+			if (StringUtils.isNotEmpty(handler.getErrorMessage()))
+			{
+				return false;
+			}
+					
 			character.setDefaultOutputSheet(true, templateFile);
-			task.run();
-			if (StringUtils.isNotBlank(task.getErrorMessages()))
+			handler.setMode(FOPHandler.PDF_MODE);
+			handler.setOutputFile(outFile);
+			handler.run();
+			if (StringUtils.isNotBlank(handler.getErrorMessage()))
 			{
 				Logging.errorPrint("BatchExporter.exportCharacterToPDF failed: " //$NON-NLS-1$
-					+ task.getErrorMessages());
+					+ handler.getErrorMessage());
 				return false;
 			}
 		}
@@ -263,6 +267,7 @@ public class BatchExporter
 			return false;
 		}
 		return true;
+
 	}
 
 	/**
@@ -356,25 +361,27 @@ public class BatchExporter
 		String extension =
 				ExportUtilities.getOutputExtension(templateFile.getName(),
 					false);
-		try(BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile)))
+		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
+		File tempFile = null;
+		try
 		{
-			FopTask task;
 			if ("xslt".equalsIgnoreCase(extension)
 				|| "xsl".equalsIgnoreCase(extension))
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				printToXmlStream(party, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
+				tempFile = File.createTempFile("currentPC_", ".xml");
+				printToXMLFile(tempFile, party);
+				handler.setInputFile(tempFile, templateFile);
+				//SettingsHandler.setSelectedCharacterPDFOutputSheet(template.getAbsolutePath(), Globals.getPCList().get(pcExports[loop]));
 			}
 			else
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				printToStream(outputStream, true, templateFile, party);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, fileStream);
+				tempFile = File.createTempFile("currentPC_", ".fo");
+				printToFile(tempFile, true, templateFile, party);
+				handler.setInputFile(tempFile);
 			}
-			task.run();
+			handler.setMode(FOPHandler.PDF_MODE);
+			handler.setOutputFile(outFile);
+			handler.run();
 		}
 		catch (IOException e)
 		{
@@ -474,32 +481,24 @@ public class BatchExporter
 		character.export(new ExportHandler(template), bw);
 		bw.close();
 	}
-	
-	public static void printToXmlStream(CharacterFacade character, File templateFile,
-			OutputStream outputStream) throws IOException, ExportException{
-		final BufferedWriter bw
-				= new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-		character.export(new ExportHandler(templateFile), bw);
-		bw.close();
-	}
 
 	public static void printToXMLFile(File outFile, CharacterFacade character)
-			throws IOException, ExportException
+		throws IOException, ExportException
 	{
-		printToXmlStream(character, getXMLTemplate(character), new FileOutputStream(outFile));
+		final BufferedWriter bw =
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+					outFile), "UTF-8"));
+		File template = getXMLTemplate(character);
+		character.export(new ExportHandler(template), bw);
+		bw.close();
 	}
 
 	public static void printToXMLFile(File outFile, PartyFacade party)
 		throws IOException, ExportException
 	{
-		printToXmlStream(party, new FileOutputStream(outFile));
-	}
-	
-	public static void printToXmlStream(PartyFacade party, OutputStream outputStream)
-		throws IOException, ExportException
-	{
-		final BufferedWriter bw
-				= new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+		final BufferedWriter bw =
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+					outFile), "UTF-8"));
 		for (CharacterFacade character : party)
 		{
 			File templateFile = getXMLTemplate(character);
@@ -511,20 +510,19 @@ public class BatchExporter
 	private static void printToFile(File outFile, 
 		File templateFile, CharacterFacade character) throws IOException, ExportException
 	{
-		printToXmlStream(character, templateFile, new FileOutputStream(outFile));
+		final BufferedWriter bw =
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+					outFile), "UTF-8"));
+		character.export(new ExportHandler(templateFile), bw);
+		bw.close();
 	}
 
 	private static void printToFile(File outFile, boolean pdf,
 		File templateFile, PartyFacade party) throws IOException
 	{
-		printToStream(new FileOutputStream(outFile), pdf, templateFile, party);
-	}
-	
-	private static void printToStream(OutputStream outputStream, boolean pdf,
-		File templateFile, PartyFacade party) throws IOException
-	{
 		final BufferedWriter bw =
-				new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+					outFile), "UTF-8"));
 
 		if (pdf)
 		{
