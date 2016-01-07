@@ -1586,12 +1586,12 @@ Aspect of War								KEY:Warpriest ~ Aspect of War				CATEGORY:Special Ability	T
 Channel Positive Energy							KEY:Warpriest ~ Channel Positive Energy		CATEGORY:Special Ability	TYPE:Warpriest Class Feature.Supernatural.SpecialAttack.ChannelEnergy	PREALIGN:LG,NG,CG,LN,TN,CN	PREMULT:1,[PREDEITYALIGN:LG,NG,CG,LN,TN,CN],[PREDEITY:1,None]																						DESC:You can unleash a wave of positive energy dealing %1d6 (DC %2 for half). This consumes 2 uses of your Fervor Ability.|(TL/3)+1|10+(TL/2)+CHA																																																																																																																																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Channel Positive Energy
 
 ###Block:
-Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,3|PREVAREQ:Warpriest_CF_BonusFeat3,1
-Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,6|PREVAREQ:Warpriest_CF_BonusFeat6,1
-Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,9|PREVAREQ:Warpriest_CF_BonusFeat9,1
-Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,12|PREVAREQ:Warpriest_CF_BonusFeat12,1
-Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,15|PREVAREQ:Warpriest_CF_BonusFeat15,1
-Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,18|PREVAREQ:Warpriest_CF_BonusFeat18,1
+CATEGORY=Special Ability|Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,3|PREVAREQ:Warpriest_CF_BonusFeat3,1
+CATEGORY=Special Ability|Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,6|PREVAREQ:Warpriest_CF_BonusFeat6,1
+CATEGORY=Special Ability|Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,9|PREVAREQ:Warpriest_CF_BonusFeat9,1
+CATEGORY=Special Ability|Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,12|PREVAREQ:Warpriest_CF_BonusFeat12,1
+CATEGORY=Special Ability|Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,15|PREVAREQ:Warpriest_CF_BonusFeat15,1
+CATEGORY=Special Ability|Warpriest ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Warpriest Bonus Feat|-1|PREVARGTEQ:WarpriestBonusFeatLVL,18|PREVAREQ:Warpriest_CF_BonusFeat18,1
 
 ###Block: Warpriest Focus Weapon Choices
 # Ability Name	Unique Key							Category of Ability		Type						Multiple?	Choose				Ability
