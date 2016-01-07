@@ -491,12 +491,12 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 ###Block:
-STARTPACK:Familiar ~ Scorpion (Greensting)	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Greensting)]	SOURCEPAGE:p.242
+STARTPACK:Familiar ~ Scorpion (Greensting)	TYPE:Default Monster.Vermin	VISIBLE:NO	SOURCEPAGE:p.242
 NAME:Scorpion (Greensting)
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=1|WIS=10|CHA=10
 
-STARTPACK:Familiar ~ Centipede (House)	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (House)]	SOURCEPAGE:p.43
+STARTPACK:Familiar ~ Centipede (House)	TYPE:Default Monster.Vermin	VISIBLE:NO	SOURCEPAGE:p.43
 NAME:House Centipede
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
@@ -510,19 +510,19 @@ SKILL:Stealth	RANK:10
 SKILL:Survival	RANK:1
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
-STARTPACK:Familiar ~ Octopus	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus]	SOURCEPAGE:219
+STARTPACK:Familiar ~ Octopus	TYPE:Default Monster.Animal	VISIBLE:NO	SOURCEPAGE:219
 ALIGN:TN
 NAME:Octopus
 SKILL:Stealth	RANK:2
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Familiar ~ Crab (Giant King)	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant King)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+STARTPACK:Familiar ~ Crab (Giant King)	TYPE:Default Monster.Vermin	VISIBLE:NO	SOURCEPAGE:p.50
 ALIGN:TN
 NAME:Giant King Crab
 STAT:STR=11|DEX=11|CON=10|INT=1|WIS=10|CHA=10
 
-STARTPACK:Familiar ~ Spider (Scarlet)	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Scarlet)]	SOURCEPAGE:p.258
+STARTPACK:Familiar ~ Spider (Scarlet)	TYPE:Default Monster.Vermin	VISIBLE:NO	SOURCEPAGE:p.258
 NAME:Scarlet Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=1|WIS=10|CHA=10
