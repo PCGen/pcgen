@@ -164,7 +164,7 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 ACTYPE:Total		ADD:TOTAL
-ACTYPE:Flatfooted		ADD:TOTAL				REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+ACTYPE:Flatfooted		ADD:TOTAL				REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=FEAT,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=FEAT,Uncanny Dodge
 ACTYPE:Touch		ADD:TOTAL				REMOVE:Armor|NaturalArmor|Equipment|Shield
 ACTYPE:Base			ADD:Base
 ACTYPE:Equipment		ADD:Equipment|Armor|Shield
