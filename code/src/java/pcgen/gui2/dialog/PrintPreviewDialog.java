@@ -33,6 +33,8 @@ import java.awt.event.ActionListener;
 import java.awt.print.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.PipedInputStream;
@@ -374,11 +376,11 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			AWTRenderer renderer = new AWTRenderer();
 			renderer.setPreviewDialogDisplayed(false);
 			PipedOutputStream out = new PipedOutputStream();
-			FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
+			FopTask task = FopTask.newFopTask(new BufferedInputStream(new PipedInputStream(out)), xsltFile, renderer);
 			Thread thread = new Thread(task, "fop-preview");
 			thread.setDaemon(true);
 			thread.start();
-			BatchExporter.printToXmlStream(character, out);
+			BatchExporter.printToXmlStream(character, new BufferedOutputStream(out));
 			try{
 				thread.join();
 			}catch(InterruptedException ex){
