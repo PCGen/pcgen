@@ -6,7 +6,7 @@ RACE:Companion ~ Astirax	!PRERACE:1,%
 NAME:Astirax
 ALIGN:CN
 STAT:DEX=10|CON=11|INT=10|WIS=10|CHA=11
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Boro Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Boro	!PRERACE:1,%
@@ -14,8 +14,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Power Attack
-FEAT:Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
 
 STARTPACK:Cat (Grass) Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Cat (Grass)	!PRERACE:1,%
@@ -23,8 +23,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:3
-FEAT:Improved Initiative
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
 
 STARTPACK:Ort Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Ort	!PRERACE:1,%
@@ -32,8 +32,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 STARTPACK:Leopard (Plains) Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Leopard (Plains)	!PRERACE:1,%
@@ -41,8 +41,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:4
-FEAT:Power Attack
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 
 STARTPACK:Eel (River) Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Eel (River)	!PRERACE:1,%
@@ -50,9 +50,9 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Diehard
-FEAT:Endurance
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
 
 STARTPACK:Dragon (Sea) Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Dragon (Sea)	!PRERACE:1,%
@@ -60,18 +60,18 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:9
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Bite)
-FEAT:Improved Natural Attack(Bite)
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Bite)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
 
 STARTPACK:Wogren (Adult) Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Wogren (Adult)	!PRERACE:1,%
 ALIGN:NG
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 
@@ -79,6 +79,6 @@ STARTPACK:Wogren (Immature) Companion	TYPE:Companion	VISIBLE:NO
 RACE:Companion ~ Wogren (Immature)	!PRERACE:1,%
 ALIGN:NG
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
