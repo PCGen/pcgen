@@ -44,6 +44,10 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
+ * This class is used to generate pdf files from an xml source. There are two ways to define the
+ * source of the task: files or inputstreams. The output of this task can either be an OutputStream
+ * which you can point to a file, or a Renderer. The Renderer is used by print preview and for
+ * direct printing.
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
@@ -147,6 +151,9 @@ public class FopTask implements Runnable
 		return errorBuilder.toString();
 	}
 
+	/**
+	 * Run the FO to PDF/AWT conversion
+	 */
 	@Override
 	public void run()
 	{
