@@ -1,48 +1,49 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
 ###Block: PHB Feat modifications
 # Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose								Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
-CATEGORY=FEAT|Endurance.MOD																																	!PRERACE:1,Gnome
-CATEGORY=FEAT|Skill Focus.MOD																																																																																																															BONUS:SKILL|LIST|3|PRECLASS:1,Patrician=1|PREVARGT:var("CL=Patrician"),floor(TL/2)
-CATEGORY=FEAT|Weapon Finesse.MOD																!PRECLASS:1,Weapon Savant=2																																																											BONUS:COMBAT|TOHIT.LowWeight|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged|PREITEM:1,TYPE=GlassSteel
+# Ability Name										Product Identity?	Type				Visible	Required Ability												Prohibited Class			Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose									Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
+CATEGORY=FEAT|Endurance.MOD																																				!PRERACE:1,Gnome
+CATEGORY=FEAT|Skill Focus.MOD																																																																																																																			BONUS:SKILL|LIST|3|PRECLASS:1,Patrician=1|PREVARGT:var("CL=Patrician"),floor(TL/2)
+CATEGORY=FEAT|Weapon Finesse.MOD																														!PRECLASS:1,Weapon Savant=2																																																	BONUS:COMBAT|TOHIT.LowWeight|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged|PREITEM:1,TYPE=GlassSteel
 # probably was a reason for this, but I have  no idea why so commenting until reason appears
 #Extra Turning.MOD																																																																														BONUS:VAR|TurnTimesBase|-4|PREVAREQ:FocusTurn,1	BONUS:VAR|ChannelTimesBase|4|TYPE=ExtraTurning.STACK	BONUS:VAR|TurnTimesInfernal|4|TYPE=ExtraTurning.STACK|PREVAREQ:FocusTurn,1
 CATEGORY=FEAT|Brew Potion.COPY=Brew Potion (Abebi)
-CATEGORY=FEAT|Brew Potion (Abebi).MOD							NAMEISPI:YES					VISIBLE:NO																																					DESC:.CLEAR		DESC:Brew as 5th level cleric, only DMG cleric portions																																																																		SOURCEPAGE:p.274
+CATEGORY=FEAT|Brew Potion (Abebi).MOD						NAMEISPI:YES					VISIBLE:NO																																								DESC:.CLEAR		DESC:Brew as 5th level cleric, only DMG cleric portions																																																																			SOURCEPAGE:p.274
 CATEGORY=FEAT|Precise Shot.COPY=Precise Shot (Ranger/Flintlock Combat)
-CATEGORY=FEAT|Precise Shot (Ranger/Flintlock Combat).MOD										VISIBLE:NO																																					DESC:.CLEAR		DESC:Only applies to use of Flintlock weapons																																																																				SOURCEPAGE:Feats
+CATEGORY=FEAT|Precise Shot (Ranger/Flintlock Combat).MOD										VISIBLE:NO																																								DESC:.CLEAR		DESC:Only applies to use of Flintlock weapons																																																																					SOURCEPAGE:Feats
 CATEGORY=FEAT|Augment Summoning.COPY=Augment Summoning (Canines)
 CATEGORY=FEAT|Spirited Charge.COPY=Spirited Charge Aerial
-CATEGORY=FEAT|Spirited Charge Aerial.MOD																																																			DESC:.CLEARALL	DESC:Only applies to bonded aerial companion
-CATEGORY=FEAT|Spell Mastery.MOD											TYPE:SpellMast
+CATEGORY=FEAT|Spirited Charge Aerial.MOD																																																						DESC:.CLEARALL	DESC:Only applies to bonded aerial companion
+CATEGORY=FEAT|Spell Mastery.MOD										TYPE:SpellMast
 # Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose								Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
-CATEGORY=FEAT|Greater Weapon Focus.MOD									TYPE:General.Fighter								PREABILITY:1,CATEGORY=FEAT,Weapon Focus																							PREVARGTEQ:WeapSpecQualify,8				DESC:See Text									STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																															BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats
-CATEGORY=FEAT|Greater Weapon Specialization.MOD								TYPE:General.Fighter								PREABILITY:3,CATEGORY=FEAT,Weapon Focus,Greater Weapon Focus,Weapon Specialization																PREVARGTEQ:WeapSpecQualify,12				DESC:See Text											MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Greater Weapon Focus																																														BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+CATEGORY=FEAT|Greater Weapon Focus.MOD									TYPE:General.Fighter			PREABILITY:1,CATEGORY=FEAT,Weapon Focus																												PREVARGTEQ:WeapSpecQualify,8				DESC:See Text									STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]																																															BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats
+CATEGORY=FEAT|Greater Weapon Specialization.MOD								TYPE:General.Fighter			PREABILITY:3,CATEGORY=FEAT,Weapon Focus,Greater Weapon Focus,Weapon Specialization																					PREVARGTEQ:WeapSpecQualify,12				DESC:See Text											MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Greater Weapon Focus]																																														BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
 
 CATEGORY=FEAT|Improved Familiar.MOD
 # Use when axiomatic falcon coded - HC Illiir
 #Improved Familiar HD.MOD		TYPE:General	COMPANIONLIST:Familiar|Axiomatic Falcon|PRECLASS:1,Holy Champion (Harbingers)=6
 CATEGORY=FEAT|Improved Familiar.COPY=Improved Familiar HD
-CATEGORY=FEAT|Improved Familiar HD.MOD									TYPE:General																										PRESUBCLASS:1,Harbingers
+CATEGORY=FEAT|Improved Familiar HD.MOD									TYPE:General																													PRESUBCLASS:1,Harbingers
 
 CATEGORY=FEAT|Skill Focus.COPY=Skill Focus ~ Patrician
-CATEGORY=FEAT|Skill Focus ~ Patrician.MOD																				PREABILITY:1,CATEGORY=FEAT,Skill Focus																																																																																						BONUS:SKILL|LIST|6																	SOURCEPAGE:Feats
+CATEGORY=FEAT|Skill Focus ~ Patrician.MOD															PREABILITY:1,CATEGORY=FEAT,Skill Focus																																																																																												BONUS:SKILL|LIST|6																	SOURCEPAGE:Feats
 
 # Psionic Feats redone
 # Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose								Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
-CATEGORY=FEAT|Speed of Thought.MOD										TYPE:Psionic																							PRESTAT:1,WIS=13						PRETEMPLATE:1,Psionic									DESC:The energy of your mind energizes the alacrity of your body.																																BONUS:MOVEADD|TYPE.Walk|10|PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0																					SOURCEPAGE:PsionicFeats
+CATEGORY=FEAT|Speed of Thought.MOD										TYPE:Psionic																										PRESTAT:1,WIS=13						PRETEMPLATE:1,Psionic									DESC:The energy of your mind energizes the alacrity of your body.																																	BONUS:MOVEADD|TYPE.Walk|10|PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0																					SOURCEPAGE:PsionicFeats
 
 # PGtA Feats - new versions
 CATEGORY=FEAT|Quick Reload.COPY=Quick Reload AS
-CATEGORY=FEAT|Quick Reload AS.MOD																																																				DESC:.CLEAR		DESC:Altherian Flintlock Rifles Only
+CATEGORY=FEAT|Quick Reload AS.MOD																																																							DESC:.CLEAR		DESC:Altherian Flintlock Rifles Only
 
 CATEGORY=FEAT|Alertness.MOD											TYPE:PatricianAdv
 CATEGORY=FEAT|Great Fortitude.MOD										TYPE:PatricianAdv
-CATEGORY=FEAT|Investigator.MOD											TYPE:PatricianAdv
+CATEGORY=FEAT|Investigator.MOD										TYPE:PatricianAdv
 CATEGORY=FEAT|Iron Will.MOD											TYPE:PatricianAdv
-CATEGORY=FEAT|Lightning Reflexes.MOD										TYPE:PatricianAdv
+CATEGORY=FEAT|Lightning Reflexes.MOD									TYPE:PatricianAdv
 CATEGORY=FEAT|Negotiator.MOD											TYPE:PatricianAdv
 CATEGORY=FEAT|Persuasive.MOD											TYPE:PatricianAdv
 CATEGORY=FEAT|Skill Focus.MOD											TYPE:PatricianAdv

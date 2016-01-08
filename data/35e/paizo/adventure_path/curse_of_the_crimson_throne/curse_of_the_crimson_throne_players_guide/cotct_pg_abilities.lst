@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v	SOURCEDATE:2008-02
 
 ###Block: Campaign Traits
@@ -15,11 +15,11 @@ Unhappy Childhood (Religious)			CATEGORY:Special Ability	TYPE:Trait.SpecialQuali
 Unhappy Childhood (Tortured)			CATEGORY:Special Ability	TYPE:Trait.SpecialQuality	DESC:You spent a period of time as one of Gaedren's enslaved orphans. Maybe you were abducted from your parent's home or during a trip to the market. Perhaps the irresponsible matron who ruled your orphanage traded you to him in return for a desperately needed loan of money. Or perhaps you, like most of Gaedren's slaves, were merely a child of the street who succumbed to his promise of regular meals and a roof in return for what he said would be "a little light work." Whatever the case, you spent several years of your life as one of his "Little Lamms" before escaping. You've nursed a grudge for the old man ever since. Gaedren tortured you and left you for dead on a garbage heap after you made one too many errors. Your scars and memories have honed your reaction speed and make you rather jumpy. You gain a +1 trait bonus on Reflex saves.																																																										BONUS:SAVE|Reflex|1|TYPE=Trait												SOURCEPAGE:p.16
 
 ###Block: Addicted Friend Choice
-# Ability Name				Unique Key								Category of Ability		Type					Visible		Restricted Ability								Special ABility			Description																Virtual Feat																																																							Bonus to skill
-Knowledge (Local)				KEY:Drug Addict Addicted Friend ~ Knowledge (Local)	CATEGORY:Special Ability	TYPE:AddictedFriendSkill																																																																																														BONUS:SKILL|Knowledge (Local)|2|TYPE=Trait
-Gather Information			KEY:Drug Addict Addicted Friend ~ Gather Information	CATEGORY:Special Ability	TYPE:AddictedFriendSkill																																																																																														BONUS:SKILL|Gather Information|2|TYPE=Trait
+# Ability Name				Unique Key								Category of Ability		Type					Visible		Restricted Ability								Special ABility			Description																Ability																																																																	Bonus to skill
+Knowledge (Local)				KEY:Drug Addict Addicted Friend ~ Knowledge (Local)	CATEGORY:Special Ability	TYPE:AddictedFriendSkill																																																																																																							BONUS:SKILL|Knowledge (Local)|2|TYPE=Trait
+Gather Information			KEY:Drug Addict Addicted Friend ~ Gather Information	CATEGORY:Special Ability	TYPE:AddictedFriendSkill																																																																																																							BONUS:SKILL|Gather Information|2|TYPE=Trait
 
-# Ability Name				Unique Key								Category of Ability		Type					Visible		Restricted Ability								Special ABility			Description																Virtual Feat																																																							Bonus to skill
+# Ability Name				Unique Key								Category of Ability		Type					Visible		Restricted Ability								Special ABility			Description																Ability																																																																	Bonus to skill
 Archery Combat Style ~ Pathfinder										CATEGORY:Special Ability	TYPE:RangerCombatStyle		VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	SAB:Archery Combat Style	DESC:This alternate combat style substitutes Crossbow Mastery in place of Manyshot at 6th level.	ABILITY:FEAT|VIRTUAL|Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:FEAT|VIRTUAL|Crossbow Mastery|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:FEAT|VIRTUAL|Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 
 #

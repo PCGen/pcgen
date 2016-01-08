@@ -1,30 +1,30 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58	SOURCEDATE:2005-01
 #Original Entry By: Sean Silva-Miramon
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Starship Designer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+6)*2/5-1	BONUS:VAR|Reputation|CL/3
-# Class Name		Required Feat			Required Skill
+# Class Name		Required Ability						Required Skill
 CLASS:Starship Designer	PREABILITY:1,CATEGORY=FEAT,Starship Operation	PRESKILL:4,Craft (Mechanical)=3,Craft (Structural)=6,Knowledge (Physical Sciences)=6,Pilot=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starship Designer	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Disable Device|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Repair|Research
 1	SAB:Starship Affinity +%|StarshipAffinity		BONUS:VAR|StarshipAffinity|CL/5+1	DEFINE:StarshipAffinity|0
 2	SAB:Bug Hunter (Starship) +%|BugHunterStarship	BONUS:VAR|BugHunterStarship|CL/2	DEFINE:BugHunterStarship|0
-3																				ADD:FEAT|TYPE=StarshipDesigner
-6																				ADD:FEAT|TYPE=StarshipDesigner
+3																				ADD:ABILITY|FEAT|NORMAL|TYPE=StarshipDesigner
+6																				ADD:ABILITY|FEAT|NORMAL|TYPE=StarshipDesigner
 7	SAB:Slipstream
-9																				ADD:FEAT|TYPE=StarshipDesigner
+9																				ADD:ABILITY|FEAT|NORMAL|TYPE=StarshipDesigner
 
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
 CLASS:Starship Test Pilot	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
-# Class Name			Required Feat			Required Skill			PRETOTALAB
+# Class Name			Required Ability						Required Skill			PRETOTALAB
 CLASS:Starship Test Pilot	PREABILITY:1,CATEGORY=FEAT,Starship Operation	PRESKILL:2,Pilot=6,Repair=3	PRETOTALAB:2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Starship Test Pilot	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	SAB:Right Stuff+%|RightStuff	BONUS:VAR|RightStuff|CL/5+1	DEFINE:RightStuff|0
 2	SAB:Workaround +%|Workaround	BONUS:VAR|Workaround|CL/2	DEFINE:Workaround|0
-3															ADD:FEAT|TYPE=StarshipTestPilot
-6															ADD:FEAT|TYPE=StarshipTestPilot
+3															ADD:ABILITY|FEAT|NORMAL|TYPE=StarshipTestPilot
+6															ADD:ABILITY|FEAT|NORMAL|TYPE=StarshipTestPilot
 7	SAB:Outside of the Envelope
-9															ADD:FEAT|TYPE=StarshipTestPilot
+9															ADD:ABILITY|FEAT|NORMAL|TYPE=StarshipTestPilot

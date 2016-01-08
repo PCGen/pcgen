@@ -1,10 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
 #EDITED BY: Paul W. King, Jan 2007
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Greater Weapon Focus.MOD		TYPE:LotusWarrior
 CATEGORY=FEAT|Greater Weapon Specialization.MOD	TYPE:LotusWarrior
 CATEGORY=FEAT|Weapon Specialization.MOD		TYPE:LotusWarrior

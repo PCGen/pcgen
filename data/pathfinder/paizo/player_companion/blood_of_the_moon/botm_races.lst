@@ -1,6 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-Skinwalker		ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	STARTFEATS:1	SOURCEPAGE:p.7	SIZE:M	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	BONUS:STAT|WIS|2	BONUS:STAT|INT|-2	MOVE:Walk,30	BONUS:VAR|HasLowlightVision|1	LEGS:2	HANDS:2
+# Race Name	Starting Feats	Size		Move			Stat bonus					Modify VAR				Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype			Source Page
+Skinwalker	STARTFEATS:1	SIZE:M	MOVE:Walk,30	BONUS:STAT|WIS|2	BONUS:STAT|INT|-2	BONUS:VAR|HasLowlightVision|1	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Shapechanger	SOURCEPAGE:p.7
 
 # Conversion version
 #	MODIFYOTHER:STAT|Wisdom|Bonus.Race|ADD|2
@@ -9,7 +11,3 @@ Skinwalker		ABILITY:Internal|AUTOMATIC|Race Traits ~ Skinwalker	STARTFEATS:1	SOU
 #	MODIFY:FLAG=HasLowlightVision|SET|True
 #	MODIFY:VAR=LEGS.Race|SET|2
 #	MODIFY:VAR=HANDS.Race|SET|2
-
-
-
-

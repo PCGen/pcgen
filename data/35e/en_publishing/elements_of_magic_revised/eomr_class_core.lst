@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 #Comments: This will need to get changed to the new standard. Will correct to 5.16 once the OS supports it.
 
 ###Block: The Mage ----------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Mage		HD:4		TYPE:Base.PC.EOM	ABB:Mage		MAXLEVEL:20	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Mage		HD:4		TYPE:Base.PC.EOM	MAXLEVEL:20	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Mage	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:4	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession
-# Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Mage		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|EOMCasterLevel
+# Class Name	Spell Stat		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Mage		SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|EOMCasterLevel
 
 ###Block: Special Ability
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Elements of Magic|Wizard Weapon Proficiencies
@@ -36,12 +36,12 @@ CLASS:Mage		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVE
 
 ###Block: Mageknight ----------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Mageknight	HD:8		TYPE:Base.PC.EOM	ABB:MgeKnt		MAXLEVEL:20	SOURCEPAGE:8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Mageknight	HD:8		TYPE:Base.PC.EOM	MAXLEVEL:20	SOURCEPAGE:8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5	FACT:Abb|MgeKnt	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Mageknight	STARTSKILLPTS:2	CSKILL:Spellcraft|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Ride|Climb|Intimidate|Jump|Swim
-# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Mageknight	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mageknight|EOMCasterLevel
+CLASS:Mageknight	STARTSKILLPTS:2	CSKILL:Spellcraft|Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession|Ride|Climb|Intimidate|Jump|Swim
+# Class Name	Spell Stat		Memorize		Spellbook		Caster level
+CLASS:Mageknight	SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mageknight|EOMCasterLevel
 
 ###Block: Special Ability
 1	ABILITY:Special Ability|AUTOMATIC|Elements of Magic	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
@@ -67,12 +67,12 @@ CLASS:Mageknight	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS
 
 ###Block: The Taskmage ----------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	ABB:TskMge		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|ALL|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus									FACT
+CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|ALL|((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5	FACT:Abb|TskMge	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Taskmage	STARTSKILLPTS:8	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession
-# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Taskmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Taskmage|EOMCasterLevel
+CLASS:Taskmage	STARTSKILLPTS:8	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession
+# Class Name	Spell Stat		Memorize		Spellbook		Caster level
+CLASS:Taskmage	SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Taskmage|EOMCasterLevel
 
 ###Block: Special Ability
 1								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Elements of Magic
@@ -99,10 +99,10 @@ CLASS:Taskmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:C
 9	BONUS:ABILITYPOOL|Taskmage Skill Mastery|CL/9
 
 
-# Class Name				Visible
-CLASS:Elements of Magic Caster	VISIBLE:NO
-# Class Name				Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Elements of Magic Caster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2	SPELLBOOK:YES	BONUS:CASTERLEVEL|Elements of Magic Caster|EOMCasterLevel
+# Class Name				Visible	FACT
+CLASS:Elements of Magic Caster	VISIBLE:NO	FACT:SpellType|Arcane
+# Class Name				Spell Stat		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Elements of Magic Caster	SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2	SPELLBOOK:YES	BONUS:CASTERLEVEL|Elements of Magic Caster|EOMCasterLevel
 ###Block: Spell Stats
 1	CAST:0,0	KNOWN:0,100	BONUS:SPELLCAST|CLASS=Mage;LEVEL=1|EOMCasterLevel+INT
 

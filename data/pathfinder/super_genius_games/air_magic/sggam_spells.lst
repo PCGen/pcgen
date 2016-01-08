@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
 # Original Entry by: Paul Shipley (elro the onk)
 # REVIEW NOTE: RANGE:Short not defined? Is this same as CLOSE?
@@ -15,7 +15,7 @@ Sirocco ~ SGGAM					OUTPUTNAME:Sirocco			TYPE:Arcane.Divine	CLASSES:Archon,Druid
 Tempest Hammer											TYPE:Arcane.Divine	CLASSES:Druid=4|Archon,Sorcerer,Wizard=5					SCHOOL:Evocation						DESCRIPTOR:Air					COMPS:V, S		CASTTIME:1 round			RANGE:Medium			TARGETAREA:5-ft. radius column of focused air							DURATION:(CASTERLEVEL) rounds			SAVEINFO:Reflex partial				SPELLRES:Yes										SOURCEPAGE:p.6	DESC:Control a massive blast of damaging air.
 Thunderfist												TYPE:Arcane.Divine	CLASSES:Archon,Sorcerer,Wizard=2|Druid=3					SCHOOL:Evocation						DESCRIPTOR:Air					COMPS:V, S		CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Shimmering limbs of air									DURATION:(CASTERLEVEL/2) rounds		SAVEINFO:None					SPELLRES:Yes										SOURCEPAGE:p.7	DESC:Make unarmed attacks at range.
 Thunderfist (Greater)				OUTPUTNAME:Thunderfist, Greater	TYPE:Arcane.Divine	CLASSES:Archon,Sorcerer,Wizard=4|Druid=5					SCHOOL:Evocation						DESCRIPTOR:Air					COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Shimmering limbs of air									DURATION:(CASTERLEVEL) rounds			SAVEINFO:None					SPELLRES:Yes										SOURCEPAGE:p.7	DESC:Make unarmed attacks and related special attacks at range.
-Trade Wind												TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Witch=2|Archon,Sorcerer,Wizard=3	SCHOOL:Conjuration					DESCRIPTOR:Air					COMPS:V, S		CASTTIME:10 minutes		RANGE:Touch				TARGETAREA:One creature or seagoing ship								DURATION:24 hours					SAVEINFO:None					SPELLRES:No											SOURCEPAGE:p.7	DESC:Summon favorable winds to increase a ship's speed or a creature's flight.
+Trade Wind												TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Witch=2|Archon,Sorcerer,Wizard=3			SCHOOL:Conjuration					DESCRIPTOR:Air					COMPS:V, S		CASTTIME:10 minutes		RANGE:Touch				TARGETAREA:One creature or seagoing ship								DURATION:24 hours					SAVEINFO:None					SPELLRES:No											SOURCEPAGE:p.7	DESC:Summon favorable winds to increase a ship's speed or a creature's flight.
 Typhoon												TYPE:Arcane.Divine	CLASSES:Druid,Sorcerer,Wizard=9						SCHOOL:Transmutation					DESCRIPTOR:Air					COMPS:V, S		CASTTIME:1 round			RANGE:(CASTERLEVEL/5) miles	TARGETAREA:Radius of (CASTERLEVEL/5) miles							DURATION:(CASTERLEVEL*10) minutes [D}	SAVEINFO:Fortitude negates			SPELLRES:Yes										SOURCEPAGE:p.8	DESC:Create a supercyclone over a range of several miles.
 Vortex ~ SGGAM					OUTPUTNAME:Vortex				TYPE:Arcane.Divine	CLASSES:Druid,Sorcerer,Wizard=8						SCHOOL:Evocation						DESCRIPTOR:Force					COMPS:V, S		CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One medium vortex										DURATION:(CASTERLEVEL) rounds [D]		SAVEINFO:None					SPELLRES:Yes										SOURCEPAGE:p.8	DESC:Create a Medium cyclone that attacks your foes.
 Wind Tunnel												TYPE:Arcane.Divine	CLASSES:Archon,Druid,Sorcerer,Wizard=1|Cleric=2				SCHOOL:Evocation						DESCRIPTOR:Air					COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Continuous path, (CASTERLEVEL*10) ft. long, 5 ft. wide, 5 ft. tall [S]	DURATION:(CASTERLEVEL) minutes		SAVEINFO:Fortitude negates			SPELLRES:Yes										SOURCEPAGE:p.9	DESC:Use curtains of air to aid your allies' movement, and hinder your foes'.
@@ -27,7 +27,7 @@ Elemental Body III (Air Elemental Only)							TYPE:Divine														SCHOOL:Tr
 Elemental Body IV (Air Elemental Only)							TYPE:Divine														SCHOOL:Transmutation	SUBSCHOOL:Polymorph					VARIANTS:Air	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You												DURATION:(CASTERLEVEL) minutes [D]												SOURCELONG:Core Rulebook	SOURCESHORT:CR		SOURCEPAGE:p.277	DESC:This spell functions as elemental body III, except that it also allows you to assume the form of a Huge air elemental.|!PRERULE:1,DisplayFullSpell	DESC:This spell functions as elemental body III, except that it also allows you to assume the form of a Huge air elemental. As elemental body I except that you gain a +4 size bonus to your Strength, +6 size bonus to your Dexterity, and a +4 natural armor bonus. You also gain fly 120 feet [perfect]. You are also immune to critical hits and sneak attacks while in elemental form and gain DR 5/-.|PRERULE:1,DisplayFullSpell
 
 
-Trade Wind.MOD	CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Trade Wind.MOD															CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
 
 
 #

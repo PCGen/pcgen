@@ -1,19 +1,20 @@
-# CVS $Revision: 25436 $ $Author: amaitland $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
-SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+# CVS $Revision: 25436 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2013-11
 #Original Entry: Andrew Maitland
 
 
 # Ability Name							Modify VAR								Allow Follower			Allowed Companions
-ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Armadillo,Bat,Cat,Fox,Goat,Hawk,Hedgehog,Lizard,Monkey,Owl,Pig,Platypus,Raccoon,Rat,Raven,Scorpion (Greensting),Skunk,Squirrel,Toad,Turtle,Snake (Viper/Tiny),Weasel
+ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Armadillo,Bat,Cat,Fox,Goat,Hawk,Hedgehog,Lizard,Monkey,Owl,Pig,Platypus,Raccoon,Rat,Raven,Scorpion (Greensting),Skunk,Snake (Viper/Tiny),Squirrel,Toad,Turtle,Weasel
 ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|AnimalCompanionLVL|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Wolf
 
 ###Block: Familiar specific
-Familiar Level Tracker		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells|PREVARGTEQ:mastervar("FamiliarLVL"),1	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Intelligence|PREVAREQ:FamiliarIntelligence,1	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK	ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells|PREVARGTEQ:mastervar("FamiliarLVL"),3	ABILITY:Special Ability|AUTOMATIC|Speak with Master|PREVARGTEQ:mastervar("FamiliarLVL"),5	ABILITY:Special Ability|AUTOMATIC|Speak with Animals of its Kind|PREVARGTEQ:mastervar("FamiliarLVL"),7	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Spell Resistance|PREVARGTEQ:mastervar("FamiliarLVL"),11	ABILITY:Special Ability|AUTOMATIC|Scry on Familiar|PREVARGTEQ:mastervar("FamiliarLVL"),13	ABILITY:Special Ability|AUTOMATIC|Spelled Familiar|PREVARGTEQ:mastervar("FamiliarLVL"),21					
-Familiar ~ Spell Resistance	CATEGORY:Special Ability	SR:mastervar("FamiliarLVL")+5
+# Ability Name			Category of Ability		Define Stat								Ability																																																																																																																																		Combat bonus										Spell Res.
+Familiar Level Tracker		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells|PREVARGTEQ:mastervar("FamiliarLVL"),1	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Intelligence|PREVAREQ:FamiliarIntelligence,1	ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells|PREVARGTEQ:mastervar("FamiliarLVL"),3	ABILITY:Special Ability|AUTOMATIC|Speak with Master|PREVARGTEQ:mastervar("FamiliarLVL"),5	ABILITY:Special Ability|AUTOMATIC|Speak with Animals of its Kind|PREVARGTEQ:mastervar("FamiliarLVL"),7	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Spell Resistance|PREVARGTEQ:mastervar("FamiliarLVL"),11	ABILITY:Special Ability|AUTOMATIC|Scry on Familiar|PREVARGTEQ:mastervar("FamiliarLVL"),13	ABILITY:Special Ability|AUTOMATIC|Spelled Familiar|PREVARGTEQ:mastervar("FamiliarLVL"),21	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK
+Familiar ~ Spell Resistance	CATEGORY:Special Ability																																																																																																																																																									SR:mastervar("FamiliarLVL")+5
 Familiar ~ Intelligence		CATEGORY:Special Ability	DEFINESTAT:MINVALUE|INT|mastervar("FamiliarLVL")/2+5
 
 ###Block: Animal Abilities
-# Ability Name		Output Name									Category of Ability		Type								Visible	Define			Description																																																																				Modify VAR																			Source Page
+# Ability Name		Output Name									Category of Ability		Type								Visible	Define			Description																																																																				Modify VAR																						Source Page
 Aquatic													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Attach													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Constrict													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.
@@ -36,7 +37,7 @@ Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.At
 Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 
 ###Block: Companion Modifier Abilities -----------------------------------------
-# Ability Name				Category of Ability		Type						Visible	Source Page					Temporary effect description							Temporary Bonus
+# Ability Name				Category of Ability		Type						Visible	Source Page
 Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
 Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
 Deliver Touch Spells			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
@@ -47,28 +48,29 @@ Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	S
 Spelled Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	SOURCEPAGE:p.97
 
 ###Block: Master Granted Bonuses
+# Ability Name				Category of Ability		Combat bonus					Bonus to HP			Save bonus			Bonus to skill			Aspects
 Familiar (Armadillo)			CATEGORY:Special Ability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-Familiar (Bat)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Fly checks
-Familiar (Cat)				CATEGORY:Special Ability	BONUS:SKILL|Stealth|3
-Familiar (Fox)				CATEGORY:Special Ability	BONUS:SAVE|Reflex|2
-Familiar (Goat)				CATEGORY:Special Ability	BONUS:SKILL|Survival|3
-Familiar (Hawk)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Spot checks in daylight
-Familiar (Hedgehog)			CATEGORY:Special Ability	BONUS:SAVE|Will|2
-Familiar (Lizard)				CATEGORY:Special Ability	BONUS:SKILL|Athletics|3
-Familiar (Monkey)				CATEGORY:Special Ability	BONUS:SKILL|Acrobatics|3
-Familiar (Owl)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Spot checks in dusk or darkness
-Familiar (Pig)				CATEGORY:Special Ability	BONUS:SKILL|Persuasion|3
-Familiar (Platypus)			CATEGORY:Special Ability	BONUS:SKILL|Athletics|3
-Familiar (Raccoon)			CATEGORY:Special Ability	BONUS:SKILL|Sleight of Hand|3
-Familiar (Rat)				CATEGORY:Special Ability	BONUS:SAVE|Fortitude|2
-Familiar (Raven)				CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Appraise checks
+Familiar (Bat)				CATEGORY:Special Ability																					ASPECT:SkillBonus|+3 bonus on Fly checks
+Familiar (Cat)				CATEGORY:Special Ability																BONUS:SKILL|Stealth|3
+Familiar (Fox)				CATEGORY:Special Ability												BONUS:SAVE|Reflex|2
+Familiar (Goat)				CATEGORY:Special Ability																BONUS:SKILL|Survival|3
+Familiar (Hawk)				CATEGORY:Special Ability																					ASPECT:SkillBonus|+3 bonus on Spot checks in daylight
+Familiar (Hedgehog)			CATEGORY:Special Ability												BONUS:SAVE|Will|2
+Familiar (Lizard)				CATEGORY:Special Ability																BONUS:SKILL|Athletics|3
+Familiar (Monkey)				CATEGORY:Special Ability																BONUS:SKILL|Acrobatics|3
+Familiar (Owl)				CATEGORY:Special Ability																					ASPECT:SkillBonus|+3 bonus on Spot checks in dusk or darkness
+Familiar (Pig)				CATEGORY:Special Ability																BONUS:SKILL|Persuasion|3
+Familiar (Platypus)			CATEGORY:Special Ability																BONUS:SKILL|Athletics|3
+Familiar (Raccoon)			CATEGORY:Special Ability																BONUS:SKILL|Sleight of Hand|3
+Familiar (Rat)				CATEGORY:Special Ability												BONUS:SAVE|Fortitude|2
+Familiar (Raven)				CATEGORY:Special Ability																					ASPECT:SkillBonus|+3 bonus on Appraise checks
 Familiar (Scorpion (Greensting))	CATEGORY:Special Ability	BONUS:COMBAT|INITIATIVE|4
-Familiar (Skunk)				CATEGORY:Special Ability	BONUS:SAVE|Fortitude|2
-Familiar (Squirrel)			CATEGORY:Special Ability	BONUS:SKILL|Sleight of Hand|3
-Familiar (Toad)				CATEGORY:Special Ability	BONUS:HP|CURRENTMAX|3
+Familiar (Skunk)				CATEGORY:Special Ability												BONUS:SAVE|Fortitude|2
+Familiar (Squirrel)			CATEGORY:Special Ability																BONUS:SKILL|Sleight of Hand|3
+Familiar (Toad)				CATEGORY:Special Ability								BONUS:HP|CURRENTMAX|3
 Familiar (Turtle)				CATEGORY:Special Ability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-Familiar (Snake (Viper/Tiny))		CATEGORY:Special Ability	ASPECT:SkillBonus|+3 bonus on Bluff checks
-Familiar (Weasel)				CATEGORY:Special Ability	BONUS:SAVE|Reflex|2
+Familiar (Snake (Viper/Tiny))		CATEGORY:Special Ability																					ASPECT:SkillBonus|+3 bonus on Bluff checks
+Familiar (Weasel)				CATEGORY:Special Ability												BONUS:SAVE|Reflex|2
 
 
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

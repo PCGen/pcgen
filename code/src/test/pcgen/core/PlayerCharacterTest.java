@@ -1009,7 +1009,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 	}
 	
-	public void testGetPartialStatBonusFor()
+	public void testGetPartialStatFor()
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
@@ -1023,14 +1023,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final BonusObj strBonus = Bonus.newBonus(context, "STAT|STR|2");
 		strBonusAbility.addToListFor(ListKey.BONUS, strBonus);
 
-		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));
-		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor(str, true, false));
+		assertEquals("Before bonus, no temp no equip", 14, pc.getPartialStatFor(str, false, false));
+		assertEquals("Before bonus, temp no equip", 14, pc.getPartialStatFor(str, true, false));
 
 		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, strBonusAbility, null);
 		pc.calcActiveBonuses();
 
-		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor(str, false, false));
-		assertEquals("After bonus, temp no equip", 2, pc.getPartialStatBonusFor(str, true, false));
+		assertEquals("After bonus, no temp no equip", 16, pc.getPartialStatFor(str, false, false));
+		assertEquals("After bonus, temp no equip", 16, pc.getPartialStatFor(str, true, false));
 		
 //		final BonusObj strBonusViaList = Bonus.newBonus("STAT|%LIST|3");
 //		strBonusAbility.addBonusList(strBonusViaList);

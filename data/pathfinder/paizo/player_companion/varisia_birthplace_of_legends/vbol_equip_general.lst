@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Varisia, Birthplace of Legends	SOURCESHORT:VBoL	SOURCEWEB:http://paizo.com/products/btpy8tim?Pathfinder-Player-Companion-Varisia-Birthplace-of-Legends	SOURCEDATE:2012-9
 # Original Entry by: John Mooney (SLoPPYALieN)
 
@@ -6,7 +6,7 @@ SOURCELONG:Varisia, Birthplace of Legends	SOURCESHORT:VBoL	SOURCEWEB:http://paiz
 # Equipment Name			Product Identity?	Type								Contains			Cost		Weight	Source Page		Special Property
 Barbarian Chew						TYPE:Goods.General									COST:25	WT:1		SOURCEPAGE:p.15	SPROP:Grants a Barbarian +1 additional round of rage. This additional round is used first when a Barbarian begins raging. If a Barbarian does not rage within 1 hour of using the chew, this additional round of rage is lost. This benefit can be gained only once per day; consuming multiple doses in a 24-hour period has no additional effects.
 Harpy Musk							TYPE:Goods.General									COST:20	WT:1		SOURCEPAGE:p.15	SPROP:If smeared on a surface or used as a thrown weapon, harpy musk fills a 30-foot area for 10 minutes before dispersing. Any goblin who enters the area must succeed at a DC 14 Will save or be shaken for 1 minute. Harpy musk affect only goblins-bugbears and hobgoblins are unaffected.
-Scarf (Normal)						TYPE:Goods.Clothing.Resizable								COST:0.05	WT:.5		SOURCEPAGE:p.15
+Scarf (Normal)						TYPE:Goods.Clothing.Resizable								COST:0.05	WT:0.5	SOURCEPAGE:p.15
 Scarf (Pocketed)						TYPE:Goods.Clothing.Container.Resizable		CONTAINS:UNLIM|Any	COST:8	WT:0.5	SOURCEPAGE:p.15	SPROP:This Pocketed Scarf grants you a +2 bonus when Hiding Tiny objects on your person.
 Scarf (Reinforced)					TYPE:Goods.Clothing.Resizable								COST:10	WT:1		SOURCEPAGE:p.15	SPROP:This Reinforced Scarf has hardness 10 and 4 hit points. It can be burst with a DC 24 Strength check
 

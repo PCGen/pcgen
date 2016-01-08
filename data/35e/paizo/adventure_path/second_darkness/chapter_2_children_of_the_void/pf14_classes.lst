@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Chevalier	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Chev		MAXLEVEL:3	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Chevalier	HD:10		TYPE:PC.Prestige	MAXLEVEL:3	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:ClassType|Prestige	FACT:Abb|Chev
 # Class Name	Required AL		Required Skill							Required Text													PRETOTALAB
 CLASS:Chevalier	PREALIGN:LG,NG,CG	PRESKILL:2,Gather Information=4,Knowledge (Local)=4	PRETEXT:A would-be chevalier must have succeeded at a challenge requiring great heroism	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill

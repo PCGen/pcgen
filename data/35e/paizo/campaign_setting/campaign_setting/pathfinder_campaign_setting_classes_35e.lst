@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
@@ -9,8 +9,8 @@ SUBSTITUTIONCLASS:Bard - Specialized Training Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:ABILITYPOOL|Bard Specialized Training|1
 ###Block: Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Bard Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-SUBSTITUTIONLEVEL:1																ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Bardic abilities level definitions.
 SUBSTITUTIONLEVEL:1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl
 SUBSTITUTIONLEVEL:1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL	BONUS:VAR|InspireDurationBase|5	ABILITY:Special Ability|AUTOMATIC|Bardic Music
@@ -33,8 +33,8 @@ SUBSTITUTIONCLASS:Cleric - Holy Warrior Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:DOMAIN|NUMBER|-2	ABILITY:Special Ability|AUTOMATIC|Holy Warrior ~ Cleric	TEMPLATE:Holy Warrior Hit Dice
 ###Block: Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBSTITUTIONLEVEL:1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Turn Undead stuff
 SUBSTITUTIONLEVEL:1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
@@ -63,8 +63,8 @@ SUBSTITUTIONCLASS:Skilled Fighter - Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:SKILLPOINTS|NUMBER|2	TEMPLATE:Skilled Fighter
 ###Block:Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Advanced Weapon Feat qualifications
 SUBSTITUTIONLEVEL:1	BONUS:VAR|FighterLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 SUBSTITUTIONLEVEL:1					ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
@@ -105,8 +105,8 @@ SUBSTITUTIONCLASS:Ranger - Enhanced Companion Pathfinder Varient
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enhanced Companion ~ Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+SUBSTITUTIONLEVEL:1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Favored Enemy level stacking
 SUBSTITUTIONLEVEL:1	BONUS:VAR|RangerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy
 ###Block: Combat Trees
@@ -154,8 +154,8 @@ CLASS:Low Templar.MOD	PRESKILL:3,Bluff=4,Knowledge (Nobility and Royalty)=4,Ride
 CLASS:Low Templar.MOD	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (The Planes)|Move Silently|Ride|Sense Motive|Survival|Use Rope
 
 
-# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.228	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR														FACT
+CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.228	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Prestige	FACT:Abb|PfC
 # Class Name			Required Skill										Required Text
 CLASS:Pathfinder Chronicler	PRESKILL:3,Decipher Script=4,Perform (Oratory)=8,Profession (Scribe)=8	PRETEXT:Must have written and published something (other than a magical scroll or other device) for which another person (not a PC) paid at least 50 gp.
 # Class Name			Skill Pts/Lvl	Class Skill

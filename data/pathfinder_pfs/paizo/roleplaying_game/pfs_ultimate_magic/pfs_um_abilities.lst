@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Other: No content from Chapter 2 is legal for play except new familiars;
 
 ###Block: Spellblights
 #Block: Minor Spellblights
-# Ability Name									Type			Visible
+# Ability Name									Type			!PRECHARACTERTYPE
 CATEGORY=Afflictions|Spellblight ~ Caster Blank.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Afflictions|Spellblight ~ Caster Croak.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Afflictions|Spellblight ~ Confounded Casting.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
@@ -28,7 +28,7 @@ CATEGORY=Afflictions|Spellblight ~ Tranference Block.MOD		TYPE:PFSNotLegal	!PREC
 CATEGORY=Afflictions|Spellblight ~ Vertigo.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 ###Block: Preparation Rituals for spellbooks
-# Ability Name											Type			Visible
+# Ability Name											Type			!PRECHARACTERTYPE
 CATEGORY=Special Ability|Preparation Ritual ~ Harmful Surge.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Preparation Ritual ~ Alchemical Protection.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Preparation Ritual ~ Breath of the Grave.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

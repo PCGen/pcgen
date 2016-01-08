@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #2 - Investigating NPCs	SOURCESHORT:MD02-INPCs	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3987	SOURCEDATE:2004-01
 #Original Entry by: Frank Kliewe
 
-# Template Name				Visible	Source Page		Required Feat			Var. Min. Value		Choose														Temporary effect description																Temporary Bonus
-Move Reputation to Secret Identity	VISIBLE:NO	SOURCEPAGE:p.3	PREABILITY:1,CATEGORY=FEAT,Secret Identity	PREVARGTEQ:Reputation,1	CHOOSE:NUMBER|MIN=1|MAX=var("Reputation")|TITLE=Reputation: Public ==> Secret Identity	TEMPDESC:Use this tracker item to move reputation points from your public identity to you secret identity instead.	TEMPBONUS:ANYPC|VAR|Reputation|-1*%CHOICE	TEMPBONUS:ANYPC|VAR|SecretReputation|%CHOICE
+# Template Name				Visible	Source Page		Required Ability						Var. Min. Value		Temporary effect description																Temporary Bonus													TEMPVALUE
+Move Reputation to Secret Identity	VISIBLE:NO	SOURCEPAGE:p.3	PREABILITY:1,CATEGORY=FEAT,Secret Identity	PREVARGTEQ:Reputation,1	TEMPDESC:Use this tracker item to move reputation points from your public identity to you secret identity instead.	TEMPBONUS:ANYPC|VAR|Reputation|-1*%CHOICE	TEMPBONUS:ANYPC|VAR|SecretReputation|%CHOICE	TEMPVALUE:MIN=1|MAX=var("Reputation")|TITLE=Reputation: Public ==> Secret Identity

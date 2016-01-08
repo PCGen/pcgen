@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html	SOURCEDATE:2004-02
 # Original Entry by: Paul W. King
 
@@ -16,5 +16,5 @@ SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www
 # 17-18 Summon monster IX
 # 19-20 Wail of the banshee
 
-# Template Name	Damage Reduction	Template			Source Page		Required Race							Bonus Ability Pool											Combat bonus					Bonus DR		Misc bonus												Add to base move			Stat bonus								Modify VAR																Ability																						Auto Feat						Spell Res.		Type				Vision			Innate Spells
+# Template Name	Damage Reduction	Template			Source Page		Required Race							Bonus Ability Pool											Combat bonus					Bonus DR		Misc bonus												Add to base move			Stat bonus								Modify VAR																Ability																															Spell Res.		Type				Vision			Innate Spells
 War Beast		DR:5/Magic		TEMPLATE:Magical Beast	SOURCEPAGE:p.7	PRERACE:1,RACETYPE=Animal,RACETYPE=Magical Beast	BONUS:ABILITYPOOL|Improved Natural Attack|1	BONUS:ABILITYPOOL|Weapon Focus|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:DR|Magic|5	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,CON|4	BONUS:STAT|DEX,INT,WIS,CHA|2	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|10	ABILITY:Special Ability|AUTOMATIC|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Resistance to Fire	ABILITY:FEAT|AUTOMATIC|Improved Initiative|Toughness	SR:max(10+TL,35)	TYPE:Magical Beast	VISION:Darkvision (60')	SPELLS:Innate|TIMES=1|True Strike

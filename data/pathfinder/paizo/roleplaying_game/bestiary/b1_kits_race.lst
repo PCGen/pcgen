@@ -1,4 +1,4 @@
-# CVS $Revision: 20125 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 20125 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 STARTPACK:Aasimar Cleric	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aasimar],[!PRERACE:1,%]	SOURCEPAGE:p.7
@@ -702,6 +702,7 @@ ALIGN:CE
 RACE:Boggard	!PRERACE:1,%
 NAME:Boggard
 SKILL:Acrobatics	RANK:3
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)		FREE:YES
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10

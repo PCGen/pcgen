@@ -111,7 +111,7 @@ ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Ogre Hook)
 GEAR:Ogre Hook				LOCATION:Both Hands	EQMOD:PLUS1W
-GEAR:Ring (Protection +1)		LOCATION:Equipped
+GEAR:Ring of Protection +1		LOCATION:Equipped
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 
 

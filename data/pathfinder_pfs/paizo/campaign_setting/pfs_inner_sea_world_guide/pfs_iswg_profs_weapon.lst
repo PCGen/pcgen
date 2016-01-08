@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Stefan Radermacher
 
-# Weapon Name			Type			Required Feat
+# Weapon Name			Type			Required Ability
 Dogslicer.MOD			TYPE:PFSLegal
 War Razor.MOD			TYPE:PFSLegal
 Klar.MOD				TYPE:PFSLegal

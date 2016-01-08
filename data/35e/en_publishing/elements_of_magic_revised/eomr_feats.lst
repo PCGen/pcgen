@@ -1,55 +1,60 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
 ###Block: Item Creation Feats
 # Feat Name			Type			Required Feat							Var. Min. Value			Source Page
-Craft Charged Item	CATEGORY:FEAT	TYPE:ItemCreation															SOURCEPAGE:p.14
-Craft Permanent Spell	CATEGORY:FEAT	TYPE:ItemCreation	PREABILITY:2,CATEGORY=FEAT,Craft Charged Item,Craft Wondrous Item	PREVARGTEQ:EOMCasterLevel,7	SOURCEPAGE:p.14
+# Ability Name		Category of Ability	Type			Required Ability									Var. Min. Value			Source Page
+Craft Charged Item	CATEGORY:FEAT		TYPE:ItemCreation																	SOURCEPAGE:p.14
+Craft Permanent Spell	CATEGORY:FEAT		TYPE:ItemCreation	PREABILITY:2,CATEGORY=FEAT,Craft Charged Item,Craft Wondrous Item	PREVARGTEQ:EOMCasterLevel,7	SOURCEPAGE:p.14
 
 ###Block: Mage feats
 # Feat Name			Unique Key			Type				Required Ability							Required Feat			Multiple Requirements											Required Skill			Var. Min. Value			Description																	Stackable?	Multiple?	Choose		Bonus Ability Pool			Bonus to spell cast/day			Modify VAR							Source Page
-Abjure Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Abjure																														DESC:Your abjure spells are particularly flexible.																																					SOURCEPAGE:p.13
-Arcane Mastery						CATEGORY:FEAT	TYPE:Mage												PREABILITY:1,CATEGORY=FEAT,Arcane Specialist																				PREVARGTEQ:EOMCasterLevel,10	DESC:You can prepare spells you normally could not cast.																																				SOURCEPAGE:p.13
-Arcane Specialist						CATEGORY:FEAT	TYPE:Mage												PREABILITY:1,CATEGORY=FEAT,Arcane Student																				PREVARGTEQ:EOMCasterLevel,3	DESC:You can cast spells from books quickly.																																						SOURCEPAGE:p.13
-Arcane Student						CATEGORY:FEAT	TYPE:Mage																																									DESC:You can prepare spells more easily.																																							SOURCEPAGE:p.13
-Armored Casting						CATEGORY:FEAT	TYPE:Mage																	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)]											DESC:You have no spell failure chance because of armor.																																				SOURCEPAGE:p.13
-Dispel Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist																													PRESKILL:5,Divination=1							DESC:You are very skilled at counterspells and magical defenses.																																			SOURCEPAGE:p.14
-Divination Specialist					CATEGORY:FEAT	TYPE:Mage.Specialist																													PRESKILL:5,Dispel Magic=1						DESC:You have mild precognition that comes unconsciously.																																				SOURCEPAGE:p.14
-Evoke Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Evoke																														DESC:You are very skilled at dealing magical damage.																																					SOURCEPAGE:p.14
-Extra Magic Points					CATEGORY:FEAT	TYPE:Mage																																									DESC:You have a deeper pool of magical energy to draw from.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|BonusSpellPoints|EOMCasterLevel/2	SOURCEPAGE:p.14
-Extra Signature Spells					CATEGORY:FEAT	TYPE:Mage																																									DESC:You are good at casting certain spells quickly.																							BONUS:SPELLCAST|TYPE=EOM;LEVEL=0|4									SOURCEPAGE:p.14
-Extra Spell List						CATEGORY:FEAT	TYPE:Mage																																									DESC:You have a slightly larger than normal magical repertoire.								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Spell Lists|1															SOURCEPAGE:p.15
-Heal Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Heal																															DESC:Your healing spells can cure multiple weak afflictions cheaply.																																		SOURCEPAGE:p.15
-Illusion Specialist					CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Illusion																														DESC:Your illusion spells are always a little more detailed.																																			SOURCEPAGE:p.15
-Infuse Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Infuse																														DESC:Your ability-influencing spells last longer.																																					SOURCEPAGE:p.15
-Natural Spell		KEY:EOM_NATURAL_SPELL	CATEGORY:FEAT	TYPE:Mage																																									DESC:You can cast spells while in different creature's forms.																																			SOURCEPAGE:p.15
-Scry Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist																													PRESKILL:5,Scry=1								DESC:You have an easier time casting spells through scrying.																																			SOURCEPAGE:p.15
-Spell List Familiarity					CATEGORY:FEAT	TYPE:Mage																																									DESC:Choose a spell list, such as Evoke  Death. You can cast a certain spell list more cheaply.																														SOURCEPAGE:p.16
-Spell List Focus						CATEGORY:FEAT	TYPE:Mage																																									DESC:Choose a spell list, such as Evoke Fire. Your spells of that list are harder to resist.																														SOURCEPAGE:p.16
-Summon Specialist						CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Summon																														DESC:You are very skilled at handling magically created creatures.																																		SOURCEPAGE:p.16
-Transform Specialist					CATEGORY:FEAT	TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Transform																														DESC:Your transform spells can themselves transform, allowing multiple shiftings of shape with one spell.																												SOURCEPAGE:p.16
+# Ability Name		Unique Key			Category of Ability	Type				Required Ability							Multiple Requirements														Required Skill			Var. Min. Value			Description																	Stackable?	Multiple?	Choose		Bonus Ability Pool			Bonus to spell cast/day			Modify VAR							Source Page
+Abjure Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Abjure																												DESC:Your abjure spells are particularly flexible.																																					SOURCEPAGE:p.13
+Arcane Mastery						CATEGORY:FEAT		TYPE:Mage			PREABILITY:1,CATEGORY=FEAT,Arcane Specialist																								PREVARGTEQ:EOMCasterLevel,10	DESC:You can prepare spells you normally could not cast.																																				SOURCEPAGE:p.13
+Arcane Specialist						CATEGORY:FEAT		TYPE:Mage			PREABILITY:1,CATEGORY=FEAT,Arcane Student																									PREVARGTEQ:EOMCasterLevel,3	DESC:You can cast spells from books quickly.																																						SOURCEPAGE:p.13
+Arcane Student						CATEGORY:FEAT		TYPE:Mage																																							DESC:You can prepare spells more easily.																																							SOURCEPAGE:p.13
+Armored Casting						CATEGORY:FEAT		TYPE:Mage												PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)]											DESC:You have no spell failure chance because of armor.																																				SOURCEPAGE:p.13
+Dispel Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist																											PRESKILL:5,Divination=1							DESC:You are very skilled at counterspells and magical defenses.																																			SOURCEPAGE:p.14
+Divination Specialist					CATEGORY:FEAT		TYPE:Mage.Specialist																											PRESKILL:5,Dispel Magic=1						DESC:You have mild precognition that comes unconsciously.																																				SOURCEPAGE:p.14
+Evoke Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Evoke																												DESC:You are very skilled at dealing magical damage.																																					SOURCEPAGE:p.14
+Extra Magic Points					CATEGORY:FEAT		TYPE:Mage																																							DESC:You have a deeper pool of magical energy to draw from.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|BonusSpellPoints|EOMCasterLevel/2	SOURCEPAGE:p.14
+Extra Signature Spells					CATEGORY:FEAT		TYPE:Mage																																							DESC:You are good at casting certain spells quickly.																							BONUS:SPELLCAST|TYPE=EOM;LEVEL=0|4									SOURCEPAGE:p.14
+Extra Spell List						CATEGORY:FEAT		TYPE:Mage																																							DESC:You have a slightly larger than normal magical repertoire.								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Spell Lists|1															SOURCEPAGE:p.15
+Heal Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Heal																													DESC:Your healing spells can cure multiple weak afflictions cheaply.																																		SOURCEPAGE:p.15
+Illusion Specialist					CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Illusion																												DESC:Your illusion spells are always a little more detailed.																																			SOURCEPAGE:p.15
+Infuse Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Infuse																												DESC:Your ability-influencing spells last longer.																																					SOURCEPAGE:p.15
+Natural Spell		KEY:EOM_NATURAL_SPELL	CATEGORY:FEAT		TYPE:Mage																																							DESC:You can cast spells while in different creature's forms.																																			SOURCEPAGE:p.15
+Scry Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist																											PRESKILL:5,Scry=1								DESC:You have an easier time casting spells through scrying.																																			SOURCEPAGE:p.15
+Spell List Familiarity					CATEGORY:FEAT		TYPE:Mage																																							DESC:Choose a spell list, such as Evoke  Death. You can cast a certain spell list more cheaply.																														SOURCEPAGE:p.16
+Spell List Focus						CATEGORY:FEAT		TYPE:Mage																																							DESC:Choose a spell list, such as Evoke Fire. Your spells of that list are harder to resist.																														SOURCEPAGE:p.16
+Summon Specialist						CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Summon																												DESC:You are very skilled at handling magically created creatures.																																		SOURCEPAGE:p.16
+Transform Specialist					CATEGORY:FEAT		TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Transform																												DESC:Your transform spells can themselves transform, allowing multiple shiftings of shape with one spell.																												SOURCEPAGE:p.16
 
 ###Block: Mods
 # Feat Name			Type						Clear Prereq.	Multiple Requirements																				Var. Must Be Lower
+# Ability Name					Type						Clear Prereq.	Multiple Requirements																							Var. Must Be Lower
 CATEGORY=FEAT|Craft Wondrous Item.MOD	TYPE:ItemCreation.Elements of Magic	PRE:.CLEAR		PREMULT:1,[PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3],[PREMULT:2,[PREVARGTEQ:EOMCasterLevel,3],[PREABILITY:1,CATEGORY=FEAT,Craft Charged Item]]
-CATEGORY=FEAT|Extend Spell.MOD																																		PREVARLT:EOMCasterLevel,1
-CATEGORY=FEAT|Empower Spell.MOD																																		PREVARLT:EOMCasterLevel,1
-CATEGORY=FEAT|Enlarge Spell.MOD																																		PREVARLT:EOMCasterLevel,1
-CATEGORY=FEAT|Heighten Spell.MOD																																	PREVARLT:EOMCasterLevel,1
-CATEGORY=FEAT|Maximize Spell.MOD																																	PREVARLT:EOMCasterLevel,1
-CATEGORY=FEAT|Widen Spell.MOD																																		PREVARLT:EOMCasterLevel,1
+CATEGORY=FEAT|Extend Spell.MOD																																					PREVARLT:EOMCasterLevel,1
+CATEGORY=FEAT|Empower Spell.MOD																																					PREVARLT:EOMCasterLevel,1
+CATEGORY=FEAT|Enlarge Spell.MOD																																					PREVARLT:EOMCasterLevel,1
+CATEGORY=FEAT|Heighten Spell.MOD																																					PREVARLT:EOMCasterLevel,1
+CATEGORY=FEAT|Maximize Spell.MOD																																					PREVARLT:EOMCasterLevel,1
+CATEGORY=FEAT|Widen Spell.MOD																																						PREVARLT:EOMCasterLevel,1
 
 ###Block: Tradition feats
 # Feat Name			Type			Required Ability																			Required Feat			Required Skill						Required Stat	Var. Must Be Grater		Var. Min. Value			Description																		Source Page
-Masked Soul			CATEGORY:FEAT	TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Ragesian Inquisitor	PREABILITY:1,CATEGORY=Special Ability,Abjure Life,Abjure Death														PRESTAT:1,WIS=13						PREVARGTEQ:EOMCasterlevel,1	DESC:You can protect yourself from spells by hiding your soul behind a special mask.					SOURCEPAGE:p.92
-Natural Spelltouch	CATEGORY:FEAT	TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Vaneljesti Spellweaver	PREABILITY:1,CATEGORY=Special Ability,Transform Life		PREABILITY:1,CATEGORY=FEAT,Combat Casting	PRESKILL:1,Knowledge (Nature)=4						PREVARGT:EOMCasterlevel,0						DESC:You can cast spells with a range of touch through melee attacks with weapons made of animal or plant matter.	SOURCEPAGE:p.93
-Spellweave			CATEGORY:FEAT	TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Vaneljesti Spellweaver	PREABILITY:1,CATEGORY=Special Ability,Transform Life							PRESKILL:2,Knowledge (Nature)=4,Spellcraft=4									PREVARGTEQ:EOMCasterLevel,3	DESC:Your magic grows and interweaves easily.												SOURCEPAGE:p.93
+# Ability Name		Category of Ability	Type			Required Ability																									Required Skill						Required Stat	Var. Must Be Grater		Var. Min. Value			Description																		Source Page
+Masked Soul			CATEGORY:FEAT		TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Ragesian Inquisitor	PREABILITY:1,CATEGORY=Special Ability,Abjure Life,Abjure Death															PRESTAT:1,WIS=13						PREVARGTEQ:EOMCasterlevel,1	DESC:You can protect yourself from spells by hiding your soul behind a special mask.					SOURCEPAGE:p.92
+Natural Spelltouch	CATEGORY:FEAT		TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Vaneljesti Spellweaver	PREABILITY:1,CATEGORY=Special Ability,Transform Life	PREABILITY:1,CATEGORY=FEAT,Combat Casting	PRESKILL:1,Knowledge (Nature)=4						PREVARGT:EOMCasterlevel,0						DESC:You can cast spells with a range of touch through melee attacks with weapons made of animal or plant matter.	SOURCEPAGE:p.93
+Spellweave			CATEGORY:FEAT		TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Vaneljesti Spellweaver	PREABILITY:1,CATEGORY=Special Ability,Transform Life								PRESKILL:2,Knowledge (Nature)=4,Spellcraft=4									PREVARGTEQ:EOMCasterLevel,3	DESC:Your magic grows and interweaves easily.												SOURCEPAGE:p.93
 
 
 
 ###Block: Mods
 # Feat Name			Type
+# Ability Name				Type
 CATEGORY=FEAT|Acrobatic.MOD		TYPE:TaskmageFeat
 CATEGORY=FEAT|Agile.MOD			TYPE:TaskmageFeat
 CATEGORY=FEAT|Alertness.MOD		TYPE:TaskmageFeat

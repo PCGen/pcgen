@@ -27,9 +27,11 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.helper.StatLock;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
@@ -55,6 +57,8 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	Spell spell;
 	PCTemplate template1;
 	PCTemplate template2;
+	PCTemplate template3;
+	PCTemplate template4;
 
 	/**
 	 * 
@@ -112,6 +116,21 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		if (aBonus != null)
 		{
 			template2.addToListFor(ListKey.BONUS, aBonus);
+		}
+
+		template3 = new PCTemplate();
+		template3.setName("Lock the stat");
+		template3.addToListFor(ListKey.STAT_MINVALUE,
+			new StatLock(context.getReferenceContext().getCDOMReference(
+				PCStat.class, "WIS"), FormulaFactory.getFormulaFor("12")));
+
+
+		template4 = new PCTemplate();
+		template4.setName("Unwise");
+		aBonus = Bonus.newBonus(context, "STAT|WIS|-8|TYPE=Enhancement");
+		if (aBonus != null)
+		{
+			template4.addToListFor(ListKey.BONUS, aBonus);
 		}
 	}
 
@@ -330,5 +349,61 @@ public class StatTokenTest extends AbstractCharacterTestCase
 			"STAT.1.LEVEL.1.NOTEMP", pc, null));
 		assertEquals("Level 1 stat.", "10", statTok.getToken(
 			"STAT.1.LEVEL.1.NOEQUIP.NOTEMP", pc, null));
+	}
+
+	/**
+	 * Test out the way in which locked stats are reported.
+	 */
+	public void testLockedStats()
+	{
+		PlayerCharacter pc = getCharacter();
+		StatToken statTok = new StatToken();
+
+		setPCStat(pc, wis, 10);
+		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
+			null));
+		assertEquals("Total stat.", "10", statTok.getToken("STAT.4", pc, null));
+		assertEquals("Temp stat.", "10", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null));
+		assertEquals("Equip stat.", "10", statTok.getToken("STAT.4.NOTEMP", pc,
+			null));
+		assertEquals("No equip/temp stat.", "10", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+
+		pc.addTemplate(template3);
+		pc.calcActiveBonuses();
+		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
+			null));
+		assertEquals("Total stat.", "12", statTok.getToken("STAT.4", pc, null));
+		assertEquals("Temp stat.", "12", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null));
+		assertEquals("Equip stat.", "12", statTok.getToken("STAT.4.NOTEMP", pc,
+			null));
+		assertEquals("No equip/temp stat.", "12", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+
+		pc.addTemplate(template4);
+		pc.calcActiveBonuses();
+		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
+			null));
+		assertEquals("Total stat.", "12", statTok.getToken("STAT.4", pc, null));
+		assertEquals("Temp stat.", "12", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null));
+		assertEquals("Equip stat.", "12", statTok.getToken("STAT.4.NOTEMP", pc,
+			null));
+		assertEquals("No equip/temp stat.", "12", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+
+		pc.removeTemplate(template3);
+		pc.calcActiveBonuses();
+		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
+			null));
+		assertEquals("Total stat.", "2", statTok.getToken("STAT.4", pc, null));
+		assertEquals("Temp stat.", "2", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null));
+		assertEquals("Equip stat.", "2", statTok.getToken("STAT.4.NOTEMP", pc,
+			null));
+		assertEquals("No equip/temp stat.", "2", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null));
 	}
 }

@@ -42,7 +42,7 @@ public final class ChooseInformationUtilities
 		List<String> list = new ArrayList<String>(collection.size());
 		for (T sl : collection)
 		{
-			list.add(info.encodeChoice(sl));
+			list.add(String.valueOf(sl));
 		}
 		Collections.sort(list);
 		return StringUtil.joinToStringBuilder(list, ", ");

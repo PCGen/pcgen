@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 
 #Block:Battle-Rager ------------------------------------------------------------
@@ -55,14 +55,14 @@ Tunnel Fighting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 Magical Craftsman		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Curse Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Magical Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Magical Deconstruction	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MagicDecon|0	DESC:%1%%|MagicDecon	ASPECT:Ability Benefit|%1%|MagicDecon
+Magical Deconstruction	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MagicDecon|0	DESC:%1%%|MagicDecon	ASPECT:Ability Benefit|%1%%|MagicDecon
 Spell Absorption		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block:Stoneheart Ascetic Bonus Feats ----------------------------------------
-# Ability Name		Unique Key						Category of Ability		Type					Visible		Virtual Feat			Ability
+# Ability Name		Unique Key						Category of Ability		Type					Visible		Ability
 Deflect Arrows		KEY:Stoneheart Ascetic Deflect Arrows	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Deflect Arrows
 Dodge											CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Dodge
-Improved Grab		KEY:Stoneheart Ascetic Improved Grab	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY						ABILITY:Special Ability|VIRTUAL|Improved Grab
+Improved Grab		KEY:Stoneheart Ascetic Improved Grab	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:Special Ability|VIRTUAL|Improved Grab
 Improved Bull Rush								CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Bull Rush
 Improved Disarm		KEY:Stoneheart Ascetic Improved Disarm	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Disarm
 Improved Trip		KEY:Stoneheart Ascetic Improved Trip	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Trip
@@ -74,7 +74,7 @@ Toughness										CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:
 # Ability Name					Unique Key				Category of Ability		Type						Visible	Define				Description						Stackable?	Multiple?	Choose							Ability								Misc bonus																																							Bonus to spell known/L		Modify VAR					Source Page
 #COMMENT: BONUS:SPELLKNOWN|%LIST|1 - Invalid
 # Ability Name					Unique Key				Category of Ability		Type						Visible	Define				Description						Stackable?	Multiple?	Choose							Ability								Misc bonus																																							Bonus to spell known/L		Modify VAR					Source Page
-Ancestral Lore										CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL+1																																																		BONUS:SPELLKNOWN|%LIST|1							SOURCEPAGE:p.54
+Ancestral Lore										CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|MAXLEVEL+1																																																		BONUS:SPELLKNOWN|%LIST|1							SOURCEPAGE:p.54
 Armored Casting (Light)				KEY:Armored Casting ~ Light	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist			DEFINE:ArmorCastingLight|0	DESC:Removes %1%%|ArmorCastingLight		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder																																														BONUS:VAR|ArmorCastingLight|5		SOURCEPAGE:p.54
 Armored Casting (Medium)			KEY:Armored Casting ~ Medium	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist			DEFINE:ArmorCastingMedium|0	DESC:Removes %1%%|ArmorCastingMedium	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder																																														BONUS:VAR|ArmorCastingMedium|5	SOURCEPAGE:p.54
 Armored Casting (Heavy)				KEY:Armored Casting ~ Heavy	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist			DEFINE:ArmorCastingHeavy|0	DESC:Removes %1%%|ArmorCastingHeavy		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder																																														BONUS:VAR|ArmorCastingHeavy|5		SOURCEPAGE:p.54

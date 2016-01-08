@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Hammer (Gnome Hooked)    -- REMOVED - NOT in SRD.
 # Urgrosh (Dwarven)    -- REMOVED - NOT in SRD.
 
 # Now need to take Armor Spikes/Shield spikes for weight and cost.
 #Armor Extra
-# Equipment Name		Output Name				Required Weapon Proficiency			Type												Alt Type					Cost		Weight	Slot Needed	Var. Min. Value			Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier			Alt EQModifier	Wield Category	Requires Modification?	Range		Reach Multiplier	Size		Source Page						Weapon prop. bonus												Special Property
-Armor Spikes							PROFICIENCY:WEAPON|Armor Spikes		TYPE:Weapon.Martial.Melee.Standard.Piercing.Unarmed.Accessories								COST:0	WT:0		SLOTS:0						CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:STEEL																				SOURCEPAGE:SRDEquipmentI																		SPROP:deals extra piercing damage on a successful grapple attack
+# Equipment Name		Output Name				Required Weapon Proficiency			Type												Alt Type					Cost		Weight	Slot Needed	Var. Min. Value			Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier			Alt EQModifier	Wield Category	Requires Modification?	Range		Reach Multiplier	Size		Source Page						Weapon prop. bonus														Special Property
+Armor Spikes							PROFICIENCY:WEAPON|Armor Spikes		TYPE:Weapon.Martial.Melee.Standard.Piercing.Unarmed.Accessories								COST:0	WT:0		SLOTS:0						CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:STEEL																				SOURCEPAGE:SRDEquipmentI																				SPROP:deals extra piercing damage on a successful grapple attack
 #Exotic Melee Weapons
 #TINY ----------------------------------------------------------------------------------------------------------
 Kama (Halfling)		OUTPUTNAME:Kama, Halfling	PROFICIENCY:WEAPON|Kama				TYPE:Weapon.Exotic.Melee.Slashing.Standard.Monk											COST:2	WT:1									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:STEEL						WIELD:OneHanded										SIZE:T	SOURCEPAGE:SRDEquipmentI
@@ -70,9 +70,9 @@ Greatsword								PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Martial.Melee.Stan
 #UNARMED ----------------------------------------------------------------------------------------------------------
 Unarmed Strike							PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Unarmed.Melee.Bludgeoning.Standard.Monk										COST:0	WT:0																			DAMAGE:1d3											WIELD:OneHanded	MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI
 Gauntlet								PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:2	WT:2									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3				EQMOD:STEEL						WIELD:OneHanded										SIZE:T	SOURCEPAGE:SRDEquipmentI
-Gauntlet (Locked)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:8	WT:5									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3				EQMOD:STEEL						WIELD:OneHanded										SIZE:T	SOURCEPAGE:SRDEquipmentI																		SPROP:+10 vs. disarm
-Shieldbash (Light)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3											WIELD:OneHanded										SIZE:T	SOURCEPAGE:SRDEquipmentI																		SPROP:Shieldbash attacks are considered to be offhanded attacks
-Shieldbash (Heavy)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4											WIELD:OneHanded										SIZE:S	SOURCEPAGE:SRDEquipmentI																		SPROP:Shieldbash attacks are considered to be offhanded attacks
+Gauntlet (Locked)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Gauntlet								COST:8	WT:5									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3				EQMOD:STEEL						WIELD:OneHanded										SIZE:T	SOURCEPAGE:SRDEquipmentI																				SPROP:+10 vs. disarm
+Shieldbash (Light)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3											WIELD:OneHanded										SIZE:T	SOURCEPAGE:SRDEquipmentI																				SPROP:Shieldbash attacks are considered to be offhanded attacks
+Shieldbash (Heavy)						PROFICIENCY:WEAPON|Shieldbash			TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash									COST:0	WT:0									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4											WIELD:OneHanded										SIZE:S	SOURCEPAGE:SRDEquipmentI																				SPROP:Shieldbash attacks are considered to be offhanded attacks
 Touch Attack (Grapple)						PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed													COST:0	WT:0									CRITMULT:x2	CRITRANGE:1							DAMAGE:0											WIELD:OneHanded	MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI
 Touch Attack (Ray)						PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed														COST:0	WT:0									CRITMULT:x2	CRITRANGE:1							DAMAGE:0											WIELD:OneHanded	MODS:NO								SIZE:T	SOURCEPAGE:SRDEquipmentI
 

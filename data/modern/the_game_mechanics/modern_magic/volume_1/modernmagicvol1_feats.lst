@@ -1,17 +1,18 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp	SOURCEDATE:2004-01
 
 #CREATED BY:Paul W. King, Jan 2007
 #UPDATED BY:Paul W. King, Jan 2007
 
 # Feat Name		Type							Required Feat				Req. Spell Type		Description											Add Spell Lvl	Misc bonus				Source Page
-Armored Casting	CATEGORY:FEAT	TYPE:General.ArcaneSpecOp.Thaumaturgical	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)					DESC:You are skilled at casting spells while wearing armor.						BONUS:MISC|SPELLFAILURE|-10	SOURCEPAGE:p.31
-Combat Casting	CATEGORY:FEAT	TYPE:General.ArcaneSpecOp									PRESPELLTYPE:1,Arcane=4	DESC:You are adept at casting spells during combat.												SOURCEPAGE:p.31
-Fork Spell		CATEGORY:FEAT	TYPE:Metamagic.ArcaneSpecOp													DESC:You can double the number of targets your spell has.			ADDSPELLLEVEL:2						SOURCEPAGE:p.31
-Mass Spell		CATEGORY:FEAT	TYPE:Metamagic.ArcaneSpecOp			PREABILITY:1,CATEGORY=FEAT,Fork Spell							DESC:You can vastly increase the number of targets your spells affect.	ADDSPELLLEVEL:4						SOURCEPAGE:p.31
+# Ability Name	Category of Ability	Type							Required Ability							Required Class							Req. Spell Type		Define			Description																							Add Spell Lvl	Misc bonus				Modify VAR			Source Page
+Armored Casting	CATEGORY:FEAT		TYPE:General.ArcaneSpecOp.Thaumaturgical	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)																		DESC:You are skilled at casting spells while wearing armor.																		BONUS:MISC|SPELLFAILURE|-10					SOURCEPAGE:p.31
+Combat Casting	CATEGORY:FEAT		TYPE:General.ArcaneSpecOp																					PRESPELLTYPE:1,Arcane=4					DESC:You are adept at casting spells during combat.																												SOURCEPAGE:p.31
+Fork Spell		CATEGORY:FEAT		TYPE:Metamagic.ArcaneSpecOp																													DESC:You can double the number of targets your spell has.															ADDSPELLLEVEL:2										SOURCEPAGE:p.31
+Mass Spell		CATEGORY:FEAT		TYPE:Metamagic.ArcaneSpecOp			PREABILITY:1,CATEGORY=FEAT,Fork Spell																				DESC:You can vastly increase the number of targets your spells affect.													ADDSPELLLEVEL:4										SOURCEPAGE:p.31
 
 
 
 # SRD
-Brew Potion				CATEGORY:FEAT	TYPE:ItemCreation.Wizard	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																																													DEFINE:BrewLevel|0								DESC:The character can create a potion of any spell of 3rd level or lower that the character knows and that targets a creature or creatures.																																																																																																																																																																			BONUS:VAR|BrewLevel|3																																			SOURCEPAGE:srdfeats
-Scribe Scroll			CATEGORY:FEAT	TYPE:ItemCreation.Wizard	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																																																								DESC:The character can create a scroll of any spell that the character knows.																																																																																																																																																																																																																				SOURCEPAGE:srdfeats
+Brew Potion		CATEGORY:FEAT		TYPE:ItemCreation.Wizard												PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3					DEFINE:BrewLevel|0	DESC:The character can create a potion of any spell of 3rd level or lower that the character knows and that targets a creature or creatures.									BONUS:VAR|BrewLevel|3	SOURCEPAGE:srdfeats
+Scribe Scroll	CATEGORY:FEAT		TYPE:ItemCreation.Wizard												PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1									DESC:The character can create a scroll of any spell that the character knows.																								SOURCEPAGE:srdfeats

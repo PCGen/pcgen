@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
-# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus								Save bonus																					Modify VAR
-CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4
-# Class Name		Required Feat		Required Skill				PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page				Combat bonus								Save bonus																					Modify VAR										FACT
+CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	FACT:ClassType|PC	FACT:SpellType|Psionic
+# Class Name		Required Ability					Required Skill				PRETOTALAB
 CLASS:Psionic Agent	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psionic Agent	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Agent|CL
+# Class Name		Spell Stat		Memorize	Caster level
+CLASS:Psionic Agent	SPELLSTAT:SPELL	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Agent|CL
 ###Block: powers
 1	SPELLLEVEL:CLASS|Psionic Agent=0|Burst,Detect Psionics,Far Punch,Finger of Fire,Missive,Verve
 1	SPELLLEVEL:CLASS|Psionic Agent=1|Combat Precognition,Lesser Concussion
@@ -23,7 +23,7 @@ CLASS:Psionic Agent	SPELLSTAT:SPELL	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CAS
 5	KNOWN:3,3,1									BONUS:VAR|PowerPoints|3					ABILITY:Special Ability|AUTOMATIC|Charged Shot
 6	KNOWN:3,3,2									BONUS:VAR|PowerPoints|3
 7	KNOWN:3,3,2,1								BONUS:VAR|PowerPoints|5					ABILITY:Special Ability|AUTOMATIC|Combat Manifestation
-8	KNOWN:3,3,3,1								BONUS:VAR|PowerPoints|5															ABILITY:FEAT|AUTOMATIC|Power Penetration
+8	KNOWN:3,3,3,1								BONUS:VAR|PowerPoints|5					ABILITY:FEAT|AUTOMATIC|Power Penetration
 9	KNOWN:3,3,3,2								BONUS:VAR|PowerPoints|5
 10	KNOWN:3,3,3,2,1								BONUS:VAR|PowerPoints|7					ABILITY:Special Ability|AUTOMATIC|Deadly Aim
 

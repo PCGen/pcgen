@@ -330,6 +330,11 @@ public class Aspect extends ConcretePrereqObject
 						Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%').append(ind);
 			}
+			else if (str.equals("%"))
+			{
+				//reescape
+				buf.append("%%");
+			}
 			else
 			{
 				buf.append(EntityEncoder.encode(str));

@@ -1,11 +1,11 @@
-# CVS $Revision: 1058 $ $Author: eddyanthony $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 1058 $ $Author: eddyanthony $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../../docs/sourcehelp/pcgen_ogc_help.html
 
-# Template Name				Visible	Choose									Temporary effect description																										Temporary Bonus
-Psicrystal Skills (Spot)		VISIBLE:NO	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Ranks in Spot			TEMPDESC:a Psicrystal has a minimum of 4 ranks in Spot even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.		TEMPBONUS:PC|SKILLRANK|Spot|%CHOICE|TYPE=Temporary
-Psicrystal Skills (Listen)		VISIBLE:NO	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Ranks in Listen			TEMPDESC:a Psicrystal has a minimum of 4 ranks in Listen even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.		TEMPBONUS:PC|SKILLRANK|Listen|%CHOICE|TYPE=Temporary
-Psicrystal Skills (Move Silently)	VISIBLE:NO	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Ranks in Move Silently	TEMPDESC:a Psicrystal has a minimum of 4 ranks in Move Silently even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.	TEMPBONUS:PC|SKILLRANK|Move Silently|%CHOICE|TYPE=Temporary
-Psicrystal Skills (Search)		VISIBLE:NO	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Ranks in Search			TEMPDESC:a Psicrystal has a minimum of 4 ranks in Search even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.		TEMPBONUS:PC|SKILLRANK|Search|%CHOICE|TYPE=Temporary
+# Template Name				Visible	Temporary effect description																										Temporary Bonus								TEMPVALUE
+Psicrystal Skills (Spot)		VISIBLE:NO	TEMPDESC:a Psicrystal has a minimum of 4 ranks in Spot even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.		TEMPBONUS:PC|SKILLRANK|Spot|%CHOICE|TYPE=Temporary		TEMPVALUE:MIN=1|MAX=4|TITLE=Ranks in Spot
+Psicrystal Skills (Listen)		VISIBLE:NO	TEMPDESC:a Psicrystal has a minimum of 4 ranks in Listen even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.		TEMPBONUS:PC|SKILLRANK|Listen|%CHOICE|TYPE=Temporary		TEMPVALUE:MIN=1|MAX=4|TITLE=Ranks in Listen
+Psicrystal Skills (Move Silently)	VISIBLE:NO	TEMPDESC:a Psicrystal has a minimum of 4 ranks in Move Silently even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.	TEMPBONUS:PC|SKILLRANK|Move Silently|%CHOICE|TYPE=Temporary	TEMPVALUE:MIN=1|MAX=4|TITLE=Ranks in Move Silently
+Psicrystal Skills (Search)		VISIBLE:NO	TEMPDESC:a Psicrystal has a minimum of 4 ranks in Search even if the owner has none. You can use this to manually set these ranks if the master does not allready have them.		TEMPBONUS:PC|SKILLRANK|Search|%CHOICE|TYPE=Temporary		TEMPVALUE:MIN=1|MAX=4|TITLE=Ranks in Search
 
 #
 # End

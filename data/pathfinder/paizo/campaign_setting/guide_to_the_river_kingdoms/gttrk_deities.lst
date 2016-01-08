@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
 # Original Entry by: Stefan Radermacher
 
 ###Block: River Kingsdoms lesser gods
-# Deity Name	Product Identity?	Domains									Description of Deity/Title				Deity Weapon	Align		Pantheon					Deity Title			Source Page
-Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE	DESC:Goddess of hatred, extortion, and spite	DEITYWEAP:Dagger	ALIGN:CE	PANTHEON:Pathfinder Chronicles	TITLE:The Angry Hag	SOURCEPAGE:p.9
-Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE		DESC:God of rivers and river travel			DEITYWEAP:Trident	ALIGN:CN	PANTHEON:Pathfinder Chronicles	TITLE:The Water Rat	SOURCEPAGE:p.9
+# Deity Name	Product Identity?	Domains									Description of Deity/Title				FACT					FACTSET						Deity Weapon	Align		Source Page
+Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE	DESC:Goddess of hatred, extortion, and spite	FACT:Title|The Angry Hag	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Dagger	ALIGN:CE	SOURCEPAGE:p.9
+Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE		DESC:God of rivers and river travel			FACT:Title|The Water Rat	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Trident	ALIGN:CN	SOURCEPAGE:p.9
 
 ###Block: Inquisitor Domain Support
 

@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -64,16 +64,17 @@ Art			TYPE:Art					COST:0	WT:0				MODS:REQUIRED
 Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED
 
 ###Block: Tattoo Slot Support
-Tattoo Head				TYPE:TattooHead		COST:0	WT:0				MODS:REQUIRED
-Tattoo Shoulders			TYPE:TattooShoulders	COST:0	WT:0				MODS:REQUIRED
-Tattoo Neck				TYPE:TattooNeck		COST:0	WT:0				MODS:REQUIRED
-Tattoo Chest			TYPE:TattooChest		COST:0	WT:0				MODS:REQUIRED
-Tattoo Body				TYPE:TattooBody		COST:0	WT:0				MODS:REQUIRED
-Tattoo Belt				TYPE:TattooBelt		COST:0	WT:0				MODS:REQUIRED
-Tattoo Wrist			TYPE:TattooWrist		COST:0	WT:0				MODS:REQUIRED
-Tattoo Hands			TYPE:TattooHands		COST:0	WT:0				MODS:REQUIRED
-Tattoo Ring				TYPE:TattooRing		COST:0	WT:0				MODS:REQUIRED
-Tattoo Feet				TYPE:TattooFeet		COST:0	WT:0				MODS:REQUIRED
+# Equipment Name	Type				Cost		Weight	Requires Modification?
+Tattoo Head		TYPE:TattooHead		COST:0	WT:0		MODS:REQUIRED
+Tattoo Shoulders	TYPE:TattooShoulders	COST:0	WT:0		MODS:REQUIRED
+Tattoo Neck		TYPE:TattooNeck		COST:0	WT:0		MODS:REQUIRED
+Tattoo Chest	TYPE:TattooChest		COST:0	WT:0		MODS:REQUIRED
+Tattoo Body		TYPE:TattooBody		COST:0	WT:0		MODS:REQUIRED
+Tattoo Belt		TYPE:TattooBelt		COST:0	WT:0		MODS:REQUIRED
+Tattoo Wrist	TYPE:TattooWrist		COST:0	WT:0		MODS:REQUIRED
+Tattoo Hands	TYPE:TattooHands		COST:0	WT:0		MODS:REQUIRED
+Tattoo Ring		TYPE:TattooRing		COST:0	WT:0		MODS:REQUIRED
+Tattoo Feet		TYPE:TattooFeet		COST:0	WT:0		MODS:REQUIRED
 
 ###Block: Trade Goods
 # Equipment Name	Output Name				Type			Cost		Weight	Source Page
@@ -246,7 +247,7 @@ Unholy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus												
 Unholy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161
 
 ###Block: Clothing
-# Equipment Name													Output Name				Type							Cost		Weight	Source Page		Special Property
+# Equipment Name		Unique Key				SORTKEY					Output Name				Type							Cost		Weight	Source Page		Special Property
 Outfit (Artisan's)	KEY:Outfit (Artisan's)		SORTKEY:Outfit (Artisan's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:4		SOURCEPAGE:p.161
 Vestments (Cleric's)	KEY:Vestments (Cleric's)	SORTKEY:Vestments (Cleric's)		OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.161
 Outfit (Cold-Weather)	KEY:Outfit (Cold-Weather)	SORTKEY:Outfit (Cold-Weather)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8	WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
@@ -302,14 +303,14 @@ Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:UNLIM|Any	COST:4	WT
 Stabling (Per Day)		TYPE:Goods.Mount										COST:0.5					SOURCEPAGE:p.159
 
 ###Block: Transport
-# Equipment Name	Type							Contains			Cost		Weight	Source Page
+# Equipment Name	Type									Contains			Cost		Weight	Source Page
 Carriage		TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:3120|Any		COST:100	WT:600	SOURCEPAGE:p.163
 Cart			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:3120|Any		COST:15	WT:200	SOURCEPAGE:p.163
 Galley		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:30000			SOURCEPAGE:p.163
 Keelboat		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:100000|Any	COST:3000			SOURCEPAGE:p.163
 Longship		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:100000|Any	COST:10000			SOURCEPAGE:p.163
 Rowboat		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:600|Any		COST:50	WT:100	SOURCEPAGE:p.163
-Oar			TYPE:Goods.Transportation.Vehicle.Ships.Extra					COST:2	WT:10		SOURCEPAGE:p.159
+Oar			TYPE:Goods.Transportation.Vehicle.Ships.Extra						COST:2	WT:10		SOURCEPAGE:p.159
 Sailing Ship	TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:10000			SOURCEPAGE:p.163
 Sled			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:2000|Any		COST:20	WT:300	SOURCEPAGE:p.163
 Wagon			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:4000|Any		COST:35	WT:400	SOURCEPAGE:p.163

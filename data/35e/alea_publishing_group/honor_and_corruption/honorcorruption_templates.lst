@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original entry: Andrew Maitland
 
@@ -8,12 +8,12 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 #Every 4 levels begining at 4 gain 1d10 additional hp
 # A random 1 to 10 hp need a mechanism to deal with this... Perhap a PREAPPLY:PC style tag in a feat call...
 
-# Template Name			Source Page		Define												Required Lvl	Required Template					Bonus Ability Pool				Modify VAR													Choose								Ability																								Temporary effect description													Temporary Bonus
-Subclass (Knight Lvl 01)	SOURCEPAGE:p.22	DEFINE:HonorScore|0																																																		ABILITY:Special Ability|AUTOMATIC|Honor ~ Knight Subclass|Squire ~ Knight Subclass	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Indomitable Will
+# Template Name			Source Page		Define												Required Lvl	Required Template					Bonus Ability Pool				Modify VAR													Ability																								Temporary effect description													Temporary Bonus											TEMPVALUE
+Subclass (Knight Lvl 01)	SOURCEPAGE:p.22	DEFINE:HonorScore|0																																									ABILITY:Special Ability|AUTOMATIC|Honor ~ Knight Subclass|Squire ~ Knight Subclass	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Indomitable Will
 Subclass (Knight Lvl 02)	SOURCEPAGE:p.22														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Knight Lvl 1)
 Subclass (Knight Lvl 03)	SOURCEPAGE:p.22														PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Knight Lvl 2)
-Subclass (Knight Lvl 04)	SOURCEPAGE:p.22	DEFINE:KnightHitDieBonus|0									PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Knight Lvl 3)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1																			ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Knight Subclass
-Subclass (Knight Lvl 05)	SOURCEPAGE:p.22														PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Knight Lvl 4)																															ABILITY:Special Ability|AUTOMATIC|Sanctuary ~ Knight Subclass
+Subclass (Knight Lvl 04)	SOURCEPAGE:p.22	DEFINE:KnightHitDieBonus|0									PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Knight Lvl 3)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1										ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Knight Subclass
+Subclass (Knight Lvl 05)	SOURCEPAGE:p.22														PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Knight Lvl 4)																						ABILITY:Special Ability|AUTOMATIC|Sanctuary ~ Knight Subclass
 Subclass (Knight Lvl 06)	SOURCEPAGE:p.22														PRELEVEL:MIN=6	PRETEMPLATE:1,Subclass (Knight Lvl 5)
 Subclass (Knight Lvl 07)	SOURCEPAGE:p.22														PRELEVEL:MIN=7	PRETEMPLATE:1,Subclass (Knight Lvl 6)
 Subclass (Knight Lvl 08)	SOURCEPAGE:p.22														PRELEVEL:MIN=8	PRETEMPLATE:1,Subclass (Knight Lvl 7)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1
@@ -34,10 +34,10 @@ Subclass (Knight Lvl 20)	SOURCEPAGE:p.22														PRELEVEL:MIN=20	PRETEMPLAT
 #BONUS Skill points 4 each level
 #Every 4 levels begining at 4 gain 1d6 additional hp
 
-Subclass (Scoundrel Lvl 01)	SOURCEPAGE:p.25	DEFINE:ScoundrelSneakAttackDieSize|0	DEFINE:ScoundrelSneakAttackDice|0																		BONUS:VAR|ScoundrelSneakAttackDieSize|4	BONUS:VAR|ScoundrelSneakAttackDice|1										ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 01)	SOURCEPAGE:p.25	DEFINE:ScoundrelSneakAttackDieSize|0	DEFINE:ScoundrelSneakAttackDice|0																		BONUS:VAR|ScoundrelSneakAttackDieSize|4	BONUS:VAR|ScoundrelSneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass
 Subclass (Scoundrel Lvl 02)	SOURCEPAGE:p.25														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Scoundrel Lvl 1)
-Subclass (Scoundrel Lvl 03)	SOURCEPAGE:p.25	DEFINE:ImpromptuSneakTimes|0									PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Scoundrel Lvl 2)								BONUS:VAR|ImpromptuSneakTimes|1																		ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack ~ Scoundrel Subclass
-Subclass (Scoundrel Lvl 04)	SOURCEPAGE:p.25	DEFINE:ScoundrelHitDieBonus|0									PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Scoundrel Lvl 3)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1																		ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 03)	SOURCEPAGE:p.25	DEFINE:ImpromptuSneakTimes|0									PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Scoundrel Lvl 2)								BONUS:VAR|ImpromptuSneakTimes|1									ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 04)	SOURCEPAGE:p.25	DEFINE:ScoundrelHitDieBonus|0									PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Scoundrel Lvl 3)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1									ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Scoundrel Subclass
 Subclass (Scoundrel Lvl 05)	SOURCEPAGE:p.25														PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Scoundrel Lvl 4)								BONUS:VAR|ScoundrelSneakAttackDice|1
 Subclass (Scoundrel Lvl 06)	SOURCEPAGE:p.25														PRELEVEL:MIN=6	PRETEMPLATE:1,Subclass (Scoundrel Lvl 5)
 Subclass (Scoundrel Lvl 07)	SOURCEPAGE:p.25														PRELEVEL:MIN=7	PRETEMPLATE:1,Subclass (Scoundrel Lvl 6)								BONUS:VAR|ImpromptuSneakTimes|1
@@ -56,7 +56,7 @@ Subclass (Scoundrel Lvl 19)	SOURCEPAGE:p.25														PRELEVEL:MIN=19	PRETEMP
 Subclass (Scoundrel Lvl 20)	SOURCEPAGE:p.25														PRELEVEL:MIN=20	PRETEMPLATE:1,Subclass (Scoundrel Lvl 19)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1
 
 ###Honor Tracker template
-Knight Honor Modification	SOURCEPAGE:p.22																	PRETEMPLATE:1,Subclass (Knight Lvl 01)																						CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Honor Modification																										TEMPDESC:This can be used to modify the Honor value of a Knight. This can be applied multiple times.	TEMPBONUS:ANYPC|VAR|HonorScore|%CHOICE|PRETEMPLATE:1,Subclass (Knight Lvl 01)
+Knight Honor Modification	SOURCEPAGE:p.22																	PRETEMPLATE:1,Subclass (Knight Lvl 01)																																															TEMPDESC:This can be used to modify the Honor value of a Knight. This can be applied multiple times.	TEMPBONUS:ANYPC|VAR|HonorScore|%CHOICE|PRETEMPLATE:1,Subclass (Knight Lvl 01)	TEMPVALUE:MIN=-10|MAX=10|TITLE=Honor Modification
 
 #
 ## EOF

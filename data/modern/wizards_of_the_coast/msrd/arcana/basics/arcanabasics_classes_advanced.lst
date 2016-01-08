@@ -1,21 +1,18 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
-# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				
-CLASS:Arcane Arranger	HD:6		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses
-
-# Class Name		Skill Pts/Lvl	Modify VAR
-CLASS:Arcane Arranger	STARTSKILLPTS:6	DEFINE:ArcaneArrangerLVL|0	DEFINE:NonEpicArcaneArrangerLVL|0	BONUS:VAR|NonEpicArcaneArrangerLVL|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ArcaneArrangerLVL|CL
-
+# Class Name		Hit Dice	Type			Max Level	Source Page					Define										Modify VAR																	FACT
+CLASS:Arcane Arranger	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	DEFINE:ArcaneArrangerLVL|0	DEFINE:NonEpicArcaneArrangerLVL|0	BONUS:VAR|NonEpicArcaneArrangerLVL|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ArcaneArrangerLVL|CL	FACT:ClassType|PC
 # Class Name		Multiple Requirements
 CLASS:Arcane Arranger	PREMULT:2,[PRESKILL:2,Diplomacy=6,Gather Information=6],[PRESKILL:1,Knowledge (Arcane Lore)=6,Knowledge (Business)=6,Knowledge (Current Events)=6,Knowledge (Popular Culture)=6,Knowledge (Streetwise)=6]
-# Class Name		Skill Pts/Lvl	Class Skill
+# Class Name		Skill Pts/Lvl
+CLASS:Arcane Arranger	STARTSKILLPTS:6
 1	ABILITY:Class|AUTOMATIC|Arcane Arranger ~ Class
 
-# Class Name			Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																						Modify VAR
-CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
-# Class Name			Required Feat							PRETOTALAB
+# Class Name			Hit Dice	Type			Max Level	Source Page					Combat bonus								Save bonus																						Modify VAR														FACT
+CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
+# Class Name			Required Ability										PRETOTALAB
 CLASS:Archaic Weaponsmaster	PREABILITY:2,CATEGORY=FEAT,Archaic Weapons Proficiency,Weapon Focus	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
@@ -29,8 +26,8 @@ CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craf
 9	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
 10	BONUS:ABILITYPOOL|Increased Weapon Critical Selection|1
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Glamourist	HD:6		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR														FACT
+CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
 # Class Name	Required Skill
 CLASS:Glamourist	PRESKILL:2,Bluff=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -46,14 +43,14 @@ CLASS:Glamourist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Decipher S
 9	BONUS:ABILITYPOOL|Glamourist Feat|1
 10							ABILITY:Special Ability|AUTOMATIC|Glamourist ~ Charm Person		SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Charm Person,11+CHA|PRESTAT:1,CHA=11
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																							Modify VAR
-CLASS:Mystic	HD:6		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus							Save bonus																							Modify VAR														FACT
+CLASS:Mystic	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:SpellType|Divine
 # Class Name	Required Skill
 CLASS:Mystic	PRESKILL:3,Diplomacy=6,Knowledge (Theology and Philosophy)=6,Listen=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Visual Art)|Diplomacy|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spellcraft|Spot|Treat Injury
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Mystic	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Mystic	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
 ###Block: Turning
 2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 2	BONUS:VAR|TurnLevel|CL	BONUS:VAR|ExtraTurningQual|1				DEFINE:ExtraTurningQual|0
@@ -67,7 +64,7 @@ CLASS:Mystic	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 1	SPELLLEVEL:CLASS|Mystic=4|Discern Lies,Faith's Fury,Freedom of Movement,Greater Magic Weapon,Neutralize Poison,Restoration,Tongues
 1	SPELLLEVEL:CLASS|Mystic=5|Break Enchantment,Flaming Wrath,Greater Command,Insect Plague,True Seeing,Wall of Stone
 ###Block: Standard block
-1	CAST:3,2		KNOWN:4,2																	ABILITY:FEAT|AUTOMATIC|Arcane Skills
+1	CAST:3,2		KNOWN:4,2								ABILITY:FEAT|AUTOMATIC|Arcane Skills
 2	CAST:4,3		KNOWN:5,2
 3	CAST:4,3,2		KNOWN:5,3,1		BONUS:ABILITYPOOL|Mystic Feat|1
 4	CAST:5,4,3		KNOWN:6,3,2								ABILITY:Special Ability|AUTOMATIC|Mystic ~ Combat Casting
@@ -76,13 +73,13 @@ CLASS:Mystic	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 7	CAST:6,5,4,3,2	KNOWN:7,5,3,2,1							ABILITY:Special Ability|AUTOMATIC|Discern Lie
 8	CAST:6,5,4,4,3	KNOWN:8,5,4,3,2							ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Humans
 9	CAST:6,5,5,4,3,2	KNOWN:8,5,4,3,2,1	BONUS:ABILITYPOOL|Mystic Feat|1
-10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2																ABILITY:FEAT|AUTOMATIC|Empower Spell
+10	CAST:6,5,5,4,4,3	KNOWN:9,5,5,4,3,2							ABILITY:FEAT|AUTOMATIC|Empower Spell
 
 # Psionic Agent moved to psionics subfolder set folder
 
-# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus														Modify VAR
-CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-2)/3	BONUS:VAR|Action|CL*6
-# Class Name		Required Feat													Required Skill									PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page					Combat bonus								Save bonus														Modify VAR														FACT
+CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-2)/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
+# Class Name		Required Ability																			Required Skill									PRETOTALAB
 CLASS:Shadow Hunter	PREABILITY:1,CATEGORY=FEAT,Track	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival
@@ -96,8 +93,8 @@ CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|In
 9	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
 10								BONUS:VAR|TargetBonus|-1						ABILITY:Special Ability|AUTOMATIC|Shadow Hunter ~ Locate Target
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR														FACT
+CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
 # Class Name	Required Skill
 CLASS:Shadowjack	PRESKILL:3,Computer Use=6,Craft (Electronic)=6,Disable Device=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -113,13 +110,13 @@ CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (M
 9	BONUS:ABILITYPOOL|Shadowjack Feat|1
 10														ABILITY:Special Ability|AUTOMATIC|Shadowjack ~ Virtual Incantations
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																					Modify VAR
-CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
-# Class Name	Required Check Base	Required Feat			Required Skill
-CLASS:Speed Demon	PRECHECKBASE:1,Reflex=2	PREABILITY:1,CATEGORY=FEAT,Vehicle Expert	PRESKILL:1,Drive=6
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus								Save bonus																					Modify VAR														FACT
+CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
+# Class Name	Required Ability					Required Check Base	Required Skill
+CLASS:Speed Demon	PREABILITY:1,CATEGORY=FEAT,Vehicle Expert	PRECHECKBASE:1,Reflex=2	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|SPEAK LANGUAGE|Tumble
-1																		TEMPLATE:Uncanny Dodger
+1																				TEMPLATE:Uncanny Dodger
 2								ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ Hit the Weak Spot
 3	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ Vehicle Empathy
 4								ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ Need for Speed
@@ -130,9 +127,9 @@ CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic
 9	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ Restore Vehicle
 10								ABILITY:Special Ability|AUTOMATIC|Speed Demon ~ One with the Machine
 
-# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																						Modify VAR
-CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
-# Class Name		Required Feat				Required Skill				PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page					Combat bonus							Save bonus																						Modify VAR														FACT
+CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
+# Class Name		Required Ability						Required Skill				PRETOTALAB
 CLASS:Street Warrior	PREABILITY:2,CATEGORY=FEAT,Brawl,Streetfighting	PRESKILL:1,Knowledge (Streetwise)=6	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Investigate|Jump|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Profession|Sense Motive|Spot|Survival
@@ -147,9 +144,9 @@ CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive
 9	BONUS:ABILITYPOOL|Street Warrior Feat|1
 10																		ABILITY:Special Ability|AUTOMATIC|Street Warrior ~ Advanced Streetfighting
 
-# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																														Modify VAR
-CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
-# Class Name		Required Feat			Required Skill			PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page					Combat bonus								Save bonus																														Modify VAR														FACT
+CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
+# Class Name		Required Ability					Required Skill			PRETOTALAB
 CLASS:Swashbuckler	PREABILITY:1,CATEGORY=FEAT,Weapon Finesse	PRESKILL:2,Balance=6,Tumble=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Pilot|Profession|Sleight of Hand|Swim|Tumble
@@ -164,14 +161,14 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|
 9	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 10																				ABILITY:Special Ability|AUTOMATIC|Swashbuckler ~ Touche
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
-CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR														FACT
+CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC	FACT:SpellType|Arcane
 # Class Name	Required Skill
 CLASS:Techno Mage	PRESKILL:4,Computer Use=6,Craft (Electronic)=6,Knowledge (Arcane Lore)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Techno Mage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Read/Write Language|Repair|Research|SPEAK LANGUAGE|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Techno Mage	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Techno Mage|CL
+# Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Techno Mage	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Techno Mage|CL
 ###Block: Spells
 1	SPELLLEVEL:CLASS|Techno Mage=0|Daze,Detect Magical Aura,Light,Mage Hand,Message,Prestidigitation,Read Magic,Resistance|Techno Mage=1|Burning Hands,Cause Fear,Change Self,Comprehend Languages,Feather Fall,Hold Portal,Jump,Mage Armor,Magic Missile,Magic Weapon,Power Device,Ray of Fatigue,Shield,Sleep,True Strike|Techno Mage=2|Arcane Lock,Blur,Darkvision,Enhance Ability,Glitterdust,Invisibility,Knock,Levitate,Locate Object,Magic Mouth,Protection from Arrows/Bullets,Resist Energy,See Invisibility,Spider Climb,Web|Techno Mage=3|Dispel Magic,Displacement,Fireball,Flaming Projectiles,Greater Magic Weapon,Halt Undead,Haste,Hold Person,Invisibility Sphere,Keen Edge,Lightning Bolt,Slow,Tongues,Water Breathing|Techno Mage=4|Animate Dead,Arcane Eye,Bestow Curse,Confusion,Dimension Door,Energy Trap,Fear,Ice Storm,Minor Globe of Invulnerability,Remove Curse,Shout,Stoneskin,Wall of Fire,Wall of Ice|Techno Mage=5|Cloudkill,Cone of Cold,Hold Monster,Passwall,Phantom Watchdog,Telekinesis,Wall of Force,Wall of Iron,Wall of Stone
 ###Block: Standard
@@ -186,23 +183,23 @@ CLASS:Techno Mage	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			SPEL
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Feat|1
 10	CAST:4,4,4,3,3,2										ABILITY:Special Ability|AUTOMATIC|Techno Mage ~ Quicken Spell
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																															Modify VAR
-CLASS:Thrasher	HD:12		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
-# Class Name	Required Feat			Required Skill					PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus								Save bonus																															Modify VAR														FACT
+CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
+# Class Name	Required Ability						Required Skill					PRETOTALAB
 CLASS:Thrasher	PREABILITY:1,CATEGORY=FEAT,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Spot|Swim|Survival|Tumble
 1																		ABILITY:Special Ability|AUTOMATIC|Thrasher ~ Tough Defense
 2												BONUS:VAR|AbilitySurge|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Thrasher ~ Ability Surge
 3			BONUS:ABILITYPOOL|Thrasher Feat|1
-4																										TEMPLATE:Uncanny Dodger
+4																												TEMPLATE:Uncanny Dodger
 6			BONUS:ABILITYPOOL|Thrasher Feat|1
 7	DR:5/+1
 9			BONUS:ABILITYPOOL|Thrasher Feat|1
 10									BONUS:DR|+1|5
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																					Modify VAR
-CLASS:Wildlord	HD:8		TYPE:PC.Advanced	FACT:ClassType|PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page					Combat bonus								Save bonus																					Modify VAR														FACT
+CLASS:Wildlord	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	FACT:ClassType|PC
 # Class Name	Required Skill					PRETOTALAB
 CLASS:Wildlord	PRESKILL:2,Handle Animal=6,Survival=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -215,7 +212,7 @@ CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle
 10																		ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Magical Beasts
 ###Block: Standard
 1									ABILITY:Special Ability|AUTOMATIC|Wildlord ~ Animal Empathy
-2									ABILITY:Special Ability|AUTOMATIC|Wildlord ~ Animal Companion			ABILITY:FEAT|AUTOMATIC|Track
+2									ABILITY:Special Ability|AUTOMATIC|Wildlord ~ Animal Companion	ABILITY:FEAT|AUTOMATIC|Track
 3	BONUS:ABILITYPOOL|Wildlord Feat|1			ABILITY:Special Ability|AUTOMATIC|Wildlord ~ Fast Climb
 4									ABILITY:Special Ability|AUTOMATIC|Wildlord ~ Call Companion|Wildlord ~ Resist Venom
 5	BONUS:ABILITYPOOL|Wildlord Skill Mastery|1
@@ -226,4 +223,3 @@ CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle
 #
 # End
 #
-

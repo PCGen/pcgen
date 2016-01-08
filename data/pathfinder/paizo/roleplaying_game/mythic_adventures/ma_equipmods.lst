@@ -14,7 +14,7 @@ Sacrosanct		KEY:SACROSANCT	TYPE:Weapon			COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.
 
 ###Block:
 # Modifier Name	Unique Key		Type															Type granted	Source Page		Ability
-Legendary		KEY:LEGENDARY	TYPE:Weapon.Armor.Shield.Ring.Amulet.Cape.Headgear.Staff.Rod.Gear.Item.WornItem.Boot	ITYPE:Legendary	SOURCEPAGE:p.170	ABILITY:Special Ability|AUTOMATIC|Legendary Item ~ Mythic Bond|Legendary Item ~ Legendary Power|Legendary Item ~ Legendary Surge
+Legendary		KEY:LEGENDARY	TYPE:Weapon.Armor.Shield.Ring.Amulet.Cape.Headgear.Staff.Rod.Gear.Item.WornItem.Boot	ITYPE:Legendary	SOURCEPAGE:p.170	ABILITY:Special Ability|AUTOMATIC|Legendary Item ~ Legendary Power|Legendary Item ~ Legendary Surge|Legendary Item ~ Mythic Bond
 
 ###Block: Legendary Item Abilities
 # Modifier Name		Unique Key				Type			Visible		Type granted		Source Page		Required Type									Special Property																																																																																																																																																											Choose

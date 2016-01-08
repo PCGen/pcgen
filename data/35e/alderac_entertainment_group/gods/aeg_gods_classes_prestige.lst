@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 #
@@ -7,12 +7,12 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 #Class:Medicine Man (Complete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																										Save bonus
-CLASS:Medicine Man	HD:8		TYPE:PC.Prestige	ABB:MedMn		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/3)+(classlevel("APPLIEDAS=NONEPIC")/4)-(classlevel("APPLIEDAS=NONEPIC")/7)+(classlevel("APPLIEDAS=NONEPIC")/10)+1	BONUS:SAVE|Fortitude,Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Required Feat					Required Race	Required Skill								Req. Spell Type		Required Stat	PRETOTALAB
-CLASS:Medicine Man	PREALIGN:LG,NG,CG	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Toughness,Track	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Wilderness Lore=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17	PRETOTALAB:4
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																										Save bonus																			FACT
+CLASS:Medicine Man	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/3)+(classlevel("APPLIEDAS=NONEPIC")/4)-(classlevel("APPLIEDAS=NONEPIC")/7)+(classlevel("APPLIEDAS=NONEPIC")/10)+1	BONUS:SAVE|Fortitude,Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|MedMn
+# Class Name		Required Ability								Required AL		Required Race	Required Skill								Req. Spell Type		Required Stat	PRETOTALAB
+CLASS:Medicine Man	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Toughness,Track	PREALIGN:LG,NG,CG	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Wilderness Lore=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Perform|Ride|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope|Wilderness Lore
+CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (religion)|Listen|Move Silently|Perform|Ride|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 ###Block: Weapon, Armor, and Shield Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
@@ -24,15 +24,15 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|
 ### FIX: Medicine Man missing 'TotemAnimal' feats
 1	BONUS:ABILITYPOOL|Barbarian Totem Selection|1
 ###Block: Normal Progression
-1					BONUS:CASTERLEVEL|TYPE.Divine|CL
+1												BONUS:CASTERLEVEL|TYPE.Divine|CL
 2	SAB:Read Spirit
 3	SAB:Shared Life
 4	SAB:Improved Augury
-5																BONUS:ABILITYPOOL|Metamagic Choice|1
+5					BONUS:ABILITYPOOL|Metamagic Choice|1
 6	SAB:Rain Dance
-7	SAB:Become Totem								BONUS:VAR|BecomeTotemTimes|1
-8																BONUS:ABILITYPOOL|Metamagic Choice|1
-9											BONUS:VAR|BecomeTotemTimes|1
+7	SAB:Become Totem															BONUS:VAR|BecomeTotemTimes|1
+8					BONUS:ABILITYPOOL|Metamagic Choice|1
+9																		BONUS:VAR|BecomeTotemTimes|1
 10	SAB:Shape of the Beast
 
 #
@@ -41,32 +41,32 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|
 
 #Class:Hunter (Complete)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus														Save bonus
-CLASS:Hunter	HD:8		TYPE:PC.Prestige	ABB:Hntr		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/4+(classlevel("APPLIEDAS=NONEPIC")-1)	BONUS:SAVE|Fortitude,Will|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|Reflex|(classlevel("APPLIEDAS=NONEPIC")/2+1)
-# Class Name	Required Feat						Required Skill							Required Text
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus														Save bonus																				FACT
+CLASS:Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/4+(classlevel("APPLIEDAS=NONEPIC")-1)	BONUS:SAVE|Fortitude,Will|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|Reflex|(classlevel("APPLIEDAS=NONEPIC")/2+1)	FACT:Abb|Hntr
+# Class Name	Required Ability								Required Skill							Required Text
 CLASS:Hunter	PREABILITY:2,CATEGORY=FEAT,Track,Weapon Focus (TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently=6,Spot=6,Survival=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Jump|Listen|Move Silently|Search|Spot|Use Rope|Survival
 ###Block: Class Features
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
-1:REPEATLEVEL:3													BONUS:ABILITYPOOL|Hunter Feat|1
-2			SAB:Crack Shot		BONUS:VAR|CrackShotMult|1
-3			SAB:Vital Shot		BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-5							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-6							BONUS:VAR|CrackShotMult|1
-7							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+1:REPEATLEVEL:3					BONUS:ABILITYPOOL|Hunter Feat|1
+2			SAB:Crack Shot								BONUS:VAR|CrackShotMult|1
+3			SAB:Vital Shot								BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+5													BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+6													BONUS:VAR|CrackShotMult|1
+7													BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
 8			SAB:Arrow of Death
-9							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-10							BONUS:VAR|CrackShotMult|1
+9													BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+10													BONUS:VAR|CrackShotMult|1
 
 #Class:Slaver (Complete)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus														Save bonus
-CLASS:Slaver	HD:8		TYPE:PC.Prestige	ABB:Slvr		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/4+(classlevel("APPLIEDAS=NONEPIC")-1)	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat				Required Skill					PRETOTALAB
-CLASS:Slaver	PREALIGN:LE,NE,CE	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Intimidate)	PRESKILL:2,Handle Animal=4,Intimidate=8	PRETOTALAB:3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus														Save bonus																			FACT
+CLASS:Slaver	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/4+(classlevel("APPLIEDAS=NONEPIC")-1)	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Slvr
+# Class Name	Required Ability							Required AL		Required Skill					PRETOTALAB
+CLASS:Slaver	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Intimidate)	PREALIGN:LE,NE,CE	PRESKILL:2,Handle Animal=4,Intimidate=8	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Bluff|Handle Animal|Intimidate|Sense Motive|Spot
 ###Block: Class Features
@@ -92,10 +92,10 @@ CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Bluff|Handle Animal|Intimidate|Sense Motive|
 
 #Class:Poison Master (Complete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Poison Master	HD:6		TYPE:PC.Prestige	ABB:PsnMst		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Required Feat		Required Skill					Required Text
-CLASS:Poison Master	PREALIGN:LE,NE,CE	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PRESKILL:2,Alchemy=6,Knowledge (Arcana)=4	PRETEXT:Must be taught by a Poison Master of 5th level or greater.
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Poison Master	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|PsnMst
+# Class Name		Required Ability					Required AL		Required Skill					Required Text
+CLASS:Poison Master	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PREALIGN:LE,NE,CE	PRESKILL:2,Alchemy=6,Knowledge (Arcana)=4	PRETEXT:Must be taught by a Poison Master of 5th level or greater.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge (Nature)|Spellcraft|Use Magic Device
 ###Block: Class Features
@@ -113,24 +113,24 @@ CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge 
 
 #Class: Spider Warrior (Complete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Spider Warrior	HD:10		TYPE:PC.Prestige	ABB:SpdrWr		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Spider Warrior	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SpdrWr
 # Class Name		Required Race		Required Skill			PRETOTALAB
 CLASS:Spider Warrior	PRERACE:1,Elf (Drow)	PRESKILL:2,Diplomacy=6,Ride=6	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Diplomacy|Balance|Climb|Handle Animal|Hide|Jump|Move Silently|Ride
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Progression
-1:REPEATLEVEL:2											BONUS:ABILITYPOOL|Spider Warrior Feat|1
+1:REPEATLEVEL:2					BONUS:ABILITYPOOL|Spider Warrior Feat|1
 2			SAB:Spider Mount
 3			SAB:Immunity to Webs
-4			SAB:Summon Spiders	BONUS:VAR|SummonSpidersTimes|1
+4			SAB:Summon Spiders								BONUS:VAR|SummonSpidersTimes|1
 6			SAB:Immunity to Poison
-7							BONUS:VAR|SummonSpidersTimes|1
+7														BONUS:VAR|SummonSpidersTimes|1
 8			SAB:Spider Climb
-10			SAB:Spider Shape		BONUS:VAR|SummonSpidersTimes|1
+10			SAB:Spider Shape									BONUS:VAR|SummonSpidersTimes|1
 
 #
 # Giant Prestige Classes (QC'd)
@@ -138,15 +138,15 @@ CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Diplomacy|Balance|Climb|Handle Anima
 
 #Class:Karhollan Guard (Complete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Karhollan Guard	HD:10		TYPE:PC.Prestige	ABB:KarGrd		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Feat						Required Race	Required Stat
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Karhollan Guard	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|KarGrd
+# Class Name		Required Ability								Required Race	Required Stat
 CLASS:Karhollan Guard	PREABILITY:3,CATEGORY=FEAT,Cleave,Great Cleave,Power Attack	PRERACE:1,Giant%	PRESTAT:1,STR=24
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Swim|Wilderness Lore
+CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (arcana)|Knowledge (Nature)|Knowledge (religion)|Swim|Wilderness Lore
 ###Block: Class Features
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
 1	SAB:Personal Presence		BONUS:VAR|PersonalPresenceBonus|1
 2	SAB:Ranged Combat Defense	BONUS:VAR|RangedCombatDefense|1
@@ -165,12 +165,12 @@ CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomac
 
 #Class:The Returned (Complete except for Demon in Form class feature)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus										Modify VAR
-CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus										Modify VAR														FACT
+CLASS:The Returned	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Rtnd
 # Class Name		Required AL					Prohibited Check		Required Text																PRETOTALAB
 CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Listen|Spellcraft|Swim
+CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (arcana)|Listen|Spellcraft|Swim
 ###Block: Class Features
 ###Block: Normal Progression
 1	SAB:Demons Heart	SAB:Demons Mark
@@ -190,18 +190,18 @@ CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|In
 
 #Class:Exemplar (Complete except for 'Strength of Purpose' Class Feature which requires code work.)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Exemplar	HD:8		TYPE:PC.Prestige	ABB:Explr		MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL			Required Check Base	Required Domain				Required Feat		Required Race	Required Text
-CLASS:Exemplar	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Exemplar	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Explr
+# Class Name	Required Ability					Required AL			Required Check Base	Required Domain				Required Race	Required Text
+CLASS:Exemplar	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
+CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (religion)|Perform|Scry|Spellcraft
 ###Block: Class Features
 1	BONUS:ABILITYPOOL|Deity Weapon|1
 ###Block: Normal Progression
 1	SAB:Strength of Purpose						ADD:SPELLCASTER|Divine	ABILITY:FEAT|VIRTUAL|Leadership
 2	SAB:Divine Wrath							ADD:SPELLCASTER|Divine
-3					BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				ABILITY:FEAT|AUTOMATIC|Leadership
+3					BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine	ABILITY:FEAT|AUTOMATIC|Leadership
 4	SAB:Enlightened Madness						ADD:SPELLCASTER|Divine
 5										ADD:SPELLCASTER|Divine
 6	SAB:Scorn the Heretic	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
@@ -212,12 +212,12 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|K
 
 #Class:Ex-Exemplar (Complete)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	ABB:ExEx		MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Check Base	Required Domain				Required Feat		Required Race	Required Text
-CLASS:Ex Exemplar	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|ExEx
+# Class Name	Required Ability					Required Check Base	Required Domain				Required Race	Required Text
+CLASS:Ex Exemplar	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
+CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (religion)|Perform|Scry|Spellcraft
 ###Block:
 
 #
@@ -226,12 +226,12 @@ CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidat
 
 #Class:Servants of the One
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																			Modify VAR
-CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required AL	Required Feat			Required Race		Required Skill								Required Text
-CLASS:Servants of the One	PREALIGN:LE	PREABILITY:2,CATEGORY=FEAT,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRETEXT:Character must be able to cast 3rd level spells from the domain of Conquest and be responsible for the desecration of no fewer than three holy sites of other races.
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																			Modify VAR														FACT
+CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Svnt1
+# Class Name			Required Ability						Required AL	Required Race		Required Skill								Required Text
+CLASS:Servants of the One	PREABILITY:2,CATEGORY=FEAT,Iron Will,Toughness	PREALIGN:LE	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRETEXT:Character must be able to cast 3rd level spells from the domain of Conquest and be responsible for the desecration of no fewer than three holy sites of other races.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
+CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (arcana)|Knowledge (religion)|Scry|Sense Motive|Spellcraft
 ###Block: Class Features
 1	SAB:Lost Souls - You may contact your fellow servants by sendings %/day.|CL
 ###Block: Normal Progression
@@ -250,15 +250,15 @@ CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|G
 
 #Class:Humanoid Hunter (Complete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Humanoid Hunter	HD:10		TYPE:PC.Prestige	ABB:HdHnt		MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Humanoid Hunter	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|HdHnt
 # Class Name		Required Race							Required Skill							Required Text											PRETOTALAB
 CLASS:Humanoid Hunter	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Beast	PRESKILL:2,Knowledge (Humanoids)=4,Wilderness Lore=2	PRETEXT:Must have tracked down a humanoid that has slain a family member.	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Hide|Jump|Knowledge (Humanoids)|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PRERACE:1,RACETYPE=Humanoid
-1														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|PRERACE:1,RACETYPE=Humanoid
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|PRERACE:1,RACETYPE=Humanoid
 ###Block: Humanoid Hunter Class Features
 1:REPEATLEVEL:2	BONUS:ABILITYPOOL|Fighter Feat|1
 ###Block: Favored Enemy
@@ -274,19 +274,19 @@ CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Hide|Jump|Knowledge (Hum
 
 #Class:The Broken
 
-# Class Name	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:The Broken	TYPE:PC.Prestige	ABB:Brkn		MAXLEVEL:10	SOURCEPAGE:p.80	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:The Broken	TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.80	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Brkn
 # Class Name	Required AL		Req. Spell Type		Required Text
 CLASS:The Broken	PREALIGN:LE,NE,CE	PRESPELLTYPE:1,ANY=3	PRETEXT:Must find and enter the Broken One's hiden sanctum.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Spellcraft
+CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (religion)|Scry|Spellcraft
 ###Block: Class Features
-1:REPEATLEVEL:1		BONUS:STAT|CON|-1	ADD:SPELLCASTER|ANY
+1:REPEATLEVEL:1									BONUS:STAT|CON|-1	ADD:SPELLCASTER|ANY
 #1:REPEATLEVEL:1	BONUS:STAT|INT|1|PREMULT:3,[PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|WIS|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
-2:REPEATLEVEL:2|MAX=8				BONUS:ABILITYPOOL|Metamagic Choice|1
+2:REPEATLEVEL:2|MAX=8	BONUS:ABILITYPOOL|Metamagic Choice|1
 ###Block: Normal Progression
 1	SAB:No Pain	SAB:The Wasting
 2
@@ -305,10 +305,10 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 
 #Class:Master of the Swamp
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Master of the Swamp	HD:10		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Required Feat										Required Race				Required Skill							Required Text								PRETOTALAB
-CLASS:Master of the Swamp	PREALIGN:LN,TN	PREABILITY:2,CATEGORY=FEAT,Iron Will,Track	PREABILITY:1,CATEGORY=FEAT,Point Blank Shot,Power Attack	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Wilderness Lore=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.	PRETOTALAB:6
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Master of the Swamp	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|MotS
+# Class Name			Required Ability																Required AL		Required Race				Required Skill							Required Text								PRETOTALAB
+CLASS:Master of the Swamp	PREABILITY:2,CATEGORY=FEAT,Iron Will,Track	PREABILITY:1,CATEGORY=FEAT,Point Blank Shot,Power Attack	PREALIGN:LN,TN	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Wilderness Lore=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Diplomacy|Climb|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Use Magic Device|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
@@ -331,17 +331,17 @@ CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Diplomacy|Climb|TYPE=Craft|Heal
 
 #Class:Black Nail
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Black Nail	HD:10		TYPE:PC.Prestige	ABB:BlkNl		MAXLEVEL:5	SOURCEPAGE:p.102	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat								Required Race			Required Skill		PRETOTALAB
-CLASS:Black Nail	PREALIGN:LE,NE,CE	PREABILITY:4,CATEGORY=FEAT,Cleave,Improved Initiative,Power Attack,Toughness	PRERACE:1,Ogre,Ogre Mage	PRESKILL:1,Intimidate=6	PRETOTALAB:6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Black Nail	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.102	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|BlkNl
+# Class Name	Required Ability											Required AL		Required Race			Required Skill		PRETOTALAB
+CLASS:Black Nail	PREABILITY:4,CATEGORY=FEAT,Cleave,Improved Initiative,Power Attack,Toughness	PREALIGN:LE,NE,CE	PRERACE:1,Ogre,Ogre Mage	PRESKILL:1,Intimidate=6	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Search|Sense Motive|Spot
 ###Block: Class Features
 ###Block: Weapon and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
 1	SAB:Thick Hide											BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 2														BONUS:COMBAT|AC|1|TYPE=NaturalArmor
@@ -351,17 +351,17 @@ CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Directio
 
 #Class:Chaos Crusader
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Chaos Crusader	HD:8		TYPE:PC.Prestige	ABB:ChsCr		MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Required Feat			Required Race			Req. Spell Type		Required Stat	PRETOTALAB
-CLASS:Chaos Crusader	PREALIGN:LE,CE	PREABILITY:3,CATEGORY=FEAT,TYPE=Metamagic	PRERACE:1,Ogre,Ogre Mage	PRESPELLTYPE:1,Divine=4	PRESTAT:1,CHA=13	PRETOTALAB:6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Chaos Crusader	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|ChsCr
+# Class Name		Required Ability					Required AL		Required Race			Req. Spell Type		Required Stat	PRETOTALAB
+CLASS:Chaos Crusader	PREABILITY:3,CATEGORY=FEAT,TYPE=Metamagic	PREALIGN:LE,CE	PRERACE:1,Ogre,Ogre Mage	PRESPELLTYPE:1,Divine=4	PRESTAT:1,CHA=13	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Listen|Gather Information|Scry|Sense Motive|Spellcraft|Search|Spot
+CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (religion)|Listen|Gather Information|Scry|Sense Motive|Spellcraft|Search|Spot
 ###Block: Weapon and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
-1																									WEAPONBONUS:TYPE=Exotic
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1																		WEAPONBONUS:TYPE=Exotic
 ###Block: Class Features
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block: Normal Progression
@@ -382,8 +382,8 @@ CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplo
 
 #Class:Keeper of Secrets (Complete)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Keeper of Secrets	HD:6		TYPE:PC.Prestige	ABB:KpSct		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Keeper of Secrets	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|KpSct
 # Class Name		Required Domain		Required Race		Required Skill				Req. Spell Type
 CLASS:Keeper of Secrets	PREDOMAIN:1,Secrets	PRERACE:1,Orc,Half-Orc	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -404,10 +404,10 @@ CLASS:Keeper of Secrets	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Gather I
 
 #Class:Underworld Druid of Thovis
 
-# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus														Save bonus
-CLASS:Underworld Druid of Thovis	HD:8		TYPE:PC.Prestige	ABB:UDoTh		MAXLEVEL:5	SOURCEPAGE:p.120	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/2)+(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name				Required Class				Required Deity	Required Feat	Required Skill				Required Text
-CLASS:Underworld Druid of Thovis	PRECLASS:1,SPELLCASTER.Divine=5	PREDEITY:1,Thovis	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Knowledge (Nature)=8	PRETEXT:Must have permenant, primary home in a subterranean cavern or similar realm.
+# Class Name				Hit Dice	Type			Max Level	Source Page		Combat bonus														Save bonus																			FACT
+CLASS:Underworld Druid of Thovis	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.120	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/2)+(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|UDoTh
+# Class Name				Required Ability				Required Class				Required Deity	Required Skill				Required Text
+CLASS:Underworld Druid of Thovis	PREABILITY:1,CATEGORY=FEAT,Track	PRECLASS:1,SPELLCASTER.Divine=5	PREDEITY:1,Thovis	PRESKILL:1,Knowledge (Nature)=8	PRETEXT:Must have permenant, primary home in a subterranean cavern or similar realm.
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Underworld Druid of Thovis	STARTSKILLPTS:4	CSKILL:Diplomacy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Class Features
@@ -426,16 +426,16 @@ CLASS:Underworld Druid of Thovis	STARTSKILLPTS:4	CSKILL:Diplomacy|Concentration|
 
 #Class:Whip of Urog
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																										Save bonus
-CLASS:Whip of Urog	HD:8		TYPE:PC.Prestige	ABB:WpUr		MAXLEVEL:10	SOURCEPAGE:p.122	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)-(classlevel("APPLIEDAS=NONEPIC")/5)-(classlevel("APPLIEDAS=NONEPIC")/9)+(classlevel("APPLIEDAS=NONEPIC")/10)	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Domain	Required Feat		Required Skill		PRETOTALAB
-CLASS:Whip of Urog	PREDOMAIN:1,Fury	PREABILITY:1,CATEGORY=FEAT,Toughness	PRESKILL:1,Intimidate=4	PRETOTALAB:4
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																										Save bonus																			FACT
+CLASS:Whip of Urog	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.122	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)-(classlevel("APPLIEDAS=NONEPIC")/5)-(classlevel("APPLIEDAS=NONEPIC")/9)+(classlevel("APPLIEDAS=NONEPIC")/10)	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|WpUr
+# Class Name		Required Ability					Required Domain	Required Skill		PRETOTALAB
+CLASS:Whip of Urog	PREABILITY:1,CATEGORY=FEAT,Toughness	PREDOMAIN:1,Fury	PRESKILL:1,Intimidate=4	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Whip of Urog	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Perform|Ride|Swim
 ###Block: Weapon, Armor, and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Class Features, Normal Progression
 1	SAB:Channel Urogs Might
 2	SAB:Urogs Toughness
@@ -454,8 +454,8 @@ CLASS:Whip of Urog	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 
 #Class:Dryad Ranger
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
-CLASS:Dryad Ranger	HD:8		TYPE:PC.Prestige	ABB:DrRng		MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																			FACT
+CLASS:Dryad Ranger	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|DrRng
 # Class Name		Required Race	Required Text
 CLASS:Dryad Ranger	PRERACE:1,Dryad	PRETEXT:Must be bound to a Treant.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -464,7 +464,7 @@ CLASS:Dryad Ranger	STARTSKILLPTS:4	CSKILL:Diplomacy|Climb|Concentration|TYPE=Cra
 CLASS:Dryad Ranger	SPELLSTAT:WIS
 ###Block: Weapon, Armor, and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Class Features
 1	BONUS:COMBAT|TOHIT-SECONDARY|4|!PREARMORTYPE:1,TYPE.Medium,TYPE.Heavy	BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2|TYPE=NotRanged|!PREARMORTYPE:1,TYPE.Medium,TYPE.Heavy
 1
@@ -486,8 +486,8 @@ CLASS:Dryad Ranger	SPELLSTAT:WIS
 
 #Class:Vendaks Chosen
 
-# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																										Save bonus
-CLASS:Vendaks Chosen	OUTPUTNAME:Vendak's Chosen	HD:8		TYPE:PC.Prestige	ABB:VndCh		MAXLEVEL:10	SOURCEPAGE:p.137	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)-(classlevel("APPLIEDAS=NONEPIC")/5)-(classlevel("APPLIEDAS=NONEPIC")/9)+(classlevel("APPLIEDAS=NONEPIC")/10)	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Output Name				Hit Dice	Type			Max Level	Source Page		Combat bonus																										Save bonus																			FACT
+CLASS:Vendaks Chosen	OUTPUTNAME:Vendak's Chosen	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.137	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)-(classlevel("APPLIEDAS=NONEPIC")/5)-(classlevel("APPLIEDAS=NONEPIC")/9)+(classlevel("APPLIEDAS=NONEPIC")/10)	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|VndCh
 # Class Name		Required Domain			Required Race	Req. Spell Type		Required Text
 CLASS:Vendaks Chosen	PREDOMAIN:1,Troll Ancestry	PRERACE:1,Troll%	PRESPELLTYPE:1,Divine=3	PRETEXT:Defeat five other followers of Vendak.
 # Class Name		Skill Pts/Lvl	Class Skill

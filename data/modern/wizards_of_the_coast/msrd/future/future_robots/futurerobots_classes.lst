@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 # Original entry by Eddy Anthony (MoSaT)
 
 
-# Class Name	Hit Dice	Type			Class Type		Source Page			Combat bonus											Number of Feats										Save bonus
-CLASS:Robot		HD:10		TYPE:Monster	FACT:ClassType|Monster	SOURCEPAGE:FutureRobots	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*floor(TL/3)|!PREEQUIP:1,Robot Software (Feat Web)	BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Source Page			Combat bonus											Number of Feats										Save bonus													FACT
+CLASS:Robot		HD:10		TYPE:Monster	SOURCEPAGE:FutureRobots	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|-1*floor(TL/3)|!PREEQUIP:1,Robot Software (Feat Web)	BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:ClassType|Monster
 # Class Name	Reg. Race Type
 CLASS:Robot		PRERACETYPE:Robot
 # Class Name	Add INT to Skill Points?

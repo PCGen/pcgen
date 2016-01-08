@@ -1,26 +1,26 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Minor Deities
-# Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Align		Pantheon					Source Page
-Alseta		NAMEISPI:YES	DOMAINS:Community,Law,Magic,Protection|PREALIGN:LG,LN,NG,TN			DESC:Goddess of doors and portals			DEITYWEAP:Dagger			ALIGN:LN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
-Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters	DEITYWEAP:Rapier			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
-Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of inventors				DEITYWEAP:Hammer (Light)	ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
-Groetus		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Destruction,Madness,Void|PREALIGN:CG,TN,CN,CE	DESC:God of empty places, ruins, oblivion		DEITYWEAP:Flail (Heavy)		ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
-Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE				DESC:God of the waterways				DEITYWEAP:Trident			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
-Naderi		NAMEISPI:YES	DOMAINS:Charm,Repose,Water|PREALIGN:LN,NG,TN,NE,CN				DESC:Goddess of suicides				DEITYWEAP:Dagger			ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
-Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery	DEITYWEAP:Bladed Scarf		ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				FACTSET						Deity Weapon			Align		Source Page
+Alseta		NAMEISPI:YES	DOMAINS:Community,Law,Magic,Protection|PREALIGN:LG,LN,NG,TN			DESC:Goddess of doors and portals			FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Dagger			ALIGN:LN	SOURCEPAGE:p.20
+Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Rapier			ALIGN:CN	SOURCEPAGE:p.20
+Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of inventors				FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Hammer (Light)	ALIGN:TN	SOURCEPAGE:p.20
+Groetus		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Destruction,Madness,Void|PREALIGN:CG,TN,CN,CE	DESC:God of empty places, ruins, oblivion		FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Flail (Heavy)		ALIGN:CN	SOURCEPAGE:p.20
+Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE				DESC:God of the waterways				FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Trident			ALIGN:CN	SOURCEPAGE:p.20
+Naderi		NAMEISPI:YES	DOMAINS:Charm,Repose,Water|PREALIGN:LN,NG,TN,NE,CN				DESC:Goddess of suicides				FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Dagger			ALIGN:TN	SOURCEPAGE:p.21
+Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery	FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Bladed Scarf		ALIGN:TN	SOURCEPAGE:p.21
 
 ###Block: Eldest
-# Deity Name	Product Identity?	Domains										Description of Deity/Title						Deity Weapon		Align		Pantheon		Source Page
-Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			DEITYWEAP:Rapier		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21
-Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			DEITYWEAP:Flail (Dire)	ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.21
-The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21
-The Lost Prince	NAMEISPI:YES	DOMAINS:Knowledge,Madness,Nobility,Repose|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of forgotten things, sadness, solitude	DEITYWEAP:Quarterstaff	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.21
-Maghd			NAMEISPI:YES	DOMAINS:Knowledge,Law,Luck,Rune|PREALIGN:LG,LN,NG,TN			DESC:Eldest lord of complexity, fate, triplets			DEITYWEAP:Scythe		ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.21
-Ng			NAMEISPI:YES	DOMAINS:Knowledge,Magic,Travel,Weather|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of the season, secrets, wanderers		DEITYWEAP:Gauntlet	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.21
-Shyka			NAMEISPI:YES	DOMAINS:Death,Destruction,Madness,Magic|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of entropy, reincarnation, time		DEITYWEAP:Mace (Light)	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.21
+# Deity Name	Product Identity?	Domains										Description of Deity/Title						FACTSET			Deity Weapon		Align		Source Page
+Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			FACTSET:Pantheon|Eldest	DEITYWEAP:Rapier		ALIGN:CN	SOURCEPAGE:p.21
+Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			FACTSET:Pantheon|Eldest	DEITYWEAP:Flail (Dire)	ALIGN:LN	SOURCEPAGE:p.21
+The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	FACTSET:Pantheon|Eldest	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.21
+The Lost Prince	NAMEISPI:YES	DOMAINS:Knowledge,Madness,Nobility,Repose|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of forgotten things, sadness, solitude	FACTSET:Pantheon|Eldest	DEITYWEAP:Quarterstaff	ALIGN:TN	SOURCEPAGE:p.21
+Maghd			NAMEISPI:YES	DOMAINS:Knowledge,Law,Luck,Rune|PREALIGN:LG,LN,NG,TN			DESC:Eldest lord of complexity, fate, triplets			FACTSET:Pantheon|Eldest	DEITYWEAP:Scythe		ALIGN:LN	SOURCEPAGE:p.21
+Ng			NAMEISPI:YES	DOMAINS:Knowledge,Magic,Travel,Weather|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of the season, secrets, wanderers		FACTSET:Pantheon|Eldest	DEITYWEAP:Gauntlet	ALIGN:TN	SOURCEPAGE:p.21
+Shyka			NAMEISPI:YES	DOMAINS:Death,Destruction,Madness,Magic|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of entropy, reincarnation, time		FACTSET:Pantheon|Eldest	DEITYWEAP:Mace (Light)	ALIGN:TN	SOURCEPAGE:p.21
 
 ###Block: Inquisitor Domain Support
 # Deity Name		Modify VAR

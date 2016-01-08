@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Feb 22 23:31:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LoFPG	SOURCEWEB:http://paizo.com/paizo/messageboards/paizo/products/v5748btpy84bh	SOURCEDATE:2009-02
 
 ###Block: Specific Familiars
@@ -10,7 +10,7 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar										PRERACE:1,Lashtail Scorpion	KIT:1|
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar										PRERACE:1,Solifugid		KIT:1|Solifugid Familiar
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type			Bonus to skill		Virtual Feat
+# Race of familiar			Type			Bonus to skill		Ability
 MASTERBONUSRACE:Brushtail Fennec	TYPE:Familiar	BONUS:SKILL|Search|3	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Bustard			TYPE:Familiar	BONUS:SKILL|Listen|3	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Jerboa			TYPE:Familiar	BONUS:SKILL|Jump|3	ABILITY:FEAT|VIRTUAL|Alertness

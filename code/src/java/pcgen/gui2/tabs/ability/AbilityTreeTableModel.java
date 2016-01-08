@@ -102,7 +102,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		{
 			return TreeTableNode.class;
 		}
-		return String.class;
+		return AbilityFacade.class;
 	}
 
 	@Override

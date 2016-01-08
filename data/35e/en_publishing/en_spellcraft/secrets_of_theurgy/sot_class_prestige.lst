@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:EMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Ability							Required Domain				Required Feat												Required Skill								Req. Spell Type						Required Text
-CLASS:Elemental Theurge	PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	PREDOMAIN:1,Air,Earth,Fire,Water	PREABILITY:1,CATEGORY=FEAT,Empower Spell	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Evocation),Spell Focus (Conjuration)	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|EMyt
+# Class Name		Required Ability																											Required Domain				Required Skill								Req. Spell Type						Required Text
+CLASS:Elemental Theurge	PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	PREABILITY:1,CATEGORY=FEAT,Empower Spell	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Evocation),Spell Focus (Conjuration)	PREDOMAIN:1,Air,Earth,Fire,Water	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Spellcraft
 1	BONUS:VAR|ElementalTurningLevel|CL	ADD:SPELLCASTER|ANY					ABILITY:Special Ability|AUTOMATIC|Elemental Familiar|Elemental Turning|Theurgy
 2	BONUS:VAR|DomainAccess|CL-1		ADD:SPELLCASTER|Divine	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Domain Access
 3							ADD:SPELLCASTER|ANY					ABILITY:Special Ability|AUTOMATIC|Invest Power
@@ -24,12 +24,12 @@ SUBSTITUTIONCLASS:Lesser Elemental Theurge Option
 SUBSTITUTIONLEVEL:2	BONUS:VAR|DomainAccess|CL-1	ABILITY:Special Ability|AUTOMATIC|Domain Access	ADD:SPELLCASTER|ANY
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Lord of Undeath	HD:4		TYPE:Prestige.PC	ABB:LoU		MAXLEVEL:10	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat					Required Skill								Req. Known Spell		Required Spell School		Req. Spell Type						Required Text
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Lord of Undeath	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|LoU
+# Class Name		Required Ability								Required Skill								Req. Known Spell		Required Spell School		Req. Spell Type						Required Text
 CLASS:Lord of Undeath	PREABILITY:2,CATEGORY=FEAT,Extra Turning,Rebuke Undead	PRESKILL:2,Knowledge (Religion)=6,Knowledge (Arcana)=6	PRESPELL:1,Animate Dead	PRESPELLSCHOOL:2,Necromancy=2	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PRETEXT:Patron deity must not be adverse to the creation of undead. Must be able to cast 1 level 2 arcane/necromancy spell and 1 level 2 divine/necromancy spell.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Search|Spellcraft
+CLASS:Lord of Undeath	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Search|Spellcraft
 1	BONUS:VAR|NegativeChannelLevel|CL	ADD:SPELLCASTER|Divine	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Negative Channel|Theurgy
 2							ADD:SPELLCASTER|Divine	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dance of the Dead
 3							ADD:SPELLCASTER|ANY					ABILITY:Special Ability|AUTOMATIC|High Necromancy
@@ -47,9 +47,9 @@ SUBSTITUTIONCLASS:Lesser Lord of Undeath Option
 SUBSTITUTIONLEVEL:1	BONUS:VAR|NegativeChannelLevel|CL	ABILITY:Special Ability|AUTOMATIC|Negative Channel|Theurgy	ADD:SPELLCASTER|ANY
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Theurgic Lorewarden	HD:4		TYPE:Prestige.PC	ABB:TL		MAXLEVEL:10	SOURCEPAGE:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat												Multiple Requirements														Required Text
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Theurgic Lorewarden	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|TL
+# Class Name			Required Ability																	Multiple Requirements														Required Text
 CLASS:Theurgic Lorewarden	PREABILITY:3,CATEGORY=FEAT,TYPE.Metamagic,TYPE.ItemCreation	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge%)	PREMULT:2,[PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6],[PRESKILL:2,TYPE.Knowledge=8]	PRETEXT:ABle to cast 4 arcane and 4 divine divination spells; at least one spell (arcane or divine) must be level 3 or greater, and at least one spell of the opposite type (divine or arcane) must be level 2 or greater.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Theurgic Lorewarden	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft
@@ -70,9 +70,9 @@ SUBSTITUTIONCLASS:Lesser Theurgic Lorewarden Option
 SUBSTITUTIONLEVEL:2	BONUS:ABILITYPOOL|Theurgic Lorewarden Secret|CL/2	BONUS:VAR|TheurgicSecretsLevel|CL+INT	ADD:SPELLCASTER|ANY
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Hierophant Theurge	HD:4		TYPE:Prestige.PC	ABB:HT		MAXLEVEL:5	SOURCEPAGE:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat			Required Skill										Req. Spell Type
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Hierophant Theurge	HD:4		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|HT
+# Class Name			Required Ability					Required Skill										Req. Spell Type
 CLASS:Hierophant Theurge	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRESKILL:3,Knowledge (Arcana)=15,Knowledge (Religion)=15,Spellcraft=15	PRESPELLTYPE:1,Arcane=7	PRESPELLTYPE:1,Divine=7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hierophant Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Knowledge|Spellcraft

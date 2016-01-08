@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 # Original Entry: Andrew Maitland (LegacyKing)
 # Original Entry Date: 2008
@@ -9,12 +9,12 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 
 ###Block: Altherian Artificer ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Altherian Artificer	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Altherian Artificer	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Artificer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Disable Device|Jump|TYPE=Knowledge|Listen|TYPE=Profession|Research|Ride|Search|Speak Language|Spellcraft|Spot|Swim|Use Magic Device|Use Psionic Device
-# Class Name			Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Altherian Artificer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Altherian Artificer|CL
+# Class Name			Spell Stat		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Altherian Artificer	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Altherian Artificer|CL
 ###Block Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|Scimitar|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
 ###Block: Abilities
@@ -59,14 +59,14 @@ CLASS:Altherian Artificer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELL
 
 ###Block: Hedge Mage ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Hedge Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Hedge Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Divine
 # Class Name	Required Race
 CLASS:Hedge Mage	PRERACE:1,Human,Half-Hobgoblins
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Local|TYPE=Nature|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Survival|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
+# Class Name	Spell Stat		Caster level
+CLASS:Hedge Mage	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Hedge Mage|CL
 #
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Level Progression
@@ -106,12 +106,12 @@ CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
 
 ###Block: Shaman ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Divine
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Dreaming|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|Knowledge (The Planes ~ Spirit Creatures)|Knowledge (The Planes ~ Spirit World)|Listen|TYPE=Profession|Sense Motive|Spellcraft|Spot|Survival
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Shaman	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman|CL
+# Class Name	Spell Stat		Caster level
+CLASS:Shaman	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Shaman|CL
 ###COMMENT: Known Spells Remained Fixed
 ###Block: Level Progression
 1	BONUS:ABILITYPOOL|Shaman Spirit Guide|1		BONUS:VAR|BetweenWorlds|-1									ABILITY:Special Ability|AUTOMATIC|Between Worlds|Channeling|Spirit Calling|Spirit Guide
@@ -147,12 +147,12 @@ CLASS:Shaman	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman|CL
 
 ###Block: Spellblade --------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Spellblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Spellblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellblade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Examine Martial Technique|Handle Animal|Intimidate|TYPE=Arcana|Knowledge (Warfare & Tactics)|TYPE=Profession|Ride|Spellcraft|Swim|Tumble
-# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Spellblade	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Spellblade|CL
+# Class Name	Spell Stat		Memorize		Spellbook		Caster level
+CLASS:Spellblade	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Spellblade|CL
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
@@ -184,12 +184,12 @@ CLASS:Spellblade	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS
 
 ###Block: Suromar -------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Suromar	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Suromar	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Suromar	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Gather Information|Hide|Jump|TYPE=Arcana|Knowledge (Psionics)|Knowledge (Warfare & Tactics)|Listen|Move Silently|TYPE=Profession|Psicraft|Search|Sense Motive|Spellcraft|Spot|Swim|Survival|Tumble|Use Psionic Device
-# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Suromar|CL
+# Class Name	Spell Stat		Memorize		Spellbook		Caster level
+CLASS:Suromar	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Suromar|CL
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
@@ -227,12 +227,12 @@ CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CA
 
 ###Block: Warder -----------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus													Modify VAR
-CLASS:Warder	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus													Modify VAR														FACT
+CLASS:Warder	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warder	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=Dungeoneering|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Survival|Swim|Use Rope
-# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Warder	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Warder|CL
+# Class Name	Spell Stat		Memorize		Spellbook		Caster level
+CLASS:Warder	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Warder|CL
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression

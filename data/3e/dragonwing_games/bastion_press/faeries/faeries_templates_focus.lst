@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: darkon_turas
 
@@ -33,11 +33,11 @@ Regenerating Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1
 Green Creature			VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=14	PRETEMPLATE:1,Regenerating Creature
 
 ###Block: Focus of the Hordes ---------------------------------------------------
-# Template Name		Size		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill												Stat bonus					Auto Feat			Main Race Type	Vision
+# Template Name		Size		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill												Stat bonus					Ability					Main Race Type	Vision
 Goblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=3													BONUS:SKILL|Move Silently|4|TYPE=Competence													ABILITY:FEAT|AUTOMATIC|Alertness	RACETYPE:Humanoid	VISION:Darkvision (60')
-Orc-Blooded Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4	PRETEMPLATE:1,Goblinoid Creature																					BONUS:STAT|CON|2|TYPE=Inherent								VISION:Darkvision (120')
+Orc-Blooded Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4	PRETEMPLATE:1,Goblinoid Creature																					BONUS:STAT|CON|2|TYPE=Inherent										VISION:Darkvision (120')
 Hobgoblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=5	PRETEMPLATE:1,Orc-Blooded Creature							BONUS:SKILL|Intimidate|4|TYPE=Competence	BONUS:SKILL|Spot,Listen|5|TYPE=Insight	BONUS:STAT|STR|2|TYPE=Inherent
-Ogrish Creature		SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=8	PRETEMPLATE:1,Hobgoblinoid Creature	BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:STAT|STR|2|TYPE=Inherent					RACETYPE:Giant
+Ogrish Creature		SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=8	PRETEMPLATE:1,Hobgoblinoid Creature	BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:STAT|STR|2|TYPE=Inherent							RACETYPE:Giant
 
 ###Block: Focus of the Seersighted ---------------------------------------------------
 # Template Name		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill				Vision		Innate Spells

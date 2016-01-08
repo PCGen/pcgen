@@ -1,19 +1,18 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-Extra Feature.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Fast Change.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Bat Shape.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Bloodmarked Flight.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Dire Bat Shape.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Bear Hug.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Beartrap Bite.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Ferocious Loyalty.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Swarm Scatter.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Swarm Strike.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Motivating Display.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Surprising Combatant.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Violent Display.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Wolf Savage.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Wolf Style.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Wolf Trip.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-
-
+CATEGORY=FEAT|Extra Feature.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Fast Change.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Bat Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Bloodmarked Flight.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Dire Bat Shape.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Bear Hug.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Beartrap Bite.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Ferocious Loyalty.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Swarm Scatter.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Swarm Strike.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Motivating Display.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Surprising Combatant.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Violent Display.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Wolf Savage.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Wolf Style.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+CATEGORY=FEAT|Wolf Trip.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1

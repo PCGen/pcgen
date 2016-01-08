@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # ENTRY DATE: 2015-01
 # LST MONKEY: Mark Means
 # LICENSE MONKEY:
@@ -48,7 +49,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Blood of th
 
 # Data files
 ABILITY:pfs_botm_abilities_traits.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
-FEAT:pfs_botm_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
+ABILITY:pfs_botm_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
 RACE:pfs_botm_races.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
 SPELL:pfs_botm_spells.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
 

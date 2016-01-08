@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Prof
+# Weapon Name	Type
+Vested Pistol	TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Vested Rifle	TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Rifle

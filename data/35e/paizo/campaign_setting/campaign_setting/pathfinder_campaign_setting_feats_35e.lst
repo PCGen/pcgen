@@ -1,25 +1,27 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
 # Feat Name				Required Feat									Required Skill
-CATEGORY=FEAT|Arcane Vendetta.MOD													PRESKILL:1,Spellcraft=1
+# Ability Name					Required Ability												Required Skill
+CATEGORY=FEAT|Arcane Vendetta.MOD																PRESKILL:1,Spellcraft=1
 CATEGORY=FEAT|Crossbow Mastery.MOD		PREABILITY:3,CATEGORY=FEAT,Point Blank Shot,Rapid Reload,Rapid Shot
-CATEGORY=FEAT|Enforcer.MOD														PRESKILL:1,Intimidate=1
-CATEGORY=FEAT|Eye of the Arclord.MOD													PRESKILL:1,Concentration=4
-CATEGORY=FEAT|Focused Shot.MOD			PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot
-CATEGORY=FEAT|Hamatulatsu.MOD														PRESKILL:1,Intimidate=5
-CATEGORY=FEAT|Massed charge.MOD														PRESKILL:2,Handle Animal=4,Ride=9
-CATEGORY=FEAT|Parting Shot.MOD			PREABILITY:4,CATEGORY=FEAT,Dodge,Mobility,Point Blank Shot,Shot on the Run
-CATEGORY=FEAT|Profits of Kalistrade.MOD												PRESKILL:1,Diplomacy=1
+CATEGORY=FEAT|Enforcer.MOD																	PRESKILL:1,Intimidate=1
+CATEGORY=FEAT|Eye of the Arclord.MOD															PRESKILL:1,Concentration=4
+CATEGORY=FEAT|Focused Shot.MOD		PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot
+CATEGORY=FEAT|Hamatulatsu.MOD																	PRESKILL:1,Intimidate=5
+CATEGORY=FEAT|Massed charge.MOD																PRESKILL:2,Handle Animal=4,Ride=9
+CATEGORY=FEAT|Parting Shot.MOD		PREABILITY:4,CATEGORY=FEAT,Dodge,Mobility,Point Blank Shot,Shot on the Run
+CATEGORY=FEAT|Profits of Kalistrade.MOD															PRESKILL:1,Diplomacy=1
 CATEGORY=FEAT|Sniper Shot.MOD			PREABILITY:4,CATEGORY=FEAT,Far Shot,Focused Shot,Point Blank Shot,Precise Shot
-CATEGORY=FEAT|Storm-Lashed.MOD														PRESKILL:1,Profession (Sailor)=1
+CATEGORY=FEAT|Storm-Lashed.MOD																PRESKILL:1,Profession (Sailor)=1
 
 ###Block: General Feats
 # Feat Name			Required Ability							Required Skill					Allowed Companions
+# Ability Name				Required Ability							Required Skill					Allowed Companions
 CATEGORY=FEAT|Harmonic Spell.MOD										PRESKILL:1,TYPE=Perform=8
 CATEGORY=FEAT|One Finger.MOD		PREABILITY:1,CATEGORY=Special Ability,Ki Strike
-CATEGORY=FEAT|Spirit Strike.MOD		PREABILITY:1,CATEGORY=Special Ability,TYPE=TurnUndead	PRESKILL:1,Knowledge (Religion)=5
+CATEGORY=FEAT|Spirit Strike.MOD	PREABILITY:1,CATEGORY=Special Ability,TYPE=TurnUndead	PRESKILL:1,Knowledge (Religion)=5
 CATEGORY=FEAT|Vermin Companion.MOD																	COMPANIONLIST:Animal Companion|Giant Ant (Worker),Giant Fire Beetle,Monstrous Centipede (Medium),Monstrous Scorpion (Medium),Monstrous Spider (Medium)	COMPANIONLIST:Animal Companion|Giant Ant (Soldier),Giant Bee,Giant Bombardier Beetle,Monstrous Centipede (Large),Monstrous Scorpion (Large),Monstrous Spider (Large)|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Giant Praying Mantis,Giant Stag Beetle,Giant Wasp,Monstrous Centipede (Huge)|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Monstrous Centipede (Gargantuan),Monstrous Spider (Huge)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Monstrous Scorpion (Huge)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Monstrous Spider (Gargantuan)|FOLLOWERADJUSTMENT:-15
 CATEGORY=FEAT|Wand Dancer.MOD											PRESKILL:2,Perform (Dance)=1,Tumble=1
 

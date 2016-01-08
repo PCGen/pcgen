@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Paul Shipley & Stefan Radermacher
 
@@ -6,23 +6,23 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 ###Block: Human Ethnicities
-# Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Bonus Ability Pool			Source Page
-Azlanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)								SOURCEPAGE:p.12
-Azlanti Pureblood	NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)		BONUS:ABILITYPOOL|Ability Bonus|-1	SOURCEPAGE:p.12	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2
-Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)							SOURCEPAGE:p.13
-Garundi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Garundi)								SOURCEPAGE:p.14
-Keleshite		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Keleshite)							SOURCEPAGE:p.15
-Kellid		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Kellid)								SOURCEPAGE:p.16
-Bekyar		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Bekyar)								SOURCEPAGE:p.17
-Bonuwat		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Bonuwat)								SOURCEPAGE:p.17
-Mauxi			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Mauxi)								SOURCEPAGE:p.17
-Zenj			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Zenj)								SOURCEPAGE:p.17
-Shoanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Shoanti)		BONUS:ABILITYPOOL|Shoanti Clan|1	SOURCEPAGE:p.18
-Taldan		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Taldan)								SOURCEPAGE:p.19
-Tian			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian)								SOURCEPAGE:p.20
-Ulfen			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Ulfen)								SOURCEPAGE:p.21
-Varisian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Varisian)								SOURCEPAGE:p.22
-Vudrani		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Vudrani)								SOURCEPAGE:p.23
+# Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Bonus Ability Pool			Stat bonus						Source Page
+Azlanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)															SOURCEPAGE:p.12
+Azlanti Pureblood	NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)		BONUS:ABILITYPOOL|Ability Bonus|-1	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2	SOURCEPAGE:p.12
+Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)														SOURCEPAGE:p.13
+Garundi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Garundi)															SOURCEPAGE:p.14
+Keleshite		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Keleshite)														SOURCEPAGE:p.15
+Kellid		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Kellid)															SOURCEPAGE:p.16
+Bekyar		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Bekyar)															SOURCEPAGE:p.17
+Bonuwat		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Bonuwat)															SOURCEPAGE:p.17
+Mauxi			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Mauxi)															SOURCEPAGE:p.17
+Zenj			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Zenj)															SOURCEPAGE:p.17
+Shoanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Shoanti)		BONUS:ABILITYPOOL|Shoanti Clan|1								SOURCEPAGE:p.18
+Taldan		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Taldan)															SOURCEPAGE:p.19
+Tian			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian)															SOURCEPAGE:p.20
+Ulfen			NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Ulfen)															SOURCEPAGE:p.21
+Varisian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Varisian)															SOURCEPAGE:p.22
+Vudrani		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Vudrani)															SOURCEPAGE:p.23
 
 ###Block: Regional Affinities
 # Ability Name		Product Identity?	Category of Ability	Type		Visible		Description						Template								Source Page

@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Technology Guide
 KEY:Technology Guide
 GAMEMODE:Pathfinder
@@ -22,13 +23,13 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy98i0?Pathfinder-Campaign-Setting-Technology-Guide|Buy this publication from Paizo Publishing!
-DESC:It's one thing to face a dragon armed with a longsword and a suit of magic plate mail, but what if you had an atom gun and powered armor? How many zombies could you blow up with a rocket launcher? What happens if you're standing next to a graviton reactor when it explodes? All of these questions and more are answered within the pages of the Technology Guide—an invaluable manual of items, hazards, and character options for use in science-fantasy settings like Golarion's Numeria, land of savagery and super-science!
+DESC:It's one thing to face a dragon armed with a longsword and a suit of magic plate mail, but what if you had an atom gun and powered armor? How many zombies could you blow up with a rocket launcher? What happens if you're standing next to a graviton reactor when it explodes? All of these questions and more are answered within the pages of the Technology Guide-an invaluable manual of items, hazards, and character options for use in science-fantasy settings like Golarion's Numeria, land of savagery and super-science!
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
 #COPYRIGHTS
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Campaign Setting: Technology Guide © 2014, Paizo Inc.; Authors: James Jacobs and Russ Taylor.
+COPYRIGHT:Pathfinder Campaign Setting: Technology Guide ï¿½ 2014, Paizo Inc.; Authors: James Jacobs and Russ Taylor.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Technology Guide" Copyright 2014, PCGen Data team (Including, but not limited to Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.

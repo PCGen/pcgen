@@ -682,6 +682,21 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Gets the keyName attribute of the base item of this Equipment object.
+	 * 
+	 * @return The base item's keyName value
+	 */
+	public String getBaseItemKeyName()
+	{
+		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+		if (baseItem == null)
+		{
+			return getKeyName();
+		}
+		return baseItem.resolvesTo().getKeyName();
+	}
+
+	/**
 	 * Gets the cost attribute of the Equipment object
 	 * 
 	 * @param aPC The PC with the Equipment
@@ -1171,6 +1186,17 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getItemNameFromModifiers()
 	{
+		return getItemNameFromModifiers(getBaseItemName());
+	}
+
+	/**
+	 * Get the item name based off the modifiers
+	 * 
+	 * @param The base name of the object, may instead be the base key if generating a key
+	 * @return item name based off the modifiers
+	 */
+	public String getItemNameFromModifiers(String baseName)
+	{
 
 		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 		if (baseItem == null)
@@ -1253,7 +1279,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Add in the base name, less any modifiers
-		final String baseName = getBaseItemName().trim();
+		baseName = baseName.trim();
 		int idx = baseName.indexOf('(');
 		if (idx >= 0)
 		{
@@ -3490,12 +3516,16 @@ public final class Equipment extends PObject implements Serializable,
 	public String nameItemFromModifiers(final PlayerCharacter pc)
 	{
 
-		final String itemName = getItemNameFromModifiers();
+		final String itemName = getItemNameFromModifiers(getBaseItemName());
 		setDefaultCrit(pc);
 		setName(itemName);
+		String itemKey =
+				getItemNameFromModifiers(getBaseItemKeyName()).replaceAll(
+					"[^A-Za-z0-9/_() +-]", "_");
+		setKeyName(itemKey);
 		remove(StringKey.OUTPUT_NAME);
 
-		return getName();
+		return getKeyName();
 	}
 
 	/**

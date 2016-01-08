@@ -1,5 +1,5 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
-SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Guide To Pathfinder Society Organized Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
@@ -13,5 +13,5 @@ PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold PFS
 #Starting Gold CRB ~ Average.MOD		!PRECHARACTERTYPE:1,PC
 
 ###Block:
-# Template Name						Visible	Modify VAR							Bonus Languages
-Race Bonus Language ~ Modern Human Language	!PRECHARACTERTYPE:1,PC									LANGBONUS:TYPE=ModernHumanLanguage
+# Template Name						!PRECHARACTERTYPE		Bonus Languages
+Race Bonus Language ~ Modern Human Language	!PRECHARACTERTYPE:1,PC	LANGBONUS:TYPE=ModernHumanLanguage

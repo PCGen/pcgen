@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -7,8 +7,8 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 
 ### Faceman -------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																Save bonus																																			Modify VAR
-CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		MAXLEVEL:20	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)-(classlevel("APPLIEDAS=NONEPIC")==15)-(classlevel("APPLIEDAS=NONEPIC")==17)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																																Save bonus																																			Modify VAR									FACT
+CLASS:Faceman	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)-(classlevel("APPLIEDAS=NONEPIC")==15)-(classlevel("APPLIEDAS=NONEPIC")==17)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2	FACT:Abb|Fac
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|LANGUAGES|TYPE=Language|Open Lock|Perform|TYPE=Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
 ###Block:
@@ -20,8 +20,8 @@ CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguis
 10	ABILITY:Special Ability|AUTOMATIC|1000 Faces ~ Faceman
 14	ABILITY:Special Ability|AUTOMATIC|Bald-Faced Lie ~ Faceman
 ###Block:
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1	BONUS:VAR|FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken	TEMPLATE:Class Core Ability
+1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1	BONUS:VAR|FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken																																					TEMPLATE:Class Core Ability
 2	BONUS:VAR|ColdRead|1
 3	BONUS:VAR|QuickChange|(CL-1)/2
 4	BONUS:VAR|Backup|CL/4			ADD:LANGUAGE|TYPE=Spoken
@@ -36,8 +36,8 @@ CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguis
 
 ### Fixer ---------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																			Save bonus																																Modify VAR
-CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																																			Save bonus																																Modify VAR									FACT
+CLASS:Fixer		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL	FACT:Abb|Fix
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE=Hobby|Innuendo|Jump|TYPE=Knowledge|LANGUAGES|TYPE=Language|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble
 ###Block:
@@ -50,7 +50,7 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Cr
 10	ABILITY:Special Ability|AUTOMATIC|Defensive Roll ~ Fixer
 14	ABILITY:Special Ability|AUTOMATIC|Wildcard Gadget ~ Fixer
 ###Block:
-1																										TEMPLATE:Class Core Ability	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1																										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)	TEMPLATE:Class Core Ability
 2								BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)
 3								BONUS:VAR|SneakAttackDice|(CL-1)/2
 4								BONUS:VAR|UncannyDodge|CL/4
@@ -64,8 +64,8 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Cr
 
 ### Pointman ------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																		Save bonus																							Modify VAR
-CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																																		Save bonus																							Modify VAR										FACT
+CLASS:Pointman	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4	FACT:Abb|Ptm
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Driver|First Aid|TYPE=Knowledge|TYPE=Profession|Sense Motive|TYPE=Sport
 ###Block:
@@ -75,8 +75,8 @@ CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Dri
 10	ABILITY:Special Ability|AUTOMATIC|Serendipity ~ Pointman
 14	ABILITY:Special Ability|AUTOMATIC|Strategy ~ Pointman
 ###Block:
-1																																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1	BONUS:ABILITYPOOL|Versatility Choice|6																				TEMPLATE:Class Core Ability
+1																											ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+1	BONUS:ABILITYPOOL|Versatility Choice|6																																																		TEMPLATE:Class Core Ability
 2																BONUS:VAR|Assistance|2
 3	BONUS:ABILITYPOOL|Versatility Choice Choice|1								BONUS:VAR|PointmanLead|(CL-1)/2
 4																BONUS:VAR|TacticsBonus|1	BONUS:VAR|TacticsPerSession|CL/4
@@ -93,8 +93,8 @@ CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Dri
 
 ### Snoop ---------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																														Save bonus																						Modify VAR
-CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																														Save bonus																						Modify VAR									FACT
+CLASS:Snoop		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL	FACT:Abb|Snp
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|First Aid|Gather Information|Hide|TYPE=Hobby|TYPE=Knowledge|LANGUAGES|TYPE=Language|Listen|Mechanics|Move Silently|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Surveillance
 ###Block:
@@ -105,7 +105,7 @@ CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration
 10	ABILITY:Special Ability|AUTOMATIC|Master Cracker ~ Snoop
 14	ABILITY:Special Ability|AUTOMATIC|Global Search ~ Snoop
 ###Block:
-1													TEMPLATE:Class Core Ability	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
+1													ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)	TEMPLATE:Class Core Ability
 2								BONUS:VAR|Intuition|1
 3								BONUS:VAR|Juryrig|(CL+1)/2
 4								BONUS:VAR|BackDoor|CL/4
@@ -121,8 +121,8 @@ CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration
 
 ### Soldier -------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																																		Save bonus																																Modify VAR
-CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																																		Save bonus																																Modify VAR									FACT
+CLASS:Soldier	HD:12		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2	FACT:Abb|Sol
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
 ###Block:
@@ -130,8 +130,8 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver
 10	ABILITY:Special Ability|AUTOMATIC|Portable Cover ~ Soldier
 14	ABILITY:Special Ability|AUTOMATIC|One in a Million ~ Soldier
 ###Block:
-1																														ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-1			BONUS:ABILITYPOOL|Solder Class Ability|1																TEMPLATE:Class Core Ability
+1																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1			BONUS:ABILITYPOOL|Solder Class Ability|1																																																														TEMPLATE:Class Core Ability
 2	DR:1/-
 3			BONUS:ABILITYPOOL|Solder Class Ability|1
 4																				BONUS:VAR|ArmorUse|CL/4
@@ -151,8 +151,8 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver
 
 ### Wheelman ------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																											Save bonus																						Modify VAR
-CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																											Save bonus																						Modify VAR										FACT
+CLASS:Wheelman	HD:12		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4	FACT:Abb|Whl
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Disguise|Driver|Escape Artist|Handle Animal|Intimidate|Jump|Mechanics|Open Lock|Perform|Pilot|TYPE=Profession|TYPE=Sport|Spot|Surveillance|Survival|Swim
 ###Block:
@@ -163,8 +163,8 @@ CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Dis
 10	ABILITY:Special Ability|AUTOMATIC|Soup Her Up ~ Wheelman
 14	ABILITY:Special Ability|AUTOMATIC|That's Impossible ~ Wheelman
 ###Block:
-1																					ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-1									BONUS:VAR|CustomRide|(CL/4)+4			TEMPLATE:Class Core Ability
+1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+1									BONUS:VAR|CustomRide|(CL/4)+4																																							TEMPLATE:Class Core Ability
 2									BONUS:VAR|KickStart|1
 3	BONUS:ABILITYPOOL|Wheelman Class Ability|1
 4									BONUS:VAR|Familiarity|CL/4
@@ -181,12 +181,12 @@ CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Dis
 
 ### Non-Player Classes ------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																					Save bonus
-CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.244	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																					Save bonus																																FACT
+CLASS:Minion	HD:4		TYPE:Base.NPC	MAXLEVEL:20	SOURCEPAGE:p.244	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(((classlevel("APPLIEDAS=NONEPIC")+3)*2)/5)	FACT:Abb|Min
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
 ###Block:
-1	TEMPLATE:Minion Vitality Dice	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	TEMPLATE:Minion Vitality Dice	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
 
 #
 # End

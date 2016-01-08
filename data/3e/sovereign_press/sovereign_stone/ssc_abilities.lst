@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
 # Ability Name	Category of Ability		Type			Required Race			Var. Min. Value			Multiple?	Choose						Bonus to skill		Cost		Source Page
@@ -14,12 +14,14 @@ SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Auto Weapon Prof
+# Ability Name			Category of Ability		Type			Auto Weapon Prof
 Archer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	AUTO:WEAPONPROF|Shortbow|Shortbow (Composite)|Longbow|Longbow (Composite)|Sword (Short)|Handaxe
 Sailor Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
 
 ###Block: Archer Class abilities
 # Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose												Weapon prof. bonus				Source Page
-Archer Primary Weapon			CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Heavy)|Crossbow (Light)|Longbow|Shortbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
+# Ability Name			Category of Ability		Type			Special ABility				Define			Stackable?	Multiple?	Choose												Weapon prof. bonus				Source Page
+Archer Primary Weapon		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Heavy)|Crossbow (Light)|Longbow|Shortbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
 Extra Shot				CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Extra Shot																																SOURCEPAGE:p.
 Improved Point Blank Shot	CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Improved Point Blank Shot																														SOURCEPAGE:p.
 Long Distance Accuracy		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Long Distance Accuracy																														SOURCEPAGE:p.
@@ -28,6 +30,7 @@ Extended Range			CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Extended Range		
 
 ###Block: Mounted Warrior class abilities
 # Feat Name			Type			Visible	Special ABility		Source Page
+# Ability Name		Category of Ability		Type			Special ABility		Source Page
 Mounted Attack		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Mounted Attack	SOURCEPAGE:p.41
 Guide Mount			CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Guide Mount		SOURCEPAGE:p.41
 Remain in Saddle		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Remain in Saddle	SOURCEPAGE:p.41
@@ -40,6 +43,7 @@ Devastating Trample	CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Devastating T
 
 ###Block: Sailor class abilities
 # Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose										Weapon prof. bonus				Source Page
+# Ability Name			Category of Ability		Type			Special ABility				Define			Stackable?	Multiple?	Choose										Weapon prof. bonus				Source Page
 Sailor Weapon Bonus		CATEGORY:Special Ability	TYPE:Internal											STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[TYPE=Exotic|TYPE=Martial|TYPE=Simple]	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.41
 Dirty Blow				CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Dirty Blow +%d4|DirtyBlow		DEFINE:DirtyBlow|0																							SOURCEPAGE:p.41
 Extraordinary Tolerance		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Extraordinary Tolerance																												SOURCEPAGE:p.41
@@ -49,6 +53,7 @@ Extraordinary Balance		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Extraordin
 
 ###Block: Soldier class abilities
 # Feat Name				Type			Visible	Special ABility				Define			Combat bonus				Source Page
+# Ability Name			Category of Ability		Type			Special ABility				Define			Combat bonus				Source Page
 Quick Action			CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Quick Action +% |QuickAction	DEFINE:QuickAction|0	BONUS:COMBAT|INITIATIVE|QuickAction	SOURCEPAGE:p.49
 Superior Bull Rush		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Superior Bull Rush													SOURCEPAGE:p.49
 Coordinated Strikes		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Coordinated Strikes													SOURCEPAGE:p.49
@@ -61,6 +66,7 @@ Reflexive Strike			CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Reflexive Stri
 
 ###Block: Stalker class abilities
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
+# Ability Name		Category of Ability		Type			Special ABility					Define			Source Page
 Skilled Disarm		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Skilled Disarm +% |SkilledDisarm	DEFINE:SkilledDisarm|0	SOURCEPAGE:p.51
 Blinding Attack		CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Blinding Attack								SOURCEPAGE:p.51
 Incapacitating Attack	CATEGORY:Special Ability	TYPE:ClassAbility	SAB:Incapacitating Attack							SOURCEPAGE:p.51

@@ -23,7 +23,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -280,6 +282,23 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	}
 
 	@Test
+	public void testRoundRobinType() throws PersistenceLayerException
+	{
+		assertEquals(0, primaryContext.getWriteMessageCount());
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		ClassSpellList classSpellList =
+				secondaryContext.getReferenceContext().constructCDOMObject(
+					ClassSpellList.class, "Psion");
+		classSpellList.addType(Type.getConstant("Psionic"));
+		CDOMGroupRef<ClassSpellList> typeReference =
+				primaryContext.getReferenceContext()
+					.getManufacturer(ClassSpellList.class)
+					.getTypeReference("Psionic");
+		typeReference.addResolution(classSpellList);
+		runRoundRobin("TYPE=Psionic=1[PRERACE:1,Human]");
+	}
+
+	@Test
 	public void testRoundRobinComma() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
@@ -392,6 +411,15 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 		assertTrue(parse("Wizard=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertNull("Expected item to be null", unparsed);
+	}
+
+	@Test
+	public void testReplacementTypeDot() throws PersistenceLayerException
+	{
+		String[] unparsed;
+		assertTrue(parse("TYPE.Arcane=1"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals("Expected item to be equal", "TYPE=Arcane=1", unparsed[0]);
 	}
 
 	@Override

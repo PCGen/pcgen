@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198	SOURCEDATE:2004-01
 # Original Entry by: Paul W. King
 
 ###Block: organizations
-# Template Name	Product Identity?	Source Page		Required Feat	Required Text
+# Template Name	Product Identity?	Source Page		Required Ability				Required Text
 Medusa		NAMEISPI:YES	SOURCEPAGE:p.3	PREABILITY:1,CATEGORY=FEAT,Enemy	PRETEXT:Must have allegiance to Medusan and USHER as an enemy
 
 
@@ -16,5 +16,5 @@ Medusa Special Access 4	NAMEISPI:YES	SOURCEPAGE:p.3	SAB:Cutting Edge			PRETEMPLA
 Medusa Special Access 5	NAMEISPI:YES	SOURCEPAGE:p.4	SAB:Medusa Protocol 2		PRETEMPLATE:1,Medusa Special Access 4
 
 ###Block: special units
-# Template Name	Product Identity?	Source Page		Required Feat															Required Skill							Required Template		Bonus to skill						Modify VAR
+# Template Name	Product Identity?	Source Page		Required Ability																	Required Skill							Required Template		Bonus to skill						Modify VAR
 Shadow Soldiers	NAMEISPI:YES	SOURCEPAGE:p.4	PREABILITY:5,CATEGORY=FEAT,Armor Proficiency (Light),Personal Firearms Proficiency,Stealthy,Commando 1,Commando 2	PRESKILL:3,Computer Use=10,Hide=10,Move Silently=10	PRETEMPLATE:1,Medusa	BONUS:SKILL|Computer Use,Hide|4|TYPE=Competence	BONUS:VAR|Commando|1

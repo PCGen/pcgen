@@ -3468,7 +3468,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#addPurchasedEquipment(pcgen.core.facade.EquipmentFacade, int)
 	 */
 	@Override
-	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize)
+	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize, boolean free)
 	{
 		if (equipment == null || quantity <= 0)
 		{
@@ -3502,7 +3502,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 
-		if (!canAfford(equipItemToAdjust, quantity, (GearBuySellScheme) gearBuySellSchemeRef.getReference()))
+		if (!free
+			&& !canAfford(equipItemToAdjust, quantity,
+				(GearBuySellScheme) gearBuySellSchemeRef.getReference()))
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME,
 					LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
@@ -3537,8 +3539,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		// Update the PC and equipment
-		double itemCost = calcItemCost(updatedItem, quantity, (GearBuySellScheme) gearBuySellSchemeRef.getReference());
-		theCharacter.adjustGold(itemCost * -1);
+		if (!free)
+		{
+			double itemCost = calcItemCost(updatedItem, quantity, (GearBuySellScheme) gearBuySellSchemeRef.getReference());
+			theCharacter.adjustGold(itemCost * -1);
+		}
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
 		updateWealthFields();
@@ -3621,7 +3626,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#removePurchasedEquipment(pcgen.core.facade.EquipmentFacade, int)
 	 */
 	@Override
-	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity)
+	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity, boolean free)
 	{
 		if (equipment == null || quantity <= 0)
 		{
@@ -3673,9 +3678,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		// Update the PC and equipment
-		double itemCost = calcItemCost(updatedItem, numRemoved * -1,
-				(GearBuySellScheme) gearBuySellSchemeRef.getReference());
-		theCharacter.adjustGold(itemCost * -1);
+		if (!free)
+		{
+			double itemCost =
+					calcItemCost(updatedItem, numRemoved * -1,
+						(GearBuySellScheme) gearBuySellSchemeRef.getReference());
+			theCharacter.adjustGold(itemCost * -1);
+		}
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
 		updateWealthFields();
@@ -3708,7 +3717,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 		
-		removePurchasedEquipment(itemToBeDeleted, Integer.MAX_VALUE);
+		removePurchasedEquipment(itemToBeDeleted, Integer.MAX_VALUE, false);
 		Globals.getContext().getReferenceContext().forget(itemToBeDeleted);
 		
 		if (dataSet.getEquipment() instanceof DefaultListFacade<?>)

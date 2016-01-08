@@ -1,5 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Updated Background Skills
+# Skill Name					Type
 Appraise.MOD					TYPE:Background
 Handle Animal.MOD					TYPE:Background
 Knowledge (engineering).MOD			TYPE:Background
@@ -78,38 +80,39 @@ Profession (Woodcutter).MOD			TYPE:Background
 
 
 ###Block: New Skills
-Artistry								KEYSTAT:INT	TYPE:Intelligence.Base.Background	
-Lore (           )						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+# Skill Name							Key Stat	Untrained?		Classes	Type
+Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background
+Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
 
-Lore (A particular small city)				USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (One district of a large city or metropolis)	USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (A particular monastery)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Taverns in a region)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Bandits in a region)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Famous battles in a region)				USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (The spice trade)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Cats)								USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Drow matriarchs)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Dwarven history)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Frost giants)						USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Sarenrae)							USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Dagon)							USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Phlegethon)							USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
-Lore (Military commanders)					USEUNTRAINED:NO		KEYSTAT:INT	TYPE:Intelligence.Base.Background	CLASSES:ALL
+Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (A particular monastery)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Taverns in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Bandits in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Famous battles in a region)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (The spice trade)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Cats)								KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Drow matriarchs)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Dwarven history)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Frost giants)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Sarenrae)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Dagon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Phlegethon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
 
 
 
 ###Block: Consolidated Skills
-#Acrobatics		KEY:Consolidated Skill ~ Acrobatics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....	
-Athletics		KEY:Consolidated Skill ~ Athletics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:STR	DESC:Replaces....
-Finesse		KEY:Consolidated Skill ~ Finesse		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:NO	KEYSTAT:DEX	DESC:Replaces....
-Influence		KEY:Consolidated Skill ~ Influence		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:CHA	DESC:Replaces....
-Nature		KEY:Consolidated Skill ~ Nature		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+#Acrobatics		KEY:Consolidated Skill ~ Acrobatics		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
+# Skill Name	Unique Key						Key Stat	Untrained?		Skill Penalty?	Required Var. value			Description
+Athletics		KEY:Consolidated Skill ~ Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Finesse		KEY:Consolidated Skill ~ Finesse		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Influence		KEY:Consolidated Skill ~ Influence		KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Nature		KEY:Consolidated Skill ~ Nature		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
 #Perception		KEY:Consolidated Skill ~ Perception		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
-Performance		KEY:Consolidated Skill ~ Performance	PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:CHA	DESC:Replaces....
-Religion		KEY:Consolidated Skill ~ Religion		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
-Society		KEY:Consolidated Skill ~ Society		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
+Performance		KEY:Consolidated Skill ~ Performance	KEYSTAT:CHA	USEUNTRAINED:YES				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Religion		KEY:Consolidated Skill ~ Religion		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
+Society		KEY:Consolidated Skill ~ Society		KEYSTAT:INT	USEUNTRAINED:NO				PREVAREQ:UseConsolidatedSkills,1	DESC:Replaces....
 #Spellcraft		KEY:Consolidated Skill ~ Spellcraft		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:NO	KEYSTAT:INT	DESC:Replaces....
 #Stealth		KEY:Consolidated Skill ~ Stealth		PREVAREQ:UseConsolidatedSkills,1	ACHECK:YES	USEUNTRAINED:YES	KEYSTAT:DEX	DESC:Replaces....
 #Survival		KEY:Consolidated Skill ~ Survival		PREVAREQ:UseConsolidatedSkills,1			USEUNTRAINED:YES	KEYSTAT:WIS	DESC:Replaces....
-

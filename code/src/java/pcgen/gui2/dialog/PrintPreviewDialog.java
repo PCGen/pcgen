@@ -21,30 +21,24 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
+import java.awt.GridLayout;
 import java.awt.Insets;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.awt.print.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.BufferedWriter;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FilenameFilter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 import java.net.URI;
 import java.text.NumberFormat;
 import java.util.Collection;
@@ -56,7 +50,6 @@ import javax.swing.ComboBoxEditor;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -66,9 +59,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 import org.apache.commons.io.FileUtils;
@@ -76,22 +66,22 @@ import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.fop.render.awt.AWTRenderer;
+import org.apache.fop.render.awt.viewer.PreviewPanel;
 
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
-import pcgen.io.ExportException;
-import pcgen.io.ExportHandler;
+import pcgen.system.BatchExporter;
 import pcgen.system.ConfigurationSettings;
-import pcgen.util.fop.FOPHandler;
-import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
+import pcgen.util.fop.FopTask;
 
 /**
  * Dialog to allow the preview of character export.
- * 
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
@@ -113,7 +103,6 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private static final String PRINT_COMMAND = "print";
 	private static final String CANCEL_COMMAND = "cancel";
 	private static final double ZOOM_MULTIPLIER = Math.pow(2, 0.125);
-	private final FOPHandler handler;
 	private final CharacterFacade character;
 	private final JComboBox sheetBox;
 	private final JComboBox pageBox;
@@ -122,17 +111,18 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private final JButton zoomOutButton;
 	private final JButton printButton;
 	private final JButton cancelButton;
-	private final SheetPreview sheetPreview;
+	private final JPanel previewPanelParent;
+	private PreviewPanel previewPanel;
 	private final JProgressBar progressBar;
 	private final PCGenFrame frame;
+	private Pageable pageable;
 
 	private PrintPreviewDialog(PCGenFrame frame)
 	{
 		super(frame, true);
 		this.frame = frame;
 		this.character = frame.getSelectedCharacterRef().getReference();
-		this.handler = FOPHandlerFactory.createFOPHandlerImpl(true);
-		this.sheetPreview = new SheetPreview();
+		this.previewPanelParent = new JPanel(new GridLayout(1, 1));
 		this.sheetBox = new JComboBox();
 		this.progressBar = new JProgressBar();
 		this.pageBox = new JComboBox();
@@ -150,7 +140,6 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private void initComponents()
 	{
 		setTitle("Print Preview");
-		handler.setMode(FOPHandler.AWT_MODE);
 		sheetBox.setRenderer(new DefaultListCellRenderer()
 		{
 
@@ -209,7 +198,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		cancelButton.addActionListener(this);
 
 		enableEditGroup(false);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -222,6 +211,14 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		printButton.setEnabled(enable);
 	}
 
+	private void setPreviewPanel(PreviewPanel previewPanel)
+	{
+		previewPanelParent.removeAll();
+		this.previewPanel = previewPanel;
+		previewPanelParent.add(previewPanel);
+		previewPanel.reload();
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -231,12 +228,12 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 		else if (PAGE_COMMAND.equals(e.getActionCommand()))
 		{
-			sheetPreview.setPageIndex(pageBox.getSelectedIndex());
+			previewPanel.setPage(pageBox.getSelectedIndex());
 		}
 		else if (ZOOM_COMMAND.equals(e.getActionCommand()))
 		{
 			Double zoom = (Double) zoomBox.getSelectedItem();
-			sheetPreview.setScalingFactor(zoom);
+			previewPanel.setScaleFactor(zoom);
 		}
 		else if (ZOOM_IN_COMMAND.equals(e.getActionCommand()))
 		{
@@ -250,10 +247,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 		else if (PRINT_COMMAND.equals(e.getActionCommand()))
 		{
-			Pageable renderer = sheetPreview.getPageable();
 			PrinterJob printerJob = PrinterJob.getPrinterJob();
-			printerJob.setPageable(sheetPreview.getPageable());
-			//printerJob.setPageable((Pageable)sheetPreview.getPageable());
+			printerJob.setPageable(pageable);
 			if (printerJob.printDialog())
 			{
 				try
@@ -293,9 +288,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 		{
 			Box vbox = Box.createVerticalBox();
-			JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 15));
-			panel.add(sheetPreview);
-			vbox.add(new JScrollPane(panel));
+			previewPanelParent.setPreferredSize(new Dimension(600, 800));
+			vbox.add(previewPanelParent);
 			vbox.add(progressBar);
 			pane.add(vbox, BorderLayout.CENTER);
 		}
@@ -360,157 +354,10 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 
 	}
 
-	private static class SheetPreview extends JComponent
-	{
-
-		private static final PageFormat format = new PageFormat();
-		private Image[] pageCache;
-		private double scaleFactor = .75;
-		private Pageable renderer;
-		private Image previewImage;
-		private int currentPage;
-
-		public SheetPreview()
-		{
-			setBorder(BorderFactory.createRaisedBevelBorder());
-		}
-
-		@Override
-		public Dimension getPreferredSize()
-		{
-			int width = getPreviewWidth();
-			int height = getPreviewHeight();
-			Insets insets = getInsets();
-			width += insets.left + insets.right;
-			height += insets.top + insets.bottom;
-			return new Dimension(width, height);
-		}
-
-		@Override
-		public Dimension getMaximumSize()
-		{
-			return getPreferredSize();
-		}
-
-		@Override
-		public Dimension getMinimumSize()
-		{
-			return getPreferredSize();
-		}
-
-		@Override
-		protected void paintComponent(Graphics g)
-		{
-			g.setColor(Color.WHITE);
-			g.fillRect(0, 0, getWidth(), getHeight());
-			Insets insets = getInsets();
-			g.drawImage(previewImage, insets.left, insets.top, this);
-		}
-
-		private int getPreviewWidth()
-		{
-			return (int) (format.getWidth() * scaleFactor);
-		}
-
-		private int getPreviewHeight()
-		{
-			return (int) (format.getHeight() * scaleFactor);
-		}
-
-		public void setScalingFactor(double scaleFactor)
-		{
-			this.scaleFactor = scaleFactor;
-			resetPreviewImage();
-			revalidate();
-			repaint();
-		}
-
-		public Pageable getPageable()
-		{
-			return renderer;
-		}
-
-		public void setRenderer(Pageable renderer)
-		{
-			this.renderer = renderer;
-			if (renderer.getNumberOfPages() > 0)
-			{
-				pageCache = new Image[renderer.getNumberOfPages()];
-			}
-			else
-			{
-				pageCache = new Image[1];
-				pageCache[0] = createBrokenPage();
-			}
-			setPageIndex(0);
-		}
-
-		public void setPageIndex(int page)
-		{
-			currentPage = page;
-			resetPreviewImage();
-			repaint();
-		}
-
-		private void resetPreviewImage()
-		{
-			Image pageImage = pageCache[currentPage];
-			if (pageImage == null)
-			{
-				pageImage = createNewPage();
-				Graphics g = pageImage.getGraphics();
-				Graphics2D g2 = (Graphics2D) g;
-				g2.scale(4, 4);
-				try
-				{
-					Printable printable = renderer.getPrintable(currentPage);
-					printable.print(g, format, currentPage);
-				}
-				catch (PrinterException ex)
-				{
-					Logging.errorPrint(null, ex);
-				}
-				g2.dispose();
-				pageCache[currentPage] = pageImage;
-			}
-			previewImage = pageImage.getScaledInstance(getPreviewWidth(), getPreviewHeight(), Image.SCALE_SMOOTH);
-		}
-
-		private static BufferedImage createNewPage()
-		{
-			int pageWidth = (int) format.getWidth();
-			int pageHeight = (int) format.getHeight();
-			return new BufferedImage(4*pageWidth, 4*pageHeight, BufferedImage.TYPE_INT_ARGB);
-		}
-
-		private static Image createBrokenPage()
-		{
-			BufferedImage image = createNewPage();
-			Graphics g = image.getGraphics();
-			ImageIcon icon = Icons.stock_broken_image.getImageIcon();
-			Rectangle viewRect = new Rectangle(0, 0, image.getWidth(), image.getHeight());
-			Rectangle iconRect = new Rectangle();
-			SwingUtilities.layoutCompoundLabel(null, null, icon,
-											   SwingConstants.CENTER,
-											   SwingConstants.CENTER,
-											   SwingConstants.CENTER,
-											   SwingConstants.CENTER,
-											   viewRect,
-											   iconRect,
-											   new Rectangle(),
-											   0);
-			icon.paintIcon(null, g, iconRect.x, iconRect.y);
-			g.dispose();
-			return image;
-		}
-
-	}
-
-	private class PreviewLoader extends SwingWorker<Pageable, Object>
+	private class PreviewLoader extends SwingWorker<AWTRenderer, Object>
 	{
 
 		private URI uri;
-		private File temp = null;
 
 		public PreviewLoader(URI uri)
 		{
@@ -521,15 +368,26 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 
 		@Override
-		protected Pageable doInBackground() throws Exception
+		protected AWTRenderer doInBackground() throws Exception
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
-			temp = File.createTempFile("currentPC_", ".xml");
-			printToXMLFile(temp, character);
-			handler.setInputFile(temp, xsltFile);
-			handler.run();
-			return (Pageable) handler.getPageable();
+
+			AWTRenderer renderer = new AWTRenderer();
+			renderer.setPreviewDialogDisplayed(false);
+			PipedOutputStream out = new PipedOutputStream();
+			FopTask task = FopTask.newFopTask(new BufferedInputStream(new PipedInputStream(out)), xsltFile, renderer);
+			Thread thread = new Thread(task, "fop-preview");
+			thread.setDaemon(true);
+			thread.start();
+			BatchExporter.printToXmlStream(character, new BufferedOutputStream(out));
+			try{
+				thread.join();
+			}catch(InterruptedException ex){
+				//pass on the interrupt and hope it stops
+				thread.interrupt();
+			}
+			return renderer;
 		}
 
 		@Override
@@ -540,8 +398,9 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			enableEditGroup(true);
 			try
 			{
-				Pageable renderer = get();
-				sheetPreview.setRenderer(renderer);
+				AWTRenderer renderer = get();
+				pageable = renderer;
+				setPreviewPanel(new PreviewPanel(renderer.getUserAgent(), null, renderer));
 				pageBox.setModel(createPagesModel(renderer.getNumberOfPages()));
 			}
 			catch (InterruptedException ex)
@@ -552,38 +411,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			{
 				Logging.errorPrint("Could not load sheet", ex.getCause());
 			}
-			finally
-			{
-				if (temp != null)
-				{
-					temp.delete();
-				}
-			}
 		}
 
-	}
-
-	private static File getXMLTemplate(CharacterFacade character)
-	{
-		File template = FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
-										  "gameModes",
-										  character.getDataSet().getGameMode().getName(),
-										  "base.xml");
-		if (!template.exists())
-		{
-			template = new File(ConfigurationSettings.getOutputSheetsDir(), "base.xml");
-		}
-		return template;
-	}
-
-	private static void printToXMLFile(File outFile, CharacterFacade character)
-			throws IOException, ExportException
-	{
-		final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-
-		File template = getXMLTemplate(character);
-		character.export(new ExportHandler(template), bw);
-		bw.close();
 	}
 
 	private static ComboBoxModel createPagesModel(int pages)

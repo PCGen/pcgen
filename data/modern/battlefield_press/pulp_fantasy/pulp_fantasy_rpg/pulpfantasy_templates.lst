@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
 ###Block:Tracker Templates
-# Template Name			Visible	Source Page		Modify VAR																		Choose										Temporary effect description																					Temporary Bonus
-Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109																				CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Infamy Reputation modification	TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.	TEMPBONUS:ANYPC|VAR|Reputation|%CHOICE|PREABILITY:1,CATEGORY=FEAT,Infamy
+# Template Name			Visible	Source Page		Modify VAR																		Temporary effect description																					Temporary Bonus											TEMPVALUE
+Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109																				TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.	TEMPBONUS:ANYPC|VAR|Reputation|%CHOICE|PREABILITY:1,CATEGORY=FEAT,Infamy	TEMPVALUE:MIN=-10|MAX=10|TITLE=Infamy Reputation modification
 Sidekick Score			VISIBLE:NO				BONUS:VAR|SidekickScore|TL+CHA+(3*var("COUNT[FEATNAME=Renown]"))+var("COUNT[FEATNAME=Sidekick]")+(Wealth>=16)
 Living Weapon Dice		VISIBLE:NO				BONUS:VAR|LivingWeaponDice|6+2*(var("COUNT[FEATNAME=Living Weapon]")-1)|TYPE=NonStacking
 

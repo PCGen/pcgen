@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Pain Taster	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:PnTst		MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL				Required Feat						Required Skill					Required Text
-CLASS:Pain Taster	PREALIGN:LN,TN,CN,LE,NE,CE	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Great Fortitude	PRESKILL:2,Concentration=4,Intimidate=8	PRETEXT:Must survive a special ritual designed to inure him to pain.
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Pain Taster	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:ClassType|Prestige	FACT:Abb|PnTst
+# Class Name	Required Ability									Required AL				Required Skill					Required Text
+CLASS:Pain Taster	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Great Fortitude	PREALIGN:LN,TN,CN,LE,NE,CE	PRESKILL:2,Concentration=4,Intimidate=8	PRETEXT:Must survive a special ritual designed to inure him to pain.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pain Taster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Escape Artist|Heal|Intimidate|Jump|Sense Motive|Survival|Tumble|Use Rope
 1																											ABILITY:Special Ability|AUTOMATIC|Disciple of Pain|Masochism		AUTO:WEAPONPROF|Whip|TYPE=Martial|TYPE=Simple
@@ -16,12 +16,12 @@ CLASS:Pain Taster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Escape Arti
 5																											ABILITY:Special Ability|AUTOMATIC|Pain Mastery
 
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Demonic Initiate	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DmInt		MAXLEVEL:5	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL	Required Feat		Required Skill							Required Text
-CLASS:Demonic Initiate	PREALIGN:CE	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:2,Knowledge (The Planes)=8,Spellcraft=4	PRETEXT:Foresworn to a demonic patron
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
+CLASS:Demonic Initiate	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:ClassType|Prestige	FACT:Abb|DmInt
+# Class Name		Required Ability					Required AL	Required Skill							Required Text
+CLASS:Demonic Initiate	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:CE	PRESKILL:2,Knowledge (The Planes)=8,Spellcraft=4	PRETEXT:Foresworn to a demonic patron
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Demonic Initiate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Hide|Intimidate|Knowledge (Religion)|Knowledge (the planes)|Sense Motive|Spellcraft
+CLASS:Demonic Initiate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Hide|Intimidate|Knowledge (religion)|Knowledge (the Planes)|Sense Motive|Spellcraft
 1					ABILITY:Special Ability|AUTOMATIC|Abyssal Resistance|Dark Mark
 2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demonic Boon (Lesser)
 3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Abyssal Tongue

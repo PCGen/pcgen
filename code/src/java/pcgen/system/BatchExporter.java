@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
@@ -471,7 +472,17 @@ public class BatchExporter
 		});
 	}
 
-	private static void printToXMLFile(File outFile, CharacterFacade character)
+	public static void printToXmlStream(CharacterFacade character, OutputStream outputStream)
+			throws IOException, ExportException
+	{
+		final BufferedWriter bw
+				= new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+		File template = getXMLTemplate(character);
+		character.export(new ExportHandler(template), bw);
+		bw.close();
+	}
+
+	public static void printToXMLFile(File outFile, CharacterFacade character)
 		throws IOException, ExportException
 	{
 		final BufferedWriter bw =
@@ -482,7 +493,7 @@ public class BatchExporter
 		bw.close();
 	}
 
-	private static void printToXMLFile(File outFile, PartyFacade party)
+	public static void printToXMLFile(File outFile, PartyFacade party)
 		throws IOException, ExportException
 	{
 		final BufferedWriter bw =
@@ -527,7 +538,7 @@ public class BatchExporter
 		bw.close();
 	}
 
-	private static File getXMLTemplate(CharacterFacade character)
+	public static File getXMLTemplate(CharacterFacade character)
 	{
 		File template =
 				FileUtils.getFile(ConfigurationSettings.getSystemsDir(),

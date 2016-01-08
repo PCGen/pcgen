@@ -1,4 +1,4 @@
-# CVS $Revision: 21741 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21741 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 # Oracle Tongues granting Language:
@@ -115,10 +115,9 @@ Mental Acuity 19	VISIBLE:NO	PREVAREQ:OracleLVL,19	BONUS:VAR|MentalAcuityLVL|19	T
 Mental Acuity 20	VISIBLE:NO	PREVAREQ:OracleLVL,20	BONUS:VAR|MentalAcuityLVL|20	TYPE:MentalAcuityOracleLevel
 
 ###BLOCK:
-Class ~ Summoner		CHOOSE:ABILITYSELECTION|CLASS|QUALIFIED[TYPE=Summoner Class Selection]	ABILITY:Summoner Class Selection|AUTOMATIC|%LIST
+# Template Name	Choose											Ability
+Class ~ Summoner	CHOOSE:ABILITYSELECTION|Class|QUALIFIED[TYPE=Summoner Class Selection]	ABILITY:Summoner Class Selection|AUTOMATIC|%LIST
 #	TEMPLATE:CHOOSE:TYPE=SummonerClass	TEMPLATE:%LIST
 #
 
 #Summoner ~ Standard Class	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class
-
-

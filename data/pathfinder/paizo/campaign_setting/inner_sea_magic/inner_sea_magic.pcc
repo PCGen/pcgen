@@ -7,7 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:2,INCLUDES=Ultimate Magic,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -55,7 +55,7 @@ EQUIPMENT:ism_equip.lst
 # LICENSE MONKEY: Paul Grosse
 # RELEASE REVIEW #
 # BETA: Andrew Maitland (9/13/2015)
-# RELEASE: 
+# RELEASE:
 # Built for PCGen Version: 6.05.04
 # Updated to work with version: -
 # MINVER:6.5

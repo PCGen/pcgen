@@ -1,4 +1,4 @@
-# CVS $Revision: 25521 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 25521 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block: Background and Occupation
@@ -11,8 +11,8 @@ Occupation.MOD				TEMPLATE:ADDCHOICE:PApocSkills	BONUS:ABILITYPOOL|Occupation|-1
 PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero=1
 
 ###Block: Backgrounds
-# Template Name				Visible	Bonus Ability Pool																			Auto Feat						Auto Language		Apply Kit
-Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1																			KIT:1|Equipment_AnySimpleWeapon
+# Template Name				Visible	Bonus Ability Pool																			Ability								Auto Language		Apply Kit
+Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1																					KIT:1|Equipment_AnySimpleWeapon
 Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	ABILITY:FEAT|AUTOMATIC|Primitive Technology		AUTO:LANG|Unislang	KIT:1|Equipment_MWArchaicWeapon
 Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						ABILITY:FEAT|AUTOMATIC|Post-Apocalyptic Technology	AUTO:LANG|Gutter Talk	KIT:1|Equipment_ArtifactOfAncientsI
 Background (Resentful)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resentful Background Skills|1	BONUS:ABILITYPOOL|Resentful Background Feat|1	ABILITY:FEAT|AUTOMATIC|Primitive Technology		AUTO:LANG|Unislang
@@ -20,9 +20,9 @@ Background (Radical)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPO
 Background (Degenerate)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Degenerate Background Skills|1								ABILITY:FEAT|AUTOMATIC|Post-Apocalyptic Technology	AUTO:LANG|Gutter Talk	KIT:1|Equipment_ArtifactOfAncientsI
 Background (Resurrector)		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resurrector Background Skills|1								ABILITY:FEAT|AUTOMATIC|Post-Apocalyptic Technology	AUTO:LANG|Unislang	KIT:1|Equipment_ArtifactOfAncientsI
 Background (Visionary Reinventor)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Visionary Reinventor Background Skills|1							ABILITY:FEAT|AUTOMATIC|Post-Apocalyptic Technology	AUTO:LANG|Unislang	KIT:1|Equipment_ArtifactOfAncientsI
-Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																AUTO:LANG|Ancient		KIT:1|Equipment_WeaponOfAncients
+Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																		AUTO:LANG|Ancient		KIT:1|Equipment_WeaponOfAncients
 Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|1	BONUS:ABILITYPOOL|Hedonist Background Feat|1							ABILITY:FEAT|AUTOMATIC|Post-Apocalyptic Technology	AUTO:LANG|Ancient		KIT:2|Equipment_ArtifactOfAncientsII|Funds_6d6_10
-Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																AUTO:LANG|Ancient		KIT:1|Equipment_ArtifactOfAncientsIII
+Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																		AUTO:LANG|Ancient		KIT:1|Equipment_ArtifactOfAncientsIII
 
 ###Block: Mutant
 # Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace
@@ -30,6 +30,7 @@ Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYP
 #Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Mutant
 #Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|3	BONUS:ABILITYPOOL|Defects|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
 #Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
+# Template Name		Visible	Template							Special ABility						Define						Bonus Ability Pool							Modify VAR							Subrace
 Mutant1			VISIBLE:YES	TEMPLATE:Mutant1 Definitions|Mutant1 Specials																																		SUBRACE:Mutant
 Mutant1 Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|1	BONUS:ABILITYPOOL|Defects|1	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
 Mutant1 Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
@@ -41,20 +42,20 @@ Mutant3 Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncom
 Mutant3 Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
 
 ###Block: Templates to handle specific Mutations and Defects
-# Template Name					Visible	Stat bonus																								Weapon prof. bonus														Move		Natural Attacks
-Aberrant Horn Development Template		VISIBLE:NO																										BONUS:WEAPONPROF=Gore|DAMAGESIZE|AberrantHornDevelopment										NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d4
-Additional Arm Template 1				VISIBLE:NO	HANDS:3
-Additional Arm Template 2				VISIBLE:NO	HANDS:4
-Additional Arm Template 3				VISIBLE:NO	HANDS:5
-Claws Template					VISIBLE:NO																										BONUS:WEAPONPROF=Claw|DAMAGESIZE|ClawsMut													NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*1,1d4
-Complete Wing Development Template		VISIBLE:NO																																											MOVE:Fly,0
-Gigantism Penalty Template			VISIBLE:NO	BONUS:STAT|DEX|-1|TYPE=GigantismPenalty	BONUS:STAT|STR|-8|TYPE=SizeOffset	BONUS:STAT|CON|-4|TYPE=SizeOffset	BONUS:STAT|DEX|2|TYPE=SizeOffset
-Serrated Dental Development Template	VISIBLE:NO																										BONUS:WEAPONPROF=Bite|DAMAGESIZE|SerratedDentalDevelopment	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1			NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
-Claws Skill Fix Template					VISIBLE:NO	BONUS:SKILL|Climb|1
+# Template Name						Nb Hands	Visible	Bonus to skill											Stat bonus																								Weapon prof. bonus														Move		Natural Attacks
+Aberrant Horn Development Template					VISIBLE:NO																																							BONUS:WEAPONPROF=Gore|DAMAGESIZE|AberrantHornDevelopment										NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d4
+Additional Arm Template 1				HANDS:3	VISIBLE:NO
+Additional Arm Template 2				HANDS:4	VISIBLE:NO
+Additional Arm Template 3				HANDS:5	VISIBLE:NO
+Claws Template								VISIBLE:NO																																							BONUS:WEAPONPROF=Claw|DAMAGESIZE|ClawsMut													NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*1,1d4
+Complete Wing Development Template					VISIBLE:NO																																																								MOVE:Fly,0
+Gigantism Penalty Template						VISIBLE:NO														BONUS:STAT|DEX|-1|TYPE=GigantismPenalty	BONUS:STAT|STR|-8|TYPE=SizeOffset	BONUS:STAT|CON|-4|TYPE=SizeOffset	BONUS:STAT|DEX|2|TYPE=SizeOffset
+Serrated Dental Development Template				VISIBLE:NO																																							BONUS:WEAPONPROF=Bite|DAMAGESIZE|SerratedDentalDevelopment	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1			NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
+Claws Skill Fix Template						VISIBLE:NO	BONUS:SKILL|Climb|1
 Hemihypertrophy Skill Fix Template					VISIBLE:NO	BONUS:SKILL|Balance,Climb,Jump,Swim|-1
 Multiple Eyes Skill Fix Template					VISIBLE:NO	BONUS:SKILL|Spot|-1
-Neural Mutation Telepathy Skill Fix Template	VISIBLE:NO	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Sense Motive|1
-Terminal Leg Developemnt Skill Fix Template	VISIBLE:NO	BONUS:SKILL|Balance,Climb,Jump,Swim|-6
+Neural Mutation Telepathy Skill Fix Template			VISIBLE:NO	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Sense Motive|1
+Terminal Leg Developemnt Skill Fix Template			VISIBLE:NO	BONUS:SKILL|Balance,Climb,Jump,Swim|-6
 
 ###Block: Nonexistant Scores
 # Template Name	Visible	Define Stat
@@ -66,14 +67,14 @@ No Wisdom		VISIBLE:NO	DEFINESTAT:NONSTAT|WIS
 No Charisma		VISIBLE:NO	DEFINESTAT:NONSTAT|CHA
 
 ###Block: Companion Mods
-# Template Name			Visible	Virtual Feat
-Companion Track			VISIBLE:NO	ABILITY:FEAT|VIRTUAL|Track
-Companion Evasion			VISIBLE:NO	ABILITY:Special Ability|VIRTUAL|Evasion
-Companion Improved Evasion	VISIBLE:NO	ABILITY:Special Ability|VIRTUAL|Improved Evasion
+# Template Name			Hit Dice Size			Visible	Ability
+Companion Track								VISIBLE:NO	ABILITY:FEAT|VIRTUAL|Track
+Companion Evasion								VISIBLE:NO	ABILITY:Special Ability|VIRTUAL|Evasion
+Companion Improved Evasion						VISIBLE:NO	ABILITY:Special Ability|VIRTUAL|Improved Evasion
 
-Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
-Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
-Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
+Half Hitdie				HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
+Quarter Hitdie			HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+Eighth Hitdie			HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
 #
 # End

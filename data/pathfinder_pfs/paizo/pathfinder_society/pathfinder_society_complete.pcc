@@ -77,9 +77,9 @@ PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 # PCC:@/pathfinder/paizo/roleplaying_game/monster_codex/monster_codex.pcc
 # PCC:@/pathfinder/paizo/roleplaying_game/npc_codex/npc_codex.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/pathfinder_unchained/_pathfinder_unchained.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 
 

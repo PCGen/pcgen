@@ -139,7 +139,7 @@ Class Skill 1													USEUNTRAINED:NO
 Class Skill 2													USEUNTRAINED:NO
 
 # Design Theory - If you take a Rank in this skill you should have a FEAT added - ADD:FEAT|Add Feat Skill
-Add Feat Skill													USEUNTRAINED:NO				CLASSES:ALL																																																																																																																																												ADD:FEAT|Add Feat Skill
+Add Feat Skill													USEUNTRAINED:NO				CLASSES:ALL																																																																																																																																												ADD:ABILITY|FEAT|NORMAL|Add Feat Skill
 
 # Test Sub Skills Section
 

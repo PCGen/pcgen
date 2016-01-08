@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -35,29 +35,29 @@ Advanced Construct	PRERACE:1,Astral Construct%
 
 ###Block: Determination templates
 ###Block: Determines whether a Soulknife gets Wild Talent or Psionic Talent
-# Template Name			Visible	Template						Required Var. value	Var. Min. Value		Auto Feat
+# Template Name			Visible	Template						Required Var. value	Var. Min. Value		Ability
 Wild Talent Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Is Psionic|Is Not Psionic
 Is Psionic				VISIBLE:NO												PREVARGTEQ:IsPsionic,1	ABILITY:FEAT|AUTOMATIC|Psionic Talent
 Is Not Psionic			VISIBLE:NO								PREVAREQ:IsPsionic,0					ABILITY:FEAT|AUTOMATIC|Wild Talent
 
 ###Block: Determines whether a Constructor gets Advanced Construct or Boost Construct
-# Template Name				Visible	Template													Required Feat						Prohibited Feat				Bonus Ability Pool				Auto Feat
+# Template Name				Visible	Template													Required Ability									Restricted Ability					Bonus Ability Pool				Ability
 Improved Constructs Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Advanced Constructs|Get Boost Construct|Get Bonus Psionic Feat
-Get Advanced Constructs			VISIBLE:NO																							!PREABILITY:1,CATEGORY=FEAT,Advanced Constructs								ABILITY:FEAT|AUTOMATIC|Advanced Constructs
-Get Boost Construct			VISIBLE:NO																							!PREABILITY:1,CATEGORY=FEAT,Boost Construct									ABILITY:FEAT|AUTOMATIC|Boost Construct
-Get Bonus Psionic Feat			VISIBLE:NO															PREABILITY:2,CATEGORY=FEAT,Advanced Construct,Boost Construct							BONUS:ABILITYPOOL|Bonus Psionic Feat|1
+Get Advanced Constructs			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Advanced Constructs								ABILITY:FEAT|AUTOMATIC|Advanced Constructs
+Get Boost Construct			VISIBLE:NO																										!PREABILITY:1,CATEGORY=FEAT,Boost Construct								ABILITY:FEAT|AUTOMATIC|Boost Construct
+Get Bonus Psionic Feat			VISIBLE:NO															PREABILITY:2,CATEGORY=FEAT,Advanced Construct,Boost Construct									BONUS:ABILITYPOOL|Bonus Psionic Feat|1
 
 ###Block: Determines Psicrystal Bond choice
-# Template Name		Visible	Template										Required Feat			Prohibited Feat				Auto Feat
+# Template Name		Visible	Template										Required Ability						Restricted Ability					Ability
 Psicrystal Bond Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Get Psicrystal Affinity|Get Improved Psicrystal
-Get Psicrystal Affinity	VISIBLE:NO																	!PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	ABILITY:FEAT|AUTOMATIC|Psicrystal Affinity
-Get Improved Psicrystal	VISIBLE:NO												PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity							ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
+Get Psicrystal Affinity	VISIBLE:NO																				!PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	ABILITY:FEAT|AUTOMATIC|Psicrystal Affinity
+Get Improved Psicrystal	VISIBLE:NO												PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity									ABILITY:FEAT|AUTOMATIC|Improved Psicrystal
 
 ###Block: Determines whether a Metamorph gets Swift Shapeshifter or Master of Forms
-# Template Name			Visible	Template												Required Feat							Prohibited Feat				Auto Feat
+# Template Name			Visible	Template												Required Ability									Restricted Ability					Ability
 Quick Shift Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Swift Shapeshifter|Get Master of All Forms|Get Nothing
-Get Swift Shapeshifter		VISIBLE:NO																							!PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter		ABILITY:FEAT|AUTOMATIC|Swift Shapeshifter
-Get Master of All Forms		VISIBLE:NO														PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter					!PREABILITY:1,CATEGORY=FEAT,Master of All Forms	ABILITY:FEAT|AUTOMATIC|Master of All Forms
+Get Swift Shapeshifter		VISIBLE:NO																									!PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter	ABILITY:FEAT|AUTOMATIC|Swift Shapeshifter
+Get Master of All Forms		VISIBLE:NO														PREABILITY:1,CATEGORY=FEAT,Swift Shapeshifter				!PREABILITY:1,CATEGORY=FEAT,Master of All Forms	ABILITY:FEAT|AUTOMATIC|Master of All Forms
 Get Nothing				VISIBLE:NO														PREABILITY:2,CATEGORY=FEAT,Swift Shapeshifter,Master of All Forms
 
 ###Block: Determines whether a Metamorph gets Major Metamorphosis or some other power.
@@ -154,11 +154,11 @@ Untyped bonus +4 Wisdom			VISIBLE:DISPLAY	BONUS:STAT|WIS|4				DESC:Untyped bonus
 Untyped bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4				DESC:Untyped bonus template for assimilate, etc.
 
 ###Block: Battlesense templates
-# Template Name				Visible		Choose											Temporary Bonus
-Battlesense attack bonus		VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices		TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance
-Battlesense AC bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices			TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance
-Battlesense weapon damage bonus	VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance
-Battlesense speed bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices		TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance
+# Template Name				Visible		Temporary Bonus											TEMPVALUE
+Battlesense attack bonus		VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance				TEMPVALUE:MIN=1|MAX=5|TITLE=Number of attack bonus choices
+Battlesense AC bonus			VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance					TEMPVALUE:MIN=1|MAX=5|TITLE=Number of AC bonus choices
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance	TEMPVALUE:MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices
+Battlesense speed bonus			VISIBLE:DISPLAY	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance			TEMPVALUE:MIN=1|MAX=5|TITLE=Number of movement bonus choices
 
 ###Block: Starting Gold
 # Template Name				Visible	Template																	Apply Kit

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
 # Class Name
@@ -9,7 +9,7 @@ CLASS:Mystic Theurge.MOD
 CLASS:Druid.MOD
 SUBSTITUTIONCLASS:Elemental Druid Option
 SUBSTITUTIONLEVEL:1			BONUS:DOMAIN|NUMBER|1
-SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape
 SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense|Druid ~ Wild Empathy|Spontaneous casting ~ Summon Nature's Ally
 SUBSTITUTIONLEVEL:1							BONUS:VAR|DruidWildShape|CL

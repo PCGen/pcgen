@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24	SOURCEDATE:2003-01
 
 # Feat Name				Type				Visible	Required Feat		Special ABility						Define				Stackable?	Multiple?	Choose		Modify VAR
-# Ability Name					Category of Ability		Type				Visible	Required Feat		Stackable?	Multiple?	Choose		Modify VAR
+# Ability Name					Category of Ability		Type				Visible	Required Ability					Stackable?	Multiple?	Choose		Modify VAR
 CATEGORY=Special Ability|Sneak Attack.MOD						TYPE:GuerillaWarfare
 Sneak Attack Damage Increase			CATEGORY:Special Ability	TYPE:GuerillaWarfare	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Sneak Attack	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttackDice|1
-Home Turf Increase				CATEGORY:Special Ability	TYPE:GuerillaWarfare	VISIBLE:NO					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|HomeTurf|1
+Home Turf Increase				CATEGORY:Special Ability	TYPE:GuerillaWarfare	VISIBLE:NO								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|HomeTurf|1

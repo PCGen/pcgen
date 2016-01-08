@@ -8,6 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Core Rulebook
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -36,7 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
-DATACONTROL:_datacontrol.lst
+DATACONTROL:apg__datacontrols.lst
 ABILITY:apg_abilities_globalvar.lst
 
 ABILITY:apg_abilities.lst
@@ -82,7 +83,7 @@ HIDETYPE:FEAT|Trait|BasicTrait|RevelationTargetOneOnly
 # Implement Pharasma-Friendly Souls Subdomain from http://paizo.com/paizo/blog/v5748dyo5lbvp
 FORWARDREF:CLASSSPELLLIST|Magus
 
-# ENTRY DATE: 
+# ENTRY DATE:
 # LST MONKEY: Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, and James Dempsey
 # LICENSE MONKEY: Eric Smith
 # RELEASE REVIEW #
@@ -92,4 +93,4 @@ FORWARDREF:CLASSSPELLLIST|Magus
 # Updated to work with version: -
 # MINVER:6.4
 # MINDEVVER:6.04.1
-# COMMENTS: 
+# COMMENTS:

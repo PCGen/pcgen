@@ -1,18 +1,18 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
 # Original Entry by: Frank Kliewe
 
 ###Block:Moonlighter Feat Second Occupation MPC
 # Feat Name						Type				Visible		Required Feat				Prohibited Feat					Add							Modify VAR			Source Page
-# Ability Name	Category of Ability		Type				Visible		Restricted Ability								Required Feat				Bonus Ability Pool							Modify VAR			Source Page
-Astronaut Trainee	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Astronaut Trainee	PREABILITY:1,CATEGORY=FEAT,TYPE.Astronaut_Trainee	BONUS:ABILITYPOOL|Astronaut Trainee Occupation Skills|2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
-Colonist		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Colonist			PREABILITY:1,CATEGORY=FEAT,TYPE.Colonist			BONUS:ABILITYPOOL|Colonist Occupation Skills|2			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
-Drifter		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Drifter									BONUS:ABILITYPOOL|Drifter Occupation Skills|3			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats
-Gladiator		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Gladiator			PREABILITY:1,CATEGORY=FEAT,TYPE.Gladiator		BONUS:ABILITYPOOL|Gladiator Occupation Skills|1			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats
-Heir			CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Heir				PREABILITY:1,CATEGORY=FEAT,TYPE.Heir			BONUS:ABILITYPOOL|Heir Occupation Skills|2			BONUS:VAR|WealthBonus|6	SOURCEPAGE:FutureOccupationsSkillsFeats
-Outcast		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Outcast			PREABILITY:1,CATEGORY=FEAT,Toughness			BONUS:ABILITYPOOL|Outcast Occupation Skills|1			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
-Scavenger		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Scavenger									BONUS:ABILITYPOOL|Scavenger Occupation Skills|3			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats
-Transporter		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Transporter		PREABILITY:1,CATEGORY=FEAT,TYPE.Transporter		BONUS:ABILITYPOOL|Transporter Occupation Skills|2		BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
+# Ability Name	Category of Ability		Type				Visible		Required Ability							Restricted Ability								Bonus Ability Pool							Modify VAR			Source Page
+Astronaut Trainee	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,TYPE.Astronaut_Trainee	!PREABILITY:1,CATEGORY=Starting Occupation,Astronaut Trainee	BONUS:ABILITYPOOL|Astronaut Trainee Occupation Skills|2	BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
+Colonist		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,TYPE.Colonist			!PREABILITY:1,CATEGORY=Starting Occupation,Colonist			BONUS:ABILITYPOOL|Colonist Occupation Skills|2			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
+Drifter		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY										!PREABILITY:1,CATEGORY=Starting Occupation,Drifter			BONUS:ABILITYPOOL|Drifter Occupation Skills|3			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats
+Gladiator		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,TYPE.Gladiator			!PREABILITY:1,CATEGORY=Starting Occupation,Gladiator			BONUS:ABILITYPOOL|Gladiator Occupation Skills|1			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats
+Heir			CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,TYPE.Heir			!PREABILITY:1,CATEGORY=Starting Occupation,Heir				BONUS:ABILITYPOOL|Heir Occupation Skills|2			BONUS:VAR|WealthBonus|6	SOURCEPAGE:FutureOccupationsSkillsFeats
+Outcast		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,Toughness			!PREABILITY:1,CATEGORY=Starting Occupation,Outcast			BONUS:ABILITYPOOL|Outcast Occupation Skills|1			BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
+Scavenger		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY										!PREABILITY:1,CATEGORY=Starting Occupation,Scavenger			BONUS:ABILITYPOOL|Scavenger Occupation Skills|3			BONUS:VAR|WealthBonus|2	SOURCEPAGE:FutureOccupationsSkillsFeats
+Transporter		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,TYPE.Transporter		!PREABILITY:1,CATEGORY=Starting Occupation,Transporter		BONUS:ABILITYPOOL|Transporter Occupation Skills|2		BONUS:VAR|WealthBonus|1	SOURCEPAGE:FutureOccupationsSkillsFeats
 
 #
 # End

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -90,18 +90,18 @@ Nationality - Vietnamese	VISIBLE:DISPLAY	DEFINE:NationNumber|0	PREVARLTEQ:Nation
 
 ###Block: Temporary Bonus Templates
 
-# Template Name				Visible	Source Page		Choose								Temporary effect description										Temporary Bonus
-Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points		TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
-Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points		TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
-Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
-Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
-Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
-Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:p.177	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)
-Blinded					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You cannot see											TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK	TEMPBONUS:ANYPC|SKILL|STAT.STR,STAT.DEX|-4
-Deafened					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You cannot hear										TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4
-Entangled					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You are ensnared										TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|STAT|DEX|-4
-Prone						VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You are on the ground									TEMPBONUS:ANYPC|COMBAT|TOHIT.MELEE|-4
-Stunned					VISIBLE:NO	SOURCEPAGE:p.177										TEMPDESC:You are stunned, you drop everything held, and cannot take actions		TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK
+# Template Name				Visible	Source Page		Temporary effect description										Temporary Bonus																TEMPVALUE
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You have temporarily lost 1 or more Strength ability score points		TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=20|TITLE=Stength Damage
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points		TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Damage
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Damage
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Damage
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Damage
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)												TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Damage
+Blinded					VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You cannot see											TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK	TEMPBONUS:ANYPC|SKILL|STAT.STR,STAT.DEX|-4
+Deafened					VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You cannot hear										TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4
+Entangled					VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You are ensnared										TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|STAT|DEX|-4
+Prone						VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You are on the ground									TEMPBONUS:ANYPC|COMBAT|TOHIT.MELEE|-4
+Stunned					VISIBLE:NO	SOURCEPAGE:p.177	TEMPDESC:You are stunned, you drop everything held, and cannot take actions		TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK
 
 ###Block: Combat Templates
 

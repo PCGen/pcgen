@@ -20,6 +20,7 @@ package plugin.pretokens.parser;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.output.publish.OutputDB;
@@ -137,6 +138,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 			// We only have a number of prereqs to pass, and a single prereq so we do not want a
 			// wrapper prereq around a list of 1 element.
 			// i.e. 2,TYPE=ItemCreation
+			checkFactKey(elements[2]);
 			prereq.setKey(elements[2]);
 		}
 		else
@@ -156,12 +158,37 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 				// if it is the later, we need to extract the '9'
 				subreq.setOperator(PrerequisiteOperator.GTEQ);
 				subreq.setCategoryName(filetype);
+				checkFactKey(elements[i]);
 				subreq.setKey(elements[i]);
 				subreq.setOperand("1");
 				prereq.addPrerequisite(subreq);
 			}
 		}
 		setLocation(prereq, filetype);
+	}
+
+	/**
+	 * Check that the referenced fact key exists somewhere in the loaded data. 
+	 * This does not guarantee that the object tested will have a value for this 
+	 * fact, or that the fact is appropriate for the type of object being 
+	 * tested. However it will catch simple typos.
+	 *    
+	 * @param factTest The key=value test to be checked.
+	 * @throws PersistenceLayerException If the fact key is not defined in the data.
+	 */
+	private void checkFactKey(String factTest) throws PersistenceLayerException
+	{
+		String[] parts = factTest.split("=");
+		try
+		{
+			FactKey.valueOf(parts[0]);
+		}
+		catch (IllegalArgumentException e)
+		{
+			throw new PersistenceLayerException(
+				"Unknown FACT in PREFACT. Test was: "
+					+ factTest);
+		}
 	}
 
 	private void setLocation(Prerequisite prereq, String location)

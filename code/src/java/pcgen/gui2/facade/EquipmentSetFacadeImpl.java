@@ -1958,7 +1958,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					String objKey = equipment.get(StringKey.SORT_KEY);
 					if (objKey == null)
 					{
-						objKey = equipment.getKeyName();
+						objKey = equipment.getDisplayName();
 					}
 					sortKey.append(objKey);
 					break;

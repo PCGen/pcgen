@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
 
 #CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
@@ -9,12 +9,12 @@ CLASS:Cavalryman	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:COMBAT|BAS
 CLASS:Cavalryman	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Intimidate|Knowledge (Nobility and Royalty)|Ride
 ###Block: proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 
 
 ###Block: Standard Progression
-1								BONUS:VAR|CavalryMountLevel|CL															ABILITY:FEAT|AUTOMATIC|Mounted Combat
+1								BONUS:VAR|CavalryMountLevel|CL		ABILITY:FEAT|AUTOMATIC|Mounted Combat
 2	BONUS:ABILITYPOOL|Mounted Speciality|CL/2
 3															ABILITY:Special Ability|AUTOMATIC|Cavalryman Level Adjuster|Warrior's Mount
 5															ABILITY:Special Ability|AUTOMATIC|Eye for Horseflesh

@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Thu Jan 29 16:18:08 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-CATEGORY=FEAT|Cannon Master.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-
+# Ability Name				Type			!PRECHARACTERTYPE
+CATEGORY=FEAT|Cannon Master.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

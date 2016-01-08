@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -13,14 +13,14 @@ CLASS:Bard.MOD	AUTO:WEAPONPROF|Auronne Tambourine
 
 #Tiger Shaman
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																	Save bonus
-CLASS:Tiger Shaman	HD:6		TYPE:Base.PC	ABB:TS		MAXLEVEL:20	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)*2/3-classlevel("APPLIEDAS=NONEPIC")==1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																				FACT
+CLASS:Tiger Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)*2/3-classlevel("APPLIEDAS=NONEPIC")==1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	FACT:Abb|TS	FACT:SpellType|Divine
 # Class Name		Required AL		Required Deity		Required Gender	Required Race
 CLASS:Tiger Shaman	PREALIGN:NG,TN,NE	PREDEITY:1,Tiger Lord	PREGENDER:Male	PRERACE:1,Neiyar
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tiger Shaman	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Knowledge (Nature)|Listen|Move Silently|Search|Spellcraft|Spot|Survival|Swim|Tumble
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Spellbook		Caster level				Use Spell List
-CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Tiger Shaman|CL	SPELLLIST:1|Cleric
+# Class Name		Spell Stat		Automatically Known Spell Levels					Spellbook		Caster level				Use Spell List
+CLASS:Tiger Shaman	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Tiger Shaman|CL	SPELLLIST:1|Cleric
 ###Block: Saves Abnormal Progression:
 1	BONUS:SAVE|BASE.Will|2
 2	BONUS:SAVE|BASE.Will|1
@@ -38,8 +38,8 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 19	BONUS:SAVE|BASE.Will|1
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Special Abilities:
 5	ABILITY:Special Ability|AUTOMATIC|Tiger Form ~ Tiger Shaman
 9	ABILITY:Special Ability|AUTOMATIC|Dire Tiger Form ~ Tiger Shaman
@@ -69,15 +69,15 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 
 ###Trapper
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Trapper	HD:6		TYPE:Base.PC	ABB:TRP		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Trapper	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|TRP
 # Class Name	Required AL
 CLASS:Trapper	PREALIGN:NG,TN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Trapmaking)|Decipher Script|Disable Device|Gather Information|Hide|Listen|Move Silently|Profession (Trapmaker)|Use Rope|Search|Spot|Tumble
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Progression
 1	ABILITY:Special Ability|AUTOMATIC|DetectDisarmTraps|Trapmaking
 3	ABILITY:Special Ability|AUTOMATIC|NetUse
@@ -94,10 +94,10 @@ CLASS:Trapper	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Trapmaking)|Decipher S
 
 #ARCANE ROGUE (AR)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Arcane Rogue	HD:6		TYPE:PC.Prestige	ABB:AR		MAXLEVEL:8	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2
-# Class Name		Restricted AL		Required Feat				Required Skill		Req. Spell Type		Required Stat	Required Text							PRETOTALAB
-CLASS:Arcane Rogue	!PREALIGN:LG,LN,LE	PREABILITY:2,CATEGORY=FEAT,Silent Spell,Still Spell	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,INT=14	PRETEXT:+8 ranks in any three rogue class skills	PRETOTALAB:4
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																															FACT
+CLASS:Arcane Rogue	HD:6		TYPE:PC.Prestige	MAXLEVEL:8	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2	FACT:Abb|AR
+# Class Name		Required Ability							Restricted AL		Required Skill		Req. Spell Type		Required Stat	Required Text							PRETOTALAB
+CLASS:Arcane Rogue	PREABILITY:2,CATEGORY=FEAT,Silent Spell,Still Spell	!PREALIGN:LG,LN,LE	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRESTAT:1,INT=14	PRETEXT:+8 ranks in any three rogue class skills	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE=Craft|Decipher Script|Escape Artist|Forgery|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|Open Lock|Sleight of Hand|Search|Sense Motive|Spellcraft|Spot
 ###3e - Alchemy, Read Lips
@@ -115,12 +115,12 @@ CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE=Craft|Decipher Script|Es
 
 #ARCANE WARRIOR (AW)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Arcane Warrior	HD:6		TYPE:PC.Prestige	ABB:AW		MAXLEVEL:6	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)*2/3-1	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)*2/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)*2/3+1
-# Class Name		Required Feat													Required Skill									Required Stat				PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																																	FACT
+CLASS:Arcane Warrior	HD:6		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)*2/3-1	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)*2/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)*2/3+1	FACT:Abb|AW
+# Class Name		Required Ability																Required Skill									Required Stat				PRETOTALAB
 CLASS:Arcane Warrior	PREABILITY:4,CATEGORY=FEAT,Quicken Spell,Weapon Focus,Combat Casting,Expertise,Armor Proficiency (Light)	PRESKILL:3,Spellcraft=8,Knowledge (Arcana)=8,Concentration=10	PRESTAT:3,STR=12,DEX=14,INT=14	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|TYPE=Profession|Search|Spellcraft|Swim|Tumble
+CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (arcana)|TYPE=Profession|Search|Spellcraft|Swim|Tumble
 ###3e - Scry
 ###Block: Caster Level
 2	ADD:SPELLCASTER|Arcane
@@ -135,12 +135,12 @@ CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowle
 
 #CHOSEN OF AGRI (CA)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Chosen of Agri	HD:8		TYPE:PC.Prestige	ABB:CA		MAXLEVEL:6	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2-classlevel("APPLIEDAS=NONEPIC")==1	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																																				FACT
+CLASS:Chosen of Agri	HD:8		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2-classlevel("APPLIEDAS=NONEPIC")==1	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	FACT:Abb|CA
 # Class Name		Required AL		Required Deity	Required Skill						Required Stat		Required Text					PRETOTALAB
 CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREDEITY:1,Agri	PRESKILL:2,Survival=8,Knowledge (Nature)=8	PRESTAT:2,WIS=15,CON=12	PRETEXT:Ability to cast Speak with Plants	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Religion)|Listen|Search|Spot|Spellcraft|Survival
+CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (geography)|Knowledge (Nature)|Knowledge (religion)|Listen|Search|Spot|Spellcraft|Survival
 ###Block: Caster Level
 1	BONUS:DOMAIN|NUMBER|1
 2					ADD:SPELLCASTER|Divine
@@ -153,10 +153,10 @@ CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|K
 
 #Chosen of Roarth (CR)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Chosen of Roarth	HD:8		TYPE:PC.Prestige	ABB:CR		MAXLEVEL:7	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/2-classlevel("APPLIEDAS=NONEPIC")==1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2
-# Class Name		Required AL		Required Deity	Required Feat								Required Skill					Required Stat	PRETOTALAB
-CLASS:Chosen of Roarth	PREALIGN:LG,NG,CG	PREDEITY:1,Roarth	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Bow),Weapon Focus (TYPE=Spear)	PRESKILL:2,Handle Animal=8,Survival=8	PRESTAT:1,WIS=13	PRETOTALAB:5
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																																				FACT
+CLASS:Chosen of Roarth	HD:8		TYPE:PC.Prestige	MAXLEVEL:7	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/2-classlevel("APPLIEDAS=NONEPIC")==1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2	FACT:Abb|CR
+# Class Name		Required Ability											Required AL		Required Deity	Required Skill					Required Stat	PRETOTALAB
+CLASS:Chosen of Roarth	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Bow),Weapon Focus (TYPE=Spear)	PREALIGN:LG,NG,CG	PREDEITY:1,Roarth	PRESKILL:2,Handle Animal=8,Survival=8	PRESTAT:1,WIS=13	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|Knowledge (Nature)|Ride|Use Rope|Survival
 ###Block: Caster Level
@@ -172,10 +172,10 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 
 #HEALER (HLR)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Healer	HD:6		TYPE:PC.Prestige	ABB:HLR		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)*2/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
-# Class Name	Required AL		Required Deity	Required Feat					Required Skill												Required Stat	Required Text
-CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREABILITY:2,CATEGORY=FEAT,Brew Potion,Skill Focus (Heal)	PRESKILL:3,Heal=8,Knowledge (Nature)=8,Craft (Alchemy)=4,Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																															FACT
+CLASS:Healer	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)*2/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	FACT:Abb|HLR
+# Class Name	Required Ability								Required AL		Required Deity	Required Skill												Required Stat	Required Text
+CLASS:Healer	PREABILITY:2,CATEGORY=FEAT,Brew Potion,Skill Focus (Heal)	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PRESKILL:3,Heal=8,Knowledge (Nature)=8,Craft (Alchemy)=4,Knowledge (Anatomy)=4	PRESTAT:1,WIS=13	PRETEXT:Ability to cast Cure light wounds
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Nature)|Knowledge (Anatomy)|Profession (Doctor)|Spellcraft|Survival
 ###Block: Special Abilities:
@@ -187,10 +187,10 @@ CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Nat
 
 #PRANKMASTER (PRM)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Prankmaster	HD:6		TYPE:PC.Prestige	ABB:PRM		MAXLEVEL:6	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2
-# Class Name	Required AL		Required Feat					Required Skill							Required Stat		Required Text									PRETOTALAB
-CLASS:Prankmaster	PREALIGN:CG,CN,CE	PREABILITY:2,CATEGORY=FEAT,Alertness,Improved Initiative	PRESKILL:3,Bluff=8,Knowledge (Traps)=8,Rope Use=4	PRESTAT:2,INT=14,CHA=12	PRETEXT:Must either Amphikin or have Sophia Groa as patron deity	PRETOTALAB:4
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																															FACT
+CLASS:Prankmaster	HD:6		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2	FACT:Abb|PRM
+# Class Name	Required Ability								Required AL		Required Skill							Required Stat		Required Text									PRETOTALAB
+CLASS:Prankmaster	PREABILITY:2,CATEGORY=FEAT,Alertness,Improved Initiative	PREALIGN:CG,CN,CE	PRESKILL:3,Bluff=8,Knowledge (Traps)=8,Rope Use=4	PRESTAT:2,INT=14,CHA=12	PRETEXT:Must either Amphikin or have Sophia Groa as patron deity	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Prankmaster	STARTSKILLPTS:8	CSKILL:Bluff|Decipher Script|Disguise|Escape Artist|Forgery|Gather Information|Hide|Listen|Move Silently|Sleight of Hand|Search|Sense Motive
 #Pick Pockets Read Lips
@@ -205,10 +205,10 @@ CLASS:Prankmaster	STARTSKILLPTS:8	CSKILL:Bluff|Decipher Script|Disguise|Escape A
 
 ###Shadowblade
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Shadowblade	HD:6		TYPE:PC.Prestige	ABB:SHBL		MAXLEVEL:6	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/6
-# Class Name	Restricted AL		Required Feat							Required Stat		Required Text																		PRETOTALAB
-CLASS:Shadowblade	!PREALIGN:CG,LG,NG	PREABILITY:3,CATEGORY=FEAT,Skill Focus,Weapon Finesse,Combat Reflexes	PRESTAT:2,INT=14,DEX=16	PRETEXT:8 ranks in any three rogue skills, Skill Focus feat in any rogue skill, Paid member of the Shadowblade Guild	PRETOTALAB:6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																															FACT
+CLASS:Shadowblade	HD:6		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/6	FACT:Abb|SHBL
+# Class Name	Required Ability										Restricted AL		Required Stat		Required Text																		PRETOTALAB
+CLASS:Shadowblade	PREABILITY:3,CATEGORY=FEAT,Skill Focus,Weapon Finesse,Combat Reflexes	!PREALIGN:CG,LG,NG	PRESTAT:2,INT=14,DEX=16	PRETEXT:8 ranks in any three rogue skills, Skill Focus feat in any rogue skill, Paid member of the Shadowblade Guild	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Listen|Move Silently|Search|Spot
 ###Block: Special Abilities:
@@ -221,12 +221,12 @@ CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|
 
 ###Soulreaper
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Soulreaper	HD:6		TYPE:PC.Prestige	ABB:SHBL		MAXLEVEL:7	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Restricted AL		Required Feat				Required Skill						Required Stat				Required Text								PRETOTALAB
-CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Power Attack,Cleave,Track	PRESKILL:3,Intimidate=8,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only	PRETOTALAB:8
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																														FACT
+CLASS:Soulreaper	HD:6		TYPE:PC.Prestige	MAXLEVEL:7	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SHBL
+# Class Name	Required Ability							Restricted AL		Required Skill						Required Stat				Required Text								PRETOTALAB
+CLASS:Soulreaper	PREABILITY:3,CATEGORY=FEAT,Power Attack,Cleave,Track	!PREALIGN:LG,LN,LE	PRESKILL:3,Intimidate=8,Survival=8,Listen=4	PRESTAT:3,STR=14,DEX=12,CON=14	PRETEXT:By appointment of the Devi of Sophia Kalla only	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
+CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:
 1	BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0						ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Soulreaper
 2	BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	ABILITY:Special Ability|AUTOMATIC|DR ~ Soulreaper
@@ -238,14 +238,14 @@ CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Int
 
 ###Swan Bard
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Add domain number						Save bonus
-CLASS:Swan Bard	HD:6		TYPE:PC.Prestige	ABB:SB		MAXLEVEL:7	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1	BONUS:DOMAIN|NUMBER|1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1
-# Class Name	Required AL		Prohibited Deity		Required Feat											Required Skill			Required Stat	Required Text
-CLASS:Swan Bard	PREALIGN:CG,CN,CE	!PREDEITY:1,Adrienne	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Perform%)	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Add domain number						Save bonus																														FACT
+CLASS:Swan Bard	HD:6		TYPE:PC.Prestige	MAXLEVEL:7	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1	BONUS:DOMAIN|NUMBER|1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1	FACT:Abb|SB	FACT:SpellType|Divine
+# Class Name	Required Ability														Required AL		Prohibited Deity		Required Skill			Required Stat	Required Text
+CLASS:Swan Bard	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Perform%)	PREALIGN:CG,CN,CE	!PREDEITY:1,Adrienne	PRESKILL:1,TYPE.Perform=10	PRESTAT:1,CHA=16	PRETEXT:Ability to cast bardic spells or Attractive Human Male (GM Discretion)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Gather Information|Listen|Move Silently|TYPE=Perform|Sense Motive|Spot|Tumble
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
-CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
+# Class Name	Spell Stat		Automatically Known Spell Levels			Caster level				Use Spell List
+CLASS:Swan Bard	SPELLSTAT:CHA	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
 1	DOMAIN:Air|PREABILITY:1,CATEGORY=Special Ability,Swan Bard ~ Domain Selection (Air)
 1	DOMAIN:Animal|PREABILITY:1,CATEGORY=Special Ability,Swan Bard ~ Domain Selection (Animal)
 1	DOMAIN:Chaos|PREABILITY:1,CATEGORY=Special Ability,Swan Bard ~ Domain Selection (Chaos)
@@ -265,12 +265,12 @@ CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 
 ###WildWalker (WW)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Wild Walker	HD:10		TYPE:PC.Prestige	ABB:WW		MAXLEVEL:6	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Wild Walker	HD:10		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	FACT:Abb|WW
 # Class Name	Required AL		Required Deity		Required Race	Required Skill		Required Stat		PRETOTALAB
 CLASS:Wild Walker	PREALIGN:CG,CN,CE	PREDEITY:1,Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
+CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
 1						ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
 2						ABILITY:Special Ability|AUTOMATIC|Charm Monster

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
@@ -30,13 +30,13 @@ Metaspell													SORTKEY:Domain Path	CATEGORY:Special Ability	TYPE:DomainSe
 ~ Adept Skill Buy				KEY:Adept Skill Buy			OUTPUTNAME:~ Adept Skill Buy Choice	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,TYPE=AdeptChoice	SELECT:2											BONUS:SKILLRANK|%LIST|1	COST:1
 ~ Full Skill Buy				KEY:Full Skill Buy			OUTPUTNAME:~ Skill Buy Choice		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,TYPE=AdeptChoice													BONUS:SKILLRANK|%LIST|1	COST:1
 
-Adept Skill Buy				KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,FEAT=Adept		SELECT:2											BONUS:SKILLRANK|%LIST|1	COST:1
-Adept Skill Buy (Double Effect)	KEY:Adept Skill Buy ~ Feat Pull v2							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,FEAT=Adept		SELECT:1											BONUS:SKILLRANK|%LIST|2	COST:1
+Adept Skill Buy				KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,ABILITY=FEAT[Adept]	SELECT:2											BONUS:SKILLRANK|%LIST|1	COST:1
+Adept Skill Buy (Double Effect)	KEY:Adept Skill Buy ~ Feat Pull v2							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,ABILITY=FEAT[Adept]	SELECT:1											BONUS:SKILLRANK|%LIST|2	COST:1
 
 Skill Specialty				KEY:Skill Specialty									CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:USERINPUT						SELECT:1	ABILITY:Character Points|AUTOMATIC|Skill Specialty (%LIST)					COST:1
 
 
-Adept Skill Buy2				KEY:Adept Skill Buy ~ Feat Pull2							CATEGORY:FEAT		TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,FEAT=Adept		SELECT:2											BONUS:SKILLRANK|%LIST|1	COST:1
+Adept Skill Buy2				KEY:Adept Skill Buy ~ Feat Pull2							CATEGORY:FEAT		TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,ABILITY=FEAT[Adept]	SELECT:2											BONUS:SKILLRANK|%LIST|1	COST:1
 
 
 

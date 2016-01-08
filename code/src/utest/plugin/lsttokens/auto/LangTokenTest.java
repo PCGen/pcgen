@@ -78,7 +78,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
@@ -122,5 +122,21 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 				return new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
 			}
 		};
+	}
+	
+	/**
+	 * Check the parsing and unparsing of AUTO:LANG with multiple languages and 
+	 * prereqs.
+	 *  
+	 * @throws PersistenceLayerException Not expected.
+	 */
+	public void testRounfRobinMultWithPrereq() throws PersistenceLayerException
+	{
+		construct(primaryContext, "Infernal");
+		construct(primaryContext, "Celestial");
+		construct(secondaryContext, "Infernal");
+		construct(secondaryContext, "Celestial");
+		runRoundRobin(getSubTokenName() + '|'
+			+ "Infernal|Celestial|PRERACE:1,Human");
 	}
 }

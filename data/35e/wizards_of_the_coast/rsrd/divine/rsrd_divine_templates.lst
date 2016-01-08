@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 
@@ -17,7 +17,7 @@ Innate Divine Rank	OUTPUTNAME:Divine Rank	VISIBLE:EXPORT																								
 
 ###Block: Divine Ranks
 
-# Template Name	Visible	Template				Modify VAR						Choose									Temporary effect description						Temporary Bonus
+# Template Name	Visible	Template				Modify VAR						Temporary effect description						Temporary Bonus							TEMPVALUE
 Divine Rank (0)	VISIBLE:NO	TEMPLATE:Quasideity
 Divine Rank (1)	VISIBLE:NO	TEMPLATE:Demigod			BONUS:VAR|DivineRank,SalientDivinePool|1
 Divine Rank (2)	VISIBLE:NO	TEMPLATE:Demigod			BONUS:VAR|DivineRank,SalientDivinePool|2
@@ -39,7 +39,7 @@ Divine Rank (17)	VISIBLE:NO	TEMPLATE:Greater Deity		BONUS:VAR|DivineRank,Salient
 Divine Rank (18)	VISIBLE:NO	TEMPLATE:Greater Deity		BONUS:VAR|DivineRank,SalientDivinePool|18
 Divine Rank (19)	VISIBLE:NO	TEMPLATE:Greater Deity		BONUS:VAR|DivineRank,SalientDivinePool|19
 Divine Rank (20)	VISIBLE:NO	TEMPLATE:Greater Deity		BONUS:VAR|DivineRank,SalientDivinePool|20
-Divine Rank (21+)	VISIBLE:NO	TEMPLATE:Overdeity		BONUS:VAR|DivineRank,SalientDivinePool|21	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Additional Ranks beyond 21	TEMPDESC:Use this to add additional Divine Ranks beyond 21	TEMPBONUS:PC|VAR|DivineRank,SalientDivinePool|%CHOICE
+Divine Rank (21+)	VISIBLE:NO	TEMPLATE:Overdeity		BONUS:VAR|DivineRank,SalientDivinePool|21	TEMPDESC:Use this to add additional Divine Ranks beyond 21	TEMPBONUS:PC|VAR|DivineRank,SalientDivinePool|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Additional Ranks beyond 21
 
 ###Block: Deity Types
 

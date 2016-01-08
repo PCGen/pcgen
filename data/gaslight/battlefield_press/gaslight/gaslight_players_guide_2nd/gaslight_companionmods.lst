@@ -1,5 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.				Ability			Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Main Race Type
+# Class of the Master	Type			Ability								Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Main Race Type
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Level Tracker	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	RACETYPE:Magical Beast
 
 ###Block:Familiar Bonuses to Master

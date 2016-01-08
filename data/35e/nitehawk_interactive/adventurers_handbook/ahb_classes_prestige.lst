@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -7,7 +7,7 @@ SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-g
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Ghost Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|min(1,classlevel("APPLIEDAS=NONEPIC")/2)+min(1,classlevel("APPLIEDAS=NONEPIC")/5)
-# Class Name		Required Feat		Required Skill						Required Text																											PRETOTALAB
+# Class Name		Required Ability					Required Skill						Required Text																											PRETOTALAB
 CLASS:Ghost Hunter	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:2,Knowledge (Undead)=4,Sense Motive=4	PRETEXT:To become a ghost hunter the player character must have encountered and defied the approaches of at least one ghost, without the aid of others or magical assistance.	PRETOTALAB:4
 # Class Name		Class Skill
 CLASS:Ghost Hunter	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Undead)|Listen|Search|Sense Motive|Spot
@@ -30,38 +30,38 @@ CLASS:Master Chef	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowledge (Agriculture)|Knowledge (Food Preparation)|Knowledge (Seas and Oceans)|Knowledge (Spices and Herbs)|Knowledge (any specific foods)|TYPE=Perform|Profession (Chef)
 ###Block:Proficiencies
-1						ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1	AUTO:ARMORPROF|Leather|Padded
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1										AUTO:ARMORPROF|Leather|Padded
 ###Block:Level Progression
 1	BONUS:SKILL|Craft (Cooking)|min((CL+1)/2,5)	BONUS:VAR|SauceMaker|(floor(CL/4)+1)*22	ABILITY:Special Ability|AUTOMATIC|Identify Food|Sauce Maker
 2									BONUS:VAR|PoliticalMeal|CL/2			ABILITY:Special Ability|AUTOMATIC|Political Meal
-3																												ABILITY:FEAT|AUTOMATIC|Alertness
+3																ABILITY:FEAT|AUTOMATIC|Alertness
 5																ABILITY:Special Ability|AUTOMATIC|Handle Innards
 9																ABILITY:Special Ability|AUTOMATIC|Master Chef Cure
 10																ABILITY:Special Ability|AUTOMATIC|Master Chef Purify Food and Drink
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Seasoned Veteran	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.134	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
-# Class Name		Required Feat			Required Text																				PRETOTALAB
+# Class Name		Required Ability						Required Text																				PRETOTALAB
 CLASS:Seasoned Veteran	PREABILITY:1,CATEGORY=FEAT,Combat Reflexes	PRETEXT:To become a Seasoned Veteran, the character must have actively participated in a minimum of three major campaign battles.	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Handle Animal|Intimidate|Listen|TYPE=Profession|Ride|Search|Spot
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block:Level Progression
 1						BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	ABILITY:FEAT|AUTOMATIC|Combat Expertise
 2	BONUS:ABILITYPOOL|FEAT|1
-3						BONUS:VAR|UncannyDodgeLevel|1																ABILITY:FEAT|AUTOMATIC|Improved Disarm
+3						BONUS:VAR|UncannyDodgeLevel|1						ABILITY:FEAT|AUTOMATIC|Improved Disarm
 4	BONUS:ABILITYPOOL|FEAT|1	BONUS:VAR|LeadershipQuality|CL-3					ABILITY:Special Ability|AUTOMATIC|Leadership Quality
-5																										ABILITY:FEAT|AUTOMATIC|Improved Feint
+5																ABILITY:FEAT|AUTOMATIC|Improved Feint
 #COMMENT: BASE ATTACK BONUS Progression CANNOT be implemented at this time.
 
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																		Save bonus
 CLASS:Shark Charmer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.136	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+floor(min(1,classlevel("APPLIEDAS=NONEPIC")/9))|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2+max(0,classlevel("APPLIEDAS=NONEPIC")/2-3)	BONUS:SAVE|BASE.Reflex|max(1,(classlevel("APPLIEDAS=NONEPIC")+1)/3)	BONUS:SAVE|BASE.Will|min(1,classlevel("APPLIEDAS=NONEPIC")/4)+floor(max(0,min(2,(classlevel("APPLIEDAS=NONEPIC")-5)/2)))
-# Class Name		Required Feat		Required Skill								Required Text																	PRETOTALAB
+# Class Name		Required Ability					Required Skill								Required Text																	PRETOTALAB
 CLASS:Shark Charmer	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:1,Knowledge (Seas and Oceans)=2	PRESKILL:1,Swim=4	PRETEXT:To become a shark charmer the character must have killed at least one shark without aid from others.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shark Charmer	STARTSKILLPTS:2	CSKILL:Handle Animal|Knowledge (Seas and Oceans)|Sense Motive|Survival|Swim|Use Rope

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -213,7 +213,7 @@ Low-Light Vision										KEY:Low Light ~ Cavern Elf		CATEGORY:Special Ability	T
 
 
 ###Block: Cavern Elf Weapon Prof Choices
-# Ability Name	Unique Key				Category of Ability		Type											Restricted Ability								Auto Feat
+# Ability Name	Unique Key				Category of Ability		Type											Restricted Ability								Ability
 Light Pick		KEY:Martial WP ~ Light Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Heavy Pick	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Pick (Light))
 Heavy Pick		KEY:Martial WP ~ Heavy Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Light Pick	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Pick (Heavy))
 Longbow		KEY:Martial WP ~ Longbow	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Shortbow	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Longbow)

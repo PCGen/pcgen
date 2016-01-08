@@ -55,7 +55,7 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " must have two or more | delimited arguments : " + value,
+				+ " must have three | delimited arguments : " + value,
 				context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -82,7 +82,7 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ " third argument was not TITLE=", context);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(getTokenName()).append('|').append(value);
+		sb.append(value);
 		context.getObjectContext().put(obj, StringKey.TEMPVALUE,
 			sb.toString());
 		return ParseResult.SUCCESS;
