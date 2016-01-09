@@ -97,11 +97,35 @@ public class FopTask implements Runnable
 		this.outputStream = outputStream;
 	}
 
-	public static FopTask newFopTask(InputStream inputXml, File xsltFile, OutputStream outputPdf)
+	public static FopTask newFopTask(InputStream inputXml, File xsltFile, OutputStream outputPdf) throws FileNotFoundException
 	{
+		if (xsltFile == null)
+		{
+			throw new NullPointerException(
+					"XSLT file must be specified for the tranform mode");
+		}
+		if (!xsltFile.exists())
+		{
+			throw new FileNotFoundException("xsl file "
+					+ xsltFile.getAbsolutePath() + " not found ");
+		}
 		return new FopTask(new StreamSource(inputXml), new StreamSource(xsltFile), null, outputPdf);
 	}
 
+	public static FopTask newFopTask(InputStream inputXml, OutputStream outputPdf)
+	{
+		return new FopTask(new StreamSource(inputXml), null, null, outputPdf);
+	}
+
+	/**
+	 * Creates a new FopTask that transforms the input file using the given xsltFile
+	 *
+	 * @param inputXmlFile the file to transform
+	 * @param xsltFile the transform template file
+	 * @param outputPdf output stream for pdf document
+	 * @return a FopTask to be executed
+	 * @throws FileNotFoundException if inputXmlFile does not exist or if xsltFile does not exist
+	 */
 	public static FopTask newFopTask(File inputXmlFile, File xsltFile, OutputStream outputPdf)
 			throws FileNotFoundException
 	{
@@ -129,6 +153,32 @@ public class FopTask implements Runnable
 		Logging.log(Logging.WARNING, "FOP input file set to: " + inputXmlFile.getAbsolutePath());
 
 		return new FopTask(new StreamSource(inputXmlFile), new StreamSource(xsltFile), null, outputPdf);
+	}
+
+	/**
+	 * Creates a new FopTask that uses the identity transformer
+	 *
+	 * @param inputXmlFile the file to transform
+	 * @param outputPdf output stream for the pdf document
+	 * @return a FopTask to be executed
+	 * @throws FileNotFoundException if inputXmlFile does not exist
+	 */
+	public static FopTask newFopTask(File inputXmlFile, OutputStream outputPdf)
+			throws FileNotFoundException
+	{
+		if (inputXmlFile == null)
+		{
+			throw new NullPointerException(
+					"XML file must be specified for the tranform mode");
+		}
+		if (!inputXmlFile.exists())
+		{
+			throw new FileNotFoundException("xml file "
+					+ inputXmlFile.getAbsolutePath() + " not found ");
+		}
+		Logging.log(Logging.WARNING, "FOP input file set to: " + inputXmlFile.getAbsolutePath());
+
+		return new FopTask(new StreamSource(inputXmlFile), null, null, outputPdf);
 	}
 
 	public static FopTask newFopTask(InputStream inputXml, File xsltFile, Renderer renderer) throws FileNotFoundException
@@ -169,7 +219,7 @@ public class FopTask implements Runnable
 			String mimeType;
 			if (renderer != null)
 			{
-				userAgent.setKeywords("PCGEN FOP RENDERER");
+				userAgent.setKeywords("PCGEN FOP PREVIEW");
 				userAgent.setRendererOverride(renderer);
 				renderer.setUserAgent(userAgent);
 				mimeType = MimeConstants.MIME_FOP_AWT_PREVIEW;
