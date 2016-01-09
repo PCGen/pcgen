@@ -206,7 +206,7 @@ Barbarian ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:Barbaria
 
 ###Block: Archetype Support
 # Ability Name									Modify VAR
-CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD  BONUS:VAR|UncannyDodgeFlankingLevel|BarbarianLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_UncannyDodge,0
+CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeFlankingLevel|BarbarianLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_UncannyDodge,0
 CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_UncannyDodge,0
 CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,5|PREVAREQ:Barbarian_CF_ImprovedUncannyDodge,0
 
@@ -1262,7 +1262,7 @@ Rogue Archetype Support		CATEGORY:Internal							ABILITY:Special Ability|AUTOMAT
 Rogue ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:RogueClassFeatures
 
 # Ability Name									Modify VAR
-CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD  BONUS:VAR|UncannyDodgeFlankingLevel|RogueLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:RogueLVL,4|PREVAREQ:Rogue_CF_UncannyDodge,0
+CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeFlankingLevel|RogueLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:RogueLVL,4|PREVAREQ:Rogue_CF_UncannyDodge,0
 CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:RogueLVL,2|PREVAREQ:Rogue_CF_UncannyDodge,0
 CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:RogueLVL,5|PREVAREQ:Rogue_CF_ImprovedUncannyDodge,0
 
