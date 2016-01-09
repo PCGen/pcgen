@@ -83,7 +83,7 @@ Fighter			CATEGORY:Class		DEFINE:Fighter_CFP_Level|0														ABILITY:Intern
 Monk				CATEGORY:Class		DEFINE:Monk_CFP_Level|0	DEFINE:Pool_Monk_Class_Selection|0									ABILITY:Class|AUTOMATIC|Monk ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltMonkChoice															BONUS:VAR|Monk_CFP_Level|MonkLVL|TYPE=Base
 Paladin			CATEGORY:Class		DEFINE:Paladin_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|PREVAREQ:Paladin_CF_ClassSkills,0																	BONUS:VAR|Paladin_CFP_Level|PaladinLVL|TYPE=Base
 Ranger			CATEGORY:Class		DEFINE:Ranger_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|PREVAREQ:Ranger_CF_ClassSkills,0																	BONUS:VAR|Ranger_CFP_Level|RangerLVL|TYPE=Base
-Rogue				CATEGORY:Class		DEFINE:Rogue_CFP_Level|0	DEFINE:Pool_Rogue_Class_Selection|0								ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0	ABILITY:Class|AUTOMATIC|Rogue ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltRogueChoice	BONUS:VAR|Rogue_CFP_Level|RogueLVL|TYPE=Base	BONUS:VAR|RogueSneakAttackLVL|RogueLVL	BONUS:VAR|TrapfindingLVL|RogueLVL	BONUS:VAR|RogueTalentLVL|RogueLVL|PREVARGTEQ:RogueLVL,2	BONUS:VAR|RogueTrapSenseLVL|RogueLVL|PREVARGTEQ:RogueLVL,3	BONUS:VAR|UncannyDodgeFlankingLevel|RogueLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:RogueLVL,4	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:RogueLVL,4|PREVAREQ:RogueUncannyDodge,0	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:RogueLVL,8|PREVAREQ:RogueImprovedUncannyDodge,0	BONUS:VAR|MasterStrikeLVL|RogueLVL|PREVARGTEQ:RogueLVL,20
+Rogue				CATEGORY:Class		DEFINE:Rogue_CFP_Level|0	DEFINE:Pool_Rogue_Class_Selection|0								ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0	ABILITY:Class|AUTOMATIC|Rogue ~ Standard Class|!PREABILITY:1,CATEGORY=CLASS,TYPE.AltRogueChoice	BONUS:VAR|Rogue_CFP_Level|RogueLVL|TYPE=Base	BONUS:VAR|RogueSneakAttackLVL|RogueLVL	BONUS:VAR|TrapfindingLVL|RogueLVL	BONUS:VAR|RogueTalentLVL|RogueLVL|PREVARGTEQ:RogueLVL,2	BONUS:VAR|RogueTrapSenseLVL|RogueLVL|PREVARGTEQ:RogueLVL,3	BONUS:VAR|MasterStrikeLVL|RogueLVL|PREVARGTEQ:RogueLVL,20
 Sorcerer			CATEGORY:Class		DEFINE:Sorcerer_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|PREVAREQ:Sorcerer_CF_ClassSkills,0																BONUS:VAR|Sorcerer_CFP_Level|SorcererLVL|TYPE=Base
 Wizard			CATEGORY:Class		DEFINE:Wizard_CFP_Level|0														ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|PREVAREQ:Wizard_CF_ClassSkills,0																	BONUS:VAR|Wizard_CFP_Level|WizardLVL|TYPE=Base
 
@@ -171,7 +171,7 @@ CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|PREVAREQ:Rogue_CF_Evasion,0|PREVARGTEQ:Rogue_CFP_Level,2
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|PREVAREQ:Rogue_CF_RogueTalents,0|PREVARGTEQ:Rogue_CFP_Level,2
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|PREVAREQ:Rogue_CF_TrapSense,0|PREVARGTEQ:Rogue_CFP_Level,3
-CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVARGTEQ:Rogue_CFP_Level,4
+CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge Tracker|PREVARGTEQ:Rogue_CF_UncannyDodge,0|PREVARGTEQ:Rogue_CFP_Level,4
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0|PREVARGTEQ:Rogue_CFP_Level,20
 
 
@@ -206,6 +206,7 @@ Barbarian ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:Barbaria
 
 ###Block: Archetype Support
 # Ability Name									Modify VAR
+CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeFlankingLevel|BarbarianLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_UncannyDodge,0
 CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_UncannyDodge,0
 CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,5|PREVAREQ:Barbarian_CF_ImprovedUncannyDodge,0
 
@@ -1257,6 +1258,15 @@ Evasion		KEY:Rogue ~ Evasion		CATEGORY:Special Ability	TYPE:RogueClassFeatures		
 CATEGORY=Internal|Default.MOD					DEFINE:RogueTalentTaken|0	ABILITY:Internal|AUTOMATIC|Rogue Archetype Support|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueArchetype																																	BONUS:VAR|RogueTalentTaken|count("ABILITIES","CATEGORY=Special Ability","TYPE=RogueTalent")+count("ABILITIES","CATEGORY=Special Ability","TYPE=NinjaTrick")
 # COMMENT: This supports the Tiered System to Bring Back Abilities at the next tier if an Archetype replaced them.
 Rogue Archetype Support		CATEGORY:Internal							ABILITY:Special Ability|AUTOMATIC|Rogue ~ Sneak Attack|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack|PREVARGTEQ:RogueLvl,3	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge|PREVARGTEQ:RogueLvl,8	BONUS:VAR|RogueSneakAttackLVL|-2|PREVARGTEQ:RogueLvl,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack	BONUS:VAR|UncannyDodgeLVL|-4|PREVARGTEQ:RogueLvl,8|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
+
+Rogue ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:RogueClassFeatures
+
+# Ability Name									Modify VAR
+CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeFlankingLevel|RogueLVL|TYPE=EachClass.REPLACE|PREVARGTEQ:RogueLVL,4|PREVAREQ:Rogue_CF_UncannyDodge,0
+CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:RogueLVL,2|PREVAREQ:Rogue_CF_UncannyDodge,0
+CATEGORY=Special Ability|Rogue ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:RogueLVL,5|PREVAREQ:Rogue_CF_ImprovedUncannyDodge,0
+
+###Block: Archetype Support
 
 ###Block:
 # Ability Name							Bonus Ability Pool
