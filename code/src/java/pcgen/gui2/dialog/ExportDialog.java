@@ -54,6 +54,7 @@ import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.commons.io.FileUtils;
@@ -310,15 +311,21 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		String extension = ExportUtilities.getOutputExtension(uri.toString(), pdf);
 		if (pdf)
 		{
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents (*.pdf)", "pdf"));
+			FileFilter fileFilter = new FileNameExtensionFilter("PDF Documents (*.pdf)", "pdf");
+			fcExport.addChoosableFileFilter(fileFilter);
+			fcExport.setFileFilter(fileFilter);
 		}
 		else if ("htm".equalsIgnoreCase(extension) || "html".equalsIgnoreCase(extension))
 		{
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter("HTML Documents (*.htm, *.html)", "htm", "html"));
+			FileFilter fileFilter = new FileNameExtensionFilter("HTML Documents (*.htm, *.html)", "htm", "html");
+			fcExport.addChoosableFileFilter(fileFilter);
+			fcExport.setFileFilter(fileFilter);
 		}
 		else if ("xml".equalsIgnoreCase(extension))
 		{
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter("XML Documents (*.xml)", "xml"));
+			FileFilter fileFilter = new FileNameExtensionFilter("XML Documents (*.xml)", "xml");
+			fcExport.addChoosableFileFilter(fileFilter);
+			fcExport.setFileFilter(fileFilter);
 		}
 		else
 		{

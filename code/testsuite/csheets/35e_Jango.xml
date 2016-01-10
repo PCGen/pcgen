@@ -1013,16 +1013,6 @@ BIO
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
-			<name>Test63a (One, Two)</name>
-			<description></description>
-			<type>TEST-63</type>
-			<associated>One,Two</associated>
-			<count>2</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
 			<name>Test63b (One)</name>
 			<description></description>
 			<type>TEST-63</type>
@@ -1090,6 +1080,36 @@ BIO
 			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test63a (One, Two)</name>
+			<description></description>
+			<type>TEST-63</type>
+			<associated>One,Two</associated>
+			<count>2</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test63b (One, One, One, One)</name>
+			<description></description>
+			<type>TEST-63</type>
+			<associated>One,One,One,One</associated>
+			<count>4</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test63c (2x)</name>
+			<description></description>
+			<type>TEST-63</type>
+			<associated>,</associated>
+			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1196,7 +1216,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat>Test63a(One)</feat>
+			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
@@ -1211,7 +1231,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat>Test63a(Two)</feat>
+			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
@@ -1226,7 +1246,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat>Test63b(One)</feat>
+			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
@@ -1241,7 +1261,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat>Test63b(One)</feat>
+			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
@@ -1256,7 +1276,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat>Test63c</feat>
+			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
@@ -1271,7 +1291,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat>Test63c</feat>
+			<feat></feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
