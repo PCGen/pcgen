@@ -89,7 +89,7 @@ CLASS:Fey Traveler	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMB
 # Class Name		Required Ability									Required Language	Required Race		Required Skill								Req. Spell Type		Required Text
 CLASS:Fey Traveler	PREABILITY:2,CATEGORY=FEAT,Improved Fading,Color of the Wind	PRELANG:1,Sylvan	PRERACE:1,Gnome (DF)	PRESKILL:2,Knowledge (Nature)=8,Knowledge (The Planes)=6	PRESPELLTYPE:1,Any=2	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Fey Traveler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Knowledge (the planes)|Sense Motive|Sleight of Hand|Spellcraft
+CLASS:Fey Traveler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Knowledge (the Planes)|Sense Motive|Sleight of Hand|Spellcraft
 1	SAB:Traveler's Gift (%/day)|TravelersGift								BONUS:VAR|TravelersGift|(CL+1)/2	DEFINE:TravelersGift|0	ADD:SPELLCASTER|ANY
 2	SAB:Traveler's Stride
 3																									ADD:SPELLCASTER|ANY
@@ -306,7 +306,7 @@ CLASS:Diabolist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.94	BONUS:COMBAT|
 # Class Name	Required Ability										Required AL				Required Skill								Req. Known Spell			Required Text
 CLASS:Diabolist	PREABILITY:2,CATEGORY=FEAT,Augment Summoning,Spell Focus (Conjuration)	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (The Planes)=6	PRESPELL:1,Summon Monster II	PRETEXT:See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Diabolist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (the planes)|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
+CLASS:Diabolist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (the Planes)|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)

@@ -21,7 +21,7 @@ CLASS:Demonic Initiate	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.63	BONUS:C
 # Class Name		Required Ability					Required AL	Required Skill							Required Text
 CLASS:Demonic Initiate	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:CE	PRESKILL:2,Knowledge (The Planes)=8,Spellcraft=4	PRETEXT:Foresworn to a demonic patron
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Demonic Initiate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Hide|Intimidate|Knowledge (religion)|Knowledge (the planes)|Sense Motive|Spellcraft
+CLASS:Demonic Initiate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Hide|Intimidate|Knowledge (religion)|Knowledge (the Planes)|Sense Motive|Spellcraft
 1					ABILITY:Special Ability|AUTOMATIC|Abyssal Resistance|Dark Mark
 2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demonic Boon (Lesser)
 3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Abyssal Tongue

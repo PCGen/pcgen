@@ -207,7 +207,7 @@ public class JTreeTable extends JTableEx
 		return tree.getCellRenderer();
 	}
 
-	public void setTreeCellRenderer(TreeCellRenderer renderer)
+	public void setTreeCellRenderer(TreeColumnCellRenderer renderer)
 	{
 		tree.setCellRenderer(renderer);
 	}
@@ -571,12 +571,7 @@ public class JTreeTable extends JTableEx
 				}
 
 			};
-			//TODO: this code doesn't belong here
-			DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-			renderer.setClosedIcon(null);
-			renderer.setLeafIcon(null);
-			renderer.setOpenIcon(null);
-			this.setCellRenderer(renderer);
+			this.setCellRenderer(new TreeColumnCellRenderer());
 			this.setOpaque(false);
 		}
 
@@ -609,7 +604,7 @@ public class JTreeTable extends JTableEx
 			{
 				if ((JTreeTable.this != null) && (JTreeTable.this.getRowHeight() != aRowHeight))
 				{
-					JTreeTable.this.setRowHeight(JTreeTable.this.getRowHeight());
+					JTreeTable.this.setRowHeight(aRowHeight);
 				}
 			}
 		}
@@ -633,21 +628,14 @@ public class JTreeTable extends JTableEx
 													   int row,
 													   int column)
 		{
-			if (isSelected)
-			{
-				this.setBackground(table.getSelectionBackground());
-			}
-			else
-			{
-				this.setBackground(table.getBackground());
-			}
-
 			visibleRow = row;
 
-			return tableCellRenderer.getTableCellRendererComponent(table, value,
+			Component comp = tableCellRenderer.getTableCellRendererComponent(table, value,
 																   isSelected,
 																   hasFocus, row,
 																   column);
+			this.setBackground(comp.getBackground());
+			return comp;
 		}
 
 		/**
@@ -888,11 +876,15 @@ public class JTreeTable extends JTableEx
 					if (getColumnClass(counter) == TreeTableNode.class)
 					{
 						MouseEvent me = (MouseEvent) e;
+						int column = JTreeTable.this.columnAtPoint(me.getPoint());
+						Rectangle cell = JTreeTable.this.getCellRect(0, column, true);
 						MouseEvent newME =
 								new MouseEvent(tree, me.getID(), me.getWhen(),
 											   me.getModifiers(), me.getX(),
 											   me.getY(), me.getClickCount(),
 											   me.isPopupTrigger());
+						//we translate the event into the tree's coordinate system
+						newME.translatePoint(-cell.x, 0);
 						tree.dispatchEvent(newME);
 
 						break;
