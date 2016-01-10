@@ -33,7 +33,6 @@ ABILITY:pcgen_test_advanced_broken_abilities.lst
 EQUIPMENT:pbt_equip.lst
 EQUIPMOD:pbt_equipmods.lst
 
-#FEAT:pcgen_test_advanced_feats.lst
 
 #KIT:pcgen_test_advanced_kits.lst
 

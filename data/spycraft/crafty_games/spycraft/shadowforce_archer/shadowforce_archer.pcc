@@ -37,7 +37,6 @@ ABILITYCATEGORY:shadowforce_archer_abilitycategory.lst
 ABILITY:shadowforce_archer_abilities_class.lst
 
 CLASS:shadowforce_archer_classes.lst
-#FEAT:shadowforce_archer_feats_hidden.lst
 ABILITY:shadowforce_archer_feats.lst
 EQUIPMOD:shadowforce_archer_gadget_mods.lst
 EQUIPMENT:shadowforce_archer_gadgets_psionic.lst
