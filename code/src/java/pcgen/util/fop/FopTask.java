@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.transform.ErrorListener;
 import javax.xml.transform.SourceLocator;
 import javax.xml.transform.Transformer;
@@ -67,7 +69,7 @@ public class FopTask implements Runnable
 		File userConfigFile = new File(configPath);
 		if (userConfigFile.exists())
 		{
-			Logging.log(Logging.INFO, "FOPHandler using config file "
+			Logging.log(Logging.INFO, "FoPTask using config file "
 					+ configPath);
 			try
 			{
@@ -97,103 +99,52 @@ public class FopTask implements Runnable
 		this.outputStream = outputStream;
 	}
 
-	public static FopTask newFopTask(InputStream inputXml, File xsltFile, OutputStream outputPdf) throws FileNotFoundException
+	private static StreamSource createXsltStreamSource(File xsltFile) throws FileNotFoundException
 	{
 		if (xsltFile == null)
 		{
-			throw new NullPointerException(
-					"XSLT file must be specified for the tranform mode");
+			return null;
 		}
 		if (!xsltFile.exists())
 		{
 			throw new FileNotFoundException("xsl file "
 					+ xsltFile.getAbsolutePath() + " not found ");
 		}
-		return new FopTask(new StreamSource(inputXml), new StreamSource(xsltFile), null, outputPdf);
-	}
-
-	public static FopTask newFopTask(InputStream inputXml, OutputStream outputPdf)
-	{
-		return new FopTask(new StreamSource(inputXml), null, null, outputPdf);
+		return new StreamSource(xsltFile);
 	}
 
 	/**
-	 * Creates a new FopTask that transforms the input file using the given xsltFile
+	 * Creates a new FopTask that transforms the input stream using the given xsltFile and outputs a
+	 * pdf document to the given output stream. The output can be saved to a file if a
+	 * FileOutputStream is used.
 	 *
-	 * @param inputXmlFile the file to transform
-	 * @param xsltFile the transform template file
+	 * @param inputXmlStream the fop xml input stream
+	 * @param xsltFile the transform template file, if null then the identity transformer is used
 	 * @param outputPdf output stream for pdf document
 	 * @return a FopTask to be executed
-	 * @throws FileNotFoundException if inputXmlFile does not exist or if xsltFile does not exist
+	 * @throws FileNotFoundException if xsltFile is not null and does not exist
 	 */
-	public static FopTask newFopTask(File inputXmlFile, File xsltFile, OutputStream outputPdf)
-			throws FileNotFoundException
+	public static FopTask newFopTask(InputStream inputXmlStream, File xsltFile, OutputStream outputPdf) throws FileNotFoundException
 	{
-		if (inputXmlFile == null)
-		{
-			throw new NullPointerException(
-					"XML file must be specified for the tranform mode");
-		}
-		if (!inputXmlFile.exists())
-		{
-			throw new FileNotFoundException("xml file "
-					+ inputXmlFile.getAbsolutePath() + " not found ");
-		}
-		if (xsltFile == null)
-		{
-			throw new NullPointerException(
-					"XSLT file must be specified for the tranform mode");
-		}
-		if (!xsltFile.exists())
-		{
-			throw new FileNotFoundException("xsl file "
-					+ xsltFile.getAbsolutePath() + " not found ");
-		}
-
-		Logging.log(Logging.WARNING, "FOP input file set to: " + inputXmlFile.getAbsolutePath());
-
-		return new FopTask(new StreamSource(inputXmlFile), new StreamSource(xsltFile), null, outputPdf);
+		StreamSource xsltSource = createXsltStreamSource(xsltFile);
+		return new FopTask(new StreamSource(inputXmlStream), xsltSource, null, outputPdf);
 	}
 
 	/**
-	 * Creates a new FopTask that uses the identity transformer
+	 * Creates a new FopTask that transforms the input stream using the given xsltFile and outputs a
+	 * pdf document to the given Renderer. This task can can be used for both previewing a pdf
+	 * document as well as printing a pdf
 	 *
-	 * @param inputXmlFile the file to transform
-	 * @param outputPdf output stream for the pdf document
+	 * @param inputXmlStream the fop xml input stream
+	 * @param xsltFile the transform template file, if null then the identity transformer is used
+	 * @param renderer the Renderer to output a pdf document to.
 	 * @return a FopTask to be executed
-	 * @throws FileNotFoundException if inputXmlFile does not exist
+	 * @throws FileNotFoundException if xsltFile is not null and does not exist
 	 */
-	public static FopTask newFopTask(File inputXmlFile, OutputStream outputPdf)
-			throws FileNotFoundException
+	public static FopTask newFopTask(InputStream inputXmlStream, File xsltFile, Renderer renderer) throws FileNotFoundException
 	{
-		if (inputXmlFile == null)
-		{
-			throw new NullPointerException(
-					"XML file must be specified for the tranform mode");
-		}
-		if (!inputXmlFile.exists())
-		{
-			throw new FileNotFoundException("xml file "
-					+ inputXmlFile.getAbsolutePath() + " not found ");
-		}
-		Logging.log(Logging.WARNING, "FOP input file set to: " + inputXmlFile.getAbsolutePath());
-
-		return new FopTask(new StreamSource(inputXmlFile), null, null, outputPdf);
-	}
-
-	public static FopTask newFopTask(InputStream inputXml, File xsltFile, Renderer renderer) throws FileNotFoundException
-	{
-		if (xsltFile == null)
-		{
-			throw new NullPointerException(
-					"XSLT file must be specified for the tranform mode");
-		}
-		if (!xsltFile.exists())
-		{
-			throw new FileNotFoundException("xsl file "
-					+ xsltFile.getAbsolutePath() + " not found ");
-		}
-		return new FopTask(new StreamSource(inputXml), new StreamSource(xsltFile), renderer, null);
+		StreamSource xsltSource = createXsltStreamSource(xsltFile);
+		return new FopTask(new StreamSource(inputXmlStream), xsltSource, renderer, null);
 	}
 
 	public String getErrorMessages()
@@ -202,12 +153,13 @@ public class FopTask implements Runnable
 	}
 
 	/**
-	 * Run the FO to PDF/AWT conversion
+	 * Run the FO to PDF/AWT conversion. This automatically closes any provided OutputStream for
+	 * this FopTask.
 	 */
 	@Override
 	public void run()
 	{
-		try
+		try(OutputStream out = outputStream)
 		{
 			FopFactory factory = createFopFactory();
 
@@ -230,9 +182,9 @@ public class FopTask implements Runnable
 				mimeType = MimeConstants.MIME_PDF;
 			}
 			Fop fop;
-			if (outputStream != null)
+			if (out != null)
 			{
-				fop = factory.newFop(mimeType, userAgent, outputStream);
+				fop = factory.newFop(mimeType, userAgent, out);
 			}
 			else
 			{
@@ -251,38 +203,15 @@ public class FopTask implements Runnable
 			transformer.setErrorListener(new FOPErrorListener());
 			transformer.transform(inputSource, new SAXResult(fop.getDefaultHandler()));
 		}
-		catch (TransformerException e)
+		catch (TransformerException | FOPException | IOException e)
 		{
 			errorBuilder.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FopTask:run", e);
 		}
-		catch (FOPException fopex)
-		{
-			errorBuilder.append(fopex.getMessage()).append(Constants.LINE_SEPARATOR);
-			Logging.errorPrint("Exception in FopTask:run", fopex);
-		}
 		catch (RuntimeException ex)
 		{
 			errorBuilder.append(ex.getMessage()).append(Constants.LINE_SEPARATOR);
-			Logging.errorPrint(
-					"Unexpected exception in FopTask:run: "
-					+ ex.getMessage());
-		}
-		finally
-		{
-			if (outputStream != null)
-			{
-				try
-				{
-					outputStream.close();
-				}
-				catch (IOException ex)
-				{
-					errorBuilder.append(ex.getMessage())
-							.append(Constants.LINE_SEPARATOR);
-					Logging.errorPrint("Exception in FOPHandler:run", ex);
-				}
-			}
+			Logging.errorPrint("Unexpected exception in FopTask:run: ", ex);
 		}
 	}
 

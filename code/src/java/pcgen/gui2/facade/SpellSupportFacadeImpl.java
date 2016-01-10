@@ -22,8 +22,10 @@
  */
 package pcgen.gui2.facade;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -1547,17 +1549,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private void pdfExport(final File outFile, File tmpFile, File xsltFile)
 	{
-		try (BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outFile)))
+		try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(tmpFile));
+				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outFile)))
 		{
-			FopTask fopTask;
-			if (xsltFile == null)
-			{
-				fopTask = FopTask.newFopTask(tmpFile, xsltFile, output);
-			}
-			else
-			{
-				fopTask = FopTask.newFopTask(tmpFile, output);
-			}
+			FopTask fopTask = FopTask.newFopTask(input, xsltFile, output);
 			fopTask.run();
 			String errMessage = fopTask.getErrorMessages();
 
