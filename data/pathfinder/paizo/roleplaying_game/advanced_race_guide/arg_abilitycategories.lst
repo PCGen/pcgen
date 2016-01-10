@@ -155,3 +155,9 @@ ABILITYCATEGORY:Race Builder Skill Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 
 
 ABILITYCATEGORY:Canine Ferocity Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Feat													ABILITYLIST:Mounted Combat|Ride-By Attack|Skill Focus (Ride)|Spirited Charge|Trample|Unseat	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Humanoid Subrace																							DISPLAYLOCATION:Race Builder Design
+
+
+
+
