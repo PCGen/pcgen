@@ -19,7 +19,7 @@ Monstrous Design												CATEGORY:Internal			TYPE:Race Builder Design								
 ###Block: Type Qualities
 #COMMENT: Humanoid (no subtype) assumed.
 # Ability Name		Unique Key						Category of Ability	Type									Multiple Requirements																					Description		Template				Modify VAR					Cost
-Humanoid			KEY:Racial Type ~ Humanoid			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality																															TEMPLATE:Humanoid
+Humanoid			KEY:Racial Type ~ Humanoid			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality																															TEMPLATE:Humanoid											ABILITY:Humanoid Subrace|AUTOMATIC|Humanoid Subrace Placeholder
 # Ability Name		Unique Key						Category of Ability	Type									Multiple Requirements																					Description		Template				Modify VAR					Cost
 Aberration			KEY:Racial Type ~ Aberration			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Aberration],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|3	TEMPLATE:Aberration		BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
 Construct			KEY:Racial Type ~ Construct			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|2	TEMPLATE:Construct		BONUS:VAR|ARG_RaceBuilderPoints|-20	COST:0
@@ -47,6 +47,9 @@ Small			KEY:Racial Size ~ Small		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceS
 Tiny			KEY:Racial Size ~ Tiny		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Tiny],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	DESC:[Cost: %1]|4	TEMPLATE:SIZE_T	BONUS:VAR|ARG_RaceBuilderPoints|-4	COST:0
 #PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Aberration,Racial Type ~ Construct,Racial Type ~ Dragon,Racial Type ~ Fey,Racial Type ~ Outsider (Native),Racial Type ~ Plant
 
+###Block:
+Humanoid Subrace Placeholder	CATEGORY:Special Ability	VISIBLE:NO	TYPE:Humanoid Subrace
+Humanoid Subrace Select		CATEGORY:Special Ability	VISIBLE:YES	TYPE:Humanoid Subrace	CHOOSE:TEMPLATE|TYPE=Race Builder Subtype	MULT:YES	COST:0	STACK:NO	TEMPLATE:%LIST
 
 ###Block: Speed Qualities
 #COMMENT:Normal Speed assumed
