@@ -29,14 +29,14 @@ Elysian Bronze		KEY:ELYSIAN_B_ARMOR_MED				TYPE:BaseMaterial.Armor											COS
 Elysian Bronze		KEY:ELYSIAN_B_ARMOR_HVY				TYPE:BaseMaterial.Armor											COST:3000					ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:2,Metal,Heavy
 Elysian Bronze		KEY:ELYSIAN_B_WEAP				TYPE:BaseMaterial.Weapon										COST:1000					ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:1,Metal
 Fire-Forged Steel		KEY:FIRE_ST_AMMO					TYPE:BaseMaterial.MasterworkQuality.Ammunition							COST:15					ITYPE:FireForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
-Fire-Forged Steel		KEY:FIRE_ST_ARMOR_LT				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:1000					ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Light
-Fire-Forged Steel		KEY:FIRE_ST_ARMOR_MED				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:2500					ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Medium
-Fire-Forged Steel		KEY:FIRE_ST_ARMOR_HVY				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:3000					ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Heavy
+Fire-Forged Steel		KEY:FIRE_ST_ARMOR_LT				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:1000					ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Light	BONUS:VAR|FireResistanceBonus|2|TYPE=Resistance
+Fire-Forged Steel		KEY:FIRE_ST_ARMOR_MED				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:2500					ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Medium	BONUS:VAR|FireResistanceBonus|2|TYPE=Resistance
+Fire-Forged Steel		KEY:FIRE_ST_ARMOR_HVY				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:3000					ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Heavy	BONUS:VAR|FireResistanceBonus|2|TYPE=Resistance
 Fire-Forged Steel		KEY:FIRE_ST_WEAP					TYPE:BaseMaterial.MasterworkQuality.Weapon							COST:600					ITYPE:FireForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
 Frost-Forged Steel	KEY:FROST_ST_AMMO					TYPE:BaseMaterial.MasterworkQuality.Ammunition							COST:15					ITYPE:FrostForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
-Frost-Forged Steel	KEY:FROST_ST_ARMOR_LT				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:1000					ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Light
-Frost-Forged Steel	KEY:FROST_ST_ARMOR_MED				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:2500					ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Medium
-Frost-Forged Steel	KEY:FROST_ST_ARMOR_HVY				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:3000					ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Heavy
+Frost-Forged Steel	KEY:FROST_ST_ARMOR_LT				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:1000					ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Light	BONUS:VAR|ColdResistanceBonus|2|TYPE=Resistance
+Frost-Forged Steel	KEY:FROST_ST_ARMOR_MED				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:2500					ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Medium	BONUS:VAR|ColdResistanceBonus|2|TYPE=Resistance
+Frost-Forged Steel	KEY:FROST_ST_ARMOR_HVY				TYPE:BaseMaterial.MasterworkQuality.Armor								COST:3000					ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:2,Metal,Heavy	BONUS:VAR|ColdResistanceBonus|2|TYPE=Resistance
 Frost-Forged Steel	KEY:FROST_ST_WEAP					TYPE:BaseMaterial.MasterworkQuality.Weapon							COST:600					ITYPE:FrostForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
 Greenwood			KEY:GRNWD						TYPE:BaseMaterial.MasterworkQuality.Ammunition.Weapon.Shield				COST:WT*50		VISIBLE:QUALIFY	ITYPE:Greenwood			REPLACES:MWORKA,MWORKW	SOURCEPAGE:50	PRETYPE:1,Wooden
 Griffon Mane		KEY:GRIFFON_M_ARMOR_LT				TYPE:BaseMaterial.Armor											COST:200					ITYPE:GriffonMane							SOURCEPAGE:51	PRETYPE:2,NonMetal,Light
