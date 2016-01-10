@@ -142,7 +142,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		gameModeList.addActionListener(this); 
 		panel.add(gameModeList, BorderLayout.CENTER);
 		
-		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>();
+		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>(false);
 		bar.add(panel, BorderLayout.WEST);
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		panel = new JPanel(new BorderLayout());
