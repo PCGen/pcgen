@@ -110,7 +110,6 @@ ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_abilitycategories.
 COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_companionmods.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_equip.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_equipmods.lst
-#FEAT:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_feats_psionic_hidden.lst
 ABILITY:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought,Psychic Inquisitor)
 #SPELL:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_powers.lst
 RACE:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_races.lst

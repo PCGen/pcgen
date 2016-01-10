@@ -151,7 +151,7 @@ Droskar's Guiding Ring				NAMEISPI:YES	TYPE:SLOT_Ring.Ring	COST:2600	WT:0		SOURC
 Ghost Battling Ring							TYPE:SLOT_Ring.Ring	COST:13000	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.258
 Glorious Flame Ring							TYPE:SLOT_Ring.Ring	COST:5400	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.258
 Gluttonous Feasting Ring						TYPE:SLOT_Ring.Ring	COST:5000	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.258
-Knight-Inheritor's Ring							TYPE:SLOT_Ring.Ring	COST:3000	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.258
+Knight-Inheritor's Ring							TYPE:SLOT_Ring.Ring	COST:3000	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.258	BONUS:COMBAT|AC|1|TYPE=Deflection	SPELLS:Knight-Inheritor's Ring|TIMES=ATWILL|CASTERLEVEL=5|Prestidigitation	SPELLS:Knight-Inheritor's Ring|TIMES=1|CASTERLEVEL=5|Bless Weapon	SPELLS:Knight-Inheritor's Ring|TIMES=1|CASTERLEVEL=5|Wartrain Mount
 Nethysian Ring Of Minor Spell Storing	NAMEISPI:YES	TYPE:SLOT_Ring.Ring	COST:20000	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.259
 Profane Seal Signet							TYPE:SLOT_Ring.Ring	COST:3000	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.259
 Red Hound Ring								TYPE:SLOT_Ring.Ring	COST:4700	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.259
@@ -174,7 +174,7 @@ Boots Of The Earth							TYPE:Magic.Wondrous Item.SLOT_Feet			COST:5000	WT:5		SO
 Boots Of The Eternal Rose						TYPE:Magic.Wondrous Item.SLOT_Feet			COST:4000	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.261
 Broken Chain Of The Beast						TYPE:Magic.Wondrous Item.SLOT_Belt			COST:4500	WT:5		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.261
 Bronze Skinning Knife							TYPE:Magic.Wondrous Item.SLOT_None			COST:3300	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
-Cloak Of The Crusader							TYPE:Magic.Wondrous Item.SLOT_Shoulders		COST:2700	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
+Cloak Of The Crusader							TYPE:Magic.Wondrous Item.SLOT_Shoulders		COST:2700	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262	BONUS:COMBAT|AC|1|TYPE=NaturalArmor|PREDEITY:1,Iomedae	SPELLS:Cloak of the Crusader|TIMES=1|CASTERLEVEL=1|Bless
 Cloak Of The Night Sky							TYPE:Magic.Wondrous Item.SLOT_Shoulders		COST:2500	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
 Dawnflower Lantern							TYPE:Magic.Wondrous Item.SLOT_None			COST:6400	WT:2		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
 Dawnflower Sash								TYPE:Magic.Wondrous Item.SLOT_Belt.SLOT_Head	COST:2500	WT:0		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.262
