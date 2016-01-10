@@ -98,3 +98,12 @@ Default Language ~ Wayang		VISIBLE:NO													AUTO:LANG|Common|Wayang		LANGB
 
 
 Race Bonus Language ~ All Spoken	VISIBLE:NO																		LANGBONUS:TYPE=Spoken
+
+
+
+###Block: Race Builder Humanoid Subtypes
+Dwarf		KEY:Race Builder Subtype ~ Dwarf	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Dwarf	
+Elf		KEY:Race Builder Subtype ~ Elf	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Elf	
+Gnome		KEY:Race Builder Subtype ~ Gnome	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Gnome	
+Halfling	KEY:Race Builder Subtype ~ Halfling	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Halfling	
+Human		KEY:Race Builder Subtype ~ Human	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Human	
