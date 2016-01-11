@@ -29,18 +29,3 @@ Black Powder (Dose)				OUTPUTNAME:Black Powder, [NAME]																			TYPE:Am
 Black Powder (Keg)				OUTPUTNAME:Black Powder, [NAME]																			TYPE:Ammunition.Resizable.Standard.BlackPowder																COST:1000	WT:5							BASEQTY:100																															SOURCEPAGE:p.292
 Cannon Ball																														TYPE:Ammunition.Resizable.Standard.Bullet																	COST:30	WT:25							BASEQTY:1																															SOURCEPAGE:p.293
 Firearm Bullet																													TYPE:Ammunition.Resizable.Standard.Bullet																	COST:1	WT:0							BASEQTY:1																															SOURCEPAGE:p.293
-
-
-###Block: Weapon Groups
-# Equipment Name				Type
-Dogslicer.MOD					TYPE:Bladelight.Weapon Group Blades Light
-War Razor.MOD					TYPE:Bladelight.Weapon Group Blades Light
-Klar (as weapon).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Earth Breaker.MOD				TYPE:Hammer.Weapon Group Hammers
-Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
-Ogre Hook.MOD					TYPE:Polearm.Weapon Group Polearms
-Aldori Dueling Sword.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
-Urumi.MOD						TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
-Scarf (Bladed).MOD				TYPE:Flail.Weapon Group 
-Bola (Shoanti).MOD				TYPE:Thrown.Weapon Group Thrown
