@@ -3841,6 +3841,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Rogue ~ Uncanny Dodge Tracker</name>
+			<description></description>
+			<type>ROGUECLASSFEATURES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Sneak Attack</name>
 			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. Your attack deals 6d6 points of extra damage anytime your target would be denied a Dexterity bonus to AC, or when you flank your target. Should you score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage, you can make a sneak attack that deals nonlethal damage instead of lethal damage. You cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. You must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. You cannot sneak attack while striking a creature with concealment.</description>
 			<type>ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ATTACKOPTION</type>
