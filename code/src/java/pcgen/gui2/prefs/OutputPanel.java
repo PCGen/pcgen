@@ -101,10 +101,12 @@ public class OutputPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_skillFilterLabel");
 	private static String in_choose =
 			LanguageBundle.getString("...");
+	private static String in_generateTempFileWithPdf = LanguageBundle.getString("in_Prefs_generateTempFileWithPdf");
 
 	private JCheckBox printSpellsWithPC = new JCheckBox();
 	private JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
 	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
+	private JCheckBox generateTempFileWithPdf = new JCheckBox(in_generateTempFileWithPdf);
 
 	private JCheckBox weaponProfPrintout;
 	private JButton outputSheetEqSetButton;
@@ -352,6 +354,10 @@ public class OutputPanel extends PCGenPrefsPanel
 		Utility.buildConstraints(c, 1, 16, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(exportChoice, c);
 		this.add(exportChoice);
+		
+		Utility.buildConstraints(c, 0, 17, 3, 1, 0, 0);
+		gridbag.setConstraints(generateTempFileWithPdf, c);
+		this.add(generateTempFileWithPdf);
 
 		Utility.buildConstraints(c, 0, 20, 3, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -428,6 +434,8 @@ public class OutputPanel extends PCGenPrefsPanel
 		
 		ExportChoices choice = (ExportChoices) exportChoice.getSelectedItem();
 		context.setProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE, choice.getValue());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF,
+				generateTempFileWithPdf.isSelected());
 	}
 
 	/* (non-Javadoc)
@@ -457,6 +465,10 @@ public class OutputPanel extends PCGenPrefsPanel
 		String value =
 				context.getProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE);
 		exportChoice.setSelectedItem(ExportChoices.getChoice(value));
+		
+		generateTempFileWithPdf.setSelected(
+				PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false));
 	}
 
 	private final class PrefsButtonListener implements ActionListener
