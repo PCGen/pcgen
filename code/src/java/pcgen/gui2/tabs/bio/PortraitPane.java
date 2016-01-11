@@ -24,19 +24,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Insets;
-import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
-import pcgen.facade.core.CharacterFacade;
-import pcgen.gui2.tools.Utility;
 
 /**
  *
@@ -53,11 +46,6 @@ class PortraitPane extends JComponent
 	public PortraitPane()
 	{
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	}
-
-	public MouseHandler createMouseHandler(CharacterFacade character)
-	{
-		return new MouseHandler(character);
 	}
 
 	public void setPortraitImage(BufferedImage portrait)
@@ -138,108 +126,6 @@ class PortraitPane extends JComponent
 	public Dimension getMaximumSize()
 	{
 		return getPreferredSize();
-	}
-
-	public class MouseHandler extends MouseAdapter implements MouseMotionListener
-	{
-
-		private CharacterFacade character;
-
-		public MouseHandler(CharacterFacade character)
-		{
-			this.character = character;
-		}
-
-		private boolean movingRect = false;
-		private Point cropOffset = null;
-
-		@Override
-		public void mouseDragged(MouseEvent e)
-		{
-			if (movingRect)
-			{
-				int x, y;
-				if (scale < 1)
-				{
-					x = (int) (e.getX() / scale - cropOffset.x);
-					y = (int) (e.getY() / scale - cropOffset.y);
-				}
-				else
-				{
-					x = e.getX() - cropOffset.x;
-					y = e.getY() - cropOffset.y;
-				}
-				x = Math.max(x, 0);
-				y = Math.max(y, 0);
-				cropRect.setLocation(x, y);
-				Utility.adjustRectToFitImage(portrait, cropRect);
-				character.setThumbnailCrop(cropRect);
-			}
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e)
-		{
-			if (e.getButton() != MouseEvent.BUTTON1)
-			{
-				return;
-			}
-			Point mousepoint = e.getPoint();
-			if (scale < 1)
-			{
-				mousepoint.x = (int) (mousepoint.x / scale);
-				mousepoint.y = (int) (mousepoint.y / scale);
-			}
-			movingRect = cropRect.contains(mousepoint);
-			cropOffset = new Point(mousepoint.x - cropRect.x, mousepoint.y - cropRect.y);
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e)
-		{
-			movingRect = false;
-		}
-
-		@Override
-		public void mouseMoved(MouseEvent e)
-		{
-		}
-
-		@Override
-		public void mouseWheelMoved(MouseWheelEvent e)
-		{
-			if (e.getScrollType() != MouseWheelEvent.WHEEL_UNIT_SCROLL)
-			{
-				return;
-			}
-			Point mousepoint = e.getPoint();
-			if (scale < 1)
-			{
-				mousepoint.x = (int) (mousepoint.x / scale);
-				mousepoint.y = (int) (mousepoint.y / scale);
-			}
-			if (!cropRect.contains(mousepoint))
-			{
-				return;
-			}
-			int units = e.getUnitsToScroll();
-			int size = cropRect.width + units;
-			size = Math.max(size, 100);
-			size = Math.min(size, portrait.getWidth() - 1);
-			size = Math.min(size, portrait.getHeight() - 1);
-
-			cropRect.width = size;
-			cropRect.height = size;
-
-			int x = cropRect.x;
-			int y = cropRect.y;
-			x = Math.max(x, 0);
-			y = Math.max(y, 0);
-			cropRect.setLocation(x, y);
-			Utility.adjustRectToFitImage(portrait, cropRect);
-			character.setThumbnailCrop(cropRect);
-		}
-
 	}
 
 }
