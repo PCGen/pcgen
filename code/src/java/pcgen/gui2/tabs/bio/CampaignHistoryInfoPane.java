@@ -286,14 +286,25 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		private JTextField dateField = new JTextField();
 		private JFormattedTextField xpField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		private JTextField gmField = new JTextField();
-		private JTextArea textArea = new JTextArea();
+		private JTextArea textArea = new JTextArea()
+		{
+			@Override
+			public Dimension getMinimumSize()
+			{
+				Dimension minSize = super.getMinimumSize();
+				Dimension prefSize = getPreferredSize();
+				minSize.height = prefSize.height;
+				return minSize;
+			}
+
+		};
 		private ChronicleHandler handler;
 		private ChronicleEntryFacade entry;
 
 		/**
-		 * Creates a bare ChroniclePane that initializes the layout of its components.
-		 * This is meant only for components that want to know the size of a ChroniclePane
-		 * without fully initializing it.
+		 * Creates a bare ChroniclePane that initializes the layout of its components. This is meant
+		 * only for components that want to know the size of a ChroniclePane without fully
+		 * initializing it.
 		 */
 		public ChroniclePane()
 		{
