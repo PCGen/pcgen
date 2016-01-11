@@ -64,9 +64,91 @@ Temple Sword		TYPE:Exotic.Melee
 Mancatcher			TYPE:Exotic.Melee
 Boomerang			TYPE:Exotic.Ranged
 Crossbow (Double)		TYPE:Exotic.Ranged
+Crossbow (Launching)	TYPE:Exotic.Ranged
 Lasso				TYPE:Exotic.Melee
 Sling Glove			TYPE:Exotic.Melee
 Throwing Shield		TYPE:Exotic.Melee.Ranged
+
+###Block: Weapon Groups
+# Equipment Name				Type
+#
+# Weapon Group Blades, Heavy
+#
+Aldori Dueling Sword.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Flambard.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Klar.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Falcata.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
+Khopesh.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
+Rhoka.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
+Shotel.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
+Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Flambard.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
+#
+# Weapon Group Blades, Light
+#
+Butterfly Knife.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Chakram.MOD						TYPE:Bladelight.Weapon Group Blades Light.Bladeheavy.Weapon Group Blades Heavy.Thrown.Weapon Group Thrown
+Sica.MOD						TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker Dagger.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Butterfly Knife.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Bayonet.MOD						TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+War Razor.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Scizore.MOD						TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+Madu.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+Butterfly Knife.MOD				TYPE:Bladelight.Weapon Group Blades 
+#
+# Weapon Group Close
+#
+Brass Knuckles.MOD				TYPE:Close.Weapon Group Close
+Cestus.MOD						TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Stake.MOD				TYPE:Close.Weapon Group Close
+Mere Club.MOD					TYPE:Close.Weapon Group Close.Hammer.Weapon Group Hammers
+Rope Gauntlet.MOD				TYPE:Close.Weapon Group Close
+#
+# Weapon Group Crossbow
+#
+Crossbow (Double).MOD			TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Launching).MOD		TYPE:Crossbow.Weapon Group Crossbows
+#
+# Weapon Group Double
+#
+Chain Spear.MOD	TYPE:Double.Weapon Group Double.Flail.Weapon Group Flails.Spear.Weapon Group Spears
+#
+# Weapon Group Flail
+#
+Battle Poi.MOD					TYPE:Flail.Weapon Group Flails
+Scorpion Whip.MOD				TYPE:Flail.Weapon Group Flails
+Urumi.MOD						TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Meteor Hammer.MOD				TYPE:Flail.Weapon Group Flails
+Bladed Scarf.MOD				TYPE:Flail.Weapon Group Flails
+#
+# Weapon Group Hammer
+#
+Aklys.MOD						TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+#
+# Weapon Group Monk
+#
+Hanbo.MOD						TYPE:Monk.Weapon Group Monk
+#
+# Weapon Group Polearm
+#
+Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
+Mancatcher.MOD					TYPE:Polearm.Weapon Group Polearms
+#
+# Weapon Group Thrown
+#
+Boomerang.MOD					TYPE:Thrown.Weapon Group Thrown
+Lasso.MOD						TYPE:Thrown.Weapon Group Thrown
+Shoanti Bola.MOD				TYPE:Thrown.Weapon Group Thrown
+Sling Glove.MOD					TYPE:Thrown.Weapon Group Thrown
+Throwing Shield.MOD				TYPE:Thrown.Weapon Group Thrown
+
+#
+# End
+#
+
 
 #
 # End
