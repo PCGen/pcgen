@@ -27,14 +27,19 @@ import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
@@ -223,24 +228,34 @@ public class BatchExporter
 	public static boolean exportCharacterToPDF(CharacterFacade character,
 		File outFile, File templateFile)
 	{
-		String extension =
-				StringUtils.substringAfterLast(templateFile.getName(), ".");
-		try(BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile)))
+		
+		String templateExtension = FilenameUtils.getExtension(templateFile.getName());
+
+		boolean isTransformTemplate = "xslt".equalsIgnoreCase(templateExtension)
+				|| "xsl".equalsIgnoreCase(templateExtension);
+		
+		boolean useTempFile = PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
+		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
+		File tempFile = isTransformTemplate ? new File(outFileName + ".xml") : new File(outFileName + ".fo");
+		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
+				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
+				OutputStream exportOutput = useTempFile
+						//Output to both the byte stream and to the temp file.
+						? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile))
+						: byteOutputStream)
 		{
 			FopTask task;
-			if ("xslt".equalsIgnoreCase(extension)
-				|| "xsl".equalsIgnoreCase(extension))
+			if (isTransformTemplate)
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				exportCharacter(character, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+				exportCharacter(character, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
 				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
 			}
 			else
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				exportCharacter(character, templateFile, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+				exportCharacter(character, templateFile, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
 				task = FopTask.newFopTask(inputStream, null, fileStream);
 			}
 			character.setDefaultOutputSheet(true, templateFile);
@@ -348,26 +363,34 @@ public class BatchExporter
 		File templateFile)
 	{
 		// We want the non pdf extension here for the intermediate file.
-		String extension =
-				ExportUtilities.getOutputExtension(templateFile.getName(),
-					false);
-		try(BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile)))
+		String templateExtension = ExportUtilities.getOutputExtension(templateFile.getName(), false);
+		boolean isTransformTemplate = "xslt".equalsIgnoreCase(templateExtension)
+				|| "xsl".equalsIgnoreCase(templateExtension);
+		
+		boolean useTempFile = PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
+		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
+		File tempFile = isTransformTemplate ? new File(outFileName + ".xml") : new File(outFileName + ".fo");
+		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
+				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
+				OutputStream exportOutput = useTempFile
+						//Output to both the byte stream and to the temp file.
+						? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile))
+						: byteOutputStream)
 		{
 			FopTask task;
-			if ("xslt".equalsIgnoreCase(extension)
-				|| "xsl".equalsIgnoreCase(extension))
+			if (isTransformTemplate)
 			{
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				exportParty(party, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+				exportParty(party, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
 				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
 			}
 			else
 			{
 				SettingsHandler.setSelectedPartyPDFOutputSheet(templateFile.getAbsolutePath());
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				exportParty(party, templateFile, outputStream);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+				
+				exportParty(party, templateFile, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
 				task = FopTask.newFopTask(inputStream, null, fileStream);
 			}
 			task.run();
