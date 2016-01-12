@@ -239,6 +239,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			if (tabName.equals(getTitleAt(i)))
 			{
 				setSelectedIndex(i);
+				handleDisplayAware();
 				selTab = getComponent(i);
 				break;
 			}
@@ -276,11 +277,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void stateChanged(ChangeEvent e)
+	private void handleDisplayAware()
 	{
 		// The currently displayed tab has changed so if the new one wants to know about it, let it know 
 		Component comp = getSelectedComponent();
@@ -288,6 +285,15 @@ public final class InfoTabbedPane extends JTabbedPane
 		{
 			((DisplayAwareTab) comp).tabSelected();
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void stateChanged(ChangeEvent e)
+	{
+		handleDisplayAware();
 	}
 
 	public void characterRemoved(CharacterFacade character)
@@ -388,6 +394,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			CharacterInfoTab firstTab = (CharacterInfoTab) getComponentAt(selectedIndex);
 			restoreTab(firstTab, states.get(firstTab));
 			setSelectedIndex(selectedIndex);
+			handleDisplayAware();
 
 			PriorityQueue<CharacterInfoTab> queue = new PriorityQueue<CharacterInfoTab>(states.keySet().size(), this);
 			queue.addAll(states.keySet());
