@@ -143,7 +143,11 @@ ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Packmaster Companion Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_PackmasterCompanion			CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice										PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Boon Companion Select Packmaster Companion								PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Primal Choice						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice		CATEGORY:Internal			TYPE:Primal Choice												PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 4 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice4		CATEGORY:Internal			TYPE:Level 4 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 8 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice8		CATEGORY:Internal			TYPE:Level 8 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 12 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice12	CATEGORY:Internal			TYPE:Level 12 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 16 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice16	CATEGORY:Internal			TYPE:Level 16 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 20 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice20	CATEGORY:Internal			TYPE:Level 20 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Contact Specialist Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO				CATEGORY:Special Ability			TYPE:Contact Specialist Feat												PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 
