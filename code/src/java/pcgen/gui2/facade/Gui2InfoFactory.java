@@ -228,9 +228,13 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 
-			infoText.appendLineBreak();
-			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-				DescriptionFormatting.piWrapDesc(race, pc.getDescription(race), false));
+			String desc = getDescription(raceFacade);
+			if (desc.length() > 0)
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+						desc);
+			}
 
 			LevelCommandFactory levelCommandFactory =
 					race.get(ObjectKey.MONSTER_CLASS);
@@ -1343,24 +1347,7 @@ public class Gui2InfoFactory implements InfoFactory
 				aSpell.getSafe(StringKey.TARGET_AREA));
 		}
 
-		String aString = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
-		if (StringUtils.isEmpty(aString) && originObj instanceof Spell)
-		{
-			Spell sp = (Spell) originObj;
-			aString =
-					DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
-						false);
-		}
-		else if (StringUtils.isEmpty(aString) && originObj instanceof Ability)
-		{
-			Ability ab = (Ability) originObj;
-			List<CNAbility> wrappedAbility =
-					Collections.singletonList(CNAbilityFactory.getCNAbility(ab
-						.getCDOMCategory(), Nature.NORMAL, ab));
-			aString =
-					DescriptionFormatting.piWrapDesc(ab,
-						pc.getDescription(wrappedAbility), false);
-		}
+		String aString = getDescription(tempBonusFacade);
 		if (aString.length() > 0)
 		{
 			infoText.appendLineBreak();
@@ -1938,6 +1925,251 @@ public class Gui2InfoFactory implements InfoFactory
 		catch (Exception e)
 		{
 			Logging.errorPrint("Failed to get description for " + ability, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(RaceFacade raceFacade)
+	{
+		if (raceFacade == null || !(raceFacade instanceof Race))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Race race = (Race) raceFacade;
+			return pc.getDescription(race);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + raceFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(TemplateFacade templateFacade)
+	{
+		if(templateFacade == null || !(templateFacade instanceof PCTemplate)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			PCTemplate template = (PCTemplate) templateFacade;
+			return pc.getDescription(template);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + templateFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(ClassFacade classFacade)
+	{
+		if(classFacade == null || !(classFacade instanceof PCClass)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			PCClass pcClass = (PCClass) classFacade;
+			return pc.getDescription(Collections.singletonList(pcClass));
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + classFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(SkillFacade skillFacade)
+	{
+		if (skillFacade == null || !(skillFacade instanceof Skill))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Skill skill = (Skill) skillFacade;
+			return pc.getDescription(Collections.singletonList(skill));
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + skillFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(EquipmentFacade equipFacade)
+	{
+		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Equipment equip = (Equipment) equipFacade;
+			return pc.getDescription(equip);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + equipFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(KitFacade kitFacade)
+	{
+		if (kitFacade == null || !(kitFacade instanceof Kit))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Kit kit = (Kit) kitFacade;
+			return pc.getDescription(Collections.singletonList(kit));
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + kitFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(DeityFacade deityFacade)
+	{
+		if(deityFacade == null || !(deityFacade instanceof Deity)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Deity deity = (Deity) deityFacade;
+			return pc.getDescription(deity);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + deityFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(DomainFacade domainFacade)
+	{
+		if(domainFacade == null || !(domainFacade instanceof DomainFacadeImpl)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			DomainFacadeImpl domain = (DomainFacadeImpl) domainFacade;
+			Domain dom = domain.getRawObject();
+			if(dom == null){
+				return EMPTY_STRING;
+			}
+			return pc.getDescription(dom);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + domainFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(SpellFacade spellFacade)
+	{
+		if (spellFacade == null || !(spellFacade instanceof SpellFacadeImplem))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			SpellFacadeImplem spell = (SpellFacadeImplem) spellFacade;
+			Spell aSpell = spell.getSpell();
+			if (aSpell == null)
+			{
+				return EMPTY_STRING;
+			}
+			return pc.getDescription(aSpell);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + spellFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(TempBonusFacade tempBonusFacade)
+	{
+		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
+			CDOMObject originObj = tempBonus.getOriginObj();
+			String desc = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
+			if (StringUtils.isEmpty(desc))
+			{
+				if (originObj instanceof Spell)
+				{
+					Spell sp = (Spell) originObj;
+					desc = DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
+							false);
+				}
+				else if (originObj instanceof Ability)
+				{
+					Ability ab = (Ability) originObj;
+					List<CNAbility> wrappedAbility
+							= Collections.singletonList(CNAbilityFactory.getCNAbility(ab
+									.getCDOMCategory(), Nature.NORMAL, ab));
+					desc = DescriptionFormatting.piWrapDesc(ab,
+							pc.getDescription(wrappedAbility), false);
+				}
+			}
+			return desc;
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + tempBonusFacade, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}

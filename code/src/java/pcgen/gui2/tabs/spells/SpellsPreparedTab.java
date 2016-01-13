@@ -459,8 +459,10 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		public TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellsPrepAva");
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getPreparedSpellNodes(), true, "SpellsPrepSel");
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(),
+					false, "SpellsPrepAva", character.getInfoFactory());
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getPreparedSpellNodes(),
+					true, "SpellsPrepSel", character.getInfoFactory());
 		}
 
 		public void install()
