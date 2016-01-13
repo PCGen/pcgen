@@ -1,0 +1,21 @@
+# SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+# Used
+Lawful Good		ABB:LG	KEY:LG		SORTKEY:1a
+Neutral Good	ABB:NG	KEY:NG		SORTKEY:1b
+Chaotic Good	ABB:CG	KEY:CG		SORTKEY:1c
+Lawful Neutral	ABB:LN	KEY:LN		SORTKEY:2a
+Neutral		ABB:TN	KEY:TN		SORTKEY:2b
+Chaotic Neutral	ABB:CN	KEY:CN		SORTKEY:2c
+Lawful Evil		ABB:LE	KEY:LE		SORTKEY:3a
+Neutral Evil	ABB:NE	KEY:NE		SORTKEY:3b
+Chaotic Evil	ABB:CE	KEY:CE		SORTKEY:3c
+Unaligned		ABB:UA	KEY:UA		SORTKEY:4
+None			ABB:NONE	KEY:NONE		SORTKEY:5	VALIDFORDEITY:N		VALIDFORFOLLOWER:N
+Deity's		ABB:Deity	KEY:Deity		SORTKEY:6	VALIDFORDEITY:N		VALIDFORFOLLOWER:N
+
+
+
+
+

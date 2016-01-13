@@ -1,0 +1,212 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+
+Racial Trait ~ Dwarf	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait	
+#Dwarf Traits	CATEGORY:Special Ability	TYPE:Dwarf Trait	
+
+
+Ability Score Increase	KEY:Dwarf ~ Ability Score Increase		CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Constitution score increases by 2.
+#BONUS:STAT|CON|2|TYPE=Racial
+Darkvision			KEY:Dwarf ~ Darkvision				CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Dwarven Resilience	KEY:Dwarf ~ Dwarven Resilience		CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage (explained in chapter 9).	ASPECT:SaveBonus|advantage on saving throws against poison, and you have resistance against poison damage
+Dwarven Combat Training	KEY:Dwarf ~ Dwarven Combat Training		CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.	ABILITY:Weapon|AUTOMATIC|Battleaxe|Handaxe|Light Hammer|Warhammer
+Tool Proficiency		KEY:Dwarf ~ Tool Proficiency			CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.	BONUS:ABILITYPOOL|Dwarf Artisan's Tool Proficiency|1
+Stonecunning		KEY:Dwarf ~ Stonecunning			CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+Languages			KEY:Dwarf ~ Languages				CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.	ABILITY:Language Selection|AUTOMATIC|Common|Dwarvish
+
+# Tool Proficiency
+Smith's Tools		KEY:Tool Proficiency ~ Smith's Tools	CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Smith's Tools.	
+Brewer's Supplies		KEY:Tool Proficiency ~ Brewer's Supplies	CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Brewer's Supplies.	
+Mason's Tools		KEY:Tool Proficiency ~ Mason's Tools	CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Mason's Tools.	
+
+
+Hill Dwarf			KEY:Dwarf Subrace ~ Hill	TYPE:DwarfSubrace	CATEGORY:Internal	ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Ability Score Increase		ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Dwarven Toughness			TEMPLATE:Subrace ~ Hill	
+
+# Hill Dwarf
+Ability Score Increase	KEY:Hill Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Wisdom score increases by 1.		BONUS:STAT|WIS|1|TYPE=Racial
+Dwarven Toughness		KEY:Hill Dwarf ~ Dwarven Toughness		CATEGORY:Special Ability	SOURCEPAGE:p.	SORTKEY:1_Race	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.	BONUS:HP|CURRENTMAX|TL
+
+###Block: Elf
+Racial Trait ~ Elf	CATEGORY:Internal		BONUS:ABILITYPOOL|Elf Subrace|1	ABILITY:Elf Trait|AUTOMATIC|TYPE=Base Elf Trait
+
+Ability Score Increase	KEY:Elf ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Dexterity score increases by 2.
+#BONUS:STAT|DEX|2|TYPE=Racial
+Darkvision			KEY:Elf ~ Darkvision			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Keen Senses			KEY:Elf ~ Keen Senses			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency in the Perception skill.	ABILITY:Skill|AUTOMATIC|Perception
+Fey Ancestry		KEY:Elf ~ Fey Ancestry			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+Trance			KEY:Elf ~ Trance				CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+Languages			KEY:Elf ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.	ABILITY:Language Selection|AUTOMATIC|Common|Elvish
+
+# Elf Subrace Selection
+High Elf			KEY:Elf Subrace ~ High	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Cantrip					ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Extra Language													TEMPLATE:Subrace ~ High
+
+# High Elf
+Ability Score Increase	KEY:High Elf ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 1.	BONUS:STAT|INT|1|TYPE=Racial
+Elf Weapon Training	KEY:High Elf ~ Elf Weapon Training		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	ABILITY:Weapon|AUTOMATIC|Longsword|Shortsword|Shortbow|Longbow
+Cantrip			KEY:High Elf ~ Cantrip				CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it. Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+INT|Proficiency_Bonus+INT	DEFINE:POOL_Wizard_Cantrip|0	BONUS:VAR|POOL_Wizard_Cantrip|1
+Extra Language		KEY:High Elf ~ Extra Language			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write one extra language of your choice.	BONUS:ABILITYPOOL|Language Selection|1
+
+###Block: Halfling
+Racial Trait ~ Halfling	CATEGORY:Internal	BONUS:ABILITYPOOL|Halfling Subrace|1	ABILITY:Halfling Trait|AUTOMATIC|TYPE=Base Halfling Trait
+
+Lucky						KEY:Halfling ~ Lucky			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+Brave						KEY:Halfling ~ Brave			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being frightened.
+Halfling Nimbleness			KEY:Halfling ~ Halfling Nimbleness	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can move through the space of any creature that is of a size larger than yours.
+Languages					KEY:Halfling ~ Languages		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.	ABILITY:Language Selection|AUTOMATIC|Common|Halfling
+
+# Halfing Selection
+Lightfoot			KEY:Halfling Subrace ~ Lightfoot	TYPE:HalflingSubrace	CATEGORY:Internal	ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Ability Score Increase			ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Naturally Stealthy		TEMPLATE:Subrace ~ Lightfoot	
+
+# Lightfoot
+Ability Score Increase		KEY:Lightfoot Halfling ~ Ability Score Increase				CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Charisma score increases by 1.	BONUS:STAT|CHA|1|TYPE=Racial
+Naturally Stealthy		KEY:Lightfoot Halfling ~ Naturally Stealthy				CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+
+
+###Block: Human
+Racial Trait ~ Human	CATEGORY:Internal	ABILITY:Human Trait|AUTOMATIC|Human ~ Languages|Human ~ Ability Score Increase
+
+# Default Human
+Ability Score Increase		KEY:Human ~ Ability Score Increase				CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your ability scores each increase by 1.	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|1|TYPE=Racial
+Languages				KEY:Human ~ Languages						CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.	ABILITY:Language Selection|AUTOMATIC|Common	BONUS:VAR|POOL_Language|1
+
+
+# Dragonborn
+Racial Trait ~ Dragonborn	CATEGORY:Internal	ABILITY:Dragonborn Trait|AUTOMATIC|TYPE=Base Dragonborn Trait	DEFINE:DragonbornBreathWeaponLine|0	DEFINE:DragonbornBreathWeaponCone|0
+
+Ability Score Increase	KEY:Dragonborn ~ Ability Score Increase			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Strength score increases by 2, and your Charisma score increases by 1.
+#BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CHA|1|TYPE=Racial
+
+
+# Line
+Black		KEY:Dragonborn Ancestry ~ Black	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponLine,DragonbornBreathWeapon_Acid|1|TYPE=Base	DESC:You have Black Dragonborn Ancestry		TEMPLATE:Subrace ~ Black
+Blue		KEY:Dragonborn Ancestry ~ Blue	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponLine,DragonbornBreathWeapon_Lightning|1|TYPE=Base	DESC:You have Blue Dragonborn Ancestry		TEMPLATE:Subrace ~ Blue
+Brass		KEY:Dragonborn Ancestry ~ Brass	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponLine,DragonbornBreathWeapon_Fire|1|TYPE=Base	DESC:You have Dragonborn Ancestry		TEMPLATE:Subrace ~ Brass
+Bronze	KEY:Dragonborn Ancestry ~ Bronze	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponLine,DragonbornBreathWeapon_Lightning|1|TYPE=Base	DESC:You have Bronze Brass Dragonborn Ancestry			TEMPLATE:Subrace ~ Bronze
+Copper	KEY:Dragonborn Ancestry ~ Copper	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponLine,DragonbornBreathWeapon_Acid|1|TYPE=Base	DESC:You have Copper Dragonborn Ancestry			TEMPLATE:Subrace ~ Copper
+# Cone									
+Gold		KEY:Dragonborn Ancestry ~ Gold	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponCone,DragonbornBreathWeapon_Fire|1|TYPE=Base	DESC:You have Gold Dragonborn Ancestry		TEMPLATE:Subrace ~ Gold
+Green		KEY:Dragonborn Ancestry ~ Green	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponConSave,DragonbornBreathWeaponCone,DragonbornBreathWeapon_Poison|1|TYPE=Base	DESC:You have Green Dragonborn Ancestry		TEMPLATE:Subrace ~ Green
+Red		KEY:Dragonborn Ancestry ~ Red		CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponDexSave,DragonbornBreathWeaponCone,DragonbornBreathWeapon_Fire|1|TYPE=Base	DESC:You have Red Dragonborn Ancestry	TEMPLATE:Subrace ~ Red
+Silver	KEY:Dragonborn Ancestry ~ Silver	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponConSave,DragonbornBreathWeaponCone,DragonbornBreathWeapon_Cold|1|TYPE=Base	DESC:You have Silver Dragonborn Ancestry			TEMPLATE:Subrace ~ Silver
+White		KEY:Dragonborn Ancestry ~ White	CATEGORY:Special Ability	TYPE:Dragonborn Ancestry	BONUS:VAR|DragonbornBreathWeaponConSave,DragonbornBreathWeaponCone,DragonbornBreathWeapon_Cold|1|TYPE=Base	DESC:You have White Dragonborn Ancestry		TEMPLATE:Subrace ~ White
+#
+Draconic Ancestry		KEY:Dragonborn ~ Draconic Ancestry					CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have draconic ancestry.	DESC:Black. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Black	DESC:Blue. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Blue	DESC:Brass. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Brass	DESC:Bronze. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Bronze	DESC:Copper. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Copper	DESC:Gold. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Gold	DESC:Green. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Green	DESC:Red. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Red	DESC:Silver. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ Silver	DESC:White. |PREABILITY:1,CATEGORY=Special Ability,Dragonborn Ancestry ~ White	DESC:Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.		BONUS:ABILITYPOOL|Dragonborn Ancestry|1
+Breath Weapon		KEY:Dragonborn ~ Breath Weapon					CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can use your action to exhale destructive energy.	DESC: 5 by 30 ft. line|PREVAREQ:DragonbornBreathWeaponLine,1	DESC: 15 ft. cone|PREVAREQ:DragonbornBreathWeaponCone,1	DESC: (Dex. save)|PREVAREQ:DragonbornBreathWeaponDexSave,1	DESC: (Con. save)|PREVAREQ:DragonbornBreathWeaponConSave,1	DESC: Acid. |PREVAREQ:DragonbornBreathWeapon_Acid,1	DESC: Lightning. |PREVAREQ:DragonbornBreathWeapon_Lightning,1	DESC: Poison. |PREVAREQ:DragonbornBreathWeapon_Poison,1	DESC: Fire. |PREVAREQ:DragonbornBreathWeapon_Fire,1	DESC: Cold. |PREVAREQ:DragonbornBreathWeapon_Cold,1	DESC:When you use your breath weapon, each creature in the area of the exhalation must make a saving throw. The DC for this saving throw equals %1. A creature takes %2d6 damage on a failed save, and half as much damage on a successful one. After you use your breath weapon, you can't use it again until you complete a short or long rest.|8+Proficiency_Bonus+CON|DragonbornBreathWeaponDice	DEFINE:DragonbornBreathWeaponDice|0		BONUS:VAR|DragonbornBreathWeaponDice|2+(TL>5)+(TL>10)+(TL>15)	DEFINE:DragonbornBreathWeapon_Acid|0	DEFINE:DragonbornBreathWeapon_Lightning|0	DEFINE:DragonbornBreathWeapon_Fire|0	DEFINE:DragonbornBreathWeapon_Poison|0	DEFINE:DragonbornBreathWeapon_Cold|0	DEFINE:DragonbornBreathWeaponDexSave|0	DEFINE:DragonbornBreathWeaponConSave|0
+Damage Resistance		KEY:Dragonborn ~ Damage Resistance					CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have resistance to the damage type associated with your draconic ancestry.	DESC: Acid. |PREVAREQ:DragonbornBreathWeapon_Acid,1	DESC: Lightning. |PREVAREQ:DragonbornBreathWeapon_Lightning,1	DESC: Poison. |PREVAREQ:DragonbornBreathWeapon_Poison,1	DESC: Fire. |PREVAREQ:DragonbornBreathWeapon_Fire,1	DESC: Cold. |PREVAREQ:DragonbornBreathWeapon_Cold,1	
+Languages			KEY:Dragonborn ~ Languages						CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.		ABILITY:Language Selection|AUTOMATIC|Common|Draconic
+
+# Gnome
+Racial Trait ~ Gnome	CATEGORY:Internal	ABILITY:Gnome Trait|AUTOMATIC|TYPE=Base Gnome Trait	BONUS:ABILITYPOOL|Gnome Subrace|1
+
+Ability Score Increase	KEY:Gnome ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 2.
+#BONUS:STAT|INT|2|TYPE=Racial
+Darkvision			KEY:Gnome ~ Darkvision			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it w ere bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Languages			KEY:Gnome ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.	ABILITY:Language Selection|AUTOMATIC|Common|Gnomish
+Gnome Cunning		KEY:Gnome ~ Gnome Cunning		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.																																																																																																																					
+# Subrace
+Rock Gnome			KEY:Gnome Subrace ~ Rock		CATEGORY:Internal			TYPE:GnomeSubrace																																																																																																																																																													TEMPLATE:Subrace ~ Rock		ABILITY:Gnome Trait|AUTOMATIC|TYPE=Rock Gnome Trait							BONUS:STAT|CON|1|TYPE=Racial
+# Rock
+Artificer's Lore		KEY:Gnome ~ Artificer's Lore		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Trait.Rock Gnome Trait.Default.SpecialQuality		DESC:Whenever you make a History check related to magic items, alchemical objects, ar technological devices, you can add twice your proficiency bonus (%1), instead of any proficiency bonus you normally appIy.|2*Proficiency_Bonus																																																																																																																																																											SOURCEPAGE:p.
+Tinker			KEY:Gnome ~ Tinker			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Trait.Rock Gnome Trait.Default.SpecialQuality		DESC:You have proficiency with tinker's tools. Using those tools, you can spend 1 hour and 10 gp worth of materiaIs to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours. (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materiaIs used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options: Clockwork Toy: This toy is a clockwork animal or person, such as a frog, mouse, bird, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. Fire Starter: The device produces a miniature flame, which you can use to light something like a candle, torch, or campfire. Using the device requires your action. Music Box: When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.			ABILITY:Gnome Trait|AUTOMATIC|Tool Proficiency ~ Tinker's Tools																								SOURCEPAGE:p.
+Tinker's Tools		KEY:Tool Proficiency ~ Tinker's Tools	CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Rock Gnome Trait.Default.SpecialQuality		SOURCEPAGE:p.	SORTKEY:1_Race	DESC:Proficient with Artisan Tinker's Tools.
+# Third subrace not defined.
+
+
+
+###Block: Half-Elf
+# Ability Name		Unique Key				Category of Ability		Type												Description													Multiple?	Choose					Ability											Stat bonus		Source Page
+Racial Trait ~ Half-Elf						CATEGORY:Internal	ABILITY:Half-Elf Trait|AUTOMATIC|TYPE=Base Half-Elf Trait
+#
+Ability Score Increase	KEY:Half-Elf ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.	BONUS:ABILITYPOOL|Half-Elf Stat Choice|2
+#BONUS:STAT|CHA|2|TYPE=Racial	
+Darkvision			KEY:Half-Elf ~ Darkvision			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Skill Versatility		KEY:Half-Elf ~ Skill Versatility		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain proficiency in two skills of your choice.	BONUS:ABILITYPOOL|Skill Proficiency|2
+Languages			KEY:Half-Elf ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common, Elvish, and one extra language of your choice.		ABILITY:Language Selection|AUTOMATIC|Common|Elvish	BONUS:ABILITYPOOL|Language Selection|1
+Fey Ancestry		KEY:Half-Elf ~ Fey Ancestry			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on all saving throws against being charmed or put to sleep.
+#
+Half-Elf Stat Choice						CATEGORY:Internal																											STACK:NO	MULT:YES	CHOOSE:PCSTAT|CON|DEX|INT|STR|WIS													BONUS:STAT|LIST|1|TYPE=Racial
+
+###Block: Half-Orc
+# Ability Name		Unique Key						Category of Ability		Type												Description										Ability											Source Page
+Racial Trait ~ Half-Orc								CATEGORY:Internal		ABILITY:Half-Orc Trait|AUTOMATIC|TYPE=Base Half-Orc Trait
+#
+Ability Score Increase	KEY:Half-Orc ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Strength score increases by 2, and your Constitution score increases by 1.	
+#BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CON|1|TYPE=Racial
+Darkvision			KEY:Half-Orc ~ Darkvision			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.		BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Menacing			KEY:Half-Orc ~ Menacing				CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain proficiency in the Intimidation skill.	ABILITY:Skill|AUTOMATIC|Intimidation
+Relentless Endurance	KEY:Half-Orc ~ Relentless Endurance		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.	DESC:When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.
+Savage Attacks		KEY:Half-Orc ~ Savage Attacks			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.	DESC:When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.
+Languages			KEY:Half-Orc ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.	ABILITY:Language Selection|AUTOMATIC|Common|Orc
+
+###Block: Tiefling
+Racial Trait ~ Tiefling								CATEGORY:Internal		ABILITY:Tiefling Trait|AUTOMATIC|TYPE=Base Tiefling Trait
+#
+Ability Score Increase	KEY:Tiefling ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 1, and your Charisma score increases by 2.	
+#BONUS:STAT|INT|1|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial
+Darkvision			KEY:Tiefling ~ Darkvision			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Hellish Resistance	KEY:Tiefling ~ Hellish Resistance		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have resistance to fire damage.
+Infernal Legacy		KEY:Tiefling ~ Infernal Legacy		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells. Spell save DC %1.|8+Proficiency_Bonus+CHA	SPELLS:Infernal Legacy|TIMES=ATWILL|Thaumaturgy	SPELLS:Infernal Legacy|TIMES=1|TIMEUNIT=Day|Hellish Rebuke,8+CHA+Proficiency_Bonus|PRELEVEL:MIN=3	SPELLS:Infernal Legacy|TIMES=1|TIMEUNIT=Day|Darkness|PRELEVEL:MIN=5
+Languages			KEY:Tiefling ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Infernal.		ABILITY:Language Selection|AUTOMATIC|Common|Infernal
+
+
++1 Strength		KEY:Ability Score +1 ~ STR	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|STR|1	SORTKEY:AbilityScore_1	PREVARLT:STRSCORE,20
++1 Dexterity	KEY:Ability Score +1 ~ DEX	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|DEX|1	SORTKEY:AbilityScore_2	PREVARLT:DEXSCORE,20
++1 Constitution	KEY:Ability Score +1 ~ CON	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|CON|1	SORTKEY:AbilityScore_3	PREVARLT:CONSCORE,20
++1 Intelligence	KEY:Ability Score +1 ~ INT	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|INT|1	SORTKEY:AbilityScore_4	PREVARLT:INTSCORE,20
++1 Wisdom		KEY:Ability Score +1 ~ WIS	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|WIS|1	SORTKEY:AbilityScore_5	PREVARLT:WISSCORE,20
++1 Charisma		KEY:Ability Score +1 ~ CHA	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|CHA|1	SORTKEY:AbilityScore_6	PREVARLT:CHASCORE,20
+
+
+
+###Block: Backgrounds
+No Background	KEY:Background ~ No Background		CATEGORY:Special Ability					SORTKEY:Background_0	TYPE:Background									
+Acolyte		KEY:Background ~ Acolyte			CATEGORY:Special Ability	TEMPLATE:Acolyte		SORTKEY:Background_1	TYPE:Background.Background Selection.SpecialQuality		ABILITY:Special Ability|AUTOMATIC|Acolyte ~ Shelter of the Faithful	ABILITY:Skill|AUTOMATIC|Insight|Religion	BONUS:ABILITYPOOL|Language Selection|2	BONUS:ABILITYPOOL|Acolyte Personality Trait|2	BONUS:ABILITYPOOL|Acolyte Ideal|1	BONUS:ABILITYPOOL|Acolyte Bond|POOL_Background_Bond	BONUS:ABILITYPOOL|Acolyte Flaw|1	DESC:Equipment: A holy symbol (a gift to you when you entered the priesthood), a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of common clothes, and a belt pouch containing 15 gp	ASPECT:Skills Gained|Insight & Religion		DESC: Gain Insight & Religion as class skills
+Custom		KEY:Background ~ Custom				CATEGORY:Special Ability					SORTKEY:Background_1	TYPE:Background.Background Selection.SpecialQuality			BONUS:ABILITYPOOL|Custom Personality Trait|2	BONUS:ABILITYPOOL|Custom Ideal|1	BONUS:ABILITYPOOL|Custom Bond|POOL_Background_Bond	BONUS:ABILITYPOOL|Custom Flaw|1	DESC:Select your own custom background.
+
+
+# Acolyte
+Feature: Shelter of the Faithful	KEY:Acolyte ~ Shelter of the Faithful	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.
+
+###Block: Background Traits
+# d8 Personality Trait
+Acolyte Personality Trait ~ 1		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.
+Acolyte Personality Trait ~ 2		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.
+Acolyte Personality Trait ~ 3		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I see omens in every event and action. The gods try to speak to us, we just need to listen
+Acolyte Personality Trait ~ 4		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:Nothing can shake my optimistic attitude.
+Acolyte Personality Trait ~ 5		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I quote (or misquote) sacred texts and proverbs in almost every situation.
+Acolyte Personality Trait ~ 6		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.
+Acolyte Personality Trait ~ 7		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me.
+Acolyte Personality Trait ~ 8		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I've spent so long in the temple that I have little practical experience dealing with people in the outside world.
+Acolyte Personality Trait ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO
+# d6 Ideal
+Acolyte Ideal ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)
+Acolyte Ideal ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Charity. I always try to help those in need, no matter what the personal cost. (Good)
+Acolyte Ideal ~ 3				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)
+Acolyte Ideal ~ 4				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Power. I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)
+Acolyte Ideal ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Faith. I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)
+Acolyte Ideal ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Aspiration. I seek to prove myself worthy of my god's favor by matching my actions against his or her teachings. (Any)
+Acolyte Ideal ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO
+# d6 Bond
+Acolyte Bond ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I would die to recover an ancient relic of my faith that was lost long ago.
+Acolyte Bond ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.
+Acolyte Bond ~ 3				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I owe my life to the priest who took me in when my parents died.
+Acolyte Bond ~ 4				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:Everything I do is for the common people.
+Acolyte Bond ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I will do anything to protect the temple where I served.
+Acolyte Bond ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.
+Acolyte Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
+# d6 Flaw
+Acolyte Flaw ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I judge others harshly, and myself even more severely.
+Acolyte Flaw ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I put too much trust in those who wield power within my temple's hierarchy.
+Acolyte Flaw ~ 3				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:My piety sometimes leads me to blindly trust those that profess faith in my god.
+Acolyte Flaw ~ 4				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I am inflexible in my thinking.
+Acolyte Flaw ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I am suspicious of strangers and expect the worst of them.
+Acolyte Flaw ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.
+Acolyte Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO
+
+
+Custom Personality Trait ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Custom Personality Trait				DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO
+Custom Ideal ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Custom Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO
+Custom Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Custom Bond						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
+Custom Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Custom Flaw						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO
+
