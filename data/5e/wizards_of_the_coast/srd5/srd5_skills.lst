@@ -1,0 +1,33 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+
+# Strength
+# Skill Name	Key Stat	Visible
+Athletics		KEYSTAT:STR	VISIBLE:EXPORT
+# Dexterity
+Acrobatics		KEYSTAT:DEX	VISIBLE:EXPORT
+Sleight of Hand	KEYSTAT:DEX	VISIBLE:EXPORT
+Stealth		KEYSTAT:DEX	VISIBLE:EXPORT
+# Intelligence
+Arcana		KEYSTAT:INT	VISIBLE:EXPORT
+History		KEYSTAT:INT	VISIBLE:EXPORT
+Investigation	KEYSTAT:INT	VISIBLE:EXPORT
+Nature		KEYSTAT:INT	VISIBLE:EXPORT
+Religion		KEYSTAT:INT	VISIBLE:EXPORT
+# Wisdom
+Animal Handling	KEYSTAT:WIS	VISIBLE:EXPORT
+Insight		KEYSTAT:WIS	VISIBLE:EXPORT
+Medicine		KEYSTAT:WIS	VISIBLE:EXPORT
+Perception		KEYSTAT:WIS	VISIBLE:EXPORT
+Survival		KEYSTAT:WIS	VISIBLE:EXPORT
+# Charisma
+Deception		KEYSTAT:CHA	VISIBLE:EXPORT
+Intimidation	KEYSTAT:CHA	VISIBLE:EXPORT
+Performance		KEYSTAT:CHA	VISIBLE:EXPORT
+Persuasion		KEYSTAT:CHA	VISIBLE:EXPORT
+
+
+
+
+

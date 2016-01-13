@@ -1,0 +1,82 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+# Celtic Deities
+#Deity Alignment Suggested Domains Symbol
+The Daghdha		FACT:Title|The Daghdha, god of weather and crops			KEY:Celtic ~ The Daghdha	ALIGN:CG	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Nature, Trickery Bubbling cauldron or shield
+Arawn			FACT:Title|Arawn, god of life and death					KEY:Celtic ~ Arawn		ALIGN:NE	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Life, Death Black star on gray background
+Belenus		FACT:Title|Belenus, god of sun, light, and warmth			KEY:Celtic ~ Belenus		ALIGN:NG	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Light Solar disk and standing stones
+Brigantia		FACT:Title|Brigantia, goddess of rivers and livestock		KEY:Celtic ~ Brigantia		ALIGN:NG	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Life Footbridge
+Diancecht		FACT:Title|Diancecht, god of medicine and healing			KEY:Celtic ~ Diancecht		ALIGN:LG	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Life Crossed oak and mistletoe branches
+Dunatis		FACT:Title|Dunatis, god of mountains and peaks				KEY:Celtic ~ Dunatis		ALIGN:TN	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Nature Red sun-capped mountain peak
+Goibhniu		FACT:Title|Goibhniu, god of smiths and healing				KEY:Celtic ~ Goibhniu		ALIGN:NG	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Knowledge, Life Giant mallet over sword
+Lugh			FACT:Title|Lugh, god of arts, travel, and commerce			KEY:Celtic ~ Lugh			ALIGN:CN	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Knowledge, Life Pair of long hands
+Manannan mac Lir	FACT:Title|Manannan mac Lir, god of oceans and sea creatures	KEY:Celtic ~ Manannan mac Lir	ALIGN:LN	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Nature, Tempest Wave of white water on green
+Math Mathonwy	FACT:Title|Math Mathonwy, god of magic					KEY:Celtic ~ Math Mathonwy	ALIGN:NE	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Knowledge Staff
+Morrigan		FACT:Title|Morrigan, goddess of battle					KEY:Celtic ~ Morrigan		ALIGN:CE	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:War Two crossed spears
+Nuada			FACT:Title|Nuada, god of war and warriors				KEY:Celtic ~ Nuada		ALIGN:TN	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:War Silver hand on black background
+Oghma			FACT:Title|Oghma, god of speech and writing				KEY:Celtic ~ Oghma		ALIGN:NG	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Knowledge Unfurled scroll
+Silvanus		FACT:Title|Silvanus, god of nature and forests				KEY:Celtic ~ Silvanus		ALIGN:TN	SORTKEY:04_Celtic	FACTSET:Pantheon|Celtic	DESC:Nature Summer oak tree
+
+# Greek Deities
+#Deity Alignment Suggested Domains Symbol
+Zeus		FACT:Title|Zeus, god of the sky, ruler of the gods		KEY:Zeus		ALIGN:TN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Tempest Fist full of lightning bolts
+Aphrodite	FACT:Title|Aphrodite, goddess of love and beauty		KEY:Aphrodite	ALIGN:CG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Light Sea shell
+Apollo	FACT:Title|Apollo, god of light, music, and healing		KEY:Apollo		ALIGN:CG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Knowledge, Life, Light Lyre
+Ares		FACT:Title|Ares, god of war and strife				KEY:Ares		ALIGN:CE	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:War Spear
+Artemis	FACT:Title|Artemis, goddess of hunting and childbirth	KEY:Artemis		ALIGN:NG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Life, Nature Bow and arrow on lunar disk
+Athena	FACT:Title|Athena, goddess of wisdom and civilization	KEY:Athena		ALIGN:LG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Knowledge, War Owl
+Demeter	FACT:Title|Demeter, goddess of agriculture			KEY:Demeter		ALIGN:NG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Life Mare's head
+Dionysus	FACT:Title|Dionysus, god of mirth and wine			KEY:Dionysus	ALIGN:CN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Life Thyrsus (staff tipped with pine cone)
+Hades		FACT:Title|Hades, god of the underworld				KEY:Hades		ALIGN:LE	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Death Black ram
+Hecate	FACT:Title|Hecate, goddess of magic and the moon		KEY:Hecate		ALIGN:CE	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Knowledge, Trickery Setting moon
+Hephaestus	FACT:Title|Hephaestus, god of smithing and craft		KEY:Hephaestus	ALIGN:NG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Knowledge Hammer and anvil
+Hera		FACT:Title|Hera, goddess of marriage and intrigue		KEY:Hera		ALIGN:CN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Trickery Fan of peacock feathers
+Hercules	FACT:Title|Hercules, god of strength and adventure		KEY:Hercules	ALIGN:CG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Tempest, War Lion's head
+Hermes	FACT:Title|Hermes, god of travel and commerce			KEY:Hermes		ALIGN:CG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Trickery Caduceus (winged staff and serpents)
+Hestia	FACT:Title|Hestia, goddess of home and family			KEY:Hestia		ALIGN:NG	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Life Hearth
+Nike		FACT:Title|Nike, goddess of victory				KEY:Nike		ALIGN:LN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:War Winged woman
+Pan		FACT:Title|Pan, god of nature					KEY:Pan		ALIGN:CN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Nature Syrinx (pan pipes)
+Poseidon	FACT:Title|Poseidon, god of the sea and earthquakes		KEY:Poseidon	ALIGN:CN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Tempest Trident
+Tyche		FACT:Title|Tyche, goddess of good fortune			KEY:Tyche		ALIGN:TN	SORTKEY:04_Greek	FACTSET:Pantheon|Greek	DESC:Trickery Red pentagram
+
+# Egyptian Deities
+#Deity Alignment Suggested Domains Symbol
+Re-Horakhty	FACT:Title|Re-Horakhty, god of the sun, ruler of the gods		KEY:Re-Horakhty	ALIGN:LG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Life, Light Solar disk encircled by serpent
+Anubis	FACT:Title|Anubis, god of judgment and death				KEY:Anubis		ALIGN:LN	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Death Black jackal
+Apep		FACT:Title|Apep, god of evil, fire, and serpents			KEY:Apep		ALIGN:NE	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Trickery Flaming snake
+Bast		FACT:Title|Bast, goddess of cats and vengeance				KEY:Bast		ALIGN:CG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:War Cat
+Bes		FACT:Title|Bes, god of luck and music					KEY:Bes		ALIGN:CN	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Trickery Image of the misshapen deity
+Hathor	FACT:Title|Hathor, goddess of love, music, and motherhood		KEY:Hathor		ALIGN:NG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Life, Light Horned cow's head with lunar disk
+Imhotep	FACT:Title|Imhotep, god of crafts and medicine				KEY:Imhotep		ALIGN:NG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Knowledge Step pyramid
+Isis		FACT:Title|Isis, goddess of fertility and magic			KEY:Isis		ALIGN:NG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Knowledge, Life Ankh and star
+Nephthys	FACT:Title|Nephthys, goddess of death and grief			KEY:Nephthys	ALIGN:CG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Death Horns around a lunar disk
+Osiris	FACT:Title|Osiris, god of nature and the underworld			KEY:Osiris		ALIGN:LG	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Life, Nature Crook and flail
+Ptah		FACT:Title|Ptah, god of crafts, knowledge, and secrets		KEY:Ptah		ALIGN:LN	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Knowledge Bull
+Set		FACT:Title|Set, god of darkness and desert storms			KEY:Set		ALIGN:CE	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Death, Tempest, Trickery Coiled cobra
+Sobek		FACT:Title|Sobek, god of water and crocodiles				KEY:Sobek		ALIGN:LE	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Nature, Tempest Crocodile head with horns and plumes
+Thoth		FACT:Title|Thoth, god of knowledge and wisdom				KEY:Thoth		ALIGN:TN	SORTKEY:05_Egyptian	FACTSET:Pantheon|Egyptian	DESC:Knowledge Ibis
+
+# Norse Deities
+#Deity Alignment Suggested Domains Symbol
+Odin		FACT:Title|Odin, god of knowledge and war			KEY:Norse ~ Odin		ALIGN:NG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Knowledge, War Watching blue eye
+Aegir		FACT:Title|Aegir, god of the sea and storms			KEY:Norse ~ Aegir		ALIGN:NE	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Tempest Rough ocean waves
+Balder	FACT:Title|Balder, god of beauty and poetry			KEY:Norse ~ Balder	ALIGN:NG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Life, Light Gem-encrusted silver chalice
+Forseti	FACT:Title|Forseti, god of justice and law			KEY:Norse ~ Forseti	ALIGN:TN	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Light Head of a bearded man
+Frey		FACT:Title|Frey, god of fertility and the sun			KEY:Norse ~ Frey		ALIGN:NG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Life, Light Ice-blue greatsword
+Freya		FACT:Title|Freya, goddess of fertility and love		KEY:Norse ~ Freya		ALIGN:NG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Life Falcon
+Frigga	FACT:Title|Frigga, goddess of birth and fertility		KEY:Norse ~ Frigga	ALIGN:TN	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Life, Light Cat
+Heimdall	FACT:Title|Heimdall, god of watchfulness and loyalty		KEY:Norse ~ Heimdall	ALIGN:LG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Light, War Curling musical horn
+Hel		FACT:Title|Hel, goddess of the underworld			KEY:Norse ~ Hel		ALIGN:NE	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Death Woman's face, rotting on one side
+Hermod	FACT:Title|Hermod, god of luck					KEY:Norse ~ Hermod	ALIGN:CN	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Trickery Winged scroll
+Loki		FACT:Title|Loki, god of thieves and trickery			KEY:Norse ~ Loki		ALIGN:CE	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Trickery Flame
+Njord		FACT:Title|Njord, god of sea and wind				KEY:Norse ~ Njord		ALIGN:NG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Nature, Tempest Gold coin
+Odur		FACT:Title|Odur, god of light and the sun			KEY:Norse ~ Odur		ALIGN:CG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Light Solar disk
+Sif		FACT:Title|Sif, goddess of war					KEY:Norse ~ Sif		ALIGN:CG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:War Upraised sword
+Skadi		FACT:Title|Skadi, god of earth and mountains			KEY:Norse ~ Skadi		ALIGN:TN	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Nature Mountain peak
+Surtur	FACT:Title|Surtur, god of fire giants and war			KEY:Norse ~ Surtur	ALIGN:LE	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:War Flaming sword
+Thor		FACT:Title|Thor, god of storms and thunder			KEY:Norse ~ Thor		ALIGN:CG	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Tempest, War Hammer
+Thrym		FACT:Title|Thrym, god of fire giants and cold			KEY:Norse ~ Thrym		ALIGN:CE	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:War White double-bladed axe
+Tyr		FACT:Title|Tyr, god of courage and strategy			KEY:Norse ~ Tyr		ALIGN:LN	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Knowledge, War Sword
+Uller		FACT:Title|Uller, god of hunting and winter			KEY:Norse ~ Uller		ALIGN:CN	SORTKEY:05_Norse	FACTSET:Pantheon|Norse	DESC:Nature Longbow
+

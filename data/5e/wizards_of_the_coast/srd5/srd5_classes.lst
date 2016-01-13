@@ -1,0 +1,555 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+
+CLASS:Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
+# Class Name	Hit Dice	Type			Max Level	Combat bonus
+CLASS:Barbarian	HD:12		TYPE:PC.BASE	MAXLEVEL:20
+CLASS:Barbarian	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Barbarian],[PRECLASS:1,Barbarian=1]
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Barbarian
+###Block: Abilities
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|Barbarian ~ Unarmored Defense
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Danger Sense|Barbarian ~ Reckless Attack
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Path
+4	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Ability Score Improvement
+5	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Extra Attack|Barbarian ~ Fast Movement
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Feral Instinct
+9	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Brutal Critical
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Relentless Rage
+15	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Persistent Rage
+18	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Might
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Champion
+
+
+CLASS:Bard	SOURCEPAGE:p.	HD:8		TYPE:PC.BASE	MAXLEVEL:20	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL
+CLASS:Bard	BONUS:VAR|SpellCasterTotalLVL|BardLVL	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Bard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Bard],[PRECLASS:1,Bard=1]
+CLASS:Bard	FACT:SpellType|Arcane	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Bard|CL	MEMORIZE:NO
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Bard
+###Block
+1	CAST:1,1
+2	CAST:1,1
+3	CAST:1,1,0
+4	CAST:1,1,0
+5	CAST:1,1,0,0
+6	CAST:1,1,0,0
+7	CAST:1,1,0,0,0
+8	CAST:1,1,0,0,0
+9	CAST:1,1,0,0,0,0
+10	CAST:1,1,0,0,0,0
+11	CAST:1,1,0,0,0,0,0
+12	CAST:1,1,0,0,0,0,0
+13	CAST:1,1,0,0,0,0,0,0
+14	CAST:1,1,0,0,0,0,0,0
+15	CAST:1,1,0,0,0,0,0,0,0
+16	CAST:1,1,0,0,0,0,0,0,0
+17	CAST:1,1,0,0,0,0,0,0,0,0
+18	CAST:1,1,0,0,0,0,0,0,0,0
+19	CAST:1,1,0,0,0,0,0,0,0,0
+20	CAST:1,1,0,0,0,0,0,0,0,0
+###Block
+1	KNOWN:0,4
+2	KNOWN:0,5
+3	KNOWN:0,4,2
+4	KNOWN:0,3,4
+5	KNOWN:0,2,4,2
+6	KNOWN:0,1,4,4
+7	KNOWN:0,0,4,4,2
+8	KNOWN:0,0,3,4,4
+9	KNOWN:0,0,2,4,4,2
+10	KNOWN:0,0,1,4,4,3
+11	KNOWN:0,0,0,4,4,3,2
+12	KNOWN:0,0,0,3,4,3,3
+13	KNOWN:0,0,0,2,4,3,3,2
+14	KNOWN:0,0,0,1,4,3,3,3
+15	KNOWN:0,0,0,0,4,3,3,3,2
+16	KNOWN:0,0,0,0,3,3,3,3,3
+17	KNOWN:0,0,0,0,2,3,3,3,3,2
+18	KNOWN:0,0,0,0,1,3,3,3,3,3
+19	KNOWN:0,0,0,0,0,3,3,3,3,4
+20	KNOWN:0,0,0,0,0,2,3,3,3,5
+###Block
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Spellcasting
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Inspiration
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Song of Rest
+3	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bard College
+3	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Expertise
+4	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Ability Score Improvement
+5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Font of Inspiration
+6	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Countercharm
+10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Magical Secrets
+20	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Superior Inspiration
+
+
+# Class Name	Hit Dice	Type			Ability														Bonus to Ability Pool
+CLASS:Cleric	HD:8		TYPE:PC.Base	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL	BONUS:VAR|SpellCasterTotalLVL|ClericLVL	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Cleric	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Cleric],[PRECLASS:1,Cleric=1]	MEMORIZE:YES
+# Class Name	Spell Stat		Caster level
+CLASS:Cleric	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Cleric|CL
+CLASS:Cleric	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Cleric
+###Block
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,3,1,1,1,1
+19	CAST:0,4,3,3,3,3,2,1,1,1
+20	CAST:0,4,3,3,3,3,2,2,1,1
+###Block
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Cantrips
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spellcasting Ability
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Divine Domain
+2	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Channel Divinity
+4	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Ability Score Improvement
+5	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Destroy Undead
+10	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Divine Intervention
+
+
+CLASS:Druid	HD:8		TYPE:PC.Base		DEFINE:DruidLVL|0	BONUS:VAR|DruidLVL|CL	BONUS:VAR|SpellCasterTotalLVL|DruidLVL	BONUS:VAR|SpellCasterClassCount|1	AUTO:LANG|Druidic
+CLASS:Druid	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Druid],[PRECLASS:1,Druid=1]	MEMORIZE:YES
+CLASS:Druid	SPELLSTAT:WIS	FACT:SpellType|Divine
+CLASS:Druid	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+CLASS:Druid	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Druid|CL
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Druid
+###Block
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,3,1,1,1,1
+19	CAST:0,4,3,3,3,3,2,1,1,1
+20	CAST:0,4,3,3,3,3,2,2,1,1
+###Block
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Druidic
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spellcasting
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Cantrips
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Ritual Casting
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spellcasting Focus
+2	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape
+2	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Druid Circle
+4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Ability Score Improvement
+18	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body
+18	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Beast Spells
+20	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Archdruid
+
+
+# Class Name	Hit Dice	Type			Ability																				Define			Bonus to Ability Pool			Modify VAR
+CLASS:Fighter	HD:10		TYPE:PC.Base	BONUS:VAR|FighterLVL|CL	DEFINE:FighterLVL|0
+CLASS:Fighter	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Fighter],[PRECLASS:1,Fighter=1]
+CLASS:Fighter	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Fighter|CL	SPELLLIST:1|Fighter		MEMORIZE:NO
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block
+1	ABILITY:Class|AUTOMATIC|Fighter
+###Block
+3	CAST:0,1
+4	CAST:0,1
+5	CAST:0,1
+6	CAST:0,1
+7	CAST:0,1,1
+8	CAST:0,1,1
+9	CAST:0,1,1
+10	CAST:0,1,1
+11	CAST:0,1,1
+12	CAST:0,1,1
+13	CAST:0,1,1,1
+14	CAST:0,1,1,1
+15	CAST:0,1,1,1
+16	CAST:0,1,1,1
+17	CAST:0,1,1,1
+18	CAST:0,1,1,1
+19	CAST:0,1,1,1,1
+20	CAST:0,1,1,1,1
+
+CLASS:Monk	HD:8		TYPE:PC.Base	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL
+CLASS:Monk	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Monk
+###Block
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmored Defense
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Martial Arts
+2	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki
+2	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmored Movement
+3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monastic Tradition
+3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Deflect Missiles
+4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ability Score Improvement
+4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Slow Fall
+5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Extra Attack
+5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Stunning Strike
+6	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki-Empowered Strikes
+7	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion
+7	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Stillness of Mind
+10	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Purity of Body
+13	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Tongue of the Sun and Moon
+14	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul
+15	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body
+18	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body
+20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self
+
+CLASS:Paladin	HD:10		TYPE:PC.Base	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|CL		BONUS:VAR|SpellCasterTotalLVL|PaladinLVL/2	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Paladin	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Paladin],[PRECLASS:1,Paladin=1]
+CLASS:Paladin	SPELLSTAT:CHA	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Paladin|CL	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Paladin
+###Block
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Sense
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Fighting Style
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Spellcasting
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Spellcasting Focus
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Smite
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Sacred Oath
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Oath Spells
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Channel Divinity
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Ability Score Improvement
+5	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Extra Attack
+6	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Protection
+10	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage
+11	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Improved Divine Smite
+14	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Cleansing Touch
+###Block
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3
+5	CAST:0,4,2
+6	CAST:0,4,2
+7	CAST:0,4,3
+8	CAST:0,4,3
+9	CAST:0,4,3,2
+10	CAST:0,4,3,2
+11	CAST:0,4,3,3
+12	CAST:0,4,3,3
+13	CAST:0,4,3,3,1
+14	CAST:0,4,3,3,1
+15	CAST:0,4,3,3,2
+16	CAST:0,4,3,3,2
+17	CAST:0,4,3,3,3,1
+18	CAST:0,4,3,3,3,1
+19	CAST:0,4,3,3,3,2
+20	CAST:0,4,3,3,3,2
+
+CLASS:Ranger	HD:10		TYPE:PC.Base	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS:VAR|SpellCasterTotalLVL|RangerLVL/2	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Ranger	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Ranger],[PRECLASS:1,Ranger=1]
+CLASS:Ranger	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Ranger|CL	MEMORIZE:NO
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Ranger
+###Block
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Natural Explorer
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Fighting Style
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spellcasting
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spell Slots
+3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Ranger Archetype
+3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Primeval Awareness
+4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Ability Score Improvement
+5	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Extra Attack
+8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Land's Stride
+10	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight
+14	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Vanish
+18	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Feral Senses
+20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Foe Slayer
+###Block
+2	CAST:0,1
+3	CAST:0,1
+4	CAST:0,1
+5	CAST:0,1,0
+6	CAST:0,1,0
+7	CAST:0,1,0
+8	CAST:0,1,0
+9	CAST:0,1,0,0
+10	CAST:0,1,0,0
+11	CAST:0,1,0,0
+12	CAST:0,1,0,0
+13	CAST:0,1,0,0,0
+14	CAST:0,1,0,0,0
+15	CAST:0,1,0,0,0
+16	CAST:0,1,0,0,0
+17	CAST:0,1,0,0,0,0
+18	CAST:0,1,0,0,0,0
+19	CAST:0,1,0,0,0,0
+20	CAST:0,1,0,0,0,0
+###Block
+2	KNOWN:0,2
+3	KNOWN:0,3
+4	KNOWN:0,3
+5	KNOWN:0,2,2
+6	KNOWN:0,1,3
+7	KNOWN:0,0,5
+8	KNOWN:0,0,5
+9	KNOWN:0,0,4,2
+10	KNOWN:0,0,3,3
+11	KNOWN:0,0,2,5
+12	KNOWN:0,0,1,6
+13	KNOWN:0,0,0,6,2
+14	KNOWN:0,0,0,5,3
+15	KNOWN:0,0,0,4,5
+16	KNOWN:0,0,0,3,6
+17	KNOWN:0,0,0,2,6,2
+18	KNOWN:0,0,0,1,6,3
+19	KNOWN:0,0,0,0,6,5
+20	KNOWN:0,0,0,0,5,6
+
+
+# Class Name
+CLASS:Rogue	HD:8	TYPE:PC.Base	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
+CLASS:Rogue	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Rogue],[PRECLASS:1,Rogue=1]
+CLASS:Rogue	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Rogue|CL	SPELLLIST:1|Rogue	MEMORIZE:NO
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Rogue
+###Block
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Expertise
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Thieves' Cant
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Cunning Action
+3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Roguish Archetype
+4	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Ability Score Improvement
+5	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge
+7	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion
+11	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Reliable Talent
+14	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Blindsense
+15	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Slippery Mind
+18	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Elusive
+20	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Stroke of Luck
+###Block
+3	CAST:0,1
+4	CAST:0,1
+5	CAST:0,1
+6	CAST:0,1
+7	CAST:0,1,1
+8	CAST:0,1,1
+9	CAST:0,1,1
+10	CAST:0,1,1
+11	CAST:0,1,1
+12	CAST:0,1,1
+13	CAST:0,1,1,1
+14	CAST:0,1,1,1
+15	CAST:0,1,1,1
+16	CAST:0,1,1,1
+17	CAST:0,1,1,1
+18	CAST:0,1,1,1
+19	CAST:0,1,1,1,1
+20	CAST:0,1,1,1,1
+
+# Class Name
+CLASS:Sorcerer	HD:6		TYPE:PC.Base	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|SpellCasterTotalLVL|SorcererLVL	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Sorcerer	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Sorcerer],[PRECLASS:1,Sorcerer=1]
+CLASS:Sorcerer	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Sorcerer|CL	MEMORIZE:NO
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Sorcerer
+###Block: Abilities
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Spell Casting
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerous Origin
+2	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Font of Magic
+2	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcery Points
+2	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Flexible Casting
+2	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Creating Spell Slots
+3	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Metamagic
+4	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Ability Score Improvement
+20	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerous Restoration
+###Block
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,3,1,1,1,1
+19	CAST:0,4,3,3,3,3,2,1,1,1
+20	CAST:0,4,3,3,3,3,2,2,1,1
+###Block
+1	KNOWN:0,2
+2	KNOWN:0,3
+3	KNOWN:0,2,2
+4	KNOWN:0,1,4
+5	KNOWN:0,0,4,2
+6	KNOWN:0,0,3,4
+7	KNOWN:0,0,2,4,2
+8	KNOWN:0,0,1,4,4
+9	KNOWN:0,0,0,4,4,2
+10	KNOWN:0,0,0,3,4,4
+11	KNOWN:0,0,0,2,4,4,2
+12	KNOWN:0,0,0,1,4,4,3
+13	KNOWN:0,0,0,0,4,4,3,2
+14	KNOWN:0,0,0,0,3,4,3,3
+15	KNOWN:0,0,0,0,2,4,3,3,2
+16	KNOWN:0,0,0,0,1,4,3,3,3
+17	KNOWN:0,0,0,0,0,4,3,3,3,2
+18	KNOWN:0,0,0,0,0,3,3,3,3,3
+19	KNOWN:0,0,0,0,0,2,3,3,3,4
+20	KNOWN:0,0,0,0,0,1,3,3,3,5
+
+# Class Name
+CLASS:Warlock	HD:8		TYPE:PC.Base	DEFINE:WarlockLVL|0	BONUS:VAR|WarlockLVL|CL
+CLASS:Warlock	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Warlock],[PRECLASS:1,Warlock=1]
+CLASS:Warlock	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Warlock|CL	MEMORIZE:NO
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Warlock
+###Block
+1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Otherworldly Patron
+1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Pact Magic
+1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Cantrips
+1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Spell Slots
+1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Spellcasting Focus
+2	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Eldritch Invocations
+3	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Pact Boon
+4	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Ability Score Improvement
+11	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Mystic Arcanum
+20	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Eldritch Master
+###Block
+1	CAST:0,1
+2	CAST:0,2
+3	CAST:0,0,2
+4	CAST:0,0,2
+5	CAST:0,0,0,2
+6	CAST:0,0,0,2
+7	CAST:0,0,0,0,2
+8	CAST:0,0,0,0,2
+9	CAST:0,0,0,0,0,2
+10	CAST:0,0,0,0,0,2
+11	CAST:0,0,0,0,0,3
+12	CAST:0,0,0,0,0,3
+13	CAST:0,0,0,0,0,3
+14	CAST:0,0,0,0,0,3
+15	CAST:0,0,0,0,0,3
+16	CAST:0,0,0,0,0,3
+17	CAST:0,0,0,0,0,4
+18	CAST:0,0,0,0,0,4
+19	CAST:0,0,0,0,0,4
+20	CAST:0,0,0,0,0,4
+###Block
+1	KNOWN:0,2
+2	KNOWN:0,3
+3	KNOWN:0,2,2
+4	KNOWN:0,1,4
+5	KNOWN:0,0,4,2
+6	KNOWN:0,0,3,4
+7	KNOWN:0,0,2,4,2
+8	KNOWN:0,0,1,4,4
+9	KNOWN:0,0,0,4,4,2
+10	KNOWN:0,0,0,3,4,3
+11	KNOWN:0,0,0,2,4,5
+12	KNOWN:0,0,0,1,4,6
+13	KNOWN:0,0,0,0,4,8
+14	KNOWN:0,0,0,0,3,9
+15	KNOWN:0,0,0,0,2,11
+16	KNOWN:0,0,0,0,1,12
+17	KNOWN:0,0,0,0,0,14
+18	KNOWN:0,0,0,0,0,14
+19	KNOWN:0,0,0,0,0,15
+20	KNOWN:0,0,0,0,0,15
+
+
+# Class Name
+CLASS:Wizard	HD:6	TYPE:PC.Base	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|CL	BONUS:VAR|SpellCasterTotalLVL|WizardLVL	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Wizard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Wizard],[PRECLASS:1,Wizard=1]
+CLASS:Wizard	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wizard|CL	MEMORIZE:YES
+###Block
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block: Abilities
+1	ABILITY:Class|AUTOMATIC|Wizard
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook						
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Preparing and Casting Spells
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Ability				
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ritual Casting
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Focus				
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Learning Spells of 1st Level and Higher	
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Recovery
+2	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Tradition
+4	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spell Mastery
+20	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Signature Spells
+###Block
+1	CAST:1,1
+2	CAST:1,1
+3	CAST:1,1,1
+4	CAST:1,1,1
+5	CAST:1,1,1,1
+6	CAST:1,1,1,1
+7	CAST:1,1,1,1,1
+8	CAST:1,1,1,1,1
+9	CAST:1,1,1,1,1,1
+10	CAST:1,1,1,1,1,1
+11	CAST:1,1,1,1,1,1,1
+12	CAST:1,1,1,1,1,1,1
+13	CAST:1,1,1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1,1,1,1
+
+
+
+
+

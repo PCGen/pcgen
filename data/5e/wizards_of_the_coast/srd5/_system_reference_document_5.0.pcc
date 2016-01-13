@@ -1,0 +1,85 @@
+CAMPAIGN:System Reference Document 5.0
+KEY:5e - System Reference Document 5.0
+RANK:1
+BOOKTYPE:Core
+GAMEMODE:5e
+SHOWINMENU:YES
+STATUS:ALPHA
+TYPE:Wizards of the Coast.Core
+SOURCELONG:System Reference Document 5.0
+SOURCESHORT:SRD5
+SOURCEDATE:2016-01
+SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com
+COPYRIGHT:Copyright 2016, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document 5.0 Copyright 2016, Wizards of the Coast, Inc.; Authors Mike Mearls, Jeremy Crawford, Chris Perkins, Rodney Thompson, Peter Lee, James Wyatt, Robert J. Schwalb, Bruce R. Cordell, Chris Sims, and Steve Townshend, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for "System Reference Document 5.0" Copyright 2016, PCGen Data team (Including, but not limited to Andrew "Legacyking" Maitland, Wemes, Quonic, NGuill, Bahamut Dragon, Paul "Nylanfs" Grosse)
+
+#INFOTEXT:OGL.txt
+
+# COVER should be cover_gameMode_pub_book.file
+#COVER:../../../../_artwork/cover_5e_wotc_ph.jpg
+# LOGO should be logo_pub.file
+#LOGO:../../../../_artwork/logo_wotc.png
+
+INFOTEXT:System Reference Document 5.0 - The basic rules for 5th edition D&D.
+
+PCC:../universal_rules/_universal_rules.pcc
+
+ALIGNMENT:srd5__align.lst
+SAVE:srd5__saves.lst
+STAT:srd5__stats.lst
+
+
+
+ABILITY:srd5_abilities.lst
+ABILITY:srd5_abilities_class.lst
+ABILITY:srd5_abilities_monster.lst
+ABILITY:srd5_abilities_race.lst
+ABILITYCATEGORY:srd5_abilitycategories.lst
+BIOSET:srd5_biosettings.lst
+CLASS:srd5_classes.lst
+COMPANIONMOD:srd5_companionmods.lst
+DEITY:srd5_deities.lst
+
+EQUIPMENT:srd5_equip.lst
+EQUIPMENT:srd5_equip_arms_armor.lst
+EQUIPMENT:srd5_equip_magic.lst
+
+EQUIPMOD:srd5_equipmods.lst
+ABILITY:srd5_feats.lst
+
+KIT:srd5_kits.lst
+KIT:srd5_kits_race.lst
+LANGUAGE:srd5_languages.lst
+
+
+ARMORPROF:srd5_profs_armor.lst
+SHIELDPROF:srd5_profs_shield.lst
+WEAPONPROF:srd5_profs_weapon.lst
+
+RACE:srd5_races.lst
+RACE:srd5_races_monster.lst
+
+SKILL:srd5_skills.lst
+
+SPELL:srd5_spells.lst
+TEMPLATE:srd5_templates.lst
+
+###Block: Revisions
+#
+
+INFOTEXT:Supports 6.06.00
+# ENTRY DATE: 2016-01-12
+# LST MONKEY: Bahamut Dragon (Original set), Andrew Maitland (srd5)
+# LICENSE MONKEY: Paul Grosse - 2016-01-13
+# RELEASE REVIEW #
+# BETA: 
+# RELEASE:
+# Built for PCGen Version: 6.06.00
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.00
+# COMMENTS: Contributors: Andrew "Legacyking" Maitland, Wemes, Quonic, NGuill, Bahamut Dragon
