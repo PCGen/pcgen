@@ -1,0 +1,20 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+# Basic Rules Races
+# Race Name	Size		Move			Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype		Type			Source Page		SORTKEY
+Dwarf		SIZE:M	MOVE:Walk,25	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Dwarf		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|CON|2
+Elf		SIZE:M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Elf		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|DEX|2
+Halfling	SIZE:S	MOVE:Walk,25	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Halfling	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|DEX|2
+Human		SIZE:M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Human		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC
+# Uncommon Races
+Dragonborn	SIZE:M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Dragonborn	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Dragonborn	TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|STR|2	BONUS:STAT|CHA|1
+Gnome		SIZE:S	MOVE:Walk,25	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Gnome		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|INT|2
+Half-Elf	SIZE:M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Half-Elf	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Half-Elf	TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|CHA|2
+Half-Orc	SIZE:M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Half-Orc	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Half-Orc	TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|STR|2	BONUS:STAT|CON|1
+Tiefling	SIZE:M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Tiefling	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Tiefling	TYPE:Humanoid.PC	SOURCEPAGE:p.	SORTKEY:Base_PC	BONUS:STAT|INT|1	BONUS:STAT|CHA|2
+
+
+
+
+

@@ -1,0 +1,32 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+# Page 59
+
+
+# Standard
+# Language	Type
+Common	TYPE:Spoken.Common
+Dwarvish	TYPE:Spoken.Dwarvish
+Elvish	TYPE:Spoken.Elvish
+Giant		TYPE:Spoken.Dwarvish
+Gnomish	TYPE:Spoken.Dwarvish
+Goblin	TYPE:Spoken.Dwarvish
+Halfling	TYPE:Spoken.Common
+Orc		TYPE:Spoken.Dwarvish
+#Exotic Languages
+Abyssal	TYPE:Spoken.Infernal
+Celestial	TYPE:Spoken.Celestial
+Draconic	TYPE:Spoken.Draconic
+Deep Speech	TYPE:Spoken.NoScript
+Infernal	TYPE:Spoken.Infernal
+Primordial	TYPE:Spoken.Dwarvish
+Sylvan	TYPE:Spoken.Elvish
+Undercommon	TYPE:Spoken.Elvish
+
+Druidic	TYPE:Spoken.Druid.Secret.Druidic			PREVARGTEQ:DruidicLanguage,1
+
+
+
+
+

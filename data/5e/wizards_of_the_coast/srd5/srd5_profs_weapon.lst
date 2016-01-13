@@ -1,0 +1,50 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+
+# Weapon Name	Type
+Club			TYPE:Simple.Monk
+Dagger		TYPE:Simple.Monk
+Greatclub		TYPE:Simple
+Handaxe		TYPE:Simple.Monk
+Javelin		TYPE:Simple.Monk
+Light Hammer	TYPE:Simple.Monk
+Mace			TYPE:Simple.Monk
+Quarterstaff	TYPE:Simple.Monk
+Sickle		TYPE:Simple.Monk
+Spear			TYPE:Simple.Monk
+Unarmed Strike	TYPE:Simple
+Unarmed Strike (Monk)	TYPE:Monk
+Crossbow (Light)	TYPE:Simple
+Dart			TYPE:Simple
+Shortbow		TYPE:Simple
+Sling			TYPE:Simple
+
+Battleaxe		TYPE:Martial
+Flail			TYPE:Martial
+Glaive		TYPE:Martial
+Greataxe		TYPE:Martial
+Greatsword		TYPE:Martial
+Halberd		TYPE:Martial
+Lance			TYPE:Martial
+Longsword		TYPE:Martial
+Maul			TYPE:Martial
+Morningstar		TYPE:Martial
+Pike			TYPE:Martial
+Rapier		TYPE:Martial
+Scimitar		TYPE:Martial
+Shortsword		TYPE:Martial.Monk
+Trident		TYPE:Martial
+War Pick		TYPE:Martial
+Warhammer		TYPE:Martial
+Whip			TYPE:Martial
+Blowgun		TYPE:Martial
+Crossbow (Hand)	TYPE:Martial
+Crossbow (Heavy)	TYPE:Martial
+Longbow		TYPE:Martial
+Net			TYPE:Martial
+
+
+
+
+

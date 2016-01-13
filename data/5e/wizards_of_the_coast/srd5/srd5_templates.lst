@@ -1,0 +1,109 @@
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+
+# Determines First Level Class and Benefits for Class.
+First Level	TEMPLATE:CHOOSE:TYPE=FirstLevel
+
+###Block: First Level Base Classes
+Barbarian	PRECLASS:1,Barbarian=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Con|Saving Throw ~ Str|TYPE=ArmorProfMedium|TYPE=ShieldProf|TYPE=WeaponProfMartial																								ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,STR=13	BONUS:VAR|POOL_Barbarian_Skill|2
+Bard		PRECLASS:1,Bard=1		TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Cha|Saving Throw ~ Dex|TYPE=ArmorProfLight|TYPE=WeaponProfSimple	ABILITY:Weapon|AUTOMATIC|Crossbow (Hand)|Longsword|Rapier|Shortsword		BONUS:VAR|BardToolCount|2	BONUS:VAR|POOL_Bard_Skill|2						ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,CHA=13
+Cleric	PRECLASS:1,Cleric=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Cha|Saving Throw ~ Wis|TYPE=ArmorProfMedium|TYPE=ShieldProf|TYPE=WeaponProfSimple	BONUS:VAR|POOL_Cleric_Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,WIS=13
+Druid		PRECLASS:1,Druid=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Int|Saving Throw ~ Wis|Tool Proficiency ~ Herbalism Kit|TYPE=ArmorProfMedium|TYPE=ShieldProf	ABILITY:Weapon|AUTOMATIC|Club|Dagger|Dart|Javelin|Mace|Quarterstaff|Scimitar|Sickle|Sling|Spear	BONUS:VAR|POOL_Druid_Skill|2	ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,WIS=13
+Fighter	PRECLASS:1,Fighter=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Con|Saving Throw ~ Str|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial	BONUS:VAR|POOL_Fighter_Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,STR=13,DEX=13
+Monk		PRECLASS:1,Monk=1		TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Str|TYPE=WeaponProfMonk|TYPE=WeaponProfSimple	ABILITY:Weapon|AUTOMATIC|Shortsword			BONUS:VAR|POOL_Monk_Skill|2	BONUS:ABILITYPOOL|Monk Tool Proficiency|1										ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,WIS=13
+Paladin	PRECLASS:1,Paladin=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Cha|Saving Throw ~ Wis|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial	BONUS:VAR|POOL_Paladin_Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:2,STR=13,CHA=13
+Ranger	PRECLASS:1,Ranger=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Str|TYPE=ArmorProfMedium|TYPE=ShieldProf|TYPE=WeaponProfMartial		BONUS:VAR|POOL_Ranger_Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:2,DEX=13,WIS=13
+Rogue		PRECLASS:1,Rogue=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Int|TYPE=ArmorProfLight|TYPE=WeaponProfSimple	ABILITY:Weapon|AUTOMATIC|Crossbow (Hand)|Longsword|Rapier|Shortsword	BONUS:VAR|POOL_Rogue_Skill|3												ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,DEX=13
+Sorcerer	PRECLASS:1,Sorcerer=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Cha|Saving Throw ~ Con	ABILITY:Weapon|AUTOMATIC|Crossbow (Light)|Dagger|Dart|Quarterstaff|Sling	BONUS:VAR|POOL_Sorcerer_Skill|2																	ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,CHA=13
+Warlock	PRECLASS:1,Warlock=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Cha|Saving Throw ~ Wis|TYPE=ArmorProfLight|TYPE=WeaponProfSimple		ABILITY:Weapon|AUTOMATIC|TYPE=Simple	BONUS:VAR|POOL_Warlock_Skill|2																					ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,CHA=13
+Wizard	PRECLASS:1,Wizard=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Int|Saving Throw ~ Wis	ABILITY:Weapon|AUTOMATIC|Crossbow (Light)|Dagger|Dart|Quarterstaff|Sling	BONUS:VAR|POOL_Wizard_Skill|2																	ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,INT=13
+
+
+# How to set up Multiclass support for BASE classes. All three of these must be present for Multiclass to work properly.
+#	!PRETEMPLATE:1,FirstLevel						
+#	establishes if this is a new character without any classes. This is a paired swap condition with PRECLASS. (See below)
+#	PREABILITY:1,CATEGORY=Internal,<class> Multiclass Allowed
+#	determines if the class qualifies for Multiclass if not first class taken
+#	PRECLASS:1,<class>=1							
+#	takes over after first level is established to allow continued progression in first class. This is a paired swap condition with !PRETEMPLATE. (See above)
+###Block: Multiclass Support	First is this a new character? TYPE.FirstLevel not activated; once switched, we are now Class=1. To allow Multiclass we need to have Prime Class + Desired Class PreReq met.
+#CLASS:Barbarian	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Barbarian],[PRECLASS:1,Barbarian=1]
+#CLASS:Bard		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Bard],[PRECLASS:1,Bard=1]
+#CLASS:Cleric	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Cleric],[PRECLASS:1,Cleric=1]
+#CLASS:Druid	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Druid],[PRECLASS:1,Druid=1]
+#CLASS:Fighter	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Fighter],[PRECLASS:1,Fighter=1]
+#CLASS:Monk		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
+#CLASS:Paladin	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Paladin],[PRECLASS:1,Paladin=1]
+#CLASS:Ranger	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Ranger],[PRECLASS:1,Ranger=1]
+#CLASS:Rogue	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Rogue],[PRECLASS:1,Rogue=1]
+#CLASS:Sorcerer	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Sorcerer],[PRECLASS:1,Sorcerer=1]
+#CLASS:Warlock	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Warlock],[PRECLASS:1,Warlock=1]
+#CLASS:Wizard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Wizard],[PRECLASS:1,Wizard=1]
+
+
+
+# Multi-Class Restrictions:
+#Barbarian Shields, simple weapons, martial weapons
+#Bard Light armor, one skill of your choice, one musical instrument of your choice
+#Cleric Light armor, medium armor, shields
+#Druid Light armor, medium armor, shields (druids will not wear armor or use shields made of metal)
+#Fighter Light armor, medium armor, shields, simple weapons, martial weapons
+#Monk Simple weapons, shortswords
+#Paladin Light armor, medium armor, shields, simple weapons, martial weapons
+#Ranger Light armor, medium armor, shields, simple
+#weapons, martial weapons, one skill from the class's skill list
+#Rogue Light armor, one skill from the class's skill list, thieves' tools
+#Sorcerer -
+#Warlock Light armor, simple weapons
+#Wizard -
+
+###Block: Subrace Selections
+Subrace ~ Lightfoot	VISIBLE:NO	SUBRACE:Lightfoot
+Subrace ~ Stout		VISIBLE:NO	SUBRACE:Stout
+
+Subrace ~ Forest		VISIBLE:NO	SUBRACE:Forest
+Subrace ~ Rock		VISIBLE:NO	SUBRACE:Rock
+
+Subrace ~ High		VISIBLE:NO	SUBRACE:High
+Subrace ~ Wood		VISIBLE:NO	SUBRACE:Wood
+Subrace ~ Dark		VISIBLE:NO	SUBRACE:Dark
+
+Subrace ~ Hill		VISIBLE:NO	SUBRACE:Hill
+Subrace ~ Mountain	VISIBLE:NO	SUBRACE:Mountain
+Subrace ~ Gray		VISIBLE:NO	SUBRACE:Gray
+
+Subrace ~ Black	VISIBLE:NO	SUBRACE:Black
+Subrace ~ Blue	VISIBLE:NO	SUBRACE:Blue
+Subrace ~ Brass	VISIBLE:NO	SUBRACE:Brass
+Subrace ~ Bronze	VISIBLE:NO	SUBRACE:Bronze
+Subrace ~ Copper	VISIBLE:NO	SUBRACE:Copper
+Subrace ~ Gold	VISIBLE:NO	SUBRACE:Gold
+Subrace ~ Green	VISIBLE:NO	SUBRACE:Green
+Subrace ~ Red	VISIBLE:NO	SUBRACE:Red
+Subrace ~ Silver	VISIBLE:NO	SUBRACE:Silver
+Subrace ~ White	VISIBLE:NO	SUBRACE:White
+
+###Block: Natural Weapons and Damage by Size
+# Medium
+Bite (1d6)	VISIBLE:NO	NATURALATTACKS:Bite,Melee.Weapon.Natural.OneTarget.Piercing,*1,1d6
+Bite (1d8)	VISIBLE:NO	NATURALATTACKS:Bite,Melee.Weapon.Natural.OneTarget.Piercing,*1,1d8
+
+
+Claws (2d4)	VISIBLE:NO	NATURALATTACKS:Claws,Melee.Weapon.Natural.OneTarget.Slashing,*1,2d4
+Claws (2d6)	VISIBLE:NO	NATURALATTACKS:Claws,Melee.Weapon.Natural.OneTarget.Slashing,*1,2d6
+
+# Large
+
+
+###Block: Background Equipment Kits
+Acolyte		VISIBLE:NO	KIT:1|Acolyte Background	KIT:1|Holy Symbol (Amulet)|Holy Symbol (Emblem)|Holy Symbol (Reliquary)
+
+
+# Dragon Age Categories and Size
+Wyrmling	SIZE:M	VISIBLE:NO	SUBRACE:Wyrmling
+Young		SIZE:L	VISIBLE:NO	SUBRACE:Young
+Adult		SIZE:H	VISIBLE:NO	SUBRACE:Adult
+Ancient	SIZE:G	VISIBLE:NO	SUBRACE:Ancient
+
+
