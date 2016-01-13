@@ -1,0 +1,37 @@
+#
+# This file contains Rule Checks that the user can turn on/off in the GUI
+#
+# The following are all refereced from the .lst files
+#
+NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS	DEFAULT:No					DESC:Display full text of Type Traits on output
+NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE	DEFAULT:Yes					DESC:Display conditional skill uses on output
+
+NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell	DEFAULT:No					DESC:Use Full Spell Descriptions from the Core Books
+# Homebrew Support
+NAME:UseFullEquipmentDescriptions	VAR:DisplayFullEquip	DEFAULT:No					DESC:Use Full Equipment Descriptions (Homebrew Support)
+NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility	DEFAULT:No					DESC:Use Full Ability Descriptions (Homebrew Support)
+
+
+#NAME:HitPointDamage			VAR:DAMAGE_HP		DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
+#NAME:Vitality Damage			VAR:DAMAGE_VW		DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
+
+#
+# The following are all hardcoded in the java code
+#
+#NAME:AnyRangeForAbilities		PARM:ABILRANGE		DEFAULT:No					DESC:Allow any range for ability scores
+#NAME:BonusSpellsKnown			PARM:BONUSSPELLKNOWN	DEFAULT:No					DESC:Add stat bonus to Spells Known
+NAME:bypassClassPreReqs			PARM:CLASSPRE		DEFAULT:No					DESC:Bypass Class Prerequisites
+NAME:bypassFeatPreReqs			PARM:FEATPRE		DEFAULT:No					DESC:Bypass Feat Prerequisites
+#NAME:bypassMaxSkillRanks		PARM:SKILLMAX		DEFAULT:No					DESC:Bypass Max Skill Ranks
+#NAME:FreeClothesAtFirst			PARM:FREECLOTHES		DEFAULT:Yes					DESC:Ask For Free Clothing at First Level
+#NAME:IntBonusLang				PARM:INTBONUSLANG		DEFAULT:No					DESC:Allow Selection of Int bonus Languages after 1st level
+#NAME:IncreaseIntBeforeLevel		PARM:INTBEFORE		DEFAULT:Yes					DESC:Increment STAT before calculating skill points when leveling
+#NAME:IgnoreLevelCap			PARM:LEVELCAP		DEFAULT:No					DESC:Ignore Level Cap
+NAME:InHandEquipped			PARM:EQUIPATTACK		DEFAULT:No					DESC:Treat Weapons In Hand As Equipped For Attacks
+
+#NAME:WeaponSizebyCategory		PARM:SIZECAT		DEFAULT:Yes	EXCLUDE:SIZEOBJ		DESC:Use 3.5 Weapon Categories
+#NAME:WeaponSizebyObject			PARM:SIZEOBJ		DEFAULT:No	EXCLUDE:SIZECAT		DESC:Use 3.0 Weapon Size
+
+#NAME:SpellAlignmentRestriction	PARM:PROHIBITSPELLS	DEFAULT:Yes					DESC:Restict Cleric/Druid spells based on alignment
+
+#NAME:AmmoStacksWithWeapon		PARM:AMMOSTACKSWITHWEAPON	DEFAULT:No				DESC:Do ammunition enhancement bonus stack with those of the weapon
