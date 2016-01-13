@@ -55,7 +55,7 @@ class ThumbnailPane extends JComponent
 
 	public void setCropRectangle(Rectangle cropRect)
 	{
-		this.cropRect = cropRect;
+		this.cropRect = new Rectangle(cropRect);
 		refreshImage();
 	}
 
