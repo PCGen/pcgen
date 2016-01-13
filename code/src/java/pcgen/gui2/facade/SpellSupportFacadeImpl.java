@@ -22,7 +22,11 @@
  */
 package pcgen.gui2.facade;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -99,8 +103,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
-import pcgen.util.fop.FOPHandler;
-import pcgen.util.fop.FOPHandlerFactory;
+import pcgen.util.fop.FopTask;
 
 /**
  * The Class <code>SpellSupportFacadeImpl</code> marshals the spell data for a 
@@ -1541,36 +1544,32 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * Export to PDF using the FOP PDF generator. 
 	 * 
 	 * @param outFile The file to place the output in.
-	 * @param tmpFile The file containing the definition of the character data. May be FO or XML. 
+	 * @param tmpFile The file containing the definition of the character data. May be FO or XML.
 	 * @param xsltFile An optional XSLT file for use when the tmpFile is in XML.
 	 */
 	private void pdfExport(final File outFile, File tmpFile, File xsltFile)
 	{
-		FOPHandler fh = FOPHandlerFactory.createFOPHandlerImpl(true);
-
-		// setting up pdf renderer
-		fh.setMode(FOPHandler.PDF_MODE);
-		if (xsltFile != null)
+		try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(tmpFile));
+				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outFile)))
 		{
-			fh.setInputFile(tmpFile, xsltFile);
+			FopTask fopTask = FopTask.newFopTask(input, xsltFile, output);
+			fopTask.run();
+			String errMessage = fopTask.getErrorMessages();
+
+			if (errMessage.length() > 0)
+			{
+				delegate.showErrorMessage(Constants.APPLICATION_NAME, errMessage);
+			}
 		}
-		else
+		catch (IOException ex)
 		{
-			fh.setInputFile(tmpFile);
+			Logging.errorPrint(LanguageBundle.getFormattedString(
+				"InfoSpells.export.failed", charDisplay.getDisplayName()), ex); //$NON-NLS-1$
+			delegate.showErrorMessage(Constants.APPLICATION_NAME, 
+				LanguageBundle.getFormattedString(
+					"InfoSpells.export.failed.retry", charDisplay.getDisplayName())); //$NON-NLS-1$ 
 		}
-		fh.setOutputFile(outFile);
-
-		// render to awt
-		fh.run();
-
 		tmpFile.deleteOnExit();
-
-		String errMessage = fh.getErrorMessage();
-
-		if (errMessage.length() > 0)
-		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, errMessage); 
-		}
 	}
 
 	
