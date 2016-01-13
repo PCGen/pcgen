@@ -1,0 +1,22 @@
+CAMPAIGN:Universal Rules
+KEY:5e - Universal Rules
+TYPE:Core_Rule_Universal
+#GAMEMODE:5e	Leave commented out, this is loaded by the Core Rules of the System
+
+ABILITY:ur_abilities.lst
+CLASS:ur_classes.lst
+TEMPLATE:ur_templates.lst
+
+
+
+INFOTEXT:Supports 6.06.00
+# ENTRY DATE: 2016-01-12
+# LST MONKEY: Bahamut Dragon (Original set), Andrew Maitland (srd5)
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.06.00
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.00
+# COMMENTS: Contributors: Andrew "Legacyking" Maitland, Wemes, Quonic, NGuill, Bahamut Dragon

@@ -1,0 +1,13 @@
+#SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+###Block: Ranger's Companion
+FOLLOWER:Ranger_Companion=1	TYPE:Ranger's Companion	BONUS:COMBAT|AC|mastervar("Proficiency_Bonus")	BONUS:COMBAT|DAMAGE|mastervar("Proficiency_Bonus")	BONUS:VAR|Proficiency_Bonus|mastervar("Proficiency_Bonus")	COPYMASTERHP:max(1,MASTER/2)
+
+FOLLOWER:Familiar=1	TYPE:Familiar
+
+MASTERBONUSRACE:Pseudodragon		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Pseudodragon)
+
+
+
+

@@ -1,0 +1,13 @@
+# SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+Strength		BONUS:SAVE|Strength|STR		SORTKEY:1
+Dexterity		BONUS:SAVE|Dexterity|DEX	SORTKEY:2
+Constitution	BONUS:SAVE|Constitution|CON	SORTKEY:3
+Intelligence	BONUS:SAVE|Intelligence|INT	SORTKEY:4
+Wisdom		BONUS:SAVE|Wisdom|WIS		SORTKEY:5
+Charisma		BONUS:SAVE|Charisma|CHA		SORTKEY:6
+
+
+
+
