@@ -28,6 +28,7 @@ INFOTEXT:System Reference Document 5.0 - The basic rules for 5th edition D&D.
 
 PCC:../universal_rules/_universal_rules.pcc
 
+DATACONTROL:srd5__datacontrols.lst
 ALIGNMENT:srd5__align.lst
 SAVE:srd5__saves.lst
 STAT:srd5__stats.lst
