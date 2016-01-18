@@ -11,6 +11,7 @@ Horsechopper					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.MeleePiercing.Me
 Ogre Hook						TYPE:Martial.Melee.TwoHanded.Piercing.MeleePiercing.Polearm
 Aldori Dueling Sword	NAMEISPI:YES	TYPE:Martial.Exotic.Melee.OneHanded.Slashing.MeleeSlashing
 Sawtooth Sabre					TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing.Bladeheavy
+Bolas (Shoanti)		NAMEISPI:YES	TYPE:Exotic.Thrown.Bludgeoning
 Urumi							TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing.Flail.Monk
 Bladed Scarf					TYPE:Exotic.Melee.TwoHanded.Slashing.MeleeSlashing
 Firearms						TYPE:Exotic.Ranged.Piercing.RangedPiercing
@@ -18,3 +19,18 @@ Pepperbox						TYPE:Exotic.Ranged.OneHanded.Bludgeoning.Piercing.Firearm
 Pistol						TYPE:Exotic.Ranged.OneHanded.Bludgeoning.Piercing.Firearm
 Musket						TYPE:Exotic.Ranged.TwoHanded.Bludgeoning.Piercing.Firearm
 Cannon						TYPE:Exotic.Ranged.Siege.Bludgeoning.Piercing.Firearm
+
+
+###Block: Weapon Groups
+# Equipment Name				Type
+Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
+War Razor.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Klar.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Earth Breaker.MOD				TYPE:Hammer.Weapon Group Hammers
+Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
+Ogre Hook.MOD				TYPE:Polearm.Weapon Group Polearms
+Aldori Dueling Sword.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
+Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Bladed Scarf.MOD				TYPE:Flail.Weapon Group Flails
+Bolas (Shoanti).MOD			TYPE:Thrown.Weapon Group Thrown

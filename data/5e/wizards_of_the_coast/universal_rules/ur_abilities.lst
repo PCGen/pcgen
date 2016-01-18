@@ -1,0 +1,257 @@
+
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size Tracker	DEFINE:AC_Natural_Armor|0	BONUS:COMBAT|AC|max(AC_Natural_Armor,0)|TYPE=NaturalArmor
+
+Monster	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Creature Hit Die Size Rule|Creature Proficiency Bonus Rule|Oversized Manufactured Weapon
+
+# MM page 7
+Creature Hit Die Size Rule	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d4|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d6|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d8|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d12|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d20|PRESIZEEQ:G
+
+Set Hit Die ~ d4		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d4
+Set Hit Die ~ d6		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d6
+Set Hit Die ~ d8		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d8
+Set Hit Die ~ d10		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d10
+Set Hit Die ~ d12		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d12
+Set Hit Die ~ d20		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d20
+
+# MM page 
+Creature Proficiency Bonus Rule	CATEGORY:Internal	BONUS:VAR|Proficiency_Bonus|2+max((CR-1)/4),0|TYPE=Base	BONUS:COMBAT|TOHIT.Natural|Proficiency_Bonus+max(DEX,STR)
+
+# Creatures appear to use the better of STR or DEX for the hit bonus. Psuedodragon has +4 (2 from Prof Bonus, +2 Dex)
+
+# DMG page 278 - Oversized Weapons by Large or larger creatures
+Oversized Manufactured Weapon		CATEGORY:Internal	BONUS:WEAPONPROF=TYPE.Manufactured|DAMAGESIZE|OversizeManufacturedMultiplier	DEFINE:OversizeManufacturedMultiplier|0	BONUS:VAR|OversizeManufacturedMultiplier|max(BaseSize-3,0)
+
+Size Tracker						CATEGORY:Internal				DEFINE:BaseSize|0	DEFINE:CurrentSize|0	DEFINE:SizeIncrease|0	DEFINE:SizeDecrease|0	ABILITY:Internal|AUTOMATIC|Base Size ~ Tiny|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Base Size ~ Small|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Base Size ~ Medium|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Base Size ~ Large|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Base Size ~ Huge|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Base Size ~ Gargantuan|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Current Size ~ Tiny|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Current Size ~ Small|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Current Size ~ Medium|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Current Size ~ Large|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Current Size ~ Huge|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Current Size ~ Gargantuan|PRESIZEEQ:G	BONUS:VAR|SizeIncrease|CurrentSize-BaseSize	BONUS:VAR|SizeDecrease|BaseSize-CurrentSize
+#
+Current Size ~ Tiny					CATEGORY:Internal		BONUS:VAR|CurrentSize|1
+Current Size ~ Small					CATEGORY:Internal		BONUS:VAR|CurrentSize|2
+Current Size ~ Medium					CATEGORY:Internal		BONUS:VAR|CurrentSize|3
+Current Size ~ Large					CATEGORY:Internal		BONUS:VAR|CurrentSize|4
+Current Size ~ Huge					CATEGORY:Internal		BONUS:VAR|CurrentSize|5
+Current Size ~ Gargantuan				CATEGORY:Internal		BONUS:VAR|CurrentSize|6
+#
+Base Size ~ Tiny						CATEGORY:Internal		BONUS:VAR|BaseSize|1
+Base Size ~ Small						CATEGORY:Internal		BONUS:VAR|BaseSize|2
+Base Size ~ Medium					CATEGORY:Internal		BONUS:VAR|BaseSize|3
+Base Size ~ Large						CATEGORY:Internal		BONUS:VAR|BaseSize|4
+Base Size ~ Huge						CATEGORY:Internal		BONUS:VAR|BaseSize|5
+Base Size ~ Gargantuan					CATEGORY:Internal		BONUS:VAR|BaseSize|6
+
+###Block: Conditions	Pages 290 - 292
+Blinded		KEY:Condition ~ Blinded			CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A blinded creature can't see and automatically fails any ability check that requires sight. � Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage.
+Charmed		KEY:Condition ~ Charmed			CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A charmed creature can't attack the charmer or target the charmer with harmful abilities or m agical effects. The charmer has advantage on any ability check to interact socially with the creature.
+Deafened		KEY:Condition ~ Deafened		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:deafened creature can't hear and automatically fails any ability check that requires hearing.
+Frightened		KEY:Condition ~ Frightened		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight. The creature can't willingly move closer to the source of its fear.
+Grappled		KEY:Condition ~ Grappled		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:grappled creature's speed becomes 0, and it can't benefit from any bonus to its speed. The condition ends if the grappler is incapacitated (see the condition). The condition also ends if an effect removes the grappled creature from the reach of the grappler or grappling effect, such as when a creature is hurled away by the thunderwave spell.
+Incapacitated	KEY:Condition ~ Incapacitated		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:An incapacitated creature can't take actions or reactions.
+Invisible		KEY:Condition ~ Invisible		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:An invisible creature is impossible to see without the aid o f magic or a special sense. For the purpose of hiding, the creature is heavily obscured. The creature's location can be detected by any n oise it makes or any tracks it leaves. � Attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage.
+Paralyzed		KEY:Condition ~ Paralyzed		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A paralyzed creature is incapacitated (see the condition) and can't move or speak. � The creature automatically fails Strength and Dexterity saving throws. � Attack rolls against the creature have advantage. � Any attack that hits the creature is a critical hit if the attacker is within 5 feet o f the creature.
+Petrified		KEY:Condition ~ Petrified		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A petrified creature is transformed, along with any nonmagical object it is wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor o f ten, and it ceases aging. � The creature is incapacitated (see the condition), can't move or speak, and is unaware o f its surroundings. � Attack rolls against the creature have advantage. � The creature automatically fails Strength and Dexterity saving throws.  The creature has resistance to all damage.  The creature is immune to poison and disease, although a poison or disease already in its system is suspended, not neutralized.
+Poisoned		KEY:Condition ~ Poisoned		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A poisoned creature has disadvantage on attack rolls and ability checks.
+Prone			KEY:Condition ~ Prone			CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A prone creature's only movement option is to crawl, unless it stands up and thereby ends the condition. � The creature has disadvantage on attack rolls. � An attack roll against the creature has advantage if the attacker is within 5 feet o f the creature. Otherwise, the attack roll has disadvantage.
+Restrained		KEY:Condition ~ Restrained		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:restrained creature's speed becomes 0, and it can't benefit from any bonus to its speed. � Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage. � The creature has disadvantage on Dexterity saving throws.
+Stunned		KEY:Condition ~ Stunned			CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly. � The creature automatically fails Strength and Dexterity saving throws. � Attack rolls against the creature have advantage.
+Unconscious		KEY:Condition ~ Unconscious		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:An unconscious creature is incapacitated (see the condition), can't move or speak, and is unaware of its surroundings � The creature drops whatever it's holding and falls prone. � The creature automatically fails Strength and Dexterity saving throws. � Attack rolls against the creature have advantage. � Any attack that hits the creature is a critical hit if the attacker is within 5 feet o f the creature.
+
+Exhaustion		KEY:Condition ~ Exhaustion	CATEGORY:Special Ability	TYPE:SpecialQuality.Condition	DESC:1 Disadvantage on ability checks; 2 Speed halved; 3 Disadvantage on attack rolls and saving throws; 4 Hit point maximum halved; 5 Speed reduced to 0; 6 Death	DESC:&nl;If an already exhausted creature suffers another effect that causes exhaustion, its current level of exhaustion increases by the amount specified in the effect's description. A creature suffers the effect of its current level of exhaustion as well as all lower levels. For example, a creature suffering level 2 exhaustion has its speed halved and has disadvantage on ability checks. An effect that removes exhaustion reduces its level as specified in the effect's description, with all exhaustion effects ending if a creature's exhaustion level is reduced below 1. Finishing a long rest reduces a creature's exhaustion level by 1, provided that the creature has also ingested some food and drink.
+
+
+# Condition Immunities
+Condition Immunity to Blinded			KEY:Condition Immunity ~ Blinded		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Charmed			KEY:Condition Immunity ~ Charmed		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Deafened		KEY:Condition Immunity ~ Deafened		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Frightened		KEY:Condition Immunity ~ Frightened		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Grappled		KEY:Condition Immunity ~ Grappled		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Incapacitated		KEY:Condition Immunity ~ Incapacitated	CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Invisible		KEY:Condition Immunity ~ Invisible		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Paralyzed		KEY:Condition Immunity ~ Paralyzed		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Petrified		KEY:Condition Immunity ~ Petrified		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Poisoned		KEY:Condition Immunity ~ Poisoned		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Prone			KEY:Condition Immunity ~ Prone		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Restrained		KEY:Condition Immunity ~ Restrained		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Stunned			KEY:Condition Immunity ~ Stunned		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Unconscious		KEY:Condition Immunity ~ Unconscious	CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+Condition Immunity to Exhaustion		KEY:Condition Immunity ~ Exhaustion		CATEGORY:Special Ability	TYPE:SpecialQuality.Condition Immunity.Immunity
+
+# Damage Types
+# Acid		. The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage.
+# Bludgeoning	. Blunt force attacks-hammers, falling, constriction, and the like-deal bludgeoning damage.
+# Cold		. The infernal chill radiating from an ice devil's spear and the frigid blast of a white dragon's breath deal cold damage.
+# Fire		. Red dragons breathe fire, and many spells conjure flames to deal fire damage.
+# Force		. Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including magic missile and spiritual weapon.
+# Lightning		. A lightning bolt spell and a blue dragon's breath deal lightning damage.
+# Necrotic		. Necrotic damage, dealt by certain undead and some spells, withers matter and even the soul.
+# Piercing		. Puncturing and impaling attacks, including spears and monsters' bites, deal piercing damage.
+# Poison		. Venomous stings and the toxic gas of a green dragon's breath deal poison damage.
+# Psychic		. Mental abilities such as a mind flayer's psionic blast deal psychic damage.
+# Radiant		. Radiant damage, dealt by a cleric's flame strike spell or an angel's smiting weapon, sears the flesh like fire and overloads the spirit with power.
+# Slashing		. Swords, axes, and monsters' claws deal slashing damage.
+# Thunder		. A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.
+
+# Damage Vulnerability
+Damage Vulnerability to Acid			KEY:Damage Vulnerability ~ Acid				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Bludgeoning		KEY:Damage Vulnerability ~ Bludgeoning			CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Cold			KEY:Damage Vulnerability ~ Cold				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Fire			KEY:Damage Vulnerability ~ Fire				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Force			KEY:Damage Vulnerability ~ Force				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Lightning		KEY:Damage Vulnerability ~ Lightning			CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Necrotic		KEY:Damage Vulnerability ~ Necrotic				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Piercing		KEY:Damage Vulnerability ~ Piercing				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Poison		KEY:Damage Vulnerability ~ Poison				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Psychic		KEY:Damage Vulnerability ~ Psychic				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Radiant		KEY:Damage Vulnerability ~ Radiant				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Slashing		KEY:Damage Vulnerability ~ Slashing				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+Damage Vulnerability to Thunder		KEY:Damage Vulnerability ~ Thunder				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Vulnerability.Vulnerability
+
+# Damage Resistance
+Damage Resistance to Acid		KEY:Damage Resistance ~ Acid					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Bludgeoning	KEY:Damage Resistance ~ Bludgeoning				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Cold		KEY:Damage Resistance ~ Cold					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Fire		KEY:Damage Resistance ~ Fire					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Force		KEY:Damage Resistance ~ Force					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Lightning	KEY:Damage Resistance ~ Lightning				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Necrotic		KEY:Damage Resistance ~ Necrotic				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Piercing		KEY:Damage Resistance ~ Piercing				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Poison		KEY:Damage Resistance ~ Poison				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Psychic		KEY:Damage Resistance ~ Psychic				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Radiant		KEY:Damage Resistance ~ Radiant				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Slashing		KEY:Damage Resistance ~ Slashing				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+Damage Resistance to Thunder		KEY:Damage Resistance ~ Thunder				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Resistance.Resistance
+
+# Damage Immunity
+Damage Immunity to Acid			KEY:Damage Immunity ~ Acid					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Bludgeoning	KEY:Damage Immunity ~ Bludgeoning				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Cold			KEY:Damage Immunity ~ Cold					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Fire			KEY:Damage Immunity ~ Fire					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Force		KEY:Damage Immunity ~ Force					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Lightning		KEY:Damage Immunity ~ Lightning				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Necrotic		KEY:Damage Immunity ~ Necrotic				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Piercing		KEY:Damage Immunity ~ Piercing				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Poison		KEY:Damage Immunity ~ Poison					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Psychic		KEY:Damage Immunity ~ Psychic					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Radiant		KEY:Damage Immunity ~ Radiant					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Slashing		KEY:Damage Immunity ~ Slashing				CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+Damage Immunity to Thunder		KEY:Damage Immunity ~ Thunder					CATEGORY:Special Ability	TYPE:SpecialQuality.Damage Immunity.Immunity
+
+###Block
+# 5e does not use the exact same system as 3.5e.
+# Different effects "SET" the base value and then bonuses alter that.
+#No Armour: Base AC = 10 + Dexterity modifier
+#Leather Armour: Base AC = 11 + Dexterity modifier
+#Chain Shirt: Base AC = 13 + Dexterity modifier (max +2)
+#Plate Mail: Base AC = 18
+#Mage Armour spell: Base AC = 13 + Dexterity modifier
+#Barbarian Unarmoured Defense ability: Base AC = 10 + Dexterity modifier + Constitution modifier
+#Monk Unarmoured Defense ability: Base AC = 10 + Dexterity modifier + Wisdom modifier
+#Sorcerer Draconic Resilience ability: Base AC = 13 + Dexterity modifier
+
+
+
+
+
+
+
+
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Armor|TYPE=Armor	BONUS:VAR|AC_Armor|AC_Armor_Enhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Armor_Enhancement|TYPE=ArmorEnhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Shield|TYPE=Shield	BONUS:VAR|AC_Shield|AC_Shield_Enhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Shield_Enhancement|TYPE=ShieldEnhancement
+#							BONUS:COMBAT|AC|AC_Misc|TYPE=Misc			
+
+# These adjust the numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Base|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Total|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Flatfooted|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Touch|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Misc|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score_Bonus|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor_Enhancement|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Size|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Dodge|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Deflection|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Circumstance|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Insight|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Morale|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Profane|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Sacred|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Class_Defense|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0
+
+
+# These display the final numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Base|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Total|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Flatfooted|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Touch|0
+
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Shield|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Dodge|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Natural_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Size|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Deflection|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Circumstance|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Insight|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Morale|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Profane|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Sacred|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Class_Defense|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Ability_Score|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Misc|0
+
+CATEGORY=Internal|Default.MOD	DEFINE:MaxAbilityScore_Bonus__Encumbrance|0
+CATEGORY=Internal|Default.MOD	DEFINE:MaxAbilityScore_Bonus__Equipment|0
+
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Base|TYPE=Base
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Ability_Score|TYPE=Ability
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Size|TYPE=Size
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Dodge|TYPE=Dodge
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Deflection|TYPE=Deflection
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Circumstance|TYPE=Circumstance
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Insight|TYPE=Insight
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Morale|TYPE=Morale
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Profane|TYPE=Profane
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Sacred|TYPE=Sacred
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Class_Defense|TYPE=ClassDefense
+
+# Display Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Base|AC_Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Total|AC_Total
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Misc|AC_Misc
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Natural_Armor|AC_Natural_Armor
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Ability_Score|AC_Ability_Score|TYPE=Ability
+
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Armor|AC_Armor
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Shield|AC_Shield
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Dodge|AC_Dodge
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Size|AC_Size
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Deflection|max(AC_Deflection,0)
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Circumstance|AC_Circumstance
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Insight|max(AC_Insight,0)
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Morale|AC_Morale
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Profane|AC_Profane
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Sacred|AC_Sacred
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Class_Defense|AC_Class_Defense
+
+# Formula Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Base|10|TYPE=Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|MaxAbilityScore_Bonus__Encumbrance|MXDXEN
+CATEGORY=Internal|Default.MOD		BONUS:VAR|MaxAbilityScore_Bonus__Equipment|min(MODEQUIPMAXDEX,1000)
+
+
+#CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Total|AC_Base+AC_Dodge+AC_Deflection+AC_Misc+AC_Circumstance+AC_Insight+AC_Morale+AC_Profane+AC_Sacred+AC_Class_Defense
+
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Misc|AC_Output_Total-AC_Output_Base-AC_Output_Armor-AC_Output_Shield-AC_Output_Ability-AC_Output_Size-AC_Output_Natural_Armor-AC_Output_Dodge-AC_Output_Deflection
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score|min(AC_Ability_Score_Bonus,AbilityScoreLimit)|TYPE=Ability
+
+CATEGORY=Internal|Default.MOD		DEFINE:AbilityScoreLimit|0	BONUS:VAR|AbilityScoreLimit|min(MODEQUIPMAXDEX,MXDXEN)
+#min(MaxAbilityScore_Bonus__Encumbrance,MaxAbilityScore_Bonus__Equipment)
+
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score_Bonus|DEX|PREVAREQ:DisableDexForAC,0

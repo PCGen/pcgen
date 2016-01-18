@@ -695,7 +695,7 @@ CLASS:Body Snatcher	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|TYPE=Per
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																						Modify VAR
 CLASS:Cerebremancer	HD:6	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:PC.Prestige.Psionic	FACT:Abb|Cer		MAXLEVEL:10	SOURCEPAGE:p.353	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Required Skill								Req. Spell Type
-CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Psionics)=3	PRETEXT:PRESPELLTYPE:1,Arcane=2; PRESPELLTYPE:1,Psionic=2
+CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Psionics)=3	PRESPELLTYPE:1,Arcane=2		PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Psionics)|Linguistics|Spellcraft
 ###Block: Cerebremancer class definitions
@@ -723,7 +723,7 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Psionic
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus											Save bonus																						Modify VAR
 CLASS:Dark Tempest	HD:10	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.355	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Required Ability									Multiple Requirements										Required Skill				Req. Spell Type
-CLASS:Dark Tempest	PREABILITY:1,CATEGORY=Special Ability,Soulknife ~ Form Mind Blade	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Mind Blade Knight],[PREVARGTEQ:MindBladeEnhancement,2]	PRESKILL:1,Knowledge (Psionics)=6	PRETEXT:PRESPELLTYPE:1,Psionic=1
+CLASS:Dark Tempest	PREABILITY:1,CATEGORY=Special Ability,Soulknife ~ Form Mind Blade	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Mind Blade Knight],[PREVARGTEQ:MindBladeEnhancement,2]	PRESKILL:1,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Tempest	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Bluff|Intimidate|Perception|Perform (Dance)|Sense Motive
 ###Block: Dark Tempest class definitions
@@ -753,8 +753,8 @@ CLASS:Dark Tempest	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Bluff|Intimida
 ###Block: Elocater prestige class
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Save bonus																						Modify VAR
 CLASS:Elocater	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:PC.Prestige.Psionic	FACT:Abb|Elo		MAXLEVEL:10	SOURCEPAGE:p.357	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
-# Class Name	Required Feat			Multiple Requirements															Required Skill		Req. Spell Type			PRETOTALAB
-CLASS:Elocater	PREABILITY:2,CATEGORY=FEAT,Dodge,Mobility	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spring Attack],[PREABILITY:1,CATEGORY=Special Ability,Nomad's Step ~ Psychoportation]	PRESKILL:1,Acrobatics=5	PRETEXT:PRESPELLTYPE:1,Psionic=1	PRETOTALAB:3
+# Class Name	Required Feat			Multiple Requirements															Required Skill		Req. Spell Type								PRETOTALAB
+CLASS:Elocater	PREABILITY:2,CATEGORY=FEAT,Dodge,Mobility	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spring Attack],[PREABILITY:1,CATEGORY=Special Ability,Nomad's Step ~ Psychoportation]	PRESKILL:1,Acrobatics=5	PRESPELLTYPE:1,Psionic=1	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elocater	STARTSKILLPTS:6	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Knowledge (Psionics)|Perception|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
 ###Block: Elocater Proficiencies
@@ -969,8 +969,8 @@ CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraf
 ###Block: Psion Uncarnate prestige class
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																						Modify VAR
 CLASS:Psion Uncarnate	HD:6	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:PC.Prestige.Psionic	FACT:Abb|PUn		MAXLEVEL:10	SOURCEPAGE:p.370	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
-# Class Name		Required Feat		Required Skill						Req. Spell Type			Required Text
-CLASS:Psion Uncarnate	PREABILITY:1,CATEGORY=FEAT,Psionic Body	PRESKILL:2,Knowledge (Psionics)=5,Spellcraft=5	PRETEXT:PRESPELLTYPE:1,Psionic=3	PRETEXT:Must have had some instruction by another psion uncarnate or one of the Unbodied.
+# Class Name		Required Feat		Required Skill						Req. Spell Type						Required Text
+CLASS:Psion Uncarnate	PREABILITY:1,CATEGORY=FEAT,Psionic Body	PRESKILL:2,Knowledge (Psionics)=5,Spellcraft=5	PRESPELLTYPE:1,Psionic=3	PRETEXT:Must have had some instruction by another psion uncarnate or one of the Unbodied.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Disguise|Knowledge (Planes)|Sense Motive|Spellcraft
 ###Block: Psion Uncarnate class definitions
@@ -1081,8 +1081,8 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Climb|Intimi
 ###Block: Sighted Seeker prestige class
 # Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Combat bonus											Save bonus																						Modify VAR
 CLASS:Sighted Seeker	HD:8	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.378	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
-# Class Name		Multiple Requirements													Required Skill						PRETOTALAB		Var. Must Be Grater
-CLASS:Sighted Seeker	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PRETOTALAB:4	PREVARGT:TotalPowerPoints,0
+# Class Name		Multiple Requirements																	Required Skill						PRETOTALAB		Var. Must Be Grater
+CLASS:Sighted Seeker	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Ranger ~ Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PRETOTALAB:4	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level

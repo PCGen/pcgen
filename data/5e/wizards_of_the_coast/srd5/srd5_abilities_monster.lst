@@ -1,0 +1,812 @@
+
+###Block: Familiar Support
+Pseudodragon Familiar	CATEGORY:Special Ability	TYPE:Familiar_Special	ABILITY:Internal|AUTOMATIC|Familiar	COMPANIONLIST:Familiar|Pseudodragon	COST:0
+Quasit Familiar		CATEGORY:Special Ability	TYPE:Familiar_Special	ABILITY:Internal|AUTOMATIC|Familiar	COMPANIONLIST:Familiar|Quasit		COST:0
+Homunculus Familiar	CATEGORY:Special Ability	TYPE:Familiar_Special	ABILITY:Internal|AUTOMATIC|Familiar	COMPANIONLIST:Familiar|Homunculus	COST:0
+
+Familiar	CATEGORY:Internal	FOLLOWERS:Familiar|1	DEFINE:Familiar|0	BONUS:VAR|Familiar|1
+
+Placeholder	CATEGORY:Special Ability	DESC:For incomplete monsters.
+
+###Block: Internal Master Race Traits
+Racial Trait ~ Aboleth						SOURCEPAGE:p.13			CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Aboleth Race Trait
+Racial Trait ~ Angel (Deva)					SOURCEPAGE:p.16				CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Angel (Deva) Race Trait
+Racial Trait ~ Angel (Planetar)				SOURCEPAGE:p.17			CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Angel (Planetar) Race Trait
+Racial Trait ~ Angel (Solar)					SOURCEPAGE:p.18			CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Angel (Solar) Race Trait
+Racial Trait ~ Animated Object (Animated Armor)	SOURCEPAGE:p.19		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Animated Object (Animated Armor) Race Trait
+Racial Trait ~ Animated Object (Flying Sword)		SOURCEPAGE:p.20		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Animated Object (Flying Sword) Race Trait
+Racial Trait ~ Animated Object (Rug of Smothering)	SOURCEPAGE:p.20	CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Animated Object (Rug of Smothering) Race Trait
+Racial Trait ~ Ankheg						SOURCEPAGE:p.21		CATEGORY:Internal													ABILITY:Special Ability|AUTOMATIC|TYPE=Ankheg Race Trait
+Racial Trait ~ Azer	SOURCEPAGE:p.22			CATEGORY:Internal													ABILITY:Special Ability|AUTOMATIC|TYPE=Azer Race Trait
+Racial Trait ~ Banshee	SOURCEPAGE:p.23		CATEGORY:Internal													ABILITY:Special Ability|AUTOMATIC|TYPE=Banshee Race Trait
+Racial Trait ~ Basilisk	SOURCEPAGE:p.24		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Basilisk Race Trait
+Racial Trait ~ Behir	SOURCEPAGE:p.25		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Behir Race Trait
+Racial Trait ~ Bugbear			CATEGORY:Internal
+
+Racial Trait ~ Bulette	SOURCEPAGE:p.34		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Bulette Race Trait
+Racial Trait ~ Centaur	SOURCEPAGE:p.38		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Centaur Race Trait
+Racial Trait ~ Chimera	SOURCEPAGE:p.39		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Chimera Race Trait
+Racial Trait ~ Chuul	SOURCEPAGE:p.40		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Chuul Race Trait
+Racial Trait ~ Cloaker	SOURCEPAGE:p.41		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Cloaker Race Trait
+Racial Trait ~ Cockatrice	SOURCEPAGE:p.42		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Cockatrice Race Trait
+Racial Trait ~ Couatl	SOURCEPAGE:p.43		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Couatl Race Trait
+Racial Trait ~ Cyclops	SOURCEPAGE:p.45		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Cyclops Race Trait
+Racial Trait ~ Darkmantle	SOURCEPAGE:p.46		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Darkmantle Race Trait
+
+Racial Trait ~ Homunculus	SOURCEPAGE:p.188		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Homunculus Race Trait
+Racial Trait ~ Pseudodragon	SOURCEPAGE:p.254		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Pseudodragon Race Trait	ABILITY:Skill|AUTOMATIC|Perception|Stealth
+
+# Incomplete
+Racial Trait ~ Balor	SOURCEPAGE:p.55		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Balor Race Trait				
+Racial Trait ~ Chasme	SOURCEPAGE:p.57		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Chasme Race Trait				
+Racial Trait ~ Dretch	SOURCEPAGE:p.57		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Dretch Race Trait				
+Racial Trait ~ Glabrezu	SOURCEPAGE:p.58		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Glabrezu Race Trait				
+Racial Trait ~ Hezrou	SOURCEPAGE:p.60		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Hezrou Race Trait				
+Racial Trait ~ Marilith 	SOURCEPAGE:p.61		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Marilith  Race Trait				
+Racial Trait ~ Nalfeshnee	SOURCEPAGE:p.62		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Nalfeshnee Race Trait				
+Racial Trait ~ Quasit	SOURCEPAGE:p.63		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Quasit Race Trait				
+Racial Trait ~ Vrock	SOURCEPAGE:p.64		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Vrock Race Trait				
+Racial Trait ~ Barbed Devil	SOURCEPAGE:p.70		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Barbed Devil Race Trait				
+Racial Trait ~ Bearded Devil	SOURCEPAGE:p.70		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Bearded Devil Race Trait				
+Racial Trait ~ Bone Devil	SOURCEPAGE:p.71		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Bone Devil Race Trait				
+Racial Trait ~ Chain Devil	SOURCEPAGE:p.72		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Chain Devil Race Trait				
+Racial Trait ~ Erinyes	SOURCEPAGE:p.73		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Erinyes Race Trait				
+Racial Trait ~ Horned Devil	SOURCEPAGE:p.74		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Horned Devil Race Trait				
+Racial Trait ~ lce Devil	SOURCEPAGE:p.75		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=lee Devil Race Trait				
+Racial Trait ~ Imp	SOURCEPAGE:p.76		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Imp Race Trait				
+Racial Trait ~ Lemure	SOURCEPAGE:p.76		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Lemure Race Trait				
+Racial Trait ~ Pit Fiend	SOURCEPAGE:p.77		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Pit Fiend Race Trait				
+Racial Trait ~ Spined Devil	SOURCEPAGE:p.78		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Spined Devil Race Trait				
+Racial Trait ~ Plesiosaurus	SOURCEPAGE:p.80		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Plesiosaurus Race Trait				
+Racial Trait ~ Triceratops	SOURCEPAGE:p.80		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Triceratops Race Trait				
+Racial Trait ~ Tyrannosaurus Rex	SOURCEPAGE:p.80		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Tyrannosaurus Rex Race Trait			
+Racial Trait ~ Doppelganger	SOURCEPAGE:p.82		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Doppelganger Race Trait				
+Racial Trait ~ Young Red Shadow Dragon	SOURCEPAGE:p.85		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Young Red Shadow Dragon Race Trait		
+Racial Trait ~ Ancient Black Dragon	SOURCEPAGE:p.87		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Black Dragon Race Trait			
+Racial Trait ~ Adult Black Dragon	SOURCEPAGE:p.88		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Black Dragon Race Trait			
+Racial Trait ~ Black Dragon Wyrmling	SOURCEPAGE:p.88		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Black Dragon Wyrmling Race Trait			
+Racial Trait ~ Young Black Dragon	SOURCEPAGE:p.88		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Black Dragon Race Trait			
+Racial Trait ~ Ancient Blue Dragon	SOURCEPAGE:p.90		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Blue Dragon Race Trait			
+Racial Trait ~ Adult Blue Dragon	SOURCEPAGE:p.91		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Blue Dragon Race Trait			
+Racial Trait ~ Blue Dragon Wyrmling	SOURCEPAGE:p.91		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Blue Dragon Wyrmling Race Trait			
+Racial Trait ~ Young Blue Dragon	SOURCEPAGE:p.91		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Blue Dragon Race Trait			
+Racial Trait ~ Ancient Green Dragon	SOURCEPAGE:p.93		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Green Dragon Race Trait			
+Racial Trait ~ Adult Green Dragon	SOURCEPAGE:p.94		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Green Dragon Race Trait			
+Racial Trait ~ Young Green Dragon	SOURCEPAGE:p.94		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Green Dragon Race Trait			
+Racial Trait ~ Green Dragon Wyrmling	SOURCEPAGE:p.95		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Green Dragon Wyrmling Race Trait			
+Racial Trait ~ Ancient Red Dragon	SOURCEPAGE:p.97		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Red Dragon Race Trait			
+Racial Trait ~ Adult Red Dragon	SOURCEPAGE:p.98		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Red Dragon Race Trait			
+Racial Trait ~ Red Dragon Wyrmling	SOURCEPAGE:p.98		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Red Dragon Wyrmling Race Trait			
+Racial Trait ~ Young Red Dragon	SOURCEPAGE:p.98		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Red Dragon Race Trait			
+Racial Trait ~ Adult Copper Dragon	SOURCEPAGE:p.Ill		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Copper Dragon Race Trait			
+Racial Trait ~ Hill Giant	SOURCEPAGE:p.ISS		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Hill Giant Race Trait				
+Racial Trait ~ Gold Dragon Wyrmling	SOURCEPAGE:p.liS		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Gold Dragon Wyrmling Race Trait			
+Racial Trait ~ Ancient White Dragon	SOURCEPAGE:p.100		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient White Dragon Race Trait			
+Racial Trait ~ Adult White Dragon	SOURCEPAGE:p.101		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult White Dragon Race Trait			
+Racial Trait ~ Young White Dragon	SOURCEPAGE:p.101		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young White Dragon Race Trait			
+Racial Trait ~ White Dragon Wyrmling	SOURCEPAGE:p.102		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=White Dragon Wyrmling Race Trait			
+Racial Trait ~ Ancient Brass Dragon	SOURCEPAGE:p.104		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Brass Dragon Race Trait			
+Racial Trait ~ Adult Brass Dragon	SOURCEPAGE:p.105		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Brass Dragon Race Trait			
+Racial Trait ~ Young Brass Dragon	SOURCEPAGE:p.105		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Brass Dragon Race Trait			
+Racial Trait ~ Brass Dragon Wyrmling	SOURCEPAGE:p.106		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Brass Dragon Wyrmling Race Trait			
+Racial Trait ~ Ancient Bronze Dragon	SOURCEPAGE:p.107		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Bronze Dragon Race Trait			
+Racial Trait ~ Adult Bronze Dragon	SOURCEPAGE:p.108		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Bronze Dragon Race Trait			
+Racial Trait ~ Young Bronze Dragon	SOURCEPAGE:p.108		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Bronze Dragon Race Trait			
+Racial Trait ~ Bronze Dragon Wyrmling	SOURCEPAGE:p.109		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Bronze Dragon Wyrmling Race Trait		
+Racial Trait ~ Ancient Copper Dragon	SOURCEPAGE:p.110		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Copper Dragon Race Trait			
+Racial Trait ~ Young Copper Dragon	SOURCEPAGE:p.111		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Copper Dragon Race Trait			
+Racial Trait ~ Copper Dragon Wyrmling	SOURCEPAGE:p.112		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Copper Dragon Wyrmling Race Trait		
+Racial Trait ~ Ancient Gold Dragon	SOURCEPAGE:p.113		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Gold Dragon Race Trait			
+Racial Trait ~ Adult Gold Dragon	SOURCEPAGE:p.114		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Gold Dragon Race Trait			
+Racial Trait ~ Young Gold Dragon	SOURCEPAGE:p.115		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Gold Dragon Race Trait			
+Racial Trait ~ Ancient Silver Dragon	SOURCEPAGE:p.116		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Ancient Silver Dragon Race Trait			
+Racial Trait ~ Adult Silver Dragon	SOURCEPAGE:p.117		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Adult Silver Dragon Race Trait			
+Racial Trait ~ Silver Dragon Wyrmling	SOURCEPAGE:p.118		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Silver Dragon Wyrmling Race Trait		
+Racial Trait ~ Young Silver Dragon	SOURCEPAGE:p.118		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Young Silver Dragon Race Trait			
+Racial Trait ~ Dragon Turtle	SOURCEPAGE:p.119		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Dragon Turtle Race Trait				
+Racial Trait ~ Drider	SOURCEPAGE:p.120		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Drider Race Trait				
+Racial Trait ~ Dryad	SOURCEPAGE:p.121		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Dryad Race Trait				
+Racial Trait ~ Duergar	SOURCEPAGE:p.122		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Duergar Race Trait				
+Racial Trait ~ Air Elemental	SOURCEPAGE:p.124		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Air Elemental Race Trait				
+Racial Trait ~ Earth Elemental	SOURCEPAGE:p.124		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Earth Elemental Race Trait				
+Racial Trait ~ Fire Elemental	SOURCEPAGE:p.125		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Fire Elemental Race Trait				
+Racial Trait ~ Water Elemental	SOURCEPAGE:p.125		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Water Elemental Race Trait				
+Racial Trait ~ Drow	SOURCEPAGE:p.128		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Drow Race Trait				
+Racial Trait ~ Ettercap	SOURCEPAGE:p.131		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Ettercap Race Trait				
+Racial Trait ~ Ettin	SOURCEPAGE:p.132		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Ettin Race Trait				
+Racial Trait ~ Shrieker	SOURCEPAGE:p.138		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Shrieker Race Trait				
+Racial Trait ~ Violet Fungus	SOURCEPAGE:p.138		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Violet Fungus Race Trait				
+Racial Trait ~ Galeb Duhr	SOURCEPAGE:p.139		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Galeb Duhr Race Trait				
+Racial Trait ~ Gargoyle	SOURCEPAGE:p.140		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Gargoyle Race Trait				
+Racial Trait ~ Djinni	SOURCEPAGE:p.144		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Djinni Race Trait				
+Racial Trait ~ Efreeti	SOURCEPAGE:p.145		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Efreeti Race Trait				
+Racial Trait ~ Ghost	SOURCEPAGE:p.147		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Ghost Race Trait				
+Racial Trait ~ Ghast	SOURCEPAGE:p.148		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Ghast Race Trait				
+Racial Trait ~ Ghoul	SOURCEPAGE:p.148		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Ghoul Race Trait				
+Racial Trait ~ Cloud Giant	SOURCEPAGE:p.154		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Cloud Giant Race Trait				
+Racial Trait ~ Fire Giant	SOURCEPAGE:p.154		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Fire Giant Race Trait				
+Racial Trait ~ Frost Giant	SOURCEPAGE:p.155		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Frost Giant Race Trait				
+Racial Trait ~ Stone Giant	SOURCEPAGE:p.156		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Stone Giant Race Trait				
+Racial Trait ~ Storm Giant	SOURCEPAGE:p.156		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Storm Giant Race Trait				
+Racial Trait ~ Gibbering Mouther	SOURCEPAGE:p.157		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Gibbering Mouther Race Trait			
+Racial Trait ~ Gnoll	SOURCEPAGE:p.163		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Gnoll Race Trait				
+Racial Trait ~ Deep Gnome (Svirfneblin)	SOURCEPAGE:p.164		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Deep Gnome (Svirfneblin) Race Trait		
+Racial Trait ~ Goblin	SOURCEPAGE:p.166		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Goblin Race Trait				
+Racial Trait ~ Clay Golem	SOURCEPAGE:p.168		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Clay Golem Race Trait				
+Racial Trait ~ Flesh Golem	SOURCEPAGE:p.169		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Flesh Golem Race Trait				
+Racial Trait ~ Iron Golem	SOURCEPAGE:p.170		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Iron Golem Race Trait				
+Racial Trait ~ Stone Golem	SOURCEPAGE:p.170		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Stone Golem Race Trait				
+Racial Trait ~ Gorgon	SOURCEPAGE:p.171		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Gorgon Race Trait				
+Racial Trait ~ Grick	SOURCEPAGE:p.173		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Grick Race Trait				
+Racial Trait ~ Griffon	SOURCEPAGE:p.174		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Griffon Race Trait				
+Racial Trait ~ Grimlock	SOURCEPAGE:p.175		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Grimlock Race Trait				
+Racial Trait ~ Green Hag	SOURCEPAGE:p.177		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Green Hag Race Trait				
+Racial Trait ~ Night Hag	SOURCEPAGE:p.178		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Night Hag Race Trait				
+Racial Trait ~ Sea Hag	SOURCEPAGE:p.179		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Sea Hag Race Trait				
+Racial Trait ~ Half-Dragon (template)	SOURCEPAGE:p.180		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Half-Dragon (template) Race Trait		
+Racial Trait ~ Half-Red Dragon Veteran	SOURCEPAGE:p.180		CATEGORY:Internal								ABILITY:Special Ability|AUTOMATIC|TYPE=Half-Red Dragon Veteran Race Trait		
+Racial Trait ~ Harpy	SOURCEPAGE:p.181		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Harpy Race Trait				
+Racial Trait ~ Hell Hound	SOURCEPAGE:p.182		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Hell Hound Race Trait				
+Racial Trait ~ Hippogriff	SOURCEPAGE:p.184		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Hippogriff Race Trait				
+Racial Trait ~ Hobgoblin	SOURCEPAGE:p.186		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Hobgoblin Race Trait				
+Racial Trait ~ Hydra	SOURCEPAGE:p.190		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Hydra Race Trait				
+Racial Trait ~ Invisible Stalker	SOURCEPAGE:p.192		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Invisible Stalker Race Trait			
+Racial Trait ~ Kobold	SOURCEPAGE:p.195		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Kobold Race Trait				
+Racial Trait ~ Kraken	SOURCEPAGE:p.197		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Kraken Race Trait				
+Racial Trait ~ Kuo-toa	SOURCEPAGE:p.199		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Kuo-toa Race Trait				
+Racial Trait ~ Manticore	SOURCEPAGE:p.213		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Manticore Race Trait				
+Racial Trait ~ Merrow	SOURCEPAGE:p.219		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Merrow Race Trait				
+Racial Trait ~ Lamia	SOURCEPAGE:p.201		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Lamia Race Trait				
+Racial Trait ~ Lich	SOURCEPAGE:p.202		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Lich Race Trait				
+Racial Trait ~ Lizardfolk	SOURCEPAGE:p.204		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Lizardfolk Race Trait				
+Racial Trait ~ Werebear	SOURCEPAGE:p.208		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Werebear Race Trait				
+Racial Trait ~ Wereboar	SOURCEPAGE:p.209		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Wereboar Race Trait				
+Racial Trait ~ Wererat	SOURCEPAGE:p.209		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Wererat Race Trait				
+Racial Trait ~ Weretiger	SOURCEPAGE:p.210		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Weretiger Race Trait				
+Racial Trait ~ Werewolf	SOURCEPAGE:p.211		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Werewolf Race Trait				
+Racial Trait ~ Magmin	SOURCEPAGE:p.212		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Magmin Race Trait				
+Racial Trait ~ Medusa	SOURCEPAGE:p.214		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Medusa Race Trait				
+Racial Trait ~ Dust Mephit	SOURCEPAGE:p.215		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Dust Mephit Race Trait				
+Racial Trait ~ lce Mephit	SOURCEPAGE:p.215		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=lee Mephit Race Trait				
+Racial Trait ~ Magma Mephit	SOURCEPAGE:p.216		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Magma Mephit Race Trait				
+Racial Trait ~ Mud Mephit	SOURCEPAGE:p.216		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Mud Mephit Race Trait				
+Racial Trait ~ Smoke Mephit	SOURCEPAGE:p.217		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Smoke Mephit Race Trait				
+Racial Trait ~ Steam Mephit	SOURCEPAGE:p.217		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Steam Mephit Race Trait				
+Racial Trait ~ Merfolk	SOURCEPAGE:p.218		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Merfolk Race Trait				
+Racial Trait ~ Mimic	SOURCEPAGE:p.220		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Mimic Race Trait				
+Racial Trait ~ Minotaur	SOURCEPAGE:p.223		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Minotaur Race Trait				
+Racial Trait ~ Mummy	SOURCEPAGE:p.228		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Mummy Race Trait				
+Racial Trait ~ Mummy Lord	SOURCEPAGE:p.229		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Mummy Lord Race Trait				
+Racial Trait ~ Guardian Naga	SOURCEPAGE:p.234		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Guardian Naga Race Trait				
+Racial Trait ~ Spirit Naga	SOURCEPAGE:p.234		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Spirit Naga Race Trait				
+Racial Trait ~ Nightmare	SOURCEPAGE:p.235		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Nightmare Race Trait				
+Racial Trait ~ Ogre	SOURCEPAGE:p.237		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Ogre Race Trait				
+Racial Trait ~ Oni	SOURCEPAGE:p.239		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Race Trait				
+Racial Trait ~ Black Pudding	SOURCEPAGE:p.241		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Black Pudding Race Trait				
+Racial Trait ~ Gelatinous Cube	SOURCEPAGE:p.242		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Gelatinous Cube Race Trait				
+Racial Trait ~ Gray Ooze	SOURCEPAGE:p.243		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Gray Ooze Race Trait				
+Racial Trait ~ Ochre jelly	SOURCEPAGE:p.243		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Ochre jelly Race Trait				
+Racial Trait ~ Orc	SOURCEPAGE:p.246		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Ore Race Trait				
+Racial Trait ~ Otyugh	SOURCEPAGE:p.248		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Otyugh Race Trait				
+Racial Trait ~ Owlbear	SOURCEPAGE:p.249		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Owlbear Race Trait				
+Racial Trait ~ Pegasus	SOURCEPAGE:p.250		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Pegasus Race Trait				
+Racial Trait ~ Peryton	SOURCEPAGE:p.251		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Peryton Race Trait				
+Racial Trait ~ Piercer	SOURCEPAGE:p.252		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Piercer Race Trait				
+Racial Trait ~ Pixie	SOURCEPAGE:p.253		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Pixie Race Trait				
+Racial Trait ~ Purple Worm	SOURCEPAGE:p.255		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Purple Worm Race Trait				
+Racial Trait ~ Quaggoth	SOURCEPAGE:p.256		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Quaggoth Race Trait				
+Racial Trait ~ Rakshasa	SOURCEPAGE:p.257		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Rakshasa Race Trait				
+Racial Trait ~ Remorhaz	SOURCEPAGE:p.258		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Remorhaz Race Trait				
+Racial Trait ~ Revenant	SOURCEPAGE:p.259		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Revenant Race Trait				
+Racial Trait ~ Roc	SOURCEPAGE:p.260		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Roc Race Trait				
+Racial Trait ~ Roper	SOURCEPAGE:p.261		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Roper Race Trait				
+Racial Trait ~ Rust Monster	SOURCEPAGE:p.262		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Rust Monster Race Trait				
+Racial Trait ~ Sahuagin	SOURCEPAGE:p.263		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Sahuagin Race Trait				
+Racial Trait ~ Salamander	SOURCEPAGE:p.266		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Salamander Race Trait				
+Racial Trait ~ Satyr	SOURCEPAGE:p.267		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Satyr Race Trait				
+Racial Trait ~ Shadow	SOURCEPAGE:p.269		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Shadow Race Trait				
+Racial Trait ~ Shambling Mound	SOURCEPAGE:p.270		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Shambling Mound Race Trait				
+Racial Trait ~ Shield Guardian	SOURCEPAGE:p.271		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Shield Guardian Race Trait				
+Racial Trait ~ Skeleton	SOURCEPAGE:p.272		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Skeleton Race Trait				
+Racial Trait ~ Minotaur Skeleton 	SOURCEPAGE:p.273		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Minotaur Skeleton  Race Trait			
+Racial Trait ~ Warhorse Skeleton	SOURCEPAGE:p.273		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Warhorse Skeleton Race Trait			
+Racial Trait ~ Specter	SOURCEPAGE:p.279		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Specter Race Trait				
+Racial Trait ~ Androsphinx	SOURCEPAGE:p.281		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Androsphinx Race Trait				
+Racial Trait ~ Gynosphinx	SOURCEPAGE:p.282		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Gynosphinx Race Trait				
+Racial Trait ~ Sprite	SOURCEPAGE:p.283		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Sprite Race Trait				
+Racial Trait ~ Stirge	SOURCEPAGE:p.284		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Stirge Race Trait				
+Racial Trait ~ Succubus	SOURCEPAGE:p.285		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Succubus Race Trait				
+Racial Trait ~ Tarrasque	SOURCEPAGE:p.286		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Tarrasque Race Trait				
+Racial Trait ~ Treant	SOURCEPAGE:p.289		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Treant Race Trait				
+Racial Trait ~ Troglodyte	SOURCEPAGE:p.290		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Troglodyte Race Trait				
+Racial Trait ~ Troll	SOURCEPAGE:p.291		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Troll Race Trait				
+Racial Trait ~ Unicorn 	SOURCEPAGE:p.294		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Unicorn  Race Trait				
+Racial Trait ~ Vampire	SOURCEPAGE:p.297		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Vampire Race Trait				
+Racial Trait ~ Vampire Spawn	SOURCEPAGE:p.298		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Vampire Spawn Race Trait				
+Racial Trait ~ Wight	SOURCEPAGE:p.300		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Wight Race Trait				
+Racial Trait ~ Will-o'-Wisp	SOURCEPAGE:p.301		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Will-o'-Wisp Race Trait				
+Racial Trait ~ Wraith	SOURCEPAGE:p.302		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Wraith Race Trait				
+Racial Trait ~ Wyvern 	SOURCEPAGE:p.303		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Wyvern  Race Trait				
+Racial Trait ~ Xorn	SOURCEPAGE:p.304		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Xorn Race Trait				
+Racial Trait ~ Zombie	SOURCEPAGE:p.316		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Zombie Race Trait				
+Racial Trait ~ Ogre Zombie	SOURCEPAGE:p.316		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Ogre Zombie Race Trait				
+
+###Block: Misc Creatures
+Racial Trait ~ Ape				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Ape Race Trait				
+Racial Trait ~ Awakened Shrub		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Awakened Shrub Race Trait				
+Racial Trait ~ Awakened Tree			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Awakened Tree Race Trait				
+Racial Trait ~ Axe Beak			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Axe Beak Race Trait				
+Racial Trait ~ Baboon				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Baboon Race Trait				
+Racial Trait ~ Badger				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Badger Race Trait				
+Racial Trait ~ Bat				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Bat Race Trait				
+Racial Trait ~ Black Bear			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Black Bear Race Trait				
+Racial Trait ~ Blink Dog			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Blink Dog Race Trait				
+Racial Trait ~ Brown Bear			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Brown Bear Race Trait				
+Racial Trait ~ Blood Hawk			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Blood Hawk Race Trait				
+Racial Trait ~ Boar				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Boar Race Trait				
+Racial Trait ~ Camel				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Camel Race Trait				
+Racial Trait ~ Cat				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Cat Race Trait				
+Racial Trait ~ Constrictor Snake		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Constrictor Snake Race Trait			
+Racial Trait ~ Crab				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Crab Race Trait				
+Racial Trait ~ Crocodile			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Crocodile Race Trait				
+Racial Trait ~ Death Dog			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Death Dog Race Trait				
+Racial Trait ~ Deer				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Deer Race Trait				
+Racial Trait ~ Dire Wolf			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Dire Wolf Race Trait				
+Racial Trait ~ Draft Horse			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Draft Horse Race Trait				
+Racial Trait ~ Eagle				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Eagle Race Trait				
+Racial Trait ~ Elephant			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Elephant Race Trait				
+Racial Trait ~ Elk				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Elk Race Trait				
+Racial Trait ~ Frog				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Frog Race Trait				
+Racial Trait ~ Giant Ape			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Ape Race Trait				
+Racial Trait ~ Giant Badger			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Badger Race Trait				
+Racial Trait ~ Giant Bat			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Bat Race Trait				
+Racial Trait ~ Giant Boar			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Boar Race Trait				
+Racial Trait ~ Giant Centipede		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Centipede Race Trait				
+Racial Trait ~ Giant Constrictor Snake	SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Constrictor Snake Race Trait		
+Racial Trait ~ Giant Crab			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Crab Race Trait				
+Racial Trait ~ Giant Crocodile		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Crocodile Race Trait				
+Racial Trait ~ Giant Eagle			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Eagle Race Trait				
+Racial Trait ~ Giant Elk			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Elk Race Trait				
+Racial Trait ~ Giant Fire Beetle		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Fire Beetle Race Trait			
+Racial Trait ~ Giant Frog			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Frog Race Trait				
+Racial Trait ~ Giant Goat			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Goat Race Trait				
+Racial Trait ~ Giant Hyena			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Hyena Race Trait				
+Racial Trait ~ Giant Lizard			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Lizard Race Trait				
+Racial Trait ~ Giant Octopus			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Octopus Race Trait				
+Racial Trait ~ Giant Owl			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Owl Race Trait				
+Racial Trait ~ Giant Poisonous Snake	SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Poisonous Snake Race Trait			
+Racial Trait ~ Giant Scorpion		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Scorpion Race Trait				
+Racial Trait ~ Giant Rat			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Rat Race Trait				
+Racial Trait ~ Giant Sea Horse		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Sea Horse Race Trait				
+Racial Trait ~ Giant Shark			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Shark Race Trait				
+Racial Trait ~ Giant Spider			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Spider Race Trait				
+Racial Trait ~ Giant Toad			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Toad Race Trait				
+Racial Trait ~ Giant Vulture			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Vulture Race Trait				
+Racial Trait ~ Giant Wasp			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Wasp Race Trait				
+Racial Trait ~ Giant Weasel			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Weasel Race Trait				
+Racial Trait ~ Bugbear				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Bugbear Race Trait				
+Racial Trait ~ Giant Wolf Spider		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Giant Wolf Spider Race Trait			
+Racial Trait ~ Goat				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Goat Race Trait				
+Racial Trait ~ Hawk				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Hawk Race Trait				
+Racial Trait ~ Hunter Shark			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Hunter Shark Race Trait				
+Racial Trait ~ Hyena				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Hyena Race Trait				
+Racial Trait ~ Jackal				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Jackal Race Trait				
+Racial Trait ~ Killer Whale			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Killer Whale Race Trait				
+Racial Trait ~ Lion				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Lion Race Trait				
+Racial Trait ~ Lizard				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Lizard Race Trait				
+Racial Trait ~ Mammoth				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Mammoth Race Trait				
+Racial Trait ~ Mastiff				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Mastiff Race Trait				
+Racial Trait ~ Mule				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Mule Race Trait				
+Racial Trait ~ Octopus				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Octopus Race Trait				
+Racial Trait ~ Owl				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Owl Race Trait				
+Racial Trait ~ Panther				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Panther Race Trait				
+Racial Trait ~ Cave Bear			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Cave Bear Race Trait				
+Racial Trait ~ Phase Spider			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Phase Spider Race Trait				
+Racial Trait ~ Poisonous Snake		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Poisonous Snake Race Trait				
+Racial Trait ~ Polar Bear			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Polar Bear Race Trait				
+Racial Trait ~ Pony				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Pony Race Trait				
+Racial Trait ~ Quipper				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Quipper Race Trait				
+Racial Trait ~ Rat				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Rat Race Trait				
+Racial Trait ~ Raven				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Raven Race Trait				
+Racial Trait ~ Reef Shark			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Reef Shark Race Trait				
+Racial Trait ~ Rhinoceros			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Rhinoceros Race Trait				
+Racial Trait ~ Riding Horse			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Riding Horse Race Trait				
+Racial Trait ~ Saber-toothed Tiger		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Saber-toothed Tiger Race Trait			
+Racial Trait ~ Scorpion			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Scorpion Race Trait				
+Racial Trait ~ Sea Horse			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Sea Horse Race Trait				
+Racial Trait ~ Spider				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Spider Race Trait				
+Racial Trait ~ Swarm of Bats			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Bats Race Trait				
+Racial Trait ~ Swarm of Beetles		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Beetles Race Trait			
+Racial Trait ~ Swarm of Centipedes		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Centipedes Race Trait			
+Racial Trait ~ Swarm of Insects		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Insects Race Trait			
+Racial Trait ~ Swarm of Poisonous Snakes	SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Poisonous Snakes Race Trait		
+Racial Trait ~ Swarm of Quippers		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Quippers Race Trait			
+Racial Trait ~ Swarm of Spiders		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Spiders Race Trait			
+Racial Trait ~ Swarm of Wasps		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Wasps Race Trait				
+Racial Trait ~ Swarm of Rats			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Rats Race Trait				
+Racial Trait ~ Swarm of Ravens		SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Swarm of Ravens Race Trait				
+Racial Trait ~ Tiger				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Tiger Race Trait				
+Racial Trait ~ Vulture				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Vulture Race Trait				
+Racial Trait ~ Warhorse			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Warhorse Race Trait				
+Racial Trait ~ Weasel				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Weasel Race Trait				
+Racial Trait ~ Winter Wolf			SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Winter Wolf Race Trait				
+Racial Trait ~ Wolf				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Wolf Race Trait				
+Racial Trait ~ Worg				SOURCEPAGE:p.		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Worg Race Trait				
+
+###Block: NPCs
+Racial Trait ~ Acolyte	SOURCEPAGE:p.342		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Acolyte Race Trait				
+Racial Trait ~ Archmage	SOURCEPAGE:p.342		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Archmage Race Trait				
+Racial Trait ~ Assassin	SOURCEPAGE:p.343		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Assassin Race Trait				
+Racial Trait ~ Bandit	SOURCEPAGE:p.343		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Bandit Race Trait				
+Racial Trait ~ Bandit Captain	SOURCEPAGE:p.344		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Bandit Captain Race Trait				
+Racial Trait ~ Berserker	SOURCEPAGE:p.344		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Berserker Race Trait				
+Racial Trait ~ Commoner	SOURCEPAGE:p.345		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Commoner Race Trait				
+Racial Trait ~ Cult Fanatic	SOURCEPAGE:p.345		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Cult Fanatic Race Trait				
+Racial Trait ~ Cultist	SOURCEPAGE:p.345		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Cultist Race Trait				
+Racial Trait ~ Druid	SOURCEPAGE:p.346		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Druid Race Trait				
+Racial Trait ~ Gladiator	SOURCEPAGE:p.346		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Gladiator Race Trait				
+Racial Trait ~ Guard	SOURCEPAGE:p.347		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Guard Race Trait				
+Racial Trait ~ Knight	SOURCEPAGE:p.347		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Knight Race Trait				
+Racial Trait ~ Mage	SOURCEPAGE:p.347		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Mage Race Trait				
+Racial Trait ~ Noble	SOURCEPAGE:p.348		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Noble Race Trait				
+Racial Trait ~ Priest	SOURCEPAGE:p.348		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Priest Race Trait				
+Racial Trait ~ Scout	SOURCEPAGE:p.349		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Scout Race Trait				
+Racial Trait ~ Spy	SOURCEPAGE:p.349		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Spy Race Trait				
+Racial Trait ~ Thug	SOURCEPAGE:p.350		CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Thug Race Trait				
+Racial Trait ~ Tribal Warrior	SOURCEPAGE:p.350		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Tribal Warrior Race Trait				
+Racial Trait ~ Veteran	SOURCEPAGE:p.350		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Veteran Race Trait				
+
+
+###Block:
+
+# Aboleth
+Amphibious		KEY:Aboleth ~ Amphibious					CATEGORY:Special Ability	TYPE:Aboleth Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The aboleth can breathe air and water.
+Mucous Cloud	KEY:Aboleth ~ Mucous Cloud				CATEGORY:Special Ability	TYPE:Aboleth Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while withi n 5 feet of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.
+Probing Telepathy	KEY:Aboleth ~ Probing Telepathy				CATEGORY:Special Ability	TYPE:Aboleth Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.
+Enslave (3/Day)	KEY:Aboleth ~ Enslave					CATEGORY:Special Ability	TYPE:Aboleth Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The aboleth targets one creature it can see within 30 fe et of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can com muni cate telepathically with each other over any distance. Whenever the charmed target takes damage, the ta rget can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.
+Legendary Actions	KEY:Aboleth ~ Legendary Actions				CATEGORY:Special Ability	TYPE:Aboleth Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The aboleth can take 3 legendary actions, choosing from the options below. Only one legend ary action option can be used at a tim e and only at the end of another creature's turn . The aboleth regains spent legendary actions at the start of its turn. Detect: The aboleth makes a Wisdom (Perception) check. Tail Swipe: The aboleth makes one tail attack. Psychic Drain (Costs 2 Actions): One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.
+
+# Deva
+Angelic Weapons		KEY:Deva ~ Angelic Weapons				CATEGORY:Special Ability	TYPE:Angel (Deva) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The deva's wea pon attacks are magica l. When the deva hits with any weapon, the weapon deals an extra 4d8 radiant damage (included in the attack).
+Innate Spellcasting	KEY:Deva ~ Innate Spellcasting			CATEGORY:Special Ability	TYPE:Angel (Deva) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The deva's spellcasting ability is Charisma (spell save DC 17). The deva can innately cast the following spells, requiring only verbal components: At will: detect evil and good; 1/day each: commune, raise dead
+Magic Resistance		KEY:Deva ~ Magic Resistance				CATEGORY:Special Ability	TYPE:Angel (Deva) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The deva has advantage on saving throws against spells and other magical effects.
+Multiattack			KEY:Deva ~ Multiattack					CATEGORY:Special Ability	TYPE:Angel (Deva) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The deva makes two melee attacks.
+Healing Touch (3/Day)	KEY:Deva ~ Healing Touch				CATEGORY:Special Ability	TYPE:Angel (Deva) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The deva touches another creature. The target magically regains 20 (4d8 + 2) hit points and is freed from any curse, disease, poison, blindness, or deafness.
+Change Shape		KEY:Deva ~ Change Shape					CATEGORY:Special Ability	TYPE:Angel (Deva) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The deva magically polymorphs into a humanoid or beast th at has a challenge rating equal to or less than its own, or back into its true form . It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the deva's choice). In a new form, the deva retains its game statistics and ability to speak, but its AC, movement modes, Strength , Dexterity, and special senses are re placed by those of the new form, and it gains any statistics and capabilities (except class features, legendary actions, and lair actions) that the new form has but that it lacks.
+
+
+# Planetar
+Angelic Weapons		KEY:Planetar ~ Angelic Weapons				CATEGORY:Special Ability	TYPE:Angel (Planetar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The planetar's weapon attacks are magical. When the planetar hits with any weapon, the weapon deals an extra 5d8 radiant damage (included in the attack).
+Divine Awareness		KEY:Planetar ~ Divine Awareness				CATEGORY:Special Ability	TYPE:Angel (Planetar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The planetar knows if it hears a lie.
+Innate Spellcasting	KEY:Planetar ~ Innate Spellcasting				CATEGORY:Special Ability	TYPE:Angel (Planetar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The planetar's spellcasting ability is Charisma (spell save DC 20). The planetar can innately cast the following spells, requiring no material components: At will: detect evil and good, invisibility (self only) 3/day each: blade barrier, dispel evil and good, flame strike, raise dead 1/day each: commune, control weather, insect plague
+Magic Resistance		KEY:Planetar ~ Magic Resistance				CATEGORY:Special Ability	TYPE:Angel (Planetar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The planetar has advantage on saving throws against spells and other magical effects.
+Multiattack			KEY:Planetar ~ Multiattack					CATEGORY:Special Ability	TYPE:Angel (Planetar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The planetar makes two melee attacks.
+Healing Touch (4/Day)	KEY:Planetar ~ Healing Touch					CATEGORY:Special Ability	TYPE:Angel (Planetar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The planetar touches another creature. The target magically regains 30 (6d8 + 3) hit points and is freed from any curse, disease, poison, blindness, or deafness.
+
+# Solar
+Angelic Weapons		KEY:Solar ~ Angelic Weapons					CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar's weapon attacks are magical. When the solar hits with any weapon, the weapon deals an extra 6d8 radiant damage (included in the attack).
+Divine Awareness		KEY:Solar ~ Divine Awareness					CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar knows if it hears a lie.
+Innate Spellcasting	KEY:Solar ~ Innate Spellcasting				CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar's spellcasting ability is Charisma (spell save DC 25). It can innately cast the following spells, requiring no material components: At will: detect evil and good, invisibility (self only); 3/day each: blade barrier, dispel evil and good, resurrection; l/day each: commune, control weather
+Magic Resistance		KEY:Solar ~ Magic Resistance					CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar has advantage on saving throws against spells and other magical effects.
+Multiattack			KEY:Solar ~ Multiattack						CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar makes two greatsword attacks.
+Flying Sword		KEY:Solar ~ Flying Sword					CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar releases its greatsword to hover magically in an unoccupied space within 5 feet of it. If the solar can see the sword, the solar can mentally command it as a bonus action to fly up to 50 feet and either make one attack against a target or return to the solar's hand s. If the hovering sword is targeted by any effect, the solar is considered to be holding it. The hovering sword falls if the solar dies.
+Healing Touch (4/Day)	KEY:Solar ~ Healing Touch					CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar touches another creature. The target magically regains 40 (8d8 + 4) hit points and is freed from any curse, disease, poison, blindness, or deafness.
+Legendary Actions		KEY:Solar ~ Legendary Actions					CATEGORY:Special Ability	TYPE:Angel (Solar) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The solar can take 3 legendary actions, choosing from the options below. Only one legend ary action option can be used at a time and only at the end of another creature's turn. The solar regains spent legendary actions at the start of its turn. Teleport: The solar magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see. Searing Burst (Costs 2 Actions): The so lar emits magical, divine energy. Each creature of its choice in a 10-foot radius must make a DC 23 Dexterity saving throw, taking 14 (4d6) fire damage plus 14 (4d6) radiant damage on a fai led save, or half as much damage on a successful one. Blinding Gaze (Costs 3 Actions): The so lar targets one creature it can see within 30 feet of it. If the target can see it, the target must succeed on a DC 15 Constitution saving throw or be blinded until magic such as the lesser restoration spell removes the blindn ess .
+
+# Animated Armor
+Damage Immunities			KEY:Animated Object (Animated Armor) ~ Damage Immunities					CATEGORY:Special Ability	TYPE:Animated Object (Animated Armor) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:poison, psychic
+Condition Immunities		KEY:Animated Object (Animated Armor) ~ Condition Immunities				CATEGORY:Special Ability	TYPE:Animated Object (Animated Armor) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned
+Antimagic Susceptibility	KEY:Animated Object (Animated Armor) ~ Antimagic Susceptibility			CATEGORY:Special Ability	TYPE:Animated Object (Animated Armor) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The armor is incapacitated while in the area of an anti magic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.
+False Appearance			KEY:Animated Object (Animated Armor) ~ False Appearance					CATEGORY:Special Ability	TYPE:Animated Object (Animated Armor) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While the armor remains motion less, it is indistinguishable from a normal suit of armor.
+Multiattack				KEY:Animated Object (Animated Armor) ~ Multiattack						CATEGORY:Special Ability	TYPE:Animated Object (Animated Armor) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The armor makes two melee attacks.
+
+# Flying Sword
+Condition Immunities		KEY:Animated Object (Flying Sword) ~ Condition Immunities				CATEGORY:Special Ability	TYPE:Animated Object (Flying Sword) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:blinded, charmed, deafened, frightened, paralyzed, petrified, poisoned
+Antimagic Susceptibility	KEY:Animated Object (Flying Sword) ~ Antimagic Susceptibility			CATEGORY:Special Ability	TYPE:Animated Object (Flying Sword) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The sword is incapacitated while in the area of an anti magic field. if targeted by dispel magic, the sword must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.
+False Appearance			KEY:Animated Object (Flying Sword) ~ False Appearance					CATEGORY:Special Ability	TYPE:Animated Object (Flying Sword) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While the sword remains motionless and isn't flying, it is indistinguishable from a normal sword.
+Longsword				KEY:Animated Object (Flying Sword) ~ Longsword						CATEGORY:Special Ability	TYPE:Animated Object (Flying Sword) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: S (1d8 + 1) slashing damage.
+
+# Rug of Smothering
+Damage Immunities			KEY:Animated Object (Rug of Smothering) ~ Damage Immunities					CATEGORY:Special Ability	TYPE:Animated Object (Rug of Smothering) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:poison, psychic
+Condition Immunities		KEY:Animated Object (Rug of Smothering) ~ Condition Immunities				CATEGORY:Special Ability	TYPE:Animated Object (Rug of Smothering) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:blinded, charmed, deafened, frightened, paralyzed, petrified, poisoned
+Antimagic Susceptibility	KEY:Animated Object (Rug of Smothering) ~ Antimagic Susceptibility			CATEGORY:Special Ability	TYPE:Animated Object (Rug of Smothering) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The rug is incapacitated while in the area of an anti magic field. If targeted by dispel magic, the rug must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.
+Damage Transfer			KEY:Animated Object (Rug of Smothering) ~ Damage Transfer					CATEGORY:Special Ability	TYPE:Animated Object (Rug of Smothering) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While it is grappling a creature, the rug takes only half the damage dealt to it, and the creature grappled by the rug takes the other half.
+False Appearance			KEY:Animated Object (Rug of Smothering) ~ False Appearance					CATEGORY:Special Ability	TYPE:Animated Object (Rug of Smothering) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While the rug remains motionless, it is indistinguishable from a normal rug.
+Smother				KEY:Animated Object (Rug of Smothering) ~ Smother						CATEGORY:Special Ability	TYPE:Animated Object (Rug of Smothering) Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Melee Weapon Attack: +5 to hit, reach 5 ft ., one Medium or smaller creature. Hit: The creature is grappled (escape DC 13). Until this grapple ends, the target is restrained, blinded, and at risk of suffocating, and the rug can't smother another target. In addition, at the start of each of the target's turns, the target takes 10 (2d6 + 3) bludgeoning damage.
+
+# Ankheg
+Bite				KEY:Ankheg ~ Bite					CATEGORY:Special Ability	TYPE:Ankheg Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so.
+Acid Spray (Recharge 6)	KEY:Ankheg ~ Acid Spray			CATEGORY:Special Ability	TYPE:Ankheg Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The ankheg spits acid in a line that is 30 feet long and 5 feet wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.
+
+# Azer
+#Saving Throws Con +4
+Damage Immunities		KEY:Azer ~ Damage Immunities					CATEGORY:Special Ability	TYPE:Azer Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:fire, poison
+Condition Immunities	KEY:Azer ~ Condition Immunities			CATEGORY:Special Ability	TYPE:Azer Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:poisoned
+# Actions
+Heated Body		KEY:Azer ~ Heated Body				CATEGORY:Special Ability	TYPE:Azer Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:A creature that touches the azer or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage. Heated Weapons. When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack).
+Illumination	KEY:Azer ~ Illumination			CATEGORY:Special Ability	TYPE:Azer Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The azer sheds bright light in a 10-foot radius and dim light for an additional 10 feet.
+Warhammer		KEY:Azer ~ Warhammer				CATEGORY:Special Ability	TYPE:Azer Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Melee Weapon Attack: +5 to hit, reach 5 ft ., one target. Hit: 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.
+
+# Banshee
+Damage Resistances	KEY:Banshee ~ Damage Resistances				CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:acid, fire, lightning, thunder; bludgeoning, piercing, and slashing from non magical weapons
+Damage Immunities		KEY:Banshee ~ Damage Immunities					CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:cold, necrotic, poison
+Condition Immunities	KEY:Banshee ~ Condition Immunities				CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:charmed, exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained
+Detect Life			KEY:Banshee ~ Detect Life						CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The banshee can magically sense the presence of living creatures up to 5 miles away. She knows the general direction they're in but not their exact locations.
+Incorporeal Movement	KEY:Banshee ~ Incorporeal Movement				CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The banshee can move through other creatures and objects as if they were difficult terrain. She takes 5 (1d10) force damage if she ends her turn inside an object.
+#ACTIONS
+Corrupting Touch	KEY:Banshee ~ Corrupting Touch				CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Melee Spell Attack: +4 to hit, reach 5 ft., one target. Hit: 12 (3d6 + 2) necrotic damage.
+Horrifying Visage	KEY:Banshee ~ Horrifying Visage				CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Each non-undead creatu re within 60 feet of the banshee that can see her must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if the banshee is within line of sight, ending the effect on itself on a success. If a ta rget's saving throw is successful or the effect ends for it, the target is immune to the banshee's Horrifying Visage for the next 24 hours.
+Wail (1/Day)	KEY:Banshee ~ Wail				CATEGORY:Special Ability	TYPE:Banshee Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:The banshee releases a mournful wail, provided that she isn't in sunlight. This wail has no effect on constructs and undead. All other creatures within 30 feet of her that can hear her must make a DC 13 Constitution saving throw. On a failure, a creature drops to 0 hit points. On a success, a creature takes 10 (3d6) psychic damage.
+
+# Basilisk
+Petrifying Gaze	KEY:Basilisk ~ Petrifying Gaze				CATEGORY:Special Ability	TYPE:Basilisk Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:If a creature starts its turn within 30 feet of the basilisk and the two of them can see each other, the basilisk can force the creature to make a DC 12 Constitution saving throw if the basilisk isn't incapacitated. On a failed save, the creature magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified until freed by the greater restoration spell or other magic. A creature that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the basilisk until the start of its next turn, when it can avert its eyes again. If it looks at the basilisk in the meantime, it must immediately make the save. If the basilisk sees its reflection within 30 feet of it in bright light, it mistakes itself for a rival and targets itself with its gaze.
+Bite			KEY:Basilisk ~ Bite						CATEGORY:Special Ability	TYPE:Basilisk Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage plus 7 (2d6) poison damage.
+
+# Behir	SOURCEPAGE:p.25									
+#ACTIONS
+Multiattack					KEY:Behir ~ Multiattack					CATEGORY:Special Ability	TYPE:Behir Race Trait.SpecialQuality	SOURCEPAGE:p.25	DESC:The behir makes two attacks: one with its bite and one to constrict.
+Bite						KEY:Behir ~ Bite						CATEGORY:Special Ability	TYPE:Behir Race Trait.SpecialQuality	SOURCEPAGE:p.25	DESC:Melee Weapon Attack: +10 to hit, reach 10ft., one target. Hit: 22 (3d10 + 6) piercing damage.
+Constrict					KEY:Behir ~ Constrict					CATEGORY:Special Ability	TYPE:Behir Race Trait.SpecialQuality	SOURCEPAGE:p.25	DESC:Melee Weapon Attack: + 10 to hit, reach 5 ft., one Large or smaller creature. Hit: 17 (2d10 + 6) bludgeoning damage plus 17 (2d10 + 6) slashing damage. The target is grappled (escape DC 16) if the behir isn't already constricting a creature, and the target is restrained until this grapple ends.
+Lightning Breath (Recharge 5-6)	KEY:Behir ~ Lightning Breath				CATEGORY:Special Ability	TYPE:Behir Race Trait.SpecialQuality	SOURCEPAGE:p.25	DESC:The behir exhales a line of lightning that is 20 feet long and 5 feet wide. Each creature in that line must make a DC 16 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one.
+Swallow					KEY:Behir ~ Swallow					CATEGORY:Special Ability	TYPE:Behir Race Trait.SpecialQuality	SOURCEPAGE:p.25	DESC:The behir makes one bite attack against a Medium or smaller target it is grappling. If the attack hits, the target is also swallowed, and the grapple ends. While swallowed, the target is blinded and restrained, it has total cover against attacks and other effects outside the behir, and it takes 21 (6d6) acid damage at the start of each of the behir's turns. A behir can have only one creature swallowed at a time. If the behir takes 30 damage or more on a single turn from the swallowed creature, the behir must succeed on a DC 14 Constitution saving throw at the end of that turn or regurgitate the creature, which falls prone in a space within 10 feet of the behir. If the behir dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 15 feet of movement, exiting prone.
+
+
+
+
+
+# Quasit	SOURCEPAGE:p.63									
+
+Familiar	KEY:Quasit ~ Familiar			CATEGORY:Special Ability	TYPE:Quasit Race Trait.SpecialQuality	SOURCEPAGE:p.63	DESC:The quasit can serve another creature as a familiar, forming a telepathic bond with its willing master. While the two are bonded, the master can sense what the quasit senses as long as they are within 1 mile of each other. While the quasit is within 10 feet of its master, the master shares the quasit's Magic Resistance trait. At any time and for any reason, the quasit can end its service as a familiar, ending the telepathic bond.
+
+# Imp	SOURCEPAGE:p.76										
+
+Familiar	KEY:Imp ~ Familiar			CATEGORY:Special Ability	TYPE:Imp Race Trait.SpecialQuality	SOURCEPAGE:p.69	DESC:The imp can enter into a contract to serve another creature as a familiar, forming a telepathic bond with its willing master. While the two are bonded, the master can sense what the imp senses as long as they are within l mile of each other. While the imp is within 10 feet of its master, the master shares the imp's Magic Resistance trait. If its master violates the terms of the contract, the imp can end its service as a familiar, ending the telepathic bond.
+
+#Homunculus	SOURCEPAGE:p.188									
+Telepathic Bond	KEY:Homunculus ~ Telepathic Bond			CATEGORY:Special Ability	TYPE:Homunculus Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While the homunculus is on the same plane of existence as its master, it can magically convey what it senses to its master, and the two can communicate telepathically.
+Languages	KEY:Homunculus ~ Languages			CATEGORY:Special Ability	TYPE:Homunculus Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:understands the languages of its creator but can't speak
+
+
+# Pseudodragon	SOURCEPAGE:p.254								
+Languages		KEY:Pseudodragon ~ Languages			CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:understands Common and Draconic but can't speak.	ABILITY:Language|AUTOMATIC|Common|Draconic
+Keen Senses		KEY:Pseudodragon ~ Keen Senses		CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon has advantage on Wisdom (Perception) checks that rely on sight, hearing, or smell.
+Magic Resistance	KEY:Pseudodragon ~ Magic Resistance		CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon has advantage on saving throws against spells and other magical effects.
+Limited Telepathy	KEY:Pseudodragon ~ Limited Telepathy	CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon can magically communicate simple ideas, emotions, and images telepathically with any creature within 100 feet of it that can understand a language.
+Familiar		KEY:Pseudodragon ~ Familiar			CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon can serve another creature as a familiar, forming a magic, telepathic bond with that willing companion. While the two are bonded, the companion can sense what the pseudodragon senses as long as they are within 1 mile of each other. While the pseudodragon is within 10 feet of its companion, the companion shares the pseudodragon's Magic Resistance trait. At any time and for any reason, the pseudodragon can end its service as a familiar, ending the telepathic bond.	ASPECT:SaveBonus|Advantage on saving throws against spells and other magical effects, while the pseudodragon is within 10 feet of its companion.
+
+
+Familiar (Pseudodragon)		CATEGORY:Internal																							ASPECT:SaveBonus|Advantage on saving throws against spells and other magical effects, while the pseudodragon is within 10 feet of its companion.
+
+
+###block: Place holder Appendix Creatures
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ape Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Awakened Shrub Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Awakened Tree Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Axe Beak Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Baboon Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Badger Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Black Bear Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Blink Dog Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Brown Bear Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Blood Hawk Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Boar Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Camel Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Constrictor Snake Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Crab Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Crocodile Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Death Dog Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Deer Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Dire Wolf Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Draft Horse Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Eagle Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Elephant Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Elk Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Frog Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Ape Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Badger Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Bat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Boar Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Centipede Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Constrictor Snake Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Crab Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Crocodile Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Eagle Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Elk Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Fire Beetle Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Frog Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Goat Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Hyena Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Lizard Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Octopus Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Owl Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Poisonous Snake Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Scorpion Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Rat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Sea Horse Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Shark Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Spider Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Toad Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Vulture Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Wasp Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Weasel Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bugbear Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Giant Wolf Spider Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Goat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hawk Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hunter Shark Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hyena Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Jackal Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Killer Whale Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Lion Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Lizard Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mammoth Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mastiff Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mule Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Octopus Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Owl Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Panther Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cave Bear Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Phase Spider Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Poisonous Snake Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Polar Bear Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Pony Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Quipper Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Rat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Raven Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Reef Shark Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Rhinoceros Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Riding Horse Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Saber-toothed Tiger Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Scorpion Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Sea Horse Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Spider Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Bats Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Beetles Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Centipedes Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Insects Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Poisonous Snakes Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Quippers Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Spiders Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Wasps Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Rats Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Swarm of Ravens Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Tiger Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Vulture Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Warhorse Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Weasel Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Winter Wolf Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Wolf Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Worg Race Trait				
+
+
+
+###Block: Npc
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Acolyte Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Archmage Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Assassin Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bandit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bandit Captain Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Berserker Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Commoner Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cult Fanatic Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cultist Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Druid Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gladiator Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Guard Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Knight Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mage Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Noble Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Priest Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Scout Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Spy Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Thug Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Tribal Warrior Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Veteran Race Trait			
+
+###Block: Main Creatures
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bulette Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Centaur Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Chimera Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Chuul Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cloaker Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cockatrice Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Couatl Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Crawling Claw Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cyclops Race Trait
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Darkmantle Race Trait
+
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Balor Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Chasme Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Dretch Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Glabrezu Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hezrou Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Marilith  Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Nalfeshnee Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Quasit Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Vrock Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Barbed Devil Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bearded Devil Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bone Devil Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Chain Devil Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Erinyes Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Horned Devil Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:lee Devil Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Imp Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Lemure Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Pit Fiend Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Spined Devil Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Plesiosaurus Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Triceratops Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Tyrannosaurus Rex Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Doppelganger Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Red Shadow Dragon Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Black Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Black Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Black Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Black Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Blue Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Blue Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Blue Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Blue Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Green Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Green Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Green Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Green Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Red Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Red Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Red Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Red Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Copper Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hill Giant Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gold Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient White Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult White Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young White Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:White Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Brass Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Brass Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Brass Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Brass Dragon Wyrmling Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Bronze Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Bronze Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Bronze Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Bronze Dragon Wyrmling Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Copper Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Copper Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Copper Dragon Wyrmling Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Gold Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Gold Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Gold Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ancient Silver Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Adult Silver Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Silver Dragon Wyrmling Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Young Silver Dragon Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Dragon Turtle Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Drider Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Dryad Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Duergar Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Air Elemental Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Earth Elemental Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Fire Elemental Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Water Elemental Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Drow Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ettercap Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ettin Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Shrieker Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Violet Fungus Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Galeb Duhr Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gargoyle Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Djinni Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Efreeti Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ghost Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ghast Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ghoul Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Cloud Giant Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Fire Giant Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Frost Giant Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Stone Giant Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Storm Giant Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gibbering Mouther Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gnoll Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Deep Gnome (Svirfneblin) Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Goblin Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Clay Golem Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Flesh Golem Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Iron Golem Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Stone Golem Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gorgon Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Grick Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Griffon Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Grimlock Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Green Hag Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Night Hag Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Sea Hag Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Half-Dragon (template) Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Half-Red Dragon Veteran Race Trait	
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Harpy Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hell Hound Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hippogriff Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hobgoblin Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Hydra Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Invisible Stalker Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Kobold Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Kraken Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Kuo-toa Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Manticore Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Merrow Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Lamia Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Lich Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Lizardfolk Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Werebear Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Wereboar Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Wererat Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Weretiger Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Werewolf Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Magmin Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Medusa Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Dust Mephit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:lee Mephit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Magma Mephit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mud Mephit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Smoke Mephit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Steam Mephit Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Merfolk Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mimic Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Minotaur Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mummy Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Mummy Lord Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Guardian Naga Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Spirit Naga Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Nightmare Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ogre Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Oni Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Black Pudding Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gelatinous Cube Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gray Ooze Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ochre jelly Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ore Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Otyugh Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Owlbear Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Pegasus Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Peryton Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Piercer Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Pixie Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Purple Worm Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Quaggoth Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Rakshasa Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Remorhaz Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Revenant Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Roc Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Roper Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Rust Monster Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Sahuagin Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Salamander Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Satyr Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Shadow Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Shambling Mound Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Shield Guardian Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Skeleton Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Minotaur Skeleton  Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Warhorse Skeleton Race Trait		
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Specter Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Androsphinx Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Gynosphinx Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Sprite Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Stirge Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Succubus Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Tarrasque Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Treant Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Troglodyte Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Troll Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Unicorn  Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Vampire Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Vampire Spawn Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Wight Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Will-o'-Wisp Race Trait			
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Wraith Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Wyvern  Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Xorn Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Zombie Race Trait				
+CATEGORY=Special Ability|Placeholder.MOD	TYPE:Ogre Zombie Race Trait			

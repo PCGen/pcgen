@@ -1,0 +1,63 @@
+# SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+
+Finesse		KEY:FINESSE		SPROP:When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.
+Heavy			KEY:HEAVY		SPROP:Small creatures have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small creature to use effectively.|PRESIZELT:M
+Light			KEY:LIGHT		SPROP:A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons. See the rules for two-weapon fighting in chapter 9.
+Loading		KEY:LOADING		SPROP:Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an action, bonus action, or reaction to fire it, regardless of the number of attacks you can normally make.
+Range			KEY:RANGE		SPROP:A weapon that can be used to make a ranged attack has a range shown in parentheses after the ammunition or thrown property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.
+Reach			KEY:REACH		SPROP:This weapon adds 5 feet to your reach when you attack with it. This property also determines your reach for opportunity attacks with a reach weapon.
+Special		KEY:SPECIAL		SPROP:A weapon with the special property has unusual rules governing its use, explained in the weapon's description (see "Special Weapons" later in this section).
+Thrown		KEY:THROWN		SPROP:If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon. For example, if you throw a handaxe, you use your Strength, but if you throw a dagger, you can use either your Strength or your Dexterity, since the dagger has the finesse property.
+Two-Handed		KEY:TWO-HANDED	SPROP:This weapon requires two hands to use. This property is relevant only when you attack with the weapon, not when you simply hold it.
+Versatile		KEY:VERSATILE_D8	SPROP:Versatile: This weapon can be used with one or two hands. A damage value in parentheses appears with the property-the damage when the weapon is used with two hands to make a melee attack. (1d8)
+Versatile		KEY:VERSATILE_D10	SPROP:Versatile: This weapon can be used with one or two hands. A damage value in parentheses appears with the property-the damage when the weapon is used with two hands to make a melee attack. (1d10)
+
+
+
+Adamantine Armor			SOURCEPAGE:P.150	TYPE:HeavyArmor.MediumArmor		KEY:ADAMANTINE_ARMOR	!PRETYPE:1,Hide	SPROP:Any Critical Hit Against You Becomes A Normal Hit
+Ammunition +1			SOURCEPAGE:P.150	TYPE:Ammunition	KEY:PLUS1AMMO	REPLACES:PLUS2AMMO,PLUS3AMMO	BONUS:WEAPON|TOHIT,DAMAGE|1	SPROP:You have a bonus to attack and damage rolls made with this piece of magic ammunition. Once it hit a target, the ammunition is no longer magical.
+Ammunition +2			SOURCEPAGE:P.150	TYPE:Ammunition	KEY:PLUS2AMMO	REPLACES:PLUS1AMMO,PLUS3AMMO	BONUS:WEAPON|TOHIT,DAMAGE|2	SPROP:You have a bonus to attack and damage rolls made with this piece of magic ammunition. Once it hit a target, the ammunition is no longer magical.
+Ammunition +3			SOURCEPAGE:P.150	TYPE:Ammunition	KEY:PLUS3AMMO	REPLACES:PLUS1AMMO,PLUS2AMMO	BONUS:WEAPON|TOHIT,DAMAGE|3	SPROP:You have a bonus to attack and damage rolls made with this piece of magic ammunition. Once it hit a target, the ammunition is no longer magical.
+Armor +1				SOURCEPAGE:P.152	TYPE:Armor		KEY:PLUS1A	REPLACES:PLUS2A,PLUS3A		BONUS:COMBAT|AC|1|TYPE=Armor.STACK	SPROP:You have a bonus to AC while wearing this armor.
+Armor +2				SOURCEPAGE:P.152	TYPE:Armor		KEY:PLUS2A	REPLACES:PLUS1A,PLUS3A		BONUS:COMBAT|AC|2|TYPE=Armor.STACK	SPROP:You have a bonus to AC while wearing this armor.
+Armor +3				SOURCEPAGE:P.152	TYPE:Armor		KEY:PLUS3A	REPLACES:PLUS1A,PLUS2A		BONUS:COMBAT|AC|3|TYPE=Armor.STACK	SPROP:You have a bonus to AC while wearing this armor.
+Armor Of Resistance		SOURCEPAGE:P.152	TYPE:Armor		KEY:ARMOR_OF_RESISTANCE		SPROP:You have resistance to one type of damage while you wear this armor. [%]|%LIST|PREABILITY:1,CATEGORY=Attunement,Armor Of Resistance	DEFINE:Attunement_Armor_Of_Resistance|0	BONUS:VAR|Attunement_Armor_Of_Resistance|1	CHOOSE:STRING|Acid|Necrotic|Cold|Poison|Fire|Psychic|Force|Radiant|Lightning|Thunder|TITLE=Damage Resistance
+Arrow-Catching Shield		SOURCEPAGE:P.152	TYPE:Shield		KEY:ARROW_CATCHING_SHIELD		SPROP:+2 Bonus To AC Against Ranged Attacks While You Wield Shield.|PREABILITY:1,CATEGORY=Attunement,Arrow-Catching Shield	DEFINE:Attunement_arrow_catching_shield|0	BONUS:VAR|Attunement_arrow_catching_shield|1
+Arrow Of Slaying			SOURCEPAGE:P.152	TYPE:Ammunition	KEY:ARROW_OF_SLAYING				SPROP:An arrow of slaying is a magic weapon meant to slay a particular kind of creature. Some are more focused than others; for example, there are both arrows of dragon slaying and arrows of blue dragon slaying. If a creature belonging to the type, race, or group associated with an arrow of slaying takes damage from the arrow, the creature must make a DC 17 Constitution saving throw, taking an extra 6d10 piercing damage on a failed save, or half as much extra damage on a successful one. Once an arrow of slaying deals its extra damage to a creature, it becomes a nonmagical arrow. [%]|%LIST	CHOOSE:USERINPUT|TITLE=Arrow of Slaying Creature
+Berserker Axe			SOURCEPAGE:P.155	TYPE:Axe		KEY:BERSERKER_AXE			SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Berserker Axe	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Bonus|PREABILITY:1,CATEGORY=Attunement,Berserker Axe	DEFINE:Attunement_Berserker_Axe|0	BONUS:VAR|Attunement_Berserker_Axe|1	SPROP:You gain a +1 bonus to attack and damage rolls made with this magic weapon. In addition, while you are attuned to this weapon, your hit point maximum increases by 1 for each level you have attained. Curse. This axe is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the axe, keeping it within reach at all times. You also have disadvantage on attack rolls with weapons other than this one, unless no foe is within 60 feet of you that you can see or hear. Whenever a hostile creature damages you while the axe is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action each round to attack the creature nearest to you with the axe. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random. You are berserk until you start your turn with no creatures within 60 feet of you that you can see or hear.|PREABILITY:1,CATEGORY=Attunement,Berserker Axe
+Dancing Sword			SOURCEPAGE:P.161	TYPE:Sword		KEY:DANCING_SWORD			SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Dancing Sword	DEFINE:Attunement_Dancing_Sword|0	BONUS:VAR|Attunement_Dancing_Sword|1
+Defender				SOURCEPAGE:P.164	TYPE:Sword		KEY:DEFENDER				SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Defender	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Bonus|PREABILITY:1,CATEGORY=Attunement,Defender	SPROP:You gain a +3 bonus to attack and damage rolls made with this magic weapon. The first time you attack with the sword on each of your turns, you can transfer some or all of the sword's bonus to your Armor Class, instead of using the bonus on any attacks that turn. For example, you could reduce the bonus to your attack and damage rolls to +1 and gain a +2 bonus to AC. The adjusted bonuses remain in effect until the start of your next turn, although you must hold the sword to gain a bonus to AC from it.|PREABILITY:1,CATEGORY=Attunement,Defender	DEFINE:Attunement_Defender|0	BONUS:VAR|Attunement_Defender|1
+Dragon Slayer			SOURCEPAGE:P.166	TYPE:Sword		KEY:DRAGON_SLAYER
+Flame Tongue			SOURCEPAGE:P.169	TYPE:Sword		KEY:FLAME_TONGUE			SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Flame Tongue		DEFINE:Attunement_Flame_Tongue|0	BONUS:VAR|Attunement_Flame_Tongue|1
+Frost Brand				SOURCEPAGE:P.171	TYPE:Sword		KEY:FROST_BRAND				SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Frost Brand		DEFINE:Attunement_Frost_Brand|0	BONUS:VAR|Attunement_Frost_Brand|1
+Giant Slayer			SOURCEPAGE:P.172	TYPE:Sword.Axe	KEY:GIANT_SLAYER
+Holy Avenger			SOURCEPAGE:P.174	TYPE:Sword		KEY:HOLY_AVENGER			SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Holy Avenger	DEFINE:Attunement_Holy_Avenger|0	BONUS:VAR|Attunement_Holy_Avenger|1
+Luck Blade				SOURCEPAGE:P.179	TYPE:Sword		KEY:LUCK_BLADE				SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Luck Blade		DEFINE:Attunement_Luck_Blade|0	BONUS:VAR|Attunement_Luck_Blade|1
+Mariner's Armor			SOURCEPAGE:P.181	TYPE:Armor		KEY:MARINERS_ARMOR
+Mithral Armor			SOURCEPAGE:P.181	TYPE:Armor		KEY:MITHRAL_ARMOR
+# For Necklace Of Prayer Beads Support.
+Blessing				TYPE:Necklace Of Prayer Beads	SOURCEPAGE:P.181	KEY:NOPB_BLESSING
+Curing				TYPE:Necklace Of Prayer Beads	SOURCEPAGE:P.181	KEY:NOPB_CURING
+Favor					TYPE:Necklace Of Prayer Beads	SOURCEPAGE:P.181	KEY:NOPB_FAVOR
+Smiting				TYPE:Necklace Of Prayer Beads	SOURCEPAGE:P.181	KEY:NOPB_SMITING
+Summons				TYPE:Necklace Of Prayer Beads	SOURCEPAGE:P.181	KEY:NOPB_SUMMONS
+Wind Walking			TYPE:Necklace Of Prayer Beads	SOURCEPAGE:P.181	KEY:NOPB_WIND_WALKING
+#
+Nine Lives Stealer		SOURCEPAGE:P.183	TYPE:Sword		KEY:Nine Lives Stealer	SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Nine Lives Stealer	DEFINE:Attunement_Nine_Lives_Stealer|0	BONUS:VAR|Attunement_Nine_Lives_Stealer|1
+Shield +1			KEY:PLUS1S	REPLACES:PLUS2S,PLUS3S		SOURCEPAGE:P.200	TYPE:Shield	BONUS:COMBAT|AC|1|TYPE=Shield.STACK
+Shield +2			KEY:PLUS2S	REPLACES:PLUS1S,PLUS3S		SOURCEPAGE:P.200	TYPE:Shield	BONUS:COMBAT|AC|2|TYPE=Shield.STACK
+Shield +3			KEY:PLUS3S	REPLACES:PLUS1S,PLUS2S		SOURCEPAGE:P.200	TYPE:Shield	BONUS:COMBAT|AC|3|TYPE=Shield.STACK
+Sword Of Life Stealing	SOURCEPAGE:P.206	TYPE:Sword		KEY:SWORD_OF_LIFE_STEALING	SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Sword Of Life Stealing	DEFINE:Attunement_Sword_Of_Life_Stealing|0	BONUS:VAR|Attunement_Sword_Of_Life_Stealing|1
+Sword Of Sharpness	SOURCEPAGE:P.206	TYPE:Sword		KEY:SWORD_OF_SHARPNESS		SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Sword Of Sharpness	DEFINE:Attunement_Sword_Of_Sharpness|0	BONUS:VAR|Attunement_Sword_Of_Sharpness|1
+Sword Of Vengeance	SOURCEPAGE:P.206	TYPE:Sword		KEY:SWORD_OF_VENGEANCE		SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Sword Of Vengeance	DEFINE:Attunement_Sword_Of_Vengeance|0	BONUS:VAR|Attunement_Sword_Of_Vengeance|1
+Sword Of Wounding		SOURCEPAGE:P.207	TYPE:Sword		KEY:SWORD_OF_WOUNDING		SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Sword Of Wounding	DEFINE:Attunement_Sword_Of_Wounding|0	BONUS:VAR|Attunement_Sword_Of_Wounding|1
+Visious Weapon		SOURCEPAGE:P.209	TYPE:Weapon		KEY:VISIOUS_WEAPON
+Vorpal Sword		SOURCEPAGE:P.209	TYPE:Sword		KEY:VORPAL_SWORD			SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Vorpal Sword	DEFINE:Attunement_Vorpal_Sword|0	BONUS:VAR|Attunement_Vorpal_Sword|1
+Weapon +1			KEY:PLUS1W	REPLACES:PLUS2W,PLUS3W	TYPE:Weapon	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Bonus
+Weapon +2			KEY:PLUS2W	REPLACES:PLUS1W,PLUS3W	TYPE:Weapon	BONUS:WEAPON|TOHIT,DAMAGE|2|TYPE=Bonus
+Weapon +3			KEY:PLUS3W	REPLACES:PLUS1W,PLUS2W	TYPE:Weapon	BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Bonus
+Weapon Of Warning		SOURCEPAGE:P.213	TYPE:Weapon		KEY:WEAPON_OF_WARNING	SPROP:Not attuned to Item|!PREABILITY:1,CATEGORY=Attunement,Weapon Of Warning	DEFINE:Attunement_Weapon_Of_Warning|0	BONUS:VAR|Attunement_Weapon_Of_Warning|1
+
+
