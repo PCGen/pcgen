@@ -270,7 +270,12 @@ public class Gui2InfoFactory implements InfoFactory
 					OutputNameFormatting.piString(levelCommandFactory.getPCClass(), false));
 				
 			}
-			
+			String favoredClass = getFavoredClass(raceFacade);
+			if (StringUtils.isNotEmpty(favoredClass))
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nElement("in_favoredClass", favoredClass); //$NON-NLS-1$
+			}
 			bString = race.getSource();
 			if (bString.length() > 0)
 			{
