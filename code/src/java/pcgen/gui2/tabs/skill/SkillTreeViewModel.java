@@ -140,7 +140,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	{
 		if (selectionModel.isSelectionEmpty())
 		{
-			return Arrays.asList(0, 0, 0.0, null, 0, obj.getSource());
+			return Arrays.asList(0, 0, 0.0, null, 0, null, obj.getSource());
 		}
 		else
 		{
