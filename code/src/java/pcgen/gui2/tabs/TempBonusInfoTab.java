@@ -428,7 +428,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				character.getAvailableTempBonuses().addListListener(this);
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
@@ -436,7 +436,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				tempBonuses = null;
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
