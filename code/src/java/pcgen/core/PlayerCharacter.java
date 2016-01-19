@@ -8975,35 +8975,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		return statLockFacet.getLockedStat(id, stat);
 	}
-
-	public String getDescription(Race cdo)
+	
+	public String getDescription(CNAbility cna)
 	{
-		return getDescription(Collections.singletonList(cdo));
+		return getDescription(Collections.singletonList(cna));
 	}
 
-	public String getDescription(Spell cdo)
+	public String getDescription(PObject pobj)
 	{
-		return getDescription(Collections.singletonList(cdo));
-	}
-
-	public String getDescription(PCTemplate cdo)
-	{
-		return getDescription(Collections.singletonList(cdo));
-	}
-
-	public String getDescription(Equipment cdo)
-	{
-		return getDescription(Collections.singletonList(cdo));
-	}
-
-	public String getDescription(Deity cdo)
-	{
-		return getDescription(Collections.singletonList(cdo));
-	}
-
-	public String getDescription(Domain cdo)
-	{
-		return getDescription(Collections.singletonList(cdo));
+		return getDescription(Collections.singletonList(pobj));
 	}
 
 	public String getDescription(List<? extends Object> objList)

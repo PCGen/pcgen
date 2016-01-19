@@ -220,20 +220,48 @@ public class Gui2InfoFactory implements InfoFactory
 
 			appendFacts(infoText, race);
 
+			infoText.appendLineBreak();
+			String size = race.getSize();
+			if (StringUtils.isNotEmpty(size))
+			{
+				infoText.appendI18nElement("in_size", size); //$NON-NLS-1$
+			}
+			String movement = getMovement(raceFacade);
+			if (movement.length() > 0)
+			{
+				infoText.appendSpacer();
+				infoText.appendI18nElement("in_movement", movement); //$NON-NLS-1$
+			}
+			String vision = getVision(raceFacade);
+			if (vision.length() > 0)
+			{
+				infoText.appendSpacer();
+				infoText.appendI18nElement("in_vision", vision); //$NON-NLS-1$
+			}
+
 			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
-			race.getPrerequisiteList(), false);
+					race.getPrerequisiteList(), false);
 			if (bString.length() > 0)
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
-
-			infoText.appendLineBreak();
-			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-				DescriptionFormatting.piWrapDesc(race, pc.getDescription(race), false));
-
-			LevelCommandFactory levelCommandFactory =
-					race.get(ObjectKey.MONSTER_CLASS);
+			String desc = pc.getDescription(race);
+			if (desc.length() > 0)
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+						DescriptionFormatting.piWrapDesc(race, desc, false));
+			}
+			
+			String statAdjustments = getStatAdjustments(raceFacade);
+			if (StringUtils.isNotEmpty(statAdjustments))
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nElement("in_irTableStat", statAdjustments); //$NON-NLS-1$
+			}
+			
+			LevelCommandFactory levelCommandFactory = race.get(ObjectKey.MONSTER_CLASS);
 			if (levelCommandFactory != null)
 			{
 				infoText.appendLineBreak();
@@ -242,7 +270,12 @@ public class Gui2InfoFactory implements InfoFactory
 					OutputNameFormatting.piString(levelCommandFactory.getPCClass(), false));
 				
 			}
-
+			String favoredClass = getFavoredClass(raceFacade);
+			if (StringUtils.isNotEmpty(favoredClass))
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nElement("in_favoredClass", favoredClass); //$NON-NLS-1$
+			}
 			bString = race.getSource();
 			if (bString.length() > 0)
 			{
@@ -356,7 +389,14 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendLineBreak();
 			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
-
+		//Description
+		String desc = pc.getDescription(aClass);
+		if (desc.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+					DescriptionFormatting.piWrapDesc(aClass, desc, false));
+		}
 		// Sub class extra info
 		if (isSubClass)
 		{
@@ -432,6 +472,15 @@ public class Gui2InfoFactory implements InfoFactory
 				bString);
 		}
 
+		//Description
+		String desc = pc.getDescription(skill);
+		if (desc.length() > 0)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+					DescriptionFormatting.piWrapDesc(skill, desc, false));
+		}
+		
 		bString = skill.getSource();
 		if (bString.length() > 0)
 		{
@@ -972,7 +1021,14 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join( //$NON-NLS-1$
 				qualities, ", ")); //$NON-NLS-2$
 		}
-
+		//Description
+		String desc = pc.getDescription(equip);
+		if (desc.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+					DescriptionFormatting.piWrapDesc(equip, desc, false));
+		}
 		String IDS = equip.getInterestingDisplayString(pc);
 		if (IDS.length() > 0)
 		{
@@ -1035,6 +1091,15 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igEqModelColCost", String.valueOf(cost));
+		}
+		
+		//Description
+		String desc = pc.getDescription(equipMod);
+		if (desc.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+					DescriptionFormatting.piWrapDesc(equipMod, desc, false));
 		}
 		
 		// Special properties
@@ -1247,10 +1312,18 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_kitInfo_TotalCost", //$NON-NLS-1$
-				COST_FMT.format(totalCost),
-				SettingsHandler.getGame().getCurrencyDisplay());			
+					COST_FMT.format(totalCost),
+					SettingsHandler.getGame().getCurrencyDisplay());
 		}
-		
+
+		String desc = pc.getDescription(kit);
+		if (desc.length() > 0)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+					DescriptionFormatting.piWrapDesc(kit, desc, false));
+		}
+
 		aString = kit.getSource();
 		if (aString.length() > 0)
 		{
@@ -1347,8 +1420,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (StringUtils.isEmpty(aString) && originObj instanceof Spell)
 		{
 			Spell sp = (Spell) originObj;
-			aString =
-					DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
+			aString = DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
 						false);
 		}
 		else if (StringUtils.isEmpty(aString) && originObj instanceof Ability)
@@ -1357,8 +1429,7 @@ public class Gui2InfoFactory implements InfoFactory
 			List<CNAbility> wrappedAbility =
 					Collections.singletonList(CNAbilityFactory.getCNAbility(ab
 						.getCDOMCategory(), Nature.NORMAL, ab));
-			aString =
-					DescriptionFormatting.piWrapDesc(ab,
+			aString = DescriptionFormatting.piWrapDesc(ab,
 						pc.getDescription(wrappedAbility), false);
 		}
 		if (aString.length() > 0)
@@ -1943,6 +2014,251 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(RaceFacade raceFacade)
+	{
+		if (raceFacade == null || !(raceFacade instanceof Race))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Race race = (Race) raceFacade;
+			return DescriptionFormatting.piWrapDesc(race, pc.getDescription(race), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + raceFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(TemplateFacade templateFacade)
+	{
+		if(templateFacade == null || !(templateFacade instanceof PCTemplate)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			PCTemplate template = (PCTemplate) templateFacade;
+			return DescriptionFormatting.piWrapDesc(template, pc.getDescription(template), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + templateFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(ClassFacade classFacade)
+	{
+		if(classFacade == null || !(classFacade instanceof PCClass)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			PCClass pcClass = (PCClass) classFacade;
+			return DescriptionFormatting.piWrapDesc(pcClass, pc.getDescription(pcClass), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + classFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(SkillFacade skillFacade)
+	{
+		if (skillFacade == null || !(skillFacade instanceof Skill))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Skill skill = (Skill) skillFacade;
+			return DescriptionFormatting.piWrapDesc(skill, pc.getDescription(skill), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + skillFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(EquipmentFacade equipFacade)
+	{
+		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Equipment equip = (Equipment) equipFacade;
+			return DescriptionFormatting.piWrapDesc(equip, pc.getDescription(equip), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + equipFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(KitFacade kitFacade)
+	{
+		if (kitFacade == null || !(kitFacade instanceof Kit))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Kit kit = (Kit) kitFacade;
+			return DescriptionFormatting.piWrapDesc(kit, pc.getDescription(kit), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + kitFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(DeityFacade deityFacade)
+	{
+		if(deityFacade == null || !(deityFacade instanceof Deity)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			Deity deity = (Deity) deityFacade;
+			return DescriptionFormatting.piWrapDesc(deity, pc.getDescription(deity), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + deityFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(DomainFacade domainFacade)
+	{
+		if(domainFacade == null || !(domainFacade instanceof DomainFacadeImpl)){
+			return EMPTY_STRING;
+		}
+		try
+		{
+			DomainFacadeImpl domain = (DomainFacadeImpl) domainFacade;
+			Domain dom = domain.getRawObject();
+			if(dom == null){
+				return EMPTY_STRING;
+			}
+			return DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + domainFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(SpellFacade spellFacade)
+	{
+		if (spellFacade == null || !(spellFacade instanceof SpellFacadeImplem))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			SpellFacadeImplem spell = (SpellFacadeImplem) spellFacade;
+			Spell aSpell = spell.getSpell();
+			if (aSpell == null)
+			{
+				return EMPTY_STRING;
+			}
+			return DescriptionFormatting.piWrapDesc(aSpell, pc.getDescription(aSpell), false);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + spellFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(TempBonusFacade tempBonusFacade)
+	{
+		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return EMPTY_STRING;
+		}
+		try
+		{
+			TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
+			CDOMObject originObj = tempBonus.getOriginObj();
+			String desc = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
+			if (StringUtils.isEmpty(desc))
+			{
+				if (originObj instanceof Spell)
+				{
+					Spell sp = (Spell) originObj;
+					desc = DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
+							false);
+				}
+				else if (originObj instanceof Ability)
+				{
+					Ability ab = (Ability) originObj;
+					List<CNAbility> wrappedAbility
+							= Collections.singletonList(CNAbilityFactory.getCNAbility(ab
+									.getCDOMCategory(), Nature.NORMAL, ab));
+					desc = DescriptionFormatting.piWrapDesc(ab,
+							pc.getDescription(wrappedAbility), false);
+				}
+			}
+			return desc;
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + tempBonusFacade, e); //$NON-NLS-1$
+			return EMPTY_STRING;
+		}
+	}
+
+	/**
 	 * Retrieve a wrapped instance of the provided ability, whether the 
 	 * character has the ability or not. This will either be a list of the 
 	 * specific occurrences of the ability the character, or a list of a new 
@@ -2131,7 +2447,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return movements.get(0).toString();
 		}
-		return null;
+		return EMPTY_STRING;
 	}
 
 	private void appendFacts(HtmlInfoBuilder infoText, CDOMObject cdo)

@@ -25,10 +25,10 @@ package pcgen.facade.core;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 /**
- * InfoFactory defines the interface to be used by the UI for extracting 
+ * InfoFactory defines the interface to be used by the UI for extracting
  * information about objects for display to the user.
- * 
- * 
+ *
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  * @version $Revision: $
  */
@@ -58,9 +58,9 @@ public interface InfoFactory
 	public String getMovement(RaceFacade race);
 
 	/**
-	 * Calculate the number of monster class levels (aka racial hit dice) 
+	 * Calculate the number of monster class levels (aka racial hit dice)
 	 * that the race receives.
-	 * 
+	 *
 	 * @param raceFacade The race to check.
 	 * @return The number of levels of monster classes, or 0 if none.
 	 */
@@ -80,6 +80,7 @@ public interface InfoFactory
 
 	/**
 	 * Produce the HTML information string for an item for equipment.
+	 *
 	 * @param equipFacade The equipment item
 	 * @return The HTML information string
 	 */
@@ -87,6 +88,7 @@ public interface InfoFactory
 
 	/**
 	 * Produce the HTML information string for an equipment modifier.
+	 *
 	 * @param equipmod The equipment modifier.
 	 * @param equipFacade The equipment item the modifier relates to.
 	 * @return The HTML information string.
@@ -99,6 +101,7 @@ public interface InfoFactory
 
 	/**
 	 * Produce the HTML information string for a kit.
+	 *
 	 * @param kitFacade The kit
 	 * @return The HTML information string
 	 */
@@ -106,6 +109,7 @@ public interface InfoFactory
 
 	/**
 	 * Produce the HTML information string for a temporary bonus.
+	 *
 	 * @param tempBonusFacade The temporary bonus.
 	 * @return The HTML information string
 	 */
@@ -113,6 +117,7 @@ public interface InfoFactory
 
 	/**
 	 * Produce the HTML information string for a facade.
+	 *
 	 * @param facade The object to be described.
 	 * @return The HTML information string
 	 */
@@ -120,6 +125,7 @@ public interface InfoFactory
 
 	/**
 	 * Produce the HTML information string for spell book or spell list.
+	 *
 	 * @param name The spell book or spell list.
 	 * @return The HTML information string
 	 */
@@ -127,20 +133,103 @@ public interface InfoFactory
 
 	/**
 	 * Get the description for the ability for this character.
+	 *
 	 * @param ability The ability to be described.
 	 * @return The description.
 	 */
 	public String getDescription(AbilityFacade ability);
 
 	/**
+	 * Get the description for a race for this character.
+	 *
+	 * @param raceFacade The race to be described.
+	 * @return The description.
+	 */
+	public String getDescription(RaceFacade raceFacade);
+
+	/**
+	 * Get the description for a template for this character.
+	 *
+	 * @param templateFacade The template to be described.
+	 * @return The description.
+	 */
+	public String getDescription(TemplateFacade templateFacade);
+
+	/**
+	 * Get the description for a class for this character.
+	 *
+	 * @param classFacade The class to be described.
+	 * @return The description.
+	 */
+	public String getDescription(ClassFacade classFacade);
+	
+	/**
+	 * Get the description for a skill for this character.
+	 *
+	 * @param skillFacade The skill to be described.
+	 * @return The description.
+	 */
+	public String getDescription(SkillFacade skillFacade);
+
+	/**
+	 * Get the description of a piece of equipment for this character.
+	 *
+	 * @param equipFacade The equipment to be described.
+	 * @return The description.
+	 */
+	public String getDescription(EquipmentFacade equipFacade);
+
+	/**
+	 * Get the description for a kit for this character.
+	 *
+	 * @param kitFacade The kit to be described.
+	 * @return The description.
+	 */
+	public String getDescription(KitFacade kitFacade);
+
+	/**
+	 * Get the description for a deity for this character.
+	 *
+	 * @param deityFacade The deity to be described.
+	 * @return The description.
+	 */
+	public String getDescription(DeityFacade deityFacade);
+
+	/**
+	 * Get the description for a domain for this character.
+	 *
+	 * @param domainFacade The domain to be described.
+	 * @return The description.
+	 */
+	public String getDescription(DomainFacade domainFacade);
+
+	/**
+	 * Get the description for a spell for this character.
+	 *
+	 * @param spellFacade The spell to be described.
+	 * @return The description.
+	 */
+	public String getDescription(SpellFacade spellFacade);
+	
+	/**
+	 * Get the description for a temp bonus for this character.
+	 *
+	 * @param tempBonusFacade The temp bonus to be described.
+	 * @return The description.
+	 */
+	public String getDescription(TempBonusFacade tempBonusFacade);
+	
+	/**
 	 * Get a display string of the deity's domains.
+	 *
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of domains.
 	 */
 	public String getDomains(DeityFacade deityFacade);
-
+	
 	/**
 	 * Get a display string of the deity's pantheons.
+	 *
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of pantheons.
 	 */
@@ -148,22 +237,25 @@ public interface InfoFactory
 
 	/**
 	 * Get a display string of the deity's favored weapons.
+	 *
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of weapons.
 	 */
 	public String getFavoredWeapons(DeityFacade deityFacade);
 
 	/**
-	 * Get a display string of the choices made for this character for the 
+	 * Get a display string of the choices made for this character for the
 	 * ability. The format may be either a, b or x3.
+	 *
 	 * @param abilityFacade The ability to be output.
 	 * @return The comma separated list of choices.
 	 */
 	public String getChoices(AbilityFacade abilityFacade);
 
 	/**
-	 * Retrieve the description of the targets to which the temporary bonus 
+	 * Retrieve the description of the targets to which the temporary bonus
 	 * can be applied. e.g. Character, or weapon,ranged.
+	 *
 	 * @param tempBonusFacade The temporary bonus.
 	 * @return The targets.
 	 */

@@ -187,6 +187,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		column.setHeaderValue(LanguageBundle.getString("in_domains")); //$NON-NLS-1$
 		model.addColumn(column, true, 150);
 		column = new TableColumn(1);
+		column.setHeaderValue(LanguageBundle.getString("in_descrip")); //$NON-NLS-1$
+		model.addColumn(column, false, 150);
+		column = new TableColumn(2);
 		column.setHeaderValue(LanguageBundle.getString("in_source")); //$NON-NLS-1$
 		model.addColumn(column, true, 150);
 		return model;
@@ -634,6 +637,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case 0:
 					return element;
 				case 1:
+					return character.getInfoFactory().getDescription(element);
+				case 2:
 					return element.getSource();
 				default:
 					return null;
@@ -643,7 +648,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public int getColumnCount()
 		{
-			return 2;
+			return 3;
 		}
 
 		@Override
@@ -685,6 +690,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				= new DefaultListFacade<TreeView<DeityFacade>>(Arrays.asList(DeityTreeView.values()));
 		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_domains", String.class), //$NON-NLS-1$
+				new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_pantheon", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_favoredWeapon", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_sourceLabel", String.class)); //$NON-NLS-1$
@@ -725,7 +731,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(DeityFacade obj)
 		{
 			return Arrays.asList(obj.getAlignment(),
-					infoFactory.getDomains(obj), infoFactory.getPantheons(obj),
+					infoFactory.getDomains(obj), 
+					infoFactory.getDescription(obj),
+					infoFactory.getPantheons(obj),
 					infoFactory.getFavoredWeapons(obj),
 					obj.getSource());
 		}
