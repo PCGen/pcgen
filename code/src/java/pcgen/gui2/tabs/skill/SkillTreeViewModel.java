@@ -64,6 +64,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			new DefaultDataViewColumn("in_classString", String.class, true),
 			new DefaultDataViewColumn("in_skillSkillCost", String.class,
 				SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
+			new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
 			new DefaultDataViewColumn("in_source", String.class));
 	private final DefaultListFacade<TreeView<SkillFacade>> treeviews;
 	private final CharacterFacade character;
@@ -140,7 +141,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	{
 		if (selectionModel.isSelectionEmpty())
 		{
-			return Arrays.asList(0, 0, 0.0, null, 0, obj.getSource());
+			return Arrays.asList(0, 0, 0.0, null, 0, null, obj.getSource());
 		}
 		else
 		{
@@ -155,6 +156,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 						? LanguageBundle.getString("in_yes") :  //$NON-NLS-1$
 						  LanguageBundle.getString("in_no"),    //$NON-NLS-1$
 					levels.getSkillCost(level, obj).getCost(),
+					character.getInfoFactory().getDescription(obj),
 					obj.getSource());
 		}
 	}
