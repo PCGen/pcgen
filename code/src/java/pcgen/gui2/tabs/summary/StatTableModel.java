@@ -32,12 +32,10 @@ import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -64,24 +62,26 @@ import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
  * Model used for the Ability/statistics table.
- * 
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {
-	private static final String EDITABLE = "EDITABLE"; //$NON-NLS-1$
+
+	public static final String EDITABLE_COLUMN_ID = "EDITABLE"; //$NON-NLS-1$
+	private static final String ABILITY_COLUMN_ID = "ABILITY"; //$NON-NLS-1$
 	private static final String MOVEDOWN = "movedown"; //$NON-NLS-1$
-	
+
 	private static final int ABILITY_NAME = 0;
 	private static final int EDITABLE_SCORE = 3;
 	private static final int RACE_ADJ = 4;
 	private static final int MISC_ADJ = 5;
 	private static final int FINAL_ABILITY_SCORE = 1;
 	private static final int ABILITY_MOD = 2;
-	private CharacterFacade character;
-	private ListFacade<StatFacade> stats;
-	private StatRenderer renderer = new StatRenderer();
-	private SpinnerEditor editor = new SpinnerEditor();
+	private final CharacterFacade character;
+	private final ListFacade<StatFacade> stats;
+	private final StatRenderer renderer = new StatRenderer();
+	private final SpinnerEditor editor = new SpinnerEditor();
 	private final JTable table;
 
 	public StatTableModel(CharacterFacade character, JTable jtable)
@@ -120,10 +120,10 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	}
 
 	private void startEditingNextRow(final JTable statsTable,
-									 final int col, final int nextRow, JTextField textField)
+			final int col, final int nextRow, JTextField textField)
 	{
-		if (nextRow >= 0 && nextRow < statsTable.getModel().getRowCount() && col >= 0 && col <
-				statsTable.getModel().getColumnCount())
+		if (nextRow >= 0 && nextRow < getRowCount()
+				&& col >= 0 && col < getColumnCount())
 		{
 			statsTable.editCellAt(nextRow, col);
 			textField.requestFocusInWindow();
@@ -145,25 +145,24 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setAutoCreateColumnsFromModel(false);
 		DefaultTableColumnModel columnModel = new DefaultTableColumnModel();
 		{
-			String htmlText = "      Ability      ";
-			columnModel.addColumn(Utilities.createTableColumn(ABILITY_NAME, htmlText, new FixedHeaderCellRenderer(htmlText), false));
+			TableColumn column = Utilities.createTableColumn(ABILITY_NAME, "Ability", new AbilityHeaderCellRenderer(), true);
+			column.setIdentifier(ABILITY_COLUMN_ID);
+			columnModel.addColumn(column);
 
-			htmlText = "<html><div align=\"center\">Final<br>Score</div></html>";
-			TableColumn column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
-			TableCellRenderer renderer = new ModRenderer();
+			String htmlText = "<html><div align=\"center\">Final<br>Score</div></html>";
+			column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			column.setCellRenderer(new ValueRenderer());
 			columnModel.addColumn(column);
 
+			TableCellRenderer renderer = new ModRenderer();
 			htmlText = "<html><div align=\"center\">Ability<br>Mod</div></html>";
-			column =
-					Utilities.createTableColumn(ABILITY_MOD, htmlText,
-						new FixedHeaderCellRenderer(htmlText), false);
+			column = Utilities.createTableColumn(ABILITY_MOD, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			column.setCellRenderer(renderer);
 			columnModel.addColumn(column);
 
 			htmlText = "<html><div align=\"center\">Editable<br>Score</div></html>";
 			column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
-			column.setIdentifier(EDITABLE);
+			column.setIdentifier(EDITABLE_COLUMN_ID);
 			columnModel.addColumn(column);
 
 			htmlText = "<html><div align=\"center\">Race<br>Adj</div></html>";
@@ -188,6 +187,28 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		FontManipulation.large(statsTable);
 	}
 
+	/**
+	 * This renders the header for the Ability name. Mostly this just
+	 * delegates to the L&F default table header renderer but centers the
+	 * resulting label.
+	 */
+	private static class AbilityHeaderCellRenderer implements TableCellRenderer
+	{
+
+		/* (non-Javadoc)
+		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 */
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		{
+			Component comp = table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+			JLabel label = (JLabel) comp;
+			label.setHorizontalAlignment(JLabel.CENTER);
+			return label;
+		}
+
+	}
+
 	/*
 	 * This class is a hack that gives the TableHeaderUI a dummy component
 	 * so that it can be used when calculating the height of the JTableHeader.
@@ -198,10 +219,12 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		public FixedHeaderCellRenderer(String text)
 		{
 			setText(text);
-			FontManipulation.title(this);
-			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 5));
+			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 10));
 		}
 
+		/* (non-Javadoc)
+		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 */
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
@@ -262,7 +285,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	{
 
 		/**
-		 *  Create a new ValueRenderer instance.
+		 * Create a new ValueRenderer instance.
 		 */
 		public ValueRenderer()
 		{
@@ -289,12 +312,31 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	{
 		table.setModel(this);
 		table.setDefaultRenderer(Object.class, renderer);
-		TableColumn column = table.getColumn(EDITABLE);
+
+		TableColumn abilityColumn = table.getColumn(ABILITY_COLUMN_ID);
+		int columnIndex = abilityColumn.getModelIndex();
+		int maxWidth = 0;
+		for (StatFacade aStat : stats)
+		{
+			Component cell = renderer.getTableCellRendererComponent(table,
+					aStat,
+					false, false, -1, columnIndex);
+			maxWidth = Math.max(maxWidth, cell.getPreferredSize().width);
+		}
+		//we add some extra spacing to prevent ellipses from showing
+		abilityColumn.setPreferredWidth(maxWidth + 4);
+
+		TableColumn column = table.getColumn(EDITABLE_COLUMN_ID);
 		column.setCellRenderer(new TableCellUtilities.SpinnerRenderer());
 
 		column.setCellEditor(editor);
 		Dimension size = table.getPreferredSize();
 		size.width = table.getTableHeader().getPreferredSize().width;
+
+		JScrollPane scrollPane = (JScrollPane) table.getParent().getParent();
+		//we want to add room for the vertical scroll bar so it doesn't
+		//overlap with the table when it shows
+		size.width += scrollPane.getVerticalScrollBar().getPreferredSize().width;
 		table.setPreferredScrollableViewportSize(size);
 
 		for (StatFacade aStat : stats)
@@ -330,15 +372,15 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 		/**
 		 * Set a new lower bound for the spinner.
+		 *
 		 * @param minValue The new minimum value.
 		 */
 		public void setMinValue(int minValue)
 		{
-			SpinnerNumberModel spinnerModel =
-					(SpinnerNumberModel) spinner.getModel();
+			SpinnerNumberModel spinnerModel = (SpinnerNumberModel) spinner.getModel();
 			spinnerModel.setMinimum(minValue);
 		}
-		
+
 		public JTextField getTextField()
 		{
 			return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
@@ -352,9 +394,9 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value,
-													 boolean isSelected,
-													 int row,
-													 int column)
+				boolean isSelected,
+				int row,
+				int column)
 		{
 			spinner.setValue(value);
 			spinner.addChangeListener(this);
@@ -446,25 +488,13 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	/**
 	 * Table renderer used for abilities/statistics.
 	 */
-	private class StatRenderer extends JPanel implements TableCellRenderer
+	private class StatRenderer extends JLabel implements TableCellRenderer
 	{
-
-		private JLabel statLabel = new JLabel();
-
-		public StatRenderer()
-		{
-			setOpaque(false);
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			add(statLabel);
-			add(Box.createHorizontalGlue());
-			// This is to force the use of the parent component font
-			statLabel.setFont(null);
-		}
 
 		@Override
 		public Component getTableCellRendererComponent(JTable jTable,
-			Object value, boolean isSelected, boolean hasFocus, int row,
-			int column)
+				Object value, boolean isSelected, boolean hasFocus, int row,
+				int column)
 		{
 			setFont(FontManipulation.title(jTable.getFont()));
 			// Those two does not seem to change anything.
@@ -472,7 +502,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setForeground(jTable.getForeground());
 			StatFacade stat = (StatFacade) value;
 			//TODO: this should really call stat.toString()
-			statLabel.setText(stat.getName());
+			setText(stat.getName());
 			return this;
 		}
 
