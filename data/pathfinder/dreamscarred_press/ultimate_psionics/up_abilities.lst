@@ -134,6 +134,21 @@ Bonus War Mind Power		KEY:Bonus War Mind Power ~ Generic		CATEGORY:Internal		TYP
 ### --- Bonus Powers (end) --- ###
 
 
+###Block: "Gain a manifesting level" abilities
+Cryptic		KEY:Bonus Cryptic Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:CrypticML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Cryptic|1
+Dread			KEY:Bonus Dread Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:DreadML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Dread|1
+Marksman		KEY:Bonus Marksman Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:MarksmanML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Marksman|1
+Psion			KEY:Bonus Psion Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:PsionML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Psion|1
+Psychic Warrior	KEY:Bonus Psychic Warrior Manifesting ~ Generic	CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:PsychicWarriorML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Psychic Warrior|1
+Tactician		KEY:Bonus Tactician Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:TacticianML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Tactician|1
+Vitalist		KEY:Bonus Vitalist Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:VitalistML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Vitalist|1
+Wilder		KEY:Bonus Wilder Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:WilderML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Wilder|1
+Gifted Blade	KEY:Bonus Gifted Blade Manifesting ~ Generic	CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:GiftedBladeML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Gifted Blade|1
+Psychic Fist	KEY:Bonus Psychic Fist Manifesting ~ Generic	CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:PsychicFistML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Psychic Fist|1
+Sighted Seeker	KEY:Bonus Sighted Seeker Manifesting ~ Generic	CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:SightedSeekerML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Sighted Seeker|1
+War Mind		KEY:Bonus War Mind Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:WarMindML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|War Mind|1
+
+
 ### --- Miscellaneous abilities (start) --- ###
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: TaluronIscandar
