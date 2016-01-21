@@ -30,7 +30,6 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
-import javax.swing.CellEditor;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,7 +39,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 
 import pcgen.facade.core.CharacterFacade;
@@ -50,7 +48,6 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -101,7 +98,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final InfoPane deityInfo;
 	private final InfoPane domainInfo;
 	private DisplayableFilter<CharacterFacade, DomainFacade> domainFilter;
-	private TableCellEditor editor;
 	private static final Object COLUMN_ID = new Object();
 	private final FilterButton<Object, DomainFacade> qFilterButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
@@ -163,9 +159,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		domainTable.setAutoCreateColumnsFromModel(false);
 		domainTable.setColumnModel(createDomainColumnModel());
 
-//		domainRowHeaderTable.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
-//		domainTable.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
-//		domainTable.getEditorComponent()
 		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);
 		panel.add(scrollPane, BorderLayout.CENTER);
 
