@@ -112,13 +112,15 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		fireElementAdded(this, element, index);
 	}
 
-	public void removeElement(E element)
+	public boolean removeElement(E element)
 	{
 		int index = elementList.indexOf(element);
 		if (elementList.remove(element))
 		{
 			fireElementRemoved(this, element, index);
+			return true;
 		}
+		return false;
 	}
 
 	public void removeElement(int index)
