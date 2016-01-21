@@ -32,6 +32,7 @@ import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -336,8 +337,14 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		JScrollPane scrollPane = (JScrollPane) table.getParent().getParent();
 		//we want to add room for the vertical scroll bar so it doesn't
 		//overlap with the table when it shows
-		size.width += scrollPane.getVerticalScrollBar().getPreferredSize().width;
+		int vbarWidth = scrollPane.getVerticalScrollBar().getPreferredSize().width;
+		size.width += vbarWidth;
 		table.setPreferredScrollableViewportSize(size);
+		
+		//because of the extra viewport size in the table it will
+		//always look a bit off center, adding a row header to
+		//the scroll pane fixes this
+		scrollPane.setRowHeaderView(Box.createHorizontalStrut(vbarWidth));
 
 		for (StatFacade aStat : stats)
 		{
