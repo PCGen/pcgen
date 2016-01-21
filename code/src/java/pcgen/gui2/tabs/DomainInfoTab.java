@@ -30,6 +30,7 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
+import javax.swing.CellEditor;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -39,6 +40,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 
 import pcgen.facade.core.CharacterFacade;
@@ -99,6 +101,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final InfoPane deityInfo;
 	private final InfoPane domainInfo;
 	private DisplayableFilter<CharacterFacade, DomainFacade> domainFilter;
+	private TableCellEditor editor;
 	private static final Object COLUMN_ID = new Object();
 	private final FilterButton<Object, DomainFacade> qFilterButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
@@ -159,6 +162,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		domainTable.setAutoCreateColumnsFromModel(false);
 		domainTable.setColumnModel(createDomainColumnModel());
+
+//		domainRowHeaderTable.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
+//		domainTable.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
+//		domainTable.getEditorComponent()
 		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);
 		panel.add(scrollPane, BorderLayout.CENTER);
 
@@ -379,6 +386,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			if (!e.getValueIsAdjusting())
 			{
+				if (domainRowHeaderTable.isEditing())
+				{
+					domainRowHeaderTable.getCellEditor().cancelCellEditing();
+				}
 				int selectedRow = domainTable.getSelectedRow();
 				DomainFacade domain = null;
 				if (selectedRow != -1)
@@ -586,21 +597,19 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			@Override
 			public void elementAdded(ListEvent<DomainFacade> e)
 			{
-				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());
-				DomainTableModel.this.fireTableCellUpdated(index, -1);
+				elementsChanged(e);
 			}
 
 			@Override
 			public void elementRemoved(ListEvent<DomainFacade> e)
 			{
-				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());
-				DomainTableModel.this.fireTableCellUpdated(index, -1);
+				elementsChanged(e);
 			}
 
 			@Override
 			public void elementsChanged(ListEvent<DomainFacade> e)
 			{
-				DomainTableModel.this.fireTableRowsUpdated(0, sortedList.getSize() - 1);
+				fireTableRowsUpdated(0, sortedList.getSize() - 1);
 			}
 
 			@Override
@@ -731,7 +740,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(DeityFacade obj)
 		{
 			return Arrays.asList(obj.getAlignment(),
-					infoFactory.getDomains(obj), 
+					infoFactory.getDomains(obj),
 					infoFactory.getDescription(obj),
 					infoFactory.getPantheons(obj),
 					infoFactory.getFavoredWeapons(obj),
