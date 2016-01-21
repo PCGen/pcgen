@@ -100,7 +100,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final InfoPane domainInfo;
 	private DisplayableFilter<CharacterFacade, DomainFacade> domainFilter;
 	private static final Object COLUMN_ID = new Object();
-	private final FilterButton<Object, DomainFacade> qFilterButton;
+	private final FilterButton<Object, DeityFacade> qDeityButton;
+	private final FilterButton<Object, DomainFacade> qDomainButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public DomainInfoTab()
@@ -114,7 +115,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.selectedDomain = new JLabel();
 		this.deityInfo = new InfoPane("in_deityInfo"); //$NON-NLS-1$
 		this.domainInfo = new InfoPane("in_domainInfo"); //$NON-NLS-1$
-		this.qFilterButton = new FilterButton<Object, DomainFacade>("DomainQualified");
+		this.qDeityButton = new FilterButton<Object, DeityFacade>("DeityQualified");
+		this.qDomainButton = new FilterButton<Object, DomainFacade>("DomainQualified");
 		this.qualifiedRenderer = new QualifiedTreeCellRenderer();
 		initComponents();
 	}
@@ -127,6 +129,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		JPanel panel = new JPanel(new BorderLayout());
 		FilterBar<Object, DeityFacade> bar = new FilterBar<Object, DeityFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
+		qDeityButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		bar.addDisplayableFilter(qDeityButton);
 		deityTable.setDisplayableFilter(bar);
 		panel.add(bar, BorderLayout.NORTH);
 
@@ -150,8 +154,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		panel = new JPanel(new BorderLayout());
 		FilterBar<CharacterFacade, DomainFacade> dbar = new FilterBar<CharacterFacade, DomainFacade>();
 		dbar.addDisplayableFilter(new SearchFilterPanel());
-		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
-		dbar.addDisplayableFilter(qFilterButton);
+		qDomainButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		dbar.addDisplayableFilter(qDomainButton);
 		domainFilter = dbar;
 		panel.add(dbar, BorderLayout.NORTH);
 
@@ -187,6 +191,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		column.setHeaderValue(LanguageBundle.getString("in_domains")); //$NON-NLS-1$
 		model.addColumn(column, true, 150);
 		column = new TableColumn(1);
+		column.setHeaderValue(LanguageBundle.getString("in_descrip")); //$NON-NLS-1$
+		model.addColumn(column, false, 150);
+		column = new TableColumn(2);
 		column.setHeaderValue(LanguageBundle.getString("in_source")); //$NON-NLS-1$
 		model.addColumn(column, true, 150);
 		return model;
@@ -433,10 +440,19 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class QualifiedFilterHandler
 	{
 
-		private final Filter<Object, DomainFacade> qFilter = new Filter<Object, DomainFacade>()
+		private final Filter<Object, DomainFacade> domainFilter = new Filter<Object, DomainFacade>()
 		{
 			@Override
 			public boolean accept(Object context, DomainFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final Filter<Object, DeityFacade> deityFilter = new Filter<Object, DeityFacade>()
+		{
+			@Override
+			public boolean accept(Object context, DeityFacade element)
 			{
 				return character.isQualifiedFor(element);
 			}
@@ -451,7 +467,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void install()
 		{
-			qFilterButton.setFilter(qFilter);
+			qDomainButton.setFilter(domainFilter);
+			qDeityButton.setFilter(deityFilter);
 		}
 
 	}
@@ -634,6 +651,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case 0:
 					return element;
 				case 1:
+					return character.getInfoFactory().getDescription(element);
+				case 2:
 					return element.getSource();
 				default:
 					return null;
@@ -643,7 +662,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public int getColumnCount()
 		{
-			return 2;
+			return 3;
 		}
 
 		@Override
@@ -685,6 +704,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				= new DefaultListFacade<TreeView<DeityFacade>>(Arrays.asList(DeityTreeView.values()));
 		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_domains", String.class), //$NON-NLS-1$
+				new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_pantheon", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_favoredWeapon", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_sourceLabel", String.class)); //$NON-NLS-1$
@@ -725,7 +745,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(DeityFacade obj)
 		{
 			return Arrays.asList(obj.getAlignment(),
-					infoFactory.getDomains(obj), infoFactory.getPantheons(obj),
+					infoFactory.getDomains(obj),
+					infoFactory.getDescription(obj),
+					infoFactory.getPantheons(obj),
 					infoFactory.getFavoredWeapons(obj),
 					obj.getSource());
 		}

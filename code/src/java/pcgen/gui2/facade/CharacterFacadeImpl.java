@@ -4019,6 +4019,21 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	/* (non-Javadoc)
+	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DeityFacade)
+	 */
+	@Override
+	public boolean isQualifiedFor(DeityFacade deityFacade)
+	{
+		if (!(deityFacade instanceof Deity))
+		{
+			return false;
+		}
+		Deity aDeity = (Deity) deityFacade;
+		return PrereqHandler.passesAll(aDeity.getPrerequisiteList(), theCharacter, aDeity)
+				&& theCharacter.isQualified(aDeity);
+	}
+	
+	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DomainFacade)
 	 */
 	@Override
