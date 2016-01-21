@@ -26,6 +26,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -43,13 +44,17 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JViewport;
+import javax.swing.RowSorter;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SortOrder;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.TableColumnModelEvent;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
@@ -129,9 +134,16 @@ public class JTreeViewTable<T> extends JTreeTable
 	 */
 	public JTreeViewTable()
 	{
-		setTableHeader(new JTreeViewHeader());
 		setAutoCreateColumnsFromModel(false);
+		setAutoCreateRowSorter(false);
 		baseContext = UIPropertyContext.createContext("tablePrefs");
+		getTree().setLargeModel(true);
+	}
+
+	@Override
+	protected JTableHeader createDefaultTableHeader()
+	{
+		return new JTreeViewHeader();
 	}
 
 	/**
@@ -411,15 +423,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		model.setSelectedTreeView(startingView);
 		setTreeTableModel(model);
 		setColumnModel(createTableColumnModel(startingView, dataView));
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				sortModel();
-			}
-
-		});
 	}
 
 	/**
@@ -562,89 +565,100 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	}
 
-	protected class JTreeViewHeader extends JTableSortingHeader
+	protected class JTreeViewHeader extends JTableHeader implements MouseListener
 	{
 
 		public JTreeViewHeader()
 		{
-			super(JTreeViewTable.this);
+			super();
+			addMouseListener(this);
+//			super(JTreeViewTable.this);
 		}
 
-		@Override
-		protected TableCellRenderer createDefaultRenderer()
-		{
-			return new TreeViewHeaderRenderer();
-		}
+//		@Override
+//		protected TableCellRenderer createDefaultRenderer()
+//		{
+//			return new TreeViewHeaderRenderer();
+//		}
 
 		@Override
 		public void mouseClicked(MouseEvent e)
 		{
 			if (!treeviewMenu.isVisible())
 			{
-				super.mouseClicked(e);
+//				super.mouseClicked(e);
 			}
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e)
 		{
-			super.mousePressed(e);
 			maybeShowPopup(e);
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e)
 		{
-
-			super.mouseReleased(e);
 			maybeShowPopup(e);
 		}
 
 		protected void maybeShowPopup(MouseEvent e)
 		{
+			int column = columnAtPoint(e.getPoint());
+			TableColumnModel columnmodel = getColumnModel();
+			TableColumn trackedColumn = columnmodel.getColumn(column);
 			if (e.isPopupTrigger()
-				&& getTrackedColumn() != null
-				&& getTrackedColumn().getHeaderValue() == treetableModel
+				&& trackedColumn != null
+				&& trackedColumn.getHeaderValue() == treetableModel
 					.getSelectedTreeView().getViewName())
 			{
-				TableColumnModel columnmodel = getColumnModel();
 				Rectangle rect = getHeaderRect(columnmodel.getColumnIndexAtX(e.getX()));
 				treeviewMenu.setPopupSize(rect.width, treeviewMenu.getPreferredSize().height);
 				treeviewMenu.show(JTreeViewTable.this.getParent(), rect.x, rect.y);
 			}
 		}
 
-		private class TreeViewHeaderRenderer extends SortingHeaderRenderer
+		@Override
+		public void mouseEntered(MouseEvent e)
 		{
-
-			private JLabel arrowLabel;
-
-			public TreeViewHeaderRenderer()
-			{
-				arrowLabel = new JLabel(new ArrowIcon(SwingConstants.SOUTH, 5));
-				arrowLabel.setPreferredSize(new Dimension(16, 16));
-				arrowLabel.setMaximumSize(new Dimension(16, Integer.MAX_VALUE));
-				arrowLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-			}
-
-			@Override
-			public Component getTableCellRendererComponent(JTable jTable,
-														   Object value,
-														   boolean isSelected,
-														   boolean hasFocus,
-														   int row,
-														   int column)
-			{
-				super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
-				removeAll();
-				if (treetableModel.getSelectedTreeView().getViewName() == value)
-				{
-					add(arrowLabel);
-				}
-				return this;
-			}
-
 		}
+
+		@Override
+		public void mouseExited(MouseEvent e)
+		{
+		}
+
+//		private class TreeViewHeaderRenderer extends SortingHeaderRenderer
+//		{
+//
+//			private JLabel arrowLabel;
+//
+//			public TreeViewHeaderRenderer()
+//			{
+//				arrowLabel = new JLabel(new ArrowIcon(SwingConstants.SOUTH, 5));
+//				arrowLabel.setPreferredSize(new Dimension(16, 16));
+//				arrowLabel.setMaximumSize(new Dimension(16, Integer.MAX_VALUE));
+//				arrowLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+//			}
+//
+//			@Override
+//			public Component getTableCellRendererComponent(JTable jTable,
+//														   Object value,
+//														   boolean isSelected,
+//														   boolean hasFocus,
+//														   int row,
+//														   int column)
+//			{
+//				super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
+//				removeAll();
+//				if (treetableModel.getSelectedTreeView().getViewName() == value)
+//				{
+//					add(arrowLabel);
+//				}
+//				return this;
+//			}
+//
+//		}
 
 	}
 

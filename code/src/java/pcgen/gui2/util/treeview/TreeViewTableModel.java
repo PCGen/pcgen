@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.util.treeview;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -36,6 +37,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
+import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableNode;
@@ -52,7 +54,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		implements SortableTreeTableModel
 {
 
-//	protected final Map<TreeView<? super E>, TreeViewNode> viewMap = new HashMap<TreeView<? super E>, TreeViewNode>();
 	private final ListListener<E> listListener = new ListListener<E>()
 	{
 
@@ -78,7 +79,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		@Override
 		public void elementModified(ListEvent<E> e)
 		{
-			refreshElement(e.getElement());
+//			refreshElement(e.getElement());
 		}
 
 	};
@@ -109,8 +110,15 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			return true;
 		}
 
+		@Override
+		public boolean shouldCache()
+		{
+			return false;
+		}
+
 	};
-	protected final Map<E, List<?>> dataMap = new HashMap<E, List<?>>();
+
+	protected final Set<E> dataElements = new HashSet<>();
 	protected List<? extends DataViewColumn> datacolumns;
 	protected DataView<E> dataview;
 	protected ListFacade<E> model = null;
@@ -128,8 +136,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 	public void refreshData()
 	{
-		dataMap.clear();
-		populateDataMap(ListFacades.wrap(model));
+//		dataElements.clear();
+//		dataElements.addAll(ListFacades.wrap(model));
 	}
 
 	public final void setDataModel(ListFacade<E> model)
@@ -145,22 +153,22 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 	private void setData(Collection<E> data)
 	{
-		dataMap.keySet().retainAll(data);
-		populateDataMap(data);
+		dataElements.clear();
+		dataElements.addAll(data);
 		setSelectedTreeView(selectedView);
 	}
 
 	private void setElements(Collection<E> data)
 	{
-		Set<E> newData = new HashSet<E>(data);
+		Set<E> newData = new HashSet<>(data);
 		for (E newKey : newData)
 		{
-			if (!dataMap.containsKey(newKey))
+			if (!dataElements.contains(newKey))
 			{
 				addElement(newKey);
 			}
 		}
-		Set<E> oldData = new HashSet<E>(dataMap.keySet());
+		Set<E> oldData = new HashSet<>(dataElements);
 		for (E oldKey : oldData)
 		{
 			if (!newData.contains(oldKey))
@@ -172,22 +180,22 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 	private void removeElement(E elem)
 	{
-		if (dataMap.containsKey(elem) && selectedView != null)
+		if (dataElements.contains(elem) && selectedView != null)
 		{
 			TreeViewNode rootNode = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
 				rootNode.removeTreeViewPath(path);
 			}
-			dataMap.remove(elem);
+			dataElements.remove(elem);
 		}
 	}
 
 	private void addElement(E elem)
 	{
-		if (!dataMap.containsKey(elem) && selectedView != null)
+		if (!dataElements.contains(elem) && selectedView != null)
 		{
-			dataMap.put(elem, dataview.getData(elem));
+			dataElements.add(elem);
 			TreeViewNode rootNode = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
@@ -196,30 +204,18 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		}
 	}
 
-	private void refreshElement(E elem)
-	{
-		if (dataMap.containsKey(elem) && selectedView != null)
-		{
-			dataMap.put(elem, dataview.getData(elem));
-			TreeViewNode rootNode = (TreeViewNode) getRoot();
-			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
-			{
-				rootNode.removeTreeViewPath(path);
-				rootNode.insertTreeViewPath(path);
-			}
-		}
-	}
-
-	private void populateDataMap(Collection<E> data)
-	{
-		for (E obj : data)
-		{
-			if (!dataMap.containsKey(obj))
-			{
-				dataMap.put(obj, dataview.getData(obj));
-			}
-		}
-	}
+//	private void refreshElement(E elem)
+//	{
+//		if (dataElements.contains(elem) && selectedView != null)
+//		{
+//			TreeViewNode rootNode = (TreeViewNode) getRoot();
+//			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
+//			{
+//				rootNode.removeTreeViewPath(path);
+//				rootNode.insertTreeViewPath(path);
+//			}
+//		}
+//	}
 
 	public final TreeView<? super E> getSelectedTreeView()
 	{
@@ -232,7 +228,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		{
 			this.selectedView = view;
 			Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
-			for (E element : dataMap.keySet())
+			for (E element : dataElements)
 			{
 				for (TreeViewPath<? super E> path : view.getPaths(element))
 				{
@@ -266,7 +262,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	{
 		if (getDataColumn(column).isEditable())
 		{
-			return column == 0 || dataMap.containsKey(((TreeViewNode) node).getUserObject());
+			return column == 0 || dataElements.contains(((TreeViewNode) node).getUserObject());
 		}
 		return false;
 	}
@@ -283,10 +279,10 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	}
 
 	@Override
-	public final void sortModel(Comparator<List<?>> comparator)
+	public final void sortModel(Comparator<Row> comparator)
 	{
 		TreeViewNode rootNode = (TreeViewNode) getRoot();
-		rootNode.sortChildren(new TreeNodeComparator(comparator));
+		rootNode.sortChildren(comparator);
 		reload();
 	}
 
@@ -302,7 +298,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		}
 
 		private TreeViewNode(int level, Object name,
-							 Vector<TreeViewPath<? super E>> paths)
+				Vector<TreeViewPath<? super E>> paths)
 		{
 			super(name, paths);
 			this.level = level;
@@ -396,7 +392,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					{//its in a branch, so pass on the request to the child
 						child.removeTreeViewPath(path);
 						//make sure to remove the branch if it is no longer useful
-						if (!dataMap.containsKey(child.userObject) && child.getChildCount() == 0)
+						if (!dataElements.contains(child.userObject) && child.getChildCount() == 0)
 						{
 							removeNodeFromParent(child);
 						}
@@ -418,7 +414,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			if (level >= path.getPathCount())
 			{
 				Logging.errorPrint("Ignoring attempt to add child at level "
-					+ level + " which is beyond end of path " + path);
+						+ level + " which is beyond end of path " + path);
 				return;
 			}
 			Object levelObject = path.getPathComponent(level);
@@ -488,16 +484,16 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 		}
 
-		private Comparator<TreeTableNode> mostRecentComparator = null;
+		private Comparator<Row> mostRecentComparator = null;
 
-		public void setComparator(Comparator<TreeTableNode> comparator)
+		public void setComparator(Comparator<Row> comparator)
 		{
 			this.mostRecentComparator = comparator;
 		}
 
 		@Override
 		@SuppressWarnings("unchecked")
-		public void sortChildren(Comparator<TreeTableNode> comparator)
+		public void sortChildren(Comparator<Row> comparator)
 		{
 			setComparator(comparator);
 			if (!loadedChildren)
@@ -520,30 +516,15 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		}
 
 		@Override
-		public List<Object> getValues()
-		{
-			Vector<Object> list = new Vector<Object>(getColumnCount());
-			list.add(userObject);
-			List<?> data = dataMap.get(userObject);
-			if (data != null)
-			{
-				list.addAll(data);
-			}
-			list.setSize(getColumnCount());
-			return list;
-		}
-
-		@Override
 		public Object getValueAt(int column)
 		{
 			if (column == 0)
 			{
 				return userObject;
 			}
-			List<?> data = dataMap.get(userObject);
-			if (data != null && column <= data.size())
+			if (dataElements.contains(userObject))
 			{
-				return data.get(column - 1);
+				return dataview.getData((E) userObject, column - 1);
 			}
 			return null;
 		}
@@ -552,13 +533,22 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		@SuppressWarnings("unchecked")
 		public void setValueAt(Object value, int column)
 		{
-			List data = dataMap.get(userObject);
-			if (data == null)
+			if (dataElements.contains(userObject))
 			{
-				return;
+				dataview.setData(value, (E) userObject, column);
 			}
-					
-			data.set(column - 1, value);
+		}
+
+		@Override
+		public TreeTableNode getChildAt(int childIndex)
+		{
+			return (TreeTableNode) super.getChildAt(childIndex);
+		}
+
+		@Override
+		public TreeTableNode getParent()
+		{
+			return (TreeTableNode) super.getParent();
 		}
 
 	}

@@ -29,67 +29,82 @@ import pcgen.system.LanguageBundle;
 public class DefaultDataViewColumn implements DataViewColumn
 {
 
-    private String name;
-    private Class<?> dataclass;
-    private Visibility visibility;
-    private boolean editable;
+	private String name;
+	private Class<?> dataclass;
+	private Visibility visibility;
+	private boolean editable;
+	private boolean cache;
 
-    public DefaultDataViewColumn(String name, Class<?> dataclass)
-    {
-        this(name, dataclass, false, false);
-    }
+	public DefaultDataViewColumn(String name, Class<?> dataclass)
+	{
+		this(name, dataclass, false, false);
+	}
 
-    public DefaultDataViewColumn(String name, Class<?> dataclass,
-                                  boolean visible)
-    {
-        this(name, dataclass, visible, false);
-    }
+	public DefaultDataViewColumn(String name, Class<?> dataclass,
+			boolean visible)
+	{
+		this(name, dataclass, visible, false);
+	}
 
-    public DefaultDataViewColumn(String name, Class<?> dataclass,
-                                  boolean visible, boolean editable)
-    {
-    	if (name.startsWith("in_"))
-    	{
-            this.name = LanguageBundle.getString(name);
-    	}
-    	else
-    	{
-            this.name = name;
-    	}
-        this.dataclass = dataclass;
-        this.editable = editable;
-        if (visible)
-        {
-            this.visibility = Visibility.INITIALLY_VISIBLE;
-        }
-        else
-        {
-            this.visibility = Visibility.INITIALLY_INVISIBLE;
-        }
-    }
+	public DefaultDataViewColumn(String name, Class<?> dataclass,
+			boolean visible, boolean editable)
+	{
+		this(name, dataclass, visible, editable, true);
+	}
 
-	@Override
-    public String getName()
-    {
-        return name;
-    }
-
-	@Override
-    public Class<?> getDataClass()
-    {
-        return dataclass;
-    }
+	public DefaultDataViewColumn(String name, Class<?> dataclass,
+			boolean visible, boolean editable,
+			boolean cache)
+	{
+		if (name.startsWith("in_"))
+		{
+			this.name = LanguageBundle.getString(name);
+		}
+		else
+		{
+			this.name = name;
+		}
+		this.dataclass = dataclass;
+		this.editable = editable;
+		this.cache = cache;
+		if (visible)
+		{
+			this.visibility = Visibility.INITIALLY_VISIBLE;
+		}
+		else
+		{
+			this.visibility = Visibility.INITIALLY_INVISIBLE;
+		}
+	}
 
 	@Override
-    public Visibility getVisibility()
-    {
-        return visibility;
-    }
+	public String getName()
+	{
+		return name;
+	}
 
 	@Override
-    public boolean isEditable()
-    {
-        return editable;
-    }
+	public Class<?> getDataClass()
+	{
+		return dataclass;
+	}
+
+	@Override
+	public Visibility getVisibility()
+	{
+		return visibility;
+	}
+
+	@Override
+	public boolean isEditable()
+	{
+		return editable;
+	}
+
+	@Override
+	public boolean shouldCache()
+	{
+		return cache;
+	}
 
 }

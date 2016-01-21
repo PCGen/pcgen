@@ -70,8 +70,6 @@ import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -139,8 +137,6 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		availableTable.setTreeCellRenderer(qualifiedRenderer);
 		availableTable.setDisplayableFilter(bar);
-		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
 		{
 			Box box = Box.createHorizontalBox();
@@ -587,12 +583,36 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return character.getDataSet().getClasses();
 		}
 
+//		@Override
+//		public List<?> getData(ClassFacade obj)
+//		{
+//			return Arrays.asList(obj.getHD(), getTypes(obj),
+//					"None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(), //$NON-NLS-1$ //$NON-NLS-2$
+//					obj.getSpellType(), obj.getSource());
+//		}
+
 		@Override
-		public List<?> getData(ClassFacade obj)
+		public Object getData(ClassFacade obj, int column)
 		{
-			return Arrays.asList(obj.getHD(), getTypes(obj),
-					"None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(), //$NON-NLS-1$ //$NON-NLS-2$
-					obj.getSpellType(), obj.getSource());
+			switch(column){
+				case 0:
+					return obj.getHD();
+				case 1:
+					return getTypes(obj);
+				case 2:
+					return "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(); //$NON-NLS-1$ //$NON-NLS-2$
+				case 3:
+					return obj.getSpellType();
+				case 4:
+					return obj.getSource();
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, ClassFacade element, int column)
+		{
 		}
 
 		private String getTypes(ClassFacade obj)

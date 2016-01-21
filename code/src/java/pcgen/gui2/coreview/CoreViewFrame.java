@@ -273,18 +273,40 @@ public class CoreViewFrame extends JFrame
 			return coreViewList;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
+//		/**
+//		 * {@inheritDoc}
+//		 */
+//		@Override
+//		public List<?> getData(CoreViewNodeFacade obj)
+//		{
+//			return Arrays.asList(obj.getKey(),
+//				 obj.getNodeType(),
+//				 obj.getSource(),
+//				 obj.getRequirements());
+//		}
+
 		@Override
-		public List<?> getData(CoreViewNodeFacade obj)
+		public Object getData(CoreViewNodeFacade obj, int column)
 		{
-			return Arrays.asList(obj.getKey(),
-				 obj.getNodeType(),
-				 obj.getSource(),
-				 obj.getRequirements());
+			switch(column){
+				case 0:
+					return obj.getKey();
+				case 1:
+					return obj.getNodeType();
+				case 2:
+					return obj.getSource();
+				case 3:
+					return obj.getRequirements();
+				default:
+					return null;
+			}
 		}
 
+		@Override
+		public void setData(Object value, CoreViewNodeFacade element, int column)
+		{
+		}
+		
 		/**
 		 * {@inheritDoc}
 		 */

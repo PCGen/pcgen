@@ -35,7 +35,10 @@ public interface DataView<E>
      * @param obj
      * @return editable list
      */
-    List<?> getData(E obj);
+//    List<?> getData(E obj);
+	Object getData(E element, int column);
+	
+	void setData(Object value, E element, int column);
 
     List<? extends DataViewColumn> getDataColumns();
 

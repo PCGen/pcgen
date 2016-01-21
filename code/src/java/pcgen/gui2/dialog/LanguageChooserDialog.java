@@ -247,10 +247,21 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			return this;
 		}
 
+//		@Override
+//		public List<?> getData(LanguageFacade obj)
+//		{
+//			return Collections.emptyList();
+//		}
+
 		@Override
-		public List<?> getData(LanguageFacade obj)
+		public Object getData(LanguageFacade element, int column)
 		{
-			return Collections.emptyList();
+			return null;
+		}
+
+		@Override
+		public void setData(Object value, LanguageFacade element, int column)
+		{
 		}
 
 		@Override

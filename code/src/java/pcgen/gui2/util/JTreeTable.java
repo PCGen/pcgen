@@ -56,6 +56,7 @@ import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
+import pcgen.gui2.util.table.Row;
 
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.treetable.DefaultSortableTreeTableModel;
@@ -155,12 +156,8 @@ public class JTreeTable extends JTableEx
 
 	public void setTreeTableModel(TreeTableModel model)
 	{
-		if (model != null && !(model instanceof SortableTreeTableModel))
-		{
-			model = new DefaultSortableTreeTableModel(model);
-		}
 		tree.setModel(model);
-		adapter.setTreeTableModel((SortableTreeTableModel) model);
+		adapter.setTreeTableModel(model);
 	}
 
 	/**
@@ -313,7 +310,7 @@ public class JTreeTable extends JTableEx
 	{
 
 		private JTree tree;
-		private SortableTreeTableModel treeTableModel;
+		private TreeTableModel treeTableModel;
 
 		/**
 		 * Constructor
@@ -332,7 +329,7 @@ public class JTreeTable extends JTableEx
 		 * not be guaranteed the tree will have finished processing
 		 * the event before us.
 		 **/
-		public void setTreeTableModel(SortableTreeTableModel model)
+		public void setTreeTableModel(TreeTableModel model)
 		{
 			if (treeTableModel != null)
 			{
@@ -424,16 +421,17 @@ public class JTreeTable extends JTableEx
 		}
 
 		@Override
-		public void sortModel(Comparator<List<?>> comparator)
+		public void sortModel(Comparator<Row> comparator)
 		{
-			if (treeTableModel == null)
+			if (treeTableModel == null || !(treeTableModel instanceof SortableTreeTableModel))
 			{
 				return;
 			}
+			SortableTreeTableModel model = (SortableTreeTableModel) treeTableModel;
 			Enumeration<TreePath> paths = tree.getExpandedDescendants(new TreePath(
-					treeTableModel.getRoot()));
+					model.getRoot()));
 			TreePath[] selectionPaths = tree.getSelectionPaths();
-			treeTableModel.sortModel(comparator);
+			model.sortModel(comparator);
 			if (paths != null)
 			{
 				while (paths.hasMoreElements())

@@ -61,8 +61,6 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FontManipulation;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -127,8 +125,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		availableTable.setDisplayableFilter(bar);
 		availableTable.setTreeCellRenderer(tempBonusRenderer);
-		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		availableTable.sortModel();
+//		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
+//		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
 
 		Box box = Box.createHorizontalBox();
@@ -147,8 +145,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		selectedTable.setDisplayableFilter(filterBar);
 		selectedTable.setTreeCellRenderer(tempBonusRenderer);
-		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		selectedTable.sortModel();
+//		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
+//		selectedTable.sortModel();
 		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
 
 		box = Box.createHorizontalBox();
@@ -478,12 +476,32 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
+//		@Override
+//		public List<?> getData(TempBonusFacade obj)
+//		{
+//			return Arrays.asList(obj.getOriginType(),
+//					infoFactory.getTempBonusTarget(obj),
+//					obj.getSource());
+//		}
+
 		@Override
-		public List<?> getData(TempBonusFacade obj)
+		public Object getData(TempBonusFacade obj, int column)
 		{
-			return Arrays.asList(obj.getOriginType(),
-					infoFactory.getTempBonusTarget(obj),
-					obj.getSource());
+			switch(column){
+				case 0:
+					return obj.getOriginType();
+				case 1:
+					return infoFactory.getTempBonusTarget(obj);
+				case 2:
+					return obj.getSource();
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, TempBonusFacade element, int column)
+		{
 		}
 
 		@Override

@@ -346,7 +346,6 @@ public class SourceSelectionDialog extends JDialog
 			table.setShowGrid(false);
 			table.setFocusable(false);
 			table.setRowSelectionAllowed(false);
-			table.toggleSort(0);
 			rowTable.setRowSelectionAllowed(false);
 
 			pane.setPreferredSize(new Dimension(300, 200));
