@@ -170,7 +170,6 @@ ABILITYCATEGORY:Pacifist Method						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 
 
 ###Block: Prestige Class ability pools
-
 ###Block: Soul Archer
 # NEEDS CODE/DATA WORK: How to limit this to only soulbolt blade skills, but not Alter Mind Bolt?
 # WORKAROUND: Allow any blade skill.  The rest is user-enforced.
@@ -199,6 +198,7 @@ ABILITYCATEGORY:Sighted Seeker Metafaculty	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 
 ###Block: Enhancement choice ability pools
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Display Location
+ABILITYCATEGORY:Manifesting Level Advancement			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BonusManifesting					PLURAL:Manifesting Level Advancements		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Adaptive Warrior Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptiveWarriorEnhancementChoice		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Body Snatcher Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BodySnatcherEnhancementChoice			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Cerebremancer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CerebremancerEnhancementChoice			DISPLAYLOCATION:Class Features
