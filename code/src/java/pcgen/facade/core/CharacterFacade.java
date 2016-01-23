@@ -631,6 +631,13 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return True if the character can take the domain, false if not.
 	 */
 	public boolean isQualifiedFor(DomainFacade domain);
+	
+	/**
+	 * Check if the character meets all requirements to take the deity.
+	 * @param deity The deity to be checked.
+	 * @return True if the character can take the deity, false if not.
+	 */
+	public boolean isQualifiedFor(DeityFacade deity);
 
 	/**
 	 * Check if the character meets all requirements to take the temporary bonus.
