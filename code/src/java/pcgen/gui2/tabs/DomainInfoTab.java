@@ -48,7 +48,6 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -163,6 +162,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		domainTable.setAutoCreateColumnsFromModel(false);
 		domainTable.setColumnModel(createDomainColumnModel());
+
 		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);
 		panel.add(scrollPane, BorderLayout.CENTER);
 
@@ -383,6 +383,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			if (!e.getValueIsAdjusting())
 			{
+				if (domainRowHeaderTable.isEditing())
+				{
+					domainRowHeaderTable.getCellEditor().cancelCellEditing();
+				}
 				int selectedRow = domainTable.getSelectedRow();
 				DomainFacade domain = null;
 				if (selectedRow != -1)
@@ -600,21 +604,19 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			@Override
 			public void elementAdded(ListEvent<DomainFacade> e)
 			{
-				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());
-				DomainTableModel.this.fireTableCellUpdated(index, -1);
+				elementsChanged(e);
 			}
 
 			@Override
 			public void elementRemoved(ListEvent<DomainFacade> e)
 			{
-				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());
-				DomainTableModel.this.fireTableCellUpdated(index, -1);
+				elementsChanged(e);
 			}
 
 			@Override
 			public void elementsChanged(ListEvent<DomainFacade> e)
 			{
-				DomainTableModel.this.fireTableRowsUpdated(0, sortedList.getSize() - 1);
+				fireTableRowsUpdated(0, sortedList.getSize() - 1);
 			}
 
 			@Override
