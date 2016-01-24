@@ -278,6 +278,12 @@ Mighty Bloodrage				KEY:Bloodrager ~ Mighty Bloodrage			CATEGORY:Special Ability
 Indomitable Will				KEY:Bloodrager ~ Indomitable Will			CATEGORY:Special Ability	TYPE:Bloodrager Class Feature.SpecialQuality.Extraordinary.Bloodrage.Rage																																									DESC:While in rage, you gain a +4 bonus on Will saves to resist enchantment spells.																																																																																																																																																																																																																					SOURCEPAGE:p.16	ASPECT:SaveBonus|+4 bonus Will vs. enchantment spells while in bloodrage.	DESC: While in a bloodrage, you gain a +4 bonus on Will saves to resist enchantment spells. This bonus stacks with all other modifiers, including the morale bonus on Will saves you also recieve during your rage.
 Bloodrager ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:Bloodrager Class Feature																																																																																																																																																																																																														BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BloodragerLVL,2|PREVAREQ:Bloodrager_CF_UncannyDodge,0	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BloodragerLVL,5|PREVAREQ:Bloodrager_CF_ImprovedUncannyDodge,0	BONUS:VAR|UncannyDodgeFlankingLevel|BloodragerLVL|TYPE=EachClass.REPLACE
 
+###Dragon Disciple Bonus Feat support
+# Ability Name									Modify VAR
+#Remove Sorcerer Bonus Feats and add Bloodrager Bonus Feats unless character is both Sorcerer and Bloodrager
+CATEGORY=Special Ability|Dragon Disciple ~ Bloodline Feat.MOD	BONUS:VAR|Draconic Bloodline Feat|-((DragonDiscipleLVL+1)/3)|!PRECLASS:1,Sorcerer=1|PRECLASS:1,Bloodrager=1		BONUS:VAR|BloodlineBonusFeats|(DragonDiscipleLVL+1)/3)|!PRECLASS:1,Sorcerer=1|PRECLASS:1,Bloodrager=1
+
+
 ###Block: Bloodrager Bloodline Bonus Feats
 # Ability Name							Modify VAR
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,6|PREVAREQ:Bloodrager_CF_BloodlineFeat6,0
