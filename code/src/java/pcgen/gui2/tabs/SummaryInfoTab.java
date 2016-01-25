@@ -1695,7 +1695,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			if (aComponent == deityComboBox)
 			{
-				int column = statsTable.getColumn("EDITABLE").getModelIndex(); //$NON-NLS-1$
+				int column = statsTable.getColumn(StatTableModel.EDITABLE_COLUMN_ID).getModelIndex();
 				statsTable.editCellAt(0, column);
 				JSpinner spinner = (JSpinner) statsTable.getEditorComponent();
 				return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
