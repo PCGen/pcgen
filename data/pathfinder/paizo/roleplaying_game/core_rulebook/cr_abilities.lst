@@ -88,6 +88,7 @@ Aura of Righteousness		KEY:Temp Bonus ~ Aura of Righteousness	CATEGORY:Internal	
 
 
 Inspire Courage Selectable	KEY:Temp Bonus ~ Inspire Courage NPC	CATEGORY:Internal			VISIBLE:NO	TEMPBONUS:ANYPC|COMBAT|TOHIT|min(floor((%CHOICE+7)/6),4)	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|min(floor((%CHOICE+7)/6),4)			TEMPVALUE:MIN=1|MAX=20|TITLE=Choose bardic performance level
+Temp Bonus ~ Strength Surge			CATEGORY:Internal			VISIBLE:NO				TEMPVALUE:MIN=1|MAX=10|TITLE=Bonus		TEMPBONUS:ANYPC|STAT|STR|%CHOICE
 
 
 CATEGORY=Internal|DEFAULT.MOD															DEFINE:SizeIncrease|0	DEFINE:ActivateTempBonus|0	DEFINE:InspireCourageBonus|0	DEFINE:InspireGreatnessActivate|0	DEFINE:AuraOfResolveActivate|0	DEFINE:AuraOfCourageActivate|0	DEFINE:AuraOfJusticeActivate|0	DEFINE:AuraOfRighteousnessActivate|0	ABILITY:Special Ability|AUTOMATIC|Temp_Bonus_Aspect_Tracker|PREVARGTEQ:ActivateTempBonus,1
