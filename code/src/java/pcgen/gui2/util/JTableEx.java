@@ -99,6 +99,7 @@ public class JTableEx extends JTable
 		setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
 		setSortingPriority(createDefaultSortingPriority());
 		setTableHeader(new JTableSortingHeader(this));
+		setFillsViewportHeight(true);
 		installDoubleCLickListener();
 	}
 
@@ -161,23 +162,6 @@ public class JTableEx extends JTable
         listenerList.remove(ActionListener.class, listener);
     }
 	
-	@Override
-	public boolean getScrollableTracksViewportHeight()
-	{
-		// fetch the table's parent
-		Container viewport = getParent();
-
-		// if the parent is not a viewport, calling this isn't useful
-		if (!(viewport instanceof JViewport))
-		{
-			return false;
-		}
-
-		// return true if the table's preferred height is smaller
-		// than the viewport height, else false
-		return getPreferredSize().height < viewport.getHeight();
-	}
-
 	@Override
 	public void setModel(TableModel model)
 	{
