@@ -33,7 +33,7 @@ $Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
 			margin-bottom: 0;
 		}
 		p.xp {
-			font-size: larger;
+			font-size: large;
 		}
 		p.spells {
 			margin-left: 2em;
@@ -43,36 +43,66 @@ $Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
 		}
 		table.section {
 			width: 100%;
-			font-size: small;
-			font-weight: bold;
-			border-top-width: 1px;
-			border-top-color: black;
-			border-top-style: solid;
-			border-bottom-width: 1px;
-			border-bottom-color: black;
-			border-bottom-style: solid;
-			margin-top: 2px;
-			margin-bottom: 2px;
-		}
-		table.name {
-			width: 100%;
 			color: white;
 			background: black;
 			font-weight: bold;
+			font-size: small;
+			margin-top: 1px;
+			margin-bottom: 1px;
 		}
-		td.name {
-			font-variant: small-caps;
+		td.section {
 			padding-left: 5px;
 			padding-right: 5px;
+		}
+		table.header {
+			width: 100%;
+			border: 1px solid black;
+			border-collapse: collapse;
+			margin-bottom: 2px;
+		}
+		td.name {
+			font-family: Oleandra, Gandhi Sans, Arial, sans-serif;
+			font-size: large;
+			font-weight: bold;
+			color: white;
+			background: black;
+			border: 1px solid black;
+			padding-left: 5px;
+		}
+		td.cr, td.xp {
+			font-weight: bold;
+			border: 1px solid black;
+		}
+		td.raceclass {
+			font-weight: bold;
+			background: lightgrey;
+			border: 1px solid black;
+			padding-left: 5px;
+		}
+		td.sizetype {
+			background: lightgrey;
+			border: 1px solid black;
+			padding-left: 5px;
+		}
+		td.alignment {
+			font-weight: bold;
+			font-size: larger;
+			color: white;
+			background: black;
+			border: 1px solid black;
+		}
+		table.description {
+			font-family: Nexus Serif, Gandhi Serif, Times New Roman, serif;
+			margin-top: 20px;
 		}
 	</style>
 </head>
 
 <body>
-<table class="name">
+<table class="header">
 	<tr>
 		<td class="name">${pcstring('TEXT.UPPER.NAME')}</td>
-		<td class="name" align="right">CR
+		<td class="cr" align="center">CR
 <@compress single_line=true>
 <#if (pcstring("CR") = "0")>
 &mdash;
@@ -86,37 +116,28 @@ ${pcstring('CR')}
 
 		</td>
 	</tr>
-</table>
-
-<!-- xp award -->
-<#if (pcstring("XPAWARD") != "0")>
-<p class="xp">
-<b>XP ${pcstring("XPAWARD")}</b>
-</p>
-</#if>
-
-<!-- gender, classes -->
-<p>
+	<tr>
+		<td class="raceclass">
 <#if (pcstring("NAME") = pcstring("RACE") && pcvar("COUNT[TEMPLATES]") = 0)><#--  |IIF(NAME:RACE.AND.VAR.COUNT[TEMPLATES]:0.0)| -->
 <#else>
-${pcstring('GENDER.LONG')}
+<!-- ${pcstring('GENDER.LONG')} -->
 <@loop from=0 to=pcvar('COUNT[TEMPLATES]-1') ; template , template_has_next>
-${pcstring('TEXT.LOWERCASE.TEMPLATE.${template}.APPLIEDNAME')}
+${pcstring('TEXT.UPPERCASE.TEMPLATE.${template}.APPLIEDNAME')}
 </@loop>
 <#if (pcstring("AGE.CATEGORY") = "Adult")>
 <#else>
-${pcstring('TEXT.LOWERCASE.AGE.CATEGORY')}
+${pcstring('TEXT.UPPERCASE.AGE.CATEGORY')}
 </#if>
-${pcstring('TEXT.LOWERCASE.RACE')}
+${pcstring('TEXT.UPPERCASE.RACE')}
 <@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
 <#if (pcstring("CLASS.${class}.ISMONSTER") = "N")>
-${pcstring('TEXT.LOWERCASE.CLASS.${class}')}
+${pcstring('TEXT.UPPERCASE.CLASS.${class}')}
 <#if (pcstring("CLASS.${class}")?lower_case?contains("cleric"))>
 of ${pcstring('DEITY')}
 </#if>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; archetype , archetype_has_next>
 <#if (pcstring("ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype.TYPE")?lower_case?contains(pcstring("CLASS.${class}")?lower_case)) >
-(${pcstring("TEXT.LOWERCASE.ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype")})
+(${pcstring("TEXT.UPPERCASE.ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype")})
 </#if>
 </@loop>
 
@@ -127,15 +148,15 @@ ${pcstring('CLASS.${class}.LEVEL')}
 </#if>
 </@loop>
 </#if>
-</p>
-
-<!-- alignment, size, race -->
-<p>
-<#if (pcstring("ALIGNMENT.SHORT") = "TN")>
-N
-<#else>
-${pcstring('ALIGNMENT.SHORT')}
+		</td>
+		<td class="xp" align="center">
+<#if (pcstring("XPAWARD") != "0")>
+XP ${pcstring("XPAWARD")}
 </#if>
+		</td>
+	</tr>
+	<tr>
+		<td class="sizetype">
 ${pcstring('SIZELONG')}
 <#if (pcstring("RACETYPE") = "None")>
 ${pcstring('TEXT.LOWER.TYPE')}
@@ -150,9 +171,30 @@ ${pcstring('TEXT.LOWER.RACESUBTYPE.${subtype}')}<#if (subtype_has_next)>, </#if>
 </@loop>
 )
 </#if>
-</p>
+		</td>
+		<td class="alignment" align="center">
+<#if (pcstring("ALIGNMENT.SHORT") = "TN")>
+N
+<#else>
+${pcstring('ALIGNMENT.SHORT')}
+</#if>
+		</td>
+	</tr>
+</table>
 
 <#include "common/common-pathfinder.ftl">
+
+<!-- Start of Description -->
+<#if (pcstring('DESC')) != "">
+<p></p>
+<table class="description">
+  <tr>
+    <td>${pcstring('DESC')}</td>
+  </tr>
+</table>
+</#if>
+<!-- End of Description -->
+
 </body>
 </html>
 
