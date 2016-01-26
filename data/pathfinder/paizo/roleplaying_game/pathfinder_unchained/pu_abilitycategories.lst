@@ -43,6 +43,12 @@ ABILITYCATEGORY:Unchained Monk Style Strike		VISIBLE:QUALIFY	EDITABLE:YES	EDITPO
 
 ABILITYCATEGORY:Background Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BackgroundSkill		CATEGORY:Special Ability	TYPE:BackgroundSkill					PLURAL:Background Skills				DISPLAYLOCATION:Class Features
 
+
+ABILITYCATEGORY:Variant Multiclass				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_VariantMulticlass		CATEGORY:Special Ability	TYPE:Variant Multiclass					PLURAL:Variant Multiclasses				DISPLAYLOCATION:Class Features
+
+
+
+
 #
 # End
 #
