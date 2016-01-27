@@ -566,6 +566,20 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
+<!-- Domain  -->
+|IIF(count("ABILITIES";"CATEGORY=Domain")==0)|
+|ELSE|
+<b>Domain Abilities </b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Domain")-1,1,0|
+<b>|ABILITYALL.Domain.%ability.KEY|</b> [<i>|ABILITYALL.Domain.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
+
+
+
+
 <!-- START Template Table -->
 |%TEMPLATE.0|
     <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">
