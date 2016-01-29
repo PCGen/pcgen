@@ -1,69 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
-<head>
-</head>
-<body>
-<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Character Information">
-<tr>
-<td align="center" width="25%"><font face="Verdana" size="4"><b>Encounter</b></font></td>
-<td align="center" width="35%"><font face="Verdana" size="4"><b>Statistics</b></font><br></td>
-<td align="center" width="40%"><font face="Verdana" size="4"><b>Encumbrance</b></font></td>
-</tr>
-<tr valign="top">
-<td><img src="images/icon_hp.png">&nbsp;<b>Vitality:</b>&nbsp;|HP|<br>
-<img src="images/icon_hp.png">&nbsp;<b>Wounds:</b>&nbsp;|ALTHP|<br>
-<img src="images/icon_bab.png">&nbsp;<b>BAB:</b>&nbsp;|ATTACK.MELEE|<br>
-<img src="images/icon_init.png">&nbsp;<b>INIT:</b>&nbsp;|INITIATIVEMOD|<br>
-<img src="images/icon_ac.png">&nbsp;<b>AC:</b>&nbsp;|AC.Total|<br>
-<img src="images/icon_acf.png">&nbsp;<b>Flatfooted:</b>&nbsp;|AC.Flatfooted|<br>
-<img src="images/icon_act.png">&nbsp;<b>Touch:</b>&nbsp;|AC.Touch|<br>
+	<head>
+		<title>Fantasy Craft information sheet</title>
+	</head>
+	<body>
+		<table cellpadding="1" cellspacing="0" border="0" width="100%" summary="Character Information">
+			<tr style="font-family: Verdana, sans-serif;">
+				<td align="center"><font size="4"><b>Encounter</b></font></td>
+				<td align="center"><font size="4"><b>Statistics</b></font></td>
+				<td align="center"><font size="4"><b>Encumbrance</b></font></td>
+			</tr>
+			<tr valign="top">
+				<td>
+					<table>
+						<tr><td><img src="images/icon_hp.png"/></td><td>&nbsp;<b>Vitality:</b>&nbsp;|HP|</td></tr>
+						<tr><td><img src="images/icon_hp.png"/></td><td>&nbsp;<b>Wounds:</b>&nbsp;|ALTHP|</td></tr>
+						<tr><td><img src="images/icon_bab.png"/></td><td>&nbsp;<b>BAB:</b>&nbsp;|ATTACK.MELEE|</td></tr>
+						<tr><td><img src="images/icon_init.png"/></td><td>&nbsp;<b>INIT:</b>&nbsp;|INITIATIVEMOD|</td></tr>
+						<tr><td><img src="images/icon_ac.png"/></td><td>&nbsp;<b>AC:</b>&nbsp;|AC.Total|</td></tr>
+						<tr><td><img src="images/icon_acf.png"/></td><td>&nbsp;<b>Flatfooted:</b>&nbsp;|AC.Flatfooted|</td></tr>
+						<tr><td><img src="images/icon_act.png"/></td><td>&nbsp;<b>Touch:</b>&nbsp;|AC.Touch|</td></tr>
 |FOR,%checks,0,COUNT[CHECKS]-1,1,0|
 |IIF(CHECK.%checks.NAME:Fortitude)|
-<img src="images/icon_savef.png">&nbsp;<b>FORT:</b>
+						<tr><td><img src="images/icon_savef.png"/></td><td>&nbsp;<b>FORT:</b>&nbsp;|CHECK.%checks.TOTAL|</td></tr>
 |ELSE|
 |IIF(CHECK.%checks.NAME:Reflex)|
-<img src="images/icon_saver.png">&nbsp;<b>REF:</b>
+						<tr><td><img src="images/icon_saver.png"/></td><td>&nbsp;<b>REF:</b>&nbsp;|CHECK.%checks.TOTAL|</td></tr>
 |ELSE|
 |IIF(CHECK.%checks.NAME:Will)|
-<img src="images/icon_savew.png">&nbsp;<b>WILL:</b>
+						<tr><td><img src="images/icon_savew.png"/></td><td>&nbsp;<b>WILL:</b>&nbsp;|CHECK.%checks.TOTAL|</td></tr>
 |ELSE|
-<img src="images/icon_bod.png">&nbsp;|CHECK.%checks.NAME|
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>|CHECK.%checks.NAME|</b>&nbsp;|CHECK.%checks.TOTAL|</td></tr>
 |ENDIF|
 |ENDIF|
 |ENDIF|
-|CHECK.%checks.TOTAL|<br>
 |ENDFOR|
-</td>
-<!--><td><img src="images/icon_bod.png">&nbsp;<b>Favored:</b>&nbsp;|FAVOREDLIST|<br>	-->
-<img src="images/icon_bod.png">&nbsp;<b>Species:</b>&nbsp;
+					</table>
+				</td>
+				<td>
+					<table>
+<!--><td><tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Favored:</b>&nbsp;|FAVOREDLIST|</td></tr>	-->
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Species:</b>
 |IIF(RACE:<None Selected>)|
 None
 |ELSE|
 |RACE|
 |ENDIF|
-<br>
-<img src="images/icon_bod.png">&nbsp;<b>Race Type:</b>&nbsp;
+							</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race Type:</b>
 |IIF(RACETYPE:<None>)|
 None
 |ELSE|
 |RACETYPE|
 |ENDIF|
-<br>
-<img src="images/icon_bod.png">&nbsp;<b>Gender:</b>&nbsp;|GENDER.LONG|<br>
-<img src="images/icon_size.png">&nbsp;<b>Size:</b>&nbsp;|SIZELONG|<br>
-<img src="images/icon_size.png">&nbsp;<b>Age:</b>&nbsp;|AGE|<br>
-<img src="images/icon_bod.png">&nbsp;<b>Handed:</b>&nbsp;|HANDED|<br>
-<img src="images/icon_eye.png">&nbsp;<b>Vision:</b>&nbsp;|VISION|<br>
-<img src="images/icon_move.png">&nbsp;<b>Move:</b>&nbsp;|MOVEMENT|</td>
-<td><img src="images/icon_load.png">&nbsp;<b>Load(L):</b>&nbsp;|WEIGHT.LIGHT| |UNITSET.WEIGHTUNIT|<br>
-<img src="images/icon_load.png">&nbsp;<b>Load(H):</b>&nbsp;|WEIGHT.HEAVY| |UNITSET.WEIGHTUNIT|<br>
-<img src="images/icon_load.png">&nbsp;<b>Dead Lift:</b>&nbsp;|WEIGHT.OVERHEAD| |UNITSET.WEIGHTUNIT|<br>
-<img src="images/icon_load.png">&nbsp;<b>Lower up:</b>&nbsp;|WEIGHT.OFFGROUND| |UNITSET.WEIGHTUNIT|<br>
-<img src="images/icon_load.png">&nbsp;<b>Push or Drag:</b>&nbsp;|WEIGHT.PUSHDRAG| |UNITSET.WEIGHTUNIT|<br>
-<img src="images/icon_load.png">&nbsp;<b>Curr. Load:</b>&nbsp;|TOTAL.LOAD| |TOTAL.WEIGHT|<br>
-<img src="images/icon_bod.png">&nbsp;<b>Armor Check Penalty:</b>&nbsp;|ACCHECK|<br>
-<img src="images/icon_bod.png">&nbsp;<b>Max. Dex.:</b>&nbsp;|MAXDEX|
-</td></tr></table></body></html>
+							</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Gender:</b>&nbsp;|GENDER.LONG|</td></tr>
+						<tr><td><img src="images/icon_size.png"/></td><td>&nbsp;<b>Size:</b>&nbsp;|SIZELONG|</td></tr>
+						<tr><td><img src="images/icon_size.png"/></td><td>&nbsp;<b>Age:</b>&nbsp;|AGE|</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Handed:</b>&nbsp;|HANDED|</td></tr>
+						<tr><td><img src="images/icon_eye.png"/></td><td>&nbsp;<b>Vision:</b>&nbsp;|VISION|</td></tr>
+						<tr><td><img src="images/icon_move.png"/></td><td>&nbsp;<b>Move:</b>&nbsp;|MOVEMENT|</td></tr>
+					</table>
+				</td>
+				<td>
+					<table>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load(L):</b>&nbsp;|WEIGHT.LIGHT| |UNITSET.WEIGHTUNIT|</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load(H):</b>&nbsp;|WEIGHT.HEAVY| |UNITSET.WEIGHTUNIT|</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Dead Lift:</b>&nbsp;|WEIGHT.OVERHEAD| |UNITSET.WEIGHTUNIT|</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Lower up:</b>&nbsp;|WEIGHT.OFFGROUND| |UNITSET.WEIGHTUNIT|</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Push or Drag:</b>&nbsp;|WEIGHT.PUSHDRAG| |UNITSET.WEIGHTUNIT|</td></tr>
+						<tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Curr. Load:</b>&nbsp;|TOTAL.LOAD| |TOTAL.WEIGHT|</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Armor Check Penalty:</b>&nbsp;|ACCHECK|</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Max. Dex.:</b>&nbsp;|MAXDEX|</td></tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
 
 
-<!--><img src="images/icon_load.png">&nbsp;<b>Load(M):</b>&nbsp;|WEIGHT.MEDIUM| |UNITSET.WEIGHTUNIT|<br> -->
+<!--><tr><td><img src="images/icon_load.png"/></td><td>&nbsp;<b>Load(M):</b>&nbsp;|WEIGHT.MEDIUM| |UNITSET.WEIGHTUNIT|</td></tr> -->
