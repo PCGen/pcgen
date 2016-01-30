@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:System Reference Document 5.0
 KEY:5e - System Reference Document 5.0
 RANK:1
@@ -77,7 +78,7 @@ INFOTEXT:Supports 6.06.00
 # LST MONKEY: Bahamut Dragon (Original set), Andrew Maitland (srd5)
 # LICENSE MONKEY: Paul Grosse - 2016-01-13
 # RELEASE REVIEW #
-# BETA: 
+# BETA:
 # RELEASE:
 # Built for PCGen Version: 6.06.00
 # Updated to work with version: -

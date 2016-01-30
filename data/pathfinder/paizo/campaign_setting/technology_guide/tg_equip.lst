@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Weapons
 # Equipment Name							Required Weapon Proficiency			Required Armor Proficiency			Required Shield Proficiency			Type												Contains			Cost		Weight	Define									AC Penalty Check	Crit Mult	Crit Range	Damage		Wield Category	Maximum DEX Bonus	Requires Modification?	Range		Reach		Source Page		% of Spell Failure	Ability								Damage Reduction	Combat bonus						Stat bonus					Modify VAR				Bonus Armor Mods																		Quality and value																Special Property
@@ -294,4 +294,5 @@ Solar Generator		TYPE:Power Generator	SOURCEPAGE:p.63
 
 
 ###Block: Misc
-Silverdisk	TYPE:Coin	SOURCEPAGE:p.39	COST:10	WT:1
+# Equipment Name	Type		Cost		Weight	Source Page
+Silverdisk		TYPE:Coin	COST:10	WT:1		SOURCEPAGE:p.39

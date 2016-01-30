@@ -1,8 +1,6 @@
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
-Grappler			CATEGORY:FEAT	TYPE:Feat	SOURCEPAGE:p.	PRETEXT:Prerequisite: Strength 13 or higher				PRESTAT:1,STR=13
-
-
-
-
+# Ability Name	Category of Ability	Type		Required Stat	Required Text						Source Page
+Grappler		CATEGORY:FEAT		TYPE:Feat	PRESTAT:1,STR=13	PRETEXT:Prerequisite: Strength 13 or higher	SOURCEPAGE:p.

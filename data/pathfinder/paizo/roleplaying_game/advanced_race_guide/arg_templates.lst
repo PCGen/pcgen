@@ -1,4 +1,4 @@
-# CVS $Revision: 21574 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21574 $ $Author: amaitland $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Template name
 # Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
@@ -102,8 +102,9 @@ Race Bonus Language ~ All Spoken	VISIBLE:NO																		LANGBONUS:TYPE=Spok
 
 
 ###Block: Race Builder Humanoid Subtypes
-Dwarf		KEY:Race Builder Subtype ~ Dwarf	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Dwarf	
-Elf		KEY:Race Builder Subtype ~ Elf	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Elf	
-Gnome		KEY:Race Builder Subtype ~ Gnome	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Gnome	
-Halfling	KEY:Race Builder Subtype ~ Halfling	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Halfling	
-Human		KEY:Race Builder Subtype ~ Human	TYPE:Race Builder Subtype	VISIBLE:NO	RACESUBTYPE:Human	
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Dwarf			KEY:Race Builder Subtype ~ Dwarf	VISIBLE:NO	RACESUBTYPE:Dwarf		TYPE:Race Builder Subtype
+Elf			KEY:Race Builder Subtype ~ Elf	VISIBLE:NO	RACESUBTYPE:Elf		TYPE:Race Builder Subtype
+Gnome			KEY:Race Builder Subtype ~ Gnome	VISIBLE:NO	RACESUBTYPE:Gnome		TYPE:Race Builder Subtype
+Halfling		KEY:Race Builder Subtype ~ Halfling	VISIBLE:NO	RACESUBTYPE:Halfling	TYPE:Race Builder Subtype
+Human			KEY:Race Builder Subtype ~ Human	VISIBLE:NO	RACESUBTYPE:Human		TYPE:Race Builder Subtype

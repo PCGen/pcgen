@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/07
@@ -135,6 +135,7 @@ Bonus War Mind Power		KEY:Bonus War Mind Power ~ Generic		CATEGORY:Internal		TYP
 
 
 ###Block: "Gain a manifesting level" abilities
+# Ability Name	Unique Key							Category of Ability	Type				Var. Min. Value			Stackable?	Multiple?	Choose		Caster level bonus
 Cryptic		KEY:Bonus Cryptic Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:CrypticML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Cryptic|1
 Dread			KEY:Bonus Dread Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:DreadML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Dread|1
 Marksman		KEY:Bonus Marksman Manifesting ~ Generic		CATEGORY:Internal		TYPE:BonusManifesting	PREVARGTEQ:MarksmanML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:PCLEVEL|Marksman|1

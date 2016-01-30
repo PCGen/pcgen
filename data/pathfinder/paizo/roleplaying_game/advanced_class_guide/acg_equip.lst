@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 # COMMENT: Some non-defined weapons commented out; may be wrong names, may not exist
 # COMMENT: Some may require a bestiary to be loaded
 
@@ -43,7 +43,7 @@ Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee
 # These should be moved to their various sources
 
 # CR
-Dagger.MOD										TYPE:Weapon Group Melee Light Piercing	BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit	SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
+Dagger.MOD										TYPE:Weapon Group Melee Light Piercing																																					BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit									SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
 Dagger (Punching).MOD								TYPE:Weapon Group Melee Light Piercing
 Pick (Light).MOD									TYPE:Weapon Group Melee Light Piercing
 Spiked Armor.MOD									TYPE:Weapon Group Melee Light Piercing
