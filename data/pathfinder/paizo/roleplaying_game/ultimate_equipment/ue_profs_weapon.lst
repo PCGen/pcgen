@@ -1,4 +1,4 @@
-# CVS $Revision: 21677 $ $Author: jdempsey $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21677 $ $Author: jdempsey $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # ORIGINAL ENTRY: James Dempsey
@@ -79,7 +79,7 @@ Pata						TYPE:Exotic.Melee.Light.Piercing
 Quadrens					TYPE:Exotic.Melee.Light.Piercing
 Scorpion Whip				TYPE:Exotic.Melee.Light.Slashing
 Sica						TYPE:Exotic.Melee.Light.Slashing
-Swordbreaker Dagger			TYPE:Exotic.Melee.Light.Slashing
+Swordbreaker (Dagger)			TYPE:Exotic.Melee.Light.Slashing
 Tekko-Kagi (Iron Claw)			TYPE:Exotic.Melee.Light.Piercing
 Wakizashi					TYPE:Exotic.Melee.Light.Piercing.Slashing
 
@@ -161,6 +161,7 @@ Star Candle Firework	TYPE:Ranged
 # Equipment Name				Type
 # Weapon Group Axes
 #
+# Weapon Name				Type
 Bardiche.MOD				TYPE:Axe.Weapon Group Axes
 Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes
 Knuckle Axe.MOD				TYPE:Axe.Weapon Group Axes
@@ -169,11 +170,11 @@ Pata.MOD					TYPE:Axe.Weapon Group Axes.Bladelight.Weapon Group Blades Light
 #
 # Weapon Group Blades, Heavy
 #
-Chakram.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
-Falcata.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
-Khopesh.MOD						TYPE:Bladeheavy.Weapon Group Blades Heavy
-Rhoka Sword.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Chakram.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Falcata.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Khopesh.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Rhoka Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
 Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
 Katana (Double Walking Stick).MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
@@ -191,7 +192,7 @@ Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Clo
 Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Hunga Munga.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker Dagger.MOD		TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD			TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
 Gladius.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light
@@ -202,7 +203,7 @@ Wakizashi.MOD				TYPE:Bladelight.Weapon Group Blades Light
 # Weapon Group Close
 #
 Brass Knuckles.MOD			TYPE:Close.Weapon Group Close
-Stake.MOD			TYPE:Close.Weapon Group Close
+Stake.MOD					TYPE:Close.Weapon Group Close
 Dan Bong.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Emei Piercer.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Fighting Fan.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
@@ -216,18 +217,18 @@ Wushu Dart.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk.Thrown.We
 #
 # Weapon Group Crossbows
 #
-Crossbow (Repeating Hand).MOD			TYPE:Crossbow.Weapon Group Crossbows
-Underwater Crossbow (Light).MOD			TYPE:Crossbow.Weapon Group Crossbows
-Underwater Crossbow (Heavy).MOD			TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Repeating Hand).MOD		TYPE:Crossbow.Weapon Group Crossbows
+Underwater Crossbow (Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Underwater Crossbow (Heavy).MOD	TYPE:Crossbow.Weapon Group Crossbows
 Crossbow (Double).MOD			TYPE:Crossbow.Weapon Group Crossbows
 Tube Arrow Shooter.MOD			TYPE:Crossbow.Weapon Group Crossbows
 #
 # Weapon Group Double
 #
-Bo Staff.MOD			TYPE:Double.Weapon Group Double
-Katana (Double Walking Stick).MOD		TYPE:Double.Weapon Group Double
-Kama (Double-Chained).MOD			TYPE:Double.Weapon Group Double
-Kusarigama (Sickle and Chain).MOD		TYPE:Double.Weapon Group Double
+Bo Staff.MOD				TYPE:Double.Weapon Group Double
+Katana (Double Walking Stick).MOD	TYPE:Double.Weapon Group Double
+Kama (Double-Chained).MOD		TYPE:Double.Weapon Group Double
+Kusarigama (Sickle and Chain).MOD	TYPE:Double.Weapon Group Double
 #
 #Firearms: All One-Handed, Two-Handed, And Siege Firearms
 #
@@ -235,7 +236,7 @@ Kusarigama (Sickle and Chain).MOD		TYPE:Double.Weapon Group Double
 #
 # Weapon Group Flails
 #
-Chain Spear.MOD			TYPE:Flail.Weapon Group Flails
+Chain Spear.MOD				TYPE:Flail.Weapon Group Flails
 Kama (Double-Chained).MOD		TYPE:Flail.Weapon Group Flails
 Flying Blade.MOD				TYPE:Flail.Weapon Group Flails
 Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
@@ -249,8 +250,8 @@ Nunchaku.MOD				TYPE:Weapon Group Flails
 #
 # Weapon Group Hammers
 #
-Battle Aspergillum.MOD		TYPE:Hammer.Weapon Group Hammers
-Earth Breaker.MOD			TYPE:Hammer.Weapon Group Hammers
+Battle Aspergillum.MOD			TYPE:Hammer.Weapon Group Hammers
+Earth Breaker.MOD				TYPE:Hammer.Weapon Group Hammers
 Aklys.MOD					TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
 Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
 Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
@@ -261,7 +262,7 @@ Wahaika.MOD					TYPE:Hammer.Weapon Group Hammers
 #
 Brass Knuckles.MOD			TYPE:Monk.Weapon Group Monk
 Cestus.MOD					TYPE:Monk.Weapon Group Monk
-Kama (Double-Chained).MOD	TYPE:Monk.Weapon Group Monk
+Kama (Double-Chained).MOD		TYPE:Monk.Weapon Group Monk
 Lungchuan Tamo.MOD			TYPE:Monk.Weapon Group Monk
 Bo Staff.MOD				TYPE:Monk.Weapon Group Monk
 Jutte.MOD					TYPE:Monk.Weapon Group Monk
@@ -271,18 +272,18 @@ Rope Dart.MOD				TYPE:Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
 Shang Gou.MOD				TYPE:Monk.Weapon Group Monk
 Tiger Fork.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
 Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
-Nunchaku.MOD					TYPE:Weapon Group Monk
-Siangham.MOD					TYPE:Weapon Group Monk
+Nunchaku.MOD				TYPE:Weapon Group Monk
+Siangham.MOD				TYPE:Weapon Group Monk
 #
 # Weapon Group Polearms
 #
-Bardiche.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Bardiche.MOD				TYPE:Polearm.Weapon Group Pole Arms
 Bec De Corbin.MOD				TYPE:Polearm.Weapon Group Polearms
-Bill.MOD				TYPE:Polearm.Weapon Group Polearms
-Glaive-Guisarme.MOD				TYPE:Polearm.Weapon Group Polearms
+Bill.MOD					TYPE:Polearm.Weapon Group Polearms
+Glaive-Guisarme.MOD			TYPE:Polearm.Weapon Group Polearms
 Hooked Lance.MOD				TYPE:Polearm.Weapon Group Polearms
 Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
-Lucerne Hammer.MOD				TYPE:Polearm.Weapon Group Polearms
+Lucerne Hammer.MOD			TYPE:Polearm.Weapon Group Polearms
 Mancatcher.MOD				TYPE:Polearm.Weapon Group Polearms
 Ogre Hook.MOD				TYPE:Polearm.Weapon Group Polearms
 Naginata.MOD				TYPE:Polearm.Weapon Group Polearms
@@ -294,15 +295,15 @@ Spear (Boar).MOD				TYPE:Spear.Weapon Group Spears
 Pilum.MOD					TYPE:Spear.Weapon Group Spears
 Sibat.MOD					TYPE:Spear.Weapon Group Spears
 Tiger Fork.MOD				TYPE:Spear.Weapon Group Spears
-Harpoon.MOD				TYPE:Spear.Weapon Group Spears
+Harpoon.MOD					TYPE:Spear.Weapon Group Spears
 #
 # Weapon Group Thrown
 #
-Boomerang.MOD					TYPE:Thrown.Weapon Group Thrown
+Boomerang.MOD				TYPE:Thrown.Weapon Group Thrown
 Chakram.MOD					TYPE:Thrown.Weapon Group Thrown
-Hunga Munga.MOD					TYPE:Thrown.Weapon Group Thrown
+Hunga Munga.MOD				TYPE:Thrown.Weapon Group Thrown
 Lasso.MOD					TYPE:Thrown.Weapon Group Thrown
-Snag Net.MOD					TYPE:Thrown.Weapon Group Thrown
+Snag Net.MOD				TYPE:Thrown.Weapon Group Thrown
 Trident.MOD					TYPE:Thrown.Weapon Group Thrown
 Atlatl.MOD					TYPE:Thrown.Weapon Group Thrown
 Harpoon.MOD					TYPE:Thrown.Weapon Group Thrown
