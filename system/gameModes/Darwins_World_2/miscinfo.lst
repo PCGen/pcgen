@@ -230,7 +230,7 @@ ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO
 #
 PREVIEWDIR:d20/sciencefiction
 PREVIEWSHEET:dw2_standard.htm
-INFOSHEET:SUMMARY|preview/summary/35e_info.html
+INFOSHEET:SUMMARY|preview/summary/35e_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
