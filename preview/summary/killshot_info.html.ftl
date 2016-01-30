@@ -18,17 +18,15 @@
 				</td>
 				<td>
 					<table>
-						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race:</b>
-|IIF(RACE:<None Selected>)|
-None
-|ELSE|
-|RACE|
-|ENDIF|
-							</td></tr>
-						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Gender:</b>&nbsp;|GENDER.LONG|</td></tr>
-						<tr><td><img src="images/icon_size.png"/></td><td>&nbsp;<b>Size:</b>&nbsp;|SIZELONG|</td></tr>
-						<tr><td><img src="images/icon_size.png"/></td><td>&nbsp;<b>Age:</b>&nbsp;|AGE|</td></tr>
-						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Handed:</b>&nbsp;|HANDED|</td></tr>
+<#if (pcstring('RACE') = "<none selected>")>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race:</b>&nbsp;None</td></tr>
+<#else>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race:</b>&nbsp;${pcstring('RACE')}</td></tr>
+</#if>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Gender:</b>&nbsp;${pcstring('GENDER.LONG')}</td></tr>
+						<tr><td><img src="images/icon_size.png"/></td><td>&nbsp;<b>Size:</b>&nbsp;${pcstring('SIZELONG')}</td></tr>
+						<tr><td><img src="images/icon_size.png"/></td><td>&nbsp;<b>Age:</b>&nbsp;${pcstring('AGE')}</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Handed:</b>&nbsp;${pcstring('HANDED')}</td></tr>
 					</table>
 				</td>
 				<td>
