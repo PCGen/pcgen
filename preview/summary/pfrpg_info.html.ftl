@@ -27,7 +27,7 @@
 <#elseif (pcstring("CHECK.${checks}.NAME") = "Will")>
 						<tr><td><img src="images/icon_savew.png"/></td><td>&nbsp;<b>WILL:</b>&nbsp;${pcstring("CHECK.${checks}.TOTAL")}</td></tr>
 <#else>
-						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>${pcstring("CHECK.${checks}.NAME")}</b>&nbsp;${pcstring("CHECK.${checks}.TOTAL")}</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>${pcstring("CHECK.${checks}.NAME")}:</b>&nbsp;${pcstring("CHECK.${checks}.TOTAL")}</td></tr>
 </#if>
 </@loop>
 						<tr><td><img src="images/icon_eye.png"/></td><td>&nbsp;<b>CR:</b>&nbsp;${pcstring('CR')}</td></tr>

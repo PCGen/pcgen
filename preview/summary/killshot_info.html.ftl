@@ -19,7 +19,7 @@
 				<td>
 					<table>
 <#if (pcstring('RACE') = "<none selected>")>
-						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race:</b>&nbsp;None</td></tr>
+						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race:</b>&nbsp;Human</td></tr>
 <#else>
 						<tr><td><img src="images/icon_bod.png"/></td><td>&nbsp;<b>Race:</b>&nbsp;${pcstring('RACE')}</td></tr>
 </#if>
