@@ -273,7 +273,7 @@ ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALP
 PREVIEWDIR:d20/5e
 PREVIEWSHEET:Standard.htm.ftl
 
-INFOSHEET:SUMMARY|preview/summary/35e_info.html
+INFOSHEET:SUMMARY|preview/summary/35e_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 

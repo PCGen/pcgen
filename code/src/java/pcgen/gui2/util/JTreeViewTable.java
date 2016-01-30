@@ -131,6 +131,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	{
 		setTableHeader(new JTreeViewHeader());
 		setAutoCreateColumnsFromModel(false);
+		getTree().setLargeModel(true);
 		baseContext = UIPropertyContext.createContext("tablePrefs");
 	}
 

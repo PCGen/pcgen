@@ -224,7 +224,7 @@ ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO
 
 PREVIEWDIR:d20/western
 PREVIEWSHEET:Sidewinder.htm
-INFOSHEET:SUMMARY|preview/summary/35e_info.html
+INFOSHEET:SUMMARY|preview/summary/35e_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 OUTPUTSHEET:DIRECTORY|d20/fantasy
