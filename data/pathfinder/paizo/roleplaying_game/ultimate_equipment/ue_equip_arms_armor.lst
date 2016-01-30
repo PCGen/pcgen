@@ -368,7 +368,7 @@ Pata																PROFICIENCY:WEAPON|Pata									TYPE:Weapon.Resizable.Melee.
 Quadrens															PROFICIENCY:WEAPON|Quadrens								TYPE:Weapon.Resizable.Melee.Light.Exotic.Piercing.BladeLight																												COST:8	WT:2										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.34
 Scorpion Whip														PROFICIENCY:WEAPON|Scorpion Whip							TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.Flail																													COST:5	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.36
 Sica																PROFICIENCY:WEAPON|Sica									TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight																												COST:10	WT:2										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.37
-Swordbreaker Dagger													PROFICIENCY:WEAPON|Swordbreaker Dagger						TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight																												COST:10	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.38
+Swordbreaker (Dagger)													PROFICIENCY:WEAPON|Swordbreaker (Dagger)						TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight																												COST:10	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.38
 Tekko-Kagi (Iron Claw)													PROFICIENCY:WEAPON|Tekko-Kagi (Iron Claw)						TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.Light.Exotic.Piercing.Monk.Gauntlet																								COST:2	WT:0.1									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.38
 Wakizashi															PROFICIENCY:WEAPON|Wakizashi								TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.Light.Exotic.Piercing.Slashing.Deadly.BladeLight																						COST:35	WT:2										CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.40
 Terbutje (Great)							OUTPUTNAME:Great Terbutje			PROFICIENCY:WEAPON|Terbutje (Great)							TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Exotic.Slashing.Sword																											COST:12	WT:4										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10					EQMOD:FRAGILE.WOOD											WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.28
@@ -676,7 +676,7 @@ Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Clo
 Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Hunga Munga.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker Dagger.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD			TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
 Gladius.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light

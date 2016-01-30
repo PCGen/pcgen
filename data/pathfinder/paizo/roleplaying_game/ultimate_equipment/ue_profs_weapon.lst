@@ -79,7 +79,7 @@ Pata						TYPE:Exotic.Melee.Light.Piercing
 Quadrens					TYPE:Exotic.Melee.Light.Piercing
 Scorpion Whip				TYPE:Exotic.Melee.Light.Slashing
 Sica						TYPE:Exotic.Melee.Light.Slashing
-Swordbreaker Dagger			TYPE:Exotic.Melee.Light.Slashing
+Swordbreaker (Dagger)			TYPE:Exotic.Melee.Light.Slashing
 Tekko-Kagi (Iron Claw)			TYPE:Exotic.Melee.Light.Piercing
 Wakizashi					TYPE:Exotic.Melee.Light.Piercing.Slashing
 
@@ -192,7 +192,7 @@ Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Clo
 Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Hunga Munga.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker Dagger.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD			TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
 Gladius.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light
