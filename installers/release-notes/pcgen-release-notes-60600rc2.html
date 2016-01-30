@@ -63,6 +63,7 @@ random NPC generation or LST editor functionality.
 <p>The following new sources were added in 6.6.0</p>
 
 <ul>
+<li>[5e] SRD5 Basic set</li>
 <li>Midnight Data Set (3.5 Conversion)</li>
 <li>[Battlefield Press] Gaslight - 2nd edition OGL</li>
 <li>[Dreamscarred Press] Path of War</li>
@@ -97,7 +98,7 @@ random NPC generation or LST editor functionality.
 <p>
 For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
 </p>
-<p><i>Andrew Maitland</i> for the PCGEN Team -- 2 January, 2016.</p>
+<p><i>Andrew Maitland</i> for the PCGEN Team -- 1 February, 2016.</p>
 
 		<h2><a name="Installation">Installation</a></h2>
 
@@ -127,8 +128,10 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 				everything including GMGen and PDF</li>
 			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60600RC2_win_install.exe?download">pcgen60600RC2_win_install.exe</a>: <br />
 				the full package bundle in an easy to use installer for Windows</li>
-<!-- Mac Build does not exist			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60600RC2_mac_install.dmg?download">pcgen60600RC2_mac_install.dmg</a>: <br />
-				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>	-->
+			<!-- Mac Build does not exist			
+				<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60600RC2_mac_install.dmg?download">pcgen60600RC2_mac_install.dmg</a>: <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>	
+			-->
 		</ul>
 		<p></p>
 
@@ -144,12 +147,13 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 
 		<p>Thanks to the following people who contributed to the PCGen 6.6.0 release:
 		
-		Andrew Maitland, Andrew Wilson (Ampersandrew), ckwalsh, David R Bender, Distant-Scholar, DreamingPsion, 
-		Eric C Smith, Gjorbjond, grimreaper, Henk Slaaf,  idlenexusgaming, James Dempsey, James Nevik (nevikj), 
+		Andrew Maitland (LegacyKing), Andrew Wilson (Ampersandrew), ckwalsh, Connor Petty (cpmeister), David R Bender, 
+		Doug Limmer (Distant-Scholar), DreamingPsion, draconswan, 
+		Eric C Smith, Gjorbjond, grimreaper, Henk Slaaf, idlenexusgaming, James Dempsey, James Nevik (nevikj), 
 		James Tranovich, jamrenaissance, Jennifer Wenner (CrimsonVixen), John Mooney, Johnstonian, Jon Catron, 
-		karianna, khaozknight, LiaungYip, Mark Means, megatog615, neonobjclash, Paul Grosse,  
+		karianna, khaozknight, LiaungYip, Mark Means, megatog615, neonobjclash, Johannes E. (oiml), Paul Grosse, 
 		Paul Shipley (ElroTheOnk), Ryan Johnston, SecretWizard, Skylar Hiebert, Stefan Radermacher, 
-		Tom Parker, Trent Shipley and Vincent Lhote.
+		Tom Parker, Trent Shipley, and Vincent Lhote.
 		</p><p>
 		Thanks also to the many people who gave us feedback, reported bugs, contributed to the lists and 
 		helped other PCGen users out!</p>
@@ -187,19 +191,31 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>        New Data Sources
 </h3>
 <ul>
-<li>None this release</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWSOURCE-253'>NEWSOURCE-253</a>] -         SRD5 Basic set</li>
 </ul>
 
 <h3>        New Code Feature
 </h3>
 <ul>
-<li>None this release</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1069'>CODE-1069</a>] -         Enable DESC in other objects to display in the GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1070'>CODE-1070</a>] -         Enable DESC in Template to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1071'>CODE-1071</a>] -         Enable DESC in Skill  to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1072'>CODE-1072</a>] -         Enable DESC in Race to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1073'>CODE-1073</a>] -         Enable DESC in Equipment to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1074'>CODE-1074</a>] -         Enable DESC in CLASS to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1075'>CODE-1075</a>] -         Enable DESC in Kit to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1353'>CODE-1353</a>] -         Add Zoom Controls for Thumbnail viewer for those without Scroller/Zoom Wheel enabled mice</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2116'>CODE-2116</a>] -         Add &#39;qualified&#39; button to Deity list</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2741'>CODE-2741</a>] -         Export to PDF should default to showing only PDF files</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2973'>CODE-2973</a>] -         Removal of languages is not immediately obvious for users</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2980'>CODE-2980</a>] -         Make temporary generated files optional and more accessible.</li>
 </ul>
 
 <h3>        New Data Features
 </h3>
 <ul>
-<li>None this release</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2718'>DATA-2718</a>] -         Please have Gunslinger Ratfolk favored class alter the Gunslinger Initiative class feature</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2739'>DATA-2739</a>] -         Update Scarred Witch to errata</li>
 </ul>
 
 
@@ -207,7 +223,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>        New Output Sheet Features
 </h3>
 <ul>
-<li>None this release</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-431'>OS-431</a>] -         Create an OS that mimics the Pathfinder NPC Codex layout</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-432'>OS-432</a>] -         Debug sheet to use KEY instead of name</li>
 </ul>
 
  
@@ -235,16 +252,75 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>       Code Bug Fixes
 </h3>
 <ul>
-<li>None this release</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2592'>CODE-2592</a>] -         UI not scaling for longer Attribute names / Scroll bar hides last column</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2923'>CODE-2923</a>] -         Abilities (Stats) Summary Screen does not alter for large Stat names</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2939'>CODE-2939</a>] -         Character Sheet page does not update when change character</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2963'>CODE-2963</a>] -         CONVERTER 6.06 - CLASSES:TYPE.Psionic=1 getting converted to CLASSES:TYPE=Psionic=1</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2964'>CODE-2964</a>] -         FOP awt dialog appears while print previewing</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2965'>CODE-2965</a>] -         Print preview does not accurately reflect printed page</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2969'>CODE-2969</a>] -         Character sheet doesn&#39;t refresh</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2971'>CODE-2971</a>] -         Tree elements in JTreeTables don&#39;t render properly in Nimbus LAF</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2972'>CODE-2972</a>] -         Language table on Summary tab becomes inconsistent with mouse movement</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2977'>CODE-2977</a>] -         Advanced Source selection filter collapser doesn&#39;t collapse</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2978'>CODE-2978</a>] -         Cannot open tree elements in tree table if tree column is not leftmost column</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2981'>CODE-2981</a>] -         Campaign history lays out components strangely</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2982'>CODE-2982</a>] -         PRESKILL for type not recognising number of occurrences</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2985'>CODE-2985</a>] -         Domain tab check boxes do not have the same background color as table</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2986'>CODE-2986</a>] -         Freemarker output of NOTE.x.y should not have line break at the end</li>
 </ul>
 
 <h3>       Data  Bug Fixes
 </h3>
 <ul>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2678'>DATA-2678</a>] -         Unchained Barbarian does not get Rage Powers
-</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2679'>DATA-2679</a>] -         [Dreamscarred Press] Ultimate Psionics load errors
-</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1141'>DATA-1141</a>] -         Smite Evil broken for Paladin Archetypes</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2676'>DATA-2676</a>] -         [Pathfinder] Blood of the Moon - Prophetic Armor and Eye of the Moon not implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2678'>DATA-2678</a>] -         Unchained Barbarian does not get Rage Powers</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2679'>DATA-2679</a>] -         [Dreamscarred Press] Ultimate Psionics load errors</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2680'>DATA-2680</a>] -         PC Multi-class triggers the NPC selections &quot;Monster with Class levels&quot;</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2681'>DATA-2681</a>] -         FEAT is deprecated, all FEAT references should be gone.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2682'>DATA-2682</a>] -         Stats &amp; Saves in gamemode is deprecated, all references should be updated</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2684'>DATA-2684</a>] -         ISG traits not implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2686'>DATA-2686</a>] -         Familiar Kits from Ultimate Combat not coded correctly</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2687'>DATA-2687</a>] -         Warpriest Divine Commander Archetype not fully implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2689'>DATA-2689</a>] -         Bloodrager Blood Conduit not giving bonus feat at first level</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2690'>DATA-2690</a>] -         Some Familiars are missing for Shaman characters</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2691'>DATA-2691</a>] -         Shaman can&#39;t take Extra Hex feat.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2692'>DATA-2692</a>] -         Age Category adjustments are showing as temporary but should be permanent, skill points not adjusted</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2693'>DATA-2693</a>] -         Gnome Race Bloodrager Class Bonus adding improperly</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2699'>DATA-2699</a>] -         Expert Archer</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2700'>DATA-2700</a>] -         Bloodrager Primalist Archetype replaces wrong Bloodline Powers</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2702'>DATA-2702</a>] -         Primal Companion ability doubling the AnimalCompanionLVL</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2703'>DATA-2703</a>] -         Nature&#39;s Bond not getting added for some Druid archtypes</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2704'>DATA-2704</a>] -         Altered Animal Companion lists bypassing AnimalCompanionLVL</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2706'>DATA-2706</a>] -         Monk&#39;s Robe giving too much AC to Unchained Monks</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2707'>DATA-2707</a>] -         Grenadier Alchemist gets Directed Blast at level 5 instead of 6</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2708'>DATA-2708</a>] -         Arcanist Familiar Exploit not granting a familiar</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2709'>DATA-2709</a>] -         Swashbuckler Finesse implementation creates corner case issue doubling the bonus for the Thrown for the Dagger.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2710'>DATA-2710</a>] -         Rogue Talent &quot;Familiar&quot; triggers additional Arcane Bond selections</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2711'>DATA-2711</a>] -         Some Prestige Classes have non-functional prerequisites</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2712'>DATA-2712</a>] -         False Life is granted as a 1st level spell for an Oracle of Bones rather than 2nd level.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2713'>DATA-2713</a>] -         [Paizo] ISWG: Load errors</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2714'>DATA-2714</a>] -         [Dreamscarred Press] Ultimate Psionics: Track does not qualify for Sighted Seeker</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2715'>DATA-2715</a>] -         Efficient Quiver does not accept Quarterstaff.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2716'>DATA-2716</a>] -         Kinslayer Archetype not given choice of Greater Brand or Teamwork feat</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2717'>DATA-2717</a>] -         Gulch Gunner archetype does not lose documented class skills</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2719'>DATA-2719</a>] -         [Dreamscarred Press] Ultimate Psionics: 2nd lvl of Sighted Seeker does not advance Psion casting</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2720'>DATA-2720</a>] -         Adding mithral to full plate makes non-proficient for oracle</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2722'>DATA-2722</a>] -         Mythic Adventures - Prerequisites</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2723'>DATA-2723</a>] -         Bloodrager Bloodline powers granted at 1st level, instead of at the correct levels.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2724'>DATA-2724</a>] -         [Pathfinder] Duplicate Temporary Bonuses</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2725'>DATA-2725</a>] -         Blackblade Magus loses additional Magus Arcana</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2726'>DATA-2726</a>] -         [Technology Guide] Battery issues</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2727'>DATA-2727</a>] -         [Blood of Angels] Issues with Oracle Curse &quot;Blackened&quot;</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2728'>DATA-2728</a>] -         Bloatmage Initiate feat from City of Strangers throws error message</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2729'>DATA-2729</a>] -         Domain variables are broken</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2730'>DATA-2730</a>] -         Spellbook (Compact) miscounts spell pages used</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2732'>DATA-2732</a>] -         Cannot make Far Traveler Selection</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2733'>DATA-2733</a>] -         Kasatha Bow Nomad Archetype can&#39;t be selected</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2734'>DATA-2734</a>] -         Dragon Disciple not granting Bonus Feats</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2735'>DATA-2735</a>] -         Dragon Disciple is granting bonus spells too early</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2736'>DATA-2736</a>] -         Pathfinder Unchained Variant Multiclass not accessible.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2740'>DATA-2740</a>] -         Lvl 13 Monk wont qualify for Dimensional Agility</li>
 </ul>
 
 <h3>       Documentation  Bug Fixes
@@ -296,7 +372,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/NEWSOURCE-249'>NEWSOURCE-249</a>] -         Pathfinder Chronicles: City of Strangers</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/NEWSOURCE-250'>NEWSOURCE-250</a>] -         [Storm Bunny Studios] The Gun Priest</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/NEWSOURCE-251'>NEWSOURCE-251</a>] -         Pathfinder Player Companion: Weapon Master&#39;s Handbook</li>
-
+<li>[<a href='https://pcgenorg.atlassian.net/browse/NEWSOURCE-253'>NEWSOURCE-253</a>] -         SRD5 Basic set</li>
 </ul>
 
 <h3>        New Code Feature
@@ -317,7 +393,18 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2896'>CODE-2896</a>] -         Re-enable the MSRD Unit Tests</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2898'>CODE-2898</a>] -         Update active unit tests to use FTL Engine, and add missing License Headers</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2958'>CODE-2958</a>] -         Validate PREFACT and PREFACTSET on data load</li>
-
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1069'>CODE-1069</a>] -         Enable DESC in other objects to display in the GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1070'>CODE-1070</a>] -         Enable DESC in Template to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1071'>CODE-1071</a>] -         Enable DESC in Skill  to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1072'>CODE-1072</a>] -         Enable DESC in Race to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1073'>CODE-1073</a>] -         Enable DESC in Equipment to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1074'>CODE-1074</a>] -         Enable DESC in CLASS to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1075'>CODE-1075</a>] -         Enable DESC in Kit to display in GUI</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-1353'>CODE-1353</a>] -         Add Zoom Controls for Thumbnail viewer for those without Scroller/Zoom Wheel enabled mice</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2116'>CODE-2116</a>] -         Add &#39;qualified&#39; button to Deity list</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2741'>CODE-2741</a>] -         Export to PDF should default to showing only PDF files</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2973'>CODE-2973</a>] -         Removal of languages is not immediately obvious for users</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2980'>CODE-2980</a>] -         Make temporary generated files optional and more accessible.</li>
 </ul>
 
 <h3>        New Data Features
@@ -391,7 +478,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2648'>DATA-2648</a>] -         Barbarian rage power &quot;Reckless Abandon&quot; as a Temp. bonus please</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2662'>DATA-2662</a>] -         Unchained classes - Add missing Unchained Monk BAB and Saves</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2665'>DATA-2665</a>] -         Request Rage Powers (Animal Fury CR, and Fiend Totem, Lesser APG) grant actual attacks when raging</li>
-
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2718'>DATA-2718</a>] -         Please have Gunslinger Ratfolk favored class alter the Gunslinger Initiative class feature</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2739'>DATA-2739</a>] -         Update Scarred Witch to errata</li>
 </ul>
 
 
@@ -403,7 +491,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/OS-406'>OS-406</a>] -         please shorten text for Checklist points on front page</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/OS-411'>OS-411</a>] -         Update Modern Sheet - add Ranks (round), and Action Points</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/OS-414'>OS-414</a>] -         [Pathfinder] When present, please include Faction in the Header</li>
-</ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-431'>OS-431</a>] -         Create an OS that mimics the Pathfinder NPC Codex layout</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-432'>OS-432</a>] -         Debug sheet to use KEY instead of name</li></ul>
 
  
 <h3>        Modify Tokens
@@ -550,12 +639,28 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2955'>CODE-2955</a>] -         DEFINESTAT exports to TEMPSCORE.</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2956'>CODE-2956</a>] -         Plugin Missing on latest build information</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2960'>CODE-2960</a>] -         Print templates don&#39;t print Prestige Awards, PFS Chronicles sections</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2592'>CODE-2592</a>] -         UI not scaling for longer Attribute names / Scroll bar hides last column</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2923'>CODE-2923</a>] -         Abilities (Stats) Summary Screen does not alter for large Stat names</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2939'>CODE-2939</a>] -         Character Sheet page does not update when change character</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2963'>CODE-2963</a>] -         CONVERTER 6.06 - CLASSES:TYPE.Psionic=1 getting converted to CLASSES:TYPE=Psionic=1</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2964'>CODE-2964</a>] -         FOP awt dialog appears while print previewing</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2965'>CODE-2965</a>] -         Print preview does not accurately reflect printed page</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2969'>CODE-2969</a>] -         Character sheet doesn&#39;t refresh</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2971'>CODE-2971</a>] -         Tree elements in JTreeTables don&#39;t render properly in Nimbus LAF</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2972'>CODE-2972</a>] -         Language table on Summary tab becomes inconsistent with mouse movement</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2977'>CODE-2977</a>] -         Advanced Source selection filter collapser doesn&#39;t collapse</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2978'>CODE-2978</a>] -         Cannot open tree elements in tree table if tree column is not leftmost column</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2981'>CODE-2981</a>] -         Campaign history lays out components strangely</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2982'>CODE-2982</a>] -         PRESKILL for type not recognising number of occurrences</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2985'>CODE-2985</a>] -         Domain tab check boxes do not have the same background color as table</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2986'>CODE-2986</a>] -         Freemarker output of NOTE.x.y should not have line break at the end</li>
 
 </ul>
 
 <h3>       Data  Bug Fixes
 </h3>
 <ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1141'>DATA-1141</a>] -         Smite Evil broken for Paladin Archetypes</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1344'>DATA-1344</a>] -         [Pathfinder] Bestiary 3 - Kits have wrong entries for skills</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1511'>DATA-1511</a>] -         [Pathfinder] Gauntlet weight adjusted improperly for small characters</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1662'>DATA-1662</a>] -         [Pathfinder] Dreamscarred Press - Expanded Psionics / Find the Mark &quot;Halfling Marksman&quot; missing Sling Staff Prof</li>
@@ -868,8 +973,57 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2674'>DATA-2674</a>] -         Pathfinder Bard missing Untrained Knowledge skill</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2675'>DATA-2675</a>] -         Catfolk Claw Blades listed as not Proficient when using the Racial Trait &quot;Cat&#39;s Claws&quot;</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2676'>DATA-2676</a>] -         [Pathfinder] Blood of the Moon - Prophetic Armor and Eye of the Moon not implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2676'>DATA-2676</a>] -         [Pathfinder] Blood of the Moon - Prophetic Armor and Eye of the Moon not implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2678'>DATA-2678</a>] -         Unchained Barbarian does not get Rage Powers</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2678'>DATA-2678</a>] -         Unchained Barbarian does not get Rage Powers</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2679'>DATA-2679</a>] -         [Dreamscarred Press] Ultimate Psionics load errors</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2679'>DATA-2679</a>] -         [Dreamscarred Press] Ultimate Psionics load errors</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2680'>DATA-2680</a>] -         PC Multi-class triggers the NPC selections &quot;Monster with Class levels&quot;</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2681'>DATA-2681</a>] -         FEAT is deprecated, all FEAT references should be gone.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2682'>DATA-2682</a>] -         Stats &amp; Saves in gamemode is deprecated, all references should be updated</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2684'>DATA-2684</a>] -         ISG traits not implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2686'>DATA-2686</a>] -         Familiar Kits from Ultimate Combat not coded correctly</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2687'>DATA-2687</a>] -         Warpriest Divine Commander Archetype not fully implemented</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2689'>DATA-2689</a>] -         Bloodrager Blood Conduit not giving bonus feat at first level</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2690'>DATA-2690</a>] -         Some Familiars are missing for Shaman characters</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2691'>DATA-2691</a>] -         Shaman can&#39;t take Extra Hex feat.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2692'>DATA-2692</a>] -         Age Category adjustments are showing as temporary but should be permanent, skill points not adjusted</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2693'>DATA-2693</a>] -         Gnome Race Bloodrager Class Bonus adding improperly</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2699'>DATA-2699</a>] -         Expert Archer</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2700'>DATA-2700</a>] -         Bloodrager Primalist Archetype replaces wrong Bloodline Powers</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2702'>DATA-2702</a>] -         Primal Companion ability doubling the AnimalCompanionLVL</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2703'>DATA-2703</a>] -         Nature&#39;s Bond not getting added for some Druid archtypes</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2704'>DATA-2704</a>] -         Altered Animal Companion lists bypassing AnimalCompanionLVL</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2706'>DATA-2706</a>] -         Monk&#39;s Robe giving too much AC to Unchained Monks</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2707'>DATA-2707</a>] -         Grenadier Alchemist gets Directed Blast at level 5 instead of 6</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2708'>DATA-2708</a>] -         Arcanist Familiar Exploit not granting a familiar</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2709'>DATA-2709</a>] -         Swashbuckler Finesse implementation creates corner case issue doubling the bonus for the Thrown for the Dagger.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2710'>DATA-2710</a>] -         Rogue Talent &quot;Familiar&quot; triggers additional Arcane Bond selections</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2711'>DATA-2711</a>] -         Some Prestige Classes have non-functional prerequisites</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2712'>DATA-2712</a>] -         False Life is granted as a 1st level spell for an Oracle of Bones rather than 2nd level.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2713'>DATA-2713</a>] -         [Paizo] ISWG: Load errors</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2714'>DATA-2714</a>] -         [Dreamscarred Press] Ultimate Psionics: Track does not qualify for Sighted Seeker</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2715'>DATA-2715</a>] -         Efficient Quiver does not accept Quarterstaff.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2716'>DATA-2716</a>] -         Kinslayer Archetype not given choice of Greater Brand or Teamwork feat</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2717'>DATA-2717</a>] -         Gulch Gunner archetype does not lose documented class skills</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2719'>DATA-2719</a>] -         [Dreamscarred Press] Ultimate Psionics: 2nd lvl of Sighted Seeker does not advance Psion casting</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2720'>DATA-2720</a>] -         Adding mithral to full plate makes non-proficient for oracle</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2722'>DATA-2722</a>] -         Mythic Adventures - Prerequisites</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2723'>DATA-2723</a>] -         Bloodrager Bloodline powers granted at 1st level, instead of at the correct levels.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2724'>DATA-2724</a>] -         [Pathfinder] Duplicate Temporary Bonuses</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2725'>DATA-2725</a>] -         Blackblade Magus loses additional Magus Arcana</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2726'>DATA-2726</a>] -         [Technology Guide] Battery issues</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2727'>DATA-2727</a>] -         [Blood of Angels] Issues with Oracle Curse &quot;Blackened&quot;</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2728'>DATA-2728</a>] -         Bloatmage Initiate feat from City of Strangers throws error message</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2729'>DATA-2729</a>] -         Domain variables are broken</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2730'>DATA-2730</a>] -         Spellbook (Compact) miscounts spell pages used</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2732'>DATA-2732</a>] -         Cannot make Far Traveler Selection</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2733'>DATA-2733</a>] -         Kasatha Bow Nomad Archetype can&#39;t be selected</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2734'>DATA-2734</a>] -         Dragon Disciple not granting Bonus Feats</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2735'>DATA-2735</a>] -         Dragon Disciple is granting bonus spells too early</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2736'>DATA-2736</a>] -         Pathfinder Unchained Variant Multiclass not accessible.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2740'>DATA-2740</a>] -         Lvl 13 Monk wont qualify for Dimensional Agility</li>
+
 </ul>
 
 <h3>       Documentation  Bug Fixes
