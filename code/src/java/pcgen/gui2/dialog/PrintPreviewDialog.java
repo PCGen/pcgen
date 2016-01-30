@@ -376,11 +376,11 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			AWTRenderer renderer = new AWTRenderer();
 			renderer.setPreviewDialogDisplayed(false);
 			PipedOutputStream out = new PipedOutputStream();
-			FopTask task = FopTask.newFopTask(new BufferedInputStream(new PipedInputStream(out)), xsltFile, renderer);
+			FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
 			Thread thread = new Thread(task, "fop-preview");
 			thread.setDaemon(true);
 			thread.start();
-			BatchExporter.printToXmlStream(character, new BufferedOutputStream(out));
+			BatchExporter.exportCharacter(character, out);
 			try{
 				thread.join();
 			}catch(InterruptedException ex){
