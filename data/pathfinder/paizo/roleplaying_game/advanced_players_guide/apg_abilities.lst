@@ -1,4 +1,4 @@
-# CVS $Revision: 21722 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21722 $ $Author: zaister $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 ###Block: Modify default ability
@@ -103,7 +103,7 @@ Rich Parents						KEY:Trait ~ Rich Parents		CATEGORY:Special Ability	TYPE:Trait.
 Suspicious							KEY:Trait ~ Suspicious			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SocialTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Suspicious],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SocialTrait]		DESC:You discovered at an early age that someone you trusted, perhaps an older sibling or a parent, had lied to you, and often, about something you had taken for granted, leaving you quick to question the claims of others. You gain a +1 trait bonus on Sense Motive checks, and Sense Motive is always a class skill for you.																																																																					BONUS:SKILL|Sense Motive|1|TYPE=Trait								CSKILL:Sense Motive					SOURCEPAGE:p.330
 
 ## Adopted Trait Race Selection
-# Ability Name						Unique Key					Category of Ability		Type
+# Ability Name						Unique Key					Category of Ability		Type						Multiple Requirements																										Description																																																																																Bonus Ability Pool															Bonus to Situation																				Bonus to skill					Modify VAR						Class Skill			Apply Kit			Source Page
 Dwarf								KEY:Adoptive Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace
 Elf								KEY:Adoptive Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace
 Gnome								KEY:Adoptive Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace

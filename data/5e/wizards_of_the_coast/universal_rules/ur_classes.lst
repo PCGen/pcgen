@@ -1,3 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-CLASS:Hit Die	HD:4	ABILITY:Internal|AUTOMATIC|Monster	TYPE:Monster	FACT:ClassType|Monster	MODTOSKILLS:NO	STARTSKILLPTS:0
+# Class Name	Hit Dice	Type			Ability					FACT
+CLASS:Hit Die	HD:4		TYPE:Monster	ABILITY:Internal|AUTOMATIC|Monster	FACT:ClassType|Monster
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Hit Die	STARTSKILLPTS:0	MODTOSKILLS:NO
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS

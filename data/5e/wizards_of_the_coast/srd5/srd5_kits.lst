@@ -1,4 +1,5 @@
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 
@@ -35,17 +36,17 @@ ALIGN:UA
 STARTPACK:Acolyte Background	EQUIPBUY:0
 GEAR:Prayer Book
 GEAR:Stick of Incense	QTY:5
-GEAR:Vestments	
+GEAR:Vestments
 GEAR:Clothes (Common)
 GEAR:Belt Pouch
-GEAR:Coin (Gold)	QTY:15
+GEAR:Coin (Gold)		QTY:15
 
-STARTPACK:Holy Symbol (Amulet)	EQUIPBUY:0	
-GEAR:Holy Symbol (Amulet)	
-STARTPACK:Holy Symbol (Emblem)	EQUIPBUY:0	
-GEAR:Holy Symbol (Emblem)	
-STARTPACK:Holy Symbol (Reliquary)		EQUIPBUY:0
-GEAR:Holy Symbol (Reliquary)	
+STARTPACK:Holy Symbol (Amulet)	EQUIPBUY:0
+GEAR:Holy Symbol (Amulet)
+STARTPACK:Holy Symbol (Emblem)	EQUIPBUY:0
+GEAR:Holy Symbol (Emblem)
+STARTPACK:Holy Symbol (Reliquary)	EQUIPBUY:0
+GEAR:Holy Symbol (Reliquary)
 
 
 # Musical Intruments
@@ -67,55 +68,52 @@ STARTPACK:Instrument Pan flute	EQUIPBUY:0
 GEAR:Pan flute
 STARTPACK:Instrument Shawm	EQUIPBUY:0
 GEAR:Shawm
-STARTPACK:Instrument Viol			EQUIPBUY:0
+STARTPACK:Instrument Viol	EQUIPBUY:0
 GEAR:Viol
 
 ### Artisan Tools
 
-STARTPACK:Alchemist's Supplies		EQUIPBUY:0
-GEAR:Alchemist's Supplies	
-STARTPACK:Brewer's Supplies			EQUIPBUY:0
-GEAR:Brewer's Supplies		
-STARTPACK:Calligrapher's Supplies		EQUIPBUY:0
-GEAR:Calligrapher's Supplies	
-STARTPACK:Carpenter's Tools			EQUIPBUY:0
-GEAR:Carpenter's Tools		
-STARTPACK:Cartographer's Tools		EQUIPBUY:0
-GEAR:Cartographer's Tools	
-STARTPACK:Cobbler's Tools			EQUIPBUY:0
-GEAR:Cobbler's Tools		
-STARTPACK:Cook's Utensils			EQUIPBUY:0
-GEAR:Cook's Utensils		
-STARTPACK:Disguise Kit			EQUIPBUY:0
-GEAR:Disguise Kit		
-STARTPACK:Forgery Kit				EQUIPBUY:0
-GEAR:Forgery Kit			
-STARTPACK:Glassblower's Tools		EQUIPBUY:0
-GEAR:Glassblower's Tools	
-STARTPACK:Jeweler's Tools			EQUIPBUY:0
-GEAR:Jeweler's Tools		
-STARTPACK:Leatherworker's Tools		EQUIPBUY:0
-GEAR:Leatherworker's Tools	
-STARTPACK:Mason's Tools			EQUIPBUY:0
-GEAR:Mason's Tools		
-STARTPACK:Painter's Supplies		EQUIPBUY:0
-GEAR:Painter's Supplies	
-STARTPACK:Potter's Tools			EQUIPBUY:0
-GEAR:Potter's Tools		
-STARTPACK:Smith's Tools			EQUIPBUY:0
-GEAR:Smith's Tools		
-STARTPACK:Tinker's Tools			EQUIPBUY:0
-GEAR:Tinker's Tools		
-STARTPACK:Weaver's Tools			EQUIPBUY:0
-GEAR:Weaver's Tools		
-STARTPACK:Woodcarver's Tools		EQUIPBUY:0
-GEAR:Woodcarver's Tools	
+STARTPACK:Alchemist's Supplies	EQUIPBUY:0
+GEAR:Alchemist's Supplies
+STARTPACK:Brewer's Supplies	EQUIPBUY:0
+GEAR:Brewer's Supplies
+STARTPACK:Calligrapher's Supplies	EQUIPBUY:0
+GEAR:Calligrapher's Supplies
+STARTPACK:Carpenter's Tools	EQUIPBUY:0
+GEAR:Carpenter's Tools
+STARTPACK:Cartographer's Tools	EQUIPBUY:0
+GEAR:Cartographer's Tools
+STARTPACK:Cobbler's Tools	EQUIPBUY:0
+GEAR:Cobbler's Tools
+STARTPACK:Cook's Utensils	EQUIPBUY:0
+GEAR:Cook's Utensils
+STARTPACK:Disguise Kit	EQUIPBUY:0
+GEAR:Disguise Kit
+STARTPACK:Forgery Kit	EQUIPBUY:0
+GEAR:Forgery Kit
+STARTPACK:Glassblower's Tools	EQUIPBUY:0
+GEAR:Glassblower's Tools
+STARTPACK:Jeweler's Tools	EQUIPBUY:0
+GEAR:Jeweler's Tools
+STARTPACK:Leatherworker's Tools	EQUIPBUY:0
+GEAR:Leatherworker's Tools
+STARTPACK:Mason's Tools	EQUIPBUY:0
+GEAR:Mason's Tools
+STARTPACK:Painter's Supplies	EQUIPBUY:0
+GEAR:Painter's Supplies
+STARTPACK:Potter's Tools	EQUIPBUY:0
+GEAR:Potter's Tools
+STARTPACK:Smith's Tools	EQUIPBUY:0
+GEAR:Smith's Tools
+STARTPACK:Tinker's Tools	EQUIPBUY:0
+GEAR:Tinker's Tools
+STARTPACK:Weaver's Tools	EQUIPBUY:0
+GEAR:Weaver's Tools
+STARTPACK:Woodcarver's Tools	EQUIPBUY:0
+GEAR:Woodcarver's Tools
 
 STARTPACK:Bone Dice	EQUIPBUY:0
 GEAR:Bone Dice
 
 STARTPACK:Deck of Cards	EQUIPBUY:0
 GEAR:Playing Card Set
-
-
-

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Stefan Radermacher
 
@@ -23,14 +23,15 @@ Cannon						TYPE:Exotic.Ranged.Siege.Bludgeoning.Piercing.Firearm
 
 ###Block: Weapon Groups
 # Equipment Name				Type
-Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
-War Razor.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Klar.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Earth Breaker.MOD				TYPE:Hammer.Weapon Group Hammers
-Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
-Ogre Hook.MOD				TYPE:Polearm.Weapon Group Polearms
-Aldori Dueling Sword.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
-Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
-Bladed Scarf.MOD				TYPE:Flail.Weapon Group Flails
-Bolas (Shoanti).MOD			TYPE:Thrown.Weapon Group Thrown
+# Weapon Name			Type
+Dogslicer.MOD			TYPE:Bladelight.Weapon Group Blades Light
+War Razor.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Klar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Earth Breaker.MOD			TYPE:Hammer.Weapon Group Hammers
+Horsechopper.MOD			TYPE:Polearm.Weapon Group Polearms
+Ogre Hook.MOD			TYPE:Polearm.Weapon Group Polearms
+Aldori Dueling Sword.MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
+Urumi.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Bladed Scarf.MOD			TYPE:Flail.Weapon Group Flails
+Bolas (Shoanti).MOD		TYPE:Thrown.Weapon Group Thrown
