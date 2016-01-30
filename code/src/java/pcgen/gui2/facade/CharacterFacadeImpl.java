@@ -2248,13 +2248,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void removeDomain(DomainFacade domain)
 	{
-		domains.removeElement(domain);
-		Domain dom = ((DomainFacadeImpl) domain).getRawObject();
-		DomainApplication.removeDomain(theCharacter, dom);
-		theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
-		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
-		updateDomainTodo();
-		spellSupportFacade.refreshAvailableKnownSpells();
+		if (domains.removeElement(domain))
+		{
+			Domain dom = ((DomainFacadeImpl) domain).getRawObject();
+			DomainApplication.removeDomain(theCharacter, dom);
+			theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
+			remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
+			updateDomainTodo();
+			spellSupportFacade.refreshAvailableKnownSpells();
+		}
 	}
 
 	/**
@@ -4018,6 +4020,21 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DeityFacade)
+	 */
+	@Override
+	public boolean isQualifiedFor(DeityFacade deityFacade)
+	{
+		if (!(deityFacade instanceof Deity))
+		{
+			return false;
+		}
+		Deity aDeity = (Deity) deityFacade;
+		return PrereqHandler.passesAll(aDeity.getPrerequisiteList(), theCharacter, aDeity)
+				&& theCharacter.isQualified(aDeity);
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DomainFacade)
 	 */

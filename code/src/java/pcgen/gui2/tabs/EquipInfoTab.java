@@ -309,6 +309,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		column = new TableColumn(4);
 		column.setHeaderValue(LanguageBundle.getString("in_equipWeightAbbrev")); //$NON-NLS-1$
 		model.addColumn(column, true, 75);
+		column = new TableColumn(5);
+		column.setHeaderValue(LanguageBundle.getString("in_descrip")); //$NON-NLS-1$
+		model.addColumn(column, false, 75);
 		return model;
 	}
 

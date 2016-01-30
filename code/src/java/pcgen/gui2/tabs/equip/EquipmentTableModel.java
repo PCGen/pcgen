@@ -92,6 +92,8 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 				return Integer.class;
 			case 4:
 				return Float.class;
+			case 5:
+				return String.class;
 			default:
 				return Object.class;
 		}
@@ -130,6 +132,8 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 				return equipmentList.getQuantity(equipment);
 			case 4:
 				return character.getInfoFactory().getWeight(equipment);
+			case 5:
+				return character.getInfoFactory().getDescription(equipment);
 			default:
 				return null;
 		}
