@@ -106,7 +106,7 @@ OUTPUTSHEET:DIRECTORY|killshot
 OUTPUTSHEET:DEFAULT.PDF|csheet_killshot.xslt
 #OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_std.htm
 
-INFOSHEET:SUMMARY|preview/summary/killshot_info.html
+INFOSHEET:SUMMARY|preview/summary/killshot_info.html.ftl
 #INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 DIESIZES:MIN=6,8,10,12,MAX=20
