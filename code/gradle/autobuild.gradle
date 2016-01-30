@@ -12,7 +12,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 ext {
 	if (System.env.BUILD_NUMBER) {
-		destAutobuildDir = '/home/pcgen1/public_html/autobuilds-prod/'
+		destAutobuildDir = '/home/pcgen1/public_html/autobuilds/'
 	} else {
 		destAutobuildDir = "${buildDir}/autobuilds/"
 	}

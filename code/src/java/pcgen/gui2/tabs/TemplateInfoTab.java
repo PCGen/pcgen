@@ -395,13 +395,15 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_modifier", String.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_preReqs", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("Modifier", String.class, false), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_modifier", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
@@ -427,6 +429,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return Arrays.asList(infoFactory.getLevelAdjustment(obj),
 					infoFactory.getModifier(obj),
 					infoFactory.getPreReqHTML(obj),
+					infoFactory.getDescription(obj),
 					obj.getSource());
 		}
 
