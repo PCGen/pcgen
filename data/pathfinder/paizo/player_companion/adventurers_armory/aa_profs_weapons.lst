@@ -53,7 +53,7 @@ Maulaxe			TYPE:Exotic.Melee.Ranged
 Rope Gauntlet		TYPE:Exotic.Melee
 Sawtooth Sabre		TYPE:Exotic.Melee
 Sika				TYPE:Exotic.Melee
-Swordbreaker Dagger	TYPE:Exotic.Melee
+Swordbreaker (Dagger)	TYPE:Exotic.Melee
 Battle Poi			TYPE:Exotic.Melee
 Butterfly knife		TYPE:Exotic.Melee
 Falcata			TYPE:Exotic.Melee
@@ -92,7 +92,7 @@ Sawtooth Sabre.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon 
 Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades Light
 Chakram.MOD				TYPE:Bladelight.Weapon Group Blades Light.Bladeheavy.Weapon Group Blades Heavy.Thrown.Weapon Group Thrown
 Sica.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker Dagger.MOD		TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD		TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades Light
 Bayonet.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
 War Razor.MOD			TYPE:Bladelight.Weapon Group Blades Light
