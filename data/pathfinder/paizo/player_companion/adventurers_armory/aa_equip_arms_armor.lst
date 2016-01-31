@@ -77,7 +77,7 @@ Maulaxe (Dwarven)																	PROFICIENCY:WEAPON|Maulaxe			TYPE:Weapon.Exoti
 Rope Gauntlet																	PROFICIENCY:WEAPON|Rope Gauntlet		TYPE:Weapon.Exotic.Melee.Finesseable.Standard.Bludgeoning.Piercing										COST:0.2	WT:2					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4								WIELD:Light													SOURCEPAGE:back cover
 Sawtooth Sabre																	PROFICIENCY:WEAPON|Sawtooth Sabre		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Slashing.Sword												COST:35	WT:2					CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
 Sica																			PROFICIENCY:WEAPON|Sika				TYPE:Weapon.Exotic.Melee.Finesseable.Standard.Slashing												COST:10	WT:3					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:STEEL			WIELD:Light													SOURCEPAGE:back cover
-Swordbreaker Dagger																PROFICIENCY:WEAPON|Swordbreaker Dagger	TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight											COST:10	WT:3					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:STEEL			WIELD:Light											SIZE:M	SOURCEPAGE:back cover
+Swordbreaker (Dagger)									OUTPUTNAME:Swordbreaker Dagger		PROFICIENCY:WEAPON|Swordbreaker (Dagger)	TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight											COST:10	WT:3					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:STEEL			WIELD:Light											SIZE:M	SOURCEPAGE:back cover
 
 # Exotic One-Handed Melee Weapons
 Battle Poi																		PROFICIENCY:WEAPON|Battle Poi			TYPE:Weapon.Exotic.Melee.Finesseable.Standard														COST:5	WT:2					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:STEEL			WIELD:Light						RANGE:10						SOURCEPAGE:back cover
@@ -138,7 +138,7 @@ Sawtooth Sabre.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapo
 Butterfly Knife.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Chakram.MOD						TYPE:Bladelight.Weapon Group Blades Light.Bladeheavy.Weapon Group Blades Heavy.Thrown.Weapon Group Thrown
 Sica.MOD						TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker Dagger.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD			TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Knife.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Bayonet.MOD						TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
 War Razor.MOD					TYPE:Bladelight.Weapon Group Blades Light
