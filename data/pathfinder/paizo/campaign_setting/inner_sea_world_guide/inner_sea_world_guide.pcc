@@ -75,7 +75,6 @@ KIT:iswg_kits_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
 RACE:iswg_races_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
-SKILL:iswg_skills.lst
 SPELL:iswg_spells.lst
 TEMPLATE:iswg_templates.lst
 ARMORPROF:iswg_profs_armor.lst
