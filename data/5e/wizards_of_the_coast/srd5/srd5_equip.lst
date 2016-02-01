@@ -5,8 +5,8 @@ SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.w
 Coin (Platinum)	COST:10	WT:0.02	TYPE:Coin.Money
 Coin (Gold)		COST:1	WT:0.02	TYPE:Coin.Money
 Coin (Electrum)	COST:0.5	WT:0.02	TYPE:Coin.Money
-Coin (Silver)	COST:0.01	WT:0.02	TYPE:Coin.Money
-Coin (Copper)	COST:0.0001	WT:0.02	TYPE:Coin.Money
+Coin (Silver)	COST:0.1	WT:0.02	TYPE:Coin.Money
+Coin (Copper)	COST:0.01	WT:0.02	TYPE:Coin.Money
 
 
 
