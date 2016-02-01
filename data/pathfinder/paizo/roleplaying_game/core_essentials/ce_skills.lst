@@ -246,6 +246,26 @@ Spellcraft.MOD			SITUATION:Identity magic item
 Diplomacy.MOD			SITUATION:Undead
 Disable Device.MOD		SITUATION:Traps
 
+###Block: Inner Sea World Guide
+Bluff.MOD				SITUATION:Fool someone
+Bluff.MOD				SITUATION:Pass messages
+Escape Artist.MOD			SITUATION:Escape bonds/grapple
+Handle Animal.MOD			SITUATION:Birds of prey
+Knowledge (Planes).MOD		SITUATION:ID demon
+Linguistics.MOD			SITUATION:Create forgeries
+Sense Motive.MOD			SITUATION:Resist feint
+
+
+Handle Animal.MOD			SITUATION:Horse
+Ride.MOD				SITUATION:Horse
+
+
+
+
+
+
+
+
 
 
 
