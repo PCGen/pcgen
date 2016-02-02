@@ -44,6 +44,7 @@ ABILITYCATEGORY:gaslight_abilitycategories.lst
 
 CLASS:gaslight_class.lst
 COMPANIONMOD:gaslight_companionmods.lst
+DEITY:gaslight_deities.lst
 DOMAIN:gaslight_domains.lst
 
 EQUIPMENT:gaslight_equip_weap.lst
