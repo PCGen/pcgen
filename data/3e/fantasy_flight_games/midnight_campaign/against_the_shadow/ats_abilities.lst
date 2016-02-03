@@ -308,7 +308,7 @@ Ghost Sight											CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural	
 ### TODO: Reduces spell damage by 1.  Stacks with greater spell talisman
 Spirit Mastery										CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural							SAB:Spirit Mastery (Su)
 Extended Concoction									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Extended Concoction (Ex)
-Concoction Mastery									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Concoction Mastery (Ex) [%CHOICE]																																																																																																																																																																								STACK:NO	MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=ConcoctionMastery|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
+Concoction Mastery									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Concoction Mastery (Ex) [%CHOICE]																																																																																																																																																																								STACK:NO	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=ConcoctionMastery|TITLE=Add a Feat	ABILITY:Special Ability|AUTOMATIC|%LIST
 Efficient Harvest										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Efficient Harvest (Ex)
 Enhanced Concoction									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Enhanced Concoction (Ex)
 Pure Harvest										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Pure Harvest (Ex)
@@ -317,7 +317,7 @@ Constant Harvest										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordi
 Master Herbalist										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Master Herbalist (Ex)
 Spontaneous Concoction									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Spontaneous Concoction (Ex)
 Horse Lord											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Horse Lord (Ex)																																																																																																																																				DEFINE:HorseLordLvl|0																																																																																						TEMPDESC:Bonus when dealing with horses																		TEMPBONUS:PC|SKILL|Handle Animal,Ride|HorseLordLvl|TYPE=Circumstance
-Mounted Maneuver										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Mounted Maneuver (Ex) [%CHOICE]																																																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|TYPE=MountedManeuver|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
+Mounted Maneuver										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Mounted Maneuver (Ex) [%CHOICE]																																																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=MountedManeuver|TITLE=Add a Feat	ABILITY:Special Ability|AUTOMATIC|%LIST
 Deft Dodging										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary.MountedManeuver																																																																																																																																																																																																																																				TEMPDESC:Bonus to AC for both Sarcosan knight and mount if they do nothing but move during the round.								TEMPBONUS:ANYPC|COMBAT|AC|4
 Dismounting Cut										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary.MountedManeuver
 ### TODO: Should add a temp bonus for this
@@ -344,11 +344,11 @@ Fell Touch											CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural		
 Tree Meld											CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural							SAB:Tree Meld %/day for % hours (Su)|TreeMeldTimes|TreeMeldDuration																																																																																																																												DEFINE:TreeMeldLvl|0	DEFINE:TreeMeldTimes|0	DEFINE:TreeMeldDuration|0																																																															BONUS:VAR|TreeMeldDuration|TreeMeldLvl	BONUS:VAR|TreeMeldTimes|1
 Strength of the Wood									CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural							SAB:Strength of the Wood (Su)
 Tree Stride											CATEGORY:Special Ability	TYPE:SpecialAbility.SpellLike								SAB:Tree Stride (Sp)
-Improved Ride By Attack			OUTPUTNAME:Improved Ride-By Attack	CATEGORY:Special Ability	TYPE:General.Extraordinary					VISIBLE:EXPORT																																																																																																																																																									DESC:Perform charge actions without moving in a straight line
-Improved Mounted Archery								CATEGORY:Special Ability	TYPE:General.Extraordinary					VISIBLE:EXPORT																																																																																																																																																									DESC:No penalty for firing bow or throwing a weapon while riding wogren and gain Point Blank Shot and Precise Shot while mounted
-Improved Mounted Combat									CATEGORY:Special Ability	TYPE:General.Extraordinary					VISIBLE:EXPORT																																																																																																																																																									DESC:Use Mounted Combat feat twice in a round.
-Improved Spirited Charge								CATEGORY:Special Ability	TYPE:General.Extraordinary					VISIBLE:EXPORT																																																																																																																																																									DESC:Double threat range of melee weapon while mounted.
-Improved Trample										CATEGORY:Special Ability	TYPE:General.Extraordinary					VISIBLE:EXPORT																																																																																																																																																									DESC:Make mounted overrun attempts without provoking attacks of opportunity.
+Improved Ride By Attack			OUTPUTNAME:Improved Ride-By Attack	CATEGORY:Feat			TYPE:General.Extraordinary					VISIBLE:YES																																																																																																																																																									DESC:Perform charge actions without moving in a straight line
+Improved Mounted Archery								CATEGORY:Feat			TYPE:General.Extraordinary					VISIBLE:YES																																																																																																																																																									DESC:No penalty for firing bow or throwing a weapon while riding wogren and gain Point Blank Shot and Precise Shot while mounted
+Improved Mounted Combat									CATEGORY:Feat			TYPE:General.Extraordinary					VISIBLE:YES																																																																																																																																																									DESC:Use Mounted Combat feat twice in a round.
+Improved Spirited Charge								CATEGORY:Feat			TYPE:General.Extraordinary					VISIBLE:YES																																																																																																																																																									DESC:Double threat range of melee weapon while mounted.
+Improved Trample										CATEGORY:Feat			TYPE:General.Extraordinary					VISIBLE:YES																																																																																																																																																									DESC:Make mounted overrun attempts without provoking attacks of opportunity.
 Speed Mount											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Speed Mount (Ex)
 Mounted Hide										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary							SAB:Mounted Hide (Ex)
 Wogren's Sight										CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural							SAB:Wogren's Sight (Su)
@@ -373,19 +373,18 @@ Poultice Mastery	CATEGORY:Special Ability	TYPE:ConcoctionMastery			SAB:Poultice 
 
 ###Block: Mods
 
-# Feat Name						Type						Visible	Prohibited Feat			Special ABility												Define
 # Ability Name									Category of Ability		Type						Restricted Ability					Special ABility												Define
-CATEGORY=Special Ability|Magecraft (Charismatic).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Magecraft (Hermetic).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Magecraft (Spiritual).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Abjuration).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Lesser Conjuration).MOD												!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Divination).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Enchantment).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Lesser Evocation).MOD												!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Illusion).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Necromancy).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Transmutation).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Magecraft (Charismatic).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Magecraft (Hermetic).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Magecraft (Spiritual).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Abjuration).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Lesser Conjuration).MOD												!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Divination).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Enchantment).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Lesser Evocation).MOD												!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Illusion).MOD														!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Necromancy).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Feat|Spellcasting (Transmutation).MOD													!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
 
 Metamagic Aura									CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural									SAB:Metamagic Aura %/day (Su) [Max Level: %]|MetamagicAuraTimes|MetamagicAuraMaxLvl	DEFINE:MetamagicAuraTimes|0	DEFINE:MetamagicAuraMaxLvl|0
 Metamagic Aura Enlarge								CATEGORY:Special Ability	TYPE:MetamagicAura											SAB:Metamagic Aura: Enlarge Spell

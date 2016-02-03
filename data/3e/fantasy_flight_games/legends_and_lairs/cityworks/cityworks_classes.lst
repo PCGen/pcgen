@@ -56,17 +56,17 @@ CLASS:Pit Fighter	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.23	BONUS:COMBAT|B
 CLASS:Pit Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Heal|Intimidate|Jump|Perform
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Improved Unarmed Strike|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
 ###Block: Normal progression
-1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12		SAB:Expert Pugilist					BONUS:ABILITYPOOL|Exotic Weapon Proficiency|2
+1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,1d12		SAB:Expert Pugilist					BONUS:ABILITYPOOL|Exotic Weapon Proficiency|2
 2																																						BONUS:VAR|RageTimes|CL/5+1		DEFINE:RageTimes|0		ABILITY:Special Ability|AUTOMATIC|Rage
 3									SAB:Low Cunning (Expertise)																																				ABILITY:FEAT|AUTOMATIC|Expertise
-4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8										BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d8										BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 6									SAB:Low Cunning (Dodge +%)|PitFighterDodge									BONUS:COMBAT|AC|PitFighterDodge|TYPE=Dodge|!PREEQUIP:2,TYPE=Armor,TYPE=Heavy	BONUS:VAR|PitFighterDodge|CL/6	DEFINE:PitFighterDodge|0
-8	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+8	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d10									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 9									SAB:Low Cunning (Can't be flanked)
-12	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+12	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,2d12									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 15									SAB:Low Cunning (Critical Action)
 16																	BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
-17	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
+17	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8,4d8
 20																	BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 
 #

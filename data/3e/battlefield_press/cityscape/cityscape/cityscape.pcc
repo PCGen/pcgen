@@ -74,3 +74,5 @@ SKILL:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_skil
 SPELL:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_spells.lst
 ABILITY:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
 ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Advanced Two-Weapon Fighting,Attentive,Builder,Confident,Creative,Dead Aim,Exotic Melee Weapon Proficiency,Focused,Frightful Presence,Meticulous,Nimble,Quick Reload,Renown,Skip Shot,Stealthy,Studious,Unbalance Opponent)
+
+FORWARDREF:SKILL|Craft (Electronic),Craft (Mechanics),Craft (Robotics),Investigate,Perform (Act),Perform (Dance),Perform (Keyboards),Perform (Percussion Instruments),Perform (Sing),Perform (Stand-Up),Perform (Stringed Instruments),Perform (Wind Instruments),Treat Injury

@@ -51,7 +51,7 @@ CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguis
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression
-1	SAB:Urban Predetor (Stealth)			ABILITY:FEAT|AUTOMATIC|Street Stalker in an urban setting
+1	SAB:Urban Predetor (Stealth)			ABILITY:Special Ability|AUTOMATIC|Street Stalker in an urban setting
 2	SAB:Urban Predetor (Show of Strength)
 4	SAB:Urban Predetor (Stunt Attack)
 6	SAB:Urban Predetor (Urban Disguise)

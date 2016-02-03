@@ -14,7 +14,7 @@ ABILITYCATEGORY:Heroic Skill Boost		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 ABILITYCATEGORY:Pureblood Skill Mastery	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PurebloodSkillMastery																																											PLURAL:Pureblood Skill Mastery	DISPLAYLOCATION:Heroic Path Abilities
 
 
-ABILITYCATEGORY:Master Adventurer		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Master Adventurer																																											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Master Adventurer		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Master Adventurer																																											DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Wogren Rider Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Improved Mounted Archery|Improved Mounted Combat|Improved Ride By Attack|Improved Spirited Charge|Improved Trample|Mounted Archery|Mounted Combat|Ride-By Attack|Spirited Charge|Trample															DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Sarcosan Knight Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Mounted Archery|Sarcosan Pureblood|Skill Focus (Ride)|Trample|Weapon Focus (Cedeku)|Weapon Focus (Scimitar)|Weapon Focus (Shortbow)|Weapon Specialization (Cedeku)|Weapon Specialization (Scimitar)|Weapon Specialization (Shortbow)							DISPLAYLOCATION:Feats
