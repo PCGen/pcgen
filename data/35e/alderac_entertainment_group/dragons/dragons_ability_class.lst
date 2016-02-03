@@ -44,9 +44,9 @@ Dragon Magic				KEY:Dragon Magic ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:Specia
 Dragon Claws				KEY:Dragon Claws ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality
 Dragon Creature Type			KEY:Dragon Creature Type ~ Wyrmfoe	CATEGORY:Special Ability	TYPE:SpecialQuality
 Dragon Breath				KEY:Dragon Breath ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality
-Wyrmfoe Damage Resistance (Acid)							CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Acid	BONUS:VAR|AcidResistanceBonus|WyrmfoeDR
-Wyrmfoe Damage Resistance (Cold)							CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold	BONUS:VAR|ColdResistanceBonus|WyrmfoeDR
-Wyrmfoe Damage Resistance (Fire)							CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire	BONUS:VAR|FireResistanceBonus|WyrmfoeDR
+Wyrmfoe Damage Resistance (Acid)							CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Acid	BONUS:VAR|AcidResistanceBonus|WyrmfoeDR
+Wyrmfoe Damage Resistance (Cold)							CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold	BONUS:VAR|ColdResistanceBonus|WyrmfoeDR
+Wyrmfoe Damage Resistance (Fire)							CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire	BONUS:VAR|FireResistanceBonus|WyrmfoeDR
 
 ###Block: ~ Wyrm Spawn
 # Ability Name		Unique Key						Category of Ability		Type				Description	Ability

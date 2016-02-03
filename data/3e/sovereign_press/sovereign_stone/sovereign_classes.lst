@@ -16,7 +16,8 @@ CLASS:Archer	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|cl
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Literacy|Spot|Swim
 ###Block:Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Archer Weapon Proficiencies|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Archer Weapon Proficiencies
+1	ABILITY:FEAT|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|Archer Primary Weapon|1	BONUS:VAR|PrimaryWeap|CL/5+2	ABILITY:FEAT|AUTOMATIC|Point Blank Shot
@@ -79,17 +80,18 @@ CLASS:Sailor	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|PROFESSION (SAILOR)|Speak Language|Spot|Swim|Tumble|Use Rope
 ###Block:Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Sailor Weapon Proficiencies|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Sailor Weapon Proficiencies
+1	ABILITY:FEAT|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|Sailor Weapon Bonus|1	BONUS:SKILL|Balance,Climb,Profession (Sailor),Use Rope|2
-2																							ABILITY:Special Ability|AUTOMATIC|Improvised Weapon
+2																							ABILITY:Feat|AUTOMATIC|Improvised Weapon
 3																							ABILITY:Special Ability|VIRTUAL|Evasion
 5	BONUS:ABILITYPOOL|Sailor Weapon Bonus|1																ABILITY:Special Ability|AUTOMATIC|Extraordinary Tolerance
 7																		BONUS:VAR|DirtyBlow|(CL-4)/3	ABILITY:Special Ability|AUTOMATIC|Dirty Blow
 9																		BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 10	BONUS:ABILITYPOOL|Sailor Weapon Bonus|1
-11																							ABILITY:Special Ability|AUTOMATIC|Superior Improvised Weapon
+11																							ABILITY:Feat|AUTOMATIC|Superior Improvised Weapon
 13																		BONUS:VAR|UncannyDodge|1
 15	BONUS:ABILITYPOOL|Sailor Weapon Bonus|1																ABILITY:Special Ability|AUTOMATIC|Follow Up Strike
 17																							ABILITY:Special Ability|AUTOMATIC|Extraordinary Balance
