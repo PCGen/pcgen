@@ -1,4 +1,4 @@
-# CVS $Revision: 12957 $ $Author: jbaril $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Wed Feb  3 13:52:26 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventurers-Armory	SOURCEDATE:2010-04
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Jeff Baril
@@ -139,7 +139,7 @@ Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon
 Butterfly Knife.MOD			TYPE:Bladelight.Weapon Group Blades Light
 Chakram.MOD					TYPE:Bladelight.Weapon Group Blades Light.Bladeheavy.Weapon Group Blades Heavy.Thrown.Weapon Group Thrown
 Sica.MOD					TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker (Dagger).MOD			TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD		TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Knife.MOD			TYPE:Bladelight.Weapon Group Blades Light
 Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
 War Razor.MOD				TYPE:Bladelight.Weapon Group Blades Light
