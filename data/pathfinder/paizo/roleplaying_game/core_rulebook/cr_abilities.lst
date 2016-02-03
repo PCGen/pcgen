@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Pathfinder RPG Entry by: Chris 'Barak' Chandler
 
@@ -87,8 +87,8 @@ Aura of Justice			KEY:Temp Bonus ~ Aura of Justice		CATEGORY:Internal			VISIBLE:
 Aura of Righteousness		KEY:Temp Bonus ~ Aura of Righteousness	CATEGORY:Internal			VISIBLE:NO																																																																																																																																																														TEMPDESC:Aura of Righteousness&colon; Each ally within 10 feet of her gains a +4 morale bonus on saving throws against compulsion effects.																																																															TEMPBONUS:ANYPC|VAR|ActivateTempBonus,AuraOfRighteousnessActivate|1
 
 
-Inspire Courage Selectable	KEY:Temp Bonus ~ Inspire Courage NPC	CATEGORY:Internal			VISIBLE:NO	TEMPBONUS:ANYPC|COMBAT|TOHIT|min(floor((%CHOICE+7)/6),4)	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|min(floor((%CHOICE+7)/6),4)			TEMPVALUE:MIN=1|MAX=20|TITLE=Choose bardic performance level
-Temp Bonus ~ Strength Surge			CATEGORY:Internal			VISIBLE:NO				TEMPVALUE:MIN=1|MAX=10|TITLE=Bonus		TEMPBONUS:ANYPC|STAT|STR|%CHOICE
+Inspire Courage Selectable	KEY:Temp Bonus ~ Inspire Courage NPC	CATEGORY:Internal			VISIBLE:NO																																																																																																																																																																																																																																																				TEMPBONUS:ANYPC|COMBAT|TOHIT|min(floor((%CHOICE+7)/6),4)	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|min(floor((%CHOICE+7)/6),4)					TEMPVALUE:MIN=1|MAX=20|TITLE=Choose bardic performance level
+Temp Bonus ~ Strength Surge								CATEGORY:Internal			VISIBLE:NO																																																																																																																																																																																																																																																				TEMPBONUS:ANYPC|STAT|STR|%CHOICE																						TEMPVALUE:MIN=1|MAX=10|TITLE=Bonus
 
 
 CATEGORY=Internal|DEFAULT.MOD															DEFINE:SizeIncrease|0	DEFINE:ActivateTempBonus|0	DEFINE:InspireCourageBonus|0	DEFINE:InspireGreatnessActivate|0	DEFINE:AuraOfResolveActivate|0	DEFINE:AuraOfCourageActivate|0	DEFINE:AuraOfJusticeActivate|0	DEFINE:AuraOfRighteousnessActivate|0	ABILITY:Special Ability|AUTOMATIC|Temp_Bonus_Aspect_Tracker|PREVARGTEQ:ActivateTempBonus,1

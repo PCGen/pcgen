@@ -1,10 +1,11 @@
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 
-CLASS:Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
-# Class Name	Hit Dice	Type			Max Level	Combat bonus
-CLASS:Barbarian	HD:12		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Hit Dice	Type			Max Level	Define			Modify VAR
+CLASS:Barbarian	HD:12		TYPE:PC.BASE	MAXLEVEL:20	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
+# Class Name	Multiple Requirements
 CLASS:Barbarian	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Barbarian],[PRECLASS:1,Barbarian=1]
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
@@ -24,10 +25,12 @@ CLASS:Barbarian	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=In
 20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Champion
 
 
-CLASS:Bard	SOURCEPAGE:p.	HD:8		TYPE:PC.BASE	MAXLEVEL:20	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL
-CLASS:Bard	BONUS:VAR|SpellCasterTotalLVL|BardLVL	BONUS:VAR|SpellCasterClassCount|1
-CLASS:Bard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Bard],[PRECLASS:1,Bard=1]
-CLASS:Bard	FACT:SpellType|Arcane	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Bard|CL	MEMORIZE:NO
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define		Modify VAR																FACT
+CLASS:Bard		HD:8		TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:p.	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:VAR|SpellCasterTotalLVL|BardLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Arcane
+# Class Name	Multiple Requirements
+CLASS:Bard		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Bard],[PRECLASS:1,Bard=1]
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Bard		SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -89,12 +92,12 @@ CLASS:Bard	FACT:SpellType|Arcane	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Bard|CL	MEMORIZ
 20	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Superior Inspiration
 
 
-# Class Name	Hit Dice	Type			Ability														Bonus to Ability Pool
-CLASS:Cleric	HD:8		TYPE:PC.Base	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL	BONUS:VAR|SpellCasterTotalLVL|ClericLVL	BONUS:VAR|SpellCasterClassCount|1
-CLASS:Cleric	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Cleric],[PRECLASS:1,Cleric=1]	MEMORIZE:YES
-# Class Name	Spell Stat		Caster level
-CLASS:Cleric	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Cleric|CL
-CLASS:Cleric	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+# Class Name	Hit Dice	Type			Define			Modify VAR																FACT
+CLASS:Cleric	HD:8		TYPE:PC.Base	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL	BONUS:VAR|SpellCasterTotalLVL|ClericLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+# Class Name	Multiple Requirements
+CLASS:Cleric	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Cleric],[PRECLASS:1,Cleric=1]
+# Class Name	Spell Stat		Memorize		Automatically Known Spell Levels									Caster level
+CLASS:Cleric	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -130,11 +133,12 @@ CLASS:Cleric	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7
 10	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Divine Intervention
 
 
-CLASS:Druid	HD:8		TYPE:PC.Base		DEFINE:DruidLVL|0	BONUS:VAR|DruidLVL|CL	BONUS:VAR|SpellCasterTotalLVL|DruidLVL	BONUS:VAR|SpellCasterClassCount|1	AUTO:LANG|Druidic
-CLASS:Druid	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Druid],[PRECLASS:1,Druid=1]	MEMORIZE:YES
-CLASS:Druid	SPELLSTAT:WIS	FACT:SpellType|Divine
-CLASS:Druid	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
-CLASS:Druid	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Druid|CL
+# Class Name	Hit Dice	Type			Define		Auto Language	Modify VAR																FACT
+CLASS:Druid		HD:8		TYPE:PC.Base	DEFINE:DruidLVL|0	AUTO:LANG|Druidic	BONUS:VAR|DruidLVL|CL	BONUS:VAR|SpellCasterTotalLVL|DruidLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine	FACT:SpellType|Divine
+# Class Name	Multiple Requirements
+CLASS:Druid		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Druid],[PRECLASS:1,Druid=1]
+# Class Name	Spell Stat					Memorize		Automatically Known Spell Levels									Caster level
+CLASS:Druid		SPELLSTAT:WIS	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -174,10 +178,12 @@ CLASS:Druid	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Druid|CL
 20	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Archdruid
 
 
-# Class Name	Hit Dice	Type			Ability																				Define			Bonus to Ability Pool			Modify VAR
-CLASS:Fighter	HD:10		TYPE:PC.Base	BONUS:VAR|FighterLVL|CL	DEFINE:FighterLVL|0
+# Class Name	Hit Dice	Type			Define			Modify VAR			FACT
+CLASS:Fighter	HD:10		TYPE:PC.Base	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|CL	FACT:SpellType|Arcane
+# Class Name	Multiple Requirements
 CLASS:Fighter	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Fighter],[PRECLASS:1,Fighter=1]
-CLASS:Fighter	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Fighter|CL	SPELLLIST:1|Fighter		MEMORIZE:NO
+# Class Name	Spell Stat		Memorize	Caster level			Use Spell List
+CLASS:Fighter	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Fighter|CL	SPELLLIST:1|Fighter
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
@@ -202,8 +208,10 @@ CLASS:Fighter	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Fighter|CL	S
 19	CAST:0,1,1,1,1
 20	CAST:0,1,1,1,1
 
-CLASS:Monk	HD:8		TYPE:PC.Base	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL
-CLASS:Monk	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
+# Class Name	Hit Dice	Type			Define		Modify VAR
+CLASS:Monk		HD:8		TYPE:PC.Base	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL
+# Class Name	Multiple Requirements
+CLASS:Monk		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -229,9 +237,12 @@ CLASS:Monk	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Interna
 18	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body
 20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self
 
-CLASS:Paladin	HD:10		TYPE:PC.Base	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|CL		BONUS:VAR|SpellCasterTotalLVL|PaladinLVL/2	BONUS:VAR|SpellCasterClassCount|1
+# Class Name	Hit Dice	Type			Define			Modify VAR																	FACT
+CLASS:Paladin	HD:10		TYPE:PC.Base	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|CL	BONUS:VAR|SpellCasterTotalLVL|PaladinLVL/2	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+# Class Name	Multiple Requirements
 CLASS:Paladin	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Paladin],[PRECLASS:1,Paladin=1]
-CLASS:Paladin	SPELLSTAT:CHA	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Paladin|CL	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5
+# Class Name	Spell Stat		Memorize		Automatically Known Spell Levels				Caster level
+CLASS:Paladin	SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Paladin|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -274,9 +285,12 @@ CLASS:Paladin	SPELLSTAT:CHA	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Paladin|CL	M
 19	CAST:0,4,3,3,3,2
 20	CAST:0,4,3,3,3,2
 
-CLASS:Ranger	HD:10		TYPE:PC.Base	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS:VAR|SpellCasterTotalLVL|RangerLVL/2	BONUS:VAR|SpellCasterClassCount|1
+# Class Name	Hit Dice	Type			Define			Modify VAR																FACT
+CLASS:Ranger	HD:10		TYPE:PC.Base	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS:VAR|SpellCasterTotalLVL|RangerLVL/2	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+# Class Name	Multiple Requirements
 CLASS:Ranger	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Ranger],[PRECLASS:1,Ranger=1]
-CLASS:Ranger	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Ranger|CL	MEMORIZE:NO
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Ranger	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Ranger|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -338,10 +352,12 @@ CLASS:Ranger	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Ranger|CL	MEM
 20	KNOWN:0,0,0,0,5,6
 
 
-# Class Name
-CLASS:Rogue	HD:8	TYPE:PC.Base	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
-CLASS:Rogue	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Rogue],[PRECLASS:1,Rogue=1]
-CLASS:Rogue	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Rogue|CL	SPELLLIST:1|Rogue	MEMORIZE:NO
+# Class Name	Hit Dice	Type			Define		Modify VAR			FACT
+CLASS:Rogue		HD:8		TYPE:PC.Base	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	FACT:SpellType|Arcane
+# Class Name	Multiple Requirements
+CLASS:Rogue		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Rogue],[PRECLASS:1,Rogue=1]
+# Class Name	Spell Stat		Memorize	Caster level			Use Spell List
+CLASS:Rogue		SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Rogue|CL	SPELLLIST:1|Rogue
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -380,10 +396,12 @@ CLASS:Rogue	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Rogue|CL	SPELL
 19	CAST:0,1,1,1,1
 20	CAST:0,1,1,1,1
 
-# Class Name
-CLASS:Sorcerer	HD:6		TYPE:PC.Base	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|SpellCasterTotalLVL|SorcererLVL	BONUS:VAR|SpellCasterClassCount|1
+# Class Name	Hit Dice	Type			Define			Modify VAR																	FACT
+CLASS:Sorcerer	HD:6		TYPE:PC.Base	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|SpellCasterTotalLVL|SorcererLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Arcane
+# Class Name	Multiple Requirements
 CLASS:Sorcerer	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Sorcerer],[PRECLASS:1,Sorcerer=1]
-CLASS:Sorcerer	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Sorcerer|CL	MEMORIZE:NO
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -442,10 +460,12 @@ CLASS:Sorcerer	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Sorcerer|CL
 19	KNOWN:0,0,0,0,0,2,3,3,3,4
 20	KNOWN:0,0,0,0,0,1,3,3,3,5
 
-# Class Name
-CLASS:Warlock	HD:8		TYPE:PC.Base	DEFINE:WarlockLVL|0	BONUS:VAR|WarlockLVL|CL
+# Class Name	Hit Dice	Type			Define			Modify VAR			FACT
+CLASS:Warlock	HD:8		TYPE:PC.Base	DEFINE:WarlockLVL|0	BONUS:VAR|WarlockLVL|CL	FACT:SpellType|Arcane
+# Class Name	Multiple Requirements
 CLASS:Warlock	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Warlock],[PRECLASS:1,Warlock=1]
-CLASS:Warlock	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Warlock|CL	MEMORIZE:NO
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Warlock	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Warlock|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -505,10 +525,12 @@ CLASS:Warlock	SPELLSTAT:CHA	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Warlock|CL	M
 20	KNOWN:0,0,0,0,0,15
 
 
-# Class Name
-CLASS:Wizard	HD:6	TYPE:PC.Base	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|CL	BONUS:VAR|SpellCasterTotalLVL|WizardLVL	BONUS:VAR|SpellCasterClassCount|1
+# Class Name	Hit Dice	Type			Define			Modify VAR																FACT
+CLASS:Wizard	HD:6		TYPE:PC.Base	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|CL	BONUS:VAR|SpellCasterTotalLVL|WizardLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Arcane
+# Class Name	Multiple Requirements
 CLASS:Wizard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Wizard],[PRECLASS:1,Wizard=1]
-CLASS:Wizard	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wizard|CL	MEMORIZE:YES
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Wizard|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
@@ -516,12 +538,12 @@ CLASS:Wizard	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wizard|CL	MEM
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips
-#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook						
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Preparing and Casting Spells
-#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Ability				
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Ability
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ritual Casting
-#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Focus				
-#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Learning Spells of 1st Level and Higher	
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Focus
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Learning Spells of 1st Level and Higher
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Recovery
 2	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Tradition
 4	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement
@@ -548,8 +570,3 @@ CLASS:Wizard	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wizard|CL	MEM
 18	CAST:1,1,1,1,1,1,1,1,1,1
 19	CAST:1,1,1,1,1,1,1,1,1,1
 20	CAST:1,1,1,1,1,1,1,1,1,1
-
-
-
-
-

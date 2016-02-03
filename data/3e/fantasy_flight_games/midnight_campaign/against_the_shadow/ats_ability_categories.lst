@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list																																						Plural description for UI		Display Location
@@ -14,7 +14,7 @@ ABILITYCATEGORY:Heroic Skill Boost		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 ABILITYCATEGORY:Pureblood Skill Mastery	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PurebloodSkillMastery																																											PLURAL:Pureblood Skill Mastery	DISPLAYLOCATION:Heroic Path Abilities
 
 
-ABILITYCATEGORY:Master Adventurer		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Master Adventurer																																											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Master Adventurer		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability							ABILITYLIST:Master Adventurer																																											DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Wogren Rider Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Improved Mounted Archery|Improved Mounted Combat|Improved Ride By Attack|Improved Spirited Charge|Improved Trample|Mounted Archery|Mounted Combat|Ride-By Attack|Spirited Charge|Trample															DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Sarcosan Knight Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Mounted Archery|Sarcosan Pureblood|Skill Focus (Ride)|Trample|Weapon Focus (Cedeku)|Weapon Focus (Scimitar)|Weapon Focus (Shortbow)|Weapon Specialization (Cedeku)|Weapon Specialization (Scimitar)|Weapon Specialization (Shortbow)							DISPLAYLOCATION:Feats

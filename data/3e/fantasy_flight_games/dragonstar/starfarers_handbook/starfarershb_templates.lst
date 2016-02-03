@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 # Template Name		Hit Dice Size	CR	Visible	Level Adjustment	Template																																										Source Page		Special Ability											Required AL	Combat bonus						Add to vision			Stat bonus											Removable?		Vision
@@ -45,7 +45,7 @@ Outlands		VISIBLE:NO								SOURCEPAGE:p.	REGION:Outlands
 Robot			VISIBLE:YES	SAB:Does not eat, drink, breathe, or sleep	SAB:Does not heal damage on their own or through divine magic, though can be repaired like any object or with arcane magic	SAB:Immune to any effect that requires a Fortitude save unless it effects objects also	SAB:Cannot be raised or resurrected, but is effectively immortal since it does not age	SAB:Cannot increase physical ability scores but can increase mental	SAB:Not subject to subdual damage, or death from massive damage	SAB:Immune to poison, sleep, paralysis, stunning, and disease	VISION:Low-light
 
 ###Block: Vehicle
-# Template Name	Visible	Define Stat																							Ability					Auto Weapon Prof
+# Template Name	Visible	Define Stat																							Ability							Auto Weapon Prof
 Vehicle		VISIBLE:YES	DEFINESTAT:NONSTAT|STR	DEFINESTAT:LOCK|DEX|1	DEFINESTAT:NONSTAT|CON	DEFINESTAT:NONSTAT|INT	DEFINESTAT:NONSTAT|WIS	DEFINESTAT:NONSTAT|CHA	ABILITY:Special Ability|AUTOMATIC|Ship_Guns	AUTO:WEAPONPROF|TYPE=ShipWeapon
 
 ###Block: Dragonblood feat support

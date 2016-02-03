@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Combat bonus										Save bonus													FACT
@@ -10,28 +10,28 @@ CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Conc
 1	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 
 ###Block: Normal Progression
-1																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1|TYPE=Base
+1			BONUS:VAR|DragonAge|1|TYPE=Base																	DEFINE:DragonAge|0
 9			BONUS:VAR|ColdResistanceBonus|20																					ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
-10																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|2|TYPE=Base
-13																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|3|TYPE=Base
+10			BONUS:VAR|DragonAge|2|TYPE=Base																	DEFINE:DragonAge|0
+13			BONUS:VAR|DragonAge|3|TYPE=Base																	DEFINE:DragonAge|0
 15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10																	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity|Resistance To Fire
-16																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|4|TYPE=Base
+16			BONUS:VAR|DragonAge|4|TYPE=Base																	DEFINE:DragonAge|0
 18	DR:5/Magic	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL/2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
-19																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|5|TYPE=Base
+19			BONUS:VAR|DragonAge|5|TYPE=Base																	DEFINE:DragonAge|0
 21
-22																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|6|TYPE=Base
+22			BONUS:VAR|DragonAge|6|TYPE=Base																	DEFINE:DragonAge|0
 24	DR:10/Magic
-25																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|7|TYPE=Base
+25			BONUS:VAR|DragonAge|7|TYPE=Base																	DEFINE:DragonAge|0
 27
-28																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|8|TYPE=Base
+28			BONUS:VAR|DragonAge|8|TYPE=Base																	DEFINE:DragonAge|0
 30	DR:15/Magic
-31																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|9|TYPE=Base
+31			BONUS:VAR|DragonAge|9|TYPE=Base																	DEFINE:DragonAge|0
 33
-34																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|10|TYPE=Base
+34			BONUS:VAR|DragonAge|10|TYPE=Base																	DEFINE:DragonAge|0
 36	DR:20/Magic
-37																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|11|TYPE=Base
+37			BONUS:VAR|DragonAge|11|TYPE=Base																	DEFINE:DragonAge|0
 39
-40																									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|12|TYPE=Base
+40			BONUS:VAR|DragonAge|12|TYPE=Base																	DEFINE:DragonAge|0
 
 # Class Name		FACT
 CLASS:Umbral Dragon	FACT:SpellType|Arcane
