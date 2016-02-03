@@ -37,7 +37,7 @@ CLASS:Roofrunner	PRESKILL:7,Knowledge (Home City)=5,Urban Lore=8,Climb=5,Balance
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Roofrunner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Swim|Tumble|Urban Lore|Use Rope
 ###Block: Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Guildmaster Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Guildmaster Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Roofrunning	SAB:Never Lost

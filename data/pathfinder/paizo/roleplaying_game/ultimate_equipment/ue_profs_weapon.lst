@@ -1,4 +1,4 @@
-# CVS $Revision: 21677 $ $Author: jdempsey $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21677 $ $Author: jdempsey $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # ORIGINAL ENTRY: James Dempsey
@@ -192,7 +192,7 @@ Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Clo
 Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Hunga Munga.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Swordbreaker (Dagger).MOD			TYPE:Bladelight.Weapon Group Blades Light
+Swordbreaker (Dagger).MOD		TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
 Gladius.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light

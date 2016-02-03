@@ -31,7 +31,8 @@ CATEGORY=FEAT|Lightning Reflexes.MOD		TYPE:Musketeer.Brawler
 CATEGORY=FEAT|Main-Gauche.MOD				TYPE:Musketeer
 CATEGORY=FEAT|Mobility.MOD				TYPE:Musketeer.Brawler.Watchman
 CATEGORY=FEAT|Mounted Combat.MOD			TYPE:Watchman
-CATEGORY=FEAT|Musketeer Skill Focus.MOD		TYPE:Musketeer
+# Does not exist - perhaps was a pool???
+#CATEGORY=FEAT|Musketeer Skill Focus.MOD		TYPE:Musketeer
 CATEGORY=FEAT|Parry.MOD					TYPE:Musketeer
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:Musketeer.Watchman
 CATEGORY=FEAT|Power Attack.MOD			TYPE:Brawler.Watchman

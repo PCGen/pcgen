@@ -10,7 +10,7 @@ CLASS:Acolyte of Chance	PREALIGN:CG,CN,CE	PREMULT:2,[PRESKILL:1,Knowledge (Relig
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Acolyte of Chance	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Acolyte of Chance Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Acolyte of Chance Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block Other base abilities
 1	SAB:Lucky Strike (+% luck bonus to attack and weapon damage rolls for a single attack)|LuckyStrike								DEFINE:LuckyStrike|0
@@ -31,13 +31,13 @@ CLASS:Aerialist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:Chap.1, Aerialist	
 CLASS:Aerialist	PREABILITY:2,CATEGORY=FEAT,Ambidexterity,Skill Focus (Tumble)	PRESKILL:4,Escape Artist=8,Jump=8,Perform=8,Tumble=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aerialist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spellcraft|Spot|Tumble|Use Rope
-1									ABILITY:FEAT|AUTOMATIC|Aerialist Weapon Proficiencies|Simple Weapon Proficiency
+1									ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|Aerialist Weapon Proficiencies
 1	BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
 ###Block: Normal Level Progression
 1	SAB:Untouchable (+% dodge bonus to AC)|UntouchableDodgeBonus	BONUS:VAR|UntouchableDodgeBonus|CL/2	BONUS:VAR|SneakAttackDice|(CL+1)/2	DEFINE:UntouchableDodgeBonus|0	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Pefect Balance (Ex)
 3												BONUS:VAR|UncannyDodge|1															ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-4																															ABILITY:FEAT|VIRTUAL|Aerialist Evasion
+4																															ABILITY:Special Ability|VIRTUAL|Aerialist Evasion
 6												BONUS:VAR|UncannyDodge|1
 8	SAB:Blink of an Eye (Ex)
 10	SAB:Defensive Roll (Ex)
@@ -83,7 +83,7 @@ CLASS:Falconer	SPELLSTAT:INT	SPELLBOOK:YES	BONUS:CASTERLEVEL|Falconer|CL
 1	SPELLLEVEL:CLASS|Falconer=3|Dimension Door,Haste,Illusory Script,Nondetection,Phantom Steed,Secret Page,Tongues
 1	SPELLLEVEL:CLASS|Falconer=4|Cure Moderate Wounds,Detect Scrying,Freedom of Movement,Polymorph Self
 ###Block: Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Falconer Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Falconer Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:0,0																														ABILITY:Special Ability|VIRTUAL|Evasion
@@ -144,7 +144,7 @@ CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:Chap.1, Night H
 CLASS:Night Hunter	PREABILITY:1,CATEGORY=FEAT,Track	PRESA:1,Sneak Attack	PRESKILL:4,Alchemy=3,Knowledge (Lycanthropes)=3,Hide=8,Move Silently=8	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Lycanthropes)|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
-1	ABILITY:FEAT|AUTOMATIC|Night Hunter Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Night Hunter Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Imbue Weapon							BONUS:VAR|SneakAttackDice|(CL+1)/2
@@ -161,7 +161,7 @@ CLASS:Noble Decoy	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:Chap.1, Noble De
 CLASS:Noble Decoy	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disguise)	PRESKILL:4,Perform=3,Tumble=3,Disguise=8,Bluff=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble Decoy	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
-1	ABILITY:FEAT|AUTOMATIC|Noble Decoy Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Noble Decoy Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Avoid Death (+%)|AvoidDeath								BONUS:VAR|AvoidDeath|(CL+1)/2	DEFINE:AvoidDeath|0	ABILITY:Special Ability|VIRTUAL|Improved Evasion
@@ -188,7 +188,7 @@ CLASS:Ossorus	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
 1	SPELLLEVEL:CLASS|Ossorus=3|Cure Serious Wounds,Detect Thoughts,Meld into Stone,Water Breathing
 1	SPELLLEVEL:CLASS|Ossorus=4|Cure Critical Wounds,Discern Lies,Neutralize Poison,Sending,Tongues
 ###Block: Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Ossorus Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Ossorus Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:0,0		SAB:Death Attack				BONUS:VAR|SneakAttackDice|(CL-1)/3													ABILITY:Special Ability|AUTOMATIC|Sneak Attack
@@ -293,7 +293,7 @@ CLASS:Royal Assassin	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:Chap.1, Royal
 CLASS:Royal Assassin	!PREALIGN:LE,NE,CE	PREMULT:2,[PRESKILL:2,Hide=8,Move Silently=8],[PRESKILL:2,Appraise=3,Balance=3,Bluff=3,Climb=3,TYPE.Craft=3,Decipher Script=3,Diplomacy=3,Disable Device=3,Disguise=3,Escape Artist=3,Forgery=3,Gather Information=3,Innuendo=3,Intimidate=3,Intuit Direction=3,Jump=3,Listen=3,Open Lock=3,Perform=3,Pick Pocket=3,TYPE.Profession=3,Read Lips=3,Search=3,Sense Motive=3,Spot=3,Swim=3,Tumble=3,Use Magic Device=3,Use Rope=3]	PRESA:1,Sneak Attack	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
-1	ABILITY:FEAT|AUTOMATIC|Royal Assassin Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Royal Assassin Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
 1	SAB:Death Attack
@@ -318,7 +318,7 @@ CLASS:Sailmaster	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS
 1	SPELLLEVEL:CLASS|Sailmaster=3|Remove Disease,Repel Vermin,Water Breathing
 1	SPELLLEVEL:CLASS|Sailmaster=4|Commune with Nature,Control Water,Control Winds,Quench
 ###Block: Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Sailmaster Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Sailmaster Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
 1	CAST:0,0		BONUS:ABILITYPOOL|Sailmaster Feat|1
@@ -369,7 +369,7 @@ CLASS:Unblinking Eye	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:Chap.1, Unbli
 CLASS:Unblinking Eye	PRESKILL:4,Bluff=8,Disguise=8,Gather Information=8,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope
-1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|Unblinking Eye Weapon Proficiencies
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|Unblinking Eye Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Progression
 1	SAB:Surface Disguise (Sp)|PREVARLT:CL,4	SPELLS:Class|TIMES=1|Alter Self
@@ -388,7 +388,7 @@ CLASS:White Rose	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:Chap.1, White Ros
 CLASS:White Rose	PREABILITY:2,CATEGORY=FEAT,Dodge,Expertise	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Sword)	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Balance=8,Hide=8,Jump=8,Move Silently=8	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble
-1	ABILITY:FEAT|AUTOMATIC|White Rose Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|White Rose Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|White Rose Special Ability|1

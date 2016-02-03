@@ -1,4 +1,5 @@
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 
@@ -26,8 +27,3 @@ Deception		KEYSTAT:CHA	VISIBLE:EXPORT
 Intimidation	KEYSTAT:CHA	VISIBLE:EXPORT
 Performance		KEYSTAT:CHA	VISIBLE:EXPORT
 Persuasion		KEYSTAT:CHA	VISIBLE:EXPORT
-
-
-
-
-

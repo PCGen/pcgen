@@ -38,7 +38,7 @@ Kama				TYPE:Exotic
 Katana			TYPE:Martial.Exotic
 Kukri				TYPE:Exotic.Dagger
 Kusari-gama			TYPE:Martial
-Lance				TYPE:Martial
+Lance				TYPE:Martial.Lance
 Longbow			TYPE:Martial.Bow			HANDS:2
 Longbow (Composite)	TYPE:Martial.Bow			HANDS:2
 Longspear			TYPE:Martial.Spear
