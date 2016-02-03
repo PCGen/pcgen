@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:52:26 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 ###Block: ~ Air Lord
@@ -39,8 +39,8 @@ Thunder of the Dragon	KEY:Thunder of the Dragon ~ Student of the Dragon	CATEGORY
 Master of the Dragon	KEY:Master of the Dragon ~ Student of the Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: ~ Wyrmfoe
-# Ability Name				Unique Key					Category of Ability		Type					Visible		Define					Description														Ability								Modify VAR
-Dragon Magic				KEY:Dragon Magic ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:DragonMagicProgression|0	DESC: (-%1 metamagic or +%2 casterlevel)|DragonMagicProgression|DragonMagicProgression
+# Ability Name				Unique Key					Category of Ability		Type									Visible		Define					Description														Ability								Modify VAR
+Dragon Magic				KEY:Dragon Magic ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality									DEFINE:DragonMagicProgression|0	DESC: (-%1 metamagic or +%2 casterlevel)|DragonMagicProgression|DragonMagicProgression
 Dragon Claws				KEY:Dragon Claws ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality
 Dragon Creature Type			KEY:Dragon Creature Type ~ Wyrmfoe	CATEGORY:Special Ability	TYPE:SpecialQuality
 Dragon Breath				KEY:Dragon Breath ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality

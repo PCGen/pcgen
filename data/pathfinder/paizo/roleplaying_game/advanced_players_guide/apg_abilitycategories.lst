@@ -156,6 +156,9 @@ ABILITYCATEGORY:Weapon Adept Monk Weapon Specialization Choice	VISIBLE:QUALIFY	E
 ABILITYCATEGORY:Zen Archer Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ZenArcherFeat														PLURAL:Zen Archer Feats							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Zen Archer Weapon Focus Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Focus ~ Zen Archer					PLURAL:Zen Archer Weapon Focus Choices				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Zen Archer Weapon Specialization Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Specialization ~ Zen Archer				PLURAL:Zen Archer Weapon Specialization Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Zen Archer Point Blank Master				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Zen Archer Point Blank Master															DISPLAYLOCATION:Feats
+
+
 
 # Ranger Archetypes
 ABILITYCATEGORY:Hunter's Trick Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntersTrickChoice														PLURAL:Hunter's Trick Selections					DISPLAYLOCATION:Class Features
