@@ -337,7 +337,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")')-1 ; ability , ability_has_next>
-<b>${pcstring('ABILITY.Special Ability.VISIBLE.${ability}.KEY')}</b> [<i>${pcstring('ABILITY.Special Ability.VISIBLE.${ability}.SOURCE')}</i>]<br>
+<b>${pcstring('ABILITY.Special Ability.HIDDEN.${ability}.KEY')}</b> [<i>${pcstring('ABILITY.Special Ability.HIDDEN.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
@@ -346,7 +346,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")')-1 ; ability , ability_has_next>
-<b>${pcstring('ABILITYAUTO.Special Ability.VISIBLE.${ability}.KEY')}</b> [<i>${pcstring('ABILITYAUTO.Special Ability.VISIBLE.${ability}.SOURCE')}</i>]<br>
+<b>${pcstring('ABILITYAUTO.Special Ability.HIDDEN.${ability}.KEY')}</b> [<i>${pcstring('ABILITYAUTO.Special Ability.HIDDEN.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
@@ -355,7 +355,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")')-1 ; ability , ability_has_next>
-<b>${pcstring('VABILITY.Special Ability.VISIBLE.${ability}.KEY')}</b> [<i>${pcstring('VABILITY.Special Ability.VISIBLE.${ability}.SOURCE')}</i>]<br>
+<b>${pcstring('VABILITY.Special Ability.HIDDEN.${ability}.KEY')}</b> [<i>${pcstring('VABILITY.Special Ability.HIDDEN.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
@@ -390,34 +390,34 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")') != 0)>
 <hr />
 </#if>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")') != 0)>
 <b>Internal Abilities (Hidden)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")')-1 ; ability , ability_has_next>
-<b>${pcstring('ABILITY.Internal.VISIBLE.${ability}.KEY')}</b> [<i>${pcstring('ABILITY.Internal.VISIBLE.${ability}.SOURCE')}</i>]<br>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITY.Internal.HIDDEN.${ability}.KEY')}</b> [<i>${pcstring('ABILITY.Internal.HIDDEN.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")') != 0)>
 <b>Internal Abilities (Hidden Automatic)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")')-1 ; ability , ability_has_next>
-<b>${pcstring('ABILITYAUTO.Internal.VISIBLE.${ability}.KEY')}</b> [<i>${pcstring('ABILITYAUTO.Internal.VISIBLE.${ability}.SOURCE')}</i>]<br>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYAUTO.Internal.HIDDEN.${ability}.KEY')}</b> [<i>${pcstring('ABILITYAUTO.Internal.HIDDEN.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")') != 0)>
 <b>Internal Abilities (Hidden Virtual)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")')-1 ; ability , ability_has_next>
-<b>${pcstring('VABILITY.Internal.VISIBLE.${ability}.KEY')}</b> [<i>${pcstring('VABILITY.Internal.VISIBLE.${ability}.SOURCE')}</i>]<br>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")')-1 ; ability , ability_has_next>
+<b>${pcstring('VABILITY.Internal.HIDDEN.${ability}.KEY')}</b> [<i>${pcstring('VABILITY.Internal.HIDDEN.${ability}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
