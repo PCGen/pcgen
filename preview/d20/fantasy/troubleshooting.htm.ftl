@@ -144,6 +144,7 @@ ${pcstring('CHECK.${check}.MISC.NOMAGIC.NOSTAT')}[MISC]
 
 <hr />
 <b>Attacks</b>
+<br>
 
 <@loop from=0 to=pcvar('COUNT[EQTYPE.Weapon]-1') ; weap , weap_has_next><#-- TODO: Loop was of early exit type 1 -->
 <b>${pcstring('WEAPON.${weap}.NAME.NOSTAR')} </b>
