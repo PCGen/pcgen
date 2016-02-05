@@ -15,7 +15,7 @@ Some notable changes in this release are listed below.
 		 
 ## Notable Changes
 
-* 50+ Data Fixes
+* 65 Data Fixes
 * 20+ Code Fixes and UI Improvements
 * Official 5th Edition Support
 
@@ -29,14 +29,14 @@ The following new sources were added in 6.6.00RC2
 For full details of the new changes in this release, see the 
 [Release Notes](http://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/6.06.00RC2/pcgen-release-notes-60600RC2.html/download) in the list above.
 
-*Andrew Maitland* for the PCGEN Team -- 1 February, 2016.
+*Andrew Maitland* for the PCGEN Team -- 4 February, 2016.
 
-#SHA-256 digest for pcgen-6.06.00RC2-full.zip:
-#f6089c4c41f3ab876890bff02a2ff9965ab9e5543162f47ae64bd8ffd2279d9f
+SHA-256 digest for pcgen-6.06.00RC2-full.zip:
+2b3de437bdf3fb5fbeee5917677a7d2d7a6d010096c71a3b0bda56cc5d441cbe
 
-#SHA-256 digest for pcgen-6.06.00RC2-sources.jar:
-#2809ffebadeae509650b9492757c8a450869ef47aeca35249c594e064d6d4829
+SHA-256 digest for pcgen-6.06.00RC2-sources.jar:
+216633123d018944bb65a5f9ee9d6a870a75d874de5feaabfd2d9eb95b403261
 
-#SHA-256 digest for pcgen60600RC2_win_install.exe:
-#5454e193dac90e4226ef1a42e4b7c85c70c69840e9196fbc65c41bc8fbdc346c
+SHA-256 digest for pcgen60600RC2_win_install.exe:
+38d70702021ba6fc44e89f3e2eac558db2a4d40bcf5afe2aea2877eb7d5ca6f1
 
