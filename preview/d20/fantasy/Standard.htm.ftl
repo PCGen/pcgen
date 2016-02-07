@@ -1465,23 +1465,23 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+0).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+0)')}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+1).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+1)')}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+2).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+2)')}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+3).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+3)')}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+4).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+4)')}</b></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
@@ -1549,11 +1549,11 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
      </tr>
      <tr>
       <td align="center" class="font8"><b>22 - 25</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+0).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+0)')}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>26+</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+1).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+1)')}</b></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
