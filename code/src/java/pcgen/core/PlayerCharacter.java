@@ -231,6 +231,7 @@ import pcgen.cdom.helper.SAProcessor;
 import pcgen.cdom.helper.SAtoStringProcessor;
 import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.identifier.SpellSchool;
+import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.inst.ObjectCache;
@@ -531,6 +532,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	private CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
+	private CodeControl controller;
 
 	/**
 	 * Constructor.
@@ -566,6 +568,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				refContext.constructNowIfNecessary(GlobalModifiers.class,
 					"Global Modifiers");
 		globalModifierFacet.set(id, gm);
+		controller =
+				refContext.constructNowIfNecessary(CodeControl.class,
+					"Controller");
 
 		//Do BilSet first, since required by Race
 		bioSetFacet.set(id, Globals.getBioSet());
@@ -4975,18 +4980,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 
 		return retList;
-	}
-
-	/**
-	 * Get the Alternative HP for Gamemodes that don't use the traditions 
-	 * HP approach (e.g.  Wound points)  
-	 * 
-	 * @return The alternative HP for this PC
-	 */
-	public int altHP()
-	{
-		final int i = (int) getTotalBonusTo("HP", "ALTHP");
-		return i;
 	}
 
 	/**
@@ -10648,5 +10641,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public Object getGlobal(String varName)
 	{
 		return resultFacet.getGlobalVariable(id, varName);
+	}
+
+	public String getControl(String string)
+	{
+		return controller.get(ObjectKey.getKeyFor(String.class, string));
 	}
 }

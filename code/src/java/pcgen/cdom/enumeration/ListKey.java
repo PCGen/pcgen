@@ -285,6 +285,7 @@ public final class ListKey<T>
 	public static final ListKey<RemoteModifier<?, ?>> REMOTE_MODIFIER = new ListKey<RemoteModifier<?, ?>>();
 	public static final ListKey<String> GROUP = new ListKey<String>();
 	public static final ListKey<CampaignSourceEntry> FILE_GLOBALMOD = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_CODECTRL = new ListKey<CampaignSourceEntry>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 
