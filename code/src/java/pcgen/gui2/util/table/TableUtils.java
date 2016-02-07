@@ -20,14 +20,13 @@
  */
 package pcgen.gui2.util.table;
 
-import java.awt.Container;
 import java.awt.Dimension;
+
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
-import javax.swing.JViewport;
 import javax.swing.table.TableColumn;
 
 /**
