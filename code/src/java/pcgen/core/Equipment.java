@@ -5660,22 +5660,6 @@ public final class Equipment extends PObject implements Serializable,
 	// Protective Item Support
 	//
 	/**
-	 * Gets the AC attribute of the Equipment object
-	 * 
-	 * @param aPC The PC that has the Equipment
-	 * 
-	 * @return The acBonus value
-	 */
-	public Integer getACBonus(final PlayerCharacter aPC)
-	{
-		//TODO BONUS:EQMARMOR|ACBONUS|x should be documented.
-		int dbon = (int) bonusTo(aPC, "COMBAT", "AC", true);
-		dbon += (int) bonusTo(aPC, "EQMARMOR", "ACBONUS", true);
-
-		return dbon;
-	}
-
-	/**
 	 * Gets the acMod attribute of the Equipment object
 	 * 
 	 * @param aPC The PC that has the Equipment
@@ -5684,6 +5668,12 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public Integer getACMod(final PlayerCharacter aPC)
 	{
+		String acMod = aPC.getControl("*EQACMOD");
+		if (acMod != null)
+		{
+			Object o = aPC.getLocal(this, acMod);
+			return ((Number) o).intValue();
+		}
 		//TODO This should be documented
 		return (int) bonusTo(aPC, "EQMARMOR", "AC", true)
 			+ (int) bonusTo(aPC, "COMBAT", "AC", true);
@@ -6722,17 +6712,17 @@ public final class Equipment extends PObject implements Serializable,
 		removeListFor(ListKey.TEMP_BONUS);
 	}
 
-	/**
-	 * Get the list of bonuses as a String
-	 * @param pc TODO
-	 * @param aString
-	 * @return the list of bonuses as a String
-	 */
-	public boolean hasBonusWithInfo(PlayerCharacter pc, final String aString)
+	public boolean altersAC(PlayerCharacter pc)
 	{
+		String type = pc.getControl("*ACALTERTYPE");
+		if (type != null)
+		{
+			return isType(type);
+		}
+
 		for (BonusObj bonus : getRawBonusList(pc))
 		{
-			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
+			if (bonus.getBonusInfo().equalsIgnoreCase("AC"))
 			{
 				return true;
 			}

@@ -85,7 +85,7 @@ public class PCCountEqTypeTermEvaluator
 					pc.getEquipmentListInOutputOrder(merge);
 			for ( Equipment eq : equipList )
 			{
-				if (eq.hasBonusWithInfo(pc, "AC") && !eq.isArmor() && !eq.isShield())
+				if (eq.altersAC(pc) && !eq.isArmor() && !eq.isShield())
 				{
 					aList.add(eq);
 				}

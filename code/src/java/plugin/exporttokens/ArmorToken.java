@@ -299,8 +299,7 @@ public class ArmorToken extends Token
 				&& ((equipped == 3) || ((equipped == 2) && !eq.isEquipped()) || ((equipped == 1) && eq
 					.isEquipped())))
 			{
-				if (eq.hasBonusWithInfo(aPC, "AC") && !eq.isArmor()
-					&& !eq.isShield())
+				if (eq.altersAC(aPC) && !eq.isArmor() && !eq.isShield())
 				{
 					aArrayList.add(eq);
 				}
@@ -427,7 +426,7 @@ public class ArmorToken extends Token
 			{
 				aArrayList.add(eq);
 			}
-			else if (eq.hasBonusWithInfo(aPC, "AC"))
+			else if (eq.altersAC(aPC))
 			{
 				aArrayList.add(eq);
 			}
@@ -469,25 +468,40 @@ public class ArmorToken extends Token
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
 			ret.append(eq.getAppliedName());
 		}
-		else if (property.startsWith("TOTALAC"))
+		else if (property.startsWith("TOTALAC") || property.startsWith("ACBONUS"))
 		{
 			// adjustments for new equipment modifier
 			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
 			//FileAccess.write(output, Delta.toString(eq.getACMod()));
-			ret.append(Delta.toString((int) eq.bonusTo(aPC, "COMBAT", "AC",
-				true)));
+			String acMod = aPC.getControl("*EQACMOD");
+			if (acMod != null)
+			{
+				Object o = aPC.getLocal(eq, acMod);
+				int intValue = ((Number) o).intValue();
+				ret.append(Delta.toString(intValue));
+			}
+			else
+			{
+				ret.append(Delta.toString((int) eq.bonusTo(aPC, "COMBAT", "AC",
+					true)));
+			}
 		}
 		else if (property.startsWith("BASEAC"))
 		{
 			// adjustments for new equipment modifier
 			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
 			//FileAccess.write(output, Delta.toString(eq.getACMod()));
-			ret.append(Delta.toString((int) BonusCalc.charBonusTo(eq, "COMBAT", "AC", aPC)));
-		}
-		else if (property.startsWith("ACBONUS"))
-		{
-			ret.append(Delta.toString((int) eq.bonusTo(aPC, "COMBAT", "AC",
-				true)));
+			String baseMod = aPC.getControl("*EQBASEACMOD");
+			if (baseMod != null)
+			{
+				Object o = aPC.getLocal(eq, baseMod);
+				int intValue = ((Number) o).intValue();
+				ret.append(Delta.toString(intValue));
+			}
+			else
+			{
+				ret.append(Delta.toString((int) BonusCalc.charBonusTo(eq, "COMBAT", "AC", aPC)));
+			}
 		}
 		else if (property.startsWith("MAXDEX"))
 		{

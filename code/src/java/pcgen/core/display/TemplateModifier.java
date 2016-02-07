@@ -106,11 +106,14 @@ public class TemplateModifier
 			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}
 
-		int nat = (int) BonusCalc.charBonusTo(pct, "COMBAT", "AC", aPC);
-
-		if (nat != 0)
+		if (!aPC.hasControl("*ACVAR"))
 		{
-			mods.append("AC BONUS:").append(nat);
+			int nat = (int) BonusCalc.charBonusTo(pct, "COMBAT", "AC", aPC);
+
+			if (nat != 0)
+			{
+				mods.append("AC BONUS:").append(nat);
+			}
 		}
 
 		float cr = pct.getCR(totalLevels, totalHitDice);

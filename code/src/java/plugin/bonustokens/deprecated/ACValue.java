@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package plugin.bonustokens;
+package plugin.bonustokens.deprecated;
 
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;

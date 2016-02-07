@@ -69,17 +69,17 @@ public class PlayerCharacterOutput
 
 	public String getAC()
 	{
-		return Integer.toString(display.getACTotal());
+		return Integer.toString(display.calcACOfType("Total"));
 	}
 
 	public String getACFlatFooted()
 	{
-		return Integer.toString(display.flatfootedAC());
+		return Integer.toString(display.calcACOfType("Flatfooted"));
 	}
 
 	public String getACTouch()
 	{
-		return Integer.toString(display.touchAC());
+		return Integer.toString(display.calcACOfType("Touch"));
 	}
 
 	public String getAlignmentLong()

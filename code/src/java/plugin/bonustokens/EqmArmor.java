@@ -102,6 +102,16 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
+		if (ControlUtilities.hasControlToken(context, "ACVARTOTAL"))
+		{
+			if ("AC".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: "
+						+ token, context);
+				return false;
+			}
+		}
 		if (ControlUtilities.hasControlToken(context, "EQACCHECK"))
 		{
 			if ("ACCHECK".equals(token))
@@ -113,6 +123,4 @@ public final class EqmArmor extends MultiTagBonusObj
 		}
 		return super.parseToken(context, token);
 	}
-	
-	
 }
