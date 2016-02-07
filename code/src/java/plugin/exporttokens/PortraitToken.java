@@ -109,7 +109,7 @@ public class PortraitToken extends AbstractExportToken
 		File thumbFile;
 		try
 		{
-			thumbFile = File.createTempFile("pcgentmb_", ".jpg");
+			thumbFile = File.createTempFile("pcgentmb_", ".png");
 		}
 		catch (IOException e1)
 		{
@@ -119,7 +119,7 @@ public class PortraitToken extends AbstractExportToken
 		} 
 		try
 		{
-			ImageIO.write(thumb, "JPEG", thumbFile);
+			ImageIO.write(thumb, "PNG", thumbFile);
 		}
 		catch (IOException e)
 		{

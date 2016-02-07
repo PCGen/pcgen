@@ -5,7 +5,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 
 # Skill Name	Key Stat	Untrained?		Skill Penalty?	Classes																			Type			Required Ability							Source Page		Bonus to skill
 Cryptography	KEYSTAT:INT	USEUNTRAINED:NO				CLASSES:Loremaster|Rogue																TYPE:Intelligence										SOURCEPAGE:p.78
-Demolitions		KEYSTAT:INT	USEUNTRAINED:NO				CLASSES:Assassin|Blackguard|Dwarven Defender|Fighter|Rogue|Shadowdancer|Warrior							TYPE:Intelligence	PREABILITY:1,CATEGORY=FEAT,Technical Proficiency	SOURCEPAGE:p.79	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)
+Demolitions		KEYSTAT:INT	USEUNTRAINED:NO				CLASSES:Assassin|Blackguard|Dwarven Defender|Fighter|Rogue|Shadowdancer|Warrior							TYPE:Intelligence	PREABILITY:1,CATEGORY=FEAT,Technical Proficiency	SOURCEPAGE:p.79	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions Kit,Demolitions Kit (Masterwork)
 Freefall		KEYSTAT:DEX				ACHECK:YES		CLASSES:Assassin|Barbarian|Blackguard|Druid|Dwarven Defender|Fighter|Monk|Paladin|Ranger|Rogue|Shadowdancer|Warrior	TYPE:Dexterity										SOURCEPAGE:p.79
 Pilot			KEYSTAT:DEX				ACHECK:YES		CLASSES:Aristocrat|Blackguard|Fighter|Paladin|Ranger|Rogue|Warrior									TYPE:Dexterity	PREABILITY:1,CATEGORY=FEAT,Technical Proficiency	SOURCEPAGE:p.80
 Navigate		KEYSTAT:INT							CLASSES:Bard|Druid|Ranger|Rogue|Wizard														TYPE:Intelligence										SOURCEPAGE:p.81

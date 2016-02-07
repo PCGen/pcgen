@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
 # Conditional skills for bard's Versatile Performance ability
@@ -247,17 +247,18 @@ Diplomacy.MOD			SITUATION:Undead
 Disable Device.MOD		SITUATION:Traps
 
 ###Block: Inner Sea World Guide
-Bluff.MOD				SITUATION:Fool someone
-Bluff.MOD				SITUATION:Pass messages
-Escape Artist.MOD			SITUATION:Escape bonds/grapple
-Handle Animal.MOD			SITUATION:Birds of prey
-Knowledge (Planes).MOD		SITUATION:ID demon
-Linguistics.MOD			SITUATION:Create forgeries
-Sense Motive.MOD			SITUATION:Resist feint
+# Skill Name		Situational Skill
+Bluff.MOD			SITUATION:Fool someone
+Bluff.MOD			SITUATION:Pass messages
+Escape Artist.MOD		SITUATION:Escape bonds/grapple
+Handle Animal.MOD		SITUATION:Birds of prey
+Knowledge (Planes).MOD	SITUATION:ID demon
+Linguistics.MOD		SITUATION:Create forgeries
+Sense Motive.MOD		SITUATION:Resist feint
 
 
-Handle Animal.MOD			SITUATION:Horse
-Ride.MOD				SITUATION:Horse
+Handle Animal.MOD		SITUATION:Horse
+Ride.MOD			SITUATION:Horse
 
 
 

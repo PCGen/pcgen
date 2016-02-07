@@ -139,9 +139,9 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 
 		<p>If you have custom data created using either the old LST Editor, or the my_dataset example files, it is
 			very important that you read the
-            <a href="http://pcgen-test.org/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> and
-            <a href="http://wiki.pcgen.org/Updating_Homebrew_Sets">Upgrading home brews</a> 
-            before installing your new version of PCGen.</p>
+			<a href="http://pcgen.org/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> and
+			<a href="http://wiki.pcgen.org/Updating_Homebrew_Sets">Upgrading home brews</a> 
+			before installing your new version of PCGen.</p>
 
 		<h2><a name="Thanks">Thanks</a></h2>
 
@@ -267,6 +267,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2982'>CODE-2982</a>] -         PRESKILL for type not recognising number of occurrences</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2985'>CODE-2985</a>] -         Domain tab check boxes do not have the same background color as table</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2986'>CODE-2986</a>] -         Freemarker output of NOTE.x.y should not have line break at the end</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-2990'>CODE-2990</a>] -         Fix UI performance issue (Switching tabs)</li>
 </ul>
 
 <h3>       Data  Bug Fixes
@@ -320,8 +321,21 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2734'>DATA-2734</a>] -         Dragon Disciple not granting Bonus Feats</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2735'>DATA-2735</a>] -         Dragon Disciple is granting bonus spells too early</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2736'>DATA-2736</a>] -         Pathfinder Unchained Variant Multiclass not accessible.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2738'>DATA-2738</a>] -         Sacred Fist issues</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2740'>DATA-2740</a>] -         Lvl 13 Monk wont qualify for Dimensional Agility</li>
-</ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2743'>DATA-2743</a>] -         [ISWG] Not using correct situation skills system</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2744'>DATA-2744</a>] -         Traits not all set up correctly.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2745'>DATA-2745</a>] -         Multiple Swordbreaker Dagger versions all corrected to proper KEY</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2746'>DATA-2746</a>] -         Some Unchained Rogue Talents are missing</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2747'>DATA-2747</a>] -         Coin values are incorrect in srd_equip.lst</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2748'>DATA-2748</a>] -         Sorcerer Draconic bloodline claw descriptions for electricity and fire are switched</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2749'>DATA-2749</a>] -         rsrd campaign loaders lack new required files</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2750'>DATA-2750</a>] -         Catfolk racial trait &quot;curiosity&quot; doesn&#39;t give any skill bonuses</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2751'>DATA-2751</a>] -         Combat Tricks should only be displayed if the Combat Trick option is taken</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2752'>DATA-2752</a>] -         Can&#39;t choose for Point Blank Master feat with zen archer monk</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2753'>DATA-2753</a>] -         Reckless Aim feat can&#39;t be added even when prerequisites met</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2754'>DATA-2754</a>] -         Poison Use abilities not set up to be recognized by feat &quot;Adder Strike&quot;</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2756'>DATA-2756</a>] -         Unchained issues - Barbarian</li></ul>
 
 <h3>       Documentation  Bug Fixes
 </h3>
@@ -332,7 +346,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>        Output Sheet Bug Fix
 </h3>
 <ul>
-<li>None this release</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-435'>OS-435</a>] -         [Summary Preview] Change sheets into freemarker templates</li>
 </ul>
 
 
@@ -493,6 +507,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/OS-414'>OS-414</a>] -         [Pathfinder] When present, please include Faction in the Header</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/OS-431'>OS-431</a>] -         Create an OS that mimics the Pathfinder NPC Codex layout</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/OS-432'>OS-432</a>] -         Debug sheet to use KEY instead of name</li></ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/OS-435'>OS-435</a>] -         [Summary Preview] Change sheets into freemarker templates</li>
 
  
 <h3>        Modify Tokens
@@ -660,6 +675,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>       Data  Bug Fixes
 </h3>
 <ul>
+
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1141'>DATA-1141</a>] -         Smite Evil broken for Paladin Archetypes</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1344'>DATA-1344</a>] -         [Pathfinder] Bestiary 3 - Kits have wrong entries for skills</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-1511'>DATA-1511</a>] -         [Pathfinder] Gauntlet weight adjusted improperly for small characters</li>
@@ -805,9 +821,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2451'>DATA-2451</a>] -         [Paizo] APG - Hungry Ghost Monk archetype &quot;Punishing Kick&quot; not granted</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2452'>DATA-2452</a>] -         [Paizo] B1 - Natural Attacks for Lycanthrope Hybrids assumed to be secondary</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2453'>DATA-2453</a>] -         [WotC] RSRD - Bardic Inspire Courage temporary bonuses</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2453'>DATA-2453</a>] -         [WotC] RSRD - Bardic Inspire Courage temporary bonuses</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2454'>DATA-2454</a>] -         [Paizo] ARG - Example races not part of source</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2456'>DATA-2456</a>] -         [Paizo] B2 - Missing default character kit for Create Monster (Serpentfolk (Degenerate))</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2456'>DATA-2456</a>] -         [Paizo] B2 - Missing default character kit for Create Monster (Serpentfolk (Degenerate))</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2457'>DATA-2457</a>] -         [Paizo] SOS - Boon Companion not applied to Special Mounts or Cavalier Mounts</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2458'>DATA-2458</a>] -         [Paizo] APG - Stalwart Defender not getting the Dodge AC Bonus</li>
@@ -829,7 +843,6 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2482'>DATA-2482</a>] -         [Pathfinder] ACG - Slayer talent &quot;Combat Style&quot; not qualifying PC for ranger style bonus feats</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2485'>DATA-2485</a>] -         Swashbuckler text for Panache has wrong formula</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2486'>DATA-2486</a>] -         [Pathfinder] UC - Gunslinger does not Utilize the Checklist function for Grit Points</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2488'>DATA-2488</a>] -         [Pathfinder] Swashbuckler Finesse applies Dex to Longsword when it is not chosen.</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2488'>DATA-2488</a>] -         [Pathfinder] Swashbuckler Finesse applies Dex to Longsword when it is not chosen.</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2489'>DATA-2489</a>] -         [Pathfinder] Arcanist displays wrong number of check-boxes for Arcane reservoir</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2492'>DATA-2492</a>] -         [Pathfinder] Kitsune Favored Class Bonus for Oracle</li>
@@ -973,10 +986,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2674'>DATA-2674</a>] -         Pathfinder Bard missing Untrained Knowledge skill</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2675'>DATA-2675</a>] -         Catfolk Claw Blades listed as not Proficient when using the Racial Trait &quot;Cat&#39;s Claws&quot;</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2676'>DATA-2676</a>] -         [Pathfinder] Blood of the Moon - Prophetic Armor and Eye of the Moon not implemented</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2676'>DATA-2676</a>] -         [Pathfinder] Blood of the Moon - Prophetic Armor and Eye of the Moon not implemented</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2678'>DATA-2678</a>] -         Unchained Barbarian does not get Rage Powers</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2678'>DATA-2678</a>] -         Unchained Barbarian does not get Rage Powers</li>
-<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2679'>DATA-2679</a>] -         [Dreamscarred Press] Ultimate Psionics load errors</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2679'>DATA-2679</a>] -         [Dreamscarred Press] Ultimate Psionics load errors</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2680'>DATA-2680</a>] -         PC Multi-class triggers the NPC selections &quot;Monster with Class levels&quot;</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2681'>DATA-2681</a>] -         FEAT is deprecated, all FEAT references should be gone.</li>
@@ -1022,7 +1032,22 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2734'>DATA-2734</a>] -         Dragon Disciple not granting Bonus Feats</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2735'>DATA-2735</a>] -         Dragon Disciple is granting bonus spells too early</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2736'>DATA-2736</a>] -         Pathfinder Unchained Variant Multiclass not accessible.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2738'>DATA-2738</a>] -         Sacred Fist issues</li>
 <li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2740'>DATA-2740</a>] -         Lvl 13 Monk wont qualify for Dimensional Agility</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2743'>DATA-2743</a>] -         [ISWG] Not using correct situation skills system</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2744'>DATA-2744</a>] -         Traits not all set up correctly.</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2745'>DATA-2745</a>] -         Multiple Swordbreaker Dagger versions all corrected to proper KEY</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2746'>DATA-2746</a>] -         Some Unchained Rogue Talents are missing</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2747'>DATA-2747</a>] -         Coin values are incorrect in srd_equip.lst</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2748'>DATA-2748</a>] -         Sorcerer Draconic bloodline claw descriptions for electricity and fire are switched</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2749'>DATA-2749</a>] -         rsrd campaign loaders lack new required files</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2750'>DATA-2750</a>] -         Catfolk racial trait "curiosity" doesn't give any skill bonuses</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2750'>DATA-2750</a>] -         Catfolk racial trait &quot;curiosity&quot; doesn&#39;t give any skill bonuses</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2751'>DATA-2751</a>] -         Combat Tricks should only be displayed if the Combat Trick option is taken</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2752'>DATA-2752</a>] -         Can&#39;t choose for Point Blank Master feat with zen archer monk</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2753'>DATA-2753</a>] -         Reckless Aim feat can&#39;t be added even when prerequisites met</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2754'>DATA-2754</a>] -         Poison Use abilities not set up to be recognized by feat &quot;Adder Strike&quot;</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-2756'>DATA-2756</a>] -         Unchained issues - Barbarian</li></ul>
 
 </ul>
 

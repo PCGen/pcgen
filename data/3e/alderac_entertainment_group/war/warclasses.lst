@@ -73,16 +73,16 @@ CLASS:Epic Athlete	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Run,Toughn
 CLASS:Epic Athlete	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|Perform|Ride|Spot|Swim|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12																				BONUS:SKILL|STAT=CHA|2|TYPE=Competence
-2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12		BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
-3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																			ABILITY:Special Ability|AUTOMATIC|Far Throw ~ Epic Athlete
-4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8																																			ABILITY:Special Ability|AUTOMATIC|Grappler ~ Epic Athlete
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																																		ABILITY:Special Ability|AUTOMATIC|The Epic ~ Epic Athlete
-6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10																			BONUS:SKILL|Jump|4|TYPE=Competence										ABILITY:Special Ability|AUTOMATIC|Prodigious Leap ~ Epic Athlete
-7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																		ABILITY:Special Ability|AUTOMATIC|Giant Killer ~ Epic Athlete
-8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12																																		ABILITY:Special Ability|AUTOMATIC|Bear Hug ~ Epic Athlete
-9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																																		ABILITY:Special Ability|AUTOMATIC|Hearty Constitution ~ Epic Athlete
-10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8																										BONUS:VAR|Regen|max(CON,0)	DEFINE:Regen|0	ABILITY:Special Ability|AUTOMATIC|Immunity to disease and poison ~ Epic Athlete|Regeneration ~ Epic Athlete
+1	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,1d12																				BONUS:SKILL|STAT=CHA|2|TYPE=Competence
+2	UDAM:1,1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,1d12		BONUS:MOVEADD|TYPE=Walk|15|PREVARLTEQ:COUNT[EQTYPE.ARMOR.EQUIPPED]-COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT],0
+3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d8																																			ABILITY:Special Ability|AUTOMATIC|Far Throw ~ Epic Athlete
+4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d8																																			ABILITY:Special Ability|AUTOMATIC|Grappler ~ Epic Athlete
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d10																																		ABILITY:Special Ability|AUTOMATIC|The Epic ~ Epic Athlete
+6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d10																			BONUS:SKILL|Jump|4|TYPE=Competence										ABILITY:Special Ability|AUTOMATIC|Prodigious Leap ~ Epic Athlete
+7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,2d12																																		ABILITY:Special Ability|AUTOMATIC|Giant Killer ~ Epic Athlete
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,2d12																																		ABILITY:Special Ability|AUTOMATIC|Bear Hug ~ Epic Athlete
+9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8,4d8																																		ABILITY:Special Ability|AUTOMATIC|Hearty Constitution ~ Epic Athlete
+10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8,4d8																										BONUS:VAR|Regen|max(CON,0)	DEFINE:Regen|0	ABILITY:Special Ability|AUTOMATIC|Immunity to disease and poison ~ Epic Athlete|Regeneration ~ Epic Athlete
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
 CLASS:Footman	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Ftm
