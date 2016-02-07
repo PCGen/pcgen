@@ -519,44 +519,44 @@ Terrain Mastery, Greater	KEY:Unchained Rogue Talent ~ Terrain Mastery Greater	CA
 
 
 # Talents of the standard Rogue that the Unchained Rogue can take unmodified
-CATEGORY=Special Ability|Rogue Talent ~ Assault Leader.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Black Market Connections.MOD	TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Canny Observer.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Cunning Trigger.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Deft Palm.MOD				TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Distracting Attack.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Fast Getaway.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Firearm Training.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Getaway Artist.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Grit.MOD				TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Iron Guts.MOD				TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Ninja Trick.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Positioning Attack.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Quick Disguise.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Quick Trapsmith.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Rope Master.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Strong Impression.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Strong Stroke.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Survivalist.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Swift Poison.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Underhanded.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Wall Scramble.MOD			TYPE:Extraordinary.Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Assault Leader.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Black Market Connections.MOD	TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Canny Observer.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Cunning Trigger.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Deft Palm.MOD				TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Distracting Attack.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Fast Getaway.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Firearm Training.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Getaway Artist.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Grit.MOD				TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Iron Guts.MOD				TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Ninja Trick.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Positioning Attack.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Quick Disguise.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Quick Trapsmith.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Rope Master.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Strong Impression.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Strong Stroke.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Survivalist.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Swift Poison.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Underhanded.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Wall Scramble.MOD			TYPE:Unchained Rogue Talent
 
-CATEGORY=Special Ability|Rogue Talent ~ Another Day.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Confounding Blades.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Deadly Cocktail.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Familiar.MOD				TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Fast Tumble.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Frugal Trapsmith.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Getaway Master.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Hide In Plain Sight.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Hunter'S Surprise.MOD		TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Knock-Out Blow.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Redirect Attack.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Rumormonger.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Stealthy Sniper.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Unwitting Ally.MOD			TYPE:Extraordinary.Unchained Rogue Talent
-CATEGORY=Special Ability|Rogue Talent ~ Weapon Snatcher.MOD			TYPE:Extraordinary.Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Another Day.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Confounding Blades.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Deadly Cocktail.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Familiar.MOD				TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Fast Tumble.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Frugal Trapsmith.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Getaway Master.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Hide In Plain Sight.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Hunter'S Surprise.MOD		TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Knock-Out Blow.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Redirect Attack.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Rumormonger.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Stealthy Sniper.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Unwitting Ally.MOD			TYPE:Unchained Rogue Talent
+CATEGORY=Special Ability|Rogue Talent ~ Weapon Snatcher.MOD			TYPE:Unchained Rogue Talent
 
 
 
