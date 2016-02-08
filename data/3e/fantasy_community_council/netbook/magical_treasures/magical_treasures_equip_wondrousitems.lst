@@ -87,7 +87,7 @@ Stinging Thimble						TYPE:Magic.Wondrous															COST:400	WT:1											
 Devout Tear							TYPE:Magic.Wondrous															COST:77232	WT:0												SOURCEPAGE:p.51-52																			BONUS:SKILL|Knowledge (Religion)|2|TYPE=Automatic								SPROP:See text
 Earcuffs of Message Sending				TYPE:Magic.Wondrous															COST:2000	WT:0												SOURCEPAGE:p.52																																				SPROP:See text
 Egg Shell of Petrifaction				TYPE:Magic.Wondrous															COST:3300	WT:0												SOURCEPAGE:p.52-53																																			SPROP:See text
-Eyes of Terror						TYPE:Magic.Wondrous.Eyegear														COST:28000	WT:0												SOURCEPAGE:p.53																				BONUS:SKILL|Intimidation|5|TYPE=Automatic										SPROP:See text
+Eyes of Terror						TYPE:Magic.Wondrous.Eyegear														COST:28000	WT:0												SOURCEPAGE:p.53																				BONUS:SKILL|Intimidate|5|TYPE=Automatic										SPROP:See text
 Familiar's Collar						TYPE:Magic.Wondrous															COST:7200	WT:0												SOURCEPAGE:p.53-54											BONUS:COMBAT|DAMAGE,TOHIT,HP|1|TYPE=Enhancement																	SPROP:See text
 Feedbag of the Favored Mount				TYPE:Magic.Wondrous															COST:24800	WT:5												SOURCEPAGE:p.54																																				SPROP:See text
 Fred's Glasses of Knowledge				TYPE:Magic.Wondrous.Eyegear														COST:4000	WT:0.25											SOURCEPAGE:p.54																																				SPROP:See text

@@ -24,7 +24,6 @@ package plugin.lsttokens.choose;
 
 import java.util.List;
 
-import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedAbilitySelectionChooseInformation;
 import pcgen.cdom.base.ChooseDriver;

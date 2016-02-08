@@ -42,7 +42,7 @@ CLASS:Animan Atavist	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Animal Empathy)	PRE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Animan Atavist	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Animan Atavist Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Animan Atavist Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1			SAB:Aspect Tongue

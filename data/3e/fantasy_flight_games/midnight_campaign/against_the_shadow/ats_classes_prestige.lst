@@ -11,16 +11,16 @@ CLASS:Ancestral Bladebearer	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREABILITY:1
 CLASS:Ancestral Bladebearer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Swim
 1							ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1							ABILITY:FEAT|AUTOMATIC|Unbreakable Blade
-2							ABILITY:FEAT|AUTOMATIC|Advance Ancestral Blade
-3							ABILITY:FEAT|AUTOMATIC|Ancestral Watcher
+1							ABILITY:Special Ability|AUTOMATIC|Unbreakable Blade
+2							ABILITY:Special Ability|AUTOMATIC|Advance Ancestral Blade
+3							ABILITY:Special Ability|AUTOMATIC|Ancestral Watcher
 3	BONUS:ABILITYPOOL|Fighter Feat|CL/3
-4							ABILITY:FEAT|AUTOMATIC|Immovable Blade
-5							ABILITY:FEAT|AUTOMATIC|Ancestral Advisor
-7							ABILITY:FEAT|AUTOMATIC|Ancestral Guide
-8							ABILITY:FEAT|AUTOMATIC|Unwavering Blade
-9							ABILITY:FEAT|AUTOMATIC|Ancestral Protector
-10							ABILITY:FEAT|AUTOMATIC|Awaken Ancestral Blade
+4							ABILITY:Special Ability|AUTOMATIC|Immovable Blade
+5							ABILITY:Special Ability|AUTOMATIC|Ancestral Advisor
+7							ABILITY:Special Ability|AUTOMATIC|Ancestral Guide
+8							ABILITY:Special Ability|AUTOMATIC|Unwavering Blade
+9							ABILITY:Special Ability|AUTOMATIC|Ancestral Protector
+10							ABILITY:Special Ability|AUTOMATIC|Awaken Ancestral Blade
 
 ### TODO: Closed Mind does not appear on the list of abilities.  Assuming 1st level.
 ### TODO: There are many special abilities in the level progression chart that are not described in the text.
@@ -32,14 +32,14 @@ CLASS:Aradil's Eye	PREABILITY:1,CATEGORY=FEAT,Inconspicuous	PRESKILL:7,Bluff=8,G
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aradil's Eye	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 1						ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1	BONUS:VAR|AlterEgoLvl|CL	ABILITY:FEAT|AUTOMATIC|Alter Ego
-1						ABILITY:FEAT|AUTOMATIC|Mindbond
-1						ABILITY:FEAT|AUTOMATIC|Closed Mind
-2						ABILITY:FEAT|AUTOMATIC|Aradil's Eye Spy
+1	BONUS:VAR|AlterEgoLvl|CL	ABILITY:Special Ability|AUTOMATIC|Alter Ego
+1						ABILITY:Special Ability|AUTOMATIC|Mindbond
+1						ABILITY:Special Ability|AUTOMATIC|Closed Mind
+2						ABILITY:Special Ability|AUTOMATIC|Aradil's Eye Spy
 #3	SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL")|Undetectable Alignment
-#4	ABILITY:FEAT|AUTOMATIC|Fascinating Speech
+#4	ABILITY:Special Ability|AUTOMATIC|Fascinating Speech
 5						ABILITY:Special Ability|AUTOMATIC|Still Mind
-6						ABILITY:FEAT|AUTOMATIC|Hide in Plain Sight ~ Aradil's Eye
+6						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight ~ Aradil's Eye
 7						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 #8	Memory Alteration
 #9	Discerning Mind
@@ -53,18 +53,18 @@ CLASS:Avenging Knife	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disgui
 1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1															ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1															ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1															ABILITY:FEAT|AUTOMATIC|The Drop
-2															ABILITY:FEAT|AUTOMATIC|Security Breach
+1															ABILITY:Special Ability|AUTOMATIC|The Drop
+2															ABILITY:Special Ability|AUTOMATIC|Security Breach
 3	BONUS:VAR|SneakAttackDice|CL/3									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 # TODO Improved Feint doesn't exist in 3.0
-#3															ABILITY:FEAT|VIRTUAL|Improved Feint
-4															ABILITY:FEAT|AUTOMATIC|Target Study
-5															ABILITY:FEAT|AUTOMATIC|Fast Hands
-6															ABILITY:FEAT|AUTOMATIC|Cover Story
-7	BONUS:VAR|StunningSneakAttackTimes|3	BONUS:VAR|StunningSneakAttackDC|10+CL+INT	ABILITY:FEAT|AUTOMATIC|Stunning Sneak Attack
-8															ABILITY:FEAT|AUTOMATIC|Improved Coup de Grace
-9															ABILITY:FEAT|AUTOMATIC|Still as Stone
-10	BONUS:VAR|DeathAttackDC|10+CL+INT									ABILITY:FEAT|AUTOMATIC|Death Attack
+#3															ABILITY:Special Ability|VIRTUAL|Improved Feint
+4															ABILITY:Special Ability|AUTOMATIC|Target Study
+5															ABILITY:Special Ability|AUTOMATIC|Fast Hands
+6															ABILITY:Special Ability|AUTOMATIC|Cover Story
+7	BONUS:VAR|StunningSneakAttackTimes|3	BONUS:VAR|StunningSneakAttackDC|10+CL+INT	ABILITY:Special Ability|AUTOMATIC|Stunning Sneak Attack
+8															ABILITY:Special Ability|AUTOMATIC|Improved Coup de Grace
+9															ABILITY:Special Ability|AUTOMATIC|Still as Stone
+10	BONUS:VAR|DeathAttackDC|10+CL+INT									ABILITY:Special Ability|AUTOMATIC|Death Attack
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
 CLASS:Bane of Legates	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|blgt
@@ -74,14 +74,14 @@ CLASS:Bane of Legates	PREABILITY:2,CATEGORY=FEAT,TYPE.Magecraft,Iron Will	PRESKI
 CLASS:Bane of Legates	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Scry|Sense Motive|Spellcraft|Wilderness Lore
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Improved Spellcasting|1
 1										BONUS:VAR|SpellEnergy|CL
-1										BONUS:VAR|IzradorSR|10+CL	ABILITY:FEAT|AUTOMATIC|Resist Izrador's Will
+1										BONUS:VAR|IzradorSR|10+CL	ABILITY:Special Ability|AUTOMATIC|Resist Izrador's Will
 2:REPEATLEVEL:5	BONUS:ABILITYPOOL|Bane of Legates Feat|1
-3															ABILITY:FEAT|AUTOMATIC|See Astirax
-4															ABILITY:FEAT|AUTOMATIC|Counter Izrador's Will
+3															ABILITY:Special Ability|AUTOMATIC|See Astirax
+4															ABILITY:Special Ability|AUTOMATIC|Counter Izrador's Will
 5:REPEATLEVEL:4	BONUS:ABILITYPOOL|Spellcasting|1
-6															ABILITY:FEAT|AUTOMATIC|Bind Astirax
-8															ABILITY:FEAT|AUTOMATIC|Conceal Magic
-10															ABILITY:FEAT|AUTOMATIC|Sundered Spirit
+6															ABILITY:Special Ability|AUTOMATIC|Bind Astirax
+8															ABILITY:Special Ability|AUTOMATIC|Conceal Magic
+10															ABILITY:Special Ability|AUTOMATIC|Sundered Spirit
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
 CLASS:Elven Raider	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|ERd
@@ -91,14 +91,14 @@ CLASS:Elven Raider	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow)	PREABILITY:
 CLASS:Elven Raider	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 1										ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Ranged Sneak Attack
+1										ABILITY:Special Ability|AUTOMATIC|Ranged Sneak Attack
 1	BONUS:VAR|RangedSneakAttack|floor((CL+1)/2)
 2	BONUS:VAR|RangedSneakAttackRange|floor((CL+1)/3)*10
-3										ABILITY:FEAT|AUTOMATIC|Meticulous Aim
-4										ABILITY:FEAT|AUTOMATIC|Intimidating Shot
-6										ABILITY:FEAT|AUTOMATIC|Leaf Reader
-7	BONUS:VAR|DisarmingShotLvl|CL					ABILITY:FEAT|AUTOMATIC|Disarming Shot
-9										ABILITY:FEAT|AUTOMATIC|Close Combat Archery
+3										ABILITY:Special Ability|AUTOMATIC|Meticulous Aim
+4										ABILITY:Special Ability|AUTOMATIC|Intimidating Shot
+6										ABILITY:Special Ability|AUTOMATIC|Leaf Reader
+7	BONUS:VAR|DisarmingShotLvl|CL					ABILITY:Special Ability|AUTOMATIC|Disarming Shot
+9										ABILITY:Special Ability|AUTOMATIC|Close Combat Archery
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
 CLASS:Haunted One	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Haunt
@@ -109,12 +109,12 @@ CLASS:Haunted One	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentrat
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Improved Spellcasting|1
 1										BONUS:CASTERLEVEL|Channeler|1
 1															BONUS:VAR|SpellEnergy|CL
-1															BONUS:VAR|SeanceLvl|CL	BONUS:VAR|SeanceTimes|(CL+2)/3	ABILITY:FEAT|AUTOMATIC|Seance
+1															BONUS:VAR|SeanceLvl|CL	BONUS:VAR|SeanceTimes|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Seance
 2:REPEATLEVEL:2	BONUS:ABILITYPOOL|Spirit Manipulation|1
-3																									ABILITY:FEAT|AUTOMATIC|Ghost Sight
-5																									ABILITY:FEAT|AUTOMATIC|Spell Focus (Divination)
-9																									ABILITY:FEAT|AUTOMATIC|Spell Focus (Necromancy)
-10																									ABILITY:FEAT|AUTOMATIC|Spirit Mastery
+3																									ABILITY:Special Ability|AUTOMATIC|Ghost Sight
+5																									ABILITY:Feat|AUTOMATIC|Spell Focus (Divination)
+9																									ABILITY:Feat|AUTOMATIC|Spell Focus (Necromancy)
+10																									ABILITY:Special Ability|AUTOMATIC|Spirit Mastery
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
 CLASS:Herbalist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Herb
@@ -124,14 +124,14 @@ CLASS:Herbalist	PREABILITY:2,CATEGORY=FEAT,Brew Herbal Concoctions,Green Thumb	P
 CLASS:Herbalist	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Intuit Direction|Jump|Knowledge (Herbalism)|Listen|TYPE=Profession|Search|Spot|Swim|Use Rope|Wilderness Lore
 1										ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1										ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Extended Concoction
+1										ABILITY:Special Ability|AUTOMATIC|Extended Concoction
 2:REPEATLEVEL:3	BONUS:ABILITYPOOL|Concoction Mastery|1
-3										ABILITY:FEAT|AUTOMATIC|Efficient Harvest
-4										ABILITY:FEAT|AUTOMATIC|Enhanced Concoction
-6										ABILITY:FEAT|AUTOMATIC|Pure Harvest
-7										ABILITY:FEAT|AUTOMATIC|Doubled Concoction
-9										ABILITY:FEAT|AUTOMATIC|Constant Harvest
-10										ABILITY:FEAT|AUTOMATIC|Master Herbalist|Spontaneous Concoction
+3										ABILITY:Special Ability|AUTOMATIC|Efficient Harvest
+4										ABILITY:Special Ability|AUTOMATIC|Enhanced Concoction
+6										ABILITY:Special Ability|AUTOMATIC|Pure Harvest
+7										ABILITY:Special Ability|AUTOMATIC|Doubled Concoction
+9										ABILITY:Special Ability|AUTOMATIC|Constant Harvest
+10										ABILITY:Special Ability|AUTOMATIC|Master Herbalist|Spontaneous Concoction
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
 CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SarKn
@@ -141,13 +141,13 @@ CLASS:Sarcosan Knight	PREABILITY:3,CATEGORY=FEAT,Mounted Combat,Ride-By Attack,S
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=Profession|Ride|Spot|Swim
 1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1															ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-1										BONUS:VAR|HorseLordLvl|CL	ABILITY:FEAT|AUTOMATIC|Horse Lord
-1										BONUS:VAR|SarSMLevel|CL		ABILITY:FEAT|AUTOMATIC|Sarcosan Mount
+1										BONUS:VAR|HorseLordLvl|CL	ABILITY:Special Ability|AUTOMATIC|Horse Lord
+1										BONUS:VAR|SarSMLevel|CL		ABILITY:Special Ability|AUTOMATIC|Sarcosan Mount
 2:REPEATLEVEL:3	BONUS:ABILITYPOOL|Mounted Maneuver|1
 3:REPEATLEVEL:3	BONUS:ABILITYPOOL|Sarcosan Knight Feat|1
-4															ABILITY:FEAT|AUTOMATIC|Spur On
+4															ABILITY:Special Ability|AUTOMATIC|Spur On
 7			BONUS:ABILITYPOOL|Devastating Attack|1
-10															ABILITY:FEAT|AUTOMATIC|Sweeping Strike
+10															ABILITY:Special Ability|AUTOMATIC|Sweeping Strike
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																					FACT
 CLASS:Smuggler	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Smg
@@ -156,11 +156,11 @@ CLASS:Smuggler	PREABILITY:1,CATEGORY=FEAT,Inconspicuous	PRESKILL:5,Bluff=8,Gathe
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Smuggler	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1	BONUS:VAR|SmugglingBonus|floor((CL+1)/2)*2														ABILITY:FEAT|AUTOMATIC|Smuggler's Trade
-2	BONUS:VAR|DominantWillBonus|min(4,floor((CL+2)/4)*2)													ABILITY:FEAT|AUTOMATIC|Dominant Will
-3	BONUS:VAR|MystifyingSpeechTimes|floor((CL+1)/4)	BONUS:VAR|MystifyingSpeechTargets|CL	BONUS:VAR|MystifyingSpeechDC|14+CHA	ABILITY:FEAT|AUTOMATIC|Mystifying Speech
-4	BONUS:VAR|InformationNetworkLvl|CL																ABILITY:FEAT|AUTOMATIC|Information Network
-5	BONUS:VAR|DisguiseContrabandLvl|CL																ABILITY:FEAT|AUTOMATIC|Disguise Contraband
+1	BONUS:VAR|SmugglingBonus|floor((CL+1)/2)*2														ABILITY:Special Ability|AUTOMATIC|Smuggler's Trade
+2	BONUS:VAR|DominantWillBonus|min(4,floor((CL+2)/4)*2)													ABILITY:Special Ability|AUTOMATIC|Dominant Will
+3	BONUS:VAR|MystifyingSpeechTimes|floor((CL+1)/4)	BONUS:VAR|MystifyingSpeechTargets|CL	BONUS:VAR|MystifyingSpeechDC|14+CHA	ABILITY:Special Ability|AUTOMATIC|Mystifying Speech
+4	BONUS:VAR|InformationNetworkLvl|CL																ABILITY:Special Ability|AUTOMATIC|Information Network
+5	BONUS:VAR|DisguiseContrabandLvl|CL																ABILITY:Special Ability|AUTOMATIC|Disguise Contraband
 10																						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
@@ -172,12 +172,12 @@ CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Int
 1:REPEATLEVEL:2	BONUS:ABILITYPOOL|Improved Spellcasting|1
 1										BONUS:CASTERLEVEL|Channeler|1
 1															BONUS:VAR|SpellEnergy|CL
-1															BONUS:VAR|MaxSpellChanneling|1						ABILITY:FEAT|AUTOMATIC|Magical Power
-2																										ABILITY:FEAT|AUTOMATIC|Magical Accuracy
-3															BONUS:VAR|IgnoreArmorBonus|10							ABILITY:FEAT|AUTOMATIC|Ignore Armor
-3															BONUS:VAR|MeleeSpellcastingLvl|CL						ABILITY:FEAT|AUTOMATIC|Melee Spellcasting
-4																										ABILITY:FEAT|AUTOMATIC|Magical Defense
-5																										ABILITY:FEAT|AUTOMATIC|Regenerative Strike
+1															BONUS:VAR|MaxSpellChanneling|1						ABILITY:Special Ability|AUTOMATIC|Magical Power
+2																										ABILITY:Special Ability|AUTOMATIC|Magical Accuracy
+3															BONUS:VAR|IgnoreArmorBonus|10							ABILITY:Special Ability|AUTOMATIC|Ignore Armor
+3															BONUS:VAR|MeleeSpellcastingLvl|CL						ABILITY:Special Ability|AUTOMATIC|Melee Spellcasting
+4																										ABILITY:Special Ability|AUTOMATIC|Magical Defense
+5																										ABILITY:Special Ability|AUTOMATIC|Regenerative Strike
 6															BONUS:VAR|IgnoreArmorBonus|10	BONUS:VAR|MaxSpellChanneling|1
 8															BONUS:VAR|IgnoreArmorBonus|10
 9			BONUS:ABILITYPOOL|Fighter Feat|1
@@ -192,11 +192,11 @@ CLASS:Whisper Adept	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentr
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Improved Spellcasting|1
 1										BONUS:CASTERLEVEL|Channeler|1	BONUS:VAR|MaxSpellChanneling|CL
 1															BONUS:VAR|SpellEnergy|CL
-1															BONUS:VAR|WhisperSenseLvl|CL		ABILITY:FEAT|AUTOMATIC|Whisper Sense
-3																					ABILITY:FEAT|AUTOMATIC|Fell Touch
-5															BONUS:VAR|TreeMeldLvl|CL		ABILITY:FEAT|AUTOMATIC|Tree Meld
-7																					ABILITY:FEAT|AUTOMATIC|Strength of the Wood
-10																					ABILITY:FEAT|AUTOMATIC|Tree Stride
+1															BONUS:VAR|WhisperSenseLvl|CL		ABILITY:Special Ability|AUTOMATIC|Whisper Sense
+3																					ABILITY:Special Ability|AUTOMATIC|Fell Touch
+5															BONUS:VAR|TreeMeldLvl|CL		ABILITY:Special Ability|AUTOMATIC|Tree Meld
+7																					ABILITY:Special Ability|AUTOMATIC|Strength of the Wood
+10																					ABILITY:Special Ability|AUTOMATIC|Tree Stride
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
 CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|wgr
@@ -206,13 +206,13 @@ CLASS:Wogren Rider	PREABILITY:2,CATEGORY=FEAT,Mounted Archery,Mounted Combat	PRE
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1															ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										BONUS:VAR|WogrenRiderLvl|CL	ABILITY:FEAT|AUTOMATIC|Wogren Mount
-1															ABILITY:FEAT|AUTOMATIC|Coordinated Attack
+1										BONUS:VAR|WogrenRiderLvl|CL	ABILITY:Special Ability|AUTOMATIC|Wogren Mount
+1															ABILITY:Special Ability|AUTOMATIC|Coordinated Attack
 2:REPEATLEVEL:2	BONUS:ABILITYPOOL|Wogren Rider Feat|1
-3															ABILITY:FEAT|AUTOMATIC|Speed Mount
-5															ABILITY:FEAT|AUTOMATIC|Mounted Hide
-7															ABILITY:FEAT|AUTOMATIC|Wogren Dodge
-9															ABILITY:FEAT|AUTOMATIC|Wogren's Sight
+3															ABILITY:Special Ability|AUTOMATIC|Speed Mount
+5															ABILITY:Special Ability|AUTOMATIC|Mounted Hide
+7															ABILITY:Special Ability|AUTOMATIC|Wogren Dodge
+9															ABILITY:Special Ability|AUTOMATIC|Wogren's Sight
 
 #
 # End

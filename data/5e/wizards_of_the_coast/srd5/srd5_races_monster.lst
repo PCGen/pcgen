@@ -1,32 +1,34 @@
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 # Monsters begin on page 264, appendix creatures are on page 361
 
 ###Block: Monsters -- Page 264
-Aboleth							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Aboleth								SOURCEPAGE:p.13			SIZE:L	RACETYPE:Aberration	KIT:1|LE	BONUS:VAR|AC_Natural_Armor|8|TYPE=Racial	MONSTERCLASS:Hit Die:18	MOVE:Walk,10,Swim,40	BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|INT|8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|8	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:VAR|TelepathyRange|120|TYPE=Base	CR:10
-Angel (Deva)					OUTPUTNAME:Deva								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Angel (Deva)									SOURCEPAGE:p.16		KEY:Angel (Deva)					SORTKEY:Angel	SIZE:M	RACETYPE:Celestial	KIT:1|LG	BONUS:VAR|AC_Natural_Armor|3|TYPE=Racial	MONSTERCLASS:Hit Die:16	MOVE:Walk,30,Fly,90	BONUS:STAT|STR|8	BONUS:STAT|DEX|8	BONUS:STAT|CON|8	BONUS:STAT|INT|6	BONUS:STAT|WIS|10	BONUS:STAT|CHA|10	BONUS:VAR|DarkvisionRange|120|TYPE=Base	CR:10
-Angel (Planetar)					OUTPUTNAME:Planetar							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Angel (Planetar)								SOURCEPAGE:p.17		KEY:Angel (Planetar)				SORTKEY:Angel	SIZE:L	RACETYPE:Celestial	KIT:1|LG	BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	MONSTERCLASS:Hit Die:16	MOVE:Walk,40,Fly,120	BONUS:STAT|STR|14	BONUS:STAT|DEX|10	BONUS:STAT|CON|14	BONUS:STAT|INT|8	BONUS:STAT|WIS|12	BONUS:STAT|CHA|14	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:10
-Angel (Solar)					OUTPUTNAME:Solar								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Angel (Solar)									SOURCEPAGE:p.18		KEY:Angel (Solar)					SORTKEY:Angel	SIZE:L	RACETYPE:Celestial	KIT:1|LG	BONUS:VAR|AC_Natural_Armor|5|TYPE=Racial	MONSTERCLASS:Hit Die:18	MOVE:Walk,50,Fly,150	BONUS:STAT|STR|16	BONUS:STAT|DEX|12	BONUS:STAT|CON|16	BONUS:STAT|INT|14	BONUS:STAT|WIS|14	BONUS:STAT|CHA|20	BONUS:VAR|TrueSightRange|120|TYPE=Base	BONUS:VAR|TelepathyRange|120|TYPE=Base	CR:21
-Animated Object (Animated Armor)		OUTPUTNAME:Animated Armor						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Animated Object (Animated Armor)							SOURCEPAGE:p.19		KEY:Animated Object (Animated Armor)	SORTKEY:Animated Object	SIZE:M	RACETYPE:Construct	KIT:1|UA	BONUS:VAR|AC_Natural_Armor|8|TYPE=Racial	MONSTERCLASS:Hit Die:6	MOVE:Walk,25	BONUS:STAT|STR|4	BONUS:STAT|DEX|0	BONUS:STAT|CON|2	BONUS:STAT|INT|-10	BONUS:STAT|WIS|-8	BONUS:STAT|CHA|-10	BONUS:VAR|BlindsightRange|60|TYPE=Base	CR:1
-Animated Object (Flying Sword)		OUTPUTNAME:Flying Sword							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Animated Object (Flying Sword)									SOURCEPAGE:p.20		KEY:Animated Object (Flying Sword)		SORTKEY:Animated Object	SIZE:S	RACETYPE:Construct	KIT:1|UA	BONUS:VAR|AC_Natural_Armor|5|TYPE=Racial	MONSTERCLASS:Hit Die:5	MOVE:Walk,0,Fly,50	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|0	BONUS:STAT|INT|-10	BONUS:STAT|WIS|-6	BONUS:STAT|CHA|-10	BONUS:VAR|BlindsightRange|60|TYPE=Base	CR:1/4
-Animated Object (Rug of Smothering)		OUTPUTNAME:Rug of Smothering						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Animated Object (Rug of Smothering)							SOURCEPAGE:p.20		KEY:Animated Object (Rug of Smothering)	SORTKEY:Animated Object	SIZE:L	RACETYPE:Construct	KIT:1|UA	MONSTERCLASS:Hit Die:6	MOVE:Walk,10	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|CON|0	BONUS:STAT|INT|-10	BONUS:STAT|WIS|-8	BONUS:STAT|CHA|-10	BONUS:VAR|BlindsightRange|60|TYPE=Base	CR:2
-Ankheg							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ankheg												SOURCEPAGE:p.21			SIZE:L	RACETYPE:Monstrosity	KIT:1|UA	BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	MONSTERCLASS:Hit Die:6	MOVE:Walk,30,Burrow,10	BONUS:STAT|STR|6	BONUS:STAT|DEX|0	BONUS:STAT|CON|2	BONUS:STAT|INT|-10	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:2
-Azer								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Azer									SOURCEPAGE:p.22			SIZE:M	RACETYPE:Elemental	KIT:1|LN	BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	MONSTERCLASS:Hit Die:6	MOVE:Walk,30	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|0	CR:2
+# Race Name					SORTKEY			Unique Key						Output Name				Size		Move				Stat bonus																			Modify VAR																				Ability												Natural Attacks																																																																Monster Class Name and Starting Level	Main Race Type		Race Subtype				Challenge Rating	Source Page		Apply Kit
+Aboleth																					SIZE:L	MOVE:Walk,10,Swim,40	BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|INT|8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|8			BONUS:VAR|AC_Natural_Armor|8|TYPE=Racial	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:VAR|TelepathyRange|120|TYPE=Base	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Aboleth																																																																							MONSTERCLASS:Hit Die:18				RACETYPE:Aberration							CR:10			SOURCEPAGE:p.13	KIT:1|LE
+Angel (Deva)				SORTKEY:Angel		KEY:Angel (Deva)					OUTPUTNAME:Deva			SIZE:M	MOVE:Walk,30,Fly,90	BONUS:STAT|STR|8	BONUS:STAT|DEX|8	BONUS:STAT|CON|8	BONUS:STAT|INT|6	BONUS:STAT|WIS|10	BONUS:STAT|CHA|10			BONUS:VAR|AC_Natural_Armor|3|TYPE=Racial	BONUS:VAR|DarkvisionRange|120|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Angel (Deva)																																																																						MONSTERCLASS:Hit Die:16				RACETYPE:Celestial							CR:10			SOURCEPAGE:p.16	KIT:1|LG
+Angel (Planetar)				SORTKEY:Angel		KEY:Angel (Planetar)				OUTPUTNAME:Planetar		SIZE:L	MOVE:Walk,40,Fly,120	BONUS:STAT|STR|14	BONUS:STAT|DEX|10	BONUS:STAT|CON|14	BONUS:STAT|INT|8	BONUS:STAT|WIS|12	BONUS:STAT|CHA|14			BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	BONUS:VAR|DarkvisionRange|0|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Angel (Planetar)																																																																						MONSTERCLASS:Hit Die:16				RACETYPE:Celestial							CR:10			SOURCEPAGE:p.17	KIT:1|LG
+Angel (Solar)				SORTKEY:Angel		KEY:Angel (Solar)					OUTPUTNAME:Solar			SIZE:L	MOVE:Walk,50,Fly,150	BONUS:STAT|STR|16	BONUS:STAT|DEX|12	BONUS:STAT|CON|16	BONUS:STAT|INT|14	BONUS:STAT|WIS|14	BONUS:STAT|CHA|20			BONUS:VAR|AC_Natural_Armor|5|TYPE=Racial	BONUS:VAR|TrueSightRange|120|TYPE=Base	BONUS:VAR|TelepathyRange|120|TYPE=Base	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Angel (Solar)																																																																						MONSTERCLASS:Hit Die:18				RACETYPE:Celestial							CR:21			SOURCEPAGE:p.18	KIT:1|LG
+Animated Object (Animated Armor)	SORTKEY:Animated Object	KEY:Animated Object (Animated Armor)	OUTPUTNAME:Animated Armor	SIZE:M	MOVE:Walk,25		BONUS:STAT|STR|4	BONUS:STAT|DEX|0	BONUS:STAT|CON|2	BONUS:STAT|INT|-10	BONUS:STAT|WIS|-8	BONUS:STAT|CHA|-10	BONUS:VAR|AC_Natural_Armor|8|TYPE=Racial	BONUS:VAR|BlindsightRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Animated Object (Animated Armor)																																																																			MONSTERCLASS:Hit Die:6				RACETYPE:Construct							CR:1			SOURCEPAGE:p.19	KIT:1|UA
+Animated Object (Flying Sword)	SORTKEY:Animated Object	KEY:Animated Object (Flying Sword)		OUTPUTNAME:Flying Sword		SIZE:S	MOVE:Walk,0,Fly,50	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|0	BONUS:STAT|INT|-10	BONUS:STAT|WIS|-6	BONUS:STAT|CHA|-10	BONUS:VAR|AC_Natural_Armor|5|TYPE=Racial	BONUS:VAR|BlindsightRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Animated Object (Flying Sword)																																																																			MONSTERCLASS:Hit Die:5				RACETYPE:Construct							CR:1/4		SOURCEPAGE:p.20	KIT:1|UA
+Animated Object (Rug of Smothering)	SORTKEY:Animated Object	KEY:Animated Object (Rug of Smothering)	OUTPUTNAME:Rug of Smothering	SIZE:L	MOVE:Walk,10		BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|CON|0	BONUS:STAT|INT|-10	BONUS:STAT|WIS|-8	BONUS:STAT|CHA|-10	BONUS:VAR|BlindsightRange|60|TYPE=Base															ABILITY:Internal|AUTOMATIC|Racial Trait ~ Animated Object (Rug of Smothering)																																																																			MONSTERCLASS:Hit Die:6				RACETYPE:Construct							CR:2			SOURCEPAGE:p.20	KIT:1|UA
+Ankheg																					SIZE:L	MOVE:Walk,30,Burrow,10	BONUS:STAT|STR|6	BONUS:STAT|DEX|0	BONUS:STAT|CON|2	BONUS:STAT|INT|-10	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4		BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ankheg																																																																							MONSTERCLASS:Hit Die:6				RACETYPE:Monstrosity							CR:2			SOURCEPAGE:p.21	KIT:1|UA
+Azer																						SIZE:M	MOVE:Walk,30		BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|4	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|0			BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial															ABILITY:Internal|AUTOMATIC|Racial Trait ~ Azer																																																																								MONSTERCLASS:Hit Die:6				RACETYPE:Elemental							CR:2			SOURCEPAGE:p.22	KIT:1|LN
 
-Basilisk							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Basilisk								SOURCEPAGE:p.24			SIZE:L	RACETYPE:Monstrosity	KIT:1|UA	BONUS:VAR|AC_Natural_Armor|6|TYPE=Racial	MONSTERCLASS:Hit Die:8	MOVE:Walk,20	BONUS:STAT|STR|6	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-4	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:3
-Behir								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Behir									SOURCEPAGE:p.25			SIZE:H	RACETYPE:Monstrosity	KIT:1|NE	BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	MONSTERCLASS:Hit Die:16	MOVE:Walk,50,Climb,40	BONUS:STAT|STR|12	BONUS:STAT|DEX|6	BONUS:STAT|CON|8	BONUS:STAT|INT|-4	BONUS:STAT|WIS|4	BONUS:STAT|CHA|2	BONUS:VAR|DarkvisionRange|90|TYPE=Base	CR:11
-Bugbear							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Bugbear							SOURCEPAGE:p.33			SIZE:M	RACETYPE:Humanoid	RACESUBTYPE:Goblinoid	KIT:1|CE	MONSTERCLASS:Hit Die:5	MOVE:Walk,30	BONUS:STAT|STR|4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-2	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:1
-Bulette							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Bulette								SOURCEPAGE:p.34			SIZE:L	RACETYPE:Monstrosity	KIT:1|UA	BONUS:VAR|AC_Natural_Armor|7|TYPE=Racial	MONSTERCLASS:Hit Die:9	MOVE:Walk,40,Burrow,40	BONUS:STAT|STR|8	BONUS:STAT|DEX|0	BONUS:STAT|CON|10	BONUS:STAT|INT|-8	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-6	BONUS:VAR|DarkvisionRange,TremorSenseRange|60|TYPE=Base	CR:5
+Basilisk																					SIZE:L	MOVE:Walk,20		BONUS:STAT|STR|6	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-4			BONUS:VAR|AC_Natural_Armor|6|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Basilisk																																																																							MONSTERCLASS:Hit Die:8				RACETYPE:Monstrosity							CR:3			SOURCEPAGE:p.24	KIT:1|UA
+Behir																						SIZE:H	MOVE:Walk,50,Climb,40	BONUS:STAT|STR|12	BONUS:STAT|DEX|6	BONUS:STAT|CON|8	BONUS:STAT|INT|-4	BONUS:STAT|WIS|4	BONUS:STAT|CHA|2			BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	BONUS:VAR|DarkvisionRange|90|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Behir																																																																								MONSTERCLASS:Hit Die:16				RACETYPE:Monstrosity							CR:11			SOURCEPAGE:p.25	KIT:1|NE
+Bugbear																					SIZE:M	MOVE:Walk,30		BONUS:STAT|STR|4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-2			BONUS:VAR|DarkvisionRange|60|TYPE=Base															ABILITY:Internal|AUTOMATIC|Racial Trait ~ Bugbear																																																																							MONSTERCLASS:Hit Die:5				RACETYPE:Humanoid		RACESUBTYPE:Goblinoid			CR:1			SOURCEPAGE:p.33	KIT:1|CE
+Bulette																					SIZE:L	MOVE:Walk,40,Burrow,40	BONUS:STAT|STR|8	BONUS:STAT|DEX|0	BONUS:STAT|CON|10	BONUS:STAT|INT|-8	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-6			BONUS:VAR|AC_Natural_Armor|7|TYPE=Racial	BONUS:VAR|DarkvisionRange,TremorSenseRange|60|TYPE=Base					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Bulette																																																																							MONSTERCLASS:Hit Die:9				RACETYPE:Monstrosity							CR:5			SOURCEPAGE:p.34	KIT:1|UA
 
-Centaur							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Centaur								SOURCEPAGE:p.38			SIZE:L	RACETYPE:Monstrosity	KIT:1|NG	MONSTERCLASS:Hit Die:6	MOVE:Walk,50	BONUS:STAT|STR|8	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|INT|-2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|0	CR:2
-Chimera							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Chimera								SOURCEPAGE:p.39			SIZE:L	RACETYPE:Monstrosity	KIT:1|CE	BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	MONSTERCLASS:Hit Die:12	MOVE:Walk,30,Fly,60	BONUS:STAT|STR|8	BONUS:STAT|DEX|0	BONUS:STAT|CON|8	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|0	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:6
-Chuul								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Chuul									SOURCEPAGE:p.40			SIZE:L	RACETYPE:Aberration	KIT:1|CE	BONUS:VAR|AC_Natural_Armor|6|TYPE=Racial	MONSTERCLASS:Hit Die:11	MOVE:Walk,30,Swim,30	BONUS:STAT|STR|8	BONUS:STAT|DEX|0	BONUS:STAT|CON|6	BONUS:STAT|INT|-6	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-6	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:4
-Cloaker							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cloaker								SOURCEPAGE:p.41			SIZE:L	RACETYPE:Aberration	KIT:1|CN	BONUS:VAR|AC_Natural_Armor|2|TYPE=Racial	MONSTERCLASS:Hit Die:12	MOVE:Walk,10,Fly,40	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:8
-Cockatrice							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cockatrice								SOURCEPAGE:p.42			SIZE:S	RACETYPE:Monstrosity	KIT:1|UA	MONSTERCLASS:Hit Die:6	MOVE:Walk,20,Fly,40	BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-6	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:1/2
-Couatl							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Couatl								SOURCEPAGE:p.43			SIZE:M	RACETYPE:Celestial	KIT:1|LG	BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	MONSTERCLASS:Hit Die:13	MOVE:Walk,30,Fly,90	BONUS:STAT|STR|6	BONUS:STAT|DEX|10	BONUS:STAT|CON|6	BONUS:STAT|INT|8	BONUS:STAT|WIS|10	BONUS:STAT|CHA|8	BONUS:VAR|TruesightRange,TelepathyRange|120|TYPE=Base	CR:4
+Centaur																					SIZE:L	MOVE:Walk,50		BONUS:STAT|STR|8	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|INT|-2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|0																								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Centaur																																																																							MONSTERCLASS:Hit Die:6				RACETYPE:Monstrosity							CR:2			SOURCEPAGE:p.38	KIT:1|NG
+Chimera																					SIZE:L	MOVE:Walk,30,Fly,60	BONUS:STAT|STR|8	BONUS:STAT|DEX|0	BONUS:STAT|CON|8	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|0			BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Chimera																																																																							MONSTERCLASS:Hit Die:12				RACETYPE:Monstrosity							CR:6			SOURCEPAGE:p.39	KIT:1|CE
+Chuul																						SIZE:L	MOVE:Walk,30,Swim,30	BONUS:STAT|STR|8	BONUS:STAT|DEX|0	BONUS:STAT|CON|6	BONUS:STAT|INT|-6	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-6			BONUS:VAR|AC_Natural_Armor|6|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Chuul																																																																								MONSTERCLASS:Hit Die:11				RACETYPE:Aberration							CR:4			SOURCEPAGE:p.40	KIT:1|CE
+Cloaker																					SIZE:L	MOVE:Walk,10,Fly,40	BONUS:STAT|STR|6	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4			BONUS:VAR|AC_Natural_Armor|2|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cloaker																																																																							MONSTERCLASS:Hit Die:12				RACETYPE:Aberration							CR:8			SOURCEPAGE:p.41	KIT:1|CN
+Cockatrice																					SIZE:S	MOVE:Walk,20,Fly,40	BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-6			BONUS:VAR|DarkvisionRange|60|TYPE=Base															ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cockatrice																																																																							MONSTERCLASS:Hit Die:6				RACETYPE:Monstrosity							CR:1/2		SOURCEPAGE:p.42	KIT:1|UA
+Couatl																					SIZE:M	MOVE:Walk,30,Fly,90	BONUS:STAT|STR|6	BONUS:STAT|DEX|10	BONUS:STAT|CON|6	BONUS:STAT|INT|8	BONUS:STAT|WIS|10	BONUS:STAT|CHA|8			BONUS:VAR|AC_Natural_Armor|4|TYPE=Racial	BONUS:VAR|TruesightRange,TelepathyRange|120|TYPE=Base						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Couatl																																																																							MONSTERCLASS:Hit Die:13				RACETYPE:Celestial							CR:4			SOURCEPAGE:p.43	KIT:1|LG
 
-Darkmantle							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Darkmantle								SOURCEPAGE:p.46			SIZE:S	RACETYPE:Monstrosity	KIT:1|UA	MONSTERCLASS:Hit Die:5	MOVE:Walk,10,Fly,30	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-6	BONUS:VAR|BlindsightRange|60|TYPE=Base	CR:1/2
+Darkmantle																					SIZE:S	MOVE:Walk,10,Fly,30	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|0	BONUS:STAT|CHA|-6			BONUS:VAR|BlindsightRange|60|TYPE=Base															ABILITY:Internal|AUTOMATIC|Racial Trait ~ Darkmantle																																																																							MONSTERCLASS:Hit Die:5				RACETYPE:Monstrosity							CR:1/2		SOURCEPAGE:p.46	KIT:1|UA
 # Incomplete
 ## Demons
 # Balor								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Balor									SOURCEPAGE:p.55			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
@@ -35,7 +37,7 @@ Darkmantle							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Darkmantle								SOU
 # Hezrou							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hezrou								SOURCEPAGE:p.60			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 # Marilith 							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Marilith 								SOURCEPAGE:p.61			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 # Nalfeshnee							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Nalfeshnee								SOURCEPAGE:p.62			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
-Quasit		SOURCEPAGE:p.	SIZE:T	RACETYPE:Fiend	RACESUBTYPE:Demon|Shapechanger			KIT:2|CE|Default Creature ~ Quasit			MONSTERCLASS:Hit Die:3	MOVE:Walk,40		BONUS:STAT|STR|-6	BONUS:STAT|DEX|6	BONUS:STAT|CON|0	BONUS:STAT|INT|-4	BONUS:STAT|WIS|0	BONUS:STAT|CHA|0	BONUS:VAR|DarkvisionRange|120	CR:1	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Quasit
+Quasit																					SIZE:T	MOVE:Walk,40		BONUS:STAT|STR|-6	BONUS:STAT|DEX|6	BONUS:STAT|CON|0	BONUS:STAT|INT|-4	BONUS:STAT|WIS|0	BONUS:STAT|CHA|0			BONUS:VAR|DarkvisionRange|120																	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Quasit																																																																							MONSTERCLASS:Hit Die:3				RACETYPE:Fiend		RACESUBTYPE:Demon|Shapechanger	CR:1			SOURCEPAGE:p.	KIT:2|CE|Default Creature ~ Quasit
 # Vrock								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Vrock									SOURCEPAGE:p.64			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 ## Devils
 # Barbed Devil						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Barbed Devil							SOURCEPAGE:p.70			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
@@ -168,7 +170,7 @@ Quasit		SOURCEPAGE:p.	SIZE:T	RACETYPE:Fiend	RACESUBTYPE:Demon|Shapechanger			KIT
 # Hobgoblin							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hobgoblin								SOURCEPAGE:p.186			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 
 
-Homunculus							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Homunculus								SOURCEPAGE:p.188			SIZE:T	RACETYPE:Construct	KIT:1|TN	BONUS:VAR|AC_Natural_Armor|1|TYPE=Racial	MONSTERCLASS:Hit Die:2	MOVE:Walk,20,Fly,40	BONUS:STAT|STR|-6	BONUS:STAT|DEX|4	BONUS:STAT|CHA|-4	BONUS:VAR|DarkvisionRange|60|TYPE=Base	CR:0
+Homunculus																					SIZE:T	MOVE:Walk,20,Fly,40	BONUS:STAT|STR|-6	BONUS:STAT|DEX|4	BONUS:STAT|CHA|-4												BONUS:VAR|AC_Natural_Armor|1|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Homunculus																																																																							MONSTERCLASS:Hit Die:2				RACETYPE:Construct							CR:0			SOURCEPAGE:p.188	KIT:1|TN
 # Hydra								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hydra									SOURCEPAGE:p.190			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 # Invisible Stalker						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Invisible Stalker							SOURCEPAGE:p.192			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 # Kobold							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Kobold								SOURCEPAGE:p.195			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
@@ -215,7 +217,7 @@ Homunculus							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Homunculus								SOU
 # Otyugh							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Otyugh								SOURCEPAGE:p.248			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 # Owlbear							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Owlbear								SOURCEPAGE:p.249			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 # Pegasus							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pegasus								SOURCEPAGE:p.250			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
-Pseudodragon						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pseudodragon							SOURCEPAGE:p.254			SIZE:T	RACETYPE:Dragon	KIT:1|NG	BONUS:VAR|AC_Natural_Armor|1|TYPE=Racial	MONSTERCLASS:Hit Die:2	MOVE:Walk,15,Fly,60	BONUS:STAT|STR|-4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|WIS|2	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|BlindsightRange|10|TYPE=Base	CR:1/4	NATURALATTACKS:Bite,Melee.Weapon.Attack.Natural.Piercing,*1,1d4	NATURALATTACKS:Sting,Melee.Weapon.Attack.Natural.Piercing,*1,1d4,SPROP=target must succeed on a DC 11 Constitution saving throw or become poisoned for 1 hour. If the saving throw fails by 5 or more; the target falls unconscious for the same duration or until it takes damage or another creature uses an action to shake it awake.
+Pseudodragon																				SIZE:T	MOVE:Walk,15,Fly,60	BONUS:STAT|STR|-4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|WIS|2									BONUS:VAR|AC_Natural_Armor|1|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|BlindsightRange|10|TYPE=Base	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pseudodragon				NATURALATTACKS:Bite,Melee.Weapon.Attack.Natural.Piercing,*1,1d4	NATURALATTACKS:Sting,Melee.Weapon.Attack.Natural.Piercing,*1,1d4,SPROP=target must succeed on a DC 11 Constitution saving throw or become poisoned for 1 hour. If the saving throw fails by 5 or more; the target falls unconscious for the same duration or until it takes damage or another creature uses an action to shake it awake.	MONSTERCLASS:Hit Die:2				RACETYPE:Dragon								CR:1/4		SOURCEPAGE:p.254	KIT:1|NG
 # Purple Worm							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Purple Worm								SOURCEPAGE:p.255			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
 
 # Rakshasa							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Rakshasa								SOURCEPAGE:p.257			SIZE:	RACETYPE:	KIT:1|	BONUS:VAR|NaturalArmor|x|TYPE=Racial	MONSTERCLASS:Hit Die:	MOVE:Walk,	BONUS:STAT|STR|	BONUS:STAT|DEX|	BONUS:STAT|CON|	BONUS:STAT|INT|	BONUS:STAT|WIS|	BONUS:STAT|CHA|	BONUS:VAR|DarkvisionRange|0|TYPE=Base	CR:
@@ -260,105 +262,106 @@ Pseudodragon						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pseudodragon							S
 
 ###Block: Appendix Creatures	-- Page 361
 # Misc Creatures
-Ape								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ape								SOURCEPAGE:p.		
-Awakened Shrub						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Awakened Shrub						SOURCEPAGE:p.		
-Awakened Tree						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Awakened Tree						SOURCEPAGE:p.		
-Axe Beak							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Axe Beak							SOURCEPAGE:p.		
-Baboon							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Baboon							SOURCEPAGE:p.		
-Badger							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Badger							SOURCEPAGE:p.		
-Bat								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Bat								SOURCEPAGE:p.		
-Black Bear							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Black Bear							SOURCEPAGE:p.		
-Blink Dog							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Blink Dog							SOURCEPAGE:p.		
-Brown Bear							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Brown Bear							SOURCEPAGE:p.		
-Blood Hawk							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Blood Hawk							SOURCEPAGE:p.		
-Boar								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Boar								SOURCEPAGE:p.		
-Camel								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Camel								SOURCEPAGE:p.		
-Cat								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cat								SOURCEPAGE:p.		
-Constrictor Snake						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Constrictor Snake						SOURCEPAGE:p.		
-Crab								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Crab								SOURCEPAGE:p.		
-Crocodile							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Crocodile							SOURCEPAGE:p.		
-Death Dog							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Death Dog							SOURCEPAGE:p.		
-Deer								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Deer								SOURCEPAGE:p.		
-Dire Wolf							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Dire Wolf							SOURCEPAGE:p.		
-Draft Horse							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Draft Horse							SOURCEPAGE:p.		
-Eagle								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Eagle								SOURCEPAGE:p.		
-Elephant							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Elephant							SOURCEPAGE:p.		
-Elk								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Elk								SOURCEPAGE:p.		
-Frog								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Frog								SOURCEPAGE:p.		
-Giant Ape							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Ape							SOURCEPAGE:p.		
-Giant Badger						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Badger						SOURCEPAGE:p.		
-Giant Bat							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Bat							SOURCEPAGE:p.		
-Giant Boar							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Boar							SOURCEPAGE:p.		
-Giant Centipede						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Centipede						SOURCEPAGE:p.		
-Giant Constrictor Snake					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Constrictor Snake					SOURCEPAGE:p.		
-Giant Crab							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Crab							SOURCEPAGE:p.		
-Giant Crocodile						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Crocodile						SOURCEPAGE:p.		
-Giant Eagle							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Eagle							SOURCEPAGE:p.		
-Giant Elk							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Elk							SOURCEPAGE:p.		
-Giant Fire Beetle						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Fire Beetle						SOURCEPAGE:p.		
-Giant Frog							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Frog							SOURCEPAGE:p.		
-Giant Goat							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Goat							SOURCEPAGE:p.		
-Giant Hyena							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Hyena							SOURCEPAGE:p.		
-Giant Lizard						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Lizard						SOURCEPAGE:p.		
-Giant Octopus						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Octopus						SOURCEPAGE:p.		
-Giant Owl							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Owl							SOURCEPAGE:p.		
-Giant Poisonous Snake					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Poisonous Snake					SOURCEPAGE:p.		
-Giant Scorpion						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Scorpion						SOURCEPAGE:p.		
-Giant Rat							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Rat							SOURCEPAGE:p. ' ~		
-Giant Sea Horse						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Sea Horse						SOURCEPAGE:p.		
-Giant Shark							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Shark							SOURCEPAGE:p.		
-Giant Spider						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Spider						SOURCEPAGE:p. '		
-Giant Toad							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Toad							SOURCEPAGE:p.		
-Giant Vulture						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Vulture						SOURCEPAGE:p.		
-Giant Wasp							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Wasp							SOURCEPAGE:p.		
-Giant Weasel						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Weasel						SOURCEPAGE:p.		
-Giant Wolf Spider						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Wolf Spider						SOURCEPAGE:p.		
-Goat								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Goat								SOURCEPAGE:p.		
-Hawk								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hawk								SOURCEPAGE:p.		
-Hunter Shark						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hunter Shark						SOURCEPAGE:p.		
-Hyena								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hyena								SOURCEPAGE:p.		
-Jackal							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Jackal							SOURCEPAGE:p.		
-Killer Whale						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Killer Whale						SOURCEPAGE:p.		
-Lion								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Lion								SOURCEPAGE:p.		
-Lizard							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Lizard							SOURCEPAGE:p.		
-Mammoth							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Mammoth							SOURCEPAGE:p.		
-Mastiff							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Mastiff							SOURCEPAGE:p.		
-Mule								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Mule								SOURCEPAGE:p.		
-Octopus							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Octopus							SOURCEPAGE:p.		
-Owl								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Owl								SOURCEPAGE:p.		
-Panther							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Panther							SOURCEPAGE:p.		
-Cave Bear							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cave Bear							SOURCEPAGE:p.		
-Phase Spider						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Phase Spider						SOURCEPAGE:p.		
-Poisonous Snake						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Poisonous Snake						SOURCEPAGE:p.		
-Polar Bear							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Polar Bear							SOURCEPAGE:p.		
-Pony								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pony								SOURCEPAGE:p.		
-Quipper							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Quipper							SOURCEPAGE:p.		
-Rat								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Rat								SOURCEPAGE:p.		
-Raven								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Raven								SOURCEPAGE:p.		
-Reef Shark							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Reef Shark							SOURCEPAGE:p.		
-Rhinoceros							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Rhinoceros							SOURCEPAGE:p.		
-Riding Horse						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Riding Horse						SOURCEPAGE:p.		
-Saber-toothed Tiger					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Saber-toothed Tiger					SOURCEPAGE:p.		
-Scorpion							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Scorpion							SOURCEPAGE:p.		
-Sea Horse							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Sea Horse							SOURCEPAGE:p.		
-Spider							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Spider							SOURCEPAGE:p.		
-Swarm of Bats						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Bats						SOURCEPAGE:p.		
-Swarm of Beetles						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Beetles						SOURCEPAGE:p.		
-Swarm of Centipedes					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Centipedes					SOURCEPAGE:p.		
-Swarm of Insects						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Insects						SOURCEPAGE:p.		
-Swarm of Poisonous Snakes				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Poisonous Snakes				SOURCEPAGE:p.		
-Swarm of Quippers						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Quippers						SOURCEPAGE:p.		
-Swarm of Spiders						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Spiders						SOURCEPAGE:p.		
-Swarm of Wasps						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Wasps						SOURCEPAGE:p.		
-Swarm of Rats						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Rats						SOURCEPAGE:p.		
-Swarm of Ravens						ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Ravens						SOURCEPAGE:p.		
-Tiger								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Tiger								SOURCEPAGE:p.		
-Vulture							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Vulture							SOURCEPAGE:p.		
-Warhorse							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Warhorse							SOURCEPAGE:p.		
-Weasel							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Weasel							SOURCEPAGE:p.		
-Winter Wolf							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Winter Wolf							SOURCEPAGE:p.		
-Wolf								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Wolf								SOURCEPAGE:p.		
-Worg								ABILITY:Internal|AUTOMATIC|Racial Trait ~ Worg								SOURCEPAGE:p.		
+# Race Name				Ability											Source Page
+Ape					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Ape					SOURCEPAGE:p.
+Awakened Shrub			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Awakened Shrub			SOURCEPAGE:p.
+Awakened Tree			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Awakened Tree			SOURCEPAGE:p.
+Axe Beak				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Axe Beak				SOURCEPAGE:p.
+Baboon				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Baboon				SOURCEPAGE:p.
+Badger				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Badger				SOURCEPAGE:p.
+Bat					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Bat					SOURCEPAGE:p.
+Black Bear				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Black Bear				SOURCEPAGE:p.
+Blink Dog				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Blink Dog				SOURCEPAGE:p.
+Brown Bear				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Brown Bear				SOURCEPAGE:p.
+Blood Hawk				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Blood Hawk				SOURCEPAGE:p.
+Boar					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Boar					SOURCEPAGE:p.
+Camel					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Camel					SOURCEPAGE:p.
+Cat					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cat					SOURCEPAGE:p.
+Constrictor Snake			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Constrictor Snake			SOURCEPAGE:p.
+Crab					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Crab					SOURCEPAGE:p.
+Crocodile				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Crocodile				SOURCEPAGE:p.
+Death Dog				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Death Dog				SOURCEPAGE:p.
+Deer					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Deer					SOURCEPAGE:p.
+Dire Wolf				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Dire Wolf				SOURCEPAGE:p.
+Draft Horse				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Draft Horse				SOURCEPAGE:p.
+Eagle					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Eagle					SOURCEPAGE:p.
+Elephant				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Elephant				SOURCEPAGE:p.
+Elk					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Elk					SOURCEPAGE:p.
+Frog					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Frog					SOURCEPAGE:p.
+Giant Ape				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Ape				SOURCEPAGE:p.
+Giant Badger			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Badger			SOURCEPAGE:p.
+Giant Bat				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Bat				SOURCEPAGE:p.
+Giant Boar				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Boar				SOURCEPAGE:p.
+Giant Centipede			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Centipede			SOURCEPAGE:p.
+Giant Constrictor Snake		ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Constrictor Snake		SOURCEPAGE:p.
+Giant Crab				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Crab				SOURCEPAGE:p.
+Giant Crocodile			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Crocodile			SOURCEPAGE:p.
+Giant Eagle				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Eagle				SOURCEPAGE:p.
+Giant Elk				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Elk				SOURCEPAGE:p.
+Giant Fire Beetle			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Fire Beetle			SOURCEPAGE:p.
+Giant Frog				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Frog				SOURCEPAGE:p.
+Giant Goat				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Goat				SOURCEPAGE:p.
+Giant Hyena				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Hyena				SOURCEPAGE:p.
+Giant Lizard			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Lizard			SOURCEPAGE:p.
+Giant Octopus			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Octopus			SOURCEPAGE:p.
+Giant Owl				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Owl				SOURCEPAGE:p.
+Giant Poisonous Snake		ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Poisonous Snake		SOURCEPAGE:p.
+Giant Scorpion			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Scorpion			SOURCEPAGE:p.
+Giant Rat				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Rat				SOURCEPAGE:p. ' ~
+Giant Sea Horse			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Sea Horse			SOURCEPAGE:p.
+Giant Shark				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Shark				SOURCEPAGE:p.
+Giant Spider			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Spider			SOURCEPAGE:p. '
+Giant Toad				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Toad				SOURCEPAGE:p.
+Giant Vulture			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Vulture			SOURCEPAGE:p.
+Giant Wasp				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Wasp				SOURCEPAGE:p.
+Giant Weasel			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Weasel			SOURCEPAGE:p.
+Giant Wolf Spider			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Giant Wolf Spider			SOURCEPAGE:p.
+Goat					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Goat					SOURCEPAGE:p.
+Hawk					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hawk					SOURCEPAGE:p.
+Hunter Shark			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hunter Shark			SOURCEPAGE:p.
+Hyena					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Hyena					SOURCEPAGE:p.
+Jackal				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Jackal				SOURCEPAGE:p.
+Killer Whale			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Killer Whale			SOURCEPAGE:p.
+Lion					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Lion					SOURCEPAGE:p.
+Lizard				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Lizard				SOURCEPAGE:p.
+Mammoth				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Mammoth				SOURCEPAGE:p.
+Mastiff				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Mastiff				SOURCEPAGE:p.
+Mule					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Mule					SOURCEPAGE:p.
+Octopus				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Octopus				SOURCEPAGE:p.
+Owl					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Owl					SOURCEPAGE:p.
+Panther				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Panther				SOURCEPAGE:p.
+Cave Bear				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Cave Bear				SOURCEPAGE:p.
+Phase Spider			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Phase Spider			SOURCEPAGE:p.
+Poisonous Snake			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Poisonous Snake			SOURCEPAGE:p.
+Polar Bear				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Polar Bear				SOURCEPAGE:p.
+Pony					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Pony					SOURCEPAGE:p.
+Quipper				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Quipper				SOURCEPAGE:p.
+Rat					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Rat					SOURCEPAGE:p.
+Raven					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Raven					SOURCEPAGE:p.
+Reef Shark				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Reef Shark				SOURCEPAGE:p.
+Rhinoceros				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Rhinoceros				SOURCEPAGE:p.
+Riding Horse			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Riding Horse			SOURCEPAGE:p.
+Saber-toothed Tiger		ABILITY:Internal|AUTOMATIC|Racial Trait ~ Saber-toothed Tiger		SOURCEPAGE:p.
+Scorpion				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Scorpion				SOURCEPAGE:p.
+Sea Horse				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Sea Horse				SOURCEPAGE:p.
+Spider				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Spider				SOURCEPAGE:p.
+Swarm of Bats			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Bats			SOURCEPAGE:p.
+Swarm of Beetles			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Beetles			SOURCEPAGE:p.
+Swarm of Centipedes		ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Centipedes		SOURCEPAGE:p.
+Swarm of Insects			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Insects			SOURCEPAGE:p.
+Swarm of Poisonous Snakes	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Poisonous Snakes	SOURCEPAGE:p.
+Swarm of Quippers			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Quippers			SOURCEPAGE:p.
+Swarm of Spiders			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Spiders			SOURCEPAGE:p.
+Swarm of Wasps			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Wasps			SOURCEPAGE:p.
+Swarm of Rats			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Rats			SOURCEPAGE:p.
+Swarm of Ravens			ABILITY:Internal|AUTOMATIC|Racial Trait ~ Swarm of Ravens			SOURCEPAGE:p.
+Tiger					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Tiger					SOURCEPAGE:p.
+Vulture				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Vulture				SOURCEPAGE:p.
+Warhorse				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Warhorse				SOURCEPAGE:p.
+Weasel				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Weasel				SOURCEPAGE:p.
+Winter Wolf				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Winter Wolf				SOURCEPAGE:p.
+Wolf					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Wolf					SOURCEPAGE:p.
+Worg					ABILITY:Internal|AUTOMATIC|Racial Trait ~ Worg					SOURCEPAGE:p.
 
 
 #Imp			SOURCEPAGE:p.	SIZE:T	RACETYPE:Fiend	RACESUBTYPE:Devil|Shapechanger			KIT:2|Default Creature ~ Imp|LE			MONSTERCLASS:Hit Die:3	MOVE:Walk,20,Fly,40	BONUS:STAT|STR|-4	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|0	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|DarkvisionRange|120	CR:1	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Imp
