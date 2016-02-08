@@ -2935,25 +2935,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int masterTotal = -9999;
 		final PlayerCharacter nPC = getMasterPC();
 
-		// check for Epic
-		/* 
-		final int totalClassLevels = getTotalCharacterLevel();
-		Map<String, String> totalLvlMap = null;
-		final Map<String, String> classLvlMap;
-
-		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
-		{
-			String epicAttack = epicAttackMap.get(cacheLookup);
-			totalLvlMap = getTotalLevelHashMap();
-			classLvlMap =
-					getCharacterLevelHashMap(SettingsHandler.getGame()
-						.getBabMaxLvl());
-
-			// insure class-levels total is below some value (20)
-			getVariableProcessor().pauseCache();
-			setClassLevelsBrazenlyTo(classLvlMap);
-		}
-		*/
 		if ((nPC != null) && (masterFacet.getCopyMasterBAB(id).length() > 0))
 		{
 			masterBAB = nPC.baseAttackBonus();
@@ -3017,14 +2998,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				attackCycle = i;
 			}
 		}
-		/*
-				// restore class levels to original value if altered
-				if (totalLvlMap != null)
-				{
-					setClassLevelsBrazenlyTo(totalLvlMap);
-					getVariableProcessor().restartCache();
-				}
-		*/
 		// total Number of Attacks for this PC
 		int attackTotal = ab.get(attackCycle).intValue();
 
@@ -6426,20 +6399,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public Collection<BonusObj> getActiveBonusList()
 	{
 		return bonusManager.getActiveBonusList();
-	}
-
-	private synchronized void setClassLevelsBrazenlyTo(final Map<String, Integer> lvlMap)
-	{
-		// set class levels to class name,level pair
-		for (PCClass pcClass : getClassSet())
-		{
-			Integer lvl = lvlMap.get(pcClass.getKeyName());
-			int setLevel = (lvl == null) ? 0 : lvl;
-			setLevelWithoutConsequence(pcClass, setLevel);
-		}
-		// Recalculate bonuses, based on new level
-		calcActiveBonuses();
-		// setDirty(true);
 	}
 
 	/**
