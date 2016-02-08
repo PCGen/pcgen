@@ -1814,12 +1814,6 @@ public class Gui2InfoFactory implements InfoFactory
 			aSpell.getListAsString(ListKey.SPELL_RESISTANCE));
 		b.appendLineBreak();
 		
-		if (Globals.hasSpellPPCost())
-		{
-			b.appendI18nElement("InfoSpellsSubTab.PPCost", String //$NON-NLS-1$
-				.valueOf(aSpell.getSafe(IntegerKey.PP_COST)));
-			b.appendLineBreak();
-		}
 		b.appendLineBreak();
 		b.appendI18nElement("in_descrip", pc.parseSpellString(cs,  //$NON-NLS-1$
 			pc.getDescription(aSpell)));
