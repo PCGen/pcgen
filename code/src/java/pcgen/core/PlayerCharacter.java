@@ -526,10 +526,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private Map<Category<Ability>, BigDecimal> theUserPoolBonuses = null;
 
-	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
-	private Integer epicBAB = null;
-	private HashMap<PCCheck, Integer> epicCheckMap = new HashMap<PCCheck, Integer>();
-
 	// /////////////////////////////////////
 	// operations
 
@@ -3217,14 +3213,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		final String cacheLookup = "getBaseCheck:" + check.getKeyName(); //$NON-NLS-1$
 
-		Float total = null;
-		if (epicCheckMap.containsKey(check))
-		{
-			total = epicCheckMap.get(check).floatValue();
-		} else
-		{
-			total = getVariableProcessor().getCachedVariable(cacheLookup);
-		}
+		Float total = getVariableProcessor().getCachedVariable(cacheLookup);
 
 		if (total != null)
 		{
@@ -3232,42 +3221,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 
 		double bonus = 0;
-		boolean isEpic = false;
-		final int totalClassLevels;
-		Map<String, Integer> totalLvlMap = null;
-		final Map<String, Integer> classLvlMap;
-
-		totalClassLevels = totalNonMonsterLevels();
-		if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
-		{
-			isEpic = true;
-			Integer epicCheck = epicCheckMap.get(check);
-			if (epicCheck == null)
-			{
-				totalLvlMap = getTotalLevelHashMap();
-				classLvlMap = getCharacterLevelHashMap(SettingsHandler.getGame().getChecksMaxLvl());
-				getVariableProcessor().pauseCache();
-				setAllowInteraction(false);
-				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
-				// total is below some
-				// value (e.g. 20)
-			} else
-			{
-				// Logging.errorPrint("getBaseCheck(): '" + cacheLookup + "' =
-				// epic='" + epicCheck + "'"); //$NON-NLS-1$
-				return epicCheck;
-			}
-		}
 
 		final String checkName = check.getKeyName();
-		bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
-
-		if (totalLvlMap != null)
-		{
-			setClassLevelsBrazenlyTo(totalLvlMap);
-			setAllowInteraction(true);
-			getVariableProcessor().restartCache();
-		}
 
 		//Apply non-magical bonuses
 		bonus += getTotalBonusTo("SAVE", "BASE." + checkName);
@@ -3286,11 +3241,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			bonus = Math.max(bonus, masterBonus);
 		}
 		
-		if (isEpic)
-		{
-			epicCheckMap.put(check, (int) bonus);
-		}
-
+		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf((float) bonus));
 		return (int) bonus;
 	}
 
@@ -3307,8 +3258,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public int getTotalCheck(PCCheck check)
 	{
-		int bonus = getBaseCheck(check);
-		return bonus + (int) getTotalBonusTo("CHECKS", check.getKeyName())
+		return getBaseCheck(check)
 			+ (int) getTotalBonusTo("SAVE", check.getKeyName());
 	}
 
@@ -5086,14 +5036,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		// check for cached version
 		final String cacheLookup = "BaseAttackBonus";
-		Float total;
-		if (epicBAB != null)
-		{
-			total = epicBAB.floatValue();
-		} else
-		{
-			total = getVariableProcessor().getCachedVariable(cacheLookup);
-		}
+		Float total = getVariableProcessor().getCachedVariable(cacheLookup);
 		if (total != null)
 		{
 			return total.intValue();
@@ -5111,46 +5054,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
 			return masterBAB;
 		}
-
-		// Check for Epic
-		final int totalClassLevels = totalNonMonsterLevels();
-		Map<String, Integer> totalLvlMap = null;
-		final Map<String, Integer> classLvlMap;
-		boolean isEpic = false;
-		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
-		{
-			isEpic = true;
-			if (epicBAB == null)
-			{
-				totalLvlMap = getTotalLevelHashMap();
-				classLvlMap = getCharacterLevelHashMap(SettingsHandler.getGame().getBabMaxLvl());
-
-				// ensure total class-levels below some value (e.g. 20)
-				getVariableProcessor().pauseCache();
-				setAllowInteraction(false);
-				setClassLevelsBrazenlyTo(classLvlMap);
-			} else
-			{
-				//Logging.errorPrint("baseAttackBonus(): '" + cacheLookup + "' = epic:'" + epicBAB + "'"); //$NON-NLS-1$
-				return epicBAB;
-			}
-		}
-
-		int bab = (int) getTotalBonusTo("COMBAT", "BAB");
-
-		if (isEpic)
-		{
-			epicBAB = bab;
-		}
-		if (totalLvlMap != null)
-		{
-			setClassLevelsBrazenlyTo(totalLvlMap);
-			setAllowInteraction(true);
-			getVariableProcessor().restartCache();
-		}
-
-		bab += (int) getTotalBonusTo("COMBAT", "BASEAB");
-
+		int bab = (int) getTotalBonusTo("COMBAT", "BASEAB");
 		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(bab));
 		return bab;
 	}
@@ -5489,19 +5393,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				save += getBaseCheck(check);
 			} else if ("MISC".equals(tokens[i]))
 			{
-				save += (int) getTotalBonusTo("CHECKS", saveType);
 				save += (int) getTotalBonusTo("SAVE", saveType);
 			}
 
 			if ("EPIC".equals(tokens[i]))
 			{
-				save += (int) getBonusDueToType("CHECKS", saveType, "EPIC");
 				save += (int) getBonusDueToType("SAVE", saveType, "EPIC");
 			}
 
 			if ("MAGIC".equals(tokens[i]))
 			{
-				save += (int) getEquipmentBonusTo("CHECKS", saveType);
 				save += (int) getEquipmentBonusTo("SAVE", saveType);
 			}
 
@@ -5512,13 +5413,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 			if ("FEATS".equals(tokens[i]))
 			{
-				save += (int) getFeatBonusTo("CHECKS", saveType);
 				save += (int) getFeatBonusTo("SAVE", saveType);
 			}
 
 			if ("STATMOD".equals(tokens[i]))
 			{
-				save += (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
 				save += (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 
@@ -5527,13 +5426,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			 */
 			if ("NOEPIC".equals(tokens[i]))
 			{
-				save -= (int) getBonusDueToType("CHECKS", saveType, "EPIC");
 				save -= (int) getBonusDueToType("SAVE", saveType, "EPIC");
 			}
 
 			if ("NOMAGIC".equals(tokens[i]))
 			{
-				save -= (int) getEquipmentBonusTo("CHECKS", saveType);
 				save -= (int) getEquipmentBonusTo("SAVE", saveType);
 			}
 
@@ -5544,13 +5441,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 			if ("NOFEATS".equals(tokens[i]))
 			{
-				save -= (int) getFeatBonusTo("CHECKS", saveType);
 				save -= (int) getFeatBonusTo("SAVE", saveType);
 			}
 
 			if ("NOSTAT".equals(tokens[i]) || "NOSTATMOD".equals(tokens[i]))
 			{
-				save -= (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
 				save -= (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 		}
@@ -7145,12 +7040,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private int calculateSaveBonusRace(PCCheck check)
 	{
-		int save;
 		final String sString = check.toString();
 		Race race = getRace();
-		save = (int) BonusCalc.charBonusTo(race, "CHECKS", "BASE." + sString, this);
-		save += (int) BonusCalc.charBonusTo(race, "CHECKS", sString, this);
-		save += (int) BonusCalc.charBonusTo(race, "SAVE", "BASE." + sString, this);
+		int save = (int) BonusCalc.charBonusTo(race, "SAVE", "BASE." + sString, this);
 		save += (int) BonusCalc.charBonusTo(race, "SAVE", sString, this);
 
 		return save;
@@ -8730,18 +8622,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		return false;
 	}
-
-	public void resetEpicCache()
-	{
-		epicBAB = null;
-		epicCheckMap.clear();
-	}
-
-	// public double getBonusValue(final String aBonusType, final String
-	// aBonusName )
-	// {
-	// return TypedBonus.totalBonuses(getBonusesTo(aBonusType, aBonusName));
-	// }
 
 	public int getCritRange(Equipment e, boolean primary)
 	{
