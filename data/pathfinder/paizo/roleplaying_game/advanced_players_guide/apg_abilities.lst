@@ -191,17 +191,6 @@ Wisdom in the Flesh (Irori) - Dexterity	KEY:Trait ~ Wisdom in the Flesh ~ Dex	CA
 # Ability Name	Unique Key			Category of Ability		Type																				Visible		Multiple Requirements																							Description							Cost
 No Traits		KEY:Trait ~ No Traits	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait.CampaignTrait.RaceTrait.RegionalTrait.ReligionTrait	VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ No Traits],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
 
-
-###Block: Fix for Half-Casters - DATA-1062
-# Ability Name							Ability
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD	ABILITY:Internal|AUTOMATIC|Caster Level ~ Ranger|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Ranger)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Paladin|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Paladin)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Antipaladin|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Antipaladin)
-
-###Block: Half Casters
-# Ability Name			Category of Ability	Caster level
-Caster Level ~ Antipaladin	CATEGORY:Internal		BONUS:CASTERLEVEL|Antipaladin|2
-Caster Level ~ Paladin		CATEGORY:Internal		BONUS:CASTERLEVEL|Paladin|2
-Caster Level ~ Ranger		CATEGORY:Internal		BONUS:CASTERLEVEL|Ranger|2
-
 ###Block:	Acid|Cold|Electricity|Fire
 # Ability Name	Unique Key					Category of Ability	Type
 Acid			KEY:Elemental Fist ~ Acid		CATEGORY:Internal		TYPE:ElementalFistChoice
