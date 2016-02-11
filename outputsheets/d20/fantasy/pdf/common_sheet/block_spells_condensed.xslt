@@ -950,17 +950,17 @@
 						<xsl:value-of select="@spelllistclass"/>
 					</fo:block>
 				</fo:table-cell>
-			</fo:table-row>		<!-- Remove IF test as this is causing 2nd spell book to fail	-->
-<!--			<xsl:if test="@number &lt; 5">	-->
+			</fo:table-row>
+			<xsl:if test="@number &lt; 5">	
 				<fo:table-row>													<xsl:message>Test Levels 4-</xsl:message>
 					<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
 				</fo:table-row>
-<!--			</xsl:if>	-->
-<!--			<xsl:if test="@number &gt;= 5">	-->
+			</xsl:if>	
+			<xsl:if test="@number &gt;= 5">	
 				<fo:table-row>													<xsl:message>Test Levels 5+</xsl:message>
 					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
 				</fo:table-row>
-<!--			</xsl:if>	-->
+			</xsl:if>	
 		</xsl:if>
 	</xsl:template>
 	<!--
