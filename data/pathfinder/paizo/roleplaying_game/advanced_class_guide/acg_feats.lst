@@ -245,6 +245,15 @@ CATEGORY=FEAT|Believer's Boon.MOD	DEFINE:DomainWeatherLVL|0	ABILITY:Special Abil
 #CATEGORY=FEAT|Believer's Boon.MOD	ABILITY:Special Ability|AUTOMATIC|Scalykind Domain ~ Venemous Stare|PREABILITY:1,CATEGORY=FEAT,Believer's Boon(Scalykind)	DEFINE:DomainScalykindLVL|0	BONUS:VAR|DomainScalykindLVL|1	BONUS:VAR|VenemousStareTimes|BelieversBoonTimes
 #CATEGORY=FEAT|Believer's Boon.MOD	ABILITY:Special Ability|AUTOMATIC|Void Domain ~ Guarded Mind|PREABILITY:1,CATEGORY=FEAT,Believer's Boon(Void)	DEFINE:DomainVoidLVL|0	BONUS:VAR|DomainVoidLVL|1	BONUS:VAR|GuardedMindTimes|BelieversBoonTimes
 
+
+###Block: Negate existing Witch hex, and force selection
+CATEGORY=FEAT|Extra Hex.MOD	BONUS:ABILITYPOOL|Witch Hex|-1		BONUS:ABILITYPOOL|Hex Selection|1
+
+###Block: Current Selections
+Witch Hex		KEY:Hex Selection ~ Witch Hex		CATEGORY:Internal	TYPE:Hex Selection	BONUS:ABILITYPOOL|Witch Hex|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Shaman Hex		KEY:Hex Selection ~ Shaman Hex	CATEGORY:Internal	TYPE:Hex Selection	BONUS:ABILITYPOOL|Shaman Hex|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+
+
 #
 # End
 #
