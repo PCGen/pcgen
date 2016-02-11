@@ -124,6 +124,7 @@ Knowledge (Dungeoneering).MOD	SITUATION:Navigate
 Knowledge (Dungeoneering).MOD	SITUATION:Underground
 Knowledge (History).MOD		SITUATION:Dwarves
 Knowledge (Local).MOD		SITUATION:ID monster
+Knowledge (Local).MOD		SITUATION:local art or music scene
 Knowledge (Nature).MOD		SITUATION:ID monster
 Knowledge (Planes).MOD		SITUATION:ID monster
 Knowledge (Religion).MOD	SITUATION:ID monster
