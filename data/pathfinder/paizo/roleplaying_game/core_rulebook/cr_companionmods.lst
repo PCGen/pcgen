@@ -34,6 +34,12 @@ FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	ABILITY:Special Ability|AUT
 FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack
 FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance (AC)
 FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion
+###Block:
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:COMBAT|AC|2*(MasterLevel/3)|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|MasterLevel/3
+###Block:
+FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Companion	BONUS:ABILITYPOOL|Companion Stat Increase|1+(MasterLevel>=9)+(MasterLevel>=14)+(MasterLevel>=20)
+
+
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
 # Class of the Master		Type				Auto Armor Prof				Define			Define Stat				Modify VAR								Main Race Type
