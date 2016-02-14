@@ -12,11 +12,12 @@ Longsword.COPY=Crusader's Longsword
 Pistol (Double-Barreled).COPY=Shieldmarshal's Pistol
 Scimitar.COPY=Valorous Blade
 Longbow (Composite).COPY=Windreader's Bow
+Spear.COPY=Spear of the Honored Ancestors
 
 
 Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:PLUS1W
 Crusader's Longsword.MOD								COST:47315	EQMOD:Bane|Demon.C_Iron.Holy.PLUS1W
 Shieldmarshal's Pistol.MOD								COST:20050	EQMOD:PLUS1W
-Spear of the Honored Ancestors.MOD							COST:15302	EQMOD:Ghost Touch.PLUS1W
+Spear of the Honored Ancestors.MOD							COST:15302	EQMOD:GHOST.PLUS1W
 Valorous Blade.MOD									COST:20315	EQMOD:PLUS1W.Valiant
 Windreader's Bow.MOD									COST:54400	EQMOD:Adaptive.PLUS1W.SEEK
