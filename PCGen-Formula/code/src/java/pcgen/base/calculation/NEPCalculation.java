@@ -72,4 +72,12 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 */
 	public void getDependencies(ScopeInformation scopeInfo,
 		DependencyManager fdm);
+
+	/**
+	 * Returns a String identifying the formula used for calculation. May be "3"
+	 * for a calculation that performs Addition of 3.
+	 * 
+	 * @return A String identifying the formula used for calculation
+	 */
+	public String getInstructions();
 }

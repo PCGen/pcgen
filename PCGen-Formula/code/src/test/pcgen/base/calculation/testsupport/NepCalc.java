@@ -54,4 +54,10 @@ public final class NepCalc extends AbstractNEPCalculation
 	{
 		return n.hashCode();
 	}
+
+	@Override
+	public String getInstructions()
+	{
+		return n.toString();
+	}
 }
