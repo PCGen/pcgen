@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   - Code quality rule set for use with the PCGen Java code.
+   - See http://pmd.sourceforge.net/pmd-4.3/rules/index.html 
+   - for descriptions of the rules applied. 
+ -->
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="PCGen Code Rules"
+    xmlns="http://pmd.sf.net/ruleset/1.0.0"
+    xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
+    xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 
+                        http://pmd.sf.net/ruleset_xml_schema.xsd" >
+
+  <description>
+  PMD rules customised for PCGen's code. 
+  </description>
+
+   <exclude-pattern>.*/test/.*</exclude-pattern>
+   <exclude-pattern>.*/formula/parse/.*</exclude-pattern>
+   <include-pattern>.*/formula/parse/Operator.java</include-pattern>
+   <include-pattern>.*/formula/parse/SimpleNode.java</include-pattern>
+
+    <rule ref="rulesets/java/logging-java.xml" />
+    <rule ref="rulesets/java/basic.xml" />
+    <rule ref="rulesets/java/braces.xml" />
+    <rule ref="rulesets/java/codesize.xml" />
+    
+  <rule ref="rulesets/java/unnecessary.xml">
+    <exclude name="UselessParentheses"/>
+  </rule>
+  <rule ref="rulesets/java/optimizations.xml" >
+    <exclude name="RedundantFieldInitializer"/>
+    <exclude name="MethodArgumentCouldBeFinal" />
+    <exclude name="LocalVariableCouldBeFinal" />
+  </rule>
+</ruleset>

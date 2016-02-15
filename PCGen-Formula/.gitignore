@@ -1,0 +1,7 @@
+/bin/
+/.settings/
+/.pmd
+/.checkstyle
+/.ruleset
+/build/
+/.gradle/

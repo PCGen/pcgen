@@ -1,0 +1,161 @@
+/*
+ * PCGen formula component build using the Gradle tool. This file specifies the
+ * core build tasks and refers to other files in the code/gradle directory for
+ * additional tasks for specific output.
+ *
+ * Developer build: gradle
+ * Incremental dev build: gradle build 
+ * Full build: gradle all 
+ */
+plugins {
+  id "ca.coglinc.javacc" version "2.1.0"
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: "jacoco"
+apply plugin: 'ivy-publish'
+
+group = 'net.sourceforge.pcgen'
+description = """PCGen formula library"""
+
+defaultTasks 'clean', 'build'
+
+sourceCompatibility = 1.7
+
+ext {
+    majorVersion = 1
+    minorVersion = 0
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    ivy {
+        name "Pcgen Repo"
+        url 'http://librepo.pcgen.org'
+    }
+}
+
+dependencies {
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.39'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+sourceSets {
+    jjtree {
+        java {
+            srcDirs 'code/src/jjtree'
+        }
+    }
+    main {
+        java {
+            srcDirs 'code/src/java'
+        }
+    }
+    test {
+        java {
+            srcDirs 'code/src/test'
+        }
+    }
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+jacocoTestReport {
+    reports {
+        xml {
+            enabled true // coveralls plugin depends on xml format report
+        }
+
+        html {
+            enabled true
+        }
+    }
+
+    afterEvaluate {
+       	classDirectories = files(classDirectories.files.collect {
+      			fileTree(dir: it, exclude: ['**/testsupport/**', '**/Abstract**TestCase', '**/**Test', 'pcgen/base/formula/parse/FormulaParser**', 'pcgen/base/formula/parse/AST**', 'pcgen/base/formula/parse/JJT**', 'pcgen/base/formula/parse/Node**', 'pcgen/base/formula/parse/ParseException**', 'pcgen/base/formula/parse/SimpleCharStream**', 'pcgen/base/formula/parse/Token**'])
+        })
+    }
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+compileJjtree {
+    inputDirectory = file('code/src/java')
+    //We consciously choose to put the output in the main repo tree so that SimpleNode only exists once...
+    outputDirectory = file('code/src/java/')
+}
+
+compileJavacc {
+    inputDirectory = file('code/src/java/')
+    outputDirectory = file('code/src/java/')
+}
+
+// Calculate the version number - runs in the parse phase
+allprojects {
+    ext.buildTimestamp = new Date().format('yyyy-MM-dd HH:mm:ss Z')
+    if (System.env.BUILD_NUMBER) {
+        project.version = "$majorVersion.$minorVersion.$System.env.BUILD_NUMBER"
+    }
+    else {
+        project.version = "$majorVersion.$minorVersion"
+    }
+}
+
+task echoVer() << {
+    println "${project.name} Version: ${project.version} (${buildTimestamp})"
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'PCGenFormulaLibrary', 'Implementation-Version': project.version, 
+            'Built-On': buildTimestamp 
+    }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.java
+    classifier "source"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// Rules for how we publish our artifacts in ivy compliant format
+publishing {
+    repositories {
+        ivy {
+            name "fileRepo"
+            url '/home/pcgen1/www/librepo'
+            //url 'D:/Projects/pcgen-base/librepo'
+        }
+    }
+    publications {
+        ivy(IvyPublication) {
+            from components.java
+            artifact(sourceJar) {
+                type "source"
+                conf "runtime"
+            }
+            artifact(javadocJar) {
+                type "javadoc"
+            }
+            descriptor.withXml {
+                asNode().info[0].appendNode('description', description)
+            }
+        }
+    }
+}
+
+apply from: 'gradle/reporting.gradle'
