@@ -223,7 +223,7 @@ FACTDEF:ABILITY|Investigator_Archetype_Inspiration			DATAFORMAT:BOOLEAN	REQUIRED
 FACTDEF:ABILITY|Investigator_Archetype_Trapfinding			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonLore			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Investigator_Archetype_Talents				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_InvestigatorTalents		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_KeenRecollection		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_TrapSense			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_SwiftAlchemy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
