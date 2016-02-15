@@ -19,9 +19,11 @@ package pcgen.cdom.content.factset;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ContentDefinition;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.FactSetKey;
+import pcgen.cdom.facet.CDOMWrapperInfoFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.actor.FactSetKeyActor;
-import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -63,11 +65,12 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	 * @see pcgen.cdom.content.ContentDefinition#activateOutput()
 	 */
 	@Override
-	protected void activateOutput()
+	protected void activateOutput(DataSetID dsID)
 	{
 		FactSetKeyActor<F> fca = new FactSetKeyActor<F>(getFactSetKey());
-		CDOMObjectWrapper cow = CDOMObjectWrapper.getInstance();
-		if (!cow.load(getUsableLocation(), factSetName.toLowerCase(), fca))
+		CDOMWrapperInfoFacet wiFacet =
+				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
+		if (!wiFacet.set(dsID, getUsableLocation(), factSetName.toLowerCase(), fca))
 		{
 			Logging
 				.errorPrint(getUsableLocation().getSimpleName()

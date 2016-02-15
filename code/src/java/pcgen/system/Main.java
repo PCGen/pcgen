@@ -43,8 +43,8 @@ import org.apache.commons.lang.SystemUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.CustomData;
-import pcgen.facade.core.UIDelegate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
+import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;

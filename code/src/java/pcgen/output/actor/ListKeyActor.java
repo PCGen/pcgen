@@ -18,6 +18,7 @@
 package pcgen.output.actor;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
@@ -52,12 +53,14 @@ public class ListKeyActor implements OutputActor<CDOMObject>
 	}
 
 	/**
-	 * @see pcgen.output.base.OutputActor#process(java.lang.Object)
+	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel process(CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
+		throws TemplateModelException
 	{
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
-		return new CollectionModel(d.getSafeListFor(lk));
+		return new CollectionModel(id, d.getSafeListFor(lk));
 	}
 }

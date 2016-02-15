@@ -33,6 +33,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
@@ -126,6 +127,17 @@ public class TokenRegistration
 		catch (IllegalAccessException e)
 		{
 			e.printStackTrace();
+		}
+	}
+
+	public static Set<ModifierFactory<?>> mSet = new HashSet<ModifierFactory<?>>();
+
+	public static void register(ModifierFactory<?> m)
+	{
+		if (!mSet.contains(m))
+		{
+			TokenLibrary.addToModifierMap(m);
+			mSet.add(m);
 		}
 	}
 }

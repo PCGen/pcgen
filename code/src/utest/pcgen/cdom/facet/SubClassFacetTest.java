@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.testsupport.AbstractAssociationFacetTest;
 import pcgen.core.PCClass;
@@ -33,7 +34,7 @@ public class SubClassFacetTest extends
 	}
 
 	@Override
-	protected AbstractAssociationFacet<PCClass, String> getFacet()
+	protected AbstractAssociationFacet<CharID, PCClass, String> getFacet()
 	{
 		return facet;
 	}

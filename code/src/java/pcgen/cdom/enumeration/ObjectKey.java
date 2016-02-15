@@ -128,10 +128,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<Gender>(null);
 
-	public static final ObjectKey<BigDecimal> FACE_WIDTH = new ObjectKey<BigDecimal>(null);
-
-	public static final ObjectKey<BigDecimal> FACE_HEIGHT = new ObjectKey<BigDecimal>(null);
-
 	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBRACE = new ObjectKey<Boolean>(Boolean.FALSE);
 
 	public static final ObjectKey<SubRace> SUBRACE = new ObjectKey<SubRace>(null);

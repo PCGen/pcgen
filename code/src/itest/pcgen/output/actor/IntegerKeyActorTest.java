@@ -40,7 +40,6 @@ public class IntegerKeyActorTest extends AbstractOutputTestCase
 			classSetUp();
 			classSetUpRun = true;
 		}
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	private void classSetUp()
@@ -57,7 +56,7 @@ public class IntegerKeyActorTest extends AbstractOutputTestCase
 		df.set(id, d);
 		d.put(IntegerKey.COST, expectedResult);
 		IntegerKeyActor ika = new IntegerKeyActor(IntegerKey.COST);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "cost", ika);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "cost", ika);
 		processThroughFreeMarker("${deity.cost}", expectedResult.toString());
 	}
 

@@ -18,6 +18,8 @@
 package pcgen.output.wrapper;
 
 import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.output.base.PCGenObjectWrapper;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -26,13 +28,14 @@ import freemarker.template.TemplateModelException;
  * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel
  * for objects that implement the TypeSafeConstant interface.
  */
-public class TypeSafeConstantWrapper implements ObjectWrapper
+public class TypeSafeConstantWrapper implements PCGenObjectWrapper
 {
 	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
+	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID, java.lang.Object)
 	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o)
+		throws TemplateModelException
 	{
 		if (o instanceof TypeSafeConstant)
 		{

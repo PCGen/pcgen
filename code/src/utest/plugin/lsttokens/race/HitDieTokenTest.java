@@ -32,11 +32,11 @@ import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class HitDieTokenTest extends AbstractTokenTestCase<Race>
+public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static HitdieToken token = new HitdieToken();

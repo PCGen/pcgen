@@ -28,7 +28,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.solver.AggressiveSolverManager;
 import pcgen.base.test.InequalityTester;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellSupportForPCClass;
@@ -50,6 +53,10 @@ public final class InequalityTesterInst implements InequalityTester
 		INEQ_MAP.put(pcgen.cdom.facet.model.ClassFacet.ClassInfo.class, new ClassFacetInfoInequality());
 		INEQ_MAP.put(PlayerCharacter.class, new IgnoreInequality());
 		INEQ_MAP.put(SpellSupportForPCClass.class, new IgnoreInequality());
+		INEQ_MAP.put(ScopeInstanceFactory.class, new IgnoreInequality());
+		INEQ_MAP.put(AggressiveSolverManager.class, new IgnoreInequality());
+		//TODO SimpleVariableStore should not be ignored - but needs (hard?) custom comparator due to scopes...
+		INEQ_MAP.put(SimpleVariableStore.class, new IgnoreInequality());
 	}
 
 	@Override

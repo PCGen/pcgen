@@ -83,7 +83,6 @@ public final class PJEP extends JEP
 							PCGenCommand.class
 						};
 			}
-
 		};
 	}
 	public PJEP()
@@ -330,4 +329,5 @@ public final class PJEP extends JEP
 			com.setParent(parent);
 		}
 	}
+
 }

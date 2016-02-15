@@ -22,6 +22,7 @@ import java.util.Collection;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
@@ -60,10 +61,12 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 	}
 
 	/**
-	 * @see pcgen.output.base.OutputActor#process(java.lang.Object)
+	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel process(CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
+		throws TemplateModelException
 	{
 		Collection<T> c = new ArrayList<T>();
 		for (ObjectContainer<T> oc : d.getSafeSetFor(fsk))
@@ -71,6 +74,6 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 			c.addAll(oc.getContainedObjects());
 		}
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
-		return new CollectionModel(c);
+		return new CollectionModel(id, c);
 	}
 }

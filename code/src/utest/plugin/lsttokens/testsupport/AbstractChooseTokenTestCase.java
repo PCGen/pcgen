@@ -39,7 +39,7 @@ import plugin.qualifier.pobject.AnyToken;
 import plugin.qualifier.pobject.QualifiedToken;
 
 public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	private static QualifierToken<CDOMObject> qual = new QualifiedToken<CDOMObject>();

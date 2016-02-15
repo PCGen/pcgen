@@ -17,15 +17,26 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.List;
+
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.VarModifier;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.SolverManagerFacet;
+import pcgen.core.EquipmentModifier;
 
 /**
  * An EquipmentHead is a CDOMObject that represents characteristics of a single
  * "head" of a weapon. It is possible for a weapon to have more than one "head",
  * such as a Double Axe.
  */
-public final class EquipmentHead extends CDOMObject
+public final class EquipmentHead extends CDOMObject implements VarScoped
 {
+	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
+		.getFacet(SolverManagerFacet.class);
 
 	/*
 	 * Note: The equality issue referenced below (and the reason for the
@@ -37,7 +48,7 @@ public final class EquipmentHead extends CDOMObject
 	/**
 	 * The source of this EquipmentHead; used to establish equality
 	 */
-	private final Object headSource;
+	private final VarScoped headSource;
 
 	/**
 	 * The index (location) of this Head on the Equipment
@@ -54,13 +65,13 @@ public final class EquipmentHead extends CDOMObject
 	 * @throws IllegalArgumentException
 	 *             if the given source is null
 	 */
-	public EquipmentHead(Object source, int idx)
+	public EquipmentHead(VarScoped source, int idx)
 	{
 		super();
 		if (source == null)
 		{
 			throw new IllegalArgumentException(
-					"Source for EquipmentHead cannot be null");
+				"Source for EquipmentHead cannot be null");
 		}
 		index = idx;
 		headSource = source;
@@ -85,6 +96,11 @@ public final class EquipmentHead extends CDOMObject
 	public int hashCode()
 	{
 		return index ^ headSource.hashCode();
+	}
+
+	public Object getOwner()
+	{
+		return headSource;
 	}
 
 	/**
@@ -119,4 +135,41 @@ public final class EquipmentHead extends CDOMObject
 	{
 		return false;
 	}
+
+	public void removeVarModifiers(CharID id, EquipmentModifier aMod)
+	{
+		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
+		if (modifiers != null)
+		{
+			for (VarModifier<?> vm : modifiers)
+			{
+				solverManagerFacet.addModifier(id, vm, this, aMod);
+			}
+		}
+	}
+
+	public void addVarModifiers(CharID id, EquipmentModifier aMod)
+	{
+		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
+		if (modifiers != null)
+		{
+			for (VarModifier<?> vm : modifiers)
+			{
+				solverManagerFacet.addModifier(id, vm, this, aMod);
+			}
+		}
+	}
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "EQUIPMENT.PART";
+	}
+
+	@Override
+	public VarScoped getVariableParent()
+	{
+		return headSource;
+	}
+
 }

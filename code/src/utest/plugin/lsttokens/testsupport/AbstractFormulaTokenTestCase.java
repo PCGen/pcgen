@@ -26,7 +26,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	@Test

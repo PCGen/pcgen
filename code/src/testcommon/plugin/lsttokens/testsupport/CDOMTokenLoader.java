@@ -20,13 +20,13 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.util.Logging;
 
-public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
+public class CDOMTokenLoader<T extends Loadable> implements CDOMLoader<T>
 {
 
     @Override

@@ -624,7 +624,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 
 	protected abstract CT getTypeObj();
 
-	protected abstract AbstractAssociationFacet<CT, ST> getFacet();
+	protected abstract AbstractAssociationFacet<CharID, CT, ST> getFacet();
 
 	protected abstract ST developSource(CT obj);
 
