@@ -332,7 +332,7 @@ public class Solver<T>
 		 * The reporting String indicating that the value is the default value
 		 * for a given format
 		 */
-		String reportString;
+		private String reportString;
 		
 		public DefaultValue(String formatName)
 		{
