@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-15 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) Thomas Parker, 2014.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,24 +15,13 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.output;
+package pcgen.cdom.facet;
 
-import pcgen.output.library.ObjectWrapperLibrary;
-import pcgen.output.wrapper.CDOMObjectWrapper;
-import pcgen.output.wrapper.CDOMReferenceWrapper;
-import pcgen.output.wrapper.TypeSafeConstantWrapper;
-import freemarker.template.ObjectWrapper;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.inst.GlobalModifiers;
 
-public class OutputSupport
+public class GlobalModifierFacet extends
+		AbstractItemFacet<CharID, GlobalModifiers>
 {
-
-	public static void setUpObjectWrapper()
-	{
-		ObjectWrapperLibrary owl = ObjectWrapperLibrary.getInstance();
-		owl.add(ObjectWrapper.SIMPLE_WRAPPER);
-		owl.add(CDOMObjectWrapper.getInstance());
-		owl.add(new CDOMReferenceWrapper());
-		owl.add(new TypeSafeConstantWrapper());
-	}
-
 }

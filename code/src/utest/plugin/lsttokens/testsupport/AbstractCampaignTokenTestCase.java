@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 
 public abstract class AbstractCampaignTokenTestCase extends
-		AbstractTokenTestCase<Campaign>
+		AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CDOMTokenLoader<Campaign> loader =

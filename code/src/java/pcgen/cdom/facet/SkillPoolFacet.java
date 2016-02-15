@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCClass;
 
@@ -26,6 +27,7 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SkillPoolFacet extends AbstractAssociationFacet<PCClass, Integer>
+public class SkillPoolFacet extends
+		AbstractAssociationFacet<CharID, PCClass, Integer>
 {
 }

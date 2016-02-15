@@ -73,7 +73,8 @@ public class FactDefToken extends AbstractTokenWithSeparator<FactDefinition>
 			if (cl == null)
 			{
 				throw new IllegalArgumentException(
-					"Invalid Data Definition Location (no class): " + usableLocation);
+					"Invalid Data Definition Location (no class): "
+						+ usableLocation);
 			}
 		}
 		def.setUsableLocation(cl);

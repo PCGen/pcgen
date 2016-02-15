@@ -72,6 +72,7 @@ public final class FacetInitialization
 		SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
 		ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 
+		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
 		AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
@@ -132,6 +133,7 @@ public final class FacetInitialization
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		globalModifierFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		alignmentFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done
@@ -169,7 +171,12 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		FacetLibrary.getFacet(MasterUsableSkillFacet.class);
 		FacetLibrary.getFacet(EquipmentTypeFacet.class);
+		FacetLibrary.getFacet(ObjectWrapperFacet.class);
+		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		FacetLibrary.getFacet(HiddenTypeFacet.class);
+		FacetLibrary.getFacet(VariableLibraryFacet.class);
+		FacetLibrary.getFacet(SolverFactoryFacet.class);
+		FacetLibrary.getFacet(FormulaSetupFacet.class);
 		/*
 		 * TODO These are required because they are "bridges" - meaning they
 		 * refer to others, but no one refers to them. Need to consider if these
@@ -185,6 +192,8 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(RegionChoiceFacet.class);
 		FacetLibrary.getFacet(AddFacet.class);
 		FacetLibrary.getFacet(RemoveFacet.class);
+		FacetLibrary.getFacet(ModifierFacet.class);
+		FacetLibrary.getFacet(RemoteModifierFacet.class);
 		FacetLibrary.getFacet(CalcBonusFacet.class);
 		FacetLibrary.getFacet(DomainSpellsFacet.class);
 		FacetLibrary.getFacet(ObjectAdditionFacet.class);

@@ -24,8 +24,8 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * A AgeSetWrapper is an ObjectWrapper capable of producing a
- * TemplateModel for AgeSet objects.
+ * A AgeSetWrapper is an ObjectWrapper capable of producing a TemplateModel for
+ * AgeSet objects.
  */
 public class AgeSetWrapper implements ObjectWrapper
 {

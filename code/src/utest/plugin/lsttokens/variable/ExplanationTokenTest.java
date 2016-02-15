@@ -1,0 +1,107 @@
+/*
+ * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package plugin.lsttokens.variable;
+
+import org.junit.Test;
+
+import pcgen.base.lang.ObjectUtil;
+import pcgen.cdom.content.DatasetVariable;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.CDOMLoader;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
+
+public class ExplanationTokenTest extends
+		AbstractTokenTestCase<DatasetVariable>
+{
+
+	private static ExplanationToken token = new ExplanationToken();
+	private static CDOMTokenLoader<DatasetVariable> loader =
+			new CDOMTokenLoader<DatasetVariable>();
+
+	@Override
+	public CDOMPrimaryToken<DatasetVariable> getToken()
+	{
+		return token;
+	}
+
+	@Override
+	public Class<DatasetVariable> getCDOMClass()
+	{
+		return DatasetVariable.class;
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		return ConsolidationRule.OVERWRITE;
+	}
+
+	@Override
+	public CDOMLoader<DatasetVariable> getLoader()
+	{
+		return loader;
+	}
+
+	@Test
+	public void testDisplayNameRequired() throws PersistenceLayerException
+	{
+		DatasetVariable dv = new DatasetVariable();
+		ParseResult pr = token.parseToken(primaryContext, dv, "Try Me!");
+		assertFalse(pr.passed());
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testRoundRobinOne() throws PersistenceLayerException
+	{
+		runRoundRobin("This does something, really!");
+	}
+
+	@Override
+	protected String getAlternateLegalValue()
+	{
+		return "Alternate Explanation!";
+	}
+
+	@Override
+	protected String getLegalValue()
+	{
+		return "Explanation";
+	}
+
+	@Override
+	public void isCDOMEqual(DatasetVariable dv1, DatasetVariable dv2)
+	{
+		assertTrue("Display Name not equal " + dv1 + " and " + dv2, dv1
+			.getDisplayName().equals(dv2.getDisplayName()));
+		assertTrue("Format not equal " + dv1 + " and " + dv2,
+			ObjectUtil.compareWithNull(dv1.getFormat(), dv2.getFormat()));
+		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
+			ObjectUtil.compareWithNull(dv1.getScopeName(), dv2.getScopeName()));
+		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
+			ObjectUtil.compareWithNull(dv1.getSourceURI(), dv2.getSourceURI()));
+		assertTrue(
+			"Explanation not equal " + dv1 + " and " + dv2,
+			ObjectUtil.compareWithNull(dv1.getExplanation(),
+				dv2.getExplanation()));
+	}
+}

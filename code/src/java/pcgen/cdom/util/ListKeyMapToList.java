@@ -381,4 +381,10 @@ public class ListKeyMapToList
 		return obj instanceof ListKeyMapToList
 				&& map.equals(((ListKeyMapToList) obj).map);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return map.toString();
+	}
 }

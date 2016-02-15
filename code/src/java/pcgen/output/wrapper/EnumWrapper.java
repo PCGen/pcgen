@@ -17,21 +17,25 @@
  */
 package pcgen.output.wrapper;
 
+import pcgen.cdom.enumeration.CharID;
+import pcgen.output.base.PCGenObjectWrapper;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel
- * for objects that are enums.
+ * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel for
+ * objects that are enums.
  */
-public class EnumWrapper implements ObjectWrapper
+public class EnumWrapper implements PCGenObjectWrapper
 {
 	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
+	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o)
+		throws TemplateModelException
 	{
 		if (o.getClass().isEnum())
 		{

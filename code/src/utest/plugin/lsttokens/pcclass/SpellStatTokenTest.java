@@ -30,12 +30,12 @@ import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
+public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static SpellstatToken token = new SpellstatToken();

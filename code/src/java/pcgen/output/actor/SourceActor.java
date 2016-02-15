@@ -18,6 +18,7 @@
 package pcgen.output.actor;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Globals;
 import pcgen.output.base.OutputActor;
@@ -35,10 +36,11 @@ import freemarker.template.TemplateModelException;
 public class SourceActor implements OutputActor<CDOMObject>
 {
 	/**
-	 * @see pcgen.output.base.OutputActor#process(java.lang.Object)
+	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID, java.lang.Object)
 	 */
 	@Override
-	public TemplateModel process(CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
+		throws TemplateModelException
 	{
 		//TODO Why does a global setting limit the output rather than specifying what is desired?
 		SourceFormat sourceDisplay = Globals.getSourceDisplay();
