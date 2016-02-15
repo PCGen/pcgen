@@ -153,6 +153,15 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	@Override
 	public String getInstructions()
 	{
-		return "To [" + location + "]: " + modifier.getInstructions();
+		return modifier.getInstructions();
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		return "To [" + location + "]: +" + getInstructions();
 	}
 }

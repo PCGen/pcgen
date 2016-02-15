@@ -93,7 +93,7 @@ public class ArrayComponentModifierTest extends TestCase
 	{
 		CalculationModifier cm = new CalculationModifier(calc, 5);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals("To [5]: +33", acm.getInstructions());
+		assertEquals("To [5]: +33", acm.toString());
 	}
 
 	@Test
