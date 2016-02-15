@@ -77,7 +77,7 @@ public class CalculationModifierTest extends TestCase
 	public void testGetInstructions()
 	{
 		CalculationModifier cm = new CalculationModifier(calc, 5);
-		assertEquals("+33", cm.getInstructions());
+		assertEquals("33", cm.getInstructions());
 	}
 
 	@Test
