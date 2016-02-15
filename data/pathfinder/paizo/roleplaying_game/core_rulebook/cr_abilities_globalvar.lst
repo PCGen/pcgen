@@ -837,16 +837,16 @@ CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|P
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent1
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent2
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent3
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent4
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent5
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent12|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent6
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent7
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent8
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent9
-CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent10
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent2
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent4
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent6
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent8
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent10
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent12|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent12
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent14
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent16
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent18
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent20
 
 ###
 #	Sorcerer
