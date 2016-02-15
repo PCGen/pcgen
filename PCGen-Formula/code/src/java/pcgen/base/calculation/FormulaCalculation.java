@@ -98,4 +98,13 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	{
 		formula.getDependencies(scopeInfo, fdm);
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getInstructions()
+	{
+		return formula.toString();
+	}
 }

@@ -323,8 +323,15 @@ public class Solver<T>
 		return reversedMap;
 	}
 
+	/**
+	 * Carries the Default Value information for display in diagnosis
+	 */
 	private class DefaultValue
 	{
+		/**
+		 * The reporting String indicating that the value is the default value
+		 * for a given format
+		 */
 		String reportString;
 		
 		public DefaultValue(String formatName)

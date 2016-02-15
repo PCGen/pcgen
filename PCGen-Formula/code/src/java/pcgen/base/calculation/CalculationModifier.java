@@ -111,7 +111,7 @@ public final class CalculationModifier<T> implements Modifier<T>
 	@Override
 	public String getInstructions()
 	{
-		return toDo.toString();
+		return toDo.getInstructions();
 	}
 
 	/**
