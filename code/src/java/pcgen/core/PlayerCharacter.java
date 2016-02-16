@@ -4891,19 +4891,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				}
 			}
 			si = acs.addInfo(spellLevel, adjSpellLevel, 1, bookName, aFeatList);
-
-			//
-			//
-			if (Globals.hasSpellPPCost())
-			{
-				final Spell theSpell = acs.getSpell();
-				int ppCost = theSpell.getSafe(IntegerKey.PP_COST);
-				for (Ability feat : aFeatList)
-				{
-					ppCost += (int) BonusCalc.charBonusTo(feat, "PPCOST", theSpell.getKeyName(), this);
-				}
-				si.setActualPPCost(ppCost);
-			}
 		}
 		// Set number of pages on the spell
 		si.setNumPages(si.getNumPages() + numPages);

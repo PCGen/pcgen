@@ -901,7 +901,6 @@ public final class Globals
 		emptyLists();
 		campaignMap.clear();
 		campaignList.clear();
-		hasSpellPPCost = false;
 	}
 
 	/**
@@ -1657,12 +1656,5 @@ public final class Globals
 	public static MasterListInterface getMasterLists()
 	{
 		return SettingsHandler.getGame().getMasterLists();
-	}
-	
-	private static boolean hasSpellPPCost;
-	
-	public static boolean hasSpellPPCost()
-	{
-		return hasSpellPPCost;
 	}
 }
