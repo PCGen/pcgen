@@ -98,8 +98,6 @@ public class IntegerKey
 
 	public static final IntegerKey PLUS = getConstant("PLUS");
 
-	public static final IntegerKey PP_COST = getConstant("PP_COST");
-
 	public static final IntegerKey PROHIBIT_COST = getConstant("PROHIBIT_COST");
 
 	public static final IntegerKey RANGE = getConstant("RANGE");

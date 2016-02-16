@@ -1113,14 +1113,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${bonusplugins.dir}/BonusToken-CHECKS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/bonustokens/Checks.class" />
-					<include name="plugin/bonustokens/Checks$CheckInfo.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-COMBAT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -1321,13 +1313,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/PostRangeAdd.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${bonusplugins.dir}/BonusToken-PPCOST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/bonustokens/PPCost.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4463,13 +4448,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/spell/ItemToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/SpellLstToken-PPCOST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/spell/PpcostToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
