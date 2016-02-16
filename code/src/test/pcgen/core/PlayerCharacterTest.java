@@ -133,7 +133,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
 		BuildUtilities.setFact(giantClass, "ClassType", "Monster");
-		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL*3/4");
+		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BASEAB|CL*3/4");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		context.getReferenceContext().importObject(giantClass);
 	
