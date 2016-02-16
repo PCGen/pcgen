@@ -33,7 +33,7 @@ import pcgen.rules.context.LoadContext;
  * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision: 6504 $
  */
-public final class GenericLoader<T extends CDOMObject> extends
+public class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>
 {
 	private final Class<T> baseClass;
@@ -75,7 +75,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
-	public T parseLine(LoadContext context, T object, String lstLine,
+	public final T parseLine(LoadContext context, T object, String lstLine,
 			SourceEntry source) throws PersistenceLayerException
 	{
 		T po;
@@ -85,6 +85,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 			try
 			{
 				po = baseClass.newInstance();
+				newConstructionActions(context, po);
 			}
 			catch (InstantiationException e)
 			{
@@ -125,6 +126,11 @@ public final class GenericLoader<T extends CDOMObject> extends
 		return null;
 	}
 
+	protected void newConstructionActions(LoadContext context, T po)
+	{
+		//Nothing by default
+	}
+
 	/**
 	 * Get the object with key aKey
 	 * @param aKey
@@ -133,7 +139,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
 	 */
 	@Override
-	protected T getObjectKeyed(LoadContext context, String aKey)
+	protected final T getObjectKeyed(LoadContext context, String aKey)
 	{
 		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				baseClass, aKey);

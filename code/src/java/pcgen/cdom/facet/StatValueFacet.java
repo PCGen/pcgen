@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCStat;
 
@@ -26,6 +27,7 @@ import pcgen.core.PCStat;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatValueFacet extends AbstractAssociationFacet<PCStat, Integer>
+public class StatValueFacet extends
+		AbstractAssociationFacet<CharID, PCStat, Integer>
 {
 }

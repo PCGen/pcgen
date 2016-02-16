@@ -30,7 +30,7 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.qualifier.pobject.QualifiedToken;
 
 public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC extends Loadable>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	private static QualifierToken<CDOMObject> qual = new QualifiedToken<CDOMObject>();

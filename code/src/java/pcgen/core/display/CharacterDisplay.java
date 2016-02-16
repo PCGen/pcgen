@@ -144,7 +144,6 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
-import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
@@ -693,12 +692,6 @@ public class CharacterDisplay
 		return sizeFacet.getSizeAbb(id);
 	}
 
-	@Deprecated
-	public String getResidence()
-	{
-		return getSafeStringFor(PCStringKey.RESIDENCE);
-	}
-
 	public Collection<RaceSubType> getRacialSubTypes()
 	{
 		return subTypesFacet.getRacialSubTypes(id);
@@ -1199,29 +1192,6 @@ public class CharacterDisplay
 		return drFacet.getDRString(id);
 	}
 
-	/**
-	 * Get the value of the weight token without units.
-	 *
-	 * @return The value of the weight token.
-	 */
-	public String getNoUnitToken()
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			getWeight());
-	}
-
-	/**
-	 * Get the value of the weight token in units.
-	 *
-	 * @return The value of the weight token.
-	 */
-	public String getWeightToken()
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			getWeight())
-			+ Globals.getGameModeUnitSet().getWeightUnit();
-	}
-
 	/*
 	 * returns true if Equipment is in the primary weapon list
 	 */
@@ -1619,50 +1589,6 @@ public class CharacterDisplay
 			return getMaxLoad(mult).intValue();
 		}
 		return 0.0;
-	}
-
-	@Deprecated
-	public String getCharacterHeightInchPart()
-	{
-		return Integer.toString(getHeight() % 12);
-	}
-
-	@Deprecated
-	public String getCharacterHeightFootPart()
-	{
-		return Integer.toString(getHeight() / 12);
-	}
-
-	@Deprecated
-	public String getHeightString()
-	{
-		String retString;
-	
-		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
-		{
-			retString =
-					getCharacterHeightFootPart() + "' " + getCharacterHeightInchPart() + "\"";
-		}
-		else
-		{
-			retString =
-					Globals.getGameModeUnitSet().displayHeightInUnitSet(
-						getHeight())
-						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
-		}
-	
-		return retString;
-	}
-
-	@Deprecated
-	public String getAlignmentDisplayString()
-	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
-		{
-			return "";
-		}
-		final PCAlignment alignment = getPCAlignment();
-		return alignment == null ? "None" : alignment.getDisplayName();
 	}
 
 	/**

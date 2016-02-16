@@ -21,6 +21,7 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.View;
@@ -36,8 +37,7 @@ import pcgen.util.enumeration.Visibility;
  *            The type of object used as content in the items managed by this
  *            ContentDefinition
  */
-public abstract class ContentDefinition<T extends CDOMObject, F> extends
-		UserContent implements Loadable
+public abstract class ContentDefinition<T extends CDOMObject, F> extends UserContent
 {
 
 	/**
@@ -60,7 +60,9 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	/**
 	 * Sets the visibility for this ContentDefinition.
 	 * 
-	 * The value if this is "null" should be interpreted as "HIDDEN"
+	 * The value if this is "null" should be interpreted as "HIDDEN", but is
+	 * necessary to have as a separate value for establishing whether it was set
+	 * by data.
 	 */
 	private Visibility visibility;
 
@@ -68,7 +70,9 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	 * Sets whether this ContentDefinition is selectable in a CHOOSE or other
 	 * item that allows selection via primitives
 	 * 
-	 * The value if this is "null" should be interpreted as "false"
+	 * The value if this is "null" should be interpreted as "false", but is
+	 * necessary to have as a separate value for establishing whether it was set
+	 * by data.
 	 */
 	private Boolean selectable;
 
@@ -76,15 +80,21 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	 * Sets whether this ContentDefinition is required for the objects as
 	 * defined by the usableLocation.
 	 * 
-	 * The value if this is "null" should be interpreted as "false"
+	 * The value if this is "null" should be interpreted as "false", but is
+	 * necessary to have as a separate value for establishing whether it was set
+	 * by data.
 	 */
 	private Boolean required;
 
 	/**
+<<<<<<< Upstream, based on upstream/master
 	 * Sets the Display name for this ContentDefinition
+=======
+	 * Sets the Display name for this UserContent
+>>>>>>> dc1462f Highlights: NEWTAG-239 Implement new Formula System NEWTAG-531 Implement INFO/INFOVARS for new output
 	 * 
 	 * @param name
-	 *            The DisplayName for this ContentDefinition
+	 *            The DisplayName for this UserContent
 	 * @throws IllegalArgumentException
 	 *             if the given name is null
 	 */
@@ -98,7 +108,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.base.Identified#getDisplayName()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getDisplayName()
@@ -139,20 +149,20 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	 * convert to/from the String format used to serialize content for LST
 	 * files.
 	 * 
-	 * @param fmtMgr
+	 * @param fmtManager
 	 *            The non-null FormatManager for this ContentDefinition
 	 * @return The previous FormatManager for this ContentDefinition.
 	 * @throws IllegalArgumentException
 	 *             if the given FormatManager is null
 	 */
-	public FormatManager<?> setFormatManager(FormatManager<F> fmtMgr)
+	public FormatManager<?> setFormatManager(FormatManager<F> fmtManager)
 	{
-		if (fmtMgr == null)
+		if (fmtManager == null)
 		{
 			throw new IllegalArgumentException("Format Manager cannot be null");
 		}
 		FormatManager<?> returnValue = formatManager;
-		this.formatManager = fmtMgr;
+		this.formatManager = fmtManager;
 		return returnValue;
 	}
 
@@ -203,7 +213,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	 */
 	public void setSelectable(boolean set)
 	{
-		selectable = set;
+		selectable = Boolean.valueOf(set);
 	}
 
 	/**
@@ -243,7 +253,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 			throw new UnsupportedOperationException(
 				"Global ContentDefinition cannot be required");
 		}
-		required = set;
+		required = Boolean.valueOf(set);
 	}
 
 	/**
@@ -263,7 +273,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.base.Loadable#getLSTformat()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getLSTformat()
@@ -293,7 +303,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 		Visibility vis = (visibility == null) ? Visibility.HIDDEN : visibility;
 		if (vis.isVisibleTo(View.VISIBLE_EXPORT))
 		{
-			activateOutput();
+			activateOutput(context.getDataSetID());
 		}
 		activateTokens(context);
 	}
@@ -312,7 +322,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends
 	 * 
 	 * This should not be called from an external source
 	 */
-	protected abstract void activateOutput();
+	protected abstract void activateOutput(DataSetID dsID);
 
 	/**
 	 * Activates the tokens supporting this ContentDefinition. This is intended

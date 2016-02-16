@@ -27,6 +27,7 @@ import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FactSetKey;
+import pcgen.rules.context.AbstractObjectContext;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -79,10 +80,11 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	protected ParseResult parseTokenWithSeparator(LoadContext context, T obj,
 		String value)
 	{
-		FormatManager<F> tm = def.getFormatManager();
-		FactSetKey<F> fk = def.getFactSetKey();
+		FormatManager<F> fmtManager = def.getFormatManager();
+		FactSetKey<F> fsk = def.getFactSetKey();
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		boolean firstToken = true;
+		AbstractObjectContext objContext = context.getObjectContext();
 		while (st.hasMoreTokens())
 		{
 			String token = st.nextToken();
@@ -96,11 +98,12 @@ public class FactSetParser<T extends CDOMObject, F> extends
 						+ ": When used, .CLEARALL must be the first argument",
 						context);
 				}
-				context.getObjectContext().removeSet(obj, fk);
+				objContext.removeSet(obj, fsk);
 			}
 
-			ObjectContainer<F> indirect = tm.convertObjectContainer(token);
-			context.getObjectContext().addToSet(obj, fk, indirect);
+			ObjectContainer<F> indirect =
+					fmtManager.convertObjectContainer(token);
+			objContext.addToSet(obj, fsk, indirect);
 		}
 		return ParseResult.SUCCESS;
 	}

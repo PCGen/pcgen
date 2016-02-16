@@ -45,6 +45,11 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.SolverFactory;
+import pcgen.base.solver.SplitFormulaSetup;
+import pcgen.base.solver.SplitFormulaSetup.IndividualSetup;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.IdentityList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -66,6 +71,7 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Processor;
 import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -109,6 +115,8 @@ import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.FormulaSetupFacet;
+import pcgen.cdom.facet.GlobalModifierFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
@@ -120,11 +128,14 @@ import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SaveableBonusFacet;
 import pcgen.cdom.facet.SavedAbilitiesFacet;
+import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
 import pcgen.cdom.facet.SkillPoolFacet;
 import pcgen.cdom.facet.SkillRankFacet;
+import pcgen.cdom.facet.SolverFactoryFacet;
+import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
@@ -139,6 +150,7 @@ import pcgen.cdom.facet.SubstitutionClassFacet;
 import pcgen.cdom.facet.TargetTrackingFacet;
 import pcgen.cdom.facet.TemplateFeatFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
+import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
@@ -154,6 +166,7 @@ import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.NonStatStatFacet;
 import pcgen.cdom.facet.analysis.NonStatToStatFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
@@ -219,6 +232,7 @@ import pcgen.cdom.helper.SAtoStringProcessor;
 import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
@@ -256,6 +270,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -399,6 +414,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
+	private GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
+
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
@@ -436,7 +453,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private BonusSkillRankChangeFacet bonusSkillRankChangeFacet = FacetLibrary.getFacet(BonusSkillRankChangeFacet.class);
 
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
+	private SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
+	private SolverFactoryFacet solverFactoryFacet = FacetLibrary.getFacet(SolverFactoryFacet.class);
+	private FormulaSetupFacet formulaSetupFacet = FacetLibrary.getFacet(FormulaSetupFacet.class);
+	
+	private ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 
+	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
+	
 	private ClassSource defaultDomainSource;
 
 	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
@@ -501,10 +526,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private Map<Category<Ability>, BigDecimal> theUserPoolBonuses = null;
 
-	// A cache outside of the variable cache to hold the values that will not alter after 20th level.
-	private Integer epicBAB = null;
-	private HashMap<PCCheck, Integer> epicCheckMap = new HashMap<PCCheck, Integer>();
-
 	// /////////////////////////////////////
 	// operations
 
@@ -527,6 +548,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
 	{
 		id = CharID.getID(Globals.getContext().getDataSetID());
+		doFormulaSetup();
+		
 		display = new CharacterDisplay(id);
 		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
 		SA_PROC = new SAProcessor(this);
@@ -538,13 +561,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			ageSetKitSelections[i] = false;
 		}
+		AbstractReferenceContext refContext = Globals.getContext().getReferenceContext();
+		GlobalModifiers gm =
+				refContext.constructNowIfNecessary(GlobalModifiers.class,
+					"Global Modifiers");
+		globalModifierFacet.set(id, gm);
+
 		//Do BilSet first, since required by Race
 		bioSetFacet.set(id, Globals.getBioSet());
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
 		setRace(Globals.s_EMPTYRACE);
 
-		statFacet.addAll(id, Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCStat.class));
-		checkFacet.addAll(id, Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCCheck.class));
+		statFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setGold(new BigDecimal(0));
@@ -557,6 +586,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
+	}
+	
+	private final void doFormulaSetup()
+	{
+		SplitFormulaSetup formulaSetup =
+				formulaSetupFacet.get(id.getDatasetID());
+		IndividualSetup mySetup = formulaSetup.getIndividualSetup("Global");
+		scopeFacet.set(id, mySetup.getInstanceFactory());
+		variableStoreFacet.set(id, mySetup.getVariableStore());
+		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
+		solverManagerFacet.set(id, new AggressiveSolverManager(
+			mySetup.getFormulaManager(), solverFactory, mySetup.getVariableStore()));
 	}
 
 	/**
@@ -2894,25 +2935,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int masterTotal = -9999;
 		final PlayerCharacter nPC = getMasterPC();
 
-		// check for Epic
-		/* 
-		final int totalClassLevels = getTotalCharacterLevel();
-		Map<String, String> totalLvlMap = null;
-		final Map<String, String> classLvlMap;
-
-		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
-		{
-			String epicAttack = epicAttackMap.get(cacheLookup);
-			totalLvlMap = getTotalLevelHashMap();
-			classLvlMap =
-					getCharacterLevelHashMap(SettingsHandler.getGame()
-						.getBabMaxLvl());
-
-			// insure class-levels total is below some value (20)
-			getVariableProcessor().pauseCache();
-			setClassLevelsBrazenlyTo(classLvlMap);
-		}
-		*/
 		if ((nPC != null) && (masterFacet.getCopyMasterBAB(id).length() > 0))
 		{
 			masterBAB = nPC.baseAttackBonus();
@@ -2976,14 +2998,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				attackCycle = i;
 			}
 		}
-		/*
-				// restore class levels to original value if altered
-				if (totalLvlMap != null)
-				{
-					setClassLevelsBrazenlyTo(totalLvlMap);
-					getVariableProcessor().restartCache();
-				}
-		*/
 		// total Number of Attacks for this PC
 		int attackTotal = ab.get(attackCycle).intValue();
 
@@ -3172,14 +3186,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		final String cacheLookup = "getBaseCheck:" + check.getKeyName(); //$NON-NLS-1$
 
-		Float total = null;
-		if (epicCheckMap.containsKey(check))
-		{
-			total = epicCheckMap.get(check).floatValue();
-		} else
-		{
-			total = getVariableProcessor().getCachedVariable(cacheLookup);
-		}
+		Float total = getVariableProcessor().getCachedVariable(cacheLookup);
 
 		if (total != null)
 		{
@@ -3187,42 +3194,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 
 		double bonus = 0;
-		boolean isEpic = false;
-		final int totalClassLevels;
-		Map<String, Integer> totalLvlMap = null;
-		final Map<String, Integer> classLvlMap;
-
-		totalClassLevels = totalNonMonsterLevels();
-		if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
-		{
-			isEpic = true;
-			Integer epicCheck = epicCheckMap.get(check);
-			if (epicCheck == null)
-			{
-				totalLvlMap = getTotalLevelHashMap();
-				classLvlMap = getCharacterLevelHashMap(SettingsHandler.getGame().getChecksMaxLvl());
-				getVariableProcessor().pauseCache();
-				setAllowInteraction(false);
-				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
-				// total is below some
-				// value (e.g. 20)
-			} else
-			{
-				// Logging.errorPrint("getBaseCheck(): '" + cacheLookup + "' =
-				// epic='" + epicCheck + "'"); //$NON-NLS-1$
-				return epicCheck;
-			}
-		}
 
 		final String checkName = check.getKeyName();
-		bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
-
-		if (totalLvlMap != null)
-		{
-			setClassLevelsBrazenlyTo(totalLvlMap);
-			setAllowInteraction(true);
-			getVariableProcessor().restartCache();
-		}
 
 		//Apply non-magical bonuses
 		bonus += getTotalBonusTo("SAVE", "BASE." + checkName);
@@ -3241,11 +3214,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			bonus = Math.max(bonus, masterBonus);
 		}
 		
-		if (isEpic)
-		{
-			epicCheckMap.put(check, (int) bonus);
-		}
-
+		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf((float) bonus));
 		return (int) bonus;
 	}
 
@@ -3262,8 +3231,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public int getTotalCheck(PCCheck check)
 	{
-		int bonus = getBaseCheck(check);
-		return bonus + (int) getTotalBonusTo("CHECKS", check.getKeyName())
+		return getBaseCheck(check)
 			+ (int) getTotalBonusTo("SAVE", check.getKeyName());
 	}
 
@@ -4846,19 +4814,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				}
 			}
 			si = acs.addInfo(spellLevel, adjSpellLevel, 1, bookName, aFeatList);
-
-			//
-			//
-			if (Globals.hasSpellPPCost())
-			{
-				final Spell theSpell = acs.getSpell();
-				int ppCost = theSpell.getSafe(IntegerKey.PP_COST);
-				for (Ability feat : aFeatList)
-				{
-					ppCost += (int) BonusCalc.charBonusTo(feat, "PPCOST", theSpell.getKeyName(), this);
-				}
-				si.setActualPPCost(ppCost);
-			}
 		}
 		// Set number of pages on the spell
 		si.setNumPages(si.getNumPages() + numPages);
@@ -5041,14 +4996,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		// check for cached version
 		final String cacheLookup = "BaseAttackBonus";
-		Float total;
-		if (epicBAB != null)
-		{
-			total = epicBAB.floatValue();
-		} else
-		{
-			total = getVariableProcessor().getCachedVariable(cacheLookup);
-		}
+		Float total = getVariableProcessor().getCachedVariable(cacheLookup);
 		if (total != null)
 		{
 			return total.intValue();
@@ -5066,46 +5014,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
 			return masterBAB;
 		}
-
-		// Check for Epic
-		final int totalClassLevels = totalNonMonsterLevels();
-		Map<String, Integer> totalLvlMap = null;
-		final Map<String, Integer> classLvlMap;
-		boolean isEpic = false;
-		if (totalClassLevels > SettingsHandler.getGame().getBabMaxLvl())
-		{
-			isEpic = true;
-			if (epicBAB == null)
-			{
-				totalLvlMap = getTotalLevelHashMap();
-				classLvlMap = getCharacterLevelHashMap(SettingsHandler.getGame().getBabMaxLvl());
-
-				// ensure total class-levels below some value (e.g. 20)
-				getVariableProcessor().pauseCache();
-				setAllowInteraction(false);
-				setClassLevelsBrazenlyTo(classLvlMap);
-			} else
-			{
-				//Logging.errorPrint("baseAttackBonus(): '" + cacheLookup + "' = epic:'" + epicBAB + "'"); //$NON-NLS-1$
-				return epicBAB;
-			}
-		}
-
-		int bab = (int) getTotalBonusTo("COMBAT", "BAB");
-
-		if (isEpic)
-		{
-			epicBAB = bab;
-		}
-		if (totalLvlMap != null)
-		{
-			setClassLevelsBrazenlyTo(totalLvlMap);
-			setAllowInteraction(true);
-			getVariableProcessor().restartCache();
-		}
-
-		bab += (int) getTotalBonusTo("COMBAT", "BASEAB");
-
+		int bab = (int) getTotalBonusTo("COMBAT", "BASEAB");
 		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(bab));
 		return bab;
 	}
@@ -5444,19 +5353,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				save += getBaseCheck(check);
 			} else if ("MISC".equals(tokens[i]))
 			{
-				save += (int) getTotalBonusTo("CHECKS", saveType);
 				save += (int) getTotalBonusTo("SAVE", saveType);
 			}
 
 			if ("EPIC".equals(tokens[i]))
 			{
-				save += (int) getBonusDueToType("CHECKS", saveType, "EPIC");
 				save += (int) getBonusDueToType("SAVE", saveType, "EPIC");
 			}
 
 			if ("MAGIC".equals(tokens[i]))
 			{
-				save += (int) getEquipmentBonusTo("CHECKS", saveType);
 				save += (int) getEquipmentBonusTo("SAVE", saveType);
 			}
 
@@ -5467,13 +5373,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 			if ("FEATS".equals(tokens[i]))
 			{
-				save += (int) getFeatBonusTo("CHECKS", saveType);
 				save += (int) getFeatBonusTo("SAVE", saveType);
 			}
 
 			if ("STATMOD".equals(tokens[i]))
 			{
-				save += (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
 				save += (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 
@@ -5482,13 +5386,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			 */
 			if ("NOEPIC".equals(tokens[i]))
 			{
-				save -= (int) getBonusDueToType("CHECKS", saveType, "EPIC");
 				save -= (int) getBonusDueToType("SAVE", saveType, "EPIC");
 			}
 
 			if ("NOMAGIC".equals(tokens[i]))
 			{
-				save -= (int) getEquipmentBonusTo("CHECKS", saveType);
 				save -= (int) getEquipmentBonusTo("SAVE", saveType);
 			}
 
@@ -5499,13 +5401,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 			if ("NOFEATS".equals(tokens[i]))
 			{
-				save -= (int) getFeatBonusTo("CHECKS", saveType);
 				save -= (int) getFeatBonusTo("SAVE", saveType);
 			}
 
 			if ("NOSTAT".equals(tokens[i]) || "NOSTATMOD".equals(tokens[i]))
 			{
-				save -= (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
 				save -= (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 		}
@@ -6488,20 +6388,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return bonusManager.getActiveBonusList();
 	}
 
-	private synchronized void setClassLevelsBrazenlyTo(final Map<String, Integer> lvlMap)
-	{
-		// set class levels to class name,level pair
-		for (PCClass pcClass : getClassSet())
-		{
-			Integer lvl = lvlMap.get(pcClass.getKeyName());
-			int setLevel = (lvl == null) ? 0 : lvl;
-			setLevelWithoutConsequence(pcClass, setLevel);
-		}
-		// Recalculate bonuses, based on new level
-		calcActiveBonuses();
-		// setDirty(true);
-	}
-
 	/**
 	 * Parses through all Equipment items and calculates total Bonus
 	 * 
@@ -7100,12 +6986,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private int calculateSaveBonusRace(PCCheck check)
 	{
-		int save;
 		final String sString = check.toString();
 		Race race = getRace();
-		save = (int) BonusCalc.charBonusTo(race, "CHECKS", "BASE." + sString, this);
-		save += (int) BonusCalc.charBonusTo(race, "CHECKS", sString, this);
-		save += (int) BonusCalc.charBonusTo(race, "SAVE", "BASE." + sString, this);
+		int save = (int) BonusCalc.charBonusTo(race, "SAVE", "BASE." + sString, this);
 		save += (int) BonusCalc.charBonusTo(race, "SAVE", sString, this);
 
 		return save;
@@ -8685,18 +8568,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		return false;
 	}
-
-	public void resetEpicCache()
-	{
-		epicBAB = null;
-		epicCheckMap.clear();
-	}
-
-	// public double getBonusValue(final String aBonusType, final String
-	// aBonusName )
-	// {
-	// return TypedBonus.totalBonuses(getBonusesTo(aBonusType, aBonusName));
-	// }
 
 	public int getCritRange(Equipment e, boolean primary)
 	{
@@ -10766,5 +10637,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public boolean hasAbilityInPool(AbilityCategory aCategory)
 	{
 		return grantedAbilityFacet.hasAbilityInPool(id, aCategory);
+	}
+
+	public <T> void addModifier(VarModifier<T> modifier, VarScoped vs,
+		Object source)
+	{
+		solverManagerFacet.addModifier(id, modifier, vs, source);
+	}
+
+	public Object getGlobal(String varName)
+	{
+		return resultFacet.getGlobalVariable(id, varName);
 	}
 }

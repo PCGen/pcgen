@@ -53,6 +53,7 @@ import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
+import pcgen.gui2.solverview.SolverViewFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
 import pcgen.gui2.tools.Utility;
@@ -135,6 +136,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String LOGGING_LEVEL_COMMAND = TOOLS_COMMAND + ".loggingLevel";
 	public static final String CALCULATOR_COMMAND = TOOLS_COMMAND + ".calculator";
 	public static final String COREVIEW_COMMAND = TOOLS_COMMAND + ".coreview";
+	public static final String SOLVERVIEW_COMMAND = TOOLS_COMMAND + ".solverview";
 	//the help menu commands
 	public static final String HELP_COMMAND = "help";
 	public static final String HELP_CONTEXT_COMMAND = HELP_COMMAND + ".context";
@@ -193,6 +195,7 @@ public final class PCGenActionMap extends ActionMap
 		put(LOGGING_LEVEL_COMMAND, new LoggingLevelAction());
 		put(CALCULATOR_COMMAND, new CalculatorAction());
 		put(COREVIEW_COMMAND, new CoreViewAction());
+		put(SOLVERVIEW_COMMAND, new SolverViewAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
 		put(KIT_FILTERS_COMMAND,
@@ -471,6 +474,24 @@ public final class PCGenActionMap extends ActionMap
 			CharacterFacade cf = frame.getSelectedCharacterRef().getReference();
 			CoreViewFrame cvf = new CoreViewFrame(frame, cf);
 			cvf.setVisible(true);
+		}
+
+	}
+
+	private class SolverViewAction extends CharacterAction
+	{
+
+
+		public SolverViewAction()
+		{
+			super("mnuToolsSolverView", SOLVERVIEW_COMMAND, "Ctrl-F11");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			SolverViewFrame svf = new SolverViewFrame(frame);
+			svf.setVisible(true);
 		}
 
 	}

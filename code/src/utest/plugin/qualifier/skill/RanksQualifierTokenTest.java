@@ -105,7 +105,6 @@ public class RanksQualifierTokenTest extends
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|RANKS=3[ALL]"));
 		BuildUtilities
@@ -114,8 +113,8 @@ public class RanksQualifierTokenTest extends
 				BuildUtilities.createFact(primaryContext, "SpellType",
 					getTargetClass());
 		fd.setSelectable(true);
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
@@ -136,11 +135,10 @@ public class RanksQualifierTokenTest extends
 	public void testGetSetFiltered() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|RANKS=2[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.skillSet.put(s1, 1);
@@ -154,11 +152,10 @@ public class RanksQualifierTokenTest extends
 	public void testGetSetNegated() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|!RANKS=2[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.skillSet.put(s1, 1);
@@ -172,11 +169,10 @@ public class RanksQualifierTokenTest extends
 	public void testGetSetMaxRank() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|RANKS=MAXRANK[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		pc.classMap.put(cl1, 1);
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);

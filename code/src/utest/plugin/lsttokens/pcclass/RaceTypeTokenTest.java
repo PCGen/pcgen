@@ -26,11 +26,11 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class RaceTypeTokenTest extends AbstractTokenTestCase<PCClass>
+public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static PreracetypeToken token = new PreracetypeToken();

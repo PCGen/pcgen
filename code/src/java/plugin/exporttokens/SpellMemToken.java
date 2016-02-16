@@ -254,10 +254,6 @@ public class SpellMemToken extends Token
 						{
 							retValue.append(aPC.getSpellRange(selectedCSpell, si));
 						}
-						else if ("BASEPPCOST".equals(aLabel))
-						{
-							retValue.append(aSpell.getSafe(IntegerKey.PP_COST));
-						}
 						else if ("CASTERLEVEL".equals(aLabel))
 						{
 							retValue.append(aPC.getCasterLevelForSpell(selectedCSpell));

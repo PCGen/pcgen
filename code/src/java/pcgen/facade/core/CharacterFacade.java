@@ -31,6 +31,7 @@ import java.util.List;
 import javax.swing.undo.UndoManager;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
@@ -876,4 +877,6 @@ public interface CharacterFacade extends CompanionFacade
 	public void addNote(List<EquipmentFacade> targets);
 	
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers);
+
+	CharID getCharID();
 }

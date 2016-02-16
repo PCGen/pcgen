@@ -29,7 +29,7 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC extends Loadable>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract Class<TC> getTargetClass();

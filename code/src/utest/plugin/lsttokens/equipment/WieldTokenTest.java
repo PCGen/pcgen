@@ -28,14 +28,14 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
-public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
+public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static WieldToken token = new WieldToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();

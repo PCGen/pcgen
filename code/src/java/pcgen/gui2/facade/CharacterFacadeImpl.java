@@ -51,6 +51,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -72,6 +73,7 @@ import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -3613,6 +3615,27 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			newEquip.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(aEq));
 		}
 
+		List<VarModifier<?>> modifiers = newEquip.getListFor(ListKey.MODIFY);
+		if (modifiers != null)
+		{
+			for (VarModifier<?> vm : modifiers)
+			{
+				theCharacter.addModifier(vm, newEquip, newEquip);
+			}
+		}
+
+		for (EquipmentHead head : newEquip.getEquipmentHeads())
+		{
+			modifiers = head.getListFor(ListKey.MODIFY);
+			if (modifiers != null)
+			{
+				for (VarModifier<?> vm : modifiers)
+				{
+					theCharacter.addModifier(vm, head, head);
+				}
+			}
+		}
+
 		EquipmentBuilderFacadeImpl builder =
 				new EquipmentBuilderFacadeImpl(newEquip, theCharacter, delegate);
 		CustomEquipResult result =
@@ -3621,6 +3644,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			dataSet.addEquipment(newEquip);
 		}
+		//TODO if this is returning null, then the AggressiveSolverManager needs to destroy the unused channels :/
 		return result == CustomEquipResult.PURCHASE ? newEquip : null;
 	}
 
@@ -4120,7 +4144,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
 		
 		//TODO: Handle second head
-		return equip.canAddModifier(eqMod, true);
+		return equip.canAddModifier(theCharacter, eqMod, true);
 	}
 	
 	/* (non-Javadoc)
@@ -4768,6 +4792,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		List<CoreViewNodeFacade> coreDebugList = CoreUtils.buildCoreDebugList(theCharacter, pers);
 		return coreDebugList;
+	}
+
+	@Override
+	public CharID getCharID()
+	{
+		return theCharacter.getCharID();
 	}
 
 }

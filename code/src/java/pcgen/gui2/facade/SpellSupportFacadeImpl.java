@@ -69,8 +69,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SpellSupportForPCClass;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
@@ -412,69 +410,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			return Collections.emptyList();
 		}
-		SpellFacadeImplem spell = (SpellFacadeImplem) spellNode.getSpell();
-		
 		List<InfoFacade> availableList = new ArrayList<InfoFacade>();
-		if (Globals.hasSpellPPCost())
-		{
-			//
-			// Does feat apply a BONUS:PPCOST to this spell, all spells, or all spells of
-			// one of this spell's types? If it does, then we can possibly apply it to
-			// this spell.
-			//
-
-			final String aKey = spell.getKeyName();
-			List<Ability> metamagicFeats = new ArrayList<Ability>();
-			for (Ability anAbility : characterMetaMagicFeats)
-			{
-				boolean canAdd = false;
-				List<BonusObj> bonusList =
-						BonusUtilities.getBonusFromList(anAbility
-							.getRawBonusList(pc), "PPCOST"); //$NON-NLS-1$
-				if (bonusList.size() == 0)
-				{
-					canAdd = true; // if doesn't modify PP COST, then allow it
-				}
-				else
-				{
-					for (BonusObj aBonus : bonusList)
-					{
-						final java.util.StringTokenizer aTok =
-								new java.util.StringTokenizer(aBonus
-									.getBonusInfo(), ","); //$NON-NLS-1$
-						while (aTok.hasMoreTokens())
-						{
-							final String aBI = aTok.nextToken();
-
-							if (aBI.equalsIgnoreCase(aKey)
-								|| aBI.equalsIgnoreCase("ALL")) //$NON-NLS-1$
-							{
-								canAdd = true;
-								break;
-							}
-							else if (aBI.startsWith("TYPE=") || aBI.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
-							{
-								if (spell.getSpell().isType(aBI.substring(5)))
-								{
-									canAdd = true;
-									break;
-								}
-							}
-						}
-					}
-				}
-				if (!canAdd)
-				{
-					continue;
-				}
-				metamagicFeats.add(anAbility);
-			}
-			availableList.addAll(metamagicFeats);
-		}
-		else
-		{
-			availableList.addAll(characterMetaMagicFeats);
-		}
+		availableList.addAll(characterMetaMagicFeats);
 		return availableList;
 	}
 

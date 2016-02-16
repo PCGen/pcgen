@@ -25,7 +25,8 @@ import pcgen.base.util.FormatManager;
  * This is a Typesafe enumeration of legal FACTs of an object. It is designed to
  * act as an index to a specific facts within a CDOMObject.
  * 
- * @param <T> The Type of object stored for the FactKey
+ * @param <T>
+ *            The Type of object stored for the FactKey
  */
 public final class FactKey<T>
 {
@@ -43,20 +44,20 @@ public final class FactKey<T>
 
 	private final FormatManager<T> formatManager;
 
-	private FactKey(String name, FormatManager<T> mgr)
+	private FactKey(String name, FormatManager<T> fmtManager)
 	{
 		if (name == null)
 		{
 			throw new IllegalArgumentException(
 				"Name for FactKey cannot be null");
 		}
-		if (mgr == null)
+		if (fmtManager == null)
 		{
 			throw new IllegalArgumentException(
 				"FormatManager for FactKey cannot be null");
 		}
 		fieldName = name;
-		formatManager = mgr;
+		formatManager = fmtManager;
 	}
 
 	/**
@@ -79,19 +80,20 @@ public final class FactKey<T>
 	 *            The name of the FactKey to be returned
 	 * @return The FactKey for the given name
 	 */
-	public static <T> FactKey<T> getConstant(String name, FormatManager<T> cl)
+	public static <T> FactKey<T> getConstant(String name,
+		FormatManager<T> fmtManager)
 	{
 		FactKey<T> key = (FactKey<T>) typeMap.get(name);
 		if (key == null)
 		{
-			key = new FactKey<T>(name, cl);
+			key = new FactKey<T>(name, fmtManager);
 			typeMap.put(name, key);
 		}
-		else if (!key.formatManager.equals(cl))
+		else if (!key.formatManager.equals(fmtManager))
 		{
 			throw new IllegalArgumentException("FactKey: " + name
 				+ " does not store objects of "
-				+ cl.getManagedClass().getCanonicalName());
+				+ fmtManager.getManagedClass().getCanonicalName());
 		}
 		return key;
 	}
@@ -143,11 +145,24 @@ public final class FactKey<T>
 		typeMap.clear();
 	}
 
+	/**
+	 * Designed to appropriately cast an object fetched with this FactKey.
+	 * 
+	 * @param obj
+	 *            The object that should be cast to the format of item stored by
+	 *            this FactKey
+	 * @return An object cast to the format of item stored by this FactKey
+	 */
 	public T cast(Object obj)
 	{
 		return (T) obj;
 	}
-	
+
+	/**
+	 * Returns the FormatManager used by this FactKey.
+	 * 
+	 * @return the FormatManager used by this FactKey
+	 */
 	public FormatManager<T> getFormatManager()
 	{
 		return formatManager;
