@@ -22,7 +22,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.output.library.ObjectWrapperLibrary;
+import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -51,50 +51,50 @@ public class SourceModel implements TemplateHashModel
 		{
 			Boolean isCustom =
 					Boolean.valueOf(cdo.isType(Constants.TYPE_CUSTOM));
-			return ObjectWrapperLibrary.getInstance().wrap(isCustom);
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(isCustom);
 		}
 		else if (key.equals("long"))
 		{
-			return ObjectWrapperLibrary.getInstance().wrap(
-				cdo.get(StringKey.SOURCE_LONG));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
+				.get(StringKey.SOURCE_LONG));
 		}
 		else if (key.equals("short"))
 		{
-			return ObjectWrapperLibrary.getInstance().wrap(
-				cdo.get(StringKey.SOURCE_SHORT));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
+				.get(StringKey.SOURCE_SHORT));
 		}
 		else if (key.equals("date"))
 		{
-			return ObjectWrapperLibrary.getInstance().wrap(
-				cdo.get(ObjectKey.SOURCE_DATE));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
+				.get(ObjectKey.SOURCE_DATE));
 		}
 		else if (key.equals("page"))
 		{
-			return ObjectWrapperLibrary.getInstance().wrap(
-				cdo.get(StringKey.SOURCE_PAGE));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
+				.get(StringKey.SOURCE_PAGE));
 		}
 		else if (key.equals("web"))
 		{
-			return ObjectWrapperLibrary.getInstance().wrap(
-				cdo.get(StringKey.SOURCE_WEB));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
+				.get(StringKey.SOURCE_WEB));
 		}
 		else if (key.equals("campaignsource"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return ObjectWrapperLibrary.getInstance().wrap(
-				campaign.get(StringKey.SOURCE_SHORT));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(campaign
+				.get(StringKey.SOURCE_SHORT));
 		}
 		else if (key.equals("pubname"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return ObjectWrapperLibrary.getInstance().wrap(
-				campaign.getSafe(StringKey.PUB_NAME_LONG));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(campaign
+				.getSafe(StringKey.PUB_NAME_LONG));
 		}
 		else if (key.equals("pubnameweb"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return ObjectWrapperLibrary.getInstance().wrap(
-				campaign.getSafe(StringKey.PUB_NAME_WEB));
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(campaign
+				.getSafe(StringKey.PUB_NAME_WEB));
 		}
 		throw new TemplateModelException(
 			"source info does not have output of type " + key);
