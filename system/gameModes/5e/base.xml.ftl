@@ -147,9 +147,9 @@
 				<name>${pcstring('MOVE.${move}.NAME')}</name>
 				<rate>${pcstring('MOVE.${move}.RATE')}</rate>
 				<squares>${pcstring('MOVE.${move}.SQUARES')}</squares>
-		<#if (pcstring("MOVE.${move}.NAME") = "Fly")>
+	<#--	<#if (pcstring("MOVE.${move}.NAME") = "Fly")>
 				<maneuverability>(${pcstring('ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability')})</maneuverability>
-		</#if>
+		</#if>	-->
 			</move>
 		</@loop>
 			<all>${pcstring('MOVEMENT')}</all>
@@ -416,6 +416,7 @@
 			</#if>
 			<total>${pcstring('CHECK.${check}.TOTAL')}</total>
 			<base>${pcstring('CHECK.${check}.BASE')}</base>
+			<prof>${pcvar('CHECK.${check}.BASE')}</prof>
 			<abil_mod>${pcstring('CHECK.${check}.STATMOD')}</abil_mod>
 			<feats>${pcstring('CHECK.${check}.FEATS')}</feats>
 			<magic_mod>${pcstring('CHECK.${check}.MAGIC')}</magic_mod>
