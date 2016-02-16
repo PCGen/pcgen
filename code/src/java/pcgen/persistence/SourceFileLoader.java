@@ -53,6 +53,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.CodeControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -108,6 +109,7 @@ import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContextUtilities;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.CDOMControlLoader;
+import pcgen.rules.persistence.CodeControlLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -154,6 +156,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
 	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
+	private CodeControlLoader codeControlLoader = new CodeControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
 			new GlobalModifierLoader();
@@ -221,6 +224,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		alignmentLoader.addObserver(this);
 		statLoader.addObserver(this);
 		dataControlLoader.addObserver(this);
+		codeControlLoader.addObserver(this);
 	}
 
 	@Override
@@ -577,8 +581,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		setMaximum(countTotalFilesToLoad());
 
 		// Load using the new LstFileLoaders
+		List<CampaignSourceEntry> codeCtrlFileList = fileLists.getListFor(ListKey.FILE_CODECTRL);
+		if (codeCtrlFileList != null)
+		{
+			context.getReferenceContext().constructNowIfNecessary(
+				CodeControl.class, "Controller");
+			codeControlLoader.loadLstFiles(context, codeCtrlFileList);
+		}
 		List<CampaignSourceEntry> dataDefFileList = fileLists.getListFor(ListKey.FILE_DATACTRL);
-		addDefaultDataControlIfNeeded(dataDefFileList);
+		dataDefFileList = addDefaultDataControlIfNeeded(dataDefFileList);
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
 
@@ -701,9 +712,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * 
 	 * @param dataDefFileList The list of data control files.
 	 */
-	public static void addDefaultDataControlIfNeeded(
+	public static List<CampaignSourceEntry> addDefaultDataControlIfNeeded(
 		List<CampaignSourceEntry> dataDefFileList)
 	{
+		if (dataDefFileList == null)
+		{
+			dataDefFileList = new ArrayList<CampaignSourceEntry>();
+		}
 		if (dataDefFileList.isEmpty())
 		{
 			File gameModeDir =
@@ -716,6 +731,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
 			dataDefFileList.add(cse);
 		}
+		return dataDefFileList;
 	}
 
 	public static void processFactDefinitions(LoadContext context)
