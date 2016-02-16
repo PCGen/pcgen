@@ -59,7 +59,7 @@ public class AlignmentToken extends AbstractExportToken
 		{
 			if ("ALIGNMENT".equals(tokenSource))
 			{
-				retString = display.getAlignmentDisplayString();
+				retString = getAlignmentDisplay(display);
 			}
 			else if ("ALIGNMENT.SHORT".equals(tokenSource))
 			{
@@ -68,6 +68,16 @@ public class AlignmentToken extends AbstractExportToken
 		}
 		
 		return retString;
+	}
+
+	private String getAlignmentDisplay(CharacterDisplay display)
+	{
+		if (Globals.getGameModeAlignmentText().length() == 0)
+		{
+			return "";
+		}
+		final PCAlignment alignment = display.getPCAlignment();
+		return alignment == null ? "None" : alignment.getDisplayName();
 	}
 
 	/**
