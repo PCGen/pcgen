@@ -328,7 +328,7 @@ CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Inspiration|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Trapfinding|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonLore|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance|0
-CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talents|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_InvestigatorTalents|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_KeenRecollection|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_TrapSense|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_SwiftAlchemy|0
@@ -359,7 +359,7 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Trapfinding|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Trapfinding=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonLore|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonLore=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance=True
-CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talents=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_InvestigatorTalents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_InvestigatorTalents=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_KeenRecollection|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_KeenRecollection=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_TrapSense=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_SwiftAlchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_SwiftAlchemy=True
@@ -374,7 +374,7 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Trapfinding|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapfinding
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonLore|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonLore
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonResistance
-CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTalents
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_InvestigatorTalents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTalents
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_KeenRecollection|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorKeenRecollection
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_TrapSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapSense
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_SwiftAlchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorSwiftAlchemy
