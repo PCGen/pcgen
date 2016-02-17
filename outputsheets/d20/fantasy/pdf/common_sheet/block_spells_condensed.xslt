@@ -602,13 +602,8 @@
 					<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
 					<fo:inline>; </fo:inline>
 					<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
-						<xsl:if test="string-length(effect) &gt; 150">
-							<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
-						</xsl:if>
-						<xsl:if test="string-length(effect) &lt; 151">
-							<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
-						</xsl:if>
-						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
+					<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
+					<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
 							<xsl:if test="string-length(spell_resistance) &gt; 0">
 								<fo:inline font-weight="bold">SR:</fo:inline>
 								<xsl:value-of select="spell_resistance"/>
