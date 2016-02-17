@@ -436,9 +436,10 @@ public final class FormulaFactory
 				+ varClass.getCanonicalName() + " was required");
 		}
 		throw new IllegalArgumentException("Cannot create a Formula from: "
-			+ expression
-			+ ", due to: "
-			+ semantics.getInfo(FormulaSemanticsUtilities.SEM_REPORT)
-				.getReport());
+				+ expression
+				+ ", due to: "
+				+ semantics.getInfo(FormulaSemanticsUtilities.SEM_REPORT)
+					.getReport() + " in scope " + varScope.getName()
+				+ " with format " + formatManager.getIdentifierType());
 	}
 }
