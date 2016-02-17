@@ -1032,8 +1032,8 @@
 											<xsl:message>Test</xsl:message>
 						<fo:table-cell>
 							<fo:block text-align="center" font-size="6pt" font-family="ZapfDingbats">		<!-- Investigate how to make this work; nothing is appearing -->
-								<xsl:choose>
-								<xsl:when test="/character/basics/saving_throws/saving_throw/base &gt; 1">
+								<xsl:choose>								
+								<xsl:when test="prof > 1">
 									&#x25A0;
 								</xsl:when>
 								<xsl:otherwise>
