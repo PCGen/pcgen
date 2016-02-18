@@ -45,13 +45,6 @@ import pcgen.base.util.FormatManager;
  */
 public class SimpleFormulaManager implements FormulaManager
 {
-
-	/**
-	 * The SemanticsVisitor for this FormulaManager. Can return the
-	 * FormulaSemantics for a parsed tree. Lazily Instantiated.
-	 */
-	private SemanticsVisitor semanticsVisitor;
-
 	/**
 	 * The FunctionLibrary used to store valid functions in this FormulaManager.
 	 */
@@ -204,10 +197,8 @@ public class SimpleFormulaManager implements FormulaManager
 			throw new IllegalArgumentException(
 				"Cannot determine validity with null FormatManager");
 		}
-		if (semanticsVisitor == null)
-		{
-			semanticsVisitor = new SemanticsVisitor(this, legalScope);
-		}
+		SemanticsVisitor semanticsVisitor =
+				new SemanticsVisitor(this, legalScope);
 		FormulaSemantics semantics =
 				FormulaSemanticsUtilities.getInitializedSemantics();
 		semanticsVisitor.visit(root, semantics);
