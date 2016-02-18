@@ -124,7 +124,7 @@ jar {
 
 task sourceJar(type: Jar) {
     from sourceSets.main.java
-    classifier "source"
+    classifier "sources"
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
