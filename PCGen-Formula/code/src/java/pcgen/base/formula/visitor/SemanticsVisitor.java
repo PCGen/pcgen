@@ -430,8 +430,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		else
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: "
-				+ varName + " was not found");
+			FormulaSemanticsUtilities.setInvalid(semantics,
+				"Variable: " + varName + " was not found in scope "
+					+ getLegalScope().getName());
 		}
 		return semantics;
 	}
