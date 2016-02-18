@@ -145,7 +145,7 @@ publishing {
         ivy(IvyPublication) {
             from components.java
             artifact(sourceJar) {
-                type "source"
+                type "sources"
                 conf "runtime"
             }
             artifact(javadocJar) {
