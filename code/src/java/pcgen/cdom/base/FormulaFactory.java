@@ -439,6 +439,7 @@ public final class FormulaFactory
 			+ expression
 			+ ", due to: "
 			+ semantics.getInfo(FormulaSemanticsUtilities.SEM_REPORT)
-				.getReport());
+				.getReport() + " with format "
+			+ formatManager.getIdentifierType());
 	}
 }
