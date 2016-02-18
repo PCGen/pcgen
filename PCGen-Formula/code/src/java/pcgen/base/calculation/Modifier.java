@@ -45,12 +45,4 @@ public interface Modifier<T> extends NEPCalculation<T>
 	 */
 	public int getUserPriority();
 
-	/**
-	 * Returns a String identifying the instructions for this Modifier. May be
-	 * something like "5" for a Modifier that perform addition.
-	 * 
-	 * @return A String identifying the instructions for this Modifier
-	 */
-	public String getInstructions();
-
 }

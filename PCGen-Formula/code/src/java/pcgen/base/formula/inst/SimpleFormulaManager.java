@@ -127,6 +127,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 * 
 	 * @return The VariableLibrary used to get VariableIDs
 	 */
+	@Override
 	public VariableLibrary getFactory()
 	{
 		return varLibrary;
@@ -139,6 +140,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @return The VariableStore used to hold variables values for items
 	 *         processed through this FormulaManager
 	 */
+	@Override
 	public VariableStore getResolver()
 	{
 		return results;
@@ -151,6 +153,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @return The FunctionLibrary used to store valid functions in this
 	 *         FormulaManager
 	 */
+	@Override
 	public FunctionLibrary getLibrary()
 	{
 		return ftnLibrary;
@@ -163,6 +166,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @return The OperatorLibrary used to store valid operations in this
 	 *         FormulaManager
 	 */
+	@Override
 	public OperatorLibrary getOperatorLibrary()
 	{
 		return opLibrary;
@@ -186,6 +190,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @throws IllegalArgumentException
 	 *             if any parameter is null
 	 */
+	@Override
 	public FormulaSemantics isValid(SimpleNode root, LegalScope legalScope,
 		FormatManager<?> formatManager)
 	{
@@ -237,6 +242,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 *         FormulaManager, but with the FunctionLibrary swapped for the
 	 *         given FunctionLibrary
 	 */
+	@Override
 	public FormulaManager swapFunctionLibrary(FunctionLibrary ftnLib)
 	{
 		return new SimpleFormulaManager(ftnLib, opLibrary, varLibrary, results);
