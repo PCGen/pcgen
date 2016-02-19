@@ -63,7 +63,7 @@ Earth Breaker																	PROFICIENCY:WEAPON|Earth Breaker		TYPE:Weapon.Resi
 Glaive-Guisarme																	PROFICIENCY:WEAPON|Glaive-Guisarme		TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm									COST:12	WT:10					CRITMULT:x3	CRITRANGE:1							DAMAGE:1d10				EQMOD:BRACE.WOOD		WIELD:TwoHanded							REACHMULT:2		SIZE:M	SOURCEPAGE:front cover
 Lucerne Hammer																	PROFICIENCY:WEAPON|Lucerne Hammer		TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Bludgeoning.Piercing.Reach.Polearm								COST:15	WT:12					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d12				EQMOD:BRACE.STEEL		WIELD:TwoHanded										SIZE:M	SOURCEPAGE:front cover
 Ogre Hook																		PROFICIENCY:WEAPON|Ogre Hook			TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Piercing.Polearm											COST:24	WT:10					CRITMULT:x3	CRITRANGE:1							DAMAGE:1d10				EQMOD:STEEL			WIELD:TwoHanded										SIZE:M	SOURCEPAGE:front cover
-Syringe spear																	PROFICIENCY:WEAPON|Ogre Hook			TYPE:Weapon.Martial.Melee.Standard.Piercing.Thrown													COST:100	WT:6					CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:BRACE.STEEL		WIELD:TwoHanded					RANGE:20						SOURCEPAGE:front cover
+Syringe spear																	PROFICIENCY:WEAPON|Syringe spear		TYPE:Weapon.Martial.Melee.Standard.Piercing.Thrown													COST:100	WT:6					CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:BRACE.STEEL		WIELD:TwoHanded					RANGE:20						SOURCEPAGE:front cover
 
 # Martial Ranged Weapons
 Arrow (Whistling/20)									OUTPUTNAME:Arrows, Whistling (20)									TYPE:Ammunition.Standard.Arrow																COST:2	WT:3		BASEQTY:20																	EQMOD:WOOD						MODS:YES										SOURCEPAGE:front cover					SPROP:Load keening sound audible within 500 ft of flight path
