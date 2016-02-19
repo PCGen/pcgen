@@ -91,7 +91,7 @@
 					</fo:table-row>
 				</fo:table-footer>
 				<fo:table-body>
-					<xsl:for-each select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false]">
+					<xsl:for-each select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false and contains(type, 'TEMPORARY')=false]">
 						<xsl:variable name="shade">
 							<xsl:choose>
 								<xsl:when test="position() mod 2 = 0 ">darkline</xsl:when>
