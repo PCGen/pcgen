@@ -3728,8 +3728,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Pld1</sourcelevel>
-							<source>Paizo Inc. - Ultimate Combat</source>
-							<sourcepage>null</sourcepage>
+							<source>Paizo Inc. - Ultimate Combat, p.226</source>
+							<sourcepage>p.226</sourcepage>
 							<sourceshort>UC</sourceshort>
 						</source>
 						<spell_resistance>see text</spell_resistance>
@@ -4732,8 +4732,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Pld1</sourcelevel>
-							<source>Paizo Inc. - Ultimate Combat</source>
-							<sourcepage>null</sourcepage>
+							<source>Paizo Inc. - Ultimate Combat, p.226</source>
+							<sourcepage>p.226</sourcepage>
 							<sourceshort>UC</sourceshort>
 						</source>
 						<spell_resistance>see text</spell_resistance>
