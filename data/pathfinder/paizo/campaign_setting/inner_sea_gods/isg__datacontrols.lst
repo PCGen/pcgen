@@ -3,9 +3,8 @@
 # Name			Dataformat		Visible	Explanation
 FACTSETDEF:SPELL|Deity	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:Just for Listing deities that are predisposed to certain spells.
 #
-FACTSETDEF:DEITY|Symbol	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's holy symbol
-FACTSETDEF:DEITY|Animal	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred animal
-FACTSETDEF:DEITY|Colors	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred colors
+FACTSETDEF:DEITY|Animal	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred animal(s)
+FACTSETDEF:DEITY|Colors	DATAFORMAT:String	VISIBLE:YES	EXPLANATION:The deity's sacred color(s)
 
 #
 # End
