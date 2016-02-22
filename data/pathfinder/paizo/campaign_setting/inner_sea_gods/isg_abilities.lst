@@ -1,5 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Andrew Maitland, Stefan Radermacher
 
 #
 # Prestige Classes
@@ -236,3 +237,7 @@ CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=1|Lighten Object|PREVAREQ:
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Night of Blades,Shared Sacrifice|PREVAREQ:StandardSummoner,1
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=4|Baphomet's Blessing,Caustic Blood|PREVAREQ:StandardSummoner,1
 CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=5|Hammer of Mending,Lighten Object (Mass),Vengeful Stinger|PREVAREQ:StandardSummoner,1
+
+#
+# End
+#
