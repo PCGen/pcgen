@@ -53,6 +53,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.inst.CodeControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -683,10 +684,17 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void defineBuiltinVariables(LoadContext context)
 	{
-		VariableContext varContext = context.getVariableContext();
-		FormatManager<OrderedPair> opManager =
-				FormatManagerLibrary.getFormatManager(OrderedPair.class);
-		defineVariable(varContext, opManager, "Face");
+		CodeControl controller =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+					CodeControl.class, "Controller");
+		if (controller == null
+			|| (controller.get(ObjectKey.getKeyFor(String.class, "*FACE")) == null))
+		{
+			VariableContext varContext = context.getVariableContext();
+			FormatManager<OrderedPair> opManager =
+					FormatManagerLibrary.getFormatManager(OrderedPair.class);
+			defineVariable(varContext, opManager, "Face");
+		}
 	}
 
 	private void defineVariable(VariableContext varContext,
