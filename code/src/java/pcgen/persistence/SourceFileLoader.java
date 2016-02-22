@@ -578,7 +578,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		// Load using the new LstFileLoaders
 		List<CampaignSourceEntry> dataDefFileList = fileLists.getListFor(ListKey.FILE_DATACTRL);
-		addDefaultDataControlIfNeeded(dataDefFileList);
+		dataDefFileList = addDefaultDataControlIfNeeded(dataDefFileList);
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
 
@@ -701,9 +701,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * 
 	 * @param dataDefFileList The list of data control files.
 	 */
-	public static void addDefaultDataControlIfNeeded(
+	public static List<CampaignSourceEntry> addDefaultDataControlIfNeeded(
 		List<CampaignSourceEntry> dataDefFileList)
 	{
+		if (dataDefFileList == null)
+		{
+			dataDefFileList = new ArrayList<CampaignSourceEntry>();
+		}
 		if (dataDefFileList.isEmpty())
 		{
 			File gameModeDir =
@@ -716,6 +720,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
 			dataDefFileList.add(cse);
 		}
+		return dataDefFileList;
 	}
 
 	public static void processFactDefinitions(LoadContext context)

@@ -29,6 +29,7 @@ Bec de corbin		TYPE:Martial.Melee
 Bill				TYPE:Martial.Melee
 Glaive-Guisarme		TYPE:Martial.Melee
 Lucerne Hammer		TYPE:Martial.Melee
+Syringe spear		TYPE:Martial.Melee.Thrown
 
 Flambard			TYPE:Martial.Melee
 Garrote			TYPE:Martial.Melee
@@ -72,25 +73,35 @@ Throwing Shield		TYPE:Exotic.Melee.Ranged
 ###Block: Weapon Groups
 # Equipment Name				Type
 #
+# Weapon Group Axes
+#
+# Weapon Name			Type
+Bardiche.MOD			TYPE:Weapon Group Axes.Weapon Group Polearms
+Maulaxe.MOD				TYPE:Weapon Group Axes.Weapon Group Hammers
+Pata.MOD				TYPE:Weapon Group Axes.Weapon Group Blades Light
+
+#
 # Weapon Group Blades, Heavy
 #
 # Weapon Name			Type
 Aldori Dueling Sword.MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
 Flambard.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Klar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Terbutje.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
 Falcata.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Khopesh.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Rhoka.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Shotel.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Temple Sword.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Temple Sword.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
 Flambard.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
+Sawtooth Sabre.MOD		TYPE:Bladelight.Weapon Group Blades Light
+Combat Scabbard.MOD		TYPE:Weapon Group Blades Heavy.Weapon Group Hammers
+
 #
 # Weapon Group Blades, Light
 #
 Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades Light
 Chakram.MOD				TYPE:Bladelight.Weapon Group Blades Light.Bladeheavy.Weapon Group Blades Heavy.Thrown.Weapon Group Thrown
+Hunga Munga.MOD			TYPE:Weapon Group Blades Light.Weapon Group Thrown
 Sica.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Swordbreaker (Dagger).MOD	TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades Light
@@ -98,15 +109,22 @@ Bayonet.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Clos
 War Razor.MOD			TYPE:Bladelight.Weapon Group Blades Light
 Scizore.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
 Madu.MOD				TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
-Butterfly Knife.MOD		TYPE:Bladelight.Weapon Group Blades
+Blade boot.MOD			TYPE:Weapon Group Blades Light.Weapon Group Close
+Dogslicer.MOD			TYPE:Weapon Group Blades Light
+Switchblade Knife.MOD		TYPE:Weapon Group Blades Light
+
 #
 # Weapon Group Close
 #
-Brass Knuckles.MOD		TYPE:Close.Weapon Group Close
+Brass Knuckles.MOD		TYPE:Close.Weapon Group Close.Weapon Group Monk
 Cestus.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Stake.MOD				TYPE:Close.Weapon Group Close
 Mere Club.MOD			TYPE:Close.Weapon Group Close.Hammer.Weapon Group Hammers
 Rope Gauntlet.MOD			TYPE:Close.Weapon Group Close
+Garrote.MOD				TYPE:Weapon Group Close
+Klar.MOD				TYPE:Weapon Group Close
+
+
 #
 # Weapon Group Crossbow
 #
@@ -128,15 +146,30 @@ Bladed Scarf.MOD			TYPE:Flail.Weapon Group Flails
 # Weapon Group Hammer
 #
 Aklys.MOD				TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+Earth Breaker.MOD			TYPE:Weapon Group Hammers
+
 #
 # Weapon Group Monk
 #
-Hanbo.MOD				TYPE:Monk.Weapon Group Monk
+Hanbo.MOD				TYPE:Monk.Weapon Group Monk.Weapon Group Hammers
 #
 # Weapon Group Polearm
 #
 Horsechopper.MOD			TYPE:Polearm.Weapon Group Polearms
 Mancatcher.MOD			TYPE:Polearm.Weapon Group Polearms
+Bec de corbin.MOD			TYPE:Weapon Group Polearms
+Bill.MOD				TYPE:Weapon Group Polearms
+Glaive-Guisarme.MOD		TYPE:Weapon Group Polearms
+Lucerne Hammer.MOD		TYPE:Weapon Group Polearms
+Ogre Hook.MOD			TYPE:Weapon Group Polearms
+
+#
+# Weapon Group Spears
+#
+Pilum.MOD				TYPE:Weapon Group Spears
+Syringe spear.MOD			TYPE:Weapon Group Spears.Weapon Group Thrown
+
+
 #
 # Weapon Group Thrown
 #
@@ -145,6 +178,8 @@ Lasso.MOD				TYPE:Thrown.Weapon Group Thrown
 Shoanti Bola.MOD			TYPE:Thrown.Weapon Group Thrown
 Sling Glove.MOD			TYPE:Thrown.Weapon Group Thrown
 Throwing Shield.MOD		TYPE:Thrown.Weapon Group Thrown
+Aklys.MOD				TYPE:Weapon Group Thrown
+Stingchuck.MOD			TYPE:Weapon Group Thrown
 
 #
 # End
