@@ -34,6 +34,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
 
@@ -162,7 +163,7 @@ public class EqContainerToken extends Token
 			}
 			else if (property.equals("CRITRANGE"))
 			{
-				retString = getCritRangeToken(pc, eq);
+				retString = EqToken.getCritRangeToken(pc, eq);
 			}
 			else if (property.equals("DAMAGE"))
 			{
@@ -368,18 +369,6 @@ public class EqContainerToken extends Token
 	public static String getCritMultToken(Equipment eq)
 	{
 		return eq.getCritMult();
-	}
-
-	/**
-	 * Get Critical Range Token
-	 * @param pc
-	 * @param eq
-	 * @return Critical Range Token
-	 */
-	public static String getCritRangeToken(PlayerCharacter pc, Equipment eq)
-	{
-		int critRange = pc.getCritRange(eq, true);
-		return critRange == 0 ? "" : Integer.toString(critRange);
 	}
 
 	/**
