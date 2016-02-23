@@ -1,5 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Andrew Maitland, Stefan Radermacher
 
 # Equipment Name			Weapon prop. bonus
 Shield (Heavy/Wooden).MOD	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Shield-Trained
@@ -226,3 +227,7 @@ Vurra Of The Maker							TYPE:Magic.Wondrous Item.SLOT_Neck			COST:3300	WT:5		SO
 Wayfinder Of Zephyrs							TYPE:Magic.Wondrous Item.SLOT_None			COST:15000	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.271
 Windwave Kilt								TYPE:Magic.Wondrous Item.SLOT_Belt			COST:7000	WT:5		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.271
 Zonzon Doll Of Forgiveness						TYPE:Magic.Wondrous Item.SLOT_None			COST:5000	WT:1		SOURCELONG:Inner Sea Gods	SOURCESHORT:isg		SOURCEPAGE:p.271
+
+#
+# End
+#
