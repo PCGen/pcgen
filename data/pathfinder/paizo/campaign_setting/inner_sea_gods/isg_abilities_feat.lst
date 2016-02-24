@@ -1,4 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Andrew Maitland, Stefan Radermacher
 
 # no bonuses implemented.
 
@@ -89,3 +91,7 @@ Torch Bearer		CATEGORY:FEAT		TYPE:Combat																																								
 Trailblazing Channel	CATEGORY:FEAT		TYPE:General																												PREDEITY:1,Desna											PREMULT:1,[PREVARGTEQ:ClericChannelPositiveEnergyDice,3],[PREVARGTEQ:ClericChannelNegativeEnergyDice,3]																				PRETEXT:Prerequisites: Channel energy 3d6, worshiper of Desna.																															DESC:Your positive energy makes trailblazers of those you heal.													SOURCEPAGE:p.217	BENEFIT:Once per day when you channel positive energy, you can cause healed creatures to be unimpeded by difficult terrain for a number of minutes equal to your Charisma modifier (minimum 1 minute).
 Undermining Exploit	CATEGORY:FEAT		TYPE:General																																																																PRESKILL:1,Knowledge (dungeoneering)=4								PRETEXT:Prerequisite: Knowledge (dungeoneering) 4 ranks.																																DESC:Your familiarity with earth and stone gives you a distinct advantage on rocky battlefields.							SOURCEPAGE:p.217	BENEFIT:You gain a +4 insight bonus on combat maneuver checks against opponents occupying a square of rocky difficult terrain such as rubble, broken ground, or steep stairs.
 Wave Master			CATEGORY:FEAT		TYPE:General																												PREDEITY:1,Gozreh																																																PRETEXT:Prerequisite: Worshiper of Gozreh.																																		DESC:Gozreh has seen fit to bless you as an uncommonly skilled swimmer.												SOURCEPAGE:p.217	BENEFIT:When you succeed at a Swim check, you can move your full speed as a full-round action or half your speed as a move action. This does not grant you the benefit ofhaving a swim speed. Normal: A successful Swim check allows you to move up to half your speed as a full-round action or up to a quarter your speed as a move action.
+
+#
+# End
+#
