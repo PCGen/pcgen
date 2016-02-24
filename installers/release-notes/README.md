@@ -24,4 +24,11 @@ For full details of the new changes in this release, see the
 
 *Andrew Maitland* for the PCGEN Team -- 24 February, 2016.
 
+SHA-256 digest for pcgen-6.06.00RC3-full.zip:
+78784faebc9fbc08d482dc45caa9184ae80c4a96b136b3e75c9261546d90233f
 
+SHA-256 digest for pcgen-6.06.00RC3-sources.jar:
+b2fcc815d3da3660e44ed2787b4bca0a1bd6035f5c37064c28d0787aa104074c
+
+SHA-256 digest for pcgen60600RC3_win_install.exe:
+2333ddf1c8c71d7746395996caf857127e8db9835fc26185246e17c2618725c7
