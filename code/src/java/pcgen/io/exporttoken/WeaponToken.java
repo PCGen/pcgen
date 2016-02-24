@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -739,6 +740,13 @@ public class WeaponToken extends Token
 	 */
 	public static String getMultToken(PlayerCharacter pc, Equipment eq)
 	{
+		String critMultVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITMULT");
+		if (critMultVar != null)
+		{
+			return WeaponToken.getNewCritMultString(pc, eq, critMultVar);
+		}
 		String profName = getProfName(eq);
 		StringBuilder sb = new StringBuilder();
 		boolean isDouble =
@@ -765,6 +773,25 @@ public class WeaponToken extends Token
 		{
 			sb.append("/").append(altCrit + mult);
 		}
+		return sb.toString();
+	}
+
+	public static String getNewCritMultString(PlayerCharacter pc,
+		Equipment eq, String critMultVar)
+	{
+		CharID id = pc.getCharID();
+		Object critMult1 =
+				eq.getEquipmentHead(1).getLocalVariable(id, critMultVar);
+		Object critMult2 =
+				eq.getEquipmentHead(2).getLocalVariable(id, critMultVar);
+		if (critMult1.equals(critMult2))
+		{
+			return critMult1.toString();
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(critMult1);
+		sb.append("/");
+		sb.append(critMult2);
 		return sb.toString();
 	}
 

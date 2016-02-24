@@ -272,7 +272,7 @@ public class EqContainerToken extends Token
 	 */
 	public static String getAltCritToken(Equipment eq)
 	{
-		return eq.getAltCritMult();
+		return EqToken.getAltCritMultToken(eq);
 	}
 
 	/**
@@ -368,7 +368,7 @@ public class EqContainerToken extends Token
 	 */
 	public static String getCritMultToken(Equipment eq)
 	{
-		return eq.getCritMult();
+		return EqToken.getCritMultToken(eq);
 	}
 
 	/**

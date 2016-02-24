@@ -969,11 +969,22 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_ieInfoLabelTextCritRange", bString); //$NON-NLS-1$
 		}
 
-		bString = equip.getCritMult();
-		if (equip.isDouble()
-			&& !(equip.getCritMultiplier() == equip.getAltCritMultiplier()))
+		String critMultVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITMULT");
+		if (critMultVar == null)
 		{
-			bString += "/" + equip.getAltCritMult(); //$NON-NLS-1$
+			bString = EqToken.multAsString(equip.getCritMultiplier());
+			if (equip.isDouble()
+				&& !(equip.getCritMultiplier() == equip.getAltCritMultiplier()))
+			{
+				bString += "/" + EqToken.multAsString(equip.getAltCritMultiplier()); //$NON-NLS-1$
+			}
+		}
+		else
+		{
+			bString =
+					WeaponToken.getNewCritMultString(pc, equip, critMultVar);
 		}
 
 		if (bString.length() > 0)

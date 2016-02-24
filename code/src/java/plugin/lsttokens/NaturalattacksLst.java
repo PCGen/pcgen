@@ -299,7 +299,10 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			equipHead.put(IntegerKey.CRIT_RANGE, Integer.valueOf(1));
 		}
-		equipHead.put(IntegerKey.CRIT_MULT, Integer.valueOf(2));
+		if (!ControlUtilities.hasControlToken(context, "CRITMULT"))
+		{
+			equipHead.put(IntegerKey.CRIT_MULT, Integer.valueOf(2));
+		}
 
 		return anEquip;
 	}
