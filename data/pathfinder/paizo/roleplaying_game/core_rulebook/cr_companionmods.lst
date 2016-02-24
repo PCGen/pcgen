@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Feb 23 19:56:04 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
@@ -35,8 +35,10 @@ FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	ABILITY:Special Ability|AUT
 FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance (AC)
 FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion
 ###Block:
+# Class of the Master		Type				Combat bonus								Stat bonus
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:COMBAT|AC|2*(MasterLevel/3)|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|MasterLevel/3
 ###Block:
+# Class of the Master		Type				Bonus Ability Pool
 FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Companion	BONUS:ABILITYPOOL|Companion Stat Increase|1+(MasterLevel>=9)+(MasterLevel>=14)+(MasterLevel>=20)
 
 

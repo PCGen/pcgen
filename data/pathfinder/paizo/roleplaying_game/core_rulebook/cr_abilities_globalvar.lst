@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Tue Feb 23 19:56:04 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###--------------------------------------------###
 ##	New Formula Parser Support Mechanisms	##
@@ -503,7 +503,7 @@ CATEGORY=Class|Monk.MOD																										BONUS:VAR|Monk_CF_Alignment|1|T
 
 
 
-CATEGORY=Class|Monk.MOD								
+CATEGORY=Class|Monk.MOD
 CATEGORY=Class|Monk.MOD								ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
 CATEGORY=Class|Monk.MOD								ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
 
