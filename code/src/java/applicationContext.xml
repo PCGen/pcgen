@@ -251,9 +251,6 @@
 	<bean id="equipSetFacet" class="pcgen.cdom.facet.EquipSetFacet" />
 	<bean id="expandedCampaignFacet" class="pcgen.cdom.facet.model.ExpandedCampaignFacet" />
 	<!-- F -->
-	<bean id="faceFacet" class="pcgen.cdom.facet.analysis.FaceFacet">
-		<property name="resultFacet" ref="resultFacet"/>
-	</bean>
 	<bean id="factFacet" class="pcgen.cdom.facet.fact.FactFacet" />
 	<bean id="favoredClassFacet" class="pcgen.cdom.facet.analysis.FavoredClassFacet">
 		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
