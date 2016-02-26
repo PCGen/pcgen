@@ -61,7 +61,7 @@ Falcata			TYPE:Exotic.Melee
 Khopesh			TYPE:Exotic.Melee
 Scorpion Whip		TYPE:Exotic.Melee
 Shotel			TYPE:Exotic.Melee
-Temple Sword		TYPE:Exotic.Melee
+Temple Sword		TYPE:Exotic.Melee.Monk
 Mancatcher			TYPE:Exotic.Melee
 Boomerang			TYPE:Exotic.Ranged
 Crossbow (Double)		TYPE:Exotic.Ranged

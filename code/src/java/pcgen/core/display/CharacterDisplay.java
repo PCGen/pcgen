@@ -30,7 +30,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.math.OrderedPair;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -80,7 +79,6 @@ import pcgen.cdom.facet.analysis.ArmorClassFacet;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
-import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerOptionFacet;
 import pcgen.cdom.facet.analysis.HandsFacet;
@@ -251,7 +249,6 @@ public class CharacterDisplay
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
-	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
 	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
@@ -675,11 +672,6 @@ public class CharacterDisplay
 	public Handed getHandedObject()
 	{
 		return handedFacet.getHanded(id);
-	}
-
-	public OrderedPair getFace()
-	{
-		return faceFacet.get(id);
 	}
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
@@ -1846,4 +1838,15 @@ public class CharacterDisplay
 		return armorProfFacet.isProficientWithArmor(id, eq);
 	}
 
+	/**
+	 * WARNING: Use this method SPARINGLY... and only for transition to the
+	 * facet model. It is NOT an excuse to throw around a CharacterDisplay
+	 * object when unnecessary
+	 * 
+	 * @return The id of the character as used by the facets.
+	 */
+	public CharID getCharID()
+	{
+		return id;
+	}
 }

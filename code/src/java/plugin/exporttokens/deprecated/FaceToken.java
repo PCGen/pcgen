@@ -28,6 +28,11 @@ package plugin.exporttokens.deprecated;
 import java.text.DecimalFormat;
 
 import pcgen.base.math.OrderedPair;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.ResultFacet;
+import pcgen.cdom.inst.CodeControl;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
@@ -94,7 +99,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getFaceToken(CharacterDisplay display)
 	{
-		OrderedPair face = display.getFace();
+		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
@@ -126,7 +131,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getShortToken(CharacterDisplay display)
 	{
-		OrderedPair face = display.getFace();
+		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
 		{
@@ -158,7 +163,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getSquaresToken(CharacterDisplay display)
 	{
-		OrderedPair face = display.getFace();
+		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
 		double squareSize = SettingsHandler.getGame().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getPreciseY().doubleValue(), 0.0))
@@ -188,7 +193,7 @@ public class FaceToken extends AbstractExportToken
 	public static String get1Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			display.getFace().getPreciseX().doubleValue());
+			getFace(display.getCharID()).getPreciseX().doubleValue());
 	}
 
 	/**
@@ -200,6 +205,24 @@ public class FaceToken extends AbstractExportToken
 	public static String get2Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			display.getFace().getPreciseY().doubleValue());
+			getFace(display.getCharID()).getPreciseY().doubleValue());
+	}
+
+	public static OrderedPair getFace(CharID id)
+	{
+		CodeControl controller =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+					CodeControl.class, "Controller");
+		String varName = "Face";
+		if (controller != null)
+		{
+			String setVarName = controller.get(ObjectKey.getKeyFor(String.class, "*FACE"));
+			if (setVarName != null)
+			{
+				varName = setVarName;
+			}
+		}
+		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
+		return (OrderedPair) resultFacet.getGlobalVariable(id, varName);
 	}
 }
