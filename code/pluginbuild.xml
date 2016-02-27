@@ -6079,6 +6079,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/codecontrol/HandsToken.class" />
+					</patternset>
+				</fileset>
+			</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-LEGS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/codecontrol/LegsToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
