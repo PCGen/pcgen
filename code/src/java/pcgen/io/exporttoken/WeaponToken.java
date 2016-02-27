@@ -36,7 +36,9 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -1222,6 +1224,15 @@ public class WeaponToken extends Token
 	public static String getCritToken(PlayerCharacter pc, Equipment eq)
 	{
 		StringBuilder sb = new StringBuilder();
+		String critRangeVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITRANGE");
+		if (critRangeVar != null)
+		{
+			EquipmentHead head = eq.getEquipmentHead(1);
+			return getCritRangeHead(pc, head, critRangeVar).toString();
+		}
+
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		int rawCritRange = eq.getRawCritRange(true);
@@ -1253,7 +1264,7 @@ public class WeaponToken extends Token
 			sb.append("-20");
 		}
 
-		if (isDouble && (pc.getCritRange(eq, false) > 0))
+		if (isDouble && (EqToken.getOldBonusedCritRange(pc, eq, false) > 0))
 		{
 			eqDbl = dbl + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", false);
 
@@ -3043,5 +3054,36 @@ public class WeaponToken extends Token
 		}
 
 		return aList;
+	}
+
+	public static String getNewCritRangeString(PlayerCharacter pc, Equipment eq,
+		String critRangeVar)
+	{
+		StringBuilder sb = new StringBuilder();
+		boolean needSlash = false;
+		for (EquipmentHead head : eq.getEquipmentHeads())
+		{
+			if (needSlash)
+			{
+				sb.append("/");
+			}
+			sb.append(getCritRangeHead(pc, head, critRangeVar));
+			needSlash = true;
+		}
+		return sb.toString();
+	}
+
+	public static StringBuilder getCritRangeHead(PlayerCharacter pc,
+		EquipmentHead head, String critRangeVar)
+	{
+		StringBuilder sb = new StringBuilder();
+		Integer range =
+				(Integer) head.getLocalVariable(pc.getCharID(), critRangeVar);
+		sb.append(range);
+		if (range < 20)
+		{
+			sb.append("-20");
+		}
+		return sb;
 	}
 }

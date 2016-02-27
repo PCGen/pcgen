@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
@@ -294,7 +295,10 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		anEquip.put(ObjectKey.WEAPON_PROF, wp);
 		anEquip.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
 
-		equipHead.put(IntegerKey.CRIT_RANGE, Integer.valueOf(1));
+		if (!ControlUtilities.hasControlToken(context, "CRITRANGE"))
+		{
+			equipHead.put(IntegerKey.CRIT_RANGE, Integer.valueOf(1));
+		}
 		equipHead.put(IntegerKey.CRIT_MULT, Integer.valueOf(2));
 
 		return anEquip;

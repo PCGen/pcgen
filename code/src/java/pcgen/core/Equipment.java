@@ -87,6 +87,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.io.FileAccess;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.JEPResourceChecker;
@@ -4045,12 +4046,12 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * @param aPC The PC carrying the item
 	 */
-	private void setDefaultCrit(final PlayerCharacter aPC)
+	public void setDefaultCrit(final PlayerCharacter aPC)
 	{
 
 		if (isWeapon())
 		{
-			if (aPC != null && aPC.getCritRange(this, true) == 0)
+			if (aPC != null && EqToken.getOldBonusedCritRange(aPC, this, true) == 0)
 			{
 				getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 			}

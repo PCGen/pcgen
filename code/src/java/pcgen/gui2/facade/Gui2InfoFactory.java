@@ -68,6 +68,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.BenefitFormatting;
 import pcgen.core.BonusManager.TempBonusInfo;
@@ -119,6 +120,8 @@ import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.TemplateFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.io.exporttoken.EqToken;
+import pcgen.io.exporttoken.WeaponToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -938,15 +941,26 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextDamage", bString); //$NON-NLS-1$
 		}
 
-		int critrange = pc.getCritRange(equip, true);
-		int altcritrange = pc.getCritRange(equip, false);
-		bString = critrange == 0 ? EMPTY_STRING : Integer.toString(critrange);
-		if (equip.isDouble() && critrange != altcritrange)
+		String critRangeVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITRANGE");
+		if (critRangeVar == null)
 		{
-			bString +=
-					"/" //$NON-NLS-1$
-						+ (altcritrange == 0 ? EMPTY_STRING : Integer
-							.toString(altcritrange));
+			int critrange = EqToken.getOldBonusedCritRange(pc, equip, true);
+			int altcritrange = EqToken.getOldBonusedCritRange(pc, equip, false);
+			bString = critrange == 0 ? EMPTY_STRING : Integer.toString(critrange);
+			if (equip.isDouble() && critrange != altcritrange)
+			{
+				bString +=
+						"/" //$NON-NLS-1$
+							+ (altcritrange == 0 ? EMPTY_STRING : Integer
+								.toString(altcritrange));
+			}
+		}
+		else
+		{
+			bString =
+					WeaponToken.getNewCritRangeString(pc, equip, critRangeVar);
 		}
 
 		if (bString.length() > 0)
