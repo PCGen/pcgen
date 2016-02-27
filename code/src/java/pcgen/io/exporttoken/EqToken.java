@@ -38,9 +38,11 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -775,9 +777,34 @@ public class EqToken extends Token
 	 * @param eq
 	 * @return Fumble Range Token
 	 */
-	public static String getFumbleRangeToken(Equipment eq)
+	public static String getFumbleRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getFumbleRange();
+		String frVar = ControlUtilities.getControlToken(Globals.getContext(), "FUMBLERANGE");
+		if (frVar == null)
+		{
+			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+			{
+				String fr = eqMod.get(StringKey.FUMBLE_RANGE);
+				if (fr != null)
+				{
+					return fr;
+				}
+			}
+
+			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+			{
+				String fr = eqMod.get(StringKey.FUMBLE_RANGE);
+				if (fr != null)
+				{
+					return fr;
+				}
+			}
+
+			String fr = eq.get(StringKey.FUMBLE_RANGE);
+			return fr == null ? "" : fr;
+		}
+		return (String) eq.getLocalVariable(pc.getCharID(), frVar);
+		
 	}
 
 	/**
@@ -1183,7 +1210,7 @@ public class EqToken extends Token
 		}
 		else if ("FUMBLERANGE".equals(token))
 		{
-			retString = getFumbleRangeToken(eq);
+			retString = getFumbleRangeToken(pc, eq);
 		}
 		else if ("QTY".equals(token))
 		{
