@@ -76,6 +76,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
@@ -154,6 +155,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
 	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
 	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
+	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<SizeAdjustment>(SizeAdjustment.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
@@ -609,6 +611,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			c.applyTo(context.getReferenceContext());
 		}
 
+		sizeLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_SIZE));
 		//Now load PCC stat, check, alignment
 		statLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_STAT));
 		savesLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_SAVE));
