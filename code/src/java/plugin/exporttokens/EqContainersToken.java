@@ -25,6 +25,9 @@
  */
 package plugin.exporttokens;
 
+import java.math.BigDecimal;
+import java.util.StringTokenizer;
+
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -34,9 +37,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
-
-import java.math.BigDecimal;
-import java.util.StringTokenizer;
 
 /**
  * Deals with Tokens below:
@@ -172,7 +172,7 @@ public class EqContainersToken extends Token
 			}
 			else if (property.equals("EDR"))
 			{
-				retString = Integer.toString(getEdrToken(pc, eq));
+				retString = Integer.toString(EqToken.getEdrTokenInt(pc, eq));
 			}
 			else if (property.equals("EQUIPPED"))
 			{
@@ -389,17 +389,6 @@ public class EqContainersToken extends Token
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Get eDR Token
-	 * @param pc
-	 * @param eq
-	 * @return eDR Token
-	 */
-	public static int getEdrToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.eDR(pc).intValue();
 	}
 
 	/**

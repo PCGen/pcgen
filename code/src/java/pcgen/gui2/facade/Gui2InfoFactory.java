@@ -902,7 +902,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (bString.length() != 0)
 		{
-			a = equip.eDR(pc);
+			a = EqToken.getEdrTokenInt(pc, equip);
 
 			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 			{
