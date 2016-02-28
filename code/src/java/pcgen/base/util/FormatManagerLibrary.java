@@ -32,21 +32,21 @@ import pcgen.base.format.StringManager;
 public final class FormatManagerLibrary
 {
 
-	private FormatManagerLibrary()
+	public FormatManagerLibrary()
 	{
-		//Utility class must not be constructed
+		reset();
 	}
 
 	/**
 	 * A Map storing the FormatManagers by (case-insensitive) name
 	 */
-	private static CaseInsensitiveMap<FormatManager<?>> managerNameMap =
+	private CaseInsensitiveMap<FormatManager<?>> managerNameMap =
 			new CaseInsensitiveMap<FormatManager<?>>();
 
 	/**
 	 * A Map storing the FormatManagers by (case-insensitive) name
 	 */
-	private static Map<Class<?>, FormatManager<?>> managerClassMap =
+	private Map<Class<?>, FormatManager<?>> managerClassMap =
 			new HashMap<Class<?>, FormatManager<?>>();
 
 	/**
@@ -61,7 +61,7 @@ public final class FormatManagerLibrary
 	 * @throws IllegalArgumentException
 	 *             if the given format does not have an associated FormatManager
 	 */
-	public static FormatManager<?> getFormatManager(String formatName)
+	public FormatManager<?> getFormatManager(String formatName)
 	{
 		FormatManager<?> fmtManager = managerNameMap.get(formatName);
 		if (fmtManager == null)
@@ -71,7 +71,6 @@ public final class FormatManagerLibrary
 		}
 		return fmtManager;
 	}
-
 
 	/**
 	 * Gets the FormatManager for the given Class indicating a format of object.
@@ -84,10 +83,11 @@ public final class FormatManagerLibrary
 	 * @throws IllegalArgumentException
 	 *             if the given format does not have an associated FormatManager
 	 */
-	public static <T> FormatManager<T> getFormatManager(Class<T> format)
+	public <T> FormatManager<T> getFormatManager(Class<T> format)
 	{
 		@SuppressWarnings("unchecked")
-		FormatManager<T> fmtManager = (FormatManager<T>) managerClassMap.get(format);
+		FormatManager<T> fmtManager =
+				(FormatManager<T>) managerClassMap.get(format);
 		if (fmtManager == null)
 		{
 			throw new IllegalArgumentException(
@@ -105,9 +105,15 @@ public final class FormatManagerLibrary
 	 *             if this FormatManagerLibrary already has a FormatManager with
 	 *             a matching identifier
 	 */
-	public static void addFormatManager(FormatManager<?> fmtManager)
+	public void addFormatManager(FormatManager<?> fmtManager)
 	{
 		String fmIdent = fmtManager.getIdentifierType();
+		if (fmIdent == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot set a FormatManager with no identifier (was nominally for: "
+					+ fmtManager.getManagedClass() + ")");
+		}
 		FormatManager<?> fmtManagerByName = managerNameMap.get(fmIdent);
 		if ((fmtManagerByName != null) && !fmtManagerByName.equals(fmtManager))
 		{
@@ -130,7 +136,7 @@ public final class FormatManagerLibrary
 	 * Resets the FormatManagerLibrary, to be used when a test needs a clean
 	 * FormatManagerLibrary.
 	 */
-	public static void reset()
+	public void reset()
 	{
 		managerNameMap.clear();
 		managerClassMap.clear();
@@ -139,10 +145,4 @@ public final class FormatManagerLibrary
 		addFormatManager(new BooleanManager());
 		addFormatManager(new OrderedPairManager());
 	}
-
-	static
-	{
-		reset();
-	}
-	
 }

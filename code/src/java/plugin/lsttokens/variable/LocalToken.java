@@ -21,7 +21,6 @@ import java.util.Set;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.rules.context.LoadContext;
@@ -87,7 +86,8 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager = FormatManagerLibrary.getFormatManager(format);
+			formatManager =
+					context.getReferenceContext().getFormatManager(format);
 		}
 		catch (IllegalArgumentException e)
 		{

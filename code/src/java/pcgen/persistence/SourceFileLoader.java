@@ -40,7 +40,6 @@ import java.util.logging.LogRecord;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ContentDefinition;
@@ -692,7 +691,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			VariableContext varContext = context.getVariableContext();
 			FormatManager<OrderedPair> opManager =
-					FormatManagerLibrary.getFormatManager(OrderedPair.class);
+					context.getReferenceContext().getFormatManager(OrderedPair.class);
 			defineVariable(varContext, opManager, "Face");
 		}
 	}
