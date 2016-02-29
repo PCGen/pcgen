@@ -13,4 +13,4 @@ MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Fa
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Familiar Archetype|AUTOMATIC|Archetype Familiar
 
 # Animal Companion follow track bonus
-FOLLOWER:HuntmasterCompanion=1	TYPE:Animal Companion		BONUS:SITUATION|Survival=Follow or identify tracks|mastervar("AnimalCompanionMasterLVL")/2
+FOLLOWER:HuntmasterCompanionLVL=1	TYPE:Animal Companion		BONUS:SITUATION|Survival=Follow or identify tracks|MAX(1,mastervar("AnimalCompanionMasterLVL")/2)
