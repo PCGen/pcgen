@@ -253,7 +253,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('COUNT[FEATSAUTO.VISIBLE]-1') ; feat , feat_has_next>
-<b>${pcstring('FEATSAUTO.VISIBLE.${feat}')}</b> [<i>${pcstring('FEATSAUTO.VISIBLE.${feat}.SOURCE')}</i>]<br>
+<b>${pcstring('FEATAUTO.VISIBLE.${feat}')}</b> [<i>${pcstring('FEATAUTO.VISIBLE.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
