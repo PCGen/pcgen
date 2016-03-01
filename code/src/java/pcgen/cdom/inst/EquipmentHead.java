@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.SolverManagerFacet;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.core.EquipmentModifier;
 
 /**
@@ -170,6 +171,12 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 	public VarScoped getVariableParent()
 	{
 		return headSource;
+	}
+
+	public Object getLocalVariable(CharID id, String varName)
+	{
+		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
+		return resultFacet.getLocalVariable(id, this, varName);
 	}
 
 }

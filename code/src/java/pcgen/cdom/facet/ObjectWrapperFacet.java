@@ -22,11 +22,13 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.output.base.PCGenObjectWrapper;
+import pcgen.output.wrapper.AgeSetWrapper;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
 import pcgen.output.wrapper.CategoryWrapper;
 import pcgen.output.wrapper.EnumWrapper;
+import pcgen.output.wrapper.OrderedPairWrapper;
 import pcgen.output.wrapper.SimpleWrapperDelegate;
 import pcgen.output.wrapper.TypeSafeConstantWrapper;
 import pcgen.rules.context.LoadContext;
@@ -65,6 +67,8 @@ public class ObjectWrapperFacet extends
 		add(dsID, new CNAbilitySelectionWrapper());
 		add(dsID, new CategoryWrapper());
 		add(dsID, new EnumWrapper());
+		add(dsID, new OrderedPairWrapper());
+		add(dsID, new AgeSetWrapper());
 	}
 
 	/**

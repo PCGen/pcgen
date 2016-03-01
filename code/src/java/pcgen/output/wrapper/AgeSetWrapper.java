@@ -17,9 +17,10 @@
  */
 package pcgen.output.wrapper;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.core.AgeSet;
+import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.AgeSetModel;
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -27,13 +28,13 @@ import freemarker.template.TemplateModelException;
  * A AgeSetWrapper is an ObjectWrapper capable of producing a TemplateModel for
  * AgeSet objects.
  */
-public class AgeSetWrapper implements ObjectWrapper
+public class AgeSetWrapper implements PCGenObjectWrapper
 {
 	/**
 	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
 	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
 	{
 		if (o instanceof AgeSet)
 		{

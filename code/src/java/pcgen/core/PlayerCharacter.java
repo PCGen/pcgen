@@ -8562,19 +8562,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return false;
 	}
 
-	public int getCritRange(Equipment e, boolean primary)
-	{
-		if (!primary && !e.isDouble())
-		{
-			return 0;
-		}
-		int raw = e.getRawCritRange(primary);
-		int add = (int) e.bonusTo(this, "EQMWEAPON", "CRITRANGEADD", primary);
-		int dbl = 1 + (int) e.bonusTo(this, "EQMWEAPON", "CRITRANGEDOUBLE", primary);
-		return raw * dbl + add;
-
-	}
-
 	public Collection<PCTemplate> getTemplatesAdded(CDOMObject po)
 	{
 		return addedTemplateFacet.getFromSource(id, po);
