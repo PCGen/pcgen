@@ -31,6 +31,14 @@ public class VariableStoreFacet extends
 		AbstractItemFacet<CharID, MonitorableVariableStore>
 {
 
+	@Override
+	public boolean set(CharID id, MonitorableVariableStore obj)
+	{
+		System.err.println(obj);
+		// TODO Auto-generated method stub
+		return super.set(id, obj);
+	}
+
 	private SolverFactoryFacet solverFactoryFacet;
 
 	public <T> T getValue(CharID id, VariableID<T> varID)

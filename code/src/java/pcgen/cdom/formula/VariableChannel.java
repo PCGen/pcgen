@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.Objects;
+
 import javax.swing.event.EventListenerList;
 
 import pcgen.base.formula.base.VariableID;
@@ -77,9 +79,9 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	private VariableChannel(AggressiveSolverManager manager,
 		MonitorableVariableStore varStore, VariableID<T> varID)
 	{
-		this.manager = manager;
-		this.varStore = varStore;
-		this.varID = varID;
+		this.manager = Objects.requireNonNull(manager);
+		this.varStore = Objects.requireNonNull(varStore);
+		this.varID = Objects.requireNonNull(varID);
 	}
 
 	@Override
@@ -103,17 +105,8 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	@Override
 	public void set(T object)
 	{
-		String inputName = createInputVarName(varID.getName());
-		VariableID<T> inputID =
-				new VariableID<>(varID.getScope(), varID.getFormatManager(),
-					inputName);
-		varStore.put(inputID, object);
-		manager.solveFromNode(inputID);
-	}
-
-	private String createInputVarName(String varName)
-	{
-		return "INPUT*" + varName;
+		varStore.put(varID, object);
+		manager.solveFromNode(varID);
 	}
 
 	/**
