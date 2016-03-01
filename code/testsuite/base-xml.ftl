@@ -77,7 +77,7 @@
 			<favoredweapon><@pcstring tag="DEITY.FAVOREDWEAPON"/></favoredweapon>
 			<holyitem><@getarg pc.deity "symbol"/></holyitem>
 			<pantheonlist><#if pc.deity?has_content>${pc.deity.pantheon!?join(", ")}</#if></pantheonlist>
-			<source><@getarg pc.deity "source"/></source>
+			<source><#if pc.deity?has_content>${pc.deity.source.pubname} - ${pc.deity.source.long}, ${pc.deity.source.page}</#if></source>
 			<special_abilities><@pcstring tag="DEITY.SA"/></special_abilities>
 			<appearance><@getarg pc.deity "appearance"/></appearance>
 			<title><@getarg pc.deity "title"/></title>
