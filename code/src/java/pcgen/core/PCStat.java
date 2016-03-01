@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -32,7 +33,7 @@ import pcgen.facade.core.StatFacade;
  * @version $Revision$
  */
 public final class PCStat extends PObject implements StatFacade,
-		NonInteractive, SortKeyRequired
+		NonInteractive, SortKeyRequired, VarScoped
 {
 	@Override
 	public int getMinValue()
@@ -59,5 +60,11 @@ public final class PCStat extends PObject implements StatFacade,
 	public String getName()
 	{
 		return getDisplayName();
+	}
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "STAT";
 	}
 }
