@@ -125,8 +125,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		availableTable.setDisplayableFilter(bar);
 		availableTable.setTreeCellRenderer(tempBonusRenderer);
-//		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-//		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
 
 		Box box = Box.createHorizontalBox();
@@ -145,8 +143,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		selectedTable.setDisplayableFilter(filterBar);
 		selectedTable.setTreeCellRenderer(tempBonusRenderer);
-//		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-//		selectedTable.sortModel();
 		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
 
 		box = Box.createHorizontalBox();

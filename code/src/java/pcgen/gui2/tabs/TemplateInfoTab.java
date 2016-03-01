@@ -362,14 +362,10 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			availableTable.setTreeViewModel(availTreeView);
 			selectedTable.setTreeViewModel(selTreeView);
-//			availDataView.install();
-//			selDataView.install();
 		}
 
 		public void uninstall()
 		{
-//			availDataView.uninstall();
-//			selDataView.uninstall();
 		}
 	}
 

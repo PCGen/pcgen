@@ -432,12 +432,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return this;
 		}
 
-//		@Override
-//		public List<?> getData(InfoFacade obj)
-//		{
-//			return Collections.emptyList();
-//		}
-
 		@Override
 		public Object getData(InfoFacade element, int column)
 		{

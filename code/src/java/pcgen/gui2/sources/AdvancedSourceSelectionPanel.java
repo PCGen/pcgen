@@ -561,21 +561,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 			return model;
 		}
 		
-//		@Override
-//		public List<?> getData(CampaignFacade obj)
-//		{
-//			SourceSelectionFacade sourceFacade =
-//					frame.getCurrentSourceSelectionRef().getReference();
-//			boolean isLoaded =
-//					sourceFacade != null
-//						&& sourceFacade.getCampaigns().containsElement(obj);
-//			return Arrays.asList(
-//				obj.getBookTypes(),
-//				obj.getStatus(),
-//				isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
-//					.getString("in_no"));
-//		}
-		
 		@Override
 		public Object getData(CampaignFacade obj, int column)
 		{

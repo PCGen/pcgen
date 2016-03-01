@@ -398,20 +398,14 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			raceTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
-//			availableView.install();
-//			selectedView.install();
 		}
 
 		public void uninstall()
 		{
-//			availableView.uninstall();
-//			selectedView.uninstall();
 		}
 	}
 
 	private class RaceDataView extends CachedDataView<RaceFacade>
-	//implements DataView<RaceFacade>
-	//extends ConcurrentDataView<RaceFacade>
 	{
 
 		private final List<DefaultDataViewColumn> columns;

@@ -291,19 +291,14 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			return ret;
 		}
 
-//		@Override
 		public void install()
 		{
-//			System.out.println("size: "+getDataModel().getSize());
-//			super.install();
 			availableTreeViewPanel.setTreeViewModel(this);
 			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);
 		}
 
-//		@Override
 		public void uninstall()
 		{
-//			super.uninstall();
 			selectedTreeViewPanel.getSelectionModel().removeListSelectionListener(this);
 		}
 
@@ -356,17 +351,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		}
 
 //		@Override
-//		protected List<?> getDataList(AbilityFacade obj)
-//		{
-//			return Arrays.asList(getTypes(obj.getTypes()),
-//					obj.isMult(),
-//					obj.isStackable(),
-//					infoFactory.getDescription(obj),
-//					(int) obj.getCost(),
-//					obj.getSource());
-//		}
-//
-//		@Override
 //		protected void refreshTableData()
 //		{
 //			availableTreeViewPanel.refreshModelData();
@@ -393,6 +377,9 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			}
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public void setData(Object value, AbilityFacade element, int column)
 		{

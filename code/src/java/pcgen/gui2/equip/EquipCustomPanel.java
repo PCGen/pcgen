@@ -631,12 +631,6 @@ public class EquipCustomPanel extends FlippingSplitPane
         	return builder.getSelectedList(head);
 		}
 
-//        @Override
-//		public List<?> getData(EquipModFacade obj)
-//		{
-//			return Arrays.asList(obj.getSource());
-//		}
-
 		@Override
 		public Object getData(EquipModFacade element, int column)
 		{

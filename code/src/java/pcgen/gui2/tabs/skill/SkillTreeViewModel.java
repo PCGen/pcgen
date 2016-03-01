@@ -149,8 +149,9 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 				case 2:
 					return 0.0;
 				case 3:
-					return null;
 				case 5:
+					return null;
+				case 6:
 					return obj.getSource();
 				default:
 					return null;

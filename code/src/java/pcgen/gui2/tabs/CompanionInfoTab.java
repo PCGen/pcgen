@@ -762,12 +762,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return model;
 		}
 		
-//		@Override
-//		public List<?> getData(CompanionStubFacade obj)
-//		{
-//			return Collections.emptyList();
-//		}
-		
 		@Override
 		public Object getData(CompanionStubFacade element, int column)
 		{
