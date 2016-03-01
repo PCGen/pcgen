@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Stefan Radermacher
 
@@ -15,7 +15,7 @@ Aldori Dueling Sword	NAMEISPI:YES							PROFICIENCY:WEAPON|Aldori Dueling Sword	
 Sawtooth Sabre											PROFICIENCY:WEAPON|Sawtooth Sabre													TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Slashing													COST:35	WT:2										CRITMULT:x2	CRITRANGE:2				DAMAGE:1d8	EQMOD:STEEL						WIELD:OneHanded									SIZE:M
 Urumi													PROFICIENCY:WEAPON|Urumi														TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Slashing													COST:30	WT:6										CRITMULT:x2	CRITRANGE:2				DAMAGE:1d8	EQMOD:STEEL						WIELD:OneHanded									SIZE:M	SOURCEPAGE:p.290
 Bladed Scarf											PROFICIENCY:WEAPON|Bladed Scarf													TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Finesseable.Standard.Slashing											COST:12	WT:2										CRITMULT:x2	CRITRANGE:1				DAMAGE:1d6	EQMOD:CLOTH.DISARM.TRIP				WIELD:TwoHanded									SIZE:M	SOURCEPAGE:p.290
-Bolas (Shoanti)		NAMEISPI:YES	OUTPUTNAME:Bolas ,[NAME]		PROFICIENCY:WEAPON|Bolas														TYPE:Weapon.Resizable.Ranged.Thrown.Exotic.Standard.Bludgeoning.Piercing											COST:15	WT:2										CRITMULT:x2	CRITRANGE:1				DAMAGE:1d4	EQMOD:LEATHER.TRIP										RANGE:10						SOURCEPAGE:p.290
+Bolas (Shoanti)		NAMEISPI:YES	OUTPUTNAME:Bolas, [NAME]		PROFICIENCY:WEAPON|Bolas (Shoanti)													TYPE:Weapon.Resizable.Ranged.Thrown.Exotic.Standard.Bludgeoning.Piercing											COST:15	WT:2										CRITMULT:x2	CRITRANGE:1				DAMAGE:1d4	EQMOD:LEATHER.TRIP										RANGE:10						SOURCEPAGE:p.290
 Leaf Armor																			PROFICIENCY:ARMOR|Leaf Armor							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal														COST:500	WT:20				ACCHECK:0														EQMOD:LEAF	EQMOD:MWORKA						MAXDEX:5									SOURCEPAGE:p.291	SPELLFAILURE:15																							BONUS:COMBAT|AC|3|TYPE=Armor
 Field Plate																			PROFICIENCY:ARMOR|Full Plate							TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard																COST:1200	WT:50				ACCHECK:-5														EQMOD:STEEL									MAXDEX:1									SOURCEPAGE:p.291	SPELLFAILURE:35																							BONUS:COMBAT|AC|7|TYPE=Armor
 Hellknight Plate		NAMEISPI:YES														PROFICIENCY:ARMOR|Full Plate							TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard.HellknightPlate													COST:2000	WT:50				ACCHECK:-5														EQMOD:STEEL	EQMOD:MWORKA						MAXDEX:1									SOURCEPAGE:p.291	SPELLFAILURE:35																							BONUS:COMBAT|AC|9|TYPE=Armor	BONUS:VAR|WearingHellKnightPlate|1
@@ -29,3 +29,18 @@ Black Powder (Dose)				OUTPUTNAME:Black Powder, [NAME]																			TYPE:Am
 Black Powder (Keg)				OUTPUTNAME:Black Powder, [NAME]																			TYPE:Ammunition.Resizable.Standard.BlackPowder																COST:1000	WT:5							BASEQTY:100																															SOURCEPAGE:p.292
 Cannon Ball																														TYPE:Ammunition.Resizable.Standard.Bullet																	COST:30	WT:25							BASEQTY:1																															SOURCEPAGE:p.293
 Firearm Bullet																													TYPE:Ammunition.Resizable.Standard.Bullet																	COST:1	WT:0							BASEQTY:1																															SOURCEPAGE:p.293
+
+
+###Block: Weapon Groups
+# Equipment Name			Type
+Dogslicer.MOD			TYPE:Bladelight.Weapon Group Blades Light
+War Razor.MOD			TYPE:Bladelight.Weapon Group Blades Light
+Klar (as weapon).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Earth Breaker.MOD			TYPE:Hammer.Weapon Group Hammers
+Horsechopper.MOD			TYPE:Polearm.Weapon Group Polearms
+Ogre Hook.MOD			TYPE:Polearm.Weapon Group Polearms
+Aldori Dueling Sword.MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Bladelight.Weapon Group Blades Light
+Urumi.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Bladed Scarf.MOD			TYPE:Flail.Weapon Group Flails
+Bolas (Shoanti).MOD		TYPE:Thrown.Weapon Group Thrown

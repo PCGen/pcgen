@@ -4,8 +4,8 @@
 
 
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list																										Display Location
-ABILITYCATEGORY:Artificer Skill Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Artificer Skill Focus																								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Artificer Steamcraft Focus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Artificer Steamcraft Focus																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Artificer Skill Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Artificer Skill Focus																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Artificer Steamcraft Focus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Artificer Steamcraft Focus																							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Musketeer Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Musketeer																																DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Watchman				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Watchman																																DISPLAYLOCATION:Class Abilities

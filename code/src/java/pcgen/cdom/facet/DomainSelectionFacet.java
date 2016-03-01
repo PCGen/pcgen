@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.Domain;
 
@@ -25,7 +26,7 @@ import pcgen.core.Domain;
  * with the CHOOSE selection that was made (if CHOOSE was present)
  */
 public class DomainSelectionFacet extends
-		AbstractAssociationFacet<Domain, Object>
+		AbstractAssociationFacet<CharID, Domain, Object>
 {
 
 }

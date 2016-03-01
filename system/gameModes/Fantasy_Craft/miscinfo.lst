@@ -249,7 +249,7 @@ ABILITYCATEGORY:FEAT			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:
 
 PREVIEWDIR:d20/fantasy_craft
 PREVIEWSHEET:fantasy_craft.htm
-INFOSHEET:SUMMARY|preview/summary/fc_info.html
+INFOSHEET:SUMMARY|preview/summary/fc_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 # Requires 6.01.06
 OUTPUTSHEET:DIRECTORY|d20/fantasy_craft

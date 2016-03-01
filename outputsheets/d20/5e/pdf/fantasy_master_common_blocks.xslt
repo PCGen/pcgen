@@ -367,11 +367,6 @@
 							<xsl:with-param name="last_weapon" select="9999"/>
 							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
 						</xsl:apply-templates>
-						<xsl:apply-templates select="skills">
-							<xsl:with-param name="first_skill" select="$first_page_skills_count+1"/>
-							<xsl:with-param name="last_skill" select="9999"/>
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
 						<xsl:apply-templates select="class_features/turning[@kind!='UNDEAD']">
 							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
 						</xsl:apply-templates>

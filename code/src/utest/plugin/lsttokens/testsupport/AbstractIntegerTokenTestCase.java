@@ -24,7 +24,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract IntegerKey getIntegerKey();

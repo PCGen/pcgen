@@ -31,12 +31,15 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -737,6 +740,13 @@ public class WeaponToken extends Token
 	 */
 	public static String getMultToken(PlayerCharacter pc, Equipment eq)
 	{
+		String critMultVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITMULT");
+		if (critMultVar != null)
+		{
+			return WeaponToken.getNewCritMultString(pc, eq, critMultVar);
+		}
 		String profName = getProfName(eq);
 		StringBuilder sb = new StringBuilder();
 		boolean isDouble =
@@ -763,6 +773,25 @@ public class WeaponToken extends Token
 		{
 			sb.append("/").append(altCrit + mult);
 		}
+		return sb.toString();
+	}
+
+	public static String getNewCritMultString(PlayerCharacter pc,
+		Equipment eq, String critMultVar)
+	{
+		CharID id = pc.getCharID();
+		Object critMult1 =
+				eq.getEquipmentHead(1).getLocalVariable(id, critMultVar);
+		Object critMult2 =
+				eq.getEquipmentHead(2).getLocalVariable(id, critMultVar);
+		if (critMult1.equals(critMult2))
+		{
+			return critMult1.toString();
+		}
+		StringBuilder sb = new StringBuilder();
+		sb.append(critMult1);
+		sb.append("/");
+		sb.append(critMult2);
 		return sb.toString();
 	}
 
@@ -1222,6 +1251,15 @@ public class WeaponToken extends Token
 	public static String getCritToken(PlayerCharacter pc, Equipment eq)
 	{
 		StringBuilder sb = new StringBuilder();
+		String critRangeVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITRANGE");
+		if (critRangeVar != null)
+		{
+			EquipmentHead head = eq.getEquipmentHead(1);
+			return getCritRangeHead(pc, head, critRangeVar).toString();
+		}
+
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		int rawCritRange = eq.getRawCritRange(true);
@@ -1253,7 +1291,7 @@ public class WeaponToken extends Token
 			sb.append("-20");
 		}
 
-		if (isDouble && (pc.getCritRange(eq, false) > 0))
+		if (isDouble && (EqToken.getOldBonusedCritRange(pc, eq, false) > 0))
 		{
 			eqDbl = dbl + (int) eq.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", false);
 
@@ -3043,5 +3081,36 @@ public class WeaponToken extends Token
 		}
 
 		return aList;
+	}
+
+	public static String getNewCritRangeString(PlayerCharacter pc, Equipment eq,
+		String critRangeVar)
+	{
+		StringBuilder sb = new StringBuilder();
+		boolean needSlash = false;
+		for (EquipmentHead head : eq.getEquipmentHeads())
+		{
+			if (needSlash)
+			{
+				sb.append("/");
+			}
+			sb.append(getCritRangeHead(pc, head, critRangeVar));
+			needSlash = true;
+		}
+		return sb.toString();
+	}
+
+	public static StringBuilder getCritRangeHead(PlayerCharacter pc,
+		EquipmentHead head, String critRangeVar)
+	{
+		StringBuilder sb = new StringBuilder();
+		Integer range =
+				(Integer) head.getLocalVariable(pc.getCharID(), critRangeVar);
+		sb.append(range);
+		if (range < 20)
+		{
+			sb.append("-20");
+		}
+		return sb;
 	}
 }

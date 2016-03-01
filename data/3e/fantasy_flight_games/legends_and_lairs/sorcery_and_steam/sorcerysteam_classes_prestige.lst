@@ -290,7 +290,7 @@ CLASS:Street Runner	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:COM
 CLASS:Street Runner	PREABILITY:1,CATEGORY=FEAT,Run	PRESKILL:5,Balance=5,Hide=5,Intuit Direction=5,Move Silently=5,Pick Pocket=5	PRESKILL:3,Climb=8,Jump=8,Tumble=8	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Munitions|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
-1	ABILITY:FEAT|AUTOMATIC|Street Runner Weapon Proficiencies	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Street Runner Weapon Proficiencies	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1					BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack

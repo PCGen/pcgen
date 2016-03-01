@@ -25,7 +25,8 @@ import java.util.Map;
 import junit.framework.TestCase;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
-import pcgen.output.OutputSupport;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.publish.OutputDB;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -33,25 +34,16 @@ import freemarker.template.TemplateException;
 
 public abstract class AbstractOutputTestCase extends TestCase
 {
-	protected DataSetID dsid = DataSetID.getID();
-	protected CharID id = CharID.getID(dsid);
-
-	private static boolean classSetUpRun = false;
-
+	protected DataSetID dsid;
+	protected CharID id;
+	
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
-	{
-		OutputSupport.setUpObjectWrapper();
+		dsid = DataSetID.getID();
+		FacetLibrary.getFacet(ObjectWrapperFacet.class).initialize(dsid);
+		id = CharID.getID(dsid);
 	}
 
 	public void processThroughFreeMarker(String testString,

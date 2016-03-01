@@ -21,8 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 
 /**
  * An ObjectCache is a CDOMObject designed to serve as a cache of information
- * for a PlayerCharacter. It is therefore somewhat simple (non-typed) and
- * contains some specialized caching functions.
+ * for a PlayerCharacter. It is therefore somewhat simple (non-typed).
  */
 public class ObjectCache extends CDOMObject
 {

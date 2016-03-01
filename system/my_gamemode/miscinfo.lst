@@ -159,7 +159,7 @@
 
 #AC Types
 #ACTYPE:Total				ADD:TOTAL
-#ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+#ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=FEAT,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=FEAT,Uncanny Dodge
 #ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield|NaturalArmorEnhancement
 #ACTYPE:Base					ADD:Base
 #ACTYPE:Armor				ADD:Armor

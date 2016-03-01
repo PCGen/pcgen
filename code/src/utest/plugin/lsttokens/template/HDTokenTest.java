@@ -30,14 +30,14 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.DrLst;
 import plugin.lsttokens.SabLst;
 import plugin.lsttokens.SrLst;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.writer.PreHDWriter;
 
-public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
+public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static HdToken token = new HdToken();

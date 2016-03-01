@@ -20,7 +20,6 @@
  */
 package pcgen.gui2.util;
 
-import java.awt.Container;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +28,6 @@ import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 
 import javax.swing.JTable;
-import javax.swing.JViewport;
 import javax.swing.ListSelectionModel;
 import javax.swing.RowSorter;
 import javax.swing.SwingConstants;
@@ -141,28 +139,11 @@ public class JTableEx extends JTable
 		listenerList.add(ActionListener.class, listener);
 	}
 
-	public void removeActionListener(ActionListener listener)
-	{
-		listenerList.remove(ActionListener.class, listener);
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportHeight()
-	{
-		// fetch the table's parent
-		Container viewport = getParent();
-
-		// if the parent is not a viewport, calling this isn't useful
-		if (!(viewport instanceof JViewport))
-		{
-			return false;
-		}
-
-		// return true if the table's preferred height is smaller
-		// than the viewport height, else false
-		return getPreferredSize().height < viewport.getHeight();
-	}
-
+    public void removeActionListener(ActionListener listener)
+    {
+        listenerList.remove(ActionListener.class, listener);
+    }
+	
 	@Override
 	public boolean getAutoCreateRowSorter()
 	{

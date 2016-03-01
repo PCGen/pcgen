@@ -387,7 +387,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
-				if (equip.isVisible(aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))
+				if (equip.isVisible(character, aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))
 				{
 					if (aEqMod.isType("ALL"))
 					{
@@ -432,7 +432,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		
 		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
 		
-		return equip.canAddModifier(eqMod, head.isPrimary());
+		return equip.canAddModifier(character, eqMod, head.isPrimary());
 	}
 	
 	/**

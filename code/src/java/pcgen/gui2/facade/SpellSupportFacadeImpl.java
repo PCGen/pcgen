@@ -22,7 +22,11 @@
  */
 package pcgen.gui2.facade;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -65,8 +69,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SpellSupportForPCClass;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
@@ -99,8 +101,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
-import pcgen.util.fop.FOPHandler;
-import pcgen.util.fop.FOPHandlerFactory;
+import pcgen.util.fop.FopTask;
 
 /**
  * The Class <code>SpellSupportFacadeImpl</code> marshals the spell data for a 
@@ -409,69 +410,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			return Collections.emptyList();
 		}
-		SpellFacadeImplem spell = (SpellFacadeImplem) spellNode.getSpell();
-		
 		List<InfoFacade> availableList = new ArrayList<InfoFacade>();
-		if (Globals.hasSpellPPCost())
-		{
-			//
-			// Does feat apply a BONUS:PPCOST to this spell, all spells, or all spells of
-			// one of this spell's types? If it does, then we can possibly apply it to
-			// this spell.
-			//
-
-			final String aKey = spell.getKeyName();
-			List<Ability> metamagicFeats = new ArrayList<Ability>();
-			for (Ability anAbility : characterMetaMagicFeats)
-			{
-				boolean canAdd = false;
-				List<BonusObj> bonusList =
-						BonusUtilities.getBonusFromList(anAbility
-							.getRawBonusList(pc), "PPCOST"); //$NON-NLS-1$
-				if (bonusList.size() == 0)
-				{
-					canAdd = true; // if doesn't modify PP COST, then allow it
-				}
-				else
-				{
-					for (BonusObj aBonus : bonusList)
-					{
-						final java.util.StringTokenizer aTok =
-								new java.util.StringTokenizer(aBonus
-									.getBonusInfo(), ","); //$NON-NLS-1$
-						while (aTok.hasMoreTokens())
-						{
-							final String aBI = aTok.nextToken();
-
-							if (aBI.equalsIgnoreCase(aKey)
-								|| aBI.equalsIgnoreCase("ALL")) //$NON-NLS-1$
-							{
-								canAdd = true;
-								break;
-							}
-							else if (aBI.startsWith("TYPE=") || aBI.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
-							{
-								if (spell.getSpell().isType(aBI.substring(5)))
-								{
-									canAdd = true;
-									break;
-								}
-							}
-						}
-					}
-				}
-				if (!canAdd)
-				{
-					continue;
-				}
-				metamagicFeats.add(anAbility);
-			}
-			availableList.addAll(metamagicFeats);
-		}
-		else
-		{
-			availableList.addAll(characterMetaMagicFeats);
-		}
+		availableList.addAll(characterMetaMagicFeats);
 		return availableList;
 	}
 
@@ -1541,36 +1481,32 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * Export to PDF using the FOP PDF generator. 
 	 * 
 	 * @param outFile The file to place the output in.
-	 * @param tmpFile The file containing the definition of the character data. May be FO or XML. 
+	 * @param tmpFile The file containing the definition of the character data. May be FO or XML.
 	 * @param xsltFile An optional XSLT file for use when the tmpFile is in XML.
 	 */
 	private void pdfExport(final File outFile, File tmpFile, File xsltFile)
 	{
-		FOPHandler fh = FOPHandlerFactory.createFOPHandlerImpl(true);
-
-		// setting up pdf renderer
-		fh.setMode(FOPHandler.PDF_MODE);
-		if (xsltFile != null)
+		try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(tmpFile));
+				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outFile)))
 		{
-			fh.setInputFile(tmpFile, xsltFile);
+			FopTask fopTask = FopTask.newFopTask(input, xsltFile, output);
+			fopTask.run();
+			String errMessage = fopTask.getErrorMessages();
+
+			if (errMessage.length() > 0)
+			{
+				delegate.showErrorMessage(Constants.APPLICATION_NAME, errMessage);
+			}
 		}
-		else
+		catch (IOException ex)
 		{
-			fh.setInputFile(tmpFile);
+			Logging.errorPrint(LanguageBundle.getFormattedString(
+				"InfoSpells.export.failed", charDisplay.getDisplayName()), ex); //$NON-NLS-1$
+			delegate.showErrorMessage(Constants.APPLICATION_NAME, 
+				LanguageBundle.getFormattedString(
+					"InfoSpells.export.failed.retry", charDisplay.getDisplayName())); //$NON-NLS-1$ 
 		}
-		fh.setOutputFile(outFile);
-
-		// render to awt
-		fh.run();
-
 		tmpFile.deleteOnExit();
-
-		String errMessage = fh.getErrorMessage();
-
-		if (errMessage.length() > 0)
-		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, errMessage); 
-		}
 	}
 
 	

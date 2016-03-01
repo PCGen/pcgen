@@ -18,6 +18,9 @@
 package pcgen.output.model;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.CDOMWrapperInfoFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
@@ -30,43 +33,39 @@ import freemarker.template.TemplateScalarModel;
  */
 public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 {
-	/**
-	 * The CDOMObjectWrapperInfo which contains the information mapping
-	 * interpolations to ObjectActors for the class of the underlying CDOMObject
-	 */
-	private final CDOMObjectWrapperInfo info;
+	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(CDOMWrapperInfoFacet.class);
 
 	/**
 	 * The underlying CDOMObject, from which information is retrieved
 	 */
-	private final CDOMObject d;
+	private final CDOMObject cdo;
+
+	private final CharID id;
 
 	/**
-	 * Constructs a new CDOMObjectModel from the given CDOMObjectWrapperInfo and
-	 * CDOMObject.
+	 * Constructs a new CDOMObjectModel from the given CharID and CDOMObject.
 	 * 
-	 * @param info
-	 *            The CDOMObjectWrapperInfo which contains the information
-	 *            mapping interpolations to ObjectActors for the class of the
-	 *            given CDOMObject
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter on which this
+	 *            CDOMObjectModel is processing information
 	 * @param cdo
 	 *            The underlying CDOMObject, from which information is retrieved
 	 * @throws IllegalArgumentException
 	 *             if either argument is null
 	 */
-	public CDOMObjectModel(CDOMObjectWrapperInfo info, CDOMObject cdo)
+	public CDOMObjectModel(CharID id, CDOMObject cdo)
 	{
-		if (info == null)
+		if (id == null)
 		{
-			throw new IllegalArgumentException(
-				"CDOMObjectWrapperInfo may not be null");
+			throw new IllegalArgumentException("CharID may not be null");
 		}
 		if (cdo == null)
 		{
 			throw new IllegalArgumentException("CDOMObject may not be null");
 		}
-		this.info = info;
-		this.d = cdo;
+		this.id = id;
+		this.cdo = cdo;
 	}
 
 	/**
@@ -75,14 +74,29 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
-		OutputActor<CDOMObject> actor = info.get(key);
+		//TODO may not be entirely correct - really about ... what? formula scope??
+		Class<? extends CDOMObject> cl = cdo.getClass();
+		return proc(cl, key);
+	}
+
+	private <T> TemplateModel proc(Class<T> cl, String key)
+		throws TemplateModelException
+	{
+		/*
+		 * What if it didn't previously exist (e.g. cl==SubClass.class)...
+		 * shouldn't be able to get here really (in that case)
+		 */
+		OutputActor<? super T> actor =
+				WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
 		if (actor == null)
 		{
 			throw new TemplateModelException("object of type "
-				+ d.getClass().getSimpleName()
+				+ cdo.getClass().getSimpleName()
 				+ " did not have output of type " + key);
 		}
-		return actor.process(d);
+		@SuppressWarnings("unchecked")
+		T obj = (T) cdo;
+		return actor.process(id, obj);
 	}
 
 	/**
@@ -101,7 +115,7 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 	@Override
 	public String getAsString() throws TemplateModelException
 	{
-		return d.getDisplayName();
+		return cdo.getDisplayName();
 	}
 
 }

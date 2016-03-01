@@ -25,7 +25,10 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:HP token.
@@ -66,5 +69,21 @@ public final class HP extends MultiTagBonusObj
 	protected int getBonusTagLength()
 	{
 		return BONUS_TAGS.length;
+	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, "ALTHP"))
+		{
+			if ("ALTHP".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:HP|ALTHP is disabled when ALTHP control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		return super.parseToken(context, token);
 	}
 }

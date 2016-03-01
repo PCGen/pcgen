@@ -431,6 +431,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
@@ -442,6 +443,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}

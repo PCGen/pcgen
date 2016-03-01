@@ -64,6 +64,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			new DefaultDataViewColumn("in_classString", String.class, true),
 			new DefaultDataViewColumn("in_skillSkillCost", String.class,
 				SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
+			new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
 			new DefaultDataViewColumn("in_source", String.class));
 	private final DefaultListFacade<TreeView<SkillFacade>> treeviews;
 	private final CharacterFacade character;

@@ -18,16 +18,16 @@
 package pcgen.output.actor;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.core.Globals;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.output.base.OutputActor;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.model.SourceModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * An SourceActor is designed to process an interpolation and convert the
- * (formatted) source of a CDOMObject into a TemplateModel.
+ * An SourceActor is designed to process an interpolation and convert the source
+ * information of a CDOMObject into a TemplateModel. This is UNFORMATTED, and
+ * the output sheet is responsible for formatting as desired
  * 
  * Note that the actual name of the interpolation is stored externally to this
  * Actor (in CDOMObjectWrapperInfo to be precise)
@@ -35,15 +35,12 @@ import freemarker.template.TemplateModelException;
 public class SourceActor implements OutputActor<CDOMObject>
 {
 	/**
-	 * @see pcgen.output.base.OutputActor#process(java.lang.Object)
+	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID, java.lang.Object)
 	 */
 	@Override
-	public TemplateModel process(CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
+		throws TemplateModelException
 	{
-		//TODO Why does a global setting limit the output rather than specifying what is desired?
-		SourceFormat sourceDisplay = Globals.getSourceDisplay();
-		String sourceString =
-				SourceFormat.getFormattedString(d, sourceDisplay, true);
-		return ObjectWrapper.SIMPLE_WRAPPER.wrap(sourceString);
+		return new SourceModel(d);
 	}
 }

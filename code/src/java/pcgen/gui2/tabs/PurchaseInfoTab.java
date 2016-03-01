@@ -875,6 +875,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final List<DefaultDataViewColumn> columns
 				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
@@ -980,7 +981,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final List<DefaultDataViewColumn> columns
 				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true)); //$NON-NLS-1$
+						new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final EquipmentListFacade equipmentList;
 

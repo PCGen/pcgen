@@ -27,6 +27,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.ArrayList;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -67,7 +69,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 		{
 			//Can't match
 		}
-		if (getCritterType(display).indexOf(requiredRaceType) >= 0)
+		if (getCritterTypes(display).contains(requiredRaceType))
 		{
 			runningTotal++;
 		}
@@ -86,23 +88,23 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 	}
 
 	/**
-	 * Get a pipe separated list of creature types for this PC (defaults to humanoid).
+	 * Get ArrayList populated with creature types for this PC (defaults to humanoid).
 	 * @return the list of types
 	 */
     @Deprecated
-	public static String getCritterType(CharacterDisplay display)
+	public static ArrayList<String> getCritterTypes(CharacterDisplay display)
 	{
-		final StringBuilder critterType = new StringBuilder(50);
+		ArrayList<String> critterTypes = new ArrayList<String>();
 	
 		// Not too sure about this if, but that's what the previous code
 		// implied...
 		Race race = display.getRace();
 		if (race != null)
 		{
-			critterType.append(race.getType());
+			critterTypes.add(race.getType());
 		} else
 		{
-			critterType.append("Humanoid");
+			critterTypes.add("Humanoid");
 		}
 	
 		for (PCTemplate t : display.getTemplateSet())
@@ -111,11 +113,11 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 	
 			if (!"".equals(aType))
 			{
-				critterType.append('|').append(aType);
+				critterTypes.add(aType);
 			}
 		}
 	
-		return critterType.toString();
+		return critterTypes;
 	}
 
 }

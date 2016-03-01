@@ -24,7 +24,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
-		AbstractTokenTestCase<T>
+		AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract ObjectKey<Boolean> getObjectKey();

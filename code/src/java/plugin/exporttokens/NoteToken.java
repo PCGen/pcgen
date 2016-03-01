@@ -143,7 +143,7 @@ public class NoteToken extends Token
 			}
 		}
 
-		return sb.toString();
+		return sb.toString().trim();
 	}
 
 	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name)

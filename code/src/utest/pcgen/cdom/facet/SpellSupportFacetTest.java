@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.testsupport.AbstractAssociationFacetTest;
 import pcgen.core.PCClass;
@@ -34,7 +35,7 @@ public class SpellSupportFacetTest extends
 	}
 
 	@Override
-	protected AbstractAssociationFacet<PCClass, SpellSupportForPCClass> getFacet()
+	protected AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass> getFacet()
 	{
 		return facet;
 	}

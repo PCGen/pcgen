@@ -42,10 +42,10 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		ContentDefinition def, String value)
 	{
-		FormatManager<?> fmtMgr =
+		FormatManager<?> fmtManager =
 				context.getReferenceContext().getFormatManager(value);
-		FormatManager<?> old = def.setFormatManager(fmtMgr);
-		if ((old != null) && (!old.equals(fmtMgr)))
+		FormatManager<?> old = def.setFormatManager(fmtManager);
+		if ((old != null) && (!old.equals(fmtManager)))
 		{
 			return new ParseResult.Fail("Content Definition "
 				+ def.getClass().getSimpleName() + " " + def.getKeyName()
@@ -58,12 +58,12 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 	@Override
 	public String[] unparse(LoadContext context, ContentDefinition def)
 	{
-		FormatManager<?> manager = def.getFormatManager();
-		if (manager == null)
+		FormatManager<?> fmtManager = def.getFormatManager();
+		if (fmtManager == null)
 		{
 			return null;
 		}
-		return new String[]{manager.getIdentifierType()};
+		return new String[]{fmtManager.getIdentifierType()};
 	}
 
 	@Override

@@ -9,6 +9,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -44,7 +45,7 @@ WEAPONPROF:wmh_profs_weapon.lst
 
 # Support
 ABILITY:support/wmh_abilities_isc.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Combat
-ABILITY:support/wmh_abilities_isg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+ABILITY:support/wmh_abilities_isg.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Campaign Setting - Inner Sea Gods
 ABILITY:support/wmh_abilities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 
 

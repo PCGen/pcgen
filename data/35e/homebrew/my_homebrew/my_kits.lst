@@ -29,9 +29,9 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com	SOURCED
 #SKILL:Sense Motive	RANK:7
 #SKILL:Balance		RANK:10
 #SKILL:Diplomacy		RANK:2
-#FEAT:Improved Initiative
-#FEAT:Multiattack
-#FEAT:Multiweapon Fighting
+#ABILITY:CATEGORY=FEAT|Improved Initiative
+#ABILITY:CATEGORY=FEAT|Multiattack
+#ABILITY:CATEGORY=FEAT|Multiweapon Fighting
 #STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 #GEAR:Longbow		QTY:2	LOCATION:Carried	SIZE:PC
 #GEAR:Sword (Short)	LOCATION:Primary Hand	SIZE:PC

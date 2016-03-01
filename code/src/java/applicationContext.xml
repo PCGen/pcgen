@@ -137,6 +137,9 @@
 	<bean id="consolidationFacet" class="pcgen.cdom.facet.CDOMObjectConsolidationFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
 	</bean>
+	<bean id="cdomWrapperInfoFacet" class="pcgen.cdom.facet.CDOMWrapperInfoFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="cdomSourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
 	</bean>
@@ -248,10 +251,6 @@
 	<bean id="equipSetFacet" class="pcgen.cdom.facet.EquipSetFacet" />
 	<bean id="expandedCampaignFacet" class="pcgen.cdom.facet.model.ExpandedCampaignFacet" />
 	<!-- F -->
-	<bean id="faceFacet" class="pcgen.cdom.facet.analysis.FaceFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
 	<bean id="factFacet" class="pcgen.cdom.facet.fact.FactFacet" />
 	<bean id="favoredClassFacet" class="pcgen.cdom.facet.analysis.FavoredClassFacet">
 		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
@@ -269,6 +268,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
+	<bean id="formulaSetupFacet" class="pcgen.cdom.facet.FormulaSetupFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet">
 		<property name="languageFacet" ref="languageFacet"/>
 	</bean>
@@ -277,6 +279,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.input.GlobalAddedSkillCostFacet"/>
+	<bean id="globalModifier" class="pcgen.cdom.facet.GlobalModifierFacet"/>
 	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -386,6 +389,10 @@
 	<bean id="masterUsableSkillFacet" class="pcgen.cdom.facet.input.MasterUsableSkillFacet">
 		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
 	</bean>
+	<bean id="modifierFacet" class="pcgen.cdom.facet.ModifierFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+		<property name="solverManagerFacet" ref="solverManagerFacet"/>
+	</bean>
 	<bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">
 		<property name="levelFacet" ref="levelFacet"/>
 		<property name="classFacet" ref="classFacet"/>
@@ -445,6 +452,9 @@
 	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="objectWrapperFacet" class="pcgen.cdom.facet.ObjectWrapperFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<!-- P -->
 	<bean id="playerCharacterTrackingFacet" class="pcgen.cdom.facet.PlayerCharacterTrackingFacet"/>
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
@@ -488,6 +498,10 @@
 	<bean id="regionFacet" class="pcgen.cdom.facet.fact.RegionFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
+	<bean id="remoteModifierFacet" class="pcgen.cdom.facet.RemoteModifierFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+		<property name="solverManagerFacet" ref="solverManagerFacet"/>
+	</bean>
 	<bean id="removeFacet" class="pcgen.cdom.facet.RemoveFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
@@ -495,9 +509,18 @@
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
+	<bean id="resultFacet" class="pcgen.cdom.facet.analysis.ResultFacet">
+		<property name="variableStoreFacet" ref="variableStoreFacet"/>
+		<property name="variableLibraryFacet" ref="variableLibraryFacet"/>
+		<property name="scopeFacet" ref="scopeFacet"/>
+		<property name="formulaSetupFacet" ref="formulaSetupFacet"/>
+	</bean>
 	<!-- S -->
 	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
 	<bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet" />
+	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet">
+		<property name="formulaSetupFacet" ref="formulaSetupFacet"/>
+	</bean>
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
@@ -534,6 +557,13 @@
 	<bean id="skillOutputOrderFacet" class="pcgen.cdom.facet.SkillOutputOrderFacet"/>
 	<bean id="skillPoolFacet" class="pcgen.cdom.facet.SkillPoolFacet"/>
 	<bean id="skillRankFacet" class="pcgen.cdom.facet.SkillRankFacet"/>
+	<bean id="solverManagerFacet" class="pcgen.cdom.facet.SolverManagerFacet">
+		<property name="variableLibraryFacet" ref="variableLibraryFacet"/>
+		<property name="scopeFacet" ref="scopeFacet"/>
+	</bean>
+	<bean id="solverFactoryFacet" class="pcgen.cdom.facet.SolverFactoryFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
 	<bean id="specialAbilityFacet" class="pcgen.cdom.facet.analysis.SpecialAbilityFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
@@ -633,6 +663,12 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="variableLibraryFacet" class="pcgen.cdom.facet.VariableLibraryFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
+	<bean id="variableStoreFacet" class="pcgen.cdom.facet.VariableStoreFacet">
+		<property name="solverFactoryFacet" ref="solverFactoryFacet"/>
+	</bean>
 	<bean id="visionFacet" class="pcgen.cdom.facet.analysis.VisionFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
@@ -656,5 +692,19 @@
 	<bean id="xpTableFacet" class="pcgen.cdom.facet.XPTableFacet"/>
 	<!-- Y -->
 	<!-- Z -->
+	<!-- END Facet Definitions -->
+
+	<!--  Scope Definitions -->
+	<bean id="globalLegalScope" class="pcgen.cdom.formula.scope.GlobalScope"/>
+	<bean id="skillLegalScope" class="pcgen.cdom.formula.scope.SkillScope">
+		<property name="parent" ref="globalLegalScope"/>
+	</bean>
+	<bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">
+		<property name="parent" ref="globalLegalScope"/>
+	</bean>
+	<bean id="equipPartLegalScope" class="pcgen.cdom.formula.scope.EquipmentPartScope">
+		<property name="parent" ref="equipLegalScope"/>
+	</bean>
+
 
 </beans>

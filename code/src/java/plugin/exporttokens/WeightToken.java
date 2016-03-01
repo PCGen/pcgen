@@ -74,11 +74,11 @@ public class WeightToken extends AbstractExportToken
 				display.getSuppressBioField(BiographyField.WEIGHT);
 		if ("WEIGHT".equals(tokenSource))
 		{
-			retString = suppressPcWeight ? "" : display.getWeightToken();
+			retString = suppressPcWeight ? "" : getWeightToken(display);
 		}
 		else if ("WEIGHT.NOUNIT".equals(tokenSource))
 		{
-			retString = suppressPcWeight ? "" : display.getNoUnitToken();
+			retString = suppressPcWeight ? "" : getNoUnitWeight(display);
 		}
 		else
 		{
@@ -90,5 +90,18 @@ public class WeightToken extends AbstractExportToken
 		}
 		
 		return retString;
+	}
+
+	private String getNoUnitWeight(CharacterDisplay display)
+	{
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
+			display.getWeight());
+	}
+
+	private String getWeightToken(CharacterDisplay display)
+	{
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
+			display.getWeight())
+			+ Globals.getGameModeUnitSet().getWeightUnit();
 	}
 }

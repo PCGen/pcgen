@@ -5,6 +5,10 @@
 
 # Gunslinger
 # Name										Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Gunslinger_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Class Skills			EXPLANATION:Determines whether the archetype affects - Class Skills
+FACTDEF:ABILITY|Gunslinger_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies
+
+
 FACTDEF:ABILITY|Gunslinger_Archetype_Gunsmith				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gunsmith				EXPLANATION:Determines whether the archetype affects - Gunsmith
 FACTDEF:ABILITY|Gunslinger_Archetype_Deeds				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Deeds					EXPLANATION:Determines whether the archetype affects - Deeds
 FACTDEF:ABILITY|Gunslinger_Archetype_Grit					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Grit					EXPLANATION:Determines whether the archetype affects - Grit
@@ -153,3 +157,6 @@ FACTDEF:ABILITY|Samurai_CF_DemandingChallenge				DATAFORMAT:BOOLEAN	REQUIRED:NO	
 FACTDEF:ABILITY|Samurai_CF_GreaterBanner					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:GreaterBanner			EXPLANATION:Remove Samurai GreaterBanner
 FACTDEF:ABILITY|Samurai_CF_TrueResolve					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:TrueResolve				EXPLANATION:Remove Samurai TrueResolve
 FACTDEF:ABILITY|Samurai_CF_LastStand					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:LastStand				EXPLANATION:Remove Samurai LastStand
+
+DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
+DEFAULTVARIABLEVALUE:NUMBER|0

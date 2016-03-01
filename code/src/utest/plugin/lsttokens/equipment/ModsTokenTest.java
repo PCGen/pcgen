@@ -25,11 +25,11 @@ import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class ModsTokenTest extends AbstractTokenTestCase<Equipment>
+public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static ModsToken token = new ModsToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();

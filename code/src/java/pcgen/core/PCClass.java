@@ -461,12 +461,6 @@ public class PCClass extends PObject implements ClassFacade
 		{
 			aPC.calculateKnownSpellsForClassLevel(this);
 		}
-
-		// check to see if we have dropped a level.
-		if (curLevel > newLevel)
-		{
-			aPC.resetEpicCache();
-		}
 	}
 
 	/**
@@ -634,10 +628,7 @@ public class PCClass extends PObject implements ClassFacade
 			return 0;
 		}
 
-		int i = (int) getBonusTo("COMBAT", "BAB", aPC.getLevel(this), aPC);
-		i += (int) getBonusTo("COMBAT", "BASEAB", aPC.getLevel(this), aPC);
-
-		return i;
+		return (int) getBonusTo("COMBAT", "BASEAB", aPC.getLevel(this), aPC);
 	}
 
 	/**

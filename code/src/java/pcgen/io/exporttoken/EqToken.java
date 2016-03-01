@@ -38,6 +38,8 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
@@ -307,6 +309,28 @@ public class EqToken extends Token
 	}
 
 	/**
+	 * Converts the critical multiplier into a dispalyable string, i.e.
+	 * blank for zero, - for negative and puts an x before positive
+	 * numbers e.g. x3
+	 *
+	 * @param mult The critical multiplier
+	 * @return     The string to display
+	 */
+	public static String multAsString(final int mult)
+	{
+		if (mult == 0)
+		{
+			return "";
+		}
+		else if (mult < 0)
+		{
+			return "-";
+		}
+	
+		return "x" + Integer.toString(mult);
+	}
+
+	/**
 	 * Get the AC Check Token
 	 * @param pc
 	 * @param eq
@@ -357,7 +381,7 @@ public class EqToken extends Token
 	 */
 	public static String getAltCritMultToken(Equipment eq)
 	{
-		return eq.getAltCritMult();
+		return EqToken.multAsString(eq.getAltCritMultiplier());
 	}
 
 	/**
@@ -368,8 +392,20 @@ public class EqToken extends Token
 	 */
 	public static String getAltCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		int critRange = pc.getCritRange(eq, false);
-		return critRange == 0 ? "" : Integer.toString(critRange);
+		String critRangeVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITRANGE");
+		if (critRangeVar == null)
+		{
+			int critRange = getOldBonusedCritRange(pc, eq, false);
+			return critRange == 0 ? "" : Integer.toString(critRange);
+		}
+		else
+		{
+			EquipmentHead head = eq.getEquipmentHead(2);
+			return WeaponToken.getCritRangeHead(pc, head, critRangeVar)
+				.toString();
+		}
 	}
 
 	/**
@@ -575,7 +611,7 @@ public class EqToken extends Token
 	 */
 	public static String getCritMultToken(Equipment eq)
 	{
-		return eq.getCritMult();
+		return EqToken.multAsString(eq.getCritMultiplier());
 	}
 
 	/**
@@ -586,8 +622,20 @@ public class EqToken extends Token
 	 */
 	public static String getCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		int critRange = pc.getCritRange(eq, true);
-		return critRange == 0 ? "" : Integer.toString(critRange);
+		String critRangeVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"CRITRANGE");
+		if (critRangeVar == null)
+		{
+			int critRange = getOldBonusedCritRange(pc, eq, true);
+			return critRange == 0 ? "" : Integer.toString(critRange);
+		}
+		else
+		{
+			EquipmentHead head = eq.getEquipmentHead(1);
+			return WeaponToken.getCritRangeHead(pc, head, critRangeVar)
+				.toString();
+		}
 	}
 
 	/**
@@ -1271,4 +1319,18 @@ public class EqToken extends Token
 
 		return merge;
 	}
+
+	public static int getOldBonusedCritRange(PlayerCharacter pc, Equipment e, boolean primary)
+	{
+		if (!primary && !e.isDouble())
+		{
+			return 0;
+		}
+		int raw = e.getRawCritRange(primary);
+		int add = (int) e.bonusTo(pc, "EQMWEAPON", "CRITRANGEADD", primary);
+		int dbl = 1 + (int) e.bonusTo(pc, "EQMWEAPON", "CRITRANGEDOUBLE", primary);
+		return raw * dbl + add;
+
+	}
+
 }

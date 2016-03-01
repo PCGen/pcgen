@@ -538,6 +538,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private static final List<DefaultDataViewColumn> columns
 				= Arrays.asList(new DefaultDataViewColumn("in_clInfoHD", String.class), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_clInfoType", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_baseStat", String.class), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_spellType", String.class), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_source", String.class)); //$NON-NLS-1$

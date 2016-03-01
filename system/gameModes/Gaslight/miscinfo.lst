@@ -116,7 +116,6 @@ BONUSSTATLEVELSTARTINTERVAL:4|4
 BONUSSTATLEVELSTARTINTERVAL:4|4
 
 # Calculations for AC. Same as those used on the output sheets with the 'BONUS.' stripped off
-DEITY:None		DOMAINS:ALL		DESC:None	SYMBOL:None		SOURCEPAGE:None
 
 #Weapon Damage Types
 WEAPONTYPE:Bludgeoning|Bl
@@ -164,7 +163,7 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
 ACTYPE:Total		ADD:TOTAL
-ACTYPE:Flatfooted		ADD:TOTAL				REMOVE:Ability|PRESTAT:1,DEX=10|!PREFEAT:1,Uncanny Dodge	REMOVE:Dodge|!PREFEAT:1,Uncanny Dodge
+ACTYPE:Flatfooted		ADD:TOTAL				REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=FEAT,Uncanny Dodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=FEAT,Uncanny Dodge
 ACTYPE:Touch		ADD:TOTAL				REMOVE:Armor|NaturalArmor|Equipment|Shield
 ACTYPE:Base			ADD:Base
 ACTYPE:Equipment		ADD:Equipment|Armor|Shield
@@ -221,7 +220,7 @@ ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO
 
 PREVIEWDIR:d20/gaslight
 PREVIEWSHEET:gaslight_statblock.htm
-INFOSHEET:SUMMARY|preview/summary/35e_info.html
+INFOSHEET:SUMMARY|preview/summary/35e_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.

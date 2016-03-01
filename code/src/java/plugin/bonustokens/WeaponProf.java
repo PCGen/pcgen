@@ -25,7 +25,10 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:WEAPONPROF= token.
@@ -69,5 +72,38 @@ public final class WeaponProf extends MultiTagBonusObj
 	protected int getBonusTagLength()
 	{
 		return bonusTags.length;
+	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, "CRITRANGE"))
+		{
+			if ("CRITRANGEADD".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+			if ("CRITRANGEDOUBLE".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, "CRITMULT"))
+		{
+			if ("CRITMULTADD".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		return super.parseToken(context, token);
 	}
 }

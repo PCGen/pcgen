@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import pcgen.facade.core.InfoFactory;
 
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
@@ -47,12 +48,13 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 	private final ListFacade<SpellTreeView> treeViews;
 	private final String prefsKey;
 
-	public SpellTreeViewModel(ListFacade<? extends SuperNode> spellNodes, boolean showcolumns, String prefsKey)
+	public SpellTreeViewModel(ListFacade<? extends SuperNode> spellNodes,
+			boolean showcolumns, String prefsKey, InfoFactory infoFactory)
 	{
 		this.spellNodes = spellNodes;
 		this.prefsKey = prefsKey;
 		this.treeViews = new DefaultListFacade<SpellTreeView>(Arrays.asList(SpellTreeView.values()));
-		this.dataView = new SpellNodeDataView(showcolumns, prefsKey);
+		this.dataView = new SpellNodeDataView(showcolumns, prefsKey, infoFactory);
 	}
 
 	@Override

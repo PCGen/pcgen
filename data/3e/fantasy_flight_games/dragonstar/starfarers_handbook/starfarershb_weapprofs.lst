@@ -77,9 +77,9 @@ Stun gauntlets					TYPE:HighTechSimple
 Bayonet						TYPE:HighTechSimple
 
 #Ship Weapons
-Quad Plasma Cannon(battery)			TYPE:ShipWeapon				PREABILITY:1,CATEGORY=FEAT,Ship_Guns
-Ion Cannon(battery)				TYPE:ShipWeapon				PREABILITY:1,CATEGORY=FEAT,Ship_Guns
-Torpedo Bay						TYPE:ShipWeapon				PREABILITY:1,CATEGORY=FEAT,Ship_Guns
+Quad Plasma Cannon(battery)			TYPE:ShipWeapon				PREABILITY:1,CATEGORY=Special Ability,Ship_Guns
+Ion Cannon(battery)				TYPE:ShipWeapon				PREABILITY:1,CATEGORY=Special Ability,Ship_Guns
+Torpedo Bay						TYPE:ShipWeapon				PREABILITY:1,CATEGORY=Special Ability,Ship_Guns
 
 Shortbow.MOD					TYPE:HandDrawn
 Longbow.MOD						TYPE:HandDrawn

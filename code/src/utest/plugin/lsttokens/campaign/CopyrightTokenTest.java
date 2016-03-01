@@ -26,11 +26,11 @@ import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
+public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CopyrightToken token = new CopyrightToken();

@@ -108,10 +108,13 @@ public class AvailableSpellFacet extends
 					{
 						if (spell.getKeyName().equals(sp.getKeyName()))
 						{
-							Logging.log(Logging.INFO,
-								"Found alternate spell of same key: " + spell
-									+ " from " + spell.getSource()
-									+ " rather than " + sp.getSource());
+							if (Logging.isLoggable(Logging.INFO))
+							{
+								Logging.log(Logging.INFO,
+									"Found alternate spell of same key: "
+										+ spell + " from " + spell.getSource()
+										+ " rather than " + sp.getSource());
+							}
 							levelInfo.addToListFor(list, level);
 						}
 					}

@@ -39,6 +39,9 @@ ABILITYCATEGORY:Cavalier Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 # Inquisitor Categories
 ABILITYCATEGORY:Inquisitor Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain														PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgment														PLURAL:Inquisitor Judgment Effects	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Teamwork Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Inquisitor Teamwork Feat													PLURAL:Inquisitor Teamwork Feats	DISPLAYLOCATION:Feats
+
+
 ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork															PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
 
 ###Block: Oracular Ability Categories
@@ -153,6 +156,9 @@ ABILITYCATEGORY:Weapon Adept Monk Weapon Specialization Choice	VISIBLE:QUALIFY	E
 ABILITYCATEGORY:Zen Archer Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ZenArcherFeat														PLURAL:Zen Archer Feats							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Zen Archer Weapon Focus Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Focus ~ Zen Archer					PLURAL:Zen Archer Weapon Focus Choices				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Zen Archer Weapon Specialization Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Specialization ~ Zen Archer				PLURAL:Zen Archer Weapon Specialization Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Zen Archer Point Blank Master				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Zen Archer Point Blank Master															DISPLAYLOCATION:Feats
+
+
 
 # Ranger Archetypes
 ABILITYCATEGORY:Hunter's Trick Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntersTrickChoice														PLURAL:Hunter's Trick Selections					DISPLAYLOCATION:Class Features

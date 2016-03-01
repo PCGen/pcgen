@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCClass;
 import pcgen.core.SpellSupportForPCClass;
@@ -28,7 +29,7 @@ import pcgen.core.SpellSupportForPCClass;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellSupportFacet extends
-		AbstractAssociationFacet<PCClass, SpellSupportForPCClass>
+		AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass>
 {
 
 }

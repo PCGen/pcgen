@@ -181,6 +181,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
 		assertTrue(ref.resolveReferences(null));
+		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
 	}

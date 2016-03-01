@@ -40,7 +40,6 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 			classSetUp();
 			classSetUpRun = true;
 		}
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	private void classSetUp()
@@ -59,7 +58,7 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 		d.addToListFor(ListKey.BOOK_TYPE, expectedResult1);
 		d.addToListFor(ListKey.BOOK_TYPE, expectedResult2);
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "booktype", lka);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "booktype", lka);
 		processThroughFreeMarker("${deity.booktype[0]}", expectedResult1);
 		processThroughFreeMarker("${deity.booktype[1]}", expectedResult2);
 	}
@@ -67,7 +66,7 @@ public class ListKeyActorTest extends AbstractOutputTestCase
 	public void testListKeyActorMissingSafe()
 	{
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);
-		CDOMObjectWrapper.getInstance().load(Deity.class, "booktype", lka);
+		CDOMObjectWrapper.load(dsid, Deity.class, "booktype", lka);
 		processThroughFreeMarker("${(deity.booktype[0])!}", "");
 		processThroughFreeMarker("${(deity.booktype.join(\", \"))!}", "");
 	}

@@ -32,6 +32,7 @@ import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
+import pcgen.output.publish.OutputDB;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstToken;
@@ -64,6 +65,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 	@BeforeClass
 	public static final void classSetUp() throws URISyntaxException
 	{
+		OutputDB.reset();
 		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case"));
 		modCampaign = new CampaignSourceEntry(new Campaign(), new URI(

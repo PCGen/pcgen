@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
+# Original Entry: See contributors listed in PCC file.
+
+# Basic Rules Races
+# Race Name	SORTKEY		Size		Move			Stat bonus					Ability								Nb Legs	Nb Hands	Main Race Type	Race Subtype		Type			Source Page
+Dwarf		SORTKEY:Base_PC	SIZE:M	MOVE:Walk,25	BONUS:STAT|CON|2				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Dwarf		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.PC	SOURCEPAGE:p.
+Elf		SORTKEY:Base_PC	SIZE:M	MOVE:Walk,30	BONUS:STAT|DEX|2				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Elf		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.PC	SOURCEPAGE:p.
+Halfling	SORTKEY:Base_PC	SIZE:S	MOVE:Walk,25	BONUS:STAT|DEX|2				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Halfling	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Humanoid.PC	SOURCEPAGE:p.
+Human		SORTKEY:Base_PC	SIZE:M	MOVE:Walk,30							ABILITY:Internal|AUTOMATIC|Racial Trait ~ Human		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.PC	SOURCEPAGE:p.
+# Uncommon Races
+Dragonborn	SORTKEY:Base_PC	SIZE:M	MOVE:Walk,30	BONUS:STAT|STR|2	BONUS:STAT|CHA|1	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Dragonborn	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Dragonborn	TYPE:Humanoid.PC	SOURCEPAGE:p.
+Gnome		SORTKEY:Base_PC	SIZE:S	MOVE:Walk,25	BONUS:STAT|INT|2				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Gnome		LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Humanoid.PC	SOURCEPAGE:p.
+Half-Elf	SORTKEY:Base_PC	SIZE:M	MOVE:Walk,30	BONUS:STAT|CHA|2				ABILITY:Internal|AUTOMATIC|Racial Trait ~ Half-Elf	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Half-Elf	TYPE:Humanoid.PC	SOURCEPAGE:p.
+Half-Orc	SORTKEY:Base_PC	SIZE:M	MOVE:Walk,30	BONUS:STAT|STR|2	BONUS:STAT|CON|1	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Half-Orc	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Half-Orc	TYPE:Humanoid.PC	SOURCEPAGE:p.
+Tiefling	SORTKEY:Base_PC	SIZE:M	MOVE:Walk,30	BONUS:STAT|INT|1	BONUS:STAT|CHA|2	ABILITY:Internal|AUTOMATIC|Racial Trait ~ Tiefling	LEGS:2	HANDS:2	RACETYPE:Humanoid	RACESUBTYPE:Tiefling	TYPE:Humanoid.PC	SOURCEPAGE:p.

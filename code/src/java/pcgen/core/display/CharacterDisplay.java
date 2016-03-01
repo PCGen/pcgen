@@ -30,7 +30,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.math.OrderedPair;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -80,7 +79,6 @@ import pcgen.cdom.facet.analysis.ArmorClassFacet;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
-import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerOptionFacet;
 import pcgen.cdom.facet.analysis.HandsFacet;
@@ -144,7 +142,6 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
-import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
@@ -252,7 +249,6 @@ public class CharacterDisplay
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
-	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
 	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
@@ -678,11 +674,6 @@ public class CharacterDisplay
 		return handedFacet.getHanded(id);
 	}
 
-	public OrderedPair getFace()
-	{
-		return faceFacet.get(id);
-	}
-
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
 	{
 		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(weaponProfFacet.getSet(id)));
@@ -691,12 +682,6 @@ public class CharacterDisplay
 	public String getSize()
 	{
 		return sizeFacet.getSizeAbb(id);
-	}
-
-	@Deprecated
-	public String getResidence()
-	{
-		return getSafeStringFor(PCStringKey.RESIDENCE);
 	}
 
 	public Collection<RaceSubType> getRacialSubTypes()
@@ -1199,29 +1184,6 @@ public class CharacterDisplay
 		return drFacet.getDRString(id);
 	}
 
-	/**
-	 * Get the value of the weight token without units.
-	 *
-	 * @return The value of the weight token.
-	 */
-	public String getNoUnitToken()
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			getWeight());
-	}
-
-	/**
-	 * Get the value of the weight token in units.
-	 *
-	 * @return The value of the weight token.
-	 */
-	public String getWeightToken()
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			getWeight())
-			+ Globals.getGameModeUnitSet().getWeightUnit();
-	}
-
 	/*
 	 * returns true if Equipment is in the primary weapon list
 	 */
@@ -1621,50 +1583,6 @@ public class CharacterDisplay
 		return 0.0;
 	}
 
-	@Deprecated
-	public String getCharacterHeightInchPart()
-	{
-		return Integer.toString(getHeight() % 12);
-	}
-
-	@Deprecated
-	public String getCharacterHeightFootPart()
-	{
-		return Integer.toString(getHeight() / 12);
-	}
-
-	@Deprecated
-	public String getHeightString()
-	{
-		String retString;
-	
-		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
-		{
-			retString =
-					getCharacterHeightFootPart() + "' " + getCharacterHeightInchPart() + "\"";
-		}
-		else
-		{
-			retString =
-					Globals.getGameModeUnitSet().displayHeightInUnitSet(
-						getHeight())
-						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
-		}
-	
-		return retString;
-	}
-
-	@Deprecated
-	public String getAlignmentDisplayString()
-	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
-		{
-			return "";
-		}
-		final PCAlignment alignment = getPCAlignment();
-		return alignment == null ? "None" : alignment.getDisplayName();
-	}
-
 	/**
 	 * Get the armor proficiency list.
 	 * 
@@ -1920,4 +1838,15 @@ public class CharacterDisplay
 		return armorProfFacet.isProficientWithArmor(id, eq);
 	}
 
+	/**
+	 * WARNING: Use this method SPARINGLY... and only for transition to the
+	 * facet model. It is NOT an excuse to throw around a CharacterDisplay
+	 * object when unnecessary
+	 * 
+	 * @return The id of the character as used by the facets.
+	 */
+	public CharID getCharID()
+	{
+		return id;
+	}
 }

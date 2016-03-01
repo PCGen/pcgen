@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> extends
-		AbstractTokenTestCase<T>
+		AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract boolean isClearLegal();

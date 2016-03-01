@@ -23,11 +23,11 @@ import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class TypeTokenTest extends AbstractTokenTestCase<Campaign>
+public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static TypeToken token = new TypeToken();

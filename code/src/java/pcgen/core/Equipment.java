@@ -48,6 +48,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
@@ -86,6 +87,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.io.FileAccess;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.JEPResourceChecker;
@@ -105,8 +107,9 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public final class Equipment extends PObject implements Serializable,
-		Comparable<Object>, VariableContainer, EquipmentFacade
+		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
 {
+
 	private static final long serialVersionUID = 1;
 
 	private static final String EQMOD_WEIGHT = "_WEIGHTADD";
@@ -1925,6 +1928,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param bPrimary
 	 *            True=Primary Head
 	 * @return The rawCritRange value
+	 * @deprecated due to CRITRANGE code control
 	 */
 	public int getRawCritRange(final boolean bPrimary)
 	{
@@ -2308,15 +2312,16 @@ public final class Equipment extends PObject implements Serializable,
 	 * 			  Is this for the main head (true), or the secondary one (false)?
 	 * @return The visible value
 	 */
-	public boolean isVisible(final EquipmentModifier eqMod,
-			boolean primaryHead, View v)	{
+	public boolean isVisible(PlayerCharacter pc, EquipmentModifier eqMod,
+		boolean primaryHead, View v)
+	{
 		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
 		if (Visibility.QUALIFY.equals(vis))
 		{
 			bonusPrimary = primaryHead;
 			return PrereqHandler.passesAll(eqMod.getPrerequisiteList(),
-				this, null);
+				this, pc);
 		}
 
 		return vis.isVisibleTo(v);
@@ -2555,7 +2560,7 @@ public final class Equipment extends PObject implements Serializable,
 			bImporting = true;
 		}
 
-		if (!bImporting && !canAddModifier(eqMod, bPrimary))
+		if (!bImporting && !canAddModifier(aPC, eqMod, bPrimary))
 		{
 			return;
 		}
@@ -2579,6 +2584,7 @@ public final class Equipment extends PObject implements Serializable,
 					if (key.equalsIgnoreCase(aMod.getKeyName()))
 					{
 						head.removeFromListFor(ListKey.EQMOD, aMod);
+						head.removeVarModifiers(aPC.getCharID(), aMod);
 						if (bPrimary)
 						{
 							usePrimaryCache = false;
@@ -2600,6 +2606,7 @@ public final class Equipment extends PObject implements Serializable,
 				if (aMod.isType("BaseMaterial"))
 				{
 					head.removeFromListFor(ListKey.EQMOD, aMod);
+					head.removeVarModifiers(aPC.getCharID(), aMod);
 					if (bPrimary)
 					{
 						usePrimaryCache = false;
@@ -2619,6 +2626,7 @@ public final class Equipment extends PObject implements Serializable,
 				if (aMod.isType("MagicalEnhancement"))
 				{
 					head.removeFromListFor(ListKey.EQMOD, aMod);
+					head.removeVarModifiers(aPC.getCharID(), aMod);
 					if (bPrimary)
 					{
 						usePrimaryCache = false;
@@ -2657,6 +2665,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			head.addToListFor(ListKey.EQMOD, aMod);
+			head.addVarModifiers(aPC.getCharID(), aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -2693,6 +2702,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (allRemoved)
 			{
 				head.removeFromListFor(ListKey.EQMOD, aMod);
+				head.removeVarModifiers(aPC.getCharID(), aMod);
 				if (bPrimary)
 				{
 					usePrimaryCache = false;
@@ -2923,15 +2933,15 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return True if eqMod is addable
 	 */
-	public boolean canAddModifier(final PrereqObject eqMod,
-		final boolean bPrimary)
+	public boolean canAddModifier(PlayerCharacter pc, PrereqObject eqMod,
+		boolean bPrimary)
 	{
 
 		// Make sure we are qualified
 		bonusPrimary = bPrimary;
 
 		return getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
-			&& PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, null);
+			&& PrereqHandler.passesAll(eqMod.getPrerequisiteList(), this, pc);
 	}
 
 	/**
@@ -3000,7 +3010,9 @@ public final class Equipment extends PObject implements Serializable,
 				}
 				else
 				{
-					eq.heads.add((EquipmentHead) head.clone());
+					EquipmentHead eh = new EquipmentHead(eq, head.getHeadIndex());
+					eh.overlayCDOMObject(head);
+					eq.heads.add(eh);
 				}
 			}
 
@@ -3627,6 +3639,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			EquipmentHead head = getEquipmentHead(bPrimary ? 1 : 2);
 			head.removeFromListFor(ListKey.EQMOD, aMod);
+			head.removeVarModifiers(pc.getCharID(), aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -3636,7 +3649,7 @@ public final class Equipment extends PObject implements Serializable,
 				useSecondaryCache = false;
 			}
 
-			restoreEqModsAfterRemove(eqMod, bPrimary, head);
+			restoreEqModsAfterRemove(pc, eqMod, bPrimary, head);
 			
 			setDirty(true);
 		}
@@ -3649,8 +3662,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param bPrimary Which head is this for?
 	 * @param head The head being updated.
 	 */
-	private void restoreEqModsAfterRemove(final EquipmentModifier eqMod,
-		final boolean bPrimary, EquipmentHead head)
+	private void restoreEqModsAfterRemove(PlayerCharacter pc,
+		final EquipmentModifier eqMod, final boolean bPrimary,
+		EquipmentHead head)
 	{
 		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 		if (baseItem == null)
@@ -3676,6 +3690,7 @@ public final class Equipment extends PObject implements Serializable,
 					if (key.equalsIgnoreCase(baseMod.getKeyName()))
 					{
 						head.addToListFor(ListKey.EQMOD, baseMod);
+						head.addVarModifiers(pc.getCharID(), baseMod);
 					}
 				}
 			}
@@ -3690,6 +3705,7 @@ public final class Equipment extends PObject implements Serializable,
 				if (baseMod.isType("BaseMaterial"))
 				{
 					head.addToListFor(ListKey.EQMOD, baseMod);
+					head.addVarModifiers(pc.getCharID(), baseMod);
 				}
 			}
 		}
@@ -3702,6 +3718,7 @@ public final class Equipment extends PObject implements Serializable,
 				if (baseMod.isType("MagicalEnhancement"))
 				{
 					head.addToListFor(ListKey.EQMOD, baseMod);
+					head.addVarModifiers(pc.getCharID(), baseMod);
 				}
 			}
 		}
@@ -4030,12 +4047,12 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * @param aPC The PC carrying the item
 	 */
-	private void setDefaultCrit(final PlayerCharacter aPC)
+	public void setDefaultCrit(final PlayerCharacter aPC)
 	{
 
 		if (isWeapon())
 		{
-			if (aPC != null && aPC.getCritRange(this, true) == 0)
+			if (aPC != null && EqToken.getOldBonusedCritRange(aPC, this, true) == 0)
 			{
 				getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 			}
@@ -5429,51 +5446,10 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the critMult attribute of the Equipment object
-	 * 
-	 * @return The critMult value
-	 */
-	public String getCritMult()
-	{
-		return multAsString(getCritMultiplier());
-	}
-
-	/**
-	 * Gets the altCritMult attribute of the Equipment object
-	 * 
-	 * @return The altCritMult value
-	 */
-	public String getAltCritMult()
-	{
-		return multAsString(getAltCritMultiplier());
-	}
-
-	/**
-	 * Converts the critical multiplier into a dispalyable string, i.e.
-	 * blank for zero, - for negative and puts an x before positive
-	 * numbers e.g. x3
-	 *
-	 * @param mult The critical multiplier
-	 * @return     The string to display
-	 */
-	private static String multAsString(final int mult)
-	{
-		if (mult == 0)
-		{
-			return "";
-		}
-		else if (mult < 0)
-		{
-			return "-";
-		}
-
-		return "x" + Integer.toString(mult);
-	}
-
-	/**
 	 * Gets the critMultiplier attribute of the Equipment object
 	 * 
 	 * @return The critMultiplier value
+	 * @deprecated due to CRITMULT code control
 	 */
 	public int getCritMultiplier()
 	{
@@ -5494,6 +5470,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Gets the altCritMultiplier attribute of the Equipment object
 	 * 
 	 * @return The altCritMultiplier value
+	 * @deprecated due to CRITMULT code control
 	 */
 	public int getAltCritMultiplier()
 	{
@@ -5510,6 +5487,9 @@ public final class Equipment extends PObject implements Serializable,
 		return mult;
 	}
 
+	/**
+	 * @deprecated due to CRITMULT and CRITRANGE code controls
+	 */
 	private int getHeadInfo(int headnum, IntegerKey ik)
 	{
 		EquipmentHead head = getEquipmentHeadReference(headnum);
@@ -6350,6 +6330,11 @@ public final class Equipment extends PObject implements Serializable,
 		}
 		return null;
 	}
+	
+	public List<EquipmentHead> getEquipmentHeads()
+	{
+		return new ArrayList<EquipmentHead>(heads);
+	}
 
 	/**
 	 * Reduce/increase damage for modified size as per DMG p.162
@@ -6965,6 +6950,15 @@ public final class Equipment extends PObject implements Serializable,
 		// No icon can be found
 		return null; 
 	}
-	
 
+    public boolean isTestingPrimary()
+    {
+    	return bonusPrimary;
+    }
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "EQUIPMENT";
+	}
 }
