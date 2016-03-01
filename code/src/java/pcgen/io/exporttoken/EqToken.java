@@ -308,6 +308,67 @@ public class EqToken extends Token
 		return false;
 	}
 
+	public static Integer getRange(final PlayerCharacter pc, Equipment eq)
+	{
+		String rangeVar = pc.getControl("EQRANGE");
+		if (rangeVar != null)
+		{
+			//Need a special breakout based on PlayerCharacter reset of IntegerKey.RANGE
+			if (eq.isType("Both") && eq.isType("Melee"))
+			{
+				return Integer.valueOf(0);
+			}
+			return ((Number) eq.getLocalVariable(pc.getCharID(), rangeVar)).intValue();
+		}
+
+		int range = eq.getSafe(IntegerKey.RANGE);
+	
+		if (range == 0)
+		{
+			final String aRange = eq.getWeaponInfo("RANGE", true);
+	
+			if (aRange.length() != 0)
+			{
+				range = Integer.valueOf(aRange);
+			}
+		}
+	
+		int r = range + (int) eq.bonusTo(pc, "EQMWEAPON", "RANGEADD", true);
+		final int i = (int) eq.bonusTo(pc, "EQMWEAPON", "RANGEMULT", true);
+		double rangeMult = 1.0;
+	
+		if (i > 0)
+		{
+			rangeMult += (i - 1);
+		}
+	
+		int postAdd = 0;
+	
+		if (pc != null)
+		{
+			if (eq.isThrown())
+			{
+				r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
+				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
+				rangeMult +=
+						((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
+			}
+			else if (eq.isProjectile())
+			{
+				r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
+				postAdd =
+						(int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
+				rangeMult +=
+						((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
+			}
+		}
+	
+		r *= rangeMult;
+		r += postAdd;
+	
+		return r;
+	}
+
 	/**
 	 * Converts the critical multiplier into a dispalyable string, i.e.
 	 * blank for zero, - for negative and puts an x before positive
@@ -894,7 +955,7 @@ public class EqToken extends Token
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			eq.getRange(pc).intValue())
+			getRange(pc, eq).intValue())
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 

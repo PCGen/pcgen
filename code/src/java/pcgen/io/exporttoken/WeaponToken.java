@@ -850,7 +850,7 @@ public class WeaponToken extends Token
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			eq.getRange(pc).intValue()));
+			EqToken.getRange(pc, eq).intValue()));
 
 		if (units)
 		{
@@ -2085,9 +2085,8 @@ public class WeaponToken extends Token
 							(int) eq.bonusTo(pc, "WEAPON", "TOHIT-SHORTRANGE",
 								true);
 				}
-
 				// Long Range To-Hit Modifier
-				int defaultRange = Integer.parseInt(eq.getRange(pc).toString());
+				int defaultRange = Integer.parseInt(EqToken.getRange(pc, eq).toString());
 				int rangePenalty = SettingsHandler.getGame().getRangePenalty();
 				rangePenalty += pc.getTotalBonusTo("COMBAT", "RANGEPENALTY");
 
@@ -3047,7 +3046,7 @@ public class WeaponToken extends Token
 	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
 		final List<String> aList = new ArrayList<String>();
-		final int baseRange = eq.getRange(aPC).intValue();
+		final int baseRange = EqToken.getRange(aPC, eq).intValue();
 		int aRange = baseRange;
 		int maxIncrements = 0;
 

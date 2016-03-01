@@ -55,6 +55,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -63,6 +64,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.cdom.inst.EquipmentHead;
@@ -6389,64 +6392,7 @@ public final class Equipment extends PObject implements Serializable,
 		return adjustDamage(dam, aSize);
 	}
 
-	/**
-	 * Gets the range attribute of the Equipment object
-	 *
-	 * @param pc The PC that has this Equipment
-	 * 
-	 * @return The range value
-	 */
-	public Integer getRange(final PlayerCharacter pc)
-	{
-		int range = getSafe(IntegerKey.RANGE);
-
-		if (range == 0)
-		{
-			final String aRange = getWeaponInfo("RANGE", true);
-
-			if (aRange.length() != 0)
-			{
-				range = Integer.valueOf(aRange);
-			}
-		}
-
-		int r = range + (int) bonusTo(pc, "EQMWEAPON", "RANGEADD", true);
-		final int i = (int) bonusTo(pc, "EQMWEAPON", "RANGEMULT", true);
-		double rangeMult = 1.0;
-
-		if (i > 0)
-		{
-			rangeMult += (i - 1);
-		}
-
-		int postAdd = 0;
-
-		if (pc != null)
-		{
-			if (isThrown())
-			{
-				r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
-				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
-				rangeMult +=
-						((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
-			}
-			else if (isProjectile())
-			{
-				r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
-				postAdd =
-						(int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
-				rangeMult +=
-						((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
-			}
-		}
-
-		r *= rangeMult;
-		r += postAdd;
-
-		return r;
-	}
-
-	private String getWeaponInfo(final String infoType, final boolean bPrimary)
+	public String getWeaponInfo(final String infoType, final boolean bPrimary)
 	{
 		final String it = infoType + "|";
 		final EquipmentModifier eqMod =
@@ -6960,5 +6906,11 @@ public final class Equipment extends PObject implements Serializable,
 	public String getLocalScopeName()
 	{
 		return "EQUIPMENT";
+	}
+
+	public Object getLocalVariable(CharID id, String varName)
+	{
+		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
+		return resultFacet.getLocalVariable(id, this, varName);
 	}
 }
