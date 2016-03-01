@@ -441,6 +441,8 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 				case 2:
 					return infoFactory.getPreReqHTML(obj);
 				case 3:
+					return infoFactory.getDescription(obj);
+				case 4:
 					return obj.getSource();
 				default:
 					return null;

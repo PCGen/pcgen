@@ -584,14 +584,6 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return character.getDataSet().getClasses();
 		}
 
-//		@Override
-//		public List<?> getData(ClassFacade obj)
-//		{
-//			return Arrays.asList(obj.getHD(), getTypes(obj),
-//					"None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(), //$NON-NLS-1$ //$NON-NLS-2$
-//					obj.getSpellType(), obj.getSource());
-//		}
-
 		@Override
 		public Object getData(ClassFacade obj, int column)
 		{
@@ -601,10 +593,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case 1:
 					return getTypes(obj);
 				case 2:
-					return "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(); //$NON-NLS-1$ //$NON-NLS-2$
+					return character.getInfoFactory().getDescription(obj);
 				case 3:
-					return obj.getSpellType();
+					return "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(); //$NON-NLS-1$ //$NON-NLS-2$
 				case 4:
+					return obj.getSpellType();
+				case 5:
 					return obj.getSource();
 				default:
 					return null;

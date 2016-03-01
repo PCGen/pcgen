@@ -743,15 +743,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return character.getDataSet().getDeities();
 		}
 
-//		@Override
-//		public List<?> getData(DeityFacade obj)
-//		{
-//			return Arrays.asList(obj.getAlignment(),
-//					infoFactory.getDomains(obj), infoFactory.getPantheons(obj),
-//					infoFactory.getFavoredWeapons(obj),
-//					obj.getSource());
-//		}
-
 		@Override
 		public Object getData(DeityFacade obj, int column)
 		{
@@ -761,10 +752,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case 1:
 					return infoFactory.getDomains(obj);
 				case 2:
-					return infoFactory.getPantheons(obj);
+					return infoFactory.getDescription(obj);
 				case 3:
-					return infoFactory.getFavoredWeapons(obj);
+					return infoFactory.getPantheons(obj);
 				case 4:
+					return infoFactory.getFavoredWeapons(obj);
+				case 5:
 					return obj.getSource();
 				default:
 					return null;

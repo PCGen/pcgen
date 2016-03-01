@@ -463,33 +463,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return isAvailModel ? "RaceTreeAvail" : "RaceTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-//		@Override
-//		public List<?> getData(RaceFacade obj)
-//		{
-//			return Arrays.asList(infoFactory.getStatAdjustments(obj),
-//					infoFactory.getPreReqHTML(obj),
-//					obj.getSize(),
-//					infoFactory.getMovement(obj),
-//					infoFactory.getVision(obj),
-//					infoFactory.getFavoredClass(obj),
-//					infoFactory.getLevelAdjustment(obj),
-//					obj.getSource());		
-//		}
-
-//		@Override
-//		protected List<?> getDataList(RaceFacade obj)
-//		{
-//			return Arrays.asList(infoFactory.getStatAdjustments(obj),
-//					infoFactory.getPreReqHTML(obj),
-//					obj.getSize(),
-//					infoFactory.getMovement(obj),
-//					infoFactory.getVision(obj),
-//					infoFactory.getFavoredClass(obj),
-//					infoFactory.getLevelAdjustment(obj),
-//					obj.getSource());
-//		}
-
-//		@Override
+		@Override
 		public Object getDataInternal(RaceFacade obj, int column)
 		{
 			switch(column){
@@ -508,6 +482,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case 6:
 					return infoFactory.getLevelAdjustment(obj);
 				case 7:
+					return infoFactory.getDescription(obj);
+				case 8:
 					return obj.getSource();
 				default:
 					return null;

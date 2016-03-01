@@ -947,6 +947,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				case 1:
 					return character.getInfoFactory().getWeight(obj);
 				case 2:
+					return character.getInfoFactory().getDescription(obj);
+				case 3:
 					return obj.getSource();
 				default:
 					return null;
@@ -1028,6 +1030,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					return character.getInfoFactory().getWeight(obj);
 				case 2:
 					return equipmentList.getQuantity(obj);
+				case 3:
+					return character.getInfoFactory().getDescription(obj);
 				default:
 					return null;
 			}

@@ -86,7 +86,7 @@ public class JTableEx extends JTable
 			ListSelectionModel lsm)
 	{
 		super(tm, tcm, lsm);
-
+		setFillsViewportHeight(true);
 		setDefaultRenderer(BigDecimal.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
 		setDefaultRenderer(Float.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
 		setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));

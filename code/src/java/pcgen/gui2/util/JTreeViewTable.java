@@ -100,12 +100,12 @@ public class JTreeViewTable<T> extends JTreeTable
 	 */
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 
-	private final CornerButton cornerButton = new CornerButton();
+	private final JTableMenuButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
 	protected CornerButtonPopupMenu cornerPopupMenu = new CornerButtonPopupMenu();
-	private static PropertyContext baseContext = UIPropertyContext.createContext("tablePrefs");
+	private static final PropertyContext baseContext = UIPropertyContext.createContext("tablePrefs");
 
 	/**
 	 * Create a new instance of JTreeViewTable
@@ -115,6 +115,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		setAutoCreateColumnsFromModel(false);
 		setAutoCreateRowSorter(false);
 		getTree().setLargeModel(true);
+		this.cornerButton = new JTableMenuButton(this, cornerPopupMenu);
 	}
 
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
@@ -413,95 +414,6 @@ public class JTreeViewTable<T> extends JTreeTable
 			}
 		}
 		return views.getElementAt(0);
-	}
-
-	/**
-	 * This is the "button" that is displayed in the upper right corner of the
-	 * JTreeViewTable. This really isn't a button so much as a custom
-	 * JTableHeader. The reason we don't use a plain old JButton is due to how
-	 * the a JButton is rendered in certain Look and Feels (mainly Nimbus); the
-	 * JButton sometimes has round corners which look ill suited in the square
-	 * corner. We use a JTableHeader so that the button looks like an additional
-	 * table column.
-	 */
-	private class CornerButton extends JTableHeader
-	{
-
-		private boolean pressed = false;
-
-		public CornerButton()
-		{
-			getColumnModel().addColumn(new TableColumn(0));
-			//without setting a table errors would be thrown during rendering
-			setTable(new JTable());
-			setReorderingAllowed(false);
-			addMouseListener(new MouseAdapter()
-			{
-
-				@Override
-				public void mousePressed(MouseEvent e)
-				{
-					pressed = true;
-					repaint();
-					Container parent = JTreeViewTable.this.getParent();
-					//make sure that the menu has a chance to layout its components
-					//so that its width can be initialized
-					cornerPopupMenu.setVisible(true);
-					cornerPopupMenu.show(parent, parent.getWidth() - cornerPopupMenu.getWidth(), 0);
-				}
-
-				@Override
-				public void mouseReleased(MouseEvent e)
-				{
-					pressed = false;
-					repaint();
-				}
-
-				@Override
-				public void mouseExited(MouseEvent e)
-				{
-					pressed = false;
-					repaint();
-				}
-
-			});
-		}
-
-		@Override
-		public void paint(Graphics g)
-		{
-			int size = 4;
-			int width = getWidth();
-			int height = getHeight();
-			int x = (width - size) / 2 + 1;
-			int y = (height - size) / 2;
-			Color shadow = UIManager.getColor("controlShadow");
-			Color darkShadow = UIManager.getColor("controlDkShadow");
-			Color highlight = UIManager.getColor("controlLtHighlight");
-			ArrowIcon icon;
-			if (pressed)
-			{
-				g.setColor(shadow);
-				g.fillRect(0, 0, width - 1, height - 1);
-				g.setColor(darkShadow);
-				g.drawRect(0, 0, width - 1, height - 1);
-				icon = new ArrowIcon(SwingConstants.SOUTH, size,
-						darkShadow,
-						Color.BLACK,
-						shadow);
-			}
-			else
-			{
-				super.paint(g);
-				icon = new ArrowIcon(SwingConstants.SOUTH, size,
-						shadow,
-						darkShadow,
-						highlight);
-			}
-
-			icon.paintIcon(this, g, x, y);
-		}
-
 	}
 
 	/**

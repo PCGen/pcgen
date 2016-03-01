@@ -136,30 +136,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		return "SkillTreeAvail";  //$NON-NLS-1$
 	}
 
-//	@Override
-//	public List<?> getData(SkillFacade obj)
-//	{
-//		if (selectionModel.isSelectionEmpty())
-//		{
-//			return Arrays.asList(0, 0, 0.0, null, 0, obj.getSource());
-//		}
-//		else
-//		{
-//			int index = selectionModel.getMinSelectionIndex();
-//			CharacterLevelFacade level = levels.getElementAt(index);
-//			SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);
-//			return Arrays.asList(
-//				skillBreakdown.total,
-//				skillBreakdown.modifier,
-//				skillBreakdown.ranks,
-//					levels.getSkillCost(level, obj) == SkillCost.CLASS
-//						? LanguageBundle.getString("in_yes") :  //$NON-NLS-1$
-//						  LanguageBundle.getString("in_no"),    //$NON-NLS-1$
-//					levels.getSkillCost(level, obj).getCost(),
-//					obj.getSource());
-//		}
-//	}
-
 	@Override
 	public Object getData(SkillFacade obj, int column)
 	{
@@ -197,6 +173,8 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			case 4:
 				return levels.getSkillCost(level, obj).getCost();
 			case 5:
+				return character.getInfoFactory().getDescription(obj);
+			case 6:
 				return obj.getSource();
 			default:
 				return null;

@@ -478,14 +478,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-//		@Override
-//		public List<?> getData(TempBonusFacade obj)
-//		{
-//			return Arrays.asList(obj.getOriginType(),
-//					infoFactory.getTempBonusTarget(obj),
-//					obj.getSource());
-//		}
-
 		@Override
 		public Object getData(TempBonusFacade obj, int column)
 		{
@@ -495,6 +487,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				case 1:
 					return infoFactory.getTempBonusTarget(obj);
 				case 2:
+					return infoFactory.getDescription(obj);
+				case 3:
 					return obj.getSource();
 				default:
 					return null;

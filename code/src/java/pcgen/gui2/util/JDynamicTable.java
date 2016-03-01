@@ -68,9 +68,14 @@ public class JDynamicTable extends JTableEx
 		}
 
 	};
-	private final JButton cornerButton = new JButton(new CornerAction());
+	private final JTableMenuButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
 	private JPopupMenu menu = new JPopupMenu();
+
+	public JDynamicTable()
+	{
+		this.cornerButton = new JTableMenuButton(this, menu);
+	}
 
 	@Override
 	protected void configureEnclosingScrollPane()
@@ -169,26 +174,6 @@ public class JDynamicTable extends JTableEx
 		{
 			cornerButton.setVisible(false);
 		}
-	}
-
-	private class CornerAction extends AbstractAction
-	{
-
-		public CornerAction()
-		{
-			super("...");
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			Container parent = getParent();
-			//make sure that the menu has a chance to layout its components
-			//so that its width can be initialized
-			menu.setVisible(true);
-			menu.show(parent, parent.getWidth() - menu.getWidth(), 0);
-		}
-
 	}
 
 	private class MenuAction extends AbstractAction

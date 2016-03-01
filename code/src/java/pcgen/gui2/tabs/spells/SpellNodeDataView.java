@@ -36,29 +36,6 @@ class SpellNodeDataView implements DataView<SuperNode>
 								new DefaultDataViewColumn("Cast Time", String.class));
 	}
 
-//	@Override
-//	public List<?> getData(SuperNode obj)
-//	{
-//		if (obj instanceof SpellNode)
-//		{
-//			SpellFacade spell = ((SpellNode) obj).getSpell();
-//			if (spell == null)
-//			{
-//				return Arrays.asList(null, null, null, null, null, null, null);
-//			}
-//			return Arrays.asList(spell.getSchool(), spell.getSubschool(),
-//								 StringUtils.join(spell.getDescriptors(), ", "),
-//								 spell.getComponents(), spell.getRange(),
-//								 spell.getDuration(), spell.getSource(),
-//								 spell.getCastTime());
-//		}
-//		else
-//		{
-//			return Arrays.asList(null, null, null, null, null, null, null);
-//		}
-//	}
-	
-	
 	@Override
 	public Object getData(SuperNode obj, int column)
 	{
@@ -76,12 +53,14 @@ class SpellNodeDataView implements DataView<SuperNode>
 					case 3:
 						return spell.getComponents();
 					case 4:
-						return spell.getRange();
+						return infoFactory.getDescription(spell);
 					case 5:
-						return spell.getDuration();
+						return spell.getRange();
 					case 6:
-						return spell.getSource();
+						return spell.getDuration();
 					case 7:
+						return spell.getSource();
+					case 8:
 						return spell.getCastTime();
 				}
 			}
