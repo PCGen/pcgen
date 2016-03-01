@@ -37,7 +37,6 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 {
 
 	private List<? extends RowSorter.SortKey> sortKeys = Collections.emptyList();
-//	private 
 
 	private SortableTableModel model;
 

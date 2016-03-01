@@ -72,6 +72,7 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeTable;
+import pcgen.gui2.util.treeview.CachedDataView;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -210,7 +211,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	}
 
 	private class AvailableAbilityTreeViewModel 
-	//extends ConcurrentDataView<AbilityFacade>
+		extends CachedDataView<AbilityFacade>
 			implements TreeViewModel<AbilityFacade>, ListSelectionListener, DataView<AbilityFacade>
 	{
 
@@ -293,7 +294,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 //		@Override
 		public void install()
 		{
-			System.out.println("size: "+getDataModel().getSize());
+//			System.out.println("size: "+getDataModel().getSize());
 //			super.install();
 			availableTreeViewPanel.setTreeViewModel(this);
 			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);
@@ -372,7 +373,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 //		}
 
 		@Override
-		public Object getData(AbilityFacade obj, int column)
+		public Object getDataInternal(AbilityFacade obj, int column)
 		{
 			switch(column){
 				case 0:

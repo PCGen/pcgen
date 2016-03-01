@@ -140,14 +140,16 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	public EquipInfoTab()
 	{
 		super("Equip");
-		this.equipmentTable = new JDynamicTable(){
+		//TODO: remove this when optimized sorting is implemented
+		this.equipmentTable = new JDynamicTable()
+		{
 
 			@Override
 			public void setModel(TableModel dataModel)
 			{
 				RowSorter<? extends TableModel> oldRowSorter = getRowSorter();
 				super.setModel(dataModel);
-				RowSorter<? extends TableModel> newRowSorter = getRowSorter(); 
+				RowSorter<? extends TableModel> newRowSorter = getRowSorter();
 				if (newRowSorter != null && oldRowSorter != null)
 				{
 					newRowSorter.setSortKeys(oldRowSorter.getSortKeys());
@@ -328,7 +330,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 		ModelMap models = new ModelMap();
 		models.put(EquipmentModel.class, new EquipmentModel(character, equipmentSetTable));
-		models.put(EquipmentModels.class, new EquipmentModels(character, 
+		models.put(EquipmentModels.class, new EquipmentModels(character,
 				equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
 				equipButton, unequipButton, moveUpButton, moveDownButton));
 		models.put(UnequipAllAction.class, new UnequipAllAction(character));
@@ -1298,4 +1300,5 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		}
 
 	}
+
 }

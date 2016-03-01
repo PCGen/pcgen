@@ -28,8 +28,10 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 /**
- * This class contains a lot of code taken from javax.swing.plaf.basic.BasicArrowButton.
- * As such this icon draws the arrow that you find on arrow buttons.
+ * This class contains a lot of code taken from
+ * javax.swing.plaf.basic.BasicArrowButton. As such this icon draws the arrow
+ * that you find on arrow buttons.
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class ArrowIcon implements Icon, SwingConstants
@@ -41,8 +43,8 @@ public class ArrowIcon implements Icon, SwingConstants
 	private int direction;
 	private int size;
 
-	public ArrowIcon(int direction, int size, Color background, Color shadow,
-					 Color darkShadow, Color highlight)
+	public ArrowIcon(int direction, int size, Color shadow,
+			Color darkShadow, Color highlight)
 	{
 		super();
 		this.shadow = shadow;
@@ -54,14 +56,15 @@ public class ArrowIcon implements Icon, SwingConstants
 
 	public ArrowIcon(int direction, int size)
 	{
-		this(direction, size, UIManager.getColor("control"), UIManager.getColor("controlShadow"),
-			 UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"));
+		this(direction, size, UIManager.getColor("controlShadow"),
+				UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"));
 	}
 
 	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
-		paintTriangle(g, x, y, size, direction, true);
+		boolean enabled = (c != null) ? c.isEnabled() : true;
+		paintTriangle(g, x, y, size, direction, enabled);
 	}
 
 	@Override
@@ -83,15 +86,14 @@ public class ArrowIcon implements Icon, SwingConstants
 	 * @param x the x coordinate
 	 * @param y the y coordinate
 	 * @param triangleSize the size of the triangle to draw
-	 * @param triangleDir the direction in which to draw the arrow;
-	 *        one of {@code SwingConstants.NORTH},
-	 *        {@code SwingConstants.SOUTH}, {@code SwingConstants.EAST} or
-	 *        {@code SwingConstants.WEST}
+	 * @param triangleDir the direction in which to draw the arrow; one of
+	 * {@code SwingConstants.NORTH}, {@code SwingConstants.SOUTH},
+	 * {@code SwingConstants.EAST} or {@code SwingConstants.WEST}
 	 * @param isEnabled whether or not the arrow is drawn enabled
 	 * @see javax.swing.plaf.basic.BasicArrowButton
 	 */
-	public void paintTriangle(Graphics g, int x, int y, int triangleSize,
-							  int triangleDir, boolean isEnabled)
+	private void paintTriangle(Graphics g, int x, int y, int triangleSize,
+			int triangleDir, boolean isEnabled)
 	{
 		Color oldColor = g.getColor();
 		int mid, i, j;
