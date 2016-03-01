@@ -94,6 +94,16 @@ public final class WeaponProf extends MultiTagBonusObj
 				return false;
 			}
 		}
+		if (ControlUtilities.hasControlToken(context, "CRITMULT"))
+		{
+			if ("CRITMULTADD".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: "
+						+ token, context);
+				return false;
+			}
+		}
 		return super.parseToken(context, token);
 	}
 }

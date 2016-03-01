@@ -1928,6 +1928,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param bPrimary
 	 *            True=Primary Head
 	 * @return The rawCritRange value
+	 * @deprecated due to CRITRANGE code control
 	 */
 	public int getRawCritRange(final boolean bPrimary)
 	{
@@ -5445,51 +5446,10 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the critMult attribute of the Equipment object
-	 * 
-	 * @return The critMult value
-	 */
-	public String getCritMult()
-	{
-		return multAsString(getCritMultiplier());
-	}
-
-	/**
-	 * Gets the altCritMult attribute of the Equipment object
-	 * 
-	 * @return The altCritMult value
-	 */
-	public String getAltCritMult()
-	{
-		return multAsString(getAltCritMultiplier());
-	}
-
-	/**
-	 * Converts the critical multiplier into a dispalyable string, i.e.
-	 * blank for zero, - for negative and puts an x before positive
-	 * numbers e.g. x3
-	 *
-	 * @param mult The critical multiplier
-	 * @return     The string to display
-	 */
-	private static String multAsString(final int mult)
-	{
-		if (mult == 0)
-		{
-			return "";
-		}
-		else if (mult < 0)
-		{
-			return "-";
-		}
-
-		return "x" + Integer.toString(mult);
-	}
-
-	/**
 	 * Gets the critMultiplier attribute of the Equipment object
 	 * 
 	 * @return The critMultiplier value
+	 * @deprecated due to CRITMULT code control
 	 */
 	public int getCritMultiplier()
 	{
@@ -5510,6 +5470,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Gets the altCritMultiplier attribute of the Equipment object
 	 * 
 	 * @return The altCritMultiplier value
+	 * @deprecated due to CRITMULT code control
 	 */
 	public int getAltCritMultiplier()
 	{
@@ -5526,6 +5487,9 @@ public final class Equipment extends PObject implements Serializable,
 		return mult;
 	}
 
+	/**
+	 * @deprecated due to CRITMULT and CRITRANGE code controls
+	 */
 	private int getHeadInfo(int headnum, IntegerKey ik)
 	{
 		EquipmentHead head = getEquipmentHeadReference(headnum);

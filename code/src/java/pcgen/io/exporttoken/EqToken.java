@@ -309,6 +309,28 @@ public class EqToken extends Token
 	}
 
 	/**
+	 * Converts the critical multiplier into a dispalyable string, i.e.
+	 * blank for zero, - for negative and puts an x before positive
+	 * numbers e.g. x3
+	 *
+	 * @param mult The critical multiplier
+	 * @return     The string to display
+	 */
+	public static String multAsString(final int mult)
+	{
+		if (mult == 0)
+		{
+			return "";
+		}
+		else if (mult < 0)
+		{
+			return "-";
+		}
+	
+		return "x" + Integer.toString(mult);
+	}
+
+	/**
 	 * Get the AC Check Token
 	 * @param pc
 	 * @param eq
@@ -359,7 +381,7 @@ public class EqToken extends Token
 	 */
 	public static String getAltCritMultToken(Equipment eq)
 	{
-		return eq.getAltCritMult();
+		return EqToken.multAsString(eq.getAltCritMultiplier());
 	}
 
 	/**
@@ -589,7 +611,7 @@ public class EqToken extends Token
 	 */
 	public static String getCritMultToken(Equipment eq)
 	{
-		return eq.getCritMult();
+		return EqToken.multAsString(eq.getCritMultiplier());
 	}
 
 	/**
