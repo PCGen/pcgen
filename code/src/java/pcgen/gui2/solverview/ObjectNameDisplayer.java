@@ -17,7 +17,7 @@
  */
 package pcgen.gui2.solverview;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 
@@ -31,33 +31,33 @@ class ObjectNameDisplayer
 {
 
 	/**
-	 * The underlying CDOMObject.
+	 * The underlying VarScoped.
 	 */
-	private final CDOMObject obj;
+	private final VarScoped obj;
 
 	/**
-	 * Constructs a new ObjectNameDisplayer with the given CDOMObject
+	 * Constructs a new ObjectNameDisplayer with the given VarScoped
 	 * 
 	 * @param cdo
-	 *            The CDOMObject that this ObjectNameDisplayer will represent
+	 *            The VarScoped that this ObjectNameDisplayer will represent
 	 */
-	public ObjectNameDisplayer(CDOMObject cdo)
+	public ObjectNameDisplayer(VarScoped cdo)
 	{
 		obj = cdo;
 	}
 
 	/**
-	 * Returns the CDOMObject underlying this ObjectNameDisplayer.
+	 * Returns the VarScoped underlying this ObjectNameDisplayer.
 	 * 
-	 * @return the CDOMObject underlying this ObjectNameDisplayer
+	 * @return the VarScoped underlying this ObjectNameDisplayer
 	 */
-	public CDOMObject getObject()
+	public VarScoped getObject()
 	{
 		return obj;
 	}
 
 	/**
-	 * Returns an informative String identifying the CDOMObject underlying this
+	 * Returns an informative String identifying the VarScoped underlying this
 	 * ObjectNameDisplayer
 	 * 
 	 * @see java.lang.Object#toString()
@@ -65,9 +65,9 @@ class ObjectNameDisplayer
 	@Override
 	public String toString()
 	{
-		Class<? extends CDOMObject> objClass = obj.getClass();
+		Class<? extends VarScoped> objClass = obj.getClass();
 		String suffix = null;
-		CDOMObject object = obj;
+		VarScoped object = obj;
 		if (EquipmentHead.class.equals(objClass))
 		{
 			EquipmentHead head = (EquipmentHead) obj;
@@ -78,7 +78,7 @@ class ObjectNameDisplayer
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(objClass.getSimpleName()).append(" ");
-		sb.append(object.getDisplayName());
+		sb.append(object.getName());
 		if (suffix != null)
 		{
 			sb.append(" (").append(suffix).append(")");

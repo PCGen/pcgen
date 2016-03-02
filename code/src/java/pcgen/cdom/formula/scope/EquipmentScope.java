@@ -18,15 +18,13 @@
 package pcgen.cdom.formula.scope;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.LoadableLegalScope;
-import pcgen.core.Equipment;
 
 /**
  * The EquipmentScope is for variables that are local to a piece of Equipment.
  * Note that certain items may be more appropriate on a specific part of the
  * Equipment (see EquipmentPartScope).
  */
-public class EquipmentScope implements LoadableLegalScope<Equipment>
+public class EquipmentScope implements LegalScope
 {
 	/**
 	 * The parent of this scope (once loaded)
@@ -42,17 +40,6 @@ public class EquipmentScope implements LoadableLegalScope<Equipment>
 	public String getName()
 	{
 		return "EQUIPMENT";
-	}
-
-	/**
-	 * The Class of object covered by this Scope
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getLocalClass()
-	 */
-	@Override
-	public Class<Equipment> getLocalClass()
-	{
-		return Equipment.class;
 	}
 
 	/**

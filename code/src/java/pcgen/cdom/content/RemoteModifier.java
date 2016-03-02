@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.formula.base.VarScoped;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ObjectGrouping;
 
 /**
@@ -27,29 +25,29 @@ import pcgen.cdom.base.ObjectGrouping;
  * 
  * This includes a VarModifier (containing the scope, the variable name, and the
  * Modifier to be applied) as well as an ObjectGrouping (indicating the items to
- * which this RemoteModifier should be applied.
+ * which this RemoteModifier should be applied).
  * 
  * This allows that grouping of information to be passed as a single unit of
  * information.
  * 
- * @param <T>
+ * @param <MT>
  *            The format of the variable modified by the Modifier in this
  *            VarModifier
  */
-public class RemoteModifier<GT extends CDOMObject & VarScoped, MT>
+public class RemoteModifier<MT>
 {
 
 	/**
 	 * The VarModifier indicating the variable to which the Modifier should be
 	 * applied.
 	 */
-	public final VarModifier<MT> varModifier;
+	private final VarModifier<MT> varModifier;
 
 	/**
 	 * The ObjectGrouping indicating the objects upon which this RemoteModifier
 	 * should be applied.
 	 */
-	public final ObjectGrouping<GT> grouping;
+	private final ObjectGrouping grouping;
 
 	/**
 	 * Constructs a new RemoteModifier from the given ObjectGrouping and
@@ -60,24 +58,34 @@ public class RemoteModifier<GT extends CDOMObject & VarScoped, MT>
 	 * @param modifier
 	 *            the variable to which the Modifier should be applied
 	 */
-	public RemoteModifier(ObjectGrouping<GT> grouping, VarModifier<MT> modifier)
+	public RemoteModifier(ObjectGrouping grouping, VarModifier<MT> modifier)
 	{
 		this.grouping = grouping;
 		this.varModifier = modifier;
 	}
 
+
 	/**
-	 * Returns the class of object to which this RemoteModifier might be
-	 * applied.
+	 * Returns the ObjectGrouping of objects to which this RemoteModifier should
+	 * be applied.
 	 * 
-	 * Note that there is no restriction that objects within this grouping be
-	 * exactly the returned class, it is legal for them to extend the returned
-	 * class.
-	 * 
-	 * @return the class of object to which this RemoteModifier might be applied
+	 * @return the ObjectGrouping of objects to which this RemoteModifier should
+	 *         be applied
 	 */
-	public Class<? extends GT> getGroupClass()
+	public ObjectGrouping getGrouping()
 	{
-		return grouping.getReferenceClass();
+		return grouping;
+	}
+
+	/**
+	 * Returns the VarModifier indicating the change that should be made by this
+	 * RemoteModifier.
+	 * 
+	 * @return The VarModifier indicating the change that should be made by this
+	 *         RemoteModifier
+	 */
+	public VarModifier<MT> getVarModifier()
+	{
+		return varModifier;
 	}
 }

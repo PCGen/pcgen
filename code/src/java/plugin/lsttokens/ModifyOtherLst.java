@@ -28,7 +28,6 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.LoadableLegalScope;
 import pcgen.cdom.base.ObjectGrouping;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
@@ -97,10 +96,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		ScopeInstance scopeInst = context.getActiveScope();
 		@SuppressWarnings("unchecked")
-		final LoadableLegalScope<GT> scope =
-				(LoadableLegalScope<GT>) scopeInst.getLegalScope();
+		final LegalScope scope = scopeInst.getLegalScope();
 		final String groupingName = sep.next();
-		ObjectGrouping<GT> group;
+		ObjectGrouping group;
 		if (groupingName.startsWith("GROUP="))
 		{
 			final String groupName = groupingName.substring(6);
@@ -110,18 +108,14 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			//					lvs.getItemClass());
 			//		
 
-			group = new ObjectGrouping<GT>()
+			group = new ObjectGrouping()
 			{
 				@Override
-				public Class<GT> getReferenceClass()
+				public boolean contains(VarScoped item)
 				{
-					return scope.getLocalClass();
-				}
-
-				@Override
-				public boolean contains(GT cdo)
-				{
-					return cdo.containsInList(ListKey.GROUP, groupName);
+					return (item instanceof CDOMObject)
+						&& ((CDOMObject) item).containsInList(ListKey.GROUP,
+							groupName);
 				}
 
 				@Override
@@ -139,16 +133,10 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		else if ("ALL".equals(groupingName))
 		{
-			group = new ObjectGrouping<GT>()
+			group = new ObjectGrouping()
 			{
 				@Override
-				public Class<GT> getReferenceClass()
-				{
-					return scope.getLocalClass();
-				}
-
-				@Override
-				public boolean contains(GT cdo)
+				public boolean contains(VarScoped cdo)
 				{
 					return true;
 				}
@@ -168,16 +156,10 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		else
 		{
-			group = new ObjectGrouping<GT>()
+			group = new ObjectGrouping()
 			{
 				@Override
-				public Class<GT> getReferenceClass()
-				{
-					return scope.getLocalClass();
-				}
-
-				@Override
-				public boolean contains(GT cdo)
+				public boolean contains(VarScoped cdo)
 				{
 					return cdo.getKeyName().equalsIgnoreCase(groupingName);
 				}
@@ -279,7 +261,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ iae.getMessage(), context);
 		}
 		VarModifier<?> vm = new VarModifier<>(varName, scope, modifier);
-		RemoteModifier<?, ?> rm = new RemoteModifier<>(group, vm);
+		RemoteModifier<?> rm = new RemoteModifier<>(group, vm);
 		context.getObjectContext().addToList(obj, ListKey.REMOTE_MODIFIER, rm);
 		return ParseResult.SUCCESS;
 	}
@@ -287,7 +269,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<RemoteModifier<?, ?>> changes =
+		Changes<RemoteModifier<?>> changes =
 				context.getObjectContext().getListChanges(obj,
 					ListKey.REMOTE_MODIFIER);
 		if (changes.hasRemovedItems())
@@ -301,15 +283,15 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			Logging.errorPrint(getTokenName() + " does not support .CLEAR");
 			return null;
 		}
-		Collection<RemoteModifier<?, ?>> added = changes.getAdded();
+		Collection<RemoteModifier<?>> added = changes.getAdded();
 		List<String> modifiers = new ArrayList<String>();
 		if (added != null && added.size() > 0)
 		{
-			for (RemoteModifier<?, ?> rm : added)
+			for (RemoteModifier<?> rm : added)
 			{
-				VarModifier<?> vm = rm.varModifier;
+				VarModifier<?> vm = rm.getVarModifier();
 				StringBuilder sb = new StringBuilder();
-				ObjectGrouping<?> og = rm.grouping;
+				ObjectGrouping og = rm.getGrouping();
 				sb.append(og.getScope().getName());
 				sb.append(Constants.PIPE);
 				sb.append(og.getIdentifier());
