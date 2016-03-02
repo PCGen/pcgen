@@ -238,13 +238,27 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
-		DependencyManager fdm = (DependencyManager) data;
+		return visitVariable((DependencyManager) data, node.getText());
+	}
+
+	/**
+	 * Adds a dependency on a specific variable to the given DependencyManager
+	 * 
+	 * @param fdm
+	 *            The DependencyManager to which the variable dependency should
+	 *            be added
+	 * @param varName
+	 *            The variable name to be added as a dependency
+	 * @return The DependencyManager given as a parameter
+	 */
+	public DependencyManager visitVariable(DependencyManager fdm, String varName)
+	{
 		VariableDependencyManager varManager =
 				fdm.getDependency(DependencyKeyUtilities.DEP_VARIABLE);
 		if (varManager != null)
 		{
 			VariableID<?> id =
-					fm.getFactory().getVariableID(scopeInst, node.getText());
+					fm.getFactory().getVariableID(scopeInst, varName);
 			if (id != null)
 			{
 				varManager.addVariable(id);
