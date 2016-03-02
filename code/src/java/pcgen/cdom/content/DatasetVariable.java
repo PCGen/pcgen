@@ -94,7 +94,7 @@ public class DatasetVariable extends UserContent
 	 * @return true if the given proposed name matches the legal pattern of
 	 *         variable names; false otherwise
 	 */
-	public boolean isLegalName(String proposedName)
+	public static boolean isLegalName(String proposedName)
 	{
 		Matcher m = ISLEGAL.matcher(proposedName);
 		return m.find();
