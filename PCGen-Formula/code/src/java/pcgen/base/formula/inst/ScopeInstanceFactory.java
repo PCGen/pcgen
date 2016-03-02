@@ -169,7 +169,7 @@ public class ScopeInstanceFactory
 				throw new IllegalArgumentException(
 					"Requested ScopeInstance for "
 						+ original.getClass().getName() + " "
-						+ original.getName() + " but in an uncompatible "
+						+ original.getKeyName() + " but in an uncompatible "
 						+ "LegalScope: " + instScope.getName());
 			}
 		}

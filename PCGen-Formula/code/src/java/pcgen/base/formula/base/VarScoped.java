@@ -30,7 +30,7 @@ public interface VarScoped
 	 * 
 	 * @return The name of this VarScoped object
 	 */
-	public String getName();
+	public String getKeyName();
 
 	/**
 	 * Returns the Local Scope name for this VarScoped object.
