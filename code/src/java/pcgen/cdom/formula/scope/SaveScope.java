@@ -18,13 +18,11 @@
 package pcgen.cdom.formula.scope;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.LoadableLegalScope;
-import pcgen.core.PCCheck;
 
 /**
  * Defines a Scope that covers variables local to PCCheck objects
  */
-public class SaveScope implements LoadableLegalScope<PCCheck>
+public class SaveScope implements LegalScope
 {
 
 	/**
@@ -41,17 +39,6 @@ public class SaveScope implements LoadableLegalScope<PCCheck>
 	public String getName()
 	{
 		return "SAVE";
-	}
-
-	/**
-	 * The Class of object covered by this Scope
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getLocalClass()
-	 */
-	@Override
-	public Class<PCCheck> getLocalClass()
-	{
-		return PCCheck.class;
 	}
 
 	/**
