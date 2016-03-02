@@ -202,10 +202,4 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	{
 		return "SKILL";
 	}
-
-	@Override
-	public String getName()
-	{
-		return getKeyName();
-	}
 }

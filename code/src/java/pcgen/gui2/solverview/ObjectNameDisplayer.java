@@ -78,7 +78,7 @@ class ObjectNameDisplayer
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(objClass.getSimpleName()).append(" ");
-		sb.append(object.getName());
+		sb.append(object.getKeyName());
 		if (suffix != null)
 		{
 			sb.append(" (").append(suffix).append(")");

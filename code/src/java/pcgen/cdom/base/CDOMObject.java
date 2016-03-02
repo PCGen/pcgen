@@ -1242,13 +1242,4 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getName()
-	{
-		return getKeyName();
-	}
-
 }
