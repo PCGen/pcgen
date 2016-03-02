@@ -92,6 +92,23 @@ public final class EqmWeapon extends MultiTagBonusObj
 				return false;
 			}
 		}
+		if (ControlUtilities.hasControlToken(context, "EQRANGE"))
+		{
+			if ("RANGEADD".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+			if ("RANGEMULT".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+		}
 		return super.parseToken(context, token);
 	}
 }
