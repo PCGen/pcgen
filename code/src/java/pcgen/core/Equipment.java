@@ -55,6 +55,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -63,6 +64,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.inst.EqSizePenalty;
 import pcgen.cdom.inst.EquipmentHead;
@@ -6948,5 +6951,11 @@ public final class Equipment extends PObject implements Serializable,
 	public String getLocalScopeName()
 	{
 		return "EQUIPMENT";
+	}
+
+	public Object getLocalVariable(CharID id, String varName)
+	{
+		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
+		return resultFacet.getLocalVariable(id, this, varName);
 	}
 }
