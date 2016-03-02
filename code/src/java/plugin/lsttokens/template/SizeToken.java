@@ -56,9 +56,9 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		Formula res =
-				context.getObjectContext()
-					.getFormula(template, FormulaKey.SIZE);
+		String res =
+				context.getObjectContext().getString(template,
+					StringKey.SIZEFORMULA);
 		if (res == null)
 		{
 			return null;
