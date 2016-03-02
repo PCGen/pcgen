@@ -35,6 +35,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.PCClass;
@@ -157,7 +158,8 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 			String mapKey = key;
 			if (Categorized.class.isAssignableFrom(obj.getClass()))
 			{
-				Category<?> cat = ((Categorized<?>) ref).getCDOMCategory();
+				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
+						.getCDOMCategory();
 				mapKey += '=' + cat.toString();
 			}
 			map.addToListFor(mapKey, ref.getLSTformat(false));
