@@ -65,6 +65,9 @@ public class IntegerKey
 
 	public static final IntegerKey CRIT_RANGE = getConstant("CRIT_RANGE");
 
+	/**
+	 * @deprecated due to EDR CodeControl
+	 */
 	public static final IntegerKey EDR = getConstant("EDR");
 
 	public static final IntegerKey HANDS = getConstant("HANDS", 1);
