@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Date;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -55,28 +57,34 @@ public class SourceModel implements TemplateHashModel
 		}
 		else if (key.equals("long"))
 		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
-				.get(StringKey.SOURCE_LONG));
+			String sourceLong = getSource(StringKey.SOURCE_LONG);
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceLong);
 		}
 		else if (key.equals("short"))
 		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
-				.get(StringKey.SOURCE_SHORT));
+			String sourceShort = getSource(StringKey.SOURCE_SHORT);
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceShort);
 		}
 		else if (key.equals("date"))
 		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
-				.get(ObjectKey.SOURCE_DATE));
+			Date sourceDate = cdo.get(ObjectKey.SOURCE_DATE);
+			//Fall back on Campaign if necessary
+			if (sourceDate == null)
+			{
+				Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+				sourceDate = campaign.get(ObjectKey.SOURCE_DATE);
+			}
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceDate);
 		}
 		else if (key.equals("page"))
 		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
-				.get(StringKey.SOURCE_PAGE));
+			String soucePage = getSource(StringKey.SOURCE_PAGE);
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(soucePage);
 		}
 		else if (key.equals("web"))
 		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(cdo
-				.get(StringKey.SOURCE_WEB));
+			String sourceWeb = getSource(StringKey.SOURCE_WEB);
+			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceWeb);
 		}
 		else if (key.equals("campaignsource"))
 		{
@@ -98,6 +106,18 @@ public class SourceModel implements TemplateHashModel
 		}
 		throw new TemplateModelException(
 			"source info does not have output of type " + key);
+	}
+
+	private String getSource(StringKey sourceWeb)
+	{
+		String sourceValue = cdo.get(sourceWeb);
+		//Fall back on Campaign if necessary
+		if (sourceValue == null)
+		{
+			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+			sourceValue = campaign.get(sourceWeb);
+		}
+		return sourceValue;
 	}
 
 	@Override
