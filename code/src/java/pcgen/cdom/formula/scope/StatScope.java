@@ -18,13 +18,11 @@
 package pcgen.cdom.formula.scope;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.LoadableLegalScope;
-import pcgen.core.PCStat;
 
 /**
  * Defines a Scope that covers variables local to PCStat objects
  */
-public class StatScope implements LoadableLegalScope<PCStat>
+public class StatScope implements LegalScope
 {
 
 	/**
@@ -41,17 +39,6 @@ public class StatScope implements LoadableLegalScope<PCStat>
 	public String getName()
 	{
 		return "STAT";
-	}
-
-	/**
-	 * The Class of object covered by this Scope
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getLocalClass()
-	 */
-	@Override
-	public Class<PCStat> getLocalClass()
-	{
-		return PCStat.class;
 	}
 
 	/**

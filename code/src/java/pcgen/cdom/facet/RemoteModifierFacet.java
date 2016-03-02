@@ -38,8 +38,8 @@ import pcgen.core.Equipment;
  * CDOMObjects added to/removed from the Player Character.
  */
 public class RemoteModifierFacet extends
-		AbstractAssociationFacet<CharID, RemoteModifier<?, ?>, Object>
-		implements DataFacetChangeListener<CharID, CDOMObject>
+		AbstractAssociationFacet<CharID, RemoteModifier<?>, Object> implements
+		DataFacetChangeListener<CharID, VarScoped>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -47,21 +47,21 @@ public class RemoteModifierFacet extends
 	private SolverManagerFacet solverManagerFacet;
 
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, VarScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CDOMObject cdo = dfce.getCDOMObject();
+		VarScoped vs = dfce.getCDOMObject();
 		/*
 		 * If this can have local variables, find what may have been modified by
 		 * previous objects
 		 */
-		for (RemoteModifier<?, ?> rm : getSet(id))
+		for (RemoteModifier<?> rm : getSet(id))
 		{
 			Object src = get(id, rm);
-			processAdd(id, rm, cdo, src);
-			if (cdo instanceof Equipment)
+			processAdd(id, rm, vs, src);
+			if (vs instanceof Equipment)
 			{
-				Equipment e = (Equipment) cdo;
+				Equipment e = (Equipment) vs;
 				for (EquipmentHead head : e.getEquipmentHeads())
 				{
 					processAdd(id, rm, head, src);
@@ -69,26 +69,29 @@ public class RemoteModifierFacet extends
 			}
 		}
 		/*
-		 * Now look at what newly added object can modify on others
+		 * Look at what newly added object can modify on others
 		 */
-		List<RemoteModifier<?, ?>> list =
-				cdo.getListFor(ListKey.REMOTE_MODIFIER);
-		if (list != null)
+		if (vs instanceof CDOMObject)
 		{
-			Set<CDOMObject> cdomObjects = consolidationFacet.getSet(id);
-			for (RemoteModifier<?, ?> rm : list)
+			List<RemoteModifier<?>> list =
+					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
+			if (list != null)
 			{
-				set(id, rm, cdo);
-				//Apply to existing as necessary
-				for (CDOMObject obj : cdomObjects)
+				Set<? extends VarScoped> targets = consolidationFacet.getSet(id);
+				for (RemoteModifier<?> rm : list)
 				{
-					processAdd(id, rm, obj, cdo);
-					if (obj instanceof Equipment)
+					set(id, rm, vs);
+					//Apply to existing as necessary
+					for (VarScoped obj : targets)
 					{
-						Equipment e = (Equipment) obj;
-						for (EquipmentHead head : e.getEquipmentHeads())
+						processAdd(id, rm, obj, vs);
+						if (obj instanceof Equipment)
 						{
-							processAdd(id, rm, head, cdo);
+							Equipment e = (Equipment) obj;
+							for (EquipmentHead head : e.getEquipmentHeads())
+							{
+								processAdd(id, rm, head, vs);
+							}
 						}
 					}
 				}
@@ -96,37 +99,32 @@ public class RemoteModifierFacet extends
 		}
 	}
 
-	private <GT extends CDOMObject & VarScoped, MT> void processAdd(CharID id,
-		RemoteModifier<GT, MT> rm, CDOMObject cdo, Object src)
+	private <MT> void processAdd(CharID id, RemoteModifier<MT> rm,
+		VarScoped vs, Object src)
 	{
-		if (rm.getGroupClass().isAssignableFrom(cdo.getClass()))
+		if (rm.getGrouping().contains(vs))
 		{
-			@SuppressWarnings("unchecked")
-			GT vs = (GT) cdo;
-			if (rm.grouping.contains(vs))
-			{
-				VarModifier<MT> vm = rm.varModifier;
-				solverManagerFacet.addModifier(id, vm, vs, src);
-			}
+			VarModifier<MT> vm = rm.getVarModifier();
+			solverManagerFacet.addModifier(id, vm, vs, src);
 		}
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, VarScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CDOMObject cdo = dfce.getCDOMObject();
+		VarScoped vs = dfce.getCDOMObject();
 		/*
 		 * If this can have local variables, find what had been modified by
 		 * previous objects
 		 */
-		for (RemoteModifier<?, ?> rm : getSet(id))
+		for (RemoteModifier<?> rm : getSet(id))
 		{
 			Object src = get(id, rm);
-			processRemove(id, rm, cdo, src);
-			if (cdo instanceof Equipment)
+			processRemove(id, rm, vs, src);
+			if (vs instanceof Equipment)
 			{
-				Equipment e = (Equipment) cdo;
+				Equipment e = (Equipment) vs;
 				for (EquipmentHead head : e.getEquipmentHeads())
 				{
 					processRemove(id, rm, head, src);
@@ -134,26 +132,29 @@ public class RemoteModifierFacet extends
 			}
 		}
 		/*
-		 * Now look at what newly removed object had modified on others
+		 * Look at what newly added object can modify on others
 		 */
-		List<RemoteModifier<?, ?>> list =
-				cdo.getListFor(ListKey.REMOTE_MODIFIER);
-		if (list != null)
+		if (vs instanceof CDOMObject)
 		{
-			Set<CDOMObject> cdomObjects = consolidationFacet.getSet(id);
-			for (RemoteModifier<?, ?> rm : list)
+			List<RemoteModifier<?>> list =
+					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
+			if (list != null)
 			{
-				remove(id, rm);
-				//RemoveFrom existing as necessary
-				for (CDOMObject obj : cdomObjects)
+				Set<? extends VarScoped> targets = consolidationFacet.getSet(id);
+				for (RemoteModifier<?> rm : list)
 				{
-					processRemove(id, rm, obj, cdo);
-					if (obj instanceof Equipment)
+					remove(id, rm);
+					//RemoveFrom existing as necessary
+					for (VarScoped obj : targets)
 					{
-						Equipment e = (Equipment) obj;
-						for (EquipmentHead head : e.getEquipmentHeads())
+						processRemove(id, rm, obj, vs);
+						if (obj instanceof Equipment)
 						{
-							processRemove(id, rm, head, cdo);
+							Equipment e = (Equipment) obj;
+							for (EquipmentHead head : e.getEquipmentHeads())
+							{
+								processRemove(id, rm, head, vs);
+							}
 						}
 					}
 				}
@@ -161,18 +162,13 @@ public class RemoteModifierFacet extends
 		}
 	}
 
-	private <GT extends CDOMObject & VarScoped, MT> void processRemove(
-		CharID id, RemoteModifier<GT, MT> rm, CDOMObject cdo, Object src)
+	private <MT> void processRemove(CharID id, RemoteModifier<MT> rm,
+		VarScoped vs, Object src)
 	{
-		if (rm.getGroupClass().isAssignableFrom(cdo.getClass()))
+		if (rm.getGrouping().contains(vs))
 		{
-			@SuppressWarnings("unchecked")
-			GT vs = (GT) cdo;
-			if (rm.grouping.contains(vs))
-			{
-				VarModifier<MT> vm = rm.varModifier;
-				solverManagerFacet.removeModifier(id, vm, vs, src);
-			}
+			VarModifier<MT> vm = rm.getVarModifier();
+			solverManagerFacet.removeModifier(id, vm, vs, src);
 		}
 	}
 

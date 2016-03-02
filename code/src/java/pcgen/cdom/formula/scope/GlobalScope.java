@@ -18,13 +18,11 @@
 package pcgen.cdom.formula.scope;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.VarScoped;
-import pcgen.cdom.base.LoadableLegalScope;
 
 /**
  * This is the global variable scope
  */
-public class GlobalScope implements LoadableLegalScope
+public class GlobalScope implements LegalScope
 {
 
 	/**
@@ -36,18 +34,6 @@ public class GlobalScope implements LoadableLegalScope
 	public String getName()
 	{
 		return "Global";
-	}
-
-	/**
-	 * The Class of object covered by this Scope (null, indicating the global
-	 * scope)
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getLocalClass()
-	 */
-	@Override
-	public Class<? extends VarScoped> getLocalClass()
-	{
-		return null;
 	}
 
 	/**
