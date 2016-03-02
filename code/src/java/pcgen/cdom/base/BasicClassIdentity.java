@@ -51,6 +51,7 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 
 	public static <T> ClassIdentity<T> getInstance(Class<T> cl)
 	{
+		//TODO Need .equals and .hashCode due to this, right?
 		return new BasicClassIdentity<T>(cl);
 	}
 
