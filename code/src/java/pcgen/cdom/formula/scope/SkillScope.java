@@ -18,13 +18,11 @@
 package pcgen.cdom.formula.scope;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.LoadableLegalScope;
-import pcgen.core.Skill;
 
 /**
  * Defines a Scope that covers variables local to Skill objects
  */
-public class SkillScope implements LoadableLegalScope<Skill>
+public class SkillScope implements LegalScope
 {
 
 	/**
@@ -41,17 +39,6 @@ public class SkillScope implements LoadableLegalScope<Skill>
 	public String getName()
 	{
 		return "SKILL";
-	}
-
-	/**
-	 * The Class of object covered by this Scope
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getLocalClass()
-	 */
-	@Override
-	public Class<Skill> getLocalClass()
-	{
-		return Skill.class;
 	}
 
 	/**

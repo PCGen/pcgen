@@ -43,8 +43,6 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.ProcessStep;
 import pcgen.base.solver.SplitFormulaSetup;
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.LoadableLegalScope;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaSetupFacet;
@@ -76,7 +74,7 @@ public class SolverViewFrame extends JFrame
 	private String varNameText = "                               ";
 
 	private JComboBoxEx objectChooser;
-	private CDOMObject activeObject;
+	private VarScoped activeObject;
 
 	private JComboBoxEx identifierChooser;
 	private CharID activeIdentifier;
@@ -234,17 +232,15 @@ public class SolverViewFrame extends JFrame
 		{
 			Collection<VarScoped> objects =
 					scopeFacet.getObjectsWithVariables(activeIdentifier);
-			Class<?> expected =
-					((LoadableLegalScope<?>) selectedScope).getLocalClass();
 			objectChooser.removeAllItems();
+			String scopeName = selectedScope.getName();
 			for (VarScoped cdo : objects)
 			{
-				if (expected.isAssignableFrom(cdo.getClass()))
+				if (cdo.getLocalScopeName().equals(scopeName))
 				{
 					if (scopeFacet.get(activeIdentifier, selectedScope, cdo) != null)
 					{
-						objectChooser.addItem(new ObjectNameDisplayer(
-							(CDOMObject) cdo));
+						objectChooser.addItem(new ObjectNameDisplayer(cdo));
 					}
 				}
 			}
