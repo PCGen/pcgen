@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.VarScoped;
 
 
 /**
@@ -28,20 +29,8 @@ import pcgen.base.formula.base.LegalScope;
  * @param <T>
  *            The class of object contained by this ObjectGrouping
  */
-public interface ObjectGrouping<T>
+public interface ObjectGrouping
 {
-
-	/**
-	 * Returns the class of object contained by this ObjectGrouping.
-	 * 
-	 * Note that there is no restriction that objects within this grouping be
-	 * exactly the returned class, it is legal for them to extend the returned
-	 * class.
-	 * 
-	 * @return the class of object contained by this ObjectGrouping
-	 */
-	public Class<T> getReferenceClass();
-
 	/**
 	 * Returns true if this ObjectGrouping contains the given item.
 	 * 
@@ -51,7 +40,7 @@ public interface ObjectGrouping<T>
 	 * @return true if this ObjectGrouping contains the given item; false
 	 *         otherwise
 	 */
-	public boolean contains(T item);
+	public boolean contains(VarScoped item);
 
 	/**
 	 * Returns the Scope of objects contained by this ObjectGrouping.

@@ -997,7 +997,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			bString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-						equip.getRange(pc).intValue());
+						EqToken.getRange(pc, equip).intValue());
 
 			if (bString.length() > 0)
 			{

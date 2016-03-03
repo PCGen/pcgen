@@ -49,6 +49,7 @@ import pcgen.core.analysis.QualifiedName;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.util.enumeration.AttackType;
 
@@ -428,7 +429,7 @@ public class PlayerCharacterOutput
 
 	public String getWeaponRange(Equipment eq)
 	{
-		return eq.getRange(pc).toString()
+		return EqToken.getRange(pc, eq).toString()
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 

@@ -18,8 +18,8 @@
 package pcgen.cdom.base;
 
 /**
- * CategorizedCDOMObject represents an object which can possess a Category
- * object. This Category is used for establishing unique identity of an object.
+ * Categorized represents an object which can possess a Category object. This
+ * Category is used for establishing unique identity of an object.
  * 
  * @see pcgen.cdom.base.Category
  * 
@@ -29,17 +29,17 @@ package pcgen.cdom.base;
 public interface Categorized<T extends Categorized<T>> extends Loadable
 {
 	/**
-	 * Returns the Category of the CategorizedCDOMObject
+	 * Returns the Category of the Categorized
 	 * 
-	 * @return the Category of the CategorizedCDOMObject
+	 * @return the Category of the Categorized
 	 */
 	public Category<T> getCDOMCategory();
 
 	/**
-	 * Sets the Category of the CategorizedCDOMObject
+	 * Sets the Category of the Categorized
 	 * 
 	 * @param cat
-	 *            The Category the CategorizedCDOMObject should be set to
+	 *            The Category the Categorized should be set to
 	 */
 	public void setCDOMCategory(Category<T> cat);
 }

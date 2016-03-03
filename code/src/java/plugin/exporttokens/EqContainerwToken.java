@@ -216,7 +216,7 @@ public class EqContainerwToken extends Token
 			}
 			else if (property.equals("RANGE"))
 			{
-				retString = Integer.toString(getRangeToken(eq, pc));
+				retString = Integer.toString(EqToken.getRange(pc, eq).intValue());
 			}
 			else if (property.equals("SIZE"))
 			{
@@ -497,17 +497,6 @@ public class EqContainerwToken extends Token
 	public static double getQuantityToken(Equipment eq)
 	{
 		return eq.qty();
-	}
-
-	/**
-	 * Get Range Token
-	 * @param eq
-	 * @param pc
-	 * @return Range Token
-	 */
-	public static int getRangeToken(Equipment eq, PlayerCharacter pc)
-	{
-		return eq.getRange(pc).intValue();
 	}
 
 	/**

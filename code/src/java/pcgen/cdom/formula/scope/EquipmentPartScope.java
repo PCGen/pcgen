@@ -18,15 +18,13 @@
 package pcgen.cdom.formula.scope;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.LoadableLegalScope;
-import pcgen.cdom.inst.EquipmentHead;
 
 /**
  * EquipmentPartScope represents the variable scope that is on each Equipment
  * Part (currently called a Head in the code). This is necessary because certain
  * items (such as tohit value) are local to a head, not the equipment.
  */
-public class EquipmentPartScope implements LoadableLegalScope<EquipmentHead>
+public class EquipmentPartScope implements LegalScope
 {
 	/**
 	 * The parent of this scope (once loaded)
@@ -42,17 +40,6 @@ public class EquipmentPartScope implements LoadableLegalScope<EquipmentHead>
 	public String getName()
 	{
 		return "EQUIPMENT.PART";
-	}
-
-	/**
-	 * The Class of object covered by this Scope
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getLocalClass()
-	 */
-	@Override
-	public Class<EquipmentHead> getLocalClass()
-	{
-		return EquipmentHead.class;
 	}
 
 	/**

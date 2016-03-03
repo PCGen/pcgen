@@ -17,10 +17,16 @@
  */
 package pcgen.core;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
 
 public final class PCCheck extends PObject implements NonInteractive,
-		SortKeyRequired
+		SortKeyRequired, VarScoped
 {
+	@Override
+	public String getLocalScopeName()
+	{
+		return "SAVE";
+	}
 }

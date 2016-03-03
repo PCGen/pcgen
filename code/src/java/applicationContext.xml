@@ -696,7 +696,13 @@
 
 	<!--  Scope Definitions -->
 	<bean id="globalLegalScope" class="pcgen.cdom.formula.scope.GlobalScope"/>
+	<bean id="saveLegalScope" class="pcgen.cdom.formula.scope.SaveScope">
+		<property name="parent" ref="globalLegalScope"/>
+	</bean>
 	<bean id="skillLegalScope" class="pcgen.cdom.formula.scope.SkillScope">
+		<property name="parent" ref="globalLegalScope"/>
+	</bean>
+	<bean id="statLegalScope" class="pcgen.cdom.formula.scope.StatScope">
 		<property name="parent" ref="globalLegalScope"/>
 	</bean>
 	<bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">

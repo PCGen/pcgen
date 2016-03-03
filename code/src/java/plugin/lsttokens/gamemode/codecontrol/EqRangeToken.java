@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,33 +15,22 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.formula.scope;
+package plugin.lsttokens.gamemode.codecontrol;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.cdom.inst.CodeControl;
+import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-/**
- * This is the global variable scope
- */
-public class GlobalScope implements LegalScope
+public class EqRangeToken extends AbstractStringStoringToken<CodeControl>
 {
-
-	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getName()
-	 */
 	@Override
-	public String getName()
+	public String getTokenName()
 	{
-		return "Global";
+		return "EQRANGE";
 	}
 
-	/**
-	 * @see pcgen.base.formula.variable.LegalScope#getParentScope()
-	 */
 	@Override
-	public LegalScope getParentScope()
+	public Class<CodeControl> getTokenClass()
 	{
-		return null;
+		return CodeControl.class;
 	}
 }
