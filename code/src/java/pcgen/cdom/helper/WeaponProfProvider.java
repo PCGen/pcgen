@@ -136,7 +136,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 			{
 				for (CDOMSingleRef<WeaponProf> ref : direct)
 				{
-					list.add(ref.resolvesTo());
+					list.add(ref.get());
 				}
 			}
 			if (type != null)

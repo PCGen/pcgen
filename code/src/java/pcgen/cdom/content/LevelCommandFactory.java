@@ -95,7 +95,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public PCClass getPCClass()
 	{
-		return pcClass.resolvesTo();
+		return pcClass.get();
 	}
 
 	/**

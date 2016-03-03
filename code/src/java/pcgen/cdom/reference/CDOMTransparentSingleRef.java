@@ -100,14 +100,14 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 *             if no underlying CDOMSingleRef has been defined.
 	 */
 	@Override
-	public T resolvesTo()
+	public T get()
 	{
 		if (subReference == null)
 		{
 			throw new IllegalStateException(
 					"Cannot ask for resolution: Reference has not been resolved");
 		}
-		return subReference.resolvesTo();
+		return subReference.get();
 	}
 
 	/** 

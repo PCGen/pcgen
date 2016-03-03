@@ -163,7 +163,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 		if (choiceActor instanceof CategorizedChooser)
 		{
 			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context,
-				choiceStr, category.resolvesTo());
+				choiceStr, category.get());
 		}
 		return choiceActor.decodeChoice(context, choiceStr);
 	}
@@ -233,7 +233,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	public ClassIdentity<T> getClassIdentity()
 	{
 		return CategorizedClassIdentity.getInstance(underlyingClass,
-			category.resolvesTo());
+			category.get());
 	}
 
 	/**

@@ -143,7 +143,7 @@ public class AbilityFromClassChoiceSet implements
 	@Override
 	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
-		PCClass aClass = pc.getClassKeyed(classRef.resolvesTo().getKeyName());
+		PCClass aClass = pc.getClassKeyed(classRef.get().getKeyName());
 		Set<CNAbilitySelection> set = new HashSet<CNAbilitySelection>();
 		if (aClass != null)
 		{

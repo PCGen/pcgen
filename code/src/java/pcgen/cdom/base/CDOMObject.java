@@ -339,7 +339,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return null;
 		}
-		return indirect.resolvesTo();
+		return indirect.get();
 	}
 
 	public final <FT> FT put(FactKey<FT> key, Indirect<FT> value)

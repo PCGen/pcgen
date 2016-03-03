@@ -111,7 +111,7 @@ public final class KitLevelAbility extends BaseKit
 
 	private boolean doApplication(PlayerCharacter aPC)
 	{
-		PCClass theClass = theClassName.resolvesTo();
+		PCClass theClass = theClassName.get();
 		PCClass classKeyed = aPC.getClassKeyed(theClass.getKeyName());
 		if (classKeyed == null)
 		{

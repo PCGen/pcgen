@@ -72,7 +72,7 @@ public class StatLock
 	 */
 	public PCStat getLockedStat()
 	{
-		return lockedStat.resolvesTo();
+		return lockedStat.get();
 	}
 
 	public String getLSTformat()

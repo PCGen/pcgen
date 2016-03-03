@@ -111,7 +111,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		{
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
-		CompanionList cl = fo.getCompanionList().resolvesTo();
+		CompanionList cl = fo.getCompanionList().get();
 		Map<FollowerLimit, Set<CDOMObject>> foMap = getConstructingCachedMap(
 				id, cl);
 		Set<CDOMObject> set = foMap.get(fo);

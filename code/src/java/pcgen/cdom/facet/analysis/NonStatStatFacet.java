@@ -69,7 +69,7 @@ public class NonStatStatFacet extends AbstractSourcedListFacet<CharID, PCStat> i
 			CharID charID = dfce.getCharID();
 			for (CDOMSingleRef<PCStat> ref : locks)
 			{
-				add(charID, ref.resolvesTo(), cdo);
+				add(charID, ref.get(), cdo);
 			}
 		}
 	}

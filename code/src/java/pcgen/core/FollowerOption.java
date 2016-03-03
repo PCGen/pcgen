@@ -119,7 +119,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 	{
 		if (theAdjustment != 0)
 		{
-			final int lvl = aPC.getEffectiveCompanionLevel(list.resolvesTo());
+			final int lvl = aPC.getEffectiveCompanionLevel(list.get());
 			if (lvl + theAdjustment <= 0)
 			{
 				return false;

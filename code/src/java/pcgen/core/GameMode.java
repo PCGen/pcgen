@@ -2926,7 +2926,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 		for (Map.Entry<CDOMSingleRef<TabInfo>, Boolean> me : visibleTabs.entrySet())
 		{
-			if (ti.equals(me.getKey().resolvesTo()))
+			if (ti.equals(me.getKey().get()))
 			{
 				return me.getValue();
 			}

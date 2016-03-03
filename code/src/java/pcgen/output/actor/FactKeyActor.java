@@ -79,7 +79,7 @@ public class FactKeyActor<T> implements OutputActor<CDOMObject>
 		}
 		else
 		{
-			object = ind.resolvesTo();
+			object = ind.get();
 		}
 		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, object);
 	}

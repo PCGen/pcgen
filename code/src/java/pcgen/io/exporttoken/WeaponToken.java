@@ -812,7 +812,7 @@ public class WeaponToken extends Token
 		}
 		else
 		{
-			profName = ref.resolvesTo().getKeyName();
+			profName = ref.get().getKeyName();
 		}
 		return profName;
 	}
@@ -1819,7 +1819,7 @@ public class WeaponToken extends Token
 		}
 		else
 		{
-			prof = ref.resolvesTo();
+			prof = ref.get();
 			profKey = prof.getKeyName();
 		}
 
@@ -2810,7 +2810,7 @@ public class WeaponToken extends Token
 		{
 			return 0;
 		}
-		WeaponProf wp = ref.resolvesTo();
+		WeaponProf wp = ref.get();
 
 		StringTokenizer aTok = new StringTokenizer(wp.getType(), ".");
 

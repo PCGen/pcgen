@@ -900,7 +900,7 @@ public final class PCGVer2Creator implements IOConstants
 				{
 					pcClass =
 							thePC.getClassKeyed(pcClass.get(ObjectKey.EX_CLASS)
-								.resolvesTo().getKeyName());
+								.get().getKeyName());
 				}
 			}
 

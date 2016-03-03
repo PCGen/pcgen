@@ -96,7 +96,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	public void applyChoice(ChooseDriver obj, AbilitySelection as,
 		PlayerCharacter pc)
 	{
-		CNAbility cna = CNAbilityFactory.getCNAbility(category.resolvesTo(), nature, as.getObject());
+		CNAbility cna = CNAbilityFactory.getCNAbility(category.get(), nature, as.getObject());
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, as.getSelection());
 		pc.associateSelection(as, cnas);
 		pc.addAbility(cnas, obj, this);

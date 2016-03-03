@@ -60,7 +60,7 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 			return 10f;
 		}
 
-		return (float) pc.getDisplay().getStatModFor(ss.resolvesTo());
+		return (float) pc.getDisplay().getStatModFor(ss.get());
 	}
 
 	@Override
