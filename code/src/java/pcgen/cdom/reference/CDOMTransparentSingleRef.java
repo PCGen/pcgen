@@ -100,7 +100,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 *             if no underlying CDOMSingleRef has been defined.
 	 */
 	@Override
-	public T resolvesTo()
+	public T get()
 	{
 		if (subReference == null)
 		{
