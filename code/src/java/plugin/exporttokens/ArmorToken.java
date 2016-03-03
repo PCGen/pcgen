@@ -11,6 +11,7 @@ import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
@@ -503,7 +504,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("EDR"))
 		{
-			ret.append(Delta.toString(eq.eDR(aPC)));
+			ret.append(Delta.toString(EqToken.getEdrTokenInt(aPC, eq)));
 		}
 		else if (property.startsWith("ISTYPE"))
 		{

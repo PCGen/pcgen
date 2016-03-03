@@ -25,7 +25,10 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:EQMARMOR token.
@@ -67,4 +70,22 @@ public final class EqmArmor extends MultiTagBonusObj
 	{
 		return BONUS_TAGS.length;
 	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, "EDR"))
+		{
+			if ("EDR".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|EDR is disabled when EDR control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		return super.parseToken(context, token);
+	}
+	
+	
 }

@@ -3073,18 +3073,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * DR for equipment
-	 * 
-	 * @param aPC The PC thta has the Equipment
-	 * @return Integer
-	 */
-	public Integer eDR(final PlayerCharacter aPC)
-	{
-		return Math.max(0, getSafe(IntegerKey.EDR)
-			+ (int) bonusTo(aPC, "EQMARMOR", "EDR", true));
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
