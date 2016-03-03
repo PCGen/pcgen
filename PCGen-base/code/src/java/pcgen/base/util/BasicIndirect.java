@@ -81,7 +81,7 @@ public class BasicIndirect<T> implements Indirect<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T resolvesTo()
+	public T get()
 	{
 		return object;
 	}

@@ -107,8 +107,8 @@ public class StringManagerTest extends TestCase
 
 	public void testConvertIndirect()
 	{
-		assertEquals("1", manager.convertIndirect("1").resolvesTo());
-		assertEquals("gfd", manager.convertIndirect("gfd").resolvesTo());
+		assertEquals("1", manager.convertIndirect("1").get());
+		assertEquals("gfd", manager.convertIndirect("gfd").get());
 	}
 
 	public void testConvertObjectContainer()

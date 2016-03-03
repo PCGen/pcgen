@@ -79,8 +79,8 @@ public class BasicIndirectTest extends TestCase
 	@Test
 	public void testResolvesTo()
 	{
-		assertEquals(4.0, indirectDouble.resolvesTo());
-		assertEquals("Hello!", indirectString.resolvesTo());
+		assertEquals(4.0, indirectDouble.get());
+		assertEquals("Hello!", indirectString.get());
 	}
 
 	@Test

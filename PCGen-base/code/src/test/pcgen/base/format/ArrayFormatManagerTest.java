@@ -125,13 +125,13 @@ public class ArrayFormatManagerTest extends TestCase
 
 	public void testConvertIndirect()
 	{
-		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect(null).resolvesTo()));
-		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect("").resolvesTo()));
-		assertTrue(Arrays.equals(ARR_1, manager.convertIndirect("1").resolvesTo()));
-		assertTrue(Arrays.equals(ARR_N3, manager.convertIndirect("-3").resolvesTo()));
-		assertTrue(Arrays.equals(ARR_1P4, manager.convertIndirect("1.4").resolvesTo()));
-		assertTrue(Arrays.equals(ARR_N3_4P1_5, manager.convertIndirect("-3,4.1,5").resolvesTo()));
-		assertTrue(Arrays.equals(ARR_N3_4_5, manager.convertIndirect("-3,4,5").resolvesTo()));
+		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect(null).get()));
+		assertTrue(Arrays.equals(new Number[]{}, manager.convertIndirect("").get()));
+		assertTrue(Arrays.equals(ARR_1, manager.convertIndirect("1").get()));
+		assertTrue(Arrays.equals(ARR_N3, manager.convertIndirect("-3").get()));
+		assertTrue(Arrays.equals(ARR_1P4, manager.convertIndirect("1.4").get()));
+		assertTrue(Arrays.equals(ARR_N3_4P1_5, manager.convertIndirect("-3,4.1,5").get()));
+		assertTrue(Arrays.equals(ARR_N3_4_5, manager.convertIndirect("-3,4,5").get()));
 
 		assertEquals("", manager.convertIndirect(null).getUnconverted());
 		assertEquals("", manager.convertIndirect("").getUnconverted());

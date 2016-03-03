@@ -151,11 +151,11 @@ public class OrderedPairManagerTest extends TestCase
 	public void testConvertIndirect()
 	{
 		assertEquals(new OrderedPair(1, 1), manager.convertIndirect("1,1")
-			.resolvesTo());
+			.get());
 		assertEquals(new OrderedPair(-3, 4), manager.convertIndirect("-3,4")
-			.resolvesTo());
+			.get());
 		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), manager
-			.convertIndirect("1.4,6.5").resolvesTo());
+			.convertIndirect("1.4,6.5").get());
 	}
 
 	public void testConvertObjectContainer()

@@ -323,7 +323,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		@Override
 		public Collection<? extends T[]> getContainedObjects()
 		{
-			return Collections.singleton(resolvesTo());
+			return Collections.singleton(get());
 		}
 
 		/**
@@ -352,7 +352,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		 * {@inheritDoc}
 		 */
 		@Override
-		public T[] resolvesTo()
+		public T[] get()
 		{
 			Class<T> arrayClass = componentManager.getManagedClass();
 			List<T> returnList = new ArrayList<T>(array.length * 5);
