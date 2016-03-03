@@ -148,12 +148,9 @@ public class NumberManagerTest extends TestCase
 
 	public void testConvertIndirect()
 	{
-		assertEquals(Integer.valueOf(1), manager.convertIndirect("1")
-			.resolvesTo());
-		assertEquals(Integer.valueOf(-3), manager.convertIndirect("-3")
-			.resolvesTo());
-		assertEquals(Double.valueOf(1.4), manager.convertIndirect("1.4")
-			.resolvesTo());
+		assertEquals(Integer.valueOf(1), manager.convertIndirect("1").get());
+		assertEquals(Integer.valueOf(-3), manager.convertIndirect("-3").get());
+		assertEquals(Double.valueOf(1.4), manager.convertIndirect("1.4").get());
 	}
 
 	public void testConvertObjectContainer()

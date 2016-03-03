@@ -147,10 +147,8 @@ public class BooleanManagerTest extends TestCase
 
 	public void testConvertIndirect()
 	{
-		assertEquals(Boolean.TRUE, manager.convertIndirect("true")
-			.resolvesTo());
-		assertEquals(Boolean.FALSE, manager.convertIndirect("false")
-			.resolvesTo());
+		assertEquals(Boolean.TRUE, manager.convertIndirect("true").get());
+		assertEquals(Boolean.FALSE, manager.convertIndirect("false").get());
 	}
 
 	public void testConvertObjectContainer()
