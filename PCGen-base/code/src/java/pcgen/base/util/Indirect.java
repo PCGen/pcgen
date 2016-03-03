@@ -17,6 +17,20 @@
  */
 package pcgen.base.util;
 
+/**
+ * An Indirect is a container for storing an object that is accessed indirectly
+ * (meaning the get() method of the Reference will be called) and has a String
+ * representation.
+ * 
+ * This is often necessary because some objects cannot be known when someone
+ * wants to store a reference to the object, so it must be referred to (and
+ * references to those objects passed to others) prior to construction or
+ * discovery. In addition, systems may wish to refer back to the String
+ * representation for persistent storage.
+ * 
+ * @param <T>
+ *            The type of object that the Indirect contains
+ */
 public interface Indirect<T> extends Reference<T>
 {
 

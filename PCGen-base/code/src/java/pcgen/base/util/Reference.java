@@ -18,7 +18,7 @@
 package pcgen.base.util;
 
 /**
- * An Reference is a container for storing an object that is accessed indirectly
+ * A Reference is a container for storing an object that is accessed indirectly
  * (meaning the get() method of the Reference will be called).
  * 
  * This is often necessary because some objects cannot be known when someone
@@ -26,7 +26,7 @@ package pcgen.base.util;
  * references to those objects passed to others) prior to construction or
  * discovery.
  * 
- * The Reference provides a method for handing off a reference that can later be
+ * Reference provides a method for handing off a object that can later be
  * resolved, with the get() method used at runtime to get the underlying object.
  * 
  * @param <T>
