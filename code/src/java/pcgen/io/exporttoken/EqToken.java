@@ -976,7 +976,7 @@ public class EqToken extends Token
 	 */
 	public static String getSizeLongToken(Equipment eq)
 	{
-		return eq.getSafe(ObjectKey.SIZE).resolvesTo().getDisplayName();
+		return eq.getSafe(ObjectKey.SIZE).get().getDisplayName();
 	}
 
 	/**

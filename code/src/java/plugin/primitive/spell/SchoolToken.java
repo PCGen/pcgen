@@ -71,7 +71,7 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		return spell.containsInList(ListKey.SPELL_SCHOOL, school.resolvesTo());
+		return spell.containsInList(ListKey.SPELL_SCHOOL, school.get());
 	}
 
 	@Override

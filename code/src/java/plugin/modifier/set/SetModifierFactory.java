@@ -148,7 +148,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		@Override
 		protected T[] getArray()
 		{
-			return toSet.resolvesTo();
+			return toSet.get();
 		}
 
 	}

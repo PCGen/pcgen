@@ -107,7 +107,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 			throw new IllegalStateException(
 					"Cannot ask for resolution: Reference has not been resolved");
 		}
-		return subReference.resolvesTo();
+		return subReference.get();
 	}
 
 	/** 

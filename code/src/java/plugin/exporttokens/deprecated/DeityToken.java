@@ -134,7 +134,7 @@ public class DeityToken extends Token
 			else if ("ALIGNMENT".equals(subTag))
 			{
 				CDOMSingleRef<PCAlignment> al = deity.get(ObjectKey.ALIGNMENT);
-				retString = al == null ? "" : al.resolvesTo().getKeyName();
+				retString = al == null ? "" : al.get().getKeyName();
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{

@@ -140,7 +140,7 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 			return false;
 		}
 
-		return containsProf(id, ref.resolvesTo());
+		return containsProf(id, ref.get());
 	}
 
 	public void setWeaponProfFacet(WeaponProfFacet weaponProfFacet)

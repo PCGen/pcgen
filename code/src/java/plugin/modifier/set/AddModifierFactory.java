@@ -156,7 +156,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		@Override
 		protected T[] getArray()
 		{
-			return toAdd.resolvesTo();
+			return toAdd.get();
 		}
 
 	}

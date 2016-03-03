@@ -359,7 +359,7 @@ public class PCClass extends PObject implements ClassFacade
 		}
 		CDOMSingleRef<PCStat> ss = get(ObjectKey.SPELL_STAT);
 		//TODO This could be null, do we need to worry about it?
-		return ss.resolvesTo().getKeyName();
+		return ss.get().getKeyName();
 	}
 
 	/*
@@ -656,7 +656,7 @@ public class PCClass extends PObject implements ClassFacade
 		CDOMSingleRef<PCStat> ss = get(ObjectKey.SPELL_STAT);
 		if (ss != null)
 		{
-			return ss.resolvesTo();
+			return ss.get();
 		}
 		if (Logging.isDebugMode())
 		{
@@ -688,7 +688,7 @@ public class PCClass extends PObject implements ClassFacade
 			CDOMSingleRef<PCStat> bssref = get(ObjectKey.BONUS_SPELL_STAT);
 			if (bssref != null)
 			{
-				return bssref.resolvesTo();
+				return bssref.get();
 			}
 		}
 		return null;

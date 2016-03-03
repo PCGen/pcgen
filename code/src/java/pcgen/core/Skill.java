@@ -53,7 +53,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	public String getKeyStatAbb()
 	{
 		CDOMSingleRef<PCStat> keyStat = get(ObjectKey.KEY_STAT);
-		return keyStat == null ? "" : keyStat.resolvesTo().getKeyName();
+		return keyStat == null ? "" : keyStat.get().getKeyName();
 	}
 
 	@Override

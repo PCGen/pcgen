@@ -114,7 +114,7 @@ public class KitDeity extends BaseKit
 	{
 		domainsToAdd = null;
 
-		theDeity = theDeityRef.resolvesTo();
+		theDeity = theDeityRef.get();
 
 		if (!aPC.canSelectDeity(theDeity))
 		{
@@ -188,7 +188,7 @@ public class KitDeity extends BaseKit
 		//
 		for (CDOMSingleRef<Domain> ref : xs)
 		{
-			Domain domain = ref.resolvesTo();
+			Domain domain = ref.get();
 			if (!domain.qualifies(aPC, domain))
 			{
 				warnings.add("DEITY: Not qualified for domain \""

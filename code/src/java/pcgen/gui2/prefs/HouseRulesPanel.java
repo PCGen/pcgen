@@ -281,9 +281,9 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 				String exKey = hrRadio[ii].getActionCommand();
 
 				if ((excludedRef != null) && excludedRef.hasBeenResolved()
-						&& exKey.equals(excludedRef.resolvesTo().getKeyName()))
+						&& exKey.equals(excludedRef.get().getKeyName()))
 				{
-					aRule = excludedRef.resolvesTo();
+					aRule = excludedRef.get();
 					aDesc = aRule.getDesc();
 					hrGroup[groupNum].add(hrRadio[ii]);
 					doneList.add(excludedRef.getLSTformat(false));

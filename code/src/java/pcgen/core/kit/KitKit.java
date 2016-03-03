@@ -74,7 +74,7 @@ public class KitKit extends BaseKit
 		appliedKits = new HashMap<Kit, List<BaseKit>>();
 		for (CDOMSingleRef<Kit> ref : availableKits)
 		{
-			Kit addedKit = ref.resolvesTo();
+			Kit addedKit = ref.get();
 			ArrayList<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
 			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
 			appliedKits.put(addedKit, thingsToAdd);
