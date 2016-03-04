@@ -864,8 +864,8 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextMaxDex", a.toString()); //$NON-NLS-1$
 		}
 
-		a = equip.acCheck(pc);
-
+		a = EqToken.getAcCheckTokenInt(pc, equip);
+		
 		if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 		{
 			b.appendSpacer();

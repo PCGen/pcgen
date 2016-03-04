@@ -412,7 +412,16 @@ public class EqToken extends Token
 	 */
 	public static int getAcCheckTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.acCheck(pc).intValue();
+		String acCheckVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"EQACCHECK");
+		if (acCheckVar == null)
+		{
+			return Math.min(eq.getSafe(IntegerKey.AC_CHECK)
+				+ (int) eq.bonusTo(pc, "EQMARMOR", "ACCHECK", true), 0);
+		}
+		return ((Number) eq.getLocalVariable(pc.getCharID(), acCheckVar))
+			.intValue();
 	}
 
 	/**

@@ -56,7 +56,16 @@ public class PCModEquipTermEvaluator
 		}
 		if (modEq.equals("ACCHECK"))
 		{
-			return pc.modToACCHECKFromEquipment();
+			if (pc.hasControl("PCACCHECK"))
+			{
+				Logging
+					.errorPrint("Term MODEQUIPACCHECK is not supported "
+						+ "when PCACCHECK code control is used");
+			}
+			else
+			{
+				return pc.processOldAcCheck();
+			}
 		}
 		if (modEq.equals("MAXDEX"))
 		{

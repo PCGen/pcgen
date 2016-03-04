@@ -48,6 +48,9 @@ public class IntegerKey
 	 */
 	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<IntegerKey>();
 
+	/**
+	 * @deprecated due to EQACCHECK CodeControl
+	 */
 	public static final IntegerKey AC_CHECK = getConstant("AC_CHECK");
 
 	public static final IntegerKey ADD_SPELL_LEVEL = getConstant("ADD_SPELL_LEVEL");

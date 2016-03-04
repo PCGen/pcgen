@@ -20,11 +20,13 @@ package pcgen.cdom.enumeration;
 import java.util.List;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.util.enumeration.Load;
 
 /**
@@ -141,6 +143,21 @@ public enum SkillArmorCheck
 
 	protected int calculateMax(PlayerCharacter pc)
 	{
+		String acCheckVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"PCACCHECK");
+		if (acCheckVar == null)
+		{
+			return calculateMaxOld(pc);
+		}
+		return ((Number) pc.getGlobal(acCheckVar)).intValue();
+	}
+
+	/**
+	 * @deprecated due to PCACCHECK code control
+	 */
+	protected int calculateMaxOld(PlayerCharacter pc)
+	{
 		int max = 0;
 		final List<Equipment> itemList = pc.getEquipmentOfType("Armor", 1);
 		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
@@ -154,7 +171,7 @@ public enum SkillArmorCheck
 		{
 			if (useEquipment(pc, eq))
 			{
-				max += eq.acCheck(pc).intValue();
+				max += EqToken.getAcCheckTokenInt(pc, eq);
 			}
 		}
 		return max;

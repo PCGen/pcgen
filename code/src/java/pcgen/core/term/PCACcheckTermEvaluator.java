@@ -26,8 +26,12 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 public class PCACcheckTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -41,16 +45,28 @@ public class PCACcheckTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
+		if (ControlUtilities.hasControlToken(Globals.getContext(), "EQACCHECK"))
+		{
+			Logging.errorPrint(originalText
+				+ " term is deprecated (does not function)"
+				+ " when EQACCHECK CodeControl is used");
+		}
 		int maxCheck = 0;
 
 		for ( Equipment eq : pc.getEquipmentOfType("Armor", 1) )
 		{
-			maxCheck += eq.acCheck(pc);
+			int eqCheck =
+					eq.getSafe(IntegerKey.AC_CHECK)
+						+ (int) eq.bonusTo(pc, "EQMARMOR", "ACCHECK", true);
+			maxCheck += Math.min(eqCheck, 0);
 		}
 
 		for ( Equipment eq : pc.getEquipmentOfType("Shield", 1) )
 		{
-			maxCheck += eq.acCheck(pc);
+			int eqCheck =
+					eq.getSafe(IntegerKey.AC_CHECK)
+						+ (int) eq.bonusTo(pc, "EQMARMOR", "ACCHECK", true);
+			maxCheck += Math.min(eqCheck, 0);
 		}
 
 		return (float) maxCheck;
