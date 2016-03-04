@@ -519,7 +519,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("SPELLFAIL"))
 		{
-			ret.append(eq.spellFailure(aPC).toString());
+			ret.append(EqToken.getSpellFailureTokenInt(aPC, eq));
 		}
 		else if (property.startsWith("MOVE"))
 		{

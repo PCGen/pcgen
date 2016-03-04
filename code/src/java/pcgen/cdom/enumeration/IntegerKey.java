@@ -117,6 +117,9 @@ public class IntegerKey
 
 	public static final IntegerKey SLOTS = getConstant("SLOTS", 1);
 
+	/**
+	 * @deprecated due to EQSPELLFAILURE code control
+	 */
 	public static final IntegerKey SPELL_FAILURE = getConstant("SPELL_FAILURE");
 
 	public static final IntegerKey START_FEATS = getConstant("START_FEATS");
