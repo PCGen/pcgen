@@ -2354,8 +2354,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has this Equipment
 	 * 
 	 * @return Description of the Return Value
+	 * @deprecated due to ACCHECK code control
 	 */
-	public Integer acCheck(final PlayerCharacter aPC)
+	public Integer preFormulaAcCheck(final PlayerCharacter aPC)
 	{
 		return Math.min(getSafe(IntegerKey.AC_CHECK)
 			+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true), 0);

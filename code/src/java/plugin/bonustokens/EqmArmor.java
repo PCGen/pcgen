@@ -102,6 +102,15 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
+		if (ControlUtilities.hasControlToken(context, "EQACCHECK"))
+		{
+			if ("ACCHECK".equals(token))
+			{
+				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled "
+					+ "when EQACCHECK control is used: " + token, context);
+				return false;
+			}
+		}
 		return super.parseToken(context, token);
 	}
 	

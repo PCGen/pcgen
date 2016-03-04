@@ -5834,41 +5834,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		return levelTableFacet.minXPForLevel(levelFacet.getECL(id) + 1, id);
 	}
-	
-	/**
-	 * Apply any modifications to attack rolls from wearing armour the 
-	 * PC is not proficient in.
-	 */
-	public int modFromArmorOnWeaponRolls()
-	{
-		int bonus = 0;
-
-		/*
-		 * Equipped some armor that we're not proficient in? acCheck penalty to
-		 * attack rolls
-		 */
-		for (Equipment eq : getEquipmentOfType("Armor", 1))
-		{
-			if ((eq != null) && (!isProficientWith(eq)))
-			{
-				bonus += eq.acCheck(this).intValue();
-			}
-		}
-
-		/*
-		 * Equipped a shield that we're not proficient in? acCheck penalty to
-		 * attack rolls
-		 */
-		for (Equipment eq : getEquipmentOfType("Shield", 1))
-		{
-			if ((eq != null) && (!isProficientWith(eq)))
-			{
-				bonus += eq.acCheck(this).intValue();
-			}
-		}
-
-		return bonus;
-	}
 
 	/**
 	 * Figure out if Load should affect AC and Skills, if so, set the load
@@ -5909,8 +5874,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * TODO Penalty for load could/should be GameMode specific?
 	 * 
 	 * @return PC's ACCHECK bonus from equipment
+	 * @deprecated due to PCACCHECK code control
 	 */
-	public int modToACCHECKFromEquipment()
+	public int processOldAcCheck()
 	{
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
@@ -5924,14 +5890,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			// Do not count virtual items created by temporary bonuses
 			if (!vEqList.contains(eq))
 			{
-				bonus += eq.acCheck(this).intValue();
+				bonus += EqToken.getAcCheckTokenInt(this, eq);
 			}
 		}
 
 		bonus = Math.min(bonus, penaltyForLoad);
 
-		// TODO Would be nice to one day explicitly have this as a ACCHECK type of 'bonus' 
-		// as opposed to MISC
 		bonus += (int) getTotalBonusTo("MISC", "ACCHECK");
 		return bonus;
 	}
@@ -7383,9 +7347,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();
-
-		// Apply penalties to attack if not proficient in worn armour
-		modFromArmorOnWeaponRolls();
 
 		// Recalculate the movement rates
 		adjustMoveRates();
