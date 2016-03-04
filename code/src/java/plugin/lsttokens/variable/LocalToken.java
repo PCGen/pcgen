@@ -92,7 +92,8 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		catch (IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " does not support format " + format + ", found in " + value);
+				+ " does not support format " + format + ", found in " + value
+				+ " due to " + e.getMessage());
 		}
 		LegalScope lvs = varContext.getScope(fullscope);
 
