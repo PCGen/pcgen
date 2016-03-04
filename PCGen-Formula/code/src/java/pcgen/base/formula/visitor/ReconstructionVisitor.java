@@ -31,7 +31,8 @@ import pcgen.base.formula.parse.ASTParen;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.ASTRelational;
 import pcgen.base.formula.parse.ASTRoot;
-import pcgen.base.formula.parse.ASTUnary;
+import pcgen.base.formula.parse.ASTUnaryMinus;
+import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -159,10 +160,23 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	 * children (presumed to be one, but not validated here)
 	 */
 	@Override
-	public Object visit(ASTUnary node, Object data)
+	public Object visit(ASTUnaryMinus node, Object data)
 	{
 		StringBuilder sb = (StringBuilder) data;
 		sb.append('-');
+		return processChildren(node, data);
+	}
+
+	/**
+	 * Processes the unary node. Since this represents unary not sign
+	 * (effectively negation), it writes out an exclamation point followed by
+	 * the children (presumed to be one, but not validated here)
+	 */
+	@Override
+	public Object visit(ASTUnaryNot node, Object data)
+	{
+		StringBuilder sb = (StringBuilder) data;
+		sb.append('!');
 		return processChildren(node, data);
 	}
 

@@ -38,7 +38,8 @@ import pcgen.base.formula.parse.ASTParen;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.ASTRelational;
 import pcgen.base.formula.parse.ASTRoot;
-import pcgen.base.formula.parse.ASTUnary;
+import pcgen.base.formula.parse.ASTUnaryMinus;
+import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -165,7 +166,16 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * Only requires a recursive check, has no dependencies itself.
 	 */
 	@Override
-	public Object visit(ASTUnary node, Object data)
+	public Object visit(ASTUnaryMinus node, Object data)
+	{
+		return evaluateSingleChild(node, data);
+	}
+
+	/**
+	 * Only requires a recursive check, has no dependencies itself.
+	 */
+	@Override
+	public Object visit(ASTUnaryNot node, Object data)
 	{
 		return evaluateSingleChild(node, data);
 	}

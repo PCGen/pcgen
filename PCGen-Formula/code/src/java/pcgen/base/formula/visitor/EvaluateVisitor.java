@@ -37,7 +37,8 @@ import pcgen.base.formula.parse.ASTParen;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.ASTRelational;
 import pcgen.base.formula.parse.ASTRoot;
-import pcgen.base.formula.parse.ASTUnary;
+import pcgen.base.formula.parse.ASTUnaryMinus;
+import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.Operator;
@@ -127,7 +128,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRoot node, Object data)
 	{
-		return evaluateSingleNumericChild(node);
+		return evaluateSingleChild(node);
 	}
 
 	/**
@@ -179,18 +180,32 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 * Evaluates the node, which is a unary negation.
 	 */
 	@Override
-	public Object visit(ASTUnary node, Object data)
+	public Object visit(ASTUnaryMinus node, Object data)
 	{
 		/*
 		 * Note we only support unary minus for Number.class. This was enforced
 		 * by SemanticsVisitor.
 		 */
-		Number n = (Number) evaluateSingleNumericChild(node);
+		Number n = (Number) evaluateSingleChild(node);
 		if (n instanceof Integer)
 		{
 			return Integer.valueOf(-((Integer) n).intValue());
 		}
 		return Double.valueOf(-n.doubleValue());
+	}
+
+	/**
+	 * Evaluates the node, which is a unary negation.
+	 */
+	@Override
+	public Object visit(ASTUnaryNot node, Object data)
+	{
+		/*
+		 * Note we only support unary minus for Boolean.class. This was enforced
+		 * by SemanticsVisitor.
+		 */
+		Boolean b = (Boolean) evaluateSingleChild(node);
+		return !b;
 	}
 
 	/**
@@ -224,7 +239,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTParen node, Object data)
 	{
-		return evaluateSingleNumericChild(node);
+		return evaluateSingleChild(node);
 	}
 
 	/**
@@ -372,7 +387,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 *            The node for which the (single) child will be evaluated
 	 * @return The result of the evaluation on the child of the given node
 	 */
-	private Object evaluateSingleNumericChild(Node node)
+	private Object evaluateSingleChild(Node node)
 	{
 		int childCount = node.jjtGetNumChildren();
 		if (childCount != 1)

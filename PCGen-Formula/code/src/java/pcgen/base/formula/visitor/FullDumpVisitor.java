@@ -31,7 +31,8 @@ import pcgen.base.formula.parse.ASTParen;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.ASTRelational;
 import pcgen.base.formula.parse.ASTRoot;
-import pcgen.base.formula.parse.ASTUnary;
+import pcgen.base.formula.parse.ASTUnaryMinus;
+import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserTreeConstants;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
@@ -123,7 +124,16 @@ public class FullDumpVisitor implements FormulaParserVisitor
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object visit(ASTUnary node, Object data)
+	public Object visit(ASTUnaryMinus node, Object data)
+	{
+		return dump(node, data);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Object visit(ASTUnaryNot node, Object data)
 	{
 		return dump(node, data);
 	}

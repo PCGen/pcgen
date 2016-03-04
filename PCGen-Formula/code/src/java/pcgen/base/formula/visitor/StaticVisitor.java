@@ -33,7 +33,8 @@ import pcgen.base.formula.parse.ASTParen;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.ASTRelational;
 import pcgen.base.formula.parse.ASTRoot;
-import pcgen.base.formula.parse.ASTUnary;
+import pcgen.base.formula.parse.ASTUnaryMinus;
+import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -190,7 +191,19 @@ public class StaticVisitor implements FormulaParserVisitor
 	 * to using StaticVisitor)
 	 */
 	@Override
-	public Object visit(ASTUnary node, Object data)
+	public Object visit(ASTUnaryMinus node, Object data)
+	{
+		return singleChildStatic(node);
+	}
+
+	/**
+	 * Processes the child of this node (this assumes the node has only one
+	 * child - so this is making an assumption about formula validity. To ensure
+	 * a formula will meet this assumption, SemanticsVisitor can be used prior
+	 * to using StaticVisitor)
+	 */
+	@Override
+	public Object visit(ASTUnaryNot node, Object data)
 	{
 		return singleChildStatic(node);
 	}
