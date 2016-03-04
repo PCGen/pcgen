@@ -93,6 +93,15 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
+		if (ControlUtilities.hasControlToken(context, "EQMAXDEX"))
+		{
+			if ("MAXDEX".equals(token))
+			{
+				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled "
+					+ "when EQMAXDEX control is used: " + token, context);
+				return false;
+			}
+		}
 		return super.parseToken(context, token);
 	}
 	

@@ -102,6 +102,9 @@ public class IntegerKey
 
 	public static final IntegerKey MAX_CHARGES = getConstant("MAX_CHARGES");
 
+	/**
+	 * @deprecated due to MAXDEX CodeControl
+	 */
 	public static final IntegerKey MAX_DEX = getConstant("MAX_DEX",
 			Constants.MAX_MAXDEX);
 
