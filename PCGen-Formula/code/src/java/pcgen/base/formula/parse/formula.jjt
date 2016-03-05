@@ -208,9 +208,9 @@ Operator minusToken()
 void geometricExpr()
 	#void : { Operator image; }
 	{
-		unaryExpr()
+		unaryMinusExpr()
 		(
-			image = geometricFtn() unaryExpr() #Geometric(2)
+			image = geometricFtn() unaryMinusExpr() #Geometric(2)
 			{ ((SimpleNode) jjtree.peekNode()).setOperator(image); }
 		)*
 	}
@@ -250,10 +250,16 @@ Operator remToken()
 /******************************************************************************
  * Add Unary expression
  *****************************************************************************/
-void unaryExpr()
+void unaryMinusExpr()
 	#void : { Token t = null; }
 	{
-		( t=<MINUS> )? exponExpr() #Unary(t != null)
+		( t=<MINUS> )? unaryNotExpr() #UnaryMinus(t != null)
+	}
+
+void unaryNotExpr()
+	#void : { Token t = null; }
+	{
+		( t=<EXCLAMATION> )? exponExpr() #UnaryNot(t != null)
 	}
 
 /******************************************************************************
@@ -385,17 +391,18 @@ void quotedString()
  * specific.
  *****************************************************************************/
 
-TOKEN : { < #PERCENT    : "%" > }
-TOKEN : { < #COLON      : ":" > }
-TOKEN : { < #HYPHEN     : "-" > }
-TOKEN : { < #SOLIDUS    : "/" > }
-TOKEN : { < #EQUALSIGN  : "=" > }
-TOKEN : { < #UNDERSCORE : "_" > }
-TOKEN : { < #TILDE      : "~" > }
-TOKEN : { < #SPACE      : " " > }
+TOKEN : { < #PERCENT     : "%" > }
+TOKEN : { < #COLON       : ":" > }
+TOKEN : { < #HYPHEN      : "-" > }
+TOKEN : { < #SOLIDUS     : "/" > }
+TOKEN : { < #EQUALSIGN   : "=" > }
+TOKEN : { < #UNDERSCORE  : "_" > }
+TOKEN : { < #TILDE       : "~" > }
+TOKEN : { < #SPACE       : " " > }
 
 TOKEN : { < #O_SPACE    : ( <SPACE> )* > }
 
+TOKEN : { < EXCLAMATION  : <O_SPACE> "!"       <O_SPACE> > }
 TOKEN : { < PLUS         : <O_SPACE> "+"       <O_SPACE> > }
 TOKEN : { < MINUS        : <O_SPACE> <HYPHEN>  <O_SPACE> > }
 TOKEN : { < MULT         : <O_SPACE> "*"       <O_SPACE> > }

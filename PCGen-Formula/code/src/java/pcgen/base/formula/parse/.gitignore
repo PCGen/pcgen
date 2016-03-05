@@ -26,3 +26,5 @@
 /Token.java
 /FormulaParserDefaultVisitor.java
 /TokenMgrError.java
+/ASTUnaryMinus.java
+/ASTUnaryNot.java

@@ -40,7 +40,8 @@ import pcgen.base.formula.parse.ASTParen;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.ASTRelational;
 import pcgen.base.formula.parse.ASTRoot;
-import pcgen.base.formula.parse.ASTUnary;
+import pcgen.base.formula.parse.ASTUnaryMinus;
+import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.Operator;
@@ -94,6 +95,11 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * A cache of the String class.
 	 */
 	private static final Class<String> STRING_CLASS = String.class;
+
+	/**
+	 * A cache of the Boolean class.
+	 */
+	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * The FormulaManager used to get information about functions and other key
@@ -214,7 +220,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * only one child).
 	 */
 	@Override
-	public Object visit(ASTUnary node, Object data)
+	public Object visit(ASTUnaryMinus node, Object data)
 	{
 		FormulaSemantics semantics =
 				(FormulaSemantics) singleChildValid(node, data);
@@ -239,6 +245,40 @@ public class SemanticsVisitor implements FormulaParserVisitor
 					+ node.jjtGetChild(0).getClass().getName()
 					+ " found in location requiring a"
 					+ " Number (class cannot be evaluated)");
+		}
+		return semantics;
+	}
+
+	/**
+	 * Processes the child of this node (this will enforce that the node has
+	 * only one child).
+	 */
+	@Override
+	public Object visit(ASTUnaryNot node, Object data)
+	{
+		FormulaSemantics semantics =
+				(FormulaSemantics) singleChildValid(node, data);
+		//Consistent with the "fail fast" behavior in the implementation note
+		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		{
+			return semantics;
+		}
+		/*
+		 * Note: We only implement unary negation for Boolean.class today. This
+		 * is a "known" limitation, but would be nice to escape. However, this
+		 * means we need an entire equivalent to OperatorAction for 1-argument
+		 * operations :/
+		 */
+		Class<?> format =
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
+					.getFormat();
+		if (!format.equals(BOOLEAN_CLASS))
+		{
+			FormulaSemanticsUtilities.setInvalid(semantics,
+				"Parse Error: Invalid Value Format: " + format + " found in "
+					+ node.jjtGetChild(0).getClass().getName()
+					+ " found in location requiring a"
+					+ " Boolean (class cannot be evaluated)");
 		}
 		return semantics;
 	}

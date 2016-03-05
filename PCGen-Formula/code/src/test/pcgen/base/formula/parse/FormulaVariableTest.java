@@ -379,4 +379,22 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		assertEquals(getGlobalScopeInst(), var1.getScope());
 	}
 
+	@Test
+	public void testBooleanNegation()
+	{
+		String formula = "!a";
+		store.put(getBooleanVariable("a"), Boolean.FALSE);
+		SimpleNode node = TestUtilities.doParse(formula);
+		isValid(formula, node, booleanManager);
+		isStatic(formula, node, false);
+		List<VariableID<?>> vars = getVariables(node);
+		assertEquals(1, vars.size());
+		VariableID<?> var0 = vars.get(0);
+		assertEquals("a", var0.getName());
+		evaluatesTo(formula, node, Boolean.TRUE);
+		Object rv =
+				new ReconstructionVisitor().visit(node, new StringBuilder());
+		assertTrue(rv.toString().equals(formula));
+	}
+
 }
