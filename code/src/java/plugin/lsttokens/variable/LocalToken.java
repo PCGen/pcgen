@@ -96,7 +96,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		LegalScope lvs = varContext.getScope(fullscope);
 
-		if (!dv.isLegalName(varName))
+		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
 				+ " is not a valid variable name");
