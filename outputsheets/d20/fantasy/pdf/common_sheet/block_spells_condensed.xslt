@@ -946,12 +946,14 @@
 					</fo:block>
 				</fo:table-cell>
 			</fo:table-row>
-				<fo:table-row>													<xsl:message>Test Levels 4-</xsl:message>
-					<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
-				</fo:table-row>
+			<fo:table-row>													<xsl:message>Test Levels 4-</xsl:message>
+				<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
+			</fo:table-row>
+			<xsl:if test="count(..//level) &gt; 5">
 				<fo:table-row>													<xsl:message>Test Levels 5+</xsl:message>
 					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
 				</fo:table-row>
+			</xsl:if>
 		</xsl:if>
 	</xsl:template>
 	<!--
