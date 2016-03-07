@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.operator.number.NumberLessThan;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -37,6 +38,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 		super.setUp();
 		getFunctionLibrary().addFunction(new MaxFunction());
 		getOperatorLibrary().addAction(new NumberLessThan());
+		getOperatorLibrary().addAction(new NumberMinus());
 	}
 
 	@Test

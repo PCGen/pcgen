@@ -68,7 +68,7 @@ public class SolverFactory
 	 *             default Modifier defined for this SolverFactory
 	 */
 	public <T> void addSolverFormat(Class<T> varFormat,
-		Modifier<T> defaultModifier)
+		Modifier<? extends T> defaultModifier)
 	{
 		if (varFormat == null)
 		{
@@ -82,7 +82,13 @@ public class SolverFactory
 		}
 		try
 		{
-			defaultModifier.getDependencies(null, null);
+			T defaultValue = defaultModifier.process(null, null);
+			if (!varFormat.isAssignableFrom(defaultValue.getClass()))
+			{
+				//Generics were violated here
+				throw new IllegalArgumentException("Default Modifier for Format: "
+						+ varFormat + " cannot produce: " + defaultValue.getClass());
+			}
 		}
 		catch (NullPointerException e)
 		{

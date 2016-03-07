@@ -87,13 +87,6 @@ public class SimpleLegalScope implements LegalScope
 	@Override
 	public String toString()
 	{
-		if (parent == null)
-		{
-			return "Global";
-		}
-		else
-		{
-			return name;
-		}
+		return getName();
 	}
 }

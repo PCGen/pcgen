@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -89,5 +89,63 @@ public interface OperatorLibrary
 	 */
 	public Class<?> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2);
+
+	/**
+	 * Adds a UnaryAction to the FunctionLibrary.
+	 * 
+	 * OperatorLibrary does not define the behavior if an object attempts to add
+	 * null or attempts to add an UnaryAction with a null name. An exception may
+	 * be thrown (implementation dependent).
+	 * 
+	 * @param action
+	 *            The UnaryAction to be added to the OperatorLibrary
+	 */
+	public void addAction(UnaryAction action);
+
+	/**
+	 * Perform an evaluation of the given Operator with the given object as an
+	 * argument.
+	 * 
+	 * The actual UnaryAction to be performed is the first UnaryAction added to
+	 * the OperatorLibrary which can operate on the argument. This
+	 * "operation test" is performed by checking the results of the
+	 * processAbstract method on the class of the given object.
+	 * 
+	 * If no UnaryAction has been added to the OperatorLibrary that can process
+	 * the given argument, an IllegalStateException is returned. (The user
+	 * should have checked with processAbstract)
+	 * 
+	 * @param operator
+	 *            The Operator to be evaluated
+	 * @param o1
+	 *            The argument to the operation
+	 * @return The result of the operation, if this OperatorLibrary has an
+	 *         OperatorAction for the given Operator and argument
+	 * @throws IllegalStateException
+	 *             if this OperatorLibrary did not have an OperatorAction for
+	 *             the given Operator and argument
+	 */
+	public Object evaluate(Operator operator, Object o);
+
+	/**
+	 * Processes an "abstract" version of the operation, performing a prediction
+	 * of the returned Class rather than on an actual object.
+	 * 
+	 * Note that an UnaryAction (and thus by extension OperatorLibrary) provides
+	 * a prediction of the returned Class, not the actual class. The returned
+	 * Class from this method is guaranteed to be assignable from the actual
+	 * result. In other words, this may return Number.class, whereas evaluate
+	 * may return an Integer or Double.
+	 * 
+	 * @param operator
+	 *            The Operator to be evaluated
+	 * @param format
+	 *            The class (data format) of the argument to the abstract
+	 *            operation
+	 * @return The class (data format) of the result of the operation if this
+	 *         OperatorLibrary has an OperatorAction for the given Operator and
+	 *         argument; null otherwise
+	 */
+	public Class<?> processAbstract(Operator operator, Class<?> format);
 
 }

@@ -26,6 +26,35 @@ import pcgen.base.lang.NumberUtilities;
 
 public abstract class AbstractModifier<T> implements Modifier<T>
 {
+	private static final class PrivateSetNumber extends AbstractModifier<Number>
+	{
+		private final int value;
+
+		private PrivateSetNumber(int inherent, Class<Number> cl, int priority,
+			int value)
+		{
+			super(inherent, cl, priority);
+			this.value = value;
+		}
+
+		@Override
+		public Number process(Number input, ScopeInformation scopeInfo)
+		{
+			return value;
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o instanceof PrivateSetNumber)
+			{
+				PrivateSetNumber psn = (PrivateSetNumber) o;
+				return super.equals(o) && (psn.value == value);
+			}
+			return false;
+		}
+	}
+
 	private static final Class<Number> NUMBER_CLASS = Number.class;
 	private static final Class<Number[]> NUMBER_ARR_CLASS =
 			(Class<Number[]>) new Number[]{}.getClass();
@@ -82,6 +111,18 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return "Ignored";
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof AbstractModifier)
+		{
+			AbstractModifier am = (AbstractModifier) o;
+			return format.equals(am.format) && inherent == am.inherent
+				&& priority == am.priority;
+		}
+		return false;
+	}
+	
 	public static AbstractModifier<Number[]> addToArray(final int value,
 		int priority)
 	{
@@ -115,14 +156,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	public static AbstractModifier<Number> setNumber(final int value,
 		int priority)
 	{
-		return new AbstractModifier<Number>(0, NUMBER_CLASS, priority)
-		{
-			@Override
-			public Number process(Number input, ScopeInformation scopeInfo)
-			{
-				return value;
-			}
-		};
+		return new PrivateSetNumber(0, NUMBER_CLASS, priority, value);
 	}
 
 	public static AbstractModifier<String> setString()

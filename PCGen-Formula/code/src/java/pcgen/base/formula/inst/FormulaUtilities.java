@@ -38,6 +38,7 @@ import pcgen.base.formula.operator.number.NumberGreaterThan;
 import pcgen.base.formula.operator.number.NumberGreaterThanOrEqualTo;
 import pcgen.base.formula.operator.number.NumberLessThan;
 import pcgen.base.formula.operator.number.NumberLessThanOrEqualTo;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.operator.number.NumberMultiply;
 import pcgen.base.formula.operator.number.NumberNotEqual;
 import pcgen.base.formula.operator.number.NumberRemainder;
@@ -97,6 +98,7 @@ public final class FormulaUtilities
 		opLib.addAction(new NumberGreaterThanOrEqualTo());
 		opLib.addAction(new NumberLessThan());
 		opLib.addAction(new NumberLessThanOrEqualTo());
+		opLib.addAction(new NumberMinus());
 		opLib.addAction(new NumberMultiply());
 		opLib.addAction(new NumberNotEqual());
 		opLib.addAction(new NumberRemainder());

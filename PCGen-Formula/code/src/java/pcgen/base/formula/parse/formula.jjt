@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright (c) Andrew Wilson, 2010.
  * 
  * This program is free software; you can redistribute it and/or modify it
@@ -254,12 +254,20 @@ void unaryMinusExpr()
 	#void : { Token t = null; }
 	{
 		( t=<MINUS> )? unaryNotExpr() #UnaryMinus(t != null)
+		{
+		   SimpleNode n = ((SimpleNode) jjtree.peekNode());
+		   if (n instanceof ASTUnaryMinus) n.setOperator(Operator.MINUS);
+		}
 	}
 
 void unaryNotExpr()
 	#void : { Token t = null; }
 	{
 		( t=<EXCLAMATION> )? exponExpr() #UnaryNot(t != null)
+		{
+		   SimpleNode n = ((SimpleNode) jjtree.peekNode());
+		   if (n instanceof ASTUnaryNot) n.setOperator(Operator.NOT);
+		}
 	}
 
 /******************************************************************************

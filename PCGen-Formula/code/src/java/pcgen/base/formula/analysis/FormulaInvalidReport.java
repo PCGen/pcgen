@@ -49,7 +49,7 @@ public class FormulaInvalidReport
 		{
 			throw new IllegalArgumentException("Report text cannot be null");
 		}
-		if (text.length() == 0)
+		if (text.trim().length() == 0)
 		{
 			throw new IllegalArgumentException("Report text cannot be empty");
 		}

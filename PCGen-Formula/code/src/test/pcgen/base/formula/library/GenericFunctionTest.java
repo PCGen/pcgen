@@ -29,6 +29,7 @@ import pcgen.base.formula.function.FloorFunction;
 import pcgen.base.formula.library.GenericFunction;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberDivide;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.operator.number.NumberSubtract;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -58,6 +59,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		operatorLibrary.addAction(new NumberDivide());
 		operatorLibrary.addAction(new NumberAdd());
 		operatorLibrary.addAction(new NumberSubtract());
+		operatorLibrary.addAction(new NumberMinus());
 		resetManager();
 	}
 
