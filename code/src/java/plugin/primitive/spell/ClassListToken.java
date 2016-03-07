@@ -66,7 +66,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		ClassSpellList list = spelllist.resolvesTo();
+		ClassSpellList list = spelllist.get();
 		DataSetID datasetID = pc.getCharID().getDatasetID();
 		
 		for (AvailableSpell availSpell : masterAvailableSpellFacet

@@ -85,7 +85,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 */
 	public String getAbilityKey()
 	{
-		return ability.resolvesTo().getKeyName();
+		return ability.get().getKeyName();
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder(50);
-		sb.append(ability.resolvesTo().getDisplayName());
+		sb.append(ability.get().getDisplayName());
 		sb.append('(');
 		sb.append(Constants.LST_PERCENT_LIST);
 		sb.append(')');
@@ -160,13 +160,13 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 */
 	public Ability getAbility()
 	{
-		return ability.resolvesTo();
+		return ability.get();
 	}
 
 	@Override
 	public void applyChoice(ChooseDriver obj, T choice, PlayerCharacter pc)
 	{
-		Ability ab = ability.resolvesTo();
+		Ability ab = ability.get();
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
 		detailedApply(obj, ci, choice, pc);
 	}
@@ -176,7 +176,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				CNAbilityFactory.getCNAbility(category.resolvesTo(), nature, ability.resolvesTo()), string);
+				CNAbilityFactory.getCNAbility(category.get(), nature, ability.get()), string);
 		appliedSelection.addAllPrerequisites(getPrerequisiteList());
 		pc.addAbility(appliedSelection, obj, this);
 	}
@@ -196,7 +196,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	@Override
 	public void removeChoice(ChooseDriver obj, T choice, PlayerCharacter pc)
 	{
-		Ability ab = ability.resolvesTo();
+		Ability ab = ability.get();
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
 		detailedRemove(obj, ci, choice, pc);
 	}
@@ -206,7 +206,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				CNAbilityFactory.getCNAbility(category.resolvesTo(), nature, ability.resolvesTo()), string);
+				CNAbilityFactory.getCNAbility(category.get(), nature, ability.get()), string);
 		pc.removeAbility(appliedSelection, obj, this);
 	}
 
@@ -233,7 +233,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	@Override
 	public Class<T> getChoiceClass()
 	{
-		return (Class<T>) ability.resolvesTo().get(ObjectKey.CHOOSE_INFO)
+		return (Class<T>) ability.get().get(ObjectKey.CHOOSE_INFO)
 			.getClassIdentity().getChoiceClass();
 	}
 }

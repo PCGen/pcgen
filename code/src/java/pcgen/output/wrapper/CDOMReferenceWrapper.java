@@ -44,7 +44,7 @@ public class CDOMReferenceWrapper implements PCGenObjectWrapper
 		if (o instanceof CDOMSingleRef)
 		{
 			CDOMSingleRef<?> ref = (CDOMSingleRef<?>) o;
-			Object obj = ref.resolvesTo();
+			Object obj = ref.get();
 			return FacetLibrary.getFacet(ObjectWrapperFacet.class)
 				.wrap(id, obj);
 		}

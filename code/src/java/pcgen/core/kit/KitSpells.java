@@ -264,7 +264,7 @@ public final class KitSpells extends BaseKit
 			}
 			return null;
 		}
-		return aPC.getClassKeyed(ref.resolvesTo().getKeyName());
+		return aPC.getClassKeyed(ref.get().getKeyName());
 	}
 
 	/**
@@ -320,7 +320,7 @@ public final class KitSpells extends BaseKit
 		List<Ability> metamagicFeatList = new ArrayList<Ability>();
 		for (CDOMSingleRef<Ability> feat : modifierList)
 		{
-			Ability anAbility = feat.resolvesTo();
+			Ability anAbility = feat.get();
 			adjustedLevel += anAbility.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 			metamagicFeatList.add(anAbility);
 		}

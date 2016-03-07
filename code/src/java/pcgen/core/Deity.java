@@ -82,7 +82,7 @@ public final class Deity extends PObject implements DeityFacade
 		{
 			return null;
 		}
-		return ref.resolvesTo();
+		return ref.get();
 	}
 
     @Override

@@ -272,7 +272,7 @@ public class DomainApplication
 			CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 			if (ref != null)
 			{
-				addDomain(aPC, cl, ref.resolvesTo());
+				addDomain(aPC, cl, ref.get());
 			}
 		}
 		for (int i = 0 ; i <= aLevel; i++)
@@ -286,7 +286,7 @@ public class DomainApplication
 				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 				if (ref != null)
 				{
-					addDomain(aPC, cl, ref.resolvesTo());
+					addDomain(aPC, cl, ref.get());
 				}
 			}
 		}
@@ -310,7 +310,7 @@ public class DomainApplication
 			if (ref == null)
 			{
 				ref = qo.getRawObject();
-				aPC.removeDomain(ref.resolvesTo());
+				aPC.removeDomain(ref.get());
 			}
 		}
 		for (int i = 0 ; i <= removedLevel; i++)
@@ -325,7 +325,7 @@ public class DomainApplication
 				if ((ref == null) || (i == removedLevel))
 				{
 					ref = qo.getRawObject();
-					aPC.removeDomain(ref.resolvesTo());
+					aPC.removeDomain(ref.get());
 				}
 			}
 		}

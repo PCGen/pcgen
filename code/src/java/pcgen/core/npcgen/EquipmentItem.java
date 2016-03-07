@@ -86,7 +86,7 @@ public class EquipmentItem
 					}
 					// We need setBase() called.  The only way to do that is to resize.
 					// We will set the size to itself.
-					eq.resizeItem(null, eq.getSafe(ObjectKey.SIZE).resolvesTo());
+					eq.resizeItem(null, eq.getSafe(ObjectKey.SIZE).get());
 					eq.nameItemFromModifiers(null);
 				}
 			}

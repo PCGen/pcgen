@@ -172,7 +172,7 @@ public class EqContainerwToken extends Token
 			}
 			else if (property.equals("EDR"))
 			{
-				retString = Integer.toString(getEdrToken(pc, eq));
+				retString = Integer.toString(EqToken.getEdrTokenInt(pc, eq));
 			}
 			else if (property.equals("EQUIPPED"))
 			{
@@ -389,17 +389,6 @@ public class EqContainerwToken extends Token
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Get eDR Token
-	 * @param pc
-	 * @param eq
-	 * @return eDR Token
-	 */
-	public static int getEdrToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.eDR(pc).intValue();
 	}
 
 	/**

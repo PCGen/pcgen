@@ -740,7 +740,14 @@ public class EqToken extends Token
 	 */
 	public static int getEdrTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.eDR(pc).intValue();
+		String edrVar =
+				ControlUtilities.getControlToken(Globals.getContext(), "EDR");
+		if (edrVar == null)
+		{
+			return Math.max(0, eq.getSafe(IntegerKey.EDR)
+				+ (int) eq.bonusTo(pc, "EQMARMOR", "EDR", true));
+		}
+		return (Integer) eq.getLocalVariable(pc.getCharID(), edrVar);
 	}
 
 	/**
@@ -976,7 +983,7 @@ public class EqToken extends Token
 	 */
 	public static String getSizeLongToken(Equipment eq)
 	{
-		return eq.getSafe(ObjectKey.SIZE).resolvesTo().getDisplayName();
+		return eq.getSafe(ObjectKey.SIZE).get().getDisplayName();
 	}
 
 	/**

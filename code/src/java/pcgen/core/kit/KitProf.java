@@ -169,7 +169,7 @@ public final class KitProf extends BaseKit
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
 		for (CDOMSingleRef<WeaponProf> profKey : profList)
 		{
-			WeaponProf wp = profKey.resolvesTo();
+			WeaponProf wp = profKey.get();
 			if (choices.contains(wp))
 			{
 				wpPTC.act(Collections.singleton(wp), thePObject, aPC);
@@ -257,7 +257,7 @@ public final class KitProf extends BaseKit
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
 		for (CDOMSingleRef<WeaponProf> profKey : profList)
 		{
-			WeaponProf wp = profKey.resolvesTo();
+			WeaponProf wp = profKey.get();
 			if (choices.contains(wp))
 			{
 				wpPTC.act(Collections.singleton(wp), thePObject, aPC);

@@ -83,7 +83,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 * @return the given Object this CDOMDirectSingleRef contains.
 	 */
 	@Override
-	public T resolvesTo()
+	public T get()
 	{
 		return referencedObject;
 	}

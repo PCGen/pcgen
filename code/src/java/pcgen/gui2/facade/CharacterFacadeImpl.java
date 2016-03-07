@@ -2439,7 +2439,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
 		{
 			CDOMSingleRef<Domain> ref = qo.getRawObject();
-			Domain domain = ref.resolvesTo();
+			Domain domain = ref.get();
 			if (!isDomainInList(availDomainList, domain))
 			{
 				availDomainList.add(new DomainFacadeImpl(domain, qo.getPrerequisiteList()));

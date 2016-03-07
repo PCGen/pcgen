@@ -156,7 +156,7 @@ public final class WieldCategory implements Loadable
 	public WieldCategory getWieldCategoryStep(int steps)
 	{
 		CDOMSingleRef<WieldCategory> wcRef = wcSteps.get(steps);
-		return wcRef == null ? null : wcRef.resolvesTo();
+		return wcRef == null ? null : wcRef.get();
 	}
 
 	public void addCategorySwitch(
@@ -240,7 +240,7 @@ public final class WieldCategory implements Loadable
 		{
 			if (PrereqHandler.passesAll(qo.getPrerequisiteList(), eq, pc))
 			{
-				pcWCat = qo.getRawObject().resolvesTo();
+				pcWCat = qo.getRawObject().get();
 			}
 		}
 		return pcWCat;

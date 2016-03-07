@@ -67,14 +67,14 @@ public class KitAlignment extends BaseKit
 		align = null;
 		if (alignments.size() == 1)
 		{
-			align = alignments.get(0).resolvesTo();
+			align = alignments.get(0).get();
 		}
 		else
 		{
 			List<PCAlignment> available = new ArrayList<PCAlignment>(alignments.size());
 			for (CDOMSingleRef<PCAlignment> ref : alignments)
 			{
-				available.add(ref.resolvesTo());
+				available.add(ref.get());
 			}
 			while (true)
 			{
@@ -108,7 +108,7 @@ public class KitAlignment extends BaseKit
 		}
 		if (alignments.size() == 1)
 		{
-			return alignments.get(0).resolvesTo().getDisplayName();
+			return alignments.get(0).get().getDisplayName();
 		}
 		else
 		{
@@ -118,7 +118,7 @@ public class KitAlignment extends BaseKit
 			boolean needComma = false;
 			for (CDOMSingleRef<PCAlignment> alref : alignments)
 			{
-				PCAlignment al = alref.resolvesTo();
+				PCAlignment al = alref.get();
 				if (needComma)
 				{
 					buf.append(", ");

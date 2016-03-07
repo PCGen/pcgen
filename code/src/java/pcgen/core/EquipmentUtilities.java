@@ -147,7 +147,7 @@ public final class EquipmentUtilities
 				}
 				CDOMSingleRef<Equipment> baseItem =
 						target.get(ObjectKey.BASE_ITEM);
-				target = baseItem == null ? null : baseItem.resolvesTo();
+				target = baseItem == null ? null : baseItem.get();
 			}
 		}
 		

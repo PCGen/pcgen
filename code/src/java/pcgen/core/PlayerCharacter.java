@@ -1620,7 +1620,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 			{
-				PCClass pcclass = me.getKey().resolvesTo();
+				PCClass pcclass = me.getKey().get();
 				String key = pcclass.getKeyName();
 				int lvl = getLevel(getClassKeyed(key));
 				if (lvl > 0)
@@ -1901,7 +1901,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			Map<CDOMSingleRef<? extends PCClass>, Integer> ac = cMod.getMapFor(MapKey.APPLIED_CLASS);
 			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 			{
-				PCClass pcclass = me.getKey().resolvesTo();
+				PCClass pcclass = me.getKey().get();
 				String key = pcclass.getKeyName();
 				for (PCClass pcClass : getClassSet())
 				{
@@ -5738,7 +5738,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		try
 		{
-			PCClass cl = exc.resolvesTo();
+			PCClass cl = exc.get();
 			PCClass toClass = getClassKeyed(cl.getKeyName());
 
 			boolean bClassNew;
@@ -8494,7 +8494,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				{
 					Nature nature = apo.getAssociation(AssociationKey.NATURE);
 					CDOMSingleRef<AbilityCategory> acRef = apo.getAssociation(AssociationKey.CATEGORY);
-					AbilityCategory cat = acRef.resolvesTo();
+					AbilityCategory cat = acRef.get();
 					if (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
 						List<String> choices = apo.getAssociation(AssociationKey.ASSOC_CHOICES);
@@ -9063,7 +9063,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			CDOMSingleRef<PCStat> stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				dc += this.getStatModFor(stat.resolvesTo());
+				dc += this.getStatModFor(stat.get());
 			}
 		}
 
@@ -9195,7 +9195,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			CDOMSingleRef<PCStat> stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				concentration += this.getStatModFor(stat.resolvesTo());
+				concentration += this.getStatModFor(stat.get());
 			}
 		}
 

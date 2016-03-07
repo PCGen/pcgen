@@ -163,7 +163,7 @@ public class LoadInfo implements Loadable
 		for (Map.Entry<CDOMSingleRef<SizeAdjustment>, BigDecimal> me : rawSizeMultiplierMap
 				.entrySet())
 		{
-			sizeMultiplierMap.put(me.getKey().resolvesTo(), me.getValue());
+			sizeMultiplierMap.put(me.getKey().get(), me.getValue());
 		}
 	}
 
