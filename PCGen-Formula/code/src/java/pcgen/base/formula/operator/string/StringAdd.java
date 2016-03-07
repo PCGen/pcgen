@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,36 +15,36 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.operator.bool;
+package pcgen.base.formula.operator.string;
 
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
 
 /**
- * BooleanNotEqual performs an inequality comparison on two Boolean values.
+ * StringAdd performs addition on two String values.
  */
-public class BooleanNotEqual implements OperatorAction
+public class StringAdd implements OperatorAction
 {
 
 	/**
-	 * Cache of the Boolean class.
+	 * Cache of the String class.
 	 */
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
+	private static final Class<String> STRING_CLASS = String.class;
 
 	/**
-	 * Indicates that BooleanNotEqual Performs a comparison for logical inequality.
+	 * Indicates that StringAdd Performs Addition.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
 	 */
 	@Override
 	public Operator getOperator()
 	{
-		return Operator.NEQ;
+		return Operator.ADD;
 	}
 
 	/**
 	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * Boolean.class and returns Boolean.class.
+	 * Number.class and returns Number.class.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#abstractEvaluate(java.lang.Class,
 	 *      java.lang.Class)
@@ -52,26 +52,29 @@ public class BooleanNotEqual implements OperatorAction
 	@Override
 	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
-		if (BOOLEAN_CLASS.isAssignableFrom(format1)
-			&& BOOLEAN_CLASS.isAssignableFrom(format2))
+		if (STRING_CLASS.isAssignableFrom(format1)
+			&& STRING_CLASS.isAssignableFrom(format2))
 		{
-			return BOOLEAN_CLASS;
+			return STRING_CLASS;
 		}
 		return null;
 	}
 
 	/**
-	 * Performs a logical inequality comparison on the given arguments.
+	 * Performs addition on the given arguments.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object, java.lang.Object)
+	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object,
+	 *      java.lang.Object)
 	 */
 	@Override
 	public Object evaluate(Object l, Object r)
 	{
-		//Force boolean values (unboxing) here to produce problems with nulls
-		boolean left = ((Boolean) l).booleanValue();
-		boolean right = ((Boolean) r).booleanValue();
-		return Boolean.valueOf(left != right);
+		if ((l == null) || (r == null))
+		{
+			throw new NullPointerException(
+				"Object to evaluate cannot be null: " + l + " + " + r);
+		}
+		return (String) l + (String) r;
 	}
 
 }
