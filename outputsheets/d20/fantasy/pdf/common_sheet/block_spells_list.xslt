@@ -952,10 +952,12 @@
 											<xsl:message>Test</xsl:message>
 				<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
 			</fo:table-row>
-			<fo:table-row>
+			<xsl:if test="count(..//level) &gt; 5">
+				<fo:table-row>
 											<xsl:message>Test</xsl:message>
-				<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
-			</fo:table-row>
+					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
 		</xsl:if>
 	</xsl:template>
 	<!--
