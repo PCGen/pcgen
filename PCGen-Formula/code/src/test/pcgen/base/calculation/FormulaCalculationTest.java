@@ -42,7 +42,7 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 		super.setUp();
 		LegalScope globalScope = new SimpleLegalScope(null, "Global");
 		SimpleScopeInstance scopeInst =
-				new SimpleScopeInstance(null, globalScope, null);
+				new SimpleScopeInstance(null, globalScope);
 		si = new ScopeInformation(getFormulaManager(), scopeInst);
 		FormulaUtilities.loadBuiltInFunctions(getFunctionLibrary());
 		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());
@@ -84,10 +84,10 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 	public void testProcess()
 	{
 		FormulaCalculation fc = new FormulaCalculation(formula, basic);
-		assertEquals(17, fc.process(8, si));
+		assertEquals(17, fc.process(8, si, null));
 		FormulaCalculation fc2 =
 				new FormulaCalculation(new ComplexNEPFormula("value()"), basic);
-		assertEquals(16, fc2.process(8, si));
+		assertEquals(16, fc2.process(8, si, null));
 	}
 
 	@Test

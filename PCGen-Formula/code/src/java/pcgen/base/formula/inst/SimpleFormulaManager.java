@@ -180,12 +180,16 @@ public class SimpleFormulaManager implements FormulaManager
 	 *            within the formula
 	 * @return The FormulaSemantics for the formula starting with with the given
 	 *         SimpleNode as the root of the parsed tree of the formula
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
 	 * @throws IllegalArgumentException
 	 *             if any parameter is null
 	 */
 	@Override
 	public FormulaSemantics isValid(SimpleNode root, LegalScope legalScope,
-		FormatManager<?> formatManager)
+		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
 		if (root == null)
 		{
@@ -198,7 +202,7 @@ public class SimpleFormulaManager implements FormulaManager
 				"Cannot determine validity with null FormatManager");
 		}
 		SemanticsVisitor semanticsVisitor =
-				new SemanticsVisitor(this, legalScope);
+				new SemanticsVisitor(this, legalScope, assertedFormat);
 		FormulaSemantics semantics =
 				FormulaSemanticsUtilities.getInitializedSemantics();
 		semanticsVisitor.visit(root, semantics);

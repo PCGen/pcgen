@@ -84,17 +84,13 @@ public class ScopeInstanceFactory
 	 *            The ScopeInstance that is the parent of this ScopeInstance
 	 * @param scope
 	 *            The LegalScope in which this ScopeInstance was instantiated
-	 * @param owner
-	 *            The VarScoped object that nominally is the variable space that
-	 *            the returned ScopeInstance represents
 	 * @return A new ScopeInstance object with the given parent ScopeInstance
 	 *         and within the given LegalScope
 	 */
-	public ScopeInstance getInstance(ScopeInstance parent, LegalScope scope,
-		VarScoped owner)
+	public ScopeInstance getInstance(ScopeInstance parent, LegalScope scope)
 	{
 		SimpleScopeInstance inst =
-				new SimpleScopeInstance(parent, scope, owner);
+				new SimpleScopeInstance(parent, scope);
 		scopeInstances.addToListFor(parent, scope, inst);
 		return inst;
 	}
@@ -118,7 +114,7 @@ public class ScopeInstanceFactory
 		ScopeInstance inst = globals.get(name);
 		if (inst == null)
 		{
-			inst = new SimpleScopeInstance(null, legalScope, null);
+			inst = new SimpleScopeInstance(null, legalScope);
 			globals.put(name, inst);
 		}
 		return inst;
@@ -205,7 +201,7 @@ public class ScopeInstanceFactory
 			//Need to build the scope...
 			ScopeInstance parentInstance = getMessaged(
 				instScope.getParentScope(), parentObj, parentObj);
-			inst = getInstance(parentInstance, instScope, current);
+			inst = getInstance(parentInstance, instScope);
 			objectToInstanceCache.put(current, inst);
 		}
 		return inst;

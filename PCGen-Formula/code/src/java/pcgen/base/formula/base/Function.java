@@ -217,10 +217,15 @@ public interface Function
 	 *            The EvaluateVisitor that visits portions of a Formula
 	 * @param args
 	 *            The arguments to this Function within the Formula
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the function.
+	 *            This parameter is optional - null can indicate that there is
+	 *            no format asserted by the context of the function
 	 * @return A non-null object that is the result of performing the
 	 *         calculation defined by this Function
 	 */
-	Object evaluate(EvaluateVisitor visitor, Node[] args);
+	Object evaluate(EvaluateVisitor visitor, Node[] args,
+		Class<?> assertedFormat);
 
 	/**
 	 * Captures dependencies of this function. This may include Variables (in
@@ -253,12 +258,12 @@ public interface Function
 	 * 
 	 * @param visitor
 	 *            The DependencyVisitor that visits portions of a Formula
-	 * @param fdm
-	 *            The DependencyManager used to capture dependencies
+	 * @param assertedFormat
+	 *            The format asserted for the context of the Function
 	 * @param args
 	 *            The arguments to this Function within the Formula
 	 */
-	void getDependencies(DependencyVisitor visitor, DependencyManager fdm,
+	void getDependencies(DependencyVisitor visitor, Class<?> assertedFormat,
 		Node[] args);
 
 	/*

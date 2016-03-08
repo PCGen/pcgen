@@ -49,7 +49,6 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		varCapture = new DependencyVisitor(getFormulaManager(), getGlobalScopeInst());
 		ASTNum four = new ASTNum(0);
 		four.setToken("4");
 		ASTNum five = new ASTNum(1);
@@ -66,6 +65,9 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		operatorLibrary.addAction(new NumberGreaterThan());
 		operatorLibrary.addAction(new NumberMinus());
 		resetManager();
+		varCapture =
+				new DependencyVisitor(getFormulaManager(),
+					getGlobalScopeInst(), depManager);
 	}
 
 	private void resetManager()
@@ -80,10 +82,10 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 		formula = "arg(2, 3)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -91,9 +93,9 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "4";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(-1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(4));
 		Object rv =
@@ -106,7 +108,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(4)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -114,7 +116,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(-1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -122,7 +124,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(1.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -130,7 +132,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(\"string\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -138,9 +140,9 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(0)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(0, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(4));
 		Object rv =
@@ -153,9 +155,9 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(5));
 		Object rv =
@@ -167,7 +169,10 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		 * passed in - it should NOT contain an ArgumentDependencyManager
 		 */
 		assertTrue(null == fdm.getDependency(DependencyKeyUtilities.DEP_ARGUMENT));
-		varCapture.visit(node, fdm);
+		DependencyVisitor dv =
+				new DependencyVisitor(varCapture.getFormulaManager(),
+					varCapture.getScopeInstance(), fdm);
+		dv.visit(node, null);
 	}
 
 	@Test
@@ -175,9 +180,9 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "arg(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(2, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Double.valueOf(4.5));
 		Object rv =

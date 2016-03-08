@@ -78,7 +78,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 */
 	@Override
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm)
+		DependencyManager fdm, Class<?> assertedFormat)
 	{
 	}
 

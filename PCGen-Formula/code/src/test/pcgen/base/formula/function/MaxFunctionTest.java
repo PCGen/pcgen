@@ -46,7 +46,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(2, \"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(2,4<5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(ab,4,5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(1,2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(2));
 		Object rv =
@@ -91,7 +91,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(-2,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(3));
 		Object rv =
@@ -104,7 +104,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(3.3,7.8)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(7.8));
 		Object rv =
@@ -117,7 +117,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(-3.4,-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.4));
 		Object rv =
@@ -130,7 +130,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(4.6,8.3,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(8.3));
 		Object rv =
@@ -143,7 +143,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max( 4.6,8.2,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(8.2));
 	}
@@ -153,7 +153,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(4.6,8.2,-3.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(8.2));
 	}
@@ -163,7 +163,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max(4.6 , 8.4 , -3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(8.4));
 	}
@@ -173,7 +173,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "max (4.6,8.11,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(8.11));
 		List<VariableID<?>> vars = getVariables(node);
@@ -186,7 +186,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getVariable("a"), 5);
 		String formula = "max(4.6,a,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, Integer.valueOf(5));
 		List<VariableID<?>> vars = getVariables(node);
@@ -201,7 +201,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getVariable("a"), 5);
 		String formula = "max(a, 3.4)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

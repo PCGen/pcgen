@@ -71,7 +71,7 @@ public class ScopeInformationTest extends TestCase
 				new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary,
 					resultsStore);
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		try
 		{
 			new ScopeInformation(null, null);
@@ -136,11 +136,11 @@ public class ScopeInformationTest extends TestCase
 					resultsStore);
 		FormatManager<Number> numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
 		try
 		{
-			scopeInfo.getDependencies(null, depManager);
+			scopeInfo.getDependencies(null, depManager, null);
 			fail("getDependencies should reject null root");
 		}
 		catch (IllegalArgumentException e)
@@ -152,7 +152,7 @@ public class ScopeInformationTest extends TestCase
 			SimpleNode fp =
 					new FormulaParser(new StringReader("myvar+yourvar"))
 						.query();
-			scopeInfo.getDependencies(fp, null);
+			scopeInfo.getDependencies(fp, null, null);
 			fail("getDependencies should reject null dependency manager");
 		}
 		catch (IllegalArgumentException e)
@@ -171,7 +171,7 @@ public class ScopeInformationTest extends TestCase
 			SimpleNode fp =
 					new FormulaParser(new StringReader("myvar+yourvar"))
 						.query();
-			scopeInfo.getDependencies(fp, depManager);
+			scopeInfo.getDependencies(fp, depManager, null);
 			List<VariableID<?>> vars = varManager.getVariables();
 			assertEquals(2, vars.size());
 			VariableID<?> v1 = vars.get(0);
@@ -187,7 +187,7 @@ public class ScopeInformationTest extends TestCase
 			VariableDependencyManager varManager2 =
 					new VariableDependencyManager();
 			depManager2.addDependency(DependencyKeyUtilities.DEP_VARIABLE, varManager);
-			scopeInfo.getDependencies(fp, depManager2);
+			scopeInfo.getDependencies(fp, depManager2, null);
 			assertEquals(0, varManager2.getVariables().size());
 		}
 		catch (ParseException e)
@@ -204,7 +204,7 @@ public class ScopeInformationTest extends TestCase
 					resultsStore);
 		FormatManager<Number> numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
 		try
 		{
@@ -241,11 +241,11 @@ public class ScopeInformationTest extends TestCase
 					resultsStore);
 		FormatManager<Number> numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
 		try
 		{
-			scopeInfo.evaluate(null);
+			scopeInfo.evaluate(null, Number.class, null);
 			fail("evaluate should reject null root");
 		}
 		catch (IllegalArgumentException e)
@@ -259,9 +259,9 @@ public class ScopeInformationTest extends TestCase
 		{
 			SimpleNode fp;
 			fp = new FormulaParser(new StringReader("6+4")).query();
-			assertEquals(10, scopeInfo.evaluate(fp));
+			assertEquals(10, scopeInfo.evaluate(fp, Number.class, null));
 			fp = new FormulaParser(new StringReader("myvar+yourvar")).query();
-			assertEquals(0, scopeInfo.evaluate(fp));
+			assertEquals(0, scopeInfo.evaluate(fp, Number.class, null));
 		}
 		catch (ParseException e)
 		{

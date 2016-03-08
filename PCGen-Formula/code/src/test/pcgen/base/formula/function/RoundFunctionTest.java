@@ -44,7 +44,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(1));
 		Object rv =
@@ -81,7 +81,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-2));
 		Object rv =
@@ -94,7 +94,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(6));
 		Object rv =
@@ -107,7 +107,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(6.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(7));
 		Object rv =
@@ -120,7 +120,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(-5.8)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-6));
 		Object rv =
@@ -133,7 +133,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(-5.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-5));
 		Object rv =
@@ -146,7 +146,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round( -5.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-5));
 	}
@@ -156,7 +156,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round(-5.5 )";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-5));
 	}
@@ -166,7 +166,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "round (-5.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-5));
 	}
@@ -177,7 +177,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getVariable("a"), 5);
 		String formula = "round(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

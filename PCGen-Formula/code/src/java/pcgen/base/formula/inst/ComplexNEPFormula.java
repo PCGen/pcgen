@@ -110,12 +110,19 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * @param scopeInfo
 	 *            The ScopeInformation providing the context in which the
 	 *            ComplexNEPFormula is to be resolved.
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
+	 * @param owner
+	 *            The owner of this NEPFormula for purposes of formula resolution
 	 * @return The value calculated for the ComplexNEPFormula.
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
 	 */
 	@Override
-	public T resolve(ScopeInformation scopeInfo)
+	public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
+		Object owner)
 	{
 		if (scopeInfo == null)
 		{
@@ -123,7 +130,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 				"Cannot resolve formula with null ScopeInformation");
 		}
 		@SuppressWarnings("unchecked")
-		T result = (T) scopeInfo.evaluate(root);
+		T result = (T) scopeInfo.evaluate(root, assertedFormat, owner);
 		return result;
 	}
 
@@ -144,12 +151,17 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 *            ComplexNEPFormula variables are to be determined
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the
+	 *            ComplexNEPFormula. This parameter is optional - null can
+	 *            indicate that there is no format asserted by the context of
+	 *            the formula
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null
 	 */
 	@Override
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager depManager)
+		DependencyManager depManager, Class<?> assertedFormat)
 	{
 		if (scopeInfo == null)
 		{
@@ -161,7 +173,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 			throw new IllegalArgumentException(
 				"Cannot get formula dependencies with null DependencyManager");
 		}
-		scopeInfo.getDependencies(root, depManager);
+		scopeInfo.getDependencies(root, depManager, assertedFormat);
 	}
 
 	/**
@@ -169,14 +181,14 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 */
 	@Override
 	public FormulaSemantics isValid(FormulaManager fm, LegalScope legalScope,
-		FormatManager<T> formatManager)
+		FormatManager<T> formatManager, Class<?> assertedFormat)
 	{
 		if (fm == null)
 		{
 			throw new IllegalArgumentException(
 				"Cannot resolve formula with null FormulaManager");
 		}
-		return fm.isValid(root, legalScope, formatManager);
+		return fm.isValid(root, legalScope, formatManager, assertedFormat);
 	}
 
 	/**

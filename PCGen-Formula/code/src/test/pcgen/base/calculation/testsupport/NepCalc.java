@@ -32,7 +32,7 @@ public final class NepCalc extends AbstractNEPCalculation
 	}
 
 	@Override
-	public Object process(Object input, ScopeInformation scopeInfo)
+	public Object process(Object input, ScopeInformation scopeInfo, Object owner)
 	{
 		return this.getBasicCalculation().process(input, n);
 	}

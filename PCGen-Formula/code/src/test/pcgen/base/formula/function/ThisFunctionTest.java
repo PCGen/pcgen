@@ -15,44 +15,50 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.library;
+package pcgen.base.formula.function;
 
 import org.junit.Test;
 
-import pcgen.base.formula.library.ValueFunction;
+import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.operator.number.NumberEquals;
+import pcgen.base.formula.operator.number.NumberGreaterThan;
+import pcgen.base.formula.operator.number.NumberLessThan;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
-import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ValueFunctionTest extends AbstractFormulaTestCase
+public class ThisFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		getFunctionLibrary().addFunction(new ValueFunction(4));
+		getFunctionLibrary().addFunction(new ThisFunction());
+		OperatorLibrary operatorLibrary = getOperatorLibrary();
+		operatorLibrary.addAction(new NumberEquals());
+		operatorLibrary.addAction(new NumberLessThan());
+		operatorLibrary.addAction(new NumberGreaterThan());
+		operatorLibrary.addAction(new NumberMinus());
 	}
 
 	@Test
 	public void testInvalidTooManyArg()
 	{
-		String formula = "value(2)";
+		String formula = "this(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
-	public void testValue()
+	public void testVariable3()
 	{
-		String formula = "value()";
+		String formula = "this()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		evaluatesTo(formula, node, Integer.valueOf(4));
-		Object rv =
-				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		Object source = new Object();
+		Object result = getScopeInfo().evaluate(node, Number.class, source);
+		assertEquals(source, result);
 	}
 }

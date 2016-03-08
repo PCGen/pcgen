@@ -209,7 +209,7 @@ public class SplitFormulaSetup
 		{
 			globalScope = legalScopeLib.getScope(globalName);
 			globalScopeInst = getInstanceFactory().getInstance(null,
-				getGlobalScope(), null);
+				getGlobalScope());
 			scopeInfo =
 					new ScopeInformation(getFormulaManager(),
 						getGlobalScopeInst());

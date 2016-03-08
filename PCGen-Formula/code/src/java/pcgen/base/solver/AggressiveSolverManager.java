@@ -242,7 +242,8 @@ public class AggressiveSolverManager
 		DependencyManager fdm = new DependencyManager();
 		VariableDependencyManager vdm = new VariableDependencyManager();
 		fdm.addDependency(DependencyKeyUtilities.DEP_VARIABLE, vdm);
-		modifier.getDependencies(scopeInfo, fdm);
+		modifier.getDependencies(scopeInfo, fdm,
+			formatManager.getManagedClass());
 		if (!vdm.isEmpty())
 		{
 			for (VariableID<?> depID : vdm.getVariables())
@@ -336,7 +337,8 @@ public class AggressiveSolverManager
 		ScopeInstance scope = varID.getScope();
 		ScopeInformation scopeInfo =
 				scopeCache.getScopeInformation(formulaManager, scope);
-		modifier.getDependencies(scopeInfo, fdm);
+		modifier.getDependencies(scopeInfo, fdm,
+			varID.getFormatManager().getManagedClass());
 		processDependencies(varID, vdm);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
@@ -478,9 +480,8 @@ public class AggressiveSolverManager
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
-			throw new IllegalArgumentException(
-				"Request to diagnoze VariableID " + varID
-					+ " but that channel was never defined");
+			throw new IllegalArgumentException("Request to diagnoze VariableID "
+				+ varID + " but that channel was never defined");
 		}
 		return solver.diagnose();
 	}

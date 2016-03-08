@@ -38,7 +38,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		}
 
 		@Override
-		public Number process(Number input, ScopeInformation scopeInfo)
+		public Number process(Number input, ScopeInformation scopeInfo, Object owner)
 		{
 			return value;
 		}
@@ -77,7 +77,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	@Override
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm)
+		DependencyManager fdm, Class<?> assertedFormat)
 	{
 	}
 
@@ -129,7 +129,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number[]>(0, NUMBER_ARR_CLASS, priority)
 		{
 			@Override
-			public Number[] process(Number[] input, ScopeInformation scopeInfo)
+			public Number[] process(Number[] input, ScopeInformation scopeInfo, Object owner)
 			{
 				Number[] newArray =
 						(Number[]) Array.newInstance(NUMBER_CLASS,
@@ -146,7 +146,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number[]>(0, NUMBER_ARR_CLASS, priority)
 		{
 			@Override
-			public Number[] process(Number[] input, ScopeInformation scopeInfo)
+			public Number[] process(Number[] input, ScopeInformation scopeInfo, Object owner)
 			{
 				return new Number[]{};
 			}
@@ -164,7 +164,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<String>(0, String.class)
 		{
 			@Override
-			public String process(String input, ScopeInformation scopeInfo)
+			public String process(String input, ScopeInformation scopeInfo, Object owner)
 			{
 				return "Something";
 			}
@@ -177,7 +177,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number>(1, NUMBER_CLASS, priority)
 		{
 			@Override
-			public Number process(Number input, ScopeInformation scopeInfo)
+			public Number process(Number input, ScopeInformation scopeInfo, Object owner)
 			{
 				return NumberUtilities.multiply(input, value);
 			}
@@ -189,7 +189,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number>(2, NUMBER_CLASS, priority)
 		{
 			@Override
-			public Number process(Number input, ScopeInformation scopeInfo)
+			public Number process(Number input, ScopeInformation scopeInfo, Object owner)
 			{
 				return NumberUtilities.add(input, value);
 			}

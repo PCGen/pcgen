@@ -19,7 +19,6 @@ package pcgen.base.formula.inst;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VarScoped;
 
 /**
  * A SimpleScopeInstance is a minimal implementation of the ScopeInstance
@@ -39,11 +38,6 @@ public class SimpleScopeInstance implements ScopeInstance
 	private final LegalScope scope;
 
 	/**
-	 * Contains the VarScoped for which this ScopeInstance was instantiated.
-	 */
-	private final VarScoped owner;
-
-	/**
 	 * Constructs a new SimpleScopeInstance with the given parent ScopeInstance
 	 * and within the given LegalScope.
 	 * 
@@ -52,7 +46,7 @@ public class SimpleScopeInstance implements ScopeInstance
 	 * @param scope
 	 *            the LegalScope in which this ScopeInstance was instantiated
 	 */
-	public SimpleScopeInstance(ScopeInstance parent, LegalScope scope, VarScoped owner)
+	public SimpleScopeInstance(ScopeInstance parent, LegalScope scope)
 	{
 		if (scope == null)
 		{
@@ -88,8 +82,6 @@ public class SimpleScopeInstance implements ScopeInstance
 		}
 		this.parent = parent;
 		this.scope = scope;
-		//TODO Allow null for now?
-		this.owner = owner;
 	}
 
 	/**
@@ -108,15 +100,6 @@ public class SimpleScopeInstance implements ScopeInstance
 	public ScopeInstance getParentScope()
 	{
 		return parent;
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public VarScoped getOwner()
-	{
-		return owner;
 	}
 
 }

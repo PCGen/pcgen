@@ -324,11 +324,10 @@ public class VariableLibraryTest extends TestCase
 	public void testGetVIDFail()
 	{
 		LegalScope globalScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst =
-				new SimpleScopeInstance(null, globalScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, globalScope);
 		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		ScopeInstance eqInst = new SimpleScopeInstance(globalInst, eqScope, null);
+		ScopeInstance eqInst = new SimpleScopeInstance(globalInst, eqScope);
 		try
 		{
 			varLib.getVariableID(null, "Walk");
@@ -410,12 +409,12 @@ public class VariableLibraryTest extends TestCase
 	{
 		LegalScope globalScope = new SimpleLegalScope(null, "Global");
 		ScopeInstance globalInst =
-				new SimpleScopeInstance(null, globalScope, null);
+				new SimpleScopeInstance(null, globalScope);
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		ScopeInstance eqInst = new SimpleScopeInstance(globalInst, eqScope, null);
+		ScopeInstance eqInst = new SimpleScopeInstance(globalInst, eqScope);
 		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
 		ScopeInstance eqPartInst =
-				new SimpleScopeInstance(eqInst, eqPartScope, null);
+				new SimpleScopeInstance(eqInst, eqPartScope);
 		assertTrue(varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		assertTrue(varLib.assertLegalVariableID("Float", eqScope, numberManager));
 		assertTrue(varLib.assertLegalVariableID("Hover", eqPartScope, numberManager));
@@ -491,15 +490,15 @@ public class VariableLibraryTest extends TestCase
 		BooleanManager booleanManager = new BooleanManager();
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		ScopeInstance globalInst =
-				new SimpleScopeInstance(null, globalScope, null);
+				new SimpleScopeInstance(null, globalScope);
 		SimpleLegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
 		ScopeInstance eqInst =
-				new SimpleScopeInstance(globalInst, eqScope, null);
+				new SimpleScopeInstance(globalInst, eqScope);
 		SimpleLegalScope abScope =
 				new SimpleLegalScope(globalScope, "Ability");
 		ScopeInstance abInst =
-				new SimpleScopeInstance(globalInst, abScope, null);
+				new SimpleScopeInstance(globalInst, abScope);
 
 		assertTrue(varLib.assertLegalVariableID("Walk", eqScope, numberManager));
 		VariableID vidm = varLib.getVariableID(eqInst, "Walk");

@@ -82,7 +82,7 @@ public class SolverFactory
 		}
 		try
 		{
-			T defaultValue = defaultModifier.process(null, null);
+			T defaultValue = defaultModifier.process(null, null, null);
 			if (!varFormat.isAssignableFrom(defaultValue.getClass()))
 			{
 				//Generics were violated here
@@ -166,6 +166,6 @@ public class SolverFactory
 		@SuppressWarnings("unchecked")
 		Modifier<T> defaultModifier =
 				(Modifier<T>) defaultModifierMap.get(varFormat);
-		return defaultModifier.process(null, null);
+		return defaultModifier.process(null, null, null);
 	}
 }

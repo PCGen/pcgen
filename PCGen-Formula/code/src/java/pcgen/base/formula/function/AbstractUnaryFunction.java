@@ -20,7 +20,6 @@ package pcgen.base.formula.function;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -85,9 +84,10 @@ public abstract class AbstractUnaryFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Number evaluate(EvaluateVisitor visitor, Node[] args)
+	public final Number evaluate(EvaluateVisitor visitor, Node[] args,
+		Class<?> assertedFormat)
 	{
-		return evaluate((Number) args[0].jjtAccept(visitor, null));
+		return evaluate((Number) args[0].jjtAccept(visitor, assertedFormat));
 	}
 
 	/**
@@ -123,9 +123,9 @@ public abstract class AbstractUnaryFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+		Class<?> assertedFormat, Node[] args)
 	{
-		args[0].jjtAccept(visitor, fdm);
+		args[0].jjtAccept(visitor, assertedFormat);
 	}
 
 	/**

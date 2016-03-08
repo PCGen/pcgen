@@ -107,6 +107,13 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	private final LegalScope legalScope;
 
 	/**
+	 * The Class indicating the asserted Format for a formula analyzed by this
+	 * SemanticsVisitor. This parameter is optional - null can indicate that
+	 * there is no format asserted by the context of the formula.
+	 */
+	private final Class<?> assertedFormat;
+
+	/**
 	 * Constructs a new SemanticsVisitor with the given FormulaManager and
 	 * LegalScope.
 	 * 
@@ -116,10 +123,16 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * @param legalScope
 	 *            The LegalScope used to validate if variables used in the
 	 *            formula are valid
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for a formula
+	 *            analyzed by this SemanticsVisitor. This parameter is optional
+	 *            - null can indicate that there is no format asserted by the
+	 *            context of the formula
 	 * @throws IllegalArgumentException
-	 *             if any of the parameters are null
+	 *             if the FormulaMangaer or LegalScope parameters are null
 	 */
-	public SemanticsVisitor(FormulaManager fm, LegalScope legalScope)
+	public SemanticsVisitor(FormulaManager fm, LegalScope legalScope,
+		Class<?> assertedFormat)
 	{
 		if (fm == null)
 		{
@@ -131,6 +144,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		this.fm = fm;
 		this.legalScope = legalScope;
+		//assertedFormat CAN be null
+		this.assertedFormat = assertedFormat;
 	}
 
 	/**
@@ -165,7 +180,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTLogical node, Object data)
 	{
-		return visitOperatorNode(node, data);
+		//null assertion since we can't assert what each side of the logical expression is
+		SemanticsVisitor logicalVisitor = (assertedFormat == null) ? this
+			: new SemanticsVisitor(fm, legalScope, null);
+		return logicalVisitor.visitOperatorNode(node, data);
 	}
 
 	/**
@@ -175,7 +193,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTEquality node, Object data)
 	{
-		return visitOperatorNode(node, data);
+		//null assertion since we can't assert what each side of the logical expression is
+		SemanticsVisitor logicalVisitor = (assertedFormat == null) ? this
+			: new SemanticsVisitor(fm, legalScope, null);
+		return logicalVisitor.visitOperatorNode(node, data);
 	}
 
 	/**
@@ -185,7 +206,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRelational node, Object data)
 	{
-		return visitOperatorNode(node, data);
+		//null assertion since we can't assert what each side of the logical expression is
+		SemanticsVisitor logicalVisitor = (assertedFormat == null) ? this
+			: new SemanticsVisitor(fm, legalScope, null);
+		return logicalVisitor.visitOperatorNode(node, data);
 	}
 
 	/**
@@ -478,7 +502,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 
 		Node child2 = node.jjtGetChild(1);
-		child2.jjtAccept(this, semantics);
+		child2.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
 		{
@@ -599,5 +623,17 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		return "Parse Error: Item of type " + node.getClass().getName()
 			+ " had incorrect children from parse. Expected " + expectedCount
 			+ " got " + args.length + " " + Arrays.asList(args);
+	}
+
+	/**
+	 * Returns the asserted Format for formulas visited by this
+	 * SemanticsVisitor.
+	 * 
+	 * @return The asserted Format for formulas visited by this
+	 *         SemanticsVisitor.
+	 */
+	public Class<?> getAssertedFormat()
+	{
+		return assertedFormat;
 	}
 }

@@ -66,6 +66,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	private final ScopeInstance scopeInst;
 
 	/**
+	 * The Dependency Manager to be notified of dependencies for the formula to
+	 * be processed.
+	 */
+	private final DependencyManager depManager;
+
+	/**
 	 * Constructs a new DependencyVisitor with the given items used to perform
 	 * the evaluation, as necessary.
 	 * 
@@ -75,10 +81,15 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @param scopeInst
 	 *            The ScopeInstance used to check for dependencies within the
 	 *            formula
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
 	 * @throws IllegalArgumentException
-	 *             if any of the parameters are null
+	 *             if the FormulaMangaer or ScopeInstance parameters are null
 	 */
-	public DependencyVisitor(FormulaManager fm, ScopeInstance scopeInst)
+	public DependencyVisitor(FormulaManager fm, ScopeInstance scopeInst,
+		DependencyManager fdm)
 	{
 		if (fm == null)
 		{
@@ -88,8 +99,13 @@ public class DependencyVisitor implements FormulaParserVisitor
 		{
 			throw new IllegalArgumentException("ScopeInstance cannot be null");
 		}
+		if (fdm == null)
+		{
+			throw new IllegalArgumentException("DependencyManager cannot be null");
+		}
 		this.fm = fm;
 		this.scopeInst = scopeInst;
+		this.depManager = fdm;
 	}
 
 	/**
@@ -225,9 +241,8 @@ public class DependencyVisitor implements FormulaParserVisitor
 				+ " is not a valid function name");
 		}
 		Node[] args = VisitorUtilities.accumulateArguments(node.jjtGetChild(1));
-		DependencyManager fdm = (DependencyManager) data;
-		function.getDependencies(this, fdm, args);
-		return fdm;
+		function.getDependencies(this, (Class<?>) data, args);
+		return data;
 	}
 
 	/**
@@ -238,23 +253,21 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
-		return visitVariable((DependencyManager) data, node.getText());
+		visitVariable(node.getText());
+		return data;
 	}
 
 	/**
 	 * Adds a dependency on a specific variable to the given DependencyManager
 	 * 
-	 * @param fdm
-	 *            The DependencyManager to which the variable dependency should
-	 *            be added
 	 * @param varName
 	 *            The variable name to be added as a dependency
 	 * @return The DependencyManager given as a parameter
 	 */
-	public DependencyManager visitVariable(DependencyManager fdm, String varName)
+	public void visitVariable(String varName)
 	{
 		VariableDependencyManager varManager =
-				fdm.getDependency(DependencyKeyUtilities.DEP_VARIABLE);
+				depManager.getDependency(DependencyKeyUtilities.DEP_VARIABLE);
 		if (varManager != null)
 		{
 			VariableID<?> id =
@@ -264,7 +277,6 @@ public class DependencyVisitor implements FormulaParserVisitor
 				varManager.addVariable(id);
 			}
 		}
-		return fdm;
 	}
 
 	/**
@@ -349,5 +361,17 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public FormulaManager getFormulaManager()
 	{
 		return fm;
+	}
+
+	/**
+	 * Returns the Dependency Manager to be notified of dependencies for the
+	 * formula to be processed.
+	 * 
+	 * @return the Dependency Manager to be notified of dependencies for the
+	 *         formula to be processed
+	 */
+	public DependencyManager getDependencyManager()
+	{
+		return depManager;
 	}
 }

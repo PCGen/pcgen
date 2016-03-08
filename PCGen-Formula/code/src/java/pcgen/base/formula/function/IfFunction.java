@@ -20,7 +20,6 @@ package pcgen.base.formula.function;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -38,6 +37,8 @@ import pcgen.base.formula.visitor.StaticVisitor;
  */
 public class IfFunction implements Function
 {
+
+	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * Returns the function name for this function. This is how it is called by
@@ -73,14 +74,24 @@ public class IfFunction implements Function
 		}
 		//Boolean conditional node
 		Node conditionalNode = args[0];
-		conditionalNode.jjtAccept(visitor, semantics);
+		SemanticsVisitor booleanVisitor;
+		if (BOOLEAN_CLASS.equals(visitor.getAssertedFormat()))
+		{
+			booleanVisitor = visitor;
+		}
+		else
+		{
+			booleanVisitor = new SemanticsVisitor(visitor.getFormulaManager(),
+				visitor.getLegalScope(), BOOLEAN_CLASS);
+		}
+		conditionalNode.jjtAccept(booleanVisitor, semantics);
 		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
 		{
 			return;
 		}
 		Class<?> format =
 				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		if (!format.equals(Boolean.class))
+		if (!format.equals(BOOLEAN_CLASS))
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,
 				"Parse Error: Invalid Value Format: " + format + " found in "
@@ -136,20 +147,21 @@ public class IfFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args,
+		Class<?> assertedFormat)
 	{
-		Boolean b = (Boolean) args[0].jjtAccept(visitor, null);
+		Boolean b = (Boolean) args[0].jjtAccept(visitor, BOOLEAN_CLASS);
 		/*
 		 * Note no attempt to cast or interpret the return values since we do
 		 * not know if they are Boolean or Double (see allowArgs)
 		 */
 		if (b.booleanValue())
 		{
-			return args[1].jjtAccept(visitor, null);
+			return args[1].jjtAccept(visitor, assertedFormat);
 		}
 		else
 		{
-			return args[2].jjtAccept(visitor, null);
+			return args[2].jjtAccept(visitor, assertedFormat);
 		}
 	}
 
@@ -200,11 +212,11 @@ public class IfFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+		Class<?> assertedFormat, Node[] args)
 	{
 		for (Node n : args)
 		{
-			n.jjtAccept(visitor, fdm);
+			n.jjtAccept(visitor, assertedFormat);
 		}
 	}
 }

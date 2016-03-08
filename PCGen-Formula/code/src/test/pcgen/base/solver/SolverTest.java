@@ -122,14 +122,14 @@ public class SolverTest extends TestCase
 			Modifier m = new Modifier(){
 
 				@Override
-				public Object process(Object input, ScopeInformation scopeInfo)
+				public Object process(Object input, ScopeInformation scopeInfo, Object owner)
 				{
 					return 3;
 				}
 
 				@Override
 				public void getDependencies(ScopeInformation scopeInfo,
-					DependencyManager fdm)
+					DependencyManager fdm, Class assertedFormat)
 				{
 				}
 

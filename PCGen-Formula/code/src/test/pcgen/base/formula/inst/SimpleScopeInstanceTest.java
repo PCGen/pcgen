@@ -34,9 +34,9 @@ public class SimpleScopeInstanceTest extends TestCase
 	{
 		super.setUp();
 		scope = new SimpleLegalScope(null, "Global");
-		scopeInst = new SimpleScopeInstance(null, scope, null);
+		scopeInst = new SimpleScopeInstance(null, scope);
 		local = new SimpleLegalScope(scope, "Local");
-		localInst = new SimpleScopeInstance(scopeInst, local, null);
+		localInst = new SimpleScopeInstance(scopeInst, local);
 	}
 
 	@Test
@@ -44,7 +44,7 @@ public class SimpleScopeInstanceTest extends TestCase
 	{
 		try
 		{
-			new SimpleScopeInstance(scopeInst, null, null);
+			new SimpleScopeInstance(scopeInst, null);
 			fail("null scope must be rejected");
 		}
 		catch (NullPointerException e)
@@ -57,7 +57,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(scopeInst, scope, null);
+			new SimpleScopeInstance(scopeInst, scope);
 			fail("mismatch of inst, built scope must be rejected (scope parent == null)");
 		}
 		catch (IllegalArgumentException e)
@@ -66,7 +66,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(localInst, local, null);
+			new SimpleScopeInstance(localInst, local);
 			fail("mismatch of inst, built scope must be rejected (neither parent null)");
 		}
 		catch (IllegalArgumentException e)
@@ -75,7 +75,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(null, local, null);
+			new SimpleScopeInstance(null, local);
 			fail("non global scope without parent instance must be rejected");
 		}
 		catch (NullPointerException e)

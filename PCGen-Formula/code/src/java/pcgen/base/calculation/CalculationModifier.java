@@ -81,9 +81,9 @@ public final class CalculationModifier<T> implements Modifier<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo)
+	public T process(T input, ScopeInformation scopeInfo, Object owner)
 	{
-		return toDo.process(input, scopeInfo);
+		return toDo.process(input, scopeInfo, owner);
 	}
 
 	/**
@@ -100,9 +100,9 @@ public final class CalculationModifier<T> implements Modifier<T>
 	 */
 	@Override
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm)
+		DependencyManager fdm, Class<?> assertedFormat)
 	{
-		toDo.getDependencies(scopeInfo, fdm);
+		toDo.getDependencies(scopeInfo, fdm, assertedFormat);
 	}
 
 	/**
