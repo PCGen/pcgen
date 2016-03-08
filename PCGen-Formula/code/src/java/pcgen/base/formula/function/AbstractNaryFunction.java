@@ -76,8 +76,7 @@ public abstract class AbstractNaryFunction implements Function
 				return;
 			}
 			Class<?> format =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-						.getFormat();
+					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 			if (!format.equals(Number.class))
 			{
 				FormulaSemanticsUtilities.setInvalid(semantics,

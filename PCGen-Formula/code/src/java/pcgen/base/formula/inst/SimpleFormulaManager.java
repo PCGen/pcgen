@@ -208,8 +208,7 @@ public class SimpleFormulaManager implements FormulaManager
 		}
 		Class<?> nsFormat = formatManager.getManagedClass();
 		Class<?> formulaFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		if (!nsFormat.isAssignableFrom(formulaFormat))
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,

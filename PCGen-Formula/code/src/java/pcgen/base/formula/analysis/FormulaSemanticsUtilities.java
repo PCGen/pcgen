@@ -41,7 +41,7 @@ public final class FormulaSemanticsUtilities
 	/**
 	 * Key for Semantics indicating the format of the formula
 	 */
-	public static final SemanticsKey<FormulaFormat> SEM_FORMAT =
+	public static final SemanticsKey<Class<?>> SEM_FORMAT =
 			new SemanticsKey<>();
 
 	/**

@@ -81,8 +81,7 @@ public class IfFunction implements Function
 			return;
 		}
 		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		if (!format.equals(Boolean.class))
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,
@@ -106,8 +105,7 @@ public class IfFunction implements Function
 		 */
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> tFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 
 		//If False node
 		Node falseNode = args[2];
@@ -119,8 +117,7 @@ public class IfFunction implements Function
 
 		//Check for Mismatch in formats between True and False results
 		Class<?> fFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		if (!tFormat.equals(fFormat))
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,
