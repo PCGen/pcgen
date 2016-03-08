@@ -56,6 +56,7 @@ ABILITY:cr_abilities.lst
 ABILITY:cr_abilities_class.lst
 ABILITY:cr_abilities_race.lst
 ABILITY:cr_abilities_globalvar.lst
+BIOSET:cr_biosettings.lst
 CLASS:cr_classes.lst
 DEITY:cr_deities.lst
 DOMAIN:cr_domains.lst
