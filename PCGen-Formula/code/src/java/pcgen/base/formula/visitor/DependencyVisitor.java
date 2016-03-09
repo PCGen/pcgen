@@ -285,18 +285,12 @@ public class DependencyVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in StaticVisitor indicates either an
-	 * error in the implementation of the formula or a tree structure problem in
-	 * the formula.
+	 * Has no dependencies.
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
-		//Should be stripped by the function
-		throw new IllegalStateException(
-			"Evaluation called on invalid Formula (reached Quoted String)");
+		return data;
 	}
 
 	/**
