@@ -16,10 +16,7 @@
  */
 package pcgen.base.format;
 
-import java.util.Collection;
-
 import junit.framework.TestCase;
-import pcgen.base.format.StringManager;
 
 public class StringManagerTest extends TestCase
 {
@@ -76,23 +73,6 @@ public class StringManagerTest extends TestCase
 		}
 	}
 
-	public void testConvertObjectContainerFailNull()
-	{
-		try
-		{
-			manager.convertObjectContainer(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
 	public void testConvert()
 	{
 		assertEquals("1", manager.convert("1"));
@@ -109,17 +89,6 @@ public class StringManagerTest extends TestCase
 	{
 		assertEquals("1", manager.convertIndirect("1").get());
 		assertEquals("gfd", manager.convertIndirect("gfd").get());
-	}
-
-	public void testConvertObjectContainer()
-	{
-		Collection<? extends String> co =
-				manager.convertObjectContainer("1").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals("1", co.iterator().next());
-		co = manager.convertObjectContainer("abc").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals("abc", co.iterator().next());
 	}
 
 	public void testGetIdentifier()

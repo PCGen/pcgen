@@ -18,10 +18,8 @@
 package pcgen.base.format;
 
 import pcgen.base.util.BasicIndirect;
-import pcgen.base.util.BasicObjectContainer;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 
 /**
  * A StringManager is a FormatManager for dealing with String objects.
@@ -59,22 +57,6 @@ public class StringManager implements FormatManager<String>
 			throw new IllegalArgumentException("String cannot be null");
 		}
 		return new BasicIndirect<String>(this, s);
-	}
-
-	/**
-	 * Converts the given String to an ObjectContainer containing an object of
-	 * the type processed by this FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convertObjectContainer(java.lang.String)
-	 */
-	@Override
-	public ObjectContainer<String> convertObjectContainer(String s)
-	{
-		if (s == null)
-		{
-			throw new IllegalArgumentException("String cannot be null");
-		}
-		return new BasicObjectContainer<String>(this, s);
 	}
 
 	/**

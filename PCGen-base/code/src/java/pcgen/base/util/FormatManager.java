@@ -108,25 +108,6 @@ public interface FormatManager<T>
 	public String getIdentifierType();
 
 	/**
-	 * Converts the given String into an ObjectContainer which contains zero or
-	 * more objects of the type of object upon which this FormatManager
-	 * operates.
-	 * 
-	 * @param inputStr
-	 *            The String to be converted into an ObjectContainer which
-	 *            contains zero or more objects of the type of object upon which
-	 *            this FormatManager operates
-	 * 
-	 * @return An ObjectContainer that is capable of producing zero or more
-	 *         objects of the type for which this FormatManager provides
-	 *         services
-	 * @throws IllegalArgumentException
-	 *             if the given String is not a properly formatted String for
-	 *             creation of the appropriate type of ObjectContainer
-	 */
-	public ObjectContainer<T> convertObjectContainer(String inputStr);
-
-	/**
 	 * Returns the FormatManager for a component of the format managed by this
 	 * FormatManager, much like getComponentClass() on Class.class can return
 	 * the component in an array.

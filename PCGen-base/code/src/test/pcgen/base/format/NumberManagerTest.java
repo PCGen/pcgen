@@ -16,10 +16,7 @@
  */
 package pcgen.base.format;
 
-import java.util.Collection;
-
 import junit.framework.TestCase;
-import pcgen.base.format.NumberManager;
 
 public class NumberManagerTest extends TestCase
 {
@@ -102,36 +99,6 @@ public class NumberManagerTest extends TestCase
 		}
 	}
 
-	public void testConvertObjectContainerFailNull()
-	{
-		try
-		{
-			manager.convertObjectContainer(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
-	public void testConvertObjectContainerFailNotNumeric()
-	{
-		try
-		{
-			manager.convertObjectContainer("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
 	public void testConvert()
 	{
 		assertEquals(Integer.valueOf(1), manager.convert("1"));
@@ -151,20 +118,6 @@ public class NumberManagerTest extends TestCase
 		assertEquals(Integer.valueOf(1), manager.convertIndirect("1").get());
 		assertEquals(Integer.valueOf(-3), manager.convertIndirect("-3").get());
 		assertEquals(Double.valueOf(1.4), manager.convertIndirect("1.4").get());
-	}
-
-	public void testConvertObjectContainer()
-	{
-		Collection<? extends Number> co =
-				manager.convertObjectContainer("1").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(Integer.valueOf(1), co.iterator().next());
-		co = manager.convertObjectContainer("-3").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(Integer.valueOf(-3), co.iterator().next());
-		co = manager.convertObjectContainer("1.4").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(Double.valueOf(1.4), co.iterator().next());
 	}
 
 	public void testGetIdentifier()

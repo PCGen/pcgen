@@ -19,10 +19,8 @@ package pcgen.base.format;
 
 import pcgen.base.lang.NumberUtilities;
 import pcgen.base.util.BasicIndirect;
-import pcgen.base.util.BasicObjectContainer;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 
 /**
  * A NumberManager is a FormatManager that provides services for Numbers
@@ -53,18 +51,6 @@ public class NumberManager implements FormatManager<Number>
 	public Indirect<Number> convertIndirect(String s)
 	{
 		return new BasicIndirect<Number>(this, convert(s));
-	}
-
-	/**
-	 * Converts the given String to an ObjectContainer containing an object of
-	 * the type processed by this FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convertObjectContainer(java.lang.String)
-	 */
-	@Override
-	public ObjectContainer<Number> convertObjectContainer(String s)
-	{
-		return new BasicObjectContainer<Number>(this, convert(s));
 	}
 
 	/**
