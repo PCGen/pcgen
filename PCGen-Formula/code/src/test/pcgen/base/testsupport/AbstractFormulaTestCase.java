@@ -148,7 +148,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
-			localSetup.getGlobalScope(), numberManager);
+			localSetup.getGlobalScopeInst().getLegalScope(), numberManager);
 		return (VariableID<Number>) variableLibrary.getVariableID(
 			localSetup.getGlobalScopeInst(), formula);
 	}
@@ -157,7 +157,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
-			localSetup.getGlobalScope(), FormatUtilities.BOOLEAN_MANAGER);
+			localSetup.getGlobalScopeInst().getLegalScope(),
+			FormatUtilities.BOOLEAN_MANAGER);
 		return (VariableID<Boolean>) variableLibrary.getVariableID(
 			localSetup.getGlobalScopeInst(), formula);
 	}
@@ -185,7 +186,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected LegalScope getGlobalScope()
 	{
-		return localSetup.getGlobalScope();
+		return localSetup.getGlobalScopeInst().getLegalScope();
 	}
 
 	protected ScopeInstance getGlobalScopeInst()

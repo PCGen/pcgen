@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+pyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,20 +19,20 @@ package pcgen.base.formula.base;
 
 import java.util.Set;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
+import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.formula.inst.SimpleScopeInstance;
 
 public class VariableLibraryTest extends TestCase
 {
 
 	private NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
+	private ScopeInstanceFactory instanceFactory;
 	private LegalScopeLibrary varScopeLib;
 	private VariableLibrary varLib;
 
@@ -41,6 +41,7 @@ public class VariableLibraryTest extends TestCase
 	{
 		super.setUp();
 		varScopeLib = new LegalScopeLibrary();
+		instanceFactory = new ScopeInstanceFactory(varScopeLib);
 		varLib = new VariableLibrary(varScopeLib);
 	}
 
@@ -326,10 +327,14 @@ public class VariableLibraryTest extends TestCase
 	public void testGetVIDFail()
 	{
 		LegalScope globalScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, globalScope);
-		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		varScopeLib.registerScope(globalScope);
+		ScopeInstance globalInst =
+				instanceFactory.getInstance(null, "Global", null);
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		ScopeInstance eqInst = new SimpleScopeInstance(globalInst, eqScope);
+		varScopeLib.registerScope(eqScope);
+		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		varScopeLib.registerScope(spScope);
+		ScopeInstance eqInst = instanceFactory.getInstance(globalInst, "Equipment", null);
 		try
 		{
 			varLib.getVariableID(null, "Walk");
@@ -410,13 +415,15 @@ public class VariableLibraryTest extends TestCase
 	public void testGetVID()
 	{
 		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		varScopeLib.registerScope(globalScope);
 		ScopeInstance globalInst =
-				new SimpleScopeInstance(null, globalScope);
+				instanceFactory.getInstance(null, "Global", null);
 		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
-		ScopeInstance eqInst = new SimpleScopeInstance(globalInst, eqScope);
+		varScopeLib.registerScope(eqScope);
+		ScopeInstance eqInst = instanceFactory.getInstance(globalInst, "Equipment", null);
 		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
-		ScopeInstance eqPartInst =
-				new SimpleScopeInstance(eqInst, eqPartScope);
+		varScopeLib.registerScope(eqPartScope);
+		ScopeInstance eqPartInst = instanceFactory.getInstance(eqInst, "Part", null);
 		assertTrue(varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		assertTrue(varLib.assertLegalVariableID("Float", eqScope, numberManager));
 		assertTrue(varLib.assertLegalVariableID("Hover", eqPartScope, numberManager));
@@ -491,16 +498,18 @@ public class VariableLibraryTest extends TestCase
 	{
 		BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst =
-				new SimpleScopeInstance(null, globalScope);
+		varScopeLib.registerScope(globalScope);
+		ScopeInstance globalInst = instanceFactory.getInstance(null, "Global", null);
 		SimpleLegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
+		varScopeLib.registerScope(eqScope);
 		ScopeInstance eqInst =
-				new SimpleScopeInstance(globalInst, eqScope);
+				instanceFactory.getInstance(globalInst, "Equipment", null);
 		SimpleLegalScope abScope =
 				new SimpleLegalScope(globalScope, "Ability");
+		varScopeLib.registerScope(abScope);
 		ScopeInstance abInst =
-				new SimpleScopeInstance(globalInst, abScope);
+				instanceFactory.getInstance(globalInst, "Ability", null);
 
 		assertTrue(varLib.assertLegalVariableID("Walk", eqScope, numberManager));
 		VariableID vidm = varLib.getVariableID(eqInst, "Walk");
