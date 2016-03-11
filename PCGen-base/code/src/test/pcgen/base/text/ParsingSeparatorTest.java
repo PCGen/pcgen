@@ -219,7 +219,101 @@ public class ParsingSeparatorTest extends TestCase
 		}
 	}
 
-	public void testAddGropuingPair()
+	public void testParenEmbedded()
+	{
+		ParsingSeparator separator =
+				new ParsingSeparator("a,b(c,[d,(e),f]g)h,ijk", ',');
+		assertTrue(separator.addGroupingPair('(', ')'));
+		assertTrue(separator.addGroupingPair('[', ']'));
+		assertTrue(separator.hasNext());
+		assertEquals("a", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("b(c,[d,(e),f]g)h", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("ijk", separator.next());
+		assertFalse(separator.hasNext());
+		try
+		{
+			separator.next();
+			fail("Expected ParsingSeparator to fail: should be done");
+		}
+		catch (NoSuchElementException e)
+		{
+			//ok
+		}
+	}
+
+	public void testParenStart()
+	{
+		ParsingSeparator separator =
+				new ParsingSeparator("(a),b(c,[d,(e),f]g)h,ijk", ',');
+		assertTrue(separator.addGroupingPair('(', ')'));
+		assertTrue(separator.addGroupingPair('[', ']'));
+		assertTrue(separator.hasNext());
+		assertEquals("(a)", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("b(c,[d,(e),f]g)h", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("ijk", separator.next());
+		assertFalse(separator.hasNext());
+		try
+		{
+			separator.next();
+			fail("Expected ParsingSeparator to fail: should be done");
+		}
+		catch (NoSuchElementException e)
+		{
+			//ok
+		}
+	}
+
+	public void testParenEnd()
+	{
+		ParsingSeparator separator =
+				new ParsingSeparator("a,b(c,[d,(e),f]g)(h,ijk)", ',');
+		assertTrue(separator.addGroupingPair('(', ')'));
+		assertTrue(separator.addGroupingPair('[', ']'));
+		assertTrue(separator.hasNext());
+		assertEquals("a", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("b(c,[d,(e),f]g)(h,ijk)", separator.next());
+		assertFalse(separator.hasNext());
+		try
+		{
+			separator.next();
+			fail("Expected ParsingSeparator to fail: should be done");
+		}
+		catch (NoSuchElementException e)
+		{
+			//ok
+		}
+	}
+
+	public void testBlankEnd()
+	{
+		ParsingSeparator separator =
+				new ParsingSeparator("a,b(c,[d,(e),f]g)(h,ijk),", ',');
+		assertTrue(separator.addGroupingPair('(', ')'));
+		assertTrue(separator.addGroupingPair('[', ']'));
+		assertTrue(separator.hasNext());
+		assertEquals("a", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("b(c,[d,(e),f]g)(h,ijk)", separator.next());
+		assertTrue(separator.hasNext());
+		assertEquals("", separator.next());
+		assertFalse(separator.hasNext());
+		try
+		{
+			separator.next();
+			fail("Expected ParsingSeparator to fail: should be done");
+		}
+		catch (NoSuchElementException e)
+		{
+			//ok
+		}
+	}
+
+	public void testAddGroupingPair()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
