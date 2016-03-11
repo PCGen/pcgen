@@ -220,4 +220,8 @@ public class ScopeInstanceFactory
 			.keySet());
 	}
 
+	public LegalScope getScope(String s)
+	{
+		return library.getScope(s);
+	}
 }
