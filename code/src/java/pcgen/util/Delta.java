@@ -33,7 +33,6 @@ public final class Delta
 {
 	private Delta()
 	{
-		super();
 	}
 
 	/**
@@ -136,6 +135,6 @@ public final class Delta
 			return "+" + v;
 		}
 
-		return v + "";
+		return Float.toString(v);
 	}
 }
