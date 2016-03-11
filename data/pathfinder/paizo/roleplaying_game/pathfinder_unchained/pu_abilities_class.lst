@@ -16,7 +16,7 @@ Rule - Use Background Skills				CATEGORY:Internal			TYPE:OptionalRules	DEFINE:Po
 Rule - Use Consolidated Skills			CATEGORY:Internal			TYPE:OptionalRules	DEFINE:UseConsolidatedSkills|0																																																																																																																																																																BONUS:VAR|UseConsolidatedSkills|1																																																										COST:0
 Rule - Multiclass Variant				CATEGORY:Internal			TYPE:OptionalRules	DEFINE:Pool_VariantMulticlass|0																																																																																																																																																																BONUS:VAR|Pool_VariantMulticlass|1																																																										COST:0
 Rule - Wound Threshold					CATEGORY:Internal			TYPE:OptionalRules																																																																																																			ABILITY:Special Ability|AUTOMATIC|Wound Threshold																																																																																																																										COST:0
-Rule - Use Unchained Skills				CATEGORY:Internal			TYPE:OptionalRules	DEFINE:UsePathfinderUnchainedSkills|0	BONUS:VAR|UsePathfinderUnchainedSkills|1
+Rule - Use Unchained Skills				CATEGORY:Internal			TYPE:OptionalRules	DEFINE:UsePathfinderUnchainedSkills|0	BONUS:VAR|UsePathfinderUnchainedSkills|1			COST:0
 Rule - Use Combat Trick System			CATEGORY:Internal		TYPE:OptionalRules	ABILITY:Internal|AUTOMATIC|Combat Trick Tracker				COST:0
 Rule - Use Skill Rule ~ Artistry			CATEGORY:Internal		TYPE:OptionalRules	ABILITY:Internal|AUTOMATIC|Artistry is a Class Skill|PRECSKILL:1,TYPE.Craft,TYPE.Perform				COST:0
 
