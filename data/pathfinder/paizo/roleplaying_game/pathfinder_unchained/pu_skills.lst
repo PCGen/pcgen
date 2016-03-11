@@ -81,24 +81,24 @@ Profession (Woodcutter).MOD			TYPE:Background
 
 ###Block: New Skills
 # Skill Name							Key Stat	Untrained?		Classes	Type
-Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background
-Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
 
-Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (A particular monastery)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Taverns in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Bandits in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Famous battles in a region)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (The spice trade)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Cats)								KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Drow matriarchs)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Dwarven history)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Frost giants)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Sarenrae)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Dagon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Phlegethon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
-Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
+Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (A particular monastery)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Taverns in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Bandits in a region)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Famous battles in a region)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (The spice trade)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Cats)								KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Drow matriarchs)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Dwarven history)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Frost giants)						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Sarenrae)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Dagon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Phlegethon)							KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (Military commanders)					KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background	PREVAREQ:UsePathfinderUnchainedSkills,1
 
 
 
