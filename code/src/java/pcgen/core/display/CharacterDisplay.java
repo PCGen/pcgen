@@ -658,14 +658,10 @@ public class CharacterDisplay
 		return new TreeSet<Language>(languageFacet.getSet(id));
 	}
 
-	public int initiativeMod()
+	@Deprecated
+	public int processOldInitiativeMod()
 	{
 		return initiativeFacet.getInitiative(id);
-	}
-
-	public int initiativeBonus()
-	{
-		return initiativeFacet.getInitiativeBonus(id);
 	}
 
 	public Handed getHandedObject()

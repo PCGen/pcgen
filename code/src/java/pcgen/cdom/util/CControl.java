@@ -36,4 +36,9 @@ public class CControl
 	public static final String ACVARTOTAL = "ACVARTOTAL";
 	public static final String ACVARARMOR = "ACVARARMOR";
 
+	public static final String INITIATIVE = "INITIATIVE";
+	public static final String INITIATIVESTAT = "INITIATIVESTAT";
+	public static final String INITIATIVEMISC = "INITIATIVEMISC";
+	public static final String INITIATIVEBONUS = "INITIATIVEBONUS";
+
 }

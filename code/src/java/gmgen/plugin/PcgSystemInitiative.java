@@ -22,6 +22,8 @@
  */
 package gmgen.plugin;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -39,7 +41,7 @@ public class PcgSystemInitiative extends SystemInitiative
 		PCStat stat = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
 		this.attribute = new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
-		bonus = 0;
+		incrementalBonus = 0;
 		die = new Dice(1, 20);
 	}
 
@@ -54,21 +56,49 @@ public class PcgSystemInitiative extends SystemInitiative
     @Override
 	public void setBonus(int bonus)
 	{
-		this.bonus = bonus - display.initiativeMod();
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		if (initiativeVar == null)
+		{
+			this.incrementalBonus = bonus - display.processOldInitiativeMod();
+		}
+		else
+		{
+			this.incrementalBonus =
+					bonus - ((Number) pc.getGlobal(initiativeVar)).intValue();
+		}
 		setCurrentInitiative(roll + getModifier() + mod);
 	}
 
     @Override
 	public int getBonus()
 	{
-		PCStat dex = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				PCStat.class, "DEX");
-		return display.initiativeMod() - pc.getStatModFor(dex) + bonus;
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		String initiativeStatVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVESTAT);
+		if (initiativeVar == null)
+		{
+			PCStat dex = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
+			return display.processOldInitiativeMod() - pc.getStatModFor(dex)
+				+ incrementalBonus;
+		}
+		return ((Number) pc.getGlobal(initiativeVar)).intValue()
+			- ((Number) pc.getGlobal(initiativeStatVar)).intValue()
+			+ incrementalBonus;
 	}
 
     @Override
 	public int getModifier()
 	{
-		return display.initiativeMod() + bonus;
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		if (initiativeVar == null)
+		{
+			return pc.getDisplay().processOldInitiativeMod() + incrementalBonus;
+		}
+		return ((Number) pc.getGlobal(initiativeVar)).intValue()
+			+ incrementalBonus;
 	}
 }
