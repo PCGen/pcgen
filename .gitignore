@@ -44,3 +44,4 @@ data/customsources/*
 !data/customsources/readme-customsources.txt
 /.nb-gradle/
 /jre/
+/.checkstyle

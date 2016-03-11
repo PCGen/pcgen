@@ -25,6 +25,7 @@ import java.util.List;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.inst.SimpleScopeInstance;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
@@ -533,7 +534,8 @@ abstract class LoadContextInst implements LoadContext
 		if (scopeInst == null)
 		{
 			LegalScope legalScope = var.getScope("Global");
-			scopeInst = new SimpleScopeInstance(null, legalScope, "Global");
+			scopeInst = new SimpleScopeInstance(null, legalScope,
+				new DummyVarScoped(legalScope));
 		}
 		return scopeInst;
 	}
@@ -560,8 +562,38 @@ abstract class LoadContextInst implements LoadContext
 		}
 		LoadContext parentLC = dropIntoContext(parent);
 		SimpleScopeInstance localInst = new SimpleScopeInstance(parentLC.getActiveScope(),
-			lvs, "Context (during Load)");
+			lvs, new DummyVarScoped(lvs));
 		return new DerivedLoadContext(parentLC, localInst);
+	}
+
+	private static class DummyVarScoped implements VarScoped
+	{
+
+		private LegalScope lvs;
+
+		private DummyVarScoped(LegalScope lvs)
+		{
+			this.lvs = lvs;
+		}
+
+		@Override
+		public String getKeyName()
+		{
+			return "Context (during Load)";
+		}
+
+		@Override
+		public String getLocalScopeName()
+		{
+			return lvs.getName();
+		}
+
+		@Override
+		public VarScoped getVariableParent()
+		{
+			return null;
+		}
+		
 	}
 
 	private class DerivedLoadContext implements LoadContext
@@ -818,7 +850,7 @@ abstract class LoadContextInst implements LoadContext
 			{
 				//Direct drop from this
 				SimpleScopeInstance localInst = new SimpleScopeInstance(scopeInst,
-					toScope, "Context (during Load)");
+					toScope, new DummyVarScoped(toScope));
 				return new DerivedLoadContext(this, localInst);
 			}
 			//Random jump to somewhere else...

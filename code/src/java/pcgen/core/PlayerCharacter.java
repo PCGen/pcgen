@@ -39,7 +39,7 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SplitFormulaSetup;
@@ -618,7 +618,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		variableStoreFacet.set(id, varStore);
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
 		solverManagerFacet.set(id,
-			new AggressiveSolverManager(mySetup.getFormulaManager(),
+			new DynamicSolverManager(mySetup.getFormulaManager(),
 				context.getVariableContext().getManagerFactory(), solverFactory,
 				varStore));
 	}
