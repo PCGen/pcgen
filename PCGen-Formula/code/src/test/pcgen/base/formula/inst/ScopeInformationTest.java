@@ -42,7 +42,6 @@ import pcgen.base.util.FormatManager;
 public class ScopeInformationTest extends TestCase
 {
 
-	private ScopeInstanceFactory instanceFactory;
 	private LegalScopeLibrary scopeLibrary;
 	private VariableLibrary varLibrary;
 	private SimpleFunctionLibrary ftnLibrary;
@@ -56,7 +55,6 @@ public class ScopeInformationTest extends TestCase
 	{
 		super.setUp();
 		scopeLibrary = new LegalScopeLibrary();
-		instanceFactory = new ScopeInstanceFactory(scopeLibrary);
 		varLibrary = new VariableLibrary(scopeLibrary);
 		opLibrary = new SimpleOperatorLibrary();
 		ftnLibrary = new SimpleFunctionLibrary();
@@ -73,7 +71,7 @@ public class ScopeInformationTest extends TestCase
 				new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary,
 					resultsStore);
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		try
 		{
 			new ScopeInformation(null, null);
@@ -138,7 +136,7 @@ public class ScopeInformationTest extends TestCase
 					resultsStore);
 		FormatManager<Number> numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
 		try
 		{
@@ -206,7 +204,7 @@ public class ScopeInformationTest extends TestCase
 					resultsStore);
 		FormatManager<Number> numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
 		try
 		{
@@ -243,7 +241,7 @@ public class ScopeInformationTest extends TestCase
 					resultsStore);
 		FormatManager<Number> numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
 		try
 		{

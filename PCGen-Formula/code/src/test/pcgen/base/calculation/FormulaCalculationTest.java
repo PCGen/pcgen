@@ -41,7 +41,7 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 		super.setUp();
 		LegalScope globalScope = new SimpleLegalScope(null, "Global");
 		SimpleScopeInstance scopeInst =
-				new SimpleScopeInstance(null, globalScope);
+				new SimpleScopeInstance(null, globalScope, null);
 		si = new ScopeInformation(getFormulaManager(), scopeInst);
 		FormulaUtilities.loadBuiltInFunctions(getFunctionLibrary());
 		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());

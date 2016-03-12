@@ -68,4 +68,11 @@ public interface ScopeInstance
 	 */
 	public ScopeInstance getParentScope();
 
+	/**
+	 * Returns the object that this ScopeInstance was instantiated to represent.
+	 * 
+	 * @return The object that this ScopeInstance was instantiated to represent
+	 */
+	public VarScoped getOwner();
+
 }
