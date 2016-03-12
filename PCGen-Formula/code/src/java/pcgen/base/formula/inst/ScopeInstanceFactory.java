@@ -198,9 +198,8 @@ public class ScopeInstanceFactory
 		if (inst == null)
 		{
 			//Need to build the scope...
-			ScopeInstance parentInstance =
-					getMessaged(instScope.getParentScope(), parentObj,
-						parentObj);
+			ScopeInstance parentInstance = getMessaged(
+				instScope.getParentScope(), parentObj, parentObj);
 			inst = getInstance(parentInstance, instScope);
 			objectToInstanceCache.put(current, inst);
 		}
@@ -216,10 +215,20 @@ public class ScopeInstanceFactory
 	 */
 	public Collection<VarScoped> getInstancedObjects()
 	{
-		return Collections.unmodifiableCollection(objectToInstanceCache
-			.keySet());
+		return Collections
+			.unmodifiableCollection(objectToInstanceCache.keySet());
 	}
 
+	/**
+	 * Returns the LegalScope for the given legal scope name, using the
+	 * LegalScopeLibrary underlying this ScopeInstanceFactory to resolve the
+	 * name.
+	 * 
+	 * @param s
+	 *            The scope name to be used to find the LegalScope in the
+	 *            LegalScopeLibrary underlying this ScopeInstanceFactory
+	 * @return The LegalScope for the given legal scope name
+	 */
 	public LegalScope getScope(String s)
 	{
 		return library.getScope(s);
