@@ -17,10 +17,8 @@
 package pcgen.base.format;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 
 import junit.framework.TestCase;
-import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 
 public class OrderedPairManagerTest extends TestCase
@@ -104,36 +102,6 @@ public class OrderedPairManagerTest extends TestCase
 		}
 	}
 
-	public void testConvertObjectContainerFailNull()
-	{
-		try
-		{
-			manager.convertObjectContainer(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
-	public void testConvertObjectContainerFailNotNumeric()
-	{
-		try
-		{
-			manager.convertObjectContainer("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
 	public void testConvert()
 	{
 		assertEquals(new OrderedPair(1, 1), manager.convert("1,1"));
@@ -156,20 +124,6 @@ public class OrderedPairManagerTest extends TestCase
 			.get());
 		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), manager
 			.convertIndirect("1.4,6.5").get());
-	}
-
-	public void testConvertObjectContainer()
-	{
-		Collection<? extends OrderedPair> co =
-				manager.convertObjectContainer("1,2").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(new OrderedPair(1, 2), co.iterator().next());
-		co = manager.convertObjectContainer("-3,4").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(new OrderedPair(-3, 4), co.iterator().next());
-		co = manager.convertObjectContainer("1.4,6.5").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), co.iterator().next());
 	}
 
 	public void testGetIdentifier()

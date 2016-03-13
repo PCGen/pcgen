@@ -1,5 +1,5 @@
 /*
-* Copyright 2014-15 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-15 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,10 +19,8 @@ package pcgen.base.format;
 
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.BasicIndirect;
-import pcgen.base.util.BasicObjectContainer;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 
 /**
  * A OrderedPairManager is a FormatManager that provides services for
@@ -53,18 +51,6 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 	public Indirect<OrderedPair> convertIndirect(String s)
 	{
 		return new BasicIndirect<OrderedPair>(this, convert(s));
-	}
-
-	/**
-	 * Converts the given String to an ObjectContainer containing an object of
-	 * the type processed by this FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convertObjectContainer(java.lang.String)
-	 */
-	@Override
-	public ObjectContainer<OrderedPair> convertObjectContainer(String s)
-	{
-		return new BasicObjectContainer<OrderedPair>(this, convert(s));
 	}
 
 	/**

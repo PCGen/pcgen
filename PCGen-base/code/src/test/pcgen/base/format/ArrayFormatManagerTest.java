@@ -17,7 +17,6 @@
 package pcgen.base.format;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 import junit.framework.TestCase;
 
@@ -88,19 +87,6 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 	}
 
-	public void testConvertObjectContainerFailNotNumeric()
-	{
-		try
-		{
-			manager.convertObjectContainer("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
 	public void testConvert()
 	{
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));
@@ -140,56 +126,6 @@ public class ArrayFormatManagerTest extends TestCase
 		assertEquals("1.4", manager.convertIndirect("1.4").getUnconverted());
 		assertEquals("-3,4.1,5", manager.convertIndirect("-3,4.1,5").getUnconverted());
 		assertEquals("-3,4,5", manager.convertIndirect("-3,4,5").getUnconverted());
-	}
-
-	public void testConvertObjectContainer()
-	{
-		Collection<? extends Number[]> contained = manager.convertObjectContainer(null).getContainedObjects();
-		assertEquals(1, contained.size());
-		Number[] array = contained.iterator().next();
-		assertTrue(Arrays.equals(new Number[]{}, array));
-		contained = manager.convertObjectContainer("1").getContainedObjects();
-		assertEquals(1, contained.size());
-		array = contained.iterator().next();
-		assertTrue(Arrays.equals(ARR_1, array));
-		contained = manager.convertObjectContainer("-3").getContainedObjects();
-		assertEquals(1, contained.size());
-		array = contained.iterator().next();
-		assertTrue(Arrays.equals(ARR_N3, array));
-		contained = manager.convertObjectContainer("1.4").getContainedObjects();
-		assertEquals(1, contained.size());
-		array = contained.iterator().next();
-		assertTrue(Arrays.equals(ARR_1P4, array));
-		contained = manager.convertObjectContainer("-3,4.1,5").getContainedObjects();
-		assertEquals(1, contained.size());
-		array = contained.iterator().next();
-		assertTrue(Arrays.equals(ARR_N3_4P1_5, array));
-		contained = manager.convertObjectContainer("-3,4,5").getContainedObjects();
-		assertEquals(1, contained.size());
-		array = contained.iterator().next();
-		assertTrue(Arrays.equals(ARR_N3_4_5, array));
-
-		assertEquals("", manager.convertObjectContainer(null).getLSTformat(false));
-		assertEquals("", manager.convertObjectContainer("").getLSTformat(false));
-		assertEquals("1", manager.convertObjectContainer("1").getLSTformat(false));
-		assertEquals("-3", manager.convertObjectContainer("-3").getLSTformat(false));
-		assertEquals("1.4", manager.convertObjectContainer("1.4").getLSTformat(false));
-		assertEquals("-3,4.1,5", manager.convertObjectContainer("-3,4.1,5").getLSTformat(false));
-		assertEquals("-3,4,5", manager.convertObjectContainer("-3,4,5").getLSTformat(false));
-
-		assertEquals(new Number[]{}.getClass(), manager.convertObjectContainer("1").getReferenceClass());
-
-		assertTrue(manager.convertObjectContainer(null).contains(new Number[]{}));
-		assertTrue(manager.convertObjectContainer("").contains(new Number[]{}));
-		assertTrue(manager.convertObjectContainer("1").contains(new Number[]{}));
-		assertFalse(manager.convertObjectContainer("-3").contains(ARR_1));
-		assertTrue(manager.convertObjectContainer("-3").contains(ARR_N3));
-		assertFalse(manager.convertObjectContainer("-3").contains(ARR_N3_4P1_5));
-		assertTrue(manager.convertObjectContainer("1.4").contains(ARR_1P4));
-		assertTrue(manager.convertObjectContainer("-3,4.1,5").contains(ARR_N3));
-		assertTrue(manager.convertObjectContainer("-3,4.1,5").contains(ARR_N3_4P1_5));
-		assertFalse(manager.convertObjectContainer("-3,4.1,5").contains(ARR_1P4));
-
 	}
 
 	public void testGetIdentifier()

@@ -18,10 +18,8 @@
 package pcgen.base.format;
 
 import pcgen.base.util.BasicIndirect;
-import pcgen.base.util.BasicObjectContainer;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 
 /**
  * A BooleanManager is a FormatManager that provides services for Boolean
@@ -61,18 +59,6 @@ public class BooleanManager implements FormatManager<Boolean>
 	public Indirect<Boolean> convertIndirect(String s)
 	{
 		return new BasicIndirect<Boolean>(this, convert(s));
-	}
-
-	/**
-	 * Converts the given String to an ObjectContainer containing an object of
-	 * the type processed by this FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convertObjectContainer(java.lang.String)
-	 */
-	@Override
-	public ObjectContainer<Boolean> convertObjectContainer(String s)
-	{
-		return new BasicObjectContainer<Boolean>(this, convert(s));
 	}
 
 	/**

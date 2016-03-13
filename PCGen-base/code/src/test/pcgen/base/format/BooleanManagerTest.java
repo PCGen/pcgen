@@ -16,10 +16,7 @@
  */
 package pcgen.base.format;
 
-import java.util.Collection;
-
 import junit.framework.TestCase;
-import pcgen.base.format.BooleanManager;
 
 public class BooleanManagerTest extends TestCase
 {
@@ -102,36 +99,6 @@ public class BooleanManagerTest extends TestCase
 		}
 	}
 
-	public void testConvertObjectContainerFailNull()
-	{
-		try
-		{
-			manager.convertObjectContainer(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException e)
-		{
-			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
-	public void testConvertObjectContainerFailNotBoolean()
-	{
-		try
-		{
-			manager.convertObjectContainer("SomeString");
-			fail("null value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
-	}
-
 	public void testConvert()
 	{
 		assertEquals(Boolean.TRUE, manager.convert("true"));
@@ -149,17 +116,6 @@ public class BooleanManagerTest extends TestCase
 	{
 		assertEquals(Boolean.TRUE, manager.convertIndirect("true").get());
 		assertEquals(Boolean.FALSE, manager.convertIndirect("false").get());
-	}
-
-	public void testConvertObjectContainer()
-	{
-		Collection<? extends Boolean> co =
-				manager.convertObjectContainer("true").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(Boolean.TRUE, co.iterator().next());
-		co = manager.convertObjectContainer("false").getContainedObjects();
-		assertEquals(1, co.size());
-		assertEquals(Boolean.FALSE, co.iterator().next());
 	}
 
 	public void testGetIdentifier()

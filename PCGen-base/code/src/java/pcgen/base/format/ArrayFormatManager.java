@@ -19,13 +19,10 @@ package pcgen.base.format;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 
 /**
  * An ArrayFormatManager wraps an underlying FormatManager to produce arrays of
@@ -73,9 +70,8 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 				"Cannot build from null FormatManager");
 		}
 		@SuppressWarnings("unchecked")
-		Class<T[]> fClass =
-				(Class<T[]>) Array.newInstance(underlying.getManagedClass(), 0)
-					.getClass();
+		Class<T[]> fClass = (Class<T[]>) Array
+			.newInstance(underlying.getManagedClass(), 0).getClass();
 		this.separator = separator;
 		formatClass = fClass;
 		componentManager = underlying;
@@ -130,42 +126,26 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		return convertInstructions(instructions);
 	}
 
-	/**
-	 * Converts the instructions into an ObjectContainer array of objects. The
-	 * objects or groups referred to in the instructions should be separated by
-	 * the separator provided at construction of this ArrayFormatManager.
-	 * 
-	 * @see pcgen.base.util.FormatManager#convertObjectContainer(java.lang.String)
-	 */
-	@Override
-	public ObjectContainer<T[]> convertObjectContainer(String instructions)
-	{
-		return convertInstructions(instructions);
-	}
-
-	private ArrayObjectContainer convertInstructions(String instructions)
+	private ArrayIndirect convertInstructions(String instructions)
 	{
 		if ((instructions == null) || instructions.isEmpty())
 		{
 			@SuppressWarnings("unchecked")
-			ObjectContainer<T>[] toSet =
-					(ObjectContainer<T>[]) Array.newInstance(
-						ObjectContainer.class, 0);
-			return new ArrayObjectContainer(toSet);
+			Indirect<T>[] toSet =
+					(Indirect<T>[]) Array.newInstance(Indirect.class, 0);
+			return new ArrayIndirect(toSet);
 		}
 		// TODO Check for illegal commas...
 		String[] items = instructions.split(Character.toString(separator));
 		@SuppressWarnings("unchecked")
-		ObjectContainer<T>[] toSet =
-				(ObjectContainer<T>[]) Array.newInstance(ObjectContainer.class,
-					items.length);
+		Indirect<T>[] toSet =
+				(Indirect<T>[]) Array.newInstance(Indirect.class, items.length);
 		for (int i = 0; i < items.length; i++)
 		{
-			ObjectContainer<T> indirect =
-					componentManager.convertObjectContainer(items[i]);
+			Indirect<T> indirect = componentManager.convertIndirect(items[i]);
 			toSet[i] = indirect;
 		}
-		return new ArrayObjectContainer(toSet);
+		return new ArrayIndirect(toSet);
 	}
 
 	/**
@@ -250,24 +230,23 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		}
 		return false;
 	}
-	
+
 	/**
-	 * ArrayObjectContainer is a facade that can convert an ObjectContainer<T>[]
-	 * into an ObjectContainer<T[]>.
+	 * ArrayIndirect is a facade that can convert an ObjectContainer<T>[] into
+	 * an ObjectContainer<T[]>.
 	 * 
 	 * This is necessary since the underlying componentManager will return
 	 * ObjectContainer<T> objects (which is more than one ObjectContainer, and
 	 * can be put into an array), but the interface for FormatManager is
 	 * ObjectContainer<T[]> (a single ObjectContainer resolving to an array).
 	 */
-	private class ArrayObjectContainer implements ObjectContainer<T[]>,
-			Indirect<T[]>
+	private class ArrayIndirect implements Indirect<T[]>
 	{
 		/**
 		 * The array of ObjectContainer objects used to resolve this
 		 * ArrayObjectContainer.
 		 */
-		private final ObjectContainer<T>[] array;
+		private final Indirect<T>[] array;
 
 		/**
 		 * Constructs a new ArrayObjectContainer with the given underlying
@@ -278,74 +257,9 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		 *            The underlying ObjectContainer with the objects contained
 		 *            in this ArrayObjectContainer
 		 */
-		public ArrayObjectContainer(ObjectContainer<T>[] toSet)
+		public ArrayIndirect(Indirect<T>[] toSet)
 		{
 			array = toSet;
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public boolean contains(T[] toCheck)
-		{
-			for (T obj : toCheck)
-			{
-				boolean found = false;
-				for (ObjectContainer<T> container : array)
-				{
-					if (container.contains(obj))
-					{
-						found = true;
-						break;
-					}
-				}
-				if (!found)
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public Class<T[]> getReferenceClass()
-		{
-			return formatClass;
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public Collection<? extends T[]> getContainedObjects()
-		{
-			return Collections.singleton(get());
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getLSTformat(boolean useAny)
-		{
-			StringBuilder result = new StringBuilder();
-
-			boolean needjoin = false;
-
-			for (ObjectContainer<T> container : array)
-			{
-				if (needjoin)
-				{
-					result.append(separator);
-				}
-				needjoin = true;
-				result.append(container.getLSTformat(useAny));
-			}
-			return result.toString();
 		}
 
 		/**
@@ -356,9 +270,9 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		{
 			Class<T> arrayClass = componentManager.getManagedClass();
 			List<T> returnList = new ArrayList<T>(array.length * 5);
-			for (ObjectContainer<T> container : array)
+			for (Indirect<T> indirect : array)
 			{
-				returnList.addAll(container.getContainedObjects());
+				returnList.add(indirect.get());
 			}
 			@SuppressWarnings("unchecked")
 			T[] toReturn =
@@ -376,7 +290,18 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		@Override
 		public String getUnconverted()
 		{
-			return getLSTformat(false);
+			StringBuilder result = new StringBuilder();
+			boolean needjoin = false;
+			for (Indirect<T> indirect : array)
+			{
+				if (needjoin)
+				{
+					result.append(separator);
+				}
+				needjoin = true;
+				result.append(indirect.getUnconverted());
+			}
+			return result.toString();
 		}
 
 	}
