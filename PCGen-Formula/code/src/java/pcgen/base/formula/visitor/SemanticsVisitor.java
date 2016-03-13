@@ -287,42 +287,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTExpon node, Object data)
 	{
-		FormulaSemantics semantics = (FormulaSemantics) data;
-		if (node.getOperator() == null)
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Object of type " + node.getClass()
-					+ " expected to have an operator, none was found");
-			return semantics;
-		}
-		for (int i = 0; i < node.jjtGetNumChildren(); i++)
-		{
-			node.jjtGetChild(i).jjtAccept(this, semantics);
-			//Consistent with the "fail fast" behavior in the implementation note
-			if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-				.isValid())
-			{
-				return semantics;
-			}
-			/*
-			 * Note: We only implement ^ for Number.class today. This is a
-			 * "known" limitation, but would be nice to escape. However, this
-			 * means we can't shortcut the item in evaluate... (see
-			 * EvaluationVisitor)
-			 */
-			Class<?> format =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-			if (!format.equals(NUMBER_CLASS))
-			{
-				FormulaSemanticsUtilities.setInvalid(semantics,
-					"Parse Error: Invalid Value Format: " + format
-						+ " found in "
-						+ node.jjtGetChild(i).getClass().getName()
-						+ " found in location requiring a"
-						+ " Number (class cannot be evaluated)");
-			}
-		}
-		return semantics;
+		return visitOperatorNode(node, data);
 	}
 
 	/**

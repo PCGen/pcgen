@@ -34,6 +34,7 @@ import pcgen.base.formula.operator.generic.GenericNotEqual;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberDivide;
 import pcgen.base.formula.operator.number.NumberEquals;
+import pcgen.base.formula.operator.number.NumberExp;
 import pcgen.base.formula.operator.number.NumberGreaterThan;
 import pcgen.base.formula.operator.number.NumberGreaterThanOrEqualTo;
 import pcgen.base.formula.operator.number.NumberLessThan;
@@ -93,6 +94,7 @@ public final class FormulaUtilities
 		opLib.addAction(new NumberAdd());
 		opLib.addAction(new NumberDivide());
 		opLib.addAction(new NumberEquals());
+		opLib.addAction(new NumberExp());
 		opLib.addAction(new NumberGreaterThan());
 		opLib.addAction(new NumberGreaterThanOrEqualTo());
 		opLib.addAction(new NumberLessThan());

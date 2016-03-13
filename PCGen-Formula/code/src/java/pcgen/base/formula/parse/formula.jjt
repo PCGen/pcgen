@@ -266,14 +266,12 @@ void unaryNotExpr()
  * Add Exponential expression
  *****************************************************************************/
 void exponExpr()
-	#Expon(>1) : {}
+	#void : {}
 	{
 		primitiveExpr()
 		(
-			<POW> primitiveExpr()
-			{
-				jjtThis.setOperator(Operator.EXP);
-			}
+			<POW> primitiveExpr() #Expon(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(Operator.EXP); }
 		)*
 	}
 
