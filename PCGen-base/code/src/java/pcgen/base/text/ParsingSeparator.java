@@ -116,14 +116,18 @@ public class ParsingSeparator implements Iterator<String>
 	 *            The starting character for a grouping pair
 	 * @param end
 	 *            The ending character for a grouping pair
-	 * @return true if the grouping pair was added to this ParsingSeparator
+	 * @throws IllegalStateException
+	 *             if the given grouping pair cannot be added to this
+	 *             ParsingSeparator
 	 */
-	public boolean addGroupingPair(char start, char end)
+	public void addGroupingPair(char start, char end)
 	{
 		//Can't change after we've started parsing
 		if (started)
 		{
-			return false;
+			throw new IllegalStateException(
+				"Cannot add grouping pairs to the ParsingSeparator "
+					+ "once parsing has been started");
 		}
 		if (groupingPairs == null)
 		{
@@ -135,7 +139,9 @@ public class ParsingSeparator implements Iterator<String>
 		if (groupingPairs.containsKey(endString)
 			|| groupingPairs.containsValue(startString))
 		{
-			return false;
+			throw new IllegalStateException(
+				"Cannot add grouping pairs to the ParsingSeparator "
+					+ "if a key or value has already been added as a separator");
 		}
 		String oldEnd = groupingPairs.get(startString);
 		String oldStart = groupingPairs.getKeyFor(endString);
@@ -143,10 +149,11 @@ public class ParsingSeparator implements Iterator<String>
 		if ((oldStart != null) && !oldStart.equals(startString)
 			|| (oldEnd != null) && !oldEnd.equals(endString))
 		{
-			return false;
+			throw new IllegalStateException(
+				"Cannot add grouping pairs to the ParsingSeparator "
+					+ "if a key or value has already been added as a separator");
 		}
 		groupingPairs.put(startString, endString);
-		return true;
 	}
 
 	/**

@@ -199,8 +199,8 @@ public class ParsingSeparatorTest extends TestCase
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b\"c,(d\",e,f\")g\",h", ',');
-		assertTrue(separator.addGroupingPair('(', ')'));
-		assertTrue(separator.addGroupingPair('"', '"'));
+		separator.addGroupingPair('(', ')');
+		separator.addGroupingPair('"', '"');
 		assertTrue(separator.hasNext());
 		assertEquals("a", separator.next());
 		assertTrue(separator.hasNext());
@@ -223,8 +223,8 @@ public class ParsingSeparatorTest extends TestCase
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b(c,[d,(e),f]g)h,ijk", ',');
-		assertTrue(separator.addGroupingPair('(', ')'));
-		assertTrue(separator.addGroupingPair('[', ']'));
+		separator.addGroupingPair('(', ')');
+		separator.addGroupingPair('[', ']');
 		assertTrue(separator.hasNext());
 		assertEquals("a", separator.next());
 		assertTrue(separator.hasNext());
@@ -247,8 +247,8 @@ public class ParsingSeparatorTest extends TestCase
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("(a),b(c,[d,(e),f]g)h,ijk", ',');
-		assertTrue(separator.addGroupingPair('(', ')'));
-		assertTrue(separator.addGroupingPair('[', ']'));
+		separator.addGroupingPair('(', ')');
+		separator.addGroupingPair('[', ']');
 		assertTrue(separator.hasNext());
 		assertEquals("(a)", separator.next());
 		assertTrue(separator.hasNext());
@@ -271,8 +271,8 @@ public class ParsingSeparatorTest extends TestCase
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b(c,[d,(e),f]g)(h,ijk)", ',');
-		assertTrue(separator.addGroupingPair('(', ')'));
-		assertTrue(separator.addGroupingPair('[', ']'));
+		separator.addGroupingPair('(', ')');
+		separator.addGroupingPair('[', ']');
 		assertTrue(separator.hasNext());
 		assertEquals("a", separator.next());
 		assertTrue(separator.hasNext());
@@ -293,8 +293,8 @@ public class ParsingSeparatorTest extends TestCase
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b(c,[d,(e),f]g)(h,ijk),", ',');
-		assertTrue(separator.addGroupingPair('(', ')'));
-		assertTrue(separator.addGroupingPair('[', ']'));
+		separator.addGroupingPair('(', ')');
+		separator.addGroupingPair('[', ']');
 		assertTrue(separator.hasNext());
 		assertEquals("a", separator.next());
 		assertTrue(separator.hasNext());
@@ -317,20 +317,68 @@ public class ParsingSeparatorTest extends TestCase
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
-		assertTrue(separator.addGroupingPair('(', ')'));
-		assertFalse(separator.addGroupingPair('(', ']'));
-		assertFalse(separator.addGroupingPair('[', '('));
-		assertFalse(separator.addGroupingPair('{', ')'));
-		assertFalse(separator.addGroupingPair(')', '}'));
+		separator.addGroupingPair('(', ')');
+		try
+		{
+			separator.addGroupingPair('(', ']');
+			fail("expected illegal state");
+		}
+		catch (IllegalStateException e)
+		{
+			//ok
+		}
+		try
+		{
+			separator.addGroupingPair('[', '(');
+			fail("expected illegal state");
+		}
+		catch (IllegalStateException e)
+		{
+			//ok
+		}
+		try
+		{
+			separator.addGroupingPair('{', ')');
+			fail("expected illegal state");
+		}
+		catch (IllegalStateException e)
+		{
+			//ok
+		}
+		try
+		{
+			separator.addGroupingPair(')', '}');
+			fail("expected illegal state");
+		}
+		catch (IllegalStateException e)
+		{
+			//ok
+		}
 		//but reuse of same is okay
-		assertTrue(separator.addGroupingPair('(', ')'));
+		separator.addGroupingPair('(', ')');
 		separator = new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
 		separator.hasNext();
 		//No longer valid since hasNext was called
-		assertFalse(separator.addGroupingPair('{', '}'));
+		try
+		{
+			separator.addGroupingPair('{', '}');
+			fail("expected illegal state");
+		}
+		catch (IllegalStateException e)
+		{
+			//ok
+		}
 		separator = new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
 		separator.next();
 		//No longer valid since next was called
-		assertFalse(separator.addGroupingPair('{', '}'));
+		try
+		{
+			separator.addGroupingPair('{', '}');
+			fail("expected illegal state");
+		}
+		catch (IllegalStateException e)
+		{
+			//ok
+		}
 	}
 }
