@@ -19,7 +19,6 @@ package pcgen.base.formula.visitor;
 
 import java.util.Arrays;
 
-import pcgen.base.formula.analysis.FormulaFormat;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -236,8 +235,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		 * operations :/
 		 */
 		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		if (!format.equals(NUMBER_CLASS))
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,
@@ -270,8 +268,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		 * operations :/
 		 */
 		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		if (!format.equals(BOOLEAN_CLASS))
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,
@@ -314,8 +311,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			 * EvaluationVisitor)
 			 */
 			Class<?> format =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-						.getFormat();
+					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 			if (!format.equals(NUMBER_CLASS))
 			{
 				FormulaSemanticsUtilities.setInvalid(semantics,
@@ -357,7 +353,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		{
 			Double.parseDouble(node.getText());
 			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				new FormulaFormat(NUMBER_CLASS));
+				NUMBER_CLASS);
 		}
 		catch (NumberFormatException e)
 		{
@@ -466,7 +462,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		if (formatManager != null)
 		{
 			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				new FormulaFormat(formatManager.getManagedClass()));
+				formatManager.getManagedClass());
 		}
 		else
 		{
@@ -524,8 +520,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	public Object visit(ASTQuotString node, Object data)
 	{
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-			new FormulaFormat(STRING_CLASS));
+		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, STRING_CLASS);
 		return semantics;
 	}
 
@@ -567,8 +562,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		//Need to capture now
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> format1 =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 
 		Node child2 = node.jjtGetChild(1);
 		child2.jjtAccept(this, semantics);
@@ -578,8 +572,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			return semantics;
 		}
 		Class<?> format2 =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-					.getFormat();
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		Class<?> returnedFormat =
 				fm.getOperatorLibrary().processAbstract(op, format1, format2);
 		//null response means the library couldn't find an appropriate operator
@@ -592,8 +585,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 					+ node.getClass().getName());
 			return semantics;
 		}
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-			new FormulaFormat(returnedFormat));
+		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, returnedFormat);
 		return semantics;
 	}
 

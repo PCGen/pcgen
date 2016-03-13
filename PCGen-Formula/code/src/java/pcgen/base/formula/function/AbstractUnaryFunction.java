@@ -61,8 +61,7 @@ public abstract class AbstractUnaryFunction implements Function
 		if (semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
 		{
 			Class<?> format =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-						.getFormat();
+					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 			if (!format.equals(Number.class))
 			{
 				FormulaSemanticsUtilities.setInvalid(semantics,

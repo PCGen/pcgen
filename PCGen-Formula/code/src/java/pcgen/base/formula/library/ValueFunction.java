@@ -19,7 +19,6 @@ package pcgen.base.formula.library;
 
 import java.util.Arrays;
 
-import pcgen.base.formula.analysis.FormulaFormat;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -94,7 +93,7 @@ public class ValueFunction implements Function
 		if (args.length == 0)
 		{
 			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				new FormulaFormat(input.getClass()));
+				input.getClass());
 			return;
 		}
 		FormulaSemanticsUtilities.setInvalid(semantics, "Function "
