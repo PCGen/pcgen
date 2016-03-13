@@ -122,8 +122,8 @@ public class CoreViewFrame extends JFrame
 
 		public void actionPerformed(ActionEvent e)
 		{
-			CorePerspective perspective
-					= (CorePerspective) perspectiveChooser.getSelectedItem();
+			CorePerspective perspective =
+					(CorePerspective) perspectiveChooser.getSelectedItem();
 			coreViewTreeViewModel.setPerspective(perspective);
 			viewTable.setTreeViewModel(coreViewTreeViewModel);
 		}
@@ -214,8 +214,7 @@ public class CoreViewFrame extends JFrame
 		{
 			this.character = character;
 
-			dataColumns
-					= Arrays.asList(
+			dataColumns = Arrays.asList(
 							new DefaultDataViewColumn("Key", String.class),
 							new DefaultDataViewColumn("Node Type", String.class),
 							new DefaultDataViewColumn("Source", String.class),
@@ -238,8 +237,8 @@ public class CoreViewFrame extends JFrame
 		@Override
 		public ListFacade<? extends TreeView<CoreViewNodeFacade>> getTreeViews()
 		{
-			DefaultListFacade<TreeView<CoreViewNodeFacade>> views
-					= new DefaultListFacade<TreeView<CoreViewNodeFacade>>();
+			DefaultListFacade<TreeView<CoreViewNodeFacade>> views =
+					new DefaultListFacade<TreeView<CoreViewNodeFacade>>();
 			views.addElement(new GrantedTreeView());
 			return views;
 		}
