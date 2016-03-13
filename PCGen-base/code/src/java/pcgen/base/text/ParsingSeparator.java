@@ -281,12 +281,23 @@ public class ParsingSeparator implements Iterator<String>
 			"ParsingSeparator does nor support remove()");
 	}
 
+	/**
+	 * The exception thrown by a ParsingSeparator when there is a mismatch of
+	 * grouping characters in the incoming String
+	 */
 	public static class GroupingMismatchException extends IllegalStateException
 	{
 
-		public GroupingMismatchException(String base)
+		/**
+		 * Constructs a new GroupingMismatchException with the given message.
+		 * 
+		 * @param message
+		 *            The message used to indicate the exact issue triggering
+		 *            the GroupingMismatchException
+		 */
+		public GroupingMismatchException(String message)
 		{
-			super(base);
+			super(message);
 		}
 
 	}
