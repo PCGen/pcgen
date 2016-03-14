@@ -98,6 +98,7 @@ public class CoreViewFrame extends JFrame
 		getContentPane().add(perspectiveChooser);
 
 		Utility.buildConstraints(c, 0, 2, col, 1, 0, 1000);
+		viewTable.setAutoCreateRowSorter(true);
 		JScrollPane pane = new JScrollPane(viewTable);
 		pane.setPreferredSize(new Dimension(500, 300));
 		gridbag.setConstraints(pane, c);

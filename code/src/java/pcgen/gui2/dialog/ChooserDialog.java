@@ -211,7 +211,9 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		JPanel leftPane = new JPanel(new BorderLayout());
 		if (availTable != null)
 		{
+			availTable.setAutoCreateRowSorter(true);
 			availTable.setTreeViewModel(treeViewModel);
+			availTable.getRowSorter().toggleSortOrder(0);
 			availTable.addActionListener(this);
 			leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 		}

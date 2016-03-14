@@ -57,6 +57,9 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
+import pcgen.gui2.util.table.SortableTableModel;
+import pcgen.gui2.util.table.SortableTableRowSorter;
+import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -83,7 +86,16 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		super("SpellBooks");
 		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
-		this.selectedTable = new JTreeViewTable<SuperNode>();
+		this.selectedTable = new JTreeViewTable<SuperNode>(){
+			
+			@Override
+			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
+			{
+				super.setTreeViewModel(viewModel);
+				sortModel();
+			}
+			
+		};
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
@@ -98,6 +110,16 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
+		selectedTable.setRowSorter(new SortableTableRowSorter(){
+			
+			@Override
+			public SortableTableModel getModel()
+			{
+				return (SortableTableModel) selectedTable.getModel();
+			}
+
+		});
+		selectedTable.getRowSorter().toggleSortOrder(0);
 		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
