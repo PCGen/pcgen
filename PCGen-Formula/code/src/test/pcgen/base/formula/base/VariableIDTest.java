@@ -17,22 +17,17 @@
  */
 package pcgen.base.formula.base;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
+import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleScopeInstance;
 
 public class VariableIDTest extends TestCase
 {
 
 	NumberManager numberManager = new NumberManager();
-	private ScopeInstanceFactory instanceFactory = new ScopeInstanceFactory(null);
 
 	@Test
 	public void testDoubleConstructor()
@@ -51,7 +46,7 @@ public class VariableIDTest extends TestCase
 			//ok, too			
 		}
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		try
 		{
 			new VariableID(globalInst, numberManager, null);
@@ -122,7 +117,7 @@ public class VariableIDTest extends TestCase
 	public void testGlobal()
 	{
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		VariableID vid = new VariableID(globalInst, numberManager, "test");
 		assertEquals("test", vid.getName());
 		assertEquals(globalInst, vid.getScope());
@@ -132,8 +127,8 @@ public class VariableIDTest extends TestCase
 	public void testEquals()
 	{
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
-		ScopeInstance globalInst2 = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope, null);
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
@@ -150,8 +145,8 @@ public class VariableIDTest extends TestCase
 	public void testHashCode()
 	{
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
-		ScopeInstance globalInst2 = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope, null);
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "bummer");

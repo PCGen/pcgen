@@ -22,22 +22,16 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.formula.inst.SimpleVariableStore;
 
 public class SimpleVariableStoreTest extends TestCase
 {
-
-	private ScopeInstanceFactory instanceFactory = new ScopeInstanceFactory(
-		null);
 
 	public void testNulls()
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		VariableID<Number> vid = new VariableID<>(globalInst, numberManager, "test");
 		try
 		{
@@ -73,7 +67,7 @@ public class SimpleVariableStoreTest extends TestCase
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		VariableID vid = new VariableID(globalInst, numberManager, "test");
 		assertFalse(varStore.containsKey(vid));
 		assertNull(varStore.put(vid, Integer.valueOf(9)));
@@ -89,11 +83,11 @@ public class SimpleVariableStoreTest extends TestCase
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
-		ScopeInstance globalInst2 = instanceFactory.getInstance(null, varScope);
+		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope, null);
 		VariableID vid4 = new VariableID(globalInst2, numberManager, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));
 		assertTrue(varStore.containsKey(vid1));
