@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.operator.bool.BooleanNot;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberDivide;
 import pcgen.base.formula.operator.number.NumberEquals;
@@ -46,6 +47,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		OperatorLibrary operatorLibrary = getOperatorLibrary();
 		operatorLibrary.addAction(new NumberEquals());
 		operatorLibrary.addAction(new NumberAdd());
+		operatorLibrary.addAction(new BooleanNot());
 		operatorLibrary.addAction(new NumberSubtract());
 		operatorLibrary.addAction(new NumberDivide());
 		operatorLibrary.addAction(new NumberMultiply());

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,31 +15,31 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.operator.number;
+package pcgen.base.formula.operator.bool;
 
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
 
 /**
- * NumberAdd performs negation of a Number value.
+ * BooleanNot performs negation on a Boolean value.
  */
-public class NumberMinus implements UnaryAction
+public class BooleanNot implements UnaryAction
 {
 
 	/**
-	 * Cache of the Number class.
+	 * Cache of the Boolean class.
 	 */
-	private static final Class<Number> NUMBER_CLASS = Number.class;
+	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
-	 * Indicates that NumberMinus Performs Negation.
+	 * Indicates that BooleanNot Performs Negation.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
 	 */
 	@Override
 	public Operator getOperator()
 	{
-		return Operator.MINUS;
+		return Operator.NOT;
 	}
 
 	/**
@@ -48,9 +48,9 @@ public class NumberMinus implements UnaryAction
 	@Override
 	public Class<?> abstractEvaluate(Class<?> format)
 	{
-		if (NUMBER_CLASS.isAssignableFrom(format))
+		if (BOOLEAN_CLASS.isAssignableFrom(format))
 		{
-			return NUMBER_CLASS;
+			return BOOLEAN_CLASS;
 		}
 		return null;
 	}
@@ -61,11 +61,7 @@ public class NumberMinus implements UnaryAction
 	@Override
 	public Object evaluate(Object o)
 	{
-		if (o instanceof Integer)
-		{
-			return -(Integer) o;
-		}
-		return -((Number) o).doubleValue();
+		return !((Boolean) o);
 	}
 
 }

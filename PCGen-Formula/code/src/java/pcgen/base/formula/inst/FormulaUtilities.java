@@ -28,6 +28,7 @@ import pcgen.base.formula.function.MinFunction;
 import pcgen.base.formula.function.RoundFunction;
 import pcgen.base.formula.function.ThisFunction;
 import pcgen.base.formula.operator.bool.BooleanAnd;
+import pcgen.base.formula.operator.bool.BooleanNot;
 import pcgen.base.formula.operator.bool.BooleanOr;
 import pcgen.base.formula.operator.generic.GenericEquals;
 import pcgen.base.formula.operator.generic.GenericNotEqual;
@@ -90,6 +91,7 @@ public final class FormulaUtilities
 		opLib.addAction(new GenericEquals());
 		opLib.addAction(new GenericNotEqual());
 		opLib.addAction(new BooleanAnd());
+		opLib.addAction(new BooleanNot());
 		opLib.addAction(new BooleanOr());
 		opLib.addAction(new NumberAdd());
 		opLib.addAction(new NumberDivide());
