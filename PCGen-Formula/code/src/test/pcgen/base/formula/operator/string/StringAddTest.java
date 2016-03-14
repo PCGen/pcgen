@@ -15,23 +15,23 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.operator.bool;
+package pcgen.base.formula.operator.string;
 
 import junit.framework.TestCase;
 
-public class BooleanNotEqualTest extends TestCase
+public class StringAddTest extends TestCase
 {
 
 	private static final Class<Number> NUMBER_CLASS = Number.class;
 	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
-	private static final Class<Integer> INTEGER_CLASS = Integer.class;
+	private static final Class<String> STRING_CLASS = String.class;
 
-	private final BooleanNotEqual op = new BooleanNotEqual();
+	private final StringAdd op = new StringAdd();
 
 	public void testOperator()
 	{
 		assertNotNull(op.getOperator());
-		assertTrue(op.getOperator().getSymbol().equals("!="));
+		assertTrue(op.getOperator().getSymbol().equals("+"));
 	}
 
 	public void testAbstractEvaluateNulls()
@@ -46,7 +46,7 @@ public class BooleanNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(BOOLEAN_CLASS, null));
+			assertNull(op.abstractEvaluate(STRING_CLASS, null));
 		}
 		catch (NullPointerException e)
 		{
@@ -54,7 +54,7 @@ public class BooleanNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.abstractEvaluate(null, BOOLEAN_CLASS));
+			assertNull(op.abstractEvaluate(null, STRING_CLASS));
 		}
 		catch (NullPointerException e)
 		{
@@ -64,14 +64,14 @@ public class BooleanNotEqualTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS));
+		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, STRING_CLASS));
+		assertNull(op.abstractEvaluate(STRING_CLASS, NUMBER_CLASS));
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS));
+		assertEquals(STRING_CLASS,
+			op.abstractEvaluate(STRING_CLASS, STRING_CLASS));
 	}
 
 	public void testEvaluateFailNull()
@@ -87,7 +87,7 @@ public class BooleanNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.evaluate(Boolean.TRUE, null));
+			assertNull(op.evaluate("ABC", null));
 			fail();
 		}
 		catch (NullPointerException e)
@@ -96,7 +96,7 @@ public class BooleanNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.evaluate(null, Boolean.FALSE));
+			assertNull(op.evaluate(null, "DEF"));
 			fail();
 		}
 		catch (NullPointerException e)
@@ -109,7 +109,7 @@ public class BooleanNotEqualTest extends TestCase
 	{
 		try
 		{
-			assertNull(op.evaluate(Boolean.TRUE, Double.valueOf(4.5)));
+			assertNull(op.evaluate("ABC", true));
 			fail();
 		}
 		catch (Exception e)
@@ -118,7 +118,7 @@ public class BooleanNotEqualTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.evaluate(new Object(), Boolean.FALSE));
+			assertNull(op.evaluate(new Object(), "DEF"));
 			fail();
 		}
 		catch (Exception e)
@@ -129,9 +129,6 @@ public class BooleanNotEqualTest extends TestCase
 
 	public void testEvaluateLegal()
 	{
-		assertEquals(Boolean.FALSE, op.evaluate(Boolean.TRUE, Boolean.TRUE));
-		assertEquals(Boolean.TRUE, op.evaluate(Boolean.FALSE, Boolean.TRUE));
-		assertEquals(Boolean.TRUE, op.evaluate(Boolean.TRUE, Boolean.FALSE));
-		assertEquals(Boolean.FALSE, op.evaluate(Boolean.FALSE, Boolean.FALSE));
+		assertEquals("ABCDEF", op.evaluate("ABC", "DEF"));
 	}
 }

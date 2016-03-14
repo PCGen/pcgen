@@ -15,18 +15,19 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.operator.bool;
+package pcgen.base.formula.operator.generic;
 
 import junit.framework.TestCase;
+import pcgen.base.formula.operator.generic.GenericEquals;
 
-public class BooleanEqualsTest extends TestCase
+public class GenericEqualsTest extends TestCase
 {
 
 	private static final Class<Number> NUMBER_CLASS = Number.class;
 	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 	private static final Class<Integer> INTEGER_CLASS = Integer.class;
 
-	private final BooleanEquals op = new BooleanEquals();
+	private final GenericEquals op = new GenericEquals();
 
 	public void testOperator()
 	{
@@ -109,8 +110,11 @@ public class BooleanEqualsTest extends TestCase
 	{
 		try
 		{
-			assertNull(op.evaluate(Boolean.TRUE, Double.valueOf(4.5)));
-			fail();
+			Object result = op.evaluate(Boolean.TRUE, Double.valueOf(4.5));
+			if ((Boolean) result)
+			{
+				fail("Unequal types cannot be equal");
+			}
 		}
 		catch (Exception e)
 		{
@@ -118,8 +122,11 @@ public class BooleanEqualsTest extends TestCase
 		}
 		try
 		{
-			assertNull(op.evaluate(new Object(), Boolean.FALSE));
-			fail();
+			Object result = op.evaluate(new Object(), Boolean.FALSE);
+			if ((Boolean) result)
+			{
+				fail("Unequal types cannot be equal");
+			}
 		}
 		catch (Exception e)
 		{

@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.operator.bool;
+package pcgen.base.formula.operator.generic;
 
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
@@ -23,7 +23,7 @@ import pcgen.base.formula.parse.Operator;
 /**
  * BooleanEquals performs an equality comparison on two Boolean values.
  */
-public class BooleanEquals implements OperatorAction
+public class GenericEquals implements OperatorAction
 {
 
 	/**
@@ -52,8 +52,7 @@ public class BooleanEquals implements OperatorAction
 	@Override
 	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
-		if (BOOLEAN_CLASS.isAssignableFrom(format1)
-			&& BOOLEAN_CLASS.isAssignableFrom(format2))
+		if (format1.equals(format2))
 		{
 			return BOOLEAN_CLASS;
 		}
@@ -68,10 +67,11 @@ public class BooleanEquals implements OperatorAction
 	@Override
 	public Object evaluate(Object l, Object r)
 	{
-		//Force boolean values (unboxing) here to produce problems with nulls
-		boolean left = ((Boolean) l).booleanValue();
-		boolean right = ((Boolean) r).booleanValue();
-		return Boolean.valueOf(left == right);
+		if (r == null)
+		{
+			throw new NullPointerException("object in equality cannot be null");
+		}
+		return l.equals(r);
 	}
 
 }

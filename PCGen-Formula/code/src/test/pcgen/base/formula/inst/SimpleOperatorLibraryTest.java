@@ -17,12 +17,10 @@
  */
 package pcgen.base.formula.inst;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
-import pcgen.base.formula.inst.SimpleOperatorLibrary;
-import pcgen.base.formula.operator.bool.BooleanEquals;
+import junit.framework.TestCase;
+import pcgen.base.formula.operator.generic.GenericEquals;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberEquals;
 import pcgen.base.formula.parse.Operator;
@@ -93,7 +91,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 	@Test
 	public void testMultiple()
 	{
-		library.addAction(new BooleanEquals());
+		library.addAction(new GenericEquals());
 		library.addAction(new NumberEquals());
 		assertEquals(Boolean.class,
 			library.processAbstract(Operator.EQ, Number.class, Integer.class));

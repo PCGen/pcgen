@@ -28,9 +28,9 @@ import pcgen.base.formula.function.MinFunction;
 import pcgen.base.formula.function.RoundFunction;
 import pcgen.base.formula.function.ThisFunction;
 import pcgen.base.formula.operator.bool.BooleanAnd;
-import pcgen.base.formula.operator.bool.BooleanEquals;
-import pcgen.base.formula.operator.bool.BooleanNotEqual;
 import pcgen.base.formula.operator.bool.BooleanOr;
+import pcgen.base.formula.operator.generic.GenericEquals;
+import pcgen.base.formula.operator.generic.GenericNotEqual;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberDivide;
 import pcgen.base.formula.operator.number.NumberEquals;
@@ -42,6 +42,7 @@ import pcgen.base.formula.operator.number.NumberMultiply;
 import pcgen.base.formula.operator.number.NumberNotEqual;
 import pcgen.base.formula.operator.number.NumberRemainder;
 import pcgen.base.formula.operator.number.NumberSubtract;
+import pcgen.base.formula.operator.string.StringAdd;
 
 /**
  * FormulaUtilities are a general set of utilities for dealing with Formulas.
@@ -85,9 +86,9 @@ public final class FormulaUtilities
 	 */
 	public static void loadBuiltInOperators(OperatorLibrary opLib)
 	{
+		opLib.addAction(new GenericEquals());
+		opLib.addAction(new GenericNotEqual());
 		opLib.addAction(new BooleanAnd());
-		opLib.addAction(new BooleanEquals());
-		opLib.addAction(new BooleanNotEqual());
 		opLib.addAction(new BooleanOr());
 		opLib.addAction(new NumberAdd());
 		opLib.addAction(new NumberDivide());
@@ -100,6 +101,7 @@ public final class FormulaUtilities
 		opLib.addAction(new NumberNotEqual());
 		opLib.addAction(new NumberRemainder());
 		opLib.addAction(new NumberSubtract());
+		opLib.addAction(new StringAdd());
 	}
 
 }

@@ -15,15 +15,15 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.operator.bool;
+package pcgen.base.formula.operator.generic;
 
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
 
 /**
- * BooleanNotEqual performs an inequality comparison on two Boolean values.
+ * GenericNotEqual performs an inequality comparison on two values.
  */
-public class BooleanNotEqual implements OperatorAction
+public class GenericNotEqual implements OperatorAction
 {
 
 	/**
@@ -32,7 +32,8 @@ public class BooleanNotEqual implements OperatorAction
 	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
-	 * Indicates that BooleanNotEqual Performs a comparison for logical inequality.
+	 * Indicates that GenericNotEqual Performs a comparison for logical
+	 * inequality.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
 	 */
@@ -43,8 +44,8 @@ public class BooleanNotEqual implements OperatorAction
 	}
 
 	/**
-	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * Boolean.class and returns Boolean.class.
+	 * Performs Abstract Evaluation, checking that the two arguments are are of
+	 * matching classes.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#abstractEvaluate(java.lang.Class,
 	 *      java.lang.Class)
@@ -52,8 +53,7 @@ public class BooleanNotEqual implements OperatorAction
 	@Override
 	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
-		if (BOOLEAN_CLASS.isAssignableFrom(format1)
-			&& BOOLEAN_CLASS.isAssignableFrom(format2))
+		if (format1.equals(format2))
 		{
 			return BOOLEAN_CLASS;
 		}
@@ -63,15 +63,17 @@ public class BooleanNotEqual implements OperatorAction
 	/**
 	 * Performs a logical inequality comparison on the given arguments.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object, java.lang.Object)
+	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object,
+	 *      java.lang.Object)
 	 */
 	@Override
 	public Object evaluate(Object l, Object r)
 	{
-		//Force boolean values (unboxing) here to produce problems with nulls
-		boolean left = ((Boolean) l).booleanValue();
-		boolean right = ((Boolean) r).booleanValue();
-		return Boolean.valueOf(left != right);
+		if (r == null)
+		{
+			throw new NullPointerException("object in equality cannot be null");
+		}
+		return !l.equals(r);
 	}
 
 }
