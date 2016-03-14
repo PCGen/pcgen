@@ -21,7 +21,7 @@ import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
 
 /**
- * BooleanNotEqual performs an inequality comparison on two Boolean values.
+ * GenericNotEqual performs an inequality comparison on two values.
  */
 public class GenericNotEqual implements OperatorAction
 {
@@ -32,7 +32,8 @@ public class GenericNotEqual implements OperatorAction
 	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
-	 * Indicates that BooleanNotEqual Performs a comparison for logical inequality.
+	 * Indicates that GenericNotEqual Performs a comparison for logical
+	 * inequality.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
 	 */
@@ -43,8 +44,8 @@ public class GenericNotEqual implements OperatorAction
 	}
 
 	/**
-	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * Boolean.class and returns Boolean.class.
+	 * Performs Abstract Evaluation, checking that the two arguments are are of
+	 * matching classes.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#abstractEvaluate(java.lang.Class,
 	 *      java.lang.Class)
@@ -62,7 +63,8 @@ public class GenericNotEqual implements OperatorAction
 	/**
 	 * Performs a logical inequality comparison on the given arguments.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object, java.lang.Object)
+	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object,
+	 *      java.lang.Object)
 	 */
 	@Override
 	public Object evaluate(Object l, Object r)

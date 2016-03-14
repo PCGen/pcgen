@@ -21,7 +21,7 @@ import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
 
 /**
- * StringAdd performs addition on two String values.
+ * StringAdd performs concatenation on two String values.
  */
 public class StringAdd implements OperatorAction
 {
@@ -32,7 +32,7 @@ public class StringAdd implements OperatorAction
 	private static final Class<String> STRING_CLASS = String.class;
 
 	/**
-	 * Indicates that StringAdd Performs Addition.
+	 * Indicates that StringAdd Performs Concatenation of Strings.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
 	 */
@@ -44,7 +44,7 @@ public class StringAdd implements OperatorAction
 
 	/**
 	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * Number.class and returns Number.class.
+	 * String.class and returns String.class.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#abstractEvaluate(java.lang.Class,
 	 *      java.lang.Class)
@@ -61,7 +61,7 @@ public class StringAdd implements OperatorAction
 	}
 
 	/**
-	 * Performs addition on the given arguments.
+	 * Performs concatenation on the given arguments.
 	 * 
 	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object,
 	 *      java.lang.Object)
