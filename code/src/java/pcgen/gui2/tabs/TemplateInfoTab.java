@@ -49,14 +49,12 @@ import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
-import pcgen.gui2.tabs.models.ConcurrentDataView;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
+import pcgen.gui2.util.treeview.CachedDataView;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -111,8 +109,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		availableTable.setDisplayableFilter(bar);
 		availableTable.setTreeCellRenderer(qualifiedRenderer);
-		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
 
 		Box box = Box.createHorizontalBox();
@@ -131,8 +127,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		selectedTable.setDisplayableFilter(filterBar);
 		selectedTable.setTreeCellRenderer(qualifiedRenderer);
-		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		selectedTable.sortModel();
 		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
 
 		box = Box.createHorizontalBox();
@@ -368,18 +362,14 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			availableTable.setTreeViewModel(availTreeView);
 			selectedTable.setTreeViewModel(selTreeView);
-			availDataView.install();
-			selDataView.install();
 		}
 
 		public void uninstall()
 		{
-			availDataView.uninstall();
-			selDataView.uninstall();
 		}
 	}
 
-	private class TemplateDataView extends ConcurrentDataView<TemplateFacade>
+	private class TemplateDataView extends CachedDataView<TemplateFacade>
 	{
 
 		private final List<DefaultDataViewColumn> columns;
@@ -423,26 +413,35 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-		@Override
-		protected List<?> getDataList(TemplateFacade obj)
-		{
-			return Arrays.asList(infoFactory.getLevelAdjustment(obj),
-					infoFactory.getModifier(obj),
-					infoFactory.getPreReqHTML(obj),
-					infoFactory.getDescription(obj),
-					obj.getSource());
-		}
+//		@Override
+//		protected void refreshTableData()
+//		{
+//			if (isAvailModel)
+//			{
+//				availableTable.refreshModelData();
+//			}
+//			else
+//			{
+//				selectedTable.refreshModelData();
+//			}
+//		}
 
 		@Override
-		protected void refreshTableData()
+		public Object getDataInternal(TemplateFacade obj, int column)
 		{
-			if (isAvailModel)
-			{
-				availableTable.refreshModelData();
-			}
-			else
-			{
-				selectedTable.refreshModelData();
+			switch(column){
+				case 0:
+					return infoFactory.getLevelAdjustment(obj);
+				case 1:
+					return infoFactory.getModifier(obj);
+				case 2:
+					return infoFactory.getPreReqHTML(obj);
+				case 3:
+					return infoFactory.getDescription(obj);
+				case 4:
+					return obj.getSource();
+				default:
+					return null;
 			}
 		}
 

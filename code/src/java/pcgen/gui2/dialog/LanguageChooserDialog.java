@@ -118,7 +118,9 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		JSplitPane split = new JSplitPane();
 		JPanel leftPane = new JPanel(new BorderLayout());
 		//leftPane.add(new JLabel("Available Languages"), BorderLayout.NORTH);
+		availTable.setAutoCreateRowSorter(true);
 		availTable.setTreeViewModel(treeViewModel);
+		availTable.getRowSorter().toggleSortOrder(0);
 		availTable.addActionListener(this);
 		leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 
@@ -248,9 +250,14 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		}
 
 		@Override
-		public List<?> getData(LanguageFacade obj)
+		public Object getData(LanguageFacade element, int column)
 		{
-			return Collections.emptyList();
+			return null;
+		}
+
+		@Override
+		public void setData(Object value, LanguageFacade element, int column)
+		{
 		}
 
 		@Override

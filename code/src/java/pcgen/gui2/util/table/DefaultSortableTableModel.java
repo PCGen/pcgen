@@ -154,7 +154,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
 
 	@Override
     @SuppressWarnings("unchecked")
-    public void sortModel(Comparator<List<?>> comparator)
+    public void sortModel(Comparator<Row> comparator)
     {
         Collections.sort(dataVector, comparator);
         fireTableDataChanged();

@@ -56,8 +56,7 @@ import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
+import pcgen.gui2.util.treeview.CachedDataView;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -123,8 +122,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		raceTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		raceTable.setTreeCellRenderer(qualifiedRenderer);
-		raceTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		raceTable.sortModel();
 		availPanel.add(new JScrollPane(raceTable), BorderLayout.CENTER);
 
 		Box box = Box.createHorizontalBox();
@@ -144,8 +141,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		selectedTable.setDisplayableFilter(filterBar);
 		selectedTable.setTreeCellRenderer(qualifiedRenderer);
-		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		selectedTable.sortModel();
 		JScrollPane scrollPane = new JScrollPane(selectedTable);
 		selPanel.add(scrollPane, BorderLayout.CENTER);
 		scrollPane.setPreferredSize(new Dimension(0, 0));
@@ -403,18 +398,14 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			raceTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
-			availableView.install();
-			selectedView.install();
 		}
 
 		public void uninstall()
 		{
-			availableView.uninstall();
-			selectedView.uninstall();
 		}
 	}
 
-	private class RaceDataView extends ConcurrentDataView<RaceFacade>
+	private class RaceDataView extends CachedDataView<RaceFacade>
 	{
 
 		private final List<DefaultDataViewColumn> columns;
@@ -467,31 +458,49 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		protected List<?> getDataList(RaceFacade obj)
+		public Object getDataInternal(RaceFacade obj, int column)
 		{
-			return Arrays.asList(infoFactory.getStatAdjustments(obj),
-					infoFactory.getPreReqHTML(obj),
-					obj.getSize(),
-					infoFactory.getMovement(obj),
-					infoFactory.getVision(obj),
-					infoFactory.getFavoredClass(obj),
-					infoFactory.getLevelAdjustment(obj),
-					infoFactory.getDescription(obj),
-					obj.getSource());
+			switch(column){
+				case 0:
+					return infoFactory.getStatAdjustments(obj);
+				case 1:
+					return infoFactory.getPreReqHTML(obj);
+				case 2:
+					return obj.getSize();
+				case 3:
+					return infoFactory.getMovement(obj);
+				case 4:
+					return infoFactory.getVision(obj);
+				case 5:
+					return infoFactory.getFavoredClass(obj);
+				case 6:
+					return infoFactory.getLevelAdjustment(obj);
+				case 7:
+					return infoFactory.getDescription(obj);
+				case 8:
+					return obj.getSource();
+				default:
+					return null;
+			}
 		}
 
 		@Override
-		protected void refreshTableData()
+		public void setData(Object value, RaceFacade element, int column)
 		{
-			if (isAvailModel)
-			{
-				raceTable.refreshModelData();
-			}
-			else
-			{
-				selectedTable.refreshModelData();
-			}
 		}
+
+//		@Override
+//		protected void refreshTableData()
+//		{
+//			if (isAvailModel)
+//			{
+//				raceTable.refreshModelData();
+//			}
+//			else
+//			{
+//				selectedTable.refreshModelData();
+//			}
+//		}
 
 	}
 

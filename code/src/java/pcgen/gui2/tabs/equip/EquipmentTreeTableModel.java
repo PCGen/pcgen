@@ -40,6 +40,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
+import pcgen.gui2.util.treetable.TreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
@@ -56,7 +57,7 @@ import pcgen.util.ListMap;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class EquipmentTreeTableModel implements SortableTreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
+public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {
 
 	private EventListenerList listenerList = new EventListenerList();
@@ -260,11 +261,6 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 	public void removeTreeModelListener(TreeModelListener l)
 	{
 		listenerList.remove(TreeModelListener.class, l);
-	}
-
-	@Override
-	public void sortModel(Comparator<List<?>> comparator)
-	{
 	}
 
 	private void addBodyNode(EquipNode bodyNode)

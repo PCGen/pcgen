@@ -1,6 +1,6 @@
 /*
- * SortMode.java
- * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
+ * Row.java
+ * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,18 +16,15 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 20, 2008, 9:35:30 PM
+ * Created on Jan 16, 2016, 4:41:56 PM
  */
-package pcgen.gui2.util;
+package pcgen.gui2.util.table;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public enum SortMode
+public interface Row
 {
-
-    ASCENDING,
-    DESCENDING,
-    UNORDERED
+	public Object getValueAt(int column);
 }

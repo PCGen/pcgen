@@ -47,6 +47,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableModel;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
@@ -64,7 +65,6 @@ import pcgen.gui2.filter.FilterHandler;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.JTreeTable;
-import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
@@ -120,11 +120,19 @@ public class EquipmentModels
 	private final EquipFilterHandler filterHandler;
 	private EquipView selectedView;
 	private EquipmentTableModel selectedModel;
-	private JComboBox equipViewBox;
-	private JTableEx equipmentTable;
-	private JTreeTable equipmentSetTable;
+	private final JComboBox equipViewBox;
+	private final JTableEx equipmentTable;
+	private final JTreeTable equipmentSetTable;
+	private final JButton equipButton;
+	private final JButton unequipButton;
+	private final JButton moveUpButton;
+	private final JButton moveDownButton;
+	private final DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter;
 
-	public EquipmentModels(CharacterFacade character)
+	public EquipmentModels(CharacterFacade character, JComboBox equipBox, JTableEx eqTable,
+		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter,
+		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton, 
+		JButton moveUpButton, JButton moveDownButton)
 	{
 		this.character = character;
 		this.unequippedList = new UnequippedList(character);
@@ -145,16 +153,19 @@ public class EquipmentModels
 		this.moveUpAction = new MoveUpAction();
 		this.moveDownAction = new MoveDownAction();
 		this.filterHandler = new EquipFilterHandler();
-	}
-
-	public void install(JComboBox equipBox, JTableEx eqTable,
-		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter,
-		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton, 
-		JButton moveUpButton, JButton moveDownButton)
-	{
+		
 		this.equipViewBox = equipBox;
 		this.equipmentTable = eqTable;
 		this.equipmentSetTable = eqSetTable;
+		this.filter = filter;
+		this.equipButton = equipButton;
+		this.unequipButton = unequipButton;
+		this.moveUpButton = moveUpButton;
+		this.moveDownButton = moveDownButton;
+	}
+
+	public void install()
+	{
 		viewHandler.install();
 		equipButton.setAction(equipAction);
 		unequipButton.setAction(unequipAction);
@@ -171,11 +182,8 @@ public class EquipmentModels
 
 	public void uninstall()
 	{
-		if (equipmentTable != null)
-		{
-			equipAction.uninstall();
-			unequipAction.uninstall();
-		}
+		equipAction.uninstall();
+		unequipAction.uninstall();
 	}
 
 	private List<EquipNode> getSelectedEquipmentSetNodes()
@@ -195,7 +203,7 @@ public class EquipmentModels
 
 	private void selectNodeInEquipmentSetTable(EquipNode nodeToSelect)
 	{
-		SortableTableModel model = equipmentSetTable.getModel();
+		TableModel model = equipmentSetTable.getModel();
 		for (int i = 0; i < model.getRowCount(); i++)
 		{
 			if (nodeToSelect == model.getValueAt(i, 0))

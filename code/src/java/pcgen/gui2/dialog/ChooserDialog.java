@@ -211,7 +211,9 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		JPanel leftPane = new JPanel(new BorderLayout());
 		if (availTable != null)
 		{
+			availTable.setAutoCreateRowSorter(true);
 			availTable.setTreeViewModel(treeViewModel);
+			availTable.getRowSorter().toggleSortOrder(0);
 			availTable.addActionListener(this);
 			leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 		}
@@ -433,9 +435,14 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 
 		@Override
-		public List<?> getData(InfoFacade obj)
+		public Object getData(InfoFacade element, int column)
 		{
-			return Collections.emptyList();
+			return null;
+		}
+
+		@Override
+		public void setData(Object value, InfoFacade element, int column)
+		{
 		}
 
 		@Override
