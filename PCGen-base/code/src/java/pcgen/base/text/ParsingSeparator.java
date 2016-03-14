@@ -17,9 +17,10 @@
  */
 package pcgen.base.text;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Stack;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -202,7 +203,7 @@ public class ParsingSeparator implements Iterator<String>
 			return "";
 		}
 		StringBuilder compilation = new StringBuilder(baseString.length());
-		Stack<String> expected = new Stack<String>();
+		Deque<String> expected = new ArrayDeque<String>();
 		while (baseTokenizer.hasMoreTokens())
 		{
 			String currentToken = baseTokenizer.nextToken();
