@@ -35,7 +35,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,12 +54,14 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
+import javax.swing.RowSorter;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -89,11 +90,8 @@ import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JDynamicTable;
 import pcgen.gui2.util.JTreeTable;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
-import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
@@ -142,7 +140,23 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	public EquipInfoTab()
 	{
 		super("Equip");
-		this.equipmentTable = new JDynamicTable();
+		//TODO: remove this when optimized sorting is implemented
+		this.equipmentTable = new JDynamicTable()
+		{
+
+			@Override
+			public void setModel(TableModel dataModel)
+			{
+				RowSorter<? extends TableModel> oldRowSorter = getRowSorter();
+				super.setModel(dataModel);
+				RowSorter<? extends TableModel> newRowSorter = getRowSorter();
+				if (newRowSorter != null && oldRowSorter != null)
+				{
+					newRowSorter.setSortKeys(oldRowSorter.getSortKeys());
+				}
+			}
+
+		};
 		this.equipViewBox = new JComboBox(EquipView.values());
 		this.infoPane = new InfoPane();
 		this.equipmentSetTable = new JTreeTable()
@@ -205,8 +219,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		equipmentTable.setAutoCreateColumnsFromModel(false);
 		equipmentTable.setColumnModel(createEquipmentColumnModel());
-		equipmentTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		equipmentTable.sortModel();
+		equipmentTable.setAutoCreateRowSorter(true);
 		panel.add(new JScrollPane(equipmentTable), BorderLayout.CENTER);
 
 		Box buttonsBox = Box.createHorizontalBox();
@@ -320,7 +333,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 		ModelMap models = new ModelMap();
 		models.put(EquipmentModel.class, new EquipmentModel(character, equipmentSetTable));
-		models.put(EquipmentModels.class, new EquipmentModels(character));
+		models.put(EquipmentModels.class, new EquipmentModels(character,
+				equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
+				equipButton, unequipButton, moveUpButton, moveDownButton));
 		models.put(UnequipAllAction.class, new UnequipAllAction(character));
 		models.put(EquipSetBoxModel.class, new EquipSetBoxModel(character));
 		models.put(AddSetAction.class, new AddSetAction(character));
@@ -340,9 +355,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	public void restoreModels(ModelMap models)
 	{
 		models.get(EquipmentModel.class).install();
-		models.get(EquipmentModels.class).install(
-				equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
-				equipButton, unequipButton, moveUpButton, moveDownButton);
+		models.get(EquipmentModels.class).install();
 		models.get(LabelsUpdater.class).install();
 		models.get(EquipInfoHandler.class).install();
 		models.get(EquipmentRenderer.class).install();
@@ -1092,7 +1105,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				List<EquipNode> sortTargets)
 		{
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
-			SortableTableModel equipSetModel = equipmentSetTable.getModel();
+			TableModel equipSetModel = equipmentSetTable.getModel();
 			int beforeRow = equipSetModel.getRowCount();
 			int afterRow = 0;
 			for (Integer selRow : targetRows)
@@ -1290,4 +1303,5 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		}
 
 	}
+
 }

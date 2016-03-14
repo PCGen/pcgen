@@ -562,18 +562,30 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 		
 		@Override
-		public List<?> getData(CampaignFacade obj)
+		public Object getData(CampaignFacade obj, int column)
 		{
-			SourceSelectionFacade sourceFacade =
-					frame.getCurrentSourceSelectionRef().getReference();
-			boolean isLoaded =
-					sourceFacade != null
-						&& sourceFacade.getCampaigns().containsElement(obj);
-			return Arrays.asList(
-				obj.getBookTypes(),
-				obj.getStatus(),
-				isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
-					.getString("in_no"));
+			SourceSelectionFacade sourceFacade
+					= frame.getCurrentSourceSelectionRef().getReference();
+			boolean isLoaded
+					= sourceFacade != null
+					&& sourceFacade.getCampaigns().containsElement(obj);
+			switch (column)
+			{
+				case 0:
+					return obj.getBookTypes();
+				case 1:
+					return obj.getStatus();
+				case 2:
+					return isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
+							.getString("in_no");
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, CampaignFacade element, int column)
+		{
 		}
 		
 		@Override
@@ -624,7 +636,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		{
 			return isAvailModel ? "SourceAvail" : "SourceSelected";  //$NON-NLS-1$//$NON-NLS-2$
 		}
-		
+
 	}
 
 	private static enum SourceTreeView implements TreeView<CampaignFacade>

@@ -325,11 +325,22 @@ public class KitPanel extends FlippingSplitPane
 			}
 		}
 
-        @Override
-		public List<?> getData(KitFacade obj)
+		@Override
+		public Object getData(KitFacade element, int column)
 		{
-			return Arrays.asList(character.getInfoFactory().getDescription(obj),
-					obj.getSource());
+			switch(column){
+				case 0:
+					return character.getInfoFactory().getDescription(element);
+				case 1:
+					return element.getSource();
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, KitFacade element, int column)
+		{
 		}
 
         @Override

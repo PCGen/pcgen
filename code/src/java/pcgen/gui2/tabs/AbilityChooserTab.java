@@ -72,6 +72,7 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeTable;
+import pcgen.gui2.util.treeview.CachedDataView;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -209,7 +210,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 	}
 
-	private class AvailableAbilityTreeViewModel extends ConcurrentDataView<AbilityFacade>
+	private class AvailableAbilityTreeViewModel 
+		extends CachedDataView<AbilityFacade>
 			implements TreeViewModel<AbilityFacade>, ListSelectionListener, DataView<AbilityFacade>
 	{
 
@@ -289,18 +291,14 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			return ret;
 		}
 
-		@Override
 		public void install()
 		{
-			super.install();
 			availableTreeViewPanel.setTreeViewModel(this);
 			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);
 		}
 
-		@Override
 		public void uninstall()
 		{
-			super.uninstall();
 			selectedTreeViewPanel.getSelectionModel().removeListSelectionListener(this);
 		}
 
@@ -352,21 +350,39 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			return title;
 		}
 
-		@Override
-		protected List<?> getDataList(AbilityFacade obj)
-		{
-			return Arrays.asList(getTypes(obj.getTypes()),
-					obj.isMult(),
-					obj.isStackable(),
-					infoFactory.getDescription(obj),
-					(int) obj.getCost(),
-					obj.getSource());
-		}
+//		@Override
+//		protected void refreshTableData()
+//		{
+//			availableTreeViewPanel.refreshModelData();
+//		}
 
 		@Override
-		protected void refreshTableData()
+		public Object getDataInternal(AbilityFacade obj, int column)
 		{
-			availableTreeViewPanel.refreshModelData();
+			switch(column){
+				case 0:
+					return getTypes(obj.getTypes());
+				case 1:
+					return obj.isMult();
+				case 2:
+					return obj.isStackable();
+				case 3:
+					return infoFactory.getDescription(obj);
+				case 4:
+					return (int) obj.getCost();
+				case 5:
+					return obj.getSource();
+				default:
+					return null;
+			}
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void setData(Object value, AbilityFacade element, int column)
+		{
 		}
 
 	}
@@ -620,7 +636,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		//availableTreeViewPanel.setTransferHandler(handler);
 		((TreeRendererHandler) state.get(TreeRendererHandler.class)).install();
 		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));
-		selectedTreeViewPanel.sortModel();
+//		selectedTreeViewPanel.sortModel();
 		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();
 		addButton.setAction((AddAction) state.get(AddAction.class));
 		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));

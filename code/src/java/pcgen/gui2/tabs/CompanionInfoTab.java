@@ -763,9 +763,14 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		}
 		
 		@Override
-		public List<?> getData(CompanionStubFacade obj)
+		public Object getData(CompanionStubFacade element, int column)
 		{
-			return Collections.emptyList();
+			return null;
+		}
+
+		@Override
+		public void setData(Object value, CompanionStubFacade element, int column)
+		{
 		}
 		
 		@Override
@@ -790,7 +795,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		{
 			return newCompanion;
 		}
-		
+
 	}
 	
 	private enum CompanionTreeView implements TreeView<CompanionStubFacade>
@@ -824,7 +829,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 	}
 	
-	private static class CompanionsModel extends AbstractTreeTableModel implements SortableTreeTableModel
+	private static class CompanionsModel extends AbstractTreeTableModel implements TreeTableModel
 	{
 		
 		private CompanionSupportFacade support;
@@ -859,12 +864,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		public int getColumnCount()
 		{
 			return 2;
-		}
-		
-		@Override
-		public void sortModel(Comparator<List<?>> comparator)
-		{
-			//do nothing
 		}
 		
 		private class CompanionNode extends DefaultTreeTableNode

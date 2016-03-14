@@ -20,11 +20,11 @@
  */
 package pcgen.gui2.util;
 
-import java.awt.Component;
+import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Rectangle;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,9 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.AbstractAction;
-import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -45,9 +44,9 @@ import javax.swing.JTable;
 import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.event.TableColumnModelEvent;
-import javax.swing.table.TableCellRenderer;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -71,73 +70,54 @@ import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 
 /**
- * This class is a reimplementation of JTreeViewPane
- * but is implemented into the JTreeTable rather than into the JScrollPane
- * This should be used instead of JTreeViewPane since it provides direct
- * access to underlying JTreeTable. Care should be taken (as with JTreeTable)
- * to not overwrite the underlying data structures through parent methods.
- * Methods whose usage would endanger the integrity of this class are the following:
- * getModel()
- * setModel(TableModel)
- * getTreeTableModel()
- * setTreeTableModel(TreeTableModel)
- * setTableHeader(JTableHeader)
- * setAutoCreateColumnsFromModel(boolean);
+ * JTreeViewTable is a subclass of JTreeTable that uses a TreeViewModel instead
+ * of a a TreeTableModel. The TreeViewModel is a oriented towards displaying
+ * arbitrary objects as a tree instead of TreeTableNodes. In addition, the
+ * TreeViewModel supports multiple viewing methods and column visibility
+ * controls.
+ * <br>
+ * <br>Node: Methods whose usage would endanger the integrity of this class are
+ * the following:
+ * <br>getModel()
+ * <br>setModel(TableModel)
+ * <br>getTreeTableModel()
+ * <br>setTreeTableModel(TreeTableModel)
+ * <br>setTableHeader(JTableHeader)
+ * <br>setAutoCreateColumnsFromModel(boolean);
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
 public class JTreeViewTable<T> extends JTreeTable
 {
 
-	/** Preferences key for the width of the tree view column. */
+	/**
+	 * Preferences key for the width of the tree view column.
+	 */
 	private static final String TREE_VIEW_COL_PREFS_KEY = "TreeView";
-	/** The preferences key for the selected tree view index. */
+	/**
+	 * The preferences key for the selected tree view index.
+	 */
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
-	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
-	{
-		@Override
-		public void availableColumnAdded(TableColumnModelEvent event)
-		{
-			int index = event.getToIndex();
-			TableColumn column = dynamicColumnModel.getAvailableColumns().get(index);
-			menu.insert(createMenuItem(column), index);
-			cornerButton.setVisible(true);
-		}
 
-		@Override
-		public void availableColumnRemove(TableColumnModelEvent event)
-		{
-
-			menu.remove(event.getFromIndex());
-			if (menu.getComponentCount() == 0)
-			{
-				cornerButton.setVisible(false);
-			}
-		}
-
-	};
-	private final JButton cornerButton = new JButton(new CornerAction());
+	private final JTableMenuButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
-	private JPopupMenu menu = new JPopupMenu();
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
-	private TreeViewsPopupMenu treeviewMenu = new TreeViewsPopupMenu();
-	private PropertyContext baseContext;
+	protected CornerButtonPopupMenu cornerPopupMenu = new CornerButtonPopupMenu();
+	private static final PropertyContext baseContext = UIPropertyContext.createContext("tablePrefs");
 
 	/**
 	 * Create a new instance of JTreeViewTable
 	 */
 	public JTreeViewTable()
 	{
-		setTableHeader(new JTreeViewHeader());
 		setAutoCreateColumnsFromModel(false);
+		setAutoCreateRowSorter(false);
 		getTree().setLargeModel(true);
-		baseContext = UIPropertyContext.createContext("tablePrefs");
+		this.cornerButton = new JTableMenuButton(this, cornerPopupMenu);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
 		return new TreeViewTableModel<TM>(dataView);
@@ -153,11 +133,11 @@ public class JTreeViewTable<T> extends JTreeTable
 	}
 
 	private DynamicTableColumnModel createTableColumnModel(TreeView<?> startingView,
-														   DataView<?> dataView)
+			DataView<?> dataView)
 	{
 		@SuppressWarnings("unchecked")
-		ListMap<Visibility, TableColumn, List<TableColumn>> listMap =
-				CollectionMaps.createListMap(HashMap.class, ArrayList.class);
+		ListMap<Visibility, TableColumn, List<TableColumn>> listMap
+				= CollectionMaps.createListMap(HashMap.class, ArrayList.class);
 		int index = 1;
 		for (DataViewColumn column : dataView.getDataColumns())
 		{
@@ -174,7 +154,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 
 		PrefTableColumnModel model = new PrefTableColumnModel(this.viewModel.getDataView().getPrefsKey(),
-															  columns.size() + 1);
+				columns.size() + 1);
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
 		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);
@@ -205,6 +185,9 @@ public class JTreeViewTable<T> extends JTreeTable
 		return model;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void configureEnclosingScrollPane()
 	{
@@ -230,6 +213,9 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void unconfigureEnclosingScrollPane()
 	{
@@ -255,9 +241,10 @@ public class JTreeViewTable<T> extends JTreeTable
 	}
 
 	/**
-	 * This returns data that is currently highlighted by the user. This may 
-	 * include branch nodes which are of type Object and not the type managed by 
-	 * the table model. Hence we cannot use <T> here.  
+	 * This returns data that is currently highlighted by the user. This may
+	 * include branch nodes which are of type Object and not the type managed by
+	 * the table model. Hence we cannot use <T> here.
+	 *
 	 * @return A list of selected leaf and branch rows.
 	 */
 	public List<Object> getSelectedData()
@@ -278,7 +265,8 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	/**
 	 * Returns the currently selected object, if any.
-	 * @return the selected object or null if none selected. 
+	 *
+	 * @return the selected object or null if none selected.
 	 */
 	public Object getSelectedObject()
 	{
@@ -300,9 +288,9 @@ public class JTreeViewTable<T> extends JTreeTable
 	}
 
 	/**
-	 * React to a non structural change in model data by repainting the table. Will 
-	 * not collapse the tree or change which rows are displayed and will not be 
-	 * sufficient if rows have been added or removed.   
+	 * React to a non structural change in model data by repainting the table.
+	 * Will not collapse the tree or change which rows are displayed and will
+	 * not be sufficient if rows have been added or removed.
 	 */
 	public void updateDisplay()
 	{
@@ -314,7 +302,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	{
 		if (this.dynamicColumnModel != null)
 		{
-			this.dynamicColumnModel.removeDynamicTableColumnModelListener(listener);
+			this.dynamicColumnModel.removeDynamicTableColumnModelListener(cornerPopupMenu);
 			cornerButton.setVisible(false);
 		}
 		super.setColumnModel(columnModel);
@@ -324,25 +312,12 @@ public class JTreeViewTable<T> extends JTreeTable
 	{
 		if (this.dynamicColumnModel != null)
 		{
-			this.dynamicColumnModel.removeDynamicTableColumnModelListener(listener);
+			this.dynamicColumnModel.removeDynamicTableColumnModelListener(cornerPopupMenu);
 		}
 		this.dynamicColumnModel = columnModel;
-		columnModel.addDynamicTableColumnModelListener(listener);
+		columnModel.addDynamicTableColumnModelListener(cornerPopupMenu);
 		super.setColumnModel(columnModel);
-		List<TableColumn> columns = columnModel.getAvailableColumns();
-		menu.removeAll();
-		if (!columns.isEmpty())
-		{
-			for (TableColumn column : columns)
-			{
-				menu.add(createMenuItem(column));
-			}
-			cornerButton.setVisible(true);
-		}
-		else
-		{
-			cornerButton.setVisible(false);
-		}
+		cornerPopupMenu.resetComponents();
 	}
 
 	protected void setTreeView(TreeView<? super T> view)
@@ -352,8 +327,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		viewColumn.setHeaderValue(view.getViewName());
 		sortModel();
 		getTableHeader().repaint();
-		PropertyContext context =
-				baseContext.createChildContext(
+		PropertyContext context = baseContext.createChildContext(
 				this.viewModel.getDataView().getPrefsKey());
 
 		int index = getIndex(viewModel.getTreeViews(), view);
@@ -365,12 +339,13 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	/**
 	 * get the index of the view.
+	 *
 	 * @param treeViews The list of tree views.
 	 * @param view The view to be found
 	 * @return The index or -1 if not found.
 	 */
 	private int getIndex(ListFacade<? extends TreeView<T>> treeViews,
-						 TreeView<? super T> view)
+			TreeView<? super T> view)
 	{
 		for (int i = 0; i < treeViews.getSize(); i++)
 		{
@@ -392,8 +367,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	public void setTreeViewModel(TreeViewModel<T> viewModel)
 	{
 		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-		PropertyContext context =
-				baseContext.createChildContext(
+		PropertyContext context = baseContext.createChildContext(
 				viewModel.getDataView().getPrefsKey());
 		int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 		TreeView<? super T> startingView = views.getElementAt(viewIndex);
@@ -402,25 +376,16 @@ public class JTreeViewTable<T> extends JTreeTable
 		this.treetableModel = model;
 		if (this.viewModel != null)
 		{
-			this.viewModel.getTreeViews().removeListListener(treeviewMenu);
+			this.viewModel.getTreeViews().removeListListener(cornerPopupMenu);
 		}
 		this.viewModel = viewModel;
-		treeviewMenu.resetComponents();
-		this.viewModel.getTreeViews().addListListener(treeviewMenu);
 
 		model.setDataModel(viewModel.getDataModel());
 		model.setSelectedTreeView(startingView);
 		setTreeTableModel(model);
 		setColumnModel(createTableColumnModel(startingView, dataView));
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				sortModel();
-			}
-
-		});
+		cornerPopupMenu.resetComponents();
+		this.viewModel.getTreeViews().addListListener(cornerPopupMenu);
 	}
 
 	/**
@@ -433,6 +398,7 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	/**
 	 * Find the named view.
+	 *
 	 * @param views The list of TreeViews.
 	 * @param viewName The name of the desired view.
 	 * @return The matching view, or the first one if none match.
@@ -450,50 +416,57 @@ public class JTreeViewTable<T> extends JTreeTable
 		return views.getElementAt(0);
 	}
 
-	private class TreeViewsPopupMenu extends JPopupMenu implements ListListener<TreeView<T>>
+	/**
+	 * This is the popup menu for the CornerButton which allows selection of the
+	 * selected tree view as well as the visible columns for the table.
+	 */
+	protected class CornerButtonPopupMenu extends JPopupMenu implements
+			ListListener<TreeView<T>>, DynamicTableColumnModelListener
 	{
 
-		private ButtonGroup group = new ButtonGroup();
+		private boolean treeViewsEnabled = true;
+		private boolean tableColumnsEnabled = true;
+
+		@Override
+		public void availableColumnAdded(TableColumnModelEvent event)
+		{
+			resetComponents();
+		}
+
+		@Override
+		public void availableColumnRemove(TableColumnModelEvent event)
+		{
+			resetComponents();
+		}
 
 		@Override
 		public void elementAdded(ListEvent<TreeView<T>> e)
 		{
-			JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(e.getElement()));
-			group.add(item);
-			add(item, e.getIndex());
+			resetComponents();
 		}
 
 		@Override
 		public void elementRemoved(ListEvent<TreeView<T>> e)
 		{
-			group.remove((AbstractButton) getComponent(e.getIndex()));
-			remove(e.getIndex());
+			resetComponents();
 		}
 
-		public void resetComponents()
+		public void setTreeViewsEnabled(boolean enabled)
 		{
-			elementsChanged(null);
+			this.treeViewsEnabled = enabled;
+			resetComponents();
+		}
+
+		public void setTableColumnsEnabled(boolean enabled)
+		{
+			this.tableColumnsEnabled = enabled;
+			resetComponents();
 		}
 
 		@Override
 		public void elementsChanged(ListEvent<TreeView<T>> e)
 		{
-			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-			PropertyContext context =
-					baseContext.createChildContext(viewModel.getDataView()
-					.getPrefsKey());
-			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
-			TreeView<? super T> startingView =
-					views.getElementAt(viewIndex);
-			group = new ButtonGroup();
-			removeAll();
-			for (TreeView<T> treeview : views)
-			{
-				JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
-				item.setSelected(startingView == treeview);
-				group.add(item);
-				add(item);
-			}
+			resetComponents();
 		}
 
 		@Override
@@ -501,24 +474,40 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 		}
 
-	}
-
-	private class CornerAction extends AbstractAction
-	{
-
-		public CornerAction()
+		public void resetComponents()
 		{
-			super("...");
-		}
+			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
+			PropertyContext context
+					= baseContext.createChildContext(viewModel.getDataView()
+							.getPrefsKey());
+			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			Container parent = getParent();
-			//make sure that the menu has a chance to layout its components
-			//so that its width can be initialized
-			menu.setVisible(true);
-			menu.show(parent, parent.getWidth() - menu.getWidth(), 0);
+			ButtonGroup group = new ButtonGroup();
+			TreeView<? super T> startingView = views.getElementAt(viewIndex);
+			removeAll();
+			JLabel treeLabel = new JLabel("Tree Views");
+			treeLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));
+			add(treeLabel);
+			for (TreeView<T> treeview : views)
+			{
+				JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
+				item.setSelected(startingView == treeview);
+				group.add(item);
+				item.setEnabled(treeViewsEnabled);
+				add(item);
+			}
+			addSeparator();
+			JLabel columnLabel = new JLabel("Columns");
+			columnLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));
+			add(columnLabel);
+			List<TableColumn> columns = dynamicColumnModel.getAvailableColumns();
+			for (TableColumn column : columns)
+			{
+				JMenuItem item = createMenuItem(column);
+				item.setEnabled(tableColumnsEnabled);
+				add(item);
+			}
+			cornerButton.setVisible(!columns.isEmpty() || !views.isEmpty());
 		}
 
 	}
@@ -559,92 +548,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		public void actionPerformed(ActionEvent e)
 		{
 			setTreeView(view);
-		}
-
-	}
-
-	protected class JTreeViewHeader extends JTableSortingHeader
-	{
-
-		public JTreeViewHeader()
-		{
-			super(JTreeViewTable.this);
-		}
-
-		@Override
-		protected TableCellRenderer createDefaultRenderer()
-		{
-			return new TreeViewHeaderRenderer();
-		}
-
-		@Override
-		public void mouseClicked(MouseEvent e)
-		{
-			if (!treeviewMenu.isVisible())
-			{
-				super.mouseClicked(e);
-			}
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e)
-		{
-			super.mousePressed(e);
-			maybeShowPopup(e);
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e)
-		{
-
-			super.mouseReleased(e);
-			maybeShowPopup(e);
-		}
-
-		protected void maybeShowPopup(MouseEvent e)
-		{
-			if (e.isPopupTrigger()
-				&& getTrackedColumn() != null
-				&& getTrackedColumn().getHeaderValue() == treetableModel
-					.getSelectedTreeView().getViewName())
-			{
-				TableColumnModel columnmodel = getColumnModel();
-				Rectangle rect = getHeaderRect(columnmodel.getColumnIndexAtX(e.getX()));
-				treeviewMenu.setPopupSize(rect.width, treeviewMenu.getPreferredSize().height);
-				treeviewMenu.show(JTreeViewTable.this.getParent(), rect.x, rect.y);
-			}
-		}
-
-		private class TreeViewHeaderRenderer extends SortingHeaderRenderer
-		{
-
-			private JLabel arrowLabel;
-
-			public TreeViewHeaderRenderer()
-			{
-				arrowLabel = new JLabel(new ArrowIcon(SwingConstants.SOUTH, 5));
-				arrowLabel.setPreferredSize(new Dimension(16, 16));
-				arrowLabel.setMaximumSize(new Dimension(16, Integer.MAX_VALUE));
-				arrowLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-			}
-
-			@Override
-			public Component getTableCellRendererComponent(JTable jTable,
-														   Object value,
-														   boolean isSelected,
-														   boolean hasFocus,
-														   int row,
-														   int column)
-			{
-				super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
-				removeAll();
-				if (treetableModel.getSelectedTreeView().getViewName() == value)
-				{
-					add(arrowLabel);
-				}
-				return this;
-			}
-
 		}
 
 	}
