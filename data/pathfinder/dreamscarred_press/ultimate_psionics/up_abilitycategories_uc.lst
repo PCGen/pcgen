@@ -7,11 +7,11 @@
 #   Change source line
 
 ###Block: Archetype ability pools
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list			Plural description for UI		Display Location
-ABILITYCATEGORY:Amateur Gunslinger Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Amateur Gunslinger	PLURAL:Amateur Gunslinger Feat	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Rapid Reload Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Rapid Reload		PLURAL:Rapid Reload Feat		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Kaigun Deed			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeedsLvl1									PLURAL:Kaigun Deeds			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Insightful Deed		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeedsLvl1.DeedsLvl3							PLURAL:Insightful Deeds			DISPLAYLOCATION:Class Features
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Amateur Gunslinger Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Amateur Gunslinger|Extra Grit	PLURAL:Amateur Gunslinger Feat	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rapid Reload Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Rapid Reload			PLURAL:Rapid Reload Feat		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Kaigun Deed			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeedsLvl1										PLURAL:Kaigun Deeds			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Insightful Deed		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeedsLvl1.DeedsLvl3								PLURAL:Insightful Deeds			DISPLAYLOCATION:Class Features
 
 #
 # End
