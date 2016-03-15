@@ -991,7 +991,7 @@
 ====================================-->
 	<xsl:template match="common">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:block keep-with-next.within-page="always" keep-together="always">
+		<fo:block keep-with-next.within-page="always" keep-together.within-column="always">
 		<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 48" />mm</xsl:attribute>
@@ -1132,7 +1132,7 @@
 
 	<xsl:template match="common" mode="special_properties">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:block keep-with-previous.within-page="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
 		<fo:table table-layout="fixed">
 			<fo:table-column column-width="20mm"/>
 			<fo:table-column>
@@ -1176,7 +1176,7 @@
 		<xsl:param name="to_hit" select="''"/>
 		<xsl:param name="damage" select="''"/>
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth"/>
-		<fo:block keep-with-previous.within-page="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
 		<fo:table table-layout="fixed">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.5 * $column_width" />mm</xsl:attribute>
@@ -1301,7 +1301,7 @@
 ====================================-->
 	<xsl:template match="melee">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
-		<fo:block keep-with-previous.within-page="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
 		<fo:table table-layout="fixed">
 			<fo:table-column column-width="8mm"/>
 			<fo:table-column>
@@ -1402,7 +1402,7 @@
 ====================================-->
 	<xsl:template match="ranges">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:block keep-with-previous.within-page="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
 		<fo:table table-layout="fixed">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
