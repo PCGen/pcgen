@@ -47,7 +47,7 @@ Mathematical Prodigy	KEY:Trait ~ Mathematical Prodigy	CATEGORY:Special Ability	T
 Skeptic			KEY:Trait ~ Skeptic			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Skeptic],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait]			DESC:Growing up, you were always around magical effects to the extent that you realized that much of it was smoke and mirrors. You gain a +2 trait bonus on all saving throws against illusions.																																																																																																								SOURCEPAGE:p.329	ASPECT:SaveBonus|+2 trait bonus on all saving throws against illusions.
 
 
-Magical Lineage		KEY:Magical Lineage ~ Metamagic	CATEGORY:FEAT									VISIBLE:NO																																																																																																																																						ADDSPELLLEVEL:-1
+Magical Lineage		KEY:Magical Lineage ~ Metamagic	CATEGORY:FEAT			TYPE:Metamagic						VISIBLE:EXPORT																																																																																																																																						ADDSPELLLEVEL:-1
 
 ###Block: Temp Workaround till CODE Fix, or Formula System implemented
 # Ability Name							Unique Key					Category of Ability		Ability																						Caster level
