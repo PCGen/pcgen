@@ -49,6 +49,7 @@ ABILITY:arg_abilities_builder.lst
 ABILITY:arg_abilities_class.lst
 ABILITY:arg_abilities_race.lst
 ABILITYCATEGORY:arg_abilitycategories.lst
+BIOSET:arg_biosettings.lst
 EQUIPMENT:arg_equip_arms_armor.lst
 EQUIPMENT:arg_equip_general.lst
 EQUIPMENT:arg_equip_magic_items.lst
