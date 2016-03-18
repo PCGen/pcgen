@@ -486,23 +486,24 @@
 						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-					<xsl:variable name="monk_level" select="flurry_level"/>
-					<xsl:variable name="to_hit">
-					<xsl:choose>
-						<xsl:when test="contains(to_hit,'-') and contains(to_hit,'/')">
-							<xsl:value-of select="number(substring-before(to_hit,'/'))"/>
-						</xsl:when>
-						<xsl:when test="(contains(to_hit,'-') = false) and contains(to_hit,'/')">
-							<xsl:value-of select="number(substring-before(substring(to_hit,2),'/'))"/>
-						</xsl:when>
-						<xsl:when test="contains(to_hit,'-') and (contains(to_hit,'/') = false)">
-							<xsl:value-of select="number(to_hit)"/>
-						</xsl:when>
-						<xsl:when test="(contains(to_hit,'-') = false) and (contains(to_hit,'/') = false)">
-							<xsl:value-of select="number(substring(to_hit,2))"/>
-						</xsl:when>
-					</xsl:choose>
-					</xsl:variable>
+					<!--
+						This section determines the output of the "Flurry of Blows"
+						fab value grabs the base unarmed to hit value from the base.xml.ftl file
+						fab_# allow for precise control over each iteration, these modify the final result
+						We currently allow up to 9 attack iterations
+						flurry_attacks controls how many attacks are visible on the OS.
+					-->
+					<xsl:variable name="flurrylvl" select="flurry_level"/>
+					<xsl:variable name="fab" select="to_hit"/>
+					<xsl:variable name="fab_1" select="fab_1"/>
+					<xsl:variable name="fab_2" select="fab_2"/>
+					<xsl:variable name="fab_3" select="fab_3"/>
+					<xsl:variable name="fab_4" select="fab_4"/>
+					<xsl:variable name="fab_5" select="fab_5"/>
+					<xsl:variable name="fab_6" select="fab_6"/>
+					<xsl:variable name="fab_7" select="fab_7"/>
+					<xsl:variable name="fab_8" select="fab_8"/>
+					<xsl:variable name="fab_9" select="fab_9"/>
 				<fo:table-row>
 						<xsl:message>Test</xsl:message>
 						<fo:table-cell number-columns-spanned="4">
@@ -510,85 +511,29 @@
 								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt">
-								<xsl:choose>
-								<xsl:when test="($monk_level &gt; 0) and ($monk_level &lt; 5)">
-									<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 5">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt; 5) and ($monk_level &lt; 8)">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 8">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt; 8) and ($monk_level &lt; 11)">
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt; 10) and ($monk_level &lt; 13)">
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 9,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt; 12) and ($monk_level &lt; 15)">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 15">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 16">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 13,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level &gt;= 17">
-									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 12,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 20">
-									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/
-									<xsl:value-of select="format-number($to_hit - 12,'+#;-#')"/>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>
-								</xsl:otherwise>
-							</xsl:choose>
+									<xsl:value-of select="format-number($fab + $fab_1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($fab + $fab_2,'+#;-#')"/>
+									<xsl:if test="(flurry_attacks &gt; 2)">
+											/<xsl:value-of select="format-number($fab + $fab_3,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 3)">
+											/<xsl:value-of select="format-number($fab + $fab_4,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 4)">
+											/<xsl:value-of select="format-number($fab + $fab_5,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 5)">
+											/<xsl:value-of select="format-number($fab + $fab_6,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 6)">
+											/<xsl:value-of select="format-number($fab + $fab_7,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 7)">
+											/<xsl:value-of select="format-number($fab + $fab_8,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 8)">
+											/<xsl:value-of select="format-number($fab + $fab_9,'+#;-#')"/>
+									</xsl:if>
 							</fo:block>
 						</fo:table-cell>
 				</fo:table-row>
