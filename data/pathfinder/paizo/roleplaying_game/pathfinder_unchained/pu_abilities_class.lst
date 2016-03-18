@@ -376,6 +376,36 @@ Timeless Body			KEY:Unchained Monk ~ Timeless Body				CATEGORY:Special Ability	T
 Flawless Mind			KEY:Unchained Monk ~ Flawless Mind				CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature.SpecialQuality																											DESC:At 19th level, a monk gains total control over his mental faculties. Whenever he attempts a Will save, he can roll twice and take the better result. If he fails a Will saving throw against a spell or effect that has a duration longer than 1 hour, the monk can attempt a new saving throw at the end of each hour to end the effect.																																																																																																																																																																																																																																																																																																																			SOURCEPAGE:p.19
 Perfect Self			KEY:Unchained Monk ~ Perfect Self				CATEGORY:Special Ability	TYPE:Unchained Monk Class Feature.SpecialQuality			SERVESAS:ABILITY=Special Ability|Monk ~ Perfect Self																DESC:At 20th level, a monk becomes a magical creature. He is forevermore treated as an outsider rather than a humanoid (or whatever his original creature type was) for the purpose of spells and magical effects. Additionally, the monk gains damage reduction 10/chaotic, which allows him to ignore the first 10 points of damage from any attack made by a nonchaotic weapon. Unlike other outsiders, the monk can still be brought back from the dead as if he were a member of his previous creature type. Finally, the monk gains the ability to enter a state of perfect calm. During this time, the monk can take no actions, but he does regain ki at the rate of 1 point per 10 minutes spent at calm. He cannot use this ability to gain an amount of ki in excess of his maximum.																																																																																																																																																																																																																																											SOURCEPAGE:p.19
 
+###Block: Flurry of Blows update
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FlurryExtraAttacks|min((FlurryLVL+6)/7,3)
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FlurryBABBonus|FlurryLVL-MonkBAB
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FlurryLVL|MonkLVL
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|MonkBAB|MonkLVL*3/4
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FlurryAttacks|2+(MonkLVL>=6)+(MonkLVL>=8)+(MonkLVL>=11)+(MonkLVL>=15)+(MonkLVL>=16)
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB|-1+(FlurryLVL>=5)+(FlurryLVL>=9)+(FlurryLVL>=18)
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_1|FAB
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_2|FAB
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_3|FAB-5
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_4|FAB-5
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_5|FAB-10
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_6|FAB-10
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	BONUS:VAR|FAB_7|FAB-15
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	SOURCEPAGE:p.57
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryLVL|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryExtraAttacks|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryBABBonus|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:MonkBAB|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryAttackBonus|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryAttacks|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_1|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_2|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_3|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_4|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_5|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_6|0
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FAB_7|0
+
 ###Block: Unchained Monk Bonus Feats
 # Ability Name		Unique Key								Category of Ability		Type					Visible		Restricted Ability					Var. Min. Value				Stackable?	Multiple?	Choose				Ability						Weapon prof. bonus
 Catch Off-Guard		KEY:Unchained Monk Bonus Feat ~ Catch Off-Guard		CATEGORY:Special Ability	TYPE:UnchainedMonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Catch Off-Guard	PREVARGTEQ:MonkBonusFeatLVL,1											ABILITY:FEAT|VIRTUAL|Catch Off-Guard
