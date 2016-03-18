@@ -15,20 +15,15 @@ CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_L
 
 ###Block: Age Adjustments
 # Ability Name			Define									Stat bonus
-CATEGORY=Internal|Default.MOD	DEFINE:Stat_Age_Physical|0	DEFINE:Stat_Age_Mental|0	DEFINE:Young|0	
+CATEGORY=Internal|Default.MOD	DEFINE:Stat_Age_Physical|0	DEFINE:Stat_Age_Mental|0
 
-CATEGORY=Internal|Default.MOD											BONUS:STAT|STR|Stat_Age_Physical+if(Young>0,-2,0)|TYPE=Age
-CATEGORY=Internal|Default.MOD											BONUS:STAT|DEX|Stat_Age_Physical+if(Young>0,2,0)|TYPE=Age
-CATEGORY=Internal|Default.MOD											BONUS:STAT|CON|Stat_Age_Physical+if(Young>0,-2,0)|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|STR|Stat_Age_Physical|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|DEX|Stat_Age_Physical|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|CON|Stat_Age_Physical|TYPE=Age
 
 CATEGORY=Internal|Default.MOD											BONUS:STAT|INT|Stat_Age_Mental|TYPE=Age
-CATEGORY=Internal|Default.MOD											BONUS:STAT|WIS|Stat_Age_Mental+if(Young>0,-2,0)|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|WIS|Stat_Age_Mental|TYPE=Age
 CATEGORY=Internal|Default.MOD											BONUS:STAT|CHA|Stat_Age_Mental|TYPE=Age
-
-CATEGORY=Internal|Default.MOD											
-
-
-
 #	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
 #	BONUS:CASTERLEVEL|ClassName|ClassName_Caster_Level	DEFINE:ClassName_Caster_Level|0	BONUS:VAR|ClassName_Caster_Level|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Divine|ClassName_Caster_Level|TYPE=Base
 #	You can then determine Caster level for any class "ClassName_Caster_Level" or meet prereqs based upon Highest Caster Level for Arcane or Divine.
