@@ -760,9 +760,20 @@
 		</martialarts>
 		<#else>
 		<unarmed>
-			<flurry_level>${pcstring('VAR.MonkLVL.INTVAL')}</flurry_level>
+			<#assign fab = pcstring('WEAPONH.TOTALHIT')?keep_before("/")?number>
+			<flurry_level>${pcvar('VAR.FlurryLVL.INTVAL')}</flurry_level>
+			<flurry_attacks>${pcvar('VAR.FlurryAttacks.INTVAL')}</flurry_attacks>
+			<fab_1>${pcvar('VAR.FAB_1.INTVAL')}</fab_1>
+			<fab_2>${pcvar('VAR.FAB_2.INTVAL')}</fab_2>
+			<fab_3>${pcvar('VAR.FAB_3.INTVAL')}</fab_3>
+			<fab_4>${pcvar('VAR.FAB_4.INTVAL')}</fab_4>
+			<fab_5>${pcvar('VAR.FAB_5.INTVAL')}</fab_5>
+			<fab_6>${pcvar('VAR.FAB_6.INTVAL')}</fab_6>
+			<fab_7>${pcvar('VAR.FAB_7.INTVAL')}</fab_7>
+			<fab_8>${pcvar('VAR.FAB_8.INTVAL')}</fab_8>
+			<fab_9>${pcvar('VAR.FAB_9.INTVAL')}</fab_9>
 			<total>${pcstring('WEAPONH.TOTALHIT')}</total>
-			<to_hit>${pcstring('WEAPONH.TOTALHIT')}</to_hit>
+			<to_hit>${fab}</to_hit>
 			<damage>${pcstring('WEAPONH.DAMAGE')}</damage>
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->

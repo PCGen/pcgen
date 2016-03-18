@@ -258,7 +258,7 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Sw
 # Stunning Attack DC = StunDC
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Attack Cycle	Combat bonus											Save bonus													FACT
-CLASS:Monk		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:ClassType|PC	FACT:Abb|Mnk
+CLASS:Monk		HD:8		TYPE:Base.PC	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL	MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:ClassType|PC	FACT:Abb|Mnk
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill

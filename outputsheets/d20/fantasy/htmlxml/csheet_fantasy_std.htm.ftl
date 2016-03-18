@@ -661,8 +661,19 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
    </table>
    <font style="font-size:2pt"><br /></font>
 <!-- STOP Unarmed Attack Table -->
+	<#-- create variable x -->
+	<#assign fab = pcstring('WEAPONH.TOTALHIT')?keep_before("/")?number>
+	<#assign fab_1 = pcvar('VAR.FAB_1.INTVAL') + fab>
+	<#assign fab_2 = pcvar('VAR.FAB_2.INTVAL') + fab>
+	<#assign fab_3 = pcvar('VAR.FAB_3.INTVAL') + fab>
+	<#assign fab_4 = pcvar('VAR.FAB_4.INTVAL') + fab>
+	<#assign fab_5 = pcvar('VAR.FAB_5.INTVAL') + fab>
+	<#assign fab_6 = pcvar('VAR.FAB_6.INTVAL') + fab>
+	<#assign fab_7 = pcvar('VAR.FAB_7.INTVAL') + fab>
+	<#assign fab_8 = pcvar('VAR.FAB_8.INTVAL') + fab>
+	<#assign fab_9 = pcvar('VAR.FAB_9.INTVAL') + fab>
 
-<#if (pcvar("MonkLVL") >= 1)>
+<#if (pcvar("FlurryLvl") >= 1)>
 <!-- START Flurry Attack Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Flurry Attack">
     <tr>
@@ -671,22 +682,30 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </tr>
     <tr>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>
-     ${pcstring('VAR.FAB_1.INTVAL.SIGN')}/
-     ${pcstring('VAR.FAB_2.INTVAL.SIGN')}
+     <#if (fab_1 >= 0)>+</#if><#t>${fab_1}<#t>
+     <#if (pcvar("FlurryAttacks") >= 2)>
+     /<#if (fab_2 >= 0)>+</#if><#t>${fab_2}<#t>
+     </#if>
      <#if (pcvar("FlurryAttacks") >= 3)>
-     /${pcstring('VAR.FAB_3.INTVAL.SIGN')}
+     /<#if (fab_3 >= 0)>+</#if><#t>${fab_3}
      </#if>
      <#if (pcvar("FlurryAttacks") >= 4)>
-     /${pcstring('VAR.FAB_4.INTVAL.SIGN')}
+     /<#if (fab_4 >= 0)>+</#if><#t>${fab_4}
      </#if>
      <#if (pcvar("FlurryAttacks") >= 5)>
-     /${pcstring('VAR.FAB_5.INTVAL.SIGN')}
+     /<#if (fab_5 >= 0)>+</#if><#t>${fab_5}
      </#if>
      <#if (pcvar("FlurryAttacks") >= 6)>
-     /${pcstring('VAR.FAB_6.INTVAL.SIGN')}
+     /<#if (fab_6 >= 0)>+</#if><#t>${fab_6}
      </#if>
      <#if (pcvar("FlurryAttacks") >= 7)>
-     /${pcstring('VAR.FAB_7.INTVAL.SIGN')}
+     /<#if (fab_7 >= 0)>+</#if><#t>${fab_7}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 8)>
+     /<#if (fab_7 >= 0)>+</#if><#t>${fab_8}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 9)>
+     /<#if (fab_7 >= 0)>+</#if><#t>${fab_9}
      </#if>
      <br /></b></font></td>
     </tr>
