@@ -214,21 +214,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTExpon node, Object data)
 	{
-		/*
-		 * Note we only support exponent (^) for Number.class. This was enforced
-		 * by SemanticsVisitor.
-		 */
-		int childCount = node.jjtGetNumChildren();
-
-		Number base = (Number) node.jjtGetChild(0).jjtAccept(this, null);
-		Number exponent = (Number) node.jjtGetChild(1).jjtAccept(this, null);
-		//"Cheat" to reduce calls to EXP in that X^Y^Z == X^(Y*Z)
-		for (int i = 2; i < childCount; i++)
-		{
-			Number n = (Number) node.jjtGetChild(i).jjtAccept(this, null);
-			exponent = Double.valueOf(exponent.doubleValue() * n.doubleValue());
-		}
-		return Math.pow(base.doubleValue(), exponent.doubleValue());
+		return evaluateOperatorNode(node);
 	}
 
 	/**
