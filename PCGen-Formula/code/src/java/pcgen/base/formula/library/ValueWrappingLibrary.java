@@ -60,7 +60,8 @@ public class ValueWrappingLibrary implements FunctionLibrary
 	@Override
 	public void addFunction(Function function)
 	{
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(
+			"Cannot add Function to ValueWrappingLibrary");
 	}
 
 	/**
@@ -82,7 +83,8 @@ public class ValueWrappingLibrary implements FunctionLibrary
 	@Override
 	public void addBracketFunction(Function function)
 	{
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(
+				"Cannot add Bracket Function to ValueWrappingLibrary");
 	}
 
 	/**

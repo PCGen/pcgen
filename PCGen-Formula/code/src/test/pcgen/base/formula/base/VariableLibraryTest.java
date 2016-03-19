@@ -453,6 +453,39 @@ public class VariableLibraryTest extends TestCase
 	}
 
 	@Test
+	public void testGetVariableFormat()
+	{
+		LegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope eqScope = new SimpleLegalScope(globalScope, "Equipment");
+		assertTrue(varLib.assertLegalVariableID("Walk", globalScope, numberManager));
+		assertTrue(varLib.assertLegalVariableID("Float", eqScope, numberManager));
+		try
+		{
+			varLib.getVariableFormat(null, "Walk");
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+		try
+		{
+			Object o = varLib.getVariableFormat(globalScope, null);
+			assertTrue(null == o);
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok too
+		}
+		assertTrue(numberManager.equals(varLib.getVariableFormat(globalScope, "Walk")));
+		assertTrue(numberManager.equals(varLib.getVariableFormat(eqScope, "Float")));
+		//fail at depth
+		assertTrue(numberManager.equals(varLib.getVariableFormat(eqScope, "Walk")));
+		//work indirect
+		assertTrue(null == varLib.getVariableFormat(globalScope, "Float"));
+	}
+
+	@Test
 	public void testProveReuse()
 	{
 		BooleanManager booleanManager = new BooleanManager();

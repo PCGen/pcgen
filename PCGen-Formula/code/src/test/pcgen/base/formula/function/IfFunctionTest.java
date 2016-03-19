@@ -29,6 +29,7 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.operator.number.NumberEquals;
 import pcgen.base.formula.operator.number.NumberGreaterThan;
 import pcgen.base.formula.operator.number.NumberLessThan;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -46,6 +47,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 		operatorLibrary.addAction(new NumberEquals());
 		operatorLibrary.addAction(new NumberLessThan());
 		operatorLibrary.addAction(new NumberGreaterThan());
+		operatorLibrary.addAction(new NumberMinus());
 	}
 
 	@Test

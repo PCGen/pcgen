@@ -59,10 +59,21 @@ public class LegalScopeLibrary
 	 * @return The previous LegalScope registered with the same name as the
 	 *         given LegalScope
 	 */
-	public LegalScope registerScope(LegalScope scope)
+	public void registerScope(LegalScope scope)
 	{
+		String name = scope.getName();
+		if (name == null)
+		{
+			throw new IllegalArgumentException("LegalScope must have a name");
+		}
+		LegalScope current = scopes.get(name);
+		if ((current != null) && !current.equals(scope))
+		{
+			throw new IllegalArgumentException(
+				"A Scope with name " + name + " is already registered");
+		}
 		scopeChildren.addToListFor(scope.getParentScope(), scope);
-		return scopes.put(scope.getName(), scope);
+		scopes.put(name, scope);
 	}
 
 	/**
@@ -77,6 +88,10 @@ public class LegalScopeLibrary
 	 */
 	public List<LegalScope> getChildScopes(LegalScope scope)
 	{
+		if (scope == null)
+		{
+			throw new IllegalArgumentException("LegalScope may not be null");
+		}
 		return scopeChildren.getListFor(scope);
 	}
 

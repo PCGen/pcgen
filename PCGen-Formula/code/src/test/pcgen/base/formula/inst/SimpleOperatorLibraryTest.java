@@ -17,12 +17,16 @@
  */
 package pcgen.base.formula.inst;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
+import pcgen.base.formula.base.OperatorAction;
+import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.operator.generic.GenericEquals;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberEquals;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.Operator;
 
 public class SimpleOperatorLibraryTest extends TestCase
@@ -41,7 +45,20 @@ public class SimpleOperatorLibraryTest extends TestCase
 	{
 		try
 		{
-			library.addAction(null);
+			library.addAction((OperatorAction) null);
+			fail("Expected null action to be rejected");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Yep
+		}
+		catch (NullPointerException e)
+		{
+			//We can work with this too
+		}
+		try
+		{
+			library.addAction((UnaryAction) null);
 			fail("Expected null action to be rejected");
 		}
 		catch (IllegalArgumentException e)
@@ -57,8 +74,9 @@ public class SimpleOperatorLibraryTest extends TestCase
 	@Test
 	public void testEmpty()
 	{
-		assertNull(library.processAbstract(Operator.ADD, Number.class,
-			Integer.class));
+		assertNull(
+			library.processAbstract(Operator.ADD, Number.class, Integer.class));
+		assertNull(library.processAbstract(Operator.MINUS, Number.class));
 		try
 		{
 			library.evaluate(Operator.ADD, 1, 2);
@@ -68,10 +86,19 @@ public class SimpleOperatorLibraryTest extends TestCase
 		{
 			//Wasn't defined yet
 		}
+		try
+		{
+			library.evaluate(Operator.MINUS, 1);
+			fail();
+		}
+		catch (IllegalStateException e)
+		{
+			//Wasn't defined yet
+		}
 	}
 
 	@Test
-	public void testSimple()
+	public void testSimpleBinary()
 	{
 		library.addAction(new NumberAdd());
 		assertEquals(Number.class,
@@ -80,6 +107,24 @@ public class SimpleOperatorLibraryTest extends TestCase
 		try
 		{
 			library.evaluate(Operator.ADD, true, false);
+			fail();
+		}
+		catch (IllegalStateException e)
+		{
+			//Isn't defined 
+		}
+	}
+
+	@Test
+	public void testSimpleUnary()
+	{
+		library.addAction(new NumberMinus());
+		assertEquals(Number.class,
+			library.processAbstract(Operator.MINUS, Integer.class));
+		assertEquals(Integer.valueOf(3), library.evaluate(Operator.MINUS, -3));
+		try
+		{
+			library.evaluate(Operator.MINUS, true);
 			fail();
 		}
 		catch (IllegalStateException e)

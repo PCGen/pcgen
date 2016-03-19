@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -21,6 +21,7 @@ import java.util.List;
 
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
 import pcgen.base.util.HashMapToList;
 
@@ -35,8 +36,15 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	 * HashMapToList from the Operators to the available OperatorActions for the
 	 * Operator.
 	 */
-	private final HashMapToList<Operator, OperatorAction> actionMTL =
+	private final HashMapToList<Operator, OperatorAction> operatorMTL =
 			new HashMapToList<Operator, OperatorAction>();
+
+	/**
+	 * HashMapToList from the Operators to the available UnaryActions for the
+	 * Operator.
+	 */
+	private final HashMapToList<Operator, UnaryAction> unaryMTL =
+			new HashMapToList<Operator, UnaryAction>();
 
 	/**
 	 * {@inheritDoc}
@@ -44,7 +52,69 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	@Override
 	public void addAction(OperatorAction action)
 	{
-		actionMTL.addToListFor(action.getOperator(), action);
+		operatorMTL.addToListFor(action.getOperator(), action);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addAction(UnaryAction action)
+	{
+		unaryMTL.addToListFor(action.getOperator(), action);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Object evaluate(Operator operator, Object o)
+	{
+		List<UnaryAction> actionList = unaryMTL.getListFor(operator);
+		if (actionList != null)
+		{
+			for (UnaryAction action : actionList)
+			{
+				/*
+				 * null indicates the UnaryAction can't evaluate these, but we
+				 * should try another in list (don't unconditionally fail
+				 * because another UnaryAction might work)
+				 */
+				if (action.abstractEvaluate(o.getClass()) != null)
+				{
+					return action.evaluate(o);
+				}
+			}
+		}
+		throw new IllegalStateException(
+			"Evaluate called on invalid Unary Operator: " + operator.getSymbol()
+				+ " cannot process " + o.getClass().getSimpleName());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Class<?> processAbstract(Operator operator, Class<?> format)
+	{
+		List<UnaryAction> actionList = unaryMTL.getListFor(operator);
+		if (actionList != null)
+		{
+			for (UnaryAction action : actionList)
+			{
+				Class<?> result = action.abstractEvaluate(format);
+				/*
+				 * null indicates the UnaryAction can't evaluate these, but try
+				 * another (don't unconditionally return result because another
+				 * UnaryAction might work)
+				 */
+				if (result != null)
+				{
+					return result;
+				}
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -53,7 +123,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	@Override
 	public Object evaluate(Operator operator, Object o1, Object o2)
 	{
-		List<OperatorAction> actionList = actionMTL.getListFor(operator);
+		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
 		if (actionList != null)
 		{
 			for (OperatorAction action : actionList)
@@ -63,16 +133,17 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 				 * we should try another in list (don't unconditionally fail
 				 * because another OperatorAction might work)
 				 */
-				if (action.abstractEvaluate(o1.getClass(), o2.getClass()) != null)
+				if (action.abstractEvaluate(o1.getClass(),
+					o2.getClass()) != null)
 				{
 					return action.evaluate(o1, o2);
 				}
 			}
 		}
-		throw new IllegalStateException("Evaluate called on invalid Operator: "
-			+ operator.getSymbol() + " cannot process "
-			+ o1.getClass().getSimpleName() + " and "
-			+ o2.getClass().getSimpleName());
+		throw new IllegalStateException(
+			"Evaluate called on invalid Operator: " + operator.getSymbol()
+				+ " cannot process " + o1.getClass().getSimpleName() + " and "
+				+ o2.getClass().getSimpleName());
 	}
 
 	/**
@@ -82,7 +153,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	public Class<?> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2)
 	{
-		List<OperatorAction> actionList = actionMTL.getListFor(operator);
+		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
 		if (actionList != null)
 		{
 			for (OperatorAction action : actionList)

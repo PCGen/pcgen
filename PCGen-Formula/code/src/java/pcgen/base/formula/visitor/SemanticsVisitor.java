@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -94,11 +94,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * A cache of the String class.
 	 */
 	private static final Class<String> STRING_CLASS = String.class;
-
-	/**
-	 * A cache of the Boolean class.
-	 */
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * The FormulaManager used to get information about functions and other key
@@ -221,30 +216,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryMinus node, Object data)
 	{
-		FormulaSemantics semantics =
-				(FormulaSemantics) singleChildValid(node, data);
-		//Consistent with the "fail fast" behavior in the implementation note
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
-		{
-			return semantics;
-		}
-		/*
-		 * Note: We only implement unary minus for Number.class today. This is a
-		 * "known" limitation, but would be nice to escape. However, this means
-		 * we need an entire equivalent to OperatorAction for 1-argument
-		 * operations :/
-		 */
-		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		if (!format.equals(NUMBER_CLASS))
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Invalid Value Format: " + format + " found in "
-					+ node.jjtGetChild(0).getClass().getName()
-					+ " found in location requiring a"
-					+ " Number (class cannot be evaluated)");
-		}
-		return semantics;
+		return visitUnaryNode(node, data);
 	}
 
 	/**
@@ -254,30 +226,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryNot node, Object data)
 	{
-		FormulaSemantics semantics =
-				(FormulaSemantics) singleChildValid(node, data);
-		//Consistent with the "fail fast" behavior in the implementation note
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
-		{
-			return semantics;
-		}
-		/*
-		 * Note: We only implement unary negation for Boolean.class today. This
-		 * is a "known" limitation, but would be nice to escape. However, this
-		 * means we need an entire equivalent to OperatorAction for 1-argument
-		 * operations :/
-		 */
-		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		if (!format.equals(BOOLEAN_CLASS))
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Invalid Value Format: " + format + " found in "
-					+ node.jjtGetChild(0).getClass().getName()
-					+ " found in location requiring a"
-					+ " Boolean (class cannot be evaluated)");
-		}
-		return semantics;
+		return visitUnaryNode(node, data);
 	}
 
 	/**
@@ -583,6 +532,41 @@ public class SemanticsVisitor implements FormulaParserVisitor
 					+ " cannot process children: " + format1.getSimpleName()
 					+ " and " + format2.getSimpleName() + " found in "
 					+ node.getClass().getName());
+			return semantics;
+		}
+		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, returnedFormat);
+		return semantics;
+	}
+
+
+	private Object visitUnaryNode(SimpleNode node, Object data)
+	{
+		FormulaSemantics semantics = (FormulaSemantics) data;
+		Operator op = node.getOperator();
+		if (op == null)
+		{
+			FormulaSemanticsUtilities.setInvalid(semantics,
+				"Parse Error: Object of type " + node.getClass()
+					+ " expected to have an operator, none was found");
+			return semantics;
+		}
+		semantics = (FormulaSemantics) singleChildValid(node, data);
+		//Consistent with the "fail fast" behavior in the implementation note
+		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		{
+			return semantics;
+		}
+		Class<?> format =
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
+		Class<?> returnedFormat =
+				fm.getOperatorLibrary().processAbstract(op, format);
+		//null response means the library couldn't find an appropriate operator
+		if (returnedFormat == null)
+		{
+			FormulaSemanticsUtilities.setInvalid(semantics,
+				"Parse Error: Operator " + op.getSymbol()
+					+ " cannot process child: " + format.getSimpleName()
+					+ " found in " + node.getClass().getName());
 			return semantics;
 		}
 		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, returnedFormat);

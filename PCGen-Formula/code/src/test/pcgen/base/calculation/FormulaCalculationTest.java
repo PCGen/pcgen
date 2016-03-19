@@ -31,8 +31,9 @@ import pcgen.base.testsupport.AbstractFormulaTestCase;
 
 public class FormulaCalculationTest extends AbstractFormulaTestCase
 {
+	private static final String _4_CEIL_4_3 = "4+ceil(4.3)";
 	private BasicCalculation basic = new BasicCalc(new NumberAdd());
-	private ComplexNEPFormula formula = new ComplexNEPFormula("4+ceil(4.3)");
+	private ComplexNEPFormula formula = new ComplexNEPFormula(_4_CEIL_4_3);
 	private ScopeInformation si;
 
 	@Override
@@ -87,6 +88,16 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 		FormulaCalculation fc2 =
 				new FormulaCalculation(new ComplexNEPFormula("value()"), basic);
 		assertEquals(16, fc2.process(8, si));
+	}
+
+	@Test
+	public void testRoundRobin()
+	{
+		FormulaCalculation fc = new FormulaCalculation(formula, basic);
+		assertEquals(_4_CEIL_4_3, fc.getInstructions());
+		FormulaCalculation fc2 =
+				new FormulaCalculation(new ComplexNEPFormula("value()"), basic);
+		assertEquals("value()", fc2.getInstructions());
 	}
 
 }

@@ -22,6 +22,7 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -35,6 +36,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	{
 		super.setUp();
 		getFunctionLibrary().addFunction(new CeilFunction());
+		getOperatorLibrary().addAction(new NumberMinus());
 	}
 
 	@Test

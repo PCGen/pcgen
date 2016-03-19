@@ -19,8 +19,8 @@
 package pcgen.base.formula.parse;
 
 /**
- * The Operator enum is the list of legal two-argument operators that can appear
- * in a Formula. (The unary minus sign is not handled as an Operator)
+ * The Operator enum is the list of legal one and two-argument operators that
+ * can appear in a Formula.
  * 
  * Each implementation of an operator has a String representation (used to
  * reconstruct a Formula). These are dependent upon an OperatorAction to
@@ -28,6 +28,9 @@ package pcgen.base.formula.parse;
  */
 public enum Operator
 {
+
+	NOT("!"),
+	MINUS("-"),
 
 	EQ("=="),
 	NEQ("!="),

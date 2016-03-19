@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -162,9 +162,7 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryMinus node, Object data)
 	{
-		StringBuilder sb = (StringBuilder) data;
-		sb.append('-');
-		return processChildren(node, data);
+		return processUnary(node, data);
 	}
 
 	/**
@@ -346,5 +344,16 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	{
 		return processChildrenWithSeparator(node, data, node.getOperator()
 			.getSymbol());
+	}
+	
+	/**
+	 * Writes a unary operator node. Effectively this writes the single child,
+	 * prefixed with the symbol for the node's Operator.
+	 */
+	private Object processUnary(SimpleNode node, Object data)
+	{
+		StringBuilder sb = (StringBuilder) data;
+		sb.append(node.getOperator().getSymbol());
+		return processChildren(node, data);
 	}
 }

@@ -68,6 +68,13 @@ public class SimpleScopeInstance implements ScopeInstance
 						+ "when LegalScope has no parent");
 			}
 		}
+		else if (scope.getParentScope() == null)
+		{
+			throw new IllegalArgumentException(
+				"Incompatible ScopeInstance and LegalScope: "
+					+ "LegalScope Parent may only be null "
+					+ "when ScopeInstance is null");
+		}
 		else
 		{
 			if (!scope.getParentScope().equals(parent.getLegalScope()))
