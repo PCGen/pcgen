@@ -271,6 +271,18 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
 		String varName = node.getText();
+		return visitVariable(varName);
+	}
+
+	/**
+	 * Returns the value for a specific variable.
+	 * 
+	 * @param varName
+	 *            The name of the variable to be evaluated
+	 * @return the value for the given specific variable
+	 */
+	public Object visitVariable(String varName)
+	{
 		VariableLibrary varLibrary = fm.getFactory();
 		FormatManager<?> formatManager =
 				fm.getFactory().getVariableFormat(scopeInst.getLegalScope(),
