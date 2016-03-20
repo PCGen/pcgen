@@ -77,8 +77,6 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 
 	/**
 	 * Returns the node at the given index.
-	 * 
-	 * @see pcgen.base.graph.base.Edge#getNodeAt(int)
 	 */
 	@Override
 	public N getNodeAt(int index)
@@ -102,8 +100,6 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * Returns the Node attached to this DefaultGraphEdge opposite of the given
 	 * Node. Returns null if the given Node is not adjacent (connected) to this
 	 * DefaultGraphEdge.
-	 * 
-	 * @see pcgen.base.graph.base.GraphEdge#getOppositeNode(java.lang.Object)
 	 */
 	@Override
 	public N getOppositeNode(N node)
@@ -125,9 +121,6 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	/**
 	 * Creates a replacement DefaultGraphEdge for this DefaultGraphEdge, with
 	 * the replacement connected to the two given Nodes.
-	 * 
-	 * @see pcgen.base.graph.base.GraphEdge#createReplacementEdge(java.lang.Object,
-	 *      java.lang.Object)
 	 */
 	@Override
 	public DefaultGraphEdge<N> createReplacementEdge(N node1, N node2)
@@ -143,8 +136,6 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * the Nodes contained in the List are returned BY REFERENCE, and
 	 * modification of the returned Nodes will modify the nodes contained within
 	 * the DefaultGraphEdge.
-	 * 
-	 * @see pcgen.base.graph.base.Edge#getAdjacentNodes()
 	 */
 	@Override
 	public List<N> getAdjacentNodes()
@@ -158,8 +149,6 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	/**
 	 * Returns true if the given Node is adjacent (connected) to this
 	 * DefaultGraphEdge; false otherwise.
-	 * 
-	 * @see pcgen.base.graph.base.Edge#isAdjacentNode(java.lang.Object)
 	 */
 	@Override
 	public boolean isAdjacentNode(N node)
@@ -170,8 +159,6 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	/**
 	 * Returns 2: the number of Nodes to which this DefaultGraphEdge is
 	 * connected.
-	 * 
-	 * @see pcgen.base.graph.base.Edge#getAdjacentNodeCount()
 	 */
 	@Override
 	public int getAdjacentNodeCount()

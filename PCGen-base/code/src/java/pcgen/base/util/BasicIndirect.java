@@ -77,36 +77,24 @@ public class BasicIndirect<T> implements Indirect<T>
 		formatManager = fmtManager;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T get()
 	{
 		return object;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getUnconverted()
 	{
 		return formatManager.unconvert(object);
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return String.valueOf(object);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -120,9 +108,6 @@ public class BasicIndirect<T> implements Indirect<T>
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{

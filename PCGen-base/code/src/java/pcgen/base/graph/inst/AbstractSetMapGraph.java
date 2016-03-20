@@ -127,8 +127,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * Adds the given Node to the Graph. Returns true if the given Node was
 	 * successfully added. Because the Nodes in this Graph are a Set, this
 	 * method will return false if a Node is already present in the Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#addNode(java.lang.Object)
 	 */
 	@Override
 	public boolean addNode(N node)
@@ -173,8 +171,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * successfully added. Implicitly adds any Nodes connected to the given Edge
 	 * to the Graph. Because the Edges in this Graph are a Set, this method will
 	 * return false if an Edges is already present in the Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#addEdge(java.lang.Object)
 	 */
 	@Override
 	public boolean addEdge(ET edge)
@@ -200,8 +196,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 
 	/**
 	 * Returns true if this Graph contains the given Node.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#containsNode(java.lang.Object)
 	 */
 	@Override
 	public boolean containsNode(Object node)
@@ -212,8 +206,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 
 	/**
 	 * Returns true if this Graph contains the given Edge.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#containsEdge(pcgen.base.graph.base.Edge)
 	 */
 	@Override
 	public boolean containsEdge(Edge<?> edge)
@@ -236,8 +228,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * of AbstractSetMapGraph. If a Node is modified in place, the modifications
 	 * must not alter the hash code (as returned by the Node's .hashCode()
 	 * method) for AbstractSetMapGraph to maintain proper operation.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getNodeList()
 	 */
 	@Override
 	public List<N> getNodeList()
@@ -253,8 +243,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * However, the Edges contained in the List are returned BY REFERENCE, and
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the AbstractSetMapGraph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getEdgeList()
 	 */
 	@Override
 	public List<ET> getEdgeList()
@@ -266,8 +254,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * Removes the given Node from the AbstractSetMapGraph. As a byproduct of
 	 * this removal, all Edges connected to the Node will also be removed from
 	 * the Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#removeNode(java.lang.Object)
 	 */
 	@Override
 	public boolean removeNode(N node)
@@ -313,8 +299,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 
 	/**
 	 * Removes the given Edge from the AbstractSetMapGraph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#removeEdge(java.lang.Object)
 	 */
 	@Override
 	public boolean removeEdge(ET edge)
@@ -354,8 +338,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * However, the Edges contained in the Set are returned BY REFERENCE, and
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the AbstractSetMapGraph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getAdjacentEdges(java.lang.Object)
 	 */
 	@Override
 	public Set<ET> getAdjacentEdges(N node)
@@ -368,8 +350,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	/**
 	 * Adds the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#addGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
 	public void addGraphChangeListener(GraphChangeListener<N, ET> listener)
@@ -385,8 +365,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * GraphChangeListeners contained in the Array are (obviously!) returned BY
 	 * REFERENCE, and care should be taken with modifying those
 	 * GraphChangeListeners.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getGraphChangeListeners()
 	 */
 	@Override
 	public GraphChangeListener<N, ET>[] getGraphChangeListeners()
@@ -397,8 +375,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	/**
 	 * Removes the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#removeGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
 	public void removeGraphChangeListener(GraphChangeListener<N, ET> listener)

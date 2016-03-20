@@ -411,8 +411,6 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 
 	/**
 	 * A consistent-with-equals hashCode for TripleKeyMap.
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -424,8 +422,6 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * Returns true if the TripleKeyMap is equal to the given Object. Equality
 	 * is defined as the given Object being a TripleKeyMap with equal keys and
 	 * values as defined by the underlying Maps.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

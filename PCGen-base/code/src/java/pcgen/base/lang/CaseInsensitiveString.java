@@ -71,9 +71,6 @@ public class CaseInsensitiveString
 		string = str;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -85,9 +82,6 @@ public class CaseInsensitiveString
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{

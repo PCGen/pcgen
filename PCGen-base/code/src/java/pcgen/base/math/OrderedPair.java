@@ -185,18 +185,12 @@ public class OrderedPair
 		return x.toString() + "," + y.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return x.hashCode() ^ y.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

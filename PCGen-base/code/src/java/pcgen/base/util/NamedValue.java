@@ -92,8 +92,6 @@ public final class NamedValue
 
 	/**
 	 * Returns a String representation of this NamedValue.
-	 * 
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()

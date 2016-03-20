@@ -226,8 +226,6 @@ public class OneToOneMap<K, V>
 	 * Returns a String representation of this OneToOneMap, primarily for
 	 * purposes of debugging. It is strongly advised that no dependency on this
 	 * method be created, as the return value may be changed without warning.
-	 * 
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()

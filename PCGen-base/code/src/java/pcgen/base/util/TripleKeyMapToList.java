@@ -408,8 +408,6 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 
 	/**
 	 * A consistent-with-equals hashCode for TripleKeyMapToList.
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -421,8 +419,6 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * Returns true if the TripleKeyMapToList is equal to the given Object.
 	 * Equality is defined as the given Object being a TripleKeyMapToList with
 	 * equal keys and values as defined by the underlying Maps.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

@@ -143,8 +143,6 @@ public class FixedStringList extends AbstractList<String> implements
 	 * this method! This method will return false if there is no null value in
 	 * the FixedStringList (indicating that the add failed). No Error or
 	 * Exception will be generated.
-	 * 
-	 * @see java.util.AbstractList#add(java.lang.Object)
 	 */
 	@Override
 	public boolean add(String element)
@@ -176,8 +174,6 @@ public class FixedStringList extends AbstractList<String> implements
 	 * null values in the FixedStringList to fit all of the contents of the
 	 * given Collection (indicating that the addAll failed). No Error or
 	 * Exception will be generated.
-	 * 
-	 * @see java.util.AbstractList#addAll(int, java.util.Collection)
 	 */
 	@Override
 	public boolean addAll(int index, Collection<? extends String> collection)
@@ -197,8 +193,6 @@ public class FixedStringList extends AbstractList<String> implements
 	 * value is replaced by null. The contents of the FixedStringList are not
 	 * consolidated, meaning the null value will continue to exist in the
 	 * FixedStringList at exactly the index where the value was removed.
-	 * 
-	 * @see java.util.AbstractList#remove(int)
 	 */
 	@Override
 	public String remove(int index)
@@ -210,8 +204,6 @@ public class FixedStringList extends AbstractList<String> implements
 
 	/**
 	 * Sets the String at the given index to the given value.
-	 * 
-	 * @see java.util.AbstractList#set(int, java.lang.Object)
 	 */
 	@Override
 	public String set(int index, String element)
@@ -226,8 +218,6 @@ public class FixedStringList extends AbstractList<String> implements
 	 * null if there is no String present at the given index and the index is
 	 * greater than or equal to 0 and less than or equal to the size of this
 	 * FixedStringList minus 1.
-	 * 
-	 * @see java.util.AbstractList#get(int)
 	 */
 	@Override
 	public String get(int index)
@@ -239,8 +229,6 @@ public class FixedStringList extends AbstractList<String> implements
 	 * Returns the size of this FixedStringList. Will always be the size defined
 	 * during the construction of this FixedStringList, regardless of how many
 	 * entries in the FixedStringList are set to zero.
-	 * 
-	 * @see java.util.AbstractCollection#size()
 	 */
 	@Override
 	public int size()
@@ -253,9 +241,7 @@ public class FixedStringList extends AbstractList<String> implements
 	 * method is consistent with the equals behavior defined in java.util.List
 	 * (meaning this will return true if this FixedStringList is the same size
 	 * as another java.util.List and has identical contents [in identical
-	 * order])
-	 * 
-	 * @see java.util.AbstractList#equals(java.lang.Object)
+	 * order]).
 	 */
 	@Override
 	public boolean equals(Object obj)

@@ -63,9 +63,12 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	}
 
 	/**
-	 * Creates a new HashSet for use by AbstractMapToList.
+	 * Creates a new HashSet for use by AbstractMapToList. It is intended that
+	 * this will only be used by AbstractMapToList.
 	 * 
-	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
+	 * Ownership of the constructed Set is transferred to the calling object,
+	 * and no reference to it is maintained by HashMapToInstanceList due to this
+	 * method call.
 	 */
 	@Override
 	protected Set<K> getEmptySet()
@@ -109,9 +112,6 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 
 	/**
 	 * Package - internal behavior. Actually remove an item from a list
-	 * 
-	 * @see pcgen.base.util.AbstractMapToList#removeFromList(java.util.List,
-	 *      java.lang.Object)
 	 */
 	@Override
 	boolean removeFromList(List<V> list, V valueElement)
