@@ -20,6 +20,8 @@
  */
 package pcgen.gui2.tabs;
 
+import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -82,12 +84,10 @@ import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 import pcgen.gui2.tabs.models.BigDecimalFieldHandler;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
-import pcgen.gui2.tabs.models.ConcurrentDataView;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
