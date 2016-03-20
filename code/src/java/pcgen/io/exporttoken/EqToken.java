@@ -1008,26 +1008,18 @@ public class EqToken extends Token
 		Globals.getSourceDisplay(), true);
 	}
 
-	/**
-	 * Get Spell Failure Token
-	 * @param pc
-	 * @param eq
-	 * @return Spell Failure Token
-	 */
-	public static String getSpellFailureToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getSpellFailureTokenInt(pc, eq) + "";
-	}
-
-	/**
-	 * Get Spell Failure Token as int
-	 * @param pc
-	 * @param eq
-	 * @return Spell Failure Token as int
-	 */
 	public static int getSpellFailureTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.spellFailure(pc).intValue();
+		String spellFailVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					"EQSPELLFAILURE");
+		if (spellFailVar == null)
+		{
+			return Math.max(0, eq.getSafe(IntegerKey.SPELL_FAILURE)
+				+ (int) eq.bonusTo(pc, "EQMARMOR", "SPELLFAILURE", true));
+		}
+		return ((Number) eq.getLocalVariable(pc.getCharID(), spellFailVar))
+			.intValue();
 	}
 
 	/**
@@ -1291,7 +1283,7 @@ public class EqToken extends Token
 		}
 		else if ("SPELLFAILURE".equals(token))
 		{
-			retString = getSpellFailureToken(pc, eq);
+			retString = Integer.toString(EqToken.getSpellFailureTokenInt(pc, eq));
 		}
 		else if ("SIZE".equals(token))
 		{

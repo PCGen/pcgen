@@ -68,7 +68,7 @@ public class MaxDexToken extends Token
 	public static String getMaxDexToken(String tokenSource, PlayerCharacter pc)
 	{
 		String retString = "";
-		int mod = pc.modToFromEquipment(tokenSource);
+		int mod = pc.modToMaxDexFromEquipment();
 
 		if (mod != Constants.MAX_MAXDEX)
 		{

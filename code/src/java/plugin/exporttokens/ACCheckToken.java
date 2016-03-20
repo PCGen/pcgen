@@ -67,7 +67,6 @@ public class ACCheckToken extends Token
 	 */
 	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
 	{
-		int mod = pc.modToFromEquipment(tokenSource);
-		return mod;
+		return pc.modToACCHECKFromEquipment();
 	}
 }
