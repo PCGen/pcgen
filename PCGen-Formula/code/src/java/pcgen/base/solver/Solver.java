@@ -261,7 +261,9 @@ public class Solver<T>
 		{
 			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 			{
-				result = modInfo.modifier.process(result, scopeInfo, modInfo.owner);
+				result =
+						modInfo.getModifier().process(result, scopeInfo,
+							modInfo.getSource());
 			}
 		}
 		return result;
@@ -287,13 +289,12 @@ public class Solver<T>
 			{
 				for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 				{
-					stepResult =
-							modInfo.modifier.process(stepResult, scopeInfo,
-								modInfo.owner);
+					Modifier<T> modifier = modInfo.getModifier();
+					Object source = modInfo.getSource();
+					stepResult = modifier.process(stepResult, scopeInfo, source);
 					@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 					ProcessStep<T> step =
-							new ProcessStep<T>(modInfo.modifier, modInfo.owner,
-								stepResult);
+							new ProcessStep<T>(modifier, source, stepResult);
 					steps.add(step);
 				}
 			}
@@ -323,22 +324,39 @@ public class Solver<T>
 			return reportString;
 		}
 	}
-	
+
+	/**
+	 * Constructs a new ModInfo to store information about a Modifier and the
+	 * source of the modifier
+	 * 
+	 * @param <IT>
+	 *            The format the included Modifier acts upon
+	 */
 	private static final class ModInfo<IT>
 	{
-		public final Modifier<IT> modifier;
-		public final Object owner;
+		private final Modifier<IT> modifier;
+		private final Object source;
 
-		public ModInfo(Modifier<IT> modifier, Object owner)
+		public ModInfo(Modifier<IT> modifier, Object source)
 		{
 			this.modifier = modifier;
-			this.owner = owner;
+			this.source = source;
+		}
+
+		public Modifier<IT> getModifier()
+		{
+			return modifier;
+		}
+
+		public Object getSource()
+		{
+			return source;
 		}
 
 		@Override
 		public int hashCode()
 		{
-			return modifier.hashCode() ^ owner.hashCode();
+			return modifier.hashCode() ^ source.hashCode();
 		}
 
 		@Override
@@ -348,7 +366,7 @@ public class Solver<T>
 			{
 				ModInfo<?> other = (ModInfo<?>) obj;
 				return modifier.equals(other.modifier)
-					&& owner.equals(other.owner);
+					&& source.equals(other.source);
 			}
 			return false;
 		}

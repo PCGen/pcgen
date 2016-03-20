@@ -81,10 +81,8 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @param scopeInst
 	 *            The ScopeInstance used to check for dependencies within the
 	 *            formula
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the formula. This
-	 *            parameter is optional - null can indicate that there is no
-	 *            format asserted by the context of the formula
+	 * @param fdm
+	 *            The DependencyManager to be loaded for this DependencyVisitor
 	 * @throws IllegalArgumentException
 	 *             if the FormulaMangaer or ScopeInstance parameters are null
 	 */
@@ -375,3 +373,4 @@ public class DependencyVisitor implements FormulaParserVisitor
 		return depManager;
 	}
 }
+

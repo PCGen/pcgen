@@ -161,7 +161,7 @@ public class SplitFormulaSetup
 	 * An IndividualSetup is returned by a SplitFormulaSetup. This contains the
 	 * information unique to a specific solution area.
 	 */
-	public class IndividualSetup
+	public final class IndividualSetup
 	{
 
 		/**

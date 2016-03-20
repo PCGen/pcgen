@@ -164,7 +164,7 @@ public class GenericFunction implements Function
 		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
 		ScopeInstance scopeInstance = visitor.getScopeInstance();
 		EvaluateVisitor ev =
-				new EvaluateVisitor(withArgs, scopeInstance, visitor.getOwner());
+				new EvaluateVisitor(withArgs, scopeInstance, visitor.getSource());
 		return ev.visit(root, assertedFormat);
 	}
 

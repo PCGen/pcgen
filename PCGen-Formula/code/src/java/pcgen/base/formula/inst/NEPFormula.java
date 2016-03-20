@@ -59,12 +59,15 @@ public interface NEPFormula<T>
 	 *            The Class indicating the asserted Format for the formula. This
 	 *            parameter is optional - null can indicate that there is no
 	 *            format asserted by the context of the formula
+	 * @param source
+	 *            The source of the resolution being performed, so it can be
+	 *            referred back to if necessary
 	 * @return The value calculated for the NEPFormula
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
 	 */
 	public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
-		Object owner);
+		Object source);
 
 	/**
 	 * Returns the FormulaSemantics for the NEPFormula.

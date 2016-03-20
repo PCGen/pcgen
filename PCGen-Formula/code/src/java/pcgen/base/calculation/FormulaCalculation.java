@@ -76,7 +76,7 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(final T input, ScopeInformation scopeInfo, Object owner)
+	public T process(final T input, ScopeInformation scopeInfo, Object source)
 	{
 		FormulaManager fManager = scopeInfo.getFormulaManager();
 		FunctionLibrary valueLibrary =
@@ -84,7 +84,7 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 		FormulaManager withValue = fManager.swapFunctionLibrary(valueLibrary);
 		ScopeInformation stepInfo =
 				new ScopeInformation(withValue, scopeInfo.getScope());
-		T resolved = formula.resolve(stepInfo, getVariableFormat(), owner);
+		T resolved = formula.resolve(stepInfo, getVariableFormat(), source);
 		return getBasicCalculation().process(input, resolved);
 	}
 

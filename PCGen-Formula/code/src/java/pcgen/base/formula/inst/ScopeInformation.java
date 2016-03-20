@@ -114,18 +114,21 @@ public class ScopeInformation
 	 *            The Class indicating the asserted Format for the formula. This
 	 *            parameter is optional - null can indicate that there is no
 	 *            format asserted by the context of the formula
+	 * @param source
+	 *            The source of the evaluation being performed, so it can be
+	 *            referred back to if necessary
 	 * @return true The result of evaluating the formula
 	 * @throws IllegalArgumentException
 	 *             if the given root is null
 	 */
 	public Object evaluate(SimpleNode root, Class<?> assertedFormat,
-		Object owner)
+		Object source)
 	{
 		if (root == null)
 		{
 			throw new IllegalArgumentException("Cannot evaluate with null root");
 		}
-		EvaluateVisitor evaluateVisitor = new EvaluateVisitor(fm, varScope, owner);
+		EvaluateVisitor evaluateVisitor = new EvaluateVisitor(fm, varScope, source);
 		return evaluateVisitor.visit(root, assertedFormat);
 	}
 

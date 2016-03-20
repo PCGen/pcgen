@@ -78,7 +78,7 @@ public class ThisFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		Class<?> assertedFormat)
 	{
-		return visitor.getOwner();
+		return visitor.getSource();
 	}
 
 	/**

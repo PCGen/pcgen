@@ -114,15 +114,15 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 *            The Class indicating the asserted Format for the formula. This
 	 *            parameter is optional - null can indicate that there is no
 	 *            format asserted by the context of the formula
-	 * @param owner
-	 *            The owner of this NEPFormula for purposes of formula resolution
+	 * @param source
+	 *            The source of this NEPFormula for purposes of formula resolution
 	 * @return The value calculated for the ComplexNEPFormula.
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
 	 */
 	@Override
 	public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
-		Object owner)
+		Object source)
 	{
 		if (scopeInfo == null)
 		{
@@ -130,7 +130,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 				"Cannot resolve formula with null ScopeInformation");
 		}
 		@SuppressWarnings("unchecked")
-		T result = (T) scopeInfo.evaluate(root, assertedFormat, owner);
+		T result = (T) scopeInfo.evaluate(root, assertedFormat, source);
 		return result;
 	}
 

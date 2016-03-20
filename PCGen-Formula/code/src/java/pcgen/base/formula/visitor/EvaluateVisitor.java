@@ -79,7 +79,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 */
 	private final FormulaManager fm;
 
-	private final Object owner;
+	private final Object source;
 
 	/**
 	 * Constructs a new EvaluateVisitor with the given items used to perform the
@@ -90,14 +90,14 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 *            other key parameters of a Formula
 	 * @param scopeInst
 	 *            The ScopeInstance used to evaluate the formula
-	 * @param owner
+	 * @param source
 	 *            The VarScoped object that owns the formula this
 	 *            EvaulateVisitor will process
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
 	public EvaluateVisitor(FormulaManager fm, ScopeInstance scopeInst,
-		Object owner)
+		Object source)
 	{
 		if (fm == null)
 		{
@@ -109,7 +109,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		}
 		this.fm = fm;
 		this.scopeInst = scopeInst;
-		this.owner = owner;
+		this.source = source;
 	}
 
 	/**
@@ -428,13 +428,13 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Returns The owner of the formula evaluated by this EvaluateVisitor.
+	 * Returns The source of the formula evaluated by this EvaluateVisitor.
 	 * 
-	 * @return The owner of the formula evaluated by this EvaluateVisitor
+	 * @return The source of the formula evaluated by this EvaluateVisitor
 	 */
-	public Object getOwner()
+	public Object getSource()
 	{
-		return owner;
+		return source;
 	}
 
 }

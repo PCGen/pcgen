@@ -85,7 +85,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T[] process(T[] input, ScopeInformation scopeInfo, Object owner)
+	public T[] process(T[] input, ScopeInformation scopeInfo, Object source)
 	{
 		if (location > input.length - 1)
 		{
@@ -96,7 +96,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 				(T[]) Array.newInstance(modifier.getVariableFormat(),
 					input.length);
 		System.arraycopy(input, 0, newArray, 0, input.length);
-		newArray[location] = modifier.process(input[location], scopeInfo, owner);
+		newArray[location] = modifier.process(input[location], scopeInfo, source);
 		return newArray;
 	}
 

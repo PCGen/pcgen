@@ -81,9 +81,9 @@ public final class CalculationModifier<T> implements Modifier<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo, Object owner)
+	public T process(T input, ScopeInformation scopeInfo, Object source)
 	{
-		return toDo.process(input, scopeInfo, owner);
+		return toDo.process(input, scopeInfo, source);
 	}
 
 	/**
