@@ -22,6 +22,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -30,7 +31,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -79,6 +79,9 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 				+ obj.getClass().getSimpleName(), context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " may not be empty", context);

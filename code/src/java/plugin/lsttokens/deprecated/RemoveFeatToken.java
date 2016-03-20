@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
@@ -54,7 +55,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -98,6 +98,9 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		Nature nature = Nature.NORMAL;
 
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		String activeValue = sep.next();
 		Formula count;
 		if (!sep.hasNext())
@@ -138,6 +141,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		List<PrimitiveChoiceSet<CNAbilitySelection>> pcs =
 				new ArrayList<PrimitiveChoiceSet<CNAbilitySelection>>();
 		ParsingSeparator tok = new ParsingSeparator(activeValue, ',');
+		tok.addGroupingPair('[', ']');
+		tok.addGroupingPair('(', ')');
 
 		boolean foundAny = false;
 		boolean foundOther = false;

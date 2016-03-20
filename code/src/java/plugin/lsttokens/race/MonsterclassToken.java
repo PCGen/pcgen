@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.race;
 
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -24,7 +25,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -52,6 +52,9 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, ':');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		String classString = sep.next();
 		if (!sep.hasNext())
 		{
