@@ -109,6 +109,7 @@ import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContextUtilities;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.CDOMControlLoader;
+import pcgen.rules.persistence.CodeControlLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -155,6 +156,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
 	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
+	private CodeControlLoader codeControlLoader = new CodeControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
 			new GlobalModifierLoader();
@@ -222,6 +224,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		alignmentLoader.addObserver(this);
 		statLoader.addObserver(this);
 		dataControlLoader.addObserver(this);
+		codeControlLoader.addObserver(this);
 	}
 
 	@Override
@@ -578,6 +581,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		setMaximum(countTotalFilesToLoad());
 
 		// Load using the new LstFileLoaders
+		List<CampaignSourceEntry> codeCtrlFileList = fileLists.getListFor(ListKey.FILE_CODECTRL);
+		if (codeCtrlFileList != null)
+		{
+			codeControlLoader.loadLstFiles(context, codeCtrlFileList);
+		}
 		List<CampaignSourceEntry> dataDefFileList = fileLists.getListFor(ListKey.FILE_DATACTRL);
 		dataDefFileList = addDefaultDataControlIfNeeded(dataDefFileList);
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
