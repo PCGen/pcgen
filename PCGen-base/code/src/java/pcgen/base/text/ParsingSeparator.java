@@ -37,6 +37,10 @@ import pcgen.base.util.OneToOneMap;
  * of '(' and ')' would return "a" and "b(c,d)". It does this because it
  * recognizes that the comma that is within the grouping pair is not a top level
  * separator.
+ * 
+ * Note that it is possible to have a grouping pair of matching characters - as
+ * an example, ParsingSeparator can handle quotes as the open and close
+ * characters, even though they are the same character.
  */
 public class ParsingSeparator implements Iterator<String>
 {
@@ -111,7 +115,9 @@ public class ParsingSeparator implements Iterator<String>
 	 * 
 	 * The pair will not be added if either character already exists in any
 	 * grouping pair previously added to this ParsingSeparator (as start or
-	 * ending member).
+	 * ending member). Note that this does NOT prevent the user of an identical
+	 * start and end character. For example, ignoring separator characters in
+	 * embedded quotes is possible.
 	 * 
 	 * @param start
 	 *            The starting character for a grouping pair
@@ -186,6 +192,7 @@ public class ParsingSeparator implements Iterator<String>
 	 * @return A String containing the next section to be returned from the base
 	 *         String.
 	 */
+	@SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NPathComplexity"})
 	@Override
 	public String next()
 	{
@@ -249,13 +256,13 @@ public class ParsingSeparator implements Iterator<String>
 				}
 			}
 		}
-		if (expected.isEmpty())
+		if (!expected.isEmpty())
 		{
-			return compilation.toString();
-		}
-		throw new GroupingMismatchException(
-			baseString + " reached end of String while attempting to match: "
+			throw new GroupingMismatchException(baseString
+				+ " reached end of String while attempting to match: "
 				+ expected.pop());
+		}
+		return compilation.toString();
 	}
 
 	private void start()
