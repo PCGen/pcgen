@@ -286,7 +286,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 			}
 		}
 		System.out.println("Evaluation called on invalid variable: '" + varName
-			+ "', assuming zero");
+			+ "', assuming default");
+		//argh! not always integer!!
 		return Integer.valueOf(0);
 		//		throw new IllegalStateException(
 		//			"Evaluation called on invalid Formula (reached invalid non-term: "
@@ -324,11 +325,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in EvaluateVisitor indicates either an
-	 * error in the implementation of the formula or a tree structure problem in
-	 * the formula.
+	 * Evaluates a Quoted String (so obviously returns a String).
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)
