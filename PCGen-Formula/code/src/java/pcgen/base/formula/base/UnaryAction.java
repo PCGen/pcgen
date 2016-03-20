@@ -19,6 +19,30 @@ package pcgen.base.formula.base;
 
 import pcgen.base.formula.parse.Operator;
 
+/**
+ * A UnaryAction is used to process a unary operator (e.g. ! or -) in a Formula.
+ * 
+ * This interface is an abstract definition of the operation to be performed
+ * (evaluate always takes Object) as the formula system can process multiple
+ * formats of variables.
+ * 
+ * It is a conscious decision to have evaluate take Object, Object as parameters
+ * and do casting. Given the abstract definition, it is possible for more than
+ * one UnaryAction to act upon a given operator. This is generally done with
+ * different classes being processed by a UnaryAction. This "selection" of the
+ * appropriate UnaryAction is often performed by an OperatorLibrary, and is
+ * typically done by using the abstractEvaluate method of the UnaryAction
+ * objects.
+ * 
+ * The reason for Object is easier definition and use, without any material
+ * penalty. The cast must occur *either way* (here or EvaluationVisitor) based
+ * on how the visitation works. The difference is whether the system makes
+ * multiple types of operators and thus adds fields to SimpleNode to hold the
+ * different types (or worse - holds them in once place and does instanceof
+ * checks). Since that has limited value (doesn't avoid operations, just changes
+ * where they reside), it doesn't seem worthwhile and all Operators are
+ * centralized by using Object as the class of the parameter.
+ */
 public interface UnaryAction
 {
 
@@ -33,8 +57,8 @@ public interface UnaryAction
 	 * Processes an "abstract" version of the operation, performing a prediction
 	 * of the returned Class rather than on an actual object.
 	 * 
-	 * If the OperatorAction cannot perform an action on the object of the given
-	 * class, then the OperatorAction will return null from this method. An
+	 * If the UnaryAction cannot perform an action on the object of the given
+	 * class, then the UnaryAction will return null from this method. An
 	 * exception should not be thrown to indicate incompatibility.
 	 * 
 	 * Note that this provides a prediction of the returned Class, not the
@@ -51,7 +75,7 @@ public interface UnaryAction
 	 *            The class (data format) of the argument to the abstract
 	 *            operation
 	 * @return The class (data format) of the result of the operation if this
-	 *         OperatorAction can process objects of the given classes; null
+	 *         UnaryAction can process objects of the given classes; null
 	 *         otherwise
 	 */
 	public Class<?> abstractEvaluate(Class<?> format);
