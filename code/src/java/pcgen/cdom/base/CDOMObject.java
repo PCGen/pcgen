@@ -371,7 +371,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return factSetChar == null ? false : factSetChar.containsListFor(key);
 	}
 
-	public final <T> void addToSetFor(FactSetKey<T> key, ObjectContainer<T> element)
+	public final <T> void addToSetFor(FactSetKey<T> key, Indirect<T> element)
 	{
 		if (factSetChar == null)
 		{
@@ -389,15 +389,15 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		factSetChar.addAllToListFor(key, elementCollection);
 	}
 
-	public final <T> List<ObjectContainer<T>> getSetFor(FactSetKey<T> key)
+	public final <T> List<Indirect<T>> getSetFor(FactSetKey<T> key)
 	{
 		return factSetChar == null ? null : factSetChar.getListFor(key);
 	}
 
-	public final <T> List<ObjectContainer<T>> getSafeSetFor(FactSetKey<T> key)
+	public final <T> List<Indirect<T>> getSafeSetFor(FactSetKey<T> key)
 	{
 		return factSetChar != null && factSetChar.containsListFor(key) ? factSetChar.getListFor(key)
-				: new ArrayList<ObjectContainer<T>>();
+				: new ArrayList<Indirect<T>>();
 	}
 	
 	public final String getSetAsString(FactSetKey<?> key)
@@ -436,7 +436,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return out;
 	}
 
-	public final <T> boolean removeFromSetFor(FactSetKey<T> key, ObjectContainer<T> element)
+	public final <T> boolean removeFromSetFor(FactSetKey<T> key, Indirect<T> element)
 	{
 		boolean removed = factSetChar == null ? false : factSetChar.removeFromListFor(key, element);
 		if (removed && factSetChar.isEmpty())

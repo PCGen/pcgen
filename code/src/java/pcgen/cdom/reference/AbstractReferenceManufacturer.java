@@ -35,7 +35,6 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToInstanceList;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.KeyMap;
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
@@ -1327,20 +1326,6 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public Indirect<T> convertIndirect(String key)
 	{
 		return factory.getReference(key);
-	}
-
-	@Override
-	public ObjectContainer<T> convertObjectContainer(String typeStr)
-	{
-		/*
-		 * TODO Really needs to do a Primitive search... :/
-		 */
-		if (typeStr.startsWith("TYPE=") || typeStr.startsWith("TYPE."))
-		{
-			return factory.getTypeReference(typeStr.substring(5).split("\\."));
-		}
-		throw new IllegalArgumentException("ObjectContainer does not support: "
-			+ typeStr);
 	}
 
 	@Override

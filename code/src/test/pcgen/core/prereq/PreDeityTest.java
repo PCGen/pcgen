@@ -26,7 +26,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.StringManager;
-import pcgen.base.util.BasicObjectContainer;
+import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -246,6 +246,6 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 		StringManager sm = new StringManager();
 		FactSetKey<String> fsk = FactSetKey.getConstant("Pantheon", sm);
-		deity.addToSetFor(fsk, new BasicObjectContainer<String>(sm, "Celtic"));
+		deity.addToSetFor(fsk, new BasicIndirect<String>(sm, "Celtic"));
 	}
 }
