@@ -28,7 +28,7 @@ public class AbsFunction extends AbstractUnaryFunction
 	 * Returns the function name for this function. This is how it is called by
 	 * a user in a formula.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getFunctionName()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getFunctionName()
@@ -40,7 +40,7 @@ public class AbsFunction extends AbstractUnaryFunction
 	 * Returns the absolute value of the given argument. The same
 	 * conditions/rules apply as those in Java.lang.Math.abs(double)
 	 * 
-	 * @see pcgen.base.formula.function.AbstractUnaryFunction#evaluate(java.lang.Number)
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected Number evaluate(Number n)

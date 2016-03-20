@@ -41,9 +41,7 @@ public abstract class AbstractUnaryFunction implements Function
 	 * Only one argument is allowed, and it must be a valid formula value
 	 * (number, variable, another function, etc.)
 	 * 
-	 * @see pcgen.base.formula.base.Function#allowArgs(pcgen.base.formula.visitor.SemanticsVisitor,
-	 *      pcgen.base.formula.parse.Node[],
-	 *      pcgen.base.formula.base.FormulaSemantics)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
@@ -84,8 +82,7 @@ public abstract class AbstractUnaryFunction implements Function
 	 * 
 	 * Actual processing is delegated to evaluate(Number)
 	 * 
-	 * @see pcgen.base.formula.base.Function#evaluate(pcgen.base.formula.visitor.EvaluateVisitor,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final Number evaluate(EvaluateVisitor visitor, Node[] args)
@@ -100,8 +97,7 @@ public abstract class AbstractUnaryFunction implements Function
 	 * valid value in a formula. See isStatic on the Function interface for
 	 * important assumptions made when this method is called.
 	 * 
-	 * @see pcgen.base.formula.base.Function#isStatic(pcgen.base.formula.visitor.StaticVisitor,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
@@ -123,9 +119,7 @@ public abstract class AbstractUnaryFunction implements Function
 	 * valid value in a formula. See getDependencies on the Function interface
 	 * for important assumptions made when this method is called.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getDependencies(pcgen.base.formula.visitor.DependencyVisitor,
-	 *      pcgen.base.formula.base.DependencyManager,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,

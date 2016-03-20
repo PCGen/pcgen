@@ -29,7 +29,7 @@ public class MaxFunction extends AbstractNaryFunction
 	 * Returns the function name for this function. This is how it is called by
 	 * a user in a formula.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getFunctionName()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getFunctionName()
@@ -43,8 +43,7 @@ public class MaxFunction extends AbstractNaryFunction
 	 * The same situations/boundary condition rules apply as those in
 	 * java.lang.Math.max(double, double).
 	 * 
-	 * @see pcgen.base.formula.function.AbstractNaryFunction#evaluate(java.lang.Number,
-	 *      java.lang.Number)
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected Number evaluate(Number n1, Number n2)

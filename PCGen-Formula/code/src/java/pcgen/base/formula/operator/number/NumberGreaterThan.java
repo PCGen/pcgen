@@ -34,7 +34,7 @@ public class NumberGreaterThan implements OperatorAction
 	/**
 	 * Indicates that NumberGreaterThan Performs a comparison for greater than.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Operator getOperator()
@@ -46,8 +46,7 @@ public class NumberGreaterThan implements OperatorAction
 	 * Performs Abstract Evaluation, checking that the two arguments are
 	 * Number.class and returns Boolean.class.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#abstractEvaluate(java.lang.Class,
-	 *      java.lang.Class)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
@@ -63,8 +62,7 @@ public class NumberGreaterThan implements OperatorAction
 	/**
 	 * Performs a greater than comparison on the given arguments.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object,
-	 *      java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object evaluate(Object l, Object r)

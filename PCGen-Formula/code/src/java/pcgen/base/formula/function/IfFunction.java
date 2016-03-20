@@ -43,7 +43,7 @@ public class IfFunction implements Function
 	 * Returns the function name for this function. This is how it is called by
 	 * a user in a formula.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getFunctionName()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getFunctionName()
@@ -56,9 +56,7 @@ public class IfFunction implements Function
 	 * Three arguments are required, and each must be a valid formula value
 	 * (number, variable, another function, etc.).
 	 * 
-	 * @see pcgen.base.formula.base.Function#allowArgs(pcgen.base.formula.visitor.SemanticsVisitor,
-	 *      pcgen.base.formula.parse.Node[],
-	 *      pcgen.base.formula.base.FormulaSemantics)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
@@ -135,8 +133,7 @@ public class IfFunction implements Function
 	 * valid values. See evaluate on the Function interface for important
 	 * assumptions made when this method is called.
 	 * 
-	 * @see pcgen.base.formula.base.Function#evaluate(pcgen.base.formula.visitor.EvaluateVisitor,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args)
@@ -163,8 +160,7 @@ public class IfFunction implements Function
 	 * isStatic on the Function interface for important assumptions made when
 	 * this method is called.
 	 * 
-	 * @see pcgen.base.formula.base.Function#isStatic(pcgen.base.formula.visitor.StaticVisitor,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
@@ -200,9 +196,7 @@ public class IfFunction implements Function
 	 * getVariables on the Function interface for important assumptions made
 	 * when this method is called.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getDependencies(pcgen.base.formula.visitor.DependencyVisitor,
-	 *      pcgen.base.formula.base.DependencyManager,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,

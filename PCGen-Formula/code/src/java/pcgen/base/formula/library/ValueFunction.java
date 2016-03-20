@@ -62,7 +62,7 @@ public class ValueFunction implements Function
 	/**
 	 * The function name "value".
 	 * 
-	 * @see pcgen.base.formula.base.Function#getFunctionName()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getFunctionName()
@@ -82,9 +82,7 @@ public class ValueFunction implements Function
 	/**
 	 * Must be zero-argument to be valid.
 	 * 
-	 * @see pcgen.base.formula.base.Function#allowArgs(pcgen.base.formula.visitor.SemanticsVisitor,
-	 *      pcgen.base.formula.parse.Node[],
-	 *      pcgen.base.formula.base.FormulaSemantics)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
@@ -105,8 +103,7 @@ public class ValueFunction implements Function
 	/**
 	 * Always returns the previous value.
 	 * 
-	 * @see pcgen.base.formula.base.Function#evaluate(pcgen.base.formula.visitor.EvaluateVisitor,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args)
@@ -117,9 +114,7 @@ public class ValueFunction implements Function
 	/**
 	 * Never has any dependencies.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getDependencies(pcgen.base.formula.visitor.DependencyVisitor,
-	 *      pcgen.base.formula.base.DependencyManager,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,

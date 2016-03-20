@@ -34,7 +34,7 @@ public class NumberMinus implements UnaryAction
 	/**
 	 * Indicates that NumberMinus Performs Negation.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Operator getOperator()

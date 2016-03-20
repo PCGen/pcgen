@@ -139,8 +139,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * visited, which - through double dispatch - will result in another method
 	 * on this SemanticsVisitor being called.
 	 * 
-	 * @see pcgen.base.formula.parse.FormulaParserVisitor#visit(pcgen.base.formula.parse.SimpleNode,
-	 *      java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object visit(SimpleNode node, Object data)
