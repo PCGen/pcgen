@@ -56,8 +56,10 @@ public class LegalScopeLibrary
 	 * 
 	 * @param scope
 	 *            The LegalScope to be registered with this LegalScopeLibrary
-	 * @return The previous LegalScope registered with the same name as the
-	 *         given LegalScope
+	 * @throws IllegalArgumentException
+	 *             if the name of the given LegalScope is null or if there is a
+	 *             previous LegalScope registered with the same name as the
+	 *             given LegalScope
 	 */
 	public void registerScope(LegalScope scope)
 	{

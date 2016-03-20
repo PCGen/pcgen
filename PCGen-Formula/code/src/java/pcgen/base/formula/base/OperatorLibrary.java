@@ -117,15 +117,15 @@ public interface OperatorLibrary
 	 * 
 	 * @param operator
 	 *            The Operator to be evaluated
-	 * @param o1
+	 * @param argument
 	 *            The argument to the operation
-	 * @return The result of the operation, if this OperatorLibrary has an
-	 *         OperatorAction for the given Operator and argument
+	 * @return The result of the operation, if this OperatorLibrary has a
+	 *         UnaryAction for the given Operator and argument
 	 * @throws IllegalStateException
-	 *             if this OperatorLibrary did not have an OperatorAction for
-	 *             the given Operator and argument
+	 *             if this OperatorLibrary did not have a UnaryAction for the
+	 *             given Operator and argument
 	 */
-	public Object evaluate(Operator operator, Object o);
+	public Object evaluate(Operator operator, Object argument);
 
 	/**
 	 * Processes an "abstract" version of the operation, performing a prediction
@@ -143,7 +143,7 @@ public interface OperatorLibrary
 	 *            The class (data format) of the argument to the abstract
 	 *            operation
 	 * @return The class (data format) of the result of the operation if this
-	 *         OperatorLibrary has an OperatorAction for the given Operator and
+	 *         OperatorLibrary has a UnaryAction for the given Operator and
 	 *         argument; null otherwise
 	 */
 	public Class<?> processAbstract(Operator operator, Class<?> format);
