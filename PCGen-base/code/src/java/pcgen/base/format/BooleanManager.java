@@ -31,8 +31,6 @@ public class BooleanManager implements FormatManager<Boolean>
 	/**
 	 * Converts the given String to an object of the type processed by this
 	 * FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convert(java.lang.String)
 	 */
 	@Override
 	public Boolean convert(String s)
@@ -52,8 +50,6 @@ public class BooleanManager implements FormatManager<Boolean>
 	/**
 	 * Converts the given String to an Indirect containing an object of the type
 	 * processed by this FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convertIndirect(java.lang.String)
 	 */
 	@Override
 	public Indirect<Boolean> convertIndirect(String s)
@@ -64,8 +60,6 @@ public class BooleanManager implements FormatManager<Boolean>
 	/**
 	 * "Unconverts" the object (converts the object to a "serializable" String
 	 * format that can be reinterpreted by the convert* methods).
-	 * 
-	 * @see pcgen.rules.format.FormatManager#unconvert(java.lang.Object)
 	 */
 	@Override
 	public String unconvert(Boolean s)
@@ -75,8 +69,6 @@ public class BooleanManager implements FormatManager<Boolean>
 
 	/**
 	 * The Class that this FormatManager can convert or unconvert.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#getManagedClass()
 	 */
 	@Override
 	public Class<Boolean> getManagedClass()
@@ -87,8 +79,6 @@ public class BooleanManager implements FormatManager<Boolean>
 	/**
 	 * The String used to refer to this format in files like the variable
 	 * definition file.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#getIdentifierType()
 	 */
 	@Override
 	public String getIdentifierType()
@@ -96,18 +86,12 @@ public class BooleanManager implements FormatManager<Boolean>
 		return "BOOLEAN";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return -9943;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -116,8 +100,6 @@ public class BooleanManager implements FormatManager<Boolean>
 
 	/**
 	 * Returns null, as this FormatManager does not have a component.
-	 * 
-	 * @see pcgen.base.util.FormatManager#getComponentManager()
 	 */
 	@Override
 	public FormatManager<?> getComponentManager()

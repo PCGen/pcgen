@@ -69,22 +69,12 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 			: key;
 	}
 
-	/**
-	 * Returns true if the CaseInsensitiveMap contains the given key.
-	 * 
-	 * @see java.util.HashMap#containsKey(java.lang.Object)
-	 */
 	@Override
 	public boolean containsKey(Object key)
 	{
 		return super.containsKey(resolveObject(key));
 	}
 
-	/**
-	 * Returns the value stored in this CaseInsensitiveMap for the given key.
-	 * 
-	 * @see java.util.HashMap#get(java.lang.Object)
-	 */
 	@Override
 	public V get(Object key)
 	{
@@ -109,11 +99,6 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 		return super.put(resolveObject(key), value);
 	}
 
-	/**
-	 * Removes the value stored in this CaseInsensitiveMap for the given key.
-	 * 
-	 * @see java.util.HashMap#remove(java.lang.Object)
-	 */
 	@Override
 	public V remove(Object key)
 	{

@@ -77,27 +77,18 @@ public class IdentityList<T> implements List<T>
 		return new Identity<V>(value);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void add(int index, T element)
 	{
 		embeddedList.add(index, getIdentity(element));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final boolean add(T element)
 	{
 		return embeddedList.add(getIdentity(element));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final boolean addAll(Collection<? extends T> collection)
 	{
@@ -108,9 +99,6 @@ public class IdentityList<T> implements List<T>
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean addAll(int index, Collection<? extends T> collection)
 	{
@@ -122,27 +110,18 @@ public class IdentityList<T> implements List<T>
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void clear()
 	{
 		embeddedList.clear();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean contains(Object element)
 	{
 		return embeddedList.contains(getIdentity(element));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean containsAll(Collection<?> collection)
 	{
@@ -156,9 +135,6 @@ public class IdentityList<T> implements List<T>
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -166,99 +142,66 @@ public class IdentityList<T> implements List<T>
 			&& embeddedList.equals(((IdentityList<?>) obj).embeddedList);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T get(int index)
 	{
 		return embeddedList.get(index).getUnderlying();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return embeddedList.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int indexOf(Object element)
 	{
 		return embeddedList.indexOf(getIdentity(element));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isEmpty()
 	{
 		return embeddedList.isEmpty();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Iterator<T> iterator()
 	{
 		return new IdentityIterator<T>(embeddedList.listIterator());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int lastIndexOf(Object element)
 	{
 		return embeddedList.lastIndexOf(getIdentity(element));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListIterator<T> listIterator()
 	{
 		return new IdentityIterator<T>(embeddedList.listIterator());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListIterator<T> listIterator(int index)
 	{
 		return new IdentityIterator<T>(embeddedList.listIterator(index));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T remove(int index)
 	{
 		return embeddedList.remove(index).getUnderlying();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean remove(Object element)
 	{
 		return embeddedList.remove(getIdentity(element));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean removeAll(Collection<?> collection)
 	{
@@ -270,45 +213,30 @@ public class IdentityList<T> implements List<T>
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean retainAll(Collection<?> collection)
 	{
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T set(int index, T element)
 	{
 		return embeddedList.set(index, getIdentity(element)).getUnderlying();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int size()
 	{
 		return embeddedList.size();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<T> subList(int startIndex, int endIndex)
 	{
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object[] toArray()
 	{
@@ -338,9 +266,6 @@ public class IdentityList<T> implements List<T>
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public <V> V[] toArray(V[] newArray)
@@ -385,9 +310,6 @@ public class IdentityList<T> implements List<T>
 			underlying = item;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean equals(Object obj)
 		{
@@ -395,9 +317,6 @@ public class IdentityList<T> implements List<T>
 				&& ((Identity<?>) obj).underlying == underlying;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int hashCode()
 		{
@@ -442,81 +361,54 @@ public class IdentityList<T> implements List<T>
 			iter = iterator;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void add(I item)
 		{
 			iter.add(getIdentity(item));
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean hasNext()
 		{
 			return iter.hasNext();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean hasPrevious()
 		{
 			return iter.hasPrevious();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public I next()
 		{
 			return iter.next().getUnderlying();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int nextIndex()
 		{
 			return iter.nextIndex();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public I previous()
 		{
 			return iter.previous().getUnderlying();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int previousIndex()
 		{
 			return iter.previousIndex();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void remove()
 		{
 			iter.remove();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void set(I item)
 		{

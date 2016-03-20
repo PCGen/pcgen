@@ -84,8 +84,6 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * However, the Edges contained in the List are returned BY REFERENCE, and
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the DirectionalSetMapGraph.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalGraph#getInwardEdgeList(java.lang.Object)
 	 */
 	@Override
 	public List<ET> getInwardEdgeList(N node)
@@ -114,8 +112,6 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * However, the Edges contained in the List are returned BY REFERENCE, and
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the DirectionalSetMapGraph.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalGraph#getOutwardEdgeList(java.lang.Object)
 	 */
 	@Override
 	public List<ET> getOutwardEdgeList(N node)
@@ -138,8 +134,6 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 
 	/**
 	 * Returns true if the given Node is connected to any edges as a sink Node.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalGraph#hasInwardEdge(java.lang.Object)
 	 */
 	@Override
 	public boolean hasInwardEdge(N node)
@@ -162,8 +156,6 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	/**
 	 * Returns true if the given Node is connected to any edges as a source
 	 * Node.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalGraph#hasOutwardEdge(java.lang.Object)
 	 */
 	@Override
 	public boolean hasOutwardEdge(N node)

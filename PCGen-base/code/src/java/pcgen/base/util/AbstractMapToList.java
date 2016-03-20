@@ -511,9 +511,6 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		mapToList.clear();
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -559,8 +556,6 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this AbstractMapToList.
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -579,8 +574,6 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	 * 
 	 * **NOTE** This equals method may not be symmetric if other implementors of
 	 * MapToList do not define equality in the same way.
-	 * 
-	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

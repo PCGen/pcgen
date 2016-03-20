@@ -30,8 +30,6 @@ public class StringManager implements FormatManager<String>
 	/**
 	 * Converts the given String to an object of the type processed by this
 	 * FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convert(java.lang.String)
 	 */
 	@Override
 	public String convert(String s)
@@ -46,8 +44,6 @@ public class StringManager implements FormatManager<String>
 	/**
 	 * Converts the given String to an Indirect containing an object of the type
 	 * processed by this FormatManager.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#convertIndirect(java.lang.String)
 	 */
 	@Override
 	public Indirect<String> convertIndirect(String s)
@@ -62,8 +58,6 @@ public class StringManager implements FormatManager<String>
 	/**
 	 * "Unconverts" the object (converts the object to a "serializable" String
 	 * format that can be reinterpreted by the convert* methods).
-	 * 
-	 * @see pcgen.rules.format.FormatManager#unconvert(java.lang.Object)
 	 */
 	@Override
 	public String unconvert(String s)
@@ -78,8 +72,6 @@ public class StringManager implements FormatManager<String>
 
 	/**
 	 * The Class that this FormatManager can convert or unconvert.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#getManagedClass()
 	 */
 	@Override
 	public Class<String> getManagedClass()
@@ -90,8 +82,6 @@ public class StringManager implements FormatManager<String>
 	/**
 	 * The String used to refer to this format in files like the variable
 	 * definition file.
-	 * 
-	 * @see pcgen.rules.format.FormatManager#getIdentifierType()
 	 */
 	@Override
 	public String getIdentifierType()
@@ -99,18 +89,12 @@ public class StringManager implements FormatManager<String>
 		return "STRING";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return 987;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -119,8 +103,6 @@ public class StringManager implements FormatManager<String>
 
 	/**
 	 * Returns null, as this FormatManager does not have a component.
-	 * 
-	 * @see pcgen.base.util.FormatManager#getComponentManager()
 	 */
 	@Override
 	public FormatManager<?> getComponentManager()

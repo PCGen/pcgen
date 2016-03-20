@@ -76,8 +76,6 @@ public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 	 * Ownership of the constructed Set is transferred to the calling object,
 	 * and no reference to it is maintained by HashMapToList due to this method
 	 * call.
-	 * 
-	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
 	 */
 	@Override
 	protected Set<K> getEmptySet()

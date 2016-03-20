@@ -140,8 +140,6 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * Iterates over the contents of the WrappedMapSet. The iteration will occur
 	 * in the order defined by the order of iteration over the keys in the
 	 * underlying Map class.
-	 * 
-	 * @see java.util.AbstractCollection#iterator()
 	 */
 	@Override
 	public Iterator<T> iterator()
@@ -149,67 +147,36 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 		return map.keySet().iterator();
 	}
 
-	/**
-	 * Returns the number of objects contained within the WrappedMapSet.
-	 * 
-	 * @see java.util.AbstractCollection#size()
-	 */
 	@Override
 	public int size()
 	{
 		return map.size();
 	}
 
-	/**
-	 * Returns true if the WrappedMapSet is empty; false otherwise.
-	 * 
-	 * @see java.util.AbstractCollection#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty()
 	{
 		return map.isEmpty();
 	}
 
-	/**
-	 * Returns true if the WrappedMapSet contains the given Object; false
-	 * otherwise.
-	 * 
-	 * @see java.util.AbstractCollection#contains(java.lang.Object)
-	 */
 	@Override
 	public boolean contains(Object item)
 	{
 		return map.containsKey(item);
 	}
 
-	/**
-	 * Adds the given Object to the WrappedMapSet.
-	 * 
-	 * @see java.util.AbstractCollection#add(java.lang.Object)
-	 */
 	@Override
 	public boolean add(T item)
 	{
 		return map.put(item, PRESENCE) == null;
 	}
 
-	/**
-	 * Removes the given Object from the WrappedMapSet.
-	 * 
-	 * @see java.util.AbstractCollection#remove(java.lang.Object)
-	 */
 	@Override
 	public boolean remove(Object item)
 	{
 		return map.remove(item) == PRESENCE;
 	}
 
-	/**
-	 * Removes all objects from the WrappedMapSet.
-	 * 
-	 * @see java.util.AbstractCollection#clear()
-	 */
 	@Override
 	public void clear()
 	{

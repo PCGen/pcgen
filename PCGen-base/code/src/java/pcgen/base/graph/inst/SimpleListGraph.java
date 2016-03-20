@@ -94,8 +94,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 
 	/**
 	 * Add the given Node to the Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#addNode(java.lang.Object)
 	 */
 	@Override
 	public boolean addNode(N v)
@@ -115,8 +113,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 
 	/**
 	 * Adds the given Edge to the Graph.
-	 * 
-	 * @see rpgmapgen.map.graph.GraphStorageStrategy#addEdge(rpgmapgen.map.graph.Edge)
 	 */
 	@Override
 	public boolean addEdge(ET e)
@@ -142,22 +138,12 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return true;
 	}
 
-	/**
-	 * Returns true if the Graph contains the given Object as a Node.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#containsNode(java.lang.Object)
-	 */
 	@Override
 	public boolean containsNode(Object v)
 	{
 		return nodeList.contains(v);
 	}
 
-	/**
-	 * Returns true if the Graph contains the given Object as an Edge.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#containsEdge(pcgen.base.graph.base.Edge)
-	 */
 	@Override
 	public boolean containsEdge(Edge<?> e)
 	{
@@ -172,8 +158,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * the Nodes contained in the List are returned BY REFERENCE, and
 	 * modification of the returned Nodes will modify the nodes contained within
 	 * the SimpleListGraph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getNodeList()
 	 */
 	@Override
 	public List<N> getNodeList()
@@ -189,8 +173,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * the Edges contained in the List are returned BY REFERENCE, and
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the SimpleListGraph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getEdgeList()
 	 */
 	@Override
 	public List<ET> getEdgeList()
@@ -203,8 +185,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * As a side effect, any Edges contained within the Graph which are
 	 * connected to the given Node are also removed from the Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#removeNode(java.lang.Object)
 	 */
 	@Override
 	public boolean removeNode(N gn)
@@ -233,11 +213,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return successful;
 	}
 
-	/**
-	 * Removes the given Edge from the Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#removeEdge(pcgen.base.graph.base.Edge)
-	 */
 	@Override
 	public boolean removeEdge(ET ge)
 	{
@@ -262,8 +237,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * the Edges contained in the Set are returned BY REFERENCE, and
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the SimpleListGraph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getAdjacentEdges(java.lang.Object)
 	 */
 	@Override
 	public Set<ET> getAdjacentEdges(N gn)
@@ -291,8 +264,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Adds the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#addGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
 	public void addGraphChangeListener(GraphChangeListener<N, ET> arg0)
@@ -308,8 +279,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * GraphChangeListeners contained in the Array are (obviously!) returned BY
 	 * REFERENCE, and care should be taken with modifying those
 	 * GraphChangeListeners.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#getGraphChangeListeners()
 	 */
 	@Override
 	public GraphChangeListener<N, ET>[] getGraphChangeListeners()
@@ -320,8 +289,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Removes the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
-	 * 
-	 * @see pcgen.base.graph.base.Graph#removeGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
 	public void removeGraphChangeListener(GraphChangeListener<N, ET> arg0)

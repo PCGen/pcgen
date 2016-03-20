@@ -81,8 +81,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * Converts the instructions into an array of objects. The objects referred
 	 * to in the instructions should be separated by the separator provided at
 	 * construction of this ArrayFormatManager.
-	 * 
-	 * @see pcgen.base.util.FormatManager#convert(java.lang.String)
 	 */
 	@Override
 	public T[] convert(String instructions)
@@ -110,8 +108,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * Converts the instructions into an Indirect array of objects. The objects
 	 * referred to in the instructions should be separated by the separator
 	 * provided at construction of this ArrayFormatManager.
-	 * 
-	 * @see pcgen.base.util.FormatManager#convertIndirect(java.lang.String)
 	 */
 	@Override
 	public Indirect<T[]> convertIndirect(String instructions)
@@ -151,8 +147,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	/**
 	 * Returns the FormatManager for the class of object within the array
 	 * managed by this ArrayFormatManager.
-	 * 
-	 * @see pcgen.base.util.FormatManager#getComponentManager()
 	 */
 	@Override
 	public FormatManager<?> getComponentManager()
@@ -162,8 +156,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 
 	/**
 	 * Returns the identifier type for this ArrayFormatManager.
-	 * 
-	 * @see pcgen.base.util.FormatManager#getIdentifierType()
 	 */
 	@Override
 	public String getIdentifierType()
@@ -174,8 +166,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	/**
 	 * Returns the class for this ArrayFormatManager (will be an Array.class
 	 * with the appropriate component class).
-	 * 
-	 * @see pcgen.base.util.FormatManager#getManagedClass()
 	 */
 	@Override
 	public Class<T[]> getManagedClass()
@@ -185,8 +175,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 
 	/**
 	 * Unconverts the given array using this ArrayFormatManager.
-	 * 
-	 * @see pcgen.base.util.FormatManager#unconvert(java.lang.Object)
 	 */
 	@Override
 	public String unconvert(T[] array)
@@ -207,18 +195,12 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		return result.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return componentManager.hashCode() * separator;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -284,9 +266,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			return toReturn;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getUnconverted()
 		{

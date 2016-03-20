@@ -55,9 +55,6 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * Creates a replacement DefaultDirectionalGraphEdge for this
 	 * DefaultDirectionalGraphEdge, with the replacement connected to the two
 	 * given Nodes.
-	 * 
-	 * @see pcgen.base.graph.base.GraphEdge#createReplacementEdge(java.lang.Object,
-	 *      java.lang.Object)
 	 */
 	@Override
 	public DefaultDirectionalGraphEdge<N> createReplacementEdge(N gn1, N gn2)
@@ -68,8 +65,6 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	/**
 	 * Returns a bitmask indicating the interface type of the given Node with
 	 * respect to this DefaultDirectionalGraphEdge.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
 	 */
 	@Override
 	public int getNodeInterfaceType(N node)
@@ -95,8 +90,6 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * DefaultDirectionalGraphEdge. However, the Nodes contained in the List are
 	 * returned BY REFERENCE, and modification of the returned Nodes will modify
 	 * the Nodes contained within the DefaultDirectionalGraphEdge.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalEdge#getSourceNodes()
 	 */
 	@Override
 	public List<N> getSinkNodes()
@@ -113,8 +106,6 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * DefaultDirectionalGraphEdge. However, the Nodes contained in the List are
 	 * returned BY REFERENCE, and modification of the returned Nodes will modify
 	 * the Nodes contained within the DefaultDirectionalGraphEdge.
-	 * 
-	 * @see pcgen.base.graph.base.DirectionalEdge#getSourceNodes()
 	 */
 	@Override
 	public List<N> getSourceNodes()
@@ -122,9 +113,6 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 		return Collections.singletonList(getNodeAt(0));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

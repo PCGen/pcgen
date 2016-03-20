@@ -464,7 +464,6 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * not impact the other). However, this does not perform a true "deep"
 	 * clone, in the sense that the actual keys and values are not cloned.
 	 * 
-	 * @see java.lang.Object#clone()
 	 * @throws CloneNotSupportedException
 	 *             (should not be thrown)
 	 */
@@ -533,8 +532,6 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 
 	/**
 	 * A consistent-with-equals hashCode for DoubleKeyMapToList.
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -546,8 +543,6 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * Returns true if the DoubleKeyMapToList is equal to the given Object.
 	 * Equality is defined as the given Object being a DoubleKeyMapToList with
 	 * equal keys and values as defined by the underlying Maps.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

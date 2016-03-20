@@ -288,6 +288,7 @@ public class ParsingSeparator implements Iterator<String>
 	 * Not supported on ParsingSeparator.
 	 * 
 	 * @throws UnsupportedOperationException
+	 *             unconditionally (remove is not supported)
 	 */
 	@Override
 	public void remove()
