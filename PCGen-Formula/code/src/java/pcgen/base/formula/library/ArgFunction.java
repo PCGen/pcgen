@@ -89,9 +89,7 @@ public class ArgFunction implements Function
 	 * legal items in the master arguments provided when ArgFunction was
 	 * constructed) to be valid.
 	 * 
-	 * @see pcgen.base.formula.base.Function#allowArgs(pcgen.base.formula.visitor.SemanticsVisitor,
-	 *      pcgen.base.formula.parse.Node[],
-	 *      pcgen.base.formula.base.FormulaSemantics)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
@@ -169,9 +167,7 @@ public class ArgFunction implements Function
 	 * ArgumentDependencyManager if and only if one is present within the
 	 * DependencyManager.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getDependencies(pcgen.base.formula.visitor.DependencyVisitor,
-	 *      pcgen.base.formula.base.DependencyManager,
-	 *      pcgen.base.formula.parse.Node[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,

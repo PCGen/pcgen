@@ -61,7 +61,7 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	 * matching a "paren" Function within the SimpleFunctionLibrary, then an
 	 * exception will be thrown.
 	 * 
-	 * @see pcgen.base.formula.base.FunctionLibrary#addFunction(pcgen.base.formula.base.Function)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void addFunction(Function function)
@@ -92,7 +92,7 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	 * no "paren" Function with the given function name is in the
 	 * SimpleFunctionLibrary.
 	 * 
-	 * @see pcgen.base.formula.base.FunctionLibrary#getFunction(java.lang.String)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Function getFunction(String functionName)
@@ -111,7 +111,7 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	 * matching a "bracket" Function within the SimpleFunctionLibrary, then an
 	 * exception will be thrown.
 	 * 
-	 * @see pcgen.base.formula.base.FunctionLibrary#addBracketFunction(pcgen.base.formula.base.Function)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void addBracketFunction(Function function)
@@ -143,7 +143,7 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	 * no "bracket" Function with the given function name is in the
 	 * SimpleFunctionLibrary.
 	 * 
-	 * @see pcgen.base.formula.base.FunctionLibrary#getBracketFunction(java.lang.String)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Function getBracketFunction(String functionName)

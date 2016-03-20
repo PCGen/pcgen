@@ -34,7 +34,7 @@ public class BooleanNot implements UnaryAction
 	/**
 	 * Indicates that BooleanNot Performs Negation.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Operator getOperator()

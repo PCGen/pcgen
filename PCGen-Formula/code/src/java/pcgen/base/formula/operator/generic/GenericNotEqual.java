@@ -35,7 +35,7 @@ public class GenericNotEqual implements OperatorAction
 	 * Indicates that GenericNotEqual Performs a comparison for logical
 	 * inequality.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#getOperator()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Operator getOperator()
@@ -47,8 +47,7 @@ public class GenericNotEqual implements OperatorAction
 	 * Performs Abstract Evaluation, checking that the two arguments are are of
 	 * matching classes.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#abstractEvaluate(java.lang.Class,
-	 *      java.lang.Class)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
@@ -63,8 +62,7 @@ public class GenericNotEqual implements OperatorAction
 	/**
 	 * Performs a logical inequality comparison on the given arguments.
 	 * 
-	 * @see pcgen.base.formula.base.OperatorAction#evaluate(java.lang.Object,
-	 *      java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object evaluate(Object l, Object r)

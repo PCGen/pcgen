@@ -89,8 +89,7 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	 * visited, which - through double dispatch - will result in another method
 	 * on this ReconstructionVisitor being called.
 	 * 
-	 * @see pcgen.base.formula.parse.FormulaParserVisitor#visit(pcgen.base.formula.parse.SimpleNode,
-	 *      java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Object visit(SimpleNode node, Object data)

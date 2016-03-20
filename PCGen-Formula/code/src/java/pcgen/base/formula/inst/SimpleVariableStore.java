@@ -51,7 +51,7 @@ public class SimpleVariableStore implements WriteableVariableStore
 	 * for the given VariableID. Will return null if there is no value stored
 	 * for the given VariableID.
 	 * 
-	 * @see pcgen.base.formula.base.VariableStore#get(pcgen.base.formula.base.VariableID)
+	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -67,7 +67,7 @@ public class SimpleVariableStore implements WriteableVariableStore
 	 * If this method returns true, then it is guaranteed that the get method
 	 * will not return null.
 	 * 
-	 * @see pcgen.base.formula.base.VariableStore#containsKey(pcgen.base.formula.base.VariableID)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean containsKey(VariableID<?> varID)
@@ -79,8 +79,7 @@ public class SimpleVariableStore implements WriteableVariableStore
 	 * Adds the given non-null value to this SimpleVariableStore for the given
 	 * (non-null) VariableID.
 	 * 
-	 * @see pcgen.base.formula.base.WriteableVariableStore#put(pcgen.base.formula.base.VariableID,
-	 *      java.lang.Object)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public <T> T put(VariableID<T> varID, T value)

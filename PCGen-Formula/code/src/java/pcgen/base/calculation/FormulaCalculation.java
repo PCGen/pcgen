@@ -73,8 +73,7 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	 * previous value and the result of the NEPFormula to the BasicCalculation
 	 * provided at construction.
 	 * 
-	 * @see pcgen.base.calculation.NEPCalculation#process(java.lang.Object,
-	 *      pcgen.base.formula.inst.ScopeInformation)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public T process(final T input, ScopeInformation scopeInfo)

@@ -82,8 +82,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * ArrayComponentModifier is not already present in the input array, nothing
 	 * will be added and the underlying modifier will be ignored.
 	 * 
-	 * @see pcgen.base.calculation.NEPCalculation#process(java.lang.Object,
-	 *      pcgen.base.formula.inst.ScopeInformation)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public T[] process(T[] input, ScopeInformation scopeInfo)

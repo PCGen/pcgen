@@ -29,7 +29,7 @@ public class RoundFunction extends AbstractUnaryFunction
 	 * Returns the function name for this function. This is how it is called by
 	 * a user in a formula.
 	 * 
-	 * @see pcgen.base.formula.base.Function#getFunctionName()
+	 * {@inheritDoc}
 	 */
 	@Override
 	public String getFunctionName()
@@ -42,7 +42,7 @@ public class RoundFunction extends AbstractUnaryFunction
 	 * that is equally distant between two integers, the same rules apply as
 	 * those in java.lang.Math.round(double)
 	 * 
-	 * @see pcgen.base.formula.function.AbstractUnaryFunction#evaluate(java.lang.Number)
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected Number evaluate(Number n)
