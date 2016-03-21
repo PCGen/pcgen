@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,28 +17,24 @@
  */
 package pcgen.output.wrapper;
 
-import pcgen.cdom.enumeration.CharID;
-import pcgen.output.base.PCGenObjectWrapper;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleObjectWrapper;
+import pcgen.output.model.BooleanModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * SimpleWrapperDelegate is a wrapper around ObjectWrapper.SIMPLE_WRAPPER to
- * allow it to implement the PCGenObjectWrapper interface.
+ * A BooleanWrapper is an ObjectWrapper capable of producing a TemplateModel for
+ * objects that are Booleans.
  */
-public class SimpleWrapperDelegate implements PCGenObjectWrapper
+public class BooleanWrapper implements SimpleObjectWrapper
 {
-
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object obj)
-		throws TemplateModelException
+	public TemplateModel wrap(Object o) throws TemplateModelException
 	{
-		return ObjectWrapper.SIMPLE_WRAPPER.wrap(obj);
+		if (o instanceof Boolean)
+		{
+			return new BooleanModel((Boolean) o);
+		}
+		throw new TemplateModelException("Object was not a Boolean");
 	}
-
 }

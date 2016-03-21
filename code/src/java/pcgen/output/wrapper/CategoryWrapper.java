@@ -18,8 +18,7 @@
 package pcgen.output.wrapper;
 
 import pcgen.cdom.base.Category;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.output.base.PCGenObjectWrapper;
+import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.CategoryModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -28,16 +27,10 @@ import freemarker.template.TemplateModelException;
  * A CategoryWrapper is an ObjectWrapper capable of producing a TemplateModel
  * for objects that implement the Category interface.
  */
-public class CategoryWrapper implements PCGenObjectWrapper
+public class CategoryWrapper implements SimpleObjectWrapper
 {
-
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object o)
-		throws TemplateModelException
+	public TemplateModel wrap(Object o) throws TemplateModelException
 	{
 		if (o instanceof Category)
 		{

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-15 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,32 +15,25 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.output.actor;
+package pcgen.output.base;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.output.base.OutputActor;
-import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * A KeyActor is designed to process an interpolation and convert the key of a
- * CDOMObject into a TemplateModel.
- * 
- * Note that the actual name of the interpolation is stored externally to this
- * Actor (in CDOMObjectWrapperInfo to be precise)
+ * SimpleObjectWrapper is an advanced form of wrapper serving the Freemarker
+ * Template Engine.
  */
-public class KeyActor implements OutputActor<CDOMObject>
+public interface SimpleObjectWrapper
 {
 	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
+	 * Wrap the given object into a TemplateModel.
+	 * 
+	 * @param obj
+	 *            The object to be wrapped to a TemplateModel
+	 * @return a TemplateModel that wraps the given object
+	 * @throws TemplateModelException
+	 *             If this Wrapper does not support wrapping the given object
 	 */
-	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
-	{
-		return SimpleWrapperLibrary.wrap(d.getKeyName());
-	}
+	TemplateModel wrap(Object obj) throws TemplateModelException;
 }

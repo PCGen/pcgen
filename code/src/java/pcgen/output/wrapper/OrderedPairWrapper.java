@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,8 +18,7 @@
 package pcgen.output.wrapper;
 
 import pcgen.base.math.OrderedPair;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.output.base.PCGenObjectWrapper;
+import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.OrderedPairModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -28,11 +27,10 @@ import freemarker.template.TemplateModelException;
  * An OrderedPairWrapper is an ObjectWrapper capable of producing a
  * TemplateModel for OrderedPair objects.
  */
-public class OrderedPairWrapper implements PCGenObjectWrapper
+public class OrderedPairWrapper implements SimpleObjectWrapper
 {
 	@Override
-	public TemplateModel wrap(CharID id, Object obj)
-			throws TemplateModelException
+	public TemplateModel wrap(Object obj) throws TemplateModelException
 	{
 		if (obj instanceof OrderedPair)
 		{
