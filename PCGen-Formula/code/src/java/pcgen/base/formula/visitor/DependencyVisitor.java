@@ -260,7 +260,6 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * 
 	 * @param varName
 	 *            The variable name to be added as a dependency
-	 * @return The DependencyManager given as a parameter
 	 */
 	public void visitVariable(String varName)
 	{
