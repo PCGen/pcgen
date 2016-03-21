@@ -208,9 +208,10 @@ public class Solver<T>
 		{
 			for (Modifier<T> modifier : removed)
 			{
-				modifierList.removeFromListFor(Long
-					.valueOf(getPriority(modifier)), new ModInfo<>(modifier,
-					source));
+				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
+				ModInfo<T> modInfo = new ModInfo<>(modifier, source);
+				modifierList.removeFromListFor(
+					Long.valueOf(getPriority(modifier)), modInfo);
 			}
 		}
 	}
