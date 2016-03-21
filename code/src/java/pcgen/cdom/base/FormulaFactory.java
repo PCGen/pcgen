@@ -18,7 +18,6 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.analysis.FormulaFormat;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -354,7 +353,7 @@ public final class FormulaFactory
 			FormulaSemantics semantics =
 					FormulaSemanticsUtilities.getInitializedSemantics();
 			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				new FormulaFormat(formatManager.getManagedClass()));
+				formatManager.getManagedClass());
 			return semantics;
 		}
 	}
@@ -425,8 +424,7 @@ public final class FormulaFactory
 		if (semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
 		{
 			Class<?> formulaClass =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-						.getFormat();
+					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 			if (formulaClass.equals(varClass))
 			{
 				return formula;
