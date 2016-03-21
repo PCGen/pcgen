@@ -84,6 +84,15 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
+		if (ControlUtilities.hasControlToken(context, "EQSPELLFAILURE"))
+		{
+			if ("SPELLFAILURE".equals(token))
+			{
+				Logging.errorPrint("BONUS:EQMARMOR|SPELLFAILURE is disabled "
+					+ "when EQSPELLFAILURE control is used: " + token, context);
+				return false;
+			}
+		}
 		return super.parseToken(context, token);
 	}
 	

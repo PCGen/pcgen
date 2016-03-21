@@ -3875,19 +3875,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Get the percentage chance of Spell failure while using this Equipment
-	 * 
-	 * @param pc The PC carrying the item
-	 * 
-	 * @return The Spell failure percentage
-	 */
-	public Integer spellFailure(final PlayerCharacter pc)
-	{
-		return Math.max(0, getSafe(IntegerKey.SPELL_FAILURE)
-			+ (int) bonusTo(pc, "EQMARMOR", "SPELLFAILURE", true));
-	}
-
-	/**
 	 * Returns the Equipment as a String
 	 * 
 	 * @return the Equipment as a String

@@ -5936,23 +5936,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Calculate the SpellFailure bonus from equipped items. Extracted from
-	 * modToFromEquipment.
-	 * 
-	 * @return PC's SpellFailure bonus from equipment
-	 */
-	public int modToSpellFailureFromEquipment()
-	{
-		int bonus = 0;
-		for (Equipment eq : getEquippedEquipmentSet())
-		{
-			bonus += eq.spellFailure(this).intValue();
-		}
-		bonus += (int) getTotalBonusTo("MISC", "SPELLFAILURE");
-		return bonus;
-	}
-
-	/**
 	 * Calculate the MAXDEX bonus taking account of equipped items. Extracted
 	 * from modToFromEquipment.
 	 * 
@@ -5996,34 +5979,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			bonus = Constants.MAX_MAXDEX;
 		}
 		return bonus;
-	}
-
-	/**
-	 * Calculate the MAXDEX or ACCHECK or SPELLFAILURE or AC bonus from all currently
-	 * equipped items.
-	 * 
-	 * @param typeName The type of modification we're trying to calculate
-	 * @return The calculation from the equipment or if the typeName doesn't match then 0
-	 */
-	public int modToFromEquipment(final String typeName)
-	{
-		if (typeName.equals("AC"))
-		{
-			return modToACFromEquipment();
-		}
-		if (typeName.equals("ACCHECK"))
-		{
-			return modToACCHECKFromEquipment();
-		}
-		if (typeName.equals("MAXDEX"))
-		{
-			return modToMaxDexFromEquipment();
-		}
-		if (typeName.equals("SPELLFAILURE"))
-		{
-			return modToSpellFailureFromEquipment();
-		}
-		return 0;
 	}
 
 	/**
@@ -10633,5 +10588,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public String getControl(String string)
 	{
 		return controller.get(ObjectKey.getKeyFor(String.class, string));
+	}
+
+	public boolean hasControl(String string)
+	{
+		return controller.get(ObjectKey.getKeyFor(String.class, string)) != null;
 	}
 }

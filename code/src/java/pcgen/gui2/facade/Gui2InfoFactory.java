@@ -887,7 +887,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
-			a = equip.spellFailure(pc);
+			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
 			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 			{
