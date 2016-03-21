@@ -58,10 +58,10 @@ import pcgen.base.formula.parse.SimpleNode;
  * means that a formula for which StaticVisitor returns TRUE is guaranteed to be
  * static, while a formula for which StaticVisitor returns FALSE MAY or MAY NOT
  * be static. In most cases, FALSE will indicate a non-static formula, but there
- * are corner cases that may elude StaticVisitor, such as: "if(4<6,5,T)".
- * Detecting that this is static would require evaluation of the "4<6" portion,
- * and the contract of static detection on a Formula does not require such
- * evaluation.
+ * are corner cases that may elude StaticVisitor, such as: "if(4&lt;6,5,T)".
+ * Detecting that this is static would require evaluation of the "4&lt;6"
+ * portion, and the contract of static detection on a Formula does not require
+ * such evaluation.
  * 
  * StaticVisitor does not accumulate results, since it is only detecting a
  * Boolean value. Therefore, the data parameter to the methods is ignored.
