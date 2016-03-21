@@ -624,39 +624,6 @@ public final class Equipment extends PObject implements Serializable,
 	// Misc properties
 	//
 
-	/**
-	 * Returns the fumbleRange for this item.
-	 * 
-	 * Return the fumbleRange on the primary eqMod (if it exists) otherwise
-	 * return it for the secondary eqMod otherwise return the fumbleRange for
-	 * the item itself
-	 * 
-	 * @return the fumbleRange for this item.
-	 */
-	public String getFumbleRange()
-	{
-		for (EquipmentModifier eqMod : getEqModifierList(true))
-		{
-			String fr = eqMod.get(StringKey.FUMBLE_RANGE);
-			if (fr != null)
-			{
-				return fr;
-			}
-		}
-
-		for (EquipmentModifier eqMod : getEqModifierList(false))
-		{
-			String fr = eqMod.get(StringKey.FUMBLE_RANGE);
-			if (fr != null)
-			{
-				return fr;
-			}
-		}
-
-		String fr = get(StringKey.FUMBLE_RANGE);
-		return fr == null ? "" : fr;
-	}
-
 	public boolean isAutomatic()
 	{
 		return automatic;
