@@ -65,35 +65,38 @@ public final class FormatManagerLibrary
 	public FormatManager<?> getFormatManager(String formatName)
 	{
 		FormatManager<?> fmtManager = managerNameMap.get(formatName);
-		if ((fmtManager == null)
-			&& formatName.regionMatches(true, 0, "ARRAY[", 0, 6)
-			&& formatName.endsWith("]"))
+		if (fmtManager == null)
 		{
-			String subName = formatName.substring(6, formatName.length() - 1);
-			if (subName.regionMatches(true, 0, "ARRAY[", 0, 6))
+			if (formatName.regionMatches(true, 0, "ARRAY[", 0, 6)
+				&& formatName.endsWith("]"))
+			{
+				String subName =
+						formatName.substring(6, formatName.length() - 1);
+				if (subName.regionMatches(true, 0, "ARRAY[", 0, 6))
+				{
+					throw new IllegalArgumentException(
+						"Cannot built mulit-dimensional arrays, request was: "
+							+ formatName);
+				}
+				FormatManager<?> subFmtManager = managerNameMap.get(subName);
+				if (subFmtManager == null)
+				{
+					throw new IllegalArgumentException(
+						"No FormatManager available for " + subName
+							+ " when requesting " + formatName);
+				}
+				/*
+				 * Is this comma (separator for the Array Format instruction
+				 * parser) the only thing preventing multi-dimensional arrays?
+				 */
+				fmtManager = new ArrayFormatManager<>(subFmtManager, ',');
+				addFormatManager(fmtManager);
+			}
+			else
 			{
 				throw new IllegalArgumentException(
-					"Cannot built mulit-dimensional arrays, request was: "
-						+ formatName);
+					"No FormatManager available for " + formatName);
 			}
-			FormatManager<?> subFmtManager = managerNameMap.get(subName);
-			if (subFmtManager == null)
-			{
-				throw new IllegalArgumentException(
-					"No FormatManager available for " + subName
-						+ " when requesting " + formatName);
-			}
-			/*
-			 * Is this comma (separator for the Array Format instruction parser)
-			 * the only thing preventing multi-dimensional arrays?
-			 */
-			fmtManager = new ArrayFormatManager<>(subFmtManager, ',');
-			addFormatManager(fmtManager);
-		}
-		else
-		{
-			throw new IllegalArgumentException(
-				"No FormatManager available for " + formatName);
 		}
 		return fmtManager;
 	}
