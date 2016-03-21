@@ -113,8 +113,13 @@ public final class FormatManagerLibrary
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<T> fmtManager = (FormatManager<T>) managerClassMap.get(format);
-		if ((fmtManager == null) && format.isArray())
+		if (fmtManager == null)
 		{
+			if (!format.isArray())
+			{
+				throw new IllegalArgumentException(
+					"No FormatManager available for " + format);
+			}
 			Class<?> componentType = format.getComponentType();
 			if (componentType.isArray())
 			{
@@ -139,11 +144,6 @@ public final class FormatManagerLibrary
 						',');
 			addFormatManager(arrayFmtManager);
 			fmtManager = arrayFmtManager;
-		}
-		else
-		{
-			throw new IllegalArgumentException(
-				"No FormatManager available for " + format);
 		}
 		return fmtManager;
 	}
