@@ -441,10 +441,10 @@ public class FacadeFactory
 			{
 				return name;
 			}
-			if (gameModeRef != null && gameModeRef.getReference() != null)
+			if (gameModeRef != null && gameModeRef.get() != null)
 			{
 				return LanguageBundle.getFormattedString("in_source_gamemode",
-					gameModeRef.getReference().getDisplayName());
+					gameModeRef.get().getDisplayName());
 			}
 			return "";
 		}
@@ -503,7 +503,7 @@ public class FacadeFactory
         @Override
 		public void setGameMode(GameModeFacade gameMode)
 		{
-			gameModeRef.setReference(gameMode);
+			gameModeRef.set(gameMode);
 			context.setProperty("gamemode", gameMode.getName());
 		}
 

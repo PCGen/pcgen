@@ -1338,7 +1338,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	public String getName()
 	{
-		return name.getReference();
+		return name.get();
 	}
 
 	/* (non-Javadoc)
@@ -1362,7 +1362,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	@Override
 	public void setName(String name)
 	{
-		this.name.setReference(name);
+		this.name.set(name);
 		eqSet.setName(name);
 	}
 

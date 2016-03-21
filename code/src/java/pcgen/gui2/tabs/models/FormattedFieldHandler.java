@@ -56,7 +56,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 	 */
 	public void install()
 	{
-		field.setValue(ref.getReference());
+		field.setValue(ref.get());
 		field.addPropertyChangeListener(this);
 		ref.addReferenceListener(this);
 	}

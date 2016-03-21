@@ -222,11 +222,11 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 				}
 			}
 			if (chooser.isRequireCompleteSelection()
-				&& chooser.getRemainingSelections().getReference() > 0)
+				&& chooser.getRemainingSelections().get() > 0)
 			{
 				JOptionPane.showMessageDialog(this, LanguageBundle
 					.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-						chooser.getRemainingSelections().getReference()),
+						chooser.getRemainingSelections().get()),
 					chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}

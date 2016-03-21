@@ -138,10 +138,10 @@ public class EquipmentModels
 		this.unequippedList = new UnequippedList(character);
 		this.fullModel = new EquipmentTableModel(character);
 		fullModel.setEquipmentList(character.getPurchasedEquipment());
-		fullModel.setEquipmentSet(character.getEquipmentSetRef().getReference());
+		fullModel.setEquipmentSet(character.getEquipmentSetRef().get());
 		this.unequippedModel = new EquipmentTableModel(character);
 		unequippedModel.setEquipmentList(unequippedList);
-		unequippedModel.setEquipmentSet(character.getEquipmentSetRef().getReference());
+		unequippedModel.setEquipmentSet(character.getEquipmentSetRef().get());
 		this.equippedModel = new EquippedTableModel(character);
 
 		selectedModel = fullModel;
@@ -304,8 +304,8 @@ public class EquipmentModels
 			super(character);
 			ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
 			ref.addReferenceListener(this);
-			setEquipmentList(ref.getReference().getEquippedItems());
-			setEquipmentSet(ref.getReference());
+			setEquipmentList(ref.get().getEquippedItems());
+			setEquipmentSet(ref.get());
 		}
 
 		@Override
@@ -330,7 +330,7 @@ public class EquipmentModels
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
@@ -426,7 +426,7 @@ public class EquipmentModels
 		{
 			int[] selectedRows = equipmentTable.getSelectedRows();
 			MapToList<EquipmentFacade, EquipNode> equipMap = new HashMapToList<EquipmentFacade, EquipNode>();
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			List<EquipmentFacade> equipment = new ArrayList<EquipmentFacade>();
 
 			for (int i = 0; i < selectedRows.length; i++)
@@ -666,7 +666,7 @@ public class EquipmentModels
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
@@ -703,7 +703,7 @@ public class EquipmentModels
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{

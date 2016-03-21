@@ -71,7 +71,7 @@ public class FacadeComboBoxModel<E> extends AbstractListModel
 		if (reference != null)
 		{
 			reference.addReferenceListener(this);
-			setSelectedItem(reference.getReference());
+			setSelectedItem(reference.get());
 		}
 	}
 

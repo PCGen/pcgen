@@ -337,7 +337,7 @@ public class CharacterManager
 				Logging.errorPrint("Failed to find sources in: " + file.getAbsolutePath());
 				continue;
 			}
-			GameModeFacade game = selection.getGameMode().getReference();
+			GameModeFacade game = selection.getGameMode().get();
 			if (gameMode == null)
 			{
 				gameMode = game;
@@ -393,14 +393,14 @@ public class CharacterManager
 	 */
 	public static boolean characterFilenameValid(CharacterFacade character)
 	{
-		if (character.getFileRef().getReference() == null
-			|| StringUtils.isEmpty(character.getFileRef().getReference()
+		if (character.getFileRef().get() == null
+			|| StringUtils.isEmpty(character.getFileRef().get()
 				.getName()))
 		{
 			return false;
 		}
 
-		File file = character.getFileRef().getReference();
+		File file = character.getFileRef().get();
 		if (StringUtils.isBlank(file.getName()))
 		{
 			return false;
@@ -418,14 +418,14 @@ public class CharacterManager
 	 */
 	public static boolean saveCharacter(CharacterFacade character)
 	{
-		File file = character.getFileRef().getReference();
+		File file = character.getFileRef().get();
 		if (StringUtils.isBlank(file.getName()))
 		{
 			return false;
 		}
 
 		Logging.log(Logging.INFO,
-			"Saving character " + character.getNameRef().getReference() //$NON-NLS-1$
+			"Saving character " + character.getNameRef().get() //$NON-NLS-1$
 				+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
 
 		if (character instanceof CharacterFacadeImpl)
@@ -437,23 +437,23 @@ public class CharacterManager
 			}
 			catch (NullPointerException e)
 			{
-				Logging.errorPrint("Could not save " + character.getNameRef().getReference(), e);
+				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-										  "Could not save " + character.getNameRef().getReference());
+										  "Could not save " + character.getNameRef().get());
 				return false;
 			}
 			catch (IOException e)
 			{
-				Logging.errorPrint("Could not save " + character.getNameRef().getReference(), e);
+				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-										  "Could not save " + character.getNameRef().getReference()
+										  "Could not save " + character.getNameRef().get()
 						+ " due to the error:\n" + e.getMessage());
 				return false;
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Could not save " + character.getNameRef().getReference()
+			Logging.errorPrint("Could not save " + character.getNameRef().get()
 					+ " due to unexpected class of character: "
 					+ character.getClass().getCanonicalName());
 			return false;
@@ -465,7 +465,7 @@ public class CharacterManager
 
 	public static boolean saveCurrentParty()
 	{
-		File file = characters.getFileRef().getReference();
+		File file = characters.getFileRef().get();
 		if (file == null)
 		{
 			return false;
@@ -486,15 +486,15 @@ public class CharacterManager
 		characters.removeElement(character);
 		// This advises the message handler also.
 		character.closeCharacter();
-		File charFile = character.getFileRef().getReference();
+		File charFile = character.getFileRef().get();
 		recentCharacters.addRecentFile(charFile);
 		if (characters.isEmpty())
 		{
-			recentParties.addRecentFile(characters.getFileRef().getReference());
+			recentParties.addRecentFile(characters.getFileRef().get());
 			characters.setFile(null);
 		}
 		Logging.log(Logging.INFO,
-			"Closed character " + character.getNameRef().getReference()  //$NON-NLS-1$
+			"Closed character " + character.getNameRef().get()  //$NON-NLS-1$
 				+ " - " + charFile.getAbsolutePath()); //$NON-NLS-1$
 	}
 
@@ -502,12 +502,12 @@ public class CharacterManager
 	{
 		for (CharacterFacade characterFacade : characters)
 		{
-			recentCharacters.addRecentFile(characterFacade.getFileRef().getReference());
+			recentCharacters.addRecentFile(characterFacade.getFileRef().get());
 			// This advises the message handler also.
 			characterFacade.closeCharacter();
 		}
 		characters.clearContents();
-		recentParties.addRecentFile(characters.getFileRef().getReference());
+		recentParties.addRecentFile(characters.getFileRef().get());
 		characters.setFile(null);
 		Logging.log(Logging.INFO, "Closed all characters"); //$NON-NLS-1$
 	}
@@ -528,13 +528,13 @@ public class CharacterManager
 	 */
 	public static CharacterFacade getCharacterMatching(CharacterStubFacade companion)
 	{
-		File compFile = companion.getFileRef().getReference();
+		File compFile = companion.getFileRef().get();
 		if (compFile == null || StringUtils.isEmpty(compFile.getName()))
 		{
-			String compName = companion.getNameRef().getReference();
+			String compName = companion.getNameRef().get();
 			for (CharacterFacade character : CharacterManager.getCharacters())
 			{
-				String charName = character.getNameRef().getReference();
+				String charName = character.getNameRef().get();
 				if (ObjectUtils.equals(compName, charName))
 				{
 					return character;
@@ -545,7 +545,7 @@ public class CharacterManager
 		{
 			for (CharacterFacade character : CharacterManager.getCharacters())
 			{
-				File charFile = character.getFileRef().getReference();
+				File charFile = character.getFileRef().get();
 				if (compFile.equals(charFile))
 				{
 					return character;
@@ -570,7 +570,7 @@ public class CharacterManager
 	{
 		for (CharacterFacade character : characters)
 		{
-			if (character.getNameRef().getReference().equals(name))
+			if (character.getNameRef().get().equals(name))
 			{
 				return true;
 			}

@@ -31,7 +31,7 @@ import pcgen.facade.util.event.ReferenceListener;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class DefaultReferenceFacade<E> implements ReferenceFacade<E>
+public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 {
 
 	private EventListenerList listenerList = new EventListenerList();
@@ -60,12 +60,12 @@ public class DefaultReferenceFacade<E> implements ReferenceFacade<E>
 	}
 
     @Override
-	public E getReference()
+	public E get()
 	{
 		return object;
 	}
 
-	public void setReference(E object)
+	public void set(E object)
 	{
 		if (ObjectUtils.equals(this.object, object))
 		{

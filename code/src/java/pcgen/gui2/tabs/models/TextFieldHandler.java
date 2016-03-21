@@ -55,7 +55,7 @@ public abstract class TextFieldHandler implements DocumentListener, ReferenceLis
 	 */
 	public void install()
 	{
-		textField.setText(ref.getReference());
+		textField.setText(ref.get());
 		textField.getDocument().addDocumentListener(this);
 		ref.addReferenceListener(this);
 	}

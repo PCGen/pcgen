@@ -88,7 +88,7 @@ public class SolverViewFrame extends JFrame
 		identifierChooser = new JComboBoxEx();
 		for (CharacterFacade pcf : CharacterManager.getCharacters())
 		{
-			String pcname = pcf.getNameRef().getReference();
+			String pcname = pcf.getNameRef().get();
 			CharID id = pcf.getCharID();
 			identifierChooser.addItem(new PCRef(pcname, id));
 		}

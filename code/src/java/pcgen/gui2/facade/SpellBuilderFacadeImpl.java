@@ -633,7 +633,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	 */
 	private void processLevelChange()
 	{
-		int baseSpellLevel = spellLevel.getReference();
+		int baseSpellLevel = spellLevel.get();
 
 		// List of available spells
 		List<Spell> spellsOfLevel = new ArrayList<Spell>();
@@ -647,7 +647,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		Globals.sortPObjectListByName(spellsOfLevel);
 		availSpells.setContents(spellsOfLevel);
-		InfoFacade selSpell = spell.getReference();
+		InfoFacade selSpell = spell.get();
 		if (selSpell == null || !spellsOfLevel.contains(selSpell))
 		{
 			Spell newSpell = null;
@@ -661,12 +661,12 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		// Spell type
 		List<String> spellTypeList = getSpellTypeList();
 		availSpellTypes.setContents(spellTypeList);
-		spellType.setReference(spellTypeList.get(0));
+		spellType.set(spellTypeList.get(0));
 	}
 
 	private void selectSpell(Spell newSpell)
 	{
-		spell.setReference(newSpell);
+		spell.set(newSpell);
 
 		// Handle variants
 		List<String> variants = new ArrayList<String>();
@@ -679,14 +679,14 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		availVariants.setContents(variants);
 		if (variants.isEmpty())
 		{
-			variant.setReference(null);
+			variant.set(null);
 		}
 		else
 		{
-			String currVariant = variant.getReference();
+			String currVariant = variant.get();
 			if (currVariant != null && !variants.contains(currVariant))
 			{
-				variant.setReference(null);
+				variant.set(null);
 			}
 		}
 
@@ -707,7 +707,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		int minClassLevel = 1;
 		int maxClassLevel = 20;
 		PCClass aClass;
-		InfoFacade castingClass = pcClass.getReference();
+		InfoFacade castingClass = pcClass.get();
 		if (castingClass instanceof PCClass)
 		{
 			aClass = (PCClass) castingClass;
@@ -731,7 +731,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		{
 			minClassLevel =
 					character.getSpellSupport(aClass).getMinLevelForSpellLevel(
-						spellLevel.getReference() + levelAdjust, true);
+						spellLevel.get() + levelAdjust, true);
 			minClassLevel = Math.max(1, minClassLevel);
 			if (aClass.hasMaxLevel())
 			{
@@ -741,15 +741,15 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 		updateAvailCasterLevels(minClassLevel, maxClassLevel);
 		int currCasterLevel =
-				casterLevel.getReference() == null ? 0 : casterLevel
-					.getReference();
+				casterLevel.get() == null ? 0 : casterLevel
+					.get();
 		if (currCasterLevel < minClassLevel)
 		{
-			casterLevel.setReference(minClassLevel);
+			casterLevel.set(minClassLevel);
 		}
 		else if (currCasterLevel > maxClassLevel)
 		{
-			casterLevel.setReference(maxClassLevel);
+			casterLevel.set(maxClassLevel);
 		}
 	}
 
@@ -757,7 +757,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	{
 		List<String> spellTypes = new ArrayList<String>();
 
-		InfoFacade castingClass = pcClass.getReference();
+		InfoFacade castingClass = pcClass.get();
 		if (castingClass instanceof PCClass)
 		{
 			spellTypes.add(((PCClass) castingClass).getSpellType());
@@ -791,7 +791,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	@Override
 	public void setClass(InfoFacade classFacade)
 	{
-		pcClass.setReference(classFacade);
+		pcClass.set(classFacade);
 
 		if (classFacade instanceof Domain)
 		{
@@ -811,9 +811,9 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 			}
 		}
 
-		if (spellLevel.getReference() == null)
+		if (spellLevel.get() == null)
 		{
-			spellLevel.setReference(availSpellLevels.getElementAt(0));
+			spellLevel.set(availSpellLevels.getElementAt(0));
 		}
 		processLevelChange();
 	}
@@ -842,7 +842,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	@Override
 	public void setSpellLevel(Integer newSpellLevel)
 	{
-		spellLevel.setReference(newSpellLevel);
+		spellLevel.set(newSpellLevel);
 		processLevelChange();
 	}
 
@@ -900,7 +900,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	@Override
 	public void setVariant(String newVariant)
 	{
-		variant.setReference(newVariant);
+		variant.set(newVariant);
 	}
 
 	/**
@@ -927,7 +927,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	@Override
 	public void setCasterLevel(Integer newCasterLevel)
 	{
-		casterLevel.setReference(newCasterLevel);
+		casterLevel.set(newCasterLevel);
 	}
 
 	/**
@@ -954,7 +954,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	@Override
 	public void setSpellType(String newSpellType)
 	{
-		spellType.setReference(newSpellType);
+		spellType.set(newSpellType);
 	}
 
 	/**

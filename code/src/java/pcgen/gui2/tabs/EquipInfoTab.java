@@ -482,7 +482,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			character.deleteEquipmentSet(character.getEquipmentSetRef().getReference());
+			character.deleteEquipmentSet(character.getEquipmentSetRef().get());
 		}
 
 	}
@@ -571,7 +571,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 							JOptionPane.YES_NO_OPTION);
 			if (ret == JOptionPane.YES_OPTION)
 			{
-				character.getEquipmentSetRef().getReference().removeAllEquipment();
+				character.getEquipmentSetRef().get().removeAllEquipment();
 			}
 		}
 
@@ -593,9 +593,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		public void install()
 		{
-			weightLabel.setText(weightRef.getReference());
-			setLoadLabel(loadRef.getReference());
-			limitLabel.setText(limitRef.getReference());
+			weightLabel.setText(weightRef.get());
+			setLoadLabel(loadRef.get());
+			limitLabel.setText(limitRef.get());
 
 			weightRef.addReferenceListener(this);
 			loadRef.addReferenceListener(this);
@@ -862,7 +862,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				return false;
 			}
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : nodes)
 			{
 				equipSet.removeEquipment(equipNode, 1);
@@ -965,7 +965,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				node = node.getParent();
 			}
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 
 			if (support.isDataFlavorSupported(equipNodeArrayFlavor))
 			{
@@ -1019,7 +1019,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				beforeNode = node;
 				node = node.getParent();
 			}
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 
 			if (support.isDataFlavorSupported(equipNodeArrayFlavor))
 			{
@@ -1104,7 +1104,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				List<EquipNode> upTargets, List<EquipNode> downTargets,
 				List<EquipNode> sortTargets)
 		{
-			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			TableModel equipSetModel = equipmentSetTable.getModel();
 			int beforeRow = equipSetModel.getRowCount();
 			int afterRow = 0;
@@ -1219,7 +1219,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 			EquipmentSetFacade equipSet
-					= character.getEquipmentSetRef().getReference();
+					= character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.moveEquipment(equipNode, -1);
@@ -1258,7 +1258,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 			EquipmentSetFacade equipSet
-					= character.getEquipmentSetRef().getReference();
+					= character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.moveEquipment(equipNode, 1);
@@ -1295,7 +1295,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 			EquipmentSetFacade equipSet
-					= character.getEquipmentSetRef().getReference();
+					= character.getEquipmentSetRef().get();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.sortEquipment(equipNode);

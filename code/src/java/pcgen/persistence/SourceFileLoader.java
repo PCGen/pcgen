@@ -197,7 +197,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		selectedGame =
 				SystemCollections.getGameModeNamed(selection.getGameMode()
-					.getReference().getName());
+					.get().getName());
 		globalCampaign =
 				new CampaignSourceEntry(new Campaign(),
 					URI.create("file:/System%20Configuration%20Document"));

@@ -510,7 +510,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			switch (column)
 			{
 				case -1:
-					return character.getEquipmentSetRef().getReference() == element;
+					return character.getEquipmentSetRef().get() == element;
 				case 0:
 					return element;
 				default:
