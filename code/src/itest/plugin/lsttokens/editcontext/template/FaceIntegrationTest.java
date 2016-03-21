@@ -24,7 +24,6 @@ import org.junit.Test;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -51,11 +50,6 @@ public class FaceIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		GlobalScope legalScope = new GlobalScope();
-		primaryContext.getVariableContext().getFormulaSetup()
-			.getLegalScopeLibrary().registerScope(legalScope);
-		secondaryContext.getVariableContext().getFormulaSetup()
-			.getLegalScopeLibrary().registerScope(legalScope);
 		TokenRegistration.register(m);
 		primaryContext.getVariableContext().assertLegalVariableID(
 			primaryContext.getActiveScope().getLegalScope(), opManager, "Face");
