@@ -60,7 +60,16 @@ public class PCModEquipTermEvaluator
 		}
 		if (modEq.equals("MAXDEX"))
 		{
-			return pc.modToMaxDexFromEquipment();
+			if (pc.hasControl("PCMAXDEX"))
+			{
+				Logging
+					.errorPrint("Term MODEQUIPMAXDEX is not supported "
+						+ "when PCMAXDEX code control is used");
+			}
+			else
+			{
+				return pc.processOldMaxDex();
+			}
 		}
 		if (modEq.equals("SPELLFAILURE"))
 		{

@@ -881,17 +881,6 @@ public class EqToken extends Token
 	}
 
 	/**
-	 * Get Max DEX Token
-	 * @param pc
-	 * @param eq
-	 * @return Max DEX Token
-	 */
-	public static String getMaxDexToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getMaxDexTokenInt(pc, eq) + "";
-	}
-
-	/**
 	 * Get Max DEX Token as int
 	 * @param pc
 	 * @param eq
@@ -899,7 +888,18 @@ public class EqToken extends Token
 	 */
 	public static int getMaxDexTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getMaxDex(pc).intValue();
+		String maxDexVar =
+				ControlUtilities
+					.getControlToken(Globals.getContext(), "EQMAXDEX");
+		if (maxDexVar == null)
+		{
+			int mdex =
+					eq.getSafe(IntegerKey.MAX_DEX)
+						+ (int) eq.bonusTo(pc, "EQMARMOR", "MAXDEX", true);
+			return Math.min(Constants.MAX_MAXDEX, Math.max(0, mdex));
+		}
+		return ((Number) eq.getLocalVariable(pc.getCharID(), maxDexVar))
+			.intValue();
 	}
 
 	/**
@@ -1238,7 +1238,7 @@ public class EqToken extends Token
 		}
 		else if ("MAXDEX".equals(token))
 		{
-			retString = getMaxDexToken(pc, eq);
+			retString = Integer.toString(getMaxDexTokenInt(pc, eq));
 		}
 		else if ("ACCHECK".equals(token))
 		{
