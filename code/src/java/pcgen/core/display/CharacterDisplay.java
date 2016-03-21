@@ -1627,7 +1627,7 @@ public class CharacterDisplay
 	 * 
 	 * @return The number of legs.
 	 */
-	public int getLegs()
+	public int getPreFormulaLegs()
 	{
 		return legsFacet.getLegs(id);
 	}
