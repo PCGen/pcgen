@@ -66,7 +66,6 @@ import pcgen.gui2.tabs.ability.AbilityTreeTableModel;
 import pcgen.gui2.tabs.ability.AbilityTreeViews;
 import pcgen.gui2.tabs.ability.CategoryTableModel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
-import pcgen.gui2.tabs.models.ConcurrentDataView;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;

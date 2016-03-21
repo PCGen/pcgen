@@ -135,13 +135,13 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	@Override
 	public boolean contains(T obj)
 	{
-		List<ObjectContainer<F>> factset = obj.getSetFor(def.getFactSetKey());
+		List<Indirect<F>> factset = obj.getSetFor(def.getFactSetKey());
 		if (factset != null)
 		{
 			F tgt = toMatch.get();
-			for (ObjectContainer<F> oc : factset)
+			for (Indirect<F> indirect : factset)
 			{
-				if (oc.contains(tgt))
+				if (indirect.get().equals(tgt))
 				{
 					return true;
 				}

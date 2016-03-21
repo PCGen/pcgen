@@ -28,9 +28,9 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.base.text.ParsingSeparator;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
@@ -82,6 +82,9 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		}
 
 		ParsingSeparator ps = new ParsingSeparator(formula, ',');
+		ps.addGroupingPair('[', ']');
+		ps.addGroupingPair('(', ')');
+
 		try
 		{
 			int count = 0;

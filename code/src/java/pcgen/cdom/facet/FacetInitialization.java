@@ -167,6 +167,8 @@ public final class FacetInitialization
 		/*
 		 * Do dataset-level facets
 		 */
+		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
+		FacetLibrary.getFacet(ObjectWrapperFacet.class);
 		FacetLibrary.getFacet(MasterSkillFacet.class);
 		FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		FacetLibrary.getFacet(MasterUsableSkillFacet.class);

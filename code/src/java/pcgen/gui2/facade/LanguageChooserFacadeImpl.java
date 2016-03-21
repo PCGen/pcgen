@@ -141,11 +141,11 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		if (allowBonusLangAfterFirst || atFirstLvl)
 		{
 			int bonusLangMax = theCharacter.getBonusLanguageCount();
-			numSelectionsRemain.setReference(bonusLangMax-selLangs.size());
+			numSelectionsRemain.set(bonusLangMax-selLangs.size());
 		}
 		else
 		{
-			numSelectionsRemain.setReference(0);
+			numSelectionsRemain.set(0);
 		}
 	}
 
@@ -191,7 +191,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 					aMan.getNumEffectiveChoices(selLangs,
 						new ArrayList<String>(), theCharacter);
 		}
-		numSelectionsRemain.setReference(numSelections);
+		numSelectionsRemain.set(numSelections);
 	}
 
 	/**
@@ -216,13 +216,13 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	@Override
 	public void addSelected(LanguageFacade language)
 	{
-		if (numSelectionsRemain.getReference() <= 0)
+		if (numSelectionsRemain.get() <= 0)
 		{
 			return;
 		}
 		selectedList.addElement(language);
 		availableList.removeElement(language);
-		numSelectionsRemain.setReference(numSelectionsRemain.getReference()-1);
+		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
 	/* (non-Javadoc)
@@ -233,7 +233,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	{
 		selectedList.removeElement(language);
 		availableList.addElement(language);
-		numSelectionsRemain.setReference(numSelectionsRemain.getReference()+1);
+		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
 	/* (non-Javadoc)

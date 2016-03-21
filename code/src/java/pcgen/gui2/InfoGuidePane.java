@@ -169,7 +169,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 		}
 		else
 		{
-			gameModeLabel.setText(sources.getGameMode().getReference().getDisplayName());
+			gameModeLabel.setText(sources.getGameMode().get().getDisplayName());
 		}
 		if (sources == null || sources.getCampaigns().isEmpty())
 		{

@@ -23,7 +23,6 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
@@ -46,8 +45,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());
 		TokenRegistration.register(new plugin.modifier.number.MultiplyModifierFactory());
-		FormatManager<?> formatManager =
-				FormatManagerLibrary.getFormatManager("NUMBER");
+		FormatManager<?> formatManager = primaryContext.getReferenceContext().getFormatManager(Number.class);
 		LegalScope pscope = primaryContext.getActiveScope().getLegalScope();
 		LegalScope sscope = primaryContext.getActiveScope().getLegalScope();
 		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "MyVar");

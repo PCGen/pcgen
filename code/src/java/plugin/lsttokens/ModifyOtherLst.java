@@ -25,6 +25,7 @@ import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -33,7 +34,6 @@ import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -69,6 +69,9 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ "Please use the Global Modifier file", context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		String scopeName = sep.next();
 		/*
 		 * Note lvs is implicitly defined as "not global" since the global scope

@@ -19,11 +19,11 @@ package plugin.lsttokens.pcclass.level;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -55,6 +55,7 @@ public class KnownToken extends AbstractTokenWithSeparator<PCClassLevel> impleme
 		context.getObjectContext().removeList(level, ListKey.KNOWN);
 
 		ParsingSeparator sep = new ParsingSeparator(value, ',');
+		sep.addGroupingPair('(', ')');
 
 		while (sep.hasNext())
 		{

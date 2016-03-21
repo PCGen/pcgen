@@ -624,39 +624,6 @@ public final class Equipment extends PObject implements Serializable,
 	// Misc properties
 	//
 
-	/**
-	 * Returns the fumbleRange for this item.
-	 * 
-	 * Return the fumbleRange on the primary eqMod (if it exists) otherwise
-	 * return it for the secondary eqMod otherwise return the fumbleRange for
-	 * the item itself
-	 * 
-	 * @return the fumbleRange for this item.
-	 */
-	public String getFumbleRange()
-	{
-		for (EquipmentModifier eqMod : getEqModifierList(true))
-		{
-			String fr = eqMod.get(StringKey.FUMBLE_RANGE);
-			if (fr != null)
-			{
-				return fr;
-			}
-		}
-
-		for (EquipmentModifier eqMod : getEqModifierList(false))
-		{
-			String fr = eqMod.get(StringKey.FUMBLE_RANGE);
-			if (fr != null)
-			{
-				return fr;
-			}
-		}
-
-		String fr = get(StringKey.FUMBLE_RANGE);
-		return fr == null ? "" : fr;
-	}
-
 	public boolean isAutomatic()
 	{
 		return automatic;
@@ -3872,19 +3839,6 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		SizeAdjustment size = getSafe(ObjectKey.SIZE).get();
 		return size.get(IntegerKey.SIZEORDER);
-	}
-
-	/**
-	 * Get the percentage chance of Spell failure while using this Equipment
-	 * 
-	 * @param pc The PC carrying the item
-	 * 
-	 * @return The Spell failure percentage
-	 */
-	public Integer spellFailure(final PlayerCharacter pc)
-	{
-		return Math.max(0, getSafe(IntegerKey.SPELL_FAILURE)
-			+ (int) bonusTo(pc, "EQMARMOR", "SPELLFAILURE", true));
 	}
 
 	/**

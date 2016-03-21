@@ -156,7 +156,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				CharacterFacade character = (CharacterFacade) value;
-				return super.getListCellRendererComponent(list, character.getNameRef().getReference(), index, isSelected, cellHasFocus);
+				return super.getListCellRendererComponent(list, character.getNameRef().get(), index, isSelected, cellHasFocus);
 			}
 
 		});
@@ -337,7 +337,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		if (!partyBox.isSelected())
 		{
 			CharacterFacade character = (CharacterFacade) characterBox.getSelectedItem();
-			path = character.getFileRef().getReference();
+			path = character.getFileRef().get();
 			if (path != null)
 			{
 				path = path.getParentFile();
@@ -346,10 +346,10 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			{
 				path = new File(PCGenSettings.getPcgDir());
 			}
-			name = character.getTabNameRef().getReference();
+			name = character.getTabNameRef().get();
 			if (name == null || "".equals(name))
 			{
-				name = character.getNameRef().getReference();
+				name = character.getNameRef().get();
 			}
 		}
 		else

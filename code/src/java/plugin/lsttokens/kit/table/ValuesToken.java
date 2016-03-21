@@ -29,12 +29,12 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -70,6 +70,9 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		KitTable kitTable, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		while (sep.hasNext())
 		{
 			String thing = sep.next();
@@ -131,6 +134,8 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			return false;
 		}
 		ParsingSeparator sep = new ParsingSeparator(range, ',');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
 		String minString = sep.next();
 		String maxString;
 		if (sep.hasNext())

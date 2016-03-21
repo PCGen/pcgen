@@ -22,7 +22,6 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.enumeration.FactKey;
@@ -65,11 +64,11 @@ public interface ObjectCommitStrategy
 
 	public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val);
 
-	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, ObjectContainer<T> value);
+	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, Indirect<T> value);
 
 	public void removeSet(CDOMObject cdo, FactSetKey<?> lk);
 
-	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, ObjectContainer<T> val);
+	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, Indirect<T> val);
 
 	public Integer getInteger(CDOMObject cdo, IntegerKey ik);
 
@@ -85,7 +84,7 @@ public interface ObjectCommitStrategy
 
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk);
 
-	public <T> Changes<ObjectContainer<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk);
+	public <T> Changes<Indirect<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk);
 
 	public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value);
 

@@ -20,8 +20,6 @@
  */
 package pcgen.gui2.util.treetable;
 
-import java.util.Comparator;
-import java.util.List;
 import pcgen.gui2.util.SortableModel;
 
 /**

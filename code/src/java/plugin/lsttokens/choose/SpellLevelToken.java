@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
@@ -36,7 +37,6 @@ import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.helper.SpellLevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -95,6 +95,9 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		pipeLoc = value.indexOf('|');
 
 		ParsingSeparator sep = new ParsingSeparator(activeValue, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Found no arguments in "

@@ -81,7 +81,6 @@ import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerOptionFacet;
-import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
 import pcgen.cdom.facet.analysis.InitiativeFacet;
 import pcgen.cdom.facet.analysis.LegsFacet;
@@ -211,7 +210,6 @@ public class CharacterDisplay
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
-	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
@@ -1278,16 +1276,6 @@ public class CharacterDisplay
 	public SizeAdjustment getSizeAdjustment()
 	{
 		return sizeFacet.get(id);
-	}
-
-	/**
-	 * Determine the number of hands the character has.
-	 * 
-	 * @return The number of hands.
-	 */
-	public int getHands()
-	{
-		return handsFacet.getHands(id);
 	}
 
 	public boolean hasKit(Kit kit)

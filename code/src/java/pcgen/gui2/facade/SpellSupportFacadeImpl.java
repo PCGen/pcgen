@@ -1208,7 +1208,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 		
 		pc.setSpellBookNameToAutoAddKnown(bookName);
-		defaultSpellBook.setReference(bookName);
+		defaultSpellBook.set(bookName);
 	}
 
 	/**

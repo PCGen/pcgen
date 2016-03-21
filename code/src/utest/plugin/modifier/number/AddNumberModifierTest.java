@@ -22,16 +22,15 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.base.calculation.Modifier;
+import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 
 public class AddNumberModifierTest extends TestCase
 {
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<Number> numManager =
-			FormatManagerLibrary.getFormatManager(Number.class);
+	FormatManager<Number> numManager = new NumberManager();
 
 	@Test
 	public void testInvalidConstruction()

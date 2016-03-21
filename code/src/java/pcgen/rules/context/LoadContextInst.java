@@ -26,6 +26,7 @@ import java.util.List;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.inst.SimpleScopeInstance;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.GroupDefinition;
@@ -40,7 +41,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -533,7 +533,7 @@ public abstract class LoadContextInst implements LoadContext
 		if (scopeInst == null)
 		{
 			LegalScope legalScope = var.getScope("Global");
-			scopeInst = new SimpleScopeInstance(null, legalScope);
+			scopeInst = new SimpleScopeInstance(null, legalScope, null);
 		}
 		return scopeInst;
 	}
@@ -560,7 +560,7 @@ public abstract class LoadContextInst implements LoadContext
 		}
 		LoadContext parentLC = dropIntoContext(parent);
 		SimpleScopeInstance localInst =
-				new SimpleScopeInstance(parentLC.getActiveScope(), lvs);
+				new SimpleScopeInstance(parentLC.getActiveScope(), lvs, null);
 		return new DerivedLoadContext(parentLC, localInst);
 	}
 
@@ -818,7 +818,7 @@ public abstract class LoadContextInst implements LoadContext
 			{
 				//Direct drop from this
 				SimpleScopeInstance localInst =
-						new SimpleScopeInstance(scopeInst, toScope);
+						new SimpleScopeInstance(scopeInst, toScope, null);
 				return new DerivedLoadContext(this, localInst);
 			}
 			//Random jump to somewhere else...

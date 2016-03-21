@@ -42,6 +42,9 @@ import freemarker.template.TemplateModelException;
  */
 public class FactKeyActor<T> implements OutputActor<CDOMObject>
 {
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * The FactKey underlying this FactKeyActor (for which the contents will be
 	 * returned)
@@ -81,6 +84,6 @@ public class FactKeyActor<T> implements OutputActor<CDOMObject>
 		{
 			object = ind.get();
 		}
-		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, object);
+		return WRAPPER_FACET.wrap(id, object);
 	}
 }

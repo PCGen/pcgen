@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.enumeration.FactSetKey;
 
@@ -134,8 +135,7 @@ public class FactSetKeyMapToList
 	 *            The value to be added to the List for the given key.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> void addToListFor(FactSetKey<T> key,
-		ObjectContainer<T> valueElement)
+	public <T> void addToListFor(FactSetKey<T> key, Indirect<T> valueElement)
 	{
 		map.addToListFor(key, valueElement);
 	}
@@ -176,7 +176,7 @@ public class FactSetKeyMapToList
 	 *         FactSetKeyMapToList.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> List<ObjectContainer<T>> getListFor(FactSetKey<T> key)
+	public <T> List<Indirect<T>> getListFor(FactSetKey<T> key)
 	{
 		return map.getListFor(key);
 	}
@@ -216,7 +216,7 @@ public class FactSetKeyMapToList
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> boolean removeFromListFor(FactSetKey<T> key,
-		ObjectContainer<T> valueElement)
+		Indirect<T> valueElement)
 	{
 		return map.removeFromListFor(key, valueElement);
 	}

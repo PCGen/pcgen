@@ -41,6 +41,7 @@ import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.output.actor.InfoActor;
 import pcgen.output.actor.KeyActor;
 import pcgen.output.actor.OutputNameActor;
 import pcgen.output.actor.SourceActor;
@@ -73,24 +74,26 @@ public class CDOMWrapperInfoFacet
 	public void initialize(DataSetID dsID)
 	{
 		set(dsID, CDOMObject.class, "source", new SourceActor());
+		set(dsID, CDOMObject.class, "info", new InfoActor());
 		set(dsID, CDOMObject.class, "key", new KeyActor());
-		set(dsID, Ability.class, "outputname", new OutputNameActor());
-		set(dsID, ArmorProf.class, "outputname", new OutputNameActor());
-		set(dsID, Campaign.class, "outputname", new OutputNameActor());
-		set(dsID, Deity.class, "outputname", new OutputNameActor());
-		set(dsID, Domain.class, "outputname", new OutputNameActor());
-		set(dsID, Equipment.class, "outputname", new OutputNameActor());
-		set(dsID, Kit.class, "outputname", new OutputNameActor());
-		set(dsID, Language.class, "outputname", new OutputNameActor());
-		set(dsID, PCAlignment.class, "outputname", new OutputNameActor());
-		set(dsID, PCCheck.class, "outputname", new OutputNameActor());
-		set(dsID, PCClass.class, "outputname", new OutputNameActor());
-		set(dsID, PCStat.class, "outputname", new OutputNameActor());
-		set(dsID, PCTemplate.class, "outputname", new OutputNameActor());
-		set(dsID, Race.class, "outputname", new OutputNameActor());
-		set(dsID, ShieldProf.class, "outputname", new OutputNameActor());
-		set(dsID, SizeAdjustment.class, "outputname", new OutputNameActor());
-		set(dsID, WeaponProf.class, "outputname", new OutputNameActor());
+		OutputNameActor outputNameActor = new OutputNameActor();
+		set(dsID, Ability.class, "outputname", outputNameActor);
+		set(dsID, ArmorProf.class, "outputname", outputNameActor);
+		set(dsID, Campaign.class, "outputname", outputNameActor);
+		set(dsID, Deity.class, "outputname", outputNameActor);
+		set(dsID, Domain.class, "outputname", outputNameActor);
+		set(dsID, Equipment.class, "outputname", outputNameActor);
+		set(dsID, Kit.class, "outputname", outputNameActor);
+		set(dsID, Language.class, "outputname", outputNameActor);
+		set(dsID, PCAlignment.class, "outputname", outputNameActor);
+		set(dsID, PCCheck.class, "outputname", outputNameActor);
+		set(dsID, PCClass.class, "outputname", outputNameActor);
+		set(dsID, PCStat.class, "outputname", outputNameActor);
+		set(dsID, PCTemplate.class, "outputname", outputNameActor);
+		set(dsID, Race.class, "outputname", outputNameActor);
+		set(dsID, ShieldProf.class, "outputname", outputNameActor);
+		set(dsID, SizeAdjustment.class, "outputname", outputNameActor);
+		set(dsID, WeaponProf.class, "outputname", outputNameActor);
 	}
 
 	/**

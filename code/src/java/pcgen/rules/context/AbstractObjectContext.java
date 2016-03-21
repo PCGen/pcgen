@@ -27,7 +27,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -79,7 +78,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, ObjectContainer<T> value)
+	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, Indirect<T> value)
 	{
 		edits.addToSet(cdo, key, value);
 	}
@@ -175,7 +174,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, ObjectContainer<T> val)
+	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, Indirect<T> val)
 	{
 		edits.removeFromSet(cdo, lk, val);
 	}
@@ -341,7 +340,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	private <T> void removeFactSetKey(CDOMObject cdo, FactSetKey<T> key, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (ObjectContainer<T> obj : neg.getSetFor(key))
+		for (Indirect<T> obj : neg.getSetFor(key))
 		{
 			commit.removeFromSet(cdo, key, obj);
 		}
@@ -359,7 +358,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	private <T> void putFactSetKey(CDOMObject cdo, FactSetKey<T> key, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (ObjectContainer<T> obj : neg.getSetFor(key))
+		for (Indirect<T> obj : neg.getSetFor(key))
 		{
 			commit.addToSet(cdo, key, obj);
 		}
@@ -421,7 +420,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> Changes<ObjectContainer<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
+	public <T> Changes<Indirect<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
 	{
 		return getCommitStrategy().getSetChanges(cdo, lk);
 	}
@@ -594,7 +593,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, ObjectContainer<T> value)
+		public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, Indirect<T> value)
 		{
 			getPositive(sourceURI, cdo).addToSetFor(key, value);
 		}
@@ -606,7 +605,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, ObjectContainer<T> val)
+		public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, Indirect<T> val)
 		{
 			getNegative(sourceURI, cdo).addToSetFor(lk, val);
 		}
@@ -736,9 +735,9 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public <T> Changes<ObjectContainer<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
+		public <T> Changes<Indirect<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
 		{
-			return new CollectionChanges<ObjectContainer<T>>(getPositive(extractURI, cdo).getSetFor(lk),
+			return new CollectionChanges<Indirect<T>>(getPositive(extractURI, cdo).getSetFor(lk),
 				getNegative(extractURI, cdo).getSetFor(lk),
 				globalClearFactSet.containsInList(extractURI, cdo, lk));
 		}

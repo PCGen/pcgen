@@ -24,7 +24,6 @@ import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.enumeration.FactKey;
@@ -109,9 +108,9 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> Changes<ObjectContainer<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
+	public <T> Changes<Indirect<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
 	{
-		return new CollectionChanges<ObjectContainer<T>>(cdo.getSetFor(lk), null, false);
+		return new CollectionChanges<Indirect<T>>(cdo.getSetFor(lk), null, false);
 	}
 
 	@Override
@@ -199,7 +198,7 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, ObjectContainer<T> value)
+	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, Indirect<T> value)
 	{
 		cdo.addToSetFor(key, value);
 	}
@@ -211,7 +210,7 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, ObjectContainer<T> val)
+	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, Indirect<T> val)
 	{
 		cdo.removeFromSetFor(lk, val);
 	}

@@ -121,7 +121,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	{
 		super(frame, true);
 		this.frame = frame;
-		this.character = frame.getSelectedCharacterRef().getReference();
+		this.character = frame.getSelectedCharacterRef().get();
 		this.previewPanelParent = new JPanel(new GridLayout(1, 1));
 		this.sheetBox = new JComboBox();
 		this.progressBar = new JProgressBar();
@@ -258,7 +258,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 				}
 				catch (PrinterException ex)
 				{
-					String message = "Could not print " + character.getNameRef().getReference();
+					String message = "Could not print " + character.getNameRef().get();
 					Logging.errorPrint(message, ex);
 					frame.showErrorMessage(Constants.APPLICATION_NAME, message);
 				}

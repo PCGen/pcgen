@@ -30,10 +30,10 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.NamedFormula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -66,6 +66,9 @@ public class LookupToken extends AbstractToken implements
 	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, ',');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		String first = sep.next();
 		if (!sep.hasNext())
 		{

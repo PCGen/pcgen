@@ -62,12 +62,12 @@ public class FactDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateOutput()
+	 * @see pcgen.cdom.content.ContentDefinition#activateOutput(DataSetID)
 	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
-	{
-		FactKeyActor<?> fca = new FactKeyActor<>(getFactKey());
+ 	{
+ 		FactKeyActor<?> fca = new FactKeyActor<>(getFactKey());
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		if (!wiFacet.set(dsID, getUsableLocation(), factName.toLowerCase(), fca))

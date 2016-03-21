@@ -20,15 +20,12 @@
  */
 package pcgen.gui2.filter;
 
-import java.awt.Container;
 import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
 import java.util.Collections;
 import java.util.List;
-import javax.swing.JTabbedPane;
+
 import javax.swing.RowSorter;
-import org.springframework.util.StopWatch;
-import pcgen.gui2.tabs.CharacterInfoTab;
+
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.table.SortableTableRowSorter;

@@ -224,7 +224,7 @@ public class EqContainerwToken extends Token
 			}
 			else if (property.equals("SPELLFAILURE"))
 			{
-				retString = Integer.toString(getSpellFailureToken(pc, eq));
+				retString = Integer.toString(EqToken.getSpellFailureTokenInt(pc, eq));
 			}
 			else if (property.equals("SPROP"))
 			{
@@ -496,17 +496,6 @@ public class EqContainerwToken extends Token
 	public static String getSizeToken(Equipment eq)
 	{
 		return eq.getSize();
-	}
-
-	/**
-	 * Get Spell Failure Token
-	 * @param pc
-	 * @param eq
-	 * @return Spell Failure Token
-	 */
-	public static int getSpellFailureToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.spellFailure(pc).intValue();
 	}
 
 	/**

@@ -72,6 +72,9 @@ public class IntegerKey
 
 	public static final IntegerKey HANDS = getConstant("HANDS", 1);
 
+	/**
+	 * @deprecated due to HANDS CodeControl
+	 */
 	public static final IntegerKey CREATURE_HANDS = getConstant(
 			"CREATURE_HANDS", 2);
 
@@ -117,6 +120,9 @@ public class IntegerKey
 
 	public static final IntegerKey SLOTS = getConstant("SLOTS", 1);
 
+	/**
+	 * @deprecated due to EQSPELLFAILURE code control
+	 */
 	public static final IntegerKey SPELL_FAILURE = getConstant("SPELL_FAILURE");
 
 	public static final IntegerKey START_FEATS = getConstant("START_FEATS");

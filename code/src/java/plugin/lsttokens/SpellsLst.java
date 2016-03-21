@@ -29,6 +29,7 @@ import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TripleKeyMap;
@@ -41,7 +42,6 @@ import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -95,6 +95,9 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			return ParseResult.SUCCESS;
 		}
 		ParsingSeparator sep = new ParsingSeparator(sourceLine, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		String spellBook = sep.next();
 		if (spellBook.length() == 0)
 		{

@@ -114,18 +114,18 @@ public class CompanionFacadeDelegate implements CompanionFacade
 			if (delegate != null)
 			{
 				delegate.addReferenceListener(this);
-				setReference(delegate.getReference());
+				set(delegate.get());
 			}
 			else
 			{
-				setReference(null);
+				set(null);
 			}
 		}
 
 		@Override
 		public void referenceChanged(ReferenceEvent<T> e)
 		{
-			setReference(e.getNewReference());
+			set(e.getNewReference());
 		}
 
 	}
