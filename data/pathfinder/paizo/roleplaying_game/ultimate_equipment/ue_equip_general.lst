@@ -353,35 +353,35 @@ Musical Instrument (Pan Pipes).MOD																																						SOURCEPA
 Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
