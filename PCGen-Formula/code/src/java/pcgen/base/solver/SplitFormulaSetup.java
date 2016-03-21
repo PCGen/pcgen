@@ -161,7 +161,7 @@ public class SplitFormulaSetup
 	 * An IndividualSetup is returned by a SplitFormulaSetup. This contains the
 	 * information unique to a specific solution area.
 	 */
-	public final class IndividualSetup
+	public class IndividualSetup
 	{
 
 		/**
@@ -172,9 +172,9 @@ public class SplitFormulaSetup
 
 		/**
 		 * The WriteableVariableStore for this IndividualSetup.
+		 * Lazily Instantiated.
 		 */
-		private final WriteableVariableStore variableStore =
-				new SimpleVariableStore();
+		private WriteableVariableStore variableStore;
 
 		/**
 		 * The FormulaManager for this IndividualSetup.
@@ -232,6 +232,10 @@ public class SplitFormulaSetup
 		 */
 		public WriteableVariableStore getVariableStore()
 		{
+			if (variableStore == null)
+			{
+				variableStore = new SimpleVariableStore();
+			}
 			return variableStore;
 		}
 
