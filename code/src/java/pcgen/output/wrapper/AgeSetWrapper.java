@@ -30,15 +30,13 @@ import freemarker.template.TemplateModelException;
  */
 public class AgeSetWrapper implements PCGenObjectWrapper
 {
-	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object obj)
+		throws TemplateModelException
 	{
-		if (o instanceof AgeSet)
+		if (obj instanceof AgeSet)
 		{
-			return new AgeSetModel((AgeSet) o);
+			return new AgeSetModel((AgeSet) obj);
 		}
 		throw new TemplateModelException("Object was not an AgeSet");
 	}
