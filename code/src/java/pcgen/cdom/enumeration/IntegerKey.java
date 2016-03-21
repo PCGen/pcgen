@@ -72,6 +72,9 @@ public class IntegerKey
 
 	public static final IntegerKey HANDS = getConstant("HANDS", 1);
 
+	/**
+	 * @deprecated due to HANDS CodeControl
+	 */
 	public static final IntegerKey CREATURE_HANDS = getConstant(
 			"CREATURE_HANDS", 2);
 
