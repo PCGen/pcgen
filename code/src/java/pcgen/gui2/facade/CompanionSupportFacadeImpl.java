@@ -283,7 +283,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 
 		CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
 		CompanionList compList = keyToCompanionListMap.get(companionType);
-		Race compRace = (Race) compFacadeImpl.getRaceRef().getReference();
+		Race compRace = (Race) compFacadeImpl.getRaceRef().get();
 		FollowerOption followerOpt = getFollowerOpt(compList, compRace);
 		if (followerOpt == null)
 		{
@@ -311,11 +311,11 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		compFacadeImpl.postLevellingUpdates();
 		
 		// Update the master with the new companion
-		File compFile = compFacadeImpl.getFileRef().getReference();
+		File compFile = compFacadeImpl.getFileRef().get();
 		String compFilename = StringUtils.isEmpty(compFile.getPath()) ? "" : compFile.getAbsolutePath();
 		Follower follower =
 				new Follower(compFilename, compFacadeImpl.getNameRef()
-					.getReference(), compList);
+					.get(), compList);
 		follower.setRace(compRace);
 		theCharacter.addFollower(follower);
 		theCharacter.setCalcFollowerBonus();
@@ -359,7 +359,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			return;
 		}
 		
-		File compFile = companion.getFileRef().getReference();
+		File compFile = companion.getFileRef().get();
 		for (Follower follower : charDisplay.getFollowerList())
 		{
 			File followerFile = new File(follower.getFileName());
@@ -386,12 +386,12 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	{
 		for (CompanionFacadeDelegate delegate : companionList)
 		{
-			File file = delegate.getFileRef().getReference();
-			String name = delegate.getNameRef().getReference();
-			RaceFacade race = delegate.getRaceRef().getReference();
-			if (file.equals(character.getFileRef().getReference())
-				&& name.equals(character.getNameRef().getReference()) 
-				&& (race == null || race.equals(character.getRaceRef().getReference())))
+			File file = delegate.getFileRef().get();
+			String name = delegate.getNameRef().get();
+			RaceFacade race = delegate.getRaceRef().get();
+			if (file.equals(character.getFileRef().get())
+				&& name.equals(character.getNameRef().get()) 
+				&& (race == null || race.equals(character.getRaceRef().get())))
 			{
 				String companionType = delegate.getCompanionType();
 				delegate.setCompanionFacade(character);
@@ -399,16 +399,16 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				// Check for a companion being loaded that is not properly linked to the master.
 				// Note: When creating a companion we leave the linking to the create code.  
 				if (character.getMaster() == null
-					&& character.getRaceRef().getReference() != null
+					&& character.getRaceRef().get() != null
 					&& !Constants.NONESELECTED.equals(character.getRaceRef()
-						.getReference().getKeyName()))
+						.get().getKeyName()))
 				{
 					CompanionList compList = keyToCompanionListMap.get(companionType);
 					final Follower newMaster =
 							new Follower(charDisplay.getFileName(), charDisplay.getName(), compList);
 					FollowerOption followerOpt =
 							getFollowerOpt(compList, (Race) character
-								.getRaceRef().getReference());
+								.getRaceRef().get());
 					if (followerOpt != null)
 					{
 						newMaster.setAdjustment(followerOpt.getAdjustment());
@@ -418,7 +418,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 						Logging.log(Logging.WARNING,
 							"Failed to find FollowerOption for complist "
 								+ compList + " and race "
-								+ character.getRaceRef().getReference());
+								+ character.getRaceRef().get());
 					}
 					((CharacterFacadeImpl) character).getTheCharacter()
 						.setMaster(newMaster);
@@ -451,14 +451,14 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	{
 		for (CompanionFacadeDelegate delegate : companionList)
 		{
-			File file = delegate.getFileRef().getReference();
-			if (file.equals(character.getFileRef().getReference()))
+			File file = delegate.getFileRef().get();
+			if (file.equals(character.getFileRef().get()))
 			{
 				CompanionFacade comp =
 						new CompanionNotLoaded(character.getNameRef()
-							.getReference(), character.getFileRef()
-							.getReference(), character.getRaceRef()
-							.getReference(), delegate.getCompanionType());
+							.get(), character.getFileRef()
+							.get(), character.getRaceRef()
+							.get(), delegate.getCompanionType());
 				delegate.setCompanionFacade(comp);
 				return;
 			}

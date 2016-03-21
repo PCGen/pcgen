@@ -141,7 +141,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		labelPane.add(new JLabel(LanguageBundle.getString("in_sumLangRemain")), //$NON-NLS-1$
 			new GridBagConstraints());
-		remainingLabel.setText(chooser.getRemainingSelections().getReference().toString());
+		remainingLabel.setText(chooser.getRemainingSelections().get().toString());
 		labelPane.add(remainingLabel, gbc);
 		labelPane.add(new JLabel(LanguageBundle.getString("in_sumSelectedLang")), gbc); //$NON-NLS-1$
 		rightPane.add(labelPane, BorderLayout.NORTH);

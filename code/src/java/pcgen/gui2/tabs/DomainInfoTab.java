@@ -533,9 +533,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void install()
 		{
-			if (ref.getReference() != null)
+			if (ref.get() != null)
 			{
-				label.setText(ref.getReference().toString());
+				label.setText(ref.get().toString());
 			}
 			ref.addReferenceListener(this);
 		}
@@ -568,10 +568,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void install()
 		{
 			label.setFont(FontManipulation.plain(label.getFont()));
-			if (ref.getReference() != null)
+			if (ref.get() != null)
 			{
-				label.setText(ref.getReference().toString());
-				if (ref.getReference().isNamePI())
+				label.setText(ref.get().toString());
+				if (ref.get().isNamePI())
 				{
 					label.setFont(FontManipulation.bold_italic(label.getFont()));
 				}
@@ -674,7 +674,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				return false;
 			}
-			if (character.getRemainingDomainSelectionsRef().getReference() > 0)
+			if (character.getRemainingDomainSelectionsRef().get() > 0)
 			{
 				return true;
 			}

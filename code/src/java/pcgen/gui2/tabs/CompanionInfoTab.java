@@ -246,12 +246,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 						(CompanionFacade) ((pcgen.gui2.tabs.CompanionInfoTab.CompanionsModel.CompanionNode) lastPathComponent).getValueAt(0);
 				
 				if (rowComp != null
-					&& rowComp.getFileRef().getReference() == compFacade
-						.getFileRef().getReference()
-					&& rowComp.getNameRef().getReference() == compFacade
-						.getNameRef().getReference()
-					&& rowComp.getRaceRef().getReference() == compFacade
-						.getRaceRef().getReference())
+					&& rowComp.getFileRef().get() == compFacade
+						.getFileRef().get()
+					&& rowComp.getNameRef().get() == compFacade
+						.getNameRef().get()
+					&& rowComp.getRaceRef().get() == compFacade
+						.getRaceRef().get())
 				{
 					path = pathForRow;
 				}
@@ -403,7 +403,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 			else if (switchTabs)
 			{
-				frame.loadCharacterFromFile(companion.getFileRef().getReference());
+				frame.loadCharacterFromFile(companion.getFileRef().get());
 			}
 			else
 			{
@@ -447,14 +447,14 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 		private boolean isCompanionOpen(CompanionFacade companion)
 		{
-			File compFile = companion.getFileRef().getReference();
+			File compFile = companion.getFileRef().get();
 			if (compFile == null)
 			{
 				return true;
 			}
 			for (CharacterFacade character : CharacterManager.getCharacters())
 			{
-				File charFile = character.getFileRef().getReference();
+				File charFile = character.getFileRef().get();
 				if (compFile.equals(charFile))
 				{
 					return true;
@@ -597,7 +597,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 						JOptionPane.showConfirmDialog(button, LanguageBundle
 						.getFormattedString(
 						"in_companionConfirmRemovalMsg", companion //$NON-NLS-1$
-						.getNameRef().getReference()),
+						.getNameRef().get()),
 													  LanguageBundle
 						.getString("in_companionConfirmRemoval"), //$NON-NLS-1$
 													  JOptionPane.YES_NO_OPTION);
@@ -725,7 +725,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				{
 					newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
 					CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
-					newCompanion.setRace(selected.getRaceRef().getReference());
+					newCompanion.setRace(selected.getRaceRef().get());
 					character.getCompanionSupport().addCompanion(newCompanion, companionType);
 					setVisible(false);
 				}
@@ -903,7 +903,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			@Override
 			public String toString()
 			{
-				return companion.getNameRef().getReference();
+				return companion.getNameRef().get();
 			}
 			
 		}

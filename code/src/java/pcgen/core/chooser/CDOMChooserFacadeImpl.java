@@ -239,7 +239,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	@Override
 	public final void addSelected(InfoFacade item)
 	{
-		if (numSelectionsRemain.getReference() <= 0)
+		if (numSelectionsRemain.get() <= 0)
 		{
 			return;
 		}
@@ -248,7 +248,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		{
 			availableList.removeElement(item);
 		}
-		numSelectionsRemain.setReference(numSelectionsRemain.getReference()-1);
+		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
 	/**
@@ -262,7 +262,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		{
 			availableList.addElement(item);
 		}
-		numSelectionsRemain.setReference(numSelectionsRemain.getReference()+1);
+		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
 	/**
@@ -308,7 +308,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	{
 		availableList.setContents(createInfoFacadeList(origAvailable, stringDelimiter));
 		selectedList.setContents(createInfoFacadeList(origSelected, stringDelimiter));
-		numSelectionsRemain.setReference(maxNewSelections);
+		numSelectionsRemain.set(maxNewSelections);
 		finalSelected.clear();
 		finalSelected.addAll(origSelected);
 	}

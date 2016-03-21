@@ -190,7 +190,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					@Override
 					public boolean accept(CharacterFacade context, EquipmentFacade element)
 					{
-						return context.getInfoFactory().getCost(element) <= context.getFundsRef().getReference().floatValue();
+						return context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue();
 					}
 
 				});
@@ -1698,7 +1698,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		MoveItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
 		{
-			super(destination.getNameRef().getReference());
+			super(destination.getNameRef().get());
 			this.character = character;
 			this.destination = destination;
 			this.targets = targets;
@@ -1730,7 +1730,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		CopyItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
 		{
-			super(destination.getNameRef().getReference());
+			super(destination.getNameRef().get());
 			this.character = character;
 			this.destination = destination;
 			this.targets = targets;

@@ -108,7 +108,7 @@ public class CalculatorDialog extends JDialog
 			if ("CALCULATE".equals(e.getActionCommand()))
 			{
 				String formula = formulaText.getText();
-				CharacterFacade currentPC = pcgenFrame.getSelectedCharacterRef().getReference();
+				CharacterFacade currentPC = pcgenFrame.getSelectedCharacterRef().get();
 
 				if (currentPC != null)
 				{

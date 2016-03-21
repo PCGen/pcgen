@@ -291,7 +291,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				+ "- ignoring.");
 			return;
 		}
-		GameModeFacade selectedGame = sources.getGameMode().getReference();
+		GameModeFacade selectedGame = sources.getGameMode().get();
 		for (int i = 0; i < gameModeList.getModel().getSize(); i++)
 		{
 			GameModeDisplayFacade gmdf = (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i);
@@ -565,7 +565,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		public Object getData(CampaignFacade obj, int column)
 		{
 			SourceSelectionFacade sourceFacade
-					= frame.getCurrentSourceSelectionRef().getReference();
+					= frame.getCurrentSourceSelectionRef().get();
 			boolean isLoaded
 					= sourceFacade != null
 					&& sourceFacade.getCampaigns().containsElement(obj);

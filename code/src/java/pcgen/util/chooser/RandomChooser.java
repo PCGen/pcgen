@@ -300,7 +300,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	@Override
 	public boolean makeChoice(ChooserFacade chooserFacade)
 	{
-		while (chooserFacade.getRemainingSelections().getReference() > 0
+		while (chooserFacade.getRemainingSelections().get() > 0
 			&& !chooserFacade.getAvailableList().isEmpty())
 		{
 			ListFacade<InfoFacade> availableList = chooserFacade.getAvailableList();
@@ -310,7 +310,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 			chooserFacade.addSelected(addObj);
 		}
 		
-		if (chooserFacade.getRemainingSelections().getReference() == 0
+		if (chooserFacade.getRemainingSelections().get() == 0
 			|| !chooserFacade.isRequireCompleteSelection())
 		{
 			chooserFacade.commit();

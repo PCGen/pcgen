@@ -744,7 +744,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				SkillFilter.Usable, SkillFilter.All
 			});
 
-			SkillFilter filter = character.getSkillFilterRef().getReference();
+			SkillFilter filter = character.getSkillFilterRef().get();
 			model.setSelectedItem(filter);
 			model.addListDataListener(this);
 		}

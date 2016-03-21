@@ -772,7 +772,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		{
 			EquipmentHead head = (EquipmentHead) anItem;
 			currentHead = head;
-			headRef.setReference(head);
+			headRef.set(head);
 			availableTable.setTreeViewModel(availEqmodModelMap.get(currentHead));
 			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));
 		}

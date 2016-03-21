@@ -167,7 +167,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	{
 		for (BiographyField field : EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE))
 		{
-			if (StringUtils.isNotEmpty(getBiographyField(field).getReference()))
+			if (StringUtils.isNotEmpty(getBiographyField(field).get()))
 			{
 				customBiographyFields.addElement(field);
 			}
@@ -390,57 +390,57 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		switch (field)
 		{
 			case SPEECH_PATTERN:
-				speechPattern.setReference(newValue);
+				speechPattern.set(newValue);
 				theCharacter.setSpeechTendency(newValue);
 				break;
 
 			case BIRTHDAY:
-				birthday.setReference(newValue);
+				birthday.set(newValue);
 				theCharacter.setBirthday(newValue);
 				break;
 
 			case LOCATION:
-				location.setReference(newValue);
+				location.set(newValue);
 				theCharacter.setLocation(newValue);
 				break;
 
 			case CITY:
-				city.setReference(newValue);
+				city.set(newValue);
 				theCharacter.setResidence(newValue);
 				break;
 
 			case BIRTHPLACE:
-				birthplace.setReference(newValue);
+				birthplace.set(newValue);
 				theCharacter.setBirthplace(newValue);
 				break;
 
 			case PERSONALITY_TRAIT_1:
-				personalityTrait1.setReference(newValue);
+				personalityTrait1.set(newValue);
 				theCharacter.setTrait1(newValue);
 				break;
 
 			case PERSONALITY_TRAIT_2:
-				personalityTrait2.setReference(newValue);
+				personalityTrait2.set(newValue);
 				theCharacter.setTrait2(newValue);
 				break;
 
 			case PHOBIAS:
-				phobias.setReference(newValue);
+				phobias.set(newValue);
 				theCharacter.setPhobias(newValue);
 				break;
 
 			case INTERESTS:
-				interests.setReference(newValue);
+				interests.set(newValue);
 				theCharacter.setInterests(newValue);
 				break;
 
 			case CATCH_PHRASE:
-				catchPhrase.setReference(newValue);
+				catchPhrase.set(newValue);
 				theCharacter.setCatchPhrase(newValue);
 				break;
 
 			case HAIR_STYLE:
-				hairStyle.setReference(newValue);
+				hairStyle.set(newValue);
 				theCharacter.setHairStyle(newValue);
 				break;
 				

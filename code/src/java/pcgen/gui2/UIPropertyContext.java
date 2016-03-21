@@ -250,7 +250,7 @@ public final class UIPropertyContext extends PropertyContext
 	 */
 	public static String createCharacterPropertyKey(CharacterFacade character, String key)
 	{
-		return createFilePropertyKey(character.getFileRef().getReference(), key);
+		return createFilePropertyKey(character.getFileRef().get(), key);
 	}
 
 	public static String createFilePropertyKey(File file, String key)

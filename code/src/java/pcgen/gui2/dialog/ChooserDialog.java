@@ -248,7 +248,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		labelPane.add(new JLabel(chooser.getSelectionCountName()), new GridBagConstraints());
-		remainingLabel.setText(chooser.getRemainingSelections().getReference().toString());
+		remainingLabel.setText(chooser.getRemainingSelections().get().toString());
 		labelPane.add(remainingLabel, gbc);
 		labelPane.add(new JLabel(chooser.getSelectedTableTitle()), gbc);
 		rightPane.add(labelPane, BorderLayout.NORTH);
@@ -369,11 +369,11 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		if (e.getActionCommand().equals("OK"))
 		{
 			if (chooser.isRequireCompleteSelection()
-				&& chooser.getRemainingSelections().getReference() > 0)
+				&& chooser.getRemainingSelections().get() > 0)
 			{
 				JOptionPane.showMessageDialog(this,
 					  LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-						  chooser.getRemainingSelections().getReference()), 
+						  chooser.getRemainingSelections().get()), 
 						  chooser.getName(), 
 					  JOptionPane.INFORMATION_MESSAGE);
 				return;

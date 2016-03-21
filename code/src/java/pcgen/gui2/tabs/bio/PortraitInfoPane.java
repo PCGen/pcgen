@@ -265,7 +265,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		public PortraitHandler(CharacterFacade character)
 		{
 			this.character = character;
-			cropRect = character.getThumbnailCropRef().getReference();
+			cropRect = character.getThumbnailCropRef().get();
 			if (cropRect == null)
 			{
 				cropRect = new Rectangle(0, 0, 100, 100);
@@ -275,7 +275,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		public void install()
 		{
-			setPortrait(character.getPortraitRef().getReference());
+			setPortrait(character.getPortraitRef().get());
 			portraitPane.setCropRectangle(cropRect);
 			tnPane.setCropRectangle(cropRect);
 
