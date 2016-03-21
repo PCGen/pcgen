@@ -201,7 +201,7 @@ public class MinNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(4.3, modifier.process(4.3, null));
-		assertEquals(6.5, modifier.process(9.3, null));
+		assertEquals(4.3, modifier.process(4.3, null, null));
+		assertEquals(6.5, modifier.process(9.3, null, null));
 	}
 }

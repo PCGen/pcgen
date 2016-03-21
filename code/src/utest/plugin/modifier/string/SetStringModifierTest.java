@@ -61,7 +61,7 @@ public class SetStringModifierTest extends TestCase
 		assertEquals(0, modifier.getInherentPriority());
 		assertEquals(5, modifier.getUserPriority());
 		assertEquals(String.class, modifier.getVariableFormat());
-		assertEquals("MyString", modifier.process("Wrong Answer", null));
+		assertEquals("MyString", modifier.process("Wrong Answer", null, null));
 	}
 
 }

@@ -90,7 +90,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		OrderedPair pair = modifier.process(null, null);
+		OrderedPair pair = modifier.process(null, null, null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value

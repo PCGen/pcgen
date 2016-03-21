@@ -202,6 +202,6 @@ public class DivideNumberModifierTest extends TestCase
 			modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(3.2, modifier.process(13.76, null));
+		assertEquals(3.2, modifier.process(13.76, null, null));
 	}
 }
