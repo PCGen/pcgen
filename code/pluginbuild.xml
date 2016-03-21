@@ -6085,7 +6085,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-PCSPELLFAILURE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/gamemode/codecontrol/PcSpellFailure.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/PCSpellFailureToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
