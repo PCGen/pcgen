@@ -69,10 +69,17 @@ public class GameReferenceContext extends AbstractReferenceContext
 		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
 		if (mfg == null)
 		{
-			mfg = new SimpleReferenceManufacturer<T>(new TransparentFactory<T>(cl));
+			mfg = constructReferenceManufacturer(cl);
 			map.put(cl, mfg);
 		}
 		return mfg;
+	}
+
+	@Override
+	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
+		Class<T> cl)
+	{
+		return new SimpleReferenceManufacturer<T>(new TransparentFactory<T>(cl));
 	}
 
 	@Override
