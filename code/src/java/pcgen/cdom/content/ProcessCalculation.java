@@ -66,7 +66,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo)
+	public T process(T input, ScopeInformation scopeInfo, Object source)
 	{
 		return getBasicCalculation().process(input, obj);
 	}

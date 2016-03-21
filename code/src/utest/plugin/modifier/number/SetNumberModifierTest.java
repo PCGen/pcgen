@@ -203,7 +203,7 @@ public class SetNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(6.5, modifier.process(4.3, null));
+		assertEquals(6.5, modifier.process(4.3, null, null));
 	}
 
 	@Test
@@ -219,6 +219,6 @@ public class SetNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(11, modifier.process(4.3, iSetup.getScopeInfo()));
+		assertEquals(11, modifier.process(4.3, iSetup.getScopeInfo(), null));
 	}
 }
