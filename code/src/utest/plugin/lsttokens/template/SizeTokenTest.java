@@ -23,8 +23,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
@@ -115,14 +114,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testUnparseNull() throws PersistenceLayerException
 	{
-		primaryProf.put(FormulaKey.SIZE, null);
+		primaryProf.put(StringKey.SIZEFORMULA, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		primaryProf.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
+		primaryProf.put(StringKey.SIZEFORMULA, "1");
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
 	}
 

@@ -48,6 +48,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
@@ -72,6 +73,7 @@ import pcgen.util.Logging;
 public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
+	private final GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<SizeAdjustment>(SizeAdjustment.class);
 	private final GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
 	private final GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
 	private final GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
@@ -130,6 +132,8 @@ public class LSTConverter extends Observable
 			{
 				catLoader.loadLstFiles(context, campaign
 						.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+				sizeLoader.loadLstFiles(context,
+					campaign.getSafeListFor(ListKey.FILE_SIZE));
 				statLoader.loadLstFiles(context,
 					campaign.getSafeListFor(ListKey.FILE_STAT));
 				savesLoader.loadLstFiles(context,
@@ -308,6 +312,7 @@ public class LSTConverter extends Observable
 		loaderList.add(new CopyLoader(ListKey.FILE_DATACTRL));
 		loaderList.add(new CopyLoader(ListKey.FILE_STAT));
 		loaderList.add(new CopyLoader(ListKey.FILE_SAVE));
+		loaderList.add(new CopyLoader(ListKey.FILE_SIZE));
 		loaderList.add(new CopyLoader(ListKey.FILE_ALIGNMENT));
 		loaderList.add(new CopyLoader(ListKey.FILE_PCC));
 		loaderList.add(new SelfCopyLoader());
