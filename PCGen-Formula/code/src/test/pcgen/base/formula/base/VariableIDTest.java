@@ -46,7 +46,7 @@ public class VariableIDTest extends TestCase
 			//ok, too			
 		}
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		try
 		{
 			new VariableID(globalInst, numberManager, null);
@@ -117,7 +117,7 @@ public class VariableIDTest extends TestCase
 	public void testGlobal()
 	{
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		VariableID vid = new VariableID(globalInst, numberManager, "test");
 		assertEquals("test", vid.getName());
 		assertEquals(globalInst, vid.getScope());
@@ -127,8 +127,8 @@ public class VariableIDTest extends TestCase
 	public void testEquals()
 	{
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
-		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
+		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope);
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
@@ -145,8 +145,8 @@ public class VariableIDTest extends TestCase
 	public void testHashCode()
 	{
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope, null);
-		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope, null);
+		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
+		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope);
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "bummer");

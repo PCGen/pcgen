@@ -79,6 +79,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 */
 	private final FormulaManager fm;
 
+	private final Object source;
+
 	/**
 	 * Constructs a new EvaluateVisitor with the given items used to perform the
 	 * evaluation, as necessary.
@@ -88,10 +90,14 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 *            other key parameters of a Formula
 	 * @param scopeInst
 	 *            The ScopeInstance used to evaluate the formula
+	 * @param source
+	 *            The VarScoped object that owns the formula this
+	 *            EvaulateVisitor will process
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
-	public EvaluateVisitor(FormulaManager fm, ScopeInstance scopeInst)
+	public EvaluateVisitor(FormulaManager fm, ScopeInstance scopeInst,
+		Object source)
 	{
 		if (fm == null)
 		{
@@ -103,6 +109,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		}
 		this.fm = fm;
 		this.scopeInst = scopeInst;
+		this.source = source;
 	}
 
 	/**
@@ -127,7 +134,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRoot node, Object data)
 	{
-		return evaluateSingleChild(node);
+		return evaluateSingleChild(node, data);
 	}
 
 	/**
@@ -136,7 +143,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTLogical node, Object data)
 	{
-		return evaluateOperatorNode(node);
+		//Pass in null since we can't assert what each side of the logical expression is
+		return evaluateOperatorNode(node, null);
 	}
 
 	/**
@@ -145,7 +153,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTEquality node, Object data)
 	{
-		return evaluateOperatorNode(node);
+		//Pass in null since we can't assert what each side of the logical expression is
+		return evaluateOperatorNode(node, null);
 	}
 
 	/**
@@ -154,7 +163,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRelational node, Object data)
 	{
-		return evaluateOperatorNode(node);
+		//Pass in null since we can't assert what each side of the logical expression is
+		return evaluateOperatorNode(node, null);
 	}
 
 	/**
@@ -163,7 +173,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTArithmetic node, Object data)
 	{
-		return evaluateOperatorNode(node);
+		return evaluateOperatorNode(node, data);
 	}
 
 	/**
@@ -172,7 +182,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTGeometric node, Object data)
 	{
-		return evaluateOperatorNode(node);
+		return evaluateOperatorNode(node, data);
 	}
 
 	/**
@@ -185,7 +195,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		 * Note we only support unary minus for Number.class. This was enforced
 		 * by SemanticsVisitor.
 		 */
-		Number n = (Number) evaluateSingleChild(node);
+		Number n = (Number) evaluateSingleChild(node, data);
 		if (n instanceof Integer)
 		{
 			return Integer.valueOf(-((Integer) n).intValue());
@@ -203,7 +213,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		 * Note we only support unary minus for Boolean.class. This was enforced
 		 * by SemanticsVisitor.
 		 */
-		Boolean b = (Boolean) evaluateSingleChild(node);
+		Boolean b = (Boolean) evaluateSingleChild(node, data);
 		return !b;
 	}
 
@@ -213,7 +223,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTExpon node, Object data)
 	{
-		return evaluateOperatorNode(node);
+		return evaluateOperatorNode(node, data);
 	}
 
 	/**
@@ -224,7 +234,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTParen node, Object data)
 	{
-		return evaluateSingleChild(node);
+		return evaluateSingleChild(node, data);
 	}
 
 	/**
@@ -258,7 +268,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Function function = VisitorUtilities.getFunction(fm.getLibrary(), node);
 		Node[] args = VisitorUtilities.accumulateArguments(node.jjtGetChild(1));
 		//evaluate the function
-		return function.evaluate(this, args);
+		return function.evaluate(this, args, (Class<?>) data);
 	}
 
 	/**
@@ -351,9 +361,11 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 * 
 	 * @param node
 	 *            The node that contains an Operator and has exactly 2 children.
+	 * @param data
+	 *            The asserted Format for the node being analyzed
 	 * @return The result of the operation acting on the 2 children
 	 */
-	private Object evaluateOperatorNode(SimpleNode node)
+	private Object evaluateOperatorNode(SimpleNode node, Object data)
 	{
 		Operator op = node.getOperator();
 		if (op == null)
@@ -367,8 +379,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 			throw new IllegalStateException(getClass().getSimpleName()
 				+ " must only have 2 children, was: " + childCount);
 		}
-		Object child1result = node.jjtGetChild(0).jjtAccept(this, null);
-		Object child2result = node.jjtGetChild(1).jjtAccept(this, null);
+		Object child1result = node.jjtGetChild(0).jjtAccept(this, data);
+		Object child2result = node.jjtGetChild(1).jjtAccept(this, data);
 		return fm.getOperatorLibrary().evaluate(op, child1result, child2result);
 	}
 
@@ -379,9 +391,11 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 * 
 	 * @param node
 	 *            The node for which the (single) child will be evaluated
+	 * @param data
+	 *            The asserted Format for the node being analyzed
 	 * @return The result of the evaluation on the child of the given node
 	 */
-	private Object evaluateSingleChild(Node node)
+	private Object evaluateSingleChild(Node node, Object data)
 	{
 		int childCount = node.jjtGetNumChildren();
 		if (childCount != 1)
@@ -390,7 +404,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 				+ " must only have 1 child, was: " + childCount);
 		}
 		Node child = node.jjtGetChild(0);
-		return child.jjtAccept(this, null);
+		return child.jjtAccept(this, data);
 	}
 
 	/**
@@ -412,4 +426,15 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	{
 		return fm;
 	}
+
+	/**
+	 * Returns The source of the formula evaluated by this EvaluateVisitor.
+	 * 
+	 * @return The source of the formula evaluated by this EvaluateVisitor
+	 */
+	public Object getSource()
+	{
+		return source;
+	}
+
 }

@@ -135,7 +135,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
 		try
 		{
-			manager.isValid(null, varScope, numberManager);
+			manager.isValid(null, varScope, numberManager, Number.class);
 			fail("isValid should reject null root");
 		}
 		catch (IllegalArgumentException e)
@@ -147,7 +147,7 @@ public class SimpleFormulaManagerTest extends TestCase
 			SimpleNode fp =
 					new FormulaParser(new StringReader("myvar+yourvar"))
 						.query();
-			manager.isValid(fp, varScope, null);
+			manager.isValid(fp, varScope, null, Number.class);
 			fail("isValid should reject null FormatManager");
 		}
 		catch (ParseException e)
@@ -163,7 +163,7 @@ public class SimpleFormulaManagerTest extends TestCase
 			SimpleNode fp =
 					new FormulaParser(new StringReader("myvar+yourvar"))
 						.query();
-			manager.isValid(fp, null, numberManager);
+			manager.isValid(fp, null, numberManager, Number.class);
 			fail("isValid should reject null scope");
 		}
 		catch (ParseException e)
@@ -179,7 +179,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		{
 			SimpleNode fp = new FormulaParser(new StringReader("4==1")).query();
 			FormulaSemantics valid =
-					manager.isValid(fp, varScope, numberManager);
+					manager.isValid(fp, varScope, numberManager, Number.class);
 			assertFalse("Should reject Boolean return value",
 				valid.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid());
 		}
@@ -194,7 +194,7 @@ public class SimpleFormulaManagerTest extends TestCase
 					new FormulaParser(new StringReader("myvar+yourvar"))
 						.query();
 			FormulaSemantics valid =
-					manager.isValid(fp, varScope, numberManager);
+					manager.isValid(fp, varScope, numberManager, Number.class);
 			assertFalse("Should reject missing var",
 				valid.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid());
 		}
@@ -209,7 +209,7 @@ public class SimpleFormulaManagerTest extends TestCase
 					new FormulaParser(new StringReader("myvar+yourvar"))
 						.query();
 			FormulaSemantics valid =
-					manager.isValid(fp, varScope, numberManager);
+					manager.isValid(fp, varScope, numberManager, Number.class);
 			assertTrue(valid.getInfo(FormulaSemanticsUtilities.SEM_VALID)
 				.isValid());
 		}

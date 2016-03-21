@@ -37,6 +37,7 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.solver.SplitFormulaSetup;
@@ -63,11 +64,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	public void isValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager)
+		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
 		FormulaSemantics semantics =
 				localSetup.getFormulaManager().isValid(node, getGlobalScope(),
-					formatManager);
+					formatManager, assertedFormat);
 		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
 		{
 			TestCase.fail("Expected Valid Formula: "
@@ -88,7 +89,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
-		Object result = localSetup.getScopeInfo().evaluate(node);
+		Object result = localSetup.getScopeInfo().evaluate(node, Number.class, null);
 		if (result.equals(valueOf))
 		{
 			return;
@@ -116,11 +117,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager)
+		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
 		FormulaSemantics semantics =
 				localSetup.getFormulaManager().isValid(node, getGlobalScope(),
-					formatManager);
+					formatManager, assertedFormat);
 		FormulaValidity isValid =
 				semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID);
 		if (isValid.isValid())
@@ -135,7 +136,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		DependencyManager fdm = new DependencyManager();
 		VariableDependencyManager vdm = new VariableDependencyManager();
 		fdm.addDependency(DependencyKeyUtilities.DEP_VARIABLE, vdm);
-		localSetup.getScopeInfo().getDependencies(node, fdm);
+		localSetup.getScopeInfo().getDependencies(node, fdm, null);
 		return vdm.getVariables();
 	}
 
@@ -196,5 +197,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected LegalScopeLibrary getScopeLibrary()
 	{
 		return setup.getLegalScopeLibrary();
+	}
+	
+	protected ScopeInformation getScopeInfo()
+	{
+		return localSetup.getScopeInfo();
 	}
 }

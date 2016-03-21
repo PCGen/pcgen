@@ -17,10 +17,10 @@
  */
 package pcgen.base.formula.library;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
@@ -138,8 +138,8 @@ public class ValueWrappingLibraryTest extends TestCase
 		underlying.addFunction(value);
 		assertTrue(value == underlying.getFunction("value"));
 		assertFalse(value == library.getFunction("value"));
-		assertEquals(3.3, underlying.getFunction("value").evaluate(null, null));
-		assertEquals(1, library.getFunction("value").evaluate(null, null));
+		assertEquals(3.3, underlying.getFunction("value").evaluate(null, null, null));
+		assertEquals(1, library.getFunction("value").evaluate(null, null, null));
 	}
 
 	private Function getPseudoFunction(final String name)
@@ -166,14 +166,15 @@ public class ValueWrappingLibraryTest extends TestCase
 			}
 
 			@Override
-			public Double evaluate(EvaluateVisitor visitor, Node[] args)
+			public Double evaluate(EvaluateVisitor visitor, Node[] args,
+				Class<?> assertedFormat)
 			{
 				return 3.3;
 			}
 
 			@Override
 			public void getDependencies(DependencyVisitor visitor,
-				DependencyManager fdm, Node[] args)
+				Class<?> assertedFormat, Node[] args)
 			{
 			}
 		};

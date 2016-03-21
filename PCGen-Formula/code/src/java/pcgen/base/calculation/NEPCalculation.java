@@ -52,9 +52,12 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * @param scopeInfo
 	 *            The ScopeInformation that is used (if necessary) to process a
 	 *            Formula that is contained by this NEPCalculation
+	 * @param source
+	 *            The "source" of the process being performed, so it can be
+	 *            referred back to if necessary
 	 * @return The resulting value of the NEPCalculation
 	 */
-	public T process(T input, ScopeInformation scopeInfo);
+	public T process(T input, ScopeInformation scopeInfo, Object source);
 
 	/**
 	 * Loads the dependencies for the NEPCalculation into the given
@@ -69,9 +72,13 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * @param fdm
 	 *            The DependencyManager to be notified of dependencies for this
 	 *            NEPCalculation
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the
+	 *            NEPCalculation. This parameter is optional - null can indicate
+	 *            that there is no format asserted by the context of the formula
 	 */
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm);
+		DependencyManager fdm, Class<?> assertedFormat);
 
 	/**
 	 * Returns a String identifying the formula used for calculation. May be "3"

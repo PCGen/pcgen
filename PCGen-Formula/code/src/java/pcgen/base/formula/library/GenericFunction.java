@@ -116,7 +116,7 @@ public class GenericFunction implements Function
 		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
 		LegalScope legalScope = visitor.getLegalScope();
 		SemanticsVisitor subVisitor =
-				new SemanticsVisitor(withArgs, legalScope);
+				new SemanticsVisitor(withArgs, legalScope, visitor.getAssertedFormat());
 		//Need to save original to handle "embedded" GenericFunction objects properly
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		ArgumentDependencyManager original =
@@ -158,12 +158,14 @@ public class GenericFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args,
+		Class<?> assertedFormat)
 	{
 		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
 		ScopeInstance scopeInstance = visitor.getScopeInstance();
-		EvaluateVisitor ev = new EvaluateVisitor(withArgs, scopeInstance);
-		return ev.visit(root, null);
+		EvaluateVisitor ev =
+				new EvaluateVisitor(withArgs, scopeInstance, visitor.getSource());
+		return ev.visit(root, assertedFormat);
 	}
 
 	/**
@@ -202,12 +204,13 @@ public class GenericFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+		Class<?> assertedFormat, Node[] args)
 	{
 		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
 		ScopeInstance scopeInstance = visitor.getScopeInstance();
-		DependencyVisitor dcv = new DependencyVisitor(withArgs, scopeInstance);
-		dcv.visit(root, fdm);
+		DependencyManager depManager = visitor.getDependencyManager();
+		DependencyVisitor dcv = new DependencyVisitor(withArgs, scopeInstance, depManager);
+		dcv.visit(root, assertedFormat);
 	}
 
 	private FormulaManager getManager(Node[] args, FormulaManager formulaManager)

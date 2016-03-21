@@ -20,7 +20,6 @@ package pcgen.base.formula.function;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -76,9 +75,10 @@ public class ThisFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args,
+		Class<?> assertedFormat)
 	{
-		return visitor.getScopeInstance().getOwner();
+		return visitor.getSource();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class ThisFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+		Class<?> assertedFormat, Node[] args)
 	{
 	}
 

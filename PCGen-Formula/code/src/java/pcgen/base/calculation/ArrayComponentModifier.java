@@ -85,7 +85,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T[] process(T[] input, ScopeInformation scopeInfo)
+	public T[] process(T[] input, ScopeInformation scopeInfo, Object source)
 	{
 		if (location > input.length - 1)
 		{
@@ -96,7 +96,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 				(T[]) Array.newInstance(modifier.getVariableFormat(),
 					input.length);
 		System.arraycopy(input, 0, newArray, 0, input.length);
-		newArray[location] = modifier.process(input[location], scopeInfo);
+		newArray[location] = modifier.process(input[location], scopeInfo, source);
 		return newArray;
 	}
 
@@ -105,9 +105,9 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 */
 	@Override
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm)
+		DependencyManager fdm, Class<?> assertedFormat)
 	{
-		modifier.getDependencies(scopeInfo, fdm);
+		modifier.getDependencies(scopeInfo, fdm, assertedFormat);
 	}
 
 	/**

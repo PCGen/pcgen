@@ -44,7 +44,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(2, \"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(ab,4,5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(1,2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(1));
 		Object rv =
@@ -81,7 +81,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(-2,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(-2));
 		Object rv =
@@ -94,7 +94,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(3.3,7.8)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(3.3));
 		Object rv =
@@ -107,7 +107,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(-3.4,-2.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.4));
 		Object rv =
@@ -120,7 +120,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(4.6,8,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.3));
 		Object rv =
@@ -133,7 +133,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min( 4.6,8,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.3));
 	}
@@ -143,7 +143,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(4.6,8,-3.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.3));
 	}
@@ -153,7 +153,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min(4.6 , 8 , -3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.3));
 	}
@@ -163,7 +163,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "min (4.6,8,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(-3.3));
 	}
@@ -174,7 +174,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getVariable("a"), 5);
 		String formula = "min(a, 3.4)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

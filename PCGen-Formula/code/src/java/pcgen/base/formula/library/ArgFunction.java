@@ -22,7 +22,6 @@ import java.util.Arrays;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.analysis.DependencyKeyUtilities;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.ASTNum;
@@ -155,11 +154,12 @@ public class ArgFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args,
+		Class<?> assertedFormat)
 	{
 		ASTNum node = (ASTNum) args[0];
 		int argNum = Integer.parseInt(node.getText());
-		return visitor.visit((SimpleNode) masterArgs[argNum], null);
+		return visitor.visit((SimpleNode) masterArgs[argNum], assertedFormat);
 	}
 
 	/**
@@ -171,16 +171,17 @@ public class ArgFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+		Class<?> assertedFormat, Node[] args)
 	{
 		ASTNum node = (ASTNum) args[0];
 		int argNum = Integer.parseInt(node.getText());
 		ArgumentDependencyManager argManager =
-				fdm.getDependency(DependencyKeyUtilities.DEP_ARGUMENT);
+				visitor.getDependencyManager().getDependency(
+					DependencyKeyUtilities.DEP_ARGUMENT);
 		if (argManager != null)
 		{
 			argManager.addArgument(argNum);
 		}
-		visitor.visit((SimpleNode) masterArgs[argNum], fdm);
+		visitor.visit((SimpleNode) masterArgs[argNum], assertedFormat);
 	}
 }

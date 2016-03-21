@@ -21,10 +21,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
-import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -231,14 +229,14 @@ public class SimpleFunctionLibraryTest extends TestCase
 			}
 
 			@Override
-			public Double evaluate(EvaluateVisitor visitor, Node[] args)
+			public Double evaluate(EvaluateVisitor visitor, Node[] args, Class<?> assertedFormat)
 			{
 				return null;
 			}
 
 			@Override
 			public void getDependencies(DependencyVisitor visitor,
-				DependencyManager fdm, Node[] args)
+				Class<?> assertedFormat, Node[] args)
 			{
 			}
 		};

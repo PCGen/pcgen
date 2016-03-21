@@ -44,7 +44,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(1));
 	}
@@ -78,7 +78,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Integer.valueOf(2));
 	}
@@ -88,7 +88,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(6.3));
 		Object rv =
@@ -101,7 +101,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(5.3));
 		Object rv =
@@ -114,7 +114,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs( -5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(5.3));
 	}
@@ -124,7 +124,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs(-5.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(5.3));
 	}
@@ -134,7 +134,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "abs (-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		evaluatesTo(formula, node, Double.valueOf(5.3));
 		List<VariableID<?>> vars = getVariables(node);
@@ -147,7 +147,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 		getVariableStore().put(getVariable("a"), 5);
 		String formula = "abs(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
 		List<VariableID<?>> vars = getVariables(node);
 		assertEquals(1, vars.size());

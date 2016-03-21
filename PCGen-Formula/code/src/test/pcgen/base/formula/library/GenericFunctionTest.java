@@ -48,7 +48,6 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		varCapture = new DependencyVisitor(getFormulaManager(), getGlobalScopeInst());
 		String formula = "floor((arg(0)-10)/2)";
 		SimpleNode node = TestUtilities.doParse(formula);
 		FunctionLibrary ftnLibrary = getFunctionLibrary();
@@ -68,6 +67,9 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		depManager = new DependencyManager();
 		argManager = new ArgumentDependencyManager();
 		depManager.addDependency(DependencyKeyUtilities.DEP_ARGUMENT, argManager);
+		varCapture =
+				new DependencyVisitor(getFormulaManager(),
+					getGlobalScopeInst(), depManager);
 	}
 
 	@Test
@@ -75,16 +77,16 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "d20Mod()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 		formula = "d20Mod(2, 3)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 		String formula2 = "floor((14-10)/2)";
 		SimpleNode node2 = TestUtilities.doParse(formula2);
 		getFunctionLibrary().addFunction(new GenericFunction("noargs", node2));
 		formula = "noargs(2)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -95,16 +97,16 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		getFunctionLibrary().addFunction(new GenericFunction("noargs", node2));
 		String formula = "noargs()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(-1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(-1, argManager.getMaximumArgument());
 	}
 
@@ -113,7 +115,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "d20Mod(\"string\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager);
+		isNotValid(formula, node, numberManager, null);
 	}
 
 	@Test
@@ -121,16 +123,16 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "d20Mod(14)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(0, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(0, argManager.getMaximumArgument());
 	}
 
@@ -139,16 +141,16 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "d20Mod(4+abs(-12))";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(0, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(0, argManager.getMaximumArgument());
 	}
 
@@ -160,16 +162,16 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		getFunctionLibrary().addFunction(new GenericFunction("embed", node2));
 		String formula = "d20Mod(embed(14,10))";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(-4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(1, argManager.getMaximumArgument());
 	}
 
@@ -181,16 +183,16 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		getFunctionLibrary().addFunction(new GenericFunction("embed", node2));
 		String formula = "embed(14,d20Mod(14))";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager);
+		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(6));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, depManager);
+		varCapture.visit(node, null);
 		assertEquals(1, argManager.getMaximumArgument());
 	}
 

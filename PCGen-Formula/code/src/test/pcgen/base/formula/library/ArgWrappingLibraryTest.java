@@ -19,7 +19,6 @@ package pcgen.base.formula.library;
 
 import org.junit.Test;
 
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
@@ -146,9 +145,9 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 		underlying.addFunction(arg);
 		assertTrue(arg == underlying.getFunction("arg"));
 		assertFalse(arg == library.getFunction("arg"));
-		EvaluateVisitor visitor = new EvaluateVisitor(getFormulaManager(), getGlobalScopeInst());
-		assertEquals(3.3, underlying.getFunction("arg").evaluate(visitor, args));
-		assertEquals(1, library.getFunction("arg").evaluate(visitor, args));
+		EvaluateVisitor visitor = new EvaluateVisitor(getFormulaManager(), getGlobalScopeInst(), this);
+		assertEquals(3.3, underlying.getFunction("arg").evaluate(visitor, args, null));
+		assertEquals(1, library.getFunction("arg").evaluate(visitor, args, null));
 	}
 
 	private Function getPseudoFunction(final String name)
@@ -175,14 +174,15 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 			}
 
 			@Override
-			public Double evaluate(EvaluateVisitor visitor, Node[] args)
+			public Double evaluate(EvaluateVisitor visitor, Node[] args,
+				Class<?> assertedFormat)
 			{
 				return 3.3;
 			}
 
 			@Override
 			public void getDependencies(DependencyVisitor visitor,
-				DependencyManager fdm, Node[] args)
+				Class<?> assertedFormat, Node[] args)
 			{
 			}
 		};

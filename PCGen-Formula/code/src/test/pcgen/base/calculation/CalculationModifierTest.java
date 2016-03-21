@@ -84,7 +84,7 @@ public class CalculationModifierTest extends TestCase
 	public void testProcess()
 	{
 		CalculationModifier cm = new CalculationModifier(calc, 5);
-		assertEquals(42, cm.process(9, null));
+		assertEquals(42, cm.process(9, null, null));
 	}
 
 	@Test

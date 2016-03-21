@@ -84,13 +84,17 @@ public interface FormulaManager
 	 * @param formatManager
 	 *            The FormatManager used to check for validity of variables used
 	 *            within the formula
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
 	 * @return The FormulaSemantics for the formula starting with with the given
 	 *         SimpleNode as the root of the parsed tree of the formula
 	 * @throws IllegalArgumentException
 	 *             if any parameter is null
 	 */
 	public FormulaSemantics isValid(SimpleNode root, LegalScope legalScope,
-		FormatManager<?> formatManager);
+		FormatManager<?> formatManager, Class<?> assertedFormat);
 
 	/**
 	 * Returns a new FormulaManager, with similar features to this

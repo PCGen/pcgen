@@ -55,11 +55,19 @@ public interface NEPFormula<T>
 	 * @param scopeInfo
 	 *            The ScopeInformation providing the context in which the
 	 *            NEPFormula is to be resolved
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
+	 * @param source
+	 *            The source of the resolution being performed, so it can be
+	 *            referred back to if necessary
 	 * @return The value calculated for the NEPFormula
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
 	 */
-	public T resolve(ScopeInformation scopeInfo);
+	public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
+		Object source);
 
 	/**
 	 * Returns the FormulaSemantics for the NEPFormula.
@@ -79,10 +87,14 @@ public interface NEPFormula<T>
 	 * @param formatManager
 	 *            The FormatManager in which the NEPFormula should be checked to
 	 *            ensure it is valid
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the Formula
 	 * @return The FormulaSemantics for the NEPFormula
 	 */
 	public FormulaSemantics isValid(FormulaManager fm, LegalScope legalScope,
-		FormatManager<T> formatManager);
+		FormatManager<T> formatManager, Class<?> assertedFormat);
 
 	/**
 	 * Determines the dependencies for this formula, including the VariableID
@@ -101,9 +113,13 @@ public interface NEPFormula<T>
 	 *            NEPFormula variables are to be determined
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the NEPFormula.
+	 *            This parameter is optional - null can indicate that there is
+	 *            no format asserted by the context of the formula
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null
 	 */
 	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager depManager);
+		DependencyManager depManager, Class<?> assertedFormat);
 }

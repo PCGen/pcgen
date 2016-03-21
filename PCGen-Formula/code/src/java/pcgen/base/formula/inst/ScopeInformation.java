@@ -42,25 +42,6 @@ public class ScopeInformation
 {
 
 	/**
-	 * The StaticVisitor for this ScopeInformation. Can return true/false to
-	 * indicate whether a parsed tree has a static value or depends on the wider
-	 * context (e.g. a variable is not static). Lazily Instantiated.
-	 */
-	private StaticVisitor staticVisitor;
-
-	/**
-	 * The EvaluateVisitor for this ScopeInformation. Calculates the result of a
-	 * parsed tree. Lazily Instantiated.
-	 */
-	private EvaluateVisitor evaluateVisitor;
-
-	/**
-	 * The DependencyVisitor for this ScopeInformation. Captures the
-	 * dependencies for a parsed tree. Lazily Instantiated.
-	 */
-	private DependencyVisitor variableVisitor;
-
-	/**
 	 * The FormulaManager for this ScopeInformation, which stores things like
 	 * the Function Library.
 	 */
@@ -117,10 +98,7 @@ public class ScopeInformation
 			throw new IllegalArgumentException(
 				"Cannot check for static value with null root");
 		}
-		if (staticVisitor == null)
-		{
-			staticVisitor = new StaticVisitor(fm.getLibrary());
-		}
+		StaticVisitor staticVisitor = new StaticVisitor(fm.getLibrary());
 		return ((Boolean) staticVisitor.visit(root, null)).booleanValue();
 	}
 
@@ -132,21 +110,26 @@ public class ScopeInformation
 	 * @param root
 	 *            The starting node in a parsed tree of a formula, to be used
 	 *            for the evaluation
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
+	 * @param source
+	 *            The source of the evaluation being performed, so it can be
+	 *            referred back to if necessary
 	 * @return true The result of evaluating the formula
 	 * @throws IllegalArgumentException
 	 *             if the given root is null
 	 */
-	public Object evaluate(SimpleNode root)
+	public Object evaluate(SimpleNode root, Class<?> assertedFormat,
+		Object source)
 	{
 		if (root == null)
 		{
 			throw new IllegalArgumentException("Cannot evaluate with null root");
 		}
-		if (evaluateVisitor == null)
-		{
-			evaluateVisitor = new EvaluateVisitor(fm, varScope);
-		}
-		return evaluateVisitor.visit(root, null);
+		EvaluateVisitor evaluateVisitor = new EvaluateVisitor(fm, varScope, source);
+		return evaluateVisitor.visit(root, assertedFormat);
 	}
 
 	/**
@@ -163,10 +146,15 @@ public class ScopeInformation
 	 * @param fdm
 	 *            The Dependency Manager to be notified of dependencies for the
 	 *            formula to be processed
+	 * @param assertedFormat
+	 *            The Class indicating the asserted Format for the formula. This
+	 *            parameter is optional - null can indicate that there is no
+	 *            format asserted by the context of the formula
 	 * @throws IllegalArgumentException
 	 *             if any parameter is null
 	 */
-	public void getDependencies(SimpleNode root, DependencyManager fdm)
+	public void getDependencies(SimpleNode root, DependencyManager fdm,
+		Class<?> assertedFormat)
 	{
 		if (root == null)
 		{
@@ -178,11 +166,9 @@ public class ScopeInformation
 			throw new IllegalArgumentException(
 				"Cannot get dependencies with null DependencyManager");
 		}
-		if (variableVisitor == null)
-		{
-			variableVisitor = new DependencyVisitor(fm, varScope);
-		}
-		variableVisitor.visit(root, fdm);
+		DependencyVisitor variableVisitor =
+				new DependencyVisitor(fm, varScope, fdm);
+		variableVisitor.visit(root, assertedFormat);
 	}
 
 	/**

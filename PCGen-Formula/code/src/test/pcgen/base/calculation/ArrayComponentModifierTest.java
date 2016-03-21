@@ -102,7 +102,7 @@ public class ArrayComponentModifierTest extends TestCase
 		CalculationModifier cm = new CalculationModifier(calc, 5);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = new Number[]{1, 2, 3, 4, 5, 6, 7};
-		Object[] result = acm.process(array, null);
+		Object[] result = acm.process(array, null, null);
 		array[5] = array[5].intValue() + 33;
 		assertTrue(Arrays.deepEquals(array, result));
 	}
@@ -115,7 +115,7 @@ public class ArrayComponentModifierTest extends TestCase
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = new Number[]{1, 2, 3, 4};
 		//Should be no effect
-		Object[] result = acm.process(array, null);
+		Object[] result = acm.process(array, null, null);
 		assertTrue(Arrays.deepEquals(array, result));
 	}
 

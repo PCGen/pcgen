@@ -18,9 +18,7 @@
 package pcgen.base.solver;
 
 import java.util.ArrayList;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.inst.ScopeInformation;
@@ -68,8 +66,8 @@ public class Solver<T>
 	 * The list of Modifiers for this Solver. This is maintained as an ordered
 	 * list: TreeMap sorts the Modifiers by their priority.
 	 */
-	private final TreeMapToList<Long, Modifier<T>> modifierList =
-			new TreeMapToList<Long, Modifier<T>>();
+	private final TreeMapToList<Long, ModInfo<T>> modifierList =
+			new TreeMapToList<Long, ModInfo<T>>();
 
 	/**
 	 * A map of sources to the Modifiers provided by that source. This is used
@@ -81,7 +79,7 @@ public class Solver<T>
 
 	/**
 	 * Constructs a new Solver with the given default Modifier and
-	 * FormulaManager.
+	 * ScopeInformation.
 	 * 
 	 * The default Modifier MUST NOT depend on anything (it must be able to
 	 * accept both a null ScopeInformation and null input value to its process
@@ -108,7 +106,7 @@ public class Solver<T>
 		//Enforce no dependencies
 		try
 		{
-			defaultModifier.process(null, null);
+			defaultModifier.process(null, null, null);
 		}
 		catch (NullPointerException e)
 		{
@@ -121,7 +119,7 @@ public class Solver<T>
 
 	/**
 	 * Add a Modifier (from the given source) to this Solver. The Modifier will
-	 * be processed in the order defined by the priority of the Modifier
+	 * be processed in the order defined by the priority of the Modifier.
 	 * 
 	 * null is not a valid source.
 	 * 
@@ -152,8 +150,8 @@ public class Solver<T>
 					+ varFormat.getCanonicalName() + " but got: "
 					+ modifier.getVariableFormat().getCanonicalName());
 		}
-		modifierList
-			.addToListFor(Long.valueOf(getPriority(modifier)), modifier);
+		modifierList.addToListFor(Long.valueOf(getPriority(modifier)),
+			new ModInfo<>(modifier, source));
 		sourceList.addToListFor(source, modifier);
 	}
 
@@ -184,7 +182,7 @@ public class Solver<T>
 				"Cannot remove Modifier with null source");
 		}
 		modifierList.removeFromListFor(Long.valueOf(getPriority(modifier)),
-			modifier);
+			new ModInfo<>(modifier, source));
 		sourceList.removeFromListFor(source, modifier);
 	}
 
@@ -210,8 +208,9 @@ public class Solver<T>
 		{
 			for (Modifier<T> modifier : removed)
 			{
-				modifierList.removeFromListFor(
-					Long.valueOf(getPriority(modifier)), modifier);
+				modifierList.removeFromListFor(Long
+					.valueOf(getPriority(modifier)), new ModInfo<>(modifier,
+					source));
 			}
 		}
 	}
@@ -257,12 +256,14 @@ public class Solver<T>
 	 */
 	public T process()
 	{
-		T result = defaultModifier.process(null, scopeInfo);
+		T result = defaultModifier.process(null, null, null);
 		for (Long priority : modifierList.getKeySet())
 		{
-			for (Modifier<T> modifier : modifierList.getListFor(priority))
+			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 			{
-				result = modifier.process(result, scopeInfo);
+				result =
+						modInfo.getModifier().process(result, scopeInfo,
+							modInfo.getSource());
 			}
 		}
 		return result;
@@ -279,48 +280,26 @@ public class Solver<T>
 	public List<ProcessStep<T>> diagnose()
 	{
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
-		T stepResult = defaultModifier.process(null, scopeInfo);
+		T stepResult = defaultModifier.process(null, null, null);
 		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(
 			defaultModifier.getVariableFormat().getSimpleName()), stepResult));
 		if (!modifierList.isEmpty())
 		{
-			Map<Modifier<T>, Object> sources = getReversedSources();
 			for (Long priority : modifierList.getKeySet())
 			{
-				for (Modifier<T> modifier : modifierList.getListFor(priority))
+				for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 				{
-					stepResult = modifier.process(stepResult, scopeInfo);
+					Modifier<T> modifier = modInfo.getModifier();
+					Object source = modInfo.getSource();
+					stepResult = modifier.process(stepResult, scopeInfo, source);
 					@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 					ProcessStep<T> step =
-							new ProcessStep<T>(modifier, sources.get(modifier),
-								stepResult);
+							new ProcessStep<T>(modifier, source, stepResult);
 					steps.add(step);
 				}
 			}
 		}
 		return steps;
-	}
-
-	/**
-	 * A Convenience method used to "reverse" the sourceList map. This is
-	 * intended to be private, and since it is used in a "diagnosis"
-	 * infrastructure is not particularly performance sensitive.
-	 * 
-	 * @return A version of the sourceList map showing the source of each
-	 *         Modifier in this Solver
-	 */
-	private Map<Modifier<T>, Object> getReversedSources()
-	{
-		Map<Modifier<T>, Object> reversedMap =
-				new IdentityHashMap<Modifier<T>, Object>();
-		for (Object source : sourceList.getKeySet())
-		{
-			for (Modifier<T> modifier : sourceList.getListFor(source))
-			{
-				reversedMap.put(modifier, source);
-			}
-		}
-		return reversedMap;
 	}
 
 	/**
@@ -344,5 +323,53 @@ public class Solver<T>
 		{
 			return reportString;
 		}
+	}
+
+	/**
+	 * Constructs a new ModInfo to store information about a Modifier and the
+	 * source of the modifier
+	 * 
+	 * @param <IT>
+	 *            The format the included Modifier acts upon
+	 */
+	private static final class ModInfo<IT>
+	{
+		private final Modifier<IT> modifier;
+		private final Object source;
+
+		public ModInfo(Modifier<IT> modifier, Object source)
+		{
+			this.modifier = modifier;
+			this.source = source;
+		}
+
+		public Modifier<IT> getModifier()
+		{
+			return modifier;
+		}
+
+		public Object getSource()
+		{
+			return source;
+		}
+
+		@Override
+		public int hashCode()
+		{
+			return modifier.hashCode() ^ source.hashCode();
+		}
+
+		@Override
+		public boolean equals(Object obj)
+		{
+			if (obj instanceof ModInfo)
+			{
+				ModInfo<?> other = (ModInfo<?>) obj;
+				return modifier.equals(other.modifier)
+					&& source.equals(other.source);
+			}
+			return false;
+		}
+
 	}
 }
