@@ -74,7 +74,7 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		LegalScope scope = context.getActiveScope().getLegalScope();
 
-		if (!dv.isLegalName(varName))
+		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
 				+ " is not a valid variable name");
