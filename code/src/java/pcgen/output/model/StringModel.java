@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-16 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,26 +15,47 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.output.wrapper;
+package pcgen.output.model;
 
-import pcgen.output.base.SimpleObjectWrapper;
-import pcgen.output.base.SimpleWrapperLibrary;
-import freemarker.template.TemplateModel;
+import pcgen.base.util.Reference;
 import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateScalarModel;
 
 /**
- * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel for
- * objects that are enums.
+ * A StringModel wraps a String object into a TemplateScalarModel
  */
-public class EnumWrapper implements SimpleObjectWrapper
+public class StringModel implements TemplateScalarModel, Reference<String>
 {
-	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	/**
+	 * The underlying String object
+	 */
+	private final String string;
+
+	/**
+	 * Constructs a new StringModel with the given underlying String
+	 * 
+	 * @param s
+	 *            The String this StringModel wraps
+	 */
+	public StringModel(String s)
 	{
-		if ((o != null) && o.getClass().isEnum())
+		if (s == null)
 		{
-			return SimpleWrapperLibrary.wrap(o.toString());
+			throw new IllegalArgumentException("String cannot be null");
 		}
-		throw new TemplateModelException("Object was not an enum");
+		this.string = s;
 	}
+
+	@Override
+	public String getAsString() throws TemplateModelException
+	{
+		return string;
+	}
+
+	@Override
+	public String get()
+	{
+		return string;
+	}
+
 }

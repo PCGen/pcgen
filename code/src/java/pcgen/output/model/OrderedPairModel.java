@@ -18,7 +18,8 @@
 package pcgen.output.model;
 
 import pcgen.base.math.OrderedPair;
-import freemarker.template.ObjectWrapper;
+import pcgen.base.util.Reference;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -28,8 +29,10 @@ import freemarker.template.TemplateScalarModel;
  * A OrderedPairModel wraps a OrderedPair object into a TemplateScalarModel and
  * TemplateHashModel
  */
-public class OrderedPairModel implements TemplateScalarModel, TemplateHashModel
+public class OrderedPairModel implements TemplateScalarModel,
+		TemplateHashModel, Reference<OrderedPair>
 {
+
 	/**
 	 * The underlying OrderedPair object
 	 */
@@ -50,9 +53,6 @@ public class OrderedPairModel implements TemplateScalarModel, TemplateHashModel
 		this.point = point;
 	}
 
-	/*
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{
@@ -64,11 +64,11 @@ public class OrderedPairModel implements TemplateScalarModel, TemplateHashModel
 	{
 		if (key.equalsIgnoreCase("x"))
 		{
-			ObjectWrapper.SIMPLE_WRAPPER.wrap(point.getPreciseX());
+			return SimpleWrapperLibrary.wrap(point.getPreciseX());
 		}
 		else if (key.equalsIgnoreCase("y"))
 		{
-			ObjectWrapper.SIMPLE_WRAPPER.wrap(point.getPreciseY());
+			return SimpleWrapperLibrary.wrap(point.getPreciseY());
 		}
 		throw new TemplateModelException(
 			"object of type OrderedPair did not have output of type " + key);
@@ -78,6 +78,12 @@ public class OrderedPairModel implements TemplateScalarModel, TemplateHashModel
 	public boolean isEmpty() throws TemplateModelException
 	{
 		return false;
+	}
+
+	@Override
+	public OrderedPair get()
+	{
+		return point;
 	}
 
 }
