@@ -396,7 +396,7 @@ public class AggressiveSolverManager
 	 *            The VariableID as a starting point for triggering Solvers to
 	 *            be processed
 	 */
-	private void solveFromNode(VariableID<?> varID)
+	public void solveFromNode(VariableID<?> varID)
 	{
 		boolean warning = varStack.contains(varID);
 		try
