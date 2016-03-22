@@ -22,29 +22,32 @@ import java.util.HashMap;
 import pcgen.base.lang.CaseInsensitiveString;
 
 /**
- * A CaseInsensitiveMap is a HashMap that has uses a CaseInsensitiveString as
- * the Key This is a facilitating wrapper around HashMap to allow easy use of
- * CaseInsensitiveString as the Key to a Map.
- * 
- * CaseInsensitiveMap gracefully handles non-String keys (defaults back to the
- * same behavior as HashMap), including the null key. Note that this allows
- * appropriate matching behavior when a CaseInsensitiveString is passed in as
- * the key to one of the methods of CaseInsensitiveMap.
- * 
- * NOTE: It is generally preferred to use new TreeMap<String,
- * blah>(String.CASE_INSENSITIVE_ORDER) when dealing with case insensitive Maps.
- * This should only be avoided in rare cases where performance is an issue in
- * fetching items from large maps. In reality, it may be best to remove
- * CaseInsensitiveMap from use entirely.
- * 
+ * A {@code CaseInsensitiveMap} is a {@code HashMap} that has uses a
+ * {@code CaseInsensitiveString} as the key.
+ * <p>
+ * This is a facilitating wrapper
+ * around HashMap to allow easy use of {@code CaseInsensitiveString} as the Key
+ * to a {@code Map}.
+ * <br>
+ * {@code CaseInsensitiveMap} gracefully handles non-String keys (defaults back
+ * to the same behavior as {@code HashMap}), including the null key. Note that
+ * this allows appropriate matching behavior when a
+ * {@code CaseInsensitiveString} is passed in as the key to one of the methods
+ * of {@code CaseInsensitiveMap}.
+ * <p>
+ * NOTE: It is generally preferred to use {@code new TreeMap<String,
+ * blah>(String.CASE_INSENSITIVE_ORDER)} when dealing with case insensitive
+ * Maps. This should only be avoided in rare cases where performance is an issue
+ * in fetching items from large maps. In reality, it may be best to remove
+ * {@code CaseInsensitiveMap} from use entirely.
+ * <p>
  * **WARNING**: This class could be considered to be broken or incomplete.
- * Unfortunately, in the case of the iterator methods of Map (e.g. keySet()),
- * this class will expose the CaseInsensitiveString that is used internally to
- * this Class. It is therefore a poor implementation to use when iteration over
- * the entries in this Map is requried.
- * 
- * @param <V>
- *            The Type of the Values stored in this CaseInsensitiveMap
+ * Unfortunately, in the case of the iterator methods of {@code Map} (e.g.
+ * keySet()), this class will expose the {@code CaseInsensitiveString} that is
+ * used internally to this Class. It is therefore a poor implementation to use
+ * when iteration over the entries in this Map is requried.
+ *
+ * @param <V> The Type of the Values stored in this CaseInsensitiveMap
  */
 public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 {
