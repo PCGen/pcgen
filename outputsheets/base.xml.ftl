@@ -133,14 +133,14 @@
 		</skin>
 		<cr>${pcstring('CR')}</cr>
 		<face>
-			<#if pc.val.os_size!false == true>
-				<#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.
-			<#else>${pc.val.face[0]}${pc.val.face[1]} ft.	<!--	Tom needs to fix the output so face[1] works	-->
-			</#if>
+			<face><#if pc.val.os_size!false == true>
+				<#if pc.val.face?keep_before(",") == pc.val.face?keep_after(",")>${pc.val.face?keep_before(",")} ft.
+				<#else>${pc.val.face?keep_before(",")} ft. by ${pc.val.face?keep_after(",")} ft.
+				</#if>
 			<#else>
 				${pcstring('FACE')}
 			</#if>
-			<short>${pcstring('FACE.SHORT')}</short>
+			</face>
 			<squares>${pcstring('FACE.SQUARES')}</squares>
 		</face>
 		<favoredlist>${pcstring('FAVOREDLIST')}</favoredlist>
