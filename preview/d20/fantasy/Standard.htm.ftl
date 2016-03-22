@@ -143,7 +143,15 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 			  <td colspan="1" class="h">${pcstring('RACE')}</td>
 		</#if>
 
-  <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE')}</td>
+  <td class="h">${pcstring('SIZELONG')} / 
+  <#if pc.val.os_size!false == true>
+	<#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.
+	<#else>${pc.val.face[0]} ft.	<!--	Tom needs to fix the output so face[1] works	-->
+	</#if>
+  <#else>
+	${pcstring('FACE')}
+  </#if>
+  </td>
   <td class="h">${pcstring('HEIGHT')}</td>
   <td class="h">${pcstring('WEIGHT')}</td>
 <#if (pcvar("COUNT[VISION]") > 0) >

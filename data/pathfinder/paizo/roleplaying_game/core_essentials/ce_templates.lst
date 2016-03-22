@@ -844,23 +844,7 @@ Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=0|Bleed,Create Water,Dete
 # the spell will not be available at the new Cleric level but at the standard Sorcerer level.
 ###Block: Size Mods for Automatic Changes
 # Template
-# Template Name	Reach		Visible
-#	REACH_0		REACH:0	VISIBLE:NO
-#	REACH_5		REACH:5	VISIBLE:NO
-#	REACH_10		REACH:10	VISIBLE:NO
-#	REACH_15		REACH:15	VISIBLE:NO
-#	REACH_20		REACH:20	VISIBLE:NO
-#	REACH_30		REACH:30	VISIBLE:NO
 ###Block:
-# Template Name		Size				Face/Space	Visible
-#	FACE_0							FACE:0	VISIBLE:NO
-#	FACE_1							FACE:1	VISIBLE:NO
-#	FACE_2							FACE:2.5	VISIBLE:NO
-#	FACE_5							FACE:5	VISIBLE:NO
-#	FACE_10							FACE:10	VISIBLE:NO
-#	FACE_15							FACE:15	VISIBLE:NO
-#	FACE_20							FACE:20	VISIBLE:NO
-#	FACE_30							FACE:30	VISIBLE:NO
 # This is having Issues in PF.
 Dragon Size Tracker	SIZE:DragonSizeTracker			VISIBLE:NO
 #ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C

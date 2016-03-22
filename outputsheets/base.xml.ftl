@@ -133,7 +133,13 @@
 		</skin>
 		<cr>${pcstring('CR')}</cr>
 		<face>
-			<face>${pcstring('FACE')}</face>
+			<#if pc.val.os_size!false == true>
+				<#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.
+			<#else>${pc.val.face[0]} ft.	<!--	Tom needs to fix the output so face[1] works	-->
+			</#if>
+			<#else>
+				${pcstring('FACE')}
+			</#if>
 			<short>${pcstring('FACE.SHORT')}</short>
 			<squares>${pcstring('FACE.SQUARES')}</squares>
 		</face>
