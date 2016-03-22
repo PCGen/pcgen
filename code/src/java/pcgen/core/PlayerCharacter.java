@@ -271,6 +271,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
@@ -5940,8 +5941,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * from modToFromEquipment.
 	 * 
 	 * @return MAXDEX bonus
+	 * @deprecated due to PCMAXDEX code control
 	 */
-	public int modToMaxDexFromEquipment()
+	public int processOldMaxDex()
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
 		final Load load = getHouseRuledLoadType();
@@ -5953,7 +5955,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			final int potentialMax = eq.getMaxDex(this).intValue();
+			final int potentialMax = EqToken.getMaxDexTokenInt(this, eq);
 			if (potentialMax != Constants.MAX_MAXDEX)
 			{
 				if (useMax || bonus > potentialMax)

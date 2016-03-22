@@ -61,9 +61,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	}
 
 	/**
-	 * @see pcgen.rules.persistence.token.AbstractSetModifierFactory#getModifier(int,
-	 *      java.lang.String, pcgen.base.formula.manager.FormulaManager,
-	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
+	 * {@inheritDoc}
 	 */
 	@Override
 	public Modifier<T[]> getModifier(int userPriority, String instructions,
@@ -99,7 +97,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.modifier.Modifier#getInstructions()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public String getInstructions()
@@ -108,7 +106,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see plugin.modifier.set.SetModifierFactory.SetArrayModifier#getArray()
+		 * {@inheritDoc}
 		 */
 		@Override
 		protected T[] getArray()
@@ -134,7 +132,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.modifier.Modifier#getInstructions()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public String getInstructions()
@@ -143,7 +141,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see plugin.modifier.set.SetModifierFactory.SetArrayModifier#getArray()
+		 * {@inheritDoc}
 		 */
 		@Override
 		protected T[] getArray()
@@ -174,7 +172,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.modifier.Modifier#getUserPriority()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public int getUserPriority()
@@ -183,7 +181,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
+		 * {@inheritDoc}
 		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
@@ -193,11 +191,10 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.calculation.NEPCalculation#process(java.lang.Object,
-		 *      pcgen.base.formula.manager.ScopeInformation)
+		 * {@inheritDoc}
 		 */
 		@Override
-		public T[] process(T[] input, ScopeInformation scopeInfo)
+		public T[] process(T[] input, ScopeInformation scopeInfo, Object source)
 		{
 			return getArray();
 		}
@@ -210,7 +207,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		protected abstract T[] getArray();
 
 		/**
-		 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public Class<T[]> getVariableFormat()
@@ -219,18 +216,17 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		}
 
 		/**
-		 * @see pcgen.base.calculation.NEPCalculation#getDependencies(pcgen.base.formula.manager.ScopeInformation,
-		 *      pcgen.base.formula.dependency.DependencyManager)
+		 * {@inheritDoc}
 		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 		public void getDependencies(ScopeInformation scopeInfo,
-			DependencyManager fdm)
+			DependencyManager fdm, Class<?> assertedFormat)
 		{
 		}
 
 		/**
-		 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
+		 * {@inheritDoc}
 		 */
 		@Override
 		public String getIdentification()

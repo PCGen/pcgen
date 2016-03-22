@@ -63,7 +63,7 @@ public class SetOrderedPairModifierTest extends TestCase
 		assertEquals(5, modifier.getUserPriority());
 		assertEquals(OrderedPair.class, modifier.getVariableFormat());
 		assertEquals(new OrderedPair(3, 2),
-			modifier.process(new OrderedPair(5, 6), null));
+			modifier.process(new OrderedPair(5, 6), null, null));
 	}
 
 }

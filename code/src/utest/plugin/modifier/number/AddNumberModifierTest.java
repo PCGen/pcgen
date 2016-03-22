@@ -200,6 +200,6 @@ public class AddNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(10.8, modifier.process(4.3, null));
+		assertEquals(10.8, modifier.process(4.3, null, null));
 	}
 }

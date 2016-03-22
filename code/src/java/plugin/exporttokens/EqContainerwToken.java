@@ -194,7 +194,7 @@ public class EqContainerwToken extends Token
 			}
 			else if (property.equals("MAXDEX"))
 			{
-				retString = Integer.toString(getMaxDexToken(pc, eq));
+				retString = Integer.toString(EqToken.getMaxDexTokenInt(pc, eq));
 			}
 			else if (property.equals("MOVE"))
 			{
@@ -444,17 +444,6 @@ public class EqContainerwToken extends Token
 
 		retString.append(eq.longName());
 		return retString.toString();
-	}
-
-	/**
-	 * Get Max DEX Token
-	 * @param pc
-	 * @param eq
-	 * @return Max DEX Token
-	 */
-	public static int getMaxDexToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.getMaxDex(pc).intValue();
 	}
 
 	/**
