@@ -35,7 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>ModifierToken</code>
  * 
- * @author Devon Jones <soulcatcher@evilsoft.org>
+ * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
 		CDOMPrimaryToken<LoadInfo>

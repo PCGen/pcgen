@@ -24,7 +24,7 @@ import java.util.EventObject;
 
 /**
  * This is simply a marker class for facade based events
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeEvent extends EventObject
 {

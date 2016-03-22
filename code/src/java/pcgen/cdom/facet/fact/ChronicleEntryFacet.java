@@ -30,11 +30,11 @@ import pcgen.util.Logging;
  * ChronicleEntryFacet is a Facet that tracks the chronicle entries that have 
  * been entered for a Player Character.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class ChronicleEntryFacet extends

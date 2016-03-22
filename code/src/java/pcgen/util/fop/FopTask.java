@@ -52,7 +52,7 @@ import pcgen.util.Logging;
  * which you can point to a file, or a Renderer. The Renderer is used by print preview and for
  * direct printing.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FopTask implements Runnable
 {
@@ -224,7 +224,7 @@ public class FopTask implements Runnable
 	{
 
 		/**
-		 * @{inheritdoc}
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void error(TransformerException exception)
@@ -236,7 +236,7 @@ public class FopTask implements Runnable
 		}
 
 		/**
-		 * @{inheritdoc}
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void fatalError(TransformerException exception)
@@ -248,7 +248,7 @@ public class FopTask implements Runnable
 		}
 
 		/**
-		 * @{inheritdoc}
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void warning(TransformerException exception)

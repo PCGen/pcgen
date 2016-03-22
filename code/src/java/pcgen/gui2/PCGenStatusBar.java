@@ -43,7 +43,7 @@ import pcgen.util.Logging;
  * It will show source loading progress and a corresponding error icon
  * (if there are errors)
  * TODO: add support for concurrent task execution
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenStatusBar extends JPanel
 {

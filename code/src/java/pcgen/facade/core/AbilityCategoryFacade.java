@@ -25,7 +25,7 @@ package pcgen.facade.core;
  * interacting with ability categories.
  * 
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 public interface AbilityCategoryFacade

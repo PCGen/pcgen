@@ -68,7 +68,7 @@ public class ClassAbbToken extends AbstractExportToken
 
 	/**
 	 * Get the token
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return token
 	 */

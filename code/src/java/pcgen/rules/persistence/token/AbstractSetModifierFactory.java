@@ -39,7 +39,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	 * Returns the value provided in the constructor. The input value and
 	 * FormulaManager are ignored.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#process(java.lang.Object,
+	 * @see pcgen.base.calculation.CalculationInfo#process(java.lang.Object,
 	 *      pcgen.base.formula.manager.FormulaManager)
 	 */
 	@Override
@@ -53,7 +53,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	 * used if two Modifiers have the same User Priority. Lower values are
 	 * processed first.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getInherentPriority()
+	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
 	 */
 	@Override
 	public int getInherentPriority()
@@ -64,7 +64,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	/**
 	 * Returns an Identifier for this type of Modifier
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getIdentification()
+	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
 	 */
 	@Override
 	public String getIdentification()

@@ -43,7 +43,7 @@ import pcgen.util.enumeration.View;
 /**
  * <code>PCTemplate</code>.
  * 
- * @author Mark Hulsman <hulsmanm@purdue.edu>
+ * @author Mark Hulsman &lt;hulsmanm@purdue.edu&gt;
  * @version $Revision$
  */
 public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver

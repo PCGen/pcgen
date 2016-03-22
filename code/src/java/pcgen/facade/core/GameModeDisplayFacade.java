@@ -24,7 +24,7 @@ import pcgen.core.GameMode;
 
 /**
  *
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public interface GameModeDisplayFacade
 {

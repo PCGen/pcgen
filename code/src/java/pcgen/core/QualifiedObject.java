@@ -34,7 +34,7 @@ import pcgen.core.prereq.Prerequisite;
  * This class stores an association between an object and a set of prereqs.
  * Refactored from ChoiceInfo originally written by
  * Andrew Wilson <nuance@sourceforge.net>
- * @author Aaron Divinsky <boomer70@yahoo.com>
+ * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  * @param <T> 
  */
 public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject

@@ -34,11 +34,11 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * The Class <code>SuppressBioFieldFacet</code> tracks the biography fields that
  * should be hidden from output.
  * 
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

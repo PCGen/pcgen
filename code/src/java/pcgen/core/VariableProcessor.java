@@ -46,7 +46,7 @@ import pcgen.util.PjepPool;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @author Chris Ward <frugal@purplewombat.co.uk>
+ * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  * @version $Revision$
  */
 public abstract class VariableProcessor

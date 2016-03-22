@@ -26,7 +26,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class TreeViewPath<E>
 {

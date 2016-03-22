@@ -33,7 +33,7 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class PortraitPane extends JComponent
 {

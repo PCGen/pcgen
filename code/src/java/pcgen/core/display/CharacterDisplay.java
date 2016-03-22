@@ -1593,7 +1593,7 @@ public class CharacterDisplay
 	/**
 	 * Returns a region (including subregion) string for the character.
 	 * 
-	 * <p/> Build on-the-fly so removing templates won't mess up region
+	 * <p> Build on-the-fly so removing templates won't mess up region
 	 * 
 	 * @return character region
 	 */

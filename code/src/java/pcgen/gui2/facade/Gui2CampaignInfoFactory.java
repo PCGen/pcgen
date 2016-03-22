@@ -51,11 +51,11 @@ import pcgen.system.LanguageBundle;
  * The Class <code>Gui2CampaignInfoFactory</code> is responsible for producing 
  * HTML formatted information on campaigns for the new user interface.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory

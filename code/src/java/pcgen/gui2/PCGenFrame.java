@@ -126,11 +126,11 @@ import pcgen.util.chooser.ChooserFactory;
  * The main window for PCGen. In addition this class is responsible for providing 
  * global UI functions such as message dialogs. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 @SuppressWarnings("serial")

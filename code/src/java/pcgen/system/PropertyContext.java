@@ -39,7 +39,7 @@ import org.apache.commons.lang.math.NumberUtils;
  * that share its ancestors are visible but only that child's namespace is editable.
  * It is considered bad practice to look at the other siblings properties from within
  * a child.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PropertyContext implements PropertyChangeListener
 {

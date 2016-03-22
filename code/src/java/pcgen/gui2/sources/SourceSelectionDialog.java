@@ -84,7 +84,7 @@ import pcgen.util.Comparators;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SourceSelectionDialog extends JDialog
 		implements ActionListener, ChangeListener, ListSelectionListener

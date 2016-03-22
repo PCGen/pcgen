@@ -49,11 +49,11 @@ import pcgen.system.LanguageBundle;
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class DescriptionFacadeImpl implements DescriptionFacade

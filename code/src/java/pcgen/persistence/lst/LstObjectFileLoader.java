@@ -55,7 +55,7 @@ import pcgen.system.PCGenSettings;
  * Last Edited: $Date$
  *
  * @author AD9C15
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {

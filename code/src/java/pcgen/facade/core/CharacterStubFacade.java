@@ -26,7 +26,7 @@ import java.io.File;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CharacterStubFacade
 {

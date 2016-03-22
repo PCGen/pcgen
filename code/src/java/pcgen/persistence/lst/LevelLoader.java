@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * <code>LevelLoader</code> loads up the level system file
  * by processing each line passed to it.
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  **/
 public final class LevelLoader

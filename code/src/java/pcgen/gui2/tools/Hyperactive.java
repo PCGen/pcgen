@@ -33,7 +33,7 @@ import javax.swing.event.HyperlinkListener;
 /**
  * This makes URLs load in a browser when clicked.
  *
- * @author     Greg Bingleman <byngl@hotmail.com>
+ * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version    $Revision: 1817 $
  */
 public final class Hyperactive implements HyperlinkListener

@@ -59,7 +59,7 @@ import pcgen.io.ExportHandler;
  * interested parties to register as listeners for changes to the valiues.
  * @see pcgen.core.facade.util.ListFacade
  * @see ReferenceFacade
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CharacterFacade extends CompanionFacade
 {

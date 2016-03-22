@@ -101,10 +101,10 @@ import pcgen.util.enumeration.Tab;
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author: $ Last Edited: $Date: $
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 @SuppressWarnings("serial")

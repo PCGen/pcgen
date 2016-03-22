@@ -283,7 +283,7 @@ import pcgen.util.enumeration.View;
 /**
  * <code>PlayerCharacter</code>.
  * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class PlayerCharacter  implements Cloneable, VariableContainer 
@@ -5130,7 +5130,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 *            Desired spell level
 	 * @param minNumSpells
 	 *            Minimum number of spells at the desired spell level
-	 * @return boolean <p/> author David Wilson
+	 * @return boolean <p> author David Wilson
 	 *         <eldiosyeldiablo@users.sourceforge.net>
 	 */
 	private boolean canCastSpellTypeLevel(final String spellType, final int spellLevel, final int minNumSpells)
@@ -5304,14 +5304,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * <li>save.BASE.list</li>
 	 * <li>save.MISC.list</li>
 	 * </ul>
-	 * where<br />
-	 * save := "CHECK1"|"CHECK2"|"CHECK3"<br />
-	 * list := ((include|exclude)del)*(include|exclude)<br />
-	 * include := "FEATS"|"MAGIC"|"RACE"<br />
-	 * exclude := "NOFEATS"|"NOMAGIC"|"NORACE"|"NOSTAT" <br />
-	 * del := "." <br />
-	 * given as regular expression. <p/> "include"-s will add the appropriate
-	 * modifier "exclude"-s will subtract the appropriate modifier <p/> (This
+	 * where<br>
+	 * save := "CHECK1"|"CHECK2"|"CHECK3"<br>
+	 * list := ((include|exclude)del)*(include|exclude)<br>
+	 * include := "FEATS"|"MAGIC"|"RACE"<br>
+	 * exclude := "NOFEATS"|"NOMAGIC"|"NORACE"|"NOSTAT" <br>
+	 * del := "." <br>
+	 * given as regular expression. <p> "include"-s will add the appropriate
+	 * modifier "exclude"-s will subtract the appropriate modifier <p> (This
 	 * means <tt>save.MAGIC.NOMAGIC</tt> equals 0, whereas
 	 * <tt>save.RACE.RACE</tt> equals 2 times the racial bonus) <p/> If you
 	 * use unrecognised terminals, their value will amount to 0 This means

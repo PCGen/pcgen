@@ -36,8 +36,8 @@ import org.nfunk.jep.function.PostfixMathCommand;
 /**
  * <code>RollingMethods</code>.
  *
- * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author Mario Bonassin &lt;zebuleon@users.sourceforge.net&gt;
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision$
  */
 public final class RollingMethods

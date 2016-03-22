@@ -73,12 +73,12 @@ import pcgen.util.enumeration.View;
  * reflect the changes. The lists automatically notify any listeners in the 
  * UI of the changes.
  *   
- * <br/>
+ * <br>
  * 
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CharacterAbilities

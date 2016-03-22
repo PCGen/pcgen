@@ -109,7 +109,7 @@ import pcgen.util.enumeration.Tab;
  * A character tab providing the user with the ability to buy and sell
  * equipment.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -592,7 +592,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 * The Class <code>DeleteCustomAction</code> defines an action to delete a
 	 * custom equipment item.
 	 *
-	 * @author James Dempsey <jdempsey@users.sourceforge.net>
+	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	private class DeleteCustomAction extends AbstractAction
 	{

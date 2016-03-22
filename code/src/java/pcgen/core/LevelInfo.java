@@ -32,7 +32,7 @@ import java.math.BigDecimal;
 /**
  * <code>LevelInfo</code> describes the data associated with a level
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class LevelInfo

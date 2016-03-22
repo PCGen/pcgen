@@ -39,7 +39,7 @@ import pcgen.core.system.MigrationRule;
 /**
  * Contains lists of stuff loaded from system-wide lst files.
  *
- * @author     Jonas Karlsson <jujutsunerd@users.sourceforge.net>
+ * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  * @version    $Revision$
  **/
 public class SystemCollections

@@ -26,7 +26,7 @@ import org.apache.commons.lang.SystemUtils;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class ConfigurationSettings extends PropertyContext
 {

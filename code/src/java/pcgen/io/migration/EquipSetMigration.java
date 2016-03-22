@@ -40,11 +40,11 @@ import pcgen.core.utils.CoreUtility;
  * The Class <code>EquipSetMigration</code> updates a character's equipment 
  * sets to match newer requirements.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EquipSetMigration

@@ -81,7 +81,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Selector
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 18-03-02
 	 *
 	 * @return a list of error messages
@@ -93,7 +93,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Convenience Method
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 18-03-02
 	 *
 	 * @return a list of messages
@@ -110,7 +110,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Selector
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 15-03-02
 	 *
 	 * @return a list of warning messages
@@ -201,7 +201,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Reads the contents of the given PlayerCharacter from a stream
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 11-03-02
 	 *
 	 * @param pcToBeRead the PlayerCharacter to store the read data
@@ -319,7 +319,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Writes the contents of the given PlayerCharacter to a stream
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 11-03-02
 	 * 
 	 * @deprecated The write to a file method should be used in preference as it has safe backup handling.

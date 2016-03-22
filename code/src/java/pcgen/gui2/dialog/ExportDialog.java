@@ -85,7 +85,7 @@ import pcgen.util.Logging;
 /**
  * The dialog provides the list of output sheets for a character or party to
  * be exported to.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ExportDialog extends JDialog implements ActionListener, ListSelectionListener

@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
 /**
  * <code>StatRollTextToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class StatRollTextToken implements GameModeLstToken
 {

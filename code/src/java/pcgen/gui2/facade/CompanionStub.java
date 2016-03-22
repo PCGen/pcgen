@@ -31,11 +31,11 @@ import pcgen.facade.util.ReferenceFacade;
  * The Class <code>CompanionStub</code> contains a definition of a possible 
  * companion (i.e. animal companion, familiar, follower etc) for a character.  
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

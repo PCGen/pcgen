@@ -64,7 +64,7 @@ import pcgen.gui2.tools.Icons;
 /**
  * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
  * character.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 {

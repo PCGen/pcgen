@@ -45,12 +45,12 @@ import pcgen.util.enumeration.Load;
  * TRUE = Add Movement Measurement type to String.
  * FALSE = Dont Add Movement Measurement type to String
  * del     := "."
- * <p/>
+ * <p>
  * i.e. BASEMOVEMENT.0.LIGHT.TRUE
  * Would output 30' for a normal human
  * and    BASEMOVEMENT.0.LIGHT.FALSE
  * Would output 30 for the same human.
- * <p/>
+ * <p>
  */
 public class BaseMovementToken extends AbstractExportToken
 {

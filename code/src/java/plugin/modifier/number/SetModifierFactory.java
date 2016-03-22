@@ -40,7 +40,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()

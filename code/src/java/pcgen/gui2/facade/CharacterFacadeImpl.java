@@ -198,11 +198,11 @@ import pcgen.util.enumeration.View;
  * <ul>
  * <li>Who is responsible for undo management and how will it work?</li>
  * </ul>
- * <br/>
- * Last Editor: $Author$ <br/>
+ * <br>
+ * Last Editor: $Author$ <br>
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListener, ListListener<EquipmentFacade>,

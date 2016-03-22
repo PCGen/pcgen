@@ -65,11 +65,11 @@ import pcgen.util.Logging;
  * only see what characters are open but to easily track any
  * changes to the list of available characters.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CharacterManager

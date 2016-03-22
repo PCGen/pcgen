@@ -94,7 +94,7 @@ public class FaceToken extends AbstractExportToken
 
 	/**
 	 * Get FACE Token
-	 * @param pc
+	 * @param display
 	 * @return FACE Token
 	 */
 	public static String getFaceToken(CharacterDisplay display)
@@ -126,7 +126,7 @@ public class FaceToken extends AbstractExportToken
 	/**
 	 * Get SHORT sub token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @return SHORT sub toke
 	 */
 	public static String getShortToken(CharacterDisplay display)
@@ -158,7 +158,7 @@ public class FaceToken extends AbstractExportToken
 	/**
 	 * Get squares sub token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @return squares sub token
 	 */
 	public static String getSquaresToken(CharacterDisplay display)
@@ -187,7 +187,7 @@ public class FaceToken extends AbstractExportToken
 	/**
 	 * Get 1 sub token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @return 1 sub token
 	 */
 	public static String get1Token(CharacterDisplay display)
@@ -199,7 +199,7 @@ public class FaceToken extends AbstractExportToken
 	/**
 	 * Get 2 sub token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @return 2 sub token
 	 */
 	public static String get2Token(CharacterDisplay display)

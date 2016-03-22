@@ -43,7 +43,7 @@ import pcgen.facade.core.DeityFacade;
 /**
  * <code>Deity</code>.
  * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class Deity extends PObject implements DeityFacade

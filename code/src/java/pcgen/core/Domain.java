@@ -40,7 +40,7 @@ import pcgen.facade.core.InfoFacade;
 /**
  * <code>Domain</code>.
  *
- * @author   Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author   Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

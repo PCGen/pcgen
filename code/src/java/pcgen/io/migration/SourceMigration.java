@@ -35,7 +35,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * keys that have now been changed in the data.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class SourceMigration

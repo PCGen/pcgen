@@ -40,7 +40,7 @@ import pcgen.core.bonus.BonusUtilities;
  *
  * Represents the data kept about a level that a PC has added.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version  $Revision$
  */
 public final class PCLevelInfo implements Cloneable

@@ -347,7 +347,7 @@ public final class BioSet extends PObject implements NonInteractive
 	 * Adds the tag (key & value) to the supplied ageSets collection. It is
 	 * assumed that the ageSet already has an entry for each age bracket and
 	 * that this entry will be a SortedMap of races. Each race will contain a
-	 * SortedMap of tags and their values.<br/> The key is assumed to be of the
+	 * SortedMap of tags and their values.<br> The key is assumed to be of the
 	 * form region.race.tag eg "Custom.Human%.MAXAGE" The value is assumed to be
 	 * either a list of values or a single value, depending on the tag. eg
 	 * "[34,52,69,110]" or "Blond|Brown" If a single value, it will be added to

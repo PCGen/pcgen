@@ -117,7 +117,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()
@@ -530,7 +530,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public File getDataDirectory()

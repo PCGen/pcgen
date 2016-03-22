@@ -39,7 +39,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 
 /**
  * @author	wardc
- * @author	byngl <byngl@hotmail.com>
+ * @author	byngl &lt;byngl@hotmail.com&gt;
  *
  */
 public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest

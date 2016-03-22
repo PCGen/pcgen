@@ -73,11 +73,11 @@ import pcgen.system.LanguageBundle;
  * models for both the left and right tables of gear. It also contains the 
  * processing to manage equipping and unequipping actions.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 public class EquipmentModels

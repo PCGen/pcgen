@@ -34,7 +34,7 @@ public class EquipmentPartScope implements LegalScope
 	/**
 	 * The String representation of the objects covered by this Scope
 	 * 
-	 * @see pcgen.cdom.base.LoadableLegalScope#getName()
+	 * @see pcgen.base.formula.base.LegalScope#getName()
 	 */
 	@Override
 	public String getName()
@@ -43,7 +43,7 @@ public class EquipmentPartScope implements LegalScope
 	}
 
 	/**
-	 * @see pcgen.base.formula.variable.LegalScope#getParentScope()
+	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
 	 */
 	@Override
 	public LegalScope getParentScope()

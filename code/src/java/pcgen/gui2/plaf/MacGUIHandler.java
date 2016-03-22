@@ -26,7 +26,7 @@ import pcgen.gui2.PCGenUIManager;
 /**
  * <code>MacGUI</code> initializes Mac-specific GUI elements.
  *
- * @author Tod Milam <twmilam@yahoo.com>
+ * @author Tod Milam &lt;twmilam@yahoo.com&gt;
  * @version $Revision: 1828 $
  */
 public class MacGUIHandler extends ApplicationAdapter

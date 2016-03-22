@@ -69,7 +69,7 @@ import pcgen.util.enumeration.Visibility;
  * the AbilityCategory was &quot;FEAT&quot; and set the ability type to
  * &quot;Fighter&quot;. 
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */

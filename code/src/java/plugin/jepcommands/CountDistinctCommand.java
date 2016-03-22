@@ -36,9 +36,9 @@ import pcgen.util.Logging;
 /**
  * <code>CountDistinctCommand</code> deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
- * <p/> 
+ * <p> 
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CountDistinctCommand extends AbstractCountCommand

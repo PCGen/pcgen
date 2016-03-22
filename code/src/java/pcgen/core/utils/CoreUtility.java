@@ -46,7 +46,7 @@ import pcgen.util.Logging;
  * (the two biggest classes in the project.) Some of this code seems awfully
  * similar, and should probably be further refactored.
  * 
- * @author Jonas Karlsson <pjak@yahoo.com>
+ * @author Jonas Karlsson &lt;pjak@yahoo.com&gt;
  * @version $Revision$
  */
 public final class CoreUtility

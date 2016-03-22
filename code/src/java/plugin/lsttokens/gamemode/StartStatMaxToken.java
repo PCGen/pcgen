@@ -34,7 +34,7 @@ import java.net.URI;
 /**
  * <code>StartStatMaxToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class StartStatMaxToken implements GameModeLstToken
 {

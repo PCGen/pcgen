@@ -28,7 +28,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:SPECIALTYSPELLKNOWN token.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

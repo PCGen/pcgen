@@ -31,7 +31,7 @@ import pcgen.util.Logging;
 /**
  * This class represents a particular race generator option.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * @since 5.11.1
  */
 public class RaceGeneratorOption extends GeneratorOption

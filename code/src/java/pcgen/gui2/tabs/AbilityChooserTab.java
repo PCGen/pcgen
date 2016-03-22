@@ -87,7 +87,7 @@ import pcgen.system.LanguageBundle;
  * follows the state management guidelines of a <code>CharacterInfoTab</code>.
  *
  * @see pcgen.gui2.tabs.CharacterInfoTab
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler

@@ -37,11 +37,11 @@ import pcgen.facade.core.BodyStructureFacade;
  * The Class <code>BodyStructure</code> represents a part of a character's 
  * body that may hold equipment.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class BodyStructure implements BodyStructureFacade

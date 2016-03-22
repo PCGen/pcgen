@@ -100,7 +100,7 @@ public class ClassToken extends Token {
 	/**
 	 * Get the token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return token
 	 */
@@ -126,7 +126,7 @@ public class ClassToken extends Token {
 	/**
 	 * Get Level part of the class token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return level token
 	 */
@@ -143,7 +143,7 @@ public class ClassToken extends Token {
 	/**
 	 * Get Level part of the class token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return level token
 	 */
@@ -161,7 +161,7 @@ public class ClassToken extends Token {
 	 * Get the list of Special Abilities for a class that the PC is eligible
 	 * for.
 	 * 
-	 * @param pcclass
+	 * @param displayclass
 	 *            The class to get the special abilities for
 	 * @param aPC
 	 *            The PC
@@ -256,7 +256,7 @@ public class ClassToken extends Token {
 	}
 
 	/**
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return class Type
 	 */

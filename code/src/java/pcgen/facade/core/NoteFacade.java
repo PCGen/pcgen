@@ -26,11 +26,11 @@ package pcgen.facade.core;
  * NoteFacade defines the interface used by the user interface to interact 
  * with a character note.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

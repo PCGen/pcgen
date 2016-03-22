@@ -72,7 +72,7 @@ import pcgen.util.enumeration.View;
  * TYPE=&lt;type&gt; - type filter</li>
  * </ul>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 public class AbilityToken extends Token

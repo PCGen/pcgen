@@ -37,7 +37,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * This class is used to help aid implementation of the
  * <code>CompanionSupportFacadeImpl</code>
  * @see pcgen.gui2.facade.CompanionSupportFacadeImpl
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CompanionFacadeDelegate implements CompanionFacade
 {

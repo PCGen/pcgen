@@ -28,11 +28,11 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class <code>FileMenuSaveMessage</code> encapsulates an event 
  * that the GMGen file save menu item was selected. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

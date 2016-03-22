@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 /**
  * <code>Utilities</code>.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 198 $
  *
  * @see SwingConstants

@@ -60,7 +60,7 @@ import pcgen.system.PCGenSettings;
 /**
  * Convenience methods from various sources.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 14613 $
  */
 public final class Utility

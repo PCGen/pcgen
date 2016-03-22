@@ -31,7 +31,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<OrderedPair>
 	 * Identifies that this SetModifier acts upon pcgen.base.math.OrderedPair
 	 * objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<OrderedPair> getVariableFormat()

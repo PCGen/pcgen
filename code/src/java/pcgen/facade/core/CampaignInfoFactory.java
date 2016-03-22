@@ -27,11 +27,11 @@ import java.util.List;
 /**
  * The Class <code>CampaignInfoFactory</code> is ...
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public interface CampaignInfoFactory

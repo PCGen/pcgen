@@ -89,7 +89,7 @@ import pcgen.util.enumeration.AttackType;
 /**
  * <code>PCClass</code>.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public class PCClass extends PObject implements ClassFacade
 {
@@ -1520,7 +1520,7 @@ public class PCClass extends PObject implements ClassFacade
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean qualifies(PlayerCharacter aPC, Object owner)

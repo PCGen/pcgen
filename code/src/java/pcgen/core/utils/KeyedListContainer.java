@@ -28,7 +28,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * An object that implements KeyedListContainer safely encapsulates a ListKeyMap
  */
