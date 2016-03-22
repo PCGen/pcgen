@@ -18,7 +18,6 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.analysis.FormulaFormat;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -323,38 +322,36 @@ public final class FormulaFactory
 		}
 
 		/**
-		 * @see pcgen.base.calculation.NEPCalculation#getDependencies(pcgen.base.formula.manager.ScopeInformation,
-		 *      pcgen.base.formula.dependency.DependencyManager)
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void getDependencies(ScopeInformation scopeInfo,
-			DependencyManager arg1)
+			DependencyManager arg1, Class<?> assertedFormat)
 		{
 			//None
 		}
 
 		/**
-		 * @see pcgen.base.formula.NEPFormula#resolve(pcgen.base.formula.manager.ScopeInformation)
+		 * {@inheritDoc}
 		 */
 		@Override
-		public T resolve(ScopeInformation scopeInfo)
+		public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
+			Object owner)
 		{
 			return value;
 		}
 
 		/**
-		 * @see pcgen.base.formula.inst.NEPFormula#isValid(pcgen.base.formula.manager.FormulaManager,
-		 *      pcgen.base.formula.base.LegalScope,
-		 *      pcgen.base.format.FormatManager)
+		 * {@inheritDoc}
 		 */
 		@Override
 		public FormulaSemantics isValid(FormulaManager fm, LegalScope varScope,
-			FormatManager<T> formatManager)
+			FormatManager<T> formatManager, Class<?> assertedFormat)
 		{
 			FormulaSemantics semantics =
 					FormulaSemanticsUtilities.getInitializedSemantics();
 			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				new FormulaFormat(formatManager.getManagedClass()));
+				formatManager.getManagedClass());
 			return semantics;
 		}
 	}
@@ -421,12 +418,12 @@ public final class FormulaFactory
 		Class<T> varClass = formatManager.getManagedClass();
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
 		FormulaSemantics semantics =
-				formula.isValid(formulaManager, varScope, formatManager);
+				formula.isValid(formulaManager, varScope, formatManager,
+					formatManager.getManagedClass());
 		if (semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
 		{
 			Class<?> formulaClass =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT)
-						.getFormat();
+					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 			if (formulaClass.equals(varClass))
 			{
 				return formula;

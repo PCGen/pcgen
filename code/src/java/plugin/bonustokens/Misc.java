@@ -25,7 +25,10 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**MISC
  * Handles the BONUS:MISC token.
@@ -67,4 +70,29 @@ public final class Misc extends MultiTagBonusObj
 	{
 		return BONUS_TAGS.length;
 	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, "PCSPELLFAILURE"))
+		{
+			if ("SPELLFAILURE".equals(token))
+			{
+				Logging.errorPrint("BONUS:MISC|SPELLFAILURE is disabled "
+					+ "when PCSPELLFAILURE control is used: " + token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, "PCMAXDEX"))
+		{
+			if ("MAXDEX".equals(token))
+			{
+				Logging.errorPrint("BONUS:MISC|MAXDEX is disabled "
+					+ "when PCMAXDEX control is used: " + token, context);
+				return false;
+			}
+		}
+		return super.parseToken(context, token);
+	}
+	
 }

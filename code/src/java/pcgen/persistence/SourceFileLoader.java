@@ -40,7 +40,6 @@ import java.util.logging.LogRecord;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ContentDefinition;
@@ -76,6 +75,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
@@ -154,6 +154,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
 	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
 	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
+	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<SizeAdjustment>(SizeAdjustment.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
@@ -195,7 +196,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		selectedGame =
 				SystemCollections.getGameModeNamed(selection.getGameMode()
-					.getReference().getName());
+					.get().getName());
 		globalCampaign =
 				new CampaignSourceEntry(new Campaign(),
 					URI.create("file:/System%20Configuration%20Document"));
@@ -609,6 +610,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			c.applyTo(context.getReferenceContext());
 		}
 
+		sizeLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_SIZE));
 		//Now load PCC stat, check, alignment
 		statLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_STAT));
 		savesLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_SAVE));
@@ -692,7 +694,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			VariableContext varContext = context.getVariableContext();
 			FormatManager<OrderedPair> opManager =
-					FormatManagerLibrary.getFormatManager(OrderedPair.class);
+					context.getReferenceContext().getFormatManager(OrderedPair.class);
 			defineVariable(varContext, opManager, "Face");
 		}
 	}

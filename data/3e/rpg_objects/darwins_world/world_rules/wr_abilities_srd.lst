@@ -450,6 +450,20 @@ Empty Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VIS
 Perfect Self								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Flurry of Blows								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:FlurryOfBlows|0																																																																																																																																																									BONUS:VAR|FlurryOfBlows|1
 
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FlurryLVL|0	BONUS:VAR|FlurryLVL|MonkLVL	DEFINE:GreaterFlurry|0	BONUS:VAR|GreaterFlurry|(FlurryLVL>=11)|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkGreaterFlurry	
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FlurryAttacks|0	BONUS:VAR|FlurryAttacks|2+(FlurryLVL>=6)+(FlurryLVL>=10)+(FlurryLVL>=14)+(FlurryLVL>=18)	
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB|0	BONUS:VAR|FAB|-2
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_1|0	BONUS:VAR|FAB_1|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_2|0	BONUS:VAR|FAB_2|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_3|0	BONUS:VAR|FAB_3|FAB-3
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_4|0	BONUS:VAR|FAB_4|FAB-6
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_5|0	BONUS:VAR|FAB_5|FAB-9
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_6|0	BONUS:VAR|FAB_6|FAB-12
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_7|0	BONUS:VAR|FAB_7|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_8|0	BONUS:VAR|FAB_8|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_9|0	BONUS:VAR|FAB_9|FAB
+
+
 ###Block: Paladin special abilities
 # Ability Name	Category of Ability		Type						Visible	Define			Description					Save bonus							Aspects
 Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.Sense		VISIBLE:YES

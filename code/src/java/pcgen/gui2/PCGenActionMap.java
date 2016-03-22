@@ -336,7 +336,7 @@ public final class PCGenActionMap extends ActionMap
 		{
 			KitSelectionDialog kitDialog =
 					new KitSelectionDialog(frame, frame
-						.getSelectedCharacterRef().getReference());
+						.getSelectedCharacterRef().get());
 			Utility.setDialogRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);			
 		}
@@ -471,7 +471,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			CharacterFacade cf = frame.getSelectedCharacterRef().getReference();
+			CharacterFacade cf = frame.getSelectedCharacterRef().get();
 			CoreViewFrame cvf = new CoreViewFrame(frame, cf);
 			cvf.setVisible(true);
 		}
@@ -546,7 +546,7 @@ public final class PCGenActionMap extends ActionMap
 			super("mnuFileNew", NEW_COMMAND, "shortcut N", Icons.New16);
 			ref = frame.getLoadedDataSetRef();
 			ref.addReferenceListener(new SourceListener());
-			setEnabled(ref.getReference() != null);
+			setEnabled(ref.get() != null);
 		}
 
 		@Override
@@ -605,7 +605,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.closeCharacter(frame.getSelectedCharacterRef().getReference());
+			frame.closeCharacter(frame.getSelectedCharacterRef().get());
 		}
 
 	}
@@ -636,13 +636,13 @@ public final class PCGenActionMap extends ActionMap
 			super("mnuFileSave", SAVE_COMMAND, "shortcut S", Icons.Save16);
 			ReferenceFacade<CharacterFacade> ref = frame.getSelectedCharacterRef();
 			ref.addReferenceListener(this);
-			checkEnabled(ref.getReference());
+			checkEnabled(ref.get());
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			final CharacterFacade pc = frame.getSelectedCharacterRef().getReference();
+			final CharacterFacade pc = frame.getSelectedCharacterRef().get();
 			if (pc == null)
 			{
 				return;
@@ -667,7 +667,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				ReferenceFacade<File> file = character.getFileRef();
 				file.addReferenceListener(fileListener);
-				setEnabled(file.getReference() != null);
+				setEnabled(file.get() != null);
 			}
 			else
 			{
@@ -700,7 +700,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.showSaveCharacterChooser(frame.getSelectedCharacterRef().getReference());
+			frame.showSaveCharacterChooser(frame.getSelectedCharacterRef().get());
 		}
 
 	}
@@ -732,7 +732,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.revertCharacter(frame.getSelectedCharacterRef().getReference());
+			frame.revertCharacter(frame.getSelectedCharacterRef().get());
 		}
 
 	}
@@ -914,14 +914,14 @@ public final class PCGenActionMap extends ActionMap
 			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
 					frame.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
-			checkEnabled(currentSourceSelectionRef.getReference());
+			checkEnabled(currentSourceSelectionRef.get());
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			SourceSelectionFacade sources =
-					frame.getCurrentSourceSelectionRef().getReference();
+					frame.getCurrentSourceSelectionRef().get();
 			if (sources != null)
 			{
 				frame.unloadSources();
@@ -954,7 +954,7 @@ public final class PCGenActionMap extends ActionMap
 			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
 					frame.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
-			checkEnabled(currentSourceSelectionRef.getReference());
+			checkEnabled(currentSourceSelectionRef.get());
 		}
 
 		@Override
@@ -1239,7 +1239,7 @@ public final class PCGenActionMap extends ActionMap
 			super(prop, command, accelerator, icon);
 			ref = frame.getSelectedCharacterRef();
 			ref.addReferenceListener(new CharacterListener());
-			setEnabled(ref.getReference() != null);
+			setEnabled(ref.get() != null);
 		}
 
 		private class CharacterListener implements ReferenceListener<Object>

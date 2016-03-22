@@ -42,7 +42,6 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -857,9 +856,9 @@ public class Gui2InfoFactory implements InfoFactory
 
 		}
 
-		Integer a = equip.getMaxDex(pc);
+		Integer a = EqToken.getMaxDexTokenInt(pc, equip);
 
-		if (a.intValue() != 100)
+		if (a.intValue() != Constants.MAX_MAXDEX)
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextMaxDex", a.toString()); //$NON-NLS-1$
@@ -888,7 +887,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
-			a = equip.spellFailure(pc);
+			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
 			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 			{
@@ -2341,9 +2340,9 @@ public class Gui2InfoFactory implements InfoFactory
 		if (deity != null)
 		{
 			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-			for (ObjectContainer<String> oc : deity.getSafeSetFor(fk))
+			for (Indirect<String> indirect : deity.getSafeSetFor(fk))
 			{
-				set.addAll(oc.getContainedObjects());
+				set.add(indirect.get());
 			}
 		}
 		final StringBuilder piString = new StringBuilder(100);
@@ -2522,20 +2521,20 @@ public class Gui2InfoFactory implements InfoFactory
 
 	private <T> String getSetString(CDOMObject cdo, FactSetKey<T> fk)
 	{
-		List<ObjectContainer<T>> set = cdo.getSetFor(fk);
+		List<Indirect<T>> set = cdo.getSetFor(fk);
 		if (set == null)
 		{
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
 		boolean first = true;
-		for (ObjectContainer<T> oc : set)
+		for (Indirect<T> indirect : set)
 		{
 			if (!first)
 			{
 				sb.append(Constants.COMMA);
 			}
-			sb.append(oc.getLSTformat(false));
+			sb.append(indirect.get());
 			first = false;
 		}
 		return sb.toString();

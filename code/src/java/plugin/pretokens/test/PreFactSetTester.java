@@ -19,7 +19,7 @@ package plugin.pretokens.test;
 
 import java.util.List;
 
-import pcgen.base.util.ObjectContainer;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -84,10 +84,10 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		int runningTotal = 0;
 		CDO: for (Reducible r : objModel)
 		{
-			List<ObjectContainer<T>> sets = r.getCDOMObject().getSetFor(fk);
-			for (ObjectContainer<T> container:sets)
+			List<Indirect<T>> sets = r.getCDOMObject().getSetFor(fk);
+			for (Indirect<T> indirect : sets)
 			{
-				if (container.contains(targetVal))
+				if (indirect.get().equals(targetVal))
 				{
 					runningTotal++;
 					continue CDO;

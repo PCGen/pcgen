@@ -87,11 +87,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	private Boolean required;
 
 	/**
-<<<<<<< Upstream, based on upstream/master
 	 * Sets the Display name for this ContentDefinition
-=======
-	 * Sets the Display name for this UserContent
->>>>>>> dc1462f Highlights: NEWTAG-239 Implement new Formula System NEWTAG-531 Implement INFO/INFOVARS for new output
 	 * 
 	 * @param name
 	 *            The DisplayName for this UserContent
@@ -321,6 +317,9 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 * internal use by ContentDefinition, as a portion of the activate() method.
 	 * 
 	 * This should not be called from an external source
+	 * 
+	 * @param dsID
+	 *            The DataSetID for which the output should be activated
 	 */
 	protected abstract void activateOutput(DataSetID dsID);
 

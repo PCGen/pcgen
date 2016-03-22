@@ -40,6 +40,8 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -188,14 +190,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					if (slot.canContainType("WEAPON"))
 					{
 						// Add phantom nodes for the various weapon slots
-						if (charDisplay.getHands() > 0)
+						if (getPCHands() > 0)
 						{
 							addEquipNodeForEquipSlot(
 								node,
 								createWeaponEquipSlot(slot,
 									Constants.EQUIP_LOCATION_PRIMARY), true);
 						}
-						for (int i = 1; i < charDisplay.getHands(); ++i)
+						for (int i = 1; i < getPCHands(); ++i)
 						{
 							if (i > 1)
 							{
@@ -228,6 +230,22 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					}
 				}
 			}
+		}
+	}
+
+
+	private int getPCHands()
+	{
+		String solverValue = theCharacter.getControl("*CREATUREHANDS");
+		if (solverValue == null)
+		{
+			return FacetLibrary.getFacet(HandsFacet.class).getHands(
+				theCharacter.getCharID());
+		}
+		else
+		{
+			Object val = theCharacter.getGlobal(solverValue);
+			return ((Number) val).intValue();
 		}
 	}
 
@@ -1338,7 +1356,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	public String getName()
 	{
-		return name.getReference();
+		return name.get();
 	}
 
 	/* (non-Javadoc)
@@ -1362,7 +1380,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	@Override
 	public void setName(String name)
 	{
-		this.name.setReference(name);
+		this.name.set(name);
 		eqSet.setName(name);
 	}
 

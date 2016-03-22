@@ -21,7 +21,6 @@ import java.util.Set;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -65,16 +64,18 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager = FormatManagerLibrary.getFormatManager(format);
+			formatManager =
+					context.getReferenceContext().getFormatManager(format);
 		}
 		catch (IllegalArgumentException e)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " does not support format " + format + ", found in " + value);
+				+ " does not support format " + format + ", found in " + value
+				+ " due to " + e.getMessage());
 		}
 		LegalScope scope = context.getActiveScope().getLegalScope();
 
-		if (!dv.isLegalName(varName))
+		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
 				+ " is not a valid variable name");

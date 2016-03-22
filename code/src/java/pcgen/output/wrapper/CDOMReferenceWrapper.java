@@ -23,7 +23,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.output.base.PCGenObjectWrapper;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -33,6 +33,9 @@ import freemarker.template.TemplateModelException;
  */
 public class CDOMReferenceWrapper implements PCGenObjectWrapper
 {
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
 	 *      java.lang.Object)
@@ -44,9 +47,7 @@ public class CDOMReferenceWrapper implements PCGenObjectWrapper
 		if (o instanceof CDOMSingleRef)
 		{
 			CDOMSingleRef<?> ref = (CDOMSingleRef<?>) o;
-			Object obj = ref.get();
-			return FacetLibrary.getFacet(ObjectWrapperFacet.class)
-				.wrap(id, obj);
+			return WRAPPER_FACET.wrap(id, ref.get());
 		}
 		if (o instanceof CDOMReference)
 		{
@@ -57,7 +58,7 @@ public class CDOMReferenceWrapper implements PCGenObjectWrapper
 			 * Need a Model?
 			 */
 			String lstFormat = ref.getLSTformat(true);
-			return ObjectWrapper.SIMPLE_WRAPPER.wrap(lstFormat);
+			return SimpleWrapperLibrary.wrap(lstFormat);
 		}
 		throw new TemplateModelException("Object was not a CDOMReference");
 	}

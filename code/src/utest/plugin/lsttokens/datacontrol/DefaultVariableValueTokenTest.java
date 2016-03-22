@@ -26,6 +26,7 @@ import pcgen.cdom.content.DefaultVarValue;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -126,8 +127,13 @@ public class DefaultVariableValueTokenTest extends
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertTrue(token.parseToken(primaryContext, primaryProf,
-			"ORDEREDPAIR|0,3").passed());
+		ParseResult pr =
+				token
+					.parseToken(primaryContext, primaryProf, "ORDEREDPAIR|0,3");
+		if (!pr.passed())
+		{
+			fail(pr.toString());
+		}
 		String[] unparsed = token.unparse(primaryContext, primaryProf);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

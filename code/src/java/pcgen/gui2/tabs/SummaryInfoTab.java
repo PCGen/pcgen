@@ -1125,7 +1125,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		public void install()
 		{
 			hpButton.setAction(this);
-			totalHPLabel.setText(ref.getReference().toString());
+			totalHPLabel.setText(ref.get().toString());
 			ref.addReferenceListener(this);
 		}
 
@@ -1143,7 +1143,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public void referenceChanged(ReferenceEvent<Integer> e)
 		{
-			totalHPLabel.setText(ref.getReference().toString());
+			totalHPLabel.setText(ref.get().toString());
 		}
 
 	}
@@ -1163,7 +1163,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			String gender = character.getGenderRef().getReference() != null ? character.getGenderRef().getReference().toString() : ""; //$NON-NLS-1$
+			String gender = character.getGenderRef().get() != null ? character.getGenderRef().get().toString() : ""; //$NON-NLS-1$
 			RandomNameDialog dialog = new RandomNameDialog(frame, gender);
 			dialog.setVisible(true);
 			String chosenName = dialog.getChosenName();
@@ -1518,7 +1518,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			if (reference != null)
 			{
 				reference.addReferenceListener(this);
-				label.setText(reference.getReference());
+				label.setText(reference.get());
 			}
 		}
 
@@ -1529,7 +1529,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		public void install()
 		{
 			reference.addReferenceListener(this);
-			label.setText(reference.getReference());
+			label.setText(reference.get());
 		}
 
 		/**

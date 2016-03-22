@@ -33,9 +33,11 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 		deity.setName("Deity");
 
 		LoadContext context = Globals.getContext();
+		context.getReferenceContext().importObject(template);
 		context.unconditionallyProcess(race, "SIZE", "S");
 		context.unconditionallyProcess(template, "SIZE", "D");
 		context.unconditionallyProcess(deity, "BONUS", "SIZEMOD|NUMBER|1");
+		context.resolveDeferredTokens();
 		context.getReferenceContext().resolveReferences(null);
 
 		PlayerCharacter pc = getCharacter();

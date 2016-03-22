@@ -491,8 +491,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("MAXDEX"))
 		{
-			final int iMax = eq.getMaxDex(aPC).intValue();
-
+			final int iMax = EqToken.getMaxDexTokenInt(aPC, eq);
 			if (iMax != Constants.MAX_MAXDEX)
 			{
 				ret.append(Delta.toString(iMax));
@@ -519,7 +518,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("SPELLFAIL"))
 		{
-			ret.append(eq.spellFailure(aPC).toString());
+			ret.append(EqToken.getSpellFailureTokenInt(aPC, eq));
 		}
 		else if (property.startsWith("MOVE"))
 		{

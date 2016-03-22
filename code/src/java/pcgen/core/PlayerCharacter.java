@@ -271,6 +271,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
@@ -5936,29 +5937,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Calculate the SpellFailure bonus from equipped items. Extracted from
-	 * modToFromEquipment.
-	 * 
-	 * @return PC's SpellFailure bonus from equipment
-	 */
-	public int modToSpellFailureFromEquipment()
-	{
-		int bonus = 0;
-		for (Equipment eq : getEquippedEquipmentSet())
-		{
-			bonus += eq.spellFailure(this).intValue();
-		}
-		bonus += (int) getTotalBonusTo("MISC", "SPELLFAILURE");
-		return bonus;
-	}
-
-	/**
 	 * Calculate the MAXDEX bonus taking account of equipped items. Extracted
 	 * from modToFromEquipment.
 	 * 
 	 * @return MAXDEX bonus
+	 * @deprecated due to PCMAXDEX code control
 	 */
-	public int modToMaxDexFromEquipment()
+	public int processOldMaxDex()
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
 		final Load load = getHouseRuledLoadType();
@@ -5970,7 +5955,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			final int potentialMax = eq.getMaxDex(this).intValue();
+			final int potentialMax = EqToken.getMaxDexTokenInt(this, eq);
 			if (potentialMax != Constants.MAX_MAXDEX)
 			{
 				if (useMax || bonus > potentialMax)
@@ -5996,34 +5981,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			bonus = Constants.MAX_MAXDEX;
 		}
 		return bonus;
-	}
-
-	/**
-	 * Calculate the MAXDEX or ACCHECK or SPELLFAILURE or AC bonus from all currently
-	 * equipped items.
-	 * 
-	 * @param typeName The type of modification we're trying to calculate
-	 * @return The calculation from the equipment or if the typeName doesn't match then 0
-	 */
-	public int modToFromEquipment(final String typeName)
-	{
-		if (typeName.equals("AC"))
-		{
-			return modToACFromEquipment();
-		}
-		if (typeName.equals("ACCHECK"))
-		{
-			return modToACCHECKFromEquipment();
-		}
-		if (typeName.equals("MAXDEX"))
-		{
-			return modToMaxDexFromEquipment();
-		}
-		if (typeName.equals("SPELLFAILURE"))
-		{
-			return modToSpellFailureFromEquipment();
-		}
-		return 0;
 	}
 
 	/**
@@ -10633,5 +10590,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public String getControl(String string)
 	{
 		return controller.get(ObjectKey.getKeyFor(String.class, string));
+	}
+
+	public boolean hasControl(String string)
+	{
+		return controller.get(ObjectKey.getKeyFor(String.class, string)) != null;
 	}
 }

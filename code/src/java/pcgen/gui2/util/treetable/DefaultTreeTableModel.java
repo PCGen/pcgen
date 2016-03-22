@@ -20,10 +20,7 @@
  */
 package pcgen.gui2.util.treetable;
 
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.table.TableModel;
-import javax.swing.tree.TreeNode;
 
 /**
  *

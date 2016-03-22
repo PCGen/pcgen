@@ -276,7 +276,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		{
 			super(actionMap.get(PCGenActionMap.SOURCES_LOAD_COMMAND));
 			ReferenceFacade<SourceSelectionFacade> ref = frame.getCurrentSourceSelectionRef();
-			setSelectedItem(ref.getReference());
+			setSelectedItem(ref.get());
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getDisplayedSourceSelections();
 			setListModel(new SortedListFacade<SourceSelectionFacade>(Comparators.toStringIgnoreCaseCollator(), sources));
 			ref.addReferenceListener(this);
@@ -290,7 +290,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 				Object item = e.getItemSelectable().getSelectedObjects()[0];
 				if (frame.loadSourceSelection((SourceSelectionFacade) item))
 				{
-					setSelectedItem(frame.getCurrentSourceSelectionRef().getReference());
+					setSelectedItem(frame.getCurrentSourceSelectionRef().get());
 				}
 			}
 		}

@@ -139,7 +139,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 
 		};
 		ReferenceFacade<Integer> hpRef = character.getTotalHPRef();
-		totalHp.setText(hpRef.getReference().toString());
+		totalHp.setText(hpRef.get().toString());
 		hpRef.addReferenceListener(hpListener);
 		box.add(totalHp);
 		box.add(Box.createHorizontalStrut(5));

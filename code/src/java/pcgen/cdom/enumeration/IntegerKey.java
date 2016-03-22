@@ -61,8 +61,14 @@ public class IntegerKey
 
 	public static final IntegerKey COST = getConstant("COST");
 
+	/**
+	 * @deprecated due to CRITMULT CodeControl
+	 */
 	public static final IntegerKey CRIT_MULT = getConstant("CRIT_MULT");
 
+	/**
+	 * @deprecated due to CRITRANGE CodeControl
+	 */
 	public static final IntegerKey CRIT_RANGE = getConstant("CRIT_RANGE");
 
 	/**
@@ -72,6 +78,9 @@ public class IntegerKey
 
 	public static final IntegerKey HANDS = getConstant("HANDS", 1);
 
+	/**
+	 * @deprecated due to HANDS CodeControl
+	 */
 	public static final IntegerKey CREATURE_HANDS = getConstant(
 			"CREATURE_HANDS", 2);
 
@@ -79,6 +88,9 @@ public class IntegerKey
 
 	public static final IntegerKey KNOWN_SPELLS_FROM_SPECIALTY = getConstant("KNOWN_SPELLS_FROM_SPECIALTY");
 
+	/**
+	 * @deprecated due to LEGS CodeControl
+	 */
 	public static final IntegerKey LEGS = getConstant("LEGS", 2);
 
 	public static final IntegerKey LEVEL = getConstant("LEVEL");
@@ -90,6 +102,9 @@ public class IntegerKey
 
 	public static final IntegerKey MAX_CHARGES = getConstant("MAX_CHARGES");
 
+	/**
+	 * @deprecated due to MAXDEX CodeControl
+	 */
 	public static final IntegerKey MAX_DEX = getConstant("MAX_DEX",
 			Constants.MAX_MAXDEX);
 
@@ -117,6 +132,9 @@ public class IntegerKey
 
 	public static final IntegerKey SLOTS = getConstant("SLOTS", 1);
 
+	/**
+	 * @deprecated due to EQSPELLFAILURE code control
+	 */
 	public static final IntegerKey SPELL_FAILURE = getConstant("SPELL_FAILURE");
 
 	public static final IntegerKey START_FEATS = getConstant("START_FEATS");

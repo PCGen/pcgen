@@ -21,7 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.output.base.OutputActor;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -60,7 +60,6 @@ public class IntegerKeyActor implements OutputActor<CDOMObject>
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException
 	{
-		return ObjectWrapper.DEFAULT_WRAPPER
-			.wrap(Integer.valueOf(d.getSafe(ik)));
+		return SimpleWrapperLibrary.wrap(Integer.valueOf(d.getSafe(ik)));
 	}
 }

@@ -24,7 +24,6 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -74,7 +73,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 			value = value + "," + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
-				FormatManagerLibrary.getFormatManager(OrderedPair.class);
+				context.getReferenceContext().getFormatManager(OrderedPair.class);
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
 		Modifier<OrderedPair> modifier;
@@ -91,7 +90,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		OrderedPair pair = modifier.process(null, null);
+		OrderedPair pair = modifier.process(null, null, null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value

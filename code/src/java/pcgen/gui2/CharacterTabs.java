@@ -202,13 +202,13 @@ public final class CharacterTabs extends SharedTabPane
 
 		private void initComponents()
 		{
-			if (StringUtils.isNotEmpty(tabNameRef.getReference()))
+			if (StringUtils.isNotEmpty(tabNameRef.get()))
 			{
-				titleLabel = new JLabel(tabNameRef.getReference());
+				titleLabel = new JLabel(tabNameRef.get());
 			}
 			else
 			{
-				titleLabel = new JLabel(nameRef.getReference());
+				titleLabel = new JLabel(nameRef.get());
 			}
 			add(titleLabel);
 
@@ -248,7 +248,7 @@ public final class CharacterTabs extends SharedTabPane
 		{
 			if (e.getSource() == nameRef)
 			{
-				if (StringUtils.isEmpty(tabNameRef.getReference()))
+				if (StringUtils.isEmpty(tabNameRef.get()))
 				{
 					titleLabel.setText(e.getNewReference());
 				}
@@ -261,7 +261,7 @@ public final class CharacterTabs extends SharedTabPane
 				}
 				else
 				{
-					titleLabel.setText(nameRef.getReference());
+					titleLabel.setText(nameRef.get());
 				}
 			}
 		}

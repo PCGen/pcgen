@@ -22,19 +22,18 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.base.calculation.Modifier;
+import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.solver.SplitFormulaSetup.IndividualSetup;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 
 public class SetNumberModifierTest extends TestCase
 {
 
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<Number> numManager =
-			FormatManagerLibrary.getFormatManager(Number.class);
+	FormatManager<Number> numManager = new NumberManager();
 
 	@Test
 	public void testInvalidConstruction()
@@ -204,7 +203,7 @@ public class SetNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(6.5, modifier.process(4.3, null));
+		assertEquals(6.5, modifier.process(4.3, null, null));
 	}
 
 	@Test
@@ -220,6 +219,6 @@ public class SetNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(11, modifier.process(4.3, iSetup.getScopeInfo()));
+		assertEquals(11, modifier.process(4.3, iSetup.getScopeInfo(), null));
 	}
 }

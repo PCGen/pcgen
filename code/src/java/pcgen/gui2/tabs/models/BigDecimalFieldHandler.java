@@ -57,7 +57,7 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 	 */
 	public void install()
 	{
-		field.setValue(ref.getReference());
+		field.setValue(ref.get());
 		field.addPropertyChangeListener(this);
 		ref.addReferenceListener(this);
 	}

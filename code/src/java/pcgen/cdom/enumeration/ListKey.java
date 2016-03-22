@@ -281,6 +281,7 @@ public final class ListKey<T>
 	public static final ListKey<CampaignSourceEntry> FILE_DATACTRL = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_SAVE = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_STAT = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_SIZE = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_ALIGNMENT = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<RemoteModifier<?>> REMOTE_MODIFIER = new ListKey<RemoteModifier<?>>();
 	public static final ListKey<String> GROUP = new ListKey<String>();

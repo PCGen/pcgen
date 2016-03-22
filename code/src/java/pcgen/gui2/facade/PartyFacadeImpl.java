@@ -67,16 +67,16 @@ public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implemen
 	@Override
 	public void setFile(File file)
 	{
-		fileRef.setReference(file);
+		fileRef.set(file);
 	}
 
 	public void save()
 	{
-		File partyFile = fileRef.getReference();
+		File partyFile = fileRef.get();
 		List<File> characterFiles = new ArrayList<File>();
 		for (CharacterFacade character : this)
 		{
-			characterFiles.add(character.getFileRef().getReference());
+			characterFiles.add(character.getFileRef().get());
 		}
 		(new PCGIOHandler()).write(partyFile, characterFiles);
 	}

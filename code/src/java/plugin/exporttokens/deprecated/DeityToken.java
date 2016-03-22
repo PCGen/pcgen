@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.ObjectContainer;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
@@ -162,9 +162,9 @@ public class DeityToken extends Token
 			{
 				FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
 				Set<String> pset = new TreeSet<String>();
-				for (ObjectContainer<String> oc : deity.getSafeSetFor(fk))
+				for (Indirect<String> indirect : deity.getSafeSetFor(fk))
 				{
-					pset.addAll(oc.getContainedObjects());
+					pset.add(indirect.get());
 				}
 				retString = StringUtil.join(pset, ", ");
 			}

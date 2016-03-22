@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-15 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,9 +17,8 @@
  */
 package pcgen.output.wrapper;
 
-import pcgen.cdom.enumeration.CharID;
 import pcgen.core.AgeSet;
-import pcgen.output.base.PCGenObjectWrapper;
+import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.AgeSetModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -28,17 +27,14 @@ import freemarker.template.TemplateModelException;
  * A AgeSetWrapper is an ObjectWrapper capable of producing a TemplateModel for
  * AgeSet objects.
  */
-public class AgeSetWrapper implements PCGenObjectWrapper
+public class AgeSetWrapper implements SimpleObjectWrapper
 {
-	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
+	public TemplateModel wrap(Object obj) throws TemplateModelException
 	{
-		if (o instanceof AgeSet)
+		if (obj instanceof AgeSet)
 		{
-			return new AgeSetModel((AgeSet) o);
+			return new AgeSetModel((AgeSet) obj);
 		}
 		throw new TemplateModelException("Object was not an AgeSet");
 	}

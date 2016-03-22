@@ -22,18 +22,17 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.base.calculation.Modifier;
+import pcgen.base.format.OrderedPairManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 
 public class SetOrderedPairModifierTest extends TestCase
 {
 
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<OrderedPair> opManager =
-			FormatManagerLibrary.getFormatManager(OrderedPair.class);
+	FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Test
 	public void testInvalidConstruction()
@@ -64,7 +63,7 @@ public class SetOrderedPairModifierTest extends TestCase
 		assertEquals(5, modifier.getUserPriority());
 		assertEquals(OrderedPair.class, modifier.getVariableFormat());
 		assertEquals(new OrderedPair(3, 2),
-			modifier.process(new OrderedPair(5, 6), null));
+			modifier.process(new OrderedPair(5, 6), null, null));
 	}
 
 }

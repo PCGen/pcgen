@@ -18,9 +18,6 @@
  **/
 package pcgen.gui2.util;
 
-import java.util.Comparator;
-import java.util.List;
-import pcgen.gui2.util.treetable.TreeTableModel;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -28,6 +25,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.EventObject;
 
@@ -56,11 +54,11 @@ import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
-import pcgen.gui2.util.table.Row;
 
+import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
-import pcgen.gui2.util.treetable.DefaultSortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
+import pcgen.gui2.util.treetable.TreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.Logging;
 
