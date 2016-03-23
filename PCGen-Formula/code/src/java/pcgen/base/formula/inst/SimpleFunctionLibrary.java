@@ -43,14 +43,6 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 			new CaseInsensitiveMap<Function>();
 
 	/**
-	 * Stores the "bracket functions" in this FunctionLibrary.
-	 * 
-	 * These are [] functions for world-wide clarity :D
-	 */
-	private final CaseInsensitiveMap<Function> bracketMap =
-			new CaseInsensitiveMap<Function>();
-
-	/**
 	 * Adds a "paren" function to the SimpleFunctionLibrary.
 	 * 
 	 * A null Function or a function which returns null from getFunctionName()
@@ -99,56 +91,4 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	{
 		return parenMap.get(functionName);
 	}
-
-	/**
-	 * Adds a "bracket" function to the SimpleFunctionLibrary.
-	 * 
-	 * A null Function or a function which returns null from getFunctionName()
-	 * will both trigger an exception.
-	 * 
-	 * It is important that this method only be called once per Function name.
-	 * If there is an attempt to add a second function with a name already
-	 * matching a "bracket" Function within the SimpleFunctionLibrary, then an
-	 * exception will be thrown.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addBracketFunction(Function function)
-	{
-		if (function == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot add null Bracket Function");
-		}
-		String functionName = function.getFunctionName();
-		if (functionName == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot add Bracket Function with null name");
-		}
-		if (bracketMap.containsKey(functionName))
-		{
-			throw new IllegalArgumentException(
-				"Cannot load two bracket functions of name: " + functionName);
-		}
-		bracketMap.put(functionName, function);
-	}
-
-	/**
-	 * Returns the "bracket" Function with the given function name (evaluated on
-	 * a case-insensitive basis).
-	 * 
-	 * Per the contractual requirement of FunctionLibrary, will return null if
-	 * no "bracket" Function with the given function name is in the
-	 * SimpleFunctionLibrary.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Function getBracketFunction(String functionName)
-	{
-		return bracketMap.get(functionName);
-	}
-
 }

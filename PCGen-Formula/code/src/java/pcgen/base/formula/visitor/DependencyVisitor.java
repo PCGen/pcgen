@@ -99,7 +99,8 @@ public class DependencyVisitor implements FormulaParserVisitor
 		}
 		if (fdm == null)
 		{
-			throw new IllegalArgumentException("DependencyManager cannot be null");
+			throw new IllegalArgumentException(
+				"DependencyManager cannot be null");
 		}
 		this.fm = fm;
 		this.scopeInst = scopeInst;
@@ -231,15 +232,25 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
-		Function function = VisitorUtilities.getFunction(fm.getLibrary(), node);
-		//TODO Is this an exception or does it add to FDM in some way... ??
-		if (function == null)
+		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
+		String name = fnode.getText();
+		Node argNode = node.jjtGetChild(1);
+		Node[] args = VisitorUtilities.accumulateArguments(argNode);
+		if (argNode instanceof ASTFParen)
 		{
-			throw new IllegalStateException(node.getText()
-				+ " is not a valid function name");
+			Function function = fm.getLibrary().getFunction(name);
+			//TODO Trigger NPE? or does it add to FDM in some way... ??
+			function.getDependencies(this, (Class<?>) data, args);
 		}
-		Node[] args = VisitorUtilities.accumulateArguments(node.jjtGetChild(1));
-		function.getDependencies(this, (Class<?>) data, args);
+		else if (argNode instanceof ASTPCGenBracket)
+		{
+			visitVariable(name);
+		}
+		else
+		{
+			throw new IllegalStateException(
+				"Invalid Formula (unrecognized node: " + argNode + ")");
+		}
 		return data;
 	}
 

@@ -20,12 +20,12 @@ package pcgen.base.calculation;
 import org.junit.Test;
 
 import pcgen.base.calculation.testsupport.BasicCalc;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.inst.ScopeInformation;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.formula.inst.SimpleScopeInstance;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
@@ -34,16 +34,11 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 	private static final String _4_CEIL_4_3 = "4+ceil(4.3)";
 	private BasicCalculation basic = new BasicCalc(new NumberAdd());
 	private ComplexNEPFormula formula = new ComplexNEPFormula(_4_CEIL_4_3);
-	private ScopeInformation si;
 
 	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		LegalScope globalScope = new SimpleLegalScope(null, "Global");
-		SimpleScopeInstance scopeInst =
-				new SimpleScopeInstance(null, globalScope);
-		si = new ScopeInformation(getFormulaManager(), scopeInst);
 		FormulaUtilities.loadBuiltInFunctions(getFunctionLibrary());
 		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());
 	}
@@ -84,10 +79,10 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 	public void testProcess()
 	{
 		FormulaCalculation fc = new FormulaCalculation(formula, basic);
-		assertEquals(17, fc.process(8, si, null));
+		assertEquals(17, fc.process(8, getScopeInfo(), null));
 		FormulaCalculation fc2 =
 				new FormulaCalculation(new ComplexNEPFormula("value()"), basic);
-		assertEquals(16, fc2.process(8, si, null));
+		assertEquals(16, fc2.process(8, getScopeInfo(), null));
 	}
 
 	@Test
@@ -98,6 +93,24 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 		FormulaCalculation fc2 =
 				new FormulaCalculation(new ComplexNEPFormula("value()"), basic);
 		assertEquals("value()", fc2.getInstructions());
+	}
+
+	@Test
+	public void testArray()
+	{
+		FormulaManager formulaManager = getFormulaManager();
+		SimpleVariableStore vs =
+				(SimpleVariableStore) formulaManager.getResolver();
+		ArrayFormatManager aManager =
+				new ArrayFormatManager(numberManager, ',');
+		getVariableLibrary().assertLegalVariableID("arr", getGlobalScope(),
+			aManager);
+		VariableID varID =
+				new VariableID(getGlobalScopeInst(), aManager, "arr");
+		vs.put(varID, new Number[]{4, 5, 6, 7, 8, 9});
+		FormulaCalculation fc2 =
+				new FormulaCalculation(new ComplexNEPFormula("arr[5]"), basic);
+		assertEquals(17, fc2.process(8, getScopeInfo(), null));
 	}
 
 }

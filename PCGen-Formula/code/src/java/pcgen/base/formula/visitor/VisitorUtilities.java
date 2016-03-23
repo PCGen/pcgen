@@ -17,12 +17,6 @@
  */
 package pcgen.base.formula.visitor;
 
-import pcgen.base.formula.base.Function;
-import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.parse.ASTFParen;
-import pcgen.base.formula.parse.ASTPCGenBracket;
-import pcgen.base.formula.parse.ASTPCGenLookup;
-import pcgen.base.formula.parse.ASTPCGenSingleWord;
 import pcgen.base.formula.parse.Node;
 
 /**
@@ -37,42 +31,6 @@ public final class VisitorUtilities
 	 */
 	private VisitorUtilities()
 	{
-	}
-
-	/**
-	 * Returns a Function from the given FunctionLibrary based on the given
-	 * node.
-	 * 
-	 * @param library
-	 *            The FunctionLibrary containing the Function to be returned
-	 * @param node
-	 *            The node which contains the function (this includes the
-	 *            function name and arguments)
-	 * @return The Function from the given FunctionLibrary based on the
-	 *         information in the given node
-	 */
-	public static Function getFunction(FunctionLibrary library,
-		ASTPCGenLookup node)
-	{
-		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
-		Node argNode = node.jjtGetChild(1);
-		String ftnName = fnode.getText();
-		Function function;
-		if (argNode instanceof ASTFParen)
-		{
-			function = library.getFunction(ftnName);
-		}
-		else if (argNode instanceof ASTPCGenBracket)
-		{
-			function = library.getBracketFunction(ftnName);
-		}
-		else
-		{
-			throw new IllegalStateException(
-				"Processing called on invalid Formula (function " + ftnName
-					+ " not recognized)");
-		}
-		return function;
 	}
 
 	/**

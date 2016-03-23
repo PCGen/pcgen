@@ -17,7 +17,6 @@
  */
 package pcgen.base.formula.visitor;
 
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
@@ -247,9 +246,24 @@ public class StaticVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
-		Function function = VisitorUtilities.getFunction(library, node);
-		Node[] args = VisitorUtilities.accumulateArguments(node.jjtGetChild(1));
-		return function.isStatic(this, args);
+		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
+		String name = fnode.getText();
+		Node argNode = node.jjtGetChild(1);
+		Node[] args = VisitorUtilities.accumulateArguments(argNode);
+		if (argNode instanceof ASTFParen)
+		{
+			return library.getFunction(name).isStatic(this, args);
+		}
+		else if (argNode instanceof ASTPCGenBracket)
+		{
+			//Array access
+			return Boolean.FALSE;
+		}
+		else
+		{
+			throw new IllegalStateException(
+				"Invalid Formula (unrecognized node: " + argNode + ")");
+		}
 	}
 
 	/**

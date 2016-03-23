@@ -207,52 +207,6 @@ public class ComplexNEPFormulaTest extends TestCase
 					numberMgr, null);
 		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
 			.isValid());
-
-		setup.getFunctionLibrary().addBracketFunction(new Function()
-		{
-
-			@Override
-			public String getFunctionName()
-			{
-				return "process";
-			}
-
-			@Override
-			public Boolean isStatic(StaticVisitor visitor, Node[] args)
-			{
-				return false;
-			}
-
-			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
-				FormulaSemantics semantics)
-			{
-				if (args.length == 1)
-				{
-					semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-						Number.class);
-				}
-			}
-
-			@Override
-			public Object evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
-			{
-				return 4;
-			}
-
-			@Override
-			public void getDependencies(DependencyVisitor visitor,
-				Class<?> assertedFormat, Node[] args)
-			{
-			}
-		});
-		fs =
-				new ComplexNEPFormula("process[THIS]").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
-
 	}
 
 	public void testGetDependencies()
@@ -449,57 +403,6 @@ public class ComplexNEPFormulaTest extends TestCase
 		assertEquals(-1,
 			depManager.getDependency(DependencyKeyUtilities.DEP_ARGUMENT)
 				.getMaximumArgument());
-
-		setup.getFunctionLibrary().addBracketFunction(new Function()
-		{
-
-			@Override
-			public String getFunctionName()
-			{
-				return "process";
-			}
-
-			@Override
-			public Boolean isStatic(StaticVisitor visitor, Node[] args)
-			{
-				return false;
-			}
-
-			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
-				FormulaSemantics semantics)
-			{
-				if (args.length == 1)
-				{
-					semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-						Number.class);
-				}
-			}
-
-			@Override
-			public Object evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
-			{
-				return 4;
-			}
-
-			@Override
-			public void getDependencies(DependencyVisitor visitor,
-				Class<?> assertedFormat, Node[] args)
-			{
-			}
-		});
-
-		depManager = setupDM();
-		new ComplexNEPFormula("process[THIS]").getDependencies(scopeInfo,
-			depManager, null);
-		assertTrue(depManager
-			.getDependency(DependencyKeyUtilities.DEP_VARIABLE).getVariables()
-			.isEmpty());
-		assertEquals(-1,
-			depManager.getDependency(DependencyKeyUtilities.DEP_ARGUMENT)
-				.getMaximumArgument());
-
 	}
 
 	private DependencyManager setupDM()
@@ -620,50 +523,5 @@ public class ComplexNEPFormulaTest extends TestCase
 
 		assertEquals(243.0,
 			new ComplexNEPFormula("3^5").resolve(scopeInfo, null, null));
-
-		setup.getFunctionLibrary().addBracketFunction(new Function()
-		{
-
-			@Override
-			public String getFunctionName()
-			{
-				return "process";
-			}
-
-			@Override
-			public Boolean isStatic(StaticVisitor visitor, Node[] args)
-			{
-				return false;
-			}
-
-			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
-				FormulaSemantics semantics)
-			{
-				if (args.length == 1)
-				{
-					semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-						Number.class);
-				}
-			}
-
-			@Override
-			public Object evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
-			{
-				return 4;
-			}
-
-			@Override
-			public void getDependencies(DependencyVisitor visitor,
-				Class<?> assertedFormat, Node[] args)
-			{
-			}
-
-		});
-
-		assertEquals(4, new ComplexNEPFormula("process[THIS]").resolve(
-			scopeInfo, null, null));
-
 	}
 }
