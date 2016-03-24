@@ -18,7 +18,6 @@
 package pcgen.base.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
 
 /**
  * An AbstractNEPCalculationis a basic template for creating a NEPCalculation.
@@ -77,8 +76,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm, Class<?> assertedFormat)
+	public void getDependencies(DependencyManager fdm)
 	{
 	}
 

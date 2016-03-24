@@ -76,8 +76,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	}
 
 	@Override
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm, Class<?> assertedFormat)
+	public void getDependencies(DependencyManager fdm)
 	{
 	}
 

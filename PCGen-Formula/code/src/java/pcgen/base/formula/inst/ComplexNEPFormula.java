@@ -26,6 +26,7 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
+import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.util.FormatManager;
 
@@ -43,6 +44,12 @@ import pcgen.base.util.FormatManager;
  */
 public class ComplexNEPFormula<T> implements NEPFormula<T>
 {
+
+	private static final DependencyVisitor DEPENDENCY_VISITOR =
+			new DependencyVisitor();
+	
+	private static final ReconstructionVisitor RECONSTRUCTION_VISITOR =
+			new ReconstructionVisitor();
 
 	/**
 	 * The root node of the tree representing the calculation of this
@@ -138,7 +145,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * Determines the dependencies for this formula, including the VariableID
 	 * objects representing the variables within the ComplexNEPFormula.
 	 * 
-	 * The given ScopeInformation must contain information about variable
+	 * The given DependencyManager must contain information about variable
 	 * values, available functions, and other characteristics required for the
 	 * formula to establish the list of variables contained within the
 	 * ComplexNEPFormula.
@@ -146,34 +153,20 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * The given DependencyManager will be loaded with the dependency
 	 * information.
 	 * 
-	 * @param scopeInfo
-	 *            The ScopeInformation providing the context in which the
-	 *            ComplexNEPFormula variables are to be determined
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the
-	 *            ComplexNEPFormula. This parameter is optional - null can
-	 *            indicate that there is no format asserted by the context of
-	 *            the formula
 	 * @throws IllegalArgumentException
-	 *             if the given ScopeInformation is null
+	 *             if the given DependencyManager is null
 	 */
 	@Override
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager depManager, Class<?> assertedFormat)
+	public void getDependencies(DependencyManager depManager)
 	{
-		if (scopeInfo == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot get formula dependencies with null ScopeInformation");
-		}
 		if (depManager == null)
 		{
 			throw new IllegalArgumentException(
 				"Cannot get formula dependencies with null DependencyManager");
 		}
-		scopeInfo.getDependencies(root, depManager, assertedFormat);
+		DEPENDENCY_VISITOR.visit(root, depManager);
 	}
 
 	/**
@@ -197,9 +190,8 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	@Override
 	public String toString()
 	{
-		ReconstructionVisitor rv = new ReconstructionVisitor();
 		StringBuilder sb = new StringBuilder();
-		rv.visit(root, sb);
+		RECONSTRUCTION_VISITOR.visit(root, sb);
 		return sb.toString();
 	}
 }

@@ -20,6 +20,7 @@ package pcgen.base.formula.function;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -212,11 +213,12 @@ public class IfFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		Class<?> assertedFormat, Node[] args)
+		DependencyManager manager, Node[] args)
 	{
-		for (Node n : args)
-		{
-			n.jjtAccept(visitor, assertedFormat);
-		}
+		manager.push(DependencyManager.ASSERTED, Boolean.class);
+		args[0].jjtAccept(visitor, manager);
+		manager.pop(DependencyManager.ASSERTED);
+		args[1].jjtAccept(visitor, manager);
+		args[2].jjtAccept(visitor, manager);
 	}
 }

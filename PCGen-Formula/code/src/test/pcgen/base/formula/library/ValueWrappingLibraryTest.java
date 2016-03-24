@@ -21,6 +21,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
@@ -130,7 +131,7 @@ public class ValueWrappingLibraryTest extends TestCase
 
 			@Override
 			public void getDependencies(DependencyVisitor visitor,
-				Class<?> assertedFormat, Node[] args)
+				DependencyManager manager, Node[] args)
 			{
 			}
 		};

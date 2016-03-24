@@ -17,11 +17,9 @@
  */
 package pcgen.base.formula.inst;
 
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.parse.SimpleNode;
-import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 
@@ -130,45 +128,6 @@ public class ScopeInformation
 		}
 		EvaluateVisitor evaluateVisitor = new EvaluateVisitor(fm, varScope, source);
 		return evaluateVisitor.visit(root, assertedFormat);
-	}
-
-	/**
-	 * Loads the dependencies for the formula (starting with with the given
-	 * SimpleNode as the root of the parsed tree of the formula) into the given
-	 * DependencyManager.
-	 * 
-	 * The DependencyManager will be altered if the isStatic method returns
-	 * false.
-	 * 
-	 * @param root
-	 *            The starting node in a parsed tree of a formula, to be used
-	 *            for the dependency check
-	 * @param fdm
-	 *            The Dependency Manager to be notified of dependencies for the
-	 *            formula to be processed
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the formula. This
-	 *            parameter is optional - null can indicate that there is no
-	 *            format asserted by the context of the formula
-	 * @throws IllegalArgumentException
-	 *             if any parameter is null
-	 */
-	public void getDependencies(SimpleNode root, DependencyManager fdm,
-		Class<?> assertedFormat)
-	{
-		if (root == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot get variables with null root");
-		}
-		if (fdm == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot get dependencies with null DependencyManager");
-		}
-		DependencyVisitor variableVisitor =
-				new DependencyVisitor(fm, varScope, fdm);
-		variableVisitor.visit(root, assertedFormat);
 	}
 
 	/**

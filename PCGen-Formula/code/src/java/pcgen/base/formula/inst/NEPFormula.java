@@ -100,7 +100,7 @@ public interface NEPFormula<T>
 	 * Determines the dependencies for this formula, including the VariableID
 	 * objects representing the variables within the NEPFormula.
 	 * 
-	 * The given ScopeInformation must contain information about variable
+	 * The given DependencyManager must contain information about variable
 	 * values, available functions, and other characteristics required for the
 	 * formula to establish the list of variables contained within the
 	 * NEPFormula.
@@ -108,18 +108,10 @@ public interface NEPFormula<T>
 	 * The given DependencyManager will be loaded with the dependency
 	 * information.
 	 * 
-	 * @param scopeInfo
-	 *            The ScopeInformation providing the context in which the
-	 *            NEPFormula variables are to be determined
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the NEPFormula.
-	 *            This parameter is optional - null can indicate that there is
-	 *            no format asserted by the context of the formula
 	 * @throws IllegalArgumentException
-	 *             if the given ScopeInformation is null
+	 *             if the given DependencyManager is null
 	 */
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager depManager, Class<?> assertedFormat);
+	public void getDependencies(DependencyManager depManager);
 }

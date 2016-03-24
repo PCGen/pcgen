@@ -25,7 +25,6 @@ public class KeyUtilitiesTest extends TestCase
 
 	public void testDepKey()
 	{
-		TestUtilities.invokePrivateConstructor(DependencyKeyUtilities.class);
 		TestUtilities.invokePrivateConstructor(FormulaSemanticsUtilities.class);
 	}
 }

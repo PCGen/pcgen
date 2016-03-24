@@ -18,21 +18,17 @@
 package pcgen.base.formula.inst;
 
 import java.io.StringReader;
-import java.util.List;
 
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
-import pcgen.base.formula.analysis.VariableDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
@@ -48,7 +44,6 @@ public class ScopeInformationTest extends TestCase
 	private SimpleOperatorLibrary opLibrary;
 	private SimpleVariableStore resultsStore;
 	private DependencyManager depManager;
-	private VariableDependencyManager varManager;
 
 	@Override
 	protected void setUp() throws Exception
@@ -60,8 +55,6 @@ public class ScopeInformationTest extends TestCase
 		ftnLibrary = new SimpleFunctionLibrary();
 		resultsStore = new SimpleVariableStore();
 		depManager = new DependencyManager();
-		varManager = new VariableDependencyManager();
-		depManager.addDependency(DependencyKeyUtilities.DEP_VARIABLE, varManager);
 	}
 
 	@Test
@@ -123,74 +116,6 @@ public class ScopeInformationTest extends TestCase
 			fail(e.getMessage());
 		}
 		catch (IllegalArgumentException e)
-		{
-			fail(e.getMessage());
-		}
-	}
-
-	@Test
-	public void testGetDependencies()
-	{
-		FormulaManager fManager =
-				new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary,
-					resultsStore);
-		FormatManager<Number> numberManager = new NumberManager();
-		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
-		ScopeInformation scopeInfo = new ScopeInformation(fManager, globalInst);
-		try
-		{
-			scopeInfo.getDependencies(null, depManager, null);
-			fail("getDependencies should reject null root");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//yep
-		}
-		try
-		{
-			SimpleNode fp =
-					new FormulaParser(new StringReader("myvar+yourvar"))
-						.query();
-			scopeInfo.getDependencies(fp, null, null);
-			fail("getDependencies should reject null dependency manager");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//yep
-		}
-		catch (ParseException e)
-		{
-			fail(e.getMessage());
-		}
-		FormulaUtilities.loadBuiltInOperators(opLibrary);
-		varLibrary.assertLegalVariableID("myvar", varScope, numberManager);
-		varLibrary.assertLegalVariableID("yourvar", varScope, numberManager);
-		try
-		{
-			SimpleNode fp =
-					new FormulaParser(new StringReader("myvar+yourvar"))
-						.query();
-			scopeInfo.getDependencies(fp, depManager, null);
-			List<VariableID<?>> vars = varManager.getVariables();
-			assertEquals(2, vars.size());
-			VariableID<?> v1 = vars.get(0);
-			assertEquals("myvar", v1.getName());
-			assertEquals(Number.class, v1.getVariableFormat());
-			assertEquals(globalInst, v1.getScope());
-			VariableID<?> v2 = vars.get(1);
-			assertEquals("yourvar", v2.getName());
-			assertEquals(Number.class, v2.getVariableFormat());
-			assertEquals(globalInst, v2.getScope());
-			fp = new FormulaParser(new StringReader("3+4")).query();
-			DependencyManager depManager2 = new DependencyManager();
-			VariableDependencyManager varManager2 =
-					new VariableDependencyManager();
-			depManager2.addDependency(DependencyKeyUtilities.DEP_VARIABLE, varManager);
-			scopeInfo.getDependencies(fp, depManager2, null);
-			assertEquals(0, varManager2.getVariables().size());
-		}
-		catch (ParseException e)
 		{
 			fail(e.getMessage());
 		}

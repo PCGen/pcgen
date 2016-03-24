@@ -20,12 +20,10 @@ package pcgen.base.formula.library;
 import org.junit.Test;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.function.AbsFunction;
-import pcgen.base.formula.library.ArgFunction;
 import pcgen.base.formula.operator.number.NumberEquals;
 import pcgen.base.formula.operator.number.NumberGreaterThan;
 import pcgen.base.formula.operator.number.NumberLessThan;
@@ -65,16 +63,16 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		operatorLibrary.addAction(new NumberGreaterThan());
 		operatorLibrary.addAction(new NumberMinus());
 		resetManager();
-		varCapture =
-				new DependencyVisitor(getFormulaManager(),
-					getGlobalScopeInst(), depManager);
+		varCapture = new DependencyVisitor();
 	}
 
 	private void resetManager()
 	{
-		depManager = new DependencyManager();
+		depManager =
+				DependencyManager.generate(getFormulaManager(),
+					getGlobalScopeInst(), null);
 		argManager = new ArgumentDependencyManager();
-		depManager.addDependency(DependencyKeyUtilities.DEP_ARGUMENT, argManager);
+		depManager.set(ArgumentDependencyManager.KEY, argManager);
 	}
 
 	@Test
@@ -142,7 +140,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(4));
 		Object rv =
@@ -157,22 +155,22 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
-		DependencyManager fdm = new DependencyManager();
+		DependencyManager fdm =
+				DependencyManager.generate(getFormulaManager(),
+					getGlobalScopeInst(), null);
 		/*
 		 * Safe and "ignored" - if this test fails, need to change what FDM is
 		 * passed in - it should NOT contain an ArgumentDependencyManager
 		 */
-		assertTrue(null == fdm.getDependency(DependencyKeyUtilities.DEP_ARGUMENT));
-		DependencyVisitor dv =
-				new DependencyVisitor(varCapture.getFormulaManager(),
-					varCapture.getScopeInstance(), fdm);
-		dv.visit(node, null);
+		assertTrue(null == fdm.peek(ArgumentDependencyManager.KEY));
+		DependencyVisitor dv = new DependencyVisitor();
+		dv.visit(node, fdm);
 	}
 
 	@Test
@@ -182,7 +180,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(2, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Double.valueOf(4.5));
 		Object rv =

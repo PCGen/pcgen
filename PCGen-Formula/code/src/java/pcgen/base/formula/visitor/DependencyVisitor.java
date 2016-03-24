@@ -17,13 +17,12 @@
  */
 package pcgen.base.formula.visitor;
 
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
-import pcgen.base.formula.analysis.VariableDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
-import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
 import pcgen.base.formula.parse.ASTExpon;
@@ -49,63 +48,15 @@ import pcgen.base.formula.parse.SimpleNode;
  * Usually this will consist of the variables that the Formula refers to, but
  * user-defined Functions may define additional dependencies if they are
  * supported by the DependencyManager.
+ * 
+ * DependencyVisitor enforces no contract that it will validate a formula, but
+ * reserves the right to do so. As a result, the behavior of DependencyVisitor
+ * is not defined if SemanticsVisitor returned a FormulaSemantics that indicated
+ * isValid() was false.
  */
 @SuppressWarnings("PMD.TooManyMethods")
 public class DependencyVisitor implements FormulaParserVisitor
 {
-
-	/**
-	 * The FormulaManager used to get information about functions and other key
-	 * parameters of a Formula.
-	 */
-	private final FormulaManager fm;
-
-	/**
-	 * The Scope in which the formula resides.
-	 */
-	private final ScopeInstance scopeInst;
-
-	/**
-	 * The Dependency Manager to be notified of dependencies for the formula to
-	 * be processed.
-	 */
-	private final DependencyManager depManager;
-
-	/**
-	 * Constructs a new DependencyVisitor with the given items used to perform
-	 * the evaluation, as necessary.
-	 * 
-	 * @param fm
-	 *            The FormulaManager used to get information about functions and
-	 *            other key parameters of a Formula
-	 * @param scopeInst
-	 *            The ScopeInstance used to check for dependencies within the
-	 *            formula
-	 * @param fdm
-	 *            The DependencyManager to be loaded for this DependencyVisitor
-	 * @throws IllegalArgumentException
-	 *             if the FormulaMangaer or ScopeInstance parameters are null
-	 */
-	public DependencyVisitor(FormulaManager fm, ScopeInstance scopeInst,
-		DependencyManager fdm)
-	{
-		if (fm == null)
-		{
-			throw new IllegalArgumentException("FormulaManager cannot be null");
-		}
-		if (scopeInst == null)
-		{
-			throw new IllegalArgumentException("ScopeInstance cannot be null");
-		}
-		if (fdm == null)
-		{
-			throw new IllegalArgumentException(
-				"DependencyManager cannot be null");
-		}
-		this.fm = fm;
-		this.scopeInst = scopeInst;
-		this.depManager = fdm;
-	}
 
 	/**
 	 * Visits a SimpleNode. Because this cannot be processed, due to lack of
@@ -232,19 +183,21 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
+		DependencyManager manager = (DependencyManager) data;
+		FormulaManager formulaManager = manager.peek(DependencyManager.FMANAGER);
+		FunctionLibrary library = formulaManager.getLibrary();
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
 		String name = fnode.getText();
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			Function function = fm.getLibrary().getFunction(name);
+			Function function = library.getFunction(name);
 			Node[] args = VisitorUtilities.accumulateArguments(argNode);
-			//TODO Trigger NPE? or does it add to FDM in some way... ??
-			function.getDependencies(this, (Class<?>) data, args);
+			function.getDependencies(this, manager, args);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			visitVariable(name);
+			visitVariable(name, manager);
 		}
 		else
 		{
@@ -262,7 +215,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
-		visitVariable(node.getText());
+		visitVariable(node.getText(), (DependencyManager) data);
 		return data;
 	}
 
@@ -272,27 +225,23 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * @param varName
 	 *            The variable name to be added as a dependency
 	 */
-	public void visitVariable(String varName)
+	public void visitVariable(String varName, DependencyManager manager)
 	{
-		VariableDependencyManager varManager =
-				depManager.getDependency(DependencyKeyUtilities.DEP_VARIABLE);
-		if (varManager != null)
+		VariableLibrary varLib = manager.peek(DependencyManager.FMANAGER).getFactory();
+		VariableID<?> id =
+				varLib.getVariableID(manager.peek(DependencyManager.INSTANCE), varName);
+		if (id != null)
 		{
-			VariableID<?> id =
-					fm.getFactory().getVariableID(scopeInst, varName);
-			if (id != null)
-			{
-				varManager.addVariable(id);
-			}
+			manager.addVariable(id);
 		}
 	}
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
 	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in StaticVisitor indicates either an
-	 * error in the implementation of the formula or a tree structure problem in
-	 * the formula.
+	 * DependencyVisitor, reaching this node in DependencyVisitor indicates
+	 * either an error in the implementation of the formula or a tree structure
+	 * problem in the formula.
 	 */
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
@@ -305,9 +254,9 @@ public class DependencyVisitor implements FormulaParserVisitor
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
 	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in StaticVisitor indicates either an
-	 * error in the implementation of the formula or a tree structure problem in
-	 * the formula.
+	 * DependencyVisitor, reaching this node in DependencyVisitor indicates
+	 * either an error in the implementation of the formula or a tree structure
+	 * problem in the formula.
 	 */
 	@Override
 	public Object visit(ASTFParen node, Object data)
@@ -349,38 +298,6 @@ public class DependencyVisitor implements FormulaParserVisitor
 			node.jjtGetChild(i).jjtAccept(this, data);
 		}
 		return data;
-	}
-
-	/**
-	 * Returns the ScopeInstance for this DependencyVisitor.
-	 * 
-	 * @return the ScopeInstance for this DependencyVisitor
-	 */
-	public ScopeInstance getScopeInstance()
-	{
-		return scopeInst;
-	}
-
-	/**
-	 * Returns the underlying FormulaManager for this DependencyVisitor.
-	 * 
-	 * @return the underlying FormulaManager for this DependencyVisitor
-	 */
-	public FormulaManager getFormulaManager()
-	{
-		return fm;
-	}
-
-	/**
-	 * Returns the Dependency Manager to be notified of dependencies for the
-	 * formula to be processed.
-	 * 
-	 * @return the Dependency Manager to be notified of dependencies for the
-	 *         formula to be processed
-	 */
-	public DependencyManager getDependencyManager()
-	{
-		return depManager;
 	}
 }
 

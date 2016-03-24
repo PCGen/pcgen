@@ -20,8 +20,8 @@ package pcgen.base.formula.library;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.ASTNum;
@@ -171,17 +171,16 @@ public class ArgFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		Class<?> assertedFormat, Node[] args)
+		DependencyManager manager, Node[] args)
 	{
 		ASTNum node = (ASTNum) args[0];
 		int argNum = Integer.parseInt(node.getText());
 		ArgumentDependencyManager argManager =
-				visitor.getDependencyManager().getDependency(
-					DependencyKeyUtilities.DEP_ARGUMENT);
+				manager.peek(ArgumentDependencyManager.KEY);
 		if (argManager != null)
 		{
 			argManager.addArgument(argNum);
 		}
-		visitor.visit((SimpleNode) masterArgs[argNum], assertedFormat);
+		visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}
 }
