@@ -20,14 +20,13 @@ package pcgen.base.formula.inst;
 import java.io.StringReader;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
+import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -122,7 +121,8 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 *            parameter is optional - null can indicate that there is no
 	 *            format asserted by the context of the formula
 	 * @param source
-	 *            The source of this NEPFormula for purposes of formula resolution
+	 *            The source of this NEPFormula for purposes of formula
+	 *            resolution
 	 * @return The value calculated for the ComplexNEPFormula.
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
@@ -173,15 +173,24 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormulaSemantics isValid(FormulaManager fm, LegalScope legalScope,
-		FormatManager<T> formatManager, Class<?> assertedFormat)
+	public void isValid(FormatManager<T> formatManager,
+		FormulaSemantics semantics)
 	{
-		if (fm == null)
+		Class<?> expectedFormat = formatManager.getManagedClass();
+		//semantics.set(FormulaSemantics.BASE_FORMAT, expectedFormat);
+		Class<?> formulaFormat =
+				(Class<?>) new SemanticsVisitor().visit(root, semantics);
+		if (!semantics.isValid())
 		{
-			throw new IllegalArgumentException(
-				"Cannot resolve formula with null FormulaManager");
+			return;
 		}
-		return fm.isValid(root, legalScope, formatManager, assertedFormat);
+		if (!expectedFormat.isAssignableFrom(formulaFormat))
+		{
+			semantics.setInvalid("Parse Error: Invalid Value Format: "
+				+ formulaFormat + " found in " + root.getClass().getName()
+				+ " found in location requiring a " + expectedFormat
+				+ " (class cannot be evaluated)");
+		}
 	}
 
 	/**

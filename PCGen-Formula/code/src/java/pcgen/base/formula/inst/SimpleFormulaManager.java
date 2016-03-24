@@ -17,17 +17,11 @@
  */
 package pcgen.base.formula.inst;
 
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
-import pcgen.base.formula.parse.SimpleNode;
-import pcgen.base.formula.visitor.SemanticsVisitor;
-import pcgen.base.util.FormatManager;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that
@@ -163,65 +157,6 @@ public class SimpleFormulaManager implements FormulaManager
 	public OperatorLibrary getOperatorLibrary()
 	{
 		return opLibrary;
-	}
-
-	/**
-	 * Returns the FormulaSemantics for the formula starting with with the given
-	 * SimpleNode as the root of the parsed tree of the formula.
-	 * 
-	 * @param root
-	 *            The starting node in a parsed tree of a formula, to be used
-	 *            for the semantics evaluation
-	 * @param legalScope
-	 *            The LegalScope used to check for validity of variables used
-	 *            within the formula
-	 * @param formatManager
-	 *            The FormatManager used to check for validity of variables used
-	 *            within the formula
-	 * @return The FormulaSemantics for the formula starting with with the given
-	 *         SimpleNode as the root of the parsed tree of the formula
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the formula. This
-	 *            parameter is optional - null can indicate that there is no
-	 *            format asserted by the context of the formula
-	 * @throws IllegalArgumentException
-	 *             if any parameter is null
-	 */
-	@Override
-	public FormulaSemantics isValid(SimpleNode root, LegalScope legalScope,
-		FormatManager<?> formatManager, Class<?> assertedFormat)
-	{
-		if (root == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot determine validity with null root");
-		}
-		if (formatManager == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot determine validity with null FormatManager");
-		}
-		SemanticsVisitor semanticsVisitor =
-				new SemanticsVisitor(this, legalScope, assertedFormat);
-		FormulaSemantics semantics =
-				FormulaSemanticsUtilities.getInitializedSemantics();
-		semanticsVisitor.visit(root, semantics);
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
-		{
-			return semantics;
-		}
-		Class<?> nsFormat = formatManager.getManagedClass();
-		Class<?> formulaFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		if (!nsFormat.isAssignableFrom(formulaFormat))
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Invalid Value Format: " + formulaFormat
-					+ " found in " + root.getClass().getName()
-					+ " found in location requiring a " + nsFormat
-					+ " (class cannot be evaluated)");
-		}
-		return semantics;
 	}
 
 	/**

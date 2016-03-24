@@ -26,7 +26,6 @@ import pcgen.base.formula.function.IfFunction;
 import pcgen.base.formula.function.MaxFunction;
 import pcgen.base.formula.function.MinFunction;
 import pcgen.base.formula.function.RoundFunction;
-import pcgen.base.formula.function.ThisFunction;
 import pcgen.base.formula.operator.bool.BooleanAnd;
 import pcgen.base.formula.operator.bool.BooleanNot;
 import pcgen.base.formula.operator.bool.BooleanOr;
@@ -77,7 +76,6 @@ public final class FormulaUtilities
 		functionLib.addFunction(new MaxFunction());
 		functionLib.addFunction(new MinFunction());
 		functionLib.addFunction(new RoundFunction());
-		functionLib.addFunction(new ThisFunction());
 	}
 
 	/**

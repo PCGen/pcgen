@@ -19,7 +19,6 @@ package pcgen.base.formula.function;
 
 import java.util.Arrays;
 
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
@@ -61,81 +60,59 @@ public class IfFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
+	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount != 3)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Function "
-				+ getFunctionName()
+			semantics.setInvalid("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 3 got "
 				+ args.length + " " + Arrays.asList(args));
-			return;
+			return null;
 		}
 		//Boolean conditional node
 		Node conditionalNode = args[0];
-		SemanticsVisitor booleanVisitor;
-		if (BOOLEAN_CLASS.equals(visitor.getAssertedFormat()))
+		semantics.push(FormulaSemantics.ASSERTED, BOOLEAN_CLASS);
+		Class<?> format = (Class<?>) conditionalNode.jjtAccept(visitor, semantics);
+		semantics.pop(FormulaSemantics.ASSERTED);
+		if (!semantics.isValid())
 		{
-			booleanVisitor = visitor;
+			return null;
 		}
-		else
+		if (!BOOLEAN_CLASS.equals(format))
 		{
-			booleanVisitor = new SemanticsVisitor(visitor.getFormulaManager(),
-				visitor.getLegalScope(), BOOLEAN_CLASS);
-		}
-		conditionalNode.jjtAccept(booleanVisitor, semantics);
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
-		{
-			return;
-		}
-		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		if (!format.equals(BOOLEAN_CLASS))
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Invalid Value Format: " + format + " found in "
-					+ conditionalNode.getClass().getName()
-					+ " found in location requiring a"
-					+ " Boolean (class cannot be evaluated)");
-			return;
+			semantics.setInvalid("Parse Error: Invalid Value Format: " + format
+				+ " found in " + conditionalNode.getClass().getName()
+				+ " found in location requiring a"
+				+ " Boolean (class cannot be evaluated)");
+			return null;
 		}
 
 		//If True node
-		Node trueNode = args[1];
-		trueNode.jjtAccept(visitor, semantics);
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		Class<?> tFormat = (Class<?>) args[1].jjtAccept(visitor, semantics);
+		if (!semantics.isValid())
 		{
-			return;
+			return null;
 		}
-		/*
-		 * Format is arbitrary - but capture now - just need True and False to
-		 * match, see below
-		 */
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> tFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 
 		//If False node
-		Node falseNode = args[2];
-		falseNode.jjtAccept(visitor, semantics);
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		Class<?> fFormat = (Class<?>) args[2].jjtAccept(visitor, semantics);
+		if (!semantics.isValid())
 		{
-			return;
+			return null;
 		}
 
 		//Check for Mismatch in formats between True and False results
-		Class<?> fFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 		if (!tFormat.equals(fFormat))
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Invalid Value Format: " + fFormat + " found in "
-					+ conditionalNode.getClass().getName()
-					+ " found in location requiring a " + tFormat
-					+ " (class cannot be evaluated)");
+			semantics.setInvalid("Parse Error: Invalid Value Format: "
+				+ fFormat + " found in " + conditionalNode.getClass().getName()
+				+ " found in location requiring a " + tFormat
+				+ " (class cannot be evaluated)");
+			return null;
 		}
+		return tFormat;
 	}
 
 	/**

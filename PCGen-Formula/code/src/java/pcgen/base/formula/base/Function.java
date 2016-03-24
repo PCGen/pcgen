@@ -167,7 +167,7 @@ public interface Function
 	 *            The FormulaSemantics object that is used to capture semantic
 	 *            information about this Function
 	 */
-	void allowArgs(SemanticsVisitor visitor, Node[] args,
+	Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics);
 
 	/*

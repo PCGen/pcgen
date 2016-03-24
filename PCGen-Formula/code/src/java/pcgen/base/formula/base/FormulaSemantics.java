@@ -17,8 +17,8 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.HashMap;
-import java.util.Map;
+import pcgen.base.util.TypedKey;
+import pcgen.base.util.MappedDeque;
 
 /**
  * A FormulaSemantics is a class to capture Formula semantics.
@@ -40,65 +40,63 @@ import java.util.Map;
  * issue with the Formula. Note that if there is more than one issue, only one
  * issue needs to be returned (fast fail is acceptable).
  */
-public class FormulaSemantics
+public class FormulaSemantics extends MappedDeque
 {
+	/**
+	 * A TypedKey used for storing the FormulaManager contained in this
+	 * FormulaSemantics.
+	 */
+	public static final TypedKey<FormulaManager> FMANAGER =
+			new TypedKey<FormulaManager>();
 
 	/**
-	 * The map of Semantics information.
+	 * A TypedKey used for storing the LegalScope contained in this
+	 * FormulaSemantics.
 	 */
-	private Map<SemanticsKey<?>, Object> map = new HashMap<>();
+	public static final TypedKey<LegalScope> SCOPE = new TypedKey<LegalScope>();
 
 	/**
-	 * Inserts a new manager into this FormulaSemantics for the given
-	 * SemanticsKey. The given object manages a set of semantic information for
-	 * a Formula.
-	 * 
-	 * @param <T>
-	 *            The class of the manager identified by the given SemanticsKey
-	 * @param key
-	 *            The SemanticsKey used to identify the manager of the semantic
-	 *            information
-	 * @param manager
-	 *            The class that manages the semantics represented by the given
-	 *            SemanticsKey
-	 * @return The previous manager of the semantics represented by the given
-	 *         SemanticsKey
+	 * A TypedKey used for storing the Format currently asserted for the formula
+	 * served by this FormulaSemantics.
 	 */
-	public <T> T setInfo(SemanticsKey<T> key, T manager)
+	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+
+	/**
+	 * A TypedKey used for storing if the formula served by this
+	 * FormulaSemantics is valid.
+	 */
+	private static final TypedKey<Boolean> VALID = new TypedKey<Boolean>(
+		Boolean.TRUE);
+
+	/**
+	 * A TypedKey used for storing a message indicating why the formula served
+	 * by this FormulaSemantics is not valid.
+	 */
+	private static final TypedKey<String> REPORT = new TypedKey<String>();
+
+	public void setInvalid(String text)
 	{
-		return key.cast(map.put(key, manager));
+		set(VALID, false);
+		set(REPORT, text);
 	}
 
-	/**
-	 * Returns the object managing the semantics represented by the given
-	 * SemanticsKey.
-	 * 
-	 * @param <T>
-	 *            The class of the manager identified by the given SemanticsKey
-	 * @param key
-	 *            The SemanticsKey used to identify the manager of the semantics
-	 * @return The object managing the semantics represented by the given
-	 *         SemanticsKey
-	 */
-	public <T> T getInfo(SemanticsKey<T> key)
+	public String getReport()
 	{
-		return key.cast(map.get(key));
+		return peek(REPORT);
 	}
 
-	/**
-	 * Removes the managing object for the given SemanticsKey, returning that
-	 * object to the caller. No further connection to the returned object is
-	 * maintained by this FormulaSemantics for the given SemanticsKey.
-	 * 
-	 * @param <T>
-	 *            The class of the manager identified by the given SemanticsKey
-	 * @param key
-	 *            The SemanticsKey used to identify the manager of the semantics
-	 * @return The object managing the semantics represented by the given
-	 *         SemanticsKey
-	 */
-	public <T> T removeInfo(SemanticsKey<T> key)
+	public boolean isValid()
 	{
-		return key.cast(map.remove(key));
+		return peek(VALID);
+	}
+
+	public static FormulaSemantics generate(FormulaManager manager,
+		LegalScope legalScope, Class<?> assertedFormat)
+	{
+		FormulaSemantics semantics = new FormulaSemantics();
+		semantics.set(FMANAGER, manager);
+		semantics.set(SCOPE, legalScope);
+		semantics.set(ASSERTED, assertedFormat);
+		return semantics;
 	}
 }

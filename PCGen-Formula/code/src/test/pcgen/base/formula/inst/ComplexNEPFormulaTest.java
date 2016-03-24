@@ -7,7 +7,6 @@ import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -80,81 +79,58 @@ public class ComplexNEPFormulaTest extends TestCase
 		BooleanManager booleanMgr = new BooleanManager();
 		StringManager stringMgr = new StringManager();
 
-		FormulaSemantics fs;
+		FormulaSemantics fs = FormulaSemantics.generate(fm, globalScope, null);
 		try
 		{
-			new ComplexNEPFormula("3+5").isValid(null, globalScope, numberMgr,
-				null);
-			fail("Expected null FormulaManager to fail");
+			new ComplexNEPFormula("3+5").isValid(numberMgr, null);
+			fail("Expected null FormulaSemantics to fail");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
-		try
-		{
-			new ComplexNEPFormula("3+5").isValid(fm, null, numberMgr, null);
-			fail("Expected null LegalScope to fail");
-		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			//ok
 		}
 		try
 		{
-			new ComplexNEPFormula("3+5").isValid(fm, globalScope, null, null);
+			new ComplexNEPFormula("3+5").isValid(null, fs);
 			fail("Expected null FormatManager to fail");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
 
-		fs =
-				new ComplexNEPFormula("3+5").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
-		fs =
-				new ComplexNEPFormula("3*5").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
-		fs =
-				new ComplexNEPFormula("(3+5)*7").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
+		new ComplexNEPFormula("3+5").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
+		new ComplexNEPFormula("3*5").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
+		new ComplexNEPFormula("(3+5)*7").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
 
 		setup.getVariableLibrary().assertLegalVariableID("a", globalScope,
 			numberMgr);
 		setup.getVariableLibrary().assertLegalVariableID("b", globalScope,
 			numberMgr);
-		fs =
-				new ComplexNEPFormula("a-b").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
-		fs =
-				new ComplexNEPFormula("if(a>=b,5,9)").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
-		fs =
-				new ComplexNEPFormula("if(a==b,5,-9)").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
+		new ComplexNEPFormula("a-b").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
+		new ComplexNEPFormula("if(a>=b,5,9)").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
+		new ComplexNEPFormula("if(a==b,5,-9)").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
 
 		setup.getVariableLibrary().assertLegalVariableID("c", globalScope,
 			booleanMgr);
 		setup.getVariableLibrary().assertLegalVariableID("d", globalScope,
 			booleanMgr);
-		fs =
-				new ComplexNEPFormula("if(c||d,\"A\",\"B\")").isValid(fm,
-					globalScope, stringMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
+		new ComplexNEPFormula("if(c||d,\"A\",\"B\")").isValid(stringMgr, fs);
+		assertEquals(true, fs.isValid());
 
 		setup.getFunctionLibrary().addFunction(new Function()
 		{
@@ -172,14 +148,14 @@ public class ComplexNEPFormulaTest extends TestCase
 			}
 
 			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
+			public Class<?>  allowArgs(SemanticsVisitor visitor, Node[] args,
 				FormulaSemantics semantics)
 			{
 				if (args.length == 0)
 				{
-					semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-						Number.class);
+					return Number.class;
 				}
+				return null;
 			}
 
 			@Override
@@ -195,16 +171,10 @@ public class ComplexNEPFormulaTest extends TestCase
 			{
 			}
 		});
-		fs =
-				new ComplexNEPFormula("value()").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
-		fs =
-				new ComplexNEPFormula("3^5").isValid(fm, globalScope,
-					numberMgr, null);
-		assertEquals(true, fs.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-			.isValid());
+		new ComplexNEPFormula("value()").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
+		new ComplexNEPFormula("3^5").isValid(numberMgr, fs);
+		assertEquals(true, fs.isValid());
 	}
 
 	public void testGetDependencies()
@@ -311,14 +281,14 @@ public class ComplexNEPFormulaTest extends TestCase
 			}
 
 			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
+			public Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 				FormulaSemantics semantics)
 			{
 				if (args.length == 0)
 				{
-					semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-						Number.class);
+					return Number.class;
 				}
+				return null;
 			}
 
 			@Override
@@ -436,14 +406,14 @@ public class ComplexNEPFormulaTest extends TestCase
 			}
 
 			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
+			public Class<?>  allowArgs(SemanticsVisitor visitor, Node[] args,
 				FormulaSemantics semantics)
 			{
 				if (args.length == 0)
 				{
-					semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-						Number.class);
+					return Number.class;
 				}
+				return null;
 			}
 
 			@Override

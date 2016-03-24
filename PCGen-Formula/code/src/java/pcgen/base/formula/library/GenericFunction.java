@@ -20,13 +20,11 @@ package pcgen.base.formula.library;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -110,42 +108,38 @@ public class GenericFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
+	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
-		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
-		LegalScope legalScope = visitor.getLegalScope();
-		SemanticsVisitor subVisitor =
-				new SemanticsVisitor(withArgs, legalScope, visitor.getAssertedFormat());
+		FormulaManager withArgs =
+				getManager(args, semantics.peek(FormulaSemantics.FMANAGER));
 		//Need to save original to handle "embedded" GenericFunction objects properly
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		ArgumentDependencyManager original =
-				semantics.removeInfo(FormulaSemanticsUtilities.SEM_ARGS);
-		subVisitor.visit(root, semantics);
+		semantics.push(ArgumentDependencyManager.KEY,
+			new ArgumentDependencyManager());
+		semantics.push(FormulaSemantics.FMANAGER, withArgs);
+		Class<?> result = (Class<?>) visitor.visit(root, semantics);
+		semantics.pop(FormulaSemantics.FMANAGER);
 		ArgumentDependencyManager myArgs =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_ARGS);
+				semantics.pop(ArgumentDependencyManager.KEY);
 		if (myArgs == null)
 		{
 			if (args.length != 0)
 			{
-				FormulaSemanticsUtilities.setInvalid(semantics, "Function "
-					+ getFunctionName()
+				semantics.setInvalid("Function " + getFunctionName()
 					+ " received incorrect # of arguments, expected: 0 got "
 					+ args.length + " " + Arrays.asList(args));
 			}
-			return;
+			return null;
 		}
 		int maxArg = myArgs.getMaximumArgument() + 1;
 		if (maxArg != args.length)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Function " + getFunctionName() + " required: " + maxArg
-					+ " arguments, but was provided " + args.length + " "
-					+ Arrays.asList(args));
-			return;
+			semantics.setInvalid("Function " + getFunctionName()
+				+ " required: " + maxArg + " arguments, but was provided "
+				+ args.length + " " + Arrays.asList(args));
+			return null;
 		}
-		//Need "reset" in case of embedded GenericFunction objects
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_ARGS, original);
+		return result;
 	}
 
 	/**
@@ -164,7 +158,8 @@ public class GenericFunction implements Function
 		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
 		ScopeInstance scopeInstance = visitor.getScopeInstance();
 		EvaluateVisitor ev =
-				new EvaluateVisitor(withArgs, scopeInstance, visitor.getSource());
+				new EvaluateVisitor(withArgs, scopeInstance,
+					visitor.getSource());
 		return ev.visit(root, assertedFormat);
 	}
 
