@@ -65,15 +65,15 @@ public class NumberMultiply implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		if (l instanceof Integer && r instanceof Integer)
+		if (left instanceof Integer && right instanceof Integer)
 		{
-			return (Integer) l * (Integer) r;
+			return (Integer) left * (Integer) right;
 		}
 
-		double lDbl = ((Number) l).doubleValue();
-		double rDbl = ((Number) r).doubleValue();
+		double lDbl = ((Number) left).doubleValue();
+		double rDbl = ((Number) right).doubleValue();
 		//Special case
 		if ((lDbl == 0.0d) || (rDbl == 0.0d))
 		{

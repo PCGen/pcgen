@@ -59,9 +59,9 @@ public class BooleanNot implements UnaryAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object o)
+	public Object evaluate(Object object)
 	{
-		return !((Boolean) o);
+		return !((Boolean) object);
 	}
 
 }

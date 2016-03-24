@@ -65,13 +65,13 @@ public class NumberSubtract implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		if (l instanceof Integer && r instanceof Integer)
+		if (left instanceof Integer && right instanceof Integer)
 		{
-			return (Integer) l - (Integer) r;
+			return (Integer) left - (Integer) right;
 		}
-		return ((Number) l).doubleValue() - ((Number) r).doubleValue();
+		return ((Number) left).doubleValue() - ((Number) right).doubleValue();
 	}
 
 }

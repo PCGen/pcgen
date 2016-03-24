@@ -65,9 +65,10 @@ public class NumberExp implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		return Math.pow(((Number) l).doubleValue(), ((Number) r).doubleValue());
+		return Math.pow(((Number) left).doubleValue(),
+			((Number) right).doubleValue());
 	}
 
 }

@@ -65,9 +65,9 @@ public class NumberLessThan implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		return ((Number) l).doubleValue() < ((Number) r).doubleValue();
+		return ((Number) left).doubleValue() < ((Number) right).doubleValue();
 	}
 
 }

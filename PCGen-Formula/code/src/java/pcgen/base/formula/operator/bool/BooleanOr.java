@@ -65,15 +65,15 @@ public class BooleanOr implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
 		/*
 		 * DO NOT inline these. This is intentional in order to catch Object l
 		 * or Object r not being boolean...
 		 */
-		boolean left = ((Boolean) l).booleanValue();
-		boolean right = ((Boolean) r).booleanValue();
-		return Boolean.valueOf(left || right);
+		boolean leftBoolean = ((Boolean) left).booleanValue();
+		boolean rightBoolean = ((Boolean) right).booleanValue();
+		return Boolean.valueOf(leftBoolean || rightBoolean);
 	}
 
 }
