@@ -18,7 +18,7 @@
 package pcgen.base.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 
 /**
  * A Modifier is designed to change an input (of a given format) to another
@@ -39,24 +39,12 @@ public interface Modifier<T>
 	 * "Processes" (or runs) the Modifier in order to determine the appropriate
 	 * result of the Modifier.
 	 * 
-	 * There is no requirement that a Modifier take into account the input value
-	 * (it can be a "set").
-	 * 
-	 * The Modifier should treat the input as an Immutable object (it does not
-	 * gain ownership of that parameter).
-	 * 
-	 * @param input
-	 *            The input value used (if necessary) to determine the
-	 *            appropriate result of this Modifier
-	 * @param scopeInfo
-	 *            The ScopeInformation that is used (if necessary) to process a
+	 * @param manager
+	 *            The EvaluationManager that is used (if necessary) to process a
 	 *            Formula that is contained by this Modifier
-	 * @param source
-	 *            The "source" of the process being performed, so it can be
-	 *            referred back to if necessary
 	 * @return The resulting value of the Modifier
 	 */
-	public T process(T input, ScopeInformation scopeInfo, Object source);
+	public T process(EvaluationManager manager);
 
 	/**
 	 * Loads the dependencies for the Modifier into the given DependencyManager.

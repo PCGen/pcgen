@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -134,7 +135,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 			}
 
 			@Override
-			public Double evaluate(EvaluateVisitor visitor, Node[] args, Class<?> assertedFormat)
+			public Double evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 			{
 				return null;
 			}

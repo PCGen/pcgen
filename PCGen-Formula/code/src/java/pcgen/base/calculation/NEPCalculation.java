@@ -18,7 +18,7 @@
 package pcgen.base.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 
 /**
  * A NEPCalculation is designed to be passed into a CalculationModifier. This
@@ -46,18 +46,12 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * The NEPCalculation should treat the input as an Immutable object (it does
 	 * not gain ownership of that parameter).
 	 * 
-	 * @param input
-	 *            The input value used (if necessary) to determine the
-	 *            appropriate result of this NEPCalculation
-	 * @param scopeInfo
-	 *            The ScopeInformation that is used (if necessary) to process a
+	 * @param manager
+	 *            The EvaluationManager that is used (if necessary) to process a
 	 *            Formula that is contained by this NEPCalculation
-	 * @param source
-	 *            The "source" of the process being performed, so it can be
-	 *            referred back to if necessary
 	 * @return The resulting value of the NEPCalculation
 	 */
-	public T process(T input, ScopeInformation scopeInfo, Object source);
+	public T process(EvaluationManager manager);
 
 	/**
 	 * Loads the dependencies for the NEPCalculation into the given

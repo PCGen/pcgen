@@ -22,13 +22,13 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 
 public class SolverFactoryTest extends TestCase
 {
-	private ScopeInformation si;
+	private EvaluationManager evalManager;
 	private SolverFactory factory;
 
 	@Override
@@ -38,7 +38,10 @@ public class SolverFactoryTest extends TestCase
 		SplitFormulaSetup sfs = new SplitFormulaSetup();
 		sfs.getLegalScopeLibrary()
 			.registerScope(new SimpleLegalScope(null, "Global"));
-		si = new IndividualSetup(sfs, "Global").getScopeInfo();
+		IndividualSetup indSetup = new IndividualSetup(sfs, "Global");
+		evalManager =
+				EvaluationManager.generate(indSetup.getFormulaManager(),
+					indSetup.getGlobalScopeInst(), Number.class);
 		factory = new SolverFactory();
 	}
 
@@ -70,7 +73,7 @@ public class SolverFactoryTest extends TestCase
 	{
 		try
 		{
-			factory.getSolver(new NumberManager(), si);
+			factory.getSolver(new NumberManager(), evalManager);
 			fail("Should not be able to get Solver when no default was set");
 		}
 		catch (IllegalArgumentException e)
@@ -79,7 +82,7 @@ public class SolverFactoryTest extends TestCase
 		}
 		try
 		{
-			factory.getSolver(null, si);
+			factory.getSolver(null, evalManager);
 			fail("Should not be able to get Solver for null FormatManager");
 		}
 		catch (NullPointerException e)

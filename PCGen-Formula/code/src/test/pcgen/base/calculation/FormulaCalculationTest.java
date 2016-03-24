@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.base.calculation.testsupport.BasicCalc;
 import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.inst.ComplexNEPFormula;
@@ -78,11 +79,17 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 	@Test
 	public void testProcess()
 	{
+		EvaluationManager manager = new EvaluationManager();
+		manager.set(EvaluationManager.FMANAGER, getFormulaManager());
+		manager.set(EvaluationManager.INSTANCE, getGlobalScopeInst());
+		manager.set(EvaluationManager.ASSERTED, Number.class);
 		FormulaCalculation fc = new FormulaCalculation(formula, basic);
-		assertEquals(17, fc.process(8, getScopeInfo(), null));
+		manager.set(EvaluationManager.INPUT, 8);
+		assertEquals(17, fc.process(manager));
 		FormulaCalculation fc2 =
 				new FormulaCalculation(new ComplexNEPFormula("value()"), basic);
-		assertEquals(16, fc2.process(8, getScopeInfo(), null));
+		manager.set(EvaluationManager.INPUT, 8);
+		assertEquals(16, fc2.process(manager));
 	}
 
 	@Test
@@ -110,7 +117,11 @@ public class FormulaCalculationTest extends AbstractFormulaTestCase
 		vs.put(varID, new Number[]{4, 5, 6, 7, 8, 9});
 		FormulaCalculation fc2 =
 				new FormulaCalculation(new ComplexNEPFormula("arr[5]"), basic);
-		assertEquals(17, fc2.process(8, getScopeInfo(), null));
+		EvaluationManager manager =
+				EvaluationManager.generate(getFormulaManager(),
+					getGlobalScopeInst(), Number.class);
+		manager.set(EvaluationManager.INPUT, 8);
+		assertEquals(17, fc2.process(manager));
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,11 +15,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula.library;
+package pcgen.base.formula.function;
 
 import java.util.Arrays;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -29,53 +30,27 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 
 /**
- * ValueFunction is a zero-argument function designed to hold a specific value.
- * 
- * Note that this is indirectly used by a Solver in order to allow modifications
- * occurring in different priorities of a Solver to access the value before that
- * Modifier was encountered.
+ * ValueFunction returns the input value to the evaluation
  */
 public class ValueFunction implements Function
 {
-	/**
-	 * The function name for the ValueFunction.
-	 */
-	private static final String FUNCTION_NAME = "VALUE";
 
 	/**
-	 * The "previous value" represented by this ValueFunction.
-	 */
-	private final Object input;
-
-	/**
-	 * Constructs a new ValueFunction to represent the given value.
-	 * 
-	 * @param input
-	 *            The "previous value" represented by this ValueFunction
-	 */
-	public ValueFunction(Object input)
-	{
-		this.input = input;
-	}
-
-	/**
-	 * The function name "value".
+	 * Returns the function name for this function. This is how it is called by
+	 * a user in a formula.
 	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
 	public String getFunctionName()
 	{
-		return FUNCTION_NAME;
+		return "VALUE";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
-		return true;
+		return Boolean.FALSE;
 	}
 
 	/**
@@ -89,35 +64,25 @@ public class ValueFunction implements Function
 	{
 		if (args.length == 0)
 		{
-			return input.getClass();
+			return semantics.peek(FormulaSemantics.INPUT_FORMAT);
 		}
-		semantics.setInvalid("Function " + FUNCTION_NAME
+		semantics.setInvalid("Function " + "value()"
 			+ " received incorrect # of arguments, expected: 0 got "
 			+ args.length + " " + Arrays.asList(args));
 		return null;
 	}
 
-	/**
-	 * Always returns the previous value.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		Class<?> assertedFormat)
+		EvaluationManager manager)
 	{
-		return input;
+		return manager.peek(EvaluationManager.INPUT);
 	}
 
-	/**
-	 * Never has any dependencies.
-	 * 
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		//No dependencies
 	}
+
 }

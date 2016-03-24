@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.base.calculation.testsupport.BasicCalc;
 import pcgen.base.calculation.testsupport.NepCalc;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.operator.number.NumberAdd;
 
@@ -77,7 +78,9 @@ public class CalculationModifierTest extends TestCase
 	public void testProcess()
 	{
 		CalculationModifier cm = new CalculationModifier(calc, 5);
-		assertEquals(42, cm.process(9, null, null));
+		EvaluationManager manager = new EvaluationManager();
+		manager.set(EvaluationManager.INPUT, 9);
+		assertEquals(42, cm.process(manager));
 	}
 
 	@Test

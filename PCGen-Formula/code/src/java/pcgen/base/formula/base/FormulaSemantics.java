@@ -61,6 +61,8 @@ public class FormulaSemantics extends MappedDeque
 	 */
 	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
 
+	public static final TypedKey<Class<?>> INPUT_FORMAT = new TypedKey<Class<?>>();
+
 	/**
 	 * A TypedKey used for storing if the formula served by this
 	 * FormulaSemantics is valid.

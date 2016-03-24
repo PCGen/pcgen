@@ -18,7 +18,7 @@
 package pcgen.base.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 
 /**
  * A CalculationModifier is a Modifier that is a wrapper around a
@@ -81,9 +81,9 @@ public final class CalculationModifier<T> implements Modifier<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo, Object source)
+	public T process(EvaluationManager manager)
 	{
-		return toDo.process(input, scopeInfo, source);
+		return toDo.process(manager);
 	}
 
 	/**

@@ -18,11 +18,8 @@
 package pcgen.base.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.inst.NEPFormula;
-import pcgen.base.formula.inst.ScopeInformation;
-import pcgen.base.formula.library.ValueWrappingLibrary;
 
 /**
  * A FormulaCalculation is an AbstractNEPCalculation that uses a NEPFormula for
@@ -76,15 +73,11 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(final T input, ScopeInformation scopeInfo, Object source)
+	public T process(EvaluationManager manager)
 	{
-		FormulaManager fManager = scopeInfo.getFormulaManager();
-		FunctionLibrary valueLibrary =
-				new ValueWrappingLibrary(fManager.getLibrary(), input);
-		FormulaManager withValue = fManager.swapFunctionLibrary(valueLibrary);
-		ScopeInformation stepInfo =
-				new ScopeInformation(withValue, scopeInfo.getScope());
-		T resolved = formula.resolve(stepInfo, getVariableFormat(), source);
+		T resolved = formula.resolve(manager);
+		@SuppressWarnings("unchecked")
+		T input = (T) manager.peek(EvaluationManager.INPUT);
 		return getBasicCalculation().process(input, resolved);
 	}
 

@@ -25,12 +25,12 @@ import java.util.Stack;
 
 import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DirectionalSetMapGraph;
 import pcgen.base.util.FormatManager;
@@ -75,11 +75,6 @@ public class AggressiveSolverManager
 	 */
 	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> graph =
 			new DirectionalSetMapGraph<>();
-
-	/**
-	 * Cache for ScopeInformation objects.
-	 */
-	private final ScopeDatabase scopeCache = new ScopeDatabase();
 
 	/**
 	 * The SolverFactory to be used to construct the Solver objects that are
@@ -166,13 +161,7 @@ public class AggressiveSolverManager
 			throw new IllegalArgumentException(
 				"Attempt to recreate local channel: " + varID);
 		}
-		ScopeInstance scope = varID.getScope();
-		FormatManager<T> formatManager = varID.getFormatManager();
-		ScopeInformation scopeInfo =
-				scopeCache.getScopeInformation(formulaManager, scope);
-		Solver<T> solver = solverFactory.getSolver(formatManager, scopeInfo);
-		scopedChannels.put(varID, solver);
-		graph.addNode(varID);
+		unconditionallyBuildSolver(varID);
 		solveFromNode(varID);
 	}
 
@@ -220,20 +209,13 @@ public class AggressiveSolverManager
 				"Request to add Modifier to Solver for " + varID
 					+ " but that channel was never defined");
 		}
-		ScopeInstance scope = varID.getScope();
-		FormatManager<T> formatManager = varID.getFormatManager();
-		ScopeInformation scopeInfo =
-				scopeCache.getScopeInformation(formulaManager, scope);
-
 		//Note: This cast is enforced by the solver during addModifier
 		@SuppressWarnings("unchecked")
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
 			//CONSIDER This is create implicit - what we want to do?
-			solver = solverFactory.getSolver(formatManager, scopeInfo);
-			scopedChannels.put(varID, solver);
-			graph.addNode(varID);
+			solver = unconditionallyBuildSolver(varID);
 		}
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
@@ -266,16 +248,20 @@ public class AggressiveSolverManager
 	{
 		if (scopedChannels.get(varID) == null)
 		{
-			ScopeInstance scope = varID.getScope();
-			FormatManager<?> formatManager = varID.getFormatManager();
-			ScopeInformation scopeInfo =
-					scopeCache.getScopeInformation(formulaManager, scope);
-			Solver<?> solver =
-					solverFactory.getSolver(formatManager, scopeInfo);
-			scopedChannels.put(varID, solver);
-			graph.addNode(varID);
+			unconditionallyBuildSolver(varID);
 			solveFromNode(varID);
 		}
+	}
+
+	private <T> Solver<T> unconditionallyBuildSolver(VariableID<T> varID)
+	{
+		FormatManager<T> formatManager = varID.getFormatManager();
+		EvaluationManager evalManager =
+				EvaluationManager.generate(formulaManager, varID);
+		Solver<T> solver = solverFactory.getSolver(formatManager, evalManager);
+		scopedChannels.put(varID, solver);
+		graph.addNode(varID);
+		return solver;
 	}
 
 	/**

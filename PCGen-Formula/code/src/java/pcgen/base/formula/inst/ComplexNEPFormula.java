@@ -20,11 +20,13 @@ package pcgen.base.formula.inst;
 import java.io.StringReader;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
+import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.util.FormatManager;
@@ -44,11 +46,17 @@ import pcgen.base.util.FormatManager;
 public class ComplexNEPFormula<T> implements NEPFormula<T>
 {
 
+	private static final SemanticsVisitor SEMANTICS_VISITOR =
+			new SemanticsVisitor();
+
 	private static final DependencyVisitor DEPENDENCY_VISITOR =
 			new DependencyVisitor();
-	
+
 	private static final ReconstructionVisitor RECONSTRUCTION_VISITOR =
 			new ReconstructionVisitor();
+
+	private static final EvaluateVisitor EVALUATE_VISITOR =
+			new EvaluateVisitor();
 
 	/**
 	 * The root node of the tree representing the calculation of this
@@ -113,31 +121,17 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * implement the appropriate processing (precision in the case of numbers)
 	 * desired for the given calculation.
 	 * 
-	 * @param scopeInfo
-	 *            The ScopeInformation providing the context in which the
-	 *            ComplexNEPFormula is to be resolved.
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the formula. This
-	 *            parameter is optional - null can indicate that there is no
-	 *            format asserted by the context of the formula
-	 * @param source
-	 *            The source of this NEPFormula for purposes of formula
-	 *            resolution
+	 * @param manager
+	 *            The EvaluationManager for the context of the formula
 	 * @return The value calculated for the ComplexNEPFormula.
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
 	 */
 	@Override
-	public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
-		Object source)
+	public T resolve(EvaluationManager manager)
 	{
-		if (scopeInfo == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot resolve formula with null ScopeInformation");
-		}
 		@SuppressWarnings("unchecked")
-		T result = (T) scopeInfo.evaluate(root, assertedFormat, source);
+		T result = (T) EVALUATE_VISITOR.visit(root, manager);
 		return result;
 	}
 
@@ -179,7 +173,7 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 		Class<?> expectedFormat = formatManager.getManagedClass();
 		//semantics.set(FormulaSemantics.BASE_FORMAT, expectedFormat);
 		Class<?> formulaFormat =
-				(Class<?>) new SemanticsVisitor().visit(root, semantics);
+				(Class<?>) SEMANTICS_VISITOR.visit(root, semantics);
 		if (!semantics.isValid())
 		{
 			return;

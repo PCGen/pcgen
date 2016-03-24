@@ -21,11 +21,11 @@ import java.util.Arrays;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -153,14 +153,14 @@ public class GenericFunction implements Function
 	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		Class<?> assertedFormat)
+		EvaluationManager manager)
 	{
-		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
-		ScopeInstance scopeInstance = visitor.getScopeInstance();
-		EvaluateVisitor ev =
-				new EvaluateVisitor(withArgs, scopeInstance,
-					visitor.getSource());
-		return ev.visit(root, assertedFormat);
+		FormulaManager withArgs =
+				getManager(args, manager.peek(EvaluationManager.FMANAGER));
+		manager.push(EvaluationManager.FMANAGER, withArgs);
+		Object result = visitor.visit(root, manager);
+		manager.pop(EvaluationManager.FMANAGER);
+		return result;
 	}
 
 	/**

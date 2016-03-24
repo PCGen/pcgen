@@ -20,6 +20,7 @@ package pcgen.base.formula.library;
 import org.junit.Test;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
@@ -102,7 +103,7 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 		underlying.addFunction(arg);
 		assertTrue(arg == underlying.getFunction("arg"));
 		assertFalse(arg == library.getFunction("arg"));
-		EvaluateVisitor visitor = new EvaluateVisitor(getFormulaManager(), getGlobalScopeInst(), this);
+		EvaluateVisitor visitor = new EvaluateVisitor();
 		assertEquals(3.3, underlying.getFunction("arg").evaluate(visitor, args, null));
 		assertEquals(1, library.getFunction("arg").evaluate(visitor, args, null));
 	}
@@ -133,7 +134,7 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 
 			@Override
 			public Double evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
+				EvaluationManager manager)
 			{
 				return 3.3;
 			}

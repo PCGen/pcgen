@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.calculation.Modifier;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.TreeMapToList;
 
@@ -47,10 +47,10 @@ public class Solver<T>
 {
 
 	/**
-	 * The underlying ScopeInformation for this Solver, used when a Modifier
+	 * The underlying EvaluationManager for this Solver, used when a Modifier
 	 * uses a Formula to determine the output value.
 	 */
-	private final ScopeInformation scopeInfo;
+	private final EvaluationManager evaluationManager;
 
 	/**
 	 * The "starting" or "default" modifier for this Solver. This is the value
@@ -87,26 +87,26 @@ public class Solver<T>
 	 * 
 	 * @param defaultModifier
 	 *            The "starting" or "default" modifier for this Solver
-	 * @param scopeInfo
-	 *            The underlying ScopeInformation for this Solver, used when a
+	 * @param evaluationManager
+	 *            The underlying EvaluationManager for this Solver, used when a
 	 *            Modifier uses a Formula to determine the output value
 	 */
-	public Solver(Modifier<T> defaultModifier, ScopeInformation scopeInfo)
+	public Solver(Modifier<T> defaultModifier, EvaluationManager evaluationManager)
 	{
 		if (defaultModifier == null)
 		{
 			throw new IllegalArgumentException(
 				"Default Modifier cannot be null");
 		}
-		if (scopeInfo == null)
+		if (evaluationManager == null)
 		{
 			throw new IllegalArgumentException(
-				"ScopeInformation cannot be null");
+				"EvaluationManager cannot be null");
 		}
 		//Enforce no dependencies
 		try
 		{
-			defaultModifier.process(null, null, null);
+			defaultModifier.process(evaluationManager);
 		}
 		catch (NullPointerException e)
 		{
@@ -114,7 +114,7 @@ public class Solver<T>
 				"Default Modifier must support null input", e);
 		}
 		this.defaultModifier = defaultModifier;
-		this.scopeInfo = scopeInfo;
+		this.evaluationManager = evaluationManager;
 	}
 
 	/**
@@ -224,14 +224,13 @@ public class Solver<T>
 	 */
 	public T process()
 	{
-		T result = defaultModifier.process(null, null, null);
+		T result = defaultModifier.process(evaluationManager);
 		for (Long priority : modifierList.getKeySet())
 		{
 			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 			{
-				result =
-						modInfo.getModifier().process(result, scopeInfo,
-							modInfo.getSource());
+				evaluationManager.set(EvaluationManager.INPUT, result);
+				result = modInfo.modifier.process(evaluationManager);
 			}
 		}
 		return result;
@@ -248,7 +247,7 @@ public class Solver<T>
 	public List<ProcessStep<T>> diagnose()
 	{
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
-		T stepResult = defaultModifier.process(null, null, null);
+		T stepResult = defaultModifier.process(evaluationManager);
 		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(
 			defaultModifier.getVariableFormat().getSimpleName()), stepResult));
 		if (!modifierList.isEmpty())
@@ -257,12 +256,11 @@ public class Solver<T>
 			{
 				for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 				{
-					Modifier<T> modifier = modInfo.getModifier();
-					Object source = modInfo.getSource();
-					stepResult = modifier.process(stepResult, scopeInfo, source);
+					evaluationManager.set(EvaluationManager.INPUT, stepResult);
+					stepResult = modInfo.modifier.process(evaluationManager);
 					@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 					ProcessStep<T> step =
-							new ProcessStep<T>(modifier, source, stepResult);
+							new ProcessStep<T>(modInfo.modifier, modInfo.source, stepResult);
 					steps.add(step);
 				}
 			}

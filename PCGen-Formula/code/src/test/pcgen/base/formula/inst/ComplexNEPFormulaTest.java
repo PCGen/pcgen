@@ -8,17 +8,12 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.parse.Node;
-import pcgen.base.formula.visitor.DependencyVisitor;
-import pcgen.base.formula.visitor.EvaluateVisitor;
-import pcgen.base.formula.visitor.SemanticsVisitor;
-import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 
@@ -132,45 +127,7 @@ public class ComplexNEPFormulaTest extends TestCase
 		new ComplexNEPFormula("if(c||d,\"A\",\"B\")").isValid(stringMgr, fs);
 		assertEquals(true, fs.isValid());
 
-		setup.getFunctionLibrary().addFunction(new Function()
-		{
-
-			@Override
-			public String getFunctionName()
-			{
-				return "value";
-			}
-
-			@Override
-			public Boolean isStatic(StaticVisitor visitor, Node[] args)
-			{
-				return false;
-			}
-
-			@Override
-			public Class<?>  allowArgs(SemanticsVisitor visitor, Node[] args,
-				FormulaSemantics semantics)
-			{
-				if (args.length == 0)
-				{
-					return Number.class;
-				}
-				return null;
-			}
-
-			@Override
-			public Object evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
-			{
-				return 4;
-			}
-
-			@Override
-			public void getDependencies(DependencyVisitor visitor,
-				DependencyManager manager, Node[] args)
-			{
-			}
-		});
+		fs.set(FormulaSemantics.INPUT_FORMAT, Number.class);
 		new ComplexNEPFormula("value()").isValid(numberMgr, fs);
 		assertEquals(true, fs.isValid());
 		new ComplexNEPFormula("3^5").isValid(numberMgr, fs);
@@ -186,7 +143,6 @@ public class ComplexNEPFormulaTest extends TestCase
 		scopeLib.registerScope(globalScope);
 		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
 
-		ScopeInformation scopeInfo = indSetup.getScopeInfo();
 		ScopeInstance globalInst = indSetup.getGlobalScopeInst();
 		DependencyManager depManager = setupDM(indSetup);
 
@@ -265,46 +221,6 @@ public class ComplexNEPFormulaTest extends TestCase
 		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
-		setup.getFunctionLibrary().addFunction(new Function()
-		{
-
-			@Override
-			public String getFunctionName()
-			{
-				return "value";
-			}
-
-			@Override
-			public Boolean isStatic(StaticVisitor visitor, Node[] args)
-			{
-				return false;
-			}
-
-			@Override
-			public Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-				FormulaSemantics semantics)
-			{
-				if (args.length == 0)
-				{
-					return Number.class;
-				}
-				return null;
-			}
-
-			@Override
-			public Object evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
-			{
-				return 4;
-			}
-
-			@Override
-			public void getDependencies(DependencyVisitor visitor,
-				DependencyManager manager, Node[] args)
-			{
-			}
-		});
-
 		depManager = setupDM(indSetup);
 		new ComplexNEPFormula("value()").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
@@ -336,28 +252,30 @@ public class ComplexNEPFormulaTest extends TestCase
 		scopeLib.registerScope(globalScope);
 		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
 
-		ScopeInformation scopeInfo = indSetup.getScopeInfo();
 		ScopeInstance globalInst = indSetup.getGlobalScopeInst();
+		EvaluationManager evalManager =
+				EvaluationManager.generate(indSetup.getFormulaManager(),
+					indSetup.getGlobalScopeInst(), Number.class);
 		try
 		{
-			new ComplexNEPFormula("3+5").resolve(null, null, null);
+			new ComplexNEPFormula("3+5").resolve(null);
 			fail("Expected null FormulaManager to fail");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
 
 		NumberManager numberMgr = new NumberManager();
 		BooleanManager booleanMgr = new BooleanManager();
-		StringManager stringMgr = new StringManager();
 
-		assertEquals(8,
-			new ComplexNEPFormula("3+5").resolve(scopeInfo, null, null));
-		assertEquals(15,
-			new ComplexNEPFormula("3*5").resolve(scopeInfo, null, null));
-		assertEquals(56,
-			new ComplexNEPFormula("(3+5)*7").resolve(scopeInfo, null, null));
+		assertEquals(8, new ComplexNEPFormula("3+5").resolve(evalManager));
+		assertEquals(15, new ComplexNEPFormula("3*5").resolve(evalManager));
+		assertEquals(56, new ComplexNEPFormula("(3+5)*7").resolve(evalManager));
 
 		setup.getVariableLibrary().assertLegalVariableID("a", globalScope,
 			numberMgr);
@@ -368,14 +286,13 @@ public class ComplexNEPFormulaTest extends TestCase
 			new VariableID<>(globalInst, numberMgr, "a"), 4);
 		indSetup.getVariableStore().put(
 			new VariableID<>(globalInst, numberMgr, "b"), 1);
-		assertEquals(3,
-			new ComplexNEPFormula("a-b").resolve(scopeInfo, null, null));
+		assertEquals(3, new ComplexNEPFormula("a-b").resolve(evalManager));
 
-		assertEquals(5, new ComplexNEPFormula("if(a>=b,5,9)").resolve(
-			scopeInfo, null, null));
+		assertEquals(5,
+			new ComplexNEPFormula("if(a>=b,5,9)").resolve(evalManager));
 
-		assertEquals(-9, new ComplexNEPFormula("if(a==b,5,-9)").resolve(
-			scopeInfo, null, null));
+		assertEquals(-9,
+			new ComplexNEPFormula("if(a==b,5,-9)").resolve(evalManager));
 
 		setup.getVariableLibrary().assertLegalVariableID("c", globalScope,
 			booleanMgr);
@@ -387,53 +304,10 @@ public class ComplexNEPFormulaTest extends TestCase
 			new VariableID<>(globalInst, booleanMgr, "d"), true);
 
 		assertEquals("A",
-			new ComplexNEPFormula("if(c||d,\"A\",\"B\")").resolve(scopeInfo,
-				null, null));
+			new ComplexNEPFormula("if(c||d,\"A\",\"B\")").resolve(evalManager));
 
-		setup.getFunctionLibrary().addFunction(new Function()
-		{
-
-			@Override
-			public String getFunctionName()
-			{
-				return "value";
-			}
-
-			@Override
-			public Boolean isStatic(StaticVisitor visitor, Node[] args)
-			{
-				return false;
-			}
-
-			@Override
-			public Class<?>  allowArgs(SemanticsVisitor visitor, Node[] args,
-				FormulaSemantics semantics)
-			{
-				if (args.length == 0)
-				{
-					return Number.class;
-				}
-				return null;
-			}
-
-			@Override
-			public Object evaluate(EvaluateVisitor visitor, Node[] args,
-				Class<?> assertedFormat)
-			{
-				return 4;
-			}
-
-			@Override
-			public void getDependencies(DependencyVisitor visitor,
-				DependencyManager manager, Node[] args)
-			{
-			}
-		});
-
-		assertEquals(4,
-			new ComplexNEPFormula("value()").resolve(scopeInfo, null, null));
-
-		assertEquals(243.0,
-			new ComplexNEPFormula("3^5").resolve(scopeInfo, null, null));
+		evalManager.set(EvaluationManager.INPUT, 4);
+		assertEquals(4, new ComplexNEPFormula("value()").resolve(evalManager));
+		assertEquals(243.0, new ComplexNEPFormula("3^5").resolve(evalManager));
 	}
 }

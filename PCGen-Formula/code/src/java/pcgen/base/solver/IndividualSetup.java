@@ -22,7 +22,6 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleVariableStore;
@@ -53,11 +52,6 @@ public class IndividualSetup
 	 * The "Global" ScopeInstance for this IndividualSetup.
 	 */
 	private final ScopeInstance globalScopeInst;
-
-	/**
-	 * The ScopeInformation for this IndividualSetup.
-	 */
-	private final ScopeInformation scopeInfo;
 
 	/**
 	 * The WriteableVariableStore for this DefaultFormulaSetup. Lazily
@@ -93,7 +87,6 @@ public class IndividualSetup
 					parent.getOperatorLibrary(), parent.getVariableLibrary(),
 					getVariableStore());
 		globalScopeInst = instanceFactory.getInstance(null, globalScope);
-		scopeInfo = new ScopeInformation(formulaManager, globalScopeInst);
 	}
 
 	/**
@@ -134,16 +127,6 @@ public class IndividualSetup
 	public ScopeInstance getGlobalScopeInst()
 	{
 		return globalScopeInst;
-	}
-
-	/**
-	 * Return the ScopeInformation for this IndividualSetup.
-	 * 
-	 * @return the ScopeInformation for this IndividualSetup
-	 */
-	public ScopeInformation getScopeInfo()
-	{
-		return scopeInfo;
 	}
 
 	/**

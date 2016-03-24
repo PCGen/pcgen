@@ -25,6 +25,7 @@ import org.junit.Test;
 
 import pcgen.base.calculation.testsupport.BasicCalc;
 import pcgen.base.calculation.testsupport.NepCalc;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.operator.number.NumberAdd;
 
@@ -94,7 +95,9 @@ public class ArrayComponentModifierTest extends TestCase
 		CalculationModifier cm = new CalculationModifier(calc, 5);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = new Number[]{1, 2, 3, 4, 5, 6, 7};
-		Object[] result = acm.process(array, null, null);
+		EvaluationManager manager = new EvaluationManager();
+		manager.set(EvaluationManager.INPUT, array);
+		Object[] result = acm.process(manager);
 		array[5] = array[5].intValue() + 33;
 		assertTrue(Arrays.deepEquals(array, result));
 	}
@@ -107,7 +110,9 @@ public class ArrayComponentModifierTest extends TestCase
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = new Number[]{1, 2, 3, 4};
 		//Should be no effect
-		Object[] result = acm.process(array, null, null);
+		EvaluationManager manager = new EvaluationManager();
+		manager.set(EvaluationManager.INPUT, array);
+		Object[] result = acm.process(manager);
 		assertTrue(Arrays.deepEquals(array, result));
 	}
 

@@ -23,6 +23,7 @@ import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
@@ -33,11 +34,12 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
+import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
+import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
@@ -78,7 +80,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
-		if (localSetup.getScopeInfo().isStatic(node) != b)
+		StaticVisitor staticVisitor =
+				new StaticVisitor(localSetup.getFormulaManager().getLibrary());
+		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
+		if (isStat != b)
 		{
 			TestCase.fail("Expected Static (" + b + ") Formula: " + formula);
 		}
@@ -86,8 +91,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
-		Object result =
-				localSetup.getScopeInfo().evaluate(node, Number.class, null);
+		EvaluationManager manager =
+				EvaluationManager.generate(localSetup.getFormulaManager(),
+					localSetup.getGlobalScopeInst(), Number.class);
+		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result.equals(valueOf))
 		{
 			return;
@@ -195,10 +202,5 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected LegalScopeLibrary getScopeLibrary()
 	{
 		return setup.getLegalScopeLibrary();
-	}
-
-	protected ScopeInformation getScopeInfo()
-	{
-		return localSetup.getScopeInfo();
 	}
 }
