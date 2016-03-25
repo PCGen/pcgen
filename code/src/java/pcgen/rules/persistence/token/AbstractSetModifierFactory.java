@@ -18,11 +18,11 @@
 package pcgen.rules.persistence.token;
 
 import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
+import pcgen.cdom.formula.FormulaCalc;
+import pcgen.cdom.formula.FormulaModifier;
 
 /**
  * An AbstractSetModifierFactory is a ModifierToken/BasicCalculation that returns a
@@ -74,8 +74,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 	}
 
 	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> formatManager, String instructions)
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager,
+		String instructions)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
@@ -83,8 +83,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 				+ getVariableFormat().getName() + " or a child of that class");
 		}
 		T n = formatManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
-		return new CalculationModifier<>(calc, userPriority, formatManager);
+		NEPCalculation<T> calc = new ProcessCalculation<T>(n, this, formatManager);
+		return new FormulaCalc<T>(calc, formatManager);
 	}
 
 }

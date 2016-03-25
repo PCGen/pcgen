@@ -26,6 +26,7 @@ import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.formula.FormulaModifier;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
@@ -71,13 +72,11 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
-		PCGenModifier<OrderedPair> modifier;
+		FormulaModifier<OrderedPair> modifier;
 		try
 		{
-			modifier =
-					context.getVariableContext().getModifier(
-						MOD_IDENTIFICATION, value, MOD_PRIORITY, scope,
-						formatManager);
+			modifier = context.getVariableContext()
+				.getModifier(MOD_IDENTIFICATION, value, scope, formatManager);
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -85,6 +84,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
+		modifier.addAssociation("PRIORITY=" + MOD_PRIORITY);
 		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
@@ -121,7 +121,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				PCGenModifier<?> modifier = vm.getModifier();
+				FormulaModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
 					&& (vm.getLegalScope().getParentScope() == null)
 					&& (modifier.getUserPriority() == MOD_PRIORITY)

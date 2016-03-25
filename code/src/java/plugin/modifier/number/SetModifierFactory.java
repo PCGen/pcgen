@@ -17,16 +17,16 @@
  */
 package plugin.modifier.number;
 
-import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.formula.FormulaCalc;
+import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
@@ -50,7 +50,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 	}
 
 	@Override
-	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
+	public FormulaModifier<Number> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{
@@ -61,7 +61,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 		}
 		try
 		{
-			return getFixedModifier(userPriority, formatManager, instructions);
+			return getFixedModifier(formatManager, instructions);
 		}
 		catch (NumberFormatException e)
 		{
@@ -69,8 +69,8 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 					FormulaFactory.getValidFormula(instructions, managerFactory,
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
-					new FormulaCalculation<>(f, this);
-			return new CalculationModifier<>(calc, userPriority, formatManager);
+					new FormulaCalculation<Number>(f, this);
+			return new FormulaCalc<Number>(calc, formatManager);
 		}
 	}
 

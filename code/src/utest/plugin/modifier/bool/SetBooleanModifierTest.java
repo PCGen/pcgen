@@ -17,17 +17,20 @@
  */
 package plugin.modifier.bool;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
 import pcgen.base.format.BooleanManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.ModifierFactory;
-
-import org.junit.Test;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
 
 public class SetBooleanModifierTest
 {
@@ -41,7 +44,7 @@ public class SetBooleanModifierTest
 		try
 		{
 			ModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,8 +57,9 @@ public class SetBooleanModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory factory = new SetModifierFactory();
-		Modifier<Boolean> modifier =
-				factory.getModifier(5, "True", new ManagerFactory(){}, null, varScope, booleanManager);
+		FormulaModifier<Boolean> modifier =
+				factory.getModifier("True", new ManagerFactory(){}, null, varScope, booleanManager);
+		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());
 		assertEquals(booleanManager, modifier.getVariableFormat());
 		assertEquals(Boolean.TRUE, modifier.process(EvalManagerUtilities.getInputEM(Boolean.FALSE)));

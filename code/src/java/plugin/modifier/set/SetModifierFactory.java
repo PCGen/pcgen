@@ -17,8 +17,9 @@
  */
 package plugin.modifier.set;
 
-import pcgen.base.calculation.AbstractPCGenModifier;
-import pcgen.base.calculation.PCGenModifier;
+import java.util.Collection;
+import java.util.Collections;
+
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -26,6 +27,8 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
+import pcgen.cdom.formula.AssociationUtilities;
+import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
@@ -57,21 +60,20 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
+	public FormulaModifier<T[]> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
-		return new SetIndirectArrayModifier(formatManager, userPriority,
-			indirect);
+		return new SetIndirectArrayModifier(formatManager, indirect);
 	}
 
 	@Override
-	public PCGenModifier<T[]> getFixedModifier(int userPriority,
+	public FormulaModifier<T[]> getFixedModifier(
 		FormatManager<T[]> fmtManager, String instructions)
 	{
 		T[] toSet = fmtManager.convert(instructions);
-		return new SetDirectArrayModifier(fmtManager, userPriority, toSet);
+		return new SetDirectArrayModifier(fmtManager, toSet);
 	}
 
 	/**
@@ -86,10 +88,10 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 */
 		private T[] toSet;
 
-		private SetDirectArrayModifier(FormatManager<T[]> formatManager,
-		                               int userPriority, T[] toSet)
+		public SetDirectArrayModifier(FormatManager<T[]> formatManager,
+			T[] toSet)
 		{
-			super(formatManager, userPriority);
+			super(formatManager);
 			this.toSet = toSet;
 		}
 
@@ -119,10 +121,10 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toSet;
 
-		private SetIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toSet)
+		public SetIndirectArrayModifier(FormatManager<T[]> formatManager,
+			Indirect<T[]> toSet)
 		{
-			super(formatManager, userPriority);
+			super(formatManager);
 			this.toSet = toSet;
 		}
 
@@ -143,27 +145,19 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	abstract class SetArrayModifier extends AbstractPCGenModifier<T[]>
+	public abstract class SetArrayModifier implements FormulaModifier<T[]>
 	{
 
 		/**
 		 * The user priority of this SetModifier
 		 */
-		private final int userPriority;
+		private int userPriority;
 
 		private final FormatManager<T[]> fmtManager;
 
-		SetArrayModifier(FormatManager<T[]> formatManager,
-		                 int userPriority)
+		public SetArrayModifier(FormatManager<T[]> formatManager)
 		{
 			this.fmtManager = formatManager;
-			this.userPriority = userPriority;
-		}
-
-		@Override
-		public int getUserPriority()
-		{
-			return userPriority;
 		}
 
 		@Override
@@ -211,6 +205,20 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		public FormatManager<T[]> getFormatManager()
 		{
 			return fmtManager;
+		}
+
+		@Override
+		public void addAssociation(String assocInstructions)
+		{
+			userPriority =
+					AssociationUtilities.processUserPriority(assocInstructions);
+		}
+
+		@Override
+		public Collection<String> getAssociationInstructions()
+		{
+			String priority = AssociationUtilities.unprocessUserPriority(userPriority);
+			return Collections.singleton(priority);
 		}
 	}
 }

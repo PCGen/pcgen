@@ -26,6 +26,7 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.helper.ReferenceDependency;
+import pcgen.cdom.formula.FormulaModifier;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 /**
@@ -56,27 +57,28 @@ public class MasterModifierFactory
 	}
 
 	/**
-	 * Returns a Modifier representing the information given in the parameters.
+	 * Returns a FormulaModifier representing the information given in the
+	 * parameters.
 	 * 
 	 * @param modIdentifier
 	 *            The Identifier of the Modifier (indicating the general
 	 *            function being performed, e.g. ADD)
 	 * @param modInstructions
 	 *            The Instructions of the Modifier (indicating the actual value
-	 *            the Modifier will use)
+	 *            the FormulaModifier will use)
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to support analyzing the
 	 *            instructions
-	 * @param priorityNumber
-	 *            The user priority of the Modifier to be produced
 	 * @param varScope
-	 *            The VariableScope for the Modifier to be returned
+	 *            The VariableScope for the FormulaModifier to be returned
 	 * @param formatManager
-	 *            The FormatManager for the Modifier to be returned
-	 * @return a Modifier representing the information given in the parameters
+	 *            The FormatManager for the FormulaModifier to be returned
+	 * @return a FormulaModifier representing the information given in the
+	 *         parameters
 	 */
-	public <T> PCGenModifier<T> getModifier(String modIdentifier, String modInstructions,
-		ManagerFactory managerFactory, int priorityNumber, LegalScope varScope,
+	public <T> FormulaModifier<T> getModifier(String modIdentifier,
+		String modInstructions, LegalScope varScope,
+		ManagerFactory managerFactory, 
 		FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();
@@ -88,7 +90,7 @@ public class MasterModifierFactory
 				"Requested unknown ModifierType: " + varClass.getSimpleName()
 					+ " " + modIdentifier);
 		}
-		PCGenModifier<T> modifier = factory.getModifier(priorityNumber, modInstructions,
+		FormulaModifier<T> modifier = factory.getModifier(modInstructions,
 			managerFactory, formulaManager, varScope, formatManager);
 		/*
 		 * getDependencies needs to be called during LST load, so that object references are captured
