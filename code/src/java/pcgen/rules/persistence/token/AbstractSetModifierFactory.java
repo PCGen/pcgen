@@ -74,8 +74,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 	}
 
 	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> formatManager, String instructions)
+	public PCGenModifier<T> getFixedModifier(FormatManager<T> formatManager,
+		String instructions)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
@@ -84,7 +84,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 		}
 		T n = formatManager.convert(instructions);
 		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
-		return new CalculationModifier<>(calc, userPriority, formatManager);
+		return new CalculationModifier<>(calc, formatManager);
 	}
 
 }

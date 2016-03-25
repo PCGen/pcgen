@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016-18 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -30,12 +30,10 @@ import pcgen.base.util.Indirect;
  */
 public interface PCGenModifier<T> extends Modifier<T>
 {
-	/**
-	 * Returns the user priority for this PCGenModifier.
-	 * 
-	 * @return The user priority for this PCGenModifier
-	 */
-	public int getUserPriority();
+
+	public void addAssociation(String assocInstructions);
+
+	public Collection<String> getAssociationInstructions();
 
 	/**
 	 * Add object references to this PCGenModifier. These are captured solely as
@@ -45,4 +43,5 @@ public interface PCGenModifier<T> extends Modifier<T>
 	 *            The Collection of Indirect objects that this PCGenModifier references.
 	 */
 	public void addReferences(Collection<Indirect<?>> collection);
+
 }

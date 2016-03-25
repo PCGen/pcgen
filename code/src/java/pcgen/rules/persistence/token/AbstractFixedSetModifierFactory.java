@@ -34,7 +34,7 @@ public abstract class AbstractFixedSetModifierFactory<T>
 {
 
 	@Override
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T> getModifier(String instructions,
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
@@ -43,7 +43,7 @@ public abstract class AbstractFixedSetModifierFactory<T>
 			throw new IllegalArgumentException(
 				"FormatManager must manage " + getVariableFormat().getName());
 		}
-		return getFixedModifier(userPriority, formatManager, instructions);
+		return getFixedModifier(formatManager, instructions);
 	}
 
 }
