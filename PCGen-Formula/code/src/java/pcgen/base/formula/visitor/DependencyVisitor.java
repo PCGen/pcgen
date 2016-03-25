@@ -235,10 +235,10 @@ public class DependencyVisitor implements FormulaParserVisitor
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
 		String name = fnode.getText();
 		Node argNode = node.jjtGetChild(1);
-		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
 			Function function = fm.getLibrary().getFunction(name);
+			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			//TODO Trigger NPE? or does it add to FDM in some way... ??
 			function.getDependencies(this, (Class<?>) data, args);
 		}
