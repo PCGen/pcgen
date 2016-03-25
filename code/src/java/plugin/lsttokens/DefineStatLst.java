@@ -38,7 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The Class <code>DefineStatLst</code> parses the DEFINESTAT tag. Valid sub tags are:
- * </p>
+ * <p>
  * DEFINESTAT:LOCK|stat|value <br>
  * DEFINESTAT:UNLOCK|stat <br>
  * DEFINESTAT:NONSTAT|stat <br>

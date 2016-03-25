@@ -39,7 +39,7 @@ import freemarker.template.TemplateModelException;
 /**
  * Implements a custom Freemarker macro to allow exporting of a string value  
  * from the character. It evaluates a PCGen export token for the current character  
- * and returns the value as a string. e.g. <@pcstring tag="PLAYERNAME"/> or 
+ * and returns the value as a string. e.g. {@literal <@pcstring tag="PLAYERNAME"/>} or 
  * ${pcstring('PLAYERNAME')}
  * 
  * 

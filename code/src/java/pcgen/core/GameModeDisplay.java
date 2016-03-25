@@ -42,7 +42,7 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	/**
 	 * Creates a new instance of GameModeMenuEntry.
 	 *
-	 * @param modeName the mode name
+	 * @param mode the mode name
 	 */
 	public GameModeDisplay(final GameMode mode)
 	{

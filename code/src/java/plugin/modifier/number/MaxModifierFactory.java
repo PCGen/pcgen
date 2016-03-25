@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An MaxModifierFactory is a ModifierFactory<Number> that returns the lower of
+ * An MaxModifierFactory is a {@code ModifierFactory<Number>} that returns the lower of
  * the input or a defined maximum value (provided during construction of this
  * MaxModifierFactory) when a Modifier produced by this MaxModifierFactory is
  * processed.

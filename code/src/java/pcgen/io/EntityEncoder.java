@@ -70,6 +70,7 @@ public final class EntityEncoder
 
 	/**
 	 * decode characters.
+	 * {@literal 
 	 * "\n" <- "&nl;"
 	 * "\r" <- "&cr;"
 	 * "\f" <- "&lf;"
@@ -78,7 +79,7 @@ public final class EntityEncoder
 	 * "[" <- "&lbracket;"
 	 * "]" <- "&rbracket;"
 	 * "&" <- "&amp;"
-	 *
+	 * }
 	 * <br>author: Thomas Behr 09-09-02
 	 *
 	 * @param s   the String to decode
@@ -132,6 +133,7 @@ public final class EntityEncoder
 
 	/**
 	 * encode characters.
+	 * {@literal 
 	 * "\n" -> "&nl;"
 	 * "\r" -> "&cr;"
 	 * "\f" -> "&lf;"
@@ -140,7 +142,7 @@ public final class EntityEncoder
 	 * "[" -> "&lbracket;"
 	 * "]" -> "&rbracket;"
 	 * "&" -> "&amp;"
-	 *
+	 * }
 	 * <br>author: Thomas Behr 09-09-02
 	 *
 	 * @param s   the String to encode
@@ -163,12 +165,13 @@ public final class EntityEncoder
 
 	/**
 	 * Encode the characters.
+	 * {@literal 
 	 * "\n" -> "&nl;"
 	 * "\r" -> "&cr;"
 	 * "\f" -> "&lf;"
 	 * "|" -> "&pipe;"
 	 * "&" -> "&amp;"
-	 *
+	 * }
 	 *Note that this must be a subset of the encode function as 
 	 *the same decode function is used to decode these values.
 	 *

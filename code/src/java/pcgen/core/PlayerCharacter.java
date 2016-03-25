@@ -1509,8 +1509,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * Sets the character's handedness.
 	 * 
 	 * 
-	 * @param g
-	 *            A handedness to try and set.
+	 * @param h A handedness to try and set.
 	 */
 	public void setHanded(final Handed h)
 	{
@@ -5313,10 +5312,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * given as regular expression. <p> "include"-s will add the appropriate
 	 * modifier "exclude"-s will subtract the appropriate modifier <p> (This
 	 * means <tt>save.MAGIC.NOMAGIC</tt> equals 0, whereas
-	 * <tt>save.RACE.RACE</tt> equals 2 times the racial bonus) <p/> If you
+	 * <tt>save.RACE.RACE</tt> equals 2 times the racial bonus) <p> If you
 	 * use unrecognised terminals, their value will amount to 0 This means
 	 * <tt>save.BLABLA</tt> equals 0 whereas <tt>save.MAGIC.BLABLA</tt>
-	 * equals <tt>save.MAGIC</tt> <p/> <br>
+	 * equals <tt>save.MAGIC</tt> <p> <br>
 	 * author: Thomas Behr 09-03-02
 	 * 
 	 * @param check

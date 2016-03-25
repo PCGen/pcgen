@@ -1165,7 +1165,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Get the item name based off the modifiers
 	 * 
-	 * @param The base name of the object, may instead be the base key if generating a key
+	 * @param baseName base name of the object, may instead be the base key if generating a key
 	 * @return item name based off the modifiers
 	 */
 	public String getItemNameFromModifiers(String baseName)
@@ -4042,7 +4042,6 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Sets the base attribute of the Equipment object
 	 * 
-	 * @param pc The PC carrying the item 
 	 * Todo remove the pc parameter, it is unused.
 	 */
 	public void setBase()

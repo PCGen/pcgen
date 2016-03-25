@@ -30,7 +30,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		/**
 		 * @param statusMsg - text to display in status bar
 		 * @param task to be executed
-		 * @param the PCGen status Bar
+		 * @param statusBar the PCGen status Bar
 		 */
 		public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
 		{

@@ -68,7 +68,6 @@ public class BodyStructure implements BodyStructureFacade
 	 * 
 	 * @param name The name of the body structure.
 	 * @param holdsAnyType Can this item hold anything at all
-	 * @param forbiddenTypes The exceptions to the 'holds any type' rule.
 	 */
 	public BodyStructure(String name, boolean holdsAnyType)
 	{

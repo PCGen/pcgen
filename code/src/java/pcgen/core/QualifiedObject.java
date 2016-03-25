@@ -33,7 +33,7 @@ import pcgen.core.prereq.Prerequisite;
 /**
  * This class stores an association between an object and a set of prereqs.
  * Refactored from ChoiceInfo originally written by
- * Andrew Wilson <nuance@sourceforge.net>
+ * Andrew Wilson &lt;nuance@sourceforge.net&gt;
  * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  * @param <T> 
  */

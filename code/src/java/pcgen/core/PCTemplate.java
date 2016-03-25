@@ -51,7 +51,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
 	 * level (Class and Hit Dice). This will include the absolute adjustment
-	 * made with CR:, LEVEL:<num>:CR and HD:<num>:CR tags
+	 * made with {@literal CR:, LEVEL:<num>:CR and HD:<num>:CR tags}
 	 * 
 	 * @param level
 	 *            The level to calculate the adjustment for

@@ -163,13 +163,11 @@ public class TemplateToken extends Token
 	 * that the PC qualifies for at the supplied level and
 	 * hit dice. 
 	 * 
-	 * @param displayt
+	 * @param pc
 	 *
 	 * @param level
 	 *
 	 * @param hitdice
-	 *
-	 * @param addNew
 	 *
 	 * @return a list of feats 
 	 */
@@ -233,7 +231,7 @@ public class TemplateToken extends Token
 	/**
 	 * Get value of FEAT sub token
 	 * @param template
-	 * @param display
+	 * @param pc
 	 * @return value of FEAT sub token
 	 */
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
@@ -247,7 +245,7 @@ public class TemplateToken extends Token
 
 	/**
 	 * Get value of MOD sub token
-	 * @param display
+	 * @param pc
 	 * @param template
 	 * @param aLabel
 	 * @return value of MOD sub token
@@ -302,7 +300,7 @@ public class TemplateToken extends Token
 	/**
 	 * Get value of SA sub token
 	 * @param template
-	 * @param display
+	 * @param pc
 	 * @return value of SA sub token
 	 */
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)

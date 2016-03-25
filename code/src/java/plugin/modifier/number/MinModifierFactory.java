@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An MinModifierFactory is a ModifierFactory<Number> that returns the greater
+ * An MinModifierFactory is a {@code ModifierFactory<Number>} that returns the greater
  * of the input or a defined maximum value (provided during construction of this
  * MinModifierFactory) when a Modifier produced by this MinModifierFactory is
  * processed.

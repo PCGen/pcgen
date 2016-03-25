@@ -377,7 +377,7 @@ public final class Utility
 	/**
 	 * View a URI in a browser.
 	 *
-	 * @param urI URI to display in browser.
+	 * @param uri URI to display in browser.
 	 * @throws IOException if browser can not be launched
 	 * @see DesktopBrowserLauncher
 	 */

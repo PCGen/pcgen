@@ -316,7 +316,6 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @return A String in LST file format for this description.
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
 	public String getPCCText()
 	{

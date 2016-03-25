@@ -108,7 +108,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * turn.  If it finds that one of the bonuses contains %CHOICE, it replaces
 	 * it with a one new bonus object for every entry in "associated".
 	 *
-	 * @param as a PObject that has the associated bonuses
+	 * @param e a PObject that has the associated bonuses
 	 *
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.

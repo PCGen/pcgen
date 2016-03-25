@@ -83,7 +83,7 @@ public class EqSetToken extends Token
 
 	/**
 	 * Get Name Token
-	 * @param pc
+	 * @param display
 	 * @return Name Token
 	 */
 	public static String getNameToken(CharacterDisplay display)

@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An DivideModifierFactory is a ModifierFactory<Number> that divides the input
+ * An DivideModifierFactory is a {@code ModifierFactory<Number>} that divides the input
  * by a specific value (provided during construction of this
  * DivideModifierFactory) when a Modifier produced by this DivideModifierFactory
  * is processed.

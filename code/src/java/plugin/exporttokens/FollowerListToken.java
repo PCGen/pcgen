@@ -65,7 +65,7 @@ public class FollowerListToken extends AbstractExportToken
 	/**
 	 * Get FOLLOWERLIST Token
 	 *
-	 * @param pc The character to be queried
+	 * @param display The character to be queried
 	 * @return The list of followers.
 	 */
 	public static String getFollowerListToken(CharacterDisplay display)

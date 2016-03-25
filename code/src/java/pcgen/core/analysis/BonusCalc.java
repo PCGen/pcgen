@@ -143,7 +143,6 @@ public class BonusCalc
 	 * @param po
 	 * @param aType
 	 * @param aName
-	 * @param obj
 	 * @param aPC
 	 * @return the bonus
 	 */

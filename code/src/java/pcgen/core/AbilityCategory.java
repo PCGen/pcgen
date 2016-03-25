@@ -474,7 +474,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	// KeyedObject Support
 	// -------------------------------------------
 	/**
-	 * @see pcgen.core.KeyedObject#getDisplayName()
+	 * @see pcgen.cdom.base.Category#getDisplayName()
 	 */
     @Override
 	public String getDisplayName()
@@ -495,7 +495,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
 	/**
-	 * @see pcgen.core.KeyedObject#getKeyName()
+	 * @see pcgen.cdom.base.Category#getKeyName()
 	 */
     @Override
 	public String getKeyName()
@@ -504,7 +504,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
 	/**
-	 * @see pcgen.core.KeyedObject#setName(java.lang.String)
+	 * @see pcgen.cdom.base.Loadable#setName(java.lang.String)
 	 */
     @Override
 	public void setName(final String aName)

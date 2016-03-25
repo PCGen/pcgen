@@ -20,7 +20,7 @@ package plugin.modifier.bool;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
- * An SetModifier is a Modifier<Boolean> that returns a specific value
+ * An SetModifier is a {@code Modifier<Boolean>} that returns a specific value
  * (independent of the input) when the Modifier is processed.
  */
 public class SetModifierFactory extends AbstractSetModifierFactory<Boolean>

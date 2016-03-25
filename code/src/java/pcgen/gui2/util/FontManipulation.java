@@ -168,8 +168,8 @@ public class FontManipulation
 	/**
 	 * For extra smaller font.
 	 * 
-	 * @param f
-	 *            base font
+	 * @param container
+	 *            element to change the font of
 	 */
 	public static void xsmall(Container container)
 	{
@@ -180,8 +180,8 @@ public class FontManipulation
 	/**
 	 * For less important text, like grayed out italic.
 	 * 
-	 * @param container
-	 *            element to change the font of
+	 * @param f
+	 *            base font
 	 */
 	public static Font less(Font f)
 	{

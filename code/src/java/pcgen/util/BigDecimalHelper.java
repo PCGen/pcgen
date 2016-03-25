@@ -72,7 +72,7 @@ public class BigDecimalHelper
 
 	/**
 	 * Returns a string with the trimmed number.
-	 * E.g. numberToTrim=3.1000 > 3.1
+	 * E.g. {@literal numberToTrim=3.1000 > 3.1 }
 	 * If numberToTrim is non-numeric, 0 is returned (should be changed.)
 	 * @param numberToTrim The value to trim.
 	 * @return String

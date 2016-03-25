@@ -173,8 +173,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @param pObj The object that has just completed loading.
 	 * 
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(SourceEntry, CDOMObject)
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(CDOMObject)
-	 * @see pcgen.core.SettingsHandler#isAllowOverride()
 	 * 
 	 * @throws PersistenceLayerException 
 	 * @since 5.11

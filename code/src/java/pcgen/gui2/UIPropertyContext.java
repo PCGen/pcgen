@@ -238,12 +238,12 @@ public final class UIPropertyContext extends PropertyContext
 	 * can be used as the key for any of the other PropertyContext methods.
 	 * The following is a typical example of its usage:
 	 * <br>
-	 * <samp>
+	 * <code>
 	 * String charKey = UIPropertyContext.createCharacterPropertyKey(aCharacter, "allowNegativeMoney");<br>
 	 * if(charKey != null){<br>
 	 * boolean bool = UIPropertyContext.getInstance().getBoolean(charKey);<br>
 	 * }<br>
-	 * </samp>
+	 * </code>
 	 * @param character a CharacterFacade
 	 * @param key a String property key
 	 * @return the character property key or null if it could not be created

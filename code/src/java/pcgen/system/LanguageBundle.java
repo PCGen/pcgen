@@ -146,7 +146,6 @@ public final class LanguageBundle
 
 	/**
 	 * This method is meant to be used in tests to reload the bundle if the default locale has changed.
-	 * @param l the new locale
 	 */
 	public static final void reload()
 	{

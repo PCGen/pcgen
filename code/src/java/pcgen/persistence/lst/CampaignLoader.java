@@ -77,8 +77,6 @@ public class CampaignLoader extends LstLineFileLoader
      *
      * @param baseCampaign Campaign object that may or may not require
      *                     other campaigns
-     * @throws PersistenceLayerException if an error occurs reading a
-     *                                   newly-encountered campaign
      */
     public void initRecursivePccFiles(Campaign baseCampaign)
     //throws PersistenceLayerException

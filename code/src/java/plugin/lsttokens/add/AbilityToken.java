@@ -82,7 +82,7 @@ import pcgen.util.enumeration.Visibility;
  * <li>The Ability is added to the Ability Category specified.</li>
  * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
- *
+ * </ul>
  * Last Editor: $Author$ Last Edited: $Date: 2007-05-20 19:00:17 -0400
  * (Sun, 20 May 2007) $
  *

@@ -36,7 +36,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
- * MonsterClassFacet is a Facet that tracks the Classes & Levels that a Player
+ * {@code MonsterClassFacet} is a Facet that tracks the {@literal Classes & Levels} that a Player
  * Character was granted through MONSTERCLASS
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)

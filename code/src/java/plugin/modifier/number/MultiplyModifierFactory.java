@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An MultiplyModifierFactory is a ModifierFactory<Number> that multiplies a
+ * An MultiplyModifierFactory is a {@code ModifierFactory<Number>} that multiplies a
  * specific value (provided during construction of this MultiplyModifierFactory)
  * with the input when a Modifier produced by this MultiplyModifierFactory is
  * processed.

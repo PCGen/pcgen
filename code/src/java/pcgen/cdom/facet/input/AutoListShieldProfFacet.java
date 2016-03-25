@@ -53,7 +53,7 @@ public class AutoListShieldProfFacet extends
 	}
 
 	/**
-	 * Converts an ArmorProf into a ProfProvider<ArmorProf>. This is required
+	 * Converts an ArmorProf into a {@code ProfProvider<ArmorProf>}. This is required
 	 * because the %LIST (which listens to a CHOOSE:ARMORPROF) is given an
 	 * ArmorProf object, rather than a ProfProvider object. This therefore wraps
 	 * the ArmorProf object into a ProfProvider, since the master list of

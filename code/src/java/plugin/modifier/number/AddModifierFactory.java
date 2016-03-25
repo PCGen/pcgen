@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An AddModifierFactory is a ModifierFactory<Number> that adds a specific value
+ * An AddModifierFactory is a {@code ModifierFactory<Number>} that adds a specific value
  * to the input set when a Modifier produced by this AddModifierFactory is
  * processed.
  */

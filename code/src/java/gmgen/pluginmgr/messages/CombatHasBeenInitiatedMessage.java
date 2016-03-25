@@ -45,7 +45,7 @@ public class CombatHasBeenInitiatedMessage extends PCGenMessage
 
 	/**
 	 * Create a new instance of CombatHasBeenInitiatedMessage
-	 * @param experienceAdjusterPlugin
+	 * @param source
 	 */
 	public CombatHasBeenInitiatedMessage(
 		Object source)

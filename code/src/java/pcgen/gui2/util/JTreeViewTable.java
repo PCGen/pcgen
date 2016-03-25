@@ -235,7 +235,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	/**
 	 * This returns data that is currently highlighted by the user. This may
 	 * include branch nodes which are of type Object and not the type managed by
-	 * the table model. Hence we cannot use <T> here.
+	 * the table model. Hence we cannot use &lt;T&gt; here.
 	 *
 	 * @return A list of selected leaf and branch rows.
 	 */

@@ -51,13 +51,13 @@ import java.awt.event.MouseEvent;
  * <code>SHIFT-BUTTON1</code>.
  * 
  * <p>(For the keyboard keys used by <code>JSplitPane</code> in the standard Look
- * and Feel (L&F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane"><code>JSplitPane</code>
+ * and Feel (L&amp;F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane"><code>JSplitPane</code>
  * key assignments</a>.)
  * 
  * <p><code>FlippingSplitPane</code> treats many of the methods of
  * <code>JSplitPane</code> recursively, calling the same method on the left and
  * right components (or top and bottom for <code>VERTICAL_ORIENTATION</code>) if
- * they are also <code>FlippingSplitPane<code>s.  You can defeat this behavior
+ * they are also <code>FlippingSplitPane</code>s.  You can defeat this behavior
  * by using <code>JSplitPane</code> components instead.
  * 
  * <p><code>FlippingSplitPane</code> also supports "locking": a locked pane renders

@@ -224,7 +224,7 @@ public final class CoreUtility
 	 *            second operand
 	 * @param eps
 	 *            the epsilon (or deadband)
-	 * @return TRUE if abs(a - b) < eps, else FALSE
+	 * @return TRUE {@literal if abs(a - b) < eps}, else FALSE
 	 */
 	public static boolean compareDouble(final double a, final double b,
 			final double eps)

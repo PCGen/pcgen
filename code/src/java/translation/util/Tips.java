@@ -411,7 +411,7 @@ public class Tips
 	}
 
 	/**
-	 * @param tip
+	 * @param string
 	 * @return
 	 */
 	@SuppressWarnings("nls")

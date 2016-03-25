@@ -128,7 +128,7 @@ public class DefenseToken extends Token
 
 	/**
 	 * Get total sub token
-	 * @param pc
+	 * @param display
 	 * @return total sub token
 	 */
 	public static int getTotalToken(CharacterDisplay display)

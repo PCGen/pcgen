@@ -39,8 +39,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 	 * Returns the value provided in the constructor. The input value and
 	 * FormulaManager are ignored.
 	 * 
-	 * @see pcgen.base.calculation.CalculationInfo#process(java.lang.Object,
-	 *      pcgen.base.formula.manager.FormulaManager)
+	 * @see pcgen.base.calculation.BasicCalculation#process(java.lang.Object,
+	 *      java.lang.Object)
 	 */
 	@Override
 	public T process(T previousValue, T argument)
