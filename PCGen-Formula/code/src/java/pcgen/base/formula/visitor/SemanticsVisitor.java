@@ -340,9 +340,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		ASTPCGenSingleWord ftnNode = (ASTPCGenSingleWord) firstChild;
 		String name = ftnNode.getText();
 		Node argNode = node.jjtGetChild(1);
-		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
+			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			Function function = fm.getLibrary().getFunction(name);
 			if (function == null)
 			{
@@ -355,7 +355,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			processArrayReference(name, args, semantics);
+			processArrayReference(name, (SimpleNode) argNode, semantics);
 		}
 		else
 		{
@@ -369,34 +369,19 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		return semantics;
 	}
 
-	private void processArrayReference(String name, Node[] args,
+	private void processArrayReference(String name, SimpleNode argNode,
 		FormulaSemantics semantics)
 	{
-		if (args.length != 1)
+		singleChildValid(argNode, semantics);
+		Class<?> argFormat =
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
+		if (!NUMBER_CLASS.isAssignableFrom(argFormat))
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Array: " + name
-				+ " requires only one (integer) argument, found: "
-				+ args.length);
-			return;
-		}
-		Node arg = args[0];
-		if (!(arg instanceof ASTNum))
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Array Reference requires an integer, "
-					+ "had invalid argument type: " + arg.getClass());
-			return;
-		}
-		ASTNum argument = (ASTNum) arg;
-		try
-		{
-			Integer.parseInt(argument.getText());
-		}
-		catch (NumberFormatException e)
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				argument.getClass() + " had invalid number "
-					+ "(requires an integer): " + argument.getText());
+			FormulaSemanticsUtilities.setInvalid(
+				semantics,
+				"Argument to array: "
+					+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
+					+ " must resolve to a number");
 			return;
 		}
 		FormatManager<?> formatManager =
@@ -405,12 +390,14 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: " + name
 				+ " was not found in scope " + getLegalScope().getName());
+			return;
 		}
 		FormatManager<?> componentMgr = formatManager.getComponentManager();
 		if (componentMgr == null)
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: " + name
 				+ " was not an array in scope " + getLegalScope().getName());
+			return;
 		}
 		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
 			componentMgr.getManagedClass());

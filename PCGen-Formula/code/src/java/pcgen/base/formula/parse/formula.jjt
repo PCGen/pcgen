@@ -358,7 +358,7 @@ void pcgenSingleWord()
 void pcgenBracketGroup()
 	#PCGenBracket : {}
 	{
-		<OPENBRACKET> primitiveExpr() <CLOSEBRACKET>
+		<OPENBRACKET> arithmeticExpr() <CLOSEBRACKET>
 	}
 
 void parenGroup()
