@@ -65,13 +65,13 @@ public class GenericNotEqual implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		if (r == null)
+		if (right == null)
 		{
 			throw new NullPointerException("object in equality cannot be null");
 		}
-		return !l.equals(r);
+		return !left.equals(right);
 	}
 
 }

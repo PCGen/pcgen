@@ -59,13 +59,13 @@ public class NumberMinus implements UnaryAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object o)
+	public Object evaluate(Object object)
 	{
-		if (o instanceof Integer)
+		if (object instanceof Integer)
 		{
-			return -(Integer) o;
+			return -(Integer) object;
 		}
-		return -((Number) o).doubleValue();
+		return -((Number) object).doubleValue();
 	}
 
 }

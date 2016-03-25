@@ -103,12 +103,12 @@ public interface OperatorAction
 	 * return a non-null value. If abstractEvaluate returns null, then this
 	 * method should throw an Exception.
 	 * 
-	 * @param o1
+	 * @param left
 	 *            The first argument to the operation
-	 * @param o2
+	 * @param right
 	 *            The second argument to the operation
 	 * @return The result of the operation
 	 */
-	public Object evaluate(Object o1, Object o2);
+	public Object evaluate(Object left, Object right);
 
 }

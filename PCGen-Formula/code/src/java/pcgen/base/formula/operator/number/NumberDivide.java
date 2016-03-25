@@ -65,18 +65,18 @@ public class NumberDivide implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		if (l instanceof Integer && r instanceof Integer)
+		if (left instanceof Integer && right instanceof Integer)
 		{
-			int left = ((Integer) l).intValue();
-			int right = ((Integer) r).intValue();
-			if ((left % right) == 0)
+			int leftInt = ((Integer) left).intValue();
+			int rightInt = ((Integer) right).intValue();
+			if ((leftInt % rightInt) == 0)
 			{
-				return left / right;
+				return leftInt / rightInt;
 			}
 		}
-		return ((Number) l).doubleValue() / ((Number) r).doubleValue();
+		return ((Number) left).doubleValue() / ((Number) right).doubleValue();
 	}
 
 }

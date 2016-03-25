@@ -65,14 +65,14 @@ public class StringAdd implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Object evaluate(Object l, Object r)
+	public Object evaluate(Object left, Object right)
 	{
-		if ((l == null) || (r == null))
+		if ((left == null) || (right == null))
 		{
 			throw new NullPointerException(
-				"Object to evaluate cannot be null: " + l + " + " + r);
+				"Object to evaluate cannot be null: " + left + " + " + right);
 		}
-		return (String) l + (String) r;
+		return (String) left + (String) right;
 	}
 
 }
