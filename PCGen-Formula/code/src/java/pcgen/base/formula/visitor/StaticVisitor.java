@@ -247,11 +247,11 @@ public class StaticVisitor implements FormulaParserVisitor
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
-		String name = fnode.getText();
 		Node argNode = node.jjtGetChild(1);
-		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
+			String name = fnode.getText();
+			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			return library.getFunction(name).isStatic(this, args);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
