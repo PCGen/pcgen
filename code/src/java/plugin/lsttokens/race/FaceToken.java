@@ -74,10 +74,8 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		PCGenModifier<OrderedPair> modifier;
 		try
 		{
-			modifier =
-					context.getVariableContext().getModifier(
-						MOD_IDENTIFICATION, value, MOD_PRIORITY, scope,
-						formatManager);
+			modifier = context.getVariableContext()
+				.getModifier(MOD_IDENTIFICATION, value, scope, formatManager);
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -85,6 +83,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
+		modifier.addAssociation("PRIORITY=" + MOD_PRIORITY);
 		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
@@ -124,11 +123,10 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				PCGenModifier<?> modifier = vm.getModifier();
 				if (VAR_NAME.equals(vm.getVarName())
 					&& (vm.getLegalScope().getParentScope() == null)
-					&& (modifier.getUserPriority() == MOD_PRIORITY)
-					&& (vm.getModifier().getIdentification()
+					&& (modifier.getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{
-					face = vm.getModifier().getInstructions();
+					face = modifier.getInstructions();
 					if (face.endsWith(",0"))
 					{
 						face = face.substring(0, face.length() - 2);
