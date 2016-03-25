@@ -184,7 +184,8 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
 		DependencyManager manager = (DependencyManager) data;
-		FormulaManager formulaManager = manager.peek(DependencyManager.FMANAGER);
+		FormulaManager formulaManager =
+				manager.peek(DependencyManager.FMANAGER);
 		FunctionLibrary library = formulaManager.getLibrary();
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
 		String name = fnode.getText();
@@ -227,9 +228,11 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public void visitVariable(String varName, DependencyManager manager)
 	{
-		VariableLibrary varLib = manager.peek(DependencyManager.FMANAGER).getFactory();
+		VariableLibrary varLib =
+				manager.peek(DependencyManager.FMANAGER).getFactory();
 		VariableID<?> id =
-				varLib.getVariableID(manager.peek(DependencyManager.INSTANCE), varName);
+				varLib.getVariableID(manager.peek(DependencyManager.INSTANCE),
+					varName);
 		if (id != null)
 		{
 			manager.addVariable(id);
@@ -237,18 +240,18 @@ public class DependencyVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * DependencyVisitor, reaching this node in DependencyVisitor indicates
-	 * either an error in the implementation of the formula or a tree structure
-	 * problem in the formula.
+	 * This type of node is ONLY encountered as part of a an array call (which
+	 * is parsed like a function). Since the function should have "consumed"
+	 * these elements and not called back into DependencyVisitor, reaching this
+	 * node in DependencyVisitor indicates either an error in the implementation
+	 * of the formula or a tree structure problem in the formula.
 	 */
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
 	{
 		//Should be stripped by the function
 		throw new IllegalStateException(
-			"Evaluation called on invalid Formula (reached Function Brackets)");
+			"Evaluation called on invalid Formula (reached Brackets)");
 	}
 
 	/**
@@ -300,4 +303,3 @@ public class DependencyVisitor implements FormulaParserVisitor
 		return data;
 	}
 }
-
