@@ -17,9 +17,10 @@
  */
 package pcgen.base.solver;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
@@ -37,7 +38,7 @@ public class SolverFactoryTest extends TestCase
 		SplitFormulaSetup sfs = new SplitFormulaSetup();
 		sfs.getLegalScopeLibrary()
 			.registerScope(new SimpleLegalScope(null, "Global"));
-		si = sfs.getIndividualSetup("Global").getScopeInfo();
+		si = new IndividualSetup(sfs, "Global").getScopeInfo();
 		factory = new SolverFactory();
 	}
 

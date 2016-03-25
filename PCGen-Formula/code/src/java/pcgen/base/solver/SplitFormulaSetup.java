@@ -17,21 +17,13 @@
  */
 package pcgen.base.solver;
 
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.inst.ScopeInformation;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
-import pcgen.base.formula.inst.SimpleFormulaManager;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.SimpleOperatorLibrary;
-import pcgen.base.formula.inst.SimpleVariableStore;
 
 /**
  * SplitFormulaSetup provides a single location to quickly build the necessary
@@ -74,29 +66,6 @@ public class SplitFormulaSetup
 	 */
 	private final VariableLibrary variableLib = new VariableLibrary(
 		legalScopeLib);
-
-	/**
-	 * Returns a new IndividualSetup for the given "Global" name. The returned
-	 * IndividualSetup will have a unique Global Scope Instance, VariableStore
-	 * (and thus FormulaManager and ScopeInformation).
-	 * 
-	 * Note: A LegalScope object with the given name MUST have been loaded into
-	 * the LegalScopeLibrary of this SplitFormulaSetup or this method will throw
-	 * an Exception.
-	 * 
-	 * Note: The LegalScope returned by the LegalScopeLibrary of this
-	 * SplitFormulaSetup must also be a "Global" scope in that it must return
-	 * null as the parent LegalScope or this method will throw an Exception.
-	 * 
-	 * @param globalName
-	 *            The name of the global scope for the IndividualSetup to be
-	 *            returned
-	 * @return A new IndividualSetup for the given "Global" name
-	 */
-	public IndividualSetup getIndividualSetup(String globalName)
-	{
-		return new IndividualSetup(globalName);
-	}
 
 	/**
 	 * Loads built-in Functions and Operators into this SplitFormulaSetup.
@@ -156,128 +125,4 @@ public class SplitFormulaSetup
 	{
 		return solverFactory;
 	}
-
-	/**
-	 * An IndividualSetup is returned by a SplitFormulaSetup. This contains the
-	 * information unique to a specific solution area.
-	 */
-	public class IndividualSetup
-	{
-
-		/**
-		 * The ScopeInstanceFactory for this IndividualSetup.
-		 */
-		private final ScopeInstanceFactory instanceFactory =
-				new ScopeInstanceFactory(legalScopeLib);
-
-		/**
-		 * The WriteableVariableStore for this IndividualSetup.
-		 * Lazily Instantiated.
-		 */
-		private WriteableVariableStore variableStore;
-
-		/**
-		 * The FormulaManager for this IndividualSetup.
-		 */
-		private final FormulaManager formulaManager = new SimpleFormulaManager(
-			functionLib, operatorLib, variableLib, getVariableStore());
-
-		/**
-		 * The "Global" LegalScope for this IndividualSetup.
-		 */
-		private final LegalScope globalScope;
-
-		/**
-		 * The "Global" ScopeInstance for this IndividualSetup.
-		 */
-		private final ScopeInstance globalScopeInst;
-
-		/**
-		 * The ScopeInformation for this IndividualSetup.
-		 */
-		private final ScopeInformation scopeInfo;
-
-		/**
-		 * Constructs a new IndividualSetup with the "global" LegalScope of the
-		 * given name.
-		 * 
-		 * @param globalName
-		 *            The name of the "global" LegalScope for this
-		 *            IndividualSetup
-		 */
-		public IndividualSetup(String globalName)
-		{
-			globalScope = legalScopeLib.getScope(globalName);
-			globalScopeInst = getInstanceFactory().getInstance(null,
-				getGlobalScope());
-			scopeInfo =
-					new ScopeInformation(getFormulaManager(),
-						getGlobalScopeInst());
-		}
-
-		/**
-		 * Return the ScopeInstanceFactory for this IndividualSetup.
-		 * 
-		 * @return the ScopeInstanceFactory for this IndividualSetup
-		 */
-		public ScopeInstanceFactory getInstanceFactory()
-		{
-			return instanceFactory;
-		}
-
-		/**
-		 * Return the VariableStore for this IndividualSetup.
-		 * 
-		 * @return the VariableStore for this IndividualSetup
-		 */
-		public WriteableVariableStore getVariableStore()
-		{
-			if (variableStore == null)
-			{
-				variableStore = new SimpleVariableStore();
-			}
-			return variableStore;
-		}
-
-		/**
-		 * Return the FormulaManager for this IndividualSetup.
-		 * 
-		 * @return the FormulaManager for this IndividualSetup
-		 */
-		public FormulaManager getFormulaManager()
-		{
-			return formulaManager;
-		}
-
-		/**
-		 * Return the "Global" LegalScope for this IndividualSetup.
-		 * 
-		 * @return the "Global" LegalScope for this IndividualSetup
-		 */
-		public LegalScope getGlobalScope()
-		{
-			return globalScope;
-		}
-
-		/**
-		 * Return the "Global" ScopeInstance for this IndividualSetup.
-		 * 
-		 * @return the "Global" ScopeInstance for this IndividualSetup
-		 */
-		public ScopeInstance getGlobalScopeInst()
-		{
-			return globalScopeInst;
-		}
-
-		/**
-		 * Return the ScopeInformation for this IndividualSetup.
-		 * 
-		 * @return the ScopeInformation for this IndividualSetup
-		 */
-		public ScopeInformation getScopeInfo()
-		{
-			return scopeInfo;
-		}
-	}
-
 }
