@@ -45,7 +45,7 @@ public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());
 		TokenRegistration.register(new plugin.modifier.number.MultiplyModifierFactory());
-		FormatManager<?> formatManager = primaryContext.getReferenceContext().getFormatManager(Number.class);
+		FormatManager<?> formatManager = primaryContext.getReferenceContext().getFormatManager("NUMBER");
 		LegalScope pscope = primaryContext.getActiveScope().getLegalScope();
 		LegalScope sscope = primaryContext.getActiveScope().getLegalScope();
 		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "MyVar");
