@@ -499,7 +499,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("ACCHECK"))
 		{
-			ret.append(Delta.toString(eq.acCheck(aPC)));
+			ret.append(Delta.toString(EqToken.getAcCheckTokenInt(aPC, eq)));
 		}
 		else if (property.startsWith("EDR"))
 		{

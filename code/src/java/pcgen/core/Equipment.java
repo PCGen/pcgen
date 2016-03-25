@@ -2349,19 +2349,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Description of the Method
-	 * 
-	 * @param aPC The PC that has this Equipment
-	 * 
-	 * @return Description of the Return Value
-	 */
-	public Integer acCheck(final PlayerCharacter aPC)
-	{
-		return Math.min(getSafe(IntegerKey.AC_CHECK)
-			+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true), 0);
-	}
-
-	/**
 	 * Returns true if the Equipment can take children.
 	 * 
 	 * @return true if the Equipment can take children.
