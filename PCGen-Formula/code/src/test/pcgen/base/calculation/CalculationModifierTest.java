@@ -49,14 +49,7 @@ public class CalculationModifierTest extends TestCase
 	public void testGetUserPriority()
 	{
 		CalculationModifier cm = new CalculationModifier(calc, 5);
-		assertEquals(5, cm.getUserPriority());
-	}
-
-	@Test
-	public void testGetInherentPriority()
-	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
-		assertEquals(6, cm.getInherentPriority());
+		assertEquals((5l << 32) + 6, cm.getPriority());
 	}
 
 	@Test

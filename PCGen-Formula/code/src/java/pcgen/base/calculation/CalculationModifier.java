@@ -36,7 +36,7 @@ public final class CalculationModifier<T> implements Modifier<T>
 	/**
 	 * The user priority for this CalculationModifier.
 	 */
-	private final int userPriority;
+	private final long userPriority;
 
 	/**
 	 * The NEPCalculation to be performed by this CalculationModifier.
@@ -72,9 +72,9 @@ public final class CalculationModifier<T> implements Modifier<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getUserPriority()
+	public long getPriority()
 	{
-		return userPriority;
+		return (userPriority << 32) + toDo.getInherentPriority();
 	}
 
 	/**
@@ -84,15 +84,6 @@ public final class CalculationModifier<T> implements Modifier<T>
 	public T process(T input, ScopeInformation scopeInfo, Object source)
 	{
 		return toDo.process(input, scopeInfo, source);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getInherentPriority()
-	{
-		return toDo.getInherentPriority();
 	}
 
 	/**
@@ -137,7 +128,7 @@ public final class CalculationModifier<T> implements Modifier<T>
 	@Override
 	public int hashCode()
 	{
-		return userPriority ^ toDo.hashCode();
+		return ((int) userPriority) ^ toDo.hashCode();
 	}
 
 	/**

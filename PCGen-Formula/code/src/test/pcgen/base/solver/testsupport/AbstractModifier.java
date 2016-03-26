@@ -93,15 +93,10 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	}
 
 	@Override
-	public int getInherentPriority()
+	public long getPriority()
 	{
-		return inherent;
-	}
-
-	@Override
-	public int getUserPriority()
-	{
-		return priority;
+		long l = priority;
+		return (l << 32) + inherent;
 	}
 
 	@Override

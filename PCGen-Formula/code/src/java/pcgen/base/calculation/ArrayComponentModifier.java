@@ -131,18 +131,9 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getInherentPriority()
+	public long getPriority()
 	{
-		return modifier.getInherentPriority();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getUserPriority()
-	{
-		return modifier.getUserPriority();
+		return modifier.getPriority();
 	}
 
 	/**
