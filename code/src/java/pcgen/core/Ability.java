@@ -214,6 +214,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		return getSafe(ObjectKey.STACKS);
 	}
 
+	@Override
 	public double getCost() {
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();
 	}
