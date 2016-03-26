@@ -6113,14 +6113,14 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-PCACCHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/gamemode/codecontrol/PcAcCheck.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/PcAcCheckToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-PCMAXDEX.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/gamemode/codecontrol/PcMaxDex.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/PcMaxDexToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
