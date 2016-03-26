@@ -79,7 +79,8 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			value = value + "," + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
-				context.getReferenceContext().getFormatManager(OrderedPair.class);
+				(FormatManager<OrderedPair>) context.getReferenceContext()
+					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
 		Modifier<OrderedPair> modifier;
