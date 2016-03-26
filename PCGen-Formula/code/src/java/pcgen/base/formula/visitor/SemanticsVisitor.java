@@ -23,7 +23,6 @@ import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
@@ -181,8 +180,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	public Object visit(ASTLogical node, Object data)
 	{
 		//null assertion since we can't assert what each side of the logical expression is
-		SemanticsVisitor logicalVisitor = (assertedFormat == null) ? this
-			: new SemanticsVisitor(fm, legalScope, null);
+		SemanticsVisitor logicalVisitor =
+				(assertedFormat == null) ? this : new SemanticsVisitor(fm,
+					legalScope, null);
 		return logicalVisitor.visitOperatorNode(node, data);
 	}
 
@@ -194,8 +194,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	public Object visit(ASTEquality node, Object data)
 	{
 		//null assertion since we can't assert what each side of the logical expression is
-		SemanticsVisitor logicalVisitor = (assertedFormat == null) ? this
-			: new SemanticsVisitor(fm, legalScope, null);
+		SemanticsVisitor logicalVisitor =
+				(assertedFormat == null) ? this : new SemanticsVisitor(fm,
+					legalScope, null);
 		return logicalVisitor.visitOperatorNode(node, data);
 	}
 
@@ -207,8 +208,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	public Object visit(ASTRelational node, Object data)
 	{
 		//null assertion since we can't assert what each side of the logical expression is
-		SemanticsVisitor logicalVisitor = (assertedFormat == null) ? this
-			: new SemanticsVisitor(fm, legalScope, null);
+		SemanticsVisitor logicalVisitor =
+				(assertedFormat == null) ? this : new SemanticsVisitor(fm,
+					legalScope, null);
 		return logicalVisitor.visitOperatorNode(node, data);
 	}
 
@@ -336,46 +338,69 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		 * structures inside of it)
 		 */
 		ASTPCGenSingleWord ftnNode = (ASTPCGenSingleWord) firstChild;
-		String ftnName = ftnNode.getText();
+		String name = ftnNode.getText();
 		Node argNode = node.jjtGetChild(1);
-		Function function;
-		String functionForm;
-		FunctionLibrary library = fm.getLibrary();
 		if (argNode instanceof ASTFParen)
 		{
-			function = library.getFunction(ftnName);
-			functionForm = "()";
+			Node[] args = VisitorUtilities.accumulateArguments(argNode);
+			Function function = fm.getLibrary().getFunction(name);
+			if (function == null)
+			{
+				FormulaSemanticsUtilities.setInvalid(semantics, "Function: "
+					+ name + " was not found (called as: " + name + "(...))");
+				return semantics;
+			}
+			//Extract arguments from the grouping to give them to the function
+			function.allowArgs(this, args, semantics);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			function = library.getBracketFunction(ftnName);
-			functionForm = "[]";
+			processArrayReference(name, (SimpleNode) argNode, semantics);
 		}
 		else
 		{
 			FormulaSemanticsUtilities.setInvalid(semantics,
 				"Parse Error: Function Formula Arguments"
 					+ " received invalid argument format, "
-					+ "expected: ASTFParen, got "
+					+ "expected: () or [], got "
 					+ firstChild.getClass().getName() + ": " + firstChild);
 			return semantics;
 		}
-		if (function == null)
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Function: "
-				+ ftnName + " was not found (called as: " + ftnName
-				+ functionForm + ")");
-			return semantics;
-		}
-		//Extract arguments from the grouping to give them to the function
-		int argLength = argNode.jjtGetNumChildren();
-		Node[] args = new Node[argLength];
-		for (int i = 0; i < argLength; i++)
-		{
-			args[i] = argNode.jjtGetChild(i);
-		}
-		function.allowArgs(this, args, semantics);
 		return semantics;
+	}
+
+	private void processArrayReference(String name, SimpleNode argNode,
+		FormulaSemantics semantics)
+	{
+		singleChildValid(argNode, semantics);
+		Class<?> argFormat =
+				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
+		if (!NUMBER_CLASS.isAssignableFrom(argFormat))
+		{
+			FormulaSemanticsUtilities.setInvalid(
+				semantics,
+				"Argument to array: "
+					+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
+					+ " must resolve to a number");
+			return;
+		}
+		FormatManager<?> formatManager =
+				fm.getFactory().getVariableFormat(legalScope, name);
+		if (formatManager == null)
+		{
+			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: " + name
+				+ " was not found in scope " + getLegalScope().getName());
+			return;
+		}
+		FormatManager<?> componentMgr = formatManager.getComponentManager();
+		if (componentMgr == null)
+		{
+			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: " + name
+				+ " was not an array in scope " + getLegalScope().getName());
+			return;
+		}
+		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
+			componentMgr.getManagedClass());
 	}
 
 	/**
@@ -403,9 +428,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		else
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Variable: " + varName + " was not found in scope "
-					+ getLegalScope().getName());
+			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: "
+				+ varName + " was not found in scope "
+				+ getLegalScope().getName());
 		}
 		return semantics;
 	}
@@ -525,7 +550,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, returnedFormat);
 		return semantics;
 	}
-
 
 	private Object visitUnaryNode(SimpleNode node, Object data)
 	{

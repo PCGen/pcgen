@@ -1714,7 +1714,7 @@ public class FormulaParserTest extends TestCase
 	{
 		try
 		{
-			doTest("My Function[ARG]");
+			doTest("My Function[5]");
 		}
 		catch (ParseException e)
 		{
@@ -1725,25 +1725,6 @@ public class FormulaParserTest extends TestCase
 			 * than the CL=x we need to support spaces in both...
 			 */
 			fail("Expected Function with space to pass");
-		}
-	}
-
-	@Test
-	public void testSpaceInBracketArg()
-	{
-		try
-		{
-			doTest("MyFunction[ARG WithSpace]");
-		}
-		catch (ParseException e)
-		{
-			/*
-			 * This may be a strange result to people - the explanation is that
-			 * we need to support spaces for things like "CL=Special Fighter".
-			 * Since our parser doesn't see "ARG WithSpace" as anything
-			 * different than the CL=x, we need to support spaces in both...
-			 */
-			fail("Expected Arg with space to pass");
 		}
 	}
 

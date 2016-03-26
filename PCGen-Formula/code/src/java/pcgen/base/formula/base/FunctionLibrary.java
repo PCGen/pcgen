@@ -69,34 +69,4 @@ public interface FunctionLibrary
 	 */
 	public Function getFunction(String functionName);
 
-	/**
-	 * Adds a bracket function to the FunctionLibrary. This is used for
-	 * functions that are followed by brackets []
-	 * 
-	 * FunctionLibrary does not define the behavior if an object attempts to add
-	 * null or attempts to add a function with a null name. An exception may be
-	 * thrown (implementation dependent).
-	 * 
-	 * @param function
-	 *            The bracket function to be added to the FunctionLibrary
-	 */
-	public void addBracketFunction(Function function);
-
-	/**
-	 * Returns the Function with the given bracket function name. This will
-	 * return a function that was added to the FunctionLibrary via the
-	 * addBracketFunction() method.
-	 * 
-	 * FunctionLibrary does not define the behavior if an object attempts to get
-	 * a bracket function with the name null. An exception may be thrown.
-	 * 
-	 * "null" is a legal return value if there is no bracket function in the
-	 * FunctionLibrary for the given bracket function name.
-	 * 
-	 * @param functionName
-	 *            The name of the bracket Function to be returned.
-	 * @return The Function with the given bracket function name.
-	 */
-	public Function getBracketFunction(String functionName);
-
 }

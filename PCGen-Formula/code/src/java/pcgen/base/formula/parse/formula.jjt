@@ -358,9 +358,7 @@ void pcgenSingleWord()
 void pcgenBracketGroup()
 	#PCGenBracket : {}
 	{
-/* Nuance had this, why would parens be legal inside a bracket? */
-/*		<OPENBRACKET> pcgenSingleWord() ( parenGroup() )? <CLOSEBRACKET> */
-		<OPENBRACKET> pcgenSingleWord() <CLOSEBRACKET>
+		<OPENBRACKET> arithmeticExpr() <CLOSEBRACKET>
 	}
 
 void parenGroup()

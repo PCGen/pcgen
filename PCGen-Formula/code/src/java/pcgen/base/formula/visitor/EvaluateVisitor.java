@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.visitor;
 
+import java.lang.reflect.Array;
+
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.ScopeInstance;
@@ -265,10 +267,22 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
-		Function function = VisitorUtilities.getFunction(fm.getLibrary(), node);
-		Node[] args = VisitorUtilities.accumulateArguments(node.jjtGetChild(1));
-		//evaluate the function
-		return function.evaluate(this, args, (Class<?>) data);
+		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
+		String name = fnode.getText();
+		Node argNode = node.jjtGetChild(1);
+		Node[] args = VisitorUtilities.accumulateArguments(argNode);
+		if (argNode instanceof ASTFParen)
+		{
+			Function function = fm.getLibrary().getFunction(name);
+			return function.evaluate(this, args, (Class<?>) data);
+		}
+		else if (argNode instanceof ASTPCGenBracket)
+		{
+			int index = (Integer) visit((SimpleNode) args[0], data);
+			return Array.get(visitVariable(name), index);
+		}
+		throw new IllegalStateException("Invalid Formula (unrecognized node: "
+			+ argNode + ")");
 	}
 
 	/**
@@ -373,12 +387,6 @@ public class EvaluateVisitor implements FormulaParserVisitor
 			throw new IllegalStateException(getClass().getSimpleName()
 				+ " must have an operator");
 		}
-		int childCount = node.jjtGetNumChildren();
-		if (childCount != 2)
-		{
-			throw new IllegalStateException(getClass().getSimpleName()
-				+ " must only have 2 children, was: " + childCount);
-		}
 		Object child1result = node.jjtGetChild(0).jjtAccept(this, data);
 		Object child2result = node.jjtGetChild(1).jjtAccept(this, data);
 		return fm.getOperatorLibrary().evaluate(op, child1result, child2result);
@@ -397,14 +405,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 */
 	private Object evaluateSingleChild(Node node, Object data)
 	{
-		int childCount = node.jjtGetNumChildren();
-		if (childCount != 1)
-		{
-			throw new IllegalStateException(getClass().getSimpleName()
-				+ " must only have 1 child, was: " + childCount);
-		}
-		Node child = node.jjtGetChild(0);
-		return child.jjtAccept(this, data);
+		return node.jjtGetChild(0).jjtAccept(this, data);
 	}
 
 	/**

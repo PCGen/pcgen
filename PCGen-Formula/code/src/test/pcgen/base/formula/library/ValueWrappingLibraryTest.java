@@ -88,50 +88,6 @@ public class ValueWrappingLibraryTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidBracketNull()
-	{
-		try
-		{
-			library.addBracketFunction(null);
-			fail("Expected null function to be rejected");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Yep
-		}
-		catch (UnsupportedOperationException e)
-		{
-			//Yep, works, too
-		}
-	}
-
-	@Test
-	public void testCantAddBracketFunction()
-	{
-		try
-		{
-			Function f = getPseudoFunction("count");
-			library.addBracketFunction(f);
-			fail("Expected bracket function add to be rejected");
-		}
-		catch (UnsupportedOperationException e)
-		{
-			//Yep
-		}
-	}
-
-	@Test
-	public void testBracketFunctionGetDelegated()
-	{
-		Function count = getPseudoFunction("Count");
-		underlying.addBracketFunction(count);
-		//case insensitive
-		assertEquals(count, library.getBracketFunction("COUNT"));
-		assertEquals(count, library.getBracketFunction("Count"));
-		assertEquals(count, library.getBracketFunction("count"));
-	}
-
-	@Test
 	public void testValueFunction()
 	{
 		Function value = getPseudoFunction("value");

@@ -76,23 +76,4 @@ public class ValueWrappingLibrary implements FunctionLibrary
 		}
 		return functionLibrary.getFunction(functionName);
 	}
-
-	/**
-	 * Unsupported, since this is designed to be a dynamic FunctionLibrary.
-	 */
-	@Override
-	public void addBracketFunction(Function function)
-	{
-		throw new UnsupportedOperationException(
-				"Cannot add Bracket Function to ValueWrappingLibrary");
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Function getBracketFunction(String functionName)
-	{
-		return functionLibrary.getBracketFunction(functionName);
-	}
 }
