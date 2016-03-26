@@ -6714,10 +6714,11 @@ public final class Equipment extends PObject implements Serializable,
 
 	public boolean altersAC(PlayerCharacter pc)
 	{
-		String type = pc.getControl("*ACALTERTYPE");
-		if (type != null)
+		String alterAC = pc.getControl("*ALTERSAC");
+		if (alterAC != null)
 		{
-			return isType(type);
+			Object o = pc.getLocal(this, alterAC);
+			return ((Boolean) o).booleanValue();
 		}
 
 		for (BonusObj bonus : getRawBonusList(pc))
