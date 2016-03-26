@@ -40,8 +40,8 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.parse.SimpleNode;
+import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
-import pcgen.base.solver.SplitFormulaSetup.IndividualSetup;
 import pcgen.base.util.FormatManager;
 
 public abstract class AbstractFormulaTestCase extends TestCase
@@ -60,7 +60,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		setup = new SplitFormulaSetup();
 		setup.getLegalScopeLibrary().registerScope(
 			new SimpleLegalScope(null, "Global"));
-		localSetup = setup.getIndividualSetup("Global");
+		localSetup = new IndividualSetup(setup, "Global");
 	}
 
 	public void isValid(String formula, SimpleNode node,

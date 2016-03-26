@@ -42,7 +42,7 @@ public class SolverTest extends TestCase
 		SplitFormulaSetup sfs = new SplitFormulaSetup();
 		sfs.getLegalScopeLibrary().registerScope(
 			new SimpleLegalScope(null, "Global"));
-		si = sfs.getIndividualSetup("Global").getScopeInfo();
+		si = new IndividualSetup(sfs, "Global").getScopeInfo();
 	}
 
 	@Test

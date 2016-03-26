@@ -498,4 +498,15 @@ public class AggressiveSolverManager
 		return resultsCache;
 	}
 
+	/**
+	 * Returns the Default Value (in the underlying SolverFactory) for the given
+	 * Variable Format.
+	 * 
+	 * @return The Default Value for the given Variable Format.
+	 */
+	public <T> T getDefaultValue(Class<T> varFormat)
+	{
+		return solverFactory.getDefault(varFormat);
+	}
+
 }
