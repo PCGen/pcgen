@@ -121,7 +121,7 @@ public class EqContainerToken extends Token
 
 			if (property.equals("ACCHECK"))
 			{
-				retString = Integer.toString(getAcCheckToken(pc, eq));
+				retString = Integer.toString(EqToken.getAcCheckTokenInt(pc, eq));
 			}
 			else if (property.equals("ACMOD"))
 			{
@@ -193,7 +193,7 @@ public class EqContainerToken extends Token
 			}
 			else if (property.equals("MAXDEX"))
 			{
-				retString = Integer.toString(getMaxDexToken(pc, eq));
+				retString = Integer.toString(EqToken.getMaxDexTokenInt(pc, eq));
 			}
 			else if (property.equals("MOVE"))
 			{
@@ -241,17 +241,6 @@ public class EqContainerToken extends Token
 			}
 		}
 		return retString;
-	}
-
-	/**
-	 * Get the AC Check Token
-	 * @param pc
-	 * @param eq
-	 * @return AC Check Token
-	 */
-	public static int getAcCheckToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.acCheck(pc).intValue();
 	}
 
 	/**
@@ -444,17 +433,6 @@ public class EqContainerToken extends Token
 
 		retString.append(eq.longName());
 		return retString.toString();
-	}
-
-	/**
-	 * Get Max DEX Token
-	 * @param pc
-	 * @param eq
-	 * @return Max DEX Token
-	 */
-	public static int getMaxDexToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.getMaxDex(pc).intValue();
 	}
 
 	/**

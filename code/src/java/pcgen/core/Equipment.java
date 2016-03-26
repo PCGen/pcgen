@@ -1484,31 +1484,6 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the maxDex attribute of the Equipment object
-	 * 
-	 * @param aPC The PC with the Equipment
-	 * 
-	 * @return The maxDex value
-	 */
-	public Integer getMaxDex(final PlayerCharacter aPC)
-	{
-		Integer mdex = getSafe(IntegerKey.MAX_DEX);
-		mdex += (int) bonusTo(aPC, "EQMARMOR", "MAXDEX", true);
-
-		if (mdex > Constants.MAX_MAXDEX)
-		{
-			mdex = Constants.MAX_MAXDEX;
-		}
-
-		if (mdex < 0)
-		{
-			mdex = 0;
-		}
-
-		return mdex;
-	}
-
-	/**
 	 * Get minimum charges
 	 * 
 	 * @return minimum charges
@@ -2379,8 +2354,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has this Equipment
 	 * 
 	 * @return Description of the Return Value
+	 * @deprecated due to ACCHECK code control
 	 */
-	public Integer acCheck(final PlayerCharacter aPC)
+	public Integer preFormulaAcCheck(final PlayerCharacter aPC)
 	{
 		return Math.min(getSafe(IntegerKey.AC_CHECK)
 			+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true), 0);

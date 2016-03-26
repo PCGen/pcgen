@@ -55,7 +55,7 @@ public class PreLegsTester extends AbstractDisplayPrereqTest implements
 			final int targetLegs = Integer.parseInt(prereq.getOperand());
 
 			runningTotal =
-					prereq.getOperator().compare(display.getLegs(),
+					prereq.getOperator().compare(display.getPreFormulaLegs(),
 						targetLegs);
 		}
 		catch (NumberFormatException nfe)

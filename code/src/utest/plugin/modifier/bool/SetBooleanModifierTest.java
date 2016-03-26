@@ -61,7 +61,7 @@ public class SetBooleanModifierTest extends TestCase
 		assertEquals(0, modifier.getInherentPriority());
 		assertEquals(5, modifier.getUserPriority());
 		assertEquals(Boolean.class, modifier.getVariableFormat());
-		assertEquals(Boolean.TRUE, modifier.process(Boolean.FALSE, null));
+		assertEquals(Boolean.TRUE, modifier.process(Boolean.FALSE, null, null));
 	}
 
 }

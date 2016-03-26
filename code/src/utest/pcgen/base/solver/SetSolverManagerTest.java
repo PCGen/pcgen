@@ -84,7 +84,7 @@ public class SetSolverManagerTest extends TestCase
 	{
 		sl.assertLegalVariableID("Regions", globalScope, arrayManager);
 		SimpleScopeInstance scopeInst =
-				new SimpleScopeInstance(null, globalScope, null);
+				new SimpleScopeInstance(null, globalScope);
 		VariableID<String[]> regions =
 				(VariableID<String[]>) sl.getVariableID(scopeInst, "Regions");
 		manager.createChannel(regions);

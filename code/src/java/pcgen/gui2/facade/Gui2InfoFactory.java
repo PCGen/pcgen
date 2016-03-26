@@ -856,15 +856,15 @@ public class Gui2InfoFactory implements InfoFactory
 
 		}
 
-		Integer a = equip.getMaxDex(pc);
+		Integer a = EqToken.getMaxDexTokenInt(pc, equip);
 
-		if (a.intValue() != 100)
+		if (a.intValue() != Constants.MAX_MAXDEX)
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextMaxDex", a.toString()); //$NON-NLS-1$
 		}
 
-		a = equip.acCheck(pc);
+		a = EqToken.getAcCheckTokenInt(pc, equip);
 
 		if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 		{

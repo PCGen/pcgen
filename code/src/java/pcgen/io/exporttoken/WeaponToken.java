@@ -2122,7 +2122,7 @@ public class WeaponToken extends Token
 		baseBonus += (int) pc.getTotalBonusTo("COMBAT", "TOHIT");
 
 		// subtract Armor and Shield non-proficiency
-		baseBonus += pc.modFromArmorOnWeaponRolls();
+		baseBonus += modFromArmorOnWeaponRolls(pc);
 
 		// include bonuses from Item itself
 		baseBonus += eq.getBonusToHit(pc, true);
@@ -2307,6 +2307,37 @@ public class WeaponToken extends Token
 		}
 
 		return totalAttack.toString();
+	}
+
+	private static int modFromArmorOnWeaponRolls(PlayerCharacter pc)
+	{
+		int bonus = 0;
+
+		/*
+		 * Equipped some armor that we're not proficient in? acCheck penalty to
+		 * attack rolls
+		 */
+		for (Equipment eq : pc.getEquipmentOfType("Armor", 1))
+		{
+			if ((eq != null) && (!pc.isProficientWith(eq)))
+			{
+				bonus += EqToken.getAcCheckTokenInt(pc, eq);
+			}
+		}
+
+		/*
+		 * Equipped a shield that we're not proficient in? acCheck penalty to
+		 * attack rolls
+		 */
+		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
+		{
+			if ((eq != null) && (!pc.isProficientWith(eq)))
+			{
+				bonus += EqToken.getAcCheckTokenInt(pc, eq);
+			}
+		}
+
+		return bonus;
 	}
 
 	/**

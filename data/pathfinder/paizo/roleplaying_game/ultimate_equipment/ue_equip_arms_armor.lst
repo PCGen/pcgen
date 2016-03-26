@@ -675,7 +675,7 @@ Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
 Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Hunga Munga.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light.Finesseable
 Swordbreaker (Dagger).MOD		TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
 Gladius.MOD					TYPE:Bladelight.Weapon Group Blades Light

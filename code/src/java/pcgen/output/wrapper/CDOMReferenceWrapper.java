@@ -23,7 +23,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.output.base.PCGenObjectWrapper;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -58,7 +58,7 @@ public class CDOMReferenceWrapper implements PCGenObjectWrapper
 			 * Need a Model?
 			 */
 			String lstFormat = ref.getLSTformat(true);
-			return ObjectWrapper.SIMPLE_WRAPPER.wrap(lstFormat);
+			return SimpleWrapperLibrary.wrap(lstFormat);
 		}
 		throw new TemplateModelException("Object was not a CDOMReference");
 	}

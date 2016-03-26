@@ -1561,4 +1561,11 @@ public class PCClass extends PObject implements ClassFacade
 		String type = getType();
 		return type.split("\\.");
 	}
+
+	public String getClassType()
+	{
+		FactKey<String> fk = FactKey.valueOf("ClassType");
+		return getResolved(fk);
+	}
+	
 }

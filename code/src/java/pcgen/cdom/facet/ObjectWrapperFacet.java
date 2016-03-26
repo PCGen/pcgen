@@ -22,15 +22,10 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.output.base.PCGenObjectWrapper;
-import pcgen.output.wrapper.AgeSetWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
-import pcgen.output.wrapper.CategoryWrapper;
-import pcgen.output.wrapper.EnumWrapper;
-import pcgen.output.wrapper.OrderedPairWrapper;
-import pcgen.output.wrapper.SimpleWrapperDelegate;
-import pcgen.output.wrapper.TypeSafeConstantWrapper;
 import pcgen.rules.context.LoadContext;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -60,15 +55,9 @@ public class ObjectWrapperFacet extends
 	 */
 	public void initialize(DataSetID dsID)
 	{
-		add(dsID, new SimpleWrapperDelegate());
 		add(dsID, new CDOMObjectWrapper());
 		add(dsID, new CDOMReferenceWrapper());
-		add(dsID, new TypeSafeConstantWrapper());
 		add(dsID, new CNAbilitySelectionWrapper());
-		add(dsID, new CategoryWrapper());
-		add(dsID, new EnumWrapper());
-		add(dsID, new OrderedPairWrapper());
-		add(dsID, new AgeSetWrapper());
 	}
 
 	/**
@@ -92,6 +81,10 @@ public class ObjectWrapperFacet extends
 	public TemplateModel wrap(CharID id, Object toWrap)
 		throws TemplateModelException
 	{
+		if (toWrap == null)
+		{
+			return null;
+		}
 		for (PCGenObjectWrapper ow : getSet(id.getDatasetID()))
 		{
 			try
@@ -103,9 +96,7 @@ public class ObjectWrapperFacet extends
 				//No worries, Try the next one
 			}
 		}
-		String info = (toWrap == null) ? "null" : toWrap.getClass().getCanonicalName();
-		throw new TemplateModelException("Unable to find wrapping for "
-			+ info);
+		return SimpleWrapperLibrary.wrap(toWrap);
 	}
 
 	public void setDataSetInitializationFacet(

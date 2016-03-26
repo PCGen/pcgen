@@ -27,8 +27,11 @@
 package pcgen.core.term;
 
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.util.Logging;
 
 public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -51,6 +54,11 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
+		if (ControlUtilities.hasControlToken(Globals.getContext(), "EQACCHECK"))
+		{
+			Logging.errorPrint("EQACCHECK term is deprecated (does not function)"
+				+ " when ACCHECK CodeControl is used");
+		}
 		return Integer.toString(eq.getSafe(IntegerKey.AC_CHECK));
 	}
 

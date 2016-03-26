@@ -79,7 +79,8 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			value = value + "," + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
-				context.getReferenceContext().getFormatManager(OrderedPair.class);
+				(FormatManager<OrderedPair>) context.getReferenceContext()
+					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
 		Modifier<OrderedPair> modifier;
@@ -96,7 +97,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 				+ " Modifier SET had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		OrderedPair pair = modifier.process(null, null);
+		OrderedPair pair = modifier.process(null, null, null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value

@@ -201,6 +201,6 @@ public class MultiplyNumberModifierTest extends TestCase
 		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
 		assertEquals(35, modifier.getUserPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(27.95, modifier.process(4.3, null));
+		assertEquals(27.95, modifier.process(4.3, null, null));
 	}
 }

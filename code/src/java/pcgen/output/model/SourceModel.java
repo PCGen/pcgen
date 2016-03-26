@@ -21,10 +21,13 @@ import java.util.Date;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.core.Campaign;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -36,13 +39,23 @@ import freemarker.template.TemplateModelException;
  */
 public class SourceModel implements TemplateHashModel
 {
+
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
+	/**
+	 * The underlying CharID used to get items from the underlying SourceModel
+	 */
+	private final CharID id;
+
 	/**
 	 * The underlying CDOMObject, from which information is retrieved
 	 */
 	private final CDOMObject cdo;
 
-	public SourceModel(CDOMObject cdo)
+	public SourceModel(CharID id, CDOMObject cdo)
 	{
+		this.id = id;
 		this.cdo = cdo;
 	}
 
@@ -53,17 +66,17 @@ public class SourceModel implements TemplateHashModel
 		{
 			Boolean isCustom =
 					Boolean.valueOf(cdo.isType(Constants.TYPE_CUSTOM));
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(isCustom);
+			return SimpleWrapperLibrary.wrap(isCustom);
 		}
 		else if (key.equals("long"))
 		{
 			String sourceLong = getSource(StringKey.SOURCE_LONG);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceLong);
+			return SimpleWrapperLibrary.wrap(sourceLong);
 		}
 		else if (key.equals("short"))
 		{
 			String sourceShort = getSource(StringKey.SOURCE_SHORT);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceShort);
+			return SimpleWrapperLibrary.wrap(sourceShort);
 		}
 		else if (key.equals("date"))
 		{
@@ -74,35 +87,34 @@ public class SourceModel implements TemplateHashModel
 				Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
 				sourceDate = campaign.get(ObjectKey.SOURCE_DATE);
 			}
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceDate);
+			return SimpleWrapperLibrary.wrap(sourceDate);
 		}
 		else if (key.equals("page"))
 		{
-			String soucePage = getSource(StringKey.SOURCE_PAGE);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(soucePage);
+			String sourcePage = getSource(StringKey.SOURCE_PAGE);
+			return SimpleWrapperLibrary.wrap(sourcePage);
 		}
 		else if (key.equals("web"))
 		{
 			String sourceWeb = getSource(StringKey.SOURCE_WEB);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(sourceWeb);
+			return SimpleWrapperLibrary.wrap(sourceWeb);
 		}
 		else if (key.equals("campaignsource"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(campaign
-				.get(StringKey.SOURCE_SHORT));
+			return WRAPPER_FACET.wrap(id, campaign.get(StringKey.SOURCE_SHORT));
 		}
 		else if (key.equals("pubname"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(campaign
-				.getSafe(StringKey.PUB_NAME_LONG));
+			return WRAPPER_FACET.wrap(id,
+				campaign.getSafe(StringKey.PUB_NAME_LONG));
 		}
 		else if (key.equals("pubnameweb"))
 		{
 			Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(campaign
-				.getSafe(StringKey.PUB_NAME_WEB));
+			return WRAPPER_FACET.wrap(id,
+				campaign.getSafe(StringKey.PUB_NAME_WEB));
 		}
 		throw new TemplateModelException(
 			"source info does not have output of type " + key);

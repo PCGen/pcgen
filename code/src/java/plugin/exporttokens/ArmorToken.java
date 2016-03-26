@@ -491,8 +491,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("MAXDEX"))
 		{
-			final int iMax = eq.getMaxDex(aPC).intValue();
-
+			final int iMax = EqToken.getMaxDexTokenInt(aPC, eq);
 			if (iMax != Constants.MAX_MAXDEX)
 			{
 				ret.append(Delta.toString(iMax));
@@ -500,7 +499,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("ACCHECK"))
 		{
-			ret.append(Delta.toString(eq.acCheck(aPC)));
+			ret.append(Delta.toString(EqToken.getAcCheckTokenInt(aPC, eq)));
 		}
 		else if (property.startsWith("EDR"))
 		{

@@ -48,6 +48,9 @@ public class IntegerKey
 	 */
 	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<IntegerKey>();
 
+	/**
+	 * @deprecated due to EQACCHECK CodeControl
+	 */
 	public static final IntegerKey AC_CHECK = getConstant("AC_CHECK");
 
 	public static final IntegerKey ADD_SPELL_LEVEL = getConstant("ADD_SPELL_LEVEL");
@@ -61,8 +64,14 @@ public class IntegerKey
 
 	public static final IntegerKey COST = getConstant("COST");
 
+	/**
+	 * @deprecated due to CRITMULT CodeControl
+	 */
 	public static final IntegerKey CRIT_MULT = getConstant("CRIT_MULT");
 
+	/**
+	 * @deprecated due to CRITRANGE CodeControl
+	 */
 	public static final IntegerKey CRIT_RANGE = getConstant("CRIT_RANGE");
 
 	/**
@@ -82,6 +91,9 @@ public class IntegerKey
 
 	public static final IntegerKey KNOWN_SPELLS_FROM_SPECIALTY = getConstant("KNOWN_SPELLS_FROM_SPECIALTY");
 
+	/**
+	 * @deprecated due to LEGS CodeControl
+	 */
 	public static final IntegerKey LEGS = getConstant("LEGS", 2);
 
 	public static final IntegerKey LEVEL = getConstant("LEVEL");
@@ -93,6 +105,9 @@ public class IntegerKey
 
 	public static final IntegerKey MAX_CHARGES = getConstant("MAX_CHARGES");
 
+	/**
+	 * @deprecated due to MAXDEX CodeControl
+	 */
 	public static final IntegerKey MAX_DEX = getConstant("MAX_DEX",
 			Constants.MAX_MAXDEX);
 
