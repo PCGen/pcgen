@@ -26,7 +26,6 @@ import org.junit.Test;
 
 import pcgen.base.calculation.ArrayComponentModifier;
 import pcgen.base.calculation.Modifier;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
@@ -116,60 +115,6 @@ public class SolverTest extends TestCase
 		{
 			//ok
 		}
-		try
-		{
-			//have to be bad about generics to even get this to be set up to fail
-			Modifier m = new Modifier(){
-
-				@Override
-				public Object process(Object input, ScopeInformation scopeInfo, Object owner)
-				{
-					return 3;
-				}
-
-				@Override
-				public void getDependencies(DependencyManager fdm)
-				{
-				}
-
-				@Override
-				public String getInstructions()
-				{
-					return "3";
-				}
-
-				@Override
-				public String getIdentification()
-				{
-					return "SET";
-				}
-
-				@Override
-				public Class getVariableFormat()
-				{
-					return Number.class;
-				}
-
-				@Override
-				public int getInherentPriority()
-				{
-					//bad (intentional)
-					return -1;
-				}
-
-				@Override
-				public int getUserPriority()
-				{
-					return 0;
-				}};
-			solver.addModifier(m, new Object());
-			fail("wrong type must be rejected");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-
 	}
 
 	@Test

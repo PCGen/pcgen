@@ -61,15 +61,7 @@ public class ArrayComponentModifierTest extends TestCase
 	{
 		CalculationModifier cm = new CalculationModifier(calc, 5);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals(5, acm.getUserPriority());
-	}
-
-	@Test
-	public void testGetInherentPriority()
-	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
-		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals(6, acm.getInherentPriority());
+		assertEquals((5l << 32) + 6, acm.getPriority());
 	}
 
 	@Test

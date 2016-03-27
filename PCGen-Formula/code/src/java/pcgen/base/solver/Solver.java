@@ -150,7 +150,7 @@ public class Solver<T>
 					+ varFormat.getCanonicalName() + " but got: "
 					+ modifier.getVariableFormat().getCanonicalName());
 		}
-		modifierList.addToListFor(Long.valueOf(getPriority(modifier)),
+		modifierList.addToListFor(Long.valueOf(modifier.getPriority()),
 			new ModInfo<>(modifier, source));
 		sourceList.addToListFor(source, modifier);
 	}
@@ -181,7 +181,7 @@ public class Solver<T>
 			throw new IllegalArgumentException(
 				"Cannot remove Modifier with null source");
 		}
-		modifierList.removeFromListFor(Long.valueOf(getPriority(modifier)),
+		modifierList.removeFromListFor(Long.valueOf(modifier.getPriority()),
 			new ModInfo<>(modifier, source));
 		sourceList.removeFromListFor(source, modifier);
 	}
@@ -211,42 +211,9 @@ public class Solver<T>
 				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 				ModInfo<T> modInfo = new ModInfo<>(modifier, source);
 				modifierList.removeFromListFor(
-					Long.valueOf(getPriority(modifier)), modInfo);
+					Long.valueOf(modifier.getPriority()), modInfo);
 			}
 		}
-	}
-
-	/**
-	 * Gets the full priority of the Modifier. This processes the rules
-	 * described on the Modifier interface, in that the user priority takes
-	 * precedence, and then the inherent priority is used. Builds these into a
-	 * single long value, so that a single sort can be used to process both
-	 * priority values.
-	 * 
-	 * @param modifier
-	 *            The Modifier for which the full priority should be returned
-	 * @return A long representing the combination of the user priority and
-	 *         inherent priority
-	 */
-	private long getPriority(Modifier<T> modifier)
-	{
-		int inherentPriority = modifier.getInherentPriority();
-		if (inherentPriority < 0)
-		{
-			/*
-			 * Required to reject this or the ordering will not be correct due
-			 * to bitwise creation of overall priority. This "contract" is
-			 * defined on the Modifier interface.
-			 */
-			throw new IllegalArgumentException(
-				"Cannot add Modifier with InherentPriority < 0");
-		}
-		/*
-		 * TODO Some limit on user priority; (positive?)
-		 */
-		//Must be a long or the shift below will result in 0 effective user priority
-		long userPriority = modifier.getUserPriority();
-		return (userPriority << 32) + inherentPriority;
 	}
 
 	/**
