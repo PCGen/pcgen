@@ -280,8 +280,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			Function function = library.getFunction(name);
 			if (function == null)
 			{
-				semantics.setInvalid("Function: "
-					+ name + " was not found (called as: " + name + "(...))");
+				semantics.setInvalid("Function: " + name
+					+ " was not found (called as: " + name + "(...))");
 				return null;
 			}
 			//Extract arguments from the grouping to give them to the function
@@ -295,9 +295,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		else
 		{
 			semantics.setInvalid("Parse Error: Function Formula Arguments"
-			+ " received invalid argument format, "
-			+ "expected: ASTFParen or ASTPCGenBracket, got "
-			+ firstChild.getClass().getName() + ": " + firstChild);
+				+ " received invalid argument format, "
+				+ "expected: ASTFParen or ASTPCGenBracket, got "
+				+ firstChild.getClass().getName() + ": " + firstChild);
 			return null;
 		}
 	}
@@ -308,10 +308,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Class<?> argFormat = (Class<?>) singleChildValid(argNode, semantics);
 		if (!NUMBER_CLASS.isAssignableFrom(argFormat))
 		{
-			semantics.setInvalid(
-				"Argument to array: "
-					+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
-					+ " must resolve to a number");
+			semantics.setInvalid("Argument to array: "
+				+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
+				+ " must resolve to a number");
 			return null;
 		}
 		FormulaManager fm = semantics.peek(FormulaSemantics.FMANAGER);
@@ -543,6 +542,22 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			+ " got " + args.length + " " + Arrays.asList(args);
 	}
 
+	/**
+	 * Processes a relational node enforcing that the given node has two
+	 * children and enforcing that the child is valid.
+	 * 
+	 * Expect this to return Boolean.class :)
+	 * 
+	 * @param node
+	 *            The node to be validated to ensure it has two valid children
+	 *            that can be compared.
+	 * @param data
+	 *            The incoming FormulaSemantics object (as Object to assist
+	 *            other methods in this class)
+	 * @return A FormulaSemantics object, which will indicate isValid() true if
+	 *         this operator has two valid children; Otherwise, the
+	 *         FormulaSemantics will indicate isValid() false
+	 */
 	private Object visitRelational(SimpleNode node, Object data)
 	{
 		//null assertion since we can't assert what each side of the logical expression is

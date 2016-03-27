@@ -68,18 +68,20 @@ public interface NEPFormula<T>
 		Object source);
 
 	/**
-	 * Returns the FormulaSemantics for the NEPFormula.
+	 * Processes the FormulaSemantics for the NEPFormula.
 	 * 
-	 * The given FormulaManager must contain information about variable values,
-	 * available functions, and other characteristics required for the formula
-	 * to establish the list of variables contained within the NEPFormula. These
-	 * must be valid within the context of the given FormatManager and
-	 * LegalScope.
+	 * The given FormulaSemantics must contain information about variable
+	 * values, available functions, and other characteristics required for the
+	 * formula to establish the list of variables contained within the
+	 * NEPFormula. These must be valid within the context of the given
+	 * FormatManager.
 	 * 
 	 * @param formatManager
 	 *            The FormatManager in which the NEPFormula should be checked to
 	 *            ensure it is valid
 	 * @param semantics
+	 *            The FormulaSemantics object used to contain and store semantic
+	 *            information about the NEPFormula
 	 */
 	public void isValid(FormatManager<T> formatManager,
 		FormulaSemantics semantics);
