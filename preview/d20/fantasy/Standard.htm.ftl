@@ -145,8 +145,8 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 
   <td class="h">${pcstring('SIZELONG')} / 
   <#if pc.val.os_size!false == true>
-	<#if pc.val.face?keep_before(",") == pc.val.face?keep_after(",")>${pc.val.face?keep_before(",")} ft.
-	<#else>${pc.val.face?keep_before(",")} ft. by ${pc.val.face?keep_after(",")} ft.
+	<#if pc.val.face.x == pc.val.face.y>${pc.val.face.x} ft.
+	<#else>${pc.val.face.x} ft. by ${pc.val.face.y} ft.
 	</#if>
   <#else>
 	${pcstring('FACE')}

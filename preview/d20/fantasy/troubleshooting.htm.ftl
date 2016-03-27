@@ -59,8 +59,8 @@ ${pcstring('RACESUBTYPE.${racesubtype}')}
 <b>Multiclassing experience penalty</b> ${pcstring('EXP.PENALTY')}<br>
 <b>Favored Classes</b> ${pcstring('FAVOREDLIST')}<br>
 <b>Total Classes</b> ${pcvar('COUNT[CLASSES]')}<br>
-<b>Face</b> ${pcstring('FACE')}<br>
-<b>Reach</b> ${pcstring('REACH')}<br>
+<b>Face</b> <#if pc.val.os_size!false == true><#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.<#else>${pc.val.face[0]} ft. by ${pc.val.face[1]} ft.</#if><#else>${pcstring('FACE')}</#if><br>
+<b>Reach</b> <#if pc.val.os_size!false == true> ${pc.val.reach} ft.<#else>${pcstring('REACH')}</#if><br>
 <b>Encumbrance Category:</b> ${pcstring('TOTAL.LOAD')}<br>
 
 <hr />
@@ -523,9 +523,9 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 
 <p>
 <#list pc.equipment.equipped as eq>
-  <#if eq.type == "weapon">
-    <name>${eq.name}</name>
-  </#if>	
+	<#if eq.type?seq_contains("WEAPON")>
+${eq}  ${eq.type?join(",")}	<br>
+	</#if>
 </#list>
 </p>
 
