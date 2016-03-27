@@ -520,11 +520,12 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </p>
 
 <p>weapon test Breakdown</p>
+<#macro getarg object subvar><#if object?has_content>${object[subvar]}</#if></#macro>
 
 <p>
 <#list pc.equipment.equipped as eq>
 	<#if eq.type?seq_contains("WEAPON")>
-${eq}  ${eq.type?join(",")}	<br>
+${eq} | Damage: None | REACH: none | Facts: none | Types: ${eq.type?join(",")}	<br>
 	</#if>
 </#list>
 </p>

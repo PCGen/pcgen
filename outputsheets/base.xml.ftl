@@ -133,7 +133,7 @@
 		</skin>
 		<cr>${pcstring('CR')}</cr>
 		<face>
-			<face><#if pc.val.os_size!false == true><#if pc.val.face.x == pc.val.face.y>${pc.val.face.x} ft.<#else>${pc.val.face.x} ft. by ${pc.val.face.y} ft.</#if><#else>${pcstring('FACE')}</#if></face>
+			<face><#if pc.val.os_size!false == true><#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.<#else>${pc.val.face[0]} ft. by ${pc.val.face[1]} ft.</#if><#else>${pcstring('FACE')}</#if></face>
 			<squares>${pcstring('FACE.SQUARES')}</squares>
 		</face>
 		<favoredlist>${pcstring('FAVOREDLIST')}</favoredlist>
