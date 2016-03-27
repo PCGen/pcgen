@@ -18,6 +18,7 @@
 package plugin.lsttokens.equipmentmodifier;
 
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
@@ -54,7 +55,7 @@ public class FumblerangeToken extends AbstractStringToken<EquipmentModifier>
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		EquipmentModifier obj, String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "FUMBLERANGE"))
+		if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when FUMBLERANGE control is used: " + value,

@@ -18,6 +18,7 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
@@ -54,7 +55,7 @@ public class MaxdexToken extends AbstractIntToken<Equipment> implements
 	public ParseResult parseToken(LoadContext context, Equipment obj,
 		String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "EQMAXDEX"))
+		if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when MAXDEX control is used: " + value,

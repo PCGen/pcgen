@@ -20,6 +20,7 @@ package pcgen.cdom.enumeration;
 import java.util.List;
 
 import pcgen.base.lang.UnreachableError;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -145,7 +146,7 @@ public enum SkillArmorCheck
 	{
 		String acCheckVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"PCACCHECK");
+					CControl.PCACCHECK);
 		if (acCheckVar == null)
 		{
 			return calculateMaxOld(pc);

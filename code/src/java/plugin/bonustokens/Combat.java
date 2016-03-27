@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
@@ -53,7 +54,7 @@ public final class Combat extends MultiTagBonusObj
 				context);
 			return false;
 		}
-		if (ControlUtilities.hasControlToken(context, "ACVARTOTAL"))
+		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
 		{
 			if ("AC".equals(token))
 			{

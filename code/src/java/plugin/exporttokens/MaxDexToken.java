@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -91,7 +92,7 @@ public class MaxDexToken extends Token
 	{
 		String maxDexVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"PCMAXDEX");
+					CControl.PCMAXDEX);
 		if (maxDexVar == null)
 		{
 			return pc.processOldMaxDex();

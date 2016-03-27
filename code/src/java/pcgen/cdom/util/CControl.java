@@ -1,0 +1,39 @@
+package pcgen.cdom.util;
+
+public class CControl
+{
+	public static final String CRITMULT = "CRITMULT";
+
+	public static final String CRITRANGE = "CRITRANGE";
+
+	public static final String LEGS = "LEGS";
+
+	public static final String CREATUREHANDS = "CREATUREHANDS";
+
+	public static final String FUMBLERANGE = "FUMBLERANGE";
+
+	public static final String ALTHP = "ALTHP";
+
+	public static final String EQMAXDEX = "EQMAXDEX";
+	public static final String PCMAXDEX = "PCMAXDEX";
+
+	public static final String EQACCHECK = "EQACCHECK";
+	public static final String PCACCHECK = "PCACCHECK";
+
+	public static final String EQSPELLFAILURE = "EQSPELLFAILURE";
+	public static final String PCSPELLFAILURE = "PCSPELLFAILURE";
+
+	public static final String EDR = "EDR";
+
+	public static final String FACE = "FACE";
+
+	public static final String EQRANGE = "EQRANGE";
+
+	public static final String SIZEMODDEFENSE = "SIZEMODDEFENSE";
+	public static final String EQBASEACMOD = "EQBASEACMOD";
+	public static final String EQACMOD = "EQACMOD";
+	public static final String ALTERSAC = "ALTERSAC";
+	public static final String ACVARTOTAL = "ACVARTOTAL";
+	public static final String ACVARARMOR = "ACVARARMOR";
+
+}

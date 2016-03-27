@@ -27,6 +27,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
@@ -52,7 +53,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		if (pc.hasControl("EQSPELLFAILURE"))
+		if (pc.hasControl(CControl.EQSPELLFAILURE))
 		{
 			Logging.errorPrint("EQSPELLFAIL term is disabled "
 				+ "when EQSPELLFAILURE control is used");

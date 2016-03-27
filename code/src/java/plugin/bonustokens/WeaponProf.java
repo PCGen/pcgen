@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
@@ -77,7 +78,7 @@ public final class WeaponProf extends MultiTagBonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
-		if (ControlUtilities.hasControlToken(context, "CRITRANGE"))
+		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
 		{
 			if ("CRITRANGEADD".equals(token))
 			{
@@ -94,7 +95,7 @@ public final class WeaponProf extends MultiTagBonusObj
 				return false;
 			}
 		}
-		if (ControlUtilities.hasControlToken(context, "CRITMULT"))
+		if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))
 		{
 			if ("CRITMULTADD".equals(token))
 			{
