@@ -19,7 +19,6 @@ package pcgen.base.formula.library;
 
 import java.util.Arrays;
 
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
@@ -85,19 +84,17 @@ public class ValueFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
+	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
 		if (args.length == 0)
 		{
-			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				input.getClass());
-			return;
+			return input.getClass();
 		}
-		FormulaSemanticsUtilities.setInvalid(semantics, "Function "
-			+ FUNCTION_NAME
+		semantics.setInvalid("Function " + FUNCTION_NAME
 			+ " received incorrect # of arguments, expected: 0 got "
 			+ args.length + " " + Arrays.asList(args));
+		return null;
 	}
 
 	/**

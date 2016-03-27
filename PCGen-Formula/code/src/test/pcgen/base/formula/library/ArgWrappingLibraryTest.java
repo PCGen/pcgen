@@ -125,9 +125,10 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 			}
 
 			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
+			public Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 				FormulaSemantics fs)
 			{
+				return null;
 			}
 
 			@Override

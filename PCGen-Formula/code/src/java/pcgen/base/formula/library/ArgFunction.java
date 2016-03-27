@@ -20,7 +20,6 @@ package pcgen.base.formula.library;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
@@ -91,26 +90,24 @@ public class ArgFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
+	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
 		if (args.length != 1)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Function "
-				+ FUNCTION_NAME
+			semantics.setInvalid("Function " + FUNCTION_NAME
 				+ " received incorrect # of arguments, expected: 0 got "
 				+ args.length + " " + Arrays.asList(args));
-			return;
+			return null;
 		}
 		Node node = args[0];
 		if (!(node instanceof ASTNum))
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Function " + FUNCTION_NAME
-					+ " received invalid argument format,"
-					+ " expected: ASTNum got " + node.getClass().getName()
-					+ ": " + node);
-			return;
+			semantics.setInvalid("Parse Error: Function " + FUNCTION_NAME
+				+ " received invalid argument format,"
+				+ " expected: ASTNum got " + node.getClass().getName() + ": "
+				+ node);
+			return null;
 		}
 		String nodeText = ((ASTNum) node).getText();
 		try
@@ -118,34 +115,33 @@ public class ArgFunction implements Function
 			int argNum = Integer.parseInt(nodeText);
 			if ((argNum < 0) || (argNum >= masterArgs.length))
 			{
-				FormulaSemanticsUtilities.setInvalid(semantics,
-					"Function " + FUNCTION_NAME
-						+ " received incorrect # of arguments, expected: "
-						+ (argNum + 1) + " got " + masterArgs.length + " "
-						+ Arrays.asList(masterArgs));
-				return;
+				semantics.setInvalid("Function " + FUNCTION_NAME
+					+ " received incorrect # of arguments, expected: "
+					+ (argNum + 1) + " got " + masterArgs.length + " "
+					+ Arrays.asList(masterArgs));
+				return null;
 			}
 			assertArgs(semantics, argNum);
 			Node n = masterArgs[argNum];
-			n.jjtAccept(visitor, semantics);
+			return (Class<?>) n.jjtAccept(visitor, semantics);
 		}
 		catch (NumberFormatException e)
 		{
-			FormulaSemanticsUtilities
-				.setInvalid(semantics, "Parse Error: Invalid Class: "
-					+ node.getClass().getName()
-					+ " found in operable location (class cannot be evaluated)");
+			semantics.setInvalid("Parse Error: Invalid Class: "
+				+ node.getClass().getName()
+				+ " found in operable location (class cannot be evaluated)");
+			return null;
 		}
 	}
 
 	private void assertArgs(FormulaSemantics semantics, int argNum)
 	{
 		ArgumentDependencyManager argManager =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_ARGS);
+				semantics.peek(ArgumentDependencyManager.KEY);
 		if (argManager == null)
 		{
 			argManager = new ArgumentDependencyManager();
-			semantics.setInfo(FormulaSemanticsUtilities.SEM_ARGS, argManager);
+			semantics.set(ArgumentDependencyManager.KEY, argManager);
 		}
 		argManager.addArgument(argNum);
 	}

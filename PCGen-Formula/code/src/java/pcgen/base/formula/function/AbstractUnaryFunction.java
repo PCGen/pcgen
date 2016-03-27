@@ -19,7 +19,6 @@ package pcgen.base.formula.function;
 
 import java.util.Arrays;
 
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
@@ -44,32 +43,29 @@ public abstract class AbstractUnaryFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void allowArgs(SemanticsVisitor visitor, Node[] args,
+	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
 		if (args.length != 1)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Function "
-				+ getFunctionName()
+			semantics.setInvalid("Function " + getFunctionName()
 				+ " received incorrect # of arguments, expected: 1 got "
 				+ args.length + " " + Arrays.asList(args));
-			return;
+			return null;
 		}
-		args[0].jjtAccept(visitor, semantics);
-		if (semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		Class<?> format = (Class<?>) args[0].jjtAccept(visitor, semantics);
+		if (semantics.isValid())
 		{
-			Class<?> format =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 			if (!format.equals(Number.class))
 			{
-				FormulaSemanticsUtilities.setInvalid(semantics,
-					"Parse Error: Invalid Value Format: " + format
-						+ " found in " + args[0].getClass().getName()
-						+ " found in location requiring a"
-						+ " Number (class cannot be evaluated)");
-				return;
+				semantics.setInvalid("Parse Error: Invalid Value Format: "
+					+ format + " found in " + args[0].getClass().getName()
+					+ " found in location requiring a"
+					+ " Number (class cannot be evaluated)");
+				return null;
 			}
 		}
+		return Number.class;
 	}
 
 	/**

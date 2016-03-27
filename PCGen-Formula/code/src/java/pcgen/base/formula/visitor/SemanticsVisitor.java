@@ -19,11 +19,13 @@ package pcgen.base.formula.visitor;
 
 import java.util.Arrays;
 
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
 import pcgen.base.formula.parse.ASTExpon;
@@ -95,59 +97,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	private static final Class<String> STRING_CLASS = String.class;
 
 	/**
-	 * The FormulaManager used to get information about functions and other key
-	 * parameters of a Formula.
-	 */
-	private final FormulaManager fm;
-
-	/**
-	 * The LegalScope in which the formula resides.
-	 */
-	private final LegalScope legalScope;
-
-	/**
-	 * The Class indicating the asserted Format for a formula analyzed by this
-	 * SemanticsVisitor. This parameter is optional - null can indicate that
-	 * there is no format asserted by the context of the formula.
-	 */
-	private final Class<?> assertedFormat;
-
-	/**
-	 * Constructs a new SemanticsVisitor with the given FormulaManager and
-	 * LegalScope.
-	 * 
-	 * @param fm
-	 *            The FormulaManager used to get information about functions and
-	 *            other key parameters of a Formula
-	 * @param legalScope
-	 *            The LegalScope used to validate if variables used in the
-	 *            formula are valid
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for a formula
-	 *            analyzed by this SemanticsVisitor. This parameter is optional
-	 *            - null can indicate that there is no format asserted by the
-	 *            context of the formula
-	 * @throws IllegalArgumentException
-	 *             if the FormulaMangaer or LegalScope parameters are null
-	 */
-	public SemanticsVisitor(FormulaManager fm, LegalScope legalScope,
-		Class<?> assertedFormat)
-	{
-		if (fm == null)
-		{
-			throw new IllegalArgumentException("FormulaManager cannot be null");
-		}
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
-		this.fm = fm;
-		this.legalScope = legalScope;
-		//assertedFormat CAN be null
-		this.assertedFormat = assertedFormat;
-	}
-
-	/**
 	 * Visits a SimpleNode. Because this cannot be processed, due to lack of
 	 * knowledge as to the exact type of SimpleNode encountered, the node is
 	 * visited, which - through double dispatch - will result in another method
@@ -179,11 +128,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTLogical node, Object data)
 	{
-		//null assertion since we can't assert what each side of the logical expression is
-		SemanticsVisitor logicalVisitor =
-				(assertedFormat == null) ? this : new SemanticsVisitor(fm,
-					legalScope, null);
-		return logicalVisitor.visitOperatorNode(node, data);
+		return visitRelational(node, data);
 	}
 
 	/**
@@ -193,11 +138,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTEquality node, Object data)
 	{
-		//null assertion since we can't assert what each side of the logical expression is
-		SemanticsVisitor logicalVisitor =
-				(assertedFormat == null) ? this : new SemanticsVisitor(fm,
-					legalScope, null);
-		return logicalVisitor.visitOperatorNode(node, data);
+		return visitRelational(node, data);
 	}
 
 	/**
@@ -207,11 +148,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRelational node, Object data)
 	{
-		//null assertion since we can't assert what each side of the logical expression is
-		SemanticsVisitor logicalVisitor =
-				(assertedFormat == null) ? this : new SemanticsVisitor(fm,
-					legalScope, null);
-		return logicalVisitor.visitOperatorNode(node, data);
+		return visitRelational(node, data);
 	}
 
 	/**
@@ -284,22 +221,20 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		if (node.jjtGetNumChildren() != 0)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				getInvalidCountReport(node, 0));
-			return semantics;
+			semantics.setInvalid(getInvalidCountReport(node, 0));
+			return null;
 		}
 		try
 		{
 			Double.parseDouble(node.getText());
-			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				NUMBER_CLASS);
+			return NUMBER_CLASS;
 		}
 		catch (NumberFormatException e)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, node.getClass()
-				+ " had invalid number: " + node.getText());
+			semantics.setInvalid(node.getClass() + " had invalid number: "
+				+ node.getText());
+			return null;
 		}
-		return semantics;
 	}
 
 	/**
@@ -317,20 +252,18 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		//Two children are function name and the grouping (parens/brackets)
 		if (node.jjtGetNumChildren() != 2)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				getInvalidCountReport(node, 2));
-			return semantics;
+			semantics.setInvalid(getInvalidCountReport(node, 2));
+			return null;
 		}
 		Node firstChild = node.jjtGetChild(0);
 
 		if (!(firstChild instanceof ASTPCGenSingleWord))
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Function " + "Formula Name"
-					+ " received invalid argument format,"
-					+ " expected: ASTPCGenSingleWord got "
-					+ firstChild.getClass().getName() + ": " + firstChild);
-			return semantics;
+			semantics.setInvalid("Parse Error: Formula "
+				+ " received invalid node format,"
+				+ " expected: ASTPCGenSingleWord got "
+				+ firstChild.getClass().getName() + ": " + firstChild);
+			return null;
 		}
 
 		/*
@@ -342,65 +275,62 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			Node[] args = VisitorUtilities.accumulateArguments(argNode);
-			Function function = fm.getLibrary().getFunction(name);
+			FunctionLibrary library =
+					semantics.peek(FormulaSemantics.FMANAGER).getLibrary();
+			Function function = library.getFunction(name);
 			if (function == null)
 			{
-				FormulaSemanticsUtilities.setInvalid(semantics, "Function: "
-					+ name + " was not found (called as: " + name + "(...))");
-				return semantics;
+				semantics.setInvalid("Function: " + name
+					+ " was not found (called as: " + name + "(...))");
+				return null;
 			}
 			//Extract arguments from the grouping to give them to the function
-			function.allowArgs(this, args, semantics);
+			Node[] args = VisitorUtilities.accumulateArguments(argNode);
+			return function.allowArgs(this, args, semantics);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			processArrayReference(name, (SimpleNode) argNode, semantics);
+			return processArrayReference(name, (SimpleNode) argNode, semantics);
 		}
 		else
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Function Formula Arguments"
-					+ " received invalid argument format, "
-					+ "expected: () or [], got "
-					+ firstChild.getClass().getName() + ": " + firstChild);
-			return semantics;
+			semantics.setInvalid("Parse Error: Function Formula Arguments"
+				+ " received invalid argument format, "
+				+ "expected: ASTFParen or ASTPCGenBracket, got "
+				+ firstChild.getClass().getName() + ": " + firstChild);
+			return null;
 		}
-		return semantics;
 	}
 
-	private void processArrayReference(String name, SimpleNode argNode,
+	private Class<?> processArrayReference(String name, SimpleNode argNode,
 		FormulaSemantics semantics)
 	{
-		singleChildValid(argNode, semantics);
-		Class<?> argFormat =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
+		Class<?> argFormat = (Class<?>) singleChildValid(argNode, semantics);
 		if (!NUMBER_CLASS.isAssignableFrom(argFormat))
 		{
-			FormulaSemanticsUtilities.setInvalid(
-				semantics,
-				"Argument to array: "
-					+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
-					+ " must resolve to a number");
-			return;
+			semantics.setInvalid("Argument to array: "
+				+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
+				+ " must resolve to a number");
+			return null;
 		}
+		FormulaManager fm = semantics.peek(FormulaSemantics.FMANAGER);
+		LegalScope legalScope = semantics.peek(FormulaSemantics.SCOPE);
 		FormatManager<?> formatManager =
 				fm.getFactory().getVariableFormat(legalScope, name);
 		if (formatManager == null)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: " + name
-				+ " was not found in scope " + getLegalScope().getName());
-			return;
+			semantics.setInvalid("Variable: " + name
+				+ " was not found in scope " + legalScope.getName());
+			return null;
 		}
 		FormatManager<?> componentMgr = formatManager.getComponentManager();
 		if (componentMgr == null)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: " + name
-				+ " was not an array in scope " + getLegalScope().getName());
-			return;
+			semantics.setInvalid("Variable: " + name
+				+ " was not an array in scope " + legalScope.getName());
+			return null;
 		}
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-			componentMgr.getManagedClass());
+		return componentMgr.getManagedClass();
 	}
 
 	/**
@@ -414,25 +344,22 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		if (node.jjtGetNumChildren() != 0)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				getInvalidCountReport(node, 0));
-			return semantics;
+			semantics.setInvalid(getInvalidCountReport(node, 0));
+			return null;
 		}
 		String varName = node.getText();
+		VariableLibrary varLib =
+				semantics.peek(FormulaSemantics.FMANAGER).getFactory();
+		LegalScope legalScope = semantics.peek(FormulaSemantics.SCOPE);
 		FormatManager<?> formatManager =
-				fm.getFactory().getVariableFormat(legalScope, varName);
-		if (formatManager != null)
+				varLib.getVariableFormat(legalScope, varName);
+		if (formatManager == null)
 		{
-			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				formatManager.getManagedClass());
+			semantics.setInvalid("Variable: " + varName
+				+ " was not found in scope " + legalScope.getName());
+			return null;
 		}
-		else
-		{
-			FormulaSemanticsUtilities.setInvalid(semantics, "Variable: "
-				+ varName + " was not found in scope "
-				+ getLegalScope().getName());
-		}
-		return semantics;
+		return formatManager.getManagedClass();
 	}
 
 	/**
@@ -447,10 +374,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	{
 		//Should be stripped by the function
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		FormulaSemanticsUtilities.setInvalid(semantics,
-			"Parse Error: Invalid Class: " + node.getClass().getName()
-				+ " found in operable location (class cannot be evaluated)");
-		return semantics;
+		semantics.setInvalid("Parse Error: Invalid Class: "
+			+ node.getClass().getName()
+			+ " found in operable location (class cannot be evaluated)");
+		return null;
 	}
 
 	/**
@@ -465,10 +392,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	{
 		//Should be stripped by the function
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		FormulaSemanticsUtilities.setInvalid(semantics,
-			"Parse Error: Invalid Class: " + node.getClass().getName()
-				+ " found in operable location (class cannot be evaluated)");
-		return semantics;
+		semantics.setInvalid("Parse Error: Invalid Class: "
+			+ node.getClass().getName()
+			+ " found in operable location (class cannot be evaluated)");
+		return null;
 	}
 
 	/**
@@ -481,9 +408,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
-		FormulaSemantics semantics = (FormulaSemantics) data;
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, STRING_CLASS);
-		return semantics;
+		return STRING_CLASS;
 	}
 
 	/**
@@ -503,52 +428,44 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Operator op = node.getOperator();
 		if (op == null)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Object of type " + node.getClass()
-					+ " expected to have an operator, none was found");
-			return semantics;
+			semantics.setInvalid("Parse Error: Object of type "
+				+ node.getClass()
+				+ " expected to have an operator, none was found");
+			return null;
 		}
 		if (node.jjtGetNumChildren() != 2)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				getInvalidCountReport(node, 2));
-			return semantics;
+			semantics.setInvalid(getInvalidCountReport(node, 2));
+			return null;
 		}
 		Node child1 = node.jjtGetChild(0);
-		child1.jjtAccept(this, data);
+		Class<?> format1 = (Class<?>) child1.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		if (!semantics.isValid())
 		{
-			return semantics;
+			return null;
 		}
-		//Need to capture now
-		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> format1 =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
 
 		Node child2 = node.jjtGetChild(1);
-		child2.jjtAccept(this, data);
+		Class<?> format2 = (Class<?>) child2.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		if (!semantics.isValid())
 		{
-			return semantics;
+			return null;
 		}
-		Class<?> format2 =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		Class<?> returnedFormat =
-				fm.getOperatorLibrary().processAbstract(op, format1, format2);
+		OperatorLibrary opLib =
+				semantics.peek(FormulaSemantics.FMANAGER).getOperatorLibrary();
+		Class<?> returnedFormat = opLib.processAbstract(op, format1, format2);
 		//null response means the library couldn't find an appropriate operator
 		if (returnedFormat == null)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Operator " + op.getSymbol()
-					+ " cannot process children: " + format1.getSimpleName()
-					+ " and " + format2.getSimpleName() + " found in "
-					+ node.getClass().getName());
-			return semantics;
+			semantics.setInvalid("Parse Error: Operator " + op.getSymbol()
+				+ " cannot process children: " + format1.getSimpleName()
+				+ " and " + format2.getSimpleName() + " found in "
+				+ node.getClass().getName());
+			return null;
 		}
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, returnedFormat);
-		return semantics;
+		return returnedFormat;
 	}
 
 	private Object visitUnaryNode(SimpleNode node, Object data)
@@ -557,32 +474,29 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Operator op = node.getOperator();
 		if (op == null)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Object of type " + node.getClass()
-					+ " expected to have an operator, none was found");
-			return semantics;
+			semantics.setInvalid("Parse Error: Object of type "
+				+ node.getClass()
+				+ " expected to have an operator, none was found");
+			return null;
 		}
-		semantics = (FormulaSemantics) singleChildValid(node, data);
+		Class<?> format = (Class<?>) singleChildValid(node, data);
 		//Consistent with the "fail fast" behavior in the implementation note
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		if (!semantics.isValid())
 		{
-			return semantics;
+			return null;
 		}
-		Class<?> format =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-		Class<?> returnedFormat =
-				fm.getOperatorLibrary().processAbstract(op, format);
+		OperatorLibrary opLib =
+				semantics.peek(FormulaSemantics.FMANAGER).getOperatorLibrary();
+		Class<?> returnedFormat = opLib.processAbstract(op, format);
 		//null response means the library couldn't find an appropriate operator
 		if (returnedFormat == null)
 		{
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				"Parse Error: Operator " + op.getSymbol()
-					+ " cannot process child: " + format.getSimpleName()
-					+ " found in " + node.getClass().getName());
-			return semantics;
+			semantics.setInvalid("Parse Error: Operator " + op.getSymbol()
+				+ " cannot process child: " + format.getSimpleName()
+				+ " found in " + node.getClass().getName());
+			return null;
 		}
-		semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT, returnedFormat);
-		return semantics;
+		return returnedFormat;
 	}
 
 	/**
@@ -604,39 +518,18 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		if (node.jjtGetNumChildren() != 1)
 		{
 			FormulaSemantics semantics = (FormulaSemantics) data;
-			FormulaSemanticsUtilities.setInvalid(semantics,
-				getInvalidCountReport(node, 1));
-			return semantics;
+			semantics.setInvalid(getInvalidCountReport(node, 1));
+			return null;
 		}
 		Node child = node.jjtGetChild(0);
 		return child.jjtAccept(this, data);
 	}
 
 	/**
-	 * Returns the LegalScope in which this SemanticsVisitor is operating.
-	 * 
-	 * @return the LegalScope in which this SemanticsVisitor is operating
-	 */
-	public LegalScope getLegalScope()
-	{
-		return legalScope;
-	}
-
-	/**
-	 * Returns the underlying FormulaManager for this SemanticsVisitor.
-	 * 
-	 * @return the underlying FormulaManager for this SemanticsVisitor
-	 */
-	public FormulaManager getFormulaManager()
-	{
-		return fm;
-	}
-
-	/**
 	 * Generates an invalid argument count report based on the given node and
 	 * expected argument count.
 	 */
-	private String getInvalidCountReport(Node node, int expectedCount)
+	private String getInvalidCountReport(SimpleNode node, int expectedCount)
 	{
 		int argLength = node.jjtGetNumChildren();
 		Node[] args = new Node[argLength];
@@ -650,14 +543,29 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Returns the asserted Format for formulas visited by this
-	 * SemanticsVisitor.
+	 * Processes a relational node enforcing that the given node has two
+	 * children and enforcing that the child is valid.
 	 * 
-	 * @return The asserted Format for formulas visited by this
-	 *         SemanticsVisitor.
+	 * Expect this to return Boolean.class :)
+	 * 
+	 * @param node
+	 *            The node to be validated to ensure it has two valid children
+	 *            that can be compared.
+	 * @param data
+	 *            The incoming FormulaSemantics object (as Object to assist
+	 *            other methods in this class)
+	 * @return A FormulaSemantics object, which will indicate isValid() true if
+	 *         this operator has two valid children; Otherwise, the
+	 *         FormulaSemantics will indicate isValid() false
 	 */
-	public Class<?> getAssertedFormat()
+	private Object visitRelational(SimpleNode node, Object data)
 	{
-		return assertedFormat;
+		//null assertion since we can't assert what each side of the logical expression is
+		FormulaSemantics semantics = (FormulaSemantics) data;
+		semantics.push(FormulaSemantics.ASSERTED, null);
+		Object result = visitOperatorNode(node, semantics);
+		semantics.pop(FormulaSemantics.ASSERTED);
+		return result;
 	}
+
 }

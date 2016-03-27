@@ -17,23 +17,12 @@
  */
 package pcgen.base.formula.inst;
 
-import java.io.StringReader;
-
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.format.NumberManager;
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.parse.FormulaParser;
-import pcgen.base.formula.parse.ParseException;
-import pcgen.base.formula.parse.SimpleNode;
-import pcgen.base.util.FormatManager;
 
 public class SimpleFormulaManagerTest extends TestCase
 {
@@ -122,100 +111,6 @@ public class SimpleFormulaManagerTest extends TestCase
 		catch (IllegalArgumentException e)
 		{
 			//ok, too			
-		}
-	}
-
-	@Test
-	public void testIsValid()
-	{
-		FormulaManager manager =
-				new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary,
-					resultsStore);
-		FormatManager<Number> numberManager = new NumberManager();
-		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		try
-		{
-			manager.isValid(null, varScope, numberManager, Number.class);
-			fail("isValid should reject null root");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//yep
-		}
-		try
-		{
-			SimpleNode fp =
-					new FormulaParser(new StringReader("myvar+yourvar"))
-						.query();
-			manager.isValid(fp, varScope, null, Number.class);
-			fail("isValid should reject null FormatManager");
-		}
-		catch (ParseException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (IllegalArgumentException e)
-		{
-			//yep
-		}
-		try
-		{
-			SimpleNode fp =
-					new FormulaParser(new StringReader("myvar+yourvar"))
-						.query();
-			manager.isValid(fp, null, numberManager, Number.class);
-			fail("isValid should reject null scope");
-		}
-		catch (ParseException e)
-		{
-			fail(e.getMessage());
-		}
-		catch (IllegalArgumentException e)
-		{
-			//yep
-		}
-		FormulaUtilities.loadBuiltInOperators(opLibrary);
-		try
-		{
-			SimpleNode fp = new FormulaParser(new StringReader("4==1")).query();
-			FormulaSemantics valid =
-					manager.isValid(fp, varScope, numberManager, Number.class);
-			assertFalse("Should reject Boolean return value",
-				valid.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid());
-		}
-		catch (ParseException e)
-		{
-			fail(e.getMessage());
-		}
-		varLibrary.assertLegalVariableID("myvar", varScope, numberManager);
-		try
-		{
-			SimpleNode fp =
-					new FormulaParser(new StringReader("myvar+yourvar"))
-						.query();
-			FormulaSemantics valid =
-					manager.isValid(fp, varScope, numberManager, Number.class);
-			assertFalse("Should reject missing var",
-				valid.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid());
-		}
-		catch (ParseException e)
-		{
-			fail(e.getMessage());
-		}
-		varLibrary.assertLegalVariableID("yourvar", varScope, numberManager);
-		try
-		{
-			SimpleNode fp =
-					new FormulaParser(new StringReader("myvar+yourvar"))
-						.query();
-			FormulaSemantics valid =
-					manager.isValid(fp, varScope, numberManager, Number.class);
-			assertTrue(valid.getInfo(FormulaSemanticsUtilities.SEM_VALID)
-				.isValid());
-		}
-		catch (ParseException e)
-		{
-			fail(e.getMessage());
 		}
 	}
 

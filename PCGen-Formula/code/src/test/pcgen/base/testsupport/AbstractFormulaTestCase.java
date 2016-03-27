@@ -22,8 +22,6 @@ import java.util.List;
 import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
-import pcgen.base.formula.analysis.FormulaValidity;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -39,6 +37,7 @@ import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
+import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
@@ -65,16 +64,15 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isValid(String formula, SimpleNode node,
 		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
-				localSetup.getFormulaManager().isValid(node, getGlobalScope(),
-					formatManager, assertedFormat);
-		if (!semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+				FormulaSemantics.generate(localSetup.getFormulaManager(),
+					getGlobalScope(), assertedFormat);
+		semanticsVisitor.visit(node, semantics);
+		if (!semantics.isValid())
 		{
-			TestCase.fail("Expected Valid Formula: "
-				+ formula
-				+ " but was told: "
-				+ semantics.getInfo(FormulaSemanticsUtilities.SEM_REPORT)
-					.getReport());
+			TestCase.fail("Expected Valid Formula: " + formula
+				+ " but was told: " + semantics.getReport());
 		}
 	}
 
@@ -88,7 +86,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
-		Object result = localSetup.getScopeInfo().evaluate(node, Number.class, null);
+		Object result =
+				localSetup.getScopeInfo().evaluate(node, Number.class, null);
 		if (result.equals(valueOf))
 		{
 			return;
@@ -118,12 +117,12 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected void isNotValid(String formula, SimpleNode node,
 		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
+		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
-				localSetup.getFormulaManager().isValid(node, getGlobalScope(),
-					formatManager, assertedFormat);
-		FormulaValidity isValid =
-				semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID);
-		if (isValid.isValid())
+				FormulaSemantics.generate(localSetup.getFormulaManager(),
+					getGlobalScope(), assertedFormat);
+		semanticsVisitor.visit(node, semantics);
+		if (semantics.isValid())
 		{
 			TestCase.fail("Expected Invalid Formula: " + formula
 				+ " but was valid");
@@ -197,7 +196,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		return setup.getLegalScopeLibrary();
 	}
-	
+
 	protected ScopeInformation getScopeInfo()
 	{
 		return localSetup.getScopeInfo();

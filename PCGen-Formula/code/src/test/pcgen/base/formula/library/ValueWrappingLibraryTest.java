@@ -117,9 +117,10 @@ public class ValueWrappingLibraryTest extends TestCase
 			}
 
 			@Override
-			public void allowArgs(SemanticsVisitor visitor, Node[] args,
+			public Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 				FormulaSemantics fs)
 			{
+				return null;
 			}
 
 			@Override
