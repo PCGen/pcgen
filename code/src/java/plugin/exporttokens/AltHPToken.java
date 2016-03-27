@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -65,7 +66,7 @@ public class AltHPToken extends Token
 	public static int getAltHPToken(PlayerCharacter pc)
 	{
 		int i;
-		String solverValue = pc.getControl("*ALTHP");
+		String solverValue = pc.getControl(CControl.ALTHP);
 		if (solverValue != null)
 		{
 			Object val = pc.getGlobal(solverValue);

@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
@@ -74,7 +75,7 @@ public final class EqmArmor extends MultiTagBonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
-		if (ControlUtilities.hasControlToken(context, "EDR"))
+		if (ControlUtilities.hasControlToken(context, CControl.EDR))
 		{
 			if ("EDR".equals(token))
 			{
@@ -84,7 +85,7 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
-		if (ControlUtilities.hasControlToken(context, "EQSPELLFAILURE"))
+		if (ControlUtilities.hasControlToken(context, CControl.EQSPELLFAILURE))
 		{
 			if ("SPELLFAILURE".equals(token))
 			{
@@ -93,7 +94,7 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
-		if (ControlUtilities.hasControlToken(context, "EQMAXDEX"))
+		if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
 		{
 			if ("MAXDEX".equals(token))
 			{
@@ -102,7 +103,17 @@ public final class EqmArmor extends MultiTagBonusObj
 				return false;
 			}
 		}
-		if (ControlUtilities.hasControlToken(context, "EQACCHECK"))
+		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
+		{
+			if ("AC".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
 		{
 			if ("ACCHECK".equals(token))
 			{
@@ -113,6 +124,4 @@ public final class EqmArmor extends MultiTagBonusObj
 		}
 		return super.parseToken(context, token);
 	}
-	
-	
 }

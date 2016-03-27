@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -46,7 +47,8 @@ public class PCProfACCheckTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), "EQACCHECK"))
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.EQACCHECK))
 		{
 			Logging.errorPrint(originalText
 				+ " term is deprecated (does not function)"

@@ -28,6 +28,7 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
@@ -72,7 +73,7 @@ public class PreLegsParser extends AbstractPrerequisiteParser implements
 	                          boolean invertResult,
 	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), "LEGS"))
+		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.LEGS))
 		{
 			throw new PersistenceLayerException(
 				"PRELEGS is deprecated (does not function) when LEGS CodeControl is used");

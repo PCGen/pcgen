@@ -554,6 +554,7 @@ public class CharacterDisplay
 		return spellBookFacet.getBookNamed(id, name);
 	}
 
+	@Deprecated
 	public int calcACOfType(String type)
 	{
 		return armorClassFacet.calcACOfType(id, type);
@@ -1037,16 +1038,6 @@ public class CharacterDisplay
 		return sizeFacet.racialSizeInt(id);
 	}
 
-	/**
-	 * Now we use the ACTYPE tag on misc info to determine the formula
-	 * 
-	 * @return ac total
-	 */
-	public int getACTotal()
-	{
-		return armorClassFacet.calcACOfType(id, "Total");
-	}
-
 	public Set<Language> getAutoLanguages()
 	{
 		Set<Language> languages = new HashSet<Language>();
@@ -1162,16 +1153,6 @@ public class CharacterDisplay
 		return unarmedDamageFacet.getSet(id);
 	}
 
-	public int abilityAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Ability");
-	}
-
-	public int baseAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Base");
-	}
-
 	/**
 	 * Get all possible sources of Damage Resistance and calculate
 	 * 
@@ -1203,49 +1184,14 @@ public class CharacterDisplay
 		return false;
 	}
 
-	public int classAC()
-	{
-		return armorClassFacet.calcACOfType(id, "ClassDefense");
-	}
-
-	public int dodgeAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Dodge");
-	}
-
-	public int equipmentAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Equipment") + armorClassFacet.calcACOfType(id, "Armor");
-	}
-
-	public int flatfootedAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Flatfooted");
-	}
-
 	public int minXPForNextECL()
 	{
 		return levelTableFacet.minXPForLevel(levelFacet.getECL(id) + 1, id);
 	}
 
-	public int miscAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Misc");
-	}
-
 	public double multiclassXPMultiplier()
 	{
 		return multiClassFacet.getMultiClassXPMultiplier(id);
-	}
-
-	public int naturalAC()
-	{
-		return armorClassFacet.calcACOfType(id, "NaturalArmor");
-	}
-
-	public int sizeAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Size");
 	}
 
 	public int sizeInt()
@@ -1266,11 +1212,6 @@ public class CharacterDisplay
 	public Float totalWeight()
 	{
 		return totalWeightFacet.getTotalWeight(id);
-	}
-
-	public int touchAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Touch");
 	}
 
 	public SizeAdjustment getSizeAdjustment()

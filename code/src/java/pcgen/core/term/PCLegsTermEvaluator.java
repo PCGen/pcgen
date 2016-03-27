@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
@@ -43,7 +44,8 @@ public class PCLegsTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), "LEGS"))
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.LEGS))
 		{
 			Logging
 				.errorPrint("LEGS term is deprecated (does not function) when LEGS CodeControl is used");

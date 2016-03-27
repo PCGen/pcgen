@@ -67,6 +67,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.BenefitFormatting;
@@ -874,7 +875,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (SettingsHandler.getGame().getACText().length() != 0)
 		{
-			a = equip.getACBonus(pc);
+			a = equip.getACMod(pc);
 
 			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 			{
@@ -942,7 +943,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		String critRangeVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITRANGE");
+					CControl.CRITRANGE);
 		if (critRangeVar == null)
 		{
 			int critrange = EqToken.getOldBonusedCritRange(pc, equip, true);
@@ -970,7 +971,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		String critMultVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITMULT");
+					CControl.CRITMULT);
 		if (critMultVar == null)
 		{
 			bString = EqToken.multAsString(equip.getCritMultiplier());

@@ -25,6 +25,8 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -51,6 +53,16 @@ public final class Combat extends MultiTagBonusObj
 				+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB",
 				context);
 			return false;
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
+		{
+			if ("AC".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: "
+						+ token, context);
+				return false;
+			}
 		}
 		return super.parseToken(context, token);
 	}

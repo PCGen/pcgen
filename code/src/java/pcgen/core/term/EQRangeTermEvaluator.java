@@ -27,6 +27,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -54,7 +55,8 @@ public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEva
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		if (ControlUtilities.hasControlToken(Globals.getContext(), "EQRANGE"))
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.EQRANGE))
 		{
 			Logging.errorPrint("RANGE term is deprecated (does not function)"
 				+ " when RANGE CodeControl is used");

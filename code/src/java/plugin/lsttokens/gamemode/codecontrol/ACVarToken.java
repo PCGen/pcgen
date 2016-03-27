@@ -17,16 +17,39 @@
  */
 package plugin.lsttokens.gamemode.codecontrol;
 
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
-import pcgen.cdom.util.CControl;
-import pcgen.rules.persistence.token.AbstractStringStoringToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class EDRToken extends AbstractStringStoringToken<CodeControl>
+public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
+		CDOMToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
 	{
-		return CControl.EDR;
+		return "ACVAR";
+	}
+
+	@Override
+	protected ParseResult parseNonEmptyToken(LoadContext context,
+		CodeControl cdo, String value)
+	{
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
+		{
+			return new ParseResult.Fail(
+				getTokenName() + " requires a SubToken", context);
+		}
+		String acType = value.substring(0, pipeLoc);
+		String varName = value.substring(pipeLoc + 1);
+		context.getObjectContext().put(cdo,
+			ObjectKey.getKeyFor(String.class, "*" + getTokenName() + acType),
+			varName);
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
