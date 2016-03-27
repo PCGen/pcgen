@@ -102,7 +102,7 @@
 		</skin>
 		<cr><@pcstring tag="CR"/></cr>
 		<face>
-			<face><#if pc.val.os_size!false == true><#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.<#else>${pc.val.face[0]} ft. by ${pc.val.face[1]} ft.</#if><#else>${pcstring('FACE')}</#if></face>
+			<face><#if pc.val.os_size!false == true><#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.<#else>${pc.val.face[0]} ft. by test ${pc.val.face[1]} ft.</#if><#else>${pcstring('FACE')}</#if></face>
 			<short><@pcstring tag="FACE.SHORT"/></short>
 			<squares><@pcstring tag="FACE.SQUARES"/></squares>
 		</face>
