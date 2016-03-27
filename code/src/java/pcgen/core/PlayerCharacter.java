@@ -10547,6 +10547,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		return resultFacet.getGlobalVariable(id, varName);
 	}
+	
+	public Object getLocal(CDOMObject owner, String varName)
+	{
+		return resultFacet.getLocalVariable(id, owner, varName);
+	}
 
 	public String getControl(String string)
 	{

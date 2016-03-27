@@ -25,15 +25,15 @@
  */
 package plugin.exporttokens;
 
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 
 /**
  * Class deals with AC Token
  */
-public class ACToken extends AbstractExportToken
+public class ACToken extends Token
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -44,15 +44,22 @@ public class ACToken extends AbstractExportToken
 		return "AC";
 	}
 
-	/**
-	 * TODO: get the parsing out of PlayerCharacter - we should know the AC Types here. 
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
+	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		String acTypeKey = SettingsHandler.getGame().getACTypeName(tokenSource.substring(3));
-		return Integer.toString(display.calcACOfType(acTypeKey));
+		String solverValue = pc.getControl("*ACVAR" + tokenSource);
+		int intValue;
+		if (solverValue != null)
+		{
+			Object val = pc.getGlobal(solverValue);
+			intValue = ((Number) val).intValue();
+		}
+		else
+		{
+			String acTypeKey = SettingsHandler.getGame().getACTypeName(tokenSource.substring(3));
+			intValue = pc.getDisplay().calcACOfType(acTypeKey);
+		}
+		return Integer.toString(intValue);
 	}
 }

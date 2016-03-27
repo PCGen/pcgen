@@ -90,7 +90,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private Map<String, XPTable> xpTableInfo = new HashMap<String, XPTable>();
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
+	@Deprecated
 	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<String, ACControl>();
+	@Deprecated
 	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<String, ACControl>();
 	private Map<String, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<String, String>();
@@ -274,6 +276,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param ACType
 	 * @return List of AC Types
 	 */
+	@Deprecated
 	public List<ACControl> getACTypeAddString(final String ACType)
 	{
 		return ACTypeAddMap.getListFor(ACType);
@@ -284,6 +287,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param ACType
 	 * @return List of AC Types
 	 */
+	@Deprecated
 	public List<ACControl> getACTypeRemoveString(final String ACType)
 	{
 		return ACTypeRemoveMap.getListFor(ACType);
@@ -294,6 +298,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param acType The name to be found.
 	 * @return The name in the correct case.
 	 */
+	@Deprecated
 	public String getACTypeName(String acType)
 	{
 		if (ACTypeAddMap.containsListFor(acType)
@@ -1013,6 +1018,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param ACType
 	 * @return true if the AC Type is Valid
 	 */
+	@Deprecated
 	public boolean isValidACType(final String ACType)
 	{
 		return ACTypeAddMap.containsListFor(ACType)
@@ -1024,6 +1030,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param ACType
 	 * @param controls
 	 */
+	@Deprecated
 	public void addACRemoves(final String ACType,
 			Collection<ACControl> controls)
 	{
@@ -1035,6 +1042,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param ACType
 	 * @param controls
 	 */
+	@Deprecated
 	public void addACAdds(final String ACType, Collection<ACControl> controls)
 	{
 		ACTypeAddMap.addAllToListFor(ACType, controls);

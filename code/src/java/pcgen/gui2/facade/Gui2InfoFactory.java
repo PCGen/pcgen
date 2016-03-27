@@ -874,7 +874,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (SettingsHandler.getGame().getACText().length() != 0)
 		{
-			a = equip.getACBonus(pc);
+			a = equip.getACMod(pc);
 
 			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
 			{
