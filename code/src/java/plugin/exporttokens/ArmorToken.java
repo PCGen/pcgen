@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
@@ -473,7 +474,7 @@ public class ArmorToken extends Token
 			// adjustments for new equipment modifier
 			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
 			//FileAccess.write(output, Delta.toString(eq.getACMod()));
-			String acMod = aPC.getControl("*EQACMOD");
+			String acMod = aPC.getControl(CControl.EQACMOD);
 			if (acMod != null)
 			{
 				Object o = aPC.getLocal(eq, acMod);
@@ -491,7 +492,7 @@ public class ArmorToken extends Token
 			// adjustments for new equipment modifier
 			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
 			//FileAccess.write(output, Delta.toString(eq.getACMod()));
-			String baseMod = aPC.getControl("*EQBASEACMOD");
+			String baseMod = aPC.getControl(CControl.EQBASEACMOD);
 			if (baseMod != null)
 			{
 				Object o = aPC.getLocal(eq, baseMod);

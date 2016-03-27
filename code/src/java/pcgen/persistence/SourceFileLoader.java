@@ -51,7 +51,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -685,11 +686,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void defineBuiltinVariables(LoadContext context)
 	{
-		CodeControl controller =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
-		if (controller == null
-			|| (controller.get(ObjectKey.getKeyFor(String.class, "*FACE")) == null))
+		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
 			VariableContext varContext = context.getVariableContext();
 			FormatManager<?> opManager =

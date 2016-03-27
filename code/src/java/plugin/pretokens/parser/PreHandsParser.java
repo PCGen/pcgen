@@ -28,6 +28,7 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.prereq.Prerequisite;
@@ -72,7 +73,8 @@ public class PreHandsParser extends AbstractPrerequisiteParser implements
 	                          boolean invertResult,
 	                          boolean overrideQualify) throws PersistenceLayerException
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), "CREATUREHANDS"))
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.CREATUREHANDS))
 		{
 			throw new PersistenceLayerException(
 				"PREHANDS is disabled when CREATUREHANDS CodeControl is used");

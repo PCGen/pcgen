@@ -48,7 +48,7 @@ public class ACToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		String solverValue = pc.getControl("*ACVAR" + tokenSource);
+		String solverValue = pc.getControl("ACVAR" + tokenSource);
 		int intValue;
 		if (solverValue != null)
 		{

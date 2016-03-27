@@ -18,6 +18,7 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
@@ -78,7 +79,7 @@ public class SpellfailureToken extends AbstractIntToken<Equipment> implements
 	public ParseResult parseToken(LoadContext context, Equipment obj,
 		String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "EQSPELLFAILURE"))
+		if (ControlUtilities.hasControlToken(context, CControl.EQSPELLFAILURE))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when EQSPELLFAILURE control is used: " + value,

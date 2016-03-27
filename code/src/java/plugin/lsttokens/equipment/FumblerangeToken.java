@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
@@ -46,7 +47,7 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		Equipment eq, String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "FUMBLERANGE"))
+		if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when FUMBLERANGE control is used: " + value,
