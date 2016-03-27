@@ -41,6 +41,7 @@ import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.output.actor.EqTypeActor;
 import pcgen.output.actor.InfoActor;
 import pcgen.output.actor.KeyActor;
 import pcgen.output.actor.OutputNameActor;
@@ -94,6 +95,7 @@ public class CDOMWrapperInfoFacet
 		set(dsID, ShieldProf.class, "outputname", outputNameActor);
 		set(dsID, SizeAdjustment.class, "outputname", outputNameActor);
 		set(dsID, WeaponProf.class, "outputname", outputNameActor);
+		set(dsID, Equipment.class, "type", new EqTypeActor());
 	}
 
 	/**
