@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-15 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,8 +17,12 @@
  */
 package pcgen.base.formula.base;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.base.util.TypedKey;
+import pcgen.base.util.MappedDeque;
 
 /**
  * A DependencyManager is a class to capture Formula dependencies.
@@ -26,50 +30,101 @@ import java.util.Map;
  * In order to capture specific dependencies, a specific dependency should be
  * loaded into this DependencyManager.
  */
-public class DependencyManager
+public class DependencyManager extends MappedDeque
 {
 
-	/**
-	 * The map containing the managers of specific types of dependencies (where
-	 * the types are identified by the DependencyKey).
-	 */
-	private Map<DependencyKey<?>, Object> map = new HashMap<>();
+	private static final TypedKey<ArrayList<VariableID<?>>> VARIABLES =
+			new TypedKey<ArrayList<VariableID<?>>>();
 
 	/**
-	 * Adds a new dependency to this DependencyManager, represented by the given
-	 * DependencyKey and managed by the given object.
-	 * 
-	 * @param <T>
-	 *            The Class of Object identified by the given DependencyKey
-	 * @param key
-	 *            The DependencyKey used to identify the manager of the
-	 *            dependency
-	 * @param manager
-	 *            The class that manages the dependency represented by the given
-	 *            DependencyKey
-	 * @return The previous manager of the dependency represented by the given
-	 *         DependencyKey
+	 * A TypedKey used for storing the FormulaManager contained in this
+	 * DependencyManager
 	 */
-	public <T> T addDependency(DependencyKey<T> key, T manager)
+	public static final TypedKey<FormulaManager> FMANAGER =
+			new TypedKey<FormulaManager>();
+
+	/**
+	 * A TypedKey used for storing the ScopeInstance contained in this
+	 * DependencyManager
+	 */
+	public static final TypedKey<ScopeInstance> INSTANCE =
+			new TypedKey<ScopeInstance>();
+
+	/**
+	 * A TypedKey used for storing the Format currently asserted for the formula
+	 * served by this DependencyManager
+	 */
+	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
+
+	/**
+	 * Adds a Variable (identified by the VariableID) to the list of
+	 * dependencies for a Formula.
+	 * 
+	 * @param varID
+	 *            The VariableID to be added as a dependency of the Formula this
+	 *            VariableDependencyManager represents
+	 * @throws IllegalArgumentException
+	 *             if the given VariableID is null
+	 */
+	public void addVariable(VariableID<?> varID)
 	{
-		return key.cast(map.put(key, manager));
+		ArrayList<VariableID<?>> vars = peek(VARIABLES);
+		if (vars == null)
+		{
+			vars = new ArrayList<>();
+			set(VARIABLES, vars);
+		}
+		vars.add(varID);
 	}
 
 	/**
-	 * Returns the object managing the dependency represented by the given
-	 * DependencyKey.
+	 * Returns a non-null list of VariableID objects that identify the list of
+	 * dependencies of the Formula this VariableDependencyManager represents.
 	 * 
-	 * @param <T>
-	 *            The Class of Object identified by the given DependencyKey
-	 * @param key
-	 *            The DependencyKey used to identify the manager of the
-	 *            dependency
-	 * @return The object managing the dependency represented by the given
-	 *         DependencyKey
+	 * Ownership of the returned List is transferred to the calling Object. The
+	 * contents of the List will not be modified as a result of the
+	 * VariableDependencyManager maintaining or otherwise transferring a
+	 * reference to the List to another object (and the
+	 * VariableDependencyManager cannot be modified if the returned list is
+	 * modified).
+	 * 
+	 * @return A non-null list of VariableID objects that identify the list of
+	 *         dependencies of the Formula this VariableDependencyManager
+	 *         represents
 	 */
-	public <T> T getDependency(DependencyKey<T> key)
+	public List<VariableID<?>> getVariables()
 	{
-		return key.cast(map.get(key));
+		List<VariableID<?>> vars = peek(VARIABLES);
+		if (vars == null)
+		{
+			vars = Collections.emptyList();
+		}
+		else
+		{
+			vars = new ArrayList<>(vars);
+		}
+		return vars;
 	}
-
+	
+	/**
+	 * Generates an initialized DependencyManager with the given arguments.
+	 * 
+	 * @param formulaManager
+	 *            The FormulaManager to be contained in the DependencyManager
+	 * @param scopeInst
+	 *            The ScopeInstance to be contained in the DependencyManager
+	 * @param assertedFormat
+	 *            The format currently asserted for the formula served by the
+	 *            DependencyManager
+	 * @return An initialized DependencyManager with the given arguments
+	 */
+	public static DependencyManager generate(FormulaManager formulaManager,
+		ScopeInstance scopeInst, Class<?> assertedFormat)
+	{
+		DependencyManager fdm = new DependencyManager();
+		fdm.set(DependencyManager.FMANAGER, formulaManager);
+		fdm.set(DependencyManager.INSTANCE, scopeInst);
+		fdm.set(DependencyManager.ASSERTED, assertedFormat);
+		return fdm;
+	}
 }

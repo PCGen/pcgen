@@ -24,8 +24,6 @@ import java.util.Set;
 import java.util.Stack;
 
 import pcgen.base.calculation.Modifier;
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
-import pcgen.base.formula.analysis.VariableDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstance;
@@ -210,8 +208,9 @@ public class AggressiveSolverManager
 		{
 			throw new IllegalArgumentException("Source cannot be null");
 		}
+		ScopeInstance scopeInst = varID.getScope();
 		if (!formulaManager.getFactory().isLegalVariableID(
-			varID.getScope().getLegalScope(), varID.getName()))
+			scopeInst.getLegalScope(), varID.getName()))
 		{
 			/*
 			 * The above check allows the implicit create below for only items
@@ -239,27 +238,21 @@ public class AggressiveSolverManager
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
-		DependencyManager fdm = new DependencyManager();
-		VariableDependencyManager vdm = new VariableDependencyManager();
-		fdm.addDependency(DependencyKeyUtilities.DEP_VARIABLE, vdm);
-		modifier.getDependencies(scopeInfo, fdm,
-			formatManager.getManagedClass());
-		if (!vdm.isEmpty())
+		DependencyManager fdm =
+				DependencyManager.generate(formulaManager, scopeInst, varID
+					.getFormatManager().getManagedClass());
+		modifier.getDependencies(fdm);
+		for (VariableID<?> depID : fdm.getVariables())
 		{
-			for (VariableID<?> depID : vdm.getVariables())
-			{
-				ensureSolverExists(depID);
-				/*
-				 * Better to use depID here rather than Solver: (1) No order of
-				 * operations risk (2) Process can still write to cache knowing
-				 * ID
-				 */
-				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-				DefaultDirectionalGraphEdge<VariableID<?>> edge =
-						new DefaultDirectionalGraphEdge<VariableID<?>>(depID,
-							varID);
-				graph.addEdge(edge);
-			}
+			ensureSolverExists(depID);
+			/*
+			 * Better to use depID here rather than Solver: (1) No order of
+			 * operations risk (2) Process can still write to cache knowing ID
+			 */
+			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
+			DefaultDirectionalGraphEdge<VariableID<?>> edge =
+					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
+			graph.addEdge(edge);
 		}
 		//Cast above effectively enforced here
 		solver.addModifier(modifier, source);
@@ -331,15 +324,11 @@ public class AggressiveSolverManager
 				"Request to remove Modifier to Solver for " + varID
 					+ " but that channel was never defined");
 		}
-		DependencyManager fdm = new DependencyManager();
-		VariableDependencyManager vdm = new VariableDependencyManager();
-		fdm.addDependency(DependencyKeyUtilities.DEP_VARIABLE, vdm);
-		ScopeInstance scope = varID.getScope();
-		ScopeInformation scopeInfo =
-				scopeCache.getScopeInformation(formulaManager, scope);
-		modifier.getDependencies(scopeInfo, fdm,
-			varID.getFormatManager().getManagedClass());
-		processDependencies(varID, vdm);
+		DependencyManager fdm =
+				DependencyManager.generate(formulaManager, varID.getScope(),
+					varID.getFormatManager().getManagedClass());
+		modifier.getDependencies(fdm);
+		processDependencies(varID, fdm);
 		//Cast above effectively enforced here
 		solver.removeModifier(modifier, source);
 		solveFromNode(varID);
@@ -353,14 +342,14 @@ public class AggressiveSolverManager
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which dependencies will be captured
-	 * @param vdm
-	 *            The VariableDependencyManager to be loaded with the
-	 *            dependencies of the given VariableID
+	 * @param dm
+	 *            The DependencyManager to be loaded with the dependencies of
+	 *            the given VariableID
 	 */
 	private <T> void processDependencies(VariableID<T> varID,
-		VariableDependencyManager vdm)
+		DependencyManager dm)
 	{
-		List<VariableID<?>> deps = vdm.getVariables();
+		List<VariableID<?>> deps = dm.getVariables();
 		if (deps == null)
 		{
 			return;
@@ -480,7 +469,7 @@ public class AggressiveSolverManager
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
-			throw new IllegalArgumentException("Request to diagnoze VariableID "
+			throw new IllegalArgumentException("Request to diagnose VariableID "
 				+ varID + " but that channel was never defined");
 		}
 		return solver.diagnose();

@@ -258,12 +258,12 @@ public interface Function
 	 * 
 	 * @param visitor
 	 *            The DependencyVisitor that visits portions of a Formula
-	 * @param assertedFormat
-	 *            The format asserted for the context of the Function
+	 * @param manager
+	 *            The DependencyManager used to support analysis of the Function
 	 * @param args
 	 *            The arguments to this Function within the Formula
 	 */
-	void getDependencies(DependencyVisitor visitor, Class<?> assertedFormat,
+	void getDependencies(DependencyVisitor visitor, DependencyManager manager,
 		Node[] args);
 
 	/*

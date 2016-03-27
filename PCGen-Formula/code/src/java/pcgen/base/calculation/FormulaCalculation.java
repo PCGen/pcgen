@@ -92,10 +92,9 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm, Class<?> assertedFormat)
+	public void getDependencies(DependencyManager fdm)
 	{
-		formula.getDependencies(scopeInfo, fdm, assertedFormat);
+		formula.getDependencies(fdm);
 	}
 
 	/**

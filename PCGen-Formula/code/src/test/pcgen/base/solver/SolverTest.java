@@ -128,8 +128,7 @@ public class SolverTest extends TestCase
 				}
 
 				@Override
-				public void getDependencies(ScopeInformation scopeInfo,
-					DependencyManager fdm, Class assertedFormat)
+				public void getDependencies(DependencyManager fdm)
 				{
 				}
 

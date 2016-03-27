@@ -22,10 +22,8 @@ import java.util.List;
 import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.analysis.FormulaValidity;
-import pcgen.base.formula.analysis.VariableDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -40,6 +38,7 @@ import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.parse.SimpleNode;
+import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
@@ -133,11 +132,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
-		DependencyManager fdm = new DependencyManager();
-		VariableDependencyManager vdm = new VariableDependencyManager();
-		fdm.addDependency(DependencyKeyUtilities.DEP_VARIABLE, vdm);
-		localSetup.getScopeInfo().getDependencies(node, fdm, null);
-		return vdm.getVariables();
+		DependencyManager fdm =
+				DependencyManager.generate(getFormulaManager(),
+					getGlobalScopeInst(), null);
+		new DependencyVisitor().visit(node, fdm);
+		return fdm.getVariables();
 	}
 
 	protected VariableID<Number> getVariable(String formula)

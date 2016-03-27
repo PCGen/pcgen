@@ -20,13 +20,11 @@ package pcgen.base.formula.library;
 import org.junit.Test;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
-import pcgen.base.formula.analysis.DependencyKeyUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.function.AbsFunction;
 import pcgen.base.formula.function.FloorFunction;
-import pcgen.base.formula.library.GenericFunction;
 import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.formula.operator.number.NumberDivide;
 import pcgen.base.formula.operator.number.NumberMinus;
@@ -64,12 +62,12 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 
 	private void resetManager()
 	{
-		depManager = new DependencyManager();
+		depManager =
+				DependencyManager.generate(getFormulaManager(),
+					getGlobalScopeInst(), null);
 		argManager = new ArgumentDependencyManager();
-		depManager.addDependency(DependencyKeyUtilities.DEP_ARGUMENT, argManager);
-		varCapture =
-				new DependencyVisitor(getFormulaManager(),
-					getGlobalScopeInst(), depManager);
+		depManager.set(ArgumentDependencyManager.KEY, argManager);
+		varCapture = new DependencyVisitor();
 	}
 
 	@Test
@@ -99,14 +97,14 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(-1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(-1, argManager.getMaximumArgument());
 	}
 
@@ -125,14 +123,14 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
 	}
 
@@ -143,14 +141,14 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(3));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(0, argManager.getMaximumArgument());
 	}
 
@@ -164,14 +162,14 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(-4));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
 	}
 
@@ -185,14 +183,14 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
 		evaluatesTo(formula, node, Integer.valueOf(6));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		resetManager();
-		varCapture.visit(node, null);
+		varCapture.visit(node, depManager);
 		assertEquals(1, argManager.getMaximumArgument());
 	}
 

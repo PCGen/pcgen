@@ -204,13 +204,13 @@ public class GenericFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		Class<?> assertedFormat, Node[] args)
+		DependencyManager manager, Node[] args)
 	{
-		FormulaManager withArgs = getManager(args, visitor.getFormulaManager());
-		ScopeInstance scopeInstance = visitor.getScopeInstance();
-		DependencyManager depManager = visitor.getDependencyManager();
-		DependencyVisitor dcv = new DependencyVisitor(withArgs, scopeInstance, depManager);
-		dcv.visit(root, assertedFormat);
+		FormulaManager withArgs =
+				getManager(args, manager.peek(DependencyManager.FMANAGER));
+		manager.push(DependencyManager.FMANAGER, withArgs);
+		visitor.visit(root, manager);
+		manager.pop(DependencyManager.FMANAGER);
 	}
 
 	private FormulaManager getManager(Node[] args, FormulaManager formulaManager)

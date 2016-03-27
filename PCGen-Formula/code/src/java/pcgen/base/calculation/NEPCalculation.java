@@ -66,19 +66,11 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * The DependencyManager may not be altered if there are no dependencies for
 	 * this NEPCalculation.
 	 * 
-	 * @param scopeInfo
-	 *            The ScopeInformation to be used in case this NEPCalculation
-	 *            depends on a Formula that needs deeper analysis
 	 * @param fdm
 	 *            The DependencyManager to be notified of dependencies for this
 	 *            NEPCalculation
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the
-	 *            NEPCalculation. This parameter is optional - null can indicate
-	 *            that there is no format asserted by the context of the formula
 	 */
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm, Class<?> assertedFormat);
+	public void getDependencies(DependencyManager fdm);
 
 	/**
 	 * Returns a String identifying the formula used for calculation. May be "3"

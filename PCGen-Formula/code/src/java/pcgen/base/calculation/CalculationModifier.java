@@ -99,10 +99,9 @@ public final class CalculationModifier<T> implements Modifier<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void getDependencies(ScopeInformation scopeInfo,
-		DependencyManager fdm, Class<?> assertedFormat)
+	public void getDependencies(DependencyManager fdm)
 	{
-		toDo.getDependencies(scopeInfo, fdm, assertedFormat);
+		toDo.getDependencies(fdm);
 	}
 
 	/**

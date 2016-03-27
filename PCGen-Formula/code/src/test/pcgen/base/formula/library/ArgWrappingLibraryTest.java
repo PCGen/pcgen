@@ -19,6 +19,7 @@ package pcgen.base.formula.library;
 
 import org.junit.Test;
 
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.inst.SimpleFunctionLibrary;
@@ -138,7 +139,7 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 
 			@Override
 			public void getDependencies(DependencyVisitor visitor,
-				Class<?> assertedFormat, Node[] args)
+				DependencyManager manager, Node[] args)
 			{
 			}
 		};

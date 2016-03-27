@@ -20,6 +20,7 @@ package pcgen.base.formula.library;
 import java.util.Arrays;
 
 import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -118,7 +119,7 @@ public class ValueFunction implements Function
 	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
-		Class<?> assertedFormat, Node[] args)
+		DependencyManager manager, Node[] args)
 	{
 		//No dependencies
 	}

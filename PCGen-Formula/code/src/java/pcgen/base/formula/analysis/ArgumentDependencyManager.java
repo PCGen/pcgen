@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.analysis;
 
+import pcgen.base.util.TypedKey;
+
 /**
  * An ArgumentDependencyManager is a class to capture uses of arg(x) in a
  * Formula. These are captured by the numeric value ("x" in the previous
@@ -24,6 +26,13 @@ package pcgen.base.formula.analysis;
  */
 public class ArgumentDependencyManager
 {
+	/**
+	 * A TypedKey for use (in a MappedDeque) for storing an
+	 * ArgumentDependencyManager
+	 */
+	public static final TypedKey<ArgumentDependencyManager> KEY =
+			new TypedKey<ArgumentDependencyManager>();
+
 	/**
 	 * The maximum argument number encountered by this
 	 * ArgumentDependencyManager. -1 indicates no arguments have been
