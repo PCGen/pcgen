@@ -91,8 +91,16 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
-		T obj = new ArrayList<T>(facet.getSet(id)).get(index);
-		return WRAPPER_FACET.wrap(id, obj);
+		if (index < 0)
+		{
+			return null;
+		}
+		ArrayList<T> list = new ArrayList<T>(facet.getSet(id));
+		if (index >= list.size())
+		{
+			return null;
+		}
+		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
 	/*
