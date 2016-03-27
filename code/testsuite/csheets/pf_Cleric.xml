@@ -814,13 +814,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+3</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>BP</type>
 				<weight>6</weight>
 				<sequence>0</sequence>
@@ -874,13 +874,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+2</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Carried</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>4</weight>
 				<sequence>1</sequence>
@@ -929,13 +929,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>-2</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Equipped</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type></type>
 				<weight>6</weight>
 				<sequence>2</sequence>
