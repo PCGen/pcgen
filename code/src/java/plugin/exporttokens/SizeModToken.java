@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 import pcgen.io.ExportHandler;
@@ -65,7 +66,7 @@ public class SizeModToken extends Token
 	 */
 	public static int getSizeModToken(PlayerCharacter pc)
 	{
-		String sizeModDef = pc.getControl("*SIZEMODDEFENSE");
+		String sizeModDef = pc.getControl(CControl.SIZEMODDEFENSE);
 		if (sizeModDef == null)
 		{
 			return (int) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");

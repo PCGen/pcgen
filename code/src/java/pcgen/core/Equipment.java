@@ -72,6 +72,7 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.EqModCost;
@@ -5668,7 +5669,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public Integer getACMod(final PlayerCharacter aPC)
 	{
-		String acMod = aPC.getControl("*EQACMOD");
+		String acMod = aPC.getControl(CControl.EQACMOD);
 		if (acMod != null)
 		{
 			Object o = aPC.getLocal(this, acMod);
@@ -6714,7 +6715,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	public boolean altersAC(PlayerCharacter pc)
 	{
-		String alterAC = pc.getControl("*ALTERSAC");
+		String alterAC = pc.getControl(CControl.ALTERSAC);
 		if (alterAC != null)
 		{
 			Object o = pc.getLocal(this, alterAC);

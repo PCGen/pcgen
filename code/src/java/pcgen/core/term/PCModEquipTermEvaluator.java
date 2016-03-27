@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.EqToken;
@@ -56,7 +57,7 @@ public class PCModEquipTermEvaluator
 		}
 		if (modEq.equals("ACCHECK"))
 		{
-			if (pc.hasControl("PCACCHECK"))
+			if (pc.hasControl(CControl.PCACCHECK))
 			{
 				Logging
 					.errorPrint("Term MODEQUIPACCHECK is not supported "
@@ -69,7 +70,7 @@ public class PCModEquipTermEvaluator
 		}
 		if (modEq.equals("MAXDEX"))
 		{
-			if (pc.hasControl("PCMAXDEX"))
+			if (pc.hasControl(CControl.PCMAXDEX))
 			{
 				Logging
 					.errorPrint("Term MODEQUIPMAXDEX is not supported "
@@ -82,7 +83,7 @@ public class PCModEquipTermEvaluator
 		}
 		if (modEq.equals("SPELLFAILURE"))
 		{
-			if (pc.hasControl("PCSPELLFAILURE"))
+			if (pc.hasControl(CControl.PCSPELLFAILURE))
 			{
 				Logging
 					.errorPrint("Term MODEQUIPSPELLFAILURE is not supported "

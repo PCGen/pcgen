@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -106,7 +107,7 @@ public class TemplateModifier
 			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}
 
-		if (!aPC.hasControl("*ACVAR"))
+		if (!aPC.hasControl(CControl.ACVARTOTAL))
 		{
 			int nat = (int) BonusCalc.charBonusTo(pct, "COMBAT", "AC", aPC);
 

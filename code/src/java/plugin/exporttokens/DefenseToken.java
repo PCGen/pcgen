@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -77,14 +78,14 @@ public class DefenseToken extends Token
 			String defenseType = aTok.nextToken();
 			CharacterDisplay display = pc.getDisplay();
 
-			String solverValue = pc.getControl("*ACVAR" + defenseType);
+			String solverValue = pc.getControl("ACVAR" + defenseType);
 			if (solverValue != null)
 			{
 				Object val = pc.getGlobal(solverValue);
 				int intValue = ((Number) val).intValue();
 				if ("EQUIPMENT".equals(defenseType))
 				{
-					val = pc.getGlobal(pc.getControl("*ACVARARMOR"));
+					val = pc.getGlobal(pc.getControl(CControl.ACVARARMOR));
 					intValue += ((Number) val).intValue();
 				}
 				retString = Integer.toString(intValue);

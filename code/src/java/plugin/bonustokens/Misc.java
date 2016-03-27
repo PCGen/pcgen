@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
@@ -74,7 +75,7 @@ public final class Misc extends MultiTagBonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
-		if (ControlUtilities.hasControlToken(context, "PCSPELLFAILURE"))
+		if (ControlUtilities.hasControlToken(context, CControl.PCSPELLFAILURE))
 		{
 			if ("SPELLFAILURE".equals(token))
 			{
@@ -83,7 +84,7 @@ public final class Misc extends MultiTagBonusObj
 				return false;
 			}
 		}
-		if (ControlUtilities.hasControlToken(context, "PCMAXDEX"))
+		if (ControlUtilities.hasControlToken(context, CControl.PCMAXDEX))
 		{
 			if ("MAXDEX".equals(token))
 			{
@@ -92,7 +93,7 @@ public final class Misc extends MultiTagBonusObj
 				return false;
 			}
 		}
-		if (ControlUtilities.hasControlToken(context, "PCACCHECK"))
+		if (ControlUtilities.hasControlToken(context, CControl.PCACCHECK))
 		{
 			if ("ACCHECK".equals(token))
 			{

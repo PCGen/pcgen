@@ -18,6 +18,7 @@
 package plugin.lsttokens.gamemode.codecontrol;
 
 import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
 public class AltersAC extends AbstractStringStoringToken<CodeControl>
@@ -25,7 +26,7 @@ public class AltersAC extends AbstractStringStoringToken<CodeControl>
 	@Override
 	public String getTokenName()
 	{
-		return "ALTERSAC";
+		return CControl.ALTERSAC;
 	}
 
 	@Override

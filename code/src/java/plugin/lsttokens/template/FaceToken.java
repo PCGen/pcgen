@@ -26,8 +26,8 @@ import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -62,17 +62,11 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 	protected ParseResult parseFace(LoadContext context, PCTemplate fObj,
 		String value)
 	{
-		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
-		if (controller != null)
+		if (ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
-			if (controller.get(ObjectKey.getKeyFor(String.class, "*FACE")) != null)
-			{
-				return new ParseResult.Fail(
-					"FACE: LST Token is disabled when FACE: control is used",
-					context);
-			}
+			return new ParseResult.Fail(
+				"FACE: LST Token is disabled when FACE: control is used",
+				context);
 		}
 		if (value.indexOf(',') == -1)
 		{

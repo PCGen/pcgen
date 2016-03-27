@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -742,7 +743,7 @@ public class WeaponToken extends Token
 	{
 		String critMultVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITMULT");
+					CControl.CRITMULT);
 		if (critMultVar != null)
 		{
 			return WeaponToken.getNewCritMultString(pc, eq, critMultVar);
@@ -1253,7 +1254,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		String critRangeVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITRANGE");
+					CControl.CRITRANGE);
 		if (critRangeVar != null)
 		{
 			EquipmentHead head = eq.getEquipmentHead(1);

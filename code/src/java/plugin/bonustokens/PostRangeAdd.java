@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
@@ -73,7 +74,7 @@ public final class PostRangeAdd extends MultiTagBonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
-		if (ControlUtilities.hasControlToken(context, "EQRANGE"))
+		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
 		{
 			Logging.errorPrint(
 				"BONUS:POSTRANGEADD is disabled when EQRANGE control is used: "

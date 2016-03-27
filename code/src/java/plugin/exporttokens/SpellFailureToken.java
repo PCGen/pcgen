@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -62,7 +63,7 @@ public class SpellFailureToken extends Token
 	{
 		String spellFailVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"PCSPELLFAILURE");
+					CControl.PCSPELLFAILURE);
 		if (spellFailVar == null)
 		{
 			int bonus = 0;

@@ -10555,11 +10555,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public String getControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, string));
+		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string));
 	}
 
 	public boolean hasControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, string)) != null;
+		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string)) != null;
 	}
 }

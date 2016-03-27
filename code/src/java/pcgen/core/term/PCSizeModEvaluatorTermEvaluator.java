@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
@@ -40,7 +41,7 @@ public class PCSizeModEvaluatorTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (pc.hasControl("*SIZEMODDEFENSE"))
+		if (pc.hasControl(CControl.SIZEMODDEFENSE))
 		{
 			Logging.errorPrint("SIZEMOD term is deprecated (does not function)"
 					+ " when SIZEMODDEFENSE CodeControl is used");
