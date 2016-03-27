@@ -95,14 +95,17 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	{
 		List<VariableListener<?>> listeners = listenerList.getListFor(varID);
 		VariableChangeEvent vcEvent = null;
-		for (VariableListener<?> listener : listeners)
+		if (listeners != null)
 		{
-			// Lazily create event
-			if (vcEvent == null)
+			for (VariableListener<?> listener : listeners)
 			{
-				vcEvent = new VariableChangeEvent<T>(this, varID, old, value);
+				// Lazily create event
+				if (vcEvent == null)
+				{
+					vcEvent = new VariableChangeEvent<T>(this, varID, old, value);
+				}
+				listener.variableChanged(vcEvent);
 			}
-			listener.variableChanged(vcEvent);
 		}
 	}
 
