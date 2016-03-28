@@ -117,6 +117,7 @@ public class GenericFunction implements Function
 		semantics.push(ArgumentDependencyManager.KEY,
 			new ArgumentDependencyManager());
 		semantics.push(FormulaSemantics.FMANAGER, withArgs);
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> result = (Class<?>) visitor.visit(root, semantics);
 		semantics.pop(FormulaSemantics.FMANAGER);
 		ArgumentDependencyManager myArgs =

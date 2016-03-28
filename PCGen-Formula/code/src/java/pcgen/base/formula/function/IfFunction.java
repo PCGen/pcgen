@@ -74,6 +74,7 @@ public class IfFunction implements Function
 		//Boolean conditional node
 		Node conditionalNode = args[0];
 		semantics.push(FormulaSemantics.ASSERTED, BOOLEAN_CLASS);
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> format = (Class<?>) conditionalNode.jjtAccept(visitor, semantics);
 		semantics.pop(FormulaSemantics.ASSERTED);
 		if (!semantics.isValid())
@@ -90,6 +91,7 @@ public class IfFunction implements Function
 		}
 
 		//If True node
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> tFormat = (Class<?>) args[1].jjtAccept(visitor, semantics);
 		if (!semantics.isValid())
 		{
@@ -97,6 +99,7 @@ public class IfFunction implements Function
 		}
 
 		//If False node
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> fFormat = (Class<?>) args[2].jjtAccept(visitor, semantics);
 		if (!semantics.isValid())
 		{

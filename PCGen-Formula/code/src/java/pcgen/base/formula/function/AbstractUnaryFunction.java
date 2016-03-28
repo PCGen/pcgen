@@ -53,17 +53,19 @@ public abstract class AbstractUnaryFunction implements Function
 				+ args.length + " " + Arrays.asList(args));
 			return null;
 		}
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> format = (Class<?>) args[0].jjtAccept(visitor, semantics);
-		if (semantics.isValid())
+		if (!semantics.isValid())
 		{
-			if (!format.equals(Number.class))
-			{
-				semantics.setInvalid("Parse Error: Invalid Value Format: "
-					+ format + " found in " + args[0].getClass().getName()
-					+ " found in location requiring a"
-					+ " Number (class cannot be evaluated)");
-				return null;
-			}
+			return null;
+		}
+		if (!format.equals(Number.class))
+		{
+			semantics.setInvalid("Parse Error: Invalid Value Format: " + format
+				+ " found in " + args[0].getClass().getName()
+				+ " found in location requiring a"
+				+ " Number (class cannot be evaluated)");
+			return null;
 		}
 		return Number.class;
 	}

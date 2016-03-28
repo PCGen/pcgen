@@ -65,6 +65,7 @@ public abstract class AbstractNaryFunction implements Function
 		}
 		for (Node n : args)
 		{
+			@SuppressWarnings("PMD.PrematureDeclaration")
 			Class<?> format = (Class<?>) n.jjtAccept(visitor, semantics);
 			if (!semantics.isValid())
 			{
