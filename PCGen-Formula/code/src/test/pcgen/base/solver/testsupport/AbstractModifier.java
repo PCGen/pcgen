@@ -19,10 +19,11 @@ package pcgen.base.solver.testsupport;
 
 import java.lang.reflect.Array;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.lang.NumberUtilities;
+import pcgen.base.solver.Modifier;
 
 public abstract class AbstractModifier<T> implements Modifier<T>
 {
@@ -52,6 +53,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 				return super.equals(o) && (psn.value == value);
 			}
 			return false;
+		}
+
+		@Override
+		public String getInstructions()
+		{
+			return Integer.toString(value);
 		}
 	}
 
@@ -83,7 +90,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	@Override
 	public String getIdentification()
 	{
-		return "DO";
+		return "Set";
 	}
 
 	@Override
@@ -97,12 +104,6 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	{
 		long l = priority;
 		return (l << 32) + inherent;
-	}
-
-	@Override
-	public String getInstructions()
-	{
-		return "Ignored";
 	}
 
 	@Override
@@ -133,6 +134,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 				newArray[newArray.length - 1] = value;
 				return newArray;
 			}
+
+			@Override
+			public String getInstructions()
+			{
+				return "append " + Integer.toString(value);
+			}
 		};
 	}
 
@@ -144,6 +151,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			public Number[] process(EvaluationManager manager)
 			{
 				return new Number[]{};
+			}
+
+			@Override
+			public String getInstructions()
+			{
+				return "[]";
 			}
 		};
 	}
@@ -163,6 +176,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			{
 				return "Something";
 			}
+
+			@Override
+			public String getInstructions()
+			{
+				return "Something";
+			}
 		};
 	}
 
@@ -176,6 +195,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			{
 				return NumberUtilities.multiply((Number) manager.peek(EvaluationManager.INPUT), value);
 			}
+
+			@Override
+			public String getInstructions()
+			{
+				return "*" + Integer.toString(value);
+			}
 		};
 	}
 
@@ -187,6 +212,39 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			public Number process(EvaluationManager manager)
 			{
 				return NumberUtilities.add((Number) manager.peek(EvaluationManager.INPUT), value);
+			}
+
+			@Override
+			public String getInstructions()
+			{
+				return "+" + Integer.toString(value);
+			}
+		};
+	}
+
+
+	public static AbstractModifier<Number> add(final ComplexNEPFormula value, int priority)
+	{
+		return new AbstractModifier<Number>(2, NUMBER_CLASS, priority)
+		{
+			@Override
+			public Number process(EvaluationManager manager)
+			{
+				Number result = (Number) value.resolve(manager);
+				return NumberUtilities.add((Number) manager.peek(EvaluationManager.INPUT), result);
+			}
+
+			@Override
+			public void getDependencies(DependencyManager fdm)
+			{
+				value.getDependencies(fdm);
+			}
+			
+
+			@Override
+			public String getInstructions()
+			{
+				return "*" + value.toString();
 			}
 		};
 	}

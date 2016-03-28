@@ -20,7 +20,6 @@ package pcgen.base.solver;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.TreeMapToList;

@@ -15,9 +15,10 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.calculation;
+package pcgen.base.solver;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -89,14 +90,17 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	{
 		@SuppressWarnings("unchecked")
 		T[] input = (T[]) manager.peek(EvaluationManager.INPUT);
-		if (location > input.length - 1)
+		int length = input.length;
+		if (location > length - 1)
 		{
 			return input;
 		}
 		manager.push(EvaluationManager.INPUT, input[location]);
-		input[location] = modifier.process(manager);
+		T[] result = Arrays.copyOf(input, length);
+		System.arraycopy(input, 0, result, 0, length);
+		result[location] = modifier.process(manager);
 		manager.pop(EvaluationManager.INPUT);
-		return input;
+		return result;
 	}
 
 	/**
