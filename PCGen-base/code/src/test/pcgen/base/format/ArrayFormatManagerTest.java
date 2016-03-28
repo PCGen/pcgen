@@ -31,7 +31,7 @@ public class ArrayFormatManagerTest extends TestCase
 	private ArrayFormatManager<Number> manager = new ArrayFormatManager<>(
 		new NumberManager(), ',');
 
-	public void testConnstructor()
+	public void testConstructor()
 	{
 		try
 		{
@@ -87,6 +87,68 @@ public class ArrayFormatManagerTest extends TestCase
 		}
 	}
 
+	public void testConvertIndirectFailBadSeparator()
+	{
+		try
+		{
+			manager.convertIndirect(",4,6");
+			fail("starting comma value should fail");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+		try
+		{
+			manager.convertIndirect("4,5,");
+			fail("endign comma value should fail");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+		try
+		{
+			manager.convertIndirect("3,4,,5");
+			fail("doublecomma value should fail");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+	}
+
+	public void testConvertFailBadSeparator()
+	{
+		try
+		{
+			manager.convert(",4,6");
+			fail("starting comma value should fail");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+		try
+		{
+			manager.convert("4,5,");
+			fail("endign comma value should fail");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+		try
+		{
+			manager.convert("3,4,,5");
+			fail("doublecomma value should fail");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+	}
+
 	public void testConvert()
 	{
 		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));
@@ -107,6 +169,8 @@ public class ArrayFormatManagerTest extends TestCase
 		assertEquals("-3,4.1,5", manager.unconvert(ARR_N3_4P1_5));
 		//Just to show it's not picky
 		assertEquals("1.4", manager.unconvert(new Double[]{Double.valueOf(1.4)}));
+		assertTrue(Arrays.equals(new Number[]{}, manager.convert(null)));
+		assertTrue(Arrays.equals(new Number[]{}, manager.convert("")));
 	}
 
 	public void testConvertIndirect()
