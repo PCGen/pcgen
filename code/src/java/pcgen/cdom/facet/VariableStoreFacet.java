@@ -18,9 +18,9 @@
 package pcgen.cdom.facet;
 
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableStore;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.formula.MonitorableVariableStore;
 
 /**
  * This Facet stores the VariableStore (where the results of calculations in the
@@ -28,7 +28,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * CharID).
  */
 public class VariableStoreFacet extends
-		AbstractItemFacet<CharID, VariableStore>
+		AbstractItemFacet<CharID, MonitorableVariableStore>
 {
 
 	private SolverFactoryFacet solverFactoryFacet;

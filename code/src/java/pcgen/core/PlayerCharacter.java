@@ -47,9 +47,9 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SplitFormulaSetup;
-import pcgen.base.solver.SplitFormulaSetup.IndividualSetup;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.IdentityList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -224,6 +224,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
+import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -273,6 +274,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.VariableContext.PCGenFormulaSetup;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -598,9 +600,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
-		IndividualSetup mySetup = formulaSetup.getIndividualSetup("Global");
+		IndividualSetup mySetup = new PCGenFormulaSetup(formulaSetup, "Global");
 		scopeFacet.set(id, mySetup.getInstanceFactory());
-		variableStoreFacet.set(id, mySetup.getVariableStore());
+		variableStoreFacet.set(id, (MonitorableVariableStore) mySetup.getVariableStore());
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
 		solverManagerFacet.set(id, new AggressiveSolverManager(
 			mySetup.getFormulaManager(), solverFactory, mySetup.getVariableStore()));
