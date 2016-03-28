@@ -439,6 +439,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			return null;
 		}
 		Node child1 = node.jjtGetChild(0);
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> format1 = (Class<?>) child1.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.isValid())
@@ -447,6 +448,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 
 		Node child2 = node.jjtGetChild(1);
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> format2 = (Class<?>) child2.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.isValid())
@@ -479,6 +481,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 				+ " expected to have an operator, none was found");
 			return null;
 		}
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Class<?> format = (Class<?>) singleChildValid(node, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.isValid())

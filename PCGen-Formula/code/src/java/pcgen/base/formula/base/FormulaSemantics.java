@@ -74,22 +74,57 @@ public class FormulaSemantics extends MappedDeque
 	 */
 	private static final TypedKey<String> REPORT = new TypedKey<String>();
 
+	/**
+	 * Sets the FormulaSemantics to indicate a Formula is not valid, and
+	 * provides the given String as the report indicating why it is invalid.
+	 * 
+	 * @param text
+	 *            The report text, indicating why the Formula is invalid
+	 */
 	public void setInvalid(String text)
 	{
 		set(VALID, false);
 		set(REPORT, text);
 	}
 
+	/**
+	 * Returns the report indicating why the Formula is invalid.
+	 * 
+	 * Is guaranteed to return content only if isValid() returns false.
+	 * 
+	 * @return The report text, indicating why the Formula is invalid
+	 */
 	public String getReport()
 	{
 		return peek(REPORT);
 	}
 
+	/**
+	 * Returns true if the recently processed Formula is valid; false otherwise.
+	 * 
+	 * @return true if the recently processed Formula is valid; false otherwise.
+	 */
 	public boolean isValid()
 	{
 		return peek(VALID);
 	}
 
+	/**
+	 * Constructs and initializes a new FormulaSemantics object with the
+	 * appropriate keys set to the given parameters.
+	 * 
+	 * @param manager
+	 *            The FormulaManager referenced when a Formula is processed with
+	 *            this FormulaSemantics
+	 * @param legalScope
+	 *            The LegalScope when a Formula is processed with this
+	 *            FormulaSemantics
+	 * @param assertedFormat
+	 *            The asserted Format when a Formula is processed with this
+	 *            FormulaSemantics (may be null)
+	 * @return An initialized FormulaSemantics object with the appropriate keys
+	 *         set to the given parameters
+	 */
 	public static FormulaSemantics generate(FormulaManager manager,
 		LegalScope legalScope, Class<?> assertedFormat)
 	{
