@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>11</cr>
 		<face>
-		<face>5 ft.</face>
-			<short>5 ft.</short>
-			<squares>1</squares>
+			<face>5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -998,13 +998,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+15/+10</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Off-hand</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>0</sequence>
@@ -1085,13 +1085,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+15/+10</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Primary</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>1</weight>
 				<sequence>2</sequence>
@@ -1145,13 +1145,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+16/+11</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>B</type>
 				<weight>0</weight>
 				<sequence>3</sequence>
@@ -1200,13 +1200,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+17/+12</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>B</type>
 				<weight>1</weight>
 				<sequence>4</sequence>
@@ -1260,13 +1260,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+16/+11</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>5</sequence>
@@ -1347,13 +1347,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+12/+7</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties>10 hp/inch, hardness 8</special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>BP</type>
 				<weight>3</weight>
 				<sequence>7</sequence>
@@ -1407,13 +1407,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+17/+12</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties>30 hp/inch, hardness 10</special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>1</weight>
 				<sequence>8</sequence>
@@ -4209,28 +4209,6 @@ BIO
 		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Archetype Display</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>FACE_5</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>REACH_5</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
