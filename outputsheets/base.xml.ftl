@@ -133,8 +133,7 @@
 		</skin>
 		<cr>${pcstring('CR')}</cr>
 		<face>
-			<face>${pcstring('FACE')}</face>
-			<short>${pcstring('FACE.SHORT')}</short>
+			<face><#if pc.val.os_size!false == true><#if pc.val.face[0] == pc.val.face[1]>${pc.val.face[0]} ft.<#else>${pc.val.face[0]} ft. by ${pc.val.face[1]} ft.</#if><#else>${pcstring('FACE')}</#if></face>
 			<squares>${pcstring('FACE.SQUARES')}</squares>
 		</face>
 		<favoredlist>${pcstring('FAVOREDLIST')}</favoredlist>
@@ -2774,14 +2773,14 @@
 							<magic_hit>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.MAGICHIT')}</magic_hit>
 							<total_hit>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.TOTALHIT')}</total_hit>
 						</to_hit>
-						<feat>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.FEAT')}</feat>
+						<feat>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.FEATHIT')}</feat>
 						<hand>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.HAND')}</hand>
 						<num_attacks>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.NUMATTACKS')}</num_attacks>
 						<reach>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.REACH')}</reach>
 						<reachunit>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.REACHUNIT')}</reachunit>
 						<size>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.SIZE')}</size>
 						<special_properties>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.SPROP')}</special_properties>
-						<template>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.TEMPLATE')}</template>
+						<template>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.TEMPLATEHIT')}</template>
 						<type>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.TYPE')}</type>
 						<weight>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.WT')}</weight>
 						<sequence>${weap}</sequence>
@@ -2829,14 +2828,14 @@
 							<magic_hit>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.MAGICHIT')}</magic_hit>
 							<total_hit>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.TOTALHIT')}</total_hit>
 						</to_hit>
-						<feat>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.FEAT')}</feat>
+						<feat>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.FEATHIT')}</feat>
 						<hand>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.HAND')}</hand>
 						<num_attacks>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.NUMATTACKS')}</num_attacks>
 						<reach>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.REACH')}</reach>
 						<reachunit>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.REACHUNIT')}</reachunit>
 						<size>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.SIZE')}</size>
 						<special_properties>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.SPROP')}</special_properties>
-						<template>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.TEMPLATE')}</template>
+						<template>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.TEMPLATEHIT')}</template>
 						<type>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.TYPE')}</type>
 						<weight>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.WT')}</weight>
 						<sequence>${weap}</sequence>
@@ -2887,14 +2886,14 @@
 							<magic_hit>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.MAGICHIT')}</magic_hit>
 							<total_hit>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.TOTALHIT')}</total_hit>
 						</to_hit>
-						<feat>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.FEAT')}</feat>
+						<feat>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.FEATHI')}</feat>
 						<hand>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.HAND')}</hand>
 						<num_attacks>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.NUMATTACKS')}</num_attacks>
 						<reach>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.REACH')}</reach>
 						<reachunit>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.REACH')}</reachunit>
 						<size>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.SIZE')}</size>
 						<special_properties>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.SPROP')}</special_properties>
-						<template>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.TEMPLATE')}</template>
+						<template>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.TEMPLATEHIT')}</template>
 						<type>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.TYPE')}</type>
 						<weight>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.WT')}</weight>
 						<sequence>${weap}</sequence>
@@ -2941,14 +2940,14 @@
 							<magic_hit>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.MAGICHIT')}</magic_hit>
 							<total_hit>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.TOTALHIT')}</total_hit>
 						</to_hit>
-						<feat>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.FEAT')}</feat>
+						<feat>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.FEATHIT')}</feat>
 						<hand>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.HAND')}</hand>
 						<num_attacks>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.NUMATTACKS')}</num_attacks>
 						<reach>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.REACH')}</reach>
 						<reachunit>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.REACHUNIT')}</reachunit>
 						<size>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.SIZE')}</size>
 						<special_properties>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.SPROP')}</special_properties>
-						<template>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.TEMPLATE')}</template>
+						<template>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.TEMPLATEHIT')}</template>
 						<type>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.TYPE')}</type>
 						<weight>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.WT')}</weight>
 						<sequence>${weap}</sequence>
@@ -3001,7 +3000,7 @@
 							<magic_hit>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.MAGICHIT')}</magic_hit>
 							<total_hit>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.TOTALHIT')}</total_hit>
 						</to_hit>
-						<feat>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.FEAT')}</feat>
+						<feat>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.FEATHIT')}</feat>
 						<hand>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.HAND')}</hand>
 						<num_attacks>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.NUMATTACKS')}</num_attacks>
 						<base_range>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.RANGENOUNITS')}</base_range>
@@ -3009,7 +3008,7 @@
 						<reachunit>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.REACHUNIT')}</reachunit>
 						<size>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.SIZE')}</size>
 						<special_properties>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.SPROP')}</special_properties>
-						<template>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.TEMPLATE')}</template>
+						<template>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.TEMPLATEHT')}</template>
 						<type>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.TYPE')}</type>
 						<weight>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.WEAPON.${weap}.WT')}</weight>
 						<sequence>${weap}</sequence>

@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>5</cr>
 		<face>
-		<face>5 ft.</face>
-			<short>5 ft.</short>
-			<squares>1</squares>
+			<face>5 ft.</face>
+			<short>5 ft. x 5 ft.</short>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -866,13 +866,13 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+12/+7</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Both</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>B</type>
 				<weight>10</weight>
 				<sequence>0</sequence>
@@ -926,13 +926,13 @@ BIO
 					<magic_hit>-1</magic_hit>
 					<total_hit>+10/+5</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Both</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>B</type>
 				<weight>0</weight>
 				<sequence>1</sequence>
@@ -986,13 +986,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10/+5</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Equipped</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>0</weight>
 				<sequence>2</sequence>
@@ -1046,13 +1046,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10/+5</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>3</sequence>
@@ -1133,13 +1133,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+7/+2</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>2</weight>
 				<sequence>5</sequence>
@@ -1188,13 +1188,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10/+5</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>10 hp/inch, hardness 8</special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>S</type>
 				<weight>4</weight>
 				<sequence>6</sequence>
@@ -1248,13 +1248,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10/+5</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>0</weight>
 				<sequence>7</sequence>
@@ -1335,13 +1335,13 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10/+5</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>+0</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>+0</template>
 				<type>P</type>
 				<weight>0</weight>
 				<sequence>9</sequence>
@@ -3458,28 +3458,6 @@ BIO
 		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Archetype Display</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>FACE_5</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>REACH_5</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
