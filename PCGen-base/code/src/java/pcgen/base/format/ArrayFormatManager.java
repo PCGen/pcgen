@@ -92,7 +92,12 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			T[] toSet = (T[]) Array.newInstance(componentClass, 0);
 			return toSet;
 		}
-		// TODO Check for illegal commas...
+		if (!hasValidSeparators(instructions))
+		{
+			throw new IllegalArgumentException(
+				"Poorly formatted instructions (bad separator location): "
+					+ instructions);
+		}
 		String[] items = instructions.split(Character.toString(separator));
 		@SuppressWarnings("unchecked")
 		T[] toSet = (T[]) Array.newInstance(componentClass, items.length);
@@ -102,6 +107,14 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			toSet[i] = obj;
 		}
 		return toSet;
+	}
+
+	private boolean hasValidSeparators(String value)
+	{
+		//assume not empty due to checks on instructions
+		return (value.charAt(0) != separator)
+			&& (value.charAt(value.length() - 1) != separator)
+			&& (value.indexOf(String.valueOf(new char[]{separator, separator})) == -1);
 	}
 
 	/**
@@ -131,7 +144,12 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 					(Indirect<T>[]) Array.newInstance(Indirect.class, 0);
 			return new ArrayIndirect(toSet);
 		}
-		// TODO Check for illegal commas...
+		if (!hasValidSeparators(instructions))
+		{
+			throw new IllegalArgumentException(
+				"Poorly formatted instructions (bad separator location): "
+					+ instructions);
+		}
 		String[] items = instructions.split(Character.toString(separator));
 		@SuppressWarnings("unchecked")
 		Indirect<T>[] toSet =
