@@ -25,15 +25,18 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
 /**
  * Deal with the INITIATIVEMOD
  */
-public class InitiativeModToken extends AbstractExportToken
+public class InitiativeModToken extends Token
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -50,10 +53,10 @@ public class InitiativeModToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
+	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return Delta.toString(getInitiativeModToken(display));
+		return Delta.toString(getInitiativeModToken(pc));
 	}
 
 	/**
@@ -61,8 +64,14 @@ public class InitiativeModToken extends AbstractExportToken
 	 * @param pc
 	 * @return the token
 	 */
-	public static int getInitiativeModToken(CharacterDisplay display)
+	public static int getInitiativeModToken(PlayerCharacter pc)
 	{
-		return display.initiativeMod();
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		if (initiativeVar == null)
+		{
+			return pc.getDisplay().processOldInitiativeMod();
+		}
+		return ((Number) pc.getGlobal(initiativeVar)).intValue();
 	}
 }
