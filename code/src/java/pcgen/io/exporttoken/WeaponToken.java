@@ -1174,16 +1174,26 @@ public class WeaponToken extends Token
 	 */
 	public static String getReachToken(PlayerCharacter pc, Equipment eq)
 	{
-		int dist = eq.getVariableValue(
-			SettingsHandler.getGame().getWeaponReachFormula(), "", pc)
-			.intValue();
-		String profName = getProfName(eq);
-		int iAdd =
-				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
-					"REACH")
-					+ getWeaponProfTypeBonuses(pc, eq, "REACH",
-						WPTYPEBONUS_PC);
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist+iAdd);
+		String eqReach = pc.getControl("EQREACH");
+		int sum;
+		if (eqReach == null)
+		{
+			int dist = eq.getVariableValue(
+				SettingsHandler.getGame().getWeaponReachFormula(), "", pc)
+				.intValue();
+			String profName = getProfName(eq);
+			int iAdd =
+					(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
+						"REACH")
+						+ getWeaponProfTypeBonuses(pc, eq, "REACH",
+							WPTYPEBONUS_PC);
+			sum = dist+iAdd;
+		}
+		else
+		{
+			sum = ((Number) eq.getLocalVariable(pc.getCharID(), eqReach)).intValue();
+		}
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(sum);
 	}
 
 	/**

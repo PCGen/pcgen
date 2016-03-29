@@ -93,7 +93,6 @@ import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
-import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
@@ -209,7 +208,6 @@ public class CharacterDisplay
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
-	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
@@ -1222,17 +1220,6 @@ public class CharacterDisplay
 	public boolean hasKit(Kit kit)
 	{
 		return kitFacet.contains(id, kit);
-	}
-
-	/**
-	 * Determine the character's reach. This is based on their race, any applied
-	 * templates and any other bonuses to reach.
-	 * 
-	 * @return The reach radius.
-	 */
-	public int getReach()
-	{
-		return reachFacet.getReach(id);
 	}
 
 	public boolean hasSkill(Skill skill)
