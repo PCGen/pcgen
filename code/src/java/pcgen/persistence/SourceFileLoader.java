@@ -38,7 +38,6 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
@@ -52,7 +51,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -686,15 +686,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void defineBuiltinVariables(LoadContext context)
 	{
-		CodeControl controller =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
-		if (controller == null
-			|| (controller.get(ObjectKey.getKeyFor(String.class, "*FACE")) == null))
+		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
 			VariableContext varContext = context.getVariableContext();
-			FormatManager<OrderedPair> opManager =
-					context.getReferenceContext().getFormatManager(OrderedPair.class);
+			FormatManager<?> opManager =
+					context.getReferenceContext().getFormatManager("ORDEREDPAIR");
 			defineVariable(varContext, opManager, "Face");
 		}
 	}

@@ -39,6 +39,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -742,7 +743,7 @@ public class WeaponToken extends Token
 	{
 		String critMultVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITMULT");
+					CControl.CRITMULT);
 		if (critMultVar != null)
 		{
 			return WeaponToken.getNewCritMultString(pc, eq, critMultVar);
@@ -1173,16 +1174,26 @@ public class WeaponToken extends Token
 	 */
 	public static String getReachToken(PlayerCharacter pc, Equipment eq)
 	{
-		int dist = eq.getVariableValue(
-			SettingsHandler.getGame().getWeaponReachFormula(), "", pc)
-			.intValue();
-		String profName = getProfName(eq);
-		int iAdd =
-				(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
-					"REACH")
-					+ getWeaponProfTypeBonuses(pc, eq, "REACH",
-						WPTYPEBONUS_PC);
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist+iAdd);
+		String eqReach = pc.getControl("EQREACH");
+		int sum;
+		if (eqReach == null)
+		{
+			int dist = eq.getVariableValue(
+				SettingsHandler.getGame().getWeaponReachFormula(), "", pc)
+				.intValue();
+			String profName = getProfName(eq);
+			int iAdd =
+					(int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
+						"REACH")
+						+ getWeaponProfTypeBonuses(pc, eq, "REACH",
+							WPTYPEBONUS_PC);
+			sum = dist+iAdd;
+		}
+		else
+		{
+			sum = ((Number) eq.getLocalVariable(pc.getCharID(), eqReach)).intValue();
+		}
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(sum);
 	}
 
 	/**
@@ -1253,7 +1264,7 @@ public class WeaponToken extends Token
 		StringBuilder sb = new StringBuilder();
 		String critRangeVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITRANGE");
+					CControl.CRITRANGE);
 		if (critRangeVar != null)
 		{
 			EquipmentHead head = eq.getEquipmentHead(1);
@@ -2122,7 +2133,7 @@ public class WeaponToken extends Token
 		baseBonus += (int) pc.getTotalBonusTo("COMBAT", "TOHIT");
 
 		// subtract Armor and Shield non-proficiency
-		baseBonus += pc.modFromArmorOnWeaponRolls();
+		baseBonus += modFromArmorOnWeaponRolls(pc);
 
 		// include bonuses from Item itself
 		baseBonus += eq.getBonusToHit(pc, true);
@@ -2307,6 +2318,37 @@ public class WeaponToken extends Token
 		}
 
 		return totalAttack.toString();
+	}
+
+	private static int modFromArmorOnWeaponRolls(PlayerCharacter pc)
+	{
+		int bonus = 0;
+
+		/*
+		 * Equipped some armor that we're not proficient in? acCheck penalty to
+		 * attack rolls
+		 */
+		for (Equipment eq : pc.getEquipmentOfType("Armor", 1))
+		{
+			if ((eq != null) && (!pc.isProficientWith(eq)))
+			{
+				bonus += EqToken.getAcCheckTokenInt(pc, eq);
+			}
+		}
+
+		/*
+		 * Equipped a shield that we're not proficient in? acCheck penalty to
+		 * attack rolls
+		 */
+		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
+		{
+			if ((eq != null) && (!pc.isProficientWith(eq)))
+			{
+				bonus += EqToken.getAcCheckTokenInt(pc, eq);
+			}
+		}
+
+		return bonus;
 	}
 
 	/**

@@ -48,6 +48,9 @@ public class IntegerKey
 	 */
 	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<IntegerKey>();
 
+	/**
+	 * @deprecated due to EQACCHECK CodeControl
+	 */
 	public static final IntegerKey AC_CHECK = getConstant("AC_CHECK");
 
 	public static final IntegerKey ADD_SPELL_LEVEL = getConstant("ADD_SPELL_LEVEL");
@@ -126,8 +129,14 @@ public class IntegerKey
 	public static final IntegerKey CAMPAIGN_RANK = getConstant("CAMPAIGN_RANK",
 			9);
 
+	/**
+	 * @deprecated due to PCREACH and EQREACH CodeControl
+	 */
 	public static final IntegerKey REACH = getConstant("REACH", 5);
 
+	/**
+	 * @deprecated due to EQREACH CodeControl
+	 */
 	public static final IntegerKey REACH_MULT = getConstant("REACH_MULT", 1);
 
 	public static final IntegerKey SLOTS = getConstant("SLOTS", 1);

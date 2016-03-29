@@ -80,6 +80,10 @@ public class CollectionModel implements TemplateSequenceModel
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
+		if ((index < 0) || (index >= list.size()))
+		{
+			return null;
+		}
 		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 

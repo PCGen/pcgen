@@ -47,9 +47,9 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SplitFormulaSetup;
-import pcgen.base.solver.SplitFormulaSetup.IndividualSetup;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.IdentityList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -224,6 +224,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
+import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -273,6 +274,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.VariableContext.PCGenFormulaSetup;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -598,9 +600,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
-		IndividualSetup mySetup = formulaSetup.getIndividualSetup("Global");
+		IndividualSetup mySetup = new PCGenFormulaSetup(formulaSetup, "Global");
 		scopeFacet.set(id, mySetup.getInstanceFactory());
-		variableStoreFacet.set(id, mySetup.getVariableStore());
+		variableStoreFacet.set(id, (MonitorableVariableStore) mySetup.getVariableStore());
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
 		solverManagerFacet.set(id, new AggressiveSolverManager(
 			mySetup.getFormulaManager(), solverFactory, mySetup.getVariableStore()));
@@ -5834,41 +5836,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		return levelTableFacet.minXPForLevel(levelFacet.getECL(id) + 1, id);
 	}
-	
-	/**
-	 * Apply any modifications to attack rolls from wearing armour the 
-	 * PC is not proficient in.
-	 */
-	public int modFromArmorOnWeaponRolls()
-	{
-		int bonus = 0;
-
-		/*
-		 * Equipped some armor that we're not proficient in? acCheck penalty to
-		 * attack rolls
-		 */
-		for (Equipment eq : getEquipmentOfType("Armor", 1))
-		{
-			if ((eq != null) && (!isProficientWith(eq)))
-			{
-				bonus += eq.acCheck(this).intValue();
-			}
-		}
-
-		/*
-		 * Equipped a shield that we're not proficient in? acCheck penalty to
-		 * attack rolls
-		 */
-		for (Equipment eq : getEquipmentOfType("Shield", 1))
-		{
-			if ((eq != null) && (!isProficientWith(eq)))
-			{
-				bonus += eq.acCheck(this).intValue();
-			}
-		}
-
-		return bonus;
-	}
 
 	/**
 	 * Figure out if Load should affect AC and Skills, if so, set the load
@@ -5909,8 +5876,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * TODO Penalty for load could/should be GameMode specific?
 	 * 
 	 * @return PC's ACCHECK bonus from equipment
+	 * @deprecated due to PCACCHECK code control
 	 */
-	public int modToACCHECKFromEquipment()
+	public int processOldAcCheck()
 	{
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
@@ -5924,14 +5892,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			// Do not count virtual items created by temporary bonuses
 			if (!vEqList.contains(eq))
 			{
-				bonus += eq.acCheck(this).intValue();
+				bonus += EqToken.getAcCheckTokenInt(this, eq);
 			}
 		}
 
 		bonus = Math.min(bonus, penaltyForLoad);
 
-		// TODO Would be nice to one day explicitly have this as a ACCHECK type of 'bonus' 
-		// as opposed to MISC
 		bonus += (int) getTotalBonusTo("MISC", "ACCHECK");
 		return bonus;
 	}
@@ -7383,9 +7349,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();
-
-		// Apply penalties to attack if not proficient in worn armour
-		modFromArmorOnWeaponRolls();
 
 		// Recalculate the movement rates
 		adjustMoveRates();
@@ -10586,14 +10549,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		return resultFacet.getGlobalVariable(id, varName);
 	}
+	
+	public Object getLocal(CDOMObject owner, String varName)
+	{
+		return resultFacet.getLocalVariable(id, owner, varName);
+	}
 
 	public String getControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, string));
+		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string));
 	}
 
 	public boolean hasControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, string)) != null;
+		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string)) != null;
 	}
 }

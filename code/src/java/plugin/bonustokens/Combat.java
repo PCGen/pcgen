@@ -25,6 +25,8 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -49,6 +51,23 @@ public final class Combat extends MultiTagBonusObj
 			Logging.errorPrint("BONUS:COMBAT|BAB has been removed due to "
 				+ "unusual behavior around epic class levels.  "
 				+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB",
+				context);
+			return false;
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
+		{
+			if ("AC".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
+		{
+			Logging.errorPrint("BONUS:COMBAT|REACH"
+				+ " is disabled when CREATEUREREACH control is used: " + token,
 				context);
 			return false;
 		}

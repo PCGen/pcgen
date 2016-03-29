@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
 import pcgen.rules.context.LoadContext;
@@ -74,7 +75,7 @@ public final class HP extends MultiTagBonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
-		if (ControlUtilities.hasControlToken(context, "ALTHP"))
+		if (ControlUtilities.hasControlToken(context, CControl.ALTHP))
 		{
 			if ("ALTHP".equals(token))
 			{

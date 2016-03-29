@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
@@ -42,7 +43,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "CRITMULT"))
+		if (ControlUtilities.hasControlToken(context, CControl.CRITMULT))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when CRITMULT control is used: " + value,

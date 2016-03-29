@@ -18,9 +18,13 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with REACHMULT token
@@ -50,5 +54,17 @@ public class ReachMultToken extends AbstractIntToken<Equipment> implements
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, Equipment obj, String value)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.EQREACH))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when EQREACH control is used: " + value,
+				context);
+		}
+		return super.parseToken(context, obj, value);
 	}
 }

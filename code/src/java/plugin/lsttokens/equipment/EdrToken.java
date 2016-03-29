@@ -18,6 +18,7 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
@@ -60,7 +61,7 @@ public class EdrToken extends AbstractIntToken<Equipment> implements
 	public ParseResult parseToken(LoadContext context, Equipment obj,
 		String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "EDR"))
+		if (ControlUtilities.hasControlToken(context, CControl.EDR))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when EDR control is used: " + value,

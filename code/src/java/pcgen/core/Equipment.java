@@ -72,6 +72,7 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.EqModCost;
@@ -2354,8 +2355,9 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has this Equipment
 	 * 
 	 * @return Description of the Return Value
+	 * @deprecated due to ACCHECK code control
 	 */
-	public Integer acCheck(final PlayerCharacter aPC)
+	public Integer preFormulaAcCheck(final PlayerCharacter aPC)
 	{
 		return Math.min(getSafe(IntegerKey.AC_CHECK)
 			+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true), 0);
@@ -5659,22 +5661,6 @@ public final class Equipment extends PObject implements Serializable,
 	// Protective Item Support
 	//
 	/**
-	 * Gets the AC attribute of the Equipment object
-	 * 
-	 * @param aPC The PC that has the Equipment
-	 * 
-	 * @return The acBonus value
-	 */
-	public Integer getACBonus(final PlayerCharacter aPC)
-	{
-		//TODO BONUS:EQMARMOR|ACBONUS|x should be documented.
-		int dbon = (int) bonusTo(aPC, "COMBAT", "AC", true);
-		dbon += (int) bonusTo(aPC, "EQMARMOR", "ACBONUS", true);
-
-		return dbon;
-	}
-
-	/**
 	 * Gets the acMod attribute of the Equipment object
 	 * 
 	 * @param aPC The PC that has the Equipment
@@ -5683,6 +5669,12 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public Integer getACMod(final PlayerCharacter aPC)
 	{
+		String acMod = aPC.getControl(CControl.EQACMOD);
+		if (acMod != null)
+		{
+			Object o = aPC.getLocal(this, acMod);
+			return ((Number) o).intValue();
+		}
 		//TODO This should be documented
 		return (int) bonusTo(aPC, "EQMARMOR", "AC", true)
 			+ (int) bonusTo(aPC, "COMBAT", "AC", true);
@@ -6721,17 +6713,18 @@ public final class Equipment extends PObject implements Serializable,
 		removeListFor(ListKey.TEMP_BONUS);
 	}
 
-	/**
-	 * Get the list of bonuses as a String
-	 * @param pc TODO
-	 * @param aString
-	 * @return the list of bonuses as a String
-	 */
-	public boolean hasBonusWithInfo(PlayerCharacter pc, final String aString)
+	public boolean altersAC(PlayerCharacter pc)
 	{
+		String alterAC = pc.getControl(CControl.ALTERSAC);
+		if (alterAC != null)
+		{
+			Object o = pc.getLocal(this, alterAC);
+			return ((Boolean) o).booleanValue();
+		}
+
 		for (BonusObj bonus : getRawBonusList(pc))
 		{
-			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
+			if (bonus.getBonusInfo().equalsIgnoreCase("AC"))
 			{
 				return true;
 			}

@@ -18,6 +18,7 @@
 package plugin.lsttokens.race;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
@@ -59,7 +60,7 @@ public class HandsToken extends AbstractIntToken<Race> implements
 	@Override
 	public ParseResult parseToken(LoadContext context, Race obj, String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "CREATUREHANDS"))
+		if (ControlUtilities.hasControlToken(context, CControl.CREATUREHANDS))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when CREATUREHANDS control is used: " + value,

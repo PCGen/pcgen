@@ -29,10 +29,10 @@ import java.text.DecimalFormat;
 
 import pcgen.base.math.OrderedPair;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ResultFacet;
-import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
@@ -210,17 +210,11 @@ public class FaceToken extends AbstractExportToken
 
 	public static OrderedPair getFace(CharID id)
 	{
-		CodeControl controller =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
-		String varName = "Face";
-		if (controller != null)
+		String varName =
+				ControlUtilities.getControlToken(Globals.getContext(), CControl.FACE);
+		if (varName == null)
 		{
-			String setVarName = controller.get(ObjectKey.getKeyFor(String.class, "*FACE"));
-			if (setVarName != null)
-			{
-				varName = setVarName;
-			}
+			varName = "Face";
 		}
 		ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 		return (OrderedPair) resultFacet.getGlobalVariable(id, varName);

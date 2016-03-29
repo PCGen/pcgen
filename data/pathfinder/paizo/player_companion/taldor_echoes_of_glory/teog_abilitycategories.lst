@@ -5,5 +5,9 @@
 ABILITYCATEGORY:Lion Blade Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO								CATEGORY:Special Ability	TYPE:Lion Blade Class Feature			PLURAL:Lion Blade Class Features	DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Dilettante Artist Class Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:DilettanteArtistClassSkill	CATEGORY:Internal			TYPE:Dilettante Artist Class Skill								DISPLAYLOCATION:Race Abilities
-ABILITYCATEGORY:Dilettante Artist Perform Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:DilettanteArtistPerformSkill	CATEGORY:Internal			TYPE:Dilettante Artist Perform Skill							DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Dilettante Artist Class Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:DilettanteArtistClassSkill	CATEGORY:Internal			TYPE:Dilettante Artist Class Skill								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dilettante Artist Perform Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:DilettanteArtistPerformSkill	CATEGORY:Internal			TYPE:Dilettante Artist Perform Skill							DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Precocious Spellcaster 0th	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO			CATEGORY:Internal			ABILITYLIST:Precocious Spellcaster 0th								DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Precocious Spellcaster 1st	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO			CATEGORY:Internal			ABILITYLIST:Precocious Spellcaster 1st								DISPLAYLOCATION:Traits
+

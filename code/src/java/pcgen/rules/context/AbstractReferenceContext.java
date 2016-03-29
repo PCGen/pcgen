@@ -543,11 +543,6 @@ public abstract class AbstractReferenceContext
 
 	public abstract <T extends CDOMObject> T performMod(T obj);
 
-	public <T> FormatManager<T> getFormatManager(Class<T> cl)
-	{
-		return fmtLibrary.getFormatManager(cl);
-	}
-
 	public FormatManager<?> getFormatManager(String clName)
 	{
 		return fmtLibrary.getFormatManager(clName);
