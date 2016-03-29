@@ -19,7 +19,7 @@ package pcgen.base.calculation.testsupport;
 
 import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 
 public final class NepCalc extends AbstractNEPCalculation
 {
@@ -32,9 +32,9 @@ public final class NepCalc extends AbstractNEPCalculation
 	}
 
 	@Override
-	public Object process(Object input, ScopeInformation scopeInfo, Object owner)
+	public Object process(EvaluationManager manager)
 	{
-		return this.getBasicCalculation().process(input, n);
+		return this.getBasicCalculation().process(manager.peek(EvaluationManager.INPUT), n);
 	}
 
 	@Override

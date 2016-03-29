@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.base.calculation.Modifier;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -82,7 +82,7 @@ public class SolverFactory
 		}
 		try
 		{
-			T defaultValue = defaultModifier.process(null, null, null);
+			T defaultValue = defaultModifier.process(null);
 			if (!varFormat.isAssignableFrom(defaultValue.getClass()))
 			{
 				//Generics were violated here
@@ -119,8 +119,8 @@ public class SolverFactory
 	 * @param formatManager
 	 *            The FormatManager used to manage items in this generated
 	 *            Solver
-	 * @param scopeInfo
-	 *            The ScopeInformation to be used by the Solver to be
+	 * @param evaluationManager
+	 *            The EvaluationManager to be used by the Solver to be
 	 *            constructed
 	 * @return A new Solver with default Modifier stored in this SolverFactory
 	 *         and with the given ScopeInformation
@@ -130,12 +130,12 @@ public class SolverFactory
 	 *             on SolverFactory
 	 */
 	public <T> Solver<T> getSolver(FormatManager<T> formatManager,
-		ScopeInformation scopeInfo)
+		EvaluationManager evaluationManager)
 	{
-		if (scopeInfo == null)
+		if (evaluationManager == null)
 		{
 			throw new IllegalArgumentException(
-				"Cannot create Solver: Scope Information cannot be null");
+				"Cannot create Solver: EvaluationManager cannot be null");
 		}
 		@SuppressWarnings("unchecked")
 		Modifier<T> defaultModifier =
@@ -147,7 +147,7 @@ public class SolverFactory
 				"Cannot create Solver of format " + formatManager
 					+ " because no default was provided for that format");
 		}
-		return new Solver<T>(defaultModifier, scopeInfo);
+		return new Solver<T>(defaultModifier, evaluationManager);
 	}
 
 	/**
@@ -166,6 +166,6 @@ public class SolverFactory
 		@SuppressWarnings("unchecked")
 		Modifier<T> defaultModifier =
 				(Modifier<T>) defaultModifierMap.get(varFormat);
-		return defaultModifier.process(null, null, null);
+		return defaultModifier.process(null);
 	}
 }

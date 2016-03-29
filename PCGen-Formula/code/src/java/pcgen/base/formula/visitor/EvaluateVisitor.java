@@ -19,8 +19,11 @@ package pcgen.base.formula.visitor;
 
 import java.lang.reflect.Array;
 
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.Function;
+import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -43,7 +46,6 @@ import pcgen.base.formula.parse.ASTUnaryMinus;
 import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
-import pcgen.base.formula.parse.Operator;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.util.FormatManager;
 
@@ -53,9 +55,9 @@ import pcgen.base.util.FormatManager;
  * evaluating the functions contained in the formula.
  * 
  * EvaluateVisitor returns but does not accumulate results, since it is only
- * processing items that are present in the formula. Therefore, the data
- * parameter to the methods is ignored. The result of the evaluation will be a
- * Double.
+ * processing items that are present in the formula. The data parameter to the
+ * visit methods should be an EvaluationManager that contains the necessary
+ * information to resolve items in the formula.
  * 
  * EvaluateVisitor enforces no contract that it will validate a formula, but
  * reserves the right to do so. As a result, the behavior of EvaluationVisitor
@@ -69,51 +71,6 @@ import pcgen.base.util.FormatManager;
 @SuppressWarnings("PMD.TooManyMethods")
 public class EvaluateVisitor implements FormulaParserVisitor
 {
-
-	/**
-	 * The ScopeInstance in which the formula resides.
-	 */
-	private final ScopeInstance scopeInst;
-
-	/**
-	 * The FormulaManager used to get information about functions and other key
-	 * parameters of a Formula.
-	 */
-	private final FormulaManager fm;
-
-	private final Object source;
-
-	/**
-	 * Constructs a new EvaluateVisitor with the given items used to perform the
-	 * evaluation, as necessary.
-	 * 
-	 * @param fm
-	 *            The FormulaManager used to get information about functions and
-	 *            other key parameters of a Formula
-	 * @param scopeInst
-	 *            The ScopeInstance used to evaluate the formula
-	 * @param source
-	 *            The VarScoped object that owns the formula this
-	 *            EvaulateVisitor will process
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters are null
-	 */
-	public EvaluateVisitor(FormulaManager fm, ScopeInstance scopeInst,
-		Object source)
-	{
-		if (fm == null)
-		{
-			throw new IllegalArgumentException("FormulaManager cannot be null");
-		}
-		if (scopeInst == null)
-		{
-			throw new IllegalArgumentException("ScopeInstance cannot be null");
-		}
-		this.fm = fm;
-		this.scopeInst = scopeInst;
-		this.source = source;
-	}
-
 	/**
 	 * Visits a SimpleNode. Because this cannot be processed, due to lack of
 	 * knowledge as to the exact type of SimpleNode encountered, the node is
@@ -145,8 +102,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTLogical node, Object data)
 	{
-		//Pass in null since we can't assert what each side of the logical expression is
-		return evaluateOperatorNode(node, null);
+		return evaluateRelational(node, data);
 	}
 
 	/**
@@ -155,8 +111,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTEquality node, Object data)
 	{
-		//Pass in null since we can't assert what each side of the logical expression is
-		return evaluateOperatorNode(node, null);
+		return evaluateRelational(node, data);
 	}
 
 	/**
@@ -165,8 +120,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTRelational node, Object data)
 	{
-		//Pass in null since we can't assert what each side of the logical expression is
-		return evaluateOperatorNode(node, null);
+		return evaluateRelational(node, data);
 	}
 
 	/**
@@ -193,16 +147,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryMinus node, Object data)
 	{
-		/*
-		 * Note we only support unary minus for Number.class. This was enforced
-		 * by SemanticsVisitor.
-		 */
-		Number n = (Number) evaluateSingleChild(node, data);
-		if (n instanceof Integer)
-		{
-			return Integer.valueOf(-((Integer) n).intValue());
-		}
-		return Double.valueOf(-n.doubleValue());
+		return evaluateUnaryNode(node, data);
 	}
 
 	/**
@@ -211,12 +156,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTUnaryNot node, Object data)
 	{
-		/*
-		 * Note we only support unary minus for Boolean.class. This was enforced
-		 * by SemanticsVisitor.
-		 */
-		Boolean b = (Boolean) evaluateSingleChild(node, data);
-		return !b;
+		return evaluateUnaryNode(node, data);
 	}
 
 	/**
@@ -267,19 +207,22 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
+		EvaluationManager manager = (EvaluationManager) data;
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
 		String name = fnode.getText();
 		Node argNode = node.jjtGetChild(1);
 		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
-			Function function = fm.getLibrary().getFunction(name);
-			return function.evaluate(this, args, (Class<?>) data);
+			FunctionLibrary ftnLib =
+					manager.peek(EvaluationManager.FMANAGER).getLibrary();
+			Function function = ftnLib.getFunction(name);
+			return function.evaluate(this, args, manager);
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
 			int index = (Integer) visit((SimpleNode) args[0], data);
-			return Array.get(visitVariable(name), index);
+			return Array.get(visitVariable(name, manager), index);
 		}
 		throw new IllegalStateException("Invalid Formula (unrecognized node: "
 			+ argNode + ")");
@@ -294,47 +237,15 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
-		String varName = node.getText();
-		return visitVariable(varName);
-	}
-
-	/**
-	 * Returns the value for a specific variable.
-	 * 
-	 * @param varName
-	 *            The name of the variable to be evaluated
-	 * @return the value for the given specific variable
-	 */
-	public Object visitVariable(String varName)
-	{
-		VariableLibrary varLibrary = fm.getFactory();
-		FormatManager<?> formatManager =
-				fm.getFactory().getVariableFormat(scopeInst.getLegalScope(),
-					varName);
-		if (formatManager != null)
-		{
-			VariableID<?> id = varLibrary.getVariableID(scopeInst, varName);
-			VariableStore resolver = fm.getResolver();
-			if (resolver.containsKey(id))
-			{
-				return resolver.get(id);
-			}
-		}
-		System.out.println("Evaluation called on invalid variable: '" + varName
-			+ "', assuming default");
-		//argh! not always integer!!
-		return Integer.valueOf(0);
-		//		throw new IllegalStateException(
-		//			"Evaluation called on invalid Formula (reached invalid non-term: "
-		//				+ termName + ")");
+		return visitVariable(node.getText(), (EvaluationManager) data);
 	}
 
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
 	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in EvaluateVisitor indicates either an
-	 * error in the implementation of the formula or a tree structure problem in
-	 * the formula.
+	 * EvaluateVisitor, reaching this node in EvaluateVisitor indicates either
+	 * an error in the implementation of the formula or a tree structure problem
+	 * in the formula.
 	 */
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
@@ -347,9 +258,9 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	/**
 	 * This type of node is ONLY encountered as part of a function. Since the
 	 * function should have "consumed" these elements and not called back into
-	 * StaticVisitor, reaching this node in EvaluateVisitor indicates either an
-	 * error in the implementation of the formula or a tree structure problem in
-	 * the formula.
+	 * EvaluateVisitor, reaching this node in EvaluateVisitor indicates either
+	 * an error in the implementation of the formula or a tree structure problem
+	 * in the formula.
 	 */
 	@Override
 	public Object visit(ASTFParen node, Object data)
@@ -376,20 +287,37 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 * @param node
 	 *            The node that contains an Operator and has exactly 2 children.
 	 * @param data
-	 *            The asserted Format for the node being analyzed
+	 *            The EvaluationManager used in evaluation
 	 * @return The result of the operation acting on the 2 children
 	 */
 	private Object evaluateOperatorNode(SimpleNode node, Object data)
 	{
-		Operator op = node.getOperator();
-		if (op == null)
-		{
-			throw new IllegalStateException(getClass().getSimpleName()
-				+ " must have an operator");
-		}
 		Object child1result = node.jjtGetChild(0).jjtAccept(this, data);
 		Object child2result = node.jjtGetChild(1).jjtAccept(this, data);
-		return fm.getOperatorLibrary().evaluate(op, child1result, child2result);
+		EvaluationManager manager = (EvaluationManager) data;
+		OperatorLibrary opLib =
+				manager.peek(EvaluationManager.FMANAGER).getOperatorLibrary();
+		return opLib.evaluate(node.getOperator(), child1result, child2result);
+	}
+
+	/**
+	 * Evaluates an operator node. Must have 1 child and a node that contains a
+	 * Unary Operator.
+	 * 
+	 * @param node
+	 *            The node that contains a Unary Operator and has exactly 1
+	 *            child.
+	 * @param data
+	 *            The EvaluationManager used in evaluation
+	 * @return The result of the operation acting on the child
+	 */
+	private Object evaluateUnaryNode(SimpleNode node, Object data)
+	{
+		Object result = node.jjtGetChild(0).jjtAccept(this, data);
+		EvaluationManager manager = (EvaluationManager) data;
+		OperatorLibrary opLib =
+				manager.peek(EvaluationManager.FMANAGER).getOperatorLibrary();
+		return opLib.evaluate(node.getOperator(), result);
 	}
 
 	/**
@@ -400,42 +328,67 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 * @param node
 	 *            The node for which the (single) child will be evaluated
 	 * @param data
-	 *            The asserted Format for the node being analyzed
+	 *            The EvaluationManager used in evaluation
 	 * @return The result of the evaluation on the child of the given node
 	 */
-	private Object evaluateSingleChild(Node node, Object data)
+	private Object evaluateSingleChild(SimpleNode node, Object data)
 	{
 		return node.jjtGetChild(0).jjtAccept(this, data);
 	}
 
 	/**
-	 * Returns the ScopeInstance in which this EvaluateVisitor is operating.
+	 * Evaluates a relational node. Must have 2 children and a node that
+	 * contains an Operator.
 	 * 
-	 * @return the ScopeInstance in which this EvaluateVisitor is operating
+	 * @param node
+	 *            The node that contains an Operator and has exactly 2 children.
+	 * @param data
+	 *            The EvaluationManager used in evaluation
+	 * @return The result of the operation acting on the 2 children
 	 */
-	public ScopeInstance getScopeInstance()
+	private Object evaluateRelational(SimpleNode node, Object data)
 	{
-		return scopeInst;
+		EvaluationManager manager = (EvaluationManager) data;
+		//Pass in null since we can't assert what each side of the logical expression is
+		manager.push(EvaluationManager.ASSERTED, null);
+		Object result = evaluateOperatorNode(node, manager);
+		manager.pop(EvaluationManager.ASSERTED);
+		return result;
 	}
 
 	/**
-	 * Returns the underlying FormulaManager for this EvaluateVisitor.
+	 * Returns the value for a specific variable.
 	 * 
-	 * @return the underlying FormulaManager for this EvaluateVisitor
+	 * @param varName
+	 *            The name of the variable to be evaluated
+	 * @param manager
+	 *            The EvaluationManager used in evaluation
+	 * @return the value for the given specific variable
 	 */
-	public FormulaManager getFormulaManager()
+	public Object visitVariable(String varName, EvaluationManager manager)
 	{
-		return fm;
-	}
-
-	/**
-	 * Returns The source of the formula evaluated by this EvaluateVisitor.
-	 * 
-	 * @return The source of the formula evaluated by this EvaluateVisitor
-	 */
-	public Object getSource()
-	{
-		return source;
+		FormulaManager fm = manager.peek(EvaluationManager.FMANAGER);
+		VariableLibrary varLibrary = fm.getFactory();
+		ScopeInstance scopeInst = manager.peek(EvaluationManager.INSTANCE);
+		FormatManager<?> formatManager =
+				varLibrary
+					.getVariableFormat(scopeInst.getLegalScope(), varName);
+		if (formatManager != null)
+		{
+			VariableID<?> id = varLibrary.getVariableID(scopeInst, varName);
+			VariableStore resolver = fm.getResolver();
+			if (resolver.containsKey(id))
+			{
+				return resolver.get(id);
+			}
+		}
+		System.out.println("Evaluation called on invalid variable: '" + varName
+			+ "', assuming default");
+		//argh! not always integer!!
+		return Integer.valueOf(0);
+		//		throw new IllegalStateException(
+		//			"Evaluation called on invalid Formula (reached invalid non-term: "
+		//				+ termName + ")");
 	}
 
 }

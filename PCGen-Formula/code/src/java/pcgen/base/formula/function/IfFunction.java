@@ -20,6 +20,7 @@ package pcgen.base.formula.function;
 import java.util.Arrays;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -129,20 +130,22 @@ public class IfFunction implements Function
 	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		Class<?> assertedFormat)
+		EvaluationManager manager)
 	{
-		Boolean b = (Boolean) args[0].jjtAccept(visitor, BOOLEAN_CLASS);
+		manager.push(EvaluationManager.ASSERTED, BOOLEAN_CLASS);
+		Boolean b = (Boolean) args[0].jjtAccept(visitor, manager);
+		manager.pop(EvaluationManager.ASSERTED);
 		/*
 		 * Note no attempt to cast or interpret the return values since we do
 		 * not know if they are Boolean or Double (see allowArgs)
 		 */
 		if (b.booleanValue())
 		{
-			return args[1].jjtAccept(visitor, assertedFormat);
+			return args[1].jjtAccept(visitor, manager);
 		}
 		else
 		{
-			return args[2].jjtAccept(visitor, assertedFormat);
+			return args[2].jjtAccept(visitor, manager);
 		}
 	}
 

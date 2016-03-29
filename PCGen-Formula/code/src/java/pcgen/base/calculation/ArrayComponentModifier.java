@@ -20,7 +20,7 @@ package pcgen.base.calculation;
 import java.lang.reflect.Array;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 
 /**
  * An ArrayComponentModifier applies an underlying Modifier to a specific
@@ -85,19 +85,18 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T[] process(T[] input, ScopeInformation scopeInfo, Object source)
+	public T[] process(EvaluationManager manager)
 	{
+		@SuppressWarnings("unchecked")
+		T[] input = (T[]) manager.peek(EvaluationManager.INPUT);
 		if (location > input.length - 1)
 		{
 			return input;
 		}
-		@SuppressWarnings("unchecked")
-		T[] newArray =
-				(T[]) Array.newInstance(modifier.getVariableFormat(),
-					input.length);
-		System.arraycopy(input, 0, newArray, 0, input.length);
-		newArray[location] = modifier.process(input[location], scopeInfo, source);
-		return newArray;
+		manager.push(EvaluationManager.INPUT, input[location]);
+		input[location] = modifier.process(manager);
+		manager.pop(EvaluationManager.INPUT);
+		return input;
 	}
 
 	/**

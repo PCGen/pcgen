@@ -20,6 +20,7 @@ package pcgen.base.formula.function;
 import java.util.Arrays;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.Node;
@@ -98,14 +99,14 @@ public abstract class AbstractNaryFunction implements Function
 	 */
 	@Override
 	public final Number evaluate(EvaluateVisitor visitor, Node[] args,
-		Class<?> assertedFormat)
+		EvaluationManager manager)
 	{
 		int argCount = args.length;
-		Number solution = (Number) args[0].jjtAccept(visitor, assertedFormat);
+		Number solution = (Number) args[0].jjtAccept(visitor, manager);
 		//May be N args, so just loop until done
 		for (int i = 1; i < argCount; i++)
 		{
-			Number next = (Number) args[i].jjtAccept(visitor, assertedFormat);
+			Number next = (Number) args[i].jjtAccept(visitor, manager);
 			solution = evaluate(solution, next);
 		}
 		return solution;

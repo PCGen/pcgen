@@ -217,15 +217,13 @@ public interface Function
 	 *            The EvaluateVisitor that visits portions of a Formula
 	 * @param args
 	 *            The arguments to this Function within the Formula
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the function.
-	 *            This parameter is optional - null can indicate that there is
-	 *            no format asserted by the context of the function
+	 * @param manager
+	 *            The EvaluationManager for the context of the Function
 	 * @return A non-null object that is the result of performing the
 	 *         calculation defined by this Function
 	 */
 	Object evaluate(EvaluateVisitor visitor, Node[] args,
-		Class<?> assertedFormat);
+		EvaluationManager manager);
 
 	/**
 	 * Captures dependencies of this function. This may include Variables (in

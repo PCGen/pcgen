@@ -18,6 +18,7 @@
 package pcgen.base.formula.inst;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.util.FormatManager;
 
@@ -50,22 +51,13 @@ public interface NEPFormula<T>
 	 * appropriate processing (precision in the case of numbers) desired for the
 	 * given calculation.
 	 * 
-	 * @param scopeInfo
-	 *            The ScopeInformation providing the context in which the
-	 *            NEPFormula is to be resolved
-	 * @param assertedFormat
-	 *            The Class indicating the asserted Format for the formula. This
-	 *            parameter is optional - null can indicate that there is no
-	 *            format asserted by the context of the formula
-	 * @param source
-	 *            The source of the resolution being performed, so it can be
-	 *            referred back to if necessary
+	 * @param manager
+	 *            The EvaluationManager for the context of the formula
 	 * @return The value calculated for the NEPFormula
 	 * @throws IllegalArgumentException
 	 *             if the given ScopeInformation is null.
 	 */
-	public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
-		Object source);
+	public T resolve(EvaluationManager manager);
 
 	/**
 	 * Processes the FormulaSemantics for the NEPFormula.

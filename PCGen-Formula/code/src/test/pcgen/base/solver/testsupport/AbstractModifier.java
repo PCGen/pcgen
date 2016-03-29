@@ -21,7 +21,7 @@ import java.lang.reflect.Array;
 
 import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.lang.NumberUtilities;
 
 public abstract class AbstractModifier<T> implements Modifier<T>
@@ -38,7 +38,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		}
 
 		@Override
-		public Number process(Number input, ScopeInformation scopeInfo, Object source)
+		public Number process(EvaluationManager manager)
 		{
 			return value;
 		}
@@ -123,8 +123,9 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number[]>(0, NUMBER_ARR_CLASS, priority)
 		{
 			@Override
-			public Number[] process(Number[] input, ScopeInformation scopeInfo, Object source)
+			public Number[] process(EvaluationManager manager)
 			{
+				Number[] input = (Number[]) manager.peek(EvaluationManager.INPUT);
 				Number[] newArray =
 						(Number[]) Array.newInstance(NUMBER_CLASS,
 							input.length + 1);
@@ -140,7 +141,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number[]>(0, NUMBER_ARR_CLASS, priority)
 		{
 			@Override
-			public Number[] process(Number[] input, ScopeInformation scopeInfo, Object source)
+			public Number[] process(EvaluationManager manager)
 			{
 				return new Number[]{};
 			}
@@ -158,7 +159,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<String>(0, String.class)
 		{
 			@Override
-			public String process(String input, ScopeInformation scopeInfo, Object source)
+			public String process(EvaluationManager manager)
 			{
 				return "Something";
 			}
@@ -171,9 +172,9 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number>(1, NUMBER_CLASS, priority)
 		{
 			@Override
-			public Number process(Number input, ScopeInformation scopeInfo, Object source)
+			public Number process(EvaluationManager manager)
 			{
-				return NumberUtilities.multiply(input, value);
+				return NumberUtilities.multiply((Number) manager.peek(EvaluationManager.INPUT), value);
 			}
 		};
 	}
@@ -183,9 +184,9 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new AbstractModifier<Number>(2, NUMBER_CLASS, priority)
 		{
 			@Override
-			public Number process(Number input, ScopeInformation scopeInfo, Object source)
+			public Number process(EvaluationManager manager)
 			{
-				return NumberUtilities.add(input, value);
+				return NumberUtilities.add((Number) manager.peek(EvaluationManager.INPUT), value);
 			}
 		};
 	}

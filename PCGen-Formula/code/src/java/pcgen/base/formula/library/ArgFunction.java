@@ -21,6 +21,7 @@ import java.util.Arrays;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.parse.ASTNum;
@@ -151,11 +152,11 @@ public class ArgFunction implements Function
 	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		Class<?> assertedFormat)
+		EvaluationManager manager)
 	{
 		ASTNum node = (ASTNum) args[0];
 		int argNum = Integer.parseInt(node.getText());
-		return visitor.visit((SimpleNode) masterArgs[argNum], assertedFormat);
+		return visitor.visit((SimpleNode) masterArgs[argNum], manager);
 	}
 
 	/**
