@@ -325,8 +325,7 @@ public final class FormulaFactory
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void getDependencies(ScopeInformation scopeInfo,
-			DependencyManager arg1, Class<?> assertedFormat)
+		public void getDependencies(DependencyManager fdm)
 		{
 			//None
 		}

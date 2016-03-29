@@ -242,8 +242,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-		public void getDependencies(ScopeInformation scopeInfo,
-			DependencyManager fdm, Class<?> assertedFormat)
+		public void getDependencies(DependencyManager fdm)
 		{
 		}
 
