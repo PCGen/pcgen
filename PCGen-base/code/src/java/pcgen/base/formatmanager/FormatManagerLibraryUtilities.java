@@ -26,7 +26,7 @@ import pcgen.base.format.StringManager;
  * FormatManagerLibraryUtilities are utility methods for FormatManagerLibrary
  * objects.
  */
-public class FormatManagerLibraryUtilities
+public final class FormatManagerLibraryUtilities
 {
 
 	private FormatManagerLibraryUtilities()
