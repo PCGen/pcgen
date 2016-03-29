@@ -95,7 +95,7 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	/**
 	 * Adds a FormatManagerBuilder to the FormatManagerLibrary.
 	 * 
-	 * @param Builder
+	 * @param builder
 	 *            The FormatManagerBuilder to be added to this
 	 *            FormatManagerLibrary
 	 * @throws IllegalArgumentException
