@@ -36,4 +36,7 @@ public class CControl
 	public static final String ACVARTOTAL = "ACVARTOTAL";
 	public static final String ACVARARMOR = "ACVARARMOR";
 
+	public static final String EQREACH = "EQREACH";
+	public static final String PCREACH = "PCREACH";
+
 }

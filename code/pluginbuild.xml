@@ -6110,6 +6110,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQREACH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/control/EqReachToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQSPELLFAILURE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6149,6 +6156,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/codecontrol/PcMaxDexToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-PCREACH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/control/PCReachToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

@@ -26,17 +26,18 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.ReachFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
-	private final String source;
-
 	public EQRaceReachTermEvaluator(String expressionString, String src)
 	{
 		this.originalText = expressionString;
-		this.source       = src;
 	}
 
 	@Override
@@ -53,7 +54,14 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
-		return String.valueOf(pc.getVariableValue("REACH.VAL", source));
+		if (pc.hasControl(CControl.PCREACH))
+		{
+			Logging.errorPrint("RACEREACH term"
+				+ " is disabled when CREATEUREREACH control is used");
+			return "0";
+		}
+		ReachFacet facet = FacetLibrary.getFacet(ReachFacet.class);
+		return String.valueOf(facet.getReach(pc.getCharID()));
 	}
 
 	@Override

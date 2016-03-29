@@ -960,6 +960,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * Get the weapon reach formula.
 	 * @return String the weaopn reach formula
+	 * @deprecated due to EQREACH code control
 	 */
 	public String getWeaponReachFormula ()
 	{
@@ -1293,6 +1294,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * Set the weapon reach forumla.
 	 * @param aString	the new weapon reach formula
+	 * @deprecated due to EQREACH code control
 	 */
 	public void setWeaponReachFormula (String aString)
 	{
