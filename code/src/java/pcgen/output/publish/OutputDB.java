@@ -28,6 +28,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.core.GameMode;
 import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
+import pcgen.output.factory.CodeControlModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
@@ -272,6 +273,7 @@ public final class OutputDB
 		outModels.clear();
 		globalModels.clear();
 		modeModels.clear();
+		modeModels.put("cc", new CodeControlModelFactory());
 	}
 
 	/**
