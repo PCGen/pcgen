@@ -6082,10 +6082,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQBASEAC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQBASEACMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/EqBaseACToken.class" />
+					<include name="plugin/lsttokens/control/EqBaseACModToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
