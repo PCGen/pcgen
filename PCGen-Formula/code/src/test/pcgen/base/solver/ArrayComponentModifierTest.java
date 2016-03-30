@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.calculation;
+package pcgen.base.solver;
 
 import java.util.Arrays;
 
@@ -23,17 +23,11 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.testsupport.BasicCalc;
-import pcgen.base.calculation.testsupport.NepCalc;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.OperatorAction;
-import pcgen.base.formula.operator.number.NumberAdd;
+import pcgen.base.solver.testsupport.AbstractModifier;
 
 public class ArrayComponentModifierTest extends TestCase
 {
-	private BasicCalculation basic = getBasicCalc(new NumberAdd(), 6);
-	private NEPCalculation calc = getNEPCalc(33);
-
 	@Test
 	public void testConstructor()
 	{
@@ -60,15 +54,15 @@ public class ArrayComponentModifierTest extends TestCase
 	@Test
 	public void testGetUserPriority()
 	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
+		Modifier cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals((5l << 32) + 6, acm.getPriority());
+		assertEquals((100l << 32), acm.getPriority());
 	}
 
 	@Test
 	public void testGetVariableFormat()
 	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
+		Modifier cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		assertEquals(new Number[]{}.getClass(), acm.getVariableFormat());
 	}
@@ -76,29 +70,30 @@ public class ArrayComponentModifierTest extends TestCase
 	@Test
 	public void testGetIdentification()
 	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
+		Modifier cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals("Basic (component)", acm.getIdentification());
+		assertEquals("Set (component)", acm.getIdentification());
 	}
 
 	@Test
 	public void testGetInstructions()
 	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
+		Modifier cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals("To [5]: +33", acm.toString());
+		assertEquals("To [5]: +3", acm.toString());
 	}
 
 	@Test
 	public void testProcess()
 	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
+		Modifier cm = AbstractModifier.setNumber(6, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = new Number[]{1, 2, 3, 4, 5, 6, 7};
 		EvaluationManager manager = new EvaluationManager();
 		manager.set(EvaluationManager.INPUT, array);
 		Object[] result = acm.process(manager);
-		array[5] = array[5].intValue() + 33;
+		assertFalse(array == result);
+		array[5] = 6;
 		assertTrue(Arrays.deepEquals(array, result));
 	}
 
@@ -106,7 +101,7 @@ public class ArrayComponentModifierTest extends TestCase
 	@Test
 	public void testProcessOutOfBounds()
 	{
-		CalculationModifier cm = new CalculationModifier(calc, 5);
+		Modifier cm = AbstractModifier.setNumber(77, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = new Number[]{1, 2, 3, 4};
 		//Should be no effect
@@ -115,30 +110,4 @@ public class ArrayComponentModifierTest extends TestCase
 		Object[] result = acm.process(manager);
 		assertTrue(Arrays.deepEquals(array, result));
 	}
-
-//	@Test
-//	public void testEquals()
-//	{
-//		CalculationModifier cm = new CalculationModifier(calc, 5);
-//		NEPCalculation calc2 = getNEPCalc(33);
-//		CalculationModifier cm2 = new CalculationModifier(calc2, 5);
-//		assertTrue(cm.equals(cm2));
-//		assertEquals(cm.hashCode(), cm2.hashCode());
-//		CalculationModifier cm3 = new CalculationModifier(calc, 3);
-//		assertFalse(cm.equals(cm3));
-//		assertFalse(cm.equals(new Object()));
-//	}
-//
-
-	private AbstractNEPCalculation getNEPCalc(final Number n)
-	{
-		return new NepCalc(basic, n);
-	}
-
-	private BasicCalculation getBasicCalc(final OperatorAction oa,
-		final int inherentPriority)
-	{
-		return new BasicCalc(oa);
-	}
-
 }

@@ -23,7 +23,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;

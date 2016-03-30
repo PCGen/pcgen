@@ -17,7 +17,6 @@
  */
 package pcgen.base.solver;
 
-import pcgen.base.calculation.Modifier;
 
 /**
  * A ProcessStep is a piece of diagnostic information about a Solver.

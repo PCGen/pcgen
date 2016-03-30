@@ -20,7 +20,6 @@ package pcgen.base.solver;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 

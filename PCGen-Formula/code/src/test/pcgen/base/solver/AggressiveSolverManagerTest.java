@@ -19,11 +19,6 @@ package pcgen.base.solver;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.testsupport.BasicCalc;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
@@ -32,7 +27,6 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.FormulaUtilities;
-import pcgen.base.formula.operator.number.NumberAdd;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
@@ -228,9 +222,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	{
 		Object source = new Object();
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
-		BasicCalculation add = new BasicCalc(new NumberAdd());
-		NEPCalculation<Number> calc = new FormulaCalculation<>(formula, add);
-		CalculationModifier<Number> formulaMod = new CalculationModifier<Number>(calc, 100);
+		Modifier<Number> formulaMod = AbstractModifier.add(formula, 100);
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
 		varLibrary.assertLegalVariableID("arms", globalScope, numberManager);
 		varLibrary.assertLegalVariableID("legs", globalScope, numberManager);
@@ -271,15 +263,10 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	{
 		Object source = new Object();
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
-		BasicCalculation add = new BasicCalc(new NumberAdd());
-		NEPCalculation<Number> limbscalc = new FormulaCalculation<>(formula, add);
-		CalculationModifier<Number> limbsMod =
-				new CalculationModifier<Number>(limbscalc, 100);
+		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
 		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5");
-		NEPCalculation<Number> handscalc = new FormulaCalculation<>(handsformula, add);
-		CalculationModifier<Number> handsMod =
-				new CalculationModifier<Number>(handscalc, 100);
+		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
 		VariableID<Number> limbs =
@@ -386,20 +373,13 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	{
 		Object source = new Object();
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
-		BasicCalculation add = new BasicCalc(new NumberAdd());
-		NEPCalculation<Number> limbscalc = new FormulaCalculation<>(formula, add);
-		CalculationModifier<Number> limbsMod =
-				new CalculationModifier<Number>(limbscalc, 100);
+		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
 		ComplexNEPFormula handsformula = new ComplexNEPFormula("fingers/5");
-		NEPCalculation<Number> handscalc = new FormulaCalculation<>(handsformula, add);
-		CalculationModifier<Number> handsMod =
-				new CalculationModifier<Number>(handscalc, 100);
+		Modifier<Number> handsMod = AbstractModifier.add(handsformula, 100);
 
 		ComplexNEPFormula fingersformula = new ComplexNEPFormula("limbs*5");
-		NEPCalculation<Number> fingerscalc = new FormulaCalculation<>(fingersformula, add);
-		CalculationModifier<Number> fingersMod =
-				new CalculationModifier<Number>(fingerscalc, 100);
+		Modifier<Number> fingersMod = AbstractModifier.add(fingersformula, 100);
 
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
 		VariableID<Number> limbs =
