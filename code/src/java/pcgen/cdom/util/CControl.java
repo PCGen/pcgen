@@ -39,4 +39,6 @@ public class CControl
 	public static final String EQREACH = "EQREACH";
 	public static final String PCREACH = "PCREACH";
 
+	public static final String STATSCORE = "STATSCORE";
+
 }
