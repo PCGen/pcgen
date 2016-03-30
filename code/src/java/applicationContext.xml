@@ -499,7 +499,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="remoteModifierFacet" class="pcgen.cdom.facet.RemoteModifierFacet">
-		<property name="consolidationFacet" ref="consolidationFacet"/>
+		<property name="varScopedFacet" ref="varScopedFacet"/>
 		<property name="solverManagerFacet" ref="solverManagerFacet"/>
 	</bean>
 	<bean id="removeFacet" class="pcgen.cdom.facet.RemoveFacet">
@@ -669,6 +669,7 @@
 	<bean id="variableStoreFacet" class="pcgen.cdom.facet.VariableStoreFacet">
 		<property name="solverFactoryFacet" ref="solverFactoryFacet"/>
 	</bean>
+	<bean id="varScopedFacet" class="pcgen.cdom.facet.model.VarScopedFacet"/>
 	<bean id="visionFacet" class="pcgen.cdom.facet.analysis.VisionFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>

@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
+import pcgen.cdom.facet.input.DynamicFacet;
 import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
@@ -30,6 +31,7 @@ import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
+import pcgen.cdom.facet.model.DynamicConsolidationFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SimpleAbilityFacet;
@@ -37,6 +39,7 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.facet.model.VarScopedFacet;
 
 public final class FacetInitialization
 {
@@ -78,6 +81,10 @@ public final class FacetInitialization
 		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 
+		DynamicFacet dynamicFacet = FacetLibrary.getFacet(DynamicFacet.class);
+		DynamicConsolidationFacet dynamicConsolidationFacet = FacetLibrary.getFacet(DynamicConsolidationFacet.class);
+		VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
+
 		AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
 		WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 
@@ -112,6 +119,8 @@ public final class FacetInitialization
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
+
+		dynamicFacet.addScopeFacetChangeListener(dynamicConsolidationFacet);
 
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
@@ -160,6 +169,9 @@ public final class FacetInitialization
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
+
+		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
+		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
 	}
 
 	private static void doBridges()
