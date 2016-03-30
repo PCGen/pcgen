@@ -39,4 +39,9 @@ public class CControl
 	public static final String EQREACH = "EQREACH";
 	public static final String PCREACH = "PCREACH";
 
+	public static final String INITIATIVE = "INITIATIVE";
+	public static final String INITIATIVESTAT = "INITIATIVESTAT";
+	public static final String INITIATIVEMISC = "INITIATIVEMISC";
+	public static final String INITIATIVEBONUS = "INITIATIVEBONUS";
+
 }
