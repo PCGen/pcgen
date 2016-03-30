@@ -18,6 +18,7 @@
 package pcgen.output.channel;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
