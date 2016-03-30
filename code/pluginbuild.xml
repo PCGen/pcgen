@@ -6029,14 +6029,14 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-ACVAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/ACVarToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/ACVarToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-ALTERSAC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/AltersACToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/AltersACToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6078,14 +6078,14 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQACMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/EqACModToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/EqACModToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQBASEAC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/EqBaseACToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/EqBaseACToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6113,7 +6113,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-EQREACH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/EqReachToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/EqReachToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6162,7 +6162,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-PCREACH.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/PCReachToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/PCReachToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -6176,7 +6176,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-SIZEMODDEFENSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/control/SizeModDefenseToken.class" />
+					<include name="plugin/lsttokens/gamemode/codecontrol/SizeModDefenseToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
