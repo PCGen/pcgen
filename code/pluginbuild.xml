@@ -2285,6 +2285,8 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/ModifyLst.class" />
+					<include name="plugin/lsttokens/ModifyLst$CDOMModify.class" />
+					<include name="plugin/lsttokens/ModifyLst$DynamicModify.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -2292,6 +2294,8 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/ModifyOtherLst.class" />
+					<include name="plugin/lsttokens/ModifyOtherLst$CDOMModifyOther.class" />
+					<include name="plugin/lsttokens/ModifyOtherLst$DynamicModifyOther.class" />
 				</patternset>
 			</fileset>
 		</jar>
