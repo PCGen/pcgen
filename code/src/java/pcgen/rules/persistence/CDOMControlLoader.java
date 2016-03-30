@@ -24,6 +24,7 @@ import pcgen.cdom.content.DefaultVarValue;
 import pcgen.cdom.content.UserFunction;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.content.factset.FactSetDefinition;
+import pcgen.cdom.inst.DynamicCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.LstLineFileLoader;
@@ -49,6 +50,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 		addLineLoader(new CDOMSubLineLoader<DefaultVarValue>("DEFAULTVARIABLEVALUE",
 				DefaultVarValue.class));
 		addLineLoader(new CDOMSubLineLoader<>("FUNCTION", UserFunction.class));
+		addLineLoader(new CDOMSubLineLoader<>("DYNAMICSCOPE", DynamicCategory.class));
 	}
 
 	public void addLineLoader(CDOMSubLineLoader<?> loader)

@@ -21,12 +21,12 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-public class AltersAC extends AbstractStringStoringToken<CodeControl>
+public class InitiativeBonusToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
 	{
-		return CControl.ALTERSAC;
+		return CControl.INITIATIVEBONUS;
 	}
 
 	@Override

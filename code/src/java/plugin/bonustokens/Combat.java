@@ -60,6 +60,16 @@ public final class Combat extends MultiTagBonusObj
 			{
 				Logging.errorPrint(
 					"BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: "
+							+ token, context);
+					return false;
+				}
+			}
+		if (ControlUtilities.hasControlToken(context, CControl.INITIATIVE))
+		{
+			if ("INITIATIVE".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:COMBAT|INITIATIVE is disabled when INITIATIVE control is used: "
 						+ token, context);
 				return false;
 			}

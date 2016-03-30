@@ -232,6 +232,7 @@ public class VariableReport
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_VARIABLE));
+		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DYNAMIC));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_GLOBALMOD));
 

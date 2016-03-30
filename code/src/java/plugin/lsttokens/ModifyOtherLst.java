@@ -94,7 +94,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		return continueParsing(subContext, obj, value, sep);
 	}
 
-	private <GT extends CDOMObject & VarScoped> ParseResult continueParsing(
+	private <GT extends VarScoped> ParseResult continueParsing(
 		LoadContext context, CDOMObject obj, String value, ParsingSeparator sep)
 	{
 		ScopeInstance scopeInst = context.getActiveScope();
@@ -105,11 +105,6 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (groupingName.startsWith("GROUP="))
 		{
 			final String groupName = groupingName.substring(6);
-
-			//		ReferenceManufacturer<? extends CDOMObject> sc =
-			//				context.getReferenceContext().getManufacturer(
-			//					lvs.getItemClass());
-			//		
 
 			group = new ObjectGrouping()
 			{

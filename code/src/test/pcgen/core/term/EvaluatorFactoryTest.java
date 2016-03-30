@@ -12299,16 +12299,13 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		Class<?> uClass = EQRaceReachTermEvaluator.class;
 
 		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-		Field pF1 = (Field) TestHelper.findField(uClass, "source");
 
 		String field0 = "";
-		String field1 = "";
 		boolean ok;
 		try
 		{
 			ok = true;
 			field0 = (String) pF0.get(t);
-			field1 = (String) pF1.get(t);
 		}
 		catch (ClassCastException e)
 		{
@@ -12322,7 +12319,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 		is(ok, eq(true), "No illegal access in getTermEvaluator210");
 
 		is(field0, strEq(term), "GetTermEvaluator210 stored term is correct " + term);	       
-		is(field1, strEq("RACE:Gnome"), "GetTermEvaluator210 field source is correct ");	       
 	}
 
 

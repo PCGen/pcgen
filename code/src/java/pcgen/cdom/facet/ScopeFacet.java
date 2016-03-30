@@ -25,6 +25,7 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.inst.Dynamic;
 
 /**
  * ScopeFacet stores the relationship from a Character, LegalScope, and
@@ -32,6 +33,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  */
 public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 {
+	public static final VarScoped GLOBAL_FACT = new Global();
 
 	private FormulaSetupFacet formulaSetupFacet;
 
@@ -97,4 +99,11 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 		this.formulaSetupFacet = formulaSetupFacet;
 	}
 
+	private static class Global extends Dynamic
+	{
+		public Global()
+		{
+			setName("Global");
+		}
+	}
 }

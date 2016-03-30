@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.VarScopedFacet;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 
@@ -42,7 +43,7 @@ public class RemoteModifierFacet extends
 		DataFacetChangeListener<CharID, VarScoped>
 {
 
-	private CDOMObjectConsolidationFacet consolidationFacet;
+	private VarScopedFacet varScopedFacet;
 
 	private SolverManagerFacet solverManagerFacet;
 
@@ -77,7 +78,7 @@ public class RemoteModifierFacet extends
 					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
 			if (list != null)
 			{
-				Set<? extends VarScoped> targets = consolidationFacet.getSet(id);
+				Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
 				for (RemoteModifier<?> rm : list)
 				{
 					set(id, rm, vs);
@@ -140,7 +141,7 @@ public class RemoteModifierFacet extends
 					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
 			if (list != null)
 			{
-				Set<? extends VarScoped> targets = consolidationFacet.getSet(id);
+				Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
 				for (RemoteModifier<?> rm : list)
 				{
 					remove(id, rm);
@@ -172,10 +173,9 @@ public class RemoteModifierFacet extends
 		}
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setVarScopedFacet(VarScopedFacet varScopedFacet)
 	{
-		this.consolidationFacet = consolidationFacet;
+		this.varScopedFacet = varScopedFacet;
 	}
 
 	public void setSolverManagerFacet(SolverManagerFacet solverManagerFacet)
@@ -191,7 +191,7 @@ public class RemoteModifierFacet extends
 	 */
 	public void init()
 	{
-		consolidationFacet.addDataFacetChangeListener(this);
+		varScopedFacet.addDataFacetChangeListener(this);
 	}
 
 	/*
