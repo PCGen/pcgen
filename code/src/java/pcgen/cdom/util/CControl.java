@@ -44,4 +44,6 @@ public class CControl
 	public static final String INITIATIVEMISC = "INITIATIVEMISC";
 	public static final String INITIATIVEBONUS = "INITIATIVEBONUS";
 
+	public static final String STATSCORE = "STATSCORE";
+
 }
