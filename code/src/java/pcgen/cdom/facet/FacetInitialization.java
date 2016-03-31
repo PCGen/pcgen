@@ -40,6 +40,8 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.output.factory.CodeControlModelFactory;
+import pcgen.output.publish.OutputDB;
 
 public final class FacetInitialization
 {
@@ -62,6 +64,7 @@ public final class FacetInitialization
 	
 	private static void doInitialization()
 	{
+		doOtherInitialization();
 		doBridges();
 		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
@@ -172,6 +175,11 @@ public final class FacetInitialization
 
 		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
 		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
+	}
+
+	private static void doOtherInitialization()
+	{
+		OutputDB.registerMode("cc", new CodeControlModelFactory());
 	}
 
 	private static void doBridges()
