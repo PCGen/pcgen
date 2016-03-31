@@ -76,9 +76,9 @@ BIO
 		</skin>
 		<cr>23</cr>
 		<face>
-		<face>30 ft.</face>
-			<short>30 ft.</short>
-			<squares>6</squares>
+		<face>30 ft. by 30 ft.</face>
+			<short>30 ft. x 30 ft.</short>
+			<squares>6 x 6</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -2100,28 +2100,6 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Dragon Fly Speed</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>FACE_30</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>REACH_20</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

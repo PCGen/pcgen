@@ -264,8 +264,7 @@
 								<xsl:with-param name="attribute" select="'bio'"/>
 							</xsl:call-template>
 							<fo:block font-size="8pt" padding-top="3pt">
-								<xsl:value-of select="size/long"/>
-								<xsl:if test="face/short != ''"> / <xsl:value-of select="face/short"/></xsl:if>
+								<xsl:value-of select="size/long"/> / <xsl:value-of select="face/face"/>
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell/>	<!-- SPACE -->
@@ -708,8 +707,7 @@
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="size/long"/>
-							<xsl:if test="face/short != ''"> / <xsl:value-of select="face/short"/></xsl:if>
+							<xsl:value-of select="size/long"/> / <xsl:value-of select="face/face"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>	<!-- SPACE -->
