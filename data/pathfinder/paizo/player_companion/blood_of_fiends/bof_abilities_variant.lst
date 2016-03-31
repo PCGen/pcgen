@@ -12,7 +12,7 @@ Inherited memories										KEY:Tiefling ~ Inherited memories				SORTKEY:Tieflin
 Levitate											KEY:Tiefling ~ Levitate						SORTKEY:Tiefling ~ Variant Ability 006	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Eat ruin											KEY:Tiefling ~ Eat ruin						SORTKEY:Tiefling ~ Variant Ability 007	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Damage good outsiders										KEY:Tiefling ~ Damage good outsiders				SORTKEY:Tiefling ~ Variant Ability 008	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Racial CHA Bonus										KEY:Tiefling ~ Racial STR Bonus					SORTKEY:Tiefling ~ Variant Ability 009	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Racial CHA Bonus										KEY:Tiefling ~ Racial CHA Bonus					SORTKEY:Tiefling ~ Variant Ability 009	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Bite												KEY:Tiefling ~ Bite						SORTKEY:Tiefling ~ Variant Ability 010	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Burst of speed											KEY:Tiefling ~ Burst of speed					SORTKEY:Tiefling ~ Variant Ability 011	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Optional sleep											KEY:Tiefling ~ Optional sleep					SORTKEY:Tiefling ~ Variant Ability 012	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
@@ -22,7 +22,7 @@ Racial diplomacy bonus										KEY:Tiefling ~ Racial diplomacy bonus				SORTKEY
 Large limbs											KEY:Tiefling ~ Large limbs					SORTKEY:Tiefling ~ Variant Ability 016	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Talons												KEY:Tiefling ~ Talons						SORTKEY:Tiefling ~ Variant Ability 017	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Damage resistance/bludgeoning									KEY:Tiefling ~ Damage resistance/bludgeoning			SORTKEY:Tiefling ~ Variant Ability 018	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
-Swim												KEY:Tiefling ~ Swim						SORTKEY:Tiefling ~ Variant Ability 019	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
+Swim												KEY:Tiefling ~ Swim speed						SORTKEY:Tiefling ~ Variant Ability 019	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Racial CMB bonus										KEY:Tiefling ~ Racial CMB bonus					SORTKEY:Tiefling ~ Variant Ability 020	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Fiendish luck											KEY:Tiefling ~ Fiendish luck					SORTKEY:Tiefling ~ Variant Ability 021	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
 Detect evil 3/d											KEY:Tiefling ~ Detect evil 3/d					SORTKEY:Tiefling ~ Variant Ability 022	CATEGORY:Special Ability	TYPE:TieflingVariantAbility.SpecialQuality
@@ -152,7 +152,7 @@ CATEGORY=Special Ability|Tiefling ~ Variant fiendish sorcery.MOD				DESC:Your fi
 CATEGORY=Special Ability|Tiefling ~ Size small.MOD						DESC:You are unusually short, granting you all the standard traits of a Small creature.
 CATEGORY=Special Ability|Tiefling ~ Disguise bonus.MOD						DESC:Your features are subtly malleable, granting you a +2 racial bonus on all Disguise checks.
 CATEGORY=Special Ability|Tiefling ~ Racial INT bonus.MOD					DESC:You gain an additional +2 racial bonus to your Intelligence score.
-CATEGORY=Special Ability|Tiefling ~ Create water 3/d.MOD					DESC:You can cast curse water three times per day as a spell-like ability.
+CATEGORY=Special Ability|Tiefling ~ curse water 3/d.MOD					DESC:You can cast curse water three times per day as a spell-like ability.
 CATEGORY=Special Ability|Tiefling ~ Undead invisibility.MOD					DESC:You are invisible to all unintelligent undead, barring direct attack, as a supernatural ability.
 CATEGORY=Special Ability|Tiefling ~ Positive negative channeled heal.MOD			DESC:You are healed by both positive and negative channeled energy.
 CATEGORY=Special Ability|Tiefling ~ Natural armor.MOD						DESC:Your skin is unnaturally tough, granting you a +1 natural bonus to AC.
@@ -191,7 +191,7 @@ CATEGORY=Special Ability|Tiefling ~ Mind-affecting save bonus.MOD				DESC:You ga
 CATEGORY=Special Ability|Tiefling ~ Burning heal.MOD				DESC:Once per day, exposure to a controlled fire heals you of 1d6 hit points.  This ability does not work against fire damage.  (A candle or controlled brush with fire heals, getting bashed with a lit torch does not.)
 CATEGORY=Special Ability|Tiefling ~ Stillness immunity.MOD					DESC:You are immune to magic sleep and paralysis effects.
 CATEGORY=Special Ability|Tiefling ~ Perception bonus.MOD					DESC:Supernatural awareness grants you a +2 racial bonus on all Perception checks.
-CATEGORY=Special Ability|Tiefling ~ Fortification effect.MOD					DESC:Your anatomy is slightly unusual, giving you a 15% chance to ignore critical hits made against you.
+CATEGORY=Special Ability|Tiefling ~ Fortification effect.MOD					DESC:Your anatomy is slightly unusual, giving you a 15%% chance to ignore critical hits made against you.
 CATEGORY=Special Ability|Tiefling ~ Quarter rations.MOD						DESC:You can survive on one-quarter the amount of food and water a human requires.
 CATEGORY=Special Ability|Tiefling ~ Evil damage.MOD						DESC:Any damage you deal with a melee weapon is treated as evil for the purpose of overcoming damage reduction.
 CATEGORY=Special Ability|Tiefling ~ Racial WIS bonus.MOD					DESC:You gain an additional +2 Racial bonus to your Wisdom score.
@@ -211,7 +211,7 @@ CATEGORY=Special Ability|Tiefling ~ Two Variations.MOD						DESC:You may have tw
 CATEGORY=Special Ability|Tiefling ~ Skeleton 1HD.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=TieflingSpellLikeLVL|Animate Dead
 CATEGORY=Special Ability|Tiefling ~ All-around vision.MOD				BONUS:SKILL|Perception|5|TYPE=Racial	
 CATEGORY=Special Ability|Tiefling ~ Mage hand 3/d.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=TieflingSpellLikeLVL|Mage Hand
-CATEGORY=Special Ability|Tiefling ~ Inherited memories.MOD				TYPE:Internal.InheritedBonus VISIBLE:DISPLAY	STACK:NO	MULT:YES																	CHOOSE:SKILL|TYPE=Knowledge BONUS:SKILL|LIST|2|TYPE=Racial
+CATEGORY=Special Ability|Tiefling ~ Inherited memories.MOD				TYPE:Internal.InheritedBonus	VISIBLE:DISPLAY	STACK:NO	MULT:YES																	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|%LIST|2|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Levitate.MOD					SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TieflingSpellLikeLVL|Levitate
 CATEGORY=Special Ability|Tiefling ~ Racial CHA bonus.MOD				BONUS:STAT|CHA|2		
 CATEGORY=Special Ability|Tiefling ~ Bite.MOD						NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Piercing.Bludgeoning,*1,1d6			
@@ -224,14 +224,14 @@ CATEGORY=Special Ability|Tiefling ~ Swim speed.MOD					MOVE:Swim,20
 CATEGORY=Special Ability|Tiefling ~ Racial CMB bonus.MOD				BONUS:VAR|CMB|2|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Detect evil 3/d.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=TieflingSpellLikeLVL|Detect evil
 CATEGORY=Special Ability|Tiefling ~ Acid resistance.MOD					ABILITY:Special Ability|AUTOMATIC|Resistance to Acid		BONUS:VAR|AcidResistanceBonus|5|TYPE=Resistance
-CATEGORY=Special Ability|Tiefling ~ Bonus languages.MOD					BONUS:LANG|BONUS|2	LANGBONUS:Celestial,Infernal,Abyssal,Auran,Terran,Aquan,Ignan
+CATEGORY=Special Ability|Tiefling ~ Bonus languages.MOD					BONUS:LANG|BONUS|2	TEMPLATE:Tiefling Bonus Languages
 CATEGORY=Special Ability|Tiefling ~ Reflex save bonus.MOD				BONUS:SAVE|Reflex|1|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Burrow.MOD						MOVE:Burrow,5
 CATEGORY=Special Ability|Tiefling ~ Damage resistance/silver.MOD			DR:2/silver
 CATEGORY=Special Ability|Tiefling ~ Climb bonus.MOD					BONUS:SKILL|Climb|2|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Death knell 1/d.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=TieflingSpellLikeLVL|Death knell
 CATEGORY=Special Ability|Tiefling ~ Spell resistance.MOD				DEFINE:TieflingSpellResistance|0	BONUS:VAR|TieflingSpellResistance|10+TL/2															SR:TieflingSpellResistance
-CATEGORY=Special Ability|Tiefling ~ Variant fiendish sorcery.MOD			BONUS:STAT|BASESPELLSTAT;Class=Sorcerer|1|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Sorcerer Bloodline ~ Infernal	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Sorcerer|1|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Sorcerer Bloodline ~ Infernal	DEFINE:BloodlinePowerTimes|3+(CHASCORE-7)/2|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Sorcerer Bloodline ~ Infernal	DEFINE:HellfireDC|10+(CHARISMA-7)/2
+CATEGORY=Special Ability|Tiefling ~ Variant fiendish sorcery.MOD			BONUS:STAT|BASESPELLSTAT;Class=Sorcerer|1|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Sorcerer Bloodline ~ Infernal	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Sorcerer|1|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Sorcerer Bloodline ~ Infernal	DEFINE:BloodlinePowerTimes|0	BONUS:VAR|BloodlinePowerTimes|3+(CHASCORE-7)/2|PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Sorcerer Bloodline ~ Infernal	DEFINE:HellfireDC|0	BONUS:VAR|HellfireDC|10+(TL/2)+CHA
 CATEGORY=Special Ability|Tiefling ~ Size small.MOD					BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|STR|4	BONUS:STAT|CON|2	BONUS:STAT|DEX|-2	
 CATEGORY=Special Ability|Tiefling ~ Disguise bonus.MOD					BONUS:SKILL|Disguise|2|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Racial INT bonus.MOD				BONUS:STAT|INT|2
@@ -239,7 +239,7 @@ CATEGORY=Special Ability|Tiefling ~ Curse water 3/d.MOD					SPELLS:Innate|TIMES=
 CATEGORY=Special Ability|Tiefling ~ Natural armor.MOD					BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 CATEGORY=Special Ability|Tiefling ~ Scent special ability.MOD				ABILITY:Special Ability|AUTOMATIC|Scent
 CATEGORY=Special Ability|Tiefling ~ Damage resistance/piercing.MOD			DR:2/piercing
-CATEGORY=Special Ability|Tiefling ~ Sleight of Hands bonus.MOD				BONUS:SKILL|Sleight of Hands|2|TYPE=Racial
+CATEGORY=Special Ability|Tiefling ~ Sleight of Hands bonus.MOD				BONUS:SKILL|Sleight of Hand|2|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Will save bonus.MOD					BONUS:SAVE|Will|1|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Deathwatch 3/d.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=TieflingSpellLikeLVL|Deathwatch
 CATEGORY=Special Ability|Tiefling ~ Racial acrobatics bonus.MOD				BONUS:SKILL|Acrobatics|2|TYPE=Racial
@@ -248,7 +248,7 @@ CATEGORY=Special Ability|Tiefling ~ Damage resistance/cold iron.MOD			DR:2/cold 
 CATEGORY=Special Ability|Tiefling ~ Fog cloud 1/d.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=TieflingSpellLikeLVL|Fog cloud
 CATEGORY=Special Ability|Tiefling ~ Undetectable alignment.MOD				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TieflingSpellLikeLVL|Undetectable alignment
 CATEGORY=Special Ability|Tiefling ~ Minor image 3/d.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=TieflingSpellLikeLVL|Minor image
-CATEGORY=Special Ability|Tiefling ~ Animate object.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=TieflingSpellLikeLVL|Animate object
+CATEGORY=Special Ability|Tiefling ~ Animate object.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=TieflingSpellLikeLVL|Animate Objects
 CATEGORY=Special Ability|Tiefling ~ Sonic resistance.MOD				ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic		BONUS:VAR|SonicResistanceBonus|5|TYPE=Resistance
 CATEGORY=Special Ability|Tiefling ~ Fortitude save bonus.MOD				BONUS:SAVE|Fortitude|1|TYPE=Racial
 CATEGORY=Special Ability|Tiefling ~ Racial CMD bonus.MOD				BONUS:VAR|CMD|2|TYPE=Racial
