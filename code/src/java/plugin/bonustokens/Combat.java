@@ -76,10 +76,13 @@ public final class Combat extends MultiTagBonusObj
 		}
 		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
 		{
-			Logging.errorPrint("BONUS:COMBAT|REACH"
-				+ " is disabled when CREATEUREREACH control is used: " + token,
-				context);
-			return false;
+			if ("REACH".equals(token))
+			{
+				Logging.errorPrint("BONUS:COMBAT|REACH"
+						+ " is disabled when PCREACH control is used: " + token,
+						context);
+					return false;
+			}
 		}
 		return super.parseToken(context, token);
 	}
