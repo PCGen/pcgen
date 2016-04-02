@@ -170,6 +170,7 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -178,6 +179,7 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
+import pcgen.output.channel.compat.StatAdapter;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
@@ -219,7 +221,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
     private DefaultListFacade<HandedFacade> availHands;
     private DefaultListFacade<GenderFacade> availGenders;
-	private Map<StatFacade, DefaultReferenceFacade<Integer>> statScoreMap;
+	private Map<StatFacade, WriteableReferenceFacade<Integer>> statScoreMap;
 	private UndoManager undoManager;
 	private DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<RaceFacade> race;
@@ -373,7 +375,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		kitList = new DefaultListFacade<KitFacade>();
 		refreshKitList();
 
-		statScoreMap = new HashMap<StatFacade, DefaultReferenceFacade<Integer>>();
+		statScoreMap = new HashMap<StatFacade, WriteableReferenceFacade<Integer>>();
+		for (StatFacade stat : dataSet.getStats())
+		{
+			if (stat instanceof PCStat)
+			{
+				statScoreMap.put(stat, StatAdapter.generate(theCharacter.getCharID(), (PCStat) stat));
+			}
+			else
+			{
+				statScoreMap.put(stat, new DefaultReferenceFacade<Integer>());
+			}
+		}
 
 		File portraitFile = null;
 		if (!StringUtils.isEmpty(charDisplay.getPortraitPath()))
@@ -1571,7 +1584,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public ReferenceFacade<Integer> getScoreBaseRef(StatFacade stat)
 	{
-		DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
+		WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
 		if (score == null)
 		{
 			score = new DefaultReferenceFacade<Integer>(theCharacter.getTotalStatFor((PCStat) stat));
@@ -1664,7 +1677,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setScoreBase(StatFacade stat, int score)
 	{
-		DefaultReferenceFacade<Integer> facade = statScoreMap.get(stat);
+		WriteableReferenceFacade<Integer> facade = statScoreMap.get(stat);
 		if (facade == null)
 		{
 			facade = new DefaultReferenceFacade<Integer>(score);
@@ -1822,7 +1835,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		for (StatFacade stat : statScoreMap.keySet())
 		{
-			DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
+			WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
 			if (stat instanceof PCStat)
 			{
 				score.set(theCharacter.getTotalStatFor((PCStat) stat));
@@ -3338,7 +3351,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			// Make sure all scores are within the valid range
 			for (StatFacade stat : statScoreMap.keySet())
 			{
-				DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
+				WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
 				if (score.get() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)
 						&& stat instanceof PCStat)
 				{
@@ -3359,7 +3372,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param pcStat The stata ebing adjusted.
 	 * @param scoreRef The reference tothe current score.
 	 */
-	private void setStatToPurchaseNeutral(PCStat pcStat, DefaultReferenceFacade<Integer> scoreRef)
+	private void setStatToPurchaseNeutral(PCStat pcStat, WriteableReferenceFacade<Integer> scoreRef)
 	{
 		int newScore = SettingsHandler.getGame().getPurchaseModeBaseStatScore(theCharacter);
 		if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))
