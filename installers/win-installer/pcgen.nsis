@@ -150,7 +150,10 @@ Section "-Local" Section4
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${APPDIR}.lnk" "$INSTDIR\uninstall-${APPDIR}.exe"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" "$INSTDIR\${APPDIR}\Local\castle.ico"
         ;Add file extension registration
-        ${registerExtension} "$INSTDIR\${APPDIR}\pcgen.exe" ".pcg" "PCGen File"
+        ;File association. See: http://nsis.sourceforge.net/FileAssoc
+        !insertmacro APP_ASSOCIATE "pcg" "PCGen.File" "PCGen Character file" \
+                 "$INSTDIR\${APPDIR}\pcgen.exe,0" "Open with PCGen" "$INSTDIR\${APPDIR}\pcgen.exe $\"%1$\""
+        System::Call 'Shell32::SHChangeNotify(i ${SHCNE_ASSOCCHANGED}, i 0, i 0, i 0)'
 
 SectionEnd
 
@@ -201,7 +204,7 @@ Section Uninstall
 	; Delete Shortcut Directory
 	RMDir /r "$SMPROGRAMS\PCGen\${APPDIR}"
         ;Delete file extension registration
-        ${unregisterExtension} ".pcg" "PCGen File"
+        !insertmacro APP_UNASSOCIATE "pcg" "PCGen.File"
 
 	MessageBox MB_YESNO "Do you wish to save, your characters, custom sources etc? $\nAnswering no will delete ${APPDIR}." IDYES Save IDNO NoSave
 
