@@ -13,6 +13,10 @@
  * Author: James Dempsey 
  */
 
+plugins {
+    id "de.undercouch.download" version "2.1.0"
+}
+
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'application'
@@ -72,6 +76,7 @@ repositories {
         name "fileRepo"
         url 'http://librepo.pcgen.org'
     }
+    jcenter()
 }
 
 sourceSets {
