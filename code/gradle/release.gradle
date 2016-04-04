@@ -148,6 +148,24 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
     with baseData
 }
 
+//See: https://github.com/TheBoegl/gradle-launch4j
+task createEXE {
+    launch4j {
+        mainClassName = 'pcgen.system.Main'
+        icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
+        outfile = "${projectDir}/code/pcgen.exe"
+        jreMinVersion = '1.8.0'
+        jreMaxVersion = '1.8.9'
+        jdkPreference = 'preferJre'
+        initialHeapSize = 128
+        maxHeapSize = 512
+        stayAlive = false
+        bundledJre64Bit = true
+        dontWrapJar = true
+        bundledJrePath = 'jre'
+    }
+}
+
 task downloadJRE << {
     //Commented code extracts the version of the JRE being used to run gradle.
     def m = System.properties['java.runtime.version'] =~ /(\d+)\.(\d+)\.(\d+)_(\d+)\-b(\d+)/
@@ -158,6 +176,7 @@ task downloadJRE << {
     def build = m[0][5]
     def extension = 'tar.gz'
     println("Downloading Java ${minor}u${update} JRE tar files if needed...")
+    //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
     def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
     def jre32URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-i586.${extension}"
     def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
@@ -257,7 +276,8 @@ task genProjectNsis << {
 }
 
 // Call NSIS to generate windows installer
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, genProjectNsis, downloadJRE])  << {
+task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
+        genProjectNsis, downloadJRE, createEXE])  << {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
@@ -290,7 +310,8 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar', 'buildNsis']) {
+task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
+     'buildNsis']) {
     description = "Create the release artifacts and get them into the release folder."
     into "${buildDir}/release"
     // buildNsis puts the exe into the release folder directly
