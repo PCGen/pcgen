@@ -149,22 +149,24 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 }
 
 //See: https://github.com/TheBoegl/gradle-launch4j
-task createEXE {
-    launch4j {
-        mainClassName = 'pcgen.system.Main'
-        icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-        outfile = "${projectDir}/code/pcgen.exe"
-        jreMinVersion = '1.8.0'
-        jreMaxVersion = '1.8.9'
-        jdkPreference = 'preferJre'
-        initialHeapSize = 128
-        maxHeapSize = 512
-        stayAlive = false
-        bundledJre64Bit = true
-        dontWrapJar = true
-        bundledJrePath = 'jre'
-    }
-}
+//task createWindowsExe {
+//    new File("${projectDir}/code/pcgen.exe").delete()
+//    launch4j {
+//        mainClassName = 'pcgen.system.Main'
+//        icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
+//        outfile = "${projectDir}/code/pcgen.exe"
+//        jreMinVersion = '1.8.0'
+//        jreMaxVersion = '1.8.9'
+//        jdkPreference = 'preferJre'
+//        initialHeapSize = 128
+//        maxHeapSize = 512
+//        stayAlive = false
+//        jar = "pcgen.jar"
+//        bundledJre64Bit = true
+//        dontWrapJar = true
+//        bundledJrePath = 'jre'
+//    }
+//}
 
 task downloadJRE << {
     //Commented code extracts the version of the JRE being used to run gradle.
@@ -277,7 +279,7 @@ task genProjectNsis << {
 
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
-        genProjectNsis, downloadJRE, createEXE])  << {
+        genProjectNsis, downloadJRE])  << {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
