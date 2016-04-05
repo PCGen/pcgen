@@ -148,25 +148,22 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
     with baseData
 }
 
-//See: https://github.com/TheBoegl/gradle-launch4j
-//task createWindowsExe {
-//    new File("${projectDir}/code/pcgen.exe").delete()
-//    launch4j {
-//        mainClassName = 'pcgen.system.Main'
-//        icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-//        outfile = "${projectDir}/code/pcgen.exe"
-//        jreMinVersion = '1.8.0'
-//        jreMaxVersion = '1.8.9'
-//        jdkPreference = 'preferJre'
-//        initialHeapSize = 128
-//        maxHeapSize = 512
-//        stayAlive = false
-//        jar = "pcgen.jar"
-//        bundledJre64Bit = true
-//        dontWrapJar = true
-//        bundledJrePath = 'jre'
-//    }
-//}
+//See: https://github.com/TheBoegl/gradle-launch4j\
+launch4j {
+    mainClassName = 'pcgen.system.Main'
+    icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
+    outfile = "pcgen.exe"
+    jreMinVersion = '1.8.0'
+    jreMaxVersion = '1.8.9'
+    jdkPreference = 'preferJre'
+    initialHeapSize = 128
+    maxHeapSize = 512
+    stayAlive = false
+    bundledJre64Bit = true
+    dontWrapJar = true
+    bundledJrePath = 'jre'
+    jar = "pcgen.jar"
+}
 
 task downloadJRE << {
     //Commented code extracts the version of the JRE being used to run gradle.
@@ -295,7 +292,15 @@ task genProjectNsis << {
 
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
-        genProjectNsis, downloadJRE])  << {
+        genProjectNsis, downloadJRE, createExe])  << {
+    //createExe puts the executable file at build/launch4j. 
+    //It needs to be copied to the right place.
+    copy {
+        println "Copying generated exe file from createExe"
+        from "${buildDir}/launch4j"
+        into "${projectDir}/code"
+        include '*.exe'
+    }
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
