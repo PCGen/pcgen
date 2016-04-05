@@ -148,22 +148,21 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
     with baseData
 }
 
-//See: https://github.com/TheBoegl/gradle-launch4j
-task createEXE {
-    launch4j {
-        mainClassName = 'pcgen.system.Main'
-        icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-        outfile = "${projectDir}/code/pcgen.exe"
-        jreMinVersion = '1.8.0'
-        jreMaxVersion = '1.8.9'
-        jdkPreference = 'preferJre'
-        initialHeapSize = 128
-        maxHeapSize = 512
-        stayAlive = false
-        bundledJre64Bit = true
-        dontWrapJar = true
-        bundledJrePath = 'jre'
-    }
+//See: https://github.com/TheBoegl/gradle-launch4j\
+launch4j {
+    mainClassName = 'pcgen.system.Main'
+    icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
+    outfile = "pcgen.exe"
+    jreMinVersion = '1.8.0'
+    jreMaxVersion = '1.8.9'
+    jdkPreference = 'preferJre'
+    initialHeapSize = 128
+    maxHeapSize = 512
+    stayAlive = false
+    bundledJre64Bit = true
+    dontWrapJar = true
+    bundledJrePath = 'jre'
+    jar = "pcgen.jar"
 }
 
 task downloadJRE << {
@@ -175,49 +174,65 @@ task downloadJRE << {
     def update = Integer.parseInt(m[0][4], 10)
     def build = m[0][5]
     def extension = 'tar.gz'
-    println("Downloading Java ${minor}u${update} JRE tar files if needed...")
-    //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
-    def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-    def jre32URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-i586.${extension}"
-    def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
-    download {
-        src jre32URL
-        dest new File("${buildDir}/nsis/jre/", "jre_32.${extension}")
-        header 'Cookie', oracleCookie
-        overwrite false
-    }
-    download {
-        src jre64URL
-        dest new File("${buildDir}/nsis/jre/", "jre_64.${extension}")
-        header 'Cookie', oracleCookie
-        overwrite false
-    }
-    println("Some cleaning...")
-    new File("${buildDir}/nsis/jre/jre_32").deleteDir()
-    new File("${buildDir}/nsis/jre/jre_64").deleteDir()
-    println("Expanding tar files...")
-    //Now untar them
-    fileTree(dir: "${buildDir}/nsis/jre/").include("*.${extension}").each { simLib ->
-        copy {
-            println "Untar $simLib.name"
-            def name = simLib.name - '.tar.gz'
-            from tarTree("${buildDir}/nsis/jre/${simLib.name}")
-            into "${buildDir}/nsis/jre/$name"       
+    def jre32Dir = new File("${buildDir}/nsis/jre/jre_32")
+    def jre64Dir = new File("${buildDir}/nsis/jre/jre_64")
+    if(!jre32Dir.exists() || !jre64Dir.exists()){
+        println("Downloading Java ${minor}u${update} JRE tar files...")
+        //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
+        def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
+        def jre32URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-i586.${extension}"
+        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+        if(!jre32Dir.exists()){
+            download {
+                src jre32URL
+                dest new File("${buildDir}/nsis/jre/", "jre_32.${extension}")
+                header 'Cookie', oracleCookie
+                overwrite false
+            }
+        }
+        if(!jre64Dir.exists()){
+            download {
+                src jre64URL
+                dest new File("${buildDir}/nsis/jre/", "jre_64.${extension}")
+                header 'Cookie', oracleCookie
+                overwrite false
+            }
+            copy {
+                println "Untar $simLib.name"
+                def name = simLib.name - '.tar.gz'
+                from tarTree("${buildDir}/nsis/jre/${simLib.name}")
+                into "${buildDir}/nsis/jre/$name"       
+            }
+        }
+        println("Expanding tar files...")
+        //Now untar them
+        fileTree(dir: "${buildDir}/nsis/jre/").include("*.${extension}").each { simLib ->
+            copy {
+                println "Untar $simLib.name"
+                def name = simLib.name - '.tar.gz'
+                from tarTree("${buildDir}/nsis/jre/${simLib.name}")
+                into "${buildDir}/nsis/jre/$name"       
+            }
+            new File("${buildDir}/nsis/jre/${simLib.name}").deleteDir()
+        }
+        def jre32 = new File("${buildDir}/nsis/jre/jre_32/jre${major}.${minor}.${micro}_${update}")
+        def jre64 = new File("${buildDir}/nsis/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
+        //Removing the folder with specific version so it's easier to handle in NSIS script.
+        if(jre32.exists()){
+            copy {
+                from jre32
+                into "${buildDir}/nsis/jre/jre_32"
+            }
+            jre32.deleteDir()
+        }
+        if(jre64.exists()){
+            copy {
+                from jre64
+                into "${buildDir}/nsis/jre/jre_64"
+            }
+            jre64.deleteDir()
         }
     }
-    def jre32 = new File("${buildDir}/nsis/jre/jre_32/jre${major}.${minor}.${micro}_${update}")
-    def jre64 = new File("${buildDir}/nsis/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
-    //Removing the folder with specific version so it's easier to handle in NSIS script.
-    copy {
-        from jre32
-        into "${buildDir}/nsis/jre/jre_32"
-    }
-    jre32.deleteDir()
-    copy {
-        from jre64
-        into "${buildDir}/nsis/jre/jre_64"
-    }
-    jre64.deleteDir()
 }
 
 task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
@@ -277,7 +292,15 @@ task genProjectNsis << {
 
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
-        genProjectNsis, downloadJRE, createEXE])  << {
+        genProjectNsis, downloadJRE, createExe])  << {
+    //createExe puts the executable file at build/launch4j. 
+    //It needs to be copied to the right place.
+    copy {
+        println "Copying generated exe file from createExe"
+        from "${buildDir}/launch4j"
+        into "${projectDir}/code"
+        include '*.exe'
+    }
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
