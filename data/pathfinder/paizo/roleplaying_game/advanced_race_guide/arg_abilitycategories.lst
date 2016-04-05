@@ -101,10 +101,10 @@ ABILITYCATEGORY:Race Languages					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO					
 ABILITYCATEGORY:Racial Traits						VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Racial Traits
 
 ABILITYCATEGORY:Race Starting Points				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Design																						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Type						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceTypeQuality																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSizeQuality																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Speed						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSpeedQuality																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Stat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceStatAbility																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Type						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceTypeQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSizeQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Speed						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSpeedQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Stat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceStatAbility																							DISPLAYLOCATION:Race Builder Design
 
 #DefenseTrait
 
@@ -140,15 +140,15 @@ ABILITYCATEGORY:Race Builder Bonus Race Languages		VISIBLE:QUALIFY	EDITABLE:YES	
 ABILITYCATEGORY:Language						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderLang																							DISPLAYLOCATION:Race Builder Design
 
 # Race Builder Traits
-ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait																		DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait																	DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait																		DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Senses					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderSensesTrait																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMovementTrait																						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOffenseTrait																						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Weakness					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderWeaknessTrait																						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOtherTrait																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Language Qualities				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:LanguageQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait																		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait																	DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait																		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Senses					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderSensesTrait																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMovementTrait																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOffenseTrait																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Weakness					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderWeaknessTrait																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOtherTrait																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Language Qualities				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:LanguageQuality																							DISPLAYLOCATION:Race Builder Design
 
 ABILITYCATEGORY:Weapon Familiarity					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Weapon Familiarity																							DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Hatred							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Hatred																									DISPLAYLOCATION:Race Builder Design
