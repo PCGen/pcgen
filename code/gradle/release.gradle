@@ -177,7 +177,7 @@ task downloadJRE << {
     def jre32Dir = new File("${buildDir}/nsis/jre/jre_32")
     def jre64Dir = new File("${buildDir}/nsis/jre/jre_64")
     if(!jre32Dir.exists() || !jre64Dir.exists()){
-        println("Downloading Java ${minor}u${update} JRE tar files...")
+        println("Downloading Java ${minor}u${update} JRE missing tar files...")
         //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
         def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
         def jre32URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-i586.${extension}"
@@ -197,23 +197,16 @@ task downloadJRE << {
                 header 'Cookie', oracleCookie
                 overwrite false
             }
-            copy {
-                println "Untar $simLib.name"
-                def name = simLib.name - '.tar.gz'
-                from tarTree("${buildDir}/nsis/jre/${simLib.name}")
-                into "${buildDir}/nsis/jre/$name"       
-            }
         }
-        println("Expanding tar files...")
         //Now untar them
         fileTree(dir: "${buildDir}/nsis/jre/").include("*.${extension}").each { simLib ->
             copy {
                 println "Untar $simLib.name"
                 def name = simLib.name - '.tar.gz'
                 from tarTree("${buildDir}/nsis/jre/${simLib.name}")
-                into "${buildDir}/nsis/jre/$name"       
+                into "${buildDir}/nsis/jre/$name"  
             }
-            new File("${buildDir}/nsis/jre/${simLib.name}").deleteDir()
+            new File("${buildDir}/nsis/jre/${simLib.name}").delete()
         }
         def jre32 = new File("${buildDir}/nsis/jre/jre_32/jre${major}.${minor}.${micro}_${update}")
         def jre64 = new File("${buildDir}/nsis/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
