@@ -12,6 +12,15 @@
 # NEWCATEGORY:Spell-like Ability
 
 
+
+
+
+ABILITY:Special Ability|Order of the Blue Rose ~ Cavalier Order				MAXVER:6.06.01	NEWKEY:Cavalier Order ~ Order of the Blue Rose
+ABILITY:Special Ability|Order of the Seal ~ Cavalier Order					MAXVER:6.06.01	NEWKEY:Cavalier Order ~ Order of the Seal
+ABILITY:Special Ability|Order of the Tome ~ Cavalier Order					MAXVER:6.06.01	NEWKEY:Cavalier Order ~ Order of the Tome
+
+
+
 SOURCE:Dark Markets - A Guide to Katapesh (Conversion)	MAXVER:6.6.00	NEWKEY:Dark Markets - A Guide to Katapesh - Conversion
 SOURCE:Princes of Darkness - Book of the Damned, Volume 1	MAXVER:6.6.00	NEWKEY:Princes of Darkness - Book of the Damned - Volume 1	
 SOURCE:Qadira, Gateway to the East					MAXVER:6.6.00	NEWKEY:Qadira - Gateway to the East					
