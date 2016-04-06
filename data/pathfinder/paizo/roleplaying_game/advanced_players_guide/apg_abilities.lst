@@ -104,13 +104,23 @@ Suspicious							KEY:Trait ~ Suspicious			CATEGORY:Special Ability	TYPE:Trait.Ba
 
 ## Adopted Trait Race Selection
 # Ability Name						Unique Key					Category of Ability		Type						Multiple Requirements																										Description																																																																																Bonus Ability Pool															Bonus to Situation																				Bonus to skill					Modify VAR						Class Skill			Apply Kit			Source Page
-Dwarf								KEY:Adoptive Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Elf								KEY:Adoptive Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace
-Gnome								KEY:Adoptive Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Half-Elf							KEY:Adoptive Race ~ Half-Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Half-Orc							KEY:Adoptive Race ~ Half-Orc		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Halfling							KEY:Adoptive Race ~ Halfling		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Human								KEY:Adoptive Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace
+Obsolete - Remove ~ Dwarf				KEY:Adoptive Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Elf					KEY:Adoptive Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Gnome				KEY:Adoptive Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Half-Elf				KEY:Adoptive Race ~ Half-Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Half-Orc				KEY:Adoptive Race ~ Half-Orc		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Halfling				KEY:Adoptive Race ~ Halfling		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Human				KEY:Adoptive Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+
+# New Method - Less contract on Data team for maintenance
+Dwarf								KEY:Adopted Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=DwarfTrait
+Elf								KEY:Adopted Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=ElfTrait
+Gnome								KEY:Adopted Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GnomeTrait
+Half-Elf							KEY:Adopted Race ~ Half-Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HalfElfTrait
+Half-Orc							KEY:Adopted Race ~ Half-Orc		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HalfOrcTrait
+Halfling							KEY:Adopted Race ~ Halfling		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HalflingTrait
+Human								KEY:Adopted Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HumanTrait
+
 
 ###Block: Campaign Traits
 # Ability Name													Unique Key					Category of Ability		Type						Required Ability									Multiple Requirements																										Description																																																																																																																																Stackable?	Multiple?	Choose									Bonus Ability Pool				Combat bonus					Bonus to skill						Class Skill				Source Page
