@@ -8,7 +8,7 @@
  *
  * Release script
  * 1. gradle prepareRelease slowtest
- *   a.	Update version � remove snapshot
+ *   a.	Update version - remove snapshot
  *   b.	Commit new version
  *   c.	Clean, Build and check
  *   d. Run slow tests
@@ -17,7 +17,7 @@
  *   a.	Build
  *   b.	Assemble distributables
  *   c.	Tag
- *   d.	Update version � increment version and add snapshot
+ *   d.	Update version - increment version and add snapshot
  *   e.	Commit new version
  * 
  * Author: James Dempsey 
@@ -153,7 +153,7 @@ launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
     outfile = "pcgen.exe"
-    jreMinVersion = '1.8.0'
+    jreMinVersion = '1.7.0'
     jreMaxVersion = '1.8.9'
     jdkPreference = 'preferJre'
     initialHeapSize = 128
