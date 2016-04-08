@@ -153,8 +153,8 @@ launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
     outfile = "pcgen.exe"
-    jreMinVersion = '1.7.0'
-    jreMaxVersion = '1.8.9'
+    jreMinVersion = '1.6.0'
+    jreMaxVersion = '1.7.9'
     jdkPreference = 'preferJre'
     initialHeapSize = 128
     maxHeapSize = 512
