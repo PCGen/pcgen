@@ -282,7 +282,7 @@ Natural Weapons						KEY:Kitsune ~ Natural Weapons		CATEGORY:Special Ability	TYP
 
 #Race Traits ~ Kitsune
 Race Traits ~ Kitsune											CATEGORY:Internal																																																																													ABILITY:Internal|AUTOMATIC|Race Language ~ Default Setting|PREABILITY:1,CATEGORY=Internal,TYPE.RaceAlternativeLanguageSet
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLowLightVision
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
