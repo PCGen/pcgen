@@ -265,7 +265,7 @@ Alchemical Cartridge (Flare)																					TYPE:FirearmGear.Ammo.Ammunitio
 Alchemical Cartridge (Paper/Bullet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
 Alchemical Cartridge (Paper/Pellet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
 Alchemical Cartridge (Salt Shot)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
-Black Powder (Dose)																						TYPE:FirearmGear																		COST:10
+Black Powder (Dose)																						TYPE:FirearmGear.Black Powder (Dose)																		COST:10
 Black Powder (Keg)																						TYPE:FirearmGear																		COST:1000	WT:5
 Bullet (Firearm)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:1
 Bullet (Firearm/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:30	WT:0.5				BASEQTY:30
