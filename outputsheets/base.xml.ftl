@@ -1452,7 +1452,7 @@
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
-		<@loop from=0 to=pcvar('COUNT[FEAT.VISIBLE]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATS.VISIBLE]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEAT.VISIBLE.${feat}')}</name>
 			<description>${pcstring('FEAT.VISIBLE.${feat}.DESC')}</description>
@@ -1468,7 +1468,7 @@
 		</@loop>
 
 		<!-- Auto feats -->
-		<@loop from=0 to=pcvar('COUNT[FEATAUTO.VISIBLE]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATSAUTO.VISIBLE]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEATAUTO.VISIBLE.${feat}')}</name>
 			<description>${pcstring('FEATAUTO.VISIBLE.${feat}.DESC')}</description>
@@ -1484,7 +1484,7 @@
 		</@loop>
 
 		<!-- Virtual Feats -->
-		<@loop from=0 to=pcvar('COUNT[VFEAT.VISIBLE]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('VFEAT.VISIBLE.${feat}')} (Granted)</name>
 			<description>${pcstring('VFEAT.VISIBLE.${feat}.DESC')}</description>
@@ -1500,7 +1500,7 @@
 		</@loop>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-		<@loop from=0 to=pcvar('COUNT[FEAT.HIDDEN]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATS.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEAT.HIDDEN.${feat}')}</name>
 			<description>${pcstring('FEAT.HIDDEN.${feat}.DESC')}</description>
@@ -1515,7 +1515,7 @@
 		</feat>
 		</@loop>
 		<!-- Hidden VFEAT -->
-		<@loop from=0 to=pcvar('COUNT[VFEAT.HIDDEN]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[VFEATS.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('VFEAT.HIDDEN.${feat}')}</name>
 			<description>${pcstring('VFEAT.HIDDEN.${feat}.DESC')}</description>
@@ -1530,7 +1530,7 @@
 		</feat>
 		</@loop>
 		<!-- END Hidden VFEAT -->
-		<@loop from=0 to=pcvar('COUNT[FEATAUTO.HIDDEN]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATSAUTO.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEATAUTO.HIDDEN.${feat}')}</name>
 			<description>${pcstring('FEATAUTO.HIDDEN.${feat}.DESC')}</description>

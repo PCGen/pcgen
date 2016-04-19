@@ -235,64 +235,64 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('COUNT[FEATALL.VISIBLE]') != 0)>
+<#if (pcvar('COUNT[FEATSALL.VISIBLE]') != 0)>
 <hr />
 </#if>
 
-<#if (pcvar('COUNT[FEAT.VISIBLE]') != 0)>
+<#if (pcvar('COUNT[FEATS.VISIBLE]') != 0)>
 <b>Feats</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('COUNT[FEAT.VISIBLE]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('COUNT[FEATS.VISIBLE]-1') ; feat , feat_has_next>
 <b>${pcstring('FEAT.VISIBLE.${feat}')}</b> [<i>${pcstring('FEAT.VISIBLE.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('COUNT[FEATAUTO.VISIBLE]') != 0)>
+<#if (pcvar('COUNT[FEATSAUTO.VISIBLE]') != 0)>
 <b>Feats (Automatic)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('COUNT[FEATAUTO.VISIBLE]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('COUNT[FEATSAUTO.VISIBLE]-1') ; feat , feat_has_next>
 <b>${pcstring('FEATAUTO.VISIBLE.${feat}')}</b> [<i>${pcstring('FEATAUTO.VISIBLE.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('COUNT[VFEAT.VISIBLE]') != 0)>
+<#if (pcvar('COUNT[VFEATS.VISIBLE]') != 0)>
 <b>Feats (Virtual)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('COUNT[VFEAT.VISIBLE]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
 <b>${pcstring('VFEAT.VISIBLE.${feat}')}</b> [<i>${pcstring('VFEAT.VISIBLE.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('COUNT[FEATALL.HIDDEN]') != 0)>
+<#if (pcvar('COUNT[FEATSALL.HIDDEN]') != 0)>
 <hr />
 </#if>
 
-<#if (pcvar('COUNT[FEAT.HIDDEN]') != 0)>
+<#if (pcvar('COUNT[FEATS.HIDDEN]') != 0)>
 <b>Feats (Hidden)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('COUNT[FEAT.HIDDEN]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('COUNT[FEATS.HIDDEN]-1') ; feat , feat_has_next>
 <b>${pcstring('FEAT.HIDDEN.${feat}')}</b> [<i>${pcstring('FEAT.HIDDEN.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('COUNT[FEATAUTO.HIDDEN]') != 0)>
+<#if (pcvar('COUNT[FEATSAUTO.HIDDEN]') != 0)>
 <b>Feats (Hidden Automatic)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('COUNT[FEATAUTO.HIDDEN]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('COUNT[FEATSAUTO.HIDDEN]-1') ; feat , feat_has_next>
 <b>${pcstring('FEATAUTO.HIDDEN.${feat}')}</b> [<i>${pcstring('FEATAUTO.HIDDEN.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
-<#if (pcvar('COUNT[VFEAT.HIDDEN]') != 0)>
+<#if (pcvar('COUNT[VFEATS.HIDDEN]') != 0)>
 <b>Feats (Hidden Virtual)</b>
 </#if>
 <blockquote>
-<@loop from=0 to=pcvar('COUNT[VFEAT.VISIBLE]-1') ; feat , feat_has_next>
+<@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
 <b>${pcstring('VFEAT.HIDDEN.${feat}')}</b> [<i>${pcstring('VFEAT.HIDDEN.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
