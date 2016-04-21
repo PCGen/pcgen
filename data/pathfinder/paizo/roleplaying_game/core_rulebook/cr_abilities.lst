@@ -387,4 +387,4 @@ Add Language	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuali
 
 ###Block: House Rules / Homebrew Support
 # Ability Name					Category of Ability	Type				Define					Description																Modify VAR
-Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule
+Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule	COST:0
