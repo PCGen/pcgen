@@ -38,6 +38,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Knights of 
 # Data files
 
 ABILITY:kotis_abilities.lst
+ABILITY:kotis_abilities_class.lst
+EQUIPMENT:kotis_equip.lst
 ABILITY:kotis_feats.lst
 SKILL:kotis_skills.lst
 SPELL:kotis_spells.lst
