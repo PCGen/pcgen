@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Tue Mar  1 14:08:20 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Knights of the Inner Sea	SOURCESHORT:KOTIS	SOURCEWEB:http://paizo.com/products/	SOURCEDATE:2012-09
+# Original Entry by:Stefan Radermacher
+
+###Block: Feats
+# Ability Name	Category of Ability	Type			Required Ability							Required Lvl	Define										Description										Ability						Modify VAR																		Source Page		Benefits
+Squire		CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Internal,Weapon Prof ~ Martial	PRELEVEL:MIN=4	DEFINE:LeadershipMaxCohortLvl|0	DEFINE:LeadershipScore|0	DESC:You attract a squire to aid you in your knightly endeavors.	ABILITY:FEAT|VIRTUAL|Leadership Score	BONUS:VAR|LeadershipMaxCohortLvl|min((TL-3),(((LeadershipScore+6)*7)/10)-4)	BONUS:VAR|LeadershipScore|(TL+CHA)	SOURCEPAGE:p.20	BENEFIT:This feat enables you to attract a loyal cohort. You can only attract a 1st-level cohort (referred to hereafter as a squire) with this feat, and cannot recruit followers until you have the Leadership feat. You determine your Leadership score according to the rules presented in the Leadership feat, but your squire is always at least three or more levels lower than yourself. A squire can only take levels in a class that grants proficiency with all martial weapons as a class feature, such as paladin, gunslinger, cavalier, or fighter. She cannot multiclass, though she may take any archetype she qualifies for.
+
+#
+# End
+#
