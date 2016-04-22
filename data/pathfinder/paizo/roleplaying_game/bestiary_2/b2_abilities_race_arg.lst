@@ -2,14 +2,17 @@
 
 ###Block: Set up Dhampir default abilities
 # Ability Name						Category of Ability	Ability
-Race Traits ~ Dhampir					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirLowLightVision
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirDarkvision
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Manipulative|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirManipulative
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Undead Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirUndeadResistance
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirLightSensitivity
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirSLA
-CATEGORY=Internal|Race Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Resist Level Drain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirResistLevelDrain
+Race Traits ~ Dhampir					CATEGORY:Internal		BONUS:ABILITYPOOL|Dhampir Subrace|1
+
+Standard Dhampir						CATEGORY:Internal								TYPE:DhampirSubrace	BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial
+###Block:
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirLowLightVision
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirDarkvision
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Manipulative|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirManipulative
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Undead Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirUndeadResistance
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirLightSensitivity
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirSLA
+CATEGORY=Internal|Standard Dhampir.MOD	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Resist Level Drain|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirResistLevelDrain
 
 ###Block: Default Dhampir Abilities (POOL=7)
 # Ability Name			Unique Key						Category of Ability		Type															Multiple Requirements																								Define					Innate Spells											Description															Bonus to skill						Modify VAR						Source Page
