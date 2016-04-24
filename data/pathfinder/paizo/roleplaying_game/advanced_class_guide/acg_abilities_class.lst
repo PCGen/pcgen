@@ -1467,10 +1467,8 @@ CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD	BONUS:VAR|Panache_Max|Panach
 
 ###Block: Swashbuckler Finesse and Slashing Grace Support
 # Ability Name									Combat bonus
-CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:COMBAT|TOHIT.Weapon Group Melee Light Piercing|-STR|TYPE=NotRanged
-CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:COMBAT|TOHIT.Weapon Group Melee OneHanded Piercing|-STR|TYPE=NotRanged
-CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:COMBAT|TOHIT.Weapon Group Melee Light Piercing|DEX|TYPE=NotRanged
-CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:COMBAT|TOHIT.Weapon Group Melee OneHanded Piercing|DEX|TYPE=NotRanged
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:COMBAT|TOHIT.Weapon Group Melee Light Piercing|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:COMBAT|TOHIT.Weapon Group Melee OneHanded Piercing|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged
 
 ###Block:
 # Ability Name									Weapon prof. bonus
