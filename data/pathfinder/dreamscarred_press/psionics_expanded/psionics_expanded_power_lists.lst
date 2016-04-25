@@ -5,14 +5,14 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 
 ###Block: Cryptic power list
 # Spell Name				Classes of caster
-Call to Mind.MOD				CLASSES:Cryptic=1
+Call To Mind.MOD				CLASSES:Cryptic=1
 Chameleon.MOD				CLASSES:Cryptic=1
 Conceal Thoughts.MOD			CLASSES:Cryptic=1
 Deja Vu.MOD					CLASSES:Cryptic=1
 Elfsight.MOD				CLASSES:Cryptic=1
 Float.MOD					CLASSES:Cryptic=1
 Fortify.MOD					CLASSES:Cryptic=1
-Know Direction and Location.MOD	CLASSES:Cryptic=1
+Know Direction And Location.MoD	CLASSES:Cryptic=1
 Metamorphosis (Minor).MOD		CLASSES:Cryptic=1
 Precognition (Defensive).MOD		CLASSES:Cryptic=1
 Precognition (Offensive).MOD		CLASSES:Cryptic=1
@@ -44,11 +44,11 @@ Ubiquitous Vision.MOD			CLASSES:Cryptic=3
 
 Energy Adaptation.MOD			CLASSES:Cryptic=4
 Fold Space.MOD				CLASSES:Cryptic=4
-Slip the Bonds.MOD			CLASSES:Cryptic=4
+Slip The Bonds.MOD			CLASSES:Cryptic=4
 Steadfast Perception.MOD		CLASSES:Cryptic=4
 
 Adapt Body.MOD				CLASSES:Cryptic=5
-Pierce the Veils.MOD			CLASSES:Cryptic=5
+Pierce The Veils.MOD			CLASSES:Cryptic=5
 Retrieve.MOD				CLASSES:Cryptic=5
 
 Aura Alteration.MOD			CLASSES:Cryptic=6
@@ -57,7 +57,7 @@ Cosmic Awareness.MOD			CLASSES:Cryptic=6
 Ethereal Passage.MOD			CLASSES:Cryptic=6
 Hypercognition.MOD			CLASSES:Cryptic=6
 
-###Block: Dread power list
+###block: Dread Power List
 # Spell Name			Classes of caster
 Biofeedback.MOD			CLASSES:Dread=1
 Conceal Thoughts.MOD		CLASSES:Dread=1
@@ -74,7 +74,7 @@ Concealing Amorpha.MOD		CLASSES:Dread=2
 Feat Leech.MOD			CLASSES:Dread=2
 Id Insinuation.MOD		CLASSES:Dread=2
 Mental Disruption.MOD		CLASSES:Dread=2
-Strength of My Enemy.MOD	CLASSES:Dread=2
+Strength Of My Enemy.MOD	CLASSES:Dread=2
 Thought Shield.MOD		CLASSES:Dread=2
 
 Ectoplasmic Form.MOD		CLASSES:Dread=3
@@ -85,14 +85,14 @@ Mindwipe.MOD			CLASSES:Dread=4
 Personality Parasite.MOD	CLASSES:Dread=4
 Power Leech.MOD			CLASSES:Dread=4
 
-Pierce the Veils.MOD		CLASSES:Dread=5
+Pierce The Veils.MOD		CLASSES:Dread=5
 Planar Travel.MOD			CLASSES:Dread=5
 Psychic Crush.MOD			CLASSES:Dread=5
 Schism.MOD				CLASSES:Dread=5
 
 Barred Mind (Personal).MOD	CLASSES:Dread=6
 Dream Travel.MOD			CLASSES:Dread=6
-Form of Doom.MOD			CLASSES:Dread=6
+Form Of Doom.MOD			CLASSES:Dread=6
 Temporal Acceleration.MOD	CLASSES:Dread=6
 
 ###Block: Marksman power list
@@ -137,17 +137,17 @@ Ubiquitous Vision.MOD			CLASSES:Marksman=3
 Aura Sight.MOD				CLASSES:Marksman=4
 Evade Burst.MOD				CLASSES:Marksman=4
 Inertial Barrier.MOD			CLASSES:Marksman=4
-Pierce the Veils.MOD			CLASSES:Marksman=4
+Pierce The Veils.MOD			CLASSES:Marksman=4
 Sharpened Edge.MOD			CLASSES:Marksman=4
-Slip the Bonds.MOD			CLASSES:Marksman=4
+Slip The Bonds.MOD			CLASSES:Marksman=4
 Steadfast Perception.MOD		CLASSES:Marksman=4
 Truevenom Weapon.MOD			CLASSES:Marksman=4
 
-###Block: Tactician power list
+###block: Tactician Power List
 # Spell Name				Classes of caster
-Call to Mind.MOD				CLASSES:Tactician=1
+Call To Mind.MOD				CLASSES:Tactician=1
 Entangling Ectoplasm.MOD		CLASSES:Tactician=1
-Know Direction and Location.MOD	CLASSES:Tactician=1
+Know Direction And Location.MOD	CLASSES:Tactician=1
 Precognition.MOD				CLASSES:Tactician=1
 Precognition (Defensive).MOD		CLASSES:Tactician=1
 Sense Link.MOD				CLASSES:Tactician=1
@@ -159,7 +159,7 @@ Feat Leech.MOD				CLASSES:Tactician=2
 Missive (Mass).MOD			CLASSES:Tactician=2
 Read Thoughts.MOD				CLASSES:Tactician=2
 Share Pain.MOD				CLASSES:Tactician=2
-Strength of My Enemy.MOD		CLASSES:Tactician=2
+Strength Of My Enemy.MOD		CLASSES:Tactician=2
 Sustenance.MOD				CLASSES:Tactician=2
 Thought Shield.MOD			CLASSES:Tactician=2
 
@@ -172,17 +172,17 @@ Correspond.MOD				CLASSES:Tactician=4
 Empathic Feedback.MOD			CLASSES:Tactician=4
 Intellect Fortress.MOD			CLASSES:Tactician=4
 Psychic Reformation.MOD			CLASSES:Tactician=4
-Slip the Bonds.MOD			CLASSES:Tactician=4
-Wall of Ectoplasm.MOD			CLASSES:Tactician=4
+Slip The Bonds.MOD			CLASSES:Tactician=4
+Wall Of Ectoplasm.MOD			CLASSES:Tactician=4
 
 Adapt Body.MOD				CLASSES:Tactician=5
 Catapsi.MOD					CLASSES:Tactician=5
 Incarnate.MOD				CLASSES:Tactician=5
 Metaconcert.MOD				CLASSES:Tactician=5
 Power Resistance.MOD			CLASSES:Tactician=5
-Tower of Iron Will.MOD			CLASSES:Tactician=5
+Tower Of Iron Will.MOD			CLASSES:Tactician=5
 
-CoOpt Concentration.MOD			CLASSES:Tactician=6
+Coopt Concentration.MOD			CLASSES:Tactician=6
 Dispelling Buffer.MOD			CLASSES:Tactician=6
 Trigger Power.MOD				CLASSES:Tactician=6
 
@@ -243,7 +243,7 @@ Power Resistance.MOD			CLASSES:Vitalist=5
 Psionic Revivify.MOD			CLASSES:Vitalist=5
 Psychofeedback.MOD			CLASSES:Vitalist=5
 Restore Extremity.MOD			CLASSES:Vitalist=5
-Tower of Iron Will.MOD			CLASSES:Vitalist=5
+Tower Of Iron Will.MOD			CLASSES:Vitalist=5
 
 Aura Alteration.MOD			CLASSES:Vitalist=6
 Cleanse Spirit.MOD			CLASSES:Vitalist=6
@@ -253,12 +253,12 @@ Trigger Power.MOD				CLASSES:Vitalist=6
 
 Barred Mind (Personal).MOD		CLASSES:Vitalist=7
 Bend Reality.MOD				CLASSES:Vitalist=7
-Crisis of Life.MOD			CLASSES:Vitalist=7
+Crisis Of Life.MOD			CLASSES:Vitalist=7
 Energy Conversion.MOD			CLASSES:Vitalist=7
 Oak Body.MOD				CLASSES:Vitalist=7
 
 Barred Mind.MOD				CLASSES:Vitalist=8
-Body of Iron.MOD				CLASSES:Vitalist=8
+Body Of Iron.MOD				CLASSES:Vitalist=8
 True Metabolism.MOD			CLASSES:Vitalist=8
 
 Affinity Field.MOD			CLASSES:Vitalist=9
@@ -270,7 +270,7 @@ Timeless Body.MOD				CLASSES:Vitalist=9
 ###Block: Sighted Seeker prestige class power list
 # Spell Name					Classes of caster
 Burst.MOD						CLASSES:Sighted Seeker=1
-Call to Mind.MOD					CLASSES:Sighted Seeker=1
+Call To Mind.MOD					CLASSES:Sighted Seeker=1
 Call Weaponry.MOD					CLASSES:Sighted Seeker=1
 Chameleon.MOD					CLASSES:Sighted Seeker=1
 Circumstance Shield.MOD				CLASSES:Sighted Seeker=1
@@ -278,7 +278,7 @@ Compression.MOD					CLASSES:Sighted Seeker=1
 Destiny Dissonance.MOD				CLASSES:Sighted Seeker=1
 Detect Psionics.MOD				CLASSES:Sighted Seeker=1
 Detect Teleportation.MOD			CLASSES:Sighted Seeker=1
-Grip of Iron.MOD					CLASSES:Sighted Seeker=1
+Grip Of Iron.MOD					CLASSES:Sighted Seeker=1
 Precognition.MOD					CLASSES:Sighted Seeker=1
 Precognition (Defensive).MOD			CLASSES:Sighted Seeker=1
 Precognition (Offensive).MOD			CLASSES:Sighted Seeker=1
@@ -288,11 +288,11 @@ Prevenom Weapon.MOD				CLASSES:Sighted Seeker=1
 Clairvoyant Sense.MOD				CLASSES:Sighted Seeker=2
 Heightened Vision.MOD				CLASSES:Sighted Seeker=2
 Feat Leech.MOD					CLASSES:Sighted Seeker=2
-Know Direction and Location.MOD		CLASSES:Sighted Seeker=2
+Know Direction And Location.MOD		CLASSES:Sighted Seeker=2
 Object Reading.MOD				CLASSES:Sighted Seeker=2
 Prowess.MOD						CLASSES:Sighted Seeker=2
 Recall Agony.MOD					CLASSES:Sighted Seeker=2
-Sensitivity to Psychic Impressions.MOD	CLASSES:Sighted Seeker=2
+Sensitivity To Psychic Impressions.MOD	CLASSES:Sighted Seeker=2
 
 Danger Sense.MOD					CLASSES:Sighted Seeker=3
 Escape Detection.MOD				CLASSES:Sighted Seeker=3
@@ -325,7 +325,7 @@ Expansion.MOD				CLASSES:Gifted Blade=1
 Float.MOD					CLASSES:Gifted Blade=1
 Force Screen.MOD				CLASSES:Gifted Blade=1
 Fortify.MOD					CLASSES:Gifted Blade=1
-Grip of Iron.MOD				CLASSES:Gifted Blade=1
+Grip Of Iron.MOD				CLASSES:Gifted Blade=1
 Inertial Armor.MOD			CLASSES:Gifted Blade=1
 Metaphysical Weapon.MOD			CLASSES:Gifted Blade=1
 My Light.MOD				CLASSES:Gifted Blade=1
@@ -376,10 +376,10 @@ Fold Space.MOD				CLASSES:Gifted Blade=4
 Immovability.MOD				CLASSES:Gifted Blade=4
 Inertial Barrier.MOD			CLASSES:Gifted Blade=4
 Psychic Reformation.MOD			CLASSES:Gifted Blade=4
-Slip the Bonds.MOD			CLASSES:Gifted Blade=4
+Slip The Bonds.MOD			CLASSES:Gifted Blade=4
 Steadfast Perception.MOD		CLASSES:Gifted Blade=4
 Truevenom Weapon.MOD			CLASSES:Gifted Blade=4
-Weapon of Energy.MOD			CLASSES:Gifted Blade=4
+Weapon Of Energy.MOD			CLASSES:Gifted Blade=4
 
 ### Block: Old Powers gaining Network descriptor
 Dimension Swap.MOD							DESCRIPTOR:Network

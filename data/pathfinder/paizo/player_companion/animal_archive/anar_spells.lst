@@ -3,8 +3,8 @@
 SOURCELONG:Pathfinder Player Companion Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-Archive	SOURCEDATE:2013-03
 
 # Spell Name		Type				Classes of caster									School			Sub-School			Components											Casting Time			Range			Item		Target Area or Effect								Duration						Save Info					Spell Resistance		Source Page
-Bleed for Your Master	TYPE:Arcane.Divine	CLASSES:Antipaladin=2|Druid,Ranger,Sorcerer,Witch,Wizard=3		SCHOOL:Enchantment	SUBSCHOOL:Compulsion	COMPS:V, S											CASTTIME:1 immediate action	RANGE:Touch				TARGETAREA:your animal companion, familiar, or fiendish servant	DURATION:instantaneous				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.22
-Die for Your Master	TYPE:Arcane.Divine	CLASSES:Antipaladin=4|Druid,Sorcerer,Witch,Wizard=5			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	COMPS:V, S											CASTTIME:1 immediate action	RANGE:Touch				TARGETAREA:your animal companion, familiar, or fiendish servant	DURATION:instantaneous				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.22
+Bleed For Your Master	TYPE:Arcane.Divine	CLASSES:Antipaladin=2|Druid,Ranger,Sorcerer,Witch,Wizard=3		SCHOOL:Enchantment	SUBSCHOOL:Compulsion	COMPS:V, S											CASTTIME:1 immediate action	RANGE:Touch				TARGETAREA:your animal companion, familiar, or fiendish servant	DURATION:instantaneous				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.22
+Die For Your Master	TYPE:Arcane.Divine	CLASSES:Antipaladin=4|Druid,Sorcerer,Witch,Wizard=5			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	COMPS:V, S											CASTTIME:1 immediate action	RANGE:Touch				TARGETAREA:your animal companion, familiar, or fiendish servant	DURATION:instantaneous				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.22
 Familiar Figment		TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=2						SCHOOL:Illusion		SUBSCHOOL:Figment		COMPS:V, S											CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:your familiar							DURATION:(CASTERLEVEL) rounds (D)		SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.22
 Hunter's Friend		TYPE:Divine			CLASSES:Ranger=2|Druid=3							SCHOOL:Transmutation					COMPS:V, S, DF										CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:your animal companion						DURATION:(CASTERLEVEL) hours (D)		SAVEINFO:Will negates (harmless)	SPELLRES:No			SOURCEPAGE:p.22
 Scamper			TYPE:Divine			CLASSES:Druid,Ranger=2								SCHOOL:Transmutation					COMPS:V, S											CASTTIME:1 swift action		RANGE:Close				TARGETAREA:your animal companion						DURATION:1 round					SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.23
@@ -16,8 +16,8 @@ Sky Steed			TYPE:Divine			CLASSES:Paladin=3									SCHOOL:Transmutation					COM
 
 ###Block: Short Spell Descriptions	|!PRERULE:1,DisplayFullSpell
 # Spell Name			Description
-Bleed for Your Master.MOD	DESC:Compel your animal companion, familiar or fiendish servant to intercept a blow.
-Die for Your Master.MOD		DESC:Compel your animal companion, familiar or fiendish servant to intercept an attack.
+Bleed For Your Master.MOD	DESC:Compel your animal companion, familiar or fiendish servant to intercept a blow.
+Die For Your Master.MOD		DESC:Compel your animal companion, familiar or fiendish servant to intercept an attack.
 Familiar Figment.MOD		DESC:Single mirror image for your familiar.
 Hunter's Friend.MOD		DESC:Share some class abilities with your animal companion.
 Scamper.MOD				DESC:Improve Acrobatics and speed of your animal companion.
@@ -26,15 +26,3 @@ Sea Steed.MOD			DESC:Your mount adapt to life in the water.
 Share Shape.MOD			DESC:You assume a form of the same type than your animal familiar.
 Shield Companion.MOD		DESC:This spell wards the subject and creates a mystic connection between you and the subject so that some of its wounds are transferred to you.
 Sky Steed.MOD			DESC:Your mount sprouts angelic wings.
-
-###Block: Long Spell Descriptions	|PRERULE:1,DisplayFullSpell
-#Bleed for Your Master.MOD		DESC:
-#Die for Your Master.MOD			DESC:
-#Familiar Figment.MOD			DESC:
-#Hunter's Friend.MOD			DESC:
-#Scamper.MOD					DESC:
-#Sea Stallion.MOD				DESC:
-#Sea Steed.MOD				DESC:
-#Share Shape.MOD				DESC:
-#Shield Companion.MOD			DESC:
-#Sky Steed.MOD				DESC:

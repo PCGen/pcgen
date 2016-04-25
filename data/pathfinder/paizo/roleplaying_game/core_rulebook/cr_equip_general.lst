@@ -279,7 +279,7 @@ Wine (Common/Pitcher)	TYPE:Goods.Food					COST:0.2	WT:6		SOURCEPAGE:p.159
 Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:p.159
 
 ###Block:Mounts and Related Gear
-# Barding is in armor .LST file
+# Barding is in armor.LST file
 # Equipment Name			Type								Contains			Cost		Weight	Size		Source Page		Special Property
 Bit and Bridle			TYPE:Goods.Mount.Resizable								COST:2	WT:1				SOURCEPAGE:p.159
 Dog (Guard)				TYPE:Mount.Goods.Container				CONTAINS:*300|Any		COST:25					SOURCEPAGE:p.159
@@ -413,7 +413,7 @@ Diamond (25000 gp)												TYPE:SpellComponent.Consumable	COST:25000	WT:0		SP
 Diamond Dust (50 gp)												TYPE:SpellComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Nondetection
 Diamond Dust (100 gp)												TYPE:SpellComponent.Consumable	COST:100	WT:0		SPROP:Material Component for Restoration
 Diamond Dust (250 gp)												TYPE:SpellComponent.Consumable	COST:250	WT:0		SPROP:Material Component for Stoneskin
-Diamond Dust (500 gp)												TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Undeath to Death
+Diamond Dust (500 gp)												TYPE:SpellComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Undeath To Death
 Diamond Dust (1000 gp)												TYPE:SpellComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Restoration
 Diamond Dust (5000 gp)												TYPE:SpellComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Greater Restoration
 Diamond Dust (25000 gp)												TYPE:SpellComponent.Consumable	COST:25000	WT:0		SPROP:Material Component for Miracle

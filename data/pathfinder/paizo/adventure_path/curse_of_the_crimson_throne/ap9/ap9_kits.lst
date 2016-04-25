@@ -94,7 +94,7 @@ SKILL:Sense Motive		RANK:18
 SKILL:Spellcraft			RANK:18
 SKILL:Stealth			RANK:18
 SKILL:Survival			RANK:18
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Magic|Flare|Mage Hand|Message|Prestidigitation|Read Magic|Touch of Fatigue|Identify|Mage Armor|Magic Missile|Obscuring Mist|Ray of Enfeeblement|Darkness|Misdirection|Resist Energy|See Invisibility|Touch of Idiocy|Fireball|Slow|Vampiric Touch|Dimension Door|Invisibility (Greater)|Globe of Invulnerability (Lesser)|Solid Fog|Dominate Person|Seeming|Teleport|Flesh to Stone|Dispel Magic (Greater)|Bull's Strength (Mass)|Delayed Blast Fireball|Hold Person (Mass)|Hold Monster|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Magic|Flare|Mage Hand|Message|Prestidigitation|Read Magic|Touch of Fatigue|Identify|Mage Armor|Magic Missile|Obscuring Mist|Ray of Enfeeblement|Darkness|Misdirection|Resist Energy|See Invisibility|Touch of Idiocy|Fireball|Slow|Vampiric Touch|Dimension Door|Invisibility (Greater)|Globe of Invulnerability (Lesser)|Solid Fog|Dominate Person|Seeming|Teleport|Flesh To Stone|Dispel Magic (Greater)|Bull's Strength (Mass)|Delayed Blast Fireball|Hold Person (Mass)|Hold Monster|Haste
 GEAR:Falchion	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS3W
 
 

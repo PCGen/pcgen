@@ -11,7 +11,7 @@ Snowball						TYPE:Arcane.Divine	CLASSES:Druid,Magus,Sorcerer,Summoner,Witch,Wiz
 
 ###Block: Custom Spells with restrictions as used in spell-like abilities
 # Spell Name				Type		School		Components	Casting Time			Range			Target Area or Effect	Duration					Description
-Speak with Animals (birds only)	TYPE:Arcane	SCHOOL:Divination	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You		DURATION:(CASTERLEVEL) minutes	DESC:You can ask questions of and receive answers from birds, but the spell doesn't make them any more friendly than normal.
+Speak With Animals (Birds Only)	TYPE:Arcane	SCHOOL:Divination	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You		DURATION:(CASTERLEVEL) minutes	DESC:You can ask questions of and receive answers from birds, but the spell doesn't make them any more friendly than normal.
 
 #
 # End

@@ -18,32 +18,32 @@ Anticipate Peril										TYPE:Arcane.Divine	CLASSES:Alchemist,Bard,Ranger,Sorce
 Arboreal Hammer										TYPE:Divine			CLASSES:Druid=4									SCHOOL:Transmutation														COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:One Huge or larger tree												DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.206	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/arborealHammer.html#_arboreal-hammer					DESC:Tree branches attack opponents.
 Arcana Theft										TYPE:Arcane			CLASSES:Magus=4									SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:Instantaneous										SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.206	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/arcanaTheft.html#_arcana-theft						DESC:Targeted dispel transfers an effect to you.
 Archon's Aura										TYPE:Divine			CLASSES:Cleric,Paladin=3							SCHOOL:Evocation						DESCRIPTOR:Good|Lawful						COMPS:V, S								CASTTIME:1 standard action	RANGE:20 ft.			TARGETAREA:20-ft. radius centered on you											DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.206	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/archonSAura.html#_archon's-aura						DESC:Aura penalizes enemy attacks and AC.
-Arrow of Law										TYPE:Divine			CLASSES:Cleric,Paladin=2							SCHOOL:Evocation						DESCRIPTOR:Lawful							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Arrow-shaped projectile of lawful energy									DURATION:Instantaneous (1 round); see text						SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/arrowOfLaw.html#_arrow-of-law						DESC:Harm and possibly daze chaotic creatures.
+Arrow Of Law										TYPE:Divine			CLASSES:Cleric,Paladin=2							SCHOOL:Evocation						DESCRIPTOR:Lawful							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Arrow-shaped projectile of lawful energy									DURATION:Instantaneous (1 round); see text						SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/arrowOfLaw.html#_arrow-of-law						DESC:Harm and possibly daze chaotic creatures.
 Ash Storm											TYPE:Arcane.Divine	CLASSES:Druid,Sorcerer,Witch,Wizard=3					SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Fire							COMPS:V, S, M/DF							CASTTIME:1 standard action	RANGE:Long				TARGETAREA:Cylinder (40-ft. radius, 20 ft. high)									DURATION:(CASTERLEVEL) rounds									SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/ashStorm.html#_ash-storm							DESC:Hamper vision and movement.
 Astral Projection (Lesser)	OUTPUTNAME:Astral Projection, Lesser	TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=5						SCHOOL:Necromancy															COMPS:V, S, M (1,000 gp jacinth)				CASTTIME:30 minutes		RANGE:Touch				TARGETAREA:You plus (CASTERLEVEL/2) additional willing creatures touched					DURATION:See text											SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/astralProjection.html#_astral-projection,-lesser			DESC:Limited astral travel.
 Atavism											TYPE:Divine			CLASSES:Druid=4									SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One animal														DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/atavism.html#_atavism								DESC:Animal gains advanced creature simple template.
 Atavism (Mass)			OUTPUTNAME:Atavism, Mass			TYPE:Divine			CLASSES:Druid=8									SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:(CASTERLEVEL) animals, no two of which can be more than 30 ft. apart				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/atavism.html#_atavism,-mass							DESC:(CASTERLEVEL) animals gain advanced template.
-Aura of Doom										TYPE:Divine			CLASSES:Cleric=4									SCHOOL:Necromancy						DESCRIPTOR:Emotion|Fear|Mind-Affecting			COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:20-ft. radius emanation centered on you									DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/auraOfDoom.html#_aura-of-doom						DESC:Creatures in your aura become shaken.
+Aura Of Doom										TYPE:Divine			CLASSES:Cleric=4									SCHOOL:Necromancy						DESCRIPTOR:Emotion|Fear|Mind-Affecting			COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:20-ft. radius emanation centered on you									DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/auraOfDoom.html#_aura-of-doom						DESC:Creatures in your aura become shaken.
 Badger's Ferocity										TYPE:Arcane.Divine	CLASSES:Ranger,Sorcerer,Wizard=2|Cleric,Druid=3				SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:(CASTERLEVEL/3) weapons												DURATION:Concentration										SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/badgerSFerocity.html#_badger's-ferocity					DESC:Weapons are keen while you concentrate.
 Battlemind Link										TYPE:Arcane.Divine	CLASSES:Inquisitor=4|Sorcerer,Wizard=6					SCHOOL:Divination						DESCRIPTOR:Mind-Affecting					COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:You and 1 ally													DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.207	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/battlemindLink.html#_battlemind-link					DESC:You and an ally gain attack and AC bonuses.
-# COMMENT: Assume Saving Throw: yes (harmless) for BGotC is supposed to be Will negates (harmless)!
-Bestow Grace of the Champion								TYPE:Divine			CLASSES:Paladin=4|Cleric=7							SCHOOL:Transmutation					DESCRIPTOR:Good|Law						COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Lawful good creature touched											DURATION:(CASTERLEVEL) rounds (see text)							SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bestowGraceOfTheChampion.html#_bestow-grace-of-the-champion	DESC:Target gains paladin abilities.
-Blade of Bright Victory									TYPE:Divine			CLASSES:Paladin=3									SCHOOL:Transmutation					DESCRIPTOR:Good							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Your paladin bonded weapon											DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:No				SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bladeOfBrightVictory.html#_blade-of-bright-victory			DESC:Bonded weapon gains ghost touch.
-Blade of Dark Triumph									TYPE:Divine			CLASSES:Antipaladin=3								SCHOOL:Transmutation					DESCRIPTOR:Evil							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Your fiendish boon weapon											DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:No				SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bladeOfDarkTriumph.html#_blade-of-dark-triumph				DESC:Bonded weapon gains ghost touch.
-Blessing of the Mole									TYPE:Divine			CLASSES:Cleric,Inquisitor,Paladin,Ranger=3				SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 round			RANGE:Close				TARGETAREA:(CASTERLEVEL) creatures												DURATION:(CASTERLEVEL) minutes								SAVEINFO:None						SPELLRES:Yes (harmless)		SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/blessingOfTheMole.html#_blessing-of-the-mole				DESC:(CASTERLEVEL) allies gain darkvision and a +2 Stealth bonus.													TEMPBONUS:ANYPC|SKILL|Stealth|2
+# Comment: Assume Saving Throw: yes (harmless) for BGotC is supposed to be Will negates (harmless)!
+Bestow Grace Of The Champion								TYPE:Divine			CLASSES:Paladin=4|Cleric=7							SCHOOL:Transmutation					DESCRIPTOR:Good|Law						COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Lawful good creature touched											DURATION:(CASTERLEVEL) rounds (see text)							SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bestowGraceOfTheChampion.html#_bestow-grace-of-the-champion	DESC:Target gains paladin abilities.
+Blade Of Bright Victory									TYPE:Divine			CLASSES:Paladin=3									SCHOOL:Transmutation					DESCRIPTOR:Good							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Your paladin bonded weapon											DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:No				SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bladeOfBrightVictory.html#_blade-of-bright-victory			DESC:Bonded weapon gains ghost touch.
+Blade Of Dark Triumph									TYPE:Divine			CLASSES:Antipaladin=3								SCHOOL:Transmutation					DESCRIPTOR:Evil							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Your fiendish boon weapon											DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:No				SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bladeOfDarkTriumph.html#_blade-of-dark-triumph				DESC:Bonded weapon gains ghost touch.
+Blessing Of The Mole									TYPE:Divine			CLASSES:Cleric,Inquisitor,Paladin,Ranger=3				SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 round			RANGE:Close				TARGETAREA:(CASTERLEVEL) creatures												DURATION:(CASTERLEVEL) minutes								SAVEINFO:None						SPELLRES:Yes (harmless)		SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/blessingOfTheMole.html#_blessing-of-the-mole				DESC:(CASTERLEVEL) allies gain darkvision and a +2 Stealth bonus.													TEMPBONUS:ANYPC|SKILL|Stealth|2
 Blood Crow Strike										TYPE:Divine			CLASSES:Cleric=4									SCHOOL:Evocation						DESCRIPTOR:Fire							COMPS:V, S								CASTTIME:1 round			RANGE:Medium			TARGETAREA:One creature														DURATION:Instantaneous										SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.208	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bloodCrowStrike.html#_blood-crow-strike					DESC:Unarmed strikes create crows that deal fire and negative energy damage.
 Blood Mist											TYPE:Divine			CLASSES:Druid=8									SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Poison							COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:60-ft. radius													DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates (see text)		SPELLRES:Yes			SOURCEPAGE:p.209	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bloodMist.html#_blood-mist							DESC:Mist causes 1d4 Wisdom damage and rage.
 Blood Transcription									TYPE:Arcane			CLASSES:Alchemist,Magus,Witch,Wizard=2					SCHOOL:Divination						DESCRIPTOR:Evil							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One dead spellcaster												DURATION:24 hours											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.209	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bloodTranscription.html#_blood-transcription				DESC:Learn a spell from the target's blood.
 Boiling Blood										TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Witch,Wizard=2				SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:(CASTERLEVEL/3) creatures, no two of which may be more than 30 ft. apart				DURATION:Concentration + (CASTERLEVEL) rounds						SAVEINFO:Fortitude negates (see text)		SPELLRES:Yes			SOURCEPAGE:p.209	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/boilingBlood.html#_boiling-blood						DESC:Targets take 1 fire damage each round; orcs get +2 Strength.
 Bungle											TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=1						SCHOOL:Enchantment	SUBSCHOOL:Compulsion										COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One humanoid														DURATION:Concentration + 2 rounds or until triggered					SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.209	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/bungle.html#_bungle								DESC:Target takes a -20 penalty on its next attack roll or check.
 Burrow											TYPE:Arcane.Divine	CLASSES:Alchemist,Druid,Ranger,Sorcerer,Wizard=3			SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/burrow.html#_burrow								DESC:Target gains a burrow speed of 15.
-Burst of Nettles										TYPE:Divine			CLASSES:Druid=3									SCHOOL:Conjuration					DESCRIPTOR:Acid							COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:10-ft.-radius burst												DURATION:Instantaneous										SAVEINFO:Reflex half					SPELLRES:Yes			SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/burstOfNettles.html#_burst-of-nettles					DESC:Burst deals 3d6 damage and 1d6 acid.
+Burst Of Nettles										TYPE:Divine			CLASSES:Druid=3									SCHOOL:Conjuration					DESCRIPTOR:Acid							COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:10-ft.-radius burst												DURATION:Instantaneous										SAVEINFO:Reflex half					SPELLRES:Yes			SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/burstOfNettles.html#_burst-of-nettles					DESC:Burst deals 3d6 damage and 1d6 acid.
 Cackling Skull										TYPE:Arcane			CLASSES:Witch=3									SCHOOL:Illusion		SUBSCHOOL:Glamer											COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One skull														DURATION:Permanent until discharged								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/cacklingSkull.html#_cackling-skull						DESC:Skull acts as magic mouth, listeners are shaken.
 Call Construct										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=8						SCHOOL:Conjuration	SUBSCHOOL:Teleportation										COMPS:V, S, M (1,000 gp or 5,000 gp sapphire)		CASTTIME:10 minutes		RANGE:Touch				TARGETAREA:Construct touched													DURATION:Permanent until discharged								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/callConstruct.html#_call-construct						DESC:Summon your golem to you.
-Cape of Wasps										TYPE:Arcane.Divine	CLASSES:Druid,Witch=4								SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds [D]																					SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/capeOfWasps.html#_cape-of-wasps						DESC:Wasp swarm defends or carries you.
+Cape Of Wasps										TYPE:Arcane.Divine	CLASSES:Druid,Witch=4								SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds [D]																					SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/capeOfWasps.html#_cape-of-wasps						DESC:Wasp swarm defends or carries you.
 Caustic Eruption										TYPE:Arcane			CLASSES:Sorcerer,Wizard=7							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Acid							COMPS:V, S								CASTTIME:1 standard action	RANGE:30 ft.			TARGETAREA:30-ft.-radius burst												DURATION:Instantaneous and 2 rounds; see text						SAVEINFO:Reflex half (see text)			SPELLRES:No				SOURCEPAGE:p.210	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/causticEruption.html#_caustic-eruption					DESC:Burst deals (min(CASTERLEVEL,20))d6 acid and lingers for 2 rounds dealing (min(CASTERLEVEL/2,10))d6 each round.
-Chord of Shards										TYPE:Arcane			CLASSES:Bard=1									SCHOOL:Evocation															COMPS:V, S								CASTTIME:1 standard action	RANGE:15 ft.			TARGETAREA:Cone-shaped burst													DURATION:Instantaneous										SAVEINFO:Reflex negates					SPELLRES:No				SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/chordOfShards.html#_chord-of-shards					DESC:Performance deals 2d6 piercing damage.
-Circle of Clarity										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=7						SCHOOL:Abjuration															COMPS:V, S, F (100 gp crystal lens)				CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:20-ft.-radius emanation centered on a creature, object, or point in space			DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/circleOfClarity.html#_circle-of-clarity					DESC:Emanation hampers illusions and stealth.
+Chord Of Shards										TYPE:Arcane			CLASSES:Bard=1									SCHOOL:Evocation															COMPS:V, S								CASTTIME:1 standard action	RANGE:15 ft.			TARGETAREA:Cone-shaped burst													DURATION:Instantaneous										SAVEINFO:Reflex negates					SPELLRES:No				SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/chordOfShards.html#_chord-of-shards					DESC:Performance deals 2d6 piercing damage.
+Circle Of Clarity										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=7						SCHOOL:Abjuration															COMPS:V, S, F (100 gp crystal lens)				CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:20-ft.-radius emanation centered on a creature, object, or point in space			DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/circleOfClarity.html#_circle-of-clarity					DESC:Emanation hampers illusions and stealth.
 Cold Ice Strike										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=6						SCHOOL:Evocation						DESCRIPTOR:Cold							COMPS:V, S								CASTTIME:1 swift action		RANGE:30 ft.			TARGETAREA:30-ft. line														DURATION:Instantaneous										SAVEINFO:Reflex half					SPELLRES:Yes			SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/coldIceStrike.html#_cold-ice-strike					DESC:Line of ice slivers deals (min(CASTERLEVEL,15))d6 cold.
 Compassionate Ally									TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Wizard=2					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/compassionateAlly.html#_compassionate-ally				DESC:Target is compelled to help injured ally.
 Conjure Black Pudding									TYPE:Arcane			CLASSES:Sorcerer,Wizard=6							SCHOOL:Conjuration	SUBSCHOOL:Summoning	DESCRIPTOR:Acid							COMPS:V, S, M (10 gp flask of acid)				CASTTIME:1 round			RANGE:Close				TARGETAREA:One summoned black pudding											DURATION:(ConjurationSummonersCharmBonus+(CASTERLEVEL)) rounds [D]		SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.211	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/conjureBlackPudding.html#_conjure-black-pudding			DESC:Summon a black pudding.
@@ -58,14 +58,14 @@ Create Demiplane (Greater)	OUTPUTNAME:Create Demiplane, Greater	TYPE:Arcane.Divi
 Create Demiplane (Lesser)	OUTPUTNAME:Create Demiplane, Lesser		TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=7					SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (500 gp forked metal rod)			CASTTIME:2 hours			RANGE:0 ft.				TARGETAREA:Extradimensional demiplane, up to (CASTERLEVEL*3) 10-ft. cubes [S]					DURATION:(CASTERLEVEL) days									SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.214	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/createDemiplane.html#_create-demiplane,-lesser				DESC:Create your own demiplane.
 Curse (Major)			OUTPUTNAME:Curse, Major				TYPE:Arcane.Divine	CLASSES:Cleric,Witch=5|Sorcerer,Wizard=6					SCHOOL:Necromancy						DESCRIPTOR:Curse							COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:Permanent										SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/curse.html#_curse,-major							DESC:As Bestow Curse, but harder to remove.
 # COMMENT: Compulsion was listed as a descriptor rather than a subschool.
-Curse of Disgust										TYPE:Arcane			CLASSES:Bard=3|Sorcerer,Witch,Wizard=5					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Curse|Emotion|Mind-Affecting			COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:Permanent										SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/curseOfDisgust.html#_curse-of-disgust					DESC:Target is sickened when viewing a trigger.
-Curse of Magic Negation									TYPE:Arcane.Divine	CLASSES:Inquisitor,Sorcerer,Witch,Wizard=4|Cleric=5			SCHOOL:Abjuration						DESCRIPTOR:Curse							COMPS:V, S, M (250 gp powdered lead and platinum)	CASTTIME:1 round			RANGE:Medium			TARGETAREA:One creature														DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/curseOfMagicNegation.html#_curse-of-magic-negation			DESC:Target gains the negated spellblight.
+Curse Of Disgust										TYPE:Arcane			CLASSES:Bard=3|Sorcerer,Witch,Wizard=5					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Curse|Emotion|Mind-Affecting			COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:Permanent										SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/curseOfDisgust.html#_curse-of-disgust					DESC:Target is sickened when viewing a trigger.
+Curse Of Magic Negation									TYPE:Arcane.Divine	CLASSES:Inquisitor,Sorcerer,Witch,Wizard=4|Cleric=5			SCHOOL:Abjuration						DESCRIPTOR:Curse							COMPS:V, S, M (250 gp powdered lead and platinum)	CASTTIME:1 round			RANGE:Medium			TARGETAREA:One creature														DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/curseOfMagicNegation.html#_curse-of-magic-negation			DESC:Target gains the negated spellblight.
 Cursed Earth										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=9					SCHOOL:Necromancy						DESCRIPTOR:Curse|Evil						COMPS:V, S, M (10,000 gp powdered onyx)			CASTTIME:10 minutes		RANGE:Touch				TARGETAREA:1-mile radius emanating from the touched point								DURATION:Permanent										SAVEINFO:None (see text)				SPELLRES:No				SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/cursedEarth.html#_cursed-earth						DESC:Plants die, living creatures catch diseases, or dead creatures rise as zombies.
 Cushioning Bands										TYPE:Arcane			CLASSES:Sorcerer,Wizard=2							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Force							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) hours or until discharged [D]					SAVEINFO:Will negates (harmless)			SPELLRES:Yes			SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/cushioningBands.html#_cushioning-bands					DESC:Force bands protect against crushing.
-# COMMENT: Make a PREAPPLY for this?
-Dance of a Hundred Cuts									TYPE:Arcane			CLASSES:Bard=4									SCHOOL:Transmutation														COMPS:V								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/danceOfAHundredCuts.html#_dance-of-a-hundred-cuts			DESC:Gain +(min(CASTERLEVEL/3,5)) combat bonus.
-# COMMENT: Make a PREAPPLY for this?
-Dance of a Thousand Cuts								TYPE:Arcane			CLASSES:Bard=6									SCHOOL:Transmutation														COMPS:V								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/danceOfAThousandCuts.html#_dance-of-a-thousand-cuts			DESC:Gain +(min(CASTERLEVEL/3,5)) combat bonus, and the benefits of haste.
+# Comment: Make A PreappLY for this?
+Dance Of A Hundred Cuts									TYPE:Arcane			CLASSES:Bard=4									SCHOOL:Transmutation														COMPS:V								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/danceOfAHundredCuts.html#_dance-of-a-hundred-cuts			DESC:Gain +(min(CASTERLEVEL/3,5)) combat bonus.
+# Comment: Make A PreappLY for this?
+Dance Of A Thousand Cuts								TYPE:Arcane			CLASSES:Bard=6									SCHOOL:Transmutation														COMPS:V								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/danceOfAThousandCuts.html#_dance-of-a-thousand-cuts			DESC:Gain +(min(CASTERLEVEL/3,5)) combat bonus, and the benefits of haste.
 Darkvision (Greater)		OUTPUTNAME:Darkvision, Greater		TYPE:Arcane.Divine	CLASSES:Alchemist,Antipaladin,Ranger,Sorcerer,Wizard=4		SCHOOL:Transmutation														COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) hours									SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/darkvision.html#_darkvision,-greater					DESC:See 120 ft. in total darkness.
 Daze (Mass)				OUTPUTNAME:Daze, Mass				TYPE:Arcane.Divine	CLASSES:Bard,Inquisitor,Sorcerer,Witch,Wizard=4				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:One or more humanoid creatures, no two of which may be more than 30 ft. apart			DURATION:1 round											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/daze.html#_daze,-mass								DESC:As daze, but affecting multiple creatures.
 Decompose Corpse										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Sorcerer,Witch,Wizard=1				SCHOOL:Necromancy															COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One corpse or corporeal undead											DURATION:Instantaneous or 1 minute; see text						SAVEINFO:Fortitude negates (object)			SPELLRES:Yes (object)		SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/decomposeCorpse.html#_decompose-corpse					DESC:Turn corpse into clean skeleton.
@@ -93,7 +93,7 @@ Excruciating Deformation								TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=3			
 Exquisite Accompaniment									TYPE:Arcane			CLASSES:Bard=3									SCHOOL:Illusion		SUBSCHOOL:Shadow		DESCRIPTOR:Shadow							COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:Phantom instrument													DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/exquisiteAccompaniment.html#_exquisite-accompaniment			DESC:Instrument maintains bardic performance for you.
 False Life (Greater)		OUTPUTNAME:False Life, Greater		TYPE:Arcane			CLASSES:Alchemist,Sorcerer,Witch,Wizard=4					SCHOOL:Necromancy															COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) hours or until discharged; see text																	SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/falseLife.html#_false-life,-greater					DESC:Gain 2d10+(CASTERLEVEL) temporary hp.
 Familiar Melding										TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=4						SCHOOL:Necromancy															COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Your familiar													DURATION:(CASTERLEVEL) hours or until you return to your body			SAVEINFO:Will negates (harmless)			SPELLRES:Yes			SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/familiarMelding.html#_familiar-melding					DESC:Possess your familiar.
-# COMMENT: No components listed
+# Comment: No Components Listed
 Fickle Winds										TYPE:Arcane.Divine	CLASSES:Ranger=3|Cleric,Druid,Sorcerer,Wizard=5				SCHOOL:Transmutation					DESCRIPTOR:Air																CASTTIME:1 standard action						TARGETAREA:(CASTERLEVEL) Medium creatures, no two of which can be more than 30 ft. apart			DURATION:(CASTERLEVEL) minutes [D]								SAVEINFO:None (see text)				SPELLRES:Yes			SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/fickleWinds.html#_fickle-winds						DESC:Wind walls selectively block attacks.
 Fleshworm Infestation									TYPE:Arcane.Divine	CLASSES:Cleric,Inquisitor,Sorcerer,Witch,Wizard=4			SCHOOL:Conjuration	SUBSCHOOL:Summoning	DESCRIPTOR:Evil							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(ConjurationSummonersCharmBonus+(CASTERLEVEL)) rounds [D]		SAVEINFO:Fortitude partial (see text)		SPELLRES:Yes			SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/fleshwormInfestation.html#_fleshworm-infestation			DESC:Worms deal hp and Dex damage.
 Forbid Action										TYPE:Divine			CLASSES:Cleric,Inquisitor=1							SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Language-Dependent|Mind-Affecting		COMPS:V								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:1 round											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/forbidAction.html#_forbid-action						DESC:Target obeys your command to not do something.
@@ -111,14 +111,14 @@ Haunting Mists										TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=2					S
 Hex Ward											TYPE:Arcane.Divine	CLASSES:Inquisitor,Witch=1							SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) hours									SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.223	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/hexWard.html#_hex-ward								DESC:Target gains +4 on saves against witch hexes.
 Holy Ice											TYPE:Divine			CLASSES:Cleric=5									SCHOOL:Transmutation					DESCRIPTOR:Cold|Good|Water					COMPS:V, S, M (holy water or 25 gp powdered silver)	CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Wall of ice or flying javelins (see text)									DURATION:(CASTERLEVEL) minutes, instantaneous, or until expended (see text)	SAVEINFO:Reflex negates or none (see text)	SPELLRES:Yes			SOURCEPAGE:p.223	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/holyIce.html#_holy-ice								DESC:Create wall or javelins of frozen holy water.
 Holy Shield											TYPE:Divine			CLASSES:Paladin=2									SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.223	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/holyShield.html#_holy-shield							DESC:Lend your shield's protection to another.
-Horn of Pursuit										TYPE:Arcane.Divine	CLASSES:Bard,Inquisitor,Paladin,Ranger=1					SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:3 peals of a horn													DURATION:1 round											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.223	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/hornOfPursuit.html#_horn-of-pursuit					DESC:Create three notes heard miles away.
+Horn Of Pursuit										TYPE:Arcane.Divine	CLASSES:Bard,Inquisitor,Paladin,Ranger=1					SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:3 peals of a horn													DURATION:1 round											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.223	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/hornOfPursuit.html#_horn-of-pursuit					DESC:Create three notes heard miles away.
 Howling Agony										TYPE:Arcane.Divine	CLASSES:Inquisitor=2|Sorcerer,Witch,Wizard=3				SCHOOL:Necromancy						DESCRIPTOR:Death|Pain						COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:(CASTERLEVEL) living creatures, no two of which can be more than 30 ft. apart			DURATION:(CASTERLEVEL) rounds									SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.223	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/howlingAgony.html#_howling-agony						DESC:Screaming pain limits the target's actions.
 Ice Body											TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=7						SCHOOL:Transmutation					DESCRIPTOR:Cold							COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) minutes [D]																					SOURCEPAGE:p.224	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/iceBody.html#_ice-body								DESC:Your body becomes living ice.
 Ice Crystal Teleport									TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=6						SCHOOL:Conjuration	SUBSCHOOL:Teleportation	DESCRIPTOR:Cold							COMPS:V								CASTTIME:1 standard action	RANGE:Long				TARGETAREA:One creature														DURATION:1d4 rounds and instantaneous							SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.224	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/iceCrystalTeleport.html#_ice-crystal-teleport				DESC:Target is frozen, then teleported.
 Icicle Dagger										TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=1						SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Cold							COMPS:V, S								CASTTIME:1 standard action	RANGE:0 ft.				TARGETAREA:One icicle														DURATION:(CASTERLEVEL) minutes								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.224	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/icicleDagger.html#_icicle-dagger						DESC:Masterwork ice dagger deals +1 cold damage.
 Icy Prison											TYPE:Arcane			CLASSES:Sorcerer,Wizard=5							SCHOOL:Evocation						DESCRIPTOR:Cold							COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:One creature														DURATION:(CASTERLEVEL) minutes; see text							SAVEINFO:Reflex partial					SPELLRES:Yes			SOURCEPAGE:p.224	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/icyPrison.html#_icy-prison							DESC:Thick ice holds and damages the target.
 Icy Prison (Mass)			OUTPUTNAME:Icy Prison, Mass			TYPE:Arcane			CLASSES:Sorcerer,Wizard=9							SCHOOL:Evocation						DESCRIPTOR:Cold							COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart				DURATION:(CASTERLEVEL) minutes; see text							SAVEINFO:Reflex partial					SPELLRES:Yes			SOURCEPAGE:p.224	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/icyPrison.html#_icy-prison,-mass						DESC:Thick ice holds and damages the targets.
-Imbue with Aura										TYPE:Divine			CLASSES:Cleric=2									SCHOOL:Transmutation														COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (see text)			SPELLRES:Yes			SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/imbueWithAura.html#_imbue-with-aura					DESC:Target emulates your cleric aura.
+Imbue With Aura										TYPE:Divine			CLASSES:Cleric=2									SCHOOL:Transmutation														COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (see text)			SPELLRES:Yes			SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/imbueWithAura.html#_imbue-with-aura					DESC:Target emulates your cleric aura.
 Interplanetary Teleport									TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=9						SCHOOL:Conjuration	SUBSCHOOL:Teleportation										COMPS:V								CASTTIME:1 standard action	RANGE:Personal and touch	TARGETAREA:You and touched objects or other touched willing creatures						DURATION:Instantaneous										SAVEINFO:None  and Will negates (object)		SPELLRES:No and yes (object)	SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/interplanetaryTeleport.html#_interplanetary-teleport			DESC:Teleport to another planet.
 Interrogation										TYPE:Divine			CLASSES:Inquisitor=1								SCHOOL:Necromancy						DESCRIPTOR:Evil|Pain						COMPS:V, S								CASTTIME:1 round			RANGE:Touch				TARGETAREA:Living creature touched												DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/interrogation.html#_interrogation						DESC:Target answers questions or suffers pain.
 Interrogation (Greater)		OUTPUTNAME:Interrogation, Greater		TYPE:Divine			CLASSES:Inquisitor=4								SCHOOL:Necromancy						DESCRIPTOR:Evil|Pain						COMPS:V, S								CASTTIME:1 round			RANGE:Touch				TARGETAREA:Living creature touched												DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/interrogation.html#_interrogation,-greater				DESC:As interrogation, except with more pain and more questions.
@@ -128,7 +128,7 @@ Joyful Rapture										TYPE:Arcane.Divine	CLASSES:Bard=5|Cleric=6|Sorcerer,Wiza
 Ki Arrow											TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=1					SCHOOL:Conjuration														COMPS:S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One arrow touched													DURATION:Instantaneous										SAVEINFO:Fortitude (object)				SPELLRES:Yes (object)		SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/kiArrow.html#_ki-arrow								DESC:Arrow deals damage as your unarmed strike.
 Ki Leech											TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=3					SCHOOL:Necromancy						DESCRIPTOR:Evil							COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) minutes [D]																					SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/kiLeech.html#_ki-leech								DESC:Add to your ki pool when you critically hit.
 Ki Shout											TYPE:Arcane			CLASSES:Bard=5|Sorcerer,Wizard=7						SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One living creature												DURATION:Instantaneous										SAVEINFO:Fortitude partial (see text)		SPELLRES:Yes			SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/kiShout.html#_ki-shout								DESC:Target takes (min(CASTERLEVEL,20))d6 sonic damage and is stunned.
-Know the Enemy										TYPE:Divine			CLASSES:Cleric,Inquisitor,Paladin,Ranger=1				SCHOOL:Divination															COMPS:V, S, DF							CASTTIME:1 minute			RANGE:Personal			TARGETAREA:You															DURATION:Instantaneous										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/knowTheEnemy.html#_know-the-enemy						DESC:Gain +10 on a monster Knowledge check.
+Know The Enemy										TYPE:Divine			CLASSES:Cleric,Inquisitor,Paladin,Ranger=1				SCHOOL:Divination															COMPS:V, S, DF							CASTTIME:1 minute			RANGE:Personal			TARGETAREA:You															DURATION:Instantaneous										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/knowTheEnemy.html#_know-the-enemy						DESC:Gain +10 on a monster Knowledge check.
 Leashed Shackles										TYPE:Arcane.Divine	CLASSES:Inquisitor=4|Sorcerer,Wizard=6					SCHOOL:Evocation						DESCRIPTOR:Force							COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:One creature														DURATION:(CASTERLEVEL) minutes								SAVEINFO:Reflex negates					SPELLRES:Yes			SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/leashedShackles.html#_leashed-shackles					DESC:Target is restricted to a specific location.
 Lend Judgment										TYPE:Divine			CLASSES:Inquisitor=1								SCHOOL:Divination															COMPS:V, DF								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One ally														DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/lendJudgment.html#_lend-judgment						DESC:Ally gains the benefit of one judgment.
 Lend Judgment (Greater)		OUTPUTNAME:Lend Judgment, Greater		TYPE:Divine			CLASSES:Inquisitor=5								SCHOOL:Divination															COMPS:V, DF								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One ally														DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.227	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/lendJudgment.html#_lend-judgment,-greater				DESC:Ally receives all your judgments.
@@ -149,7 +149,7 @@ Monstrous Physique IV									TYPE:Arcane			CLASSES:Alchemist,Magus,Sorcerer,Wiz
 Murderous Command										TYPE:Divine			CLASSES:Antipaladin,Cleric=1							SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One living creature												DURATION:1 round											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/murderousCommand.html#_murderous-command					DESC:Target is compelled to kill its ally.
 Oppressive Boredom									TYPE:Arcane			CLASSES:Bard,Sorcerer,Wizard=2						SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) rounds or until broken (see text)				SAVEINFO:Will negates (see text)			SPELLRES:Yes			SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/oppressiveBoredom.html#_oppressive-boredom				DESC:Target loses its next action.
 Oracle's Vessel										TYPE:Divine			CLASSES:Oracle=4									SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/oracleSVessel.html#_oracle's-vessel					DESC:Target gains the benefits of your oracle's curse.
-Orb of the Void										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=8						SCHOOL:Necromancy															COMPS:V, S, M (50 gp black gemstone)			CASTTIME:1 standard action	RANGE:Close				TARGETAREA:1-ft.-diameter sphere												DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/orbOfTheVoid.html#_orb-of-the-void						DESC:Sphere inflicts negative levels.
+Orb Of The Void										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=8						SCHOOL:Necromancy															COMPS:V, S, M (50 gp black gemstone)			CASTTIME:1 standard action	RANGE:Close				TARGETAREA:1-ft.-diameter sphere												DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/orbOfTheVoid.html#_orb-of-the-void						DESC:Sphere inflicts negative levels.
 Overwhelming Grief									TYPE:Arcane			CLASSES:Bard=3|Sorcerer,Wizard=4						SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) rounds; see text							SAVEINFO:Will negates (see text)			SPELLRES:Yes			SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/overwhelmingGrief.html#_overwhelming-grief				DESC:Grieving target can take no actions and is denied its Dex bonus.
 Overwhelming Presence									TYPE:Arcane.Divine	CLASSES:Bard,Inquisitor=6|Cleric,Sorcerer,Wizard=9			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart				DURATION:(CASTERLEVEL) rounds; see text							SAVEINFO:Will negates; see text			SPELLRES:Yes			SOURCEPAGE:p.230	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/overwhelmingPresence.html#_overwhelming-presence			DESC:Creatures bow before you as if you were divine.
 Pernicious Poison										TYPE:Arcane.Divine	CLASSES:Antipaladin,Druid,Sorcerer,Witch,Wizard=2			SCHOOL:Necromancy						DESCRIPTOR:Poison							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.231	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/perniciousPoison.html#_pernicious-poison					DESC:Target takes a -4 penalty against poison.
@@ -161,13 +161,13 @@ Play Instrument										TYPE:Arcane			CLASSES:Bard=1									SCHOOL:Divination	
 Polar Midnight										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Witch=9							SCHOOL:Transmutation					DESCRIPTOR:Cold|Darkness					COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:30-ft. spread													DURATION:(CASTERLEVEL) rounds									SAVEINFO:Fortitude partial				SPELLRES:Yes			SOURCEPAGE:p.232	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/polarMidnight.html#_polar-midnight						DESC:Cold darkness paralyzes and deals damage.
 Polypurpose Panacea									TYPE:Arcane			CLASSES:Alchemist,Sorcerer,Wizard=1						SCHOOL:Transmutation														COMPS:S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:See text											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.232	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/polypurposePanacea.html#_polypurpose-panacea				DESC:Gain a relaxing or entertaining effect.
 Possess Object										TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=5						SCHOOL:Necromancy															COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:One object; see text												DURATION:(CASTERLEVEL) hours or until you return to your body			SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.232	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/possessObject.html#_possess-object						DESC:Possess and animate one object.
-Prediction of Failure									TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=8						SCHOOL:Divination						DESCRIPTOR:Curse|Fear|Mind-Affecting			COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:Permanent or (CASTERLEVEL) rounds (see text)					SAVEINFO:Will partial					SPELLRES:Yes			SOURCEPAGE:p.232	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/predictionOfFailure.html#_prediction-of-failure			DESC:Target is permanently shaken and sickened, and may gain a spellblight.
+Prediction Of Failure									TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=8						SCHOOL:Divination						DESCRIPTOR:Curse|Fear|Mind-Affecting			COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:Permanent or (CASTERLEVEL) rounds (see text)					SAVEINFO:Will partial					SPELLRES:Yes			SOURCEPAGE:p.232	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/predictionOfFailure.html#_prediction-of-failure			DESC:Target is permanently shaken and sickened, and may gain a spellblight.
 Primal Scream										TYPE:Arcane			CLASSES:Bard=4									SCHOOL:Abjuration						DESCRIPTOR:Mind-Affecting|Sonic				COMPS:V								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.232	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/primalScream.html#_primal-scream						DESC:Free yourself from enchantments and paralysis effects.
 Protective Penumbra									TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=2					SCHOOL:Evocation						DESCRIPTOR:Darkness						COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates (harmless)			SPELLRES:Yes			SOURCEPAGE:p.233	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/protectivePenumbra.html#_protective-penumbra				DESC:Shadow protects the target from light.
-Rain of Frogs										TYPE:Arcane.Divine	CLASSES:Bard,Druid,Sorcerer,Witch,Wizard=3				SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S, M/DF							CASTTIME:1 round			RANGE:Close				TARGETAREA:One swarm of poisonous frogs											DURATION:Concentration + (ConjurationSummonersCharmBonus+2) rounds		SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.233	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rainOfFrogs.html#_rain-of-frogs						DESC:Summon a swarm of poisonous frogs.
+Rain Of Frogs										TYPE:Arcane.Divine	CLASSES:Bard,Druid,Sorcerer,Witch,Wizard=3				SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S, M/DF							CASTTIME:1 round			RANGE:Close				TARGETAREA:One swarm of poisonous frogs											DURATION:Concentration + (ConjurationSummonersCharmBonus+2) rounds		SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.233	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rainOfFrogs.html#_rain-of-frogs						DESC:Summon a swarm of poisonous frogs.
 Raise Animal Companion									TYPE:Divine			CLASSES:Paladin,Ranger=4|Druid=5						SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (1,000 gp diamond)				CASTTIME:1 minute			RANGE:Touch				TARGETAREA:Dead animal companion or bonded mount									DURATION:Instantaneous										SAVEINFO:None, see text					SPELLRES:Yes (harmless)		SOURCEPAGE:p.233	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/raiseAnimalCompanion.html#_raise-animal-companion			DESC:As raise dead, but on an animal.
 Rapid Repair										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=5						SCHOOL:Transmutation														COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Construct touched													DURATION:(CASTERLEVEL) rounds									SAVEINFO:Fortitude negates (harmless)		SPELLRES:Yes (harmless)		SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rapidRepair.html#_rapid-repair						DESC:Construct gains fast healing 5.
-Ray of Sickening										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Sorcerer,Witch,Wizard=1				SCHOOL:Necromancy															COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Ray															DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude partial; see text		SPELLRES:Yes			SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rayOfSickening.html#_ray-of-sickening					DESC:Ray makes the subject sickened.
+Ray Of Sickening										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Sorcerer,Witch,Wizard=1				SCHOOL:Necromancy															COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Ray															DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude partial; see text		SPELLRES:Yes			SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rayOfSickening.html#_ray-of-sickening					DESC:Ray makes the subject sickened.
 Reckless Infatuation									TYPE:Arcane			CLASSES:Bard=2|Sorcerer,Witch,Wizard=3					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) days									SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/recklessInfatuation.html#_reckless-infatuation				DESC:Target is compelled to stay near another.
 Remove Sickness										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Witch=1							SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL*10) minutes; see text						SAVEINFO:Fortitude negates (harmless)		SPELLRES:Yes (harmless)		SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/removeSickness.html#_remove-sickness					DESC:Suppress disease, nausea, and the sickened condition.
 Reprobation											TYPE:Divine			CLASSES:Inquisitor,Paladin=4|Cleric,Druid=5				SCHOOL:Transmutation					DESCRIPTOR:Curse							COMPS:V, S, DF							CASTTIME:1 minute			RANGE:Close				TARGETAREA:One creature of your faith											DURATION:Permanent										SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/reprobation.html#_reprobation						DESC:Marked target is shunned by your religion.
@@ -175,19 +175,19 @@ Resonating Word										TYPE:Arcane			CLASSES:Bard=5|Sorcerer,Wizard=7						SCH
 Restore Corpse										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Sorcerer,Witch,Wizard=1				SCHOOL:Necromancy															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Corpse touched													DURATION:Instantaneous										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/restoreCorpse.html#_restore-corpse						DESC:Skeletal corpse grows flesh.
 Restore Eidolon										TYPE:Arcane														SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (100 gp or 1,000 gp diamond dust)		CASTTIME:1 minute			RANGE:Touch				TARGETAREA:Eidolon touched													DURATION:Instantaneous										SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/restoreEidolon.html#_restore-eidolon					DESC:Restoration for an eidolon.
 Restore Eidolon (Lesser)	OUTPUTNAME:Restore Eidolon, Lesser		TYPE:Arcane														SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S								CASTTIME:3 rounds			RANGE:Touch				TARGETAREA:Eidolon touched													DURATION:Instantaneous										SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/restoreEidolon.html#_restore-eidolon,-lesser				DESC:Lesser restoration for an eidolon.
-Ride the Lightning									TYPE:Arcane			CLASSES:Sorcerer,Wizard=9							SCHOOL:Evocation						DESCRIPTOR:Electricity						COMPS:V, S								CASTTIME:1 swift action		RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds [D]																					SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rideTheLightning.html#_ride-the-lightning				DESC:Transform into electricity.
-Ride the Waves										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Sorcerer,Witch,Wizard=4				SCHOOL:Transmutation					DESCRIPTOR:Water							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) hours [D]								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rideTheWaves.html#_ride-the-waves						DESC:Target can breathe water and swim.
+Ride The Lightning									TYPE:Arcane			CLASSES:Sorcerer,Wizard=9							SCHOOL:Evocation						DESCRIPTOR:Electricity						COMPS:V, S								CASTTIME:1 swift action		RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds [D]																					SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rideTheLightning.html#_ride-the-lightning				DESC:Transform into electricity.
+Ride The Waves										TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Sorcerer,Witch,Wizard=4				SCHOOL:Transmutation					DESCRIPTOR:Water							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) hours [D]								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/rideTheWaves.html#_ride-the-waves						DESC:Target can breathe water and swim.
 Sanctify Corpse										TYPE:Arcane.Divine	CLASSES:Cleric,Inquisitor,Paladin,Witch=1					SCHOOL:Evocation						DESCRIPTOR:Good							COMPS:V, S, DF, M							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Corpse touched													DURATION:24 hours											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/sanctifyCorpse.html#_sanctify-corpse					DESC:Prevent a corpse from becoming an undead creature.
-Sands of Time										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=3					SCHOOL:Necromancy															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Touched creature or object											DURATION:(CASTERLEVEL*10) minutes or instantaneous (See text)			SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/sandsOfTime.html#_sands-of-time						DESC:Target temporarily ages.
+Sands Of Time										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=3					SCHOOL:Necromancy															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Touched creature or object											DURATION:(CASTERLEVEL*10) minutes or instantaneous (See text)			SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/sandsOfTime.html#_sands-of-time						DESC:Target temporarily ages.
 Scouring Winds										TYPE:Arcane.Divine	CLASSES:Druid,Sorcerer,Witch,Wizard=7					SCHOOL:Evocation						DESCRIPTOR:Air|Earth						COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Sandstorm in 20-ft. radius, 20 ft. high									DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:None						SPELLRES:Yes (see text)		SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/scouringWinds.html#_scouring-winds						DESC:Winds block vision and deal 3d6 damage per round.
 Sculpt Simulacrum										TYPE:Arcane			CLASSES:Sorcerer,Wizard=2							SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Simulacrum touched													DURATION:Instantaneous										SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/sculptSimulacrum.html#_sculpt-simulacrum-				DESC:Alter a simulacrum's appearance.
 Serenity											TYPE:Arcane.Divine	CLASSES:Bard=4|Cleric=5|Sorcerer,Wizard=6					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart				DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/serenity.html#_serenity							DESC:Peaceful feelings harm those attempting violence.
 Shadowbard											TYPE:Arcane			CLASSES:Bard=5									SCHOOL:Illusion		SUBSCHOOL:Shadow		DESCRIPTOR:Shadow							COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Phantom singer													DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/shadowbard.html#_shadowbard							DESC:Shadowy duplicate starts a bardic performance.
 Shadow Step											TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=4					SCHOOL:Illusion		SUBSCHOOL:Shadow		DESCRIPTOR:Shadow							COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:You															DURATION:Instantaneous										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/shadowStep.html#_shadow-step							DESC:Teleport from one shadow to another.
 Shadow Weapon										TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=1						SCHOOL:Illusion		SUBSCHOOL:Shadow		DESCRIPTOR:Shadow							COMPS:V, S								CASTTIME:1 standard action	RANGE:0 ft.				TARGETAREA:One shadow weapon													DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will disbelief (if interacted with)	SPELLRES:Yes			SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/shadowWeapon.html#_shadow-weapon						DESC:Create a quasi-real masterwork weapon.
-Shard of Chaos										TYPE:Divine			CLASSES:Cleric=2									SCHOOL:Evocation						DESCRIPTOR:Chaos							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Dart-shaped projectile of chaotic energy									DURATION:Instantaneous (1d6 rounds)								SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/shardOfChaos.html#_shard-of-chaos						DESC:Harm and possibly slow lawful creatures.
+Shard Of Chaos										TYPE:Divine			CLASSES:Cleric=2									SCHOOL:Evocation						DESCRIPTOR:Chaos							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Dart-shaped projectile of chaotic energy									DURATION:Instantaneous (1d6 rounds)								SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/shardOfChaos.html#_shard-of-chaos						DESC:Harm and possibly slow lawful creatures.
 Share Memory										TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=2					SCHOOL:Divination															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:You and one creature touched											DURATION:Instantaneous										SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/shareMemory.html#_share-memory						DESC:Share one memory with the target.
-Silk to Steel										TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=2					SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One scarf														DURATION:(CASTERLEVEL) rounds									SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/silkToSteel.html#_silk-to-steel						DESC:Use a scarf as a shield or whip.
+Silk To Steel										TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=2					SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:One scarf														DURATION:(CASTERLEVEL) rounds									SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/silkToSteel.html#_silk-to-steel						DESC:Use a scarf as a shield or whip.
 Simulacrum (Lesser)		OUTPUTNAME:Simulacrum, Lesser			TYPE:Arcane			CLASSES:Sorcerer,Wizard=4							SCHOOL:Illusion		SUBSCHOOL:Shadow											COMPS:V, S, M (50 gp powdered ruby/simulacrum HD)	CASTTIME:1 hour			RANGE:0 ft.				TARGETAREA:One duplicate creature												DURATION:(CASTERLEVEL) hours									SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/simulacrum.html#_simulacrum,-lesser					DESC:Creates a double of a weak creature.
 Skinsend											TYPE:Arcane			CLASSES:Alchemist,Sorcerer,Witch,Wizard=2					SCHOOL:Necromancy															COMPS:V, S								CASTTIME:1 minute			RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) hours [D]																					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/skinsend.html#_skinsend							DESC:Animate and possess your own skin as if it were a separate creature.
 # COMMENT: Two Duration entries; second one is DURATION:(10*CASTERLEVEL) minutes [D]
@@ -196,7 +196,7 @@ Snapdragon Fireworks									TYPE:Arcane			CLASSES:Sorcerer,Wizard=1|Bard=2					
 # COMMENT: Saving throw and spell resistance info is listed differently, but is rather long.
 Sonic Thrust										TYPE:Arcane			CLASSES:Bard=4|Sorcerer,Wizard=5						SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V, S								CASTTIME:1 standard action	RANGE:Long				TARGETAREA:See text														DURATION:Instantaneous										SAVEINFO:See text						SPELLRES:See text			SOURCEPAGE:p.239	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/sonicThrust.html#_sonic-thrust						DESC:Sound moves targets away from you.
 Soothe Construct										TYPE:Arcane.Divine	CLASSES:Cleric=4|Sorcerer,Wizard=5						SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 round			RANGE:Close				TARGETAREA:One construct													DURATION:Instantaneous										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.240	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/sootheConstruct.html#_soothe-construct					DESC:Reduce the berserk chance of a construct.
-Spear of Purity										TYPE:Divine			CLASSES:Cleric=2									SCHOOL:Evocation						DESCRIPTOR:Good							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Spear-shaped projectile of good energy									DURATION:Instantaneous (1 round)								SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.240	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/spearOfPurity.html#_spear-of-purity					DESC:Harm and possibly blind evil creatures.
+Spear Of Purity										TYPE:Divine			CLASSES:Cleric=2									SCHOOL:Evocation						DESCRIPTOR:Good							COMPS:V, S, DF							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Spear-shaped projectile of good energy									DURATION:Instantaneous (1 round)								SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.240	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/spearOfPurity.html#_spear-of-purity					DESC:Harm and possibly blind evil creatures.
 Spit Venom											TYPE:Arcane.Divine	CLASSES:Druid,Witch=3|Cleric=4						SCHOOL:Transmutation					DESCRIPTOR:Poison							COMPS:V								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One stream of venom												DURATION:Instantaneous; see text								SAVEINFO:Fortitude partial				SPELLRES:No				SOURCEPAGE:p.240	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/spitVenom.html#_spit-venom							DESC:Spit blinding black adder venom.
 Steal Voice											TYPE:Arcane			CLASSES:Bard,Sorcerer,Witch,Wizard=2					SCHOOL:Necromancy															COMPS:V								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:One creature														DURATION:Permanent [D]										SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.240	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/stealVoice.html#_steal-voice							DESC:Target gains the caster croak spellblight.
 Strangling Hair										TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=3						SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:Concentration, up to (CASTERLEVEL) rounds					SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.240	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/stranglingHair.html#_strangling-hair					DESC:Your hair animates and grapples
@@ -206,18 +206,18 @@ Summon Minor Ally										TYPE:Divine			CLASSES:Druid,Ranger=1								SCHOOL:Co
 Summon Minor Monster									TYPE:Arcane.Divine	CLASSES:Antipaladin,Bard,Cleric,Sorcerer,Witch,Wizard=1		SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S, F/DF							CASTTIME:1 round			RANGE:Close				TARGETAREA:1d3 summoned creatures												DURATION:(ConjurationSummonersCharmBonus+(CASTERLEVEL)) rounds [D]		SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/summonMinorMonster.html#_summon-minor-monster				DESC:Summon 1d3 Tiny animals
 Surmount Affliction									TYPE:Divine			CLASSES:Cleric,Inquisitor=2							SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/surmountAffliction.html#_surmount-affliction				DESC:Temporarily suppress one condition.
 # COMMENT: Save and SR lines also have "(see text)".  Omitted for length.
-Symbol of Healing										TYPE:Divine			CLASSES:Cleric=3|Paladin,Witch=4						SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (500 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will half (harmless)				SPELLRES:Yes (harmless)		SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfHealing.html#_symbol-of-healing					DESC:Triggered rune heals living creatures.
-Symbol of Mirroring									TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=2						SCHOOL:Illusion		SUBSCHOOL:Figment											COMPS:V, S, M (100 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will partial (harmless)			SPELLRES:Yes			SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfMirroring.html#_symbol-of-mirroring				DESC:Triggered rune created mirror images.
-Symbol of Revelation									TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=4					SCHOOL:Divination															COMPS:V, S, M (1,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfRevelation.html#_symbol-of-revelation				DESC:Triggered symbol reveals illusions.
-Symbol of Scrying										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=5					SCHOOL:Divination		SUBSCHOOL:Scrying											COMPS:V, S, M (1,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfScrying.html#_symbol-of-scrying					DESC:Triggered rune activates scrying sensor.
-Symbol of Sealing										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=6					SCHOOL:Abjuration						DESCRIPTOR:Force							COMPS:V, S, M (5,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:Permanent										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfSealing.html#_symbol-of-sealing					DESC:Creates triggered wall of force.
-Symbol of Slowing										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=4					SCHOOL:Transmutation														COMPS:V, S, M (1,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfSlowing.html#_symbol-of-slowing					DESC:Triggered rune slows creatures.
-Symbol of Strife										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=9					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S, M (15,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfStrife.html#_symbol-of-strife					DESC:Triggered rune makes creatures attack.
-Symbol of Vulnerability									TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=9					SCHOOL:Abjuration															COMPS:V, S, M (15,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfVulnerability.html#_symbol-of-vulnerability			DESC:Triggered rune gives penalties.
+Symbol Of Healing										TYPE:Divine			CLASSES:Cleric=3|Paladin,Witch=4						SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (500 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will half (harmless)				SPELLRES:Yes (harmless)		SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfHealing.html#_symbol-of-healing					DESC:Triggered rune heals living creatures.
+Symbol Of Mirroring									TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=2						SCHOOL:Illusion		SUBSCHOOL:Figment											COMPS:V, S, M (100 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will partial (harmless)			SPELLRES:Yes			SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfMirroring.html#_symbol-of-mirroring				DESC:Triggered rune created mirror images.
+Symbol Of Revelation									TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=4					SCHOOL:Divination															COMPS:V, S, M (1,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfRevelation.html#_symbol-of-revelation				DESC:Triggered symbol reveals illusions.
+Symbol Of Scrying										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=5					SCHOOL:Divination		SUBSCHOOL:Scrying											COMPS:V, S, M (1,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfScrying.html#_symbol-of-scrying					DESC:Triggered rune activates scrying sensor.
+Symbol Of Sealing										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=6					SCHOOL:Abjuration						DESCRIPTOR:Force							COMPS:V, S, M (5,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:Permanent										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfSealing.html#_symbol-of-sealing					DESC:Creates triggered wall of force.
+Symbol Of Slowing										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=4					SCHOOL:Transmutation														COMPS:V, S, M (1,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfSlowing.html#_symbol-of-slowing					DESC:Triggered rune slows creatures.
+Symbol Of Strife										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=9					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S, M (15,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfStrife.html#_symbol-of-strife					DESC:Triggered rune makes creatures attack.
+Symbol Of Vulnerability									TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Witch,Wizard=9					SCHOOL:Abjuration															COMPS:V, S, M (15,000 gp powdered diamond and opal)	CASTTIME:10 minutes		RANGE:0 ft.; see text		TARGETAREA:One symbol														DURATION:See text											SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/symbolOfVulnerability.html#_symbol-of-vulnerability			DESC:Triggered rune gives penalties.
 Tar Ball											TYPE:Divine			CLASSES:Druid=2									SCHOOL:Transmutation														COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:Ranged attack													DURATION:Instantaneous										SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/tarBall.html#_tar-ball								DESC:Burning tar harms target and penalizes its Dex.
 Temporary Resurrection									TYPE:Arcane			CLASSES:Sorcerer,Witch,Wizard=7						SCHOOL:Necromancy															COMPS:V, S, M (500 gp diamond dust)				CASTTIME:10 minutes		RANGE:Touch				TARGETAREA:Dead creature touched												DURATION:24 hours																								SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/temporaryResurrection.html#_temporary-resurrection			DESC:Bring a creature to life for 24 hours, after which it dies again.
 Terrible Remorse										TYPE:Arcane.Divine	CLASSES:Bard,Inquisitor=3|Cleric,Sorcerer,Wizard=4			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:1 living creature													DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/terribleRemorse.html#_terrible-remorse					DESC:Creature is compelled to harm itself.
-Touch of Slime										TYPE:Arcane.Divine	CLASSES:Alchemist,Druid,Sorcerer,Witch,Wizard=4				SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Disease						COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Living creature touched												DURATION:Instantaneous										SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/touchOfSlime.html#_touch-of-slime						DESC:Touch infests a target with green slime.
+Touch Of Slime										TYPE:Arcane.Divine	CLASSES:Alchemist,Druid,Sorcerer,Witch,Wizard=4				SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Disease						COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Living creature touched												DURATION:Instantaneous										SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/touchOfSlime.html#_touch-of-slime						DESC:Touch infests a target with green slime.
 Toxic Gift											TYPE:Arcane.Divine	CLASSES:Antipaladin=2|Sorcerer,Wizard=3					SCHOOL:Necromancy						DESCRIPTOR:Poison							COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Living creature touched												DURATION:Instantaneous; see text								SAVEINFO:Fortitude negates (see text)		SPELLRES:Yes			SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/toxicGift.html#_toxic-gift							DESC:Target suffers the effect of a poison in you.
 Transmute Blood To Acid									TYPE:Arcane			CLASSES:Sorcerer,Wizard=9							SCHOOL:Transmutation					DESCRIPTOR:Acid|Pain						COMPS:V, S, M (10 gp vial of acid)				CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One living creature												DURATION:Concentration (maximum (CASTERLEVEL/5) rounds)				SAVEINFO:Fortitude half					SPELLRES:Yes			SOURCEPAGE:p.244	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/transmuteBloodToAcid.html#_transmute-blood-to-acid			DESC:Target takes (min(CASTERLEVEL/2,12))d6 acid damage each round, and its attackers take acid damage.
 Unadulterated Loathing									TYPE:Arcane.Divine	CLASSES:Antipaladin,Bard=2|Sorcerer,Witch,Wizard=3			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) days									SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.244	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/unadulteratedLoathing.html#_unadulterated-loathing			DESC:Target is compelled to avoid another creature.
@@ -235,19 +235,19 @@ Utter Contempt										TYPE:Arcane.Divine	CLASSES:Antipaladin=3|Bard=4|Sorcerer
 Vengeful Outrage										TYPE:Arcane			CLASSES:Bard=5|Sorcerer,Witch,Wizard=6					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Language-Dependent|Mind-Affecting	COMPS:V, S								CASTTIME:1 round			RANGE:Close				TARGETAREA:One creature														DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates					SPELLRES:Yes			SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/vengefulOutrage.html#_vengeful-outrage					DESC:Target is compelled to destroy one enemy.
 Vermin Shape I										TYPE:Arcane.Divine	CLASSES:Druid,Witch=3|Alchemist,Magus,Sorcerer,Wizard=4		SCHOOL:Transmutation	SUBSCHOOL:Polymorph										COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) minutes																					SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/verminShape.html#_vermin-shape-i-						DESC:Take the form and some of the powers of a Small or Medium vermin.
 Vermin Shape II										TYPE:Arcane.Divine	CLASSES:Druid,Witch=4|Alchemist,Magus,Sorcerer,Wizard=5		SCHOOL:Transmutation	SUBSCHOOL:Polymorph										COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) minutes																					SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/verminShape.html#_vermin-shape-ii						DESC:As vermin shape, but Tiny or Large.
-Vestment of the Champion								TYPE:Divine			CLASSES:Antipaladin,Paladin=2							SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Armor or shield touched												DURATION:(CASTERLEVEL) minutes								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.247	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/vestmentOfTheChampion.html#_vestment-of-the-champion			DESC:Armor or shield gains a +(min(CASTERLEVEL/4,5)) enhancement bonus.
+Vestment Of The Champion								TYPE:Divine			CLASSES:Antipaladin,Paladin=2							SCHOOL:Abjuration															COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Armor or shield touched												DURATION:(CASTERLEVEL) minutes								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.247	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/vestmentOfTheChampion.html#_vestment-of-the-champion			DESC:Armor or shield gains a +(min(CASTERLEVEL/4,5)) enhancement bonus.
 Virtuoso Performance									TYPE:Arcane			CLASSES:Bard=4									SCHOOL:Transmutation														COMPS:V								CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds																						SOURCEPAGE:p.247	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/virtuosoPerformance.html#_virtuoso-performance				DESC:Start a second bardic performance while maintaining the first.
-Vision of Hell										TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Witch,Wizard=3				SCHOOL:Illusion		SUBSCHOOL:Glamer		DESCRIPTOR:Evil|Fear						COMPS:V, M								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:50-ft. radius emanation												DURATION:(CASTERLEVEL) minutes [D]								SAVEINFO:Will negates					SPELLRES:No				SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/visionOfHell.html#_vision-of-hell						DESC:Illusory hellscape makes creatures shaken.
+Vision Of Hell										TYPE:Arcane.Divine	CLASSES:Bard,Cleric,Sorcerer,Witch,Wizard=3				SCHOOL:Illusion		SUBSCHOOL:Glamer		DESCRIPTOR:Evil|Fear						COMPS:V, M								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:50-ft. radius emanation												DURATION:(CASTERLEVEL) minutes [D]								SAVEINFO:Will negates					SPELLRES:No				SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/visionOfHell.html#_vision-of-hell						DESC:Illusory hellscape makes creatures shaken.
 Vitriolic Mist										TYPE:Arcane			CLASSES:Alchemist,Sorcerer,Wizard=4						SCHOOL:Evocation						DESCRIPTOR:Acid							COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You															DURATION:(CASTERLEVEL) rounds [D]																					SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/vitriolicMist.html#_vitriolic-mist						DESC:This spell wreathes you in acid and causes damage to each creature that attacks you in melee protecting you from acid-based attacks.
 Vocal Alteration										TYPE:Arcane.Divine	CLASSES:Alchemist,Bard,Inquisitor,Sorcerer,Witch,Wizard=1		SCHOOL:Transmutation														COMPS:V, S								CASTTIME:1 standard action	RANGE:Close				TARGETAREA:One humanoid creature												DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates				SPELLRES:Yes			SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/vocalAlteration.html#_vocal-alteration					DESC:Disguise target's voice.
 Volcanic Storm										TYPE:Arcane.Divine	CLASSES:Druid,Sorcerer,Witch,Wizard=4					SCHOOL:Evocation						DESCRIPTOR:Fire							COMPS:V, S, M/DF							CASTTIME:1 standard action	RANGE:Long				TARGETAREA:Cylinder (20-ft. radius, 40 ft. high)									DURATION:(CASTERLEVEL) rounds [D]								SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/volcanicStorm.html#_volcanic-storm						DESC:Hot rocks deal 5d6 damage.
-Wall of Sound										TYPE:Arcane			CLASSES:Bard,Magus=4|Sorcerer,Wizard=5					SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Wall (CASTERLEVEL*20) ft. long or ring (floor(CASTERLEVEL/2)*5) ft. radius; 20 ft. high	DURATION:Concentration + (CASTERLEVEL) rounds						SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wallOfSound.html#_wall-of-sound						DESC:Sonic wall deflects and damages creatures.
+Wall Of Sound										TYPE:Arcane			CLASSES:Bard,Magus=4|Sorcerer,Wizard=5					SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V, S, M							CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Wall (CASTERLEVEL*20) ft. long or ring (floor(CASTERLEVEL/2)*5) ft. radius; 20 ft. high	DURATION:Concentration + (CASTERLEVEL) rounds						SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wallOfSound.html#_wall-of-sound						DESC:Sonic wall deflects and damages creatures.
 Wartrain Mount										TYPE:Arcane.Divine	CLASSES:Antipaladin,Inquisitor,Paladin,Ranger=1|Bard,Druid=2	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S, M							CASTTIME:1 minute			RANGE:Close				TARGETAREA:One indifferent or friendly animal										DURATION:(CASTERLEVEL) hours									SAVEINFO:None						SPELLRES:Yes			SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wartrainMount.html#_wartrain-mount						DESC:Animal gains combat training.
-Waves of Ecstasy										TYPE:Arcane.Divine	CLASSES:Bard=6|Cleric,Sorcerer,Witch,Wizard=7				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:30 ft.			TARGETAREA:Cone-shaped burst													DURATION:(CASTERLEVEL) rounds; see text							SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wavesOfEcstasy.html#_waves-of-ecstasy					DESC:Pleasure stuns and staggers creatures.
+Waves Of Ecstasy										TYPE:Arcane.Divine	CLASSES:Bard=6|Cleric,Sorcerer,Witch,Wizard=7				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion|Mind-Affecting				COMPS:V, S								CASTTIME:1 standard action	RANGE:30 ft.			TARGETAREA:Cone-shaped burst													DURATION:(CASTERLEVEL) rounds; see text							SAVEINFO:Will partial (see text)			SPELLRES:Yes			SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wavesOfEcstasy.html#_waves-of-ecstasy					DESC:Pleasure stuns and staggers creatures.
 Web Shelter											TYPE:Arcane.Divine	CLASSES:Cleric,Druid,Ranger,Sorcerer,Witch,Wizard=2			SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, DF							CASTTIME:1 minute			RANGE:Close				TARGETAREA:5 ft.-10 ft. diameter web sphere or 5 ft.-20 ft. hemisphere						DURATION:(CASTERLEVEL) hours [D]								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/webShelter.html#_web-shelter							DESC:Create a comfortable shelter made of webbing.
 Witness											TYPE:Arcane.Divine	CLASSES:Bard,Inquisitor,Witch=3						SCHOOL:Divination		SUBSCHOOL:Scrying											COMPS:V, S								CASTTIME:1 standard action	RANGE:Long				TARGETAREA:One living creature												DURATION:(CASTERLEVEL) minutes [D]								SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/witness.html#_witness								DESC:See through the target's eyes and ears.
 Wooden Phalanx										TYPE:Arcane.Divine	CLASSES:Cleric,Sorcerer,Wizard=9						SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S								CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:Three or more wood golems, no two of which can be more than 30 ft. apart (see text)		DURATION:(CASTERLEVEL) hours [D]								SAVEINFO:None						SPELLRES:No				SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/woodenPhalanx.html#_wooden-phalanx						DESC:Creates 1d4+2 temporary wood golems to fight for you.
-Word of Resolve										TYPE:Divine			CLASSES:Paladin=1									SCHOOL:Abjuration															COMPS:V, DF								CASTTIME:1 immediate action	RANGE:Close				TARGETAREA:One ally														DURATION:Instantaneous										SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wordOfResolve.html#_word-of-resolve					DESC:Ally rerolls a save against charm or fear.
+Word Of Resolve										TYPE:Divine			CLASSES:Paladin=1									SCHOOL:Abjuration															COMPS:V, DF								CASTTIME:1 immediate action	RANGE:Close				TARGETAREA:One ally														DURATION:Instantaneous										SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)		SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/wordOfResolve.html#_word-of-resolve					DESC:Ally rerolls a save against charm or fear.
 Youthful Appearance									TYPE:Arcane			CLASSES:Alchemist,Bard,Sorcerer,Witch,Wizard=1				SCHOOL:Transmutation	SUBSCHOOL:Polymorph										COMPS:V, S								CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Creature touched													DURATION:(CASTERLEVEL) hours																						SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spells/youthfulAppearance.html#_youthful-appearance				DESC:Target appears younger.
 
 ###Block: Bardic Masterpiece spell placeholders
@@ -273,7 +273,7 @@ Masterpiece (Winds of the Five Heavens)			CLASSES:Bard=4[PRESKILL:1,Perform (Act
 # Spell Name					Type		School			Sub-School			Components		Casting Time			Range		Item		Target Area or Effect												Duration					Save Info						Spell Resistance		Source Page		Source Pub Link													Description
 Major Creation (Metal Items Only)		TYPE:Divine	SCHOOL:Conjuration	SUBSCHOOL:Creation	COMPS:V, S, M	CASTTIME:10 minutes		RANGE:Close			TARGETAREA:Unattended, nonmagical object of nonliving metal, up to (CASTERLEVEL) cu. ft.	DURATION:See text				SAVEINFO:None					SPELLRES:No			SOURCEPAGE:p.311	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/majorCreation.html#_major-creation	DESC:This spell functions like minor creation, except that you can only create an object of metal.
 Minor Creation (Wood Items Only)		TYPE:Divine	SCHOOL:Conjuration	SUBSCHOOL:Creation	COMPS:V, S, M	CASTTIME:1 minute			RANGE:0 ft.			TARGETAREA:Unattended, nonmagical object of nonliving wood, up to (CASTERLEVEL) cu. ft.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None					SPELLRES:No			SOURCEPAGE:p.313	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/minorCreation.html#_minor-creation	DESC:You create a nonmagical, unattended object of nonliving wood.
-Statue (Metal Statue Instead of Iron)	TYPE:Divine	SCHOOL:Transmutation					COMPS:V, S, M	CASTTIME:1 round			RANGE:Touch			TARGETAREA:Creature touched											DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:Will negates (harmless)		SPELLRES:Yes (harmless)	SOURCEPAGE:p.349	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/statue.html#_statue			DESC:A statue spell turns the subject to solid metal, along with any garments and equipment worn or carried.
+Statue (Metal Statue Instead Of Iron)	TYPE:Divine	SCHOOL:Transmutation					COMPS:V, S, M	CASTTIME:1 round			RANGE:Touch			TARGETAREA:Creature touched											DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:Will negates (harmless)		SPELLRES:Yes (harmless)	SOURCEPAGE:p.349	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/statue.html#_statue			DESC:A statue spell turns the subject to solid metal, along with any garments and equipment worn or carried.
 Resist Energy (Cold Only)			TYPE:Arcane	SCHOOL:Abjuration						COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:Creature touched											DURATION:(CASTERLEVEL*10) minutes	SAVEINFO:Fortitude negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.334	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/resistEnergy.html#_resist-energy	DESC:This abjuration grants a creature limited protection from cold damage.
 
 ###Block: Adds the appropriate Bottled Ooze variation to the Alchemist spell list (i.e. Extracts)
@@ -291,13 +291,13 @@ Bottled Ooze (6)	OUTPUTNAME:Bottled Ooze	CLASSES:Alchemist=6	COMPS:S	CASTTIME:1 
 # Spell Name							Type				Domains granting the spell	School			Sub-School					Descriptor		Components		Casting Time			Range			Target Area or Effect											Duration					Save Info					Spell Resistance		Source Page		Source Pub Link															Description
 Animal Shapes (Aquatic Creatures Only)			TYPE:Divine			DOMAINS:Aquatic=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into an aquatic animal of your choice.
 Animal Shapes (Amphibians Only)				TYPE:Divine			DOMAINS:Frog=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into an amphibian of your choice.
-Animal Shapes (Apes and Monkeys Only)			TYPE:Divine			DOMAINS:Monkey=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into an ape or monkey of your choice.
+Animal Shapes (Apes And Monkeys Only)			TYPE:Divine			DOMAINS:Monkey=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into an ape or monkey of your choice.
 Animal Shapes (Birds Only)					TYPE:Divine			DOMAINS:Eagle=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into a bird of your choice.
 Animal Shapes (Canines Only)					TYPE:Divine			DOMAINS:Wolf=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into a canine of your choice.
-Animal Shapes (Reptiles and Snakes Only)			TYPE:Divine			DOMAINS:Serpent=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into a reptile or snake of your choice.
-Statue (looking like a stalagmite or stalactite)	TYPE:Arcane			DOMAINS:Cave=7			SCHOOL:Transmutation										COMPS:V, S, M	CASTTIME:1 round			RANGE:Touch		TARGETAREA:Creature touched										DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.349	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/statue.html#_statue					DESC:A statue spell turns the subject to solid stone, along with any garments and equipment worn or carried.
-Summon Nature's Ally V (Dire Ape or Girallon only)	TYPE:Divine			DOMAINS:Monkey=5			SCHOOL:Conjuration	SUBSCHOOL:Summoning [see text]				COMPS:V, S, DF	CASTTIME:1 round			RANGE:Close		TARGETAREA:One summoned creature									DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.354	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/summonNatureSAlly.html#_summon-nature-s-ally-v	DESC:This spell functions like summon nature's ally I, except that you can summon one 5th-level creature, 1d3 4th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind.
-Transmute Rock to Mud (loose sand instead of mud)	TYPE:Arcane.Divine	DOMAINS:Desert=5			SCHOOL:Transmutation							DESCRIPTOR:Earth	COMPS:V, S, M/DF	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:Up to (CASTERLEVEL*2) 10-ft. cubes [S]						DURATION:Permanent; see text		SAVEINFO:See text				SPELLRES:No			SOURCEPAGE:p.361	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/transmuteRockToMud.html#_transmute-rock-to-mud	DESC:This spell turns natural, uncut, or unworked rock of any sort into an equal volume of mud.
+Animal Shapes (Reptiles And Snakes Only)			TYPE:Divine			DOMAINS:Serpent=7			SCHOOL:Transmutation	SUBSCHOOL:Polymorph						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Up to (CASTERLEVEL) willing creatures, all within 30 ft. of each other.	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None, see text			SPELLRES:Yes (harmless)	SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/animalShapes.html#_animal-shapes			DESC:You change the form of up to (CASTERLEVEL) willing creatures into a reptile or snake of your choice.
+Statue (Looking Like A Stalagmite Or Stalactite)	TYPE:Arcane			DOMAINS:Cave=7			SCHOOL:Transmutation										COMPS:V, S, M	CASTTIME:1 round			RANGE:Touch		TARGETAREA:Creature touched										DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.349	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/statue.html#_statue					DESC:A statue spell turns the subject to solid stone, along with any garments and equipment worn or carried.
+Summon Nature's Ally V (Dire Ape Or Girallon Only)	TYPE:Divine			DOMAINS:Monkey=5			SCHOOL:Conjuration	SUBSCHOOL:Summoning [see text]				COMPS:V, S, DF	CASTTIME:1 round			RANGE:Close		TARGETAREA:One summoned creature									DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.354	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/summonNatureSAlly.html#_summon-nature-s-ally-v	DESC:This spell functions like summon nature's ally I, except that you can summon one 5th-level creature, 1d3 4th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind.
+Transmute Rock To Mud (Loose Sand Instead Of Mud)	TYPE:Arcane.Divine	DOMAINS:Desert=5			SCHOOL:Transmutation							DESCRIPTOR:Earth	COMPS:V, S, M/DF	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:Up to (CASTERLEVEL*2) 10-ft. cubes [S]						DURATION:Permanent; see text		SAVEINFO:See text				SPELLRES:No			SOURCEPAGE:p.361	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/transmuteRockToMud.html#_transmute-rock-to-mud	DESC:This spell turns natural, uncut, or unworked rock of any sort into an equal volume of mud.
 
 # COMMENT: Apparently, for a domain to get any spells, at least one needs to have an appropriate "DOMAINS:" tag in the spell.
 Frostbite.MOD											DOMAINS:Arctic=1
@@ -308,10 +308,10 @@ Hydraulic Push.MOD										DOMAINS:Swamp=1
 
 ###Block: Sorcerer Bloodlines Specific Spells
 # Spell Name				Type		School			Sub-School			Components		Casting Time			Range		Target Area or Effect										Duration			Save Info			Spell Resistance	Source Page		Source Pub Link												Description
-Plane Shift (Plane of Air Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Air.
-Plane Shift (Plane of Fire Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Fire.
-Plane Shift (Plane of Water Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Water.
-Plane Shift (Plane of Earth Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Earth.
+Plane Shift (Plane Of Air Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Air.
+Plane Shift (Plane Of Fire Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Fire.
+Plane Shift (Plane Of Water Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Water.
+Plane Shift (Plane Of Earth Only)	TYPE:Arcane	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched, or up to eight willing creatures joining hands	DURATION:Instantaneous	SAVEINFO:Will negates	SPELLRES:Yes	SOURCEPAGE:p.322	SOURCELINK:http://paizo.com/pathfinderRPG/prd/spells/planeShift.html#_plane-shift	DESC:You move yourself or some other creature to or from the Plane of Earth.
 
 
 ###BLOCK: Spell
@@ -330,7 +330,7 @@ Light.MOD				CLASSES:Magus=0
 Mage Hand.MOD			CLASSES:Magus=0
 Open/Close.MOD			CLASSES:Magus=0
 Prestidigitation.MOD		CLASSES:Magus=0
-Ray of Frost.MOD			CLASSES:Magus=0
+Ray Of Frost.MOD			CLASSES:Magus=0
 Read Magic.MOD			CLASSES:Magus=0
 
 # 1st-Level Magus Spells
@@ -347,7 +347,7 @@ Magic Missile.MOD			CLASSES:Magus=1
 Magic Weapon.MOD			CLASSES:Magus=1
 Mount.MOD				CLASSES:Magus=1
 Obscuring Mist.MOD		CLASSES:Magus=1
-Ray of Enfeeblement.MOD		CLASSES:Magus=1
+Ray Of Enfeeblement.MOD		CLASSES:Magus=1
 Reduce Person.MOD			CLASSES:Magus=1
 Shield.MOD				CLASSES:Magus=1
 Shocking Grasp.MOD		CLASSES:Magus=1
@@ -366,7 +366,7 @@ Darkness.MOD			CLASSES:Magus=2
 Flaming Sphere.MOD		CLASSES:Magus=2
 Fog Cloud.MOD			CLASSES:Magus=2
 Glitterdust.MOD			CLASSES:Magus=2
-Gust of Wind.MOD			CLASSES:Magus=2
+Gust Of Wind.MOD			CLASSES:Magus=2
 Invisibility.MOD			CLASSES:Magus=2
 Levitate.MOD			CLASSES:Magus=2
 Minor Image.MOD			CLASSES:Magus=2
@@ -394,7 +394,7 @@ Lightning Bolt.MOD		CLASSES:Magus=3
 Magic Weapon (Greater).MOD	CLASSES:Magus=3
 Major Image.MOD			CLASSES:Magus=3
 Phantom Steed.MOD			CLASSES:Magus=3
-Ray of Exhaustion.MOD		CLASSES:Magus=3
+Ray Of Exhaustion.MOD		CLASSES:Magus=3
 Sleet Storm.MOD			CLASSES:Magus=3
 Slow.MOD				CLASSES:Magus=3
 Stinking Cloud.MOD		CLASSES:Magus=3
@@ -416,21 +416,21 @@ Reduce Person (Mass).MOD	CLASSES:Magus=4
 Shout.MOD				CLASSES:Magus=4
 Solid Fog.MOD			CLASSES:Magus=4
 Stoneskin.MOD			CLASSES:Magus=4
-Wall of Fire.MOD			CLASSES:Magus=4
-Wall of Ice.MOD			CLASSES:Magus=4
+Wall Of Fire.MOD			CLASSES:Magus=4
+Wall Of Ice.MOD			CLASSES:Magus=4
 
 # 5th-Level Magus Spells
 Baleful Polymorph.MOD		CLASSES:Magus=5
 Beast Shape III.MOD		CLASSES:Magus=5
 Cloudkill.MOD			CLASSES:Magus=5
-Cone of Cold.MOD			CLASSES:Magus=5
+Cone Of Cold.MOD			CLASSES:Magus=5
 Elemental Body II.MOD		CLASSES:Magus=5
 Interposing Hand.MOD		CLASSES:Magus=5
 Overland Flight.MOD		CLASSES:Magus=5
 Telekinesis.MOD			CLASSES:Magus=5
 Teleport.MOD			CLASSES:Magus=5
-Wall of Force.MOD			CLASSES:Magus=5
-Wall of Stone.MOD			CLASSES:Magus=5
+Wall Of Force.MOD			CLASSES:Magus=5
+Wall Of Stone.MOD			CLASSES:Magus=5
 
 # 6th-Level Magus Spells
 Acid Fog.MOD			CLASSES:Magus=6
@@ -442,15 +442,15 @@ Chain Lightning.MOD		CLASSES:Magus=6
 Disintegrate.MOD			CLASSES:Magus=6
 Dispel Magic (Greater).MOD	CLASSES:Magus=6
 Elemental Body III.MOD		CLASSES:Magus=6
-Flesh to Stone.MOD		CLASSES:Magus=6
+Flesh To Stone.MOD		CLASSES:Magus=6
 Forceful Hand.MOD			CLASSES:Magus=6
-Form of the Dragon I.MOD	CLASSES:Magus=6
+Form Of The Dragon I.MOD	CLASSES:Magus=6
 Freezing Sphere.MOD		CLASSES:Magus=6
 Mislead.MOD				CLASSES:Magus=6
-Stone to Flesh.MOD		CLASSES:Magus=6
+Stone To Flesh.MOD		CLASSES:Magus=6
 Transformation.MOD		CLASSES:Magus=6
 True Seeing.MOD			CLASSES:Magus=6
-Wall of Iron.MOD			CLASSES:Magus=6
+Wall Of Iron.MOD			CLASSES:Magus=6
 
 
 ###Block: Advanced Player's Guide Magus Spells
@@ -472,7 +472,7 @@ Stone Call.MOD		CLASSES:Magus=2
 
 # 3rd-Level Magus Spells
 Aqueous Orb.MOD		CLASSES:Magus=3
-Cloak of Winds.MOD	CLASSES:Magus=3
+Cloak Of Winds.MOD	CLASSES:Magus=3
 Elemental Aura.MOD	CLASSES:Magus=3
 Hydraulic Torrent.MOD	CLASSES:Magus=3
 Versatile Weapon.MOD	CLASSES:Magus=3
@@ -482,7 +482,7 @@ Ball Lightning.MOD	CLASSES:Magus=4
 Detonate.MOD		CLASSES:Magus=4
 Dragon's Breath.MOD	CLASSES:Magus=4
 Firefall.MOD		CLASSES:Magus=4
-River of Wind.MOD		CLASSES:Magus=4
+River Of Wind.MOD		CLASSES:Magus=4
 
 # 5th-Level Magus Spells
 Fire Snake.MOD		CLASSES:Magus=5
@@ -497,10 +497,10 @@ Sirocco.MOD			CLASSES:Magus=6
 # Spell Name				Descriptor
 Accelerate Poison.MOD			DESCRIPTOR:Poison
 Antipathy.MOD				DESCRIPTOR:Emotion
-Aura of Greater Courage.MOD		DESCRIPTOR:Emotion
+Aura Of Greater Courage.MOD		DESCRIPTOR:Emotion
 Bane.MOD					DESCRIPTOR:Emotion
 Bestow Curse.MOD				DESCRIPTOR:Curse
-Blessing of Courage and Life.MOD	DESCRIPTOR:Emotion
+Blessing Of Courage And Life.MOD	DESCRIPTOR:Emotion
 Blindness/Deafness.MOD			DESCRIPTOR:Curse
 Brand.MOD					DESCRIPTOR:Curse
 Brand (Greater).MOD			DESCRIPTOR:Curse
@@ -513,12 +513,12 @@ Cloudkill.MOD				DESCRIPTOR:Poison
 Contagion.MOD				DESCRIPTOR:Disease
 Crafter's Curse.MOD			DESCRIPTOR:Curse
 Crushing Despair.MOD			DESCRIPTOR:Emotion
-Cup of Dust.MOD				DESCRIPTOR:Curse
+Cup Of Dust.MOD				DESCRIPTOR:Curse
 Doom.MOD					DESCRIPTOR:Emotion
 Euphoric Tranquility.MOD		DESCRIPTOR:Emotion
 Eyebite.MOD					DESCRIPTOR:Emotion|Pain
 Fear.MOD					DESCRIPTOR:Emotion
-Feast of Ashes.MOD			DESCRIPTOR:Curse
+Feast Of Ashes.MOD			DESCRIPTOR:Curse
 Forced Repentance.MOD			DESCRIPTOR:Emotion
 Geas (Lesser).MOD				DESCRIPTOR:Curse
 Geas/Quest.MOD				DESCRIPTOR:Curse
@@ -526,7 +526,7 @@ Ghoul Touch.MOD				DESCRIPTOR:Poison
 Good Hope.MOD				DESCRIPTOR:Emotion
 Hunter's Howl.MOD				DESCRIPTOR:Emotion
 Ill Omen.MOD				DESCRIPTOR:Curse
-Mark of Justice.MOD			DESCRIPTOR:Curse
+Mark Of Justice.MOD			DESCRIPTOR:Curse
 Moonstruck.MOD				DESCRIPTOR:Emotion
 Nature's Exile.MOD			DESCRIPTOR:Curse
 Oracle's Burden.MOD			DESCRIPTOR:Curse
@@ -537,7 +537,7 @@ Phantasmal Revenge.MOD			DESCRIPTOR:Emotion
 Poison.MOD					DESCRIPTOR:Poison
 Pox Pustules.MOD				DESCRIPTOR:Disease
 Project Image.MOD				DESCRIPTOR:Shadow
-Putrefy Food and Drink.MOD		DESCRIPTOR:Poison
+Putrefy Food And Drink.MOD		DESCRIPTOR:Poison
 Rage.MOD					DESCRIPTOR:Emotion
 Rally Point.MOD				DESCRIPTOR:Emotion
 Repel Vermin.MOD				DESCRIPTOR:Pain
@@ -552,18 +552,18 @@ Shadow Evocation (Greater).MOD	DESCRIPTOR:Shadow
 Shadow Walk.MOD				DESCRIPTOR:Shadow
 Shared Wrath.MOD				DESCRIPTOR:Emotion
 Stinking Cloud.MOD			DESCRIPTOR:Poison
-Symbol of Fear.MOD			DESCRIPTOR:Emotion
-Symbol of Pain.MOD			DESCRIPTOR:Pain
+Symbol Of Fear.MOD			DESCRIPTOR:Emotion
+Symbol Of Pain.MOD			DESCRIPTOR:Pain
 Sympathy.MOD				DESCRIPTOR:Emotion
-Transmute Potion to Poison.MOD	DESCRIPTOR:Poison
+Transmute Potion To Poison.MOD	DESCRIPTOR:Poison
 Venomous Bolt.MOD				DESCRIPTOR:Poison
-Weapon of Awe.MOD				DESCRIPTOR:Emotion
+Weapon Of Awe.MOD				DESCRIPTOR:Emotion
 Weird.MOD					DESCRIPTOR:Emotion
 Wrath.MOD					DESCRIPTOR:Emotion
 
 
-###Block: Metal and Wood Elemental Spells
-#Block: Metal Elemental Spells
+###block: Metal And Wood Elemental Spells
+#block: Metal Elemental Spells
 # Spell Name			Descriptor
 Mending.MOD				DESCRIPTOR:MetalSchool
 Gravity Bow.MOD			DESCRIPTOR:MetalSchool
@@ -573,7 +573,7 @@ Defensive Shock.MOD		DESCRIPTOR:MetalSchool
 Glitterdust.MOD			DESCRIPTOR:MetalSchool
 Make Whole.MOD			DESCRIPTOR:MetalSchool
 Shatter.MOD				DESCRIPTOR:MetalSchool
-Silk to Steel.MOD			DESCRIPTOR:MetalSchool
+Silk To Steel.MOD			DESCRIPTOR:MetalSchool
 Chill Metal.MOD			DESCRIPTOR:MetalSchool
 Heat Metal.MOD			DESCRIPTOR:MetalSchool
 Lightning Bolt.MOD		DESCRIPTOR:MetalSchool
@@ -591,30 +591,30 @@ Soothe Construct.MOD		DESCRIPTOR:MetalSchool
 Unbreakable Construct.MOD	DESCRIPTOR:MetalSchool
 Chain Lightning.MOD		DESCRIPTOR:MetalSchool
 Disintegrate.MOD			DESCRIPTOR:MetalSchool
-Wall of Iron.MOD			DESCRIPTOR:MetalSchool
+Wall Of Iron.MOD			DESCRIPTOR:MetalSchool
 Control Construct.MOD		DESCRIPTOR:MetalSchool
-# COMMENT: Lightning Rod is listed as a Metal-type spell, but doesn't exist in the book (or Core, or APG)
-#Lightning Rod.MOD		DESCRIPTOR:MetalSchool
+# Comment: Lightning Rod Is Listed as a Metal-type spell, but doesn't exist in the book (or Core, or APG)
+#lightning Rod.MOD		DESCRIPTOR:MetalSchool
 Statue.MOD				DESCRIPTOR:MetalSchool
 Call Construct.MOD		DESCRIPTOR:MetalSchool
 Iron Body.MOD			DESCRIPTOR:MetalSchool
 Shout (Greater).MOD		DESCRIPTOR:MetalSchool
 Stormbolts.MOD			DESCRIPTOR:MetalSchool
 Meteor Swarm.MOD			DESCRIPTOR:MetalSchool
-Repel Metal or Stone.MOD	DESCRIPTOR:MetalSchool
-Ride the Lightning.MOD		DESCRIPTOR:MetalSchool
+Repel Metal Or Stone.MOD	DESCRIPTOR:MetalSchool
+Ride The Lightning.MOD		DESCRIPTOR:MetalSchool
 
-#Block: Wood Elemental spells
+#block: Wood Elemental Spells
 Light.MOD				DESCRIPTOR:WoodSchool
 Alter Winds.MOD			DESCRIPTOR:WoodSchool
 Animate Rope.MOD			DESCRIPTOR:WoodSchool
 Charm Person.MOD			DESCRIPTOR:WoodSchool
 Cat's Grace.MOD			DESCRIPTOR:WoodSchool
 Entangle.MOD			DESCRIPTOR:WoodSchool
-Protection from Arrows.MOD	DESCRIPTOR:WoodSchool
+Protection From Arrows.MOD	DESCRIPTOR:WoodSchool
 Web.MOD				DESCRIPTOR:WoodSchool
 Whispering Wind.MOD		DESCRIPTOR:WoodSchool
-Cloak of Winds.MOD		DESCRIPTOR:WoodSchool
+Cloak Of Winds.MOD		DESCRIPTOR:WoodSchool
 Tongues.MOD				DESCRIPTOR:WoodSchool
 Tree Shape.MOD			DESCRIPTOR:WoodSchool
 Wind Wall.MOD			DESCRIPTOR:WoodSchool
@@ -622,7 +622,7 @@ Charm Monster.MOD			DESCRIPTOR:WoodSchool
 Hallucinatory Terrain.MOD	DESCRIPTOR:WoodSchool
 Minor Creation.MOD		DESCRIPTOR:WoodSchool
 Plant Growth.MOD			DESCRIPTOR:WoodSchool
-River of Wind.MOD			DESCRIPTOR:WoodSchool
+River Of Wind.MOD			DESCRIPTOR:WoodSchool
 Secure Shelter.MOD		DESCRIPTOR:WoodSchool
 Sirocco.MOD				DESCRIPTOR:WoodSchool
 Command Plants.MOD		DESCRIPTOR:WoodSchool
@@ -639,10 +639,10 @@ Liveoak.MOD				DESCRIPTOR:WoodSchool
 Scouring Winds.MOD		DESCRIPTOR:WoodSchool
 Charm Monster (Mass).MOD	DESCRIPTOR:WoodSchool
 Euphoric Tranquility.MOD	DESCRIPTOR:WoodSchool
-Transmute Metal to Wood.MOD	DESCRIPTOR:WoodSchool
+Transmute Metal To Wood.MOD	DESCRIPTOR:WoodSchool
 Control Plants.MOD		DESCRIPTOR:WoodSchool
 Refuge.MOD				DESCRIPTOR:WoodSchool
-Winds of Vengeance.MOD		DESCRIPTOR:WoodSchool
+Winds Of Vengeance.MOD		DESCRIPTOR:WoodSchool
 
 ###Block: ITEM:Potion
 # Spell Name				Item
@@ -659,31 +659,31 @@ Anticipate Peril.MOD			ITEM:Potion
 Arboreal Hammer.MOD			ITEM:Potion
 Arcana Theft.MOD				ITEM:Potion
 Archon's Aura.MOD				ITEM:Potion
-Arrow of Law.MOD				ITEM:Potion
+Arrow Of Law.MOD				ITEM:Potion
 Ash Storm.MOD				ITEM:Potion
 Astral Projection (Lesser).MOD	ITEM:Potion
 Atavism.MOD					ITEM:Potion
 Atavism (Mass).MOD			ITEM:Potion
-Aura of Doom.MOD				ITEM:Potion
+Aura Of Doom.MOD				ITEM:Potion
 Badger's Ferocity.MOD			ITEM:Potion
 Battlemind Link.MOD			ITEM:Potion
-Bestow Grace of the Champion.MOD	ITEM:Potion
-Blade of Bright Victory.MOD		ITEM:Potion
-Blade of Dark Triumph.MOD		ITEM:Potion
-Blessing of the Mole.MOD		ITEM:Potion
+Bestow Grace Of The Champion.MOD	ITEM:Potion
+Blade Of Bright Victory.MOD		ITEM:Potion
+Blade Of Dark Triumph.MOD		ITEM:Potion
+Blessing Of The Mole.MOD		ITEM:Potion
 Blood Crow Strike.MOD			ITEM:Potion
 Blood Mist.MOD				ITEM:Potion
 Blood Transcription.MOD			ITEM:Potion
 Boiling Blood.MOD				ITEM:Potion
 Bungle.MOD					ITEM:Potion
 Burrow.MOD					ITEM:Potion
-Burst of Nettles.MOD			ITEM:Potion
+Burst Of Nettles.MOD			ITEM:Potion
 Cackling Skull.MOD			ITEM:Potion
 Call Construct.MOD			ITEM:Potion
-Cape of Wasps.MOD				ITEM:Potion
+Cape Of Wasps.MOD				ITEM:Potion
 Caustic Eruption.MOD			ITEM:Potion
-Chord of Shards.MOD			ITEM:Potion
-Circle of Clarity.MOD			ITEM:Potion
+Chord Of Shards.MOD			ITEM:Potion
+Circle Of Clarity.MOD			ITEM:Potion
 Cold Ice Strike.MOD			ITEM:Potion
 Compassionate Ally.MOD			ITEM:Potion
 Conjure Black Pudding.MOD		ITEM:Potion
@@ -696,13 +696,13 @@ Countless Eyes.MOD			ITEM:Potion
 Create Demiplane.MOD			ITEM:Potion
 Create Demiplane (Greater).MOD	ITEM:Potion
 Create Demiplane (Lesser).MOD		ITEM:Potion
-Curse of Disgust.MOD			ITEM:Potion
-Curse of Magic Negation.MOD		ITEM:Potion
+Curse Of Disgust.MOD			ITEM:Potion
+Curse Of Magic Negation.MOD		ITEM:Potion
 Curse (Major).MOD				ITEM:Potion
 Cursed Earth.MOD				ITEM:Potion
 Cushioning Bands.MOD			ITEM:Potion
-Dance of a Hundred Cuts.MOD		ITEM:Potion
-Dance of a Thousand Cuts.MOD		ITEM:Potion
+Dance Of A Hundred Cuts.MOD		ITEM:Potion
+Dance Of A Thousand Cuts.MOD		ITEM:Potion
 Darkvision (Greater).MOD		ITEM:Potion
 Daze (Mass).MOD				ITEM:Potion
 Decompose Corpse.MOD			ITEM:Potion
@@ -744,14 +744,14 @@ Haunting Mists.MOD			ITEM:Potion
 Hex Ward.MOD				ITEM:Potion
 Holy Ice.MOD				ITEM:Potion
 Holy Shield.MOD				ITEM:Potion
-Horn of Pursuit.MOD			ITEM:Potion
+Horn Of Pursuit.MOD			ITEM:Potion
 Howling Agony.MOD				ITEM:Potion
 Ice Body.MOD				ITEM:Potion
 Ice Crystal Teleport.MOD		ITEM:Potion
 Icicle Dagger.MOD				ITEM:Potion
 Icy Prison.MOD				ITEM:Potion
 Icy Prison (Mass).MOD			ITEM:Potion
-Imbue with Aura.MOD			ITEM:Potion
+Imbue With Aura.MOD			ITEM:Potion
 Interplanetary Teleport.MOD		ITEM:Potion
 Interrogation.MOD				ITEM:Potion
 Interrogation (Greater).MOD		ITEM:Potion
@@ -759,7 +759,7 @@ Joyful Rapture.MOD			ITEM:Potion
 Ki Arrow.MOD				ITEM:Potion
 Ki Leech.MOD				ITEM:Potion
 Ki Shout.MOD				ITEM:Potion
-Know the Enemy.MOD			ITEM:Potion
+Know The Enemy.MOD			ITEM:Potion
 Leashed Shackles.MOD			ITEM:Potion
 Lend Judgment.MOD				ITEM:Potion
 Lend Judgment (Greater).MOD		ITEM:Potion
@@ -780,7 +780,7 @@ Monstrous Physique IV.MOD		ITEM:Potion
 Murderous Command.MOD			ITEM:Potion
 Oppressive Boredom.MOD			ITEM:Potion
 Oracle's Vessel.MOD			ITEM:Potion
-Orb of the Void.MOD			ITEM:Potion
+Orb Of The Void.MOD			ITEM:Potion
 Overwhelming Grief.MOD			ITEM:Potion
 Overwhelming Presence.MOD		ITEM:Potion
 Pernicious Poison.MOD			ITEM:Potion
@@ -792,13 +792,13 @@ Play Instrument.MOD			ITEM:Potion
 Polar Midnight.MOD			ITEM:Potion
 Polypurpose Panacea.MOD			ITEM:Potion
 Possess Object.MOD			ITEM:Potion
-Prediction of Failure.MOD		ITEM:Potion
+Prediction Of Failure.MOD		ITEM:Potion
 Primal Scream.MOD				ITEM:Potion
 Protective Penumbra.MOD			ITEM:Potion
-Rain of Frogs.MOD				ITEM:Potion
+Rain Of Frogs.MOD				ITEM:Potion
 Raise Animal Companion.MOD		ITEM:Potion
 Rapid Repair.MOD				ITEM:Potion
-Ray of Sickening.MOD			ITEM:Potion
+Ray Of Sickening.MOD			ITEM:Potion
 Reckless Infatuation.MOD		ITEM:Potion
 Remove Sickness.MOD			ITEM:Potion
 Reprobation.MOD				ITEM:Potion
@@ -806,26 +806,26 @@ Resonating Word.MOD			ITEM:Potion
 Restore Corpse.MOD			ITEM:Potion
 Restore Eidolon.MOD			ITEM:Potion
 Restore Eidolon (Lesser).MOD		ITEM:Potion
-Ride the Waves.MOD			ITEM:Potion
-Ride the Lightning.MOD			ITEM:Potion
+Ride The Waves.MOD			ITEM:Potion
+Ride The Lightning.MOD			ITEM:Potion
 Sanctify Corpse.MOD			ITEM:Potion
-Sands of Time.MOD				ITEM:Potion
+Sands Of Time.MOD				ITEM:Potion
 Scouring Winds.MOD			ITEM:Potion
 Sculpt Simulacrum.MOD			ITEM:Potion
 Serenity.MOD				ITEM:Potion
 Shadow Step.MOD				ITEM:Potion
 Shadow Weapon.MOD				ITEM:Potion
 Shadowbard.MOD				ITEM:Potion
-Shard of Chaos.MOD			ITEM:Potion
+Shard Of Chaos.MOD			ITEM:Potion
 Share Memory.MOD				ITEM:Potion
-Silk to Steel.MOD				ITEM:Potion
+Silk To Steel.MOD				ITEM:Potion
 Simulacrum (Lesser).MOD			ITEM:Potion
 Skinsend.MOD				ITEM:Potion
 Smug Narcissism.MOD			ITEM:Potion
 Snapdragon Fireworks.MOD		ITEM:Potion
 Sonic Thrust.MOD				ITEM:Potion
 Soothe Construct.MOD			ITEM:Potion
-Spear of Purity.MOD			ITEM:Potion
+Spear Of Purity.MOD			ITEM:Potion
 Spit Venom.MOD				ITEM:Potion
 Steal Voice.MOD				ITEM:Potion
 Strangling Hair.MOD			ITEM:Potion
@@ -834,18 +834,18 @@ Summon Froghemoth.MOD			ITEM:Potion
 Summon Minor Ally.MOD			ITEM:Potion
 Summon Minor Monster.MOD		ITEM:Potion
 Surmount Affliction.MOD			ITEM:Potion
-Symbol of Healing.MOD			ITEM:Potion
-Symbol of Mirroring.MOD			ITEM:Potion
-Symbol of Revelation.MOD		ITEM:Potion
-Symbol of Scrying.MOD			ITEM:Potion
-Symbol of Sealing.MOD			ITEM:Potion
-Symbol of Slowing.MOD			ITEM:Potion
-Symbol of Strife.MOD			ITEM:Potion
-Symbol of Vulnerability.MOD		ITEM:Potion
+Symbol Of Healing.MOD			ITEM:Potion
+Symbol Of Mirroring.MOD			ITEM:Potion
+Symbol Of Revelation.MOD		ITEM:Potion
+Symbol Of Scrying.MOD			ITEM:Potion
+Symbol Of Sealing.MOD			ITEM:Potion
+Symbol Of Slowing.MOD			ITEM:Potion
+Symbol Of Strife.MOD			ITEM:Potion
+Symbol Of Vulnerability.MOD		ITEM:Potion
 Tar Ball.MOD				ITEM:Potion
 Temporary Resurrection.MOD		ITEM:Potion
 Terrible Remorse.MOD			ITEM:Potion
-Touch of Slime.MOD			ITEM:Potion
+Touch Of Slime.MOD			ITEM:Potion
 Toxic Gift.MOD				ITEM:Potion
 Transmute Blood To Acid.MOD		ITEM:Potion
 Unadulterated Loathing.MOD		ITEM:Potion
@@ -863,19 +863,19 @@ Utter Contempt.MOD			ITEM:Potion
 Vengeful Outrage.MOD			ITEM:Potion
 Vermin Shape I.MOD			ITEM:Potion
 Vermin Shape II.MOD			ITEM:Potion
-Vestment of the Champion.MOD		ITEM:Potion
+Vestment Of The Champion.MOD		ITEM:Potion
 Virtuoso Performance.MOD		ITEM:Potion
-Vision of Hell.MOD			ITEM:Potion
+Vision Of Hell.MOD			ITEM:Potion
 Vitriolic Mist.MOD			ITEM:Potion
 Vocal Alteration.MOD			ITEM:Potion
 Volcanic Storm.MOD			ITEM:Potion
-Wall of Sound.MOD				ITEM:Potion
+Wall Of Sound.MOD				ITEM:Potion
 Wartrain Mount.MOD			ITEM:Potion
-Waves of Ecstasy.MOD			ITEM:Potion
+Waves Of Ecstasy.MOD			ITEM:Potion
 Web Shelter.MOD				ITEM:Potion
 Witness.MOD					ITEM:Potion
 Wooden Phalanx.MOD			ITEM:Potion
-Word of Resolve.MOD			ITEM:Potion
+Word Of Resolve.MOD			ITEM:Potion
 Youthful Appearance.MOD			ITEM:Potion
 
 ###Block: Summoner Spells
