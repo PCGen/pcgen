@@ -48,14 +48,14 @@ public class SpellMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new spell key, or the passed in one if it has not changed.
 	 */
-	public static String getNewSpelltKey(String spellKey, int pcgVer[], String gameModeName)
+	public static String getNewSpellKey(String spellKey, int pcgVer[], String gameModeName)
 	{
 		List<MigrationRule> spellChangeList = spellChangesForVer.get(pcgVer);
 		if (spellChangeList == null)
 		{
 			spellChangeList =
 					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.EQUIPMENT);
+						ObjectType.SPELL);
 			spellChangesForVer.put(pcgVer, spellChangeList);
 		}
 
