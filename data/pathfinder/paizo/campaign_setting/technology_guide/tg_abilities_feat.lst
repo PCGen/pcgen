@@ -20,4 +20,4 @@ CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic We
 ###Block: Firearms
 # Ability Name						Category of Ability	Auto Weapon Prof
 Exotic Weapon Proficiency ~ Heavy Weaponry	CATEGORY:Internal		AUTO:WEAPONPROF|TYPE=Heavy Weaponry
-Exotic Weapon Proficiency ~ Firearms		CATEGORY:Internal		AUTO:WEAPONPROF|TYPE=Firearms
+Exotic Weapon Proficiency ~ Firearms		CATEGORY:Internal		AUTO:WEAPONPROF|TYPE=Firearm
