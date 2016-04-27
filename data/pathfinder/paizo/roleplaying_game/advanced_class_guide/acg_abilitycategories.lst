@@ -151,7 +151,7 @@ ABILITYCATEGORY:Level 12 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 ABILITYCATEGORY:Level 16 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice16	CATEGORY:Internal			TYPE:Level 16 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Level 20 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice20	CATEGORY:Internal			TYPE:Level 20 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Contact Specialist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Contact Specialist Feat											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Contact Specialist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Contact Specialist Feat											PLURAL:Contact Specialist Feats						DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Style Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Feat			TYPE:Style														PLURAL:Style Feats						DISPLAYLOCATION:Feats
 
