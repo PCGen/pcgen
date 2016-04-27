@@ -41,3 +41,4 @@ pcgen-batch-convert.jar
 
 data/customsources/*
 !data/customsources/readme-customsources.txt
+/.nb-gradle/
