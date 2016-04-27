@@ -6,7 +6,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # Spells: all spells are legal for play except blood transcription and those which grant a spellblight (such as curse of magic negation or steal voice);
 # Spell Name			Type			Classes of caster
 Blood Transcription.MOD		TYPE:PFSNotLegal	CLASSES:.CLEARALL
-Curse of Magic Negation.MOD	TYPE:PFSNotLegal	CLASSES:.CLEARALL
+Curse Of Magic Negation.MOD	TYPE:PFSNotLegal	CLASSES:.CLEARALL
 Eldritch Fever.MOD		TYPE:PFSNotLegal	CLASSES:.CLEARALL
-Prediction of Failure.MOD	TYPE:PFSNotLegal	CLASSES:.CLEARALL
+Prediction Of Failure.MOD	TYPE:PFSNotLegal	CLASSES:.CLEARALL
 Steal Voice.MOD			TYPE:PFSNotLegal	CLASSES:.CLEARALL

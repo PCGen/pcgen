@@ -40,7 +40,7 @@ CLASS:Archeovitus	STARTSKILLPTS:8	CSKILL:Appraise|Climb|Disable Device|TYPE=Know
 4	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Evasion
 5	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Mists of Time
 6	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Analyze Dweomer
-7	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Find the Path
+7	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Find The Path
 8	ABILITY:Archeovitus Class Feature|AUTOMATIC|Archeovitus ~ Legend Lore
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																																																	Modify VAR

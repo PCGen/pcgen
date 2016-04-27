@@ -58,10 +58,7 @@ RACE:psionics_unleashed_races_monsters.lst
 
 SKILL:psionics_unleashed_skills.lst
 
-SPELL:psionics_unleashed_powers_AC.lst
-SPELL:psionics_unleashed_powers_DF.lst
-SPELL:psionics_unleashed_powers_GP.lst
-SPELL:psionics_unleashed_powers_QW.lst
+SPELL:psionics_unleashed_spells_power.lst
 
 TEMPLATE:psionics_unleashed_templates.lst
 

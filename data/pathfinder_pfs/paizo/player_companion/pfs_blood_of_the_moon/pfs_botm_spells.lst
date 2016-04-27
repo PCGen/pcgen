@@ -6,6 +6,6 @@ Share Skin.MOD						TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
 Share Skin (Greater).MOD				TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
 
 
-Speak with Animals (pigs and boars only).MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Speak with Animals (rodents only).MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-Charm Animal (aquatic animals only).MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+Speak With Animals (Pigs And Boars Only).MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+Speak With Animals (Rodents Only).MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+Charm Animal (Aquatic Animals Only).MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1

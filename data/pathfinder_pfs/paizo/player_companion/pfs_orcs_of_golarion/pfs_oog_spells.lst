@@ -6,4 +6,4 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 
 # Spell Name		Type			!PRECHARACTERTYPE
 Enemy's Heart.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Shield the Banner.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Shield The Banner.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
