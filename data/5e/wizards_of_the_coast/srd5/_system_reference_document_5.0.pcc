@@ -2,7 +2,8 @@
 CAMPAIGN:System Reference Document 5.0
 KEY:5e - System Reference Document 5.0
 RANK:1
-BOOKTYPE:Core
+BOOKTYPE:Core Rules
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[5e - System Reference Document 5.0]
 GAMEMODE:5e
 SHOWINMENU:YES
 STATUS:ALPHA
