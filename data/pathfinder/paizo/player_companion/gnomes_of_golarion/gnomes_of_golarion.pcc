@@ -33,6 +33,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
+
 # Data files
 ABILITY:gnog_abilities.lst
 #ABILITY:gnog_abilities_pfs.lst|PRECAMPAIGN:1,INCLUDESBOOKTYPE=Faction Guide

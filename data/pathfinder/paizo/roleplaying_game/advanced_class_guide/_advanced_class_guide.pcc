@@ -40,6 +40,9 @@ COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors Complete © 2011, Necroma
 COPYRIGHT:Pathfinder Roleplaying Game Advanced Class Guide © 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Jesse Benner, Savannah Broadway, Jason Bulmahn, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan H. Keith, Will McCardell, Dale C. McCoy, Jr., Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Sean K Reynolds, Tork Shaw, Owen K.C. Stephens, and Russ Taylor.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Copyright 2014, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Wilson, JP Sugarbroad, Paul Grosse, and Andrew Maitland).
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 DATACONTROL:acg__datacontrols.lst

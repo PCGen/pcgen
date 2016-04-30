@@ -49,6 +49,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: City of Strangers
 
 # Data Files
 
+# PFS Rules
+#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 # Standard Files
 ABILITYCATEGORY:cos_abilitycategories.lst
 ABILITY:cos_abilities_class.lst

@@ -34,6 +34,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: Princes of Darkne
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 ABILITYCATEGORY:botd1_abilitycategories.lst
 ABILITY:botd1_abilities_class.lst
 ABILITY:botd1_abilities_companion.lst

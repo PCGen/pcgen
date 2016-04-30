@@ -39,6 +39,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Distant Wor
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 
 # Data Files
 ABILITY:dw_abilities_race.lst

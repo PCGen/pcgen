@@ -35,6 +35,9 @@ DESC:A hot-blooded realm of riches, slavery, and blood feuds, the desert nation 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 ABILITYCATEGORY:qgtte_abilitycategories.lst
 ABILITY:qgtte_abilities.lst
 ABILITY:qgtte_abilities_class.lst

@@ -34,6 +34,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Campaign" Copyri
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 # Data files
 ABILITYCATEGORY:uca_abilitycategories.lst
 ABILITY:uca_abilities_drawbacks.lst

@@ -44,6 +44,9 @@ FORWARDREF:SPELL|Allegro,Arrow of Law,Chord of Shards,Corrosive Touch,Deadly Jug
 
 # Note: In the data files core items are .MODed to add UE source info, cost and weight. Duplicate items from APG and UC are entered in full.
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 ABILITY:ue_abilities.lst
 ABILITYCATEGORY:ue_abilitycategories.lst
 

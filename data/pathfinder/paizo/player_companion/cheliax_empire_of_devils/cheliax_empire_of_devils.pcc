@@ -34,6 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Cheliax, Empire of Devils" Copyright 200
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
+
 ABILITY:ceod_abilities.lst
 EQUIPMENT:ceod_equip_arms_armor.lst
 EQUIPMENT:ceod_equip_magic_items.lst

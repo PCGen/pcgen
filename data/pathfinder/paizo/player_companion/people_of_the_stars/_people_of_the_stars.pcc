@@ -39,6 +39,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the Star
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 # Data Files
 ABILITY:pots_abilities_class.lst
 ABILITY:pots_abilities_feat.lst

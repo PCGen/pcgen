@@ -92,6 +92,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 
 ABILITYCATEGORY:b2_abilitycategories.lst
 ABILITY:b2_abilities_race.lst

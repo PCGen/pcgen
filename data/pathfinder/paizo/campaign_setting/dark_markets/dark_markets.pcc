@@ -37,6 +37,9 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 ABILITY:dm_abilities_class.lst
 ABILITY:dm_abilities_race.lst
 ABILITYCATEGORY:dm_abilitycategories.lst
