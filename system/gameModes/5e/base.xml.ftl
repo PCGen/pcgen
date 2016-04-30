@@ -565,6 +565,12 @@
 					<long>${pcstring('WEAPON.${weap}.LONGNAME')}</long>
 					<output>${pcstring('WEAPON.${weap}.OUTPUTNAME')}</output>
 				</name>
+				<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+				<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+				<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+				<longrange>${longrange!0}</longrange>
+				<shortrange>${shortrange!0}</shortrange>
+				<rangelongmult>${rangelongmult!0}</rangelongmult>
 				<category>${pcstring('WEAPON.${weap}.CATEGORY')}</category>
 				<critical>
 					<range>${pcstring('WEAPON.${weap}.CRIT')}</range>
@@ -657,7 +663,14 @@
 			<#macro weapRangeBlock weap range>
 				<#if (pcstring('WEAPON.${weap}.RANGELIST.${range}') != "") >
 				<range>
+					<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+					<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+					<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+					<longrange>${longrange!0}</longrange>
+					<shortrange>${shortrange!0}</shortrange>
+					<rangelongmult>${rangelongmult!0}</rangelongmult>
 					<distance>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}</distance>
+					<base_to_hit>${pcstring('WEAPON.${weap}.TOTALHIT')}</base_to_hit>
 					<to_hit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TOTALHIT')}</to_hit>
 					<damage>${pcstring('WEAPON.${weap}.RANGELIST.${range}.DAMAGE')}</damage>
 					<basehit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.BASEHIT')}</basehit>
@@ -802,10 +815,17 @@
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))><#-- Valid only if we find the Thrown Value -->
 			<ranges>
 				<rangetype>Thrown</rangetype>
+				<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+				<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+				<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+				<longrange>${longrange!0}</longrange>
+				<shortrange>${shortrange!0}</shortrange>
+				<rangelongmult>${rangelongmult!0}</rangelongmult>
 			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-				<@loop from=0 to=5 ; range , range_has_next>
+				<@loop from=0 to=3 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
+
 			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 			</ranges>
 			<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) but IS Ranged -->
@@ -813,8 +833,9 @@
 			<!-- New Ranges Section -->
 			<ranges>
 			<rangetype>Ranged</rangetype><!-- ranged first -->
+				
 			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-				<@loop from=0 to=10 ; range , range_has_next>
+				<@loop from=0 to=5 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
 			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
@@ -834,15 +855,21 @@
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 
 				<rangetype>Thrown</rangetype>
+				<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+				<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+				<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+				<longrange>${longrange!0}</longrange>
+				<shortrange>${shortrange!0}</shortrange>
+				<rangelongmult>${rangelongmult!0}</rangelongmult>
 				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-					<@loop from=0 to=5 ; range , range_has_next>
+					<@loop from=0 to=3 ; range , range_has_next>
 						<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><!-- Range -->
 				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 				<#else><#-- Thrown -->
 				<rangetype>Ranged</rangetype><!-- ranged second -->
 			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-				<@loop from=0 to=10 ; range , range_has_next>
+				<@loop from=0 to=5 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
 			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
@@ -864,14 +891,14 @@
 				<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 				<rangetype>Thrown</rangetype>
 				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-					<@loop from=0 to=5 ; range , range_has_next>
+					<@loop from=0 to=4 ; range , range_has_next>
 					<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><#-- Range -->
 				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 				<#else><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
 				<rangetype>Ranged</rangetype><!-- Ranged third -->
 				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-					<@loop from=0 to=10 ; range , range_has_next>
+					<@loop from=0 to=5 ; range , range_has_next>
 					<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><#-- Range -->
 				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
@@ -892,12 +919,7 @@
 				<to_hit>${pcstring('WEAPON.${weap}.TOTALHIT')}</to_hit>
 				<damage>${pcstring('WEAPON.${weap}.DAMAGE')}</damage>
 				<range>${pcstring('WEAPON.${weap}.RANGE')}</range>
-				<!-- This is an Addition by Itwally for the Monk Flurry of Blows Fix per DATA-73 -->
 				<name>${pcstring('WEAPON.${weap}.NAME')}</name>
-				<class><@loop from=0 to=pcvar('countdistinct("CLASSES")')-1 ; class , class_has_next ><#rt>
-				<#t><@pcstring tag="CLASSABB.${class}"/><@pcstring tag="CLASS.${class}.LEVEL"/><#if class_has_next> </#if>
-			<#t></@loop></class>
-		<!-- End DATA-73 Work Around-->
 			</simple>
 		</weapon>
 		<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Double.OR.WEAPON.${weap}.CATEGORY:Non-Standard-Melee) -->
