@@ -8,7 +8,10 @@
 	exclude-result-prefixes="myAttribs"
 	>
 	<xsl:import href="fantasy_master_common_companion_box.xslt"/>
+	<xsl:import href="fantasy_master_simple.xslt"/>
 	<xsl:output indent="yes"/>
+
+
 
 	<myAttribs:myAttribs>
 		<border border-width="0.5pt" border-style="solid" />
