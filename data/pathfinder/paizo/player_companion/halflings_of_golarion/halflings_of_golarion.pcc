@@ -33,6 +33,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 # Data files
 ABILITY:haog_abilities.lst
 ABILITY:haog_abilities_classes.lst
