@@ -59,14 +59,14 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 # The Master Alchemist feat may only be selected by Alchemists and Poisoners.
 
 # Data files
-ABILITY:pfs_apg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-ABILITY:pfs_apg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-ABILITY:pfs_apg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-CLASS:pfs_apg_classes.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-EQUIPMENT:pfs_apg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-EQUIPMENT:pfs_apg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-ABILITY:pfs_apg_feats.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-SPELL:pfs_apg_spells.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+ABILITY:pfs_apg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+CLASS:pfs_apg_classes.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMENT:pfs_apg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMENT:pfs_apg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+SPELL:pfs_apg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 #
 # End

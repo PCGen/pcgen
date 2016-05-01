@@ -42,10 +42,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 # The modification of the core rulebook related rules are specified in the Guide to Pathfinder Society Organized Play 6.0, but they are implemented here.
 
 # Data Files
-ABILITY:pfs_cr_abilities.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-CLASS:pfs_cr_classes.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-ABILITY:pfs_cr_feats.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-SPELL:pfs_cr_spells.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+ABILITY:pfs_cr_abilities.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+CLASS:pfs_cr_classes.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+ABILITY:pfs_cr_feats.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+SPELL:pfs_cr_spells.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
 
 #
 # End
