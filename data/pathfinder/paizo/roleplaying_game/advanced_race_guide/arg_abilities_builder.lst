@@ -12,6 +12,8 @@ Race Name													CATEGORY:Special Ability	TYPE:RaceName																				
 Language													CATEGORY:Special Ability	TYPE:Language																									MULT:YES	CHOOSE:USERINPUT|TITLE=Race Languages																																																																																																													ASPECT:Language|%1|%LIST
 
 
+Starting Points +1	CATEGORY:Internal	TYPE:Race Builder Design	DESC:Increase Race Starting Points	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:VAR|ARG_RaceBuilderPoints|1	COST:0
+Starting Points -1	CATEGORY:Internal	TYPE:Race Builder Design	DESC:Decrease Race Starting Points	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0
 Standard Design												CATEGORY:Internal			TYPE:Race Builder Design																			DESC:[Grants: %1]|10																																																																																																									BONUS:VAR|ARG_RaceBuilderPoints|10	BONUS:VAR|TraitsPerCategory|3	COST:1
 Advanced Design												CATEGORY:Internal			TYPE:Race Builder Design																			DESC:[Grants: %1]|20																																																																																																									BONUS:VAR|ARG_RaceBuilderPoints|20	BONUS:VAR|TraitsPerCategory|4	COST:1
 Monstrous Design												CATEGORY:Internal			TYPE:Race Builder Design																			DESC:[Grants: %1]|30																																																																																																									BONUS:VAR|ARG_RaceBuilderPoints|30	BONUS:VAR|TraitsPerCategory|5	COST:1

@@ -1,0 +1,10 @@
+
+
+CLASS:Epic Test	HD:4	TYPE:Base.PC.Epic
+CLASS:Epic Test	FACT:Abb|Epic	FACT:ClassType|Epic
+CLASS:Epic Test	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+CLASS:Epic Test	SOURCEPAGE:p.x	
+CLASS:Epic Test	STARTSKILLPTS:2	CSKILL:Climb
+CLASS:Epic Test	PRETOTALAB:22	
+
+

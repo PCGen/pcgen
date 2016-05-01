@@ -37,6 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 import java.util.logging.Level;
 
 import javax.swing.JFrame;
@@ -107,10 +108,10 @@ public final class Globals
 	private static int        selectedPaper   = -1;
 
 	/** we need maps for efficient lookups */
-	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
-	private static Map<String, Campaign>        campaignNameMap     = new HashMap<String, Campaign>();
-	private static Map<String, Spell>        spellMap        = new HashMap<String, Spell>();
-	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
+	private static Map<URI, Campaign>    campaignMap     = new HashMap<URI, Campaign>();
+	private static Map<String, Campaign> campaignNameMap = new HashMap<String, Campaign>();
+	private static Map<String, Spell>    spellMap        = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
+	private static Map<String, String>   eqSlotMap       = new HashMap<String, String>();
 
 	/** We use lists for efficient iteration */
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
@@ -986,7 +987,7 @@ public final class Globals
 		//////////////////////////////////////
 
 		// Clear Maps (not strictly necessary, but done for consistency)
-		spellMap = new HashMap<String, Spell>();
+		spellMap = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
 		VisionType.clearConstants();
 
 		// Perform other special cleanup

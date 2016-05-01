@@ -42,16 +42,18 @@ public class AbstractAdapter<T>
 
 	protected void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
 	{
-		ReferenceListener[] listeners =
-				listenerList.getListeners(ReferenceListener.class);
+		Object[] listeners = listenerList.getListenerList();
 		ReferenceEvent<T> e = null;
-		for (int i = listeners.length - 1; i >= 0; i--)
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
 		{
-			if (e == null)
+			if (listeners[i] == ReferenceListener.class)
 			{
-				e = new ReferenceEvent<T>(source, oldValue, newValue);
+				if (e == null)
+				{
+					e = new ReferenceEvent<T>(source, oldValue, newValue);
+				}
+				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
 			}
-			listeners[i + 1].referenceChanged(e);
 		}
 	}
 

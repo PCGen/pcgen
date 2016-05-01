@@ -8,6 +8,8 @@
 	exclude-result-prefixes="myAttribs"
 	>
 	<xsl:import href="fantasy_master_alt_largetext.xslt"/>
+	<xsl:import href="fantasy_master_simple.xslt"/>
+
 	<xsl:output indent="yes"/>
 
 	<myAttribs:myAttribs>

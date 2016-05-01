@@ -36,7 +36,7 @@ Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DES
 Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Crossbow (Hand)	ALIGN:CE	SOURCEPAGE:p.18
 Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of necromancy, undead, wrath		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Mace (Heavy)		ALIGN:CE	SOURCEPAGE:p.18
 Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Demon lord of sky, temptation, winged creatures	FACTSET:Pantheon|Demon Lords	DEITYWEAP:Longsword		ALIGN:CE	SOURCEPAGE:p.18
-Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.18
+Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Nobility|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			FACTSET:Pantheon|Demon Lords	DEITYWEAP:Dagger			ALIGN:CE	SOURCEPAGE:p.18
 Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Quarterstaff		ALIGN:CE	SOURCEPAGE:p.18
 Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		FACTSET:Pantheon|Demon Lords	DEITYWEAP:Rapier			ALIGN:CE	SOURCEPAGE:p.19
 
