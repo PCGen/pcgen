@@ -35,6 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Andoran Spi
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:LST Editors Notes.txt
 
+
 # Data files
 ABILITY:asol_abilities.lst
 ABILITY:asol_abilities_class.lst

@@ -33,6 +33,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 # Data files
 ABILITY:dog_abilities.lst
 DEITY:dog_deities.lst

@@ -33,6 +33,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of C
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+#
+
+
 # Data files
 ABILITY:foc_abilities.lst
 DEITY:foc_deities.lst

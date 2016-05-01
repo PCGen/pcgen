@@ -671,35 +671,18 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
     <tr>
      <td align="center" height="15" bgcolor="black" width="8%"></td>
-     <td align="center" height="15" bgcolor="black" width="17%"><font style="font-size:6pt" color="white"><b>1H-P</b></font></td>
-     <td align="center" bgcolor="black" width="17%" height="15"><font style="font-size:6pt" color="white"><b>1H-O</b></font></td>
-     <td align="center" bgcolor="black" width="17%" height="15"><font style="font-size:6pt" color="white"><b>2H</b></font></td>
-     <td align="center" bgcolor="black" width="17%" height="15"><font style="font-size:6pt" color="white"><b>2W-P-(OH)</b></font></td>
-     <td align="center" bgcolor="black" width="17%" height="15"><font style="font-size:6pt" color="white"><b>2W-P-(OL)</b></font></td>
-     <td align="center" bgcolor="black" width="10%" height="15"><font style="font-size:6pt" color="white"><b>2W-OH</b></font></td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Bonus</b></font></td>
+     <td align="right" height="15" bgcolor="black" width="17%"><font style="font-size:8pt" color="white"><b>TO HIT</b></font></td>
      <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASEHIT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.OHHIT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.THHIT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.TWPHITH')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.TWPHITL')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.TWOHIT')}<br /></b></td>
+     <td align="right" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>DAMAGE</b></font></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASICDAMAGE')}<br /></b></td>
+
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Dam</b></font></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASICDAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.OHDAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.THDAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASICDAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASICDAMAGE')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.OHDAMAGE')}<br /></b></td>
     </tr>
     <#if (pcstring('WEAPON.${weap}.SPROP') != "")>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties</b></font></td>
-     <td align="left" bgcolor="white" class="border8" colspan="5"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties</b></font></td>
+     <td align="left" bgcolor="white" class="border8" colspan="6"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
     </tr>
     </#if>
    </table>
@@ -715,29 +698,26 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <#if (weaponCategory?contains('ranged'))>
     <tr>
      <td align="left" height="15" bgcolor="black" width="8%"><font style="font-size:8pt" color="white"><b>&nbsp;&nbsp;Range</b></font></td>
-<@loop from=0 to=4 ; range , range_has_next>
-     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}'<br /></b></font></td>
-</@loop>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.1')}'<br /></b></font></td>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.3')}'<br /></b></font></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Bonus</b></font></td>
-<@loop from=0 to=4 ; range1 , range1_has_next>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range1}.TOTALHIT')}<br /></b></td>
-</@loop>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.0.TOTALHIT')}<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.0.TOTALHIT')} (Disadvantage)<br /></b></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Dam</b></font></td>
-<@loop from=0 to=4 ; range2 , range2_has_next>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range2}.DAMAGE')}</b></td>
-</@loop>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')}</b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')}</b></td>
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="6"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
-     <td align="left" bgcolor="white" class="border8" colspan="5"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
+     <td align="left" bgcolor="white" class="border8" colspan="6"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
     </tr>
    </table>
    <font style="font-size:2pt"><br /></font>
@@ -780,29 +760,26 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <#if (pcstring("WEAPON.${weap}.CONTENTS") = "0")>
     <tr>
      <td align="left" height="15" bgcolor="black" width="8%"><font style="font-size:8pt" color="white"><b>&nbsp;&nbsp;Range</b></font></td>
-<@loop from=0 to=4 ; range , range_has_next>
-     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}'<br /></b></font></td>
-</@loop>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.1')}'<br /></b></font></td>
+     <td width="18%" align="center" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>${pcstring('WEAPON.${weap}.RANGELIST.4')}'<br /></b></font></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Bonus</b></font></td>
-<@loop from=0 to=4 ; range1 , range1_has_next>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range1}.TOTALHIT')}<br /></b></td>
-</@loop>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')}<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Diadvantage)<br /></b></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Dam</b></font></td>
-<@loop from=0 to=4 ; range2 , range2_has_next>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.${range2}.DAMAGE')}</b></td>
-</@loop>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')}</b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')}</b></td>
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="6"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
-     <td align="left" bgcolor="white" class="border8" colspan="5"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
+     <td align="left" bgcolor="white" class="border8" colspan="6"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
     </tr>
    </table>
    <font style="font-size:2pt"><br /></font>
@@ -834,13 +811,13 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 </@loop>
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="6"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
 </@loop>
     </tr>
     <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
-     <td align="left" bgcolor="white" class="border8" colspan="5"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
+     <td align="left" bgcolor="black" class="border" colspan="1"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
+     <td align="left" bgcolor="white" class="border8" colspan="6"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
     </tr>
    </table>
    <font style="font-size:2pt"><br /></font>
