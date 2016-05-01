@@ -68,9 +68,6 @@ COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data t
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 # Data files
 ABILITY:b3_abilities_companion.lst
 ABILITY:b3_abilities_race.lst

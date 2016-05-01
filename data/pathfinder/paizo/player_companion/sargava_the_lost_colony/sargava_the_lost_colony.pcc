@@ -33,9 +33,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 ABILITY:stlc_abilities.lst
 ABILITYCATEGORY:stlc_abilitycategories.lst
 DEITY:stlc_deities.lst

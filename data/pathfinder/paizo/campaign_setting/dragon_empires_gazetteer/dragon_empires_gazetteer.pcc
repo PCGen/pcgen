@@ -39,9 +39,6 @@ DESC:It is a land where honorable samurai wage war against devious ninja. Where 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 
 ABILITY:deg_abilities.lst
 ABILITY:deg_abilities_race.lst

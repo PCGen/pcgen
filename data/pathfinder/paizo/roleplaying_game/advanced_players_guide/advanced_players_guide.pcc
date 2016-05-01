@@ -35,9 +35,6 @@ COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Inc.; Author: Jason Bul
 COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, James Dempsey and tons of community feedback).
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 DATACONTROL:apg__datacontrols.lst

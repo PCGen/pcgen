@@ -32,9 +32,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" C
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 
 # Data files
 ABILITY:goog_abilities.lst

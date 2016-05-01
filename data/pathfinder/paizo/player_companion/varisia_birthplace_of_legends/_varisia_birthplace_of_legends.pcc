@@ -37,9 +37,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Varisia, Bi
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:TODO.lst
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 # Data files
 ABILITY:vbol_abilities_traits.lst
 EQUIPMENT:vbol_equip.lst

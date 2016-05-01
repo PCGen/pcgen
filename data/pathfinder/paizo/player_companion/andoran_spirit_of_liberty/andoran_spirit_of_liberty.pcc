@@ -35,9 +35,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Andoran Spi
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:LST Editors Notes.txt
 
-# PFS Rules
-PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 
 # Data files
 ABILITY:asol_abilities.lst
