@@ -34,7 +34,7 @@ COPYRIGHT:PCGen dataset conversion for "Adventure Path: Skull & Shackles Player'
 #EXTRAFILE:OGL.txt
 
 # PFS Rules
-#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+#
 
 ABILITY:saspg_abilities.lst
 KIT:saspg_kits.lst

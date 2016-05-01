@@ -37,7 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Quests and Campaigns" 
 #EXTRAFILE:OGL.txt
 
 # PFS Rules
-#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+#
 
 # Data files
 ABILITY:qac_abilities.lst

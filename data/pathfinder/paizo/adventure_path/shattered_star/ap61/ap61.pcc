@@ -44,7 +44,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Shattered Sta
 #EXTRAFILE:OGL.txt
 
 # PFS Rules
-#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+#
 
 # Data files
 ABILITY:ap61_abilities.lst

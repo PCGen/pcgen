@@ -35,7 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Elves of Golarion"
 #EXTRAFILE:OGL.txt
 
 # PFS Rules
-#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+#
 
 
 # Data Files

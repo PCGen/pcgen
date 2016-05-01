@@ -36,9 +36,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Weapon Mast
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# PFS Rules
-#PCC:_pfs/_.pcc|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-
 # Data files
 ABILITY:wmh_abilities.lst
 EQUIPMENT:wmh_equip.lst
