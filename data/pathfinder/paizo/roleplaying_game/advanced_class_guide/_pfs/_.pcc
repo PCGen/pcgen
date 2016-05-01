@@ -66,6 +66,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Cop
 # Spells: all spells on pages 162-199 are legal for play.
 
 ABILITY:pfs_acg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+CLASS:pfs_acg_classes.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 EQUIPMENT:pfs_acg_equip.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 ABILITY:pfs_acg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
