@@ -263,19 +263,19 @@ Outfit (Traveler's)	KEY:Outfit (Traveler's)		SORTKEY:Outfit (Traveler's)		OUTPUT
 
 ###Block:Food, Drink, and Lodging
 # Equipment Name		Type							Cost		Weight	Source Page
-Ale (Gallon)		TYPE:Goods.Liquid.Food				COST:0.2	WT:8		SOURCEPAGE:p.159
-Ale (Mug)			TYPE:Goods.Food					COST:0.04	WT:1		SOURCEPAGE:p.159
-Banquet (Per Person)	TYPE:Goods.Food					COST:10			SOURCEPAGE:p.159
+Ale (Gallon)		TYPE:Goods.Liquid.Food.Consumable		COST:0.2	WT:8		SOURCEPAGE:p.159
+Ale (Mug)			TYPE:Goods.Food.Consumable			COST:0.04	WT:1		SOURCEPAGE:p.159
+Banquet (Per Person)	TYPE:Goods.Food.Consumable			COST:10			SOURCEPAGE:p.159
 Bread (Loaf)		TYPE:Goods.Food.Resizable.Consumable	COST:0.02	WT:0.5	SOURCEPAGE:p.159
 Cheese (Hunk)		TYPE:Goods.Food.Resizable.Consumable	COST:0.1	WT:0.5	SOURCEPAGE:p.159
-Inn (Good/Per Day)	TYPE:Service.Lodging				COST:2			SOURCEPAGE:p.162
-Inn (Common/Per Day)	TYPE:Service.Lodging				COST:0.5			SOURCEPAGE:p.162
-Inn (Poor/Per Day)	TYPE:Service.Lodging				COST:0.2			SOURCEPAGE:p.162
-Meals (Good/Per Day)	TYPE:Goods.Food.Resizable			COST:0.5			SOURCEPAGE:p.162
-Meals (Common/Per Day)	TYPE:Goods.Food.Resizable			COST:0.3			SOURCEPAGE:p.162
-Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable			COST:0.1			SOURCEPAGE:p.162
+Inn (Good/Per Day)	TYPE:Service.Lodging.Consumable		COST:2			SOURCEPAGE:p.162
+Inn (Common/Per Day)	TYPE:Service.Lodging.Consumable		COST:0.5			SOURCEPAGE:p.162
+Inn (Poor/Per Day)	TYPE:Service.Lodging.Consumable		COST:0.2			SOURCEPAGE:p.162
+Meals (Good/Per Day)	TYPE:Goods.Food.Resizable.Consumable	COST:0.5			SOURCEPAGE:p.162
+Meals (Common/Per Day)	TYPE:Goods.Food.Resizable.Consumable	COST:0.3			SOURCEPAGE:p.162
+Meals (Poor/Per Day)	TYPE:Goods.Food.Resizable.Consumable	COST:0.1			SOURCEPAGE:p.162
 Meat (Chunk)		TYPE:Goods.Food.Consumable			COST:0.3	WT:0.5	SOURCEPAGE:p.159
-Wine (Common/Pitcher)	TYPE:Goods.Food					COST:0.2	WT:6		SOURCEPAGE:p.159
+Wine (Common/Pitcher)	TYPE:Goods.Food.Consumable			COST:0.2	WT:6		SOURCEPAGE:p.159
 Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:p.159
 
 ###Block:Mounts and Related Gear
