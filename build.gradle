@@ -13,11 +13,6 @@
  * Author: James Dempsey 
  */
 
-plugins {
-    id "de.undercouch.download" version "2.1.0"
-    id 'edu.sc.seis.launch4j' version '1.6.1'
-}
-
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'application'
@@ -77,7 +72,6 @@ repositories {
         name "fileRepo"
         url 'http://librepo.pcgen.org'
     }
-    jcenter()
 }
 
 sourceSets {
@@ -157,8 +151,7 @@ dependencies {
     compile group: 'org.apache.avalon.framework', name: 'avalon-framework-api', version:'4.3.1'
     compile group: 'org.apache.avalon.framework', name: 'avalon-framework-impl', version:'4.3.1'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.52'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.60'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.39'
     
     //testCompile group: 'org.easymock', name: 'easymock', version:'2.5.2'
     //testCompile group: 'org.easymock', name: 'easymockclassextension', version:'2.5.2'

@@ -1,0 +1,923 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!--  Needs to be run after SET MAVEN_OPTS=-Xmx1024m  -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.sourceforge.pcgen</groupId>
+  <artifactId>pcgen</artifactId>
+  <version>6.03.01-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>PCGen</name>
+  <url>http://pcgen.sourceforge.net</url>
+  <organization>
+    <name>SourceForge</name>
+    <url>http://sourceforge.net/</url>
+  </organization>
+  <inceptionYear>2003</inceptionYear>
+  <description>PCGen RPG character generator.</description>
+
+  <!-- Our mailing lists -->
+  <mailingLists>
+    <mailingList>
+      <name>PCGen Users</name>
+      <subscribe>pcgen-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>pcgen-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>pcgen@yahoogroups.com</post>
+      <archive>http://games.groups.yahoo.com/group/pcgen/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen Developers</name>
+      <subscribe>pcgen_developers-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>pcgen_developers-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>pcgen_developers@yahoogroups.com</post>
+      <archive>http://tech.groups.yahoo.com/group/pcgen_developers/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen Board of Directors</name>
+      <subscribe>pcgen_bod-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>pcgen_bod-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>pcgen_bod@yahoogroups.com</post>
+      <archive>http://tech.groups.yahoo.com/group/pcgen_bod/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen Web Team</name>
+      <subscribe>pcgen_webteam-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>pcgen_webteam-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>pcgen_webteam@yahoogroups.com</post>
+      <archive>http://games.groups.yahoo.com/group/pcgen_webteam/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen List File Help Group</name>
+      <subscribe>PCGenListFileHelp-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>PCGenListFileHelp-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>PCGenListFileHelp@yahoogroups.com</post>
+      <archive>http://tech.groups.yahoo.com/group/PCGenListFileHelp/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen List File Class Group</name>
+      <subscribe>LSTfileclass-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>LSTfileclass-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>LSTfileclass@yahoogroups.com</post>
+      <archive>http://games.groups.yahoo.com/group/LSTfileclass/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen International Group</name>
+      <subscribe>pcgen_international-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>pcgen_international-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>pcgen_international@yahoogroups.com</post>
+      <archive>http://tech.groups.yahoo.com/group/pcgen_international/</archive>
+    </mailingList>
+    <mailingList>
+      <name>PCGen Experimental (Content Team) Group</name>
+      <subscribe>pcgen_experimnetal-subscribe@yahoogroups.com</subscribe>
+      <unsubscribe>pcgen_experimnetal-unsubscribe@yahoogroups.com</unsubscribe>
+      <post>pcgen_experimnetal@yahoogroups.com</post>
+      <archive>http://tech.groups.yahoo.com/group/pcgen_experimnetal/</archive>
+    </mailingList>
+  </mailingLists>
+
+  <!-- Where we track our issues -->
+  <issueManagement>
+    <system>SourceForge</system>
+    <url>http://jira.pcgen.org</url>
+  </issueManagement>
+
+  <!-- Where our continuous integration server is hosted -->
+  <ciManagement>
+    <system>Hudson</system>
+    <url>http://ci.pcgen.org/hudson/</url>
+  </ciManagement>
+
+  <!-- Which Maven repositories we get our dependencies from-->
+  <repositories>
+    <repository>
+      <id>pcgen.repo</id>
+      <url>http://pcgen.sourceforge.net/mvnrepo</url>
+    </repository>
+  </repositories>
+
+  <!-- Our source control details -->
+  <scm>
+    <connection>scm:svn:https://pcgen.svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</connection>
+    <developerConnection>scm:svn:https://pcgen.svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</developerConnection>
+    <url>http://pcgen.svn.sourceforge.net/viewvc/pcgen/</url>
+  </scm>
+
+  <!-- Where our site is published to -->
+  <distributionManagement>
+    <site>
+      <id>pcgen.website</id>
+      <name>PCGen Website</name>
+      <url>file://localhost/home/pcgen1/public_html/autobuilds/</url>
+    </site>
+  </distributionManagement>
+
+  <!-- Misc project properties -->
+  <properties>
+    <!-- encoding -->
+    <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <!--
+      Build configuration:
+
+        We don't have the default Maven project source layout so we have
+        to manually specify some of our source directories
+    -->
+    <build>
+        <sourceDirectory>code/src/java</sourceDirectory>
+        <testSourceDirectory>code/src/utest</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>code/src/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>pcgen/gui/resource/*</include>
+                    <include>pcgen/resources/images/*</include>
+                    <include>applicationContext.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+      
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+
+                <!-- The site plugin, used in the build process to configure locales for the site report -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <!--Can't be upgraded until we switch to Maven 3+-->
+                    <version>2.4</version>
+                </plugin>
+
+                <!--
+                   The antrun plugin, so we can defer some 'complex' tasks to our ANT build.
+                   TODO: Try to figure out ways to perform these tasks in Maven
+                -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.7</version>
+                </plugin>
+
+                <!-- Surefire plugin, for running our tests -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12.4</version>
+                </plugin>
+
+                <!--
+                   Build helper plugin:
+                   We have some iteration tests to fit into the Maven test phase
+                -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>1.7</version>
+                </plugin>
+            
+                <!--Download dependencies license-->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>1.3</version>
+                </plugin>
+            
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+
+                <!-- Jar plugin to produce the jar artifact -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+
+                <!-- Resource plugin, used for assisting us in getting the final package together -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+
+                <!-- Cobertura plugin for our test coverage reporting -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <!--Install the local dependencies. This are already available 
+                in maven repositories but in a later version that would require 
+                changes to the code. Using the ones in lib folder meanwh
+                This only works on Maven 3.
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <inherited>false</inherited>
+                    <version>1.2.1</version>
+                </plugin>-->
+            </plugins>
+        </pluginManagement>
+        
+        <plugins>
+            <!-- Clean - our ant tasks mean we have some extra stuff to clean up -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>plugins</directory>
+                            <includes>
+                                <include>outputplugins/*.jar</include>
+                                <include>bonusplugins/*.jar</include>
+                                <include>preplugins/*.jar</include>
+                                <include>lstplugins/*.jar</include>
+                                <include>systemlstplugins/*.jar</include>
+                                <include>jepplugins/*.jar</include>
+                                <include>converterplugins/*.jar</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>lib</directory>
+                            <includes>
+                                <include>*.jar</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+      
+            <!-- Compilation, is a forked build with Java 1.6 specified -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>ISO-8859-1</encoding>
+                    <fork>true</fork>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
+                </configuration>
+            </plugin>
+
+            <!-- The site plugin, used in the build process to configure locales for the site report -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <locales>en,de,fr</locales>
+                    <!--
+                        Reporting configuration:
+                        Reports are generally visible after running 'mvn site'
+                    -->
+                    <reportPlugins>
+                        <plugins>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-surefire-report-plugin</artifactId>
+                                <version>2.12.4</version>
+                                <configuration>
+                                    <outputName>JUnit Test Results</outputName>
+                                    <forkMode>once</forkMode>
+                                    <argLine>-Xmx192m</argLine>
+                                </configuration>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.codehaus.mojo</groupId>
+                                <artifactId>cobertura-maven-plugin</artifactId>
+                                <version>2.5.2</version>
+                                <configuration>
+                                    <formats>
+                                        <format>xml</format>
+                                    </formats>
+                                </configuration>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-changelog-plugin</artifactId>
+                                <version>2.2</version>
+                                <configuration>
+                                    <type>range</type>
+                                    <range>90</range>
+                                </configuration>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-checkstyle-plugin</artifactId>
+                                <version>2.9.1</version>
+                                <configuration>
+                                    <fork>true</fork>
+                                    <meminitial>128m</meminitial>
+                                    <maxmem>512m</maxmem>
+                                    <configLocation>${basedir}/code/standards/checkstyle.xml</configLocation>
+                                </configuration>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.codehaus.mojo</groupId>
+                                <artifactId>jdepend-maven-plugin</artifactId>
+                            </plugin>
+                            <plugin>
+                                <artifactId>maven-dependency-plugin</artifactId>
+                                <reportSets>
+                                    <reportSet>
+                                        <reports>
+                                            <report>analyze-report</report>
+                                        </reports>
+                                    </reportSet>
+                                </reportSets>
+                            </plugin>
+                        </plugins>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+
+            <!--
+               The antrun plugin, so we can defer some 'complex' tasks to our ANT build.
+               TODO: Try to figure out ways to perform these tasks in Maven
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>jar-all-plugins</id>
+                        <phase>compile</phase>
+                        <configuration>
+                            <target>
+                                <property name="src.java.dir" value="./code/src/java"/>
+                                <property name="build.classes.dir" value="./target\classes"/>
+                                <ant antfile="code/pluginbuild.xml" target="jar-all-plugins"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Surefire plugin, for running our tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <forkMode>once</forkMode>
+                    <argLine>-Xmx192m</argLine>
+                </configuration>
+            </plugin>
+
+            <!--
+               Build helper plugin:
+               We have some iteration tests to fit into the Maven test phase
+            -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>code/src/itest</source>
+                                <source>code/src/testcommon</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!--Download dependencies license-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>download-licenses</id>
+                        <goals>
+                            <goal>download-licenses</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <licensesOutputDirectory>${project.basedir}/lib/licences</licensesOutputDirectory>
+                    <licensesConfigFile>${project.basedir}/src/licenses.xml</licensesConfigFile>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>analyze</id>
+                        <goals>
+                            <goal>analyze-only</goal>
+                        </goals>
+                        <configuration>
+                            <failOnWarning>false</failOnWarning>
+                        </configuration>
+                    </execution>
+                    <!--Copy the dependencies so ant build has the same versions. Working on separating test and compile dependencies-->
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/lib</outputDirectory>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <stripVersion>true</stripVersion>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <excludeTransitive>false</excludeTransitive>
+                            <!--TODO: Pending on question: http://stackoverflow.com/questions/13727165/is-there-a-way-to-divide-artifacts-between-test-and-compile-using-the-maven-depe -->
+                            <!--<excludeScope>test</excludeScope>-->
+                        </configuration>
+                    </execution>
+                    <!--TODO: Pending on question: http://stackoverflow.com/questions/13727165/is-there-a-way-to-divide-artifacts-between-test-and-compile-using-the-maven-depe -->
+                    <!--Copy the non-test dependencies so ant build has the same versions
+                    <execution>
+                        <id>copy-test-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/lib/test</outputDirectory>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <stripVersion>true</stripVersion>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <excludeTransitive>false</excludeTransitive>
+                            <excludeScope>compile</excludeScope>
+                        </configuration>
+                    </execution>-->
+                </executions>
+            </plugin>
+
+            <!-- Jar plugin to produce the jar artifact -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <excludes>
+                        <exclude>plugin/**/*</exclude>
+                    </excludes>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <mainClass>pcgen.system.Main</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Resource plugin, used for assisting us in getting the final package together -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/site/downloads</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>target</directory>
+                                    <includes>
+                                        <include>pcgen-*.zip</include>
+                                    </includes>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copydocs</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/site/pcgen-docs</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>docs</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Cobertura plugin for our test coverage reporting -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <formats>
+                        <format>xml</format>
+                    </formats>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>gmgen/**/*.class</exclude>
+                            <exclude>plugin/charactersheet/**/*.class</exclude>
+                            <exclude>plugin/converter/**/*.class</exclude>
+                            <exclude>plugin/dicebag/**/*.class</exclude>
+                            <exclude>plugin/doomsdaybook/**/*.class</exclude>
+                            <exclude>plugin/encounter/**/*.class</exclude>
+                            <exclude>plugin/experience/**/*.class</exclude>
+                            <exclude>plugin/initiative/**/*.class</exclude>
+                            <exclude>plugin/notes/**/*.class</exclude>
+                            <exclude>pcgen/gui/**/*.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                    <debug>true</debug>
+                    <debuglevel>vars,lines,source</debuglevel>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--Install the local dependencies. This are already available 
+            in maven repositories but in a later version that would require 
+            changes to the code. Using the ones in lib folder meanwh
+            This only works on Maven 3.
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>install-fop</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>mvn</executable>
+                            <arguments>
+                                <argument>install:install-file</argument>
+                                <argument>-Dfile=lib/fop/fop.jar</argument>
+                                <argument>-DgroupId=org.apache.xmlgraphics</argument>
+                                <argument>-DartifactId=fop</argument>
+                                <argument>-Dversion=0.20.5</argument>
+                                <argument>-Dpackaging=jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>install-jep</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>mvn</executable>
+                            <arguments>
+                                <argument>install:install-file</argument>
+                                <argument>-Dfile=lib/MRJ141Stubs.jar</argument>
+                                <argument>-DgroupId=mrj</argument>
+                                <argument>-DartifactId=MRJ141Stubs</argument>
+                                <argument>-Dversion=0</argument>
+                                <argument>-Dpackaging=jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>install-wraplf</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>mvn</executable>
+                            <arguments>
+                                <argument>install:install-file</argument>
+                                <argument>-Dfile=lib/wraplf.jar</argument>
+                                <argument>-DgroupId=java.net</argument>
+                                <argument>-DartifactId=wraplf</argument>
+                                <argument>-Dversion=0.2</argument>
+                                <argument>-Dpackaging=jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+    </build>
+
+    <reporting>
+        <!-- Include the program java doc in the generated site. -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                </configuration>
+            </plugin>
+            <!--			
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-changelog-plugin</artifactId>
+              <version>2.2</version>
+              <configuration>
+      <type>date</type>
+                <dates>
+                  <date implementation="java.lang.String">2013-08-13</date>
+                  <date implementation="java.lang.String">2013-09-12</date>
+                </dates>    
+                <dateFormat>yyyy-MM-dd</dateFormat>    
+              </configuration>
+            </plugin>
+            -->
+        </plugins>
+    </reporting>
+  
+    <dependencies>
+        <!-- Compilation Dependencies -->
+        <dependency>
+            <groupId>cobra</groupId>
+            <artifactId>cobra</artifactId>
+            <version>0.98.4-pcgen</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>rhino</groupId>
+            <artifactId>js</artifactId>
+            <version>1.7R2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.1.3.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>3.1.3.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>mrj</groupId>
+            <artifactId>MRJ141Stubs</artifactId>
+            <version>0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.squirrel-sql.thirdparty-non-maven</groupId>
+            <artifactId>skinlf</artifactId>
+            <version>6.7</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>fop</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jep</groupId>
+            <artifactId>jep</artifactId>
+            <version>2.4.1</version>
+            <scope>compile</scope>
+            <!-- url>http://www.singularsys.com/jep/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.20</version>
+        </dependency>
+        <dependency>
+            <!-- Can't go to 2+ due to code changes required-->
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom</artifactId>
+            <version>1.1.3</version>
+            <scope>compile</scope>
+            <!-- url>http://www.jdom.org/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>xalan</groupId>
+            <artifactId>xalan</artifactId>
+            <version>2.7.1</version>
+            <scope>compile</scope>
+            <!-- url>http://xml.apache.org/xalan-j/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.10.0</version>
+            <scope>compile</scope>
+            <!-- url>http://xml.apache.org/xerces-j/</ url -->
+        </dependency>
+        <!--This is needed when upgrading to xerces 2+-->
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.4.01</version>
+        </dependency>
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>2.5.2</version>
+            <scope>test</scope>
+            <!-- url>http://www.easymock.org/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymockclassextension</artifactId>
+            <version>2.5.2</version>
+            <scope>test</scope>
+            <!-- url>http://www.easymock.org/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+            <!-- url>http://www.junit.org/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>xmlunit</groupId>
+            <artifactId>xmlunit</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+            <!-- url>http://xmlunit.sourceforge.net/</ url -->
+        </dependency>
+        <!-- Maven Dependencies -->
+        <dependency>
+            <groupId>commons-jelly</groupId>
+            <artifactId>commons-jelly-tags-interaction</artifactId>
+            <version>1.1</version>
+            <scope>test</scope>
+            <!-- url>http://jakarta.apache.org/commons/jelly/libs/interaction/index.html</ url -->
+        </dependency>
+        <dependency>
+            <groupId>jline</groupId>
+            <artifactId>jline</artifactId>
+            <version>2.9</version>
+            <scope>test</scope>
+            <!-- url>http://jline.sourceforge.net/</ url -->
+        </dependency>
+        <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>1.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.cenqua.clover</groupId>
+            <artifactId>clover</artifactId>
+            <version>1.3.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>emma</groupId>
+            <artifactId>emma</artifactId>
+            <version>2.1.5320</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>emma</groupId>
+            <artifactId>emma_ant</artifactId>
+            <version>2.1.5320</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-api</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-impl</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.incors.plaf</groupId>
+            <artifactId>kunststoff</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+    </dependencies>
+
+    <!-- Our list of developers/committers -->
+    <developers>
+        <developer>
+            <name>Full Team Listing</name>
+            <organization>PCGen</organization>
+            <url>http://wiki.pcgen.org/index.php?title=Full_Team_Member_Listing</url>
+        </developer>
+    </developers>
+
+    <!-- Our list of contributors -->
+    <contributors>
+        <contributor>
+            <name>Full Team Listing</name>
+            <organization>PCGen</organization>
+            <url>http://wiki.pcgen.org/index.php?title=Full_Team_Member_Listing</url>
+        </contributor>
+    </contributors>
+
+    <licenses>
+        <license>
+            <name>LGPL</name>
+            <url>http://www.gnu.org/licenses/lgpl.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+    
+    <profiles>
+        <profile>
+            <id>package</id>
+            <build>
+                <!-- Assembly plugin, used to assemble our ZIP package -->
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>assemble-zip</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <descriptors>
+                                <!--<descriptor>code/assembly/network-plugin-assembly.xml</descriptor>-->
+                                <descriptor>code/assembly/programzip-assembly.xml</descriptor>
+                                <descriptor>code/assembly/fullzip-assembly.xml</descriptor>
+                                <descriptor>code/assembly/datazip-assembly.xml</descriptor>
+                                <descriptor>code/assembly/librarieszip-assembly.xml</descriptor>
+                                <descriptor>code/assembly/docszip-assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
