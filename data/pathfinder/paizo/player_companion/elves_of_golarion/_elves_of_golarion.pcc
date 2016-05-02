@@ -34,6 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Elves of Golarion"
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+#
+
+
 # Data Files
 ABILITYCATEGORY:eog_abilitycategories.lst
 ABILITY:eog_abilities.lst

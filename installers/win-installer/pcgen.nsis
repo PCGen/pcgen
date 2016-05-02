@@ -14,6 +14,10 @@
 !include "project.nsh"
 !define INCLUDES_DIR "${PROJECT_BUILD_DIR}\..\installers\win-installer\includes"
 !include ${INCLUDES_DIR}\constants.nsh
+;To detect 64 vs. 32 bit. Used for installing right JRE version if needed.
+!include x64.nsh
+;File association
+!include ${INCLUDES_DIR}\FileAssociation.nsh
 
 ; Define constants
 !define APPNAME "PCGen"
@@ -69,111 +73,6 @@ Icon "${SrcDir}\Local\PCGen2.ico"
 ; Set languages (first is default language)
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
-
-; Set User Variables
-Var "JREVer"
-Var "JDKVer"
-Var "CalcJavaVer"
-
-Function .onInit
-
-	;Checks for versions of Java between TargetVer and OverVer
-	; this can be changed once PCGen is stable on Java 1.5 and above
-
-	ClearErrors
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment" "CurrentVersion"
-	StrCpy $JREVer $R0
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$R0" "JavaHome"
-	IfErrors 0 FoundVM
-
-	ClearErrors
-	SetRegView 64
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment" "CurrentVersion"
-	StrCpy $JREVer $R0
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$R0" "JavaHome"
-	SetRegView 32
-	IfErrors 0 FoundVM
-
-	ClearErrors
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit" "CurrentVersion"
-	StrCpy $JDKVer $R0
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit\$R0" "JavaHome"
-	IfErrors 0 FoundVM
-
-	ClearErrors
-	SetRegView 64
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit" "CurrentVersion"
-	StrCpy $JDKVer $R0
-	ReadRegStr $R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit\$R0" "JavaHome"
-	SetRegView 32
-	IfErrors 0 FoundVM
-
-	ClearErrors
-	ReadEnvStr $R0 "JAVA_HOME"
-	IfErrors 0 FoundVM
-
-	DetailPrint "Java not found"
-	Sleep 800
-	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
-		'Could not find a Java Runtime Environment installed on your computer. \
-		$\nWithout it you cannot run "${APPNAME}". \
-		$\n$\nWould you like to visit the Java website to download it?' \
-		IDNO End
-	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
-	Goto End
-
-	FoundVM:
-	DetailPrint "Java was found"
-	DetailPrint $JREVer
-	DetailPrint $JDKVer
-	${If} $JREVer != ''
-		StrCpy $CalcJavaVer $JREVer
-	${ElseIf} $JDKVer != '' 
-		StrCpy $CalcJavaVer $JDKVer
-	${EndIf}
-
-	${If} $CalcJavaVer S< ${TargetVer}
-		 Goto VMOld
-	${ElseIf} $CalcJavaVer S>= ${OverVer}
-		 Goto VMHigh
-	${Else}
-		 Goto VMGood
-	${EndIf}
-
-	VMHigh:
-	DetailPrint "Java Version Bad"
-	Sleep 800
-	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
-		'Found Java Runtime Environment v$CalcJavaVer installed on your computer. \
-		$\nThis version is not yet supported. We recommend version ${TargetVer}. \
-		$\n$\nWould you like to visit the Java website to download newest?' \
-		IDNO Error
-	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
-	Goto Error
-
-	VMGood:
-	DetailPrint "Java Version Good"
-	Goto End
-
-	VMOld:
-	DetailPrint "Java Version Bad"
-	Sleep 800
-	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
-		'Found Java Runtime Environment v$CalcJavaVer installed on your computer. \
-		$\nThis version is no longer supported. We recommend version ${TargetVer}. \
-		$\n$\nWould you like to visit the Java website to download newest?' \
-		IDNO Error
-	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
-	Goto Error
-
-	Error:
-	MessageBox MB_YESNO|MB_ICONQUESTION "PCGen will most likely not run, do you wish to install it anyway?" IDYES End
-	Abort "Error during Java Detection"
-	Goto End
-
-	End:
-
- FunctionEnd
 
 Section "PCGen" Section1
 
@@ -244,13 +143,29 @@ Section "-Local" Section4
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
 	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$SYSDIR\javaw.exe" "-Xmx256M -jar batch-convert.jar" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$$INSTDIR\${APPDIR}\jre\bin\javaw.exe" "-Xmx256M -jar batch-convert.jar" \
 				"$INSTDIR\${APPDIR}\Local\convert.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Release Notes.lnk" "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html" "" "$INSTDIR\${APPDIR}\Local\knight.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" "$INSTDIR\${APPDIR}\Local\queen.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${APPDIR}.lnk" "$INSTDIR\uninstall-${APPDIR}.exe"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" "$INSTDIR\${APPDIR}\Local\castle.ico"
+        ;Add file extension registration
+        ${registerExtension} "$INSTDIR\${APPDIR}\pcgen.exe" ".pcg" "PCGen File"
 
+SectionEnd
+
+Section "JRE" Section5
+        SectionIn RO
+
+        ;Use the right java version
+        DetailPrint "JRE extraction..."
+        SetOutPath "$INSTDIR\${APPDIR}\jre"
+        ${If} ${RunningX64}
+            File /nonfatal /a /r "${SrcDir}/jre/jre_64/*.*"
+        ${Else}
+            File /nonfatal /a /r "${SrcDir}/jre/jre_32/*.*"
+        ${EndIf} 
+        DetailPrint "JRE extraction complete!"
 SectionEnd
 
 Section -FinishSection
@@ -268,6 +183,7 @@ SectionEnd
 	!insertmacro MUI_DESCRIPTION_TEXT ${Section2} "This section installs the data sets you need"
 	!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "This section installs the plug ins you may need"
 	!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "This is for icons and such"
+        !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "This is the embedded JRE used by PCGen"
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section Uninstall
@@ -284,6 +200,8 @@ Section Uninstall
 	Delete "$DESKTOP\${APPDIR}.lnk"
 	; Delete Shortcut Directory
 	RMDir /r "$SMPROGRAMS\PCGen\${APPDIR}"
+        ;Delete file extension registration
+        ${unregisterExtension} ".pcg" "PCGen File"
 
 	MessageBox MB_YESNO "Do you wish to save, your characters, custom sources etc? $\nAnswering no will delete ${APPDIR}." IDYES Save IDNO NoSave
 
@@ -309,6 +227,8 @@ Section Uninstall
 	RMDir /r "$INSTDIR\${APPDIR}\data"
 	RMDir /r "$INSTDIR\${APPDIR}\docs"
 	RMDir /r "$INSTDIR\${APPDIR}\libs"
+        ;Remove local JRE
+        RMDir /r "$INSTDIR\${APPDIR}\jre"
 	RMDir /r "$INSTDIR\${APPDIR}\Local"
 	RMDir /r "$INSTDIR\${APPDIR}\outputsheets"
 	RMDir /r "$INSTDIR\${APPDIR}\plugins"

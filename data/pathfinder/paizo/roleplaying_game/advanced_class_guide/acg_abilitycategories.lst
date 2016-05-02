@@ -90,6 +90,8 @@ ABILITYCATEGORY:Investigator Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ABILITYCATEGORY:Shaman Spirit					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ShamanSpirit																						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shaman Hex					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ShamanHex.ShamanSpiritHex																			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shaman Wandering Spirit			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ShamanWanderingSpirit																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Secondary Shaman Wandering Spirit	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SecondaryShamanWanderingSpirit																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unsworn Shaman Spirit Animal Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:UnswornShamanSpiritAnimalBonus																			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shaman Secret					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Metamagic																						DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Shaman Battle Wandering Hex		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ShamanSpiritHex.ShamanBattleHex																		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shaman Bones Wandering Hex		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:ShamanSpiritHex.ShamanBonesHex																			DISPLAYLOCATION:Class Features
@@ -149,13 +151,29 @@ ABILITYCATEGORY:Level 12 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 ABILITYCATEGORY:Level 16 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice16	CATEGORY:Internal			TYPE:Level 16 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Level 20 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice20	CATEGORY:Internal			TYPE:Level 20 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Contact Specialist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Contact Specialist Feat											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Contact Specialist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Contact Specialist Feat											PLURAL:Contact Specialist Feats						DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Style Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Feat			TYPE:Style														PLURAL:Style Feats						DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Hex Selection						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Hex Selection												PLURAL:Hex Selections						DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Speaker for the Past Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Speaker for the Past Revelation																		DISPLAYLOCATION:Class Features
+
+
+
+# ==============================
+# Archetype Support
+# ==============================
+
+ABILITYCATEGORY:Inspired Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InspiredInvestigatorTalent			PLURAL:Inspired Investigator Talent					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Blade Adept Blade Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AdeptBladeChoice																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Blade Adept Arcana						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BladeAdeptArcana																		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererBloodline					PLURAL:Sorcerer Bloodlines							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elemental Master Type					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElement					PLURAL:Elemental Master Types						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Savant School					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSavantSchool				PLURAL:Arcanist Savant Schools						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSavantOppositionSchool		PLURAL:Arcanist Savant Opposition Schools			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NecromanticSavantChanneling		PLURAL:Necromancer Channeling Choices				DISPLAYLOCATION:Class Features
+
 
 
 

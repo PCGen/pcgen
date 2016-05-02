@@ -42,6 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Heart of the Jungle" Copyright 2010, PCG
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 # Data Files
 ABILITY:hotj_abilities.lst
 ABILITY:hotj_abilities_companion.lst

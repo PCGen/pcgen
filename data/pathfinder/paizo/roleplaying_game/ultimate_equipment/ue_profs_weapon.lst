@@ -21,8 +21,6 @@ Boar Spear					TYPE:Simple.Melee.TwoHanded.Piercing
 Underwater Crossbow (Heavy)		TYPE:Simple.Ranged.Piercing
 Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
 
-
-
 ####Block: Martial Weapons
 #------light---------
 # Weapon Name				Type												Nb Hands
@@ -72,47 +70,47 @@ Wushu Dart					TYPE:Martial.Melee.Eastern.Light.Ranged.Thrown.Piercing
 ####Block: Exotic Weapons
 # Weapon Name			Type
 #------light---------
-Emei Piercer				TYPE:Exotic.Melee.Light.Piercing
-Fighting Fan				TYPE:Exotic.Melee.Light.Piercing
+Emei Piercer				TYPE:Eastern.Exotic.Melee.Light.Piercing
+Fighting Fan				TYPE:Eastern.Exotic.Melee.Light.Piercing
 Knuckle Axe					TYPE:Exotic.Melee.Light.Slashing
 Pata						TYPE:Exotic.Melee.Light.Piercing
 Quadrens					TYPE:Exotic.Melee.Light.Piercing
 Scorpion Whip				TYPE:Exotic.Melee.Light.Slashing
 Sica						TYPE:Exotic.Melee.Light.Slashing
 Swordbreaker (Dagger)			TYPE:Exotic.Melee.Light.Slashing
-Tekko-Kagi (Iron Claw)			TYPE:Exotic.Melee.Light.Piercing
-Wakizashi					TYPE:Exotic.Melee.Light.Piercing.Slashing
+Tekko-Kagi (Iron Claw)			TYPE:Eastern.Exotic.Melee.Light.Piercing
+Wakizashi					TYPE:Eastern.Exotic.Melee.Light.Piercing.Slashing
 
 #-----one handed -------
 Terbutje (Great)				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing.Fragile
 Hooked Axe					TYPE:Exotic.Melee.OneHanded.Slashing
 Katana					TYPE:Melee.Martial.TwoHanded.Exotic.Slashing.Deadly.Tengu.Sword.Eastern
-Nine-Section Whip				TYPE:Exotic.Melee.OneHanded.Bludgeoning
+Nine-Section Whip				TYPE:Eastern.Exotic.Melee.OneHanded.Bludgeoning
 Rhoka Sword					TYPE:Exotic.Melee.OneHanded.Slashing
 Sawtooth Sabre				TYPE:Exotic.Melee.OneHanded.Slashing
 Shotel					TYPE:Exotic.Melee.OneHanded.Piercing
 Taiaha					TYPE:Exotic.Melee.Piercing
 Temple Sword				TYPE:Exotic.Melee.OneHanded.Slashing.Monk
-Urumi						TYPE:Exotic.Melee.OneHanded.Slashing
+Urumi						TYPE:Eastern.Exotic.Melee.OneHanded.Slashing
 
 #-----two handed -------
-Bo Staff					TYPE:Exotic.Melee.TwoHanded.Bludgeoning
+Bo Staff					TYPE:Eastern.Exotic.Melee.TwoHanded.Bludgeoning
 Chain Spear					TYPE:Exotic.Melee.Slashing
-Katana (Double Walking Stick)		TYPE:Exotic.Melee.Bludgeoning
-Kama (Double-Chained)			TYPE:Exotic.Melee.Slashing
+Katana (Double Walking Stick)		TYPE:Eastern.Exotic.Melee.Bludgeoning
+Kama (Double-Chained)			TYPE:Eastern.Exotic.Melee.Slashing
 Flying Blade				TYPE:Exotic.Melee.TwoHanded.Slashing
-Kusarigama (Sickle and Chain)		TYPE:Exotic.Melee.Bludgeoning
-Meteor Hammer				TYPE:Exotic.Melee.TwoHanded.Bludgeoning
-Sword (Seven-Branched)			TYPE:Exotic.Melee.TwoHanded.Slashing
-Tetsubo					TYPE:Exotic.Melee.TwoHanded.Bludgeoning
+Kusarigama (Sickle and Chain)		TYPE:Eastern.Exotic.Melee.Bludgeoning
+Meteor Hammer				TYPE:Eastern.Exotic.Melee.TwoHanded.Bludgeoning
+Sword (Seven-Branched)			TYPE:Eastern.Exotic.Melee.TwoHanded.Slashing
+Tetsubo					TYPE:Eastern.Exotic.Melee.TwoHanded.Bludgeoning
 
 # -- Ranged
 Aklys						TYPE:Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
 Crossbow (Repeating Hand)		TYPE:Exotic.Ranged.Piercing
-Dan Bong					TYPE:Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
+Dan Bong					TYPE:Eastern.Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
 Harpoon					TYPE:Exotic.Melee.TwoHanded.Ranged.Thrown.Piercing
 Kestros					TYPE:Exotic.Ranged.Piercing
-Kyoketsu Shoge				TYPE:Exotic.Melee.TwoHanded.Ranged.Thrown.Piercing.Slashing
+Kyoketsu Shoge				TYPE:Eastern.Exotic.Melee.TwoHanded.Ranged.Thrown.Piercing.Slashing
 Rope Dart					TYPE:Exotic.Ranged.Thrown.Piercing
 Snag Net					TYPE:Exotic.Ranged.Thrown.Piercing
 Wahaika					TYPE:Exotic.Melee.OneHanded.Ranged.Thrown.Bludgeoning
