@@ -1,4 +1,4 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Wed Feb  3 13:52:26 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # Equipment Name		Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
@@ -259,20 +259,19 @@ Flight Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow
 Kestros Dart (10)																							TYPE:Ammunition.Resizable.Standard.KestrosDart													COST:5	WT:5					BASEQTY:10		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.30
 Smoke Arrow																								TYPE:Ammunition.Resizable.Standard.Arrow														COST:10	WT:0.15				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.37
 Whistling Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.40
-Alchemical Cartridge (Dragon's Breath)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40
-Alchemical Cartridge (Entangling Shot)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40
-Alchemical Cartridge (Flare)																					TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:10
-Alchemical Cartridge (Paper/Bullet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
-Alchemical Cartridge (Paper/Pellet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
-Alchemical Cartridge (Salt Shot)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
-Black Powder (Dose)																						TYPE:FirearmGear																		COST:10
-Black Powder (Keg)																						TYPE:FirearmGear																		COST:1000	WT:5
-Bullet (Firearm)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:1
-Bullet (Firearm/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:30	WT:0.5				BASEQTY:30
-Bullet (Firearm/Pitted)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:5
-Metal Cartridge																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:15
-Pellets (Handful)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:1
-Pellets (Handful/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:30	WT:0.5				BASEQTY:30
+Alchemical Cartridge (Dragon's Breath)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40																											SOURCEPAGE:p.41
+Alchemical Cartridge (Entangling Shot)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40																											SOURCEPAGE:p.41
+Alchemical Cartridge (Flare)																					TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:10																											SOURCEPAGE:p.41
+Alchemical Cartridge (Paper/Bullet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12																											SOURCEPAGE:p.41
+Alchemical Cartridge (Paper/Pellet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12																											SOURCEPAGE:p.41
+Alchemical Cartridge (Salt Shot)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12																											SOURCEPAGE:p.41
+Black Powder (Dose)																						TYPE:Goods.FirearmGear.Black Powder (Dose).Consumable												COST:10																											SOURCEPAGE:p.41
+Bullet (Firearm)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:1																											SOURCEPAGE:p.41
+Bullet (Firearm/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:30	WT:0.5				BASEQTY:30																				SOURCEPAGE:p.41
+Bullet (Firearm/Pitted)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:5																											SOURCEPAGE:p.41
+Metal Cartridge																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:15																											SOURCEPAGE:p.41
+Pellets (Handful)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:1																											SOURCEPAGE:p.41
+Pellets (Handful/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:30	WT:0.5				BASEQTY:30																				SOURCEPAGE:p.41
 #
 Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:NO					SOURCEPAGE:p.156																																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
