@@ -8,8 +8,8 @@ Carriage.MOD		TYPE:.CLEAR	TYPE:Goods.Transportation.Vehicle.VehicleLand.Containe
 Black Powder (Dose)			TYPE:Goods.FirearmGear.Black Powder (Dose).Consumable											COST:10
 Black Powder (Keg)			TYPE:Goods.FirearmGear																COST:1000	WT:5
 Gunsmith's Kit				TYPE:Goods.FirearmGear.Kit.Gunsmith's Kit													COST:15	WT:2
-Powder Horn					TYPE:Goods.FirearmGear.Powder Horn.Container												COST:3	WT:1	CONTAINS:UNLIM|BlackPowder=10
-Powder Keg					TYPE:Goods.FirearmGear.Container														COST:0	WT:5	CONTAINS:UNLIM|BlackPowder=100
+Powder Horn					TYPE:Goods.FirearmGear.Powder Horn.Container												COST:3	WT:1	CONTAINS:UNLIM|Black Powder (Dose)=10
+Powder Keg					TYPE:Goods.FirearmGear.Container														COST:0	WT:5	CONTAINS:UNLIM|Black Powder (Dose)=100
 
 
 ###BLOCK: Siege Items
