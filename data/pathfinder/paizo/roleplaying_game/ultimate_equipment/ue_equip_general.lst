@@ -580,8 +580,8 @@ Ram (Portable).MOD								OUTPUTNAME:Portable Ram																													SO
 Pot (Iron).MOD																																									SOURCEPAGE:p.70
 Pot (Mithral)																TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.70
 Powder.MOD																	TYPE:Goods.General.Consumable														COST:0.01	WT:0.5				SOURCEPAGE:p.70																																																				SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
-Powder Horn																	TYPE:Goods.FirearmGear.Powder Horn.Container	CONTAINS:UNLIM|BlackPowder=10						COST:3	WT:1					SOURCEPAGE:p.70
-Powder Keg																	TYPE:Goods.FirearmGear.Container			CONTAINS:UNLIM|BlackPowder=100					COST:0	WT:5					SOURCEPAGE:p.41
+Powder Horn																	TYPE:Goods.FirearmGear.Powder Horn.Container	CONTAINS:UNLIM|Black Powder (Dose)=10				COST:3	WT:1					SOURCEPAGE:p.70
+Powder Keg																	TYPE:Goods.FirearmGear.Container			CONTAINS:UNLIM|Black Powder (Dose)=100				COST:0	WT:5					SOURCEPAGE:p.41
 Prosthetic (Arm)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:10	WT:3					SOURCEPAGE:p.70
 Prosthetic (Foot)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:2					SOURCEPAGE:p.70
 Prosthetic (Hand)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:1					SOURCEPAGE:p.70
