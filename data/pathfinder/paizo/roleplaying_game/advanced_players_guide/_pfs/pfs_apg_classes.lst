@@ -1,0 +1,51 @@
+# CVS $Revision: 21528 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
+
+# Apply starting gold kit to all classes
+
+# Class Name		Template
+CLASS:Alchemist.MOD	TEMPLATE:PFS Starting Gold
+
+# Class Name		Template
+CLASS:Cavalier.MOD	TEMPLATE:PFS Starting Gold
+
+# Class Name		Template
+CLASS:Inquisitor.MOD	TEMPLATE:PFS Starting Gold
+
+# Class Name	Template
+CLASS:Oracle.MOD	TEMPLATE:PFS Starting Gold
+
+# Class Name		Template
+CLASS:Summoner.MOD	TEMPLATE:PFS Starting Gold
+
+# Class Name	Template
+CLASS:Witch.MOD	TEMPLATE:PFS Starting Gold
+
+# Class Name		Template
+CLASS:Antipaladin.MOD	TEMPLATE:PFS Starting Gold
+
+# Limit all PC classes to non-evil
+
+# Class Name		Restricted AL
+CLASS:Alchemist.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name		Restricted AL
+CLASS:Cavalier.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name		Restricted AL
+CLASS:Inquisitor.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Oracle.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name		Restricted AL
+CLASS:Summoner.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name	Restricted AL
+CLASS:Witch.MOD	!PREALIGN:CE,NE,LE
+
+# Class Name		Type
+CLASS:Antipaladin.MOD	TYPE:PFSNotLegal
+# Class Name		Restricted AL		!PRECHARACTERTYPE
+CLASS:Antipaladin.MOD	!PREALIGN:CE,NE,LE	!PRECHARACTERTYPE:1,PC

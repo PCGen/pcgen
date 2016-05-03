@@ -353,8 +353,8 @@
 ====================================-->
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
-		<xsl:choose>
-		<xsl:when test="(weapons/naturalattack) &lt; 1">
+		<!--<xsl:choose>
+			<xsl:when test="(weapons/naturalattack) &lt; 1">	-->
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -365,7 +365,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
-											<xsl:message>Test</xsl:message>
+					<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -398,39 +398,39 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
-												<xsl:message>Test</xsl:message>
-				<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="total"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="damage"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="critical"/>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt">
-							<xsl:value-of select="reach"/>
-						</fo:block>
-					</fo:table-cell>
+						<xsl:message>Test</xsl:message>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="total"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="damage"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="critical"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-rows-spanned="2">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="reach"/>
+							</fo:block>
+						</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
@@ -444,7 +444,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 			<xsl:choose>
-				<xsl:when test="string-length(special_property) &gt; 1">	
+				<xsl:when test="string-length(special_property) &gt; 0">	
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="1">
@@ -465,15 +465,82 @@
 					</fo:table-cell>
 				</fo:table-row>
 				</xsl:when>
-				<xsl:otherwise/>
 			</xsl:choose>	
-			</fo:table-body>
-		</fo:table>
-		</xsl:when>	
-		<xsl:otherwise/>
-		</xsl:choose>
-		
-		<!-- STOP Unarmed Attack Table -->
+		<!--	</xsl:when>		
+		</xsl:choose>-->
+				<xsl:if test="flurry_level &gt; 0">
+		<!-- Start Flurry Attack Table 
+				Currently set up using the Monk Workaround -->
+				<fo:table-row>
+					<xsl:message>Test</xsl:message>
+					<fo:table-cell number-rows-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-weight="bold" font-size="9pt">Flurry of Blows</fo:block>
+					</fo:table-cell>
+					<fo:table-cell  number-rows-spanned="1" number-columns-spanned="4">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt">TOTAL ATTACK BONUS</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+					<!--
+						This section determines the output of the "Flurry of Blows"
+						fab value grabs the base unarmed to hit value from the base.xml.ftl file
+						fab_# allow for precise control over each iteration, these modify the final result
+						We currently allow up to 9 attack iterations
+						flurry_attacks controls how many attacks are visible on the OS.
+					-->
+					<xsl:variable name="flurrylvl" select="flurry_level"/>
+					<xsl:variable name="fab" select="to_hit"/>
+					<xsl:variable name="fab_1" select="fab_1"/>
+					<xsl:variable name="fab_2" select="fab_2"/>
+					<xsl:variable name="fab_3" select="fab_3"/>
+					<xsl:variable name="fab_4" select="fab_4"/>
+					<xsl:variable name="fab_5" select="fab_5"/>
+					<xsl:variable name="fab_6" select="fab_6"/>
+					<xsl:variable name="fab_7" select="fab_7"/>
+					<xsl:variable name="fab_8" select="fab_8"/>
+					<xsl:variable name="fab_9" select="fab_9"/>
+				<fo:table-row>
+						<xsl:message>Test</xsl:message>
+						<fo:table-cell number-columns-spanned="4">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'weapon.hilight'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt">
+									<xsl:value-of select="format-number($fab + $fab_1,'+#;-#')"/>/
+									<xsl:value-of select="format-number($fab + $fab_2,'+#;-#')"/>
+									<xsl:if test="(flurry_attacks &gt; 2)">
+											/<xsl:value-of select="format-number($fab + $fab_3,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 3)">
+											/<xsl:value-of select="format-number($fab + $fab_4,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 4)">
+											/<xsl:value-of select="format-number($fab + $fab_5,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 5)">
+											/<xsl:value-of select="format-number($fab + $fab_6,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 6)">
+											/<xsl:value-of select="format-number($fab + $fab_7,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 7)">
+											/<xsl:value-of select="format-number($fab + $fab_8,'+#;-#')"/>
+									</xsl:if>
+									<xsl:if test="(flurry_attacks &gt; 8)">
+											/<xsl:value-of select="format-number($fab + $fab_9,'+#;-#')"/>
+									</xsl:if>
+							</fo:block>
+						</fo:table-cell>
+				</fo:table-row>
+				</xsl:if>
+		<!-- STOP Flurry Attack Table -->
+		</fo:table-body>
+	</fo:table>
 	</xsl:template>
 
 
@@ -486,7 +553,7 @@
 	<xsl:template match="weapons/naturalattack">
 		<!-- START Natural Attack Table -->
 
-		<fo:table table-layout="fixed" space-before="2mm" keep-with-next.within-column="always">
+		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -651,7 +718,7 @@
 		<xsl:param name="distance"/>
 		<xsl:param name="damage"/>
 		<xsl:param name="tohit" select="''"/>
-			<fo:table table-layout="fixed" space-before="2mm" keep-with-next.within-column="always">
+			<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
@@ -869,7 +936,8 @@
 ====================================-->
 	<xsl:template match="common">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" space-before="2mm" keep-with-next="always" keep-together="always">
+		<fo:block keep-with-next.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 48" />mm</xsl:attribute>
 			</fo:table-column>
@@ -880,7 +948,7 @@
 			<fo:table-column column-width="10mm"/>
 			<fo:table-body>
 			
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Name row (including Hand, Type, Size and Crit -->
 					<fo:table-cell number-rows-spanned="2">
@@ -933,7 +1001,7 @@
 						<fo:block font-size="6pt">REACH</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Hand, Type, Size and Crit -->
 					<fo:table-cell>
@@ -998,6 +1066,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 	<!--
 ====================================
@@ -1008,7 +1077,8 @@
 
 	<xsl:template match="common" mode="special_properties">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together.within-column="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed">
 			<fo:table-column column-width="20mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 20" />mm</xsl:attribute>
@@ -1030,6 +1100,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 	
 	<!--
@@ -1050,7 +1121,8 @@
 		<xsl:param name="to_hit" select="''"/>
 		<xsl:param name="damage" select="''"/>
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.5 * $column_width" />mm</xsl:attribute>
 			</fo:table-column>
@@ -1058,7 +1130,7 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.5 * $column_width" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1073,7 +1145,7 @@
 						<fo:block font-size="6pt">DAMAGE</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row  keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 <!-- DATA-73 Temporary Work Around -->
 					<fo:table-cell>
@@ -1133,6 +1205,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 
 	<!--
@@ -1173,7 +1246,8 @@
 ====================================-->
 	<xsl:template match="melee">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed">
 			<fo:table-column column-width="8mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.35 * ($column_width - 19)" />mm</xsl:attribute>
@@ -1189,7 +1263,7 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.15 * ($column_width - 19)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- To hit and Damage titles -->
 					<fo:table-cell>
@@ -1216,7 +1290,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<xsl:if test="not(w1_h1_p/to_hit = /character/export/invalidtext/tohit and w1_h1_p/damage = /character/export/invalidtext/damage and w2_p_oh/to_hit = /character/export/invalidtext/tohit and w2_p_oh/damage = /character/export/invalidtext/damage)">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 						<!-- 1HP, 2WP-OH -->
 						<xsl:call-template name="weapon.complex.tohit">
@@ -1232,7 +1306,7 @@
 					</fo:table-row>
 				</xsl:if>
 				<xsl:if test="not(w1_h1_o/to_hit = /character/export/invalidtext/tohit and w1_h1_o/damage = /character/export/invalidtext/damage and w2_p_ol/to_hit = /character/export/invalidtext/tohit and w2_p_ol/damage = /character/export/invalidtext/damage)">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 						<!-- 1HO, 2WPOL -->
 						<xsl:call-template name="weapon.complex.tohit">
@@ -1247,7 +1321,7 @@
 						</xsl:call-template>
 					</fo:table-row>
 				</xsl:if>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- 2H, OH -->
 					<xsl:call-template name="weapon.complex.tohit">
@@ -1263,6 +1337,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 	<!--
 ====================================
@@ -1272,6 +1347,7 @@
 ====================================-->
 	<xsl:template match="ranges">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
 		<fo:table table-layout="fixed">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
@@ -1304,7 +1380,7 @@
 	<!-->		<xsl:if test="range[position() &gt; 5 or ../../common/range &gt; 10]">	-->
 	<!-->			<xsl:if test="count(./ranges/range) = 6 or count(./ranges/range) = 11">	-->
 					<xsl:if test="count(./range) = 6 or count(./range) = 11">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 						<xsl:for-each select="range[position() &lt; 2]">	
 							<fo:table-cell number-columns-spanned="2">
@@ -1340,7 +1416,7 @@
 
 			<xsl:if test="count(./range) = 6 or count(./range) = 11">
 		<!-->		<xsl:if test="range[position() &gt; 6]">	-->
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>				<xsl:message><xsl:value-of select="count(./range)"/></xsl:message>
 
 					<!-- Distances -->
@@ -1356,7 +1432,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
@@ -1378,7 +1454,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
@@ -1401,7 +1477,7 @@
 
 			<xsl:if test="count(./range) = 5 or count(./range) = 10">
 		<!-->		<xsl:if test="range[position() &gt; 6]">	-->
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
@@ -1416,7 +1492,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
@@ -1438,7 +1514,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
@@ -1459,7 +1535,7 @@
 
 <!-- Second Row 11 Increments	-->
 				<xsl:if test="count(./range) = 11">
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
@@ -1474,7 +1550,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
@@ -1496,7 +1572,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
@@ -1518,7 +1594,7 @@
 
 <!-- Second Row 10 Increments	-->
 				<xsl:if test="count(./range) = 10">
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
@@ -1533,7 +1609,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
@@ -1555,7 +1631,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
@@ -1589,8 +1665,8 @@
 
 
 				<xsl:if test="ammunition">	
-				<fo:table-body>
-					<fo:table-row keep-with-next.within-column="always">
+			<fo:table-body>
+					<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 						<fo:table-cell number-columns-spanned="6">
 							<xsl:call-template name="attrib">
@@ -1612,7 +1688,7 @@
 		<!-->		<xsl:if test="range[position() &gt; 5 or ../../common/range &gt; 10]">	-->
 		<!-->			<xsl:if test="count(./ranges/range) = 6 or count(./ranges/range) = 11">	-->
 						<xsl:if test="count(./range) = 6 or count(./range) = 11">
-						<fo:table-row keep-with-next.within-column="always">
+						<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 							<xsl:for-each select="range[position() &lt; 2]">	
 								<fo:table-cell number-columns-spanned="2">
@@ -1644,7 +1720,7 @@
 					</xsl:if>	
 			<xsl:if test="count(./range) = 6 or count(./range) = 11">
 		<!-->		<xsl:if test="range[position() &gt; 6]">	-->
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>				<xsl:message><xsl:value-of select="count(./range)"/></xsl:message>
 
 					<!-- Distances -->
@@ -1660,7 +1736,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
@@ -1682,7 +1758,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
@@ -1705,7 +1781,7 @@
 
 				<xsl:if test="count(./range) = 5 or count(./range) = 10">
 			<!-->		<xsl:if test="range[position() &gt; 6]">	-->
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Distances -->
 						<fo:table-cell>
@@ -1720,7 +1796,7 @@
 							</fo:table-cell>
 						</xsl:for-each>
 					</fo:table-row>
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Range To-Hits -->
 						<fo:table-cell>
@@ -1742,7 +1818,7 @@
 							</fo:table-cell>
 						</xsl:for-each>
 					</fo:table-row>
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Damages -->
 						<fo:table-cell>
@@ -1763,7 +1839,7 @@
 
 	<!-- Second Row 11 Increments	-->
 					<xsl:if test="count(./range) = 11">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Distances -->
 						<fo:table-cell>
@@ -1778,7 +1854,7 @@
 							</fo:table-cell>
 						</xsl:for-each>
 					</fo:table-row>
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Range To-Hits -->
 						<fo:table-cell>
@@ -1800,7 +1876,7 @@
 							</fo:table-cell>
 						</xsl:for-each>
 					</fo:table-row>
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Damages -->
 						<fo:table-cell>
@@ -1822,7 +1898,7 @@
 
 				<!-- Second Row 10 Increments	-->
 					<xsl:if test="count(./range) = 10">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Distances -->
 						<fo:table-cell>
@@ -1837,7 +1913,7 @@
 							</fo:table-cell>
 						</xsl:for-each>
 					</fo:table-row>
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Range To-Hits -->
 						<fo:table-cell>
@@ -1859,7 +1935,7 @@
 							</fo:table-cell>
 						</xsl:for-each>
 					</fo:table-row>
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 												<xsl:message>Test</xsl:message>
 						<!-- Damages -->
 						<fo:table-cell>
@@ -1880,102 +1956,11 @@
 			</xsl:choose>
 			</fo:table-body>
 			</xsl:if>
-
 <!-- END AMMO Section	-->
-
-
-
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 
-<!--
-====================================
-====================================
-		TEMPLATE - flurry block
-====================================
-====================================-->
-	<xsl:template match="flurry">
-		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
-		<!-- This should be altered to activate when pcvar for MonkLVL > 1 and instead of direct names, grab TYPE from Equipment "Weapon" and "Monk"-->
-		<xsl:if test="contains(class, 'Mnk') and (contains(name, 'Brass Knuckles') or contains(name, 'Cestus') or contains(name, 'Hanbo') or contains(name, 'Kama') or contains(name, 'Nunchaku') or contains(name, 'Quarterstaff') or contains(name, 'Sai') or contains(name, 'Shuriken') or contains(name, 'Siangham') or contains(name, 'Temple'))">
-		<xsl:variable name="monk_level" select="number(substring-before(substring-after(class,'Mnk'),' '))"/>
-		<xsl:variable name="to_hit">
-		<xsl:choose>
-			<xsl:when test="contains(to_hit,'-') and contains(to_hit,'/')"><xsl:value-of select="number(substring-before(to_hit,'/'))"/></xsl:when>
-			<xsl:when test="(contains(to_hit,'-') = false) and contains(to_hit,'/')"><xsl:value-of select="number(substring-before(substring(to_hit,2),'/'))"/></xsl:when>
-			<xsl:when test="contains(to_hit,'-') and (contains(to_hit,'/') = false)"><xsl:value-of select="number(to_hit)"/></xsl:when>
-			<xsl:when test="(contains(to_hit,'-') = false) and (contains(to_hit,'/') = false)"><xsl:value-of select="number(substring(to_hit,2))"/></xsl:when>
-		</xsl:choose>
-		</xsl:variable>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
-			<fo:table-column column-width="20mm"/>
-			<fo:table-column column-width="10mm"/>
-			<fo:table-column column-width="40mm"/>
-			<fo:table-column column-width="10mm"/>
-			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 80" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-body>
-				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell number-rows-spanned="2">
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="bold" space-before="1pt">Flurry of Blows</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="bold" space-before="1pt">To Hit</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="normal" space-before="1pt">
-							<xsl:choose>
-								<xsl:when test="($monk_level &gt;= 1) and ($monk_level &lt;= 4)">
-									<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 1,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 5">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 6) and ($monk_level &lt;= 7)">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 8">
-									<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 5,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 9) and ($monk_level &lt;= 10)">
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 11) and ($monk_level &lt;= 12)">
-									<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 1,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 4,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 9,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="($monk_level &gt;= 13) and ($monk_level &lt;= 14)">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 15">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level = 16">
-									<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 8,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 13,'+#;-#')"/>
-								</xsl:when>
-								<xsl:when test="$monk_level &gt;= 17">
-									<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit + 3,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 2,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 7,'+#;-#')"/>/<xsl:value-of select="format-number($to_hit - 12,'+#;-#')"/>
-								</xsl:when>
-							</xsl:choose>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="bold" space-before="1pt">Dam</fo:block>
-					</fo:table-cell>
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="6pt" font-weight="normal" space-before="1pt">
-								<xsl:value-of select="damage"/>
-							</fo:block>
-					</fo:table-cell>
-				</fo:table-row>
-			</fo:table-body>
-		</fo:table>
-		</xsl:if>
-	</xsl:template>
+
 
 </xsl:stylesheet>

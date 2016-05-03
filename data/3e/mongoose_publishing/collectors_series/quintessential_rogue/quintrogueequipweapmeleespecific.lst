@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# Equipment Name			Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Damage	Alt Damage		Size		Source Page		Weapon prop. bonus					Special Property
+Sword +3 (Long/Nightblade)	PROFICIENCY:WEAPON|Longsword		TYPE:Magic.Weapon.Martial.Melee.Slashing.Sword.Specific				COST:132000	WT:3		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.59	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:+10 Hide bonus 3/day, 5d4 fire blast 1/day, ethereal jaunt (Wiz13) 1/day
+Quarterstaff +1 (Springing)	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:8600	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	SIZE:L	SOURCEPAGE:p.59	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:Ignore Jump maximums

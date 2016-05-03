@@ -1,8 +1,0 @@
-# CVS $Revision: 21723 $ $Author: zaister $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
-SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
-# Original Entry by: Stefan Radermacher & Andrew Maitland
-
-# Ability Name								Type			Visible	Clear Description	Description																						Auto Feat
-CATEGORY=Special Ability|Alchemist ~ Brew Potion.MOD		REMOVE:FEAT|Brew Potion		ABILITY:FEAT|AUTOMATIC|Extra Bombs		DESC:Alchemist's Brew Potion class ability is not allowed in PFS (he receives Extra Bombs instead as a bonus feat).
-CATEGORY=Special Ability|Cavalier ~ Expert Trainer.MOD	ABILITY:FEAT|AUTOMATIC|Skill Focus (Handle Animal)				DESC:.CLEAR		DESC:Cavalier's Expert Trainer class ability is not allowed in PFS (he receives Skill Focus [Handle Animal] instead as a bonus feat).
-CATEGORY=Special Ability|Witch Hex ~ Cauldron.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

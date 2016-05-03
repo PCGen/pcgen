@@ -375,7 +375,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (changes.includesGlobalClear())
 			{
 				CDOMDirectSingleRef<AbilityList> dr = (CDOMDirectSingleRef<AbilityList>) ref;
-				AbilityList al = dr.resolvesTo();
+				AbilityList al = dr.get();
 				StringBuilder sb = new StringBuilder();
 				sb.append(al.getCategory().getLSTformat(false)).append(Constants.PIPE);
 				sb.append(al.getNature()).append(Constants.PIPE);

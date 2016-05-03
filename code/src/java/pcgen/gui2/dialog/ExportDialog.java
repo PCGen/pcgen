@@ -54,6 +54,7 @@ import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.commons.io.FileUtils;
@@ -155,7 +156,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				CharacterFacade character = (CharacterFacade) value;
-				return super.getListCellRendererComponent(list, character.getNameRef().getReference(), index, isSelected, cellHasFocus);
+				return super.getListCellRendererComponent(list, character.getNameRef().get(), index, isSelected, cellHasFocus);
 			}
 
 		});
@@ -310,15 +311,21 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		String extension = ExportUtilities.getOutputExtension(uri.toString(), pdf);
 		if (pdf)
 		{
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter("PDF Documents (*.pdf)", "pdf"));
+			FileFilter fileFilter = new FileNameExtensionFilter("PDF Documents (*.pdf)", "pdf");
+			fcExport.addChoosableFileFilter(fileFilter);
+			fcExport.setFileFilter(fileFilter);
 		}
 		else if ("htm".equalsIgnoreCase(extension) || "html".equalsIgnoreCase(extension))
 		{
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter("HTML Documents (*.htm, *.html)", "htm", "html"));
+			FileFilter fileFilter = new FileNameExtensionFilter("HTML Documents (*.htm, *.html)", "htm", "html");
+			fcExport.addChoosableFileFilter(fileFilter);
+			fcExport.setFileFilter(fileFilter);
 		}
 		else if ("xml".equalsIgnoreCase(extension))
 		{
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter("XML Documents (*.xml)", "xml"));
+			FileFilter fileFilter = new FileNameExtensionFilter("XML Documents (*.xml)", "xml");
+			fcExport.addChoosableFileFilter(fileFilter);
+			fcExport.setFileFilter(fileFilter);
 		}
 		else
 		{
@@ -330,7 +337,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		if (!partyBox.isSelected())
 		{
 			CharacterFacade character = (CharacterFacade) characterBox.getSelectedItem();
-			path = character.getFileRef().getReference();
+			path = character.getFileRef().get();
 			if (path != null)
 			{
 				path = path.getParentFile();
@@ -339,10 +346,10 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			{
 				path = new File(PCGenSettings.getPcgDir());
 			}
-			name = character.getTabNameRef().getReference();
+			name = character.getTabNameRef().get();
 			if (name == null || "".equals(name))
 			{
-				name = character.getNameRef().getReference();
+				name = character.getNameRef().get();
 			}
 		}
 		else

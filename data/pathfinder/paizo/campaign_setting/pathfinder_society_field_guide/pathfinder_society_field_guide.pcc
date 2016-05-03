@@ -36,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+
 ABILITYCATEGORY:pfsfg_abilitycategories.lst
 ABILITY:pfsfg_abilities.lst
 ABILITY:pfsfg_abilities_class.lst

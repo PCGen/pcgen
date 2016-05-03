@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,25 +17,23 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel
- * for objects that are enums.
+ * An EnumWrapper is an ObjectWrapper capable of producing a TemplateModel for
+ * objects that are enums.
  */
-public class EnumWrapper implements ObjectWrapper
+public class EnumWrapper implements SimpleObjectWrapper
 {
-	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
-	 */
 	@Override
 	public TemplateModel wrap(Object o) throws TemplateModelException
 	{
-		if (o.getClass().isEnum())
+		if ((o != null) && o.getClass().isEnum())
 		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(o.toString());
+			return SimpleWrapperLibrary.wrap(o.toString());
 		}
 		throw new TemplateModelException("Object was not an enum");
 	}

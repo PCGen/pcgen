@@ -18,6 +18,15 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.inst.ComplexNEPFormula;
+import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.util.FormatManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
@@ -33,14 +42,14 @@ public final class FormulaFactory
 	 * minimize memory usage in the many cases where a default Formula of ZERO
 	 * is required.
 	 */
-	public static final Formula ZERO = new IntegerFormula(Integer.valueOf(0));
+	public static final Formula ZERO = new NumberFormula(Integer.valueOf(0));
 
 	/**
 	 * A Formula for the integer constant ONE. This is done in order to minimize
 	 * memory usage in the many cases where a default Formula of ONE is
 	 * required.
 	 */
-	public static final Formula ONE = new IntegerFormula(Integer.valueOf(1));
+	public static final Formula ONE = new NumberFormula(Integer.valueOf(1));
 
 	private FormulaFactory()
 	{
@@ -116,110 +125,96 @@ public final class FormulaFactory
 	}
 
 	/**
-	 * Returns a Formula for the given Integer.
+	 * Returns a Formula for the given Number.
 	 * 
-	 * @param integer
+	 * @param number
 	 *            The int to be converted to a Formula
-	 * @return A Formula for the given Integer.
+	 * @return A Formula for the given Number.
 	 * @throws IllegalArgumentException
-	 *             if the given Integer is null
+	 *             if the given Number is null
 	 */
-	public static Formula getFormulaFor(Integer integer)
+	public static Formula getFormulaFor(Number number)
 	{
-		return new IntegerFormula(integer);
+		return new NumberFormula(number);
 	}
 
 	/**
-	 * Returns a Formula for the given Integer.
-	 * 
-	 * @param dbl
-	 *            The double to be converted to a Formula
-	 * @return A Formula for the given Double.
-	 * @throws IllegalArgumentException
-	 *             if the given Double is null
+	 * NumberFormula is a fixed-value formula for a specific Integer.
 	 */
-	public static Formula getFormulaFor(Double dbl)
-	{
-		return new DoubleFormula(dbl);
-	}
-
-	/**
-	 * IntegerFormula is a fixed-value formula for a specific Integer.
-	 */
-	private static class IntegerFormula implements Formula
+	private static class NumberFormula implements Formula
 	{
 
 		/**
-		 * The integer value of this IntegerFormula
+		 * The Number value of this NumberFormula
 		 */
-		private final Integer integer;
+		private final Number number;
 
 		/**
-		 * Creates a new IntegerFormula from the given Integer.
+		 * Creates a new NumberFormula from the given Number.
 		 * 
 		 * @param intValue
-		 *            The Integer value of this IntegerFormula.
+		 *            The Number value of this NumberFormula.
 		 * @throws IllegalArgumentException
-		 *             if the given Integer is null
+		 *             if the given Number is null
 		 */
-		public IntegerFormula(Integer intValue)
+		public NumberFormula(Number intValue)
 		{
 			if (intValue == null)
 			{
 				throw new IllegalArgumentException(
-						"Cannot create an IntegerFormula with a null Integer");
+					"Cannot create an NumberFormula with a null Number");
 			}
-			integer = intValue;
+			number = intValue;
 		}
 
 		/**
-		 * Resolves this IntegerFormula, returning the Integer in this
-		 * IntegerFormula.
+		 * Resolves this NumberFormula, returning the Number in this
+		 * NumberFormula.
 		 * 
-		 * @return the Integer in this IntegerFormula.
+		 * @return the Number in this NumberFormula.
 		 */
 		@Override
-		public Integer resolve(PlayerCharacter pc, String source)
+		public Number resolve(PlayerCharacter pc, String source)
 		{
-			return integer;
+			return number;
 		}
 
 		/**
-		 * Resolves this IntegerFormula, returning the Integer in this
-		 * IntegerFormula.
+		 * Resolves this NumberFormula, returning the Number in this
+		 * NumberFormula.
 		 * 
-		 * @return the Integer in this IntegerFormula.
+		 * @return the Number in this NumberFormula.
 		 */
 		@Override
-		public Integer resolve(Equipment equipment, boolean primary,
-				PlayerCharacter pc, String source)
+		public Number resolve(Equipment equipment, boolean primary,
+			PlayerCharacter pc, String source)
 		{
-			return integer;
+			return number;
 		}
 
 		/**
-		 * Returns a String representation of this IntegerFormula.
+		 * Returns a String representation of this NumberFormula.
 		 */
 		@Override
 		public String toString()
 		{
-			return integer.toString();
+			return number.toString();
 		}
 
 		/**
-		 * Returns the consistent-with-equals hashCode for this IntegerFormula
+		 * Returns the consistent-with-equals hashCode for this NumberFormula
 		 * 
 		 * @see java.lang.Object#hashCode()
 		 */
 		@Override
 		public int hashCode()
 		{
-			return integer.intValue();
+			return number.intValue();
 		}
 
 		/**
-		 * Returns true if this IntegerFormula is equal to the given Object.
-		 * Equality is defined as being another IntegerFormula object with equal
+		 * Returns true if this NumberFormula is equal to the given Object.
+		 * Equality is defined as being another NumberFormula object with equal
 		 * value.
 		 * 
 		 * @see java.lang.Object#equals(java.lang.Object)
@@ -227,12 +222,12 @@ public final class FormulaFactory
 		@Override
 		public boolean equals(Object obj)
 		{
-			return (obj instanceof IntegerFormula)
-					&& ((IntegerFormula) obj).integer.equals(integer);
+			return (obj instanceof NumberFormula)
+				&& ((NumberFormula) obj).number.equals(number);
 		}
 
 		/**
-		 * Returns true as an IntegerFormula has an underlying integer (static)
+		 * Returns true as an NumberFormula has an underlying Number (static)
 		 * value
 		 */
 		@Override
@@ -242,7 +237,7 @@ public final class FormulaFactory
 		}
 
 		/**
-		 * Returns true as an IntegerFormula is a valid Formula.
+		 * Returns true as an NumberFormula is a valid Formula.
 		 */
 		@Override
 		public boolean isValid()
@@ -251,95 +246,70 @@ public final class FormulaFactory
 		}
 
 		/**
-		 * Resolves this IntegerFormula, returning the Integer in this
-		 * IntegerFormula.
+		 * Resolves this NumberFormula, returning the Number in this
+		 * NumberFormula.
 		 * 
-		 * @return the Integer in this IntegerFormula.
+		 * @return the Integer in this NumberFormula.
 		 */
 		@Override
-		public Integer resolveStatic()
+		public Number resolveStatic()
 		{
-			return integer;
+			return number;
 		}
-}
+	}
 
 	/**
-	 * DoubleFormula is a fixed-value formula for a specific Double.
+	 * SimpleFormula is a fixed-value formula for a specific value.
 	 */
-	private static class DoubleFormula implements Formula
+	private static class SimpleFormula<T> implements NEPFormula<T>
 	{
 
 		/**
-		 * The Double value of this DoubleFormula
+		 * The value of this SimpleFormula
 		 */
-		private final Double dbl;
+		private final T value;
 
 		/**
-		 * Creates a new DoubleFormula from the given Double.
+		 * Creates a new SimpleFormula from the given value.
 		 * 
-		 * @param dblValue
-		 *            The Double value of this DoubleFormula.
+		 * @param val
+		 *            The value of this SimpleFormula.
 		 * @throws IllegalArgumentException
-		 *             if the given Double is null
+		 *             if the given value is null
 		 */
-		public DoubleFormula(Double dblValue)
+		public SimpleFormula(T val)
 		{
-			if (dblValue == null)
+			if (val == null)
 			{
 				throw new IllegalArgumentException(
-						"Cannot create an DoubleFormula with a null Double");
+					"Cannot create an SimpleFormula with a null value");
 			}
-			dbl = dblValue;
+			value = val;
 		}
 
 		/**
-		 * Resolves this DoubleFormula, returning the Double in this
-		 * DoubleFormula.
-		 * 
-		 * @return the Double in this DoubleFormula.
-		 */
-		@Override
-		public Double resolve(PlayerCharacter pc, String source)
-		{
-			return dbl;
-		}
-
-		/**
-		 * Resolves this DoubleFormula, returning the Double in this
-		 * DoubleFormula.
-		 * 
-		 * @return the Double in this DoubleFormula.
-		 */
-		@Override
-		public Double resolve(Equipment equipment, boolean primary,
-				PlayerCharacter pc, String string)
-		{
-			return dbl;
-		}
-
-		/**
-		 * Returns a String representation of this DoubleFormula.
+		 * Returns a String representation of this SimpleFormula.
 		 */
 		@Override
 		public String toString()
 		{
-			return dbl.toString();
+			return value.toString();
 		}
 
 		/**
-		 * Returns the consistent-with-equals hashCode for this DoubleFormula
+		 * Returns the consistent-with-equals hashCode for this SimpleFormula
 		 * 
 		 * @see java.lang.Object#hashCode()
 		 */
 		@Override
 		public int hashCode()
 		{
-			return dbl.intValue();
+			return value.hashCode();
 		}
 
 		/**
-		 * Returns true if this DoubleFormula is equal to the given Object.
-		 * Equality is defined as being another DoubleFormula object with equal
+		 * Returns true if this SimpleFormula is equal to the given Object.
+		 * Equality is defined as being another SimpleFormula object with equal
 		 * value.
 		 * 
 		 * @see java.lang.Object#equals(java.lang.Object)
@@ -347,39 +317,125 @@ public final class FormulaFactory
 		@Override
 		public boolean equals(Object obj)
 		{
-			return (obj instanceof DoubleFormula)
-					&& ((DoubleFormula) obj).dbl.equals(dbl);
+			return (obj instanceof SimpleFormula)
+				&& ((SimpleFormula<?>) obj).value.equals(value);
 		}
 
 		/**
-		 * Returns true as an DoubleFormula has an underlying double (static)
-		 * value
+		 * {@inheritDoc}
 		 */
 		@Override
-		public boolean isStatic()
+		public void getDependencies(DependencyManager fdm)
 		{
-			return true;
+			//None
 		}
 
 		/**
-		 * Returns true as an DoubleFormula is a valid Formula.
+		 * {@inheritDoc}
 		 */
 		@Override
-		public boolean isValid()
+		public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
+			Object owner)
 		{
-			return true;
+			return value;
 		}
 
 		/**
-		 * Resolves this DoubleFormula, returning the Double in this
-		 * DoubleFormula.
-		 * 
-		 * @return the Double in this DoubleFormula.
+		 * {@inheritDoc}
 		 */
 		@Override
-		public Double resolveStatic()
+		public FormulaSemantics isValid(FormulaManager fm, LegalScope varScope,
+			FormatManager<T> formatManager, Class<?> assertedFormat)
 		{
-			return dbl;
+			FormulaSemantics semantics =
+					FormulaSemanticsUtilities.getInitializedSemantics();
+			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
+				formatManager.getManagedClass());
+			return semantics;
 		}
+	}
+
+	/**
+	 * Returns a "New Equation Parser" formula for the given String when
+	 * interpreted by the given FormatManager.
+	 * 
+	 * Due to the type implied by the construction of ComplexNEPFormula, this
+	 * should remain private and external users should be encouraged to use
+	 * getValidFormula (or create a new NEPFormula themselves and check it for
+	 * validity).
+	 * 
+	 * @param fmtManager
+	 *            The FormulaManager to be used to interpret a "simple" formula
+	 * @param expression
+	 *            The expression to be interpreted by the formula parser
+	 * @return The NEPFormula representing the given expression
+	 */
+	private static <T> NEPFormula<T> getNEPFormulaFor(
+		FormatManager<T> fmtManager, String expression)
+	{
+		if (expression == null || expression.length() == 0)
+		{
+			throw new IllegalArgumentException("Formula cannot be empty");
+		}
+		try
+		{
+			return new SimpleFormula<T>(fmtManager.convert(expression));
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Okay, not simple :P
+			return new ComplexNEPFormula<T>(expression);
+		}
+	}
+
+	/**
+	 * Returns a "valid" NEPFormula for the given expression.
+	 * 
+	 * If the given expression does not represent a valid formula, then this
+	 * will throw an IllegalArgumentException.
+	 * 
+	 * If the given expression does not return an object of the type in the
+	 * given FormatManager, then this will throw an IllegalArgumentException.
+	 * 
+	 * @param expression
+	 *            The String representation of the formula to be converted to a
+	 *            NEPFormula
+	 * @param formulaManager
+	 *            The FormulaManager to be used for validating the NEPExpression
+	 * @param varScope
+	 *            The LegalScope in which the NEPFormula is established and
+	 *            checked
+	 * @param formatManager
+	 *            The FormatManager in which the NEPFormula is established and
+	 *            checked
+	 * @return a "valid" NEPFormula for the given expression
+	 */
+	public static <T> NEPFormula<T> getValidFormula(String expression,
+		FormulaManager formulaManager, LegalScope varScope,
+		FormatManager<T> formatManager)
+	{
+		Class<T> varClass = formatManager.getManagedClass();
+		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
+		FormulaSemantics semantics =
+				formula.isValid(formulaManager, varScope, formatManager,
+					formatManager.getManagedClass());
+		if (semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		{
+			Class<?> formulaClass =
+					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
+			if (formulaClass.equals(varClass))
+			{
+				return formula;
+			}
+			throw new IllegalArgumentException("Formula: " + expression
+				+ " returned: " + formulaClass.getCanonicalName() + " but "
+				+ varClass.getCanonicalName() + " was required");
+		}
+		throw new IllegalArgumentException("Cannot create a Formula from: "
+			+ expression
+			+ ", due to: "
+			+ semantics.getInfo(FormulaSemanticsUtilities.SEM_REPORT)
+				.getReport() + " with format "
+			+ formatManager.getIdentifierType());
 	}
 }

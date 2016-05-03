@@ -1,4 +1,4 @@
-# CVS $Revision: 3922 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 3922 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html	SOURCEDATE:2003-11
 # Original Entry by: Paul W. King
 #
@@ -50,17 +50,17 @@ Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:
 Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork														SOURCEPAGE:p.5
 
 ###Block: Finesse Tree
-# Ability Name		Category of Ability	Type						Visible	Required Ability						Prohibited Feat			Multiple Requirements												Add 				Combat bonus												Source Page
-Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Weapon Finesse																ADD:FEAT|Weapon Finesse															SOURCEPAGE:p.5
-Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES														PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Weapon Finesse Talent],[PREABILITY:1,CATEGORY=FEAT,Weapon Finesse]					BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
-Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																									BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
+# Ability Name		Category of Ability	Type						Visible	Required Ability						Restricted Ability					Multiple Requirements															Add							Combat bonus												Source Page
+Weapon Finesse Talent	CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Weapon Finesse																			ADD:ABILITY|FEAT|NORMAL|Weapon Finesse															SOURCEPAGE:p.5
+Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES																	PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Weapon Finesse Talent],[PREABILITY:1,CATEGORY=FEAT,Weapon Finesse]								BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged	SOURCEPAGE:p.5
+Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																																		BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
 
 ###Block: Need for Speed Tree
-# Ability Name	Category of Ability	Type						Visible	Required Ability						Required Feat				Required Skill		Bonus to skill				Source Page
-Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREABILITY:1,CATEGORY=FEAT,Surface Vehicle Operation	PRESKILL:1,Drive=4	BONUS:SKILL|Drive|SAVE.Reflex.BASE	SOURCEPAGE:p.6
-Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREABILITY:1,CATEGORY=FEAT,Surface Vehicle Operation	PRESKILL:1,Drive=4							SOURCEPAGE:p.6
-Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																	SOURCEPAGE:p.6
-Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																	SOURCEPAGE:p.6
+# Ability Name	Category of Ability	Type						Visible	Required Ability							Required Skill		Bonus to skill				Source Page
+Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Surface Vehicle Operation	PRESKILL:1,Drive=4	BONUS:SKILL|Drive|SAVE.Reflex.BASE	SOURCEPAGE:p.6
+Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Surface Vehicle Operation	PRESKILL:1,Drive=4							SOURCEPAGE:p.6
+Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive												SOURCEPAGE:p.6
+Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive												SOURCEPAGE:p.6
 
 ###Block: Quicker Than the Eye Tree
 # Ability Name		Category of Ability	Type							Visible	Required Ability					Define								Description																	Modify VAR											Source Page
@@ -95,7 +95,7 @@ Improved Learning	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:Y
 Broad Knowledge	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Fast Learner				SOURCEPAGE:p.7
 Cross Training	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	SOURCEPAGE:p.7
 #	ADD:CLASSSKILLS(ANY)3
-#	 - ADD:CLASSSKILLS() is a Class level line tag ONLY
+#	- ADD:CLASSSKILLS() is a Class level line tag ONLY
 
 ###Block: Quick Thinking Tree
 # Ability Name				Category of Ability	Type							Visible	Required Ability									Multiple?	Choose																																																Combat bonus				Save bonus			Bonus to skill		Source Page
@@ -116,14 +116,14 @@ Greater Keen Attacks	CATEGORY:Talent		TYPE:Talent.SmartTalent.Tactician	VISIBLE:
 #Dedicated talents
 #
 ###Block: Animal Friendship
-# Ability Name			Category of Ability	Type								Visible	Required Ability									Required Feat			Description					Bonus to skill			Source Page
-Annimal Affinity			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES																							BONUS:SKILL|Handle Animal|3	SOURCEPAGE:p.8
-Wild Empathy			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES												PREABILITY:1,CATEGORY=FEAT,Animal Affinity	DESC:+%1|10+CHA+var("CL=Dedicated")						SOURCEPAGE:p.8
-Animal Friendship			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES																												SOURCEPAGE:p.8
-Advanced Animal Friendship	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Wild Empathy,Animal Friendship		PREABILITY:1,CATEGORY=FEAT,Animal Affinity												SOURCEPAGE:p.9
-Summon Animal			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Animal Friendship				PREABILITY:1,CATEGORY=FEAT,Animal Affinity												SOURCEPAGE:p.9
+# Ability Name			Category of Ability	Type								Visible	Required Ability																	Description					Bonus to skill			Source Page
+Annimal Affinity			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES																										BONUS:SKILL|Handle Animal|3	SOURCEPAGE:p.8
+Wild Empathy			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Animal Affinity												DESC:+%1|10+CHA+var("CL=Dedicated")						SOURCEPAGE:p.8
+Animal Friendship			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES																															SOURCEPAGE:p.8
+Advanced Animal Friendship	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalAffinity	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Wild Empathy,Animal Friendship	PREABILITY:1,CATEGORY=FEAT,Animal Affinity													SOURCEPAGE:p.9
+Summon Animal			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Animal Friendship	PREABILITY:1,CATEGORY=FEAT,Animal Affinity															SOURCEPAGE:p.9
 Summon Greater Animal		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Animal Friendship,Summon Animal	PREABILITY:1,CATEGORY=FEAT,Animal Affinity												SOURCEPAGE:p.9
-Animal Companion			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:YES																												SOURCEPAGE:p.9
+Animal Companion			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.AnimalFriendship	VISIBLE:YES																															SOURCEPAGE:p.9
 
 ###Block: Oracle Tree
 # Ability Name	Category of Ability	Type						Visible	Required Ability							Source Page

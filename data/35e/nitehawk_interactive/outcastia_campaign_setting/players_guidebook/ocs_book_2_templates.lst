@@ -1,39 +1,39 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
 
-# Template Name				Unique Key			Visible	Level Adjustment	Template												Required Feat			Prohibited Feat			Prohibited Race				Required Var. value	Bonus Ability Pool						Bonus to skill				Stat bonus																																									Auto Feat				Main Race Type	Natural Attacks
-Half-Dragon					KEY:Half-Dragon OCS			LEVELADJUSTMENT:1																								!PRERACE:1,RACESUBTYPE=HalfDragon					BONUS:ABILITYPOOL|Half-Dragon Parentage Choice|1							BONUS:STAT|STR|RacialStatStr|TYPE=Racial	BONUS:STAT|DEX|RacialStatDex|TYPE=Racial	BONUS:STAT|CON|RacialStatCon|TYPE=Racial	BONUS:STAT|INT|RacialStatInt|TYPE=Racial	BONUS:STAT|WIS|RacialStatWis|TYPE=Racial	BONUS:STAT|CHA|RacialStatCha|TYPE=Racial
+# Template Name				Unique Key			Visible	Level Adjustment	Template												Required Ability						Restricted Ability					Prohibited Race				Required Var. value	Bonus Ability Pool						Bonus to skill				Stat bonus																																									Ability						Main Race Type	Natural Attacks
+Half-Dragon					KEY:Half-Dragon OCS			LEVELADJUSTMENT:1																														!PRERACE:1,RACESUBTYPE=HalfDragon					BONUS:ABILITYPOOL|Half-Dragon Parentage Choice|1							BONUS:STAT|STR|RacialStatStr|TYPE=Racial	BONUS:STAT|DEX|RacialStatDex|TYPE=Racial	BONUS:STAT|CON|RacialStatCon|TYPE=Racial	BONUS:STAT|INT|RacialStatInt|TYPE=Racial	BONUS:STAT|WIS|RacialStatWis|TYPE=Racial	BONUS:STAT|CHA|RacialStatCha|TYPE=Racial
 
 #
 Dragonic Claw Attack												TEMPLATE:CHOOSE:Claws ~ 1d3|Claws ~ 1d4|Claws ~ 1d6|Claws ~ 1d8
 #
-Claws ~ 1d3									VISIBLE:NO																																	PREVAREQ:ClawsSize,3																																																																		NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
-Claws ~ 1d4									VISIBLE:NO																																	PREVAREQ:ClawsSize,4																																																																		NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
-Claws ~ 1d6									VISIBLE:NO																																	PREVAREQ:ClawsSize,6																																																																		NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d6
-Claws ~ 1d8									VISIBLE:NO																																	PREVAREQ:ClawsSize,8																																																																		NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d8
+Claws ~ 1d3									VISIBLE:NO																																							PREVAREQ:ClawsSize,3																																																																				NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
+Claws ~ 1d4									VISIBLE:NO																																							PREVAREQ:ClawsSize,4																																																																				NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
+Claws ~ 1d6									VISIBLE:NO																																							PREVAREQ:ClawsSize,6																																																																				NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d6
+Claws ~ 1d8									VISIBLE:NO																																							PREVAREQ:ClawsSize,8																																																																				NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d8
 
 
 Run Feat Evalution							VISIBLE:NO				TEMPLATE:CHOOSE:Has Run Feat|Does Not Have Run Feat
 #
-Has Run Feat								VISIBLE:NO																	PREABILITY:1,CATEGORY=FEAT,Run																											BONUS:SKILL|Jump (Running Start)|8
-Does Not Have Run Feat							VISIBLE:NO																						!PREABILITY:1,CATEGORY=FEAT,Run																																																																						ABILITY:FEAT|AUTOMATIC|Run
+Has Run Feat								VISIBLE:NO																	PREABILITY:1,CATEGORY=FEAT,Run																														BONUS:SKILL|Jump (Running Start)|8
+Does Not Have Run Feat							VISIBLE:NO																									!PREABILITY:1,CATEGORY=FEAT,Run																																																																						ABILITY:FEAT|AUTOMATIC|Run
 
 Bond With Nature Feat Evaluation					VISIBLE:NO				TEMPLATE:CHOOSE:Has Bond With Nature Feat|Does Not Have Bond With Nature Feat
 #
 Has Bond With Nature Feat						VISIBLE:NO
-Does Not Have Bond With Nature Feat					VISIBLE:NO																																																																																														ABILITY:FEAT|AUTOMATIC|Bond with Nature
+Does Not Have Bond With Nature Feat					VISIBLE:NO																																																																																																				ABILITY:FEAT|AUTOMATIC|Bond with Nature
 
 
-Racetype now Outsider							VISIBLE:NO																																																																																																			RACETYPE:Outsider
+Racetype now Outsider							VISIBLE:NO																																																																																																											RACETYPE:Outsider
 
 Run Evaluation Feral Raider											TEMPLATE:CHOOSE:Has Run Feat ~ Feral Raider|No Run Feat ~ Feral Raider
 #
-Has Run Feat ~ Feral Raider																																												BONUS:ABILITYPOOL|Feral Raider Run Substitution|1
-No Run Feat ~ Feral Raider																																																																																																					ABILITY:FEAT|AUTOMATIC|Run
+Has Run Feat ~ Feral Raider																																																		BONUS:ABILITYPOOL|Feral Raider Run Substitution|1
+No Run Feat ~ Feral Raider																																																																																																											ABILITY:FEAT|AUTOMATIC|Run
 
 Select Knight of Manuzul Bonus										TEMPLATE:CHOOSE:Has Mounted Archery Feat|No Mounted Archery Feat
 
 Has Mounted Archery Feat																								PREABILITY:1,CATEGORY=FEAT,Mounted Archery
-No Mounted Archery Feat																														!PREABILITY:1,CATEGORY=FEAT,Mounted Archery																																																																				ABILITY:FEAT|AUTOMATIC|Mounted Archery
+No Mounted Archery Feat																																	!PREABILITY:1,CATEGORY=FEAT,Mounted Archery																																																																				ABILITY:FEAT|AUTOMATIC|Mounted Archery

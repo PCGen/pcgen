@@ -1,4 +1,4 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
 # Original Entry by: Stefan Radermacher
 
@@ -6,7 +6,7 @@ SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/gam
 
 ###Block: Religion Traits
 # Cayden Cailean
-# Ability Name		Unique Key					Product Identity?	Category of Ability		Type					Required Deity				Multiple Requirements																					Description																																																																					Stackable?	Multiple?	Choose						Save bonus				Bonus to skill						Class Skill				Source Page		Aspects
+# Ability Name		Unique Key					Product Identity?	Category of Ability		Type					Required Deity				Multiple Requirements																											Description																																																																					Stackable?	Multiple?	Choose						Save bonus				Bonus to skill						Class Skill				Source Page		Aspects
 Good Natured		KEY:Trait ~ Good Natured					CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREDEITY:1,Cayden Cailean		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Good Natured],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You have an unusually sunny spirit, and it takes serious doing to dampen your mood. You gain a +2 trait bonus on all saving throws against fear effects.																																																																									SOURCEPAGE:p.5	ASPECT:SaveBonus|+2 trait bonus vs. fear effects.
 Strong Willed		KEY:Trait ~ Strong Willed					CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREDEITY:1,Cayden Cailean		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Strong Willed],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:Your fervent desire to choose your own path gives you strong willpower, and you receive a +2 trait bonus on saving throws against charm and compulsion effects.																																																																								SOURCEPAGE:p.5	ASPECT:SaveBonus|+2 trait bonus vs. charm and compulsion effects.
 # Desna			# Desna

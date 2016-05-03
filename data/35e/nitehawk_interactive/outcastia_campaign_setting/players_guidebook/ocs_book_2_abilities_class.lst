@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -89,13 +89,13 @@ Navitus Flemen / Control Discipline Level 3						CATEGORY:Special Ability	TYPE:S
 
 Navitus Flemen Mastery					KEY:Navitus Flemen Mastery	CATEGORY:Special Ability											DEFINE:NavitusFlemenMasteryCount|0	BONUS:ABILITYPOOL|Navitus Flemen Mastery|NavitusFlemenMasteryCount
 ###Block:
-# Ability Name						Category of Ability		Type							Visible	Required Ability									Multiple?	Choose										Auto Feat								Source Page
-Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenMend																							SOURCEPAGE:p.60
-Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																							SOURCEPAGE:p.61
-Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																							SOURCEPAGE:p.61
+# Ability Name						Category of Ability		Type							Visible	Required Ability									Multiple?	Choose												Ability											Source Page
+Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenMend																												SOURCEPAGE:p.60
+Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																												SOURCEPAGE:p.61
+Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																												SOURCEPAGE:p.61
 #
-Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]			ABILITY:FEAT|AUTOMATIC|Mystic Knight Martial Weapon Choice (%LIST)
-Mystic Knight Weapon Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Mystic Knight Martial Weapon Choice
+Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]					ABILITY:FEAT|AUTOMATIC|Mystic Knight Martial Weapon Choice (%LIST)
+Mystic Knight Weapon Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Mystic Knight Martial Weapon Choice]
 Mystic Knight Skill Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:SKILL|CLASS
 ###
 Mystic Knight Martial Weapon Choice			CATEGORY:FEAT										VISIBLE:NO												MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]
@@ -111,18 +111,18 @@ Extend		KEY:Extend ~ Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellL
 
 
 ###Block: ~ Utter Master
-# Ability Name			Unique Key							Category of Ability		Type						Define						Description						Auto Feat				Source Page
-Improved Counterspell		KEY:Improved Counterspell ~ Utter Master		CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
-Power Cast				KEY:Power Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:UtterMasterPowerCastTimes|0		DESC: %1/day|UtterMasterPowerCastTimes						SOURCEPAGE:p.76
-Quick Cast				KEY:Quick Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:UtterMasterQuickCastTimes|0		DESC: %1/day|UtterMasterQuickCastTimes						SOURCEPAGE:p.76
-Improved Spell Penetration	KEY:Improved Spell Penetration ~ Utter Master	CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
-Superior Spell Knowledge	KEY:Superior Spell Knowledge ~ Utter Master	CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
+# Ability Name			Unique Key							Category of Ability		Type						Define						Description						Ability						Source Page
+Improved Counterspell		KEY:Improved Counterspell ~ Utter Master		CATEGORY:Special Ability	TYPE:SpecialQuality																								SOURCEPAGE:p.77
+Power Cast				KEY:Power Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:UtterMasterPowerCastTimes|0		DESC: %1/day|UtterMasterPowerCastTimes								SOURCEPAGE:p.76
+Quick Cast				KEY:Quick Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:UtterMasterQuickCastTimes|0		DESC: %1/day|UtterMasterQuickCastTimes								SOURCEPAGE:p.76
+Improved Spell Penetration	KEY:Improved Spell Penetration ~ Utter Master	CATEGORY:Special Ability	TYPE:SpecialQuality																								SOURCEPAGE:p.77
+Superior Spell Knowledge	KEY:Superior Spell Knowledge ~ Utter Master	CATEGORY:Special Ability	TYPE:SpecialQuality																								SOURCEPAGE:p.77
 
 
 ### ~ Murmur
-Competence				KEY:Competence ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurCompetenceTimes|0		DESC:%1/day|MurmurCompetenceTimes							SOURCEPAGE:p.71
+Competence				KEY:Competence ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurCompetenceTimes|0		DESC:%1/day|MurmurCompetenceTimes									SOURCEPAGE:p.71
 Improved Feint			KEY:Improved Feint ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality																	ABILITY:FEAT|AUTOMATIC|Improved Feint	SOURCEPAGE:p.71
-Spells				KEY:Spells ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.71
-Tactical Attack			KEY:Tactical Attack ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurTacticalAttackBonus|0		DESC: +%1d6|MurmurTacticalAttackBonus						SOURCEPAGE:p.71
-Advantageous Step			KEY:Advantageous Step ~ Murmur			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurAdvantageousStepTimes|0	DESC: %1/day|MurmurAdvantageousStepTimes						SOURCEPAGE:p.71
-Push					KEY:Push ~ Murmur						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurPushTimes|0			DESC: %1/day|MurmurPushTimes								SOURCEPAGE:p.71
+Spells				KEY:Spells ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality																								SOURCEPAGE:p.71
+Tactical Attack			KEY:Tactical Attack ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurTacticalAttackBonus|0		DESC: +%1d6|MurmurTacticalAttackBonus								SOURCEPAGE:p.71
+Advantageous Step			KEY:Advantageous Step ~ Murmur			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurAdvantageousStepTimes|0	DESC: %1/day|MurmurAdvantageousStepTimes								SOURCEPAGE:p.71
+Push					KEY:Push ~ Murmur						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurPushTimes|0			DESC: %1/day|MurmurPushTimes										SOURCEPAGE:p.71

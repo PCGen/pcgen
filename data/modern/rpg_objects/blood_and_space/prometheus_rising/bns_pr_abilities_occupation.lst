@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
 ###Block: Occupations
-# Ability Name		Output Name			Category of Ability		Type			Visible		Required Feat			Bonus Ability Pool											Modify VAR							Source Page
-Asteroid Prospector					CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY						BONUS:ABILITYPOOL|Asteroid Prospector Occupation Skills|2					BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
-Corporate Employee					CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY						BONUS:ABILITYPOOL|Corporate Employee Occupation Skills|1					BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.12
-Gambler							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY						BONUS:ABILITYPOOL|Gambler Occupation Skills|2	BONUS:ABILITYPOOL|Gambler Feat|1	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
-Hauler							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY						BONUS:ABILITYPOOL|Hauler Occupation Skills|2	BONUS:ABILITYPOOL|Hauler Feat|1	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
-Pirate							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY						BONUS:ABILITYPOOL|Pirate Occupation Skills|1	BONUS:ABILITYPOOL|Pirate Feat|1	BONUS:VAR|WealthBonus|2	BONUS:VAR|Reputation|1	SOURCEPAGE:p.13
+# Ability Name		Output Name			Category of Ability		Type			Visible		Required Ability						Bonus Ability Pool											Modify VAR							Source Page
+Asteroid Prospector					CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY									BONUS:ABILITYPOOL|Asteroid Prospector Occupation Skills|2					BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Corporate Employee					CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY									BONUS:ABILITYPOOL|Corporate Employee Occupation Skills|1					BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.12
+Gambler							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY									BONUS:ABILITYPOOL|Gambler Occupation Skills|2	BONUS:ABILITYPOOL|Gambler Feat|1	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Hauler							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY									BONUS:ABILITYPOOL|Hauler Occupation Skills|2	BONUS:ABILITYPOOL|Hauler Feat|1	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.12
+Pirate							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY									BONUS:ABILITYPOOL|Pirate Occupation Skills|1	BONUS:ABILITYPOOL|Pirate Feat|1	BONUS:VAR|WealthBonus|2	BONUS:VAR|Reputation|1	SOURCEPAGE:p.13
 Psychic/PR			OUTPUTNAME:Psychic	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=FEAT,TYPE=BasePsionic	BONUS:ABILITYPOOL|Psychic/PR Occupation Skills|2						BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.13
 
 ###Block: Preferred Occupation Bonuses

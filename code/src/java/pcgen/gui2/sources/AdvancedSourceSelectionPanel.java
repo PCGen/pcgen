@@ -45,7 +45,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -68,6 +67,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.InfoPaneLinkAction;
 import pcgen.gui2.util.FacadeComboBoxModel;
+import pcgen.gui2.util.TreeColumnCellRenderer;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.treeview.DataView;
@@ -142,7 +142,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		gameModeList.addActionListener(this); 
 		panel.add(gameModeList, BorderLayout.CENTER);
 		
-		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>();
+		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>(false);
 		bar.add(panel, BorderLayout.WEST);
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		panel = new JPanel(new BorderLayout());
@@ -291,7 +291,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				+ "- ignoring.");
 			return;
 		}
-		GameModeFacade selectedGame = sources.getGameMode().getReference();
+		GameModeFacade selectedGame = sources.getGameMode().get();
 		for (int i = 0; i < gameModeList.getModel().getSize(); i++)
 		{
 			GameModeDisplayFacade gmdf = (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i);
@@ -562,18 +562,30 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 		
 		@Override
-		public List<?> getData(CampaignFacade obj)
+		public Object getData(CampaignFacade obj, int column)
 		{
-			SourceSelectionFacade sourceFacade =
-					frame.getCurrentSourceSelectionRef().getReference();
-			boolean isLoaded =
-					sourceFacade != null
-						&& sourceFacade.getCampaigns().containsElement(obj);
-			return Arrays.asList(
-				obj.getBookTypes(),
-				obj.getStatus(),
-				isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
-					.getString("in_no"));
+			SourceSelectionFacade sourceFacade
+					= frame.getCurrentSourceSelectionRef().get();
+			boolean isLoaded
+					= sourceFacade != null
+					&& sourceFacade.getCampaigns().containsElement(obj);
+			switch (column)
+			{
+				case 0:
+					return obj.getBookTypes();
+				case 1:
+					return obj.getStatus();
+				case 2:
+					return isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
+							.getString("in_no");
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, CampaignFacade element, int column)
+		{
 		}
 		
 		@Override
@@ -624,7 +636,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		{
 			return isAvailModel ? "SourceAvail" : "SourceSelected";  //$NON-NLS-1$//$NON-NLS-2$
 		}
-		
+
 	}
 
 	private static enum SourceTreeView implements TreeView<CampaignFacade>
@@ -697,7 +709,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 * The Class <code>CampaignRenderer</code> displays the tree cells of the
 	 * source table.  
 	 */
-	private class CampaignRenderer extends DefaultTreeCellRenderer
+	private class CampaignRenderer extends TreeColumnCellRenderer
 	{
 
 		/**
@@ -707,9 +719,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		public CampaignRenderer()
 		{
 			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-			setClosedIcon(null);
-			setLeafIcon(null);
-			setOpenIcon(null);
 		}
 
 		@Override

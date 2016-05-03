@@ -1,0 +1,70 @@
+# CVS $Revision: 14380 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+# Pathfinder RPG Entry by: Stefan Radermacher and Scott Meyer
+
+#     No eggs are legal for play.
+# Equipment Name				Type			!PRECHARACTERTYPE		Multiple Requirements
+Axe Beak Egg.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Griffon Egg					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Hippogriff Egg				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#     Transports on pages 86-87 are not available for purchase.
+Carriage.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Cart.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Chariot (Light).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Chariot (Medium).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Chariot (Heavy).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Dog Sled.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Sled.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Wagon.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Wagon (Medium).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Wagon (Heavy).MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Galley.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Junk.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Keelboat.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Longship.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Raft.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Rowboat.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Sailing Ship.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Ship's Boat.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Warship.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#     Alchemists, ninja, and poisoner rogues may only purchase the following poisons: black adder venom, bloodroot, giant wasp poison, greenblood oil, large scorpion venom, malyass root paste, Medium spider venom, nitharit, shadow essence, small centipede poison, terinav root.
+#Block: Poisons
+Poison (Indigo Dreams).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Swampseer Poison).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Azure Lily Pollen).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Arsenic).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Belladonna).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Black Adder Venom).MOD	TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Black Lotus Extract).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Bloodroot).MOD			TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Blue Whinnis).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Burnt Othur Fumes).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Dark Reaver Powder).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Deathblade).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Dragon Bile).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Drow Poison).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Giant Wasp Poison).MOD	TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Greenblood Oil).MOD		TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Hemlock).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Id Moss).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Insanity Mist).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (King's Sleep).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Large Scorpion Venom).MOD	TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Lich Dust).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Malyass Root Paste).MOD	TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Medium Spider Venom).MOD	TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Nightmare Vapor).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Nitharit).MOD			TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Oil of Taggit).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Purple Worm Poison).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Sassone Leaf Residue).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Shadow Essence).MOD		TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Small Centipede Poison).MOD	TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Striped Toadstool).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Tears of Death).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Terinav Root).MOD		TYPE:PFSLegal					PREMULT:1,[PRECLASS:1,Ninja=1,Alchemist=1],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+Poison (Ungol Dust).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Wolfsbane).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Poison (Wyvern Poison).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

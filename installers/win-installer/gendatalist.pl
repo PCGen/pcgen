@@ -94,6 +94,7 @@ $pub{'sovereign_press'} = 'Sovereign Press';
 $pub{'srd'} = 'SRD';
 $pub{'srd35'} = 'SRD35';
 $pub{'st_cooley_publishing'} = 'S T Cooley Publishing';
+$pub{'storm_bunny_studios'} = 'Storm Bunny Studios';
 $pub{'super_genius_games'} = 'Super Genius Games';
 $pub{'sword_and_sorcery_studios'} = 'Sword and Sorcery Studios';
 $pub{'swords_edge_publishing'} = 'Swords Edge Publishing';
@@ -104,6 +105,7 @@ $pub{'wizards_of_the_coast'} = 'Wizards of the Coast';
 # Non-publishers
 $pub{'homebrew'} = 'Homebrew';
 $pub{'conversion_support'} = 'Conversion Support';
+$pub{'my_pathfinder_campaign'} = 'Pathfinder Homebrew';
 
 # Open the script output file
 my $script_file = 'includes/data.nsh';
@@ -115,7 +117,7 @@ open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 foreach $dirname (@basedirlist)
 {
 	# Skip some folders we don't wish to offer
-	if ($dirname eq 'homebrew' || $dirname eq 'zen_test' || $dirname eq 'customsources')
+	if ($dirname eq 'homebrew' || $dirname eq 'readme.md' || $dirname eq 'zen_test' || $dirname eq 'customsources')
 	{
 		next;
 	}
@@ -134,7 +136,7 @@ foreach $dirname (@basedirlist)
 NAME:	foreach $filename (@nondots)
 	{
 		# Skip some folders we don't wish to distribute
-		if ($filename eq 'homebrew' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
+		if ($filename eq 'homebrew' || $filename eq 'readme.md' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
 		{
 			next NAME;
 		}

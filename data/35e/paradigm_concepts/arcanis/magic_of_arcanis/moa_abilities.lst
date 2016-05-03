@@ -1,17 +1,17 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
 ###Block: Altherian Artificer -----------------------------------------------------
-# Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Auto Feat				Add 										Bonus to skill																Allow Follower				Allowed Companions
+# Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Ability							Add										Bonus Ability Pool				Bonus to skill																Allow Follower				Allowed Companions
 Altherian Craftsman									CATEGORY:Special Ability																																									ABILITY:FEAT|AUTOMATIC|Altherian Craftsman
 Sharp Intellect										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality
-Dedication											CATEGORY:Special Ability							DEFINE:DedicationBonus|0	DESC:%1|DedicationBonus																															ADD:ABILITY|Special Ability|NORMAL|Dedication Output Choice
-Dedication Output Choice	OUTPUTNAME:Dedication				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality						DESC:%1|DedicationBonus	STACK:NO	MULT:YES	CHOOSE:SKILL|Craft (Alchemy)|Craft (Armorsmithing)|Craft (Flintlocks)|Craft (Trapmaking)|Craft (Weaponsmithing)	SELECT:1																BONUS:SKILL|%LIST|DedicationBonus	BONUS:SKILL|Knowledge (Architecture and Engineering)|DedicationBonus
-Craft Clockwork Companion								CATEGORY:Special Ability	TYPE:SpecialQuality																																																																						FOLLOWERS:Clockwork Companion|1	COMPANIONLIST:Clockwork Companion|RACETYPE=Clockwork Construct
+Dedication											CATEGORY:Special Ability							DEFINE:DedicationBonus|0	DESC:%1|DedicationBonus																																		ADD:ABILITY|Special Ability|NORMAL|Dedication Output Choice
+Dedication Output Choice	OUTPUTNAME:Dedication				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality						DESC:%1|DedicationBonus	STACK:NO	MULT:YES	CHOOSE:SKILL|Craft (Alchemy)|Craft (Armorsmithing)|Craft (Flintlocks)|Craft (Trapmaking)|Craft (Weaponsmithing)	SELECT:1																										BONUS:SKILL|%LIST|DedicationBonus	BONUS:SKILL|Knowledge (Architecture and Engineering)|DedicationBonus
+Craft Clockwork Companion								CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																FOLLOWERS:Clockwork Companion|1	COMPANIONLIST:Clockwork Companion|RACETYPE=Clockwork Construct
 #Trapfinding								CATEGORY:Special Ability
 #Exploit Flaw										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality	DEFINE:ExploitFlawBonus|0																																																									BONUS:VAR|ExploitFlawBonus|2
-Master Craftsman										CATEGORY:Special Ability																																														BONUS:ABILITYPOOL|Master Craftsman|1
+Master Craftsman										CATEGORY:Special Ability																																																											BONUS:ABILITYPOOL|Master Craftsman|1
 Forge Gears and Magic		OUTPUTNAME:Forge, Gears, and Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Eschew Requirements		OUTPUTNAME:Eschew Spell Requirements	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
@@ -21,11 +21,11 @@ Instant Inspection	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 
 ###Block: Hedge Mage -----------------------------------------------------------
-# Ability Name			Category of Ability		Type										Required Ability							Stackable?	Multiple?	Choose		Auto Feat			Bonus to skill
+# Ability Name			Category of Ability		Type										Required Ability							Stackable?	Multiple?	Choose		Ability					Bonus to skill
 Aura of Faith			CATEGORY:Special Ability
 Hedge Mage's Education		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #Summon Familiar			CATEGORY:Special Ability
-Intution				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																									BONUS:SKILL|Spot,Listen,Sense Motive|1|TYPE=Insight
+Intution				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																											BONUS:SKILL|Spot,Listen,Sense Motive|1|TYPE=Insight
 #Poison Use				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Brew Potion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					ABILITY:FEAT|AUTOMATIC|Brew Potion
 Adaptable Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -54,42 +54,42 @@ Wyrd Mastery			CATEGORY:Special Ability	TYPE:HedgeMageLoreGreater.SpecialQuality
 
 
 ###Block: Shaman -----------------------------------------------------------------------------------------------------
-# Ability Name					Output Name		Category of Ability		Type										Required Ability																			Var. Min. Value			Define									Description						Clone Movement		Auto Feat			Ability							Combat bonus					Add to base move															Save bonus			Bonus to skill										Modify VAR							Weapon prof. bonus
+# Ability Name					Output Name		Category of Ability		Type										Required Ability																			Var. Min. Value			Define									Description						Clone Movement		Ability							Combat bonus					Add to base move															Save bonus			Bonus to skill										Modify VAR							Weapon prof. bonus
 Spirit Calling								CATEGORY:Special Ability
 #Channeling									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Between Worlds								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																															DEFINE:BetweenWorlds|0																														BONUS:COMBAT|INITIATIVE|-1																								BONUS:SKILL|Listen,Spot|var("BetweenWorlds")
+Between Worlds								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																															DEFINE:BetweenWorlds|0																										BONUS:COMBAT|INITIATIVE|-1																								BONUS:SKILL|Listen,Spot|var("BetweenWorlds")
 Spirit Guide								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Edge of Perception							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																															DEFINE:EdgeOfPerception|0																																																																					BONUS:VAR|BetweenWorlds|var("EdgeOfPerception")
+Edge of Perception							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																															DEFINE:EdgeOfPerception|0																																																																	BONUS:VAR|BetweenWorlds|var("EdgeOfPerception")
 Query										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Spirit Journey								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Admonish Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Spiritual Presence							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									DESC:Aura of Fear|PRECLASS:1,Shaman=14
-Spirit Gift									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SpellLike.Supernatural																											DEFINE:SpiritGiftLVL|0	DEFINE:ShamanSpiritGiftPenalty|0																																																				BONUS:SKILL|Bluff,Diplomacy,Sense Motive|var("ShamanSpiritGiftPenalty")
+Spirit Gift									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SpellLike.Supernatural																											DEFINE:SpiritGiftLVL|0	DEFINE:ShamanSpiritGiftPenalty|0																																																BONUS:SKILL|Bluff,Diplomacy,Sense Motive|var("ShamanSpiritGiftPenalty")
 
 #Spirit Gifts
 Lesser Spirit Gift - Ant			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
-Lesser Spirit Gift - Bear			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural																													DEFINE:BearGiftBonus|0							DESC:%1|BearGiftBonus|PRESTAT:1,CHA=12																																																									BONUS:VAR|BearGiftBonus|var("CL=Shaman")*CHA
+Lesser Spirit Gift - Bear			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural																													DEFINE:BearGiftBonus|0							DESC:%1|BearGiftBonus|PRESTAT:1,CHA=12																																																					BONUS:VAR|BearGiftBonus|var("CL=Shaman")*CHA
 Lesser Spirit Gift - Butterfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
-Lesser Spirit Gift - Cat			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-Lesser Spirit Gift - Dog			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																						ABILITY:Special Ability|AUTOMATIC|Scent
+Lesser Spirit Gift - Cat			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+Lesser Spirit Gift - Dog			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		ABILITY:Special Ability|AUTOMATIC|Scent
 Lesser Spirit Gift - Dolphin			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																														MOVECLONE:Walk,Swim,*1
-Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																					BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1	BONUS:SAVE|Reflex|1
+Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																	BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1	BONUS:SAVE|Reflex|1
 Lesser Spirit Gift - Eagle			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Fire			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Horse			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Lightning		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Lion			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
-Lesser Spirit Gift - Lizard			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
-Lesser Spirit Gift - Rabbit			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																						ABILITY:Special Ability|AUTOMATIC|Evasion
-Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																										BONUS:SKILL|TYPE.Knowledge|2
+Lesser Spirit Gift - Lizard			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
+Lesser Spirit Gift - Rabbit			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		ABILITY:Special Ability|AUTOMATIC|Evasion
+Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																						BONUS:SKILL|TYPE.Knowledge|2
 Lesser Spirit Gift - Shaman Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Spider			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
 Lesser Spirit Gift - Stone			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		ABILITY:FEAT|AUTOMATIC|Toughness
 Lesser Spirit Gift - Thunder			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
-Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																														BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
+Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																										BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
 Lesser Spirit Gift - Water			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Winter			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
-Lesser Spirit Gift - Wolf			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																														BONUS:WEAPONPROF=TYPE.Melee|TOHIT|1|TYPE=Insight
+Lesser Spirit Gift - Wolf			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																										BONUS:WEAPONPROF=TYPE.Melee|TOHIT|1|TYPE=Insight
 
 #Greater Spirit Gifts -
 Greater Spirit Gifts - East Wind		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																								PREVARGTEQ:SpiritGiftLVL,15
@@ -129,7 +129,7 @@ Supreme Battlemagic	CATEGORY:Special Ability	TYPE:SpecialAttack
 
 ###Block: Suromar ----------------------------------------------------------------------------
 #Rogue Special Ability ~ Slippery Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:Ex
-# Ability Name		Category of Ability		Type						Auto Feat
+# Ability Name		Category of Ability		Type						Ability
 Iron Will			CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:FEAT|AUTOMATIC|Iron Will
 Lack of Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Psionic Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -142,10 +142,10 @@ Quicker Than The Mind	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Warder -----------------------------------------------------------------------------
 
-# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add 											Modify VAR
+# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add											Modify VAR
 Track					CATEGORY:Special Ability	TYPE:SpecialQuality
 
-# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add 											Modify VAR
+# Ability Name			Category of Ability		Type							Required Ability									Restricted Ability																						Var. Max. Value			Define																											Description						Stackable?	Multiple?	Choose													Selections	Add											Modify VAR
 Homeland Defense			CATEGORY:Special Ability	TYPE:SpecialQuality																																													DEFINE:Aquatic|0	DEFINE:Desert|0	DEFINE:Forest|0	DEFINE:Hill|0	DEFINE:Marsh|0	DEFINE:Mountains|0	DEFINE:Plains|0	DEFINE:Aquatic|0	DEFINE:Urban|0
 
 #!PREABILITY:1,CATEGORY=Special Ability,Homeland Defense Choice I
@@ -375,7 +375,7 @@ Elemental Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 
 ###Block: The Ehtzara -------------------------------------------------------------------------------------------------------------
 #Summon Familiar			CATEGORY:Special Ability	TYPE:SpecialQuality
-# Ability Name		Output Name					Category of Ability		Type						Innate Spells												Auto Weapon Prof													Virtual Feat
+# Ability Name		Output Name					Category of Ability		Type						Innate Spells												Auto Weapon Prof													Ability
 Fetish Crafting								CATEGORY:Special Ability	TYPE:SpecialQuality																																ABILITY:FEAT|VIRTUAL|Craft Fetish|Craft Lesser Fetish
 Spirit Robes								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Binding Fetish								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -420,24 +420,24 @@ Improved Armored Caster	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 
 
 ###Block: Magus Irascortum -------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Unique Key						Output Name									Category of Ability		Type						Define			Stackable?	Multiple?	Choose		Virtual Feat		Bonus to skill					Modify VAR
+# Ability Name	Unique Key						Output Name									Category of Ability		Type						Define			Stackable?	Multiple?	Choose		Ability					Bonus to skill					Modify VAR
 Focused Fury																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Armored Caster																		CATEGORY:Special Ability	TYPE:SpecialQuality														ABILITY:FEAT|VIRTUAL|Armored Caster
-Additional Rage	KEY:Additional Rage ~ Magus Irascortum											CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:AdditionalRage|0																			BONUS:VAR|RageTimes|AdditionalRage
+Additional Rage	KEY:Additional Rage ~ Magus Irascortum											CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:AdditionalRage|0																					BONUS:VAR|RageTimes|AdditionalRage
 Channel Rage								OUTPUTNAME:Channel Rage, Greater|PREVAREQ:ChannelRage,1	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:ChannelRage|0
-Enhanced Focus																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																BONUS:SKILL|Concentration|max(CHA,0)
+Enhanced Focus																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																		BONUS:SKILL|Concentration|max(CHA,0)
 Perfected Control																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Arcane Strength																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 #Perfected Control											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 
 
 ###Block: The Master-Smith ------------------------------------------------------------------------------------------------
-# Ability Name				Output Name				Category of Ability		Type				Define				Virtual Feat				Add 																			Bonus to skill
+# Ability Name				Output Name				Category of Ability		Type				Define				Ability							Add																			Bonus to skill
 Apprenticeship									CATEGORY:Special Ability	TYPE:SpecialQuality
-Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																										BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science/Metallurgy),Craft (Blacksmithing)|SkillMasteryBonus|TYPE=Competence
+Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																												BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science/Metallurgy),Craft (Blacksmithing)|SkillMasteryBonus|TYPE=Competence
 Silvered Weapon									CATEGORY:Special Ability	TYPE:SpecialQuality
-Master Craftsman (Armorsmith)							CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Armorsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
-Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Bonus,Master Craftsman (Weaponsmithing) Feat
+Master Craftsman (Armorsmith)							CATEGORY:Special Ability	TYPE:SpecialQuality														ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Armorsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
+Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality														ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Bonus,Master Craftsman (Weaponsmithing) Feat
 Weapon Focus									CATEGORY:Special Ability	TYPE:SpecialQuality						ABILITY:FEAT|VIRTUAL|Weapon Focus(Warhammer)
 Cold-Forging									CATEGORY:Special Ability	TYPE:SpecialQuality
 Master-Smith									CATEGORY:Special Ability	TYPE:SpecialQuality						ABILITY:FEAT|VIRTUAL|Craft Magic Arms and Armor
@@ -447,11 +447,11 @@ A Practiced Hand									CATEGORY:Special Ability	TYPE:SpecialQuality
 Practitioner's Technique							CATEGORY:Special Ability	TYPE:SpecialQuality
 Master of the Forge								CATEGORY:Special Ability	TYPE:SpecialQuality
 ###Block
-# Ability Name					Category of Ability		Type				Required Feat							Prohibited Feat							Virtual Feat						Bonus to skill
-Master Craftsman (Armorsmithing) Feat	CATEGORY:Special Ability														!PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Armorsmithing))	ABILITY:FEAT|VIRTUAL|Master Craftsman (Craft (Armorsmithing))
-Master Craftsman (Armorsmithing) Bonus	CATEGORY:Special Ability					PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Armorsmithing))																		BONUS:SKILL|Craft (Armorsmithing)|1
-Master Craftsman (Weaponsmithing) Feat	CATEGORY:Special Ability														!PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Weaponsmithing))	ABILITY:FEAT|VIRTUAL|Master Craftsman (Craft (Weaponsmithing))
-Master Craftsman (Weaponsmithing) Bonus	CATEGORY:Special Ability					PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Weaponsmithing))																		BONUS:SKILL|Craft (Weaponsmithing)|1
+# Ability Name					Category of Ability		Type				Required Ability										Restricted Ability									Ability										Bonus to skill
+Master Craftsman (Armorsmithing) Feat	CATEGORY:Special Ability																	!PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Armorsmithing))	ABILITY:FEAT|VIRTUAL|Master Craftsman (Craft (Armorsmithing))
+Master Craftsman (Armorsmithing) Bonus	CATEGORY:Special Ability					PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Armorsmithing))																								BONUS:SKILL|Craft (Armorsmithing)|1
+Master Craftsman (Weaponsmithing) Feat	CATEGORY:Special Ability																	!PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Weaponsmithing))	ABILITY:FEAT|VIRTUAL|Master Craftsman (Craft (Weaponsmithing))
+Master Craftsman (Weaponsmithing) Bonus	CATEGORY:Special Ability					PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Weaponsmithing))																								BONUS:SKILL|Craft (Weaponsmithing)|1
 
 Clockwork Construct traits			CATEGORY:Special Ability	TYPE:SpecialQuality
 
@@ -656,7 +656,7 @@ Metamorphosis	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 ###################################
 
 ###Block: Ordainer ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Output Name																													Category of Ability		Type						Var. Min. Value			Define								Auto Feat				Add
+# Ability Name			Output Name																													Category of Ability		Type						Var. Min. Value			Define								Ability						Bonus Ability Pool
 Soul Search				OUTPUTNAME:Improved Soul Search|PREVAREQ:SoulSearchLvl,1	OUTPUTNAME:Superior Soul Search|PREVAREQ:SoulSearchLvl,2											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						DEFINE:SoulSearchLvl|0
 Arcane Health																																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Reduced Arcane Spell Failure	OUTPUTNAME:Improved Reduced Arcane Spell Failure|PREVAREQ:ReducedArcaneSpellFailureLvl,1	OUTPUTNAME:Superior Reduced Arcane Spell Failure|PREVAREQ:ReducedArcaneSpellFailureLvl,2	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DEFINE:ReducedArcaneSpellFailureLvl|0
@@ -673,8 +673,8 @@ Spell Thief																																		CATEGORY:Special Ability	TYPE:Speci
 Reform Magic																																	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Experienced Caster																																CATEGORY:Special Ability	TYPE:SpecialQuality																	ABILITY:FEAT|AUTOMATIC|Experienced Caster
 #Ordainer Feat Choices
-Spell Focus																																		CATEGORY:Special Ability	TYPE:OrdainerFeat																							BONUS:ABILITYPOOL|Spell Focus|1
-Greater Spell Focus																																CATEGORY:Special Ability	TYPE:OrdainerFeat				PREVARGTEQ:OrdainerFeatLvl,1															BONUS:ABILITYPOOL|Greater Spell Focus|1
+Spell Focus																																		CATEGORY:Special Ability	TYPE:OrdainerFeat																									BONUS:ABILITYPOOL|Spell Focus|1
+Greater Spell Focus																																CATEGORY:Special Ability	TYPE:OrdainerFeat				PREVARGTEQ:OrdainerFeatLvl,1																	BONUS:ABILITYPOOL|Greater Spell Focus|1
 
 ###Block: Shard Shaper ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Output Name																			Category of Ability		Type				Define					Description
@@ -686,7 +686,7 @@ Access to Skills																							CATEGORY:Special Ability	TYPE:SpecialQual
 Access to Personal Knowledge																					CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Wine Drinker ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name						Category of Ability		Type							Define										Description												Add
+# Ability Name						Category of Ability		Type							Define										Description												Bonus Ability Pool
 Blood Dependence						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary													DESC:+%1|WineDrinkerPoisonTolerance|PREVAREQ:WineDrinkerPoisonTolerance,2
 Blood Tolerance						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Sacrifice							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural

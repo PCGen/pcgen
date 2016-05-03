@@ -125,7 +125,7 @@ public class PreFactSetWriter extends AbstractPrerequisiteWriter implements
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
 				: "1");
-		writer.write(",ID=" + cat);
+		writer.write("," + cat);
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			writer.write(',');

@@ -1,13 +1,29 @@
-# CVS $Revision$ $Author$ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Name	Category of Ability	Define
+AGE TEST		CATEGORY:INTERNAL		DEFINE:Stat_Age_Physical|0
 
 ###Block: Caster Level Tracking
+# Ability Name			Define						Modify VAR
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Bonus|0
 # Combined to get Highest Arcane or Divine caster level
-CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
+CATEGORY=Internal|Default.MOD								BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
 
+
+###Block: Age Adjustments
+# Ability Name			Define									Stat bonus
+CATEGORY=Internal|Default.MOD	DEFINE:Stat_Age_Physical|0	DEFINE:Stat_Age_Mental|0
+
+CATEGORY=Internal|Default.MOD											BONUS:STAT|STR|Stat_Age_Physical|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|DEX|Stat_Age_Physical|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|CON|Stat_Age_Physical|TYPE=Age
+
+CATEGORY=Internal|Default.MOD											BONUS:STAT|INT|Stat_Age_Mental|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|WIS|Stat_Age_Mental|TYPE=Age
+CATEGORY=Internal|Default.MOD											BONUS:STAT|CHA|Stat_Age_Mental|TYPE=Age
 #	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
 #	BONUS:CASTERLEVEL|ClassName|ClassName_Caster_Level	DEFINE:ClassName_Caster_Level|0	BONUS:VAR|ClassName_Caster_Level|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Divine|ClassName_Caster_Level|TYPE=Base
 #	You can then determine Caster level for any class "ClassName_Caster_Level" or meet prereqs based upon Highest Caster Level for Arcane or Divine.

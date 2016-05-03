@@ -31,6 +31,7 @@ import java.util.List;
 import javax.swing.undo.UndoManager;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
@@ -223,9 +224,9 @@ public interface CharacterFacade extends CompanionFacade
 
 	public EquipmentListFacade getPurchasedEquipment();
 
-	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize);
+	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize, boolean free);
 
-	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity);
+	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity, boolean free);
 
 	//public int getQuantity(EquipmentFacade equipment);
 	public boolean isQualifiedFor(EquipmentFacade equipment);
@@ -631,6 +632,13 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return True if the character can take the domain, false if not.
 	 */
 	public boolean isQualifiedFor(DomainFacade domain);
+	
+	/**
+	 * Check if the character meets all requirements to take the deity.
+	 * @param deity The deity to be checked.
+	 * @return True if the character can take the deity, false if not.
+	 */
+	public boolean isQualifiedFor(DeityFacade deity);
 
 	/**
 	 * Check if the character meets all requirements to take the temporary bonus.
@@ -869,4 +877,6 @@ public interface CharacterFacade extends CompanionFacade
 	public void addNote(List<EquipmentFacade> targets);
 	
 	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers);
+
+	CharID getCharID();
 }

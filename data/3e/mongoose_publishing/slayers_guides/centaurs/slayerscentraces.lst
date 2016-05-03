@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Centaurs	SOURCESHORT:SGtCentaur	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+# Mongoose Centaurs work best in DEFAULT ON mode...
+# Race Name			Output Name			Favored Class	Starting Feats	Size		Move			Face/Space	Combat bonus				Stat bonus								Auto Language			Nb Legs	Special ABility																	Monster Class Name and Starting Level	Main Race Type	Source Page
+Centaur (Mongoose)	OUTPUTNAME:Centaur	FAVCLASS:Ranger	STARTFEATS:1	SIZE:L	MOVE:Walk,50	FACE:5,5	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-4	AUTO:LANG|Common|Sylvan|Elven	LEGS:4	SAB:+3 Listen/Spot in woodland	SAB:+4 Move Silently/Wilderness Lore in woodland	SAB:+6 hide in woodland	MONSTERCLASS:Centaur:3				RACETYPE:Humanoid	SOURCEPAGE:p.23

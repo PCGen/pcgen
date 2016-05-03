@@ -1,23 +1,24 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original entry: Andrew Maitland
 
 # Feat Name			Type			Required Ability							Required AL		Required Feat					Required Skill				Required Stat	Var. Min. Value		Var. Max. Value			Description																	Source Page
-Bribery			CATEGORY:FEAT	TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack											PRESKILL:1,Diplomacy=1															DESC:You have trained yourself to more "diplomatic" rather than resulting to violent measures.			SOURCEPAGE:p.27
-Corrupted			CATEGORY:FEAT	TYPE:General																																	PREVARLTEQ:HonorScore,-1	DESC:You seek vile powers and creatures to further your path toward corruption.					SOURCEPAGE:p.27
-Fearsome Leader		CATEGORY:FEAT	TYPE:General													PREABILITY:1,CATEGORY=FEAT,Leadership																	PREVARLTEQ:HonorScore,-6	DESC:Your enemies are haunted by your daunting command.									SOURCEPAGE:p.28
-Heroic Leap			CATEGORY:FEAT	TYPE:General													PREABILITY:2,CATEGORY=FEAT,Honorable,Skill Focus (Jump)																			DESC:Your honorable heart can traverse many gorges.										SOURCEPAGE:p.28
-Honor				CATEGORY:FEAT	TYPE:General										PREALIGN:LG,LN,LE														PRESTAT:1,CHA=13										DESC:You are bound by a code greater then yourself.										SOURCEPAGE:p.28
-Honor Among Thieves	CATEGORY:FEAT	TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																													DESC:Contrary to popular belief, you have and uphold a sense of honor with those that cross your path.	SOURCEPAGE:p.28
-Honorable			CATEGORY:FEAT	TYPE:General													PREABILITY:1,CATEGORY=FEAT,Honor														PREVARGTEQ:HonorScore,1						DESC:You are naturally honorable without having to do great deeds.							SOURCEPAGE:p.28
-Honorable Ki Strike	CATEGORY:FEAT	TYPE:General													PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike								PRESTAT:1,CHA=15										DESC:You are able to focus your inner power against chaos with your unarmed strike.					SOURCEPAGE:p.28
-Honorable Spell		CATEGORY:FEAT	TYPE:Metamagic										PREALIGN:LG,LN,LE																										DESC:You are able to imbue your spells with honor.										SOURCEPAGE:p.28
-Known Cruelty		CATEGORY:FEAT	TYPE:General													PREABILITY:1,CATEGORY=FEAT,Leadership																	PREVARLTEQ:HonorScore,-2	DESC:Your cruelty as garnered prestige among the most nefarious of followers.						SOURCEPAGE:p.28
-Rogue Specialization	CATEGORY:FEAT	TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																													DESC:Your adaptive learning has allowed you to specialize with a weapon as a fighter does.			SOURCEPAGE:p.28
-Rogue Swiftness		CATEGORY:FEAT	TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																													DESC:Your speed, rather than your dagger, has allowed you to escape many "unhealthy" situations.		SOURCEPAGE:p.28
-Silver-Tongue		CATEGORY:FEAT	TYPE:General																																	PREVARLTEQ:HonorScore,-5	DESC:Your words can divert and bend the will of the most honorable.							SOURCEPAGE:p.29
-Silver-Tongue Magus	CATEGORY:FEAT	TYPE:General																																	PREVARLTEQ:HonorScore,-6	DESC:Your spells can divert and bend the will of the most honorable.							SOURCEPAGE:p.29
-Swift-Footed		CATEGORY:FEAT	TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack											PRESKILL:2,Hide=1,Move Silently=1													DESC:Without the restrictions of armor and being heavily encumbered, you are quick and deadly.			SOURCEPAGE:p.29
+# Ability Name		Category of Ability	Type			Required Ability								Required AL		Required Skill				Required Stat	Var. Min. Value		Var. Max. Value			Description																	Source Page
+Bribery			CATEGORY:FEAT		TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack					PRESKILL:1,Diplomacy=1															DESC:You have trained yourself to more "diplomatic" rather than resulting to violent measures.			SOURCEPAGE:p.27
+Corrupted			CATEGORY:FEAT		TYPE:General																											PREVARLTEQ:HonorScore,-1	DESC:You seek vile powers and creatures to further your path toward corruption.					SOURCEPAGE:p.27
+Fearsome Leader		CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Leadership																				PREVARLTEQ:HonorScore,-6	DESC:Your enemies are haunted by your daunting command.									SOURCEPAGE:p.28
+Heroic Leap			CATEGORY:FEAT		TYPE:General	PREABILITY:2,CATEGORY=FEAT,Honorable,Skill Focus (Jump)																						DESC:Your honorable heart can traverse many gorges.										SOURCEPAGE:p.28
+Honor				CATEGORY:FEAT		TYPE:General											PREALIGN:LG,LN,LE							PRESTAT:1,CHA=13										DESC:You are bound by a code greater then yourself.										SOURCEPAGE:p.28
+Honor Among Thieves	CATEGORY:FEAT		TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																							DESC:Contrary to popular belief, you have and uphold a sense of honor with those that cross your path.	SOURCEPAGE:p.28
+Honorable			CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Honor																	PREVARGTEQ:HonorScore,1						DESC:You are naturally honorable without having to do great deeds.							SOURCEPAGE:p.28
+Honorable Ki Strike	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike											PRESTAT:1,CHA=15										DESC:You are able to focus your inner power against chaos with your unarmed strike.					SOURCEPAGE:p.28
+Honorable Spell		CATEGORY:FEAT		TYPE:Metamagic											PREALIGN:LG,LN,LE																			DESC:You are able to imbue your spells with honor.										SOURCEPAGE:p.28
+Known Cruelty		CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Leadership																				PREVARLTEQ:HonorScore,-2	DESC:Your cruelty as garnered prestige among the most nefarious of followers.						SOURCEPAGE:p.28
+Rogue Specialization	CATEGORY:FEAT		TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																							DESC:Your adaptive learning has allowed you to specialize with a weapon as a fighter does.			SOURCEPAGE:p.28
+Rogue Swiftness		CATEGORY:FEAT		TYPE:Rogue		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack																							DESC:Your speed, rather than your dagger, has allowed you to escape many "unhealthy" situations.		SOURCEPAGE:p.28
+Silver-Tongue		CATEGORY:FEAT		TYPE:General																											PREVARLTEQ:HonorScore,-5	DESC:Your words can divert and bend the will of the most honorable.							SOURCEPAGE:p.29
+Silver-Tongue Magus	CATEGORY:FEAT		TYPE:General																											PREVARLTEQ:HonorScore,-6	DESC:Your spells can divert and bend the will of the most honorable.							SOURCEPAGE:p.29
+Swift-Footed		CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack					PRESKILL:2,Hide=1,Move Silently=1													DESC:Without the restrictions of armor and being heavily encumbered, you are quick and deadly.			SOURCEPAGE:p.29
 
 #
 ## EOF

@@ -18,7 +18,7 @@
 package pcgen.output.model;
 
 import pcgen.core.UnitSet;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -75,7 +75,7 @@ public class UnitSetModel implements TemplateHashModel, TemplateScalarModel
 			throw new TemplateModelException(
 				"UnitSet did not have output of type " + key);
 		}
-		return ObjectWrapper.DEFAULT_WRAPPER.wrap(unit);
+		return SimpleWrapperLibrary.wrap(unit);
 	}
 
 	/**

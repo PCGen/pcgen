@@ -1,0 +1,49 @@
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), Douglas Limmer, and Paul Shipley
+# ORIGINAL ENTRY DATE: Unknown
+
+#   Alternate class abilities: alchemical simulacrum discovery, alchemical zombie discovery, doppelganger simulacrum discovery, and greater alchemical simulacrum discovery are not legal for play.
+# Ability Name										Category of Ability		Type			!PRECHARACTERTYPE		Description																	Ability																			Remove Object			Bonus Ability Pool
+CATEGORY=Special Ability|Discovery ~ Alchemical Simulacrum.MOD							TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Discovery ~ Alchemical Zombie.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Discovery ~ Doppelganger Simulacrum.MOD							TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Discovery ~ Greater Alchemical Simulacrum.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   Archetypes: broodmaster summoner, clone master alchemist, gravewalker witch, pack lord druid, master summoner, reincarnated druid, sanguine wildblooded, synthesist summoner, undead lord cleric, vivisectionist alchemist archetypes are not legal for play.
+CATEGORY=Archetype|Summoner Archetype ~ Broodmaster.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Alchemist Archetype ~ Clone Master.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Witch Archetype ~ Gravewalker.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Druid Archetype ~ Pack Lord.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Summoner Archetype ~ Master Summoner.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Druid Archetype ~ Reincarnated Druid.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Sanguine.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Summoner Archetype ~ Synthesist.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Cleric Archetype ~ Undead Lord.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Alchemist Archetype ~ Vivisectionist.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+
+#   Hexes: child scent hex, poison steep hex, cook people major hex, and witch's brew major hex are not legal for play.
+CATEGORY=Special Ability|Witch Hex ~ Child-Scent.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Witch Hex ~ Poison Steep.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Witch Major Hex ~ Cook People.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Witch Major Hex ~ Witch's Brew.MOD								TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   Bottled ooze discovery may only be used to bottle oozes which appear in the Pathfinder RPG Bestiary.
+CATEGORY=Special Ability|Discovery ~ Bottled Ooze.MOD																DESC:Bottled ooze discovery may only be used to bottle oozes which appear in the Pathfinder RPG Bestiary.
+
+#   Geisha bard archetype grants Spell Focus instead of Scribe Scroll.
+CATEGORY=Archetype|Bard Archetype ~ Geisha.MOD																																																							REMOVE:FEAT|Scribe Scroll	BONUS:ABILITYPOOL|Spell Focus|1
+
+#   Clostered Cleric archetype grants Spell Focus at 4th level in place of Scribe Scroll.
+CATEGORY=Archetype|Cleric Archetype ~ Cloistered Cleric.MOD																																	ABILITY:Special Ability|AUTOMATIC|Cleric Archetype ~ Cloistered Cleric ~ PFS Replace Scribe Scroll|PRECLASS:1,Cleric=4
+Cleric Archetype ~ Cloistered Cleric ~ PFS Replace Scribe Scroll		CATEGORY:Special Ability																																														REMOVE:FEAT|Scribe Scroll	BONUS:ABILITYPOOL|Spell Focus|1
+
+#   An ex-Inquisitor may not replace existing class abilities with those granted by the Heretic inquisitor.
+# TODO: Exinquisitor is not implemented in PCGen
+
+# Other: No content from Chapter 2 is legal for play except new familiars; Words of Power are also forbidden.
+
+# Because Hexcrafter relies on barred abilities, it too is not legal for play.
+CATEGORY=Archetype|Magus Archetype ~ Hexcrafter.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Hexcrafter ~ Spells.MOD									TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

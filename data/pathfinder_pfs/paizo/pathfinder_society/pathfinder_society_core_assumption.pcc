@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Pathfinder Society Core Assumption
-GAMEMODE:Pathfinder|Pathfinder_PFS
+GAMEMODE:Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
 RANK:3
 STATUS:RELEASE
@@ -68,4 +68,3 @@ FORWARDREF:RACE|Orc
 # These are Paizo sources that are in PCGen, but not in Additional Resoures
 !PRECAMPAIGN:1,INCLUDES=Mythic Adventures
 !PRECAMPAIGN:1,INCLUDES=Critical Fumble Deck
-

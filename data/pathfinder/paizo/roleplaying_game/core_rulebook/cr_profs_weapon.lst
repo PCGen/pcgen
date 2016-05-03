@@ -1,11 +1,11 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: abernat
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 # SIMPLE WEAPONS
 # -- unarmed
-# Weapon Name			Type																			Nb Hands
+# Weapon Name			Type
 Grapple				TYPE:Auto.Simple.Melee.Unarmed.Bludgeoning
 Spells (Ray)			TYPE:Auto.Simple.RangedTouch.Spell
 Spells (Touch)			TYPE:Auto.Simple.RangedTouch.Spell
@@ -32,8 +32,8 @@ Quarterstaff			TYPE:Simple.TwoHanded.Melee.Quarterstaff.DoubleWeapon.Bludgeoning
 Spear					TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.Spear
 # -- Ranged
 Blowgun				TYPE:Simple.Ranged.Piercing.RangedPiercing.Blowgun
-Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										
-Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										
+Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery
 Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
 Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing.Spear
 Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
@@ -76,8 +76,8 @@ Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePier
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
 Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
 # --ranged
-Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery											
-Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery											
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery
 # EXOTIC
 # -- light
 Kama					TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing
@@ -97,8 +97,8 @@ Urgrosh (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.
 # -- ranged
 Bolas					TYPE:Exotic.Thrown.Bludgeoning
 Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
-Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery										
-Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery										
+Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
 Net					TYPE:Exotic.Thrown.Net
 Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing
 Sling Staff (Halfling)		TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Halfling

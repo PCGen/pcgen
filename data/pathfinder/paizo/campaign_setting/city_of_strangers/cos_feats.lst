@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Name		Category of Ability	Type			Required Ability					Description																			Multiple?	Choose						Auto Equip			Caster level				Source Page
+Bloatmage Initiate	CATEGORY:FEAT		TYPE:General	PREABILITY:1,CATEGORY=FEAT,Spell Focus	DESC:The practice of hemotheurgy is an ancient practice performed by those who believe that "magic lies in the blood."	MULT:YES	CHOOSE:SCHOOLS|ABILITY=FEAT[Spell Focus]	AUTO:EQUIP|Body Fat	BONUS:CASTERLEVEL|SCHOOL.%LIST|1	SOURCEPAGE:p.42

@@ -60,7 +60,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
-import pcgen.util.StringPClassUtil;
 
 public abstract class AbstractReferenceContext
 {
@@ -81,6 +80,8 @@ public abstract class AbstractReferenceContext
 	
 	private URI extractURI;
 	
+	private final FormatManagerLibrary fmtLibrary = new FormatManagerLibrary();
+	
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
@@ -88,7 +89,21 @@ public abstract class AbstractReferenceContext
 	
 	protected abstract <T extends Categorized<T>> boolean hasManufacturer(
 		Class<T> cl, Category<T> cat);
-	
+
+	protected final <T extends Loadable> ReferenceManufacturer<T> getNewReferenceManufacturer(
+		Class<T> cl)
+	{
+		ReferenceManufacturer<T> mfg = constructReferenceManufacturer(cl);
+		if (mfg.getIdentifierType() != null)
+		{
+			fmtLibrary.addFormatManager(mfg);
+		}
+		return mfg;
+	}
+
+	protected abstract <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
+		Class<T> cl);
+
 	/**
 	 * Retrieve the Reference manufacturer that handles this class and category. Note that
 	 * even though abilities are categorized, the category may not be know initially, so
@@ -528,30 +543,8 @@ public abstract class AbstractReferenceContext
 
 	public abstract <T extends CDOMObject> T performMod(T obj);
 
-	public <T> FormatManager<T> getFormatManager(Class<T> cl)
-	{
-		if (Categorized.class.isAssignableFrom(cl))
-		{
-			throw new IllegalArgumentException(
-				"Cannot support Categorized items");
-		}
-		else if (Loadable.class.isAssignableFrom(cl))
-		{
-			return getManufacturer((Class) cl);
-		}
-		else
-		{
-			return FormatManagerLibrary.getFormatManager(cl);
-		}
-	}
-
 	public FormatManager<?> getFormatManager(String clName)
 	{
-		Class<? extends Loadable> cl = StringPClassUtil.getClassFor(clName);
-		if (cl != null)
-		{
-			return getManufacturer(cl);
-		}
-		return FormatManagerLibrary.getFormatManager(clName);
+		return fmtLibrary.getFormatManager(clName);
 	}
 }

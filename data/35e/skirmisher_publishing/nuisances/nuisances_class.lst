@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page
-CLASS:Slovely Trull	HD:4		TYPE:PC.Prestige	ABB:SlTrl		MAXLEVEL:1	SOURCEPAGE:p.36
+# Class Name		Hit Dice	Type			Max Level	Source Page		FACT
+CLASS:Slovely Trull	HD:4		TYPE:PC.Prestige	MAXLEVEL:1	SOURCEPAGE:p.36	FACT:Abb|SlTrl
 # Class Name		Prohibited Stat
 CLASS:Slovely Trull	!PRESTAT:2,WIS=10,INT=10
 # Class Name		Skill Pts/Lvl
@@ -11,8 +11,8 @@ CLASS:Slovely Trull	STARTSKILLPTS:0
 1	ABILITY:Special Ability|AUTOMATIC|Slovely Trull Resistance to Intoxicants
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus
-CLASS:Prostitute	HD:4		TYPE:PC.Prestige	ABB:Ho		MAXLEVEL:1	SOURCEPAGE:p.37	BONUS:SAVE|BASE.Fortitude|2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save bonus				FACT
+CLASS:Prostitute	HD:4		TYPE:PC.Prestige	MAXLEVEL:1	SOURCEPAGE:p.37	BONUS:SAVE|BASE.Fortitude|2	FACT:Abb|Ho
 # Class Name	Required Skill
 CLASS:Prostitute	PRESKILL:1,Profession (Courtesan)=1
 # Class Name	Skill Pts/Lvl
@@ -20,13 +20,13 @@ CLASS:Prostitute	STARTSKILLPTS:0
 1	ABILITY:Special Ability|AUTOMATIC|Prostitute Carrier|Prostitute Proposition	AUTO:WEAPONPROF|Whip|TYPE=Dagger
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Pimp		HD:8		TYPE:PC.Prestige	ABB:Pimp		MAXLEVEL:3	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat						Required Skill		PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Pimp		HD:8		TYPE:PC.Prestige	MAXLEVEL:3	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Pimp
+# Class Name	Required Ability									Required Skill		PRETOTALAB
 CLASS:Pimp		PREABILITY:2,CATEGORY=FEAT,Pimp Slap,Skill Focus (Intimidate)	PRESKILL:1,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pimp		STARTSKILLPTS:3	CSKILL:Appraise|Bluff|Handle Animal|Intimidate|Profession (Pimp)|Sense Motive|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|Manage the Stable|Pimp Resistance to Disease		ABILITY:FEAT|AUTOMATIC|Killer 'Do|Simple Weapon Proficiency	AUTO:WEAPONPROF|Whip|Sap|TYPE=Dagger
+1	ABILITY:Special Ability|AUTOMATIC|Manage the Stable|Pimp Resistance to Disease	ABILITY:FEAT|AUTOMATIC|Killer 'Do|Simple Weapon Proficiency	AUTO:WEAPONPROF|Whip|Sap|TYPE=Dagger
 2	ABILITY:Special Ability|AUTOMATIC|Keep Your Pimp Hand Strong|Lookin' Sharp|Movin' On Up
 3	ABILITY:Special Ability|AUTOMATIC|King of the Tenderloin
 

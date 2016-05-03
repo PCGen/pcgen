@@ -20,14 +20,13 @@
  */
 package pcgen.gui2.util.table;
 
-import java.awt.Container;
 import java.awt.Dimension;
+
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToggleButton;
-import javax.swing.JViewport;
 import javax.swing.table.TableColumn;
 
 /**
@@ -39,27 +38,9 @@ public class TableUtils
 
 	public static JTable createDefaultTable()
 	{
-		return new JTable()
-		{
-
-			@Override
-			public boolean getScrollableTracksViewportHeight()
-			{
-				// fetch the table's parent
-				Container viewport = getParent();
-
-				// if the parent is not a viewport, calling this isn't useful
-				if (!(viewport instanceof JViewport))
-				{
-					return false;
-				}
-
-				// return true if the table's preferred height is smaller
-				// than the viewport height, else false
-				return getPreferredSize().height < viewport.getHeight();
-			}
-
-		};
+		JTable table = new JTable();
+		table.setFillsViewportHeight(true);
+		return table;
 	}
 
 	/**

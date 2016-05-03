@@ -44,7 +44,7 @@ public class ExchangeLevelApplication
 	
 			try
 			{
-				PCClass cl = le.getExchangeClass().resolvesTo();
+				PCClass cl = le.getExchangeClass().get();
 				int iMinLevel = le.getMinDonatingLevel();
 				int iMaxDonation = le.getMaxDonatedLevels();
 				int iLowest = le.getDonatingLowerLevelBound();

@@ -331,7 +331,7 @@
 										<xsl:with-param name="count" select="@cast"/>
 									</xsl:call-template>
 					<fo:block font-size="12pt">
-						LEVEL <xsl:value-of select="@number"/> / Per Day:<xsl:value-of select="@cast"/> / Caster Level:<xsl:value-of select="spell/casterlevel"/>
+						LEVEL <xsl:value-of select="@number"/> / Per Day:<xsl:value-of select="@cast"/> / Caster Level:<xsl:value-of select="spell/basecasterlevel"/>
 					<xsl:if test="concentration != ''">
 							<fo:inline> / </fo:inline>
 						<fo:inline font-style="italic" font-weight="bold">Concentration:</fo:inline>
@@ -952,10 +952,12 @@
 											<xsl:message>Test</xsl:message>
 				<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
 			</fo:table-row>
-			<fo:table-row>
+			<xsl:if test="count(..//level) &gt; 5">
+				<fo:table-row>
 											<xsl:message>Test</xsl:message>
-				<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
-			</fo:table-row>
+					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
 		</xsl:if>
 	</xsl:template>
 	<!--

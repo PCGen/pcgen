@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
+
+# Template Name		Visible	Source Page		Special ABility																						Bonus Ability Pool			Removable?
+Harrowed (at odd CL)	VISIBLE:YES	SOURCEPAGE:p.94	SAB:Harrowed(Su)	SAB:Death wounds(Su)	SAB:Decay(Ex)	SAB:Regeneration(Sp)	SAB:Sleep(Ex)	SAB:Nightmares(Su)	SAB:Grit(Ex)	BONUS:ABILITYPOOL|Harrowed|(TL+1)/2	REMOVABLE:YES
+Harrowed (at even CL)	VISIBLE:YES	SOURCEPAGE:p.94	SAB:Harrowed(Su)	SAB:Death wounds(Su)	SAB:Decay(Ex)	SAB:Regeneration(Sp)	SAB:Sleep(Ex)	SAB:Nightmares(Su)	SAB:Grit(Ex)	BONUS:ABILITYPOOL|Harrowed|TL/2	REMOVABLE:YES

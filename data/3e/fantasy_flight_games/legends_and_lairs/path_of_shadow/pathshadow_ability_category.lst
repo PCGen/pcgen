@@ -1,0 +1,115 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object				Specific choices list																																																																							Display Location
+ABILITYCATEGORY:Chameleon Special Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ChameleonSpecialAbilities																																																																											DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Con Artist Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ConArtistSpecialAbilities																																																																											DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Psychic Thief Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT			TYPE:PsychicThiefFeat																																																																													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Thief Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:PsychicThiefAbility																																																																												DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Questioner Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT			TYPE:QuestionerFeat																																																																													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Questioner Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:QuestionerChoice																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Sailmaster Skill Mastery		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:SailmasterSkillMastery																																																																												DISPLAYLOCATION:Class Abilities
+
+
+
+ABILITYCATEGORY:White Rose Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities																																																																											DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Delver Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT									ABILITYLIST:Exotic Weapon Proficiency|Martial Weapon Proficiency																																																																DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Delver Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT									ABILITYLIST:Alertness|Combat Reflexes|Dodge|Expertise|Improved Disarm|Improved Initiative|Improved Trip|Iron Will|Lightning Reflexes|Mobility|Quick Draw|Run|Skill Focus|Spring Attack|Weapon Finesse|Weapon Focus|Whirlwind Attack																																					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Noble Decoy Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT									ABILITYLIST:Alertness|Blind-Fight|Dodge|Great Fortitude|Improved Initiative|Iron Will|Lightning Reflexes|Run|Toughness																																																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Royal Assassin Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT									ABILITYLIST:Ambidexterity|Blind-Fight|Cleave|Combat Reflexes|Dodge|Exotic Weapon Proficiency|Expertise|Far Shot|Great Cleave|Improved Bull Rush|Improved Critical|Improved Disarm|Improved Initiative|Improved Trip|Improved Two-Weapon Fighting|Improved Unarmed Strike|Mobility|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Shot on the Run|Spring Attack|Sunder|Two-Weapon Fighting|Weapon Finesse|Weapon Focus|Whirlwind Attack	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Sailmaster Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT									ABILITYLIST:Ambidexterity|Blind-Fight|Combat Reflexes|Dodge|Exotic Weapon Proficiency|Expertise|Far Shot|Improved Critical|Improved Disarm|Improved Initiative|Improved Trip|Improved Two-Weapon Fighting|Improved Unarmed Strike|Mobility|Point Blank Shot|Precise Shot|Quick Draw|Rapid Shot|Spring Attack|Stunning Fist|Two-Weapon Fighting|Weapon Finesse|Weapon Focus|Weapon Specialization|Whirlwind Attack								DISPLAYLOCATION:Feats
+
+
+
+ABILITYCATEGORY:Packrat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:PackratLevelIncrease																																																																												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Skill Mastery Queen's Coronet	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability							ABILITYLIST:Skill Mastery Queen's Coronet																																																																				DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Savant_PoS I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SavantLAPL1																																																																														DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Savant_PoS II				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SavantLAPL2																																																																														DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Savant_PoS III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SavantLAPL3																																																																														DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Savant_PoS IV				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SavantLAPL4																																																																														DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Savant_PoS V				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SavantLAPL5																																																																														DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Rogue Prince I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RoguePrinceLAPL1			ABILITYLIST:Enhanced Charisma I|Enhanced Dexterity I																																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Rogue Prince II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RoguePrinceLAPL2			ABILITYLIST:Enhanced Charisma II|Enhanced Dexterity II																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Rogue Prince III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RoguePrinceLAPL3			ABILITYLIST:Enhanced Charisma III|Enhanced Dexterity III																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Rogue Prince IV			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RoguePrinceLAPL4			ABILITYLIST:Enhanced Charisma IV|Enhanced Dexterity IV																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Rogue Prince V			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RoguePrinceLAPL5			ABILITYLIST:Enhanced Charisma V|Enhanced Dexterity V																																																																		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Queen of Shadows I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:QueenShadowsLAPL1			ABILITYLIST:Enhanced Charisma I|Enhanced Dexterity I																																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Queen of Shadows II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:QueenShadowsLAPL2			ABILITYLIST:Enhanced Charisma II|Enhanced Dexterity II																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Queen of Shadows III		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:QueenShadowsLAPL3			ABILITYLIST:Enhanced Charisma III|Enhanced Dexterity III																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Queen of Shadows IV			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:QueenShadowsLAPL4			ABILITYLIST:Enhanced Charisma IV|Enhanced Dexterity IV																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Queen of Shadows V			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:QueenShadowsLAPL5			ABILITYLIST:Enhanced Charisma V|Enhanced Dexterity V																																																																		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Master Burglar I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MasterBurglarLAPL1			ABILITYLIST:Enhanced Dexterity I|Enhanced Wisdom I																																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Master Burglar II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MasterBurglarLAPL2			ABILITYLIST:Enhanced Dexterity II|Enhanced Wisdom II																																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Master Burglar III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MasterBurglarLAPL3			ABILITYLIST:Enhanced Dexterity III|Enhanced Wisdom III																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Master Burglar IV			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MasterBurglarLAPL4			ABILITYLIST:Enhanced Dexterity IV|Enhanced Wisdom IV																																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Master Burglar V			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MasterBurglarLAPL5			ABILITYLIST:Enhanced Dexterity V|Enhanced Wisdom V																																																																		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Jack o' the Green I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackGreenLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack o' the Green II		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackGreenLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack o' the Green III		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackGreenLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack o' the Green IV		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackGreenLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack o' the Green V			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackGreenLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Jack of Knives I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackKnivesLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack of Knives II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackKnivesLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack of Knives III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackKnivesLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack of Knives IV			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackKnivesLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Jack of Knives V			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:JackKnivesLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Incantator I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:IncantatorLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Incantator II				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:IncantatorLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Incantator III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:IncantatorLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Incantator IV				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:IncantatorLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Incantator V				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:IncantatorLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Hand of the Reaper I		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HandReaperLAPL1			ABILITYLIST:Enhanced Dexterity I|Enhanced Intelligence I																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hand of the Reaper II		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HandReaperLAPL2			ABILITYLIST:Enhanced Dexterity II|Enhanced Intelligence II																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hand of the Reaper III		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HandReaperLAPL3			ABILITYLIST:Enhanced Dexterity III|Enhanced Intelligence III																																																																DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hand of the Reaper IV		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HandReaperLAPL4			ABILITYLIST:Enhanced Dexterity IV|Enhanced Intelligence IV																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hand of the Reaper V		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HandReaperLAPL5			ABILITYLIST:Enhanced Dexterity V|Enhanced Intelligence V																																																																	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Grey Hand I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GreyHandLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Grey Hand II				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GreyHandLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Grey Hand III				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GreyHandLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Grey Hand IV				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GreyHandLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Grey Hand V				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GreyHandLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Fortune's Fool I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FortuneFoolLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fortune's Fool II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FortuneFoolLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fortune's Fool III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FortuneFoolLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fortune's Fool IV			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FortuneFoolLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fortune's Fool V			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FortuneFoolLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Blood Thief I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BloodThiefLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Blood Thief II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BloodThiefLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Blood Thief III			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BloodThiefLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Blood Thief IV			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BloodThiefLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Blood Thief V				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BloodThiefLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Abyssal Infiltrator I		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AbyssalInfiltratorLAPL1		ABILITYLIST:Enhanced Dexterity I|Enhanced Strength I																																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Abyssal Infiltrator II		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AbyssalInfiltratorLAPL2		ABILITYLIST:Enhanced Dexterity II|Enhanced Strength II																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Abyssal Infiltrator III		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AbyssalInfiltratorLAPL3		ABILITYLIST:Enhanced Dexterity III|Enhanced Strength III																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Abyssal Infiltrator IV		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AbyssalInfiltratorLAPL4		ABILITYLIST:Enhanced Dexterity IV|Enhanced Strength IV																																																																	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Abyssal Infiltrator V		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AbyssalInfiltratorLAPL5		ABILITYLIST:Enhanced Dexterity V|Enhanced Strength V																																																																		DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Silver-Tongued Devil I		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SilverDevilLAPL1																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Silver-Tongued Devil II		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SilverDevilLAPL2																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Silver-Tongued Devil III		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SilverDevilLAPL3																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Silver-Tongued Devil IV		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SilverDevilLAPL4																																																																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Silver-Tongued Devil V		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SilverDevilLAPL5																																																																													DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Acolyte of Chance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ChanceSpecialAbilities																																																																												DISPLAYLOCATION:Class Abilities

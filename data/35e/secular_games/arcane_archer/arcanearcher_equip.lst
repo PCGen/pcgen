@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa	SOURCEDATE:2005-01
 
 #Originally done by Paul W. King
@@ -16,7 +16,7 @@ Metamorphic Stick	TYPE:Ammuntion.Magic.Bolt.Arrow.Bullet	COST:350	SOURCEPAGE:p.3
 Hunter's Gift	TYPE:Armor.Light.Suit.Specific	COST:27000	WT:20		ACCHECK:-2		EQMOD:MITHRAL_ARMR_LT	MAXDEX:4		SOURCEPAGE:p.3	SPELLFAILURE:20		SPELLS:Magic Item|TIMES=1|Heroism|Protection from Evil|Shield|PRERACE:1,Elf%,Half-Elf	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|2|PRERACE:1,Elf%,Half-Elf
 
 ###BLOCK: Ring
-# Equipment Name			Type			Cost		Source Page		Virtual Feat
+# Equipment Name			Type			Cost		Source Page		Ability
 Ring of Projectile Command	TYPE:Magic.Ring	COST:23000	SOURCEPAGE:34	ABILITY:FEAT|VIRTUAL|Deflect Arrows
 
 ###BLOCK: Rod

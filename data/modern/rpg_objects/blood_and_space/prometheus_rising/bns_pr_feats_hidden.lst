@@ -1,18 +1,19 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
-# Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add 						Save bonus				Modify VAR
-Psyche					CATEGORY:FEAT	TYPE:Special		VISIBLE:NO											SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
+# Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add						Save bonus				Modify VAR
+# Ability Name				Category of Ability	Type				Visible	Required Ability						Restricted Ability					Special ABility		Define		Add								Save bonus				Modify VAR
+Psyche					CATEGORY:FEAT		TYPE:Special		VISIBLE:NO																	SAB:Psyche %|Psyche	DEFINE:Psyche|0														BONUS:VAR|Psyche|3
 
-Human Computer Fortitude		CATEGORY:FEAT	TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:SAVE|Fortitude|INT
-Human Computer Reflex			CATEGORY:FEAT	TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:SAVE|Reflex|INT
-Human Computer Will			CATEGORY:FEAT	TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:SAVE|Will|INT
+Human Computer Fortitude		CATEGORY:FEAT		TYPE:HumanComputerSaves	VISIBLE:NO																																BONUS:SAVE|Fortitude|INT
+Human Computer Reflex			CATEGORY:FEAT		TYPE:HumanComputerSaves	VISIBLE:NO																																BONUS:SAVE|Reflex|INT
+Human Computer Will			CATEGORY:FEAT		TYPE:HumanComputerSaves	VISIBLE:NO																																BONUS:SAVE|Will|INT
 
-Sensitive Base Psioninc			CATEGORY:FEAT	TYPE:SensitiveAwakening	VISIBLE:NO						!PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic								ADD:FEAT|TYPE=BasePsionic
-Sensitive Psionic				CATEGORY:FEAT	TYPE:SensitiveAwakening	VISIBLE:NO	PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic													ADD:FEAT|TYPE=PsionicPowerFeat
+Sensitive Base Psioninc			CATEGORY:FEAT		TYPE:SensitiveAwakening	VISIBLE:NO									!PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic								ADD:ABILITY|FEAT|NORMAL|TYPE=BasePsionic
+Sensitive Psionic				CATEGORY:FEAT		TYPE:SensitiveAwakening	VISIBLE:NO	PREABILITY:3,CATEGORY=FEAT,TYPE=BasePsionic																ADD:ABILITY|FEAT|NORMAL|TYPE=PsionicPowerFeat
 
-Xeno Archaelogist Wealth Bonus	CATEGORY:FEAT	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|WealthBonus|3
-Xeno Archaelogist Reputation Bonus	CATEGORY:FEAT	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|Reputation|3
+Xeno Archaelogist Wealth Bonus	CATEGORY:FEAT		TYPE:XenoMajorDiscovery	VISIBLE:NO																																					BONUS:VAR|WealthBonus|3
+Xeno Archaelogist Reputation Bonus	CATEGORY:FEAT		TYPE:XenoMajorDiscovery	VISIBLE:NO																																					BONUS:VAR|Reputation|3
 
 #
 # End

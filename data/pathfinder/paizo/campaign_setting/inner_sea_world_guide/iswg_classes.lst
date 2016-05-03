@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Class Name	Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus										Save bonus																						Modify VAR
-CLASS:Harrower	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Har		MAXLEVEL:10	SOURCEPAGE:p.276	DEFINE:HarrowerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|HarrowerLVL|CL
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																	FACT
+CLASS:Harrower	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.276	DEFINE:HarrowerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HarrowerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Har
 # Class Name	Required Ability				Restricted AL	Required Skill													Required Text
 CLASS:Harrower	PREABILITY:1,CATEGORY=FEAT,Harrowed	!PREALIGN:TN	PRESKILL:1,Knowledge (Arcana)=5,Knowledge (Religion)=5	PRESKILL:1,TYPE.Perform=5	PRETEXT:PRESPELLSCHOOL:3,Divination=0; PRESPELLTYPE:1,Arcane=3,Divine=3	PRETEXT:Must own a Harrow deck
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Harrower	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Knowledge (Arca
 9								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Wisdom
 10								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Reading the Signs
 
-# Class Name	Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus										Save bonus																						Modify VAR
-CLASS:Hellknight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HKn		MAXLEVEL:10	SOURCEPAGE:p.278	DEFINE:HellknightLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|HellknightLVL|CL
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																				Modify VAR																																																																	FACT
+CLASS:Hellknight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.278	DEFINE:HellknightLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HellknightLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HKn
 # Class Name	Required Ability							Required AL		Required Skill						Required Text														PRETOTALAB
 CLASS:Hellknight	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PREALIGN:LG,LN,LE	PRESKILL:2,Intimidate=5,Knowledge (Planes)=2	PRETEXT:Must slay a devil with HD greater than your own. This must be witnessed by a Hellknight	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -35,14 +35,14 @@ CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|
 9	BONUS:ABILITYPOOL|Hellknight Force of Will 3|1											ABILITY:Special Ability|AUTOMATIC|Infernal Armor ~ HK
 10																			ABILITY:Special Ability|AUTOMATIC|Hell's Knight ~ HK
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus										Save bonus																						Modify VAR
-CLASS:Low Templar	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Low		MAXLEVEL:10	SOURCEPAGE:p.280	DEFINE:LowTemplarLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|LowTemplarLVL|CL
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																				Modify VAR																																																																	FACT
+CLASS:Low Templar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.280	DEFINE:LowTemplarLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|LowTemplarLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Low
 # Class Name	Required Ability										Required Skill
 CLASS:Low Templar	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Weapon Focus (TYPE=Martial)	PRESKILL:2,Bluff=5,Ride=5	PRESKILL:1,Knowledge (Nobility)=2,Knowledge (Planes)=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Handle Animal|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Knowledge (Planes)|Linguistics|Ride|Sense Motive|Stealth|Survival
 ###Block: Weapon & Armor Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProfTower
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProfTower|TYPE=WeaponProfMartial
 ###Block: Level Progression
 1									BONUS:VAR|LowCrusader|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Crusader ~ Low|Flag of Convenience ~ Low
 2															ABILITY:Special Ability|AUTOMATIC|Dirty Fighting ~ Low
@@ -52,17 +52,17 @@ CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Dis
 9															ABILITY:Special Ability|AUTOMATIC|Parting Shot ~ Low
 10	BONUS:ABILITYPOOL|Low Templar Final Choice|1							ABILITY:Special Ability|AUTOMATIC|Planar Cohort ~ Low
 
-# Class Name			Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus											Save bonus																						Modify VAR
-CLASS:Red Mantis Assassin	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:RMA		MAXLEVEL:10	SOURCEPAGE:p.282	DEFINE:RedMantisLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|RedMantisLVL|CL
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																		FACT
+CLASS:Red Mantis Assassin	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.282	DEFINE:RedMantisLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RedMantisLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RMA	FACT:SpellType|Arcane
 # Class Name			Required Ability																				Required AL	Required Skill
 CLASS:Red Mantis Assassin	PREABILITY:4,CATEGORY=FEAT,Alertness,Exotic Weapon Proficiency (Sawtooth Sabre),Two-Weapon Fighting,Weapon Focus (Sawtooth Sabre)	PREALIGN:LE	PRESKILL:3,Intimidate=5,Perception=5,Stealth=5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Red Mantis Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|Disguise|Escape Artist|Heal|Intimidate|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility)|Knowledge (Religion)|Perception|Sense Motive|Stealth
-# Class Name			Spell Stat		Spell Type		Memorize	Spell Scoll Prohibited										Caster level					Use Spell List
-CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|CL	SPELLLIST:2|Sorcerer|Wizard
+# Class Name			Spell Stat		Memorize	Spell Scoll Prohibited										Caster level					Use Spell List
+CLASS:Red Mantis Assassin	SPELLSTAT:CHA	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|CL	SPELLLIST:2|Sorcerer|Wizard
 ###Block: Weapon & Armor Proficiencies
 1	ABILITY:Class Feature|AUTOMATIC|RMA Weapon Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfLight
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfMartial
 ###Block: Level Progression
 1	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ RMA|Sabre Fighting|Sneak Attack
 2											ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells

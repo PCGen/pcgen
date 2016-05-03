@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Taldor, Echoes of Glory
 KEY:Taldor - Echoes of Glory (35e)
 GAMEMODE:35e
@@ -7,7 +8,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
 #PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -41,7 +42,7 @@ ABILITYCATEGORY:teog_abilitycategories.lst
 CLASS:teog_classes.lst
 EQUIPMENT:teog_equip.lst
 EQUIPMOD:teog_equipmods.lst
-FEAT:teog_feats.lst
+ABILITY:teog_feats.lst
 SPELL:teog_spells.lst
 
 # ENTRY DATE: 2015-01

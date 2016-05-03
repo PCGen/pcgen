@@ -1,0 +1,217 @@
+# CVS $Revision: 25487 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2013-11
+#Original Entry: Andrew Maitland
+
+# Ability Name			Category of Ability	Ability																	Bonus Ability Pool				Combat bonus							Bonus to skill														Stat bonus											Natural Attacks						Aspects
+Racial Trait ~ Beast Man	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Scent												BONUS:ABILITYPOOL|Beast Man Subrace|1
+Racial Trait ~ Human		CATEGORY:Internal																				BONUS:ABILITYPOOL|Bonus Stat|1
+Racial Trait ~ Ratling		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Ratling Immunity|Rodent Empathy																								BONUS:SKILL|Athletics,Notice,Use Device|2																						NATURALATTACKS:Bite,Weapon.Melee.Natural,*1,1d4
+Racial Trait ~ Vampire		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Blood Drain|Blood Requirement|Daylight Vulnerability|Limited Immortality																																	BONUS:STAT|STR,CON|4|TYPE=Racial
+Racial Trait ~ Werewolf		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Alternate Form|Damage Reduction|Scent																							BONUS:SKILL|Acrobatics,Athletics|2|TYPE=Racial									BONUS:STAT|CON,WIS|2|TYPE=Racial	BONUS:STAT|INT,CHA|-2|TYPE=Racial									ASPECT:CombatBonus|DR&colon;5/Silver in Werewolf form
+Racial Trait ~ Wildling		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Natural Enemy ~ Wildling																BONUS:COMBAT|TOHIT.Thrown,TOHIT.Sling|1|TYPE=Racial	BONUS:SKILL|Notice,Search,Escape Artist,Disable Device,Stealth,Sleight of Hand|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial
+Racial Trait ~ Ghost		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Ghost Race Trait																																									BONUS:STAT|STR|-4|TYPE=Racial	BONUS:STAT|CHA|4|TYPE=Racial
+Racial Trait ~ Pixie		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Pixie Race Trait
+
+###Block: Human Ability Bonus --------------------------------------------------
+# Ability Name		Category of Ability		Type			Visible		Stat bonus
+Stat Boost +2 (Str)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|STR|2
+Stat Boost +2 (Dex)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|DEX|2
+Stat Boost +2 (Con)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|CON|2
+Stat Boost +2 (Int)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|INT|2
+Stat Boost +2 (Wis)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|WIS|2
+Stat Boost +2 (Cha)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|CHA|2
+
+###Block: Racial Abilities -----------------------------------------------------
+# Ability Name			Unique Key						Category of Ability		Type											Define			Innate Spells														Description																																																																																																	Template				Auto Language				Ability											Bonus to skill				Stat bonus																			Modify VAR				Spell Res.	Damage Reduction	Source Page		Natural Attacks
+Scent												CATEGORY:Special Ability	TYPE:SpecialQuality																												DESC:Werewolf can detect opponents by sense of smell, generally within 30 feet. If the opponent is upwind, the range is 60 feet. If it is downwind, the range is 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk, can be detected at three times these ranges. A creature with the scent ability can follow tracks by smell, making a Survival check to find or follow a track.
+
+# Beast Man
+Bear					KEY:Beast Man ~ Bear				CATEGORY:Special Ability	TYPE:Beast Man Subrace																																																																																																																														TEMPLATE:Beast Man ~ Bear																									BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-4|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial											SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6
+Cat					KEY:Beast Man ~ Cat				CATEGORY:Special Ability	TYPE:Beast Man Subrace																																																																																																																														TEMPLATE:Beast Man ~ Cat																			BONUS:SKILL|Athletics|4|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|INT|-4|TYPE=Racial	BONUS:STAT|CHA|4|TYPE=Racial											SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
+Dog					KEY:Beast Man ~ Dog				CATEGORY:Special Ability	TYPE:Beast Man Subrace																																																																																																																														TEMPLATE:Beast Man ~ Dog							ABILITY:Talent|AUTOMATIC|Improved Scent												BONUS:STAT|CHA|-2|TYPE=Racial	BONUS:STAT|CON|4|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial																SOURCEPAGE:p.48
+Bat					KEY:Beast Man ~ Bat				CATEGORY:Special Ability	TYPE:Beast Man Subrace																																																																																																																														TEMPLATE:Beast Man ~ Bat							ABILITY:Special Ability|AUTOMATIC|TYPE=Beast Man (Bat) Racial Trait							BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial
+# Beast Man (Bat)
+Light Sensitivity			KEY:Beast Man (Bat) ~ Light Sensitivity	CATEGORY:Special Ability	TYPE:Beast Man (Bat) Racial Trait.SpecialQuality.Extraordinary																					DESC:Bat beast men are blinded by sunlight, flashlights, fluorescent lights, halogen lamps, and other sources of bright illumination. They can counter the blindness and see normally by wearing dark-tinted sunglasses or they can rely on their blindsight ability.																																																																																																																		SOURCEPAGE:p.
+Glide					KEY:Beast Man (Bat) ~ Glide			CATEGORY:Special Ability	TYPE:Beast Man (Bat) Racial Trait.SpecialQuality																							DESC:A bat beast men's wings are not strong enough for flight but they grant a +4 bonus to Athletic checks and the character's maximum jump distance is calculated as if he were a Medium-size creature.																																																																																																																												SOURCEPAGE:p.
+Blindsight				KEY:Beast Man (Bat) ~ Blindsight		CATEGORY:Special Ability	TYPE:Beast Man (Bat) Racial Trait.SpecialQuality.Extraordinary																					DESC:Bat beast men can �see� by emitting high-frequency sounds, inaudible to most other creatures, that allow them to locate objects and creatures within 30 feet. Ultrasonic noise forces the bat to rely on its weak vision, which has a maximum range of 5 feet.																																																																																																																		SOURCEPAGE:p.
+
+# Ghost
+Darkvision				KEY:Ghost ~ Darkvision				CATEGORY:Special Ability	TYPE:Ghost Race Trait.SpecialQuality																									DESC:Ghosts can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight and ghosts can function just fine with no light at all.																																																																																																																																SOURCEPAGE:p.
+Gaseous Body			KEY:Ghost ~ Gaseous Body			CATEGORY:Special Ability	TYPE:Ghost Race Trait.SpecialQuality																									DESC:The ghost's body is held together by will and is not made of natural matter. It has a natural Damage Reduction score of 5, as attacks partly pass through it.																																																																																																																																		SOURCEPAGE:p.
+Ectoplasmic Existence		KEY:Ghost ~ Ectoplasmic Existence		CATEGORY:Special Ability	TYPE:Ghost Race Trait.SpecialQuality																									DESC:Ghosts can manipulate objects crudely, enough to open doors and lift objects but not with enough strength to use them very efficiently. Ghosts never apply Strength bonuses in combat when wielding non-etheric weapons. The only items that they can handle well enough to use their Strength score's potential are objects made from ectoplasm or weapons with the etheric ability. The starting equipment of a ghost represents items that were once part of the character's life and are now made of ectoplasm. He cannot gain additional equipment unless it fulfills the above prerequisites.																																																												SOURCEPAGE:p.
+Telepathic Communication	KEY:Ghost ~ Telepathic Communication	CATEGORY:Special Ability	TYPE:Ghost Race Trait.SpecialQuality																									DESC:A ghost can detect the surface thoughts of any single creature within 30 feet, so long as it has line of sight to the target. Unwilling creatures receive a Will saving throw at a DC of 11 + the ghost's Charisma modifier if positive. If the ghost successfully detects a target's thoughts, it can freely exchange messages back and forth telepathically. Ghosts still need to be able to understand the language of the other person to communicate effectively.																																																																																	SOURCEPAGE:p.
+Free Language Skills		KEY:Ghost ~ Free Language Skills		CATEGORY:Special Ability	TYPE:Ghost Race Trait.SpecialQuality																									DESC:Speak Native, Read/Write Native																																																																																																																																																							SOURCEPAGE:p.
+
+# Pixie
+Immortality				KEY:Pixie ~ Immortality				CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:Pixies do not age like mortals, and cannot die from old age. Upon reaching adulthood by roughly 20 human years, they gain the ability to halt their physical aging at any point. Since the appearances of pixies differ considerably, many typically halt their aging at a point where they feel most comfortable with their appearance.																																																																																																						SOURCEPAGE:p.
+Low-Light Vision			KEY:Pixie ~ Low-Light Vision			CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:A pixie can see twice as far as a human in starlight, moonlight, torchlight and similar conditions of poor illumination. He retains the ability to distinguish color and detail under these conditions.																																																																																																																	BONUS:VAR|HasLowlightVision|1						SOURCEPAGE:p.
+Skills				KEY:Pixie ~ Skills				CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:Pixies have a +2 bonus on Notice and Search checks.																																																																																																																BONUS:SKILL|Notice,Search|2																																SOURCEPAGE:p.
+Racial Feats			KEY:Pixie ~ Racial Feats			CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:A pixie receives Dodge as a bonus feat.																																																																																																						ABILITY:FEAT|AUTOMATIC|Dodge																																												SOURCEPAGE:p.
+Damage reduction			KEY:Pixie ~ Damage reduction			CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:Pixies have a damage resistance of 2/cold iron.																																																																																																																																																		DR:2/Cold iron	SOURCEPAGE:p.
+Spell resistance			KEY:Pixie ~ Spell resistance			CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:Pixies have a natural spell resistance equal to 5 + class levels.																																																																																																																																													SR:TL+8				SOURCEPAGE:p.
+Spell-Like Abilities		KEY:Pixie ~ Spell-Like Abilities		CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality									SPELLS:Pixie|TIMES=1|CASTERLEVEL=8|Confusion,13+CHA|Dancing Lights,11+CHA|Dispel Magic,13+CHA	DESC:1/day-confusion, dancing lights, dispel magic. Caster level 8th. The save DCs are Charisma-based. These abilities follow the same rules as standard spellcasting.																																																																																																																																		SOURCEPAGE:p.
+Free Language Skills		KEY:Pixie ~ Free Language Skills		CATEGORY:Special Ability	TYPE:Pixie Race Trait.SpecialQuality																									DESC:Speak Sylvan, Read/Write Sylvan																																																																																																	AUTO:LANG|Sylvan|Sylvan ~ Written																																																	SOURCEPAGE:p.
+
+
+
+# Ratling
+Ratling Immunity										CATEGORY:Special Ability	TYPE:SpecialQuality
+Rodent Empathy										CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# Vampire
+Limited Immortality									CATEGORY:Special Ability	TYPE:SpecialQuality																												DESC:Vampires are as close to being immortal as any race could be. They appear any age because they stop aging at the point where they became a vampire.																																																																																																																																				SOURCEPAGE:p.51
+Blood Requirement										CATEGORY:Special Ability	TYPE:SpecialQuality																												DESC:Every morning, a vampire suffers 2 points of damage per character level as he uses up the blood within his system to remain alive.																																																																																																																																							SOURCEPAGE:p.51
+Blood Drain											CATEGORY:Special Ability	TYPE:SpecialQuality																												DESC:A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If the vampire pins his foe, he drains blood, dealing 1 point of Constitution drain each round the grapple is maintained.																																																																																																																								SOURCEPAGE:p.51
+Daylight Vulnerability									CATEGORY:Special Ability	TYPE:SpecialQuality																												DESC:When the sun rises and until it sets, the vampire loses its powers, including all racial ability and skill modifiers, and becomes a normal human being.																																																																																																																																			SOURCEPAGE:p.51
+
+#Werewolf
+Alternate Form										CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																																																																									SOURCEPAGE:p.52
+Damage Reduction										CATEGORY:Special Ability	TYPE:SpecialQuality								DEFINE:WerewolfDR|0																	DESC:The werewolf gains damage reduction, werewolf has damage reduction %1/silver in werewolf form.|WerewolfDR																																																																																																																																	BONUS:VAR|WerewolfDR|5							SOURCEPAGE:p.53
+
+#Wildling
+Natural Enemy			KEY:Natural Enemy ~ Wildling			CATEGORY:Special Ability	TYPE:SpecialQuality																												DESC:Ratlings and Wildlings have been at war for time immemorial. When facing a Ratling the Wildling gains the following additional bonuses: +2 bonus on Deception, Sense Motive, and Survival checks when using these skills against the Ratling. Likewise, he gets a +2 bonus on weapon damage rolls against such creatures.																																																																																																								SOURCEPAGE:p.55
+
+
+
+###Block: Alternate Form Talent Tree (Vampire)
+# Ability Name	Category of Ability	Type									Required Ability					Required Non-Monster Lvl	Define			Description												Stackable?	Multiple?	Choose									Move			Modify VAR				Source Page
+Mist Form		CATEGORY:Talent		TYPE:Talent.Vampire Talent.Alternate Form Talent																																																				SOURCEPAGE:p.76
+Swarm			CATEGORY:Talent		TYPE:Talent.Vampire Talent.Alternate Form Talent	PREABILITY:1,CATEGORY=Talent,Wild Shape	PREPCLEVEL:MIN=8																																										SOURCEPAGE:p.76
+Wall-Crawling	CATEGORY:Talent		TYPE:Talent.Vampire Talent.Alternate Form Talent								PREPCLEVEL:MIN=3																																		MOVE:Climb,20						SOURCEPAGE:p.76
+Wild Shape		CATEGORY:Talent		TYPE:Talent.Vampire Talent.Alternate Form Talent													DEFINE:WildShapeTimes|0	DESC:%1 times per day you can assume the shape of a %2|WildShapeTimes|%CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Bat|Dire Bat|Dire Rat|Dire Wolf|Rat|Wolf				BONUS:VAR|WildShapeTimes|1	SOURCEPAGE:p.76
+
+###Block: Amazing Constitution Talent Tree (Any, except Vampire)
+# Ability Name		Category of Ability	Type										Required Ability						Prohibited Race		Source Page
+Resilient Organism	CATEGORY:Talent		TYPE:Talent.General Talent.Amazing Constitution Talent									!PRERACE:1,Vampire	SOURCEPAGE:p.76
+Second Wind			CATEGORY:Talent		TYPE:Talent.General Talent.Amazing Constitution Talent									!PRERACE:1,Vampire	SOURCEPAGE:p.77
+Stamina			CATEGORY:Talent		TYPE:Talent.General Talent.Amazing Constitution Talent	PREABILITY:1,CATEGORY=Talent,Resilient Organism	!PRERACE:1,Vampire	SOURCEPAGE:p.77
+
+###Block: Animal Senses Talent Tree
+# Ability Name	Category of Ability	Type														Required Ability					Vision		Source Page
+Darkvision		CATEGORY:Talent		TYPE:Talent.Beast Man Talent.Ratling Talent.Werewolf Talent.Animal Senses Talent								VISION:Darkvision	SOURCEPAGE:p.77
+Hawk's Eyes		CATEGORY:Talent		TYPE:Talent.Beast Man Talent.Ratling Talent.Werewolf Talent.Animal Senses Talent	PREABILITY:1,CATEGORY=Talent,Darkvision				SOURCEPAGE:p.77
+Improved Scent	CATEGORY:Talent		TYPE:Talent.Beast Man Talent.Ratling Talent.Werewolf Talent.Animal Senses Talent											SOURCEPAGE:p.77
+Keen Hearing	CATEGORY:Talent		TYPE:Talent.Beast Man Talent.Ratling Talent.Werewolf Talent.Animal Senses Talent											SOURCEPAGE:p.77
+
+###Block: Charm Talent Tree (Ghosts, Pixie, Wildlings.)
+# Ability Name	Category of Ability	Type															Required Ability					Description																Source Page
+Charm			CATEGORY:Talent		TYPE:Talent.Ghost Talent.pixie Talent.Wildling Talent.Charm Talent Tree.Charm Talent								DESC:+%1 bonus on all Charisma-based skill checks made to influence members of his chosen gender|TL	SOURCEPAGE:p.77
+Favor			CATEGORY:Talent		TYPE:Talent.Ghost Talent.pixie Talent.Wildling Talent.Charm Talent Tree.Charm Talent	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.77
+Captivate		CATEGORY:Talent		TYPE:Talent.Ghost Talent.pixie Talent.Wildling Talent.Charm Talent Tree.Charm Talent	PREABILITY:2,CATEGORY=Talent,Charm,Favor																		SOURCEPAGE:p.77
+Taunt			CATEGORY:Talent		TYPE:Talent.Ghost Talent.pixie Talent.Wildling Talent.Charm Talent Tree.Charm Talent	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.77
+
+###Block: Greater Lycanthrope Talent Tree
+# Ability Name			Category of Ability	Type										Required Ability											Source Page
+Greater Lycanthrope		CATEGORY:Talent		TYPE:Talent.Werewolf Talent.Greater Lycanthrope Talent														SOURCEPAGE:p.78
+Regenerative Transformation	CATEGORY:Talent		TYPE:Talent.Werewolf Talent.Greater Lycanthrope Talent	PREABILITY:1,CATEGORY=Talent,Greater Lycanthrope					SOURCEPAGE:p.78
+Large Hybrid			CATEGORY:Talent		TYPE:Talent.Werewolf Talent.Greater Lycanthrope Talent	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation	SOURCEPAGE:p.78
+
+###Block: Hide and Seek Talent Tree (Pixie)
+# Ability Name		Category of Ability	Type									Required Ability						PRETOTALAB		Source Page
+Blend				CATEGORY:Talent		TYPE:Talent.Pixie Talent.Hide and Seek Talent
+Camouflage			CATEGORY:Talent		TYPE:Talent.Pixie Talent.Hide and Seek Talent		PREABILITY:1,CATEGORY=Talent,Blend
+Forest Friend		CATEGORY:Talent		TYPE:Talent.Pixie Talent.Hide and Seek Talent		PREABILITY:1,CATEGORY=Talent,Camouflage
+Greensight			CATEGORY:Talent		TYPE:Talent.Pixie Talent.Hide and Seek Talent		PREABILITY:1,CATEGORY=Talent,Forest Friend
+Guiding Star		CATEGORY:Talent		TYPE:Talent.Pixie Talent.Hide and Seek Talent		PREABILITY:1,CATEGORY=Talent,Greensight
+
+# Inner Beast Talent Tree
+Intimidating Gaze		CATEGORY:Talent		TYPE:Werewolf Talent.Talent.Inner Beast Talent Tree												SOURCEPAGE:p.78
+Unnatural Metabolism	CATEGORY:Talent		TYPE:Werewolf Talent.Talent.Inner Beast Talent Tree												SOURCEPAGE:p.78
+Rend				CATEGORY:Talent		TYPE:Werewolf Talent.Talent.Inner Beast Talent Tree									PRETOTALAB:4	SOURCEPAGE:p.78
+Savage Bite			CATEGORY:Talent		TYPE:Werewolf Talent.Talent.Inner Beast Talent Tree									PRETOTALAB:6	SOURCEPAGE:p.78
+
+###Block: Instinctive Response Talent Tree
+# Ability Name		Category of Ability	Type											Required Ability												Combat bonus						Source Page
+Full Alert			CATEGORY:Talent		TYPE:Talent.Wildling Talent.Instinctive Response Talent Tree															BONUS:COMBAT|INITIATIVE|4|TYPE=Circumstance	SOURCEPAGE:p.78
+Improved Evasion		CATEGORY:Talent		TYPE:Talent.Wildling Talent.Instinctive Response Talent Tree	PREABILITY:3,CATEGORY=Talent,Full Alert,Evasion,Increased Speed												SOURCEPAGE:p.78
+Heightened Reflexes	CATEGORY:Talent		TYPE:Talent.Wildling Talent.Instinctive Response Talent Tree	PREABILITY:4,CATEGORY=Talent,Full Alert,Evasion,Improved Evasion,Increased Speed									SOURCEPAGE:p.78
+
+###Block: Increased Speed Talent Tree
+# Ability Name			Category of Ability	Type										Required Ability										Add to base move			Source Page
+Increased Speed			CATEGORY:Talent		TYPE:Talent.Wildling Talent.Increased Speed Talent Tree													BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:p.79
+Improved Increased Speed	CATEGORY:Talent		TYPE:Talent.Wildling Talent.Increased Speed Talent Tree	PREABILITY:1,CATEGORY=Talent,Increased Speed					BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:p.79
+Advanced Increased Speed	CATEGORY:Talent		TYPE:Talent.Wildling Talent.Increased Speed Talent Tree	PREABILITY:2,CATEGORY=Talent,Increased Speed,Improved Increased Speed	BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:p.79
+
+###Block: Dominion Talent Tree
+# Ability Name		Category of Ability	Type								Required Ability								Required Stat	Source Page
+Children of the Night	CATEGORY:Talent		TYPE:Talent.Vampire Talent.Dominion Talent Tree	PREABILITY:2,CATEGORY=Talent,Animal Magnetism,Wild Shape				SOURCEPAGE:p.79
+Command			CATEGORY:Talent		TYPE:Talent.Vampire Talent.Dominion Talent Tree	PREABILITY:2,CATEGORY=Talent,Animal Magnetism,Suggestion				SOURCEPAGE:p.79
+Psychic Link		CATEGORY:Talent		TYPE:Talent.Vampire Talent.Dominion Talent Tree	PREABILITY:2,CATEGORY=Talent,Animal Magnetism,Suggestion	PRESTAT:1,CHA=15	SOURCEPAGE:p.79
+Suggestion			CATEGORY:Talent		TYPE:Talent.Vampire Talent.Dominion Talent Tree	PREABILITY:1,CATEGORY=Talent,Animal Magnetism						SOURCEPAGE:p.79
+
+###block: Faithful Friend Talent Tree (Pixie)
+# Ability Name	Category of Ability	Type								Aspects
+Ambush		CATEGORY:Talent		TYPE:Talent.Pixie Talent.Faithful Friend Talent	ASPECT:CombatBonus|+2 bonus to attack rolls against flatfooted opponents.
+Faithful Friend	CATEGORY:Talent		TYPE:Talent.Pixie Talent.Faithful Friend Talent
+Wild-touched	CATEGORY:Talent		TYPE:Talent.Pixie Talent.Faithful Friend Talent
+
+###Block: Natural Weaponry Talent Tree
+# Ability Name		Category of Ability	Type															Required Ability									Template		Combat bonus			Source Page
+Claws				CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Vampire Talent.Beast Man Talent.Ratling Talent												TEMPLATE:Claws						SOURCEPAGE:p.79
+Fangs				CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Vampire Talent.Beast Man Talent.Ratling Talent												TEMPLATE:Fangs						SOURCEPAGE:p.79
+Horns				CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Beast Man Talent																	TEMPLATE:Horns						SOURCEPAGE:p.79
+Tail Slap			CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Beast Man Talent																									SOURCEPAGE:p.79
+Melee Smash			CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Vampire Talent.Beast Man Talent.Ratling Talent															BONUS:COMBAT|DAMAGE.Melee|1	SOURCEPAGE:p.80
+Improved Melee Smash	CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Vampire Talent.Beast Man Talent.Ratling Talent	PREABILITY:2,CATEGORY=Talent,Melee Smash,Improved Melee Smash				BONUS:COMBAT|DAMAGE.Melee|1	SOURCEPAGE:p.80
+Advanced Melee Smash	CATEGORY:Talent		TYPE:Talent.Natural Weaponry Talent Tree.Vampire Talent.Beast Man Talent.Ratling Talent	PREABILITY:1,CATEGORY=Talent,Melee Smash								BONUS:COMBAT|DAMAGE.Melee|1	SOURCEPAGE:p.80
+
+###Block: Personal Background Talent Tree
+# Ability Name	Category of Ability	Type																				Required Non-Monster Lvl	Bonus to skill		Modify VAR			Source Page
+Legendary Beauty	CATEGORY:Talent		TYPE:Talent.Personal Background Talent Tree.Human Talent.Vampire Talent									PREPCLEVEL:MAX=1							BONUS:VAR|Reputation|1	SOURCEPAGE:p.80
+Enigmatic		CATEGORY:Talent		TYPE:Talent.Personal Background Talent Tree.Human Talent.Vampire Talent.Beast Man Talent						PREPCLEVEL:MAX=1											SOURCEPAGE:p.80
+Raised by Beasts	CATEGORY:Talent		TYPE:Talent.Personal Background Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent			PREPCLEVEL:MAX=1			BONUS:SKILL|Survival|2					SOURCEPAGE:p.80
+Spokesperson	CATEGORY:Talent		TYPE:Talent.Personal Background Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREPCLEVEL:MAX=1											SOURCEPAGE:p.80
+Monstrous		CATEGORY:Talent		TYPE:Talent.Personal Background Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREPCLEVEL:MAX=1											SOURCEPAGE:p.80
+
+###Block: Pixie Damage Reduction Talent Tree
+# Ability Name			Category of Ability	Type										Required Ability																													Modify VAR			Source Page
+Damage Reduction 5/Silver	CATEGORY:Talent		TYPE:Pixie Talent.Pixie Damage Reduction Talent Tree.Talent	PREABILITY:1,CATEGORY=Talent,TYPE.Greater Lycanthrope Talent Tree	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation								BONUS:VAR|PixieDR|3	SOURCEPAGE:p.78
+Damage Reduction 10/Silver	CATEGORY:Talent		TYPE:Pixie Talent.Pixie Damage Reduction Talent Tree.Talent	PREABILITY:1,CATEGORY=Talent,TYPE.Greater Lycanthrope Talent Tree	PREABILITY:1,CATEGORY=Talent,Damage Reduction 5/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	BONUS:VAR|PixieDR|5	SOURCEPAGE:p.78
+Damage Reduction 15/Silver	CATEGORY:Talent		TYPE:Pixie Talent.Pixie Damage Reduction Talent Tree.Talent	PREABILITY:1,CATEGORY=Talent,TYPE.Greater Lycanthrope Talent Tree	PREABILITY:1,CATEGORY=Talent,Damage Reduction 10/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	BONUS:VAR|PizieDR|5	SOURCEPAGE:p.78
+
+###Block: Privilege Talent Tree
+# Ability Name		Output Name				Category of Ability	Type																					Required Ability						Required Non-Monster Lvl	Var. Must Be Grater				Modify VAR			Source Page
+Inherited Fortune							CATEGORY:Talent		TYPE:Talent.General Talent.Privilege Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent									PREPCLEVEL:MAX=1										BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.80
+Heirloom								CATEGORY:Talent		TYPE:Talent.General Talent.Privilege Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREABILITY:1,CATEGORY=Talent,Inherited Fortune																	SOURCEPAGE:p.80
+Inherited Treasure						CATEGORY:Talent		TYPE:Talent.General Talent.Privilege Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREABILITY:1,CATEGORY=Talent,Inherited Fortune													BONUS:VAR|WealthBonus|4	SOURCEPAGE:p.80
+Upgrade								CATEGORY:Talent		TYPE:Talent.General Talent.Privilege Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent									PREPCLEVEL:MAX=1			PREVARGT:(Reputation+WealthBonus),11					SOURCEPAGE:p.80
+He's With Me		OUTPUTNAME:"He's With Me"	CATEGORY:Talent		TYPE:Talent.General Talent.Privilege Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent									PREPCLEVEL:MIN=3														SOURCEPAGE:p.80
+Undue Influence							CATEGORY:Talent		TYPE:Talent.General Talent.Privilege Talent Tree.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent														PREVARGT:(Reputation+WealthBonus),16					SOURCEPAGE:p.80
+
+###Block: Prodigy Talent Tree
+# Ability Name		Category of Ability	Type								Required Ability						Required Non-Monster Lvl	Stackable?	Multiple?	Choose			Bonus Ability Pool					Bonus to skill			Source Page
+Cultural Legacy		CATEGORY:Talent		TYPE:Prodigy Talent Tree.Talent.Human Talent									PREPCLEVEL:MAX=1			STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base									BONUS:SKILL|%LIST|8		SOURCEPAGE:p.81
+Prodigious Gift		CATEGORY:Talent		TYPE:Prodigy Talent Tree.Talent.Human Talent									PREPCLEVEL:MAX=1																								SOURCEPAGE:p.81
+Additional Training	CATEGORY:Talent		TYPE:Prodigy Talent Tree.Talent.Human Talent	PREABILITY:1,CATEGORY=Talent,Cultural Legacy						STACK:YES	MULT:YES	CHOOSE:NOCHOICE		BONUS:ABILITYPOOL|Additional Training Talent|4						SOURCEPAGE:p.81
+Skill Mimic			CATEGORY:Talent		TYPE:Prodigy Talent Tree.Talent.Human Talent	PREABILITY:1,CATEGORY=Talent,Prodigious Gift																											SOURCEPAGE:p.81
+Superior Intuition	CATEGORY:Talent		TYPE:Prodigy Talent Tree.Talent.Human Talent	PREABILITY:1,CATEGORY=Talent,Prodigious Gift																						BONUS:SKILL|Investigate|TL	SOURCEPAGE:p.81
+
+###Block: Social Ties Talent Tree
+# Ability Name	Category of Ability	Type																								Required Non-Monster Lvl	Source Page
+Ally			CATEGORY:Talent		TYPE:General Talent.Social Ties Talent Tree.Talent.MultiRacial.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREPCLEVEL:MIN=4			SOURCEPAGE:p.81
+Contacts		CATEGORY:Talent		TYPE:General Talent.Social Ties Talent Tree.Talent.MultiRacial.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent						SOURCEPAGE:p.81
+Family Ties		CATEGORY:Talent		TYPE:General Talent.Social Ties Talent Tree.Talent.MultiRacial.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREPCLEVEL:MAX=1			SOURCEPAGE:p.81
+Nemesis		CATEGORY:Talent		TYPE:General Talent.Social Ties Talent Tree.Talent.MultiRacial.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent						SOURCEPAGE:p.81
+Organisation Ties	CATEGORY:Talent		TYPE:General Talent.Social Ties Talent Tree.Talent.MultiRacial.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent	PREPCLEVEL:MAX=1			SOURCEPAGE:p.81
+Significant Other	CATEGORY:Talent		TYPE:General Talent.Social Ties Talent Tree.Talent.MultiRacial.Human Talent.Beast Man Talent.Wildling Talent.Ratling Talent.Vampire Talent						SOURCEPAGE:p.81
+
+###Block: Supernatural Talent Tree
+# Ability Name		Category of Ability	Type																Required Non-Monster Lvl	Required Stat				Description																																																						Multiple?	Choose													Selections	Modify VAR																																																					Class Skill	Source Page
+Animal Magnetism		CATEGORY:Talent		TYPE:Pixie Talent.Supernatural Talent Tree.Talent.Human Talent.Beast Man Talent.Wildling Talent	PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13																																																																																																																																					SOURCEPAGE:p.81
+Magical Potency		CATEGORY:Talent		TYPE:Pixie Talent.Supernatural Talent Tree.Talent.Human Talent.Beast Man Talent.Wildling Talent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	DESC:The character's blood burns with the power of magic. The character chooses one of the following skills, which becomes a class skill for him; in addition, the character's maximum number of skill ranks for that skill increases by 2.  The character may choose either Craft (mechanical), Knowledge (Occult Sciences) or Research.	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Mechanical)|Knowledge (Occult Sciences)|Research	SELECT:1	BONUS:VAR|Max_Rank_Research|1|PREABILITY:1,CATEGORY=Talent,Magical Potency (Research)	BONUS:VAR|Max_Rank_Craft(Mechanical)|2|PREABILITY:1,CATEGORY=Talent,Magical Potency (Craft (Mechanical))	BONUS:VAR|Max_Rank_Knowledge_Occult_Science|2|PREABILITY:1,CATEGORY=Talent,Magical Potency (Knowledge (Occult Sciences))	CSKILL:LIST	SOURCEPAGE:p.81
+Pact with Darkness	CATEGORY:Talent		TYPE:Pixie Talent.Supernatural Talent Tree.Talent.Human Talent.Beast Man Talent.Wildling Talent	PREPCLEVEL:MAX=1																																																																																																																																										SOURCEPAGE:p.82
+
+###Block: Tunnel Rat Talent Tree
+# Ability Name	Category of Ability	Type															Required Ability					Source Page
+Sludgerunner	CATEGORY:Talent		TYPE:Tunnel Rat Talent Tree.Wildling Talent.Ratling Talent.Talent.AlternateFormTalent								SOURCEPAGE:p.82
+Tunnelrunner	CATEGORY:Talent		TYPE:Tunnel Rat Talent Tree.Wildling Talent.Ratling Talent.Talent.AlternateFormTalent	PREABILITY:1,CATEGORY=Talent,Sludgerunner	SOURCEPAGE:p.82
+
+###Block: Werewolf Damage Reduction Talent Tree
+# Ability Name			Category of Ability	Type											Required Ability																													Modify VAR			Source Page
+Damage Reduction 5/Silver	CATEGORY:Talent		TYPE:Werewolf Talent.Hybrid Damage Reduction Talent Tree.Talent	PREABILITY:1,CATEGORY=Talent,TYPE.Greater Lycanthrope Talent Tree	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation												SOURCEPAGE:p.78
+Damage Reduction 10/Silver	CATEGORY:Talent		TYPE:Werewolf Talent.Hybrid Damage Reduction Talent Tree.Talent	PREABILITY:1,CATEGORY=Talent,TYPE.Greater Lycanthrope Talent Tree	PREABILITY:1,CATEGORY=Talent,Damage Reduction 5/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	BONUS:VAR|WerewolfDR|5	SOURCEPAGE:p.78
+Damage Reduction 15/Silver	CATEGORY:Talent		TYPE:Werewolf Talent.Hybrid Damage Reduction Talent Tree.Talent	PREABILITY:1,CATEGORY=Talent,TYPE.Greater Lycanthrope Talent Tree	PREABILITY:1,CATEGORY=Talent,Damage Reduction 10/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	BONUS:VAR|WerewolfDR|5	SOURCEPAGE:p.78
+
+#
+# End
+#

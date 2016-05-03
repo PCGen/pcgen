@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
 # Original Entry by: Eddy Anthony (MoSaT)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	ABB:BldHx		MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat							Required Skill						Req. Known Spell		Required Casting Type
-CLASS:Blood Hexer	PREALIGN:CG,CN,CE	PREABILITY:2,CATEGORY=FEAT,Curse of Blood,Curse of Blood - Greater	PRESKILL:1,Knowledge (Arcana)=10,Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Blood Hexer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|BldHx
+# Class Name	Required Ability										Required AL		Required Skill						Req. Known Spell		Required Casting Type
+CLASS:Blood Hexer	PREABILITY:2,CATEGORY=FEAT,Curse of Blood,Curse of Blood - Greater	PREALIGN:CG,CN,CE	PRESKILL:1,Knowledge (Arcana)=10,Spellcraft=10	PRESPELL:1,Bestow Curse	PRESPELLCAST:MEMORIZE=N
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
+CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
 1								BONUS:VAR|BloodCurseReprieveHP|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blood Curse Reprieve|Metacurse Affinity
 2	BONUS:ABILITYPOOL|Curse Repertoire|CL/2	BONUS:VAR|BloodSweatProgression|(CL+3)/5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blood Sweat
 3	BONUS:ABILITYPOOL|Blood Hexer Feat|1	BONUS:VAR|MaliciousCurseProgression|CL/3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Malicious Curse
@@ -20,16 +20,16 @@ CLASS:Blood Hexer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Kno
 10	BONUS:ABILITYPOOL|Blood Hexer Feat|1								ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	ABB:EvlEy		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat						Required Skill					Req. Spell Type
-CLASS:Evil Eye	PREALIGN:LE,NE,CE	PREABILITY:2,CATEGORY=FEAT,Death Curse Contingency,Iron Will	PRESKILL:3,Bluff=4,Intimidate=4,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Evil Eye	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|EvlEy
+# Class Name	Required Ability									Required AL		Required Skill					Req. Spell Type
+CLASS:Evil Eye	PREABILITY:2,CATEGORY=FEAT,Death Curse Contingency,Iron Will	PREALIGN:LE,NE,CE	PRESKILL:3,Bluff=4,Intimidate=4,Spot=4	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft|Psicraft|Spot
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level Progression
 1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Evil Eye ~ Curses|Expanded Awareness|Warlock Superstition
 2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness ~ Darkvision|Expanded Awareness ~ Enhanced Darkvision
@@ -38,10 +38,10 @@ CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|
 5																	ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	ABB:Hexo		MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Required Feat												Required Skill														Required Casting Type	Req. Spell Type
-CLASS:Hexomancer	PREALIGN:LE,NE,CE	PREABILITY:5,CATEGORY=FEAT,Enlarge Spell,Extend Spell,Heighten Spell,Persistent Curse,Potent Curse	PRESKILL:1,Craft (Doll-Making)=5	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,Intimidate=6	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=5
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Hexomancer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Hexo
+# Class Name	Required Ability															Required AL		Required Skill														Required Casting Type	Req. Spell Type
+CLASS:Hexomancer	PREABILITY:5,CATEGORY=FEAT,Enlarge Spell,Extend Spell,Heighten Spell,Persistent Curse,Potent Curse	PREALIGN:LE,NE,CE	PRESKILL:1,Craft (Doll-Making)=5	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,Intimidate=6	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
 ###Block: Level Progression
@@ -57,16 +57,16 @@ CLASS:Hexomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script
 10																	ADD:SPELLCASTER|ANY
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
-CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	ABB:SrVen		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Required Feat					Required Skill							Req. Known Spell
-CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREABILITY:3,CATEGORY=FEAT,Endurance,Diehard,Iron Will	PRESKILL:2,Knowledge (Religion)=5,Sense Motive=5	PRESPELL:1,Mark of Justice
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						FACT
+CLASS:Servant of Vengeance	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SrVen
+# Class Name			Required Ability								Required AL		Required Skill							Req. Known Spell
+CLASS:Servant of Vengeance	PREABILITY:3,CATEGORY=FEAT,Endurance,Diehard,Iron Will	PREALIGN:LE,LN,LG	PRESKILL:2,Knowledge (Religion)=5,Sense Motive=5	PRESPELL:1,Mark of Justice
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Level Progression
 1	BONUS:VAR|EyeForAnEyeProgression|(CL+1)/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Eye for an Eye
 2	BONUS:VAR|BrandOfJusticeProgression|CL/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Brand of Justice

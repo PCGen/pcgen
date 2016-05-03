@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
@@ -9,7 +9,7 @@ CLASS:Buccaneer	PRESKILL:3,Balance=6,Swim=6,Tumble=6	PRESTAT:1,CHA=13	PRETOTALAB
 CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Seamanship)|Move Silently|Sense Motive|Swim|Tumble|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1																							ABILITY:Special Ability|AUTOMATIC|Shipboard Climbing ~ Buccaneer
 2																							ABILITY:Special Ability|AUTOMATIC|Up Close and Personal ~ Buccaneer
@@ -22,9 +22,9 @@ CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Di
 9																							ABILITY:Special Ability|AUTOMATIC|Sabotage ~ Buccaneer
 10																							ABILITY:Special Ability|AUTOMATIC|Acrobatic Defense ~ Buccaneer
 
-# Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nvw		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Feat		Required Skill				Required Spell School
+# Class Name		Output Name				Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR													FACT
+CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Nvw
+# Class Name		Required Ability					Required Skill				Required Spell School
 CLASS:Navigator Wizard	PREABILITY:1,CATEGORY=FEAT,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:1,Divination=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE=Knowledge|Profession (Navigator)|Scry|Spellcraft
@@ -41,14 +41,14 @@ CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gath
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat						Required Skill	PRETOTALAB
+# Class Name	Required Ability								Required Skill	PRETOTALAB
 CLASS:Reaver	PREABILITY:2,CATEGORY=FEAT,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Knowledge (Seamanship)|Swim|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression
 1							BONUS:VAR|ArmourExp|(CL+3)/4		DEFINE:ArmourExp|0	ABILITY:Special Ability|AUTOMATIC|Armour Expertise ~ Reaver
 2							BONUS:VAR|InspireCrew|(CL+2)/4	DEFINE:InspireCrew|0	ABILITY:Special Ability|AUTOMATIC|Inspire Crew ~ Reaver
@@ -57,25 +57,25 @@ CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Kn
 7																	ABILITY:Special Ability|AUTOMATIC|Skilled Boarder ~ Reaver
 8	BONUS:ABILITYPOOL|Reaver Feat|1
 
-# Class Name	Hit Dice	Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Sailor	HD:8		TYPE:NPC	ABB:Slr		MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/4
+# Class Name	Hit Dice	Type		Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Sailor	HD:8		TYPE:NPC	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/4	FACT:Abb|Slr
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Seamanship)|Swim|Use Rope
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Bonus Languages	Auto Language	Combat bonus															Save bonus																					Modify VAR
-CLASS:Sea Druid	HD:8		TYPE:Base.PC	ABB:Drd		SOURCEPAGE:p.33	LANGBONUS:Aquan	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Source Page		Bonus Languages	Auto Language	Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Sea Druid	HD:8		TYPE:Base.PC	SOURCEPAGE:p.33	LANGBONUS:Aquan	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Drd	FACT:SpellType|Divine
 # Class Name	Required AL
 CLASS:Sea Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sea Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
-CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Sea Druid|CL	SPELLLIST:1|Druid
+# Class Name	Spell Stat		Automatically Known Spell Levels											Caster level				Use Spell List
+CLASS:Sea Druid	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Sea Druid|CL	SPELLLIST:1|Druid
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
-1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:3,1				BONUS:VAR|AnimalCompanionLVL|CL			DEFINE:WildshapeLvl|0	ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense
 2	CAST:4,2				BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0	ABILITY:Special Ability|AUTOMATIC|Predict the Weather ~ Sea Druid|Speed of the Fish ~ Sea Druid

@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Name						Unique Key						Category of Ability		Type						Description																																								Ability																			Source Page		Aspects
+Quarterstaff Master					KEY:Combat Trick ~ Quarterstaff Master	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When you use this feat to wield a quarterstaff as a one-handed weapon, you can spend 5 stamina points to retain the ability to use it as a double weapon and still keep a hand free. This effect lasts until the beginning of your next turn.																					SOURCEPAGE:129	ASPECT:SourceBook|UM
+Tripping Staff						KEY:Combat Trick ~ Tripping Staff		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benefits of this feat only as long as you have at least 1 stamina point in your stamina pool.																											SOURCEPAGE:134	ASPECT:SourceBook|UM
+Tripping Twirl						KEY:Combat Trick ~ Tripping Twirl		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can select this feat even if you don't meet the ability score prerequisite (Intelligence 13). You gain the benef its of this feat only as long as you have at least 1 stamina point in your stamina pool.																										SOURCEPAGE:134	ASPECT:SourceBook|UM
+
+
+
+
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Quarterstaff Master|PREABILITY:1,CATEGORY=FEAT,Quarterstaff Master
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Staff|PREABILITY:1,CATEGORY=FEAT,Tripping Staff
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																												ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tripping Twirl|PREABILITY:1,CATEGORY=FEAT,Tripping Twirl

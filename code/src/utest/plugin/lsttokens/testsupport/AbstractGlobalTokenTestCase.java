@@ -194,12 +194,13 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		}
 		else
 		{
-			assertEquals(unparsed.length, sUnparsed.length);
-			for (int i = 0; i < unparsed.length; i++)
+			for (int i = 0; i < unparsed.length && i < sUnparsed.length; i++)
 			{
 				assertEquals("Expected " + i + "th unparsed item to be equal",
 					unparsed[i], sUnparsed[i]);
 			}
+			assertEquals("Mismatched number of unparsed values",
+				unparsed.length, sUnparsed.length);
 		}
 
 		return sUnparsed;

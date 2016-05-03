@@ -1,26 +1,26 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
 # Class Name				Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Air Force Combat Controllers	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name				Required Feat																				Required Skill														Required Text						PRETOTALAB
+# Class Name				Required Ability																									Required Skill														Required Text						PRETOTALAB
 CLASS:Air Force Combat Controllers	PREABILITY:5,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Defense Language Institute,Jump School,MOS Aviation 2	PREABILITY:1,CATEGORY=FEAT,TYPE=Terrain	PRESKILL:5,Air Traffic Control=8,Communication Operations=8,Paradrop=8,Hide=5,Move Silently=5	PRETEXT:Active or Reserve Duty (Air Force)	PRETOTALAB:5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Air Force Combat Controllers	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Climb|Communication Operations|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Repair|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
-3	ADD:FEAT|TYPE=SpecOpsTraining
-4	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
-9	ADD:FEAT|TYPE=SpecOpsTraining
-10	ADD:FEAT|TYPE=CombatControllers,TYPE=MOS
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=CombatControllers,TYPE=MOS
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=CombatControllers,TYPE=MOS
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=CombatControllers,TYPE=MOS
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=CombatControllers,TYPE=MOS
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=CombatControllers,TYPE=MOS
 ###Block: Rest of progression
 3	SAB:Grace Under Pressure (Combat Controllers) %/day|GraceUnderPressureCombatContoller	BONUS:VAR|GraceUnderPressureCombatContoller|1	DEFINE:GraceUnderPressureCombatContoller|0
 5																BONUS:VAR|HastyConstruction|-(CL*2)											ABILITY:FEAT|AUTOMATIC|Hasty Construction
@@ -29,23 +29,23 @@ CLASS:Air Force Combat Controllers	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Cl
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Air Force Pararescue	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name			Multiple Requirements																	Required Skill												Required Text						PRETOTALAB
+# Class Name			Multiple Requirements																							Required Skill												Required Text						PRETOTALAB
 CLASS:Air Force Pararescue	PREMULT:2,[PREABILITY:3,CATEGORY=FEAT,Personal Firearms Proficiency,MOS Medical 2,Defense Language Institute],[PREABILITY:1,CATEGORY=FEAT,TYPE=Terrain]	PRESKILL:4,Craft (Chemical)=5,Craft (Pharmaceutical)=5,Paradrop=8,Treat Injury=8	PRETEXT:Active or Reserve Duty (Air Force)	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Air Force Pararescue	STARTSKILLPTS:8	CSKILL:Climb|Communication Operations|Craft (Chemical)|Craft (Pharmaceutical)|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Survival|Swim|Treat Injury|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
-3	ADD:FEAT|TYPE=SpecOpsTraining
-4	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
-9	ADD:FEAT|TYPE=SpecOpsTraining
-10	ADD:FEAT|TYPE=MOS,TYPE=Pararescue
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Pararescue
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Pararescue
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Pararescue
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Pararescue
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Pararescue
 ###Block: Rest of progression
 3	SAB:Grace Under Pressure (Pararescue) %/day|GraceUnderPressurePararescue	BONUS:VAR|GraceUnderPressurePararescue|1	DEFINE:GraceUnderPressurePararescue|0
 5	SAB:Bush Medicine
@@ -54,57 +54,57 @@ CLASS:Air Force Pararescue	STARTSKILLPTS:8	CSKILL:Climb|Communication Operations
 
 # Class Name				Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Army 75th Ranger Regiment	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name				Required Feat																	Required Skill								Required Text			PRETOTALAB
+# Class Name				Required Ability																						Required Skill								Required Text			PRETOTALAB
 CLASS:Army 75th Ranger Regiment	PREABILITY:4,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,MOS Infantry/Rifleman 1,Jump School	PREABILITY:1,CATEGORY=FEAT,TYPE=Terrain	PRESKILL:3,Knowledge (Tactics)=5,Paradrop=5,Survival=5	PRETEXT:Active Duty (Army)	PRETOTALAB:5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Army 75th Ranger Regiment	STARTSKILLPTS:4	CSKILL:Balance|Climb|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Spot|Survival|Swim|Tumble|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MOS,TYPE=Ranger
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
-4	ADD:FEAT|TYPE=MOS,TYPE=Ranger
-5	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
-6	ADD:FEAT|TYPE=MOS,TYPE=Ranger
-7	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
-8	ADD:FEAT|TYPE=MOS,TYPE=Ranger
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
-10	ADD:FEAT|TYPE=MOS,TYPE=Ranger
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Ranger
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Ranger
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Ranger
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Ranger
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Ranger
 ###Block: Rest of progression
 1	SAB:Death from Above
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																					Modify VAR
 CLASS:Army 160th SOAR	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name		Required Feat						Required Skill						Required Text
+# Class Name		Required Ability								Required Skill						Required Text
 CLASS:Army 160th SOAR	PREABILITY:3,CATEGORY=FEAT,Teamwork,MOS Pilot 2,Jump School	PRESKILL:2,Communication Operations=5,Pilot=10	PRETEXT:Active Duty (Army)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Army 160th SOAR	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Climb|Communication Operations|Jump|Knowledge (Tactics)|Navigate|Paradrop|Pilot|Repair|Spot|Survival|Spot
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Normal progression
-1						BONUS:VAR|Strafing|CL/4+1									ABILITY:FEAT|AUTOMATIC|Strafing
+1						BONUS:VAR|Strafing|CL/4+1											ABILITY:FEAT|AUTOMATIC|Strafing
 2	SAB:Air Support +%|AirSupport	BONUS:VAR|AirSupport|(CL+7)/3	DEFINE:AirSupport|0
-3															ADD:FEAT|TYPE=SOAR
+3															ADD:ABILITY|FEAT|NORMAL|TYPE=SOAR
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Army Delta Force	HD:12		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name		Required Feat																														Required Skill										Required Text			PRETOTALAB
+# Class Name		Required Ability																																	Required Skill										Required Text			PRETOTALAB
 CLASS:Army Delta Force	PREABILITY:8,CATEGORY=FEAT,Personal Firearms Proficiency,Advanced Firearms Proficiency,Teamwork,MOS Infantry/Rifleman 3,Jump School,Urban Warfare College,Amphibious Assault Training,Defense Language Institute	PRESKILL:4,Knowledge (Tactics)=8,Hide=8,Move Silently=8,Paradrop=8	PRETEXT:Active Duty (Army)	PRETOTALAB:10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Army Delta Force	STARTSKILLPTS:6	CSKILL:Climb|Decipher Script|Demolitions|Disable Device|Drive|Gather Information|Intimidate|Investigate|Knowledge (Current Events)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Paradrop|Sense Motive|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-3	ADD:FEAT|TYPE=SpecOpsTraining
-4	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
-9	ADD:FEAT|TYPE=SpecOpsTraining
-10	ADD:FEAT|TYPE=DeltaForce,TYPE=MOS
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=DeltaForce,TYPE=MOS
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=DeltaForce,TYPE=MOS
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=DeltaForce,TYPE=MOS
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=DeltaForce,TYPE=MOS
 ###Block: Rest of progression
 1	SAB:Counter Terrorist +%|CounterTerrorist	BONUS:VAR|CounterTerrorist|(CL+1)/2	DEFINE:CounterTerrorist|0
 2								BONUS:VAR|HostageRescue|CL		DEFINE:HostageRescue|0		ABILITY:FEAT|AUTOMATIC|Hostage Rescue
@@ -112,110 +112,110 @@ CLASS:Army Delta Force	STARTSKILLPTS:6	CSKILL:Climb|Decipher Script|Demolitions|
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Marine Force Recon	HD:12		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name			Required Feat																						Required Skill								Required Text						PRETOTALAB
+# Class Name			Required Ability																									Required Skill								Required Text						PRETOTALAB
 CLASS:Marine Force Recon	PREABILITY:6,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Amphibious Assault Training,Jump School,Jungle/Swamp Warfare College,MOS Infantry/Rifleman 3	PRESKILL:5,Hide=8,Move Silently=8,Spot=8,Paradrop=5,Swim=5	PRETEXT:Active or Reserve Duty (Marine Corps)	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Marine Force Recon	STARTSKILLPTS:5	CSKILL:Climb|Communication Operations|Craft (Structural)|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Listen|Move Silently|Navigate|Paradrop|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=ForceRecon,TYPE=MOS
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
-4	ADD:FEAT|TYPE=ForceRecon,TYPE=MOS
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=Terrain
-7	ADD:FEAT|TYPE=SpecOpsTraining
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=Terrain
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=ForceRecon,TYPE=MOS
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=ForceRecon,TYPE=MOS
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=Terrain
 ###Block: Rest of progression
 5	SAB:Grace Under Pressure (Marine Force Recon) %/day|GraceUnderPressureForceRecon	BONUS:VAR|GraceUnderPressureForceRecon|CL/5	DEFINE:GraceUnderPressureForceRecon|0
 8	SAB:Esprit de Corps
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Navy SEAL	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name	Required Feat																						Required Skill										Required Text			PRETOTALAB
+# Class Name	Required Ability																								Required Skill										Required Text			PRETOTALAB
 CLASS:Navy SEAL	PREABILITY:6,CATEGORY=FEAT,Personal Firearms Proficiency,Surface Vehicle Operation (Powerboat),Teamwork,MOS Diver 3,Amphibious Assault Training,Jump School	PRESKILL:5,Demolitions=8,Disable Device=8,Swim=8,Hide=5,Move Silently=5	PRETEXT:Active Duty (Navy)	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Navy SEAL	STARTSKILLPTS:6	CSKILL:Climb|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Hide|Intimidate|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Search|Survival|Spot|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MOS,TYPE=SEAL
-3	ADD:FEAT|TYPE=SpecOpsTraining
-4	ADD:FEAT|TYPE=MOS,TYPE=SEAL
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=MOS,TYPE=SEAL
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=MOS,TYPE=SEAL
-9	ADD:FEAT|TYPE=SpecOpsTraining
-10	ADD:FEAT|TYPE=MOS,TYPE=SEAL
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SEAL
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SEAL
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SEAL
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SEAL
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SEAL
 ###Block: Rest of progression
 1	SAB:Amphibious	BONUS:VAR|AmphibiousTraining|(CL+3)/2
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Navy Special Boats Unit	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name			Required Feat																						Required Skill						Required Text			PRETOTALAB
+# Class Name			Required Ability																									Required Skill						Required Text			PRETOTALAB
 CLASS:Navy Special Boats Unit	PREABILITY:5,CATEGORY=FEAT,Personal Firearms Proficiency,Surface Vehicle Operation (Powerboat),Teamwork,Amphibious Assault Training,Jungle/Swamp Warfare College	PRESKILL:3,Drive=8,Swim=8,Knowledge (Tactics)=5	PRETEXT:Active Duty (Navy)	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Navy Special Boats Unit	STARTSKILLPTS:4	CSKILL:Climb|Demolitions|Disable Device|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Move Silently|Navigate|Repair|Search|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
-4	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
-5	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
-6	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
-7	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
-8	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=NavyBoat
-10	ADD:FEAT|TYPE=MOS,TYPE=SpecialBoat
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SpecialBoat
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=NavyBoat
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SpecialBoat
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=NavyBoat
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SpecialBoat
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=NavyBoat
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SpecialBoat
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=NavyBoat
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=SpecialBoat
 ###Block: Rest of progression
 3	SAB:River Warfare
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Sniper	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name	Required Feat														Required Skill			Required Text										PRETOTALAB
+# Class Name	Required Ability																	Required Skill			Required Text										PRETOTALAB
 CLASS:Sniper	PREABILITY:5,CATEGORY=FEAT,Personal Firearms Proficiency,Weapon Focus,Marksman,Far Shot,MOS Infantry/Rifleman 2	PRESKILL:2,Hide=8,Spot=8	PRETEXT:Acrive or Reserve Duty (Army, Marine Corps or Police SWAT)	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sniper	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intimidate|Jump|Knowledge (Tactics)|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MOS,TYPE=Sniper
-3	ADD:FEAT|TYPE=SpecOpsTraining
-4	ADD:FEAT|TYPE=MOS,TYPE=Sniper
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=MOS,TYPE=Sniper
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=MOS,TYPE=Sniper
-9	ADD:FEAT|TYPE=SpecOpsTraining
-10	ADD:FEAT|TYPE=MOS,TYPE=Sniper
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Sniper
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Sniper
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Sniper
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Sniper
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=Sniper
 ###Block: Rest of progression
 1	SAB:One Shot One Kill %d6|OneShotOneKill	BONUS:VAR|OneShotOneKill|(CL+1)/2	DEFINE:OneShotOneKill|0
 
 # Class Name						Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Special Forces Communications Sergeant	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name						Required Feat															Required Skill								Required Text			PRETOTALAB
+# Class Name						Required Ability																		Required Skill								Required Text			PRETOTALAB
 CLASS:Special Forces Communications Sergeant	PREABILITY:5,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Jump School,MOS Signals 2,Defense Language Institute	PRESKILL:2,Communication Operations=8,Knowledge (Tactics)=5	PRETEXT:Active Duty (Army)	PRETOTALAB:5
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:Special Forces Communications Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Communication Operations|Decipher Script|Demolitions|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Hide|Move Silently|Navigate|Paradrop|Repair|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-4	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-10	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Communications)
 3	SAB:Cross Training
@@ -223,23 +223,23 @@ CLASS:Special Forces Communications Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Commun
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Special Forces Engineering Sergeant	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name					Required Feat																	Required Skill										Required Text			PRETOTALAB
+# Class Name					Required Ability																				Required Skill										Required Text			PRETOTALAB
 CLASS:Special Forces Engineering Sergeant	PREABILITY:5,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Jump School,MOS Combat Engineering 2,Defense Language Institute	PRESKILL:3,Craft (Structural)=8,Demolitions=8,Knowledge (Tactics)=5	PRETEXT:Active Duty (Army)	PRETOTALAB:5
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Special Forces Engineering Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Demolitions|Diplomacy|Disable Device|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Repair|Search|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-4	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-10	ADD:FEAT|TYPE=CommunicationsSergeant,TYPE=MOS
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=CommunicationsSergeant,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Engineering)
 3	SAB:Cross Training
@@ -248,23 +248,23 @@ CLASS:Special Forces Engineering Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Me
 
 # Class Name						Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Special Forces Intelligence Specialist	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name						Required Feat																			Required Skill												Required Text			PRETOTALAB
+# Class Name						Required Ability																					Required Skill												Required Text			PRETOTALAB
 CLASS:Special Forces Intelligence Specialist	PREABILITY:6,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Jump School,MOS Intelligence 2,Interrogation,Defense Language Institute	PRESKILL:4,Gather Information=1,Intimidate=1,Sense Motive=1,Knowledge (Tactics)=5	PRETEXT:Active Duty (Army)	PRETOTALAB:5
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:Special Forces Intelligence Specialist	STARTSKILLPTS:8	CSKILL:Climb|Demolitions|Diplomacy|Disable Device|Drive|Gather Information|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Search|Sense Motive|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-4	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-10	ADD:FEAT|TYPE=IntelligenceSpecialist,TYPE=MOS
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=IntelligenceSpecialist,TYPE=MOS
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=IntelligenceSpecialist,TYPE=MOS
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=IntelligenceSpecialist,TYPE=MOS	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=IntelligenceSpecialist,TYPE=MOS
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=IntelligenceSpecialist,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Intelligence)
 3	SAB:Cross Training
@@ -272,22 +272,22 @@ CLASS:Special Forces Intelligence Specialist	STARTSKILLPTS:8	CSKILL:Climb|Demoli
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Special Forces Medical Sergeant	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name					Required Feat																	Required Skill											Required Text			PRETOTALAB
+# Class Name					Required Ability																				Required Skill											Required Text			PRETOTALAB
 CLASS:Special Forces Medical Sergeant	PREABILITY:6,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Surgery,Jump School,MOS Medical 2,Defense Language Institute	PRESKILL:3,Craft (Pharmaceutical)=8,Treat Injury=8,Knowledge (Tactics)=5	PRETEXT:Active Duty (Army)	PRETOTALAB:5
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Special Forces Medical Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Chemical)|Craft (Pharmaceutical)|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Spot|Survival|Treat Injury|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-4	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
-6	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS	ADD:FEAT|TYPE=CrossTraining
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-10	ADD:FEAT|TYPE=MedicalSergeant,TYPE=MOS
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MedicalSergeant,TYPE=MOS
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MedicalSergeant,TYPE=MOS
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MedicalSergeant,TYPE=MOS	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MedicalSergeant,TYPE=MOS
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MedicalSergeant,TYPE=MOS
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Meidcal)
 3	SAB:Cross Training
@@ -295,23 +295,23 @@ CLASS:Special Forces Medical Sergeant	STARTSKILLPTS:8	CSKILL:Climb|Craft (Chemic
 
 # Class Name					Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Special Forces Weapons Sergeant	HD:10		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name					Required Feat																																					Required Skill								Required Text			PRETOTALAB
+# Class Name					Required Ability																																											Required Skill								Required Text			PRETOTALAB
 CLASS:Special Forces Weapons Sergeant	PREABILITY:5,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork,Jump School,MOS Infantry/Rifleman 2,Defense Language Institute	PREABILITY:1,CATEGORY=FEAT,Exotic Firearms Proficiency (M60),Exotic Firearms Proficiency (M723 LAW),Exotic Firearms Proficiency (M79)	PRESKILL:2,Craft (Structural)=5,Knowledge (Tactics)=10	PRETEXT:Active Duty (Army)	PRETOTALAB:7
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Special Forces Weapons Sergeant	STARTSKILLPTS:6	CSKILL:Climb|Craft (Structural)|Demolitions|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Spot|Survival|Swim|Use Rope
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-2	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
-3	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-4	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
-5	ADD:FEAT|TYPE=SpecOpsTraining
-6	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant	ADD:FEAT|TYPE=CrossTraining
-7	ADD:FEAT|TYPE=SpecOpsTraining
-8	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
-9	ADD:FEAT|TYPE=SpecOpsTraining	ADD:FEAT|TYPE=CrossTraining
-10	ADD:FEAT|TYPE=MOS,TYPE=WeaponsSergeant
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+2	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=WeaponsSergeant
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+4	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=WeaponsSergeant
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+6	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=WeaponsSergeant	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+8	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=WeaponsSergeant
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining	ADD:ABILITY|FEAT|NORMAL|TYPE=CrossTraining
+10	ADD:ABILITY|FEAT|NORMAL|TYPE=MOS,TYPE=WeaponsSergeant
 ###Block: Rest of progression
 2	SAB:Indigenous Training (Weapons)
 3	SAB:Cross Training
@@ -319,18 +319,18 @@ CLASS:Special Forces Weapons Sergeant	STARTSKILLPTS:6	CSKILL:Climb|Craft (Struct
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
 CLASS:Strategist	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
-# Class Name	Required Feat																			Required Skill						Required Text
+# Class Name	Required Ability																									Required Skill						Required Text
 CLASS:Strategist	PREABILITY:4,CATEGORY=FEAT,Voice of Command,Tactician,Tactician (Platoon),Tactician (Company)	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:2,Intimidate=5,Knowledge (Tactics)=10	PRETEXT:Active Duty (any branch)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Strategist	STARTSKILLPTS:4	CSKILL:Bluff|Communication Operations|Diplomacy|Intimidate|Knowledge (Tactics)|Navigate|Sense Motive
 ###Block: Special Ops Level Tracker
 1	BONUS:VAR|SpecOpsLVL|CL	DEFINE:SpecOpsLVL|0
 ###Block: Specialist choices
-1	ADD:FEAT|TYPE=SpecOpsTraining
-3	ADD:FEAT|TYPE=SpecOpsTraining
-5	ADD:FEAT|TYPE=SpecOpsTraining
-7	ADD:FEAT|TYPE=SpecOpsTraining
-9	ADD:FEAT|TYPE=SpecOpsTraining
+1	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+3	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+5	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+7	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
+9	ADD:ABILITY|FEAT|NORMAL|TYPE=SpecOpsTraining
 ###Block: Rest of progression
 1	SAB:Inspire Bravery +%|InspireBravery		BONUS:VAR|InspireBravery|2	DEFINE:InspireBravery|0
 2	SAB:Inspire Greatness %/day|InspireGreatness	BONUS:VAR|InspireGreatness|1	DEFINE:InspireGreatness|0
@@ -345,7 +345,7 @@ CLASS:Strategist	STARTSKILLPTS:4	CSKILL:Bluff|Communication Operations|Diplomacy
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
 CLASS:Top Gun	HD:6		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|7+TL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|ClassDefense|(CL+4)/2	BONUS:VAR|Action|CL*7
-# Class Name	Required Feat														Required Skill						Required Text				PRETOTALAB
+# Class Name	Required Ability																	Required Skill						Required Text				PRETOTALAB
 CLASS:Top Gun	PREABILITY:6,CATEGORY=FEAT,Teamwork,Formation Flying,Wingman,Combat Pilot,MOS Pilot 1,Officer Candidate School	PRESKILL:2,Knowledge (Tactics)=13,Pilot=13	PRETEXT:Active Duty (any branch)	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Top Gun	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations|Knowledge (Tactics)|Navigate|Pilot|Spot

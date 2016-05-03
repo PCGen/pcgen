@@ -1,10 +1,11 @@
-# CVS $Revision$ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Acrobatic.MOD				TYPE:CovertHero
-CATEGORY=FEAT|Agile Riposte.MOD				TYPE:CovertHero
-CATEGORY=FEAT|Aircraft Operation.MOD			TYPE:CovertHero
+CATEGORY=FEAT|Agile Riposte.MOD			TYPE:CovertHero
+CATEGORY=FEAT|Aircraft Operation.MOD		TYPE:CovertHero
 CATEGORY=FEAT|Alertness.MOD				TYPE:CovertHero
 CATEGORY=FEAT|Blind-Fight.MOD				TYPE:CovertHero
 CATEGORY=FEAT|Cautious.MOD				TYPE:CovertHero
@@ -14,27 +15,27 @@ CATEGORY=FEAT|Deceptive.MOD				TYPE:CovertHero
 CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:CovertHero
 CATEGORY=FEAT|Dodge.MOD					TYPE:CovertHero
 CATEGORY=FEAT|Elusive Target.MOD			TYPE:CovertHero
-CATEGORY=FEAT|Focused.MOD					TYPE:CovertHero
-CATEGORY=FEAT|Heroic Surge.MOD				TYPE:CovertHero
+CATEGORY=FEAT|Focused.MOD				TYPE:CovertHero
+CATEGORY=FEAT|Heroic Surge.MOD			TYPE:CovertHero
 CATEGORY=FEAT|Improved Disarm.MOD			TYPE:CovertHero
-CATEGORY=FEAT|Improved Initiative.MOD			TYPE:CovertHero
-CATEGORY=FEAT|Improved Trip.MOD				TYPE:CovertHero
+CATEGORY=FEAT|Improved Initiative.MOD		TYPE:CovertHero
+CATEGORY=FEAT|Improved Trip.MOD			TYPE:CovertHero
 CATEGORY=FEAT|Improved Two-Weapon Fighting.MOD	TYPE:CovertHero
-CATEGORY=FEAT|Lightning Reflexes.MOD			TYPE:CovertHero
+CATEGORY=FEAT|Lightning Reflexes.MOD		TYPE:CovertHero
 CATEGORY=FEAT|Meticulous.MOD				TYPE:CovertHero
 CATEGORY=FEAT|Mobility.MOD				TYPE:CovertHero
-CATEGORY=FEAT|Nimble.MOD					TYPE:CovertHero
+CATEGORY=FEAT|Nimble.MOD				TYPE:CovertHero
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:CovertHero
-CATEGORY=FEAT|Spring Attack.MOD				TYPE:CovertHero
+CATEGORY=FEAT|Spring Attack.MOD			TYPE:CovertHero
 CATEGORY=FEAT|Stealthy.MOD				TYPE:CovertHero
-CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:CovertHero
+CATEGORY=FEAT|Surface Vehicle Operation.MOD	TYPE:CovertHero
 CATEGORY=FEAT|Trustworthy.MOD				TYPE:CovertHero
-CATEGORY=FEAT|Two-Weapon Fighting.MOD			TYPE:CovertHero
-CATEGORY=FEAT|Unbalance Opponent.MOD			TYPE:CovertHero
-CATEGORY=FEAT|Vehicle Dodge.MOD				TYPE:CovertHero
+CATEGORY=FEAT|Two-Weapon Fighting.MOD		TYPE:CovertHero
+CATEGORY=FEAT|Unbalance Opponent.MOD		TYPE:CovertHero
+CATEGORY=FEAT|Vehicle Dodge.MOD			TYPE:CovertHero
 CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:CovertHero
 CATEGORY=FEAT|Weapon Finesse.MOD			TYPE:CovertHero
-CATEGORY=FEAT|Weapon Focus.MOD				TYPE:CovertHero
+CATEGORY=FEAT|Weapon Focus.MOD			TYPE:CovertHero
 
 #
 # End

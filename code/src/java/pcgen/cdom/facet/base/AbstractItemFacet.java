@@ -37,8 +37,8 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractDataFacet<IDT, T>
 {
 	/**
-	 * Sets the item for this AbstractItemFacet and the given PCGenIdentifier to
-	 * the given value.
+	 * Sets the item for this AbstractItemFacet and the Player Character
+	 * represented by the given PCGenIdentifier to the given value.
 	 * 
 	 * Note that a null set value is IGNORED, and an error is logged. If you
 	 * wish to unset a value, you should use the remove(PCGenIdentifier id)
@@ -47,10 +47,11 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * @see AbstractItemFacet#remove(PCGenIdentifier)
 	 * 
 	 * @param id
-	 *            The PCGenIdentifier for which the item value should be set
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the item value should be set
 	 * @param obj
-	 *            The Item for this AbstractItemFacet and the given
-	 *            PCGenIdentifier.
+	 *            The Item for this AbstractItemFacet and the Player Character
+	 *            represented by the given PCGenIdentifier.
 	 * @return true if the item was set; false otherwise
 	 */
 	public boolean set(IDT id, T obj)
@@ -80,12 +81,13 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	}
 
 	/**
-	 * Removes the item for this AbstractItemFacet and the given
-	 * PCGenIdentifier. May return null if no value was set for the given
-	 * PCGenIdentifier.
+	 * Removes the item for this AbstractItemFacet and the Player Character
+	 * represented by the given PCGenIdentifier. May return null if no value was
+	 * set for the Player Character identified by the given PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The PCGenIdentifier for which the item value should be removed
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the item value should be removed
 	 */
 	public T remove(IDT id)
 	{
@@ -98,14 +100,15 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	}
 
 	/**
-	 * Returns the item value for this AbstractItemFacet and the given
-	 * PCGenIdentifier. Note that this method will return null if no value for
-	 * the PCGenIdentifier has been set.
+	 * Returns the item value for this AbstractItemFacet and the Player
+	 * Character represented by the given PCGenIdentifier. Note that this method
+	 * will return null if no value for the Player Character has been set.
 	 * 
 	 * @param id
-	 *            The PCGenIdentifier for which the item should be returned.
-	 * @return the item value for this AbstractItemFacet and the given
-	 *         PCGenIdentifier.
+	 *            The PCGenIdentifier representing the PlayerCharacter for which
+	 *            the item should be returned.
+	 * @return the item value for this AbstractItemFacet and the Player
+	 *         Character represented by the given PCGenIdentifier.
 	 */
 	public T get(IDT id)
 	{
@@ -113,18 +116,22 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	}
 
 	/**
-	 * Returns true if the item in this AbstractItemFacet for the given
-	 * PCGenIdentifier matches the given value. null may be used to test that
-	 * there is no set value for this AbstractItemFacet and the given
+	 * Returns true if the item in this AbstractItemFacet for the Player
+	 * Character represented by the given PCGenIdentifier matches the given
+	 * value. null may be used to test that there is no set value for this
+	 * AbstractItemFacet and the Player Character represented by the given
 	 * PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The PCGenIdentifier for which the item should be tested
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the item should be tested
 	 * @param obj
 	 *            The object to test against the item in this AbstractItemFacet
-	 *            for the given PCGenIdentifier
-	 * @return true if the item in this AbstractItemFacet for the given
-	 *         PCGenIdentifier matches the given value; false otherwise
+	 *            for the Player Character represented by the given
+	 *            PCGenIdentifier
+	 * @return true if the item in this AbstractItemFacet for the Player
+	 *         Character represented by the given PCGenIdentifier matches the
+	 *         given value; false otherwise
 	 */
 	public boolean matches(IDT id, T obj)
 	{
@@ -134,8 +141,9 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	}
 
 	/**
-	 * Copies the contents of the AbstractItemFacet from one PCGenIdentifier to
-	 * another PCGenIdentifier.
+	 * Copies the contents of the AbstractItemFacet from one Player Character to
+	 * another Player Character, based on the given PCGenIdentifiers
+	 * representing those Player Characters.
 	 * 
 	 * This is a method in AbstractItemFacet in order to avoid exposing the
 	 * internal contents of AbstractItemFacet to other classes. This should not
@@ -143,15 +151,17 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
-	 * between the given PCGenIdentifiers (meaning once this copy takes place,
-	 * any change to the AbstractItemFacet of one PCGenIdentifier will only
-	 * impact the PCGenIdentifier where the AbstractItemFacet was changed).
+	 * between the Player Characters represented by the given PCGenIdentifiers
+	 * (meaning once this copy takes place, any change to the AbstractItemFacet
+	 * of one Player Character will only impact the Player Character where the
+	 * AbstractItemFacet was changed).
 	 * 
 	 * @param source
-	 *            The PCGenIdentifier from which the information should be
-	 *            copied
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the information should be copied
 	 * @param copy
-	 *            The PCGenIdentifier to which the information should be copied
+	 *            The PCGenIdentifier representing the Player Character to which
+	 *            the information should be copied
 	 */
 	@Override
 	public void copyContents(IDT source, IDT copy)

@@ -1,4 +1,4 @@
-# CVS $Revision: 14380 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
+# CVS $Revision: 14380 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # Pathfinder RPG Entry by: Stefan Radermacher and Scott Meyer
 
@@ -157,62 +157,62 @@ Mithral (per lb)			OUTPUTNAME:Mithral (per lb.)			TYPE:Goods.Trade	COST:500	WT:1
 Platinum (per lb).MOD		OUTPUTNAME:Platinum (per lb.)			TYPE:Goods.Trade	COST:500	WT:1		SOURCEPAGE:p.93
 
 ###Block: Food and Drink
-# Equipment Name			Type					Cost		Weight	Source Page
-Absinthe (Glass)			TYPE:Goods.Liquid.Food		COST:3			SOURCEPAGE:p.94
-Absinthe (Bottle)			TYPE:Goods.Liquid.Food		COST:30	WT:1.5	SOURCEPAGE:p.94
-Ale (Mug).MOD			TYPE:Goods.Liquid.Food		COST:0.04	WT:1		SOURCEPAGE:p.94
-Ale (Gallon).MOD			TYPE:Goods.Liquid.Food		COST:0.2	WT:8		SOURCEPAGE:p.94
-Applejack (Mug)			TYPE:Goods.Liquid.Food		COST:0.08	WT:1		SOURCEPAGE:p.94
-Applejack (Gallon)		TYPE:Goods.Liquid.Food		COST:0.4	WT:8		SOURCEPAGE:p.94
-Baijiu (Bottle)			TYPE:Goods.Liquid.Food		COST:10	WT:2		SOURCEPAGE:p.94
-Banquet (Per Person).MOD										SOURCEPAGE:p.94
-Bread (Loaf).MOD												SOURCEPAGE:p.94
-Bufo (Jug)				TYPE:Goods.Liquid.Food		COST:1	WT:2		SOURCEPAGE:p.94
-Cauim (Gourd)			TYPE:Goods.Liquid.Food		COST:1	WT:2		SOURCEPAGE:p.94
-Caviar				TYPE:Goods.Food			COST:50			SOURCEPAGE:p.94
-Cheese (Hunk).MOD												SOURCEPAGE:p.94
-Chocolate (Bar)			TYPE:Goods.Food			COST:5	WT:0.5	SOURCEPAGE:p.94
-Coffee (Cup)			TYPE:Goods.Liquid.Food		COST:0.01	WT:0.5	SOURCEPAGE:p.94
-Dwarven Stout (Mug)		TYPE:Goods.Liquid.Food		COST:0.04	WT:0.5	SOURCEPAGE:p.94
-Dwarven Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:1.5	SOURCEPAGE:p.95
-Elven Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:1		SOURCEPAGE:p.95
-Fortune Cookie			TYPE:Goods.Food			COST:0.01			SOURCEPAGE:p.95
-Gnome Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:1		SOURCEPAGE:p.95
-Grog (Mug)				TYPE:Goods.Liquid.Food		COST:0.02	WT:0.5	SOURCEPAGE:p.95
-Haggis				TYPE:Goods.Food			COST:0.1	WT:1.5	SOURCEPAGE:p.95
-Halfling Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:0.5	SOURCEPAGE:p.96
-Honey (Jar)				TYPE:Goods.Liquid.Food		COST:1	WT:0.5	SOURCEPAGE:p.96
-Ice Cream				TYPE:Goods.Food			COST:0.1			SOURCEPAGE:p.96
-Jungle Coffee (Cup)		TYPE:Goods.Liquid.Food		COST:0.03	WT:0.5	SOURCEPAGE:p.96
-Kahve (Cup)				TYPE:Goods.Liquid.Food		COST:0.02	WT:0.5	SOURCEPAGE:p.96
-Kumis (Wineskin)			TYPE:Goods.Liquid.Food		COST:0.5	WT:1.5	SOURCEPAGE:p.96
-Maple Syrup (Jar)			TYPE:Goods.Liquid.Food		COST:1	WT:0.5	SOURCEPAGE:p.96
-Mead (Mug)				TYPE:Goods.Liquid.Food		COST:0.05	WT:0.5	SOURCEPAGE:p.96
-Mead (Gallon)			TYPE:Goods.Liquid.Food		COST:2	WT:8		SOURCEPAGE:p.96
-Meals (Poor/Per Day).MOD	TYPE:Goods.Food			COST:0.1			SOURCEPAGE:p.96
-Meals (Common/Per Day).MOD	TYPE:Goods.Food			COST:0.3			SOURCEPAGE:p.96
-Meals (Good/Per Day).MOD	TYPE:Goods.Food			COST:0.5			SOURCEPAGE:p.96
-Meat (Chunk).MOD			TYPE:Goods.Food			COST:0.3	WT:0.5	SOURCEPAGE:p.96
-Milk					TYPE:Goods.Liquid.Food		COST:0.05	WT:0.5	SOURCEPAGE:p.96
-Oldlaw Whiskey (Bottle)		TYPE:Goods.Liquid.Food		COST:20	WT:1		SOURCEPAGE:p.96
-Orc Trail Rations			TYPE:Goods.Food.Resizable	COST:1	WT:1		SOURCEPAGE:p.96
-Powdered Milk			TYPE:Goods.Food			COST:0.1	WT:1		SOURCEPAGE:p.97
-Pulque (Cup)			TYPE:Goods.Liquid.Food		COST:0.1	WT:0.5	SOURCEPAGE:p.97
-Pulque (Wineskin)			TYPE:Goods.Liquid.Food		COST:0.4	WT:2		SOURCEPAGE:p.97
-Rumboozle (Cup)			TYPE:Goods.Liquid.Food		COST:0.1	WT:0.5	SOURCEPAGE:p.97
-Sealord Wine (Bottle)		TYPE:Goods.Liquid.Food		COST:15	WT:0.5	SOURCEPAGE:p.97
-Street Meat				TYPE:Goods.Food			COST:0.01	WT:0.5	SOURCEPAGE:p.97
-Tea (Cup)				TYPE:Goods.Liquid.Food		COST:0.02	WT:0.5	SOURCEPAGE:p.97
-Tea (Ceremonial/Cup)		TYPE:Goods.Liquid.Food		COST:0.04	WT:0.5	SOURCEPAGE:p.97
-Tea Ceremony Set			TYPE:Goods.General		COST:25	WT:5		SOURCEPAGE:p.97
-Tepache (Cup)			TYPE:Goods.Liquid.Food		COST:0.05	WT:0.5	SOURCEPAGE:p.97
-Rations (Trail/Per Day).MOD										SOURCEPAGE:p.97
-Travel Cake Mix			TYPE:Goods.Food			COST:0.1	WT:1		SOURCEPAGE:p.97
-Wandermeal (Per Day)		TYPE:Goods.Food.Resizable	COST:0.01	WT:0.5	SOURCEPAGE:p.97
-Whiskey (Cup)			TYPE:Goods.Liquid.Food		COST:0.1	WT:0.5	SOURCEPAGE:p.97
-Wine (Common/Pitcher).MOD	TYPE:Goods.Liquid.Food		COST:0.2	WT:6		SOURCEPAGE:p.97
-Wine (Fine/Bottle).MOD		TYPE:Goods.Liquid.Food		COST:10	WT:1.5	SOURCEPAGE:p.97
-Yogurt				TYPE:Goods.Food			COST:0.1	WT:0.5	SOURCEPAGE:p.97
+# Equipment Name			Type							Cost		Weight	Source Page
+Absinthe (Glass)			TYPE:Goods.Liquid.Food.Consumable		COST:3			SOURCEPAGE:p.94
+Absinthe (Bottle)			TYPE:Goods.Liquid.Food.Consumable		COST:30	WT:1.5	SOURCEPAGE:p.94
+Ale (Mug).MOD			TYPE:Goods.Liquid.Food.Consumable		COST:0.04	WT:1		SOURCEPAGE:p.94
+Ale (Gallon).MOD			TYPE:Goods.Liquid.Food.Consumable		COST:0.2	WT:8		SOURCEPAGE:p.94
+Applejack (Mug)			TYPE:Goods.Liquid.Food.Consumable		COST:0.08	WT:1		SOURCEPAGE:p.94
+Applejack (Gallon)		TYPE:Goods.Liquid.Food.Consumable		COST:0.4	WT:8		SOURCEPAGE:p.94
+Baijiu (Bottle)			TYPE:Goods.Liquid.Food.Consumable		COST:10	WT:2		SOURCEPAGE:p.94
+Banquet (Per Person).MOD												SOURCEPAGE:p.94
+Bread (Loaf).MOD														SOURCEPAGE:p.94
+Bufo (Jug)				TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:2		SOURCEPAGE:p.94
+Cauim (Gourd)			TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:2		SOURCEPAGE:p.94
+Caviar				TYPE:Goods.Food.Consumable			COST:50			SOURCEPAGE:p.94
+Cheese (Hunk).MOD														SOURCEPAGE:p.94
+Chocolate (Bar)			TYPE:Goods.Food.Consumable			COST:5	WT:0.5	SOURCEPAGE:p.94
+Coffee (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.01	WT:0.5	SOURCEPAGE:p.94
+Dwarven Stout (Mug)		TYPE:Goods.Liquid.Food.Consumable		COST:0.04	WT:0.5	SOURCEPAGE:p.94
+Dwarven Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:1.5	SOURCEPAGE:p.95
+Elven Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:1		SOURCEPAGE:p.95
+Fortune Cookie			TYPE:Goods.Food.Consumable			COST:0.01			SOURCEPAGE:p.95
+Gnome Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:1		SOURCEPAGE:p.95
+Grog (Mug)				TYPE:Goods.Liquid.Food.Consumable		COST:0.02	WT:0.5	SOURCEPAGE:p.95
+Haggis				TYPE:Goods.Food.Consumable			COST:0.1	WT:1.5	SOURCEPAGE:p.95
+Halfling Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:0.5	SOURCEPAGE:p.96
+Honey (Jar)				TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:0.5	SOURCEPAGE:p.96
+Ice Cream				TYPE:Goods.Food.Consumable			COST:0.1			SOURCEPAGE:p.96
+Jungle Coffee (Cup)		TYPE:Goods.Liquid.Food.Consumable		COST:0.03	WT:0.5	SOURCEPAGE:p.96
+Kahve (Cup)				TYPE:Goods.Liquid.Food.Consumable		COST:0.02	WT:0.5	SOURCEPAGE:p.96
+Kumis (Wineskin)			TYPE:Goods.Liquid.Food.Consumable		COST:0.5	WT:1.5	SOURCEPAGE:p.96
+Maple Syrup (Jar)			TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:0.5	SOURCEPAGE:p.96
+Mead (Mug)				TYPE:Goods.Liquid.Food.Consumable		COST:0.05	WT:0.5	SOURCEPAGE:p.96
+Mead (Gallon)			TYPE:Goods.Liquid.Food.Consumable		COST:2	WT:8		SOURCEPAGE:p.96
+Meals (Poor/Per Day).MOD	TYPE:Goods.Food.Consumable			COST:0.1			SOURCEPAGE:p.96
+Meals (Common/Per Day).MOD	TYPE:Goods.Food.Consumable			COST:0.3			SOURCEPAGE:p.96
+Meals (Good/Per Day).MOD	TYPE:Goods.Food.Consumable			COST:0.5			SOURCEPAGE:p.96
+Meat (Chunk).MOD			TYPE:Goods.Food.Consumable			COST:0.3	WT:0.5	SOURCEPAGE:p.96
+Milk					TYPE:Goods.Liquid.Food.Consumable		COST:0.05	WT:0.5	SOURCEPAGE:p.96
+Oldlaw Whiskey (Bottle)		TYPE:Goods.Liquid.Food.Consumable		COST:20	WT:1		SOURCEPAGE:p.96
+Orc Trail Rations			TYPE:Goods.Food.Resizable.Consumable	COST:1	WT:1		SOURCEPAGE:p.96
+Powdered Milk			TYPE:Goods.Food.Consumable			COST:0.1	WT:1		SOURCEPAGE:p.97
+Pulque (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.1	WT:0.5	SOURCEPAGE:p.97
+Pulque (Wineskin)			TYPE:Goods.Liquid.Food.Consumable		COST:0.4	WT:2		SOURCEPAGE:p.97
+Rumboozle (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.1	WT:0.5	SOURCEPAGE:p.97
+Sealord Wine (Bottle)		TYPE:Goods.Liquid.Food.Consumable		COST:15	WT:0.5	SOURCEPAGE:p.97
+Street Meat				TYPE:Goods.Food.Consumable			COST:0.01	WT:0.5	SOURCEPAGE:p.97
+Tea (Cup)				TYPE:Goods.Liquid.Food.Consumable		COST:0.02	WT:0.5	SOURCEPAGE:p.97
+Tea (Ceremonial/Cup)		TYPE:Goods.Liquid.Food.Consumable		COST:0.04	WT:0.5	SOURCEPAGE:p.97
+Tea Ceremony Set			TYPE:Goods.General.Consumable			COST:25	WT:5		SOURCEPAGE:p.97
+Tepache (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.05	WT:0.5	SOURCEPAGE:p.97
+Rations (Trail/Per Day).MOD												SOURCEPAGE:p.97
+Travel Cake Mix			TYPE:Goods.Food.Consumable			COST:0.1	WT:1		SOURCEPAGE:p.97
+Wandermeal (Per Day)		TYPE:Goods.Food.Resizable.Consumable	COST:0.01	WT:0.5	SOURCEPAGE:p.97
+Whiskey (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.1	WT:0.5	SOURCEPAGE:p.97
+Wine (Common/Pitcher).MOD	TYPE:Goods.Liquid.Food.Consumable		COST:0.2	WT:6		SOURCEPAGE:p.97
+Wine (Fine/Bottle).MOD		TYPE:Goods.Liquid.Food.Consumable		COST:10	WT:1.5	SOURCEPAGE:p.97
+Yogurt				TYPE:Goods.Food.Consumable			COST:0.1	WT:0.5	SOURCEPAGE:p.97
 
 ###Block: Lodging and Services
 # Equipment Name			Type				Cost		Source Page
@@ -244,7 +244,7 @@ Road Toll				TYPE:Service		COST:0.01	SOURCEPAGE:p.99
 Gate Toll				TYPE:Service		COST:0.01	SOURCEPAGE:p.99
 Scribe (Text)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 Scribe (Map)			TYPE:Service		COST:10	SOURCEPAGE:p.99
-#Spellcasting		caster level x spell level × 10 gp		SOURCEPAGE:p.99
+#Spellcasting		caster level x spell level x 10 gp		SOURCEPAGE:p.99
 Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 
 ###Block: Tools and Skill Kits
@@ -353,35 +353,35 @@ Musical Instrument (Pan Pipes).MOD																																						SOURCEPA
 Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											ABILITY:Internal|AUTOMATIC|Equipment ~ Perform Bonus
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
@@ -410,7 +410,7 @@ Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURC
 Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																																				SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
 Backpack.MOD									OUTPUTNAME:Backpack, Common																												SOURCEPAGE:p.58
 Backpack (Masterwork).MOD																																							SOURCEPAGE:p.58
-Bandolier																	TYPE:Goods.Clothing.Resizable.Container		CONTAINS:*UNLIM|Any=8							COST:0.5						SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the "retrieve a stored item" action to take an item from a bandolier.
+Bandolier																	TYPE:Goods.General.Resizable.Container		CONTAINS:*UNLIM|Any=8							COST:0.5						SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the "retrieve a stored item" action to take an item from a bandolier.
 Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
 Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
 Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
@@ -471,7 +471,7 @@ False-Bottomed Chest															TYPE:Goods.General															COST:52	WT:2
 False-Bottomed Cup															TYPE:Goods.General															COST:1						SOURCEPAGE:p.64
 False-Bottomed Scabbard															TYPE:Goods.General															COST:45	WT:1					SOURCEPAGE:p.64
 Familiar Satchel																TYPE:Goods.General															COST:25	WT:6					SOURCEPAGE:p.64																																																				SPROP:Provides total cover to any Tiny or smaller creature contained within it.
-Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 × 10 minutes and should be thoroughly rinsed after each use.
+Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 x 10 minutes and should be thoroughly rinsed after each use.
 Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
 Fishhook.MOD																																									SOURCEPAGE:p.64
 Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
@@ -481,7 +481,7 @@ Folding Chair																TYPE:Goods.General.Resizable														COST:2	WT
 Folding Ladder																TYPE:Goods.General															COST:2	WT:16					SOURCEPAGE:p.65
 Folding Pole																TYPE:Goods.General															COST:0.2	WT:10					SOURCEPAGE:p.65
 Folding Table																TYPE:Goods.General															COST:10	WT:20					SOURCEPAGE:p.65
-Gear Maintenance Kit															TYPE:Goods.Tools.Kits															COST:5	WT:2					SOURCEPAGE:p.65
+Gear Maintenance Kit															TYPE:Goods.Tools.Kits															COST:5	WT:2					SOURCEPAGE:p.65																																																				SPROP:This kit contains metal polish, a small file, a leather paring knife, conditioning oil for leather, two soft cloths, extra leather straps, a sewing needle, and a few buttons.
 Glass Cutter																TYPE:Goods.General															COST:5						SOURCEPAGE:p.65
 Glue Paper																	TYPE:Goods.General.Consumable														COST:0.1						SOURCEPAGE:p.65																																																				SPROP:If you apply glue paper to a window before you break it, the broken pieces stick to the glue rather than noisily falling to the ground.
 Grappling Arrow																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
@@ -489,7 +489,7 @@ Grappling Bolt																TYPE:Goods.General															COST:1	WT:0.5				
 Grappling Hook.MOD								OUTPUTNAME:Grappling Hook, Common																											SOURCEPAGE:p.65
 Grappling Hook (Mithral)							OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.65
 Grooming Kit																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.65
-Gunsmith's Kit																TYPE:Goods.General															COST:15	WT:2					SOURCEPAGE:p.65
+Gunsmith's Kit																TYPE:Goods.General.Gunsmith's Kit															COST:15	WT:2					SOURCEPAGE:p.65
 Hammer.MOD																																										SOURCEPAGE:p.65
 Hammock																	TYPE:Goods.General.Resizable														COST:0.1	WT:3					SOURCEPAGE:p.65
 Harrow Deck																	TYPE:Goods.General															COST:100						SOURCEPAGE:p.66
@@ -580,7 +580,8 @@ Ram (Portable).MOD								OUTPUTNAME:Portable Ram																													SO
 Pot (Iron).MOD																																									SOURCEPAGE:p.70
 Pot (Mithral)																TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.70
 Powder.MOD																	TYPE:Goods.General.Consumable														COST:0.01	WT:0.5				SOURCEPAGE:p.70																																																				SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
-Powder Horn																	TYPE:FirearmGear																COST:3	WT:1					SOURCEPAGE:p.70
+Powder Horn																	TYPE:Goods.FirearmGear.Powder Horn.Container	CONTAINS:UNLIM|Black Powder (Dose)=10				COST:3	WT:1					SOURCEPAGE:p.70
+Powder Keg																	TYPE:Goods.FirearmGear.Container			CONTAINS:UNLIM|Black Powder (Dose)=100				COST:0	WT:5					SOURCEPAGE:p.41
 Prosthetic (Arm)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:10	WT:3					SOURCEPAGE:p.70
 Prosthetic (Foot)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:2					SOURCEPAGE:p.70
 Prosthetic (Hand)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:1					SOURCEPAGE:p.70
@@ -648,15 +649,42 @@ Wire Saw (Adamantine)															TYPE:Goods.General															COST:150			
 Wrist Sheath																TYPE:Goods.General.Container.Resizable		CONTAINS:UNLIM|Any							COST:1	WT:1					SOURCEPAGE:p.75
 
 ###Block: Starting Kits
-# Equipment Name			Type				Cost		Weight	Source Page		Bonus to skill							Special Property
-Chirurgeon's Kit			TYPE:Goods.Tools.Kits	COST:400	WT:4		SOURCEPAGE:p.62
-Cooking Kit				TYPE:Goods.Tools.Kits	COST:3	WT:16		SOURCEPAGE:p.62
-Entertainer's Kit			TYPE:Goods.Tools.Kits	COST:0.5	WT:3		SOURCEPAGE:p.63
-Fishing Kit				TYPE:Goods.Tools.Kits	COST:0.5	WT:3		SOURCEPAGE:p.64
-Gambler's Kit (Common)		TYPE:Goods.Tools.Kits	COST:75	WT:5		SOURCEPAGE:p.65
-Gambler's Kit (Cheating)	TYPE:Goods.Tools.Kits	COST:300	WT:5		SOURCEPAGE:p.65	BONUS:SKILL|Profession (Gambler)|4|TYPE=Circumstance	SPROP:Grants a +4 circumstance bonus on Profession (gambler) checks when using these materials.
-Scrivener's Kit			TYPE:Goods.General	COST:2	WT:1		SOURCEPAGE:p.71
-
+# Equipment Name			Type		Cost		Weight	Source Page		Bonus to skill							Special Property
+Alchemist's Kit			TYPE:Kit	COST:40	WT:24		SOURCEPAGE:p.58										SPROP:This kit includes an alchemy crafting kit, a backpack, a bedroll, a belt pouch, a flint and steel, ink, an inkpen, an iron pot, a mess kit, soap, torches (10), trail rations (5 days), and a waterskin.
+Barbarian's Kit			TYPE:Kit	COST:9	WT:26		SOURCEPAGE:p.59										SPROP:This kit includes a backpack, a belt pouch, a blanket, a flint and steel, an iron pot, rope, soap, torches (10), trail rations (5 days), and a waterskin.
+Bard's Kit				TYPE:Kit	COST:41	WT:33.5	SOURCEPAGE:p.59										SPROP:This includes a backpack, a bedroll, a belt pouch, a common musical instrument, a flint and steel, ink, an inkpen, an iron pot, a journal, a mess kit, a mirror, rope, soap, torches (10), trail rations (5 days), and a waterskin.
+Cavalier's Kit			TYPE:Kit	COST:23	WT:112	SOURCEPAGE:p.61										SPROP:This includes animal feed (5 days), a backpack, a bedroll, a belt pouch, a bit and bridle, a flint and steel, an iron pot, a mess kit, a riding saddle, rope, saddlebags, soap, torches (10), trail rations (5 days), and a waterskin.
+Chirurgeon's Kit			TYPE:Kit	COST:400	WT:5		SOURCEPAGE:p.62										SPROP:This sturdy leather case straps to the waist or thigh, or can be slung over a shoulder. It consists of a leather pouch, a healer�s kit, a bottle of strong brandy, a potion of cure light wounds, a vial of smelling salts, and 2 doses each of alchemist�s kindness, antiplague, antitoxin, bloodblock, and soothe syrup.
+Chronicler's Kit			TYPE:Kit	COST:40	WT:4.5	SOURCEPAGE:p.62										SPROP:This bundle contains a map case, two vials of ink, two inkpens, 10 sheets of paper, two blank journals, a pound of fine powder for drying ink, and a 20-foot measuring cord. The supplies usually suffice for chronicling a single expedition of not more than 2 months� duration.
+Cooking Kit				TYPE:Kit	COST:3	WT:16		SOURCEPAGE:p.62										SPROP:This kit contains an iron pot, an iron skillet, a ladle, a skewer, a wooden cutting board, a cutting knife, an iron tripod for the pot, a packet of tinder, and a small selection of local or otherwise easy to find seasonings. You can attach the skewer to the tripod for roasting small game animals. All the component pieces (except the skillet) fit within the pot for easy storage and transport.
+Dragonslayer's Kit		TYPE:Kit	COST:485	WT:64		SOURCEPAGE:p.63										SPROP:Aimed more at hired blades than seasoned adventurers, this kit provides supplemental equipment for outfitting hirelings to hunt dragons. It includes a potion of cure moderate wounds, oil of bless weapon (1 application), a longspear, a backpack, three large sacks, a sunrod, a tower shield, and 5 vials of alchemist�s fire. For hunting dragons that are immune to fire, the alchemist�s fire can be replaced with acid at the time of purchase, for a savings of 50 gp.
+Druid's Kit				TYPE:Kit	COST:14	WT:44		SOURCEPAGE:p.63										SPROP:This includes animal feed (5 days), a backpack, a belt pouch, a blanket, a flint and steel, holly, mistletoe, an iron pot, a mess kit, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
+Dungeoneer's Kit (Common)	TYPE:Kit	COST:15	WT:25		SOURCEPAGE:p.63										SPROP:This bundle of essential supplies for exploring ruins and abandoned cities includes two candles, chalk, a hammer and four pitons, 50 feet of hemp rope, a hooded lantern with 5 flasks of oil, two sacks, two torches, and four tindertwigs.
+Dungeoneer's Kit (Deluxe)	TYPE:Kit	COST:130	WT:15		SOURCEPAGE:p.63										SPROP:A deluxe dungeoneering kit contains two candles, chalk, a hammer and four pitons, 50 feet of silk rope, two sacks, three sunrods, four tindertwigs, and an everburning torch.
+Entertainer's Kit			TYPE:Kit	COST:0.5	WT:3		SOURCEPAGE:p.63										SPROP:This kit includes juggling balls, colored handkerchiefs, playing cards, clownish makeup, and other simple props for stage magicians and other street entertainers.
+Fighter's Kit			TYPE:Kit	COST:9	WT:29		SOURCEPAGE:p.64										SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, an iron pot, a mess kit, rope, soap, torches (10), trail rations (5 days), and a waterskin.
+Fishing Kit				TYPE:Kit	COST:0.5	WT:3		SOURCEPAGE:p.64										SPROP:This kit includes a simple fishing pole and a small box that contains fishing tackle (hooks, lines, sinkers, floats, and lures).
+Gambler's Kit (Cheating)	TYPE:Kit	COST:300	WT:5		SOURCEPAGE:p.65	BONUS:SKILL|Profession (Gambler)|4|TYPE=Circumstance	SPROP:This small, tightly packed suitcase holds decks of cards, a betting wheel, numbered cloths, colored wooden chips, and a wide variety of other sorts of specialized equipment necessary for many different games of chance. A cheating gambler�s kit is very similar, except its cards are marked and its games are rigged, giving a knowledgeable user a +4 circumstance bonus on Profession (gambler) checks when using these materials. A DC 25 Perception or DC 20 Profession (gambler) check exposes the ruse.
+Gambler's Kit (Common)		TYPE:Kit	COST:75	WT:5		SOURCEPAGE:p.65										SPROP:This small, tightly packed suitcase holds decks of cards, a betting wheel, numbered cloths, colored wooden chips, and a wide variety of other sorts of specialized equipment necessary for many different games of chance.
+Gunslinger's Kit			TYPE:Kit	COST:26	WT:31		SOURCEPAGE:p.65										SPROP:This includes a backpack, a bedroll, a belt pouch, a flint and steel, a gunsmith�s kit, an iron pot, a mess kit, a powder horn, rope, torches (10), trail rations (5 days), and a waterskin.
+Inquisitor's Kit			TYPE:Kit	COST:30	WT:34		SOURCEPAGE:p.67										SPROP:This kit includes a backpack, a bedroll, a belt pouch, candles (10), a cheap holy text, a flint and steel, an iron pot, manacles, a mess kit, rope, soap, a spell component pouch, torches (10), trail rations (5 days), a waterskin, and a wooden holy symbol.
+Magus's Kit				TYPE:Kit	COST:22	WT:31		SOURCEPAGE:p.68										SPROP:This includes a backpack, a bedroll, a belt pouch, a flint and steel, ink, an inkpen, an iron pot, a mess kit, rope, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
+Monk's Kit				TYPE:Kit	COST:8	WT:22		SOURCEPAGE:p.68										SPROP:This kit includes a backpack, a belt pouch, a blanket, rope, soap, torches (10), trail rations (5 days), and a waterskin.
+Oracle's Kit			TYPE:Kit	COST:9	WT:29		SOURCEPAGE:p.69										SPROP:This kit includes a backpack, a bedroll, a belt pouch, candles (10), a flint and steel, an iron pot, mess kit, rope, soap, torches (10), trail rations (5 days), and a waterskin.
+Paladin's Kit			TYPE:Kit	COST:11	WT:30		SOURCEPAGE:p.69										SPROP:This kit includes a backpack, a bedroll, a belt pouch, a cheap holy text, a flint and steel, an iron pot, a mess kit, rope, soap, torches (10), trail rations (5 days), a waterskin, and a wooden holy symbol.
+Pathfinder's Kit			TYPE:Kit	COST:12	WT:22		SOURCEPAGE:p.69										SPROP:This kit consists of a backpack, a bedroll, a belt pouch, a clay mug, a dagger, two fishhooks, a flint and steel, a sewing needle, a signal whistle, 50 feet of string, 50 feet of thread, a waterskin, a week�s worth of trail rations, and a whetstone. For Small creatures, the weight of a Pathfinder�s kit is 7-1/2 pounds. Leaving the bedroll and rations at camp or on a mount reduces the weight by 12 pounds for Medium creatures and by 3 pounds for Small creatures.
+Ranger's Kit			TYPE:Kit	COST:9	WT:28		SOURCEPAGE:p.70										SPROP:This includes a backpack, a bedroll, a belt pouch, a flint and steel, iron pot, mess kit, rope, torches (10), trail rations (5 days), and a waterskin.
+Riding Kit (Common)		TYPE:Kit	COST:16	WT:54		SOURCEPAGE:p.70										SPROP:This kit includes a bit and bridle, a saddle, a saddle blanket, saddlebags, and 2 days� worth of feed for a mount. The weight can be lightened 10 pounds by discarding the feed.
+Riding Kit (Exotic Mount)	TYPE:Kit	COST:36	WT:59		SOURCEPAGE:p.70										SPROP:This kit includes a bit and bridle, a saddle, a saddle blanket, saddlebags, and 2 days� worth of feed for a mount. The weight can be lightened 10 pounds by discarding the feed.
+Rogue's Kit				TYPE:Kit	COST:50	WT:37		SOURCEPAGE:p.70										SPROP:This kit includes a backpack, a bedroll, a belt pouch, caltrops, chalk (10), a flint and steel, a grappling hook, an iron pot, a mess kit, a mirror, pitons (10), rope, soap, thieves� tools, torches (10), trail rations (5 days), and a waterskin.
+Scrivener's Kit			TYPE:Kit	COST:2	WT:1		SOURCEPAGE:p.71										SPROP:This soft leather case contains a vial for holding ink, an ink pen, spare pen nibs, a small container of pigment for making ink, a tiny knife for cutting quills into pens, a blotter, and a small ruler.
+Sorcerer's Kit			TYPE:Kit	COST:8	WT:19		SOURCEPAGE:p.72										SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, an iron pot, a mess kit, soap, torches (10), trail rations (5 days), and a waterskin.
+Spelunking Kit			TYPE:Kit	COST:174	WT:32		SOURCEPAGE:p.72										SPROP:This kit holds equipment for exploring underground, consisting of a lantern with 4 flasks of oil, a hammer and 8 pitons, 100 feet of silk rope, a grappling hook, and a climber�s kit.
+Summoner's Kit			TYPE:Kit	COST:8	WT:19		SOURCEPAGE:p.73										SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, an iron pot, a mess kit, soap, torches (10), trail rations (5 days), and a waterskin.
+Troll Slayer's Kit		TYPE:Kit	COST:30	WT:17		SOURCEPAGE:p.74										SPROP:This kit includes 1 vial of alchemist�s fire, 1 flask of acid, 10 torches, one tindertwig, and 5 flasks of oil.
+Undead Slayer's Kit		TYPE:Kit	COST:402	WT:7		SOURCEPAGE:p.74										SPROP:This kit includes a wooden holy symbol, a necklace of garlic bulbs, a hammer, a wooden stake, 2 flasks of holy water, one sunrod, a potion of lesser restoration, and a potion of protection from evil.
+Witch's Kit				TYPE:Kit	COST:21	WT:21		SOURCEPAGE:p.75										SPROP:This kit includes a backpack, a bedroll, a belt pouch, candles (10), chalk (10), a flint and steel, ink, an inkpen, an iron pot, a mess kit, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
+Wizard's Kit			TYPE:Kit	COST:21	WT:21		SOURCEPAGE:p.75										SPROP:This kit includes a backpack, a bedroll, a belt pouch, a flint and steel, ink, an inkpen, an iron pot, a mess kit, soap, a spell component pouch, torches (10), trail rations (5 days), and a waterskin.
 
 ###Block: Alchemical Remedies
 # Equipment Name			Type						Cost		Weight	Source Page		Bonus to skill						Modify VAR						Special Property
@@ -867,7 +895,7 @@ Mule.MOD																		WT:800	SOURCEPAGE:p.82
 # Barding is in armor .LST file
 # Equipment Name			Type					Cost		Weight	Source Page
 Animal Harness.MOD		TYPE:Goods.Mount.Resizable	COST:2	WT:2		SOURCEPAGE:p.80
-Bit and Bridle.MOD											SOURCEPAGE:80
+Bit and Bridle.MOD											SOURCEPAGE:p.80
 Cage (Fine)				TYPE:Goods.Mount.Pets		COST:10	WT:2		SOURCEPAGE:p.81
 Cage (Diminutive)			TYPE:Goods.Mount.Pets		COST:10	WT:2		SOURCEPAGE:p.81
 Cage (Tiny).MOD			TYPE:Goods.Mount.Pets		COST:2	WT:5		SOURCEPAGE:p.81

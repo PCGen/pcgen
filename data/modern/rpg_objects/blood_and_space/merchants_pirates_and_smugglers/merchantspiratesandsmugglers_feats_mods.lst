@@ -1,48 +1,49 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57	SOURCEDATE:2052-01
 
 # Feat Name					Type
-CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:Mercenary
-CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:Mercenary
-CATEGORY=FEAT|Alertness.MOD				TYPE:Smuggler
+# Ability Name							Type
+CATEGORY=FEAT|Advanced Combat Martial Arts.MOD		TYPE:Mercenary
+CATEGORY=FEAT|Advanced Firearms Proficiency.MOD		TYPE:Mercenary
+CATEGORY=FEAT|Alertness.MOD					TYPE:Smuggler
 CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:Mercenary
 CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Armor Proficiency (Powered).MOD	TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Attentive.MOD				TYPE:Smuggler
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD		TYPE:Mercenary.Pirate
+CATEGORY=FEAT|Armor Proficiency (Powered).MOD		TYPE:Mercenary.Pirate
+CATEGORY=FEAT|Attentive.MOD					TYPE:Smuggler
 CATEGORY=FEAT|Banter.MOD					TYPE:Merchant
 CATEGORY=FEAT|Black Market.MOD				TYPE:Merchant
-CATEGORY=FEAT|Brawl.MOD					TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Burst Fire.MOD				TYPE:Mercenary
-CATEGORY=FEAT|Charismatic Plus.MOD			TYPE:Merchant
+CATEGORY=FEAT|Brawl.MOD						TYPE:Mercenary.Pirate
+CATEGORY=FEAT|Burst Fire.MOD					TYPE:Mercenary
+CATEGORY=FEAT|Charismatic Plus.MOD				TYPE:Merchant
 CATEGORY=FEAT|Cleave.MOD					TYPE:Mercenary
 CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Deceptive.MOD				TYPE:Merchant.Smuggler
-CATEGORY=FEAT|Exotic Firearms Proficiency.MOD	TYPE:Mercenary
+CATEGORY=FEAT|Deceptive.MOD					TYPE:Merchant.Smuggler
+CATEGORY=FEAT|Exotic Firearms Proficiency.MOD		TYPE:Mercenary
 CATEGORY=FEAT|Exotic Melee Weapon Proficiency.MOD	TYPE:Mercenary
 CATEGORY=FEAT|Frightful Presence.MOD			TYPE:Pirate
 CATEGORY=FEAT|Great Cleave.MOD				TYPE:Mercenary
-CATEGORY=FEAT|Improved Brawl.MOD			TYPE:Mercenary
-CATEGORY=FEAT|Improved Combat Martial Arts.MOD	TYPE:Mercenary
-CATEGORY=FEAT|Low Profile.MOD				TYPE:Smuggler
-CATEGORY=FEAT|Meticulous.MOD				TYPE:Smuggler
-CATEGORY=FEAT|Midas Touch.MOD				TYPE:Merchant
-CATEGORY=FEAT|Peacemaker.MOD				TYPE:Merchant
-CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:Merchant
+CATEGORY=FEAT|Improved Brawl.MOD				TYPE:Mercenary
+CATEGORY=FEAT|Improved Combat Martial Arts.MOD		TYPE:Mercenary
+CATEGORY=FEAT|Low Profile.MOD					TYPE:Smuggler
+CATEGORY=FEAT|Meticulous.MOD					TYPE:Smuggler
+CATEGORY=FEAT|Midas Touch.MOD					TYPE:Merchant
+CATEGORY=FEAT|Peacemaker.MOD					TYPE:Merchant
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD		TYPE:Merchant
 CATEGORY=FEAT|Power Attack.MOD				TYPE:Mercenary.Pirate
 CATEGORY=FEAT|Renown.MOD					TYPE:Mercenary.Merchant.Pirate
 CATEGORY=FEAT|Rumor Monger.MOD				TYPE:Merchant
 CATEGORY=FEAT|Salvage.MOD					TYPE:Pirate.Smuggler
 CATEGORY=FEAT|Spacer.MOD					TYPE:Pirate.Smuggler
-CATEGORY=FEAT|Speed Dial.MOD				TYPE:Merchant
+CATEGORY=FEAT|Speed Dial.MOD					TYPE:Merchant
 CATEGORY=FEAT|Starship Battle Run.MOD			TYPE:Pirate
-CATEGORY=FEAT|Starship Gunnery.MOD			TYPE:Pirate.Smuggler
+CATEGORY=FEAT|Starship Gunnery.MOD				TYPE:Pirate.Smuggler
 CATEGORY=FEAT|Starship Operation.MOD			TYPE:Pirate.Smuggler
-CATEGORY=FEAT|Stealthy.MOD				TYPE:Smuggler
+CATEGORY=FEAT|Stealthy.MOD					TYPE:Smuggler
 CATEGORY=FEAT|Sunder.MOD					TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Trustworthy.MOD				TYPE:Pirate
-CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:Smuggler
+CATEGORY=FEAT|Trustworthy.MOD					TYPE:Pirate
+CATEGORY=FEAT|Vehicle Expert.MOD				TYPE:Smuggler
 CATEGORY=FEAT|Weapon Focus.MOD				TYPE:Mercenary.Pirate
-CATEGORY=FEAT|Well Connected.MOD			TYPE:Merchant
-CATEGORY=FEAT|Windfall.MOD				TYPE:Merchant
-CATEGORY=FEAT|Zero G Training.MOD			TYPE:Mercenary.Smuggler
+CATEGORY=FEAT|Well Connected.MOD				TYPE:Merchant
+CATEGORY=FEAT|Windfall.MOD					TYPE:Merchant
+CATEGORY=FEAT|Zero G Training.MOD				TYPE:Mercenary.Smuggler

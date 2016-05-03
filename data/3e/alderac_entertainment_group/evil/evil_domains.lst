@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Domain Name	Vision			Source Page		Description
+Blood							SOURCEPAGE:p.42	DESC:You may cut yourself while casting domain spells, suffering one point of damage per level of the spell.
+Corruption						SOURCEPAGE:p.43	DESC:Once per day you may target a single creature and know exactly what that creature wants most in the world.
+Darkness		VISION:Darkvision (60')	SOURCEPAGE:p.43	DESC:Darkvision (60')
+Disease						SOURCEPAGE:p.43	DESC:Immunity to all natural diseases. In adition, you may add your spell-caster level to any saving throw against magical diseases.
+Lust							SOURCEPAGE:p.44	DESC:You get a bonus to your Charisma equal to your level for the purposes of Diplomacy and Bluff rolls involving humans and humanoids.
+Pain							SOURCEPAGE:p.44	DESC:You may use the power Excruciate once per day. This is a spell-like ability.
+Plague						SOURCEPAGE:p.46	DESC:You are a living extension of disease and contagions. Wounds from your ray attack spells do not heal properly, and require magical healing.
+Rot							SOURCEPAGE:p.46	DESC:Wounds fester with disease and puss from your touch. Wounds from your touch attack spells do not heal properly, and require magical healing.

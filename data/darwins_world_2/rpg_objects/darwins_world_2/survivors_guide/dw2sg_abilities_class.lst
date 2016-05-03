@@ -1,47 +1,48 @@
-# CVS $Revision: 25136 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 25136 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #Waytraveler
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block:
+# Ability Name	Category of Ability		Type				Special ABility							Define								Description							Modify VAR				Source Page			Aspects
 Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:+%1d%2|SneakAttackDice|SneakAttackDie	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII	ASPECT:Ability Benefit|+%1d%2|SneakAttackDice|SneakAttackDie
 
 ###Block: PA Hero Talents
-# Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Feat					Required Skill					Required Template		Description																	Stackable?	Multiple?	Choose			Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
-Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Technologist																													BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
-Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Computer Lore																												BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
-Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Medical Lore																													BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
-Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Historian																													BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
-Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Advanced Technology														DESC:Craft Lore (%1)|%CHOICE														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p.14
+# Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Skill					Required Template					Description																	Stackable?	Multiple?	Choose			Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
+Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology																																	DESC:Technologist																													BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
+Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology																																	DESC:Computer Lore																												BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
+Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology																																	DESC:Medical Lore																													BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
+Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology																																	DESC:Historian																													BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
+Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Technology																																			DESC:Craft Lore (%1)|%CHOICE														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p.14
 
-Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																																				PRESKILL:1,Knowledge (Mutant Lore)=1					DESC:Mutation Knowledge																																																												SOURCEPAGE:p.14
-Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant1,Mutant2,Mutant3	DESC:Mutant Weapon 																																																					BONUS:WEAPONPROF=TYPE.Natural|TOHIT|1	SOURCEPAGE:p.14
-Neural Mastery		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telekinesis,Neural Mutation - Telepathy																			DESC:Neural Mastery																																								BONUS:VAR|precogUses|WIS	BONUS:VAR|tkUses|CON	BONUS:VAR|teepUses|CHA								SOURCEPAGE:p.14
+Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																													PRESKILL:1,Knowledge (Mutant Lore)=1								DESC:Mutation Knowledge																																																												SOURCEPAGE:p.14
+Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																												PRETEMPLATE:1,Mutant1,Mutant2,Mutant3	DESC:Mutant Weapon																																																					BONUS:WEAPONPROF=TYPE.Natural|TOHIT|1	SOURCEPAGE:p.14
+Neural Mastery		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telekinesis,Neural Mutation - Telepathy															DESC:Neural Mastery																																								BONUS:VAR|precogUses|WIS	BONUS:VAR|tkUses|CON	BONUS:VAR|teepUses|CHA								SOURCEPAGE:p.14
 
-Improvised Toolkit	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																				PRESKILL:1,Repair=1								DESC:Improvised Toolkit																																																												SOURCEPAGE:p.14
-Restore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Improvised Toolkit																																							DESC:Restore																																																													SOURCEPAGE:p.14
-Salvage Expert		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																															DESC:Salvage Expert (+%1)|(2*var("CL=Post Apocalyptic Hero"))																																																					SOURCEPAGE:p.14
+Improvised Toolkit	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																													PRESKILL:1,Repair=1											DESC:Improvised Toolkit																																																												SOURCEPAGE:p.14
+Restore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Improvised Toolkit																																			DESC:Restore																																																													SOURCEPAGE:p.14
+Salvage Expert		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																											DESC:Salvage Expert (+%1)|(2*var("CL=Post Apocalyptic Hero"))																																																					SOURCEPAGE:p.14
 
-Conserve			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Conserve																																																													SOURCEPAGE:p.15
-Wasteland Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Wasteland Lore (+%1 to Survival and Navigation in Wasteland areas)|var("CL=Post Apocalyptic Hero")																																														SOURCEPAGE:p.15
-Necropoli Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Necropoli Lore (+%1 to Survival and Navigation in Necropoli areas)|var("CL=Post Apocalyptic Hero")																																														SOURCEPAGE:p.15
-Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Wasteland Lore,Necropoli Lore																																					DESC:Survival Sense (+2 Init.; +2 Spot for detecting Ambushes)																BONUS:COMBAT|INITIATIVE|2																																	SOURCEPAGE:p.15
+Conserve			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																											DESC:Conserve																																																													SOURCEPAGE:p.15
+Wasteland Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																											DESC:Wasteland Lore (+%1 to Survival and Navigation in Wasteland areas)|var("CL=Post Apocalyptic Hero")																																														SOURCEPAGE:p.15
+Necropoli Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																											DESC:Necropoli Lore (+%1 to Survival and Navigation in Necropoli areas)|var("CL=Post Apocalyptic Hero")																																														SOURCEPAGE:p.15
+Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Wasteland Lore,Necropoli Lore																																	DESC:Survival Sense (+2 Init.; +2 Spot for detecting Ambushes)																BONUS:COMBAT|INITIATIVE|2																																	SOURCEPAGE:p.15
 
 ###Block: Scholar Abilities
-# Ability Name			Output Name		Category of Ability	Type							Visible	Description						Multiple?	Choose																												Auto Feat		Ability								Bonus to skill rank
-Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		MULT:YES	STACK:YES	CHOOSE:SKILL|TYPE=Knowledge																																			BONUS:SKILLRANK|%LIST|4
-Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Craft																																						BONUS:SKILLRANK|%LIST|4
-Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE	MULT:YES	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																	ABILITY:FEAT|AUTOMATIC|%LIST
-Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|Ancient Vehicles (Pilot)|Ancient Vehicles (Drive)|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
+# Ability Name			Output Name		Category of Ability	Type							Visible	Description						Stackable?	Multiple?	Choose																														Ability								Bonus to skill rank
+Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																																				BONUS:SKILLRANK|%LIST|4
+Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE				MULT:YES	CHOOSE:SKILL|TYPE=Craft																																					BONUS:SKILLRANK|%LIST|4
+Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE			MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																		ABILITY:FEAT|AUTOMATIC|%LIST
+Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE				MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Aircraft Operation|Ancient Vehicles (Drive)|Ancient Vehicles (Pilot)|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
 
-Ancient Vehicles (Pilot)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
-Ancient Vehicles (Drive)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
+Ancient Vehicles (Pilot)				CATEGORY:FEAT									VISIBLE:NO																																											ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
+Ancient Vehicles (Drive)				CATEGORY:FEAT									VISIBLE:NO																																											ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
 
 
-Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																			BONUS:SKILLRANK|Pilot|4
-Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																			BONUS:SKILLRANK|Drive|4
+Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																				BONUS:SKILLRANK|Pilot|4
+Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																																				BONUS:SKILLRANK|Drive|4
 
 ###Block: Survivalist
-# Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add 								Bonus to skill					Modify VAR
+# Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add								Bonus to skill					Modify VAR
 Survival Bonus (Overall)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES	DEFINE:SurvOverall|0	DESC:Way of the Land (+%1 Overall Survival/Navigation)|SurvOverall			STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:SKILL|Survival,Navigate|SurvOverall	BONUS:VAR|SurvOverall|2
 Survival Bonus (Regional)		CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalistRegion	VISIBLE:YES																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:ABILITY|Talent|NORMAL|TYPE=SurvivalRegion
 Region (Big Rocks)			CATEGORY:Talent		TYPE:Talent.SurvivalistTalent.SurvivalRegion	VISIBLE:YES					DESC:Way of the Land (+8 Survival/Navigation in Big Rocks Region)
@@ -68,26 +69,26 @@ Electronic Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	V
 Mechanical Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	VISIBLE:YES	PRECLASS:1,Mech=1	DEFINE:MasterMechanical|0	DESC:Mastercraft (Mechanical +%1)|MasterMechanical	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:p.47
 
 ###Block: Medicine Man
-# Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					Prohibite Special Ability				Description								Virtual Feat					Add 				Source Page
-Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						ABILITY:FEAT|VIRTUAL|Advanced Pharmaceutical Discipline					SOURCEPAGE:p.48
-JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																									DESC:Ancient Drugs													BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.48
-JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																	PRESA:1,Juju Miracle,Minor Medical Miracle																									BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.49
-Minor Medical Miracle		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																									!PRESA:2,Juju Miracle,Minor Medical Miracle	DESC:Minor Medical Miracle																SOURCEPAGE:p.49
-Medical Miracle			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMiracle	VISIBLE:YES																																	DESC:Medical Miracle																SOURCEPAGE:p.49
-MedTech (Cloning)			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Cloning)														SOURCEPAGE:p.49
-MedTech (Regeneration Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Regeneration Serum)												SOURCEPAGE:p.49
-MedTech (Zombie Plague Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Zombie Plague Serum)												SOURCEPAGE:p.49
+# Ability Name			Category of Ability	Type									Visible	Required Ability									Restricted Ability								Req. Special Ability					Prohibite Special Ability				Description								Ability									Bonus Ability Pool				Source Page
+Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES												!PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						ABILITY:FEAT|VIRTUAL|Advanced Pharmaceutical Discipline								SOURCEPAGE:p.48
+JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																												DESC:Ancient Drugs																BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.48
+JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																							PRESA:1,Juju Miracle,Minor Medical Miracle																												BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.49
+Minor Medical Miracle		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																															!PRESA:2,Juju Miracle,Minor Medical Miracle	DESC:Minor Medical Miracle																						SOURCEPAGE:p.49
+Medical Miracle			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMiracle	VISIBLE:YES																																							DESC:Medical Miracle																							SOURCEPAGE:p.49
+MedTech (Cloning)			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																							DESC:Ancient Medical Technology (Cloning)																				SOURCEPAGE:p.49
+MedTech (Regeneration Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																							DESC:Ancient Medical Technology (Regeneration Serum)																		SOURCEPAGE:p.49
+MedTech (Zombie Plague Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																							DESC:Ancient Medical Technology (Zombie Plague Serum)																		SOURCEPAGE:p.49
 
 ###Block: Scientist
-# Ability Name	Category of Ability	Type					Visible	Special ABility		Multiple?	Choose				Weapon prof. bonus															Source Page
-Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%CHOICE) - USE INT instead of STR or DEX for attack bonus.		MULT:YES		BONUS:COMBAT|TOHIT.Melee|-STR		BONUS:COMBAT|TOHIT.Ranged|-DEX		BONUS:COMBAT|TOHIT.Melee|STR|TYPE=Stat		BONUS:COMBAT|TOHIT.Ranged|DEX|TYPE=Stat		CHOOSE:WEAPONPROFICIENCY|PC	     BONUS:COMBAT|TOHIT.%LIST|TOHIT|INT|TYPE=Stat	SOURCEPAGE:p.52
+# Ability Name	Category of Ability	Type					Visible	Special ABility											Multiple?	Choose				Combat bonus																															Source Page
+Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%CHOICE) - USE INT instead of STR or DEX for attack bonus.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC	BONUS:COMBAT|TOHIT.Melee|-STR	BONUS:COMBAT|TOHIT.Ranged|-DEX	BONUS:COMBAT|TOHIT.Melee|STR|TYPE=Stat	BONUS:COMBAT|TOHIT.Ranged|DEX|TYPE=Stat	BONUS:COMBAT|TOHIT.%LIST|TOHIT|INT|TYPE=Stat	SOURCEPAGE:p.52
 
 ###Block: Warrior Monk
-# Ability Name				Category of Ability	Type				Visible	Required Ability								Required Feat		Description								Stackable?	Multiple?	Choose								Weapon prof. bonus			Source Page
-Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES											PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
-Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Reflexes																								SOURCEPAGE:p.58
-Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES																   PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus				BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
-Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Expertise																							SOURCEPAGE:p.58
+# Ability Name				Category of Ability	Type				Visible	Required Ability					Description								Stackable?	Multiple?	Choose								Weapon prof. bonus			Source Page
+Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
+Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Reflexes																								SOURCEPAGE:p.58
+Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
+Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES								DESC:Superior Combat Expertise																							SOURCEPAGE:p.58
 
 ###Block: Companion support
 # Ability Name	Category of Ability	Type							Visible	Special ABility		Define				Allow Follower			Allowed Companions
@@ -96,91 +97,92 @@ Animal Partner	CATEGORY:Talent		TYPE:Talent.SymbioteTalent.AnimalPartner	VISIBLE
 
 
 ###Block: Advanced Classes
-Rage				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature		KEY:Barbarian ~ Rage	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|0	BONUS:VAR|RageBonus|4	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	TEMPBONUS:PC|SAVE|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
-Junk Armor			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature		KEY:Barbarian ~ Junk Armor					
-Junk Weapon			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature		KEY:Barbarian ~ Junk Weapon					
-Junk Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature		KEY:Barbarian ~ Junk Mastery					
+# Ability Name			Unique Key							Category of Ability		Type												Special ABility																																			Define																										Description								Ability							Bonus to skill							Modify VAR																																		Aspects							Temporary Bonus
+Rage					KEY:Barbarian ~ Rage					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature			SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|0																											BONUS:VAR|RageBonus|4	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2									TEMPBONUS:PC|SAVE|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
+Junk Armor				KEY:Barbarian ~ Junk Armor				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature
+Junk Weapon				KEY:Barbarian ~ Junk Weapon				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature
+Junk Mastery			KEY:Barbarian ~ Junk Mastery				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Barbarian Class Feature
 
-Followers			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Followers					
-Lead Followers		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Lead Followers				
-Zealots			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Zealots						
-Captivate Masses		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Captivate Masses				
-Conversion			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Conversion					
-Improved Zealots		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Improved Zealots				
-Mass Conversion		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature		KEY:Demagogue ~ Mass Conversion				
+Followers				KEY:Demagogue ~ Followers				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
+Lead Followers			KEY:Demagogue ~ Lead Followers			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
+Zealots				KEY:Demagogue ~ Zealots					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
+Captivate Masses			KEY:Demagogue ~ Captivate Masses			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
+Conversion				KEY:Demagogue ~ Conversion				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
+Improved Zealots			KEY:Demagogue ~ Improved Zealots			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
+Mass Conversion			KEY:Demagogue ~ Mass Conversion			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Demagogue Class Feature
 
-Defender			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Guardian Class Feature			KEY:Guardian ~ Defender								ASPECT:NAME|Defender (+%1)|defendLvl										BONUS:VAR|defendLvl|2	DEFINE:defendLvl|0		BONUS:VAR|defendLvl|2|PRECLASS:1,Guardian=7
-Tactical Aid		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Guardian Class Feature			KEY:Guardian ~ Tactical Aid												BONUS:VAR|tactAid|1	DEFINE:tactAid|0
-Raider Bane			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Guardian Class Feature			KEY:Guardian ~ Raider Bane							
+Defender				KEY:Guardian ~ Defender					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Guardian Class Feature																																								DEFINE:defendLvl|0																																																		BONUS:VAR|defendLvl|2	BONUS:VAR|defendLvl|2|PRECLASS:1,Guardian=7																								ASPECT:NAME|Defender (+%1)|defendLvl
+Tactical Aid			KEY:Guardian ~ Tactical Aid				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Guardian Class Feature																																								DEFINE:tactAid|0																																																			BONUS:VAR|tactAid|1
+Raider Bane				KEY:Guardian ~ Raider Bane				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Guardian Class Feature
 
-Juju Specialist		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature		KEY:Juju Doctor ~ Juju Specialist					ASPECT:NAME|Juju Specialist (+%1)|jujuSpec																BONUS:SKILL|Treat Injury|jujuSpec	BONUS:VAR|jujuSpec|1	DEFINE:jujuSpec|0		BONUS:VAR|jujuSpec|1|PRECLASS:1,Juju Doctor=5	BONUS:VAR|jujuSpec|1|PRECLASS:1,Juju Doctor=8
-Brew Potion			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature		KEY:Juju Doctor ~ Brew Potion				
-Expert Healer		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature		KEY:Juju Doctor ~ Expert Healer			
-Juju Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature		KEY:Juju Doctor ~ Juju Mastery			
-Potion Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature		KEY:Juju Doctor ~ Potion Mastery			
-Juju Miracle		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature		KEY:Juju Doctor ~ Juju Miracle			
+Juju Specialist			KEY:Juju Doctor ~ Juju Specialist			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature																																								DEFINE:jujuSpec|0																																										BONUS:SKILL|Treat Injury|jujuSpec				BONUS:VAR|jujuSpec|1	BONUS:VAR|jujuSpec|1|PRECLASS:1,Juju Doctor=5	BONUS:VAR|jujuSpec|1|PRECLASS:1,Juju Doctor=8																ASPECT:NAME|Juju Specialist (+%1)|jujuSpec
+Brew Potion				KEY:Juju Doctor ~ Brew Potion				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature
+Expert Healer			KEY:Juju Doctor ~ Expert Healer			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature
+Juju Mastery			KEY:Juju Doctor ~ Juju Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature
+Potion Mastery			KEY:Juju Doctor ~ Potion Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature
+Juju Miracle			KEY:Juju Doctor ~ Juju Miracle			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Juju Doctor Class Feature
 
-Neural Specialization	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Psionic Class Feature			KEY:Psionic ~ Neural Specialization					DESC:(+%1 to DC of Neural Mutations used)|(CL/2)
+Neural Specialization		KEY:Psionic ~ Neural Specialization			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Psionic Class Feature																																																																			DESC:(+%1 to DC of Neural Mutations used)|(CL/2)
 
-Chaps and Chains		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature			KEY:Raider ~ Chaps and Chains						ASPECT:NAME|Chaps and Chains (+%)|chapchain								BONUS:VAR|chapchain|1	DEFINE:chapchain|0	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=4	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=8
-Bloodthirsty Cry		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature			KEY:Raider ~ Bloodthirsty Cry				
-Horrifying Kill		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature			KEY:Raider ~ Horrifying Kill				
-No Survivors		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature			KEY:Raider ~ No Survivors				
-Death Cry			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature			KEY:Raider ~ Death Cry					
+Chaps and Chains			KEY:Raider ~ Chaps and Chains				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature																																								DEFINE:chapchain|0																																																		BONUS:VAR|chapchain|1	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=4	BONUS:VAR|chapchain|1|PRECLASS:1,Raider=8																		ASPECT:NAME|Chaps and Chains (+%1)|chapchain
+Bloodthirsty Cry			KEY:Raider ~ Bloodthirsty Cry				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature
+Horrifying Kill			KEY:Raider ~ Horrifying Kill				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature
+No Survivors			KEY:Raider ~ No Survivors				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature
+Death Cry				KEY:Raider ~ Death Cry					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Raider Class Feature
 
-Boarding Party		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Boarding Party			
-Offensive Driving		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Offensive Driving		
-Vehicular Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Vehicular Evasion		
-Master Mechanic		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Master Mechanic									BONUS:SKILL|Repair|4|TYPE=Competence
-Improved Sideswipe	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Improved Sideswipe		
-Improved Hardness		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Improved Hardness		
-Improved Ramming		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature		KEY:Road Warrior ~ Improved Ramming			
+Boarding Party			KEY:Road Warrior ~ Boarding Party			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature
+Offensive Driving			KEY:Road Warrior ~ Offensive Driving		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature
+Vehicular Evasion			KEY:Road Warrior ~ Vehicular Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature
+Master Mechanic			KEY:Road Warrior ~ Master Mechanic			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature																																																																																			BONUS:SKILL|Repair|4|TYPE=Competence
+Improved Sideswipe		KEY:Road Warrior ~ Improved Sideswipe		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature
+Improved Hardness			KEY:Road Warrior ~ Improved Hardness		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature
+Improved Ramming			KEY:Road Warrior ~ Improved Ramming			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Road Warrior Class Feature
 
-Scav Scan			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature			KEY:Scav ~ Scav Scan					
-Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature			KEY:Scav ~ Sneak Attack				ABILITY:Special Ability|AUTOMATIC|Sneak Attack	BONUS:VAR|SneakAttackDice|(cl("Scav")+1)
-Scav Survival		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature			KEY:Scav ~ Scav Survival				
-Feign Death			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature			KEY:Scav ~ Feign Death					
-Shadow in the Open	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature			KEY:Scav ~ Shadow in the Open				
+Scav Scan				KEY:Scav ~ Scav Scan					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature
+Sneak Attack			KEY:Scav ~ Sneak Attack					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature																																																																													ABILITY:Special Ability|AUTOMATIC|Sneak Attack										BONUS:VAR|SneakAttackDice|(cl("Scav")+1)
+Scav Survival			KEY:Scav ~ Scav Survival				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature
+Feign Death				KEY:Scav ~ Feign Death					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature
+Shadow in the Open		KEY:Scav ~ Shadow in the Open				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scav Class Feature
 
-Gossip			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scholar Class Feature			KEY:Scholar ~ Gossip						ASPECT:NAME|Gossip (%1%%)|(50+CHASCORE)
-Confusing Tirade		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scholar Class Feature			KEY:Scholar ~ Confusing Tirade				
-Protected By Code		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scholar Class Feature			KEY:Scholar ~ Protected By Code				
+Gossip				KEY:Scholar ~ Gossip					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scholar Class Feature																																																																																																																																ASPECT:NAME|Gossip (%1%%)|(50+CHASCORE)
+Confusing Tirade			KEY:Scholar ~ Confusing Tirade			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scholar Class Feature
+Protected By Code			KEY:Scholar ~ Protected By Code			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Scholar Class Feature
 
-Sweep				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature			KEY:Skulk ~ Sweep							
-Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature			KEY:Skulk ~ Sneak Attack			ABILITY:Special Ability|AUTOMATIC|Sneak Attack		BONUS:VAR|SneakAttackDice|(SkulkLVL+1)/3
-Improved Sweep		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature			KEY:Skulk ~ Improved Sweep					
-Without a Trace		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature			KEY:Skulk ~ Without a Trace					
+Sweep					KEY:Skulk ~ Sweep						CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature
+Sneak Attack			KEY:Skulk ~ Sneak Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature																																																																													ABILITY:Special Ability|AUTOMATIC|Sneak Attack										BONUS:VAR|SneakAttackDice|(SkulkLVL+1)/3
+Improved Sweep			KEY:Skulk ~ Improved Sweep				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature
+Without a Trace			KEY:Skulk ~ Without a Trace				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Skulk Class Feature
 
-Persuade			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Persuade					DESC: (Will Save (DC:%1))|(10+CL+CHA)
-Natural Healing		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Natural Healing			
-Go For The "Eyes"		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Go For The "Eyes"			
-Fascinate			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Fascinate				DESC:(Will Save (DC:%1))|(10+CL+CHA)
-Inspire Rebellion		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Inspire Rebellion			
-Male Fear			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Male Fear				DESC:(Will Save (DC:%1))|(10+(CL/2)+CHA)
-Leave No One Behind	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature	KEY:Sister of the Desert ~ Leave No One Behind			
+Persuade				KEY:Sister of the Desert ~ Persuade			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature																																																																	DESC: (Will Save (DC:%1))|(10+CL+CHA)
+Natural Healing			KEY:Sister of the Desert ~ Natural Healing	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature
+Go For The "Eyes"			KEY:Sister of the Desert ~ Go For The "Eyes"	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature
+Fascinate				KEY:Sister of the Desert ~ Fascinate		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature																																																																	DESC:(Will Save (DC:%1))|(10+CL+CHA)
+Inspire Rebellion			KEY:Sister of the Desert ~ Inspire Rebellion	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature
+Male Fear				KEY:Sister of the Desert ~ Male Fear		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature																																																																	DESC:(Will Save (DC:%1))|(10+(CL/2)+CHA)
+Leave No One Behind		KEY:Sister of the Desert ~ Leave No One Behind	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Sister of the Desert Class Feature
 
-Called Shot			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Survivalist Class Feature		KEY:Survivalist ~ Called Shot						ASPECT:NAME|Called Shot (+%1d%2)|CSdmg|CSdie						BONUS:VAR|CSdmg|1+(SurvivalistLVL/5)				BONUS:VAR|CSdie|6	DEFINE:CSdmg|0	DEFINE:CSdie|0
-Hunter			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Survivalist Class Feature		KEY:Survivalist ~ Hunter						
-Superior Camouflage	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Survivalist Class Feature		KEY:Survivalist ~ Superior Camouflage				
+Called Shot				KEY:Survivalist ~ Called Shot				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Survivalist Class Feature																																								DEFINE:CSdmg|0	DEFINE:CSdie|0																																																BONUS:VAR|CSdmg|1+(SurvivalistLVL/5)	BONUS:VAR|CSdie|6																										ASPECT:NAME|Called Shot (+%1d%2)|CSdmg|CSdie
+Hunter				KEY:Survivalist ~ Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Survivalist Class Feature
+Superior Camouflage		KEY:Survivalist ~ Superior Camouflage		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Survivalist Class Feature
 
-Opportunist			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Symbiote Class Feature			KEY:Symbiote ~ Opportunist					
-Bond of Friendship	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Symbiote Class Feature			KEY:Symbiote ~ Bond of Friendship				
-Ranged Opportunist	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Symbiote Class Feature			KEY:Symbiote ~ Ranged Opportunist				
+Opportunist				KEY:Symbiote ~ Opportunist				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Symbiote Class Feature
+Bond of Friendship		KEY:Symbiote ~ Bond of Friendship			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Symbiote Class Feature
+Ranged Opportunist		KEY:Symbiote ~ Ranged Opportunist			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Symbiote Class Feature
 
-Jury-Rig			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature			KEY:Tinker ~ Jury-Rig						ASPECT:NAME|Jury-Rig (+%1)|juryRig									BONUS:VAR|JuryRigBonus|2	DEFINE:JuryRigBonus|0	BONUS:VAR|JuryRigBonus|2|PRECLASS:1,Tinker=7
-Tinkering			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature			KEY:Tinker ~ Tinkering						
-Tech Weapon			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature			KEY:Tinker ~ Tech Weapon					
-Tinkercraft			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature			KEY:Tinker ~ Tinkercraft					
-Smart Weapon		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature			KEY:Tinker ~ Smart Weapon					
-Improved Tinkering	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature			KEY:Tinker ~ Improved Tinkering				
+Jury-Rig				KEY:Tinker ~ Jury-Rig					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature																																								DEFINE:JuryRigBonus|0																																																		BONUS:VAR|JuryRigBonus|2	BONUS:VAR|JuryRigBonus|2|PRECLASS:1,Tinker=7																							ASPECT:NAME|Jury-Rig (+%1)|juryRig
+Tinkering				KEY:Tinker ~ Tinkering					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature
+Tech Weapon				KEY:Tinker ~ Tech Weapon				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature
+Tinkercraft				KEY:Tinker ~ Tinkercraft				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature
+Smart Weapon			KEY:Tinker ~ Smart Weapon				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature
+Improved Tinkering		KEY:Tinker ~ Improved Tinkering			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Tinker Class Feature
 
-Ear to the Ground			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Ear to the Ground									BONUS:SKILL|Gather Information|4|TYPE=Competence
-Money Talks				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Money Talks					
-Going Once Going Twice		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Going Once Going Twice					ASPECT:NAME|Going Once, Going Twice
-Read the Signs			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Read the Signs					
-Sucker Born Every Minute	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Sucker Born Every Minute				
-Leadership				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Leadership																			ABILITY:FEAT|AUTOMATIC|Leadership
-Professional Courtesy		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Professional Courtesy				
+Ear to the Ground			KEY:Trader ~ Ear to the Ground			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature																																																																																				BONUS:SKILL|Gather Information|4|TYPE=Competence
+Money Talks				KEY:Trader ~ Money Talks				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature
+Going Once Going Twice		KEY:Trader ~ Going Once Going Twice			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature																																																																																																																																ASPECT:NAME|Going Once, Going Twice
+Read the Signs			KEY:Trader ~ Read the Signs				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature
+Sucker Born Every Minute	KEY:Trader ~ Sucker Born Every Minute		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature
+Leadership				KEY:Trader ~ Leadership					CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature																																																																												ABILITY:FEAT|AUTOMATIC|Leadership
+Professional Courtesy		KEY:Trader ~ Professional Courtesy			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature
 
 
 
@@ -190,37 +192,43 @@ Professional Courtesy		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Featur
 #Hidden Feats for Additional Limb Development
 # Feat Name		Type					Visible	Required Ability									Restricted Ability							Special ABility															Define				Stackable?	Multiple?	Choose					Combat bonus		Add to base move						Bonus to skill					Bonus to nb of slots	Modify VAR				Source Page
 #replaced with mutation - this did not work right
-Extra Arm Feat	CATEGORY:Special Ability	TYPE:MutantAbility.ExtraArm		PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)											SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1	SOURCEPAGE:p. 77
-Extra Leg Feat	CATEGORY:Special Ability	TYPE:MutantAbility.Limb		PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p. 77
+# Ability Name	Category of Ability		Type					Required Ability									Special ABility															Define				Stackable?	Multiple?	Choose		Combat bonus		Add to base move						Bonus to skill					Bonus to nb of slots	Modify VAR																												Source Page
+Extra Arm Feat	CATEGORY:Special Ability	TYPE:MutantAbility.ExtraArm	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)	SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1																									SOURCEPAGE:p. 77
+Extra Leg Feat	CATEGORY:Special Ability	TYPE:MutantAbility.Limb		PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)	SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1																									SOURCEPAGE:p. 77
 
 #Hidden Feats for Diurnal/Nocturnal
 #Changed with mutation - original code did not work right
 #Diurnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Night)	SAB:+% to %CHOICE during Daytime hours (6am to 6pm)|dayBonus							DEFINE:dayBonus|0			STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|dayBonus|2
 #Nocturnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Day)	SAB:+% to %CHOICE during Nighttime hours (6pm to 6am)|nightBonus							DEFINE:nightBonus|0		STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|nightBonus|2
-Diurnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc				SAB:+% to chosen ability during Daytime hours (6am to 6pm)|dayBonus			STACK:YES	MULT:NO		DEFINE:dayBonus|0		BONUS:VAR|dayBonus|((2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (DEX)"))+(2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (STR)")))
-Nocturnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc				SAB:+% to chosen ability during Nighttime hours (6pm to 6am)|nightBonus			STACK:YES	MULT:NO		DEFINE:nightBonus|0		BONUS:VAR|nightBonus|((2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (DEX)"))+(2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (STR)")))
+Diurnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc												SAB:+% to chosen ability during Daytime hours (6am to 6pm)|dayBonus						DEFINE:dayBonus|0			STACK:YES	MULT:NO																											BONUS:VAR|dayBonus|((2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (DEX)"))+(2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (STR)")))
+Nocturnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc												SAB:+% to chosen ability during Nighttime hours (6pm to 6am)|nightBonus						DEFINE:nightBonus|0		STACK:YES	MULT:NO																											BONUS:VAR|nightBonus|((2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (DEX)"))+(2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (STR)")))
 
 ###Block: Barbarian Rage
 # Feat Name	Type			Visible	Special ABility																																			Define																										Modify VAR																																		Temporary Bonus
-Rage		CATEGORY:Special Ability	TYPE:Special	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|0	BONUS:VAR|RageBonus|4	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	TEMPBONUS:PC|SAVE|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
+# Ability Name	Category of Ability		Type			Special ABility																																			Define																										Modify VAR																																		Temporary Bonus
+Rage			CATEGORY:Special Ability	TYPE:Special	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|0	BONUS:VAR|RageBonus|4	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	TEMPBONUS:PC|SAVE|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
 
 ###Block: Sneak Attack
 # Feat Name		Type			Visible	Special ABility							Define								Description				Modify VAR				Source Page
+# Ability Name	Category of Ability		Type			Special ABility							Define								Description				Modify VAR				Source Page
 Sneak Attack	CATEGORY:Special Ability	TYPE:Special	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:Class Special Ability	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:p.29
 
 ###Block: Skill Mastery
 # Feat Name		Type			Visible	Special ABility			Multiple?	Choose			Selections
+# Ability Name	Category of Ability		Type			Special ABility			Multiple?	Choose			Selections
 Skill Mastery	CATEGORY:Special Ability	TYPE:Special	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:SKILL|CLASS	SELECT:3+INT
 
 ###Block: Evasion/Improved Evasion
 # Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
-Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary						SAB:Evasion (Ex)|EvasionUsable			DEFINE:EvasionUsable|0			BONUS:VAR|EvasionUsable|1|PREVAREQ:var("COUNT[FEATNAME=Improved Evasion.ALL]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
+# Ability Name	Category of Ability		Type							Required Ability				Special ABility						Define					Modify VAR																													Source Page
+Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary									SAB:Evasion (Ex)|EvasionUsable			DEFINE:EvasionUsable|0			BONUS:VAR|EvasionUsable|1|PREVAREQ:var("COUNT[FEATNAME=Improved Evasion.ALL]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
 Improved Evasion	CATEGORY:Special Ability	TYPE:Special.Extraordinary.RogueAbilities	PREABILITY:1,CATEGORY=FEAT,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0								SOURCEPAGE:ClassesII
 
 ###Block: Warrior Monk
 # Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
-Weapon Specialization		CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
-Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:2,CATEGORY=FEAT,Weapon Focus,Weapon Specialization	PREVARGTEQ:GreatWeapSpecQualify,1	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+# Ability Name			Category of Ability		Type			Required Ability									Var. Min. Value				Description		Multiple?	Choose								Weapon prof. bonus			Source Page
+Weapon Specialization		CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:1,CATEGORY=FEAT,Weapon Focus											DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
+Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:2,CATEGORY=FEAT,Weapon Focus,Weapon Specialization	PREVARGTEQ:GreatWeapSpecQualify,1	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
 
 #
 # EoF

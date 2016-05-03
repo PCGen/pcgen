@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/	SOURCEDATE:2005-01
 # Original Entry by: Tir Gwaith
 
@@ -15,6 +15,7 @@ Well Learned						KEY:Well Learned ~ Planar Mage	CATEGORY:Special Ability	TYPE:S
 
 ###Block: Planar Attunement
 # Feat Name							Type					Required AL				Add
+# Ability Name	Category of Ability		Type					Required AL				Add
 Elemental Air	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Air
 Elemental Earth	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Earth
 Elemental Fire	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Fire

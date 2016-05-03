@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#Original Entry By: Aaron Divinsky
+
+# Ability Name			Product Identity?	Category of Ability		Type									Visible		Innate Spells																																						Source Page		Temporary Bonus
+Fist of the Aruun (Good)	NAMEISPI:YES	CATEGORY:Special Ability	TYPE:MagicItemAbility.Extraordinary.SpecialQuality	VISIBLE:EXPORT	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=TL|Guidance|PRETEXT:Good must be dominant|PREVARGTEQ:FistoftheAruunLvl,2	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=TL|Cure Moderate Wounds|PRETEXT:Good must be dominant|PREVARGTEQ:FistoftheAruunLvl,4	SOURCEPAGE:310	TEMPBONUS:PC|SKILL|Diplomacy|4,PC|SAVE|Will|-1|PRETEXT:Mind-affecting Spells Only
+Fist of the Aruun (Evil)	NAMEISPI:YES	CATEGORY:Special Ability	TYPE:MagicItemAbility.Extraordinary.SpecialQuality	VISIBLE:EXPORT	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=TL|Shocking Grasp|PRETEXT:Evil must be dominant|PREVARGTEQ:FistoftheAruunLvl,2	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=TL|Poison|PRETEXT:Evil must be dominant|PREVARGTEQ:FistoftheAruunLvl,4		SOURCEPAGE:310	TEMPBONUS:PC|COMBAT|DAMAGE|1,PC|SAVE|Reflex,Fortitude|-1

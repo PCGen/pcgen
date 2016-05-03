@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+STARTPACK:Default Caulborn	PREMULT:1,[PRERACE:1,Caulborn],[!PRERACE:1,%]
+RACE:Caulborn	!PRERACE:1,%
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (bite)
+# Skills - Acrobatics +12, Appraise +12, Bluff +12, Intimidate +14, Knowledge (arcana) +14, Knowledge (dungeoneering) +14, Knowledge (engineering) +14, Knowledge (geography) +14, Knowledge (history) +14, Knowledge (local) +14, Knowledge (nature) +14, Knowledge (nobility) +14, Knowledge (planes) +17, Knowledge (religion) +14, Perception +15, Sense Motive +12, Spellcraft +14, Stealth +12, Use Magic Device +12

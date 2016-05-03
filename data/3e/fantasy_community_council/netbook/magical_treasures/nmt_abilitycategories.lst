@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Specific choices list													Display Location
+ABILITYCATEGORY:Ring of Weapon Insight	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		ABILITYLIST:Exotic Weapon Proficiency|Martial Weapon Proficiency|Simple Weapon Proficiency	DISPLAYLOCATION:Feats

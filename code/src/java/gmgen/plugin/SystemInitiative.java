@@ -27,7 +27,7 @@ public class SystemInitiative
 {
 	protected Dice die;
 	protected SystemAttribute attribute;
-	protected int bonus;
+	protected int incrementalBonus;
 	protected int currentInitiative = 0;
 	protected int mod = 0;
 	protected int roll;
@@ -40,7 +40,7 @@ public class SystemInitiative
 	public SystemInitiative(SystemAttribute attribute, int bonus)
 	{
 		this.attribute = attribute;
-		this.bonus = bonus;
+		this.incrementalBonus = bonus;
 		die = new Dice(1, 20);
 	}
 
@@ -94,7 +94,7 @@ public class SystemInitiative
 	 */
 	public void setBonus(int bonus)
 	{
-		this.bonus = bonus - attribute.getModifier();
+		this.incrementalBonus = bonus - attribute.getModifier();
 		if (getCurrentInitiative() > 0)
 		{
 			setCurrentInitiative(roll + getModifier() + mod);
@@ -107,7 +107,7 @@ public class SystemInitiative
 	 */
 	public int getBonus()
 	{
-		return bonus;
+		return incrementalBonus;
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class SystemInitiative
 	 */
 	public int getModifier()
 	{
-		return attribute.getModifier() + bonus;
+		return attribute.getModifier() + incrementalBonus;
 	}
 
 	/**

@@ -1,8 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-ABILITYCATEGORY:Against the Technic League Selection	CATEGORY:Special Ability	POOL:Pool_Against_the_Technic_League	TYPE:Against the Technic League	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Skymetal Smith Selection			CATEGORY:Special Ability	POOL:Pool_Skymetal_Smith			TYPE:Skymetal Smith			EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Race Traits
-
-
-
-
+# Ability Category						Editable?		Change Pool?	Base Pool number					Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Against the Technic League Selection	EDITABLE:YES	EDITPOOL:NO		POOL:Pool_Against_the_Technic_League	CATEGORY:Special Ability	TYPE:Against the Technic League	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Skymetal Smith Selection			EDITABLE:YES	EDITPOOL:NO		POOL:Pool_Skymetal_Smith			CATEGORY:Special Ability	TYPE:Skymetal Smith			DISPLAYLOCATION:Racial Abilities

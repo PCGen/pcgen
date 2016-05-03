@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -32,6 +33,7 @@ import pcgen.io.exporttoken.Token;
 /**
  * Class deals with ALTHP Token
  */
+@Deprecated
 public class AltHPToken extends Token
 {
 	/** Name of Token */
@@ -63,6 +65,17 @@ public class AltHPToken extends Token
 	 */
 	public static int getAltHPToken(PlayerCharacter pc)
 	{
-		return pc.altHP();
+		int i;
+		String solverValue = pc.getControl(CControl.ALTHP);
+		if (solverValue != null)
+		{
+			Object val = pc.getGlobal(solverValue);
+			i = ((Number) val).intValue();
+		}
+		else
+		{
+			i = (int) pc.getTotalBonusTo("HP", "ALTHP");
+		}
+		return i;
 	}
 }

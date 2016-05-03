@@ -25,6 +25,9 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -66,7 +69,13 @@ public class InitiativeBonusToken extends Token
 	 */
 	public static int getInitiativeBonusToken(PlayerCharacter pc)
 	{
-		return pc.getDisplay().initiativeMod()
-			- pc.getVariableValue("INITCOMP", "").intValue();
+		String initiativeVar = ControlUtilities
+				.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
+		if (initiativeVar == null)
+		{
+			return pc.getDisplay().processOldInitiativeMod()
+				- pc.getVariableValue("INITCOMP", "").intValue();
+		}
+		return ((Number) pc.getGlobal(initiativeVar)).intValue();
 	}
 }

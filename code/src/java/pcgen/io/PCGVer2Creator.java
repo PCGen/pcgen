@@ -900,7 +900,7 @@ public final class PCGVer2Creator implements IOConstants
 				{
 					pcClass =
 							thePC.getClassKeyed(pcClass.get(ObjectKey.EX_CLASS)
-								.resolvesTo().getKeyName());
+								.get().getKeyName());
 				}
 			}
 
@@ -2177,12 +2177,6 @@ public final class PCGVer2Creator implements IOConstants
 					buffer.append('|');
 					buffer.append(TAG_SPELLLEVEL).append(':');
 					buffer.append(spellInfo.getActualLevel());
-					if (Globals.hasSpellPPCost())
-					{
-						buffer.append('|');
-						buffer.append(TAG_SPELLPPCOST).append(':');
-						buffer.append(spellInfo.getActualPPCost());
-					}
 					if (spellInfo.getNumPages() > 0)
 					{
 						buffer.append('|');

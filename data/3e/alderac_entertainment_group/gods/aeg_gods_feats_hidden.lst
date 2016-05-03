@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+
+###Block: Hidden Equipment Abilities - These abilities implement the abipities granted by magical equipment.
+# Feat Name			Type				Visible	Natural Attacks
+# Ability Name					Category of Ability	Type				Visible	Natural Attacks
+Tooth of Steel					CATEGORY:FEAT		TYPE:WeaponAbility	VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
+
+
+#Modify Feats
+CATEGORY=FEAT|Point Blank Shot.MOD						TYPE:Hunter
+CATEGORY=FEAT|Far Shot.MOD							TYPE:Hunter
+CATEGORY=FEAT|Precise Shot.MOD						TYPE:Hunter
+CATEGORY=FEAT|Shot on the Run.MOD						TYPE:Hunter
+CATEGORY=FEAT|Alertness.MOD							TYPE:SpiderWarrior
+CATEGORY=FEAT|Improved Initiative.MOD					TYPE:SpiderWarrior
+CATEGORY=FEAT|Mounted Combat.MOD						TYPE:SpiderWarrior
+CATEGORY=FEAT|Mounted Archery.MOD						TYPE:SpiderWarrior
+CATEGORY=FEAT|Trample.MOD							TYPE:SpiderWarrior
+CATEGORY=FEAT|Ride-By Attack.MOD						TYPE:SpiderWarrior
+CATEGORY=FEAT|Spirited Charge.MOD						TYPE:SpiderWarrior
+CATEGORY=FEAT|Point Blank Shot.MOD						TYPE:SpiderWarrior
+CATEGORY=FEAT|Far Shot.MOD							TYPE:SpiderWarrior
+CATEGORY=FEAT|Precise Shot.MOD						TYPE:SpiderWarrior
+CATEGORY=FEAT|Rapid Shot.MOD							TYPE:SpiderWarrior
+CATEGORY=FEAT|Shot on the Run.MOD						TYPE:SpiderWarrior
+#
+# End
+#

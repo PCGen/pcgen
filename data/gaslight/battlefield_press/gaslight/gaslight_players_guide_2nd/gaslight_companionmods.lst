@@ -1,0 +1,29 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+###Block:Familiar
+# Class of the Master	Type			Ability								Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Main Race Type
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Level Tracker	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	RACETYPE:Magical Beast
+
+###Block:Familiar Bonuses to Master
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Armadillo			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Armadillo)
+MASTERBONUSRACE:Bat				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Bat)
+MASTERBONUSRACE:Cat				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Cat)
+MASTERBONUSRACE:Fox				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Fox)
+MASTERBONUSRACE:Goat				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Goat)
+MASTERBONUSRACE:Hawk				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Hawk)
+MASTERBONUSRACE:Hedgehog			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Hedgehog)
+MASTERBONUSRACE:Lizard				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Lizard)
+MASTERBONUSRACE:Monkey				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Monkey)
+MASTERBONUSRACE:Owl				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Owl)
+MASTERBONUSRACE:Pig				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Pig)
+MASTERBONUSRACE:Platypus			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Platypus)
+MASTERBONUSRACE:Raccoon				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Raccoon)
+MASTERBONUSRACE:Rat				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Rat)
+MASTERBONUSRACE:Raven				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Raven)
+MASTERBONUSRACE:Scorpion (Greensting)	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Scorpion (Greensting))
+MASTERBONUSRACE:Skunk				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Skunk)
+MASTERBONUSRACE:Squirrel			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Squirrel)
+MASTERBONUSRACE:Toad				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Toad)
+MASTERBONUSRACE:Turtle				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Turtle)
+MASTERBONUSRACE:Snake (Viper/Tiny)		TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Snake (Viper/Tiny))
+MASTERBONUSRACE:Weasel				TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar (Weasel)

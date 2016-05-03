@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/	SOURCEDATE:2005-01
 # Original Entry by: Tir Gwaith
 
 # - This was one heck of a workaround with hidden classes. - Tir Gwaith
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Planar Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Planar Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Planar Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
-# Class Name	Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|Planar Mage|CL
+# Class Name	Spell Stat		Spellbook		Caster level
+CLASS:Planar Mage	SPELLSTAT:INT	SPELLBOOK:NO	BONUS:CASTERLEVEL|Planar Mage|CL
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Wizard Weapon Proficiencies
 ###Block: Spell list
@@ -50,12 +50,12 @@ CLASS:Planar Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:NO	BONUS:CASTERLEVEL|
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:4,2,2,2,2,2,1,1,1,1	BONUS:ABILITYPOOL|Planar Attunement Choice|1										BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
 20	CAST:6,6,6,6,6,6,6,6,6,5	KNOWN:4,2,2,2,2,2,1,1,1,1	BONUS:ABILITYPOOL|Skill Focus Knowledge Choice|1									BONUS:PCLEVEL|Elemental Air,Elemental Earth,Elemental Fire,Elemental Water,Ethereal,Negative Plane,Positive Plane,Plane of Shadow,Lower Planes,Planes of Discord,Planes of Order,Upper Planes|1
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Elemental Air	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Elemental Air	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Air	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Elemental Air	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Air|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Elemental Air	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Air|CL
 1	SPELLLEVEL:CLASS|Elemental Air=0|Deep Breath,Message,Puff of Wind,Spark
 1	SPELLLEVEL:CLASS|Elemental Air=1|Feather Fall,Gust of Wind,Obscuring Mist,Shocking Grasp
 1	SPELLLEVEL:CLASS|Elemental Air=2|Fog Cloud,Resist Energy,Whispering Wind,Wind Wall
@@ -89,12 +89,12 @@ CLASS:Elemental Air	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|L
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Elemental Earth	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Elemental Earth	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Earth	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Elemental Earth	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Earth|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Elemental Earth	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Earth|CL
 1	SPELLLEVEL:CLASS|Elemental Earth=0|Acid Splash,Bullet,Granitehand,Shovel
 1	SPELLLEVEL:CLASS|Elemental Earth=1|Magic Stone,Scree,Solid Footing,Stone-self
 1	SPELLLEVEL:CLASS|Elemental Earth=2|Acid Arrow,Resist Energy,Soften Earth and Stone,Weaken Stone
@@ -127,12 +127,12 @@ CLASS:Elemental Earth	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Elemental Fire	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Elemental Fire	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Fire	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Elemental Fire	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Fire|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Elemental Fire	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Fire|CL
 1	SPELLLEVEL:CLASS|Elemental Fire=0|Dancing Lights,Ember,Flare,Signal Fire
 1	SPELLLEVEL:CLASS|Elemental Fire=1|Burning Hands,Endure Elements,Extinguish,Produce Flame
 1	SPELLLEVEL:CLASS|Elemental Fire=2|Heat Metal,Pyrotechnics,Resist Energy,Scorching Ray
@@ -165,12 +165,12 @@ CLASS:Elemental Fire	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Elemental Water	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Elemental Water	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental Water	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Elemental Water	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Water|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Elemental Water	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Elemental Water|CL
 1	SPELLLEVEL:CLASS|Elemental Water=0|Create Water,Detect Poison,Purify Food and Drink,Ray of Frost
 1	SPELLLEVEL:CLASS|Elemental Water=1|Endure Elements,Ice Patch,Obscuring Mist,Swim
 1	SPELLLEVEL:CLASS|Elemental Water=2|Chill Metal,Clinging Steam,Fog Cloud,Resist Energy
@@ -203,12 +203,12 @@ CLASS:Elemental Water	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name	Hit Dice	Type			Max Level	Visible
-CLASS:Ethereal	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name	Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Ethereal	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ethereal	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Ethereal	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Ethereal|CL
+# Class Name	Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Ethereal	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Ethereal|CL
 1	SPELLLEVEL:CLASS|Ethereal=0|Mage Hand,Open/Close,Spectral Dart,Trip
 1	SPELLLEVEL:CLASS|Ethereal=1|Floating Disk,Mage Armor,Magic Missile,Shield
 1	SPELLLEVEL:CLASS|Ethereal=2|Ghost Touch,Invisibility,Knock,See Invisibility
@@ -242,12 +242,12 @@ CLASS:Ethereal	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Negative Plane	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Negative Plane	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Negative Plane	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Negative Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Negative Plane|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Negative Plane	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Negative Plane|CL
 1	SPELLLEVEL:CLASS|Negative Plane=0|Black Dart,Detect Undead,Inflict Minor Wounds,Touch of Fatigue
 1	SPELLLEVEL:CLASS|Negative Plane=1|Chill Touch,Death Knell,Deathwatch,Inflict Light Wounds
 1	SPELLLEVEL:CLASS|Negative Plane=2|Command Undead,Desecrate,Inflict Moderate Wounds,Ray of Exhaustion
@@ -280,12 +280,12 @@ CLASS:Negative Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Positive Plane	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Positive Plane	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Positive Plane	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Positive Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Positive Plane|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Positive Plane	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Positive Plane|CL
 1	SPELLLEVEL:CLASS|Positive Plane=0|Cure Minor Wounds,Disrupt Undead,Flare,Light
 1	SPELLLEVEL:CLASS|Positive Plane=1|Cure Light Wounds,Faerie Fire,Purge Inner Darkness,Stabilize
 1	SPELLLEVEL:CLASS|Positive Plane=2|Consecrate,Cure Moderate Wounds,False Life,Restoration (Lesser)
@@ -318,12 +318,12 @@ CLASS:Positive Plane	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Plane of Shadow	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Plane of Shadow	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Plane of Shadow	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Plane of Shadow	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Plane of Shadow|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Plane of Shadow	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Plane of Shadow|CL
 1	SPELLLEVEL:CLASS|Plane of Shadow=0|Control Shadow,Dim Illumination,Night-Vision,Startle
 1	SPELLLEVEL:CLASS|Plane of Shadow=1|Cause Fear,Chill Touch,Ray of Enfeeblement,Wall of Darkness
 1	SPELLLEVEL:CLASS|Plane of Shadow=2|Blur,Darkness,Darkvision,Scare
@@ -356,12 +356,12 @@ CLASS:Plane of Shadow	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Lower Planes	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Lower Planes	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Lower Planes	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Lower Planes	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Lower Planes|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Lower Planes	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Lower Planes|CL
 1	SPELLLEVEL:CLASS|Lower Planes=0|Daze,Haze,Lie,Pain Touch
 1	SPELLLEVEL:CLASS|Lower Planes=1|Bane,Detect Good,Doom,Protection from Good
 1	SPELLLEVEL:CLASS|Lower Planes=2|Align Weapon,Death Knell,Desecrate,Undetectable Alignment
@@ -394,12 +394,12 @@ CLASS:Lower Planes	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Planes of Discord	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Planes of Discord	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Planes of Discord	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Planes of Discord	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Planes of Discord|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Planes of Discord	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Planes of Discord|CL
 1	SPELLLEVEL:CLASS|Planes of Discord=0|Cipher,Dancing Lights,Daze,Resistance
 1	SPELLLEVEL:CLASS|Planes of Discord=1|Confusion (Lesser),Detect Law,Entropic Shield,Protection from Law
 1	SPELLLEVEL:CLASS|Planes of Discord=2|Align Weapon,Daze Monster,Misdirection,Shatter
@@ -432,12 +432,12 @@ CLASS:Planes of Discord	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Planes of Order	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Planes of Order	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Planes of Order	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Planes of Order	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Planes of Order|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Planes of Order	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Planes of Order|CL
 1	SPELLLEVEL:CLASS|Planes of Order=0|Decode,Guidance,Know Direction,Sort
 1	SPELLLEVEL:CLASS|Planes of Order=1|Detect Chaos,Detect Infraction,Protection from Chaos,True Strike
 1	SPELLLEVEL:CLASS|Planes of Order=2|Align Weapon,Calm Emotions,Hold Person,Zone of Truth
@@ -470,12 +470,12 @@ CLASS:Planes of Order	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-# Class Name		Hit Dice	Type			Max Level	Visible
-CLASS:Upper Planes	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO
+# Class Name		Hit Dice	Type			Max Level	Visible	FACT
+CLASS:Upper Planes	HD:4		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Upper Planes	STARTSKILLPTS:0	MODTOSKILLS:NO
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Upper Planes	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Upper Planes|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Upper Planes	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Upper Planes|CL
 1	SPELLLEVEL:CLASS|Upper Planes=0|Detect Poison,Guidance,Resistance,Virtue
 1	SPELLLEVEL:CLASS|Upper Planes=1|Bless,Bless Weapon,Detect Evil,Protection from Evil
 1	SPELLLEVEL:CLASS|Upper Planes=2|Aid,Align Weapon,Consecrate,Shield Other

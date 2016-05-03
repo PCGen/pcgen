@@ -167,13 +167,13 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	@Override
 	public final void addSelected(InfoFacade item)
 	{
-		if (numSelectionsRemain.getReference() <= 0)
+		if (numSelectionsRemain.get() <= 0)
 		{
 			return;
 		}
 		selectedList.addElement(item);
 		availableList.removeElement(item);
-		numSelectionsRemain.setReference(numSelectionsRemain.getReference()-1);
+		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	{
 		selectedList.removeElement(item);
 		availableList.addElement(item);
-		numSelectionsRemain.setReference(numSelectionsRemain.getReference()+1);
+		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
 	/**
@@ -210,7 +210,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	{
 		availableList.setContents(origAvailable);
 		selectedList.setContents(origSelected);
-		numSelectionsRemain.setReference(maxNewSelections);
+		numSelectionsRemain.set(maxNewSelections);
 	}
 
 	/**

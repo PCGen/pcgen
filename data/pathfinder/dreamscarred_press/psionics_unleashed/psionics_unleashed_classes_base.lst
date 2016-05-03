@@ -1,15 +1,15 @@
-# CVS $Revision: 17406 $ $Author: amaitland $ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 17406 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Arknight
 #SRD Updated Entry: TaluronIscandar
 
-# Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page		Define		Combat bonus										Save bonus																					Modify VAR
-CLASS:Psion		HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.20	DEFINE:PsionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsionLVL|CL	BONUS:VAR|PsiCrystalLVL|PsionLVL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+# Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page		Define		Combat bonus																	Save bonus																																		Modify VAR																																																																														FACT
+CLASS:Psion		HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.20	DEFINE:PsionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsionLVL|CL	BONUS:VAR|PsiCrystalLVL|PsionLVL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Psion		SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Discipline	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
@@ -52,21 +52,21 @@ SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AU
 20	KNOWN:0,5,4,4,4,4,3,3,3,6
 
 
-# Class Name		Hit Dice	Type				Max Level	Source Page		Combat bonus											Save bonus																						Modify VAR
-CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+# Class Name		Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																										FACT
+CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Knowledge (Psionics)|Perception|TYPE=Profession|Ride|Spellcraft|Swim
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
+# Class Name		Spell Stat		Memorize	Caster level
+CLASS:Psychic Warrior	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialWeaponProficiency	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialWeaponProficiency
-1																									ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSimpleWeaponProficiency
-1																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorHeavyArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
-1																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorLightArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
-1																									ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMediumArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
-1																									ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorShieldProficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSimpleWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorHeavyArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorLightArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMediumArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorShieldProficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")	BONUS:VAR|IsPsionic|1																							DEFINE:PsychicWarriorML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -103,14 +103,14 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 20	KNOWN:0,3,3,3,3,3,5	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat20																											ABILITY:Special Ability|AUTOMATIC|Eternal Warrior|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorEternalWarrior
 
 
-# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																Save bonus																																		Modify VAR
+CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Stealth|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeSimpleWeaponProficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeMediumArmorProficiency
-1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShieldProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeLightArmorProficiency	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeMediumArmorProficiency
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShieldProficiency
 
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for mind blade powers, use BONUS:VAR|MndBladeLVL|x in the PrC's class level line setup
 
@@ -124,17 +124,17 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|
 1	BONUS:ABILITYPOOL|Soulknife Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeBonusFeat	BONUS:VAR|IsPsionic|1	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic	TEMPLATE:Wild Talent Determination
 
 
-# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus											Save bonus																					Modify VAR
-CLASS:Wilder	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																										FACT
+CLASS:Wilder	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Swim|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Wilder	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|WilderML|CL	BONUS:VAR|WilderML|var("BL=Wilder")	BONUS:VAR|IsPsionic|1																							DEFINE:WilderML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic

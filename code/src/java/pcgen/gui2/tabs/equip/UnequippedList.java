@@ -55,7 +55,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		equipmentList = new ArrayList<EquipmentFacade>();
 		quantityMap = new HashMap<EquipmentFacade, Integer>();
 		ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
-		equippedList = ref.getReference().getEquippedItems();
+		equippedList = ref.get().getEquippedItems();
 		for (EquipmentFacade equipment : purchasedList)
 		{
 			int quantity = purchasedList.getQuantity(equipment) -

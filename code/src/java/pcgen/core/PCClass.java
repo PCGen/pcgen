@@ -359,7 +359,7 @@ public class PCClass extends PObject implements ClassFacade
 		}
 		CDOMSingleRef<PCStat> ss = get(ObjectKey.SPELL_STAT);
 		//TODO This could be null, do we need to worry about it?
-		return ss.resolvesTo().getKeyName();
+		return ss.get().getKeyName();
 	}
 
 	/*
@@ -460,12 +460,6 @@ public class PCClass extends PObject implements ClassFacade
 		for (PCClass pcClass : aPC.getClassSet())
 		{
 			aPC.calculateKnownSpellsForClassLevel(this);
-		}
-
-		// check to see if we have dropped a level.
-		if (curLevel > newLevel)
-		{
-			aPC.resetEpicCache();
 		}
 	}
 
@@ -634,10 +628,7 @@ public class PCClass extends PObject implements ClassFacade
 			return 0;
 		}
 
-		int i = (int) getBonusTo("COMBAT", "BAB", aPC.getLevel(this), aPC);
-		i += (int) getBonusTo("COMBAT", "BASEAB", aPC.getLevel(this), aPC);
-
-		return i;
+		return (int) getBonusTo("COMBAT", "BASEAB", aPC.getLevel(this), aPC);
 	}
 
 	/**
@@ -665,7 +656,7 @@ public class PCClass extends PObject implements ClassFacade
 		CDOMSingleRef<PCStat> ss = get(ObjectKey.SPELL_STAT);
 		if (ss != null)
 		{
-			return ss.resolvesTo();
+			return ss.get();
 		}
 		if (Logging.isDebugMode())
 		{
@@ -697,7 +688,7 @@ public class PCClass extends PObject implements ClassFacade
 			CDOMSingleRef<PCStat> bssref = get(ObjectKey.BONUS_SPELL_STAT);
 			if (bssref != null)
 			{
-				return bssref.resolvesTo();
+				return bssref.get();
 			}
 		}
 		return null;
@@ -1570,4 +1561,11 @@ public class PCClass extends PObject implements ClassFacade
 		String type = getType();
 		return type.split("\\.");
 	}
+
+	public String getClassType()
+	{
+		FactKey<String> fk = FactKey.valueOf("ClassType");
+		return getResolved(fk);
+	}
+	
 }

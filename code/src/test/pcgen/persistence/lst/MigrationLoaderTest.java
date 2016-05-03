@@ -123,7 +123,7 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseFirstTokenValidCharsInSourceKey()
 	{
-		String sourceKey = "Paizo - Second Darkness, Chapter 6: Descent into Midnight";
+		String sourceKey = "Paizo - Second Darkness, Chapter 6: Descent into Midnight.";
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:" + sourceKey, "", sourceURI);
 		assertNotNull("Key should have been accepted.", migrationRule);
 		assertEquals("Source key should have been recorded", sourceKey, migrationRule.getOldKey());
@@ -135,7 +135,7 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseFirstTokenInValidCharsInAbilityCategory()
 	{
-		String invalidChars = ",|\\:;.%*=[]";
+		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:Old"+invalid+"|Key", "", sourceURI);
@@ -149,7 +149,7 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseFirstTokenInValidCharsInAbilityKey()
 	{
-		String invalidChars = ",|\\:;.%*=[]";
+		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:Old|Key"+invalid, "", sourceURI);

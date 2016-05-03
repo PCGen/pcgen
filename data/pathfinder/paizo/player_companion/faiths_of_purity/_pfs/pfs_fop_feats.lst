@@ -1,0 +1,9 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
+# Original Entry by:Stefan Radermacher
+
+# Feats: all feats on pages 24-25 with the following errata: Glorious Heat grants a number of points of healing equal to the spell level, not the caster level (ie. flame strike grants 5 points, while spark grants 0);
+
+# Feat Name		Benefits
+# Ability Name				Benefits
+CATEGORY=FEAT|Glorious Heat.MOD	BENEFIT:.CLEAR|When you cast a divine spell with the fire descriptor, choose a single ally within 30 feet that you can see. That ally heals the spell level in hit points, and gains a +1 morale bonus on attack rolls until the end of its next turn.

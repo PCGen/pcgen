@@ -1,98 +1,99 @@
-# CVS $Revision: 25130 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 25130 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #Waytraveler
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block:Mod of msrd Feat types
 # Feat Name					Type																				Clear Prereq.
-CATEGORY=FEAT|Acrobatic.MOD				TYPE:RdWarrior.Scav.Skulk.TechLooter
-CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:Guardian.Raider.Survivalist.Champion.MutantHunter.TechLooter
-CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:WarriorMonk
-CATEGORY=FEAT|Advanced Two-Weapon Fighting.MOD	TYPE:WarriorMonk
+# Ability Name							Type
+CATEGORY=FEAT|Acrobatic.MOD					TYPE:RdWarrior.Scav.Skulk.TechLooter
+CATEGORY=FEAT|Advanced Firearms Proficiency.MOD		TYPE:Guardian.Raider.Survivalist.Champion.MutantHunter.TechLooter
+CATEGORY=FEAT|Advanced Combat Martial Arts.MOD		TYPE:WarriorMonk
+CATEGORY=FEAT|Advanced Two-Weapon Fighting.MOD		TYPE:WarriorMonk
 CATEGORY=FEAT|Agile Riposte.MOD				TYPE:TechLooter
-CATEGORY=FEAT|Alertness.MOD				TYPE:Feral.PAHero.Barbarian.JujuDoc.Psionic.Scav.Scholar.Skulk.SisOTD.Symbiote.Trader.TechLooter
-CATEGORY=FEAT|Animal Affinity.MOD			TYPE:Feral.Tribal.Resentful.Slave.Barbarian.Psionic.SisOTD.Symbiote
-CATEGORY=FEAT|Archaic Weapons Proficiency.MOD	TYPE:Tribal.Resentful.PAHero.Guardian.Psionic.Raider.SisOTD.Survivalist.Symbiote.Champion.MutantHunter
+CATEGORY=FEAT|Alertness.MOD					TYPE:Feral.PAHero.Barbarian.JujuDoc.Psionic.Scav.Scholar.Skulk.SisOTD.Symbiote.Trader.TechLooter
+CATEGORY=FEAT|Animal Affinity.MOD				TYPE:Feral.Tribal.Resentful.Slave.Barbarian.Psionic.SisOTD.Symbiote
+CATEGORY=FEAT|Archaic Weapons Proficiency.MOD		TYPE:Tribal.Resentful.PAHero.Guardian.Psionic.Raider.SisOTD.Survivalist.Symbiote.Champion.MutantHunter
 CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:Tribal.Radical.Barbarian.Guardian.Psionic.Raider.RdWarrior.Scav.Skulk.SisOTD.Champion.MutantHunter
-CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Barbarian.Guardian.Raider.Champion
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD		TYPE:Barbarian.Guardian.Raider.Champion
 CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:Guardian.Raider.Champion
-CATEGORY=FEAT|Armor Proficiency (Powered).MOD	TYPE:General.Champion.Mech
-CATEGORY=FEAT|Athletic.MOD				TYPE:Feral.Tribal.PAHero.Barbarian.RdWarrior.Scav.Skulk.Symbiote
-CATEGORY=FEAT|Attentive.MOD				TYPE:Demagogue.JujuDoc.Psionic.Scav.Scholar.Skulk.Trader
-CATEGORY=FEAT|Blind-Fight.MOD				TYPE:Feral.Psionic
-CATEGORY=FEAT|Brawl.MOD					TYPE:Feral.Tribal.Radical.PAHero.Barbarian.Raider.Symbiote
+CATEGORY=FEAT|Armor Proficiency (Powered).MOD		TYPE:General.Champion.Mech
+CATEGORY=FEAT|Athletic.MOD					TYPE:Feral.Tribal.PAHero.Barbarian.RdWarrior.Scav.Skulk.Symbiote
+CATEGORY=FEAT|Attentive.MOD					TYPE:Demagogue.JujuDoc.Psionic.Scav.Scholar.Skulk.Trader
+CATEGORY=FEAT|Blind-Fight.MOD					TYPE:Feral.Psionic
+CATEGORY=FEAT|Brawl.MOD						TYPE:Feral.Tribal.Radical.PAHero.Barbarian.Raider.Symbiote
 CATEGORY=FEAT|Builder.MOD					TYPE:Scholar.Tinker.Mech
-CATEGORY=FEAT|Burst Fire.MOD				TYPE:Guardian.Raider.Champion.MutantHunter.WarriorMonk
-CATEGORY=FEAT|Cautious.MOD				TYPE:Scav.Skulk.Tinker.TechLooter
+CATEGORY=FEAT|Burst Fire.MOD					TYPE:Guardian.Raider.Champion.MutantHunter.WarriorMonk
+CATEGORY=FEAT|Cautious.MOD					TYPE:Scav.Skulk.Tinker.TechLooter
 CATEGORY=FEAT|Cleave.MOD					TYPE:Feral.Tribal.Barbarian.Guardian.Raider.Champion
-CATEGORY=FEAT|Combat Expertise.MOD			TYPE:SisOTD.Symbiote.Tinker
-CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:Barbarian.Guardian.Psionic.Raider.SisOTD.Symbiote.Champion
+CATEGORY=FEAT|Combat Expertise.MOD				TYPE:SisOTD.Symbiote.Tinker
+CATEGORY=FEAT|Combat Reflexes.MOD				TYPE:Barbarian.Guardian.Psionic.Raider.SisOTD.Symbiote.Champion
 CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:Feral.Tribal.Radical
 CATEGORY=FEAT|Combat Throw.MOD				TYPE:SisOTD
-CATEGORY=FEAT|Confident.MOD				TYPE:Demagogue.SisOTD.Trader
-CATEGORY=FEAT|Creative.MOD				TYPE:Hedonist.Demagogue.Scholar.Trader
-CATEGORY=FEAT|Dead Aim.MOD				TYPE:Survivalist.MutantHunter.WarriorMonk
-CATEGORY=FEAT|Deceptive.MOD				TYPE:Demagogue.Psionic.SisOTD.Trader
-CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:Psionic.Scav.Scholar.Skulk.SisOTD.Symbiote.TechLooter
-CATEGORY=FEAT|Dodge.MOD					TYPE:Feral.Tribal.PAHero.Scav.Scholar.Skulk.SisOTD.Symbiote.MutantHunter.TechLooter
-CATEGORY=FEAT|Double Tap.MOD				TYPE:Guardian.Survivalist.Champion.MutantHunter.TechLooter
-CATEGORY=FEAT|Drive-By Attack.MOD			TYPE:RdWarrior
-CATEGORY=FEAT|Educated.MOD				TYPE:Hedonist.JujuDoc.Scholar.Tinker.Mech.Scientist
-CATEGORY=FEAT|Elusive Target.MOD			TYPE:Scav.Skulk.SisOTD.TechLooter
-CATEGORY=FEAT|Endurance.MOD				TYPE:Feral.Tribal.Resentful.Slave.Barbarian
-CATEGORY=FEAT|Exotic Firearms Proficiency.MOD	TYPE:Guardian.Raider.Survivalist.Champion.MutantHunter.WarriorMonk
+CATEGORY=FEAT|Confident.MOD					TYPE:Demagogue.SisOTD.Trader
+CATEGORY=FEAT|Creative.MOD					TYPE:Hedonist.Demagogue.Scholar.Trader
+CATEGORY=FEAT|Dead Aim.MOD					TYPE:Survivalist.MutantHunter.WarriorMonk
+CATEGORY=FEAT|Deceptive.MOD					TYPE:Demagogue.Psionic.SisOTD.Trader
+CATEGORY=FEAT|Defensive Martial Arts.MOD			TYPE:Psionic.Scav.Scholar.Skulk.SisOTD.Symbiote.TechLooter
+CATEGORY=FEAT|Dodge.MOD						TYPE:Feral.Tribal.PAHero.Scav.Scholar.Skulk.SisOTD.Symbiote.MutantHunter.TechLooter
+CATEGORY=FEAT|Double Tap.MOD					TYPE:Guardian.Survivalist.Champion.MutantHunter.TechLooter
+CATEGORY=FEAT|Drive-By Attack.MOD				TYPE:RdWarrior
+CATEGORY=FEAT|Educated.MOD					TYPE:Hedonist.JujuDoc.Scholar.Tinker.Mech.Scientist
+CATEGORY=FEAT|Elusive Target.MOD				TYPE:Scav.Skulk.SisOTD.TechLooter
+CATEGORY=FEAT|Endurance.MOD					TYPE:Feral.Tribal.Resentful.Slave.Barbarian
+CATEGORY=FEAT|Exotic Firearms Proficiency.MOD		TYPE:Guardian.Raider.Survivalist.Champion.MutantHunter.WarriorMonk
 CATEGORY=FEAT|Exotic Melee Weapon Proficiency.MOD	TYPE:Barbarian.Guardian.Raider.SisOTD.Champion.WarriorMonk
-CATEGORY=FEAT|Far Shot.MOD				TYPE:Guardian.Survivalist.Champion.MutantHunter
+CATEGORY=FEAT|Far Shot.MOD					TYPE:Guardian.Survivalist.Champion.MutantHunter
 CATEGORY=FEAT|Focused.MOD					TYPE:Hedonist.Psionic
-CATEGORY=FEAT|Force Stop.MOD				TYPE:RdWarrior
-CATEGORY=FEAT|Gearhead.MOD				TYPE:Hedonist.RdWarrior.Scholar.Tinker.Scientist
+CATEGORY=FEAT|Force Stop.MOD					TYPE:RdWarrior
+CATEGORY=FEAT|Gearhead.MOD					TYPE:Hedonist.RdWarrior.Scholar.Tinker.Scientist
 CATEGORY=FEAT|Great Cleave.MOD				TYPE:Barbarian.Guardian.Raider.Champion.WarriorMonk
-CATEGORY=FEAT|Great Fortitude.MOD			TYPE:Feral.Tribal.Resentful.PAHero
-CATEGORY=FEAT|Guide.MOD					TYPE:Feral.Tribal.Resentful.PAHero.Barbarian.Survivalist.Symbiote.Trader.MutantHunter
+CATEGORY=FEAT|Great Fortitude.MOD				TYPE:Feral.Tribal.Resentful.PAHero
+CATEGORY=FEAT|Guide.MOD						TYPE:Feral.Tribal.Resentful.PAHero.Barbarian.Survivalist.Symbiote.Trader.MutantHunter
 CATEGORY=FEAT|Heroic Surge.MOD				TYPE:RdWarrior.SisOTD
-CATEGORY=FEAT|Improved Brawl.MOD			TYPE:Barbarian.Raider
-CATEGORY=FEAT|Improved Combat Throw.MOD		TYPE:SisOTD
-CATEGORY=FEAT|Improved Combat Martial Arts.MOD	TYPE:WarriorMonk
+CATEGORY=FEAT|Improved Brawl.MOD				TYPE:Barbarian.Raider
+CATEGORY=FEAT|Improved Combat Throw.MOD			TYPE:SisOTD
+CATEGORY=FEAT|Improved Combat Martial Arts.MOD		TYPE:WarriorMonk
 CATEGORY=FEAT|Improved Damage Threshold.MOD		TYPE:Feral.Tribal.RdWarrior
-CATEGORY=FEAT|Improved Disarm.MOD			TYPE:WarriorMonk
+CATEGORY=FEAT|Improved Disarm.MOD				TYPE:WarriorMonk
 CATEGORY=FEAT|Improved Initiative.MOD			TYPE:Feral.Tribal.JujuDoc.Psionic.Symbiote.MutantHunter.TechLooter
-CATEGORY=FEAT|Improved Knockout Punch.MOD		TYPE:Raider
+CATEGORY=FEAT|Improved Knockout Punch.MOD			TYPE:Raider
 CATEGORY=FEAT|Improved Trip.MOD				TYPE:WarriorMonk
-CATEGORY=FEAT|Improved Two-Weapon Fighting.MOD	TYPE:Champion.WarriorMonk
-CATEGORY=FEAT|Iron Will.MOD				TYPE:Feral.Tribal.Resentful.Psionic.SisOTD
-CATEGORY=FEAT|Knockout Punch.MOD			TYPE:Raider
-CATEGORY=FEAT|Leadership.MOD				TYPE:Demagogue.Trader
+CATEGORY=FEAT|Improved Two-Weapon Fighting.MOD		TYPE:Champion.WarriorMonk
+CATEGORY=FEAT|Iron Will.MOD					TYPE:Feral.Tribal.Resentful.Psionic.SisOTD
+CATEGORY=FEAT|Knockout Punch.MOD				TYPE:Raider
+CATEGORY=FEAT|Leadership.MOD					TYPE:Demagogue.Trader
 CATEGORY=FEAT|Lightning Reflexes.MOD			TYPE:Feral.Tribal
-CATEGORY=FEAT|Low Profile.MOD				TYPE:Psionic
-CATEGORY=FEAT|Medical Expert.MOD			TYPE:JujuDoc
-CATEGORY=FEAT|Meticulous.MOD				TYPE:Scav.Skulk.Trader.TechLooter
-CATEGORY=FEAT|Mobility.MOD				TYPE:RdWarrior.Scav.Scholar.Skulk.SisOTD.Symbiote.MutantHunter.TechLooter
+CATEGORY=FEAT|Low Profile.MOD					TYPE:Psionic
+CATEGORY=FEAT|Medical Expert.MOD				TYPE:JujuDoc
+CATEGORY=FEAT|Meticulous.MOD					TYPE:Scav.Skulk.Trader.TechLooter
+CATEGORY=FEAT|Mobility.MOD					TYPE:RdWarrior.Scav.Scholar.Skulk.SisOTD.Symbiote.MutantHunter.TechLooter
 CATEGORY=FEAT|Nimble.MOD					TYPE:Scav.Skulk.TechLooter
-CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:Radical.PAHero.Guardian.Raider.RdWarrior.Survivalist.Symbiote.Tinker.Trader.Champion.MutantHunter.Mech.TechLooter
-CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:Guardian.RdWarrior.Survivalist.Tinker.Champion.TechLooter
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD		TYPE:Radical.PAHero.Guardian.Raider.RdWarrior.Survivalist.Symbiote.Tinker.Trader.Champion.MutantHunter.Mech.TechLooter
+CATEGORY=FEAT|Point Blank Shot.MOD				TYPE:Guardian.RdWarrior.Survivalist.Tinker.Champion.TechLooter
 CATEGORY=FEAT|Power Attack.MOD				TYPE:Feral.Tribal.Barbarian.Guardian.Raider.Symbiote.Champion
 CATEGORY=FEAT|Precise Shot.MOD				TYPE:RdWarrior.Survivalist.Champion.MutantHunter.TechLooter
-CATEGORY=FEAT|Quick Draw.MOD				TYPE:Survivalist.MutantHunter.TechLooter
+CATEGORY=FEAT|Quick Draw.MOD					TYPE:Survivalist.MutantHunter.TechLooter
 CATEGORY=FEAT|Quick Reload.MOD				TYPE:MutantHunter
 CATEGORY=FEAT|Renown.MOD					TYPE:Demagogue.Psionic.Trader.Scientist
-CATEGORY=FEAT|Run.MOD					TYPE:Feral.Tribal.PAHero.Scav.Skulk.Survivalist.Symbiote.MutantHunter.TechLooter
-CATEGORY=FEAT|Shot on the Run.MOD			TYPE:RdWarrior.Survivalist.TechLooter.WarriorMonk
-CATEGORY=FEAT|Skip Shot.MOD				TYPE:Survivalist.MutantHunter.WarriorMonk
+CATEGORY=FEAT|Run.MOD						TYPE:Feral.Tribal.PAHero.Scav.Skulk.Survivalist.Symbiote.MutantHunter.TechLooter
+CATEGORY=FEAT|Shot on the Run.MOD				TYPE:RdWarrior.Survivalist.TechLooter.WarriorMonk
+CATEGORY=FEAT|Skip Shot.MOD					TYPE:Survivalist.MutantHunter.WarriorMonk
 CATEGORY=FEAT|Spring Attack.MOD				TYPE:RdWarrior.Scav.Skulk.SisOTD.MutantHunter.TechLooter.WarriorMonk
-CATEGORY=FEAT|Stealthy.MOD				TYPE:Feral.Tribal.Scav.Skulk.Survivalist.MutantHunter.TechLooter
+CATEGORY=FEAT|Stealthy.MOD					TYPE:Feral.Tribal.Scav.Skulk.Survivalist.MutantHunter.TechLooter
 CATEGORY=FEAT|Strafe.MOD					TYPE:Guardian.Raider.Champion
-CATEGORY=FEAT|Studious.MOD				TYPE:Hedonist.Demagogue.JujuDoc.Scholar.Tinker.Trader.Mech
+CATEGORY=FEAT|Studious.MOD					TYPE:Hedonist.Demagogue.JujuDoc.Scholar.Tinker.Trader.Mech
 CATEGORY=FEAT|Sunder.MOD					TYPE:Barbarian.Raider.Champion.WarriorMonk
 CATEGORY=FEAT|Surface Vehicle Operation.MOD		TYPE:RdWarrior
 CATEGORY=FEAT|Surgery.MOD					TYPE:JujuDoc
-CATEGORY=FEAT|Toughness.MOD				TYPE:Feral.Tribal.PAHero
-CATEGORY=FEAT|Track.MOD					TYPE:Feral.Tribal.Resentful.PAHero.Scav.Skulk.TechLooter
-CATEGORY=FEAT|Trustworthy.MOD				TYPE:Hedonist.Demagogue.SisOTD.Trader
+CATEGORY=FEAT|Toughness.MOD					TYPE:Feral.Tribal.PAHero
+CATEGORY=FEAT|Track.MOD						TYPE:Feral.Tribal.Resentful.PAHero.Scav.Skulk.TechLooter
+CATEGORY=FEAT|Trustworthy.MOD					TYPE:Hedonist.Demagogue.SisOTD.Trader
 CATEGORY=FEAT|Two-Weapon Fighting.MOD			TYPE:Champion
 CATEGORY=FEAT|Unbalance Opponent.MOD			TYPE:Scav.Skulk.SisOTD.TechLooter
 CATEGORY=FEAT|Vehicle Dodge.MOD				TYPE:RdWarrior
-CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:Raider
+CATEGORY=FEAT|Vehicle Expert.MOD				TYPE:Raider
 CATEGORY=FEAT|Weapon Focus.MOD				TYPE:PAHero.Psionic.Raider
-CATEGORY=FEAT|Whirlwind Attack.MOD			TYPE:WarriorMonk
+CATEGORY=FEAT|Whirlwind Attack.MOD				TYPE:WarriorMonk
 
 #Monster Feats
 #Not sure why this is here, but it causes an error on data load
@@ -100,138 +101,143 @@ CATEGORY=FEAT|Whirlwind Attack.MOD			TYPE:WarriorMonk
 
 ###Block: DW2 Feats
 # Feat Name					Type											Visible	Required Ability					Required Feat										Required Lvl	Required Skill																		Required Stat	Prohibited Stat	Description		Auto Weapon Prof					Bonus to skill				Class Skill		Source Page
-Armed To The Teeth			CATEGORY:FEAT	TYPE:General.WarriorMonk							VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting																																					DESC:See Text.																	SOURCEPAGE:p.57
-Bull's Eye					CATEGORY:FEAT	TYPE:General.Survivalist							VISIBLE:YES								PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot																																			DESC:See Text.																	SOURCEPAGE:p.58
-Combat Driving				CATEGORY:FEAT	TYPE:General.RoadWarrior									VISIBLE:YES																							PRESKILL:1,Drive=4																							DESC:See Text.																	SOURCEPAGE:p.58
-Concubine					CATEGORY:FEAT	TYPE:General.Slave								VISIBLE:YES																																											PRESTAT:1,CHA=13				DESC:See Text.								BONUS:SKILL|TYPE.Perform|4					SOURCEPAGE:p.59
-Filthy					CATEGORY:FEAT	TYPE:General.Barbarian								VISIBLE:YES																																														!PRESTAT:1,CHA=10	DESC:See Text.																	SOURCEPAGE:p.61
-Fleet of Foot				CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Run																																							DESC:See Text.																	SOURCEPAGE:p.61
-Forsaken					CATEGORY:FEAT	TYPE:General.Slave								VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Feral													PRELEVEL:MAX=1																											DESC:See Text.																	SOURCEPAGE:p.61
-Futuristic Firearm Proficiency	CATEGORY:FEAT	TYPE:General.Champion.Mech.MutantHunter.TechLooter.WarriorMonk	VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Advanced Technology																																					DESC:See Text.	AUTO:WEAPONPROF|TYPE=FuturisticFirearm										SOURCEPAGE:p.61
-Gladiator					CATEGORY:FEAT	TYPE:General.Slave								VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Alertness																																PRESTAT:1,WIS=13				DESC:See Text.																	SOURCEPAGE:p.62
-Hard-Eyed					CATEGORY:FEAT	TYPE:General.Raider.Champion							VISIBLE:YES																							PRESKILL:1,Intimidate=4																	PRESTAT:1,CHA=13				DESC:See Text.																	SOURCEPAGE:p.62
-High Ready					CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Reactive Shooter																															PRESTAT:1,Dex=13				DESC:See Text.																	SOURCEPAGE:p.62
-Improved Autofire				CATEGORY:FEAT	TYPE:General.Guardian								VISIBLE:YES								PREABILITY:2,CATEGORY=FEAT,Personal Firearms Proficiency,Advanced Firearms Proficiency																														DESC:See Text.																	SOURCEPAGE:p.62
-Improved Dead Aim				CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:2,CATEGORY=FEAT,Far Shot,Dead Aim																															PRESTAT:1,WIS=13				DESC:See Text.																	SOURCEPAGE:p.62
-Improved Grapple				CATEGORY:FEAT	TYPE:General									VISIBLE:YES									PREABILITY:1,CATEGORY=FEAT,Brawl	PRESTAT:1,DEX=13	DESC:See Text.	BONUS:COMBAT|TOHIT.GRAPPLE|4	SOURCEPAGE:p.62
-Improved Overrun				CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Power Attack																																PRESTAT:1,STR=13				DESC:See Text.																	SOURCEPAGE:p.63
-Improvised Weapons			CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Brawl																																							DESC:See Text.																	SOURCEPAGE:p.63
-Intimidating Strength			CATEGORY:FEAT	TYPE:General.Raider.Champion							VISIBLE:YES																							PRESKILL:1,Intimidate=4																	PRESTAT:1,STR=15				DESC:See Text.								BONUS:SKILL|Intimidate|(STR-CHA)				SOURCEPAGE:p.64
-Intuitive Mechanic			CATEGORY:FEAT	TYPE:General.RdWarrior.Tinker.Mech						VISIBLE:YES																																											PRESTAT:1,INT=15				DESC:See Text.														CSKILL:Repair	SOURCEPAGE:p.64
-Juju Medicine				CATEGORY:FEAT	TYPE:General.Tribal								VISIBLE:YES																							PRESKILL:2,Treat Injury=4,Survival=4																				DESC:See Text.																	SOURCEPAGE:p.64
-Leadership					CATEGORY:FEAT	TYPE:General									VISIBLE:YES																				PRELEVEL:MIN=6																											DESC:See Text.																	SOURCEPAGE:p.64
-Market					CATEGORY:FEAT	TYPE:General.Trader								VISIBLE:YES																							PRESKILL:1,TYPE.Profession=2,Profession=2																				DESC:See Text.																	SOURCEPAGE:p.65
+# Ability Name				Category of Ability	Type											Visible	Required Ability													Required Lvl	Required Skill																		Required Stat	Prohibited Stat	Description		Auto Weapon Prof					Combat bonus			Bonus to skill				Class Skill		Source Page
+Armed To The Teeth			CATEGORY:FEAT		TYPE:General.WarriorMonk							VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting																																					DESC:See Text.																						SOURCEPAGE:p.57
+Bull's Eye					CATEGORY:FEAT		TYPE:General.Survivalist							VISIBLE:YES	PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot																																			DESC:See Text.																						SOURCEPAGE:p.58
+Combat Driving				CATEGORY:FEAT		TYPE:General.RoadWarrior							VISIBLE:YES																			PRESKILL:1,Drive=4																							DESC:See Text.																						SOURCEPAGE:p.58
+Concubine					CATEGORY:FEAT		TYPE:General.Slave								VISIBLE:YES																																							PRESTAT:1,CHA=13				DESC:See Text.													BONUS:SKILL|TYPE.Perform|4					SOURCEPAGE:p.59
+Filthy					CATEGORY:FEAT		TYPE:General.Barbarian								VISIBLE:YES																																										!PRESTAT:1,CHA=10	DESC:See Text.																						SOURCEPAGE:p.61
+Fleet of Foot				CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Run																																							DESC:See Text.																						SOURCEPAGE:p.61
+Forsaken					CATEGORY:FEAT		TYPE:General.Slave								VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Feral									PRELEVEL:MAX=1																											DESC:See Text.																						SOURCEPAGE:p.61
+Futuristic Firearm Proficiency	CATEGORY:FEAT		TYPE:General.Champion.Mech.MutantHunter.TechLooter.WarriorMonk	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Technology																																					DESC:See Text.	AUTO:WEAPONPROF|TYPE=FuturisticFirearm															SOURCEPAGE:p.61
+Gladiator					CATEGORY:FEAT		TYPE:General.Slave								VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Alertness																																PRESTAT:1,WIS=13				DESC:See Text.																						SOURCEPAGE:p.62
+Hard-Eyed					CATEGORY:FEAT		TYPE:General.Raider.Champion							VISIBLE:YES																			PRESKILL:1,Intimidate=4																	PRESTAT:1,CHA=13				DESC:See Text.																						SOURCEPAGE:p.62
+High Ready					CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Reactive Shooter																															PRESTAT:1,Dex=13				DESC:See Text.																						SOURCEPAGE:p.62
+Improved Autofire				CATEGORY:FEAT		TYPE:General.Guardian								VISIBLE:YES	PREABILITY:2,CATEGORY=FEAT,Personal Firearms Proficiency,Advanced Firearms Proficiency																														DESC:See Text.																						SOURCEPAGE:p.62
+Improved Dead Aim				CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:2,CATEGORY=FEAT,Far Shot,Dead Aim																															PRESTAT:1,WIS=13				DESC:See Text.																						SOURCEPAGE:p.62
+Improved Grapple				CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Brawl																																	PRESTAT:1,DEX=13				DESC:See Text.								BONUS:COMBAT|TOHIT.GRAPPLE|4										SOURCEPAGE:p.62
+Improved Overrun				CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Power Attack																																PRESTAT:1,STR=13				DESC:See Text.																						SOURCEPAGE:p.63
+Improvised Weapons			CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Brawl																																							DESC:See Text.																						SOURCEPAGE:p.63
+Intimidating Strength			CATEGORY:FEAT		TYPE:General.Raider.Champion							VISIBLE:YES																			PRESKILL:1,Intimidate=4																	PRESTAT:1,STR=15				DESC:See Text.													BONUS:SKILL|Intimidate|(STR-CHA)				SOURCEPAGE:p.64
+Intuitive Mechanic			CATEGORY:FEAT		TYPE:General.RdWarrior.Tinker.Mech						VISIBLE:YES																																							PRESTAT:1,INT=15				DESC:See Text.																			CSKILL:Repair	SOURCEPAGE:p.64
+Juju Medicine				CATEGORY:FEAT		TYPE:General.Tribal								VISIBLE:YES																			PRESKILL:2,Treat Injury=4,Survival=4																				DESC:See Text.																						SOURCEPAGE:p.64
+Leadership					CATEGORY:FEAT		TYPE:General									VISIBLE:YES																PRELEVEL:MIN=6																											DESC:See Text.																						SOURCEPAGE:p.64
+Market					CATEGORY:FEAT		TYPE:General.Trader								VISIBLE:YES																			PRESKILL:1,TYPE.Profession=2,Profession=2																				DESC:See Text.																						SOURCEPAGE:p.65
 #Comment: Made Profession and TYPE.Profession
-Master Artificer				CATEGORY:FEAT	TYPE:General									VISIBLE:YES																							PRESKILL:2,Craft (Electronic)=8,Craft (Mechanical)=8																		DESC:See Text.																	SOURCEPAGE:p.65
-Master Mechanic				CATEGORY:FEAT	TYPE:General									VISIBLE:YES																							PRESKILL:1,Repair=8																							DESC:See Text.																	SOURCEPAGE:p.65
-Mounted Archery				CATEGORY:FEAT	TYPE:General.Barbarian								VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Mounted Combat											PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p.66
-Mounted Combat				CATEGORY:FEAT	TYPE:General.Barbarian								VISIBLE:YES																							PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p.66
+Master Artificer				CATEGORY:FEAT		TYPE:General									VISIBLE:YES																			PRESKILL:2,Craft (Electronic)=8,Craft (Mechanical)=8																		DESC:See Text.																						SOURCEPAGE:p.65
+Master Mechanic				CATEGORY:FEAT		TYPE:General									VISIBLE:YES																			PRESKILL:1,Repair=8																							DESC:See Text.																						SOURCEPAGE:p.65
+Mounted Archery				CATEGORY:FEAT		TYPE:General.Barbarian								VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Mounted Combat												PRESKILL:1,Ride=1																								DESC:See Text.																						SOURCEPAGE:p.66
+Mounted Combat				CATEGORY:FEAT		TYPE:General.Barbarian								VISIBLE:YES																			PRESKILL:1,Ride=1																								DESC:See Text.																						SOURCEPAGE:p.66
 #Not in book - use Armor Proficiency (Powered)
 #Powered Armor Operation			CATEGORY:FEAT	TYPE:General.Champion.Mech							VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Advanced Technology											PRESKILL:1,Pilot=4																							DESC:See Text.																	SOURCEPAGE:p.67
-Quick Treatment				CATEGORY:FEAT	TYPE:General.JujuDoc								VISIBLE:YES																							PRESKILL:1,Treat Injury=5																						DESC:See Text.																	SOURCEPAGE:p.68
-Radiation Sense				CATEGORY:FEAT	TYPE:General.JujuDoc.Scholar.Survivalist.Symbiote			VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p.68
-Reactive Shooter				CATEGORY:FEAT	TYPE:General.Guardian.Survivalist						VISIBLE:YES																																											PRESTAT:1,DEX=13				DESC:See Text.																	SOURCEPAGE:p.68
-Ride-By Attack				CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Mounted Combat											PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p.68
-Rip a Clip					CATEGORY:FEAT	TYPE:General.Guardian.Survivalist.Champion				VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Double Tap																																						DESC:See Text.																	SOURCEPAGE:p.68
-Room-Broom					CATEGORY:FEAT	TYPE:General.Guardian								VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Point Blank Shot																																					DESC:See Text.																	SOURCEPAGE:p.68
-Silver Tongue				CATEGORY:FEAT	TYPE:General.Trader								VISIBLE:YES																																											PRESTAT:1,CHA=13				DESC:See Text.																	SOURCEPAGE:p.68
-Spirited Charge				CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Ride-By Attack									PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p.68
-Super-Charismatic				CATEGORY:FEAT	TYPE:General.Scholar								VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p.68
-Suppressive Fire				CATEGORY:FEAT	TYPE:General.Guardian								VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency																													PRESTAT:1,WIS=13				DESC:See Text.																	SOURCEPAGE:p.69
-Trample					CATEGORY:FEAT	TYPE:General									VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Mounted Combat											PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p.69
-Troglodyte					CATEGORY:FEAT	TYPE:General									VISIBLE:YES																				PRELEVEL:MAX=1																											DESC:See Text.																	SOURCEPAGE:p.69
+Quick Treatment				CATEGORY:FEAT		TYPE:General.JujuDoc								VISIBLE:YES																			PRESKILL:1,Treat Injury=5																						DESC:See Text.																						SOURCEPAGE:p.68
+Radiation Sense				CATEGORY:FEAT		TYPE:General.JujuDoc.Scholar.Survivalist.Symbiote			VISIBLE:YES																																													DESC:See Text.																						SOURCEPAGE:p.68
+Reactive Shooter				CATEGORY:FEAT		TYPE:General.Guardian.Survivalist						VISIBLE:YES																																							PRESTAT:1,DEX=13				DESC:See Text.																						SOURCEPAGE:p.68
+Ride-By Attack				CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Mounted Combat												PRESKILL:1,Ride=1																								DESC:See Text.																						SOURCEPAGE:p.68
+Rip a Clip					CATEGORY:FEAT		TYPE:General.Guardian.Survivalist.Champion				VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Double Tap																																						DESC:See Text.																						SOURCEPAGE:p.68
+Room-Broom					CATEGORY:FEAT		TYPE:General.Guardian								VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Point Blank Shot																																					DESC:See Text.																						SOURCEPAGE:p.68
+Silver Tongue				CATEGORY:FEAT		TYPE:General.Trader								VISIBLE:YES																																							PRESTAT:1,CHA=13				DESC:See Text.																						SOURCEPAGE:p.68
+Spirited Charge				CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Ride-By Attack									PRESKILL:1,Ride=1																								DESC:See Text.																						SOURCEPAGE:p.68
+Super-Charismatic				CATEGORY:FEAT		TYPE:General.Scholar								VISIBLE:YES																																													DESC:See Text.																						SOURCEPAGE:p.68
+Suppressive Fire				CATEGORY:FEAT		TYPE:General.Guardian								VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency																													PRESTAT:1,WIS=13				DESC:See Text.																						SOURCEPAGE:p.69
+Trample					CATEGORY:FEAT		TYPE:General									VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Mounted Combat												PRESKILL:1,Ride=1																								DESC:See Text.																						SOURCEPAGE:p.69
+Troglodyte					CATEGORY:FEAT		TYPE:General									VISIBLE:YES																PRELEVEL:MAX=1																											DESC:See Text.																						SOURCEPAGE:p.69
 #Not in book
 #Vehicle Combat				CATEGORY:FEAT	TYPE:General.RdWarrior								VISIBLE:YES								PREABILITY:2,CATEGORY=FEAT,Vehicle Expert,Vehicle Dodge																																			DESC:See Text.																	SOURCEPAGE:p.69
-Vulture					CATEGORY:FEAT	TYPE:General.Scholar.Trader							VISIBLE:YES																																											PRESTAT:1,WIS=13				DESC:See Text.								BONUS:SKILL|Search|4						SOURCEPAGE:p.69
+Vulture					CATEGORY:FEAT		TYPE:General.Scholar.Trader							VISIBLE:YES																																							PRESTAT:1,WIS=13				DESC:See Text.													BONUS:SKILL|Search|4						SOURCEPAGE:p.69
 
-Primitive Technology			CATEGORY:FEAT	TYPE:Technology									VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p.69
-Post-Apocalyptic Technology		CATEGORY:FEAT	TYPE:Technology									VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p.69
-Advanced Technology			CATEGORY:FEAT	TYPE:Technology									VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p.69
+Primitive Technology			CATEGORY:FEAT		TYPE:Technology									VISIBLE:YES																																													DESC:See Text.																						SOURCEPAGE:p.69
+Post-Apocalyptic Technology		CATEGORY:FEAT		TYPE:Technology									VISIBLE:YES																																													DESC:See Text.																						SOURCEPAGE:p.69
+Advanced Technology			CATEGORY:FEAT		TYPE:Technology									VISIBLE:YES																																													DESC:See Text.																						SOURCEPAGE:p.69
 
-Modern Aircraft Discipline		CATEGORY:FEAT	TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																							PRESKILL:3,Craft (Mechanical)=10,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6												DESC:See Text.																	SOURCEPAGE:p.70
-Modern Firearms Discipline		CATEGORY:FEAT	TYPE:TechCraft.Tinker.Mech.Scientist					VISIBLE:YES																							PRESKILL:3,Craft (Mechanical)=8,Knowledge (Physical Sciences)=4,Knowledge (Technology)=4												DESC:See Text.																	SOURCEPAGE:p.70
-Modern Vehicles Discipline		CATEGORY:FEAT	TYPE:TechCraft.Tinker.Mech.Scientist					VISIBLE:YES																							PRESKILL:3,Craft (Mechanical)=8,Knowledge (Physical Sciences)=3,Knowledge (Technology)=3												DESC:See Text.																	SOURCEPAGE:p.70
-Advanced Armor Discipline		CATEGORY:FEAT	TYPE:TechCraft.Mech.Scientist							VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Advanced Electronics Discipline									PRESKILL:4,Craft (Electronic)=13,Craft (Mechanical)=13,Knowledge (Physical Sciences)=6,Knowledge (Technology)=10								DESC:See Text.																	SOURCEPAGE:p.70
-Advanced Electronics Discipline	CATEGORY:FEAT	TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																							PRESKILL:3,Craft (Electronic)=8,Knowledge (Technology)=6,Knowledge (Physical Sciences)=4												DESC:See Text.																	SOURCEPAGE:p.71
-Advanced Pharmaceutical Discipline	CATEGORY:FEAT	TYPE:TechCraft.JujuDoc.Scientist						VISIBLE:YES																							PRESKILL:4,Craft (Pharmaceutical)=13,Knowledge (Earth and Life Sciences)=8,Knowledge (Technology)=8,Treat Injury=10							DESC:See Text.																	SOURCEPAGE:p.71
-Advanced Weapons Discipline		CATEGORY:FEAT	TYPE:TechCraft.Mech.Scientist							VISIBLE:YES								PREABILITY:1,CATEGORY=FEAT,Advanced Electronics Discipline									PRESKILL:4,Craft (Electronic)=13,Craft (Mechanical)=13,Knowledge (Physical Sciences)=6,Knowledge (Technology)=10								DESC:See Text.																	SOURCEPAGE:p.71
+Modern Aircraft Discipline		CATEGORY:FEAT		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																			PRESKILL:3,Craft (Mechanical)=10,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6												DESC:See Text.																						SOURCEPAGE:p.70
+Modern Firearms Discipline		CATEGORY:FEAT		TYPE:TechCraft.Tinker.Mech.Scientist					VISIBLE:YES																			PRESKILL:3,Craft (Mechanical)=8,Knowledge (Physical Sciences)=4,Knowledge (Technology)=4												DESC:See Text.																						SOURCEPAGE:p.70
+Modern Vehicles Discipline		CATEGORY:FEAT		TYPE:TechCraft.Tinker.Mech.Scientist					VISIBLE:YES																			PRESKILL:3,Craft (Mechanical)=8,Knowledge (Physical Sciences)=3,Knowledge (Technology)=3												DESC:See Text.																						SOURCEPAGE:p.70
+Advanced Armor Discipline		CATEGORY:FEAT		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Electronics Discipline									PRESKILL:4,Craft (Electronic)=13,Craft (Mechanical)=13,Knowledge (Physical Sciences)=6,Knowledge (Technology)=10								DESC:See Text.																						SOURCEPAGE:p.70
+Advanced Electronics Discipline	CATEGORY:FEAT		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																			PRESKILL:3,Craft (Electronic)=8,Knowledge (Technology)=6,Knowledge (Physical Sciences)=4												DESC:See Text.																						SOURCEPAGE:p.71
+Advanced Pharmaceutical Discipline	CATEGORY:FEAT		TYPE:TechCraft.JujuDoc.Scientist						VISIBLE:YES																			PRESKILL:4,Craft (Pharmaceutical)=13,Knowledge (Earth and Life Sciences)=8,Knowledge (Technology)=8,Treat Injury=10							DESC:See Text.																						SOURCEPAGE:p.71
+Advanced Weapons Discipline		CATEGORY:FEAT		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Electronics Discipline									PRESKILL:4,Craft (Electronic)=13,Craft (Mechanical)=13,Knowledge (Physical Sciences)=6,Knowledge (Technology)=10								DESC:See Text.																						SOURCEPAGE:p.71
 
 ###Block: Mutant Feats
 # Feat Name			Type			Visible	Required Ability																	Required Feat					Min. nb of Hands	Required Movement Rate	Minimum Size	Required Stat	Required Text				PRETOTALAB		Description		Combat bonus									Bonus to skill							Source Page
-Aerial Maneuverability	CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																											PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.91
-Animal-Friend	CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Fragrance Development	DESC:See Text.	SOURCEPAGE:p.138
-Awesome Blow		CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES																				PREABILITY:2,CATEGORY=FEAT,Power Attack,Improved Bull Rush								PRESIZEGTEQ:L	PRESTAT:1,STR=25										DESC:See Text.																					SOURCEPAGE:p.91
-Constrict			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Gigantism																														PRESTAT:1,STR=18										DESC:See Text.																					SOURCEPAGE:p.91
-Duck				CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism													PREABILITY:1,CATEGORY=FEAT,Dodge															PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.92
-Fly-By Attack		CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																							DESC:See Text.																					SOURCEPAGE:p.92
-Hover				CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES																														PREMOVE:1,Fly=1																	DESC:See Text.																					SOURCEPAGE:p.92
-Horn Charge			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development																																							DESC:See Text.																					SOURCEPAGE:p.92
-Improved Grab		CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development,Claws,Serrated Dental Development																					PRESTAT:1,STR=17										DESC:See Text.																					SOURCEPAGE:p.92
-Improved Multiattack	CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES																				PREABILITY:1,CATEGORY=FEAT,Multiattack																	PRETEXT:3 or more natural weapons				DESC:See Text.																					SOURCEPAGE:p.92
-Irradiated			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Radiation Immunity																																								DESC:See Text.																					SOURCEPAGE:p.92
-Leaper			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																						PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.92
-MultiWeapon Fighting	CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES																											PREHANDSGTEQ:3																				DESC:See Text.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6										SOURCEPAGE:p.93
-Natural Armor Expertise	CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant EndoSkeletal Casing,Dermal Spike Growth,Protective Dermal Development																		PRESTAT:1,INT=13										DESC:See Text.																					SOURCEPAGE:p.93
-Plague Carrier		CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Accumulated Resistance																																								DESC:See Text.																					SOURCEPAGE:p.93
-Power Dive			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																				PRETOTALAB:5	DESC:See Text.																					SOURCEPAGE:p.93
-Pounce			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																						PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.93
-Rend				CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Claws																														PRESTAT:1,STR=16										DESC:See Text.																					SOURCEPAGE:p.93
-Spineless			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Abnormal Joint Flexibility,Elongation																																					DESC:See Text.												BONUS:SKILL|Escape Artist|4					SOURCEPAGE:p.93
-Strong Flyer		CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																											PRESTAT:1,STR=15										DESC:See Text.																					SOURCEPAGE:p.93
-Stunning Boom	CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Shriek	DESC:See Text.	SOURCEPAGE:p.141
-Surefooted			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism																																										DESC:See Text.												BONUS:SKILL|Climb,Jump,Move Silently|2|TYPE=Racial	SOURCEPAGE:p.94
-Tearing Bite		CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Serrated Dental Development																																							DESC:See Text.																					SOURCEPAGE:p.94
-Wingover			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES																														PREMOVE:1,Fly=1																	DESC:See Text.																					SOURCEPAGE:p.94
-Withstand			CATEGORY:FEAT	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Increased Body Density,Skeletal Fortification																																				DESC:See Text.																					SOURCEPAGE:p.94
+# Ability Name		Category of Ability	Type			Visible	Required Ability																	Min. nb of Hands	Required Movement Rate	Minimum Size	Required Stat	Required Text				PRETOTALAB		Description		Combat bonus									Bonus to skill							Source Page
+Aerial Maneuverability	CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																				PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.91
+Animal-Friend		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Fragrance Development																																	DESC:See Text.																					SOURCEPAGE:p.138
+Awesome Blow		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:2,CATEGORY=FEAT,Power Attack,Improved Bull Rush																	PRESIZEGTEQ:L	PRESTAT:1,STR=25										DESC:See Text.																					SOURCEPAGE:p.91
+Constrict			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Gigantism																							PRESTAT:1,STR=18										DESC:See Text.																					SOURCEPAGE:p.91
+Duck				CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism	PREABILITY:1,CATEGORY=FEAT,Dodge																	PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.92
+Fly-By Attack		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																DESC:See Text.																					SOURCEPAGE:p.92
+Hover				CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES																							PREMOVE:1,Fly=1																	DESC:See Text.																					SOURCEPAGE:p.92
+Horn Charge			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development																																DESC:See Text.																					SOURCEPAGE:p.92
+Improved Grab		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development,Claws,Serrated Dental Development														PRESTAT:1,STR=17										DESC:See Text.																					SOURCEPAGE:p.92
+Improved Multiattack	CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Multiattack																										PRETEXT:3 or more natural weapons				DESC:See Text.																					SOURCEPAGE:p.92
+Irradiated			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Radiation Immunity																																	DESC:See Text.																					SOURCEPAGE:p.92
+Leaper			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity															PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.92
+MultiWeapon Fighting	CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES																				PREHANDSGTEQ:3																				DESC:See Text.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6										SOURCEPAGE:p.93
+Natural Armor Expertise	CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant EndoSkeletal Casing,Dermal Spike Growth,Protective Dermal Development											PRESTAT:1,INT=13										DESC:See Text.																					SOURCEPAGE:p.93
+Plague Carrier		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Accumulated Resistance																																	DESC:See Text.																					SOURCEPAGE:p.93
+Power Dive			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																													PRETOTALAB:5	DESC:See Text.																					SOURCEPAGE:p.93
+Pounce			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity															PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p.93
+Rend				CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Claws																							PRESTAT:1,STR=16										DESC:See Text.																					SOURCEPAGE:p.93
+Spineless			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Abnormal Joint Flexibility,Elongation																														DESC:See Text.												BONUS:SKILL|Escape Artist|4					SOURCEPAGE:p.93
+Strong Flyer		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																				PRESTAT:1,STR=15										DESC:See Text.																					SOURCEPAGE:p.93
+Stunning Boom		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Shriek																																			DESC:See Text.																					SOURCEPAGE:p.141
+Surefooted			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism																																			DESC:See Text.												BONUS:SKILL|Climb,Jump,Move Silently|2|TYPE=Racial	SOURCEPAGE:p.94
+Tearing Bite		CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Serrated Dental Development																																DESC:See Text.																					SOURCEPAGE:p.94
+Wingover			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES																							PREMOVE:1,Fly=1																	DESC:See Text.																					SOURCEPAGE:p.94
+Withstand			CATEGORY:FEAT		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Increased Body Density,Skeletal Fortification																													DESC:See Text.																					SOURCEPAGE:p.94
 
-Multiattack			CATEGORY:FEAT	TYPE:MutantFeat	DESC:Missing
+Multiattack			CATEGORY:FEAT		TYPE:MutantFeat																																												DESC:Missing
 
 ###Block: Neural Feats - Precognition
 # Feat Name	Type	Visible	Required Ability	Required Feat	Description	Source Page
-Battle Plan	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:2,CATEGORY=FEAT,Foresight,Precognitive Combat	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.94	
-Clairaudience	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PRESKILL:1,Concentration=3	DESC:See Text.	
-Clairvoyance	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PRESKILL:1,Concentration=3	DESC:See Text.	
-Danger Sense	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.95	
-Foresight	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PRESKILL:1,Concentration=3	DESC:See Text.	
-Precognitive Combat	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97	
-Precognitive Dodge	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97	
-Precognitive Reflexes	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97	
-Perceive Danger	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:2,CATEGORY=FEAT,Foresight,Danger Sense	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97	
-Perceive Outcome	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97	
-Second Chance	CATEGORY:FEAT	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:2,CATEGORY=FEAT,Foresight,Perceive Outcome	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.98	
+# Ability Name		Category of Ability	Type					Visible	Required Ability																			Required Skill			Description		Source Page
+Battle Plan			CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:2,CATEGORY=FEAT,Foresight,Precognitive Combat	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.94
+Clairaudience		CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition											PRESKILL:1,Concentration=3	DESC:See Text.
+Clairvoyance		CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition											PRESKILL:1,Concentration=3	DESC:See Text.
+Danger Sense		CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight				PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.95
+Foresight			CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition											PRESKILL:1,Concentration=3	DESC:See Text.
+Precognitive Combat	CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight				PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97
+Precognitive Dodge	CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight				PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97
+Precognitive Reflexes	CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight				PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97
+Perceive Danger		CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:2,CATEGORY=FEAT,Foresight,Danger Sense		PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97
+Perceive Outcome		CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:1,CATEGORY=FEAT,Foresight				PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97
+Second Chance		CATEGORY:FEAT		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREABILITY:2,CATEGORY=FEAT,Foresight,Perceive Outcome		PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.98
 
 ###Block: Neural Feats - Telekinesis
 # Feat Name	Type	Visible	Required Ability	Required Feat	Description	Source Page
-Levitation	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:2,CATEGORY=FEAT,Telekinetic Hand,Telekinetic Mastery	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.96	
-Rain of Objects	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=3	DESC:See Text.	SOURCEPAGE:p.98	
-Telekinetic Mastery	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.98	
-Telekinetic Throw	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:3,CATEGORY=FEAT,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.98	
-Telekinetic Disarm	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.98	
-Telekinetic Guide	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PRESKILL:1,Concentration=3	DESC:See Text.	
-Telekinetic Hand	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PRESKILL:1,Concentration=3	DESC:See Text.	
-Telekinetic Hand II	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.99	
-Telekinetic Punch	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.99	
-Telekinetic Shield	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PRESKILL:1,Concentration=3	DESC:See Text.	
-Telekinetic Shield II	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PRESKILL:1,Concentration=5	DESC:See Text.	
-Telekinetic Slam	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:2,CATEGORY=FEAT,Telekinetic Hand,Telekinetic Punch	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.99	
-Telekinetic Sword	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.100	
-Telekinetic Sword II	CATEGORY:FEAT	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.100	
+# Ability Name		Category of Ability	Type					Visible	Required Ability																							Required Skill			Description		Source Page
+Levitation			CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:2,CATEGORY=FEAT,Telekinetic Hand,Telekinetic Mastery				PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.96
+Rain of Objects		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=3	DESC:See Text.	SOURCEPAGE:p.98
+Telekinetic Mastery	CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.98
+Telekinetic Throw		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:3,CATEGORY=FEAT,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.98
+Telekinetic Disarm	CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.98
+Telekinetic Guide		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis															PRESKILL:1,Concentration=3	DESC:See Text.
+Telekinetic Hand		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis															PRESKILL:1,Concentration=3	DESC:See Text.
+Telekinetic Hand II	CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.99
+Telekinetic Punch		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.99
+Telekinetic Shield	CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis															PRESKILL:1,Concentration=3	DESC:See Text.
+Telekinetic Shield II	CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis															PRESKILL:1,Concentration=5	DESC:See Text.
+Telekinetic Slam		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:2,CATEGORY=FEAT,Telekinetic Hand,Telekinetic Punch				PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.99
+Telekinetic Sword		CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.100
+Telekinetic Sword II	CATEGORY:FEAT		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREABILITY:1,CATEGORY=FEAT,Telekinetic Hand							PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.100
 
 ###Block: Neural Feats - Telepathy
 # Feat Name	Type	Visible	Required Ability	Required Feat	Description	Source Page
-Anxiety Trigger	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PRESKILL:1,Concentration=3	DESC:See Text.	
-Attraction Trigger	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PRESKILL:1,Concentration=3	DESC:See Text.	
-Charm Person	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Attraction Trigger	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.95	
-Domination	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:2,CATEGORY=FEAT,Attraction Trigger,Charm Person	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.95	
-Fight Trigger	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Anxiety Trigger	PRESKILL:1,Concentration=3	DESC:See Text.	SOURCEPAGE:p.95	
-Flight Trigger	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PRESKILL:1,Concentration=3	DESC:See Text.	
-Lie Detector	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Mental Communication	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.96	
-Mental Communication	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PRESKILL:1,Concentration=3	DESC:See Text.	
-Mind Stun	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PRESKILL:1,Concentration=3	DESC:See Text.	
-Mind Blast	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Mind Stun	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.96	
-Mind Strike	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Mind Stun	PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97	
-Mind Crush	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:2,CATEGORY=FEAT,Mind Stun,Mind Strike	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97	
-Psychic Interrogation	CATEGORY:FEAT	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:3,CATEGORY=FEAT,Telepathy,Mental Communication,Lie Detector	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97	
+# Ability Name		Category of Ability	Type					Visible	Required Ability																				Required Skill			Description		Source Page
+Anxiety Trigger		CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													PRESKILL:1,Concentration=3	DESC:See Text.
+Attraction Trigger	CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													PRESKILL:1,Concentration=3	DESC:See Text.
+Charm Person		CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Attraction Trigger					PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.95
+Domination			CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:2,CATEGORY=FEAT,Attraction Trigger,Charm Person			PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.95
+Fight Trigger		CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Anxiety Trigger					PRESKILL:1,Concentration=3	DESC:See Text.	SOURCEPAGE:p.95
+Flight Trigger		CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													PRESKILL:1,Concentration=3	DESC:See Text.
+Lie Detector		CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Mental Communication					PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.96
+Mental Communication	CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													PRESKILL:1,Concentration=3	DESC:See Text.
+Mind Stun			CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													PRESKILL:1,Concentration=3	DESC:See Text.
+Mind Blast			CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Mind Stun						PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.96
+Mind Strike			CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:1,CATEGORY=FEAT,Mind Stun						PRESKILL:1,Concentration=5	DESC:See Text.	SOURCEPAGE:p.97
+Mind Crush			CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:2,CATEGORY=FEAT,Mind Stun,Mind Strike				PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97
+Psychic Interrogation	CATEGORY:FEAT		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy	PREABILITY:3,CATEGORY=FEAT,Telepathy,Mental Communication,Lie Detector	PRESKILL:1,Concentration=8	DESC:See Text.	SOURCEPAGE:p.97
 
 #
 # EoF

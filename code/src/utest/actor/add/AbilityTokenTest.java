@@ -126,9 +126,9 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 			e.printStackTrace();
 			fail();
 		}
+		finishLoad(context);
 		PlayerCharacter pc = new PlayerCharacter();
 		Object source = UserSelection.getInstance();
-		finishLoad(context);
 		
 		CNAbilitySelection badCACAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
 		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, item), "Foo");

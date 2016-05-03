@@ -104,7 +104,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	@Test
 	public void testTypeUnsetZeroCount()
 	{
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 	}
 
 	@Test
@@ -186,14 +186,14 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source1 = new Object();
 		CNAbilitySelection t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
 		assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertEquals(0, getFacet().size(altid));
+		assertEquals(0, getFacet().getCount(altid));
 		assertTrue(getFacet().isEmpty(altid));
 		assertNotNull(getFacet().getSet(altid));
 		assertTrue(getFacet().getSet(altid).isEmpty());
@@ -205,7 +205,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source1 = new Object();
 		CNAbilitySelection t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -213,7 +213,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -228,7 +228,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source2 = new Object();
 		CNAbilitySelection t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -236,7 +236,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		getFacet().add(id, t1, source2);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -250,7 +250,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source1 = new Object();
 		CNAbilitySelection t1 = getMultObject("English");
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		Collection<CNAbilitySelection> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
@@ -259,7 +259,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertEventCount(1, 0);
 		CNAbilitySelection t2 = getMultObject("German");
 		getFacet().add(id, t2, source1);
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		Collection<CNAbilitySelection> setoftwo = getFacet().getSet(id);
 		assertNotNull(setoftwo);
@@ -296,7 +296,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source1 = new Object();
 		CNAbilitySelection t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -305,7 +305,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source2 = new Object();
 		getFacet().remove(id, t1, source2);
 		// No change (wrong source)
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -319,7 +319,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source1 = new Object();
 		CNAbilitySelection t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -327,7 +327,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertEventCount(1, 0);
 		// Remove
 		getFacet().remove(id, t1, source1);
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertTrue(getFacet().getSet(id).isEmpty());
@@ -340,7 +340,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		Object source1 = new Object();
 		CNAbilitySelection t1 = getMultObject("English");
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -348,7 +348,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertEventCount(1, 0);
 		// Useless Remove
 		getFacet().remove(id, getMultObject("German"), source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertNotNull(getFacet().getSet(id));
 		assertEquals(1, getFacet().getSet(id).size());
@@ -365,7 +365,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
 		getFacet().remove(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		Collection<CNAbilitySelection> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
@@ -386,7 +386,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			set.add(t2);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().size(id));
+			assertEquals(1, getFacet().getCount(id));
 			assertFalse(getFacet().isEmpty(id));
 			assertNotNull(getFacet().getSet(id));
 			assertEquals(1, getFacet().getSet(id).size());
@@ -400,7 +400,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			set.remove(t1);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().size(id));
+			assertEquals(1, getFacet().getCount(id));
 			assertFalse(getFacet().isEmpty(id));
 			assertNotNull(getFacet().getSet(id));
 			assertEquals(1, getFacet().getSet(id).size());
@@ -417,7 +417,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			set.addAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().size(id));
+			assertEquals(1, getFacet().getCount(id));
 			assertFalse(getFacet().isEmpty(id));
 			assertNotNull(getFacet().getSet(id));
 			assertEquals(1, getFacet().getSet(id).size());
@@ -431,7 +431,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			set.removeAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().size(id));
+			assertEquals(1, getFacet().getCount(id));
 			assertFalse(getFacet().isEmpty(id));
 			assertNotNull(getFacet().getSet(id));
 			assertEquals(1, getFacet().getSet(id).size());
@@ -445,7 +445,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			set.retainAll(new ArrayList<CNAbilitySelection>());
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().size(id));
+			assertEquals(1, getFacet().getCount(id));
 			assertFalse(getFacet().isEmpty(id));
 			assertNotNull(getFacet().getSet(id));
 			assertEquals(1, getFacet().getSet(id).size());
@@ -460,7 +460,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			set.clear();
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().size(id));
+			assertEquals(1, getFacet().getCount(id));
 			assertFalse(getFacet().isEmpty(id));
 			assertNotNull(getFacet().getSet(id));
 			assertEquals(1, getFacet().getSet(id).size());
@@ -489,10 +489,10 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		CNAbilitySelection t2 = getMultObject("German");
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
-		assertEquals(2, getFacet().size(id));
-		assertEquals(0, getFacet().size(altid));
+		assertEquals(2, getFacet().getCount(id));
+		assertEquals(0, getFacet().getCount(altid));
 		getFacet().copyContents(id, altid);
-		assertEquals(2, getFacet().size(altid));
+		assertEquals(2, getFacet().getCount(altid));
 		assertFalse(getFacet().isEmpty(altid));
 		Collection<CNAbilitySelection> setoftwo = getFacet().getSet(altid);
 		assertNotNull(setoftwo);
@@ -501,14 +501,14 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertTrue(setoftwo.contains(t2));
 		// Prove independence (remove from id)
 		getFacet().remove(id, t1, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		Collection<CNAbilitySelection> setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t2));
 
-		assertEquals(2, getFacet().size(altid));
+		assertEquals(2, getFacet().getCount(altid));
 		assertFalse(getFacet().isEmpty(altid));
 		setoftwo = getFacet().getSet(altid);
 		assertNotNull(setoftwo);
@@ -518,14 +518,14 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		// Prove Independence (remove from altid)
 
 		getFacet().remove(altid, t2, source1);
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		setofone = getFacet().getSet(id);
 		assertNotNull(setofone);
 		assertEquals(1, setofone.size());
 		assertTrue(setofone.contains(t2));
 
-		assertEquals(1, getFacet().size(altid));
+		assertEquals(1, getFacet().getCount(altid));
 		assertFalse(getFacet().isEmpty(altid));
 		setofone = getFacet().getSet(altid);
 		assertNotNull(setofone);
@@ -538,7 +538,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility nomultCNA = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		Ability trickster = new Ability();
 		trickster.setName("NoMult");
@@ -549,18 +549,18 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		CNAbilitySelection cnas2 = new CNAbilitySelection(othernomultCNA);
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().add(id, cnas2, source1));
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		//Useless remove
 		assertFalse(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//Now a real remove
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		//Useless remove
 		assertFalse(getFacet().remove(id, cnas2, source1));
@@ -571,7 +571,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility nomultCNA = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		CNAbility othernomultCNA =
 				CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, othernomult);
@@ -579,14 +579,14 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		CNAbilitySelection cnas2 = new CNAbilitySelection(othernomultCNA);
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().add(id, cnas2, source1));
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -595,7 +595,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility normal = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		CNAbility virtual = CNAbilityFactory.getCNAbility(feat, Nature.VIRTUAL, nomult);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(normal);
@@ -603,27 +603,27 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//LIFO
 		assertFalse(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//FIFO
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -632,91 +632,91 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(fighterfeat, Nature.NORMAL, nomult);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(n1);
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2);
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//LIFO
 		assertFalse(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//FIFO
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		CNAbility virtual = CNAbilityFactory.getCNAbility(fighterfeat, Nature.VIRTUAL, nomult);
 		CNAbilitySelection cnas3 = new CNAbilitySelection(virtual);
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas3, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//LIFO
 		assertFalse(getFacet().remove(id, cnas3, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas3, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//FIFO
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas3, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		//Three, Midoutfirst
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().add(id, cnas2, source1));
 		assertFalse(getFacet().add(id, cnas3, source1));
 		assertFalse(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas3, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		//Test different source (LIFO)
 		Object source2 = new Object();
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().add(id, cnas1, source2));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().remove(id, cnas1, source2));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		//Test different source (FIFO - counter-intuitive)
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().add(id, cnas1, source2));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//Note: This is FALSE since the CNAS didn't change - don't want to fire an event
 		assertFalse(getFacet().remove(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas1, source2));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -725,7 +725,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		//Note: This is also an identity tests
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
@@ -733,28 +733,28 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2, "English");
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//LIFO
 		assertFalse(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().add(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//FIFO
 		//This assertFalse is the identity test, since it *actually* removes cnas2 and thus returns false
 		assertFalse(getFacet().remove(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -763,21 +763,21 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(n1, "English");
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2, "German");
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().add(id, cnas2, source1));
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -786,21 +786,21 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility normal = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbility virtual = CNAbilityFactory.getCNAbility(feat, Nature.VIRTUAL, multyes);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(normal, "English");
 		CNAbilitySelection cnas2 = new CNAbilitySelection(virtual, "German");
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().add(id, cnas2, source1));
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -809,21 +809,21 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(n1, "English");
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2, "German");
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().add(id, cnas2, source1));
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -832,21 +832,21 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(n1, "English");
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2, "English");
 		assertTrue(getFacet().add(id, cnas1, source1));
 		assertFalse(getFacet().isEmpty(id));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertTrue(getFacet().add(id, cnas2, source1));
-		assertEquals(2, getFacet().size(id));
+		assertEquals(2, getFacet().getCount(id));
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		assertFalse(getFacet().isEmpty(id));
 		assertTrue(getFacet().remove(id, cnas1, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 
@@ -855,7 +855,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	{
 		Object source1 = new Object();
 		assertTrue(getFacet().isEmpty(id));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbility ff = CNAbilityFactory.getCNAbility(fighterfeat, Nature.NORMAL, stackyes);
@@ -866,13 +866,13 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		CNAbilitySelection cnas4 = new CNAbilitySelection(ff, "English");
 		//Check identity is .equals not ==
 		assertTrue(getFacet().add(id, cnas1, source1));
-		assertEquals(1, getFacet().size(id));
+		assertEquals(1, getFacet().getCount(id));
 		//Avoid false positives;
 		assertFalse(getFacet().remove(id, cnas3, source1));
 		assertFalse(getFacet().remove(id, cnas4, source1));
 		//Should succeed (.equals identity)
 		assertTrue(getFacet().remove(id, cnas2, source1));
-		assertEquals(0, getFacet().size(id));
+		assertEquals(0, getFacet().getCount(id));
 		assertTrue(getFacet().isEmpty(id));
 	}
 

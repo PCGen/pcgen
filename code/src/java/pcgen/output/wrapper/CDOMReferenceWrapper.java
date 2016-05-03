@@ -18,9 +18,12 @@
 package pcgen.output.wrapper;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.output.library.ObjectWrapperLibrary;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.PCGenObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -28,19 +31,23 @@ import freemarker.template.TemplateModelException;
  * A CNAbilitySelectionWrapper is an ObjectWrapper capable of producing a
  * TemplateModel for CDOMReference objects.
  */
-public class CDOMReferenceWrapper implements ObjectWrapper
+public class CDOMReferenceWrapper implements PCGenObjectWrapper
 {
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
+	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o)
+		throws TemplateModelException
 	{
 		if (o instanceof CDOMSingleRef)
 		{
 			CDOMSingleRef<?> ref = (CDOMSingleRef<?>) o;
-			Object obj = ref.resolvesTo();
-			return ObjectWrapperLibrary.getInstance().wrap(obj);
+			return WRAPPER_FACET.wrap(id, ref.get());
 		}
 		if (o instanceof CDOMReference)
 		{
@@ -51,7 +58,7 @@ public class CDOMReferenceWrapper implements ObjectWrapper
 			 * Need a Model?
 			 */
 			String lstFormat = ref.getLSTformat(true);
-			return ObjectWrapper.SIMPLE_WRAPPER.wrap(lstFormat);
+			return SimpleWrapperLibrary.wrap(lstFormat);
 		}
 		throw new TemplateModelException("Object was not a CDOMReference");
 	}

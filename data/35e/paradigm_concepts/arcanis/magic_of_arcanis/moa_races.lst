@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
@@ -24,8 +24,8 @@ Humanoid Clockwork Construct		SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvisi
 
 
 ###Block: Constructs
-# Race Name				Size		Move			Face/Space	Reach		Vision						Combat bonus					Stat bonus									Auto Feat				Ability																			Natural Attacks									Spell Res.	Damage Reduction	Monster Class Name and Starting Level	Main Race Type		Hit Dice Advancement		Challenge Rating	Source Page		Apply Kit
-Myrantian Assassin-Golem	SIZE:M	MOVE:Walk,50	FACE:5	REACH:5								BONUS:COMBAT|AC|5|TYPE=NaturalArmor		BONUS:STAT|STR|6	BONUS:STAT|DEX|14	BONUS:STAT|INT|8							ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage|Assassin ~ Death Attack|Evasion|Extendable Reach|Sneak Attack	NATURALATTACKS:Rapier-Arms,Weapon.Natural.Piercing,2,2d6				DR:5/Adamantine	MONSTERCLASS:Construct:10			RACETYPE:Construct	HITDICEADVANCEMENT:20		CR:7			SOURCEPAGE:p.222	KIT:1|Myrantian Assassin-Golem
+# Race Name				Size		Move			Face/Space	Reach		Vision						Combat bonus					Stat bonus									Ability																										Natural Attacks									Spell Res.	Damage Reduction	Monster Class Name and Starting Level	Main Race Type		Hit Dice Advancement		Challenge Rating	Source Page		Apply Kit
+Myrantian Assassin-Golem	SIZE:M	MOVE:Walk,50	FACE:5	REACH:5								BONUS:COMBAT|AC|5|TYPE=NaturalArmor		BONUS:STAT|STR|6	BONUS:STAT|DEX|14	BONUS:STAT|INT|8		ABILITY:Special Ability|AUTOMATIC|Assassin ~ Death Attack|Evasion|Extendable Reach|Ranger ~ Camouflage|Sneak Attack								NATURALATTACKS:Rapier-Arms,Weapon.Natural.Piercing,2,2d6				DR:5/Adamantine	MONSTERCLASS:Construct:10			RACETYPE:Construct	HITDICEADVANCEMENT:20		CR:7			SOURCEPAGE:p.222	KIT:1|Myrantian Assassin-Golem
 Sarishan Guardian			SIZE:L	MOVE:Walk,30	FACE:10	REACH:10	VISION:Darkvision (60')|Low-Light Vision	BONUS:COMBAT|AC|15|TYPE=NaturalArmor	BONUS:STAT|STR|12	BONUS:STAT|DEX|6	BONUS:STAT|CHA|-10	ABILITY:FEAT|AUTOMATIC|Combat Reflexes	ABILITY:Special Ability|AUTOMATIC|Block|Construct Traits|Fast Healing 5|Guard|Knockback|Riposte|Stabilize|Standstill	NATURALATTACKS:Slam,Weapon.Melee.Natural.Bludgeoning,*2,1d10	SR:TL+12				MONSTERCLASS:Construct (Mindless):13	RACETYPE:Construct	HITDICEADVANCEMENT:24,45	CR:8			SOURCEPAGE:p.222	KIT:1|Sarishan Guardian
 
 

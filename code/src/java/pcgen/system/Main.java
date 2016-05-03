@@ -43,8 +43,8 @@ import org.apache.commons.lang.SystemUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.CustomData;
-import pcgen.facade.core.UIDelegate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
+import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
@@ -148,7 +148,7 @@ public final class Main
 				+ PCGenPropBundle.getSvnRevisionString());
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
-		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
+		configFactory = new PropertyContextFactory(getConfigPath());
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 
 		parseCommands(args);
@@ -164,6 +164,24 @@ public final class Main
 			
 			shutdown();
 		}
+	}
+
+	static String getConfigPath()
+	{
+		String aPath;
+
+		// First see if it was specified on the command line
+		aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
+		if (aPath != null) {
+			File testPath=new File(aPath);
+			// Then make sure it's an existing folder
+			if (testPath.exists() && testPath.isDirectory())
+			{
+				return aPath;
+			}
+		}
+		// Otherwise return user dir
+		return SystemUtils.USER_DIR;
 	}
 
 	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)

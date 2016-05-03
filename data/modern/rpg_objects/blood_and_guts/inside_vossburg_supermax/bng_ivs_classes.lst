@@ -1,29 +1,29 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Inside Vossberg Supermax	SOURCESHORT:BnG-IVS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=45	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Banger	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
-# Class Name	Required Feat			Required Skill				Required Text						PRETOTALAB
+# Class Name	Required Ability						Required Skill				Required Text						PRETOTALAB
 CLASS:Banger	PREABILITY:2,CATEGORY=FEAT,Home Turf,Brawl	PRESKILL:1,Knowledge (Streetwise)=6	PRETEXT:Must have Blood In Blood Out allegiance	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Banger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Drive|Gamble|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|Sense Motive|Spot
 1	SAB:Gang Signs
 2	SAB:Street Cred
 3	SAB:Turf +%|Turf	BONUS:VAR|Turf|CL/3			DEFINE:Turf|0
-4													ADD:FEAT|TYPE=Banger
+4													ADD:ABILITY|FEAT|NORMAL|TYPE=Banger
 5	SAB:Contraband	BONUS:VAR|WealthBonus|Reputation
 7	SAB:Commission
-8													ADD:FEAT|TYPE=Banger
+8													ADD:ABILITY|FEAT|NORMAL|TYPE=Banger
 10	SAB:Ganglord
 
 # Class Name						Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:US Marshals Special Operations Group	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
-# Class Name						Required Feat								Required Skill							PRETOTALAB
+# Class Name						Required Ability											Required Skill							PRETOTALAB
 CLASS:US Marshals Special Operations Group	PREABILITY:3,CATEGORY=FEAT,Alertness,Personal Firearms Proficiency,Teamwork	PRESKILL:3,Investigate=5,Spot=3,Gather Information=3	PRETOTALAB:5
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:US Marshals Special Operations Group	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Diplomacy|Disguise|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Research|Search|Sense Motive|Spot
 1	SAB:Federal Jurisdiction
-2																													ABILITY:FEAT|AUTOMATIC|Police Combat Training
+2																				ABILITY:FEAT|AUTOMATIC|Police Combat Training
 3	SAB:Hard Target Search +%|HardTargetSearch	BONUS:VAR|HardTargetSearch|(CL-2)/3	DEFINE:HardTargetSearch|0
 4	SAB:Harm's Way
 5									BONUS:VAR|DefensivePosition|CL/4						ABILITY:Special Ability|AUTOMATIC|Defensive Position

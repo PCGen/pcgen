@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 
 # Class of the Master	Type				Special ABility							Adjust PC Size		Add
-FOLLOWER:CompanionLVL=1	TYPE:Companion Mod	SAB:This Companion Mod Works									ADD:FEAT|Add Feat CompanionMod
+FOLLOWER:CompanionLVL=1	TYPE:Companion Mod	SAB:This Companion Mod Works									ADD:ABILITY|FEAT|NORMAL|Add Feat CompanionMod
 FOLLOWER:CompanionLvl=2	TYPE:Animal Companion	SAB:If this is working I should see this message.	BONUS:SIZEMOD|NUMBER|1
 
 
-# Race of familiar		Type				Add 						Spell Res.
-MASTERBONUSRACE:Companion	TYPE:Companion Mod	ADD:FEAT|Add Feat Master Bonus Race	SR:10+TL
+# Race of familiar		Type				Add									Spell Res.
+MASTERBONUSRACE:Companion	TYPE:Companion Mod	ADD:ABILITY|FEAT|NORMAL|Add Feat Master Bonus Race	SR:10+TL
 
 
 ###Block: Special Mount Progression

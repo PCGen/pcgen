@@ -1,0 +1,11 @@
+# CVS $Revision: 21418 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Companions
+# Race Name					!PRECHARACTERTYPE		Type
+Companion (Elephant (Mastodon)).MOD	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Companion (Herd Animal (Bison)).MOD	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+
+#
+# End
+#

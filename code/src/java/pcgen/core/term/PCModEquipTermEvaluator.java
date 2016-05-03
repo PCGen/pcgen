@@ -26,7 +26,11 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
+import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.io.exporttoken.EqToken;
+import pcgen.util.Logging;
 
 public class PCModEquipTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -42,7 +46,60 @@ public class PCModEquipTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.modToFromEquipment(modEq);
+		return (float) process(pc);
+	}
+
+	private int process(PlayerCharacter pc)
+	{
+		if (modEq.equals("AC"))
+		{
+			return pc.modToACFromEquipment();
+		}
+		if (modEq.equals("ACCHECK"))
+		{
+			if (pc.hasControl(CControl.PCACCHECK))
+			{
+				Logging
+					.errorPrint("Term MODEQUIPACCHECK is not supported "
+						+ "when PCACCHECK code control is used");
+			}
+			else
+			{
+				return pc.processOldAcCheck();
+			}
+		}
+		if (modEq.equals("MAXDEX"))
+		{
+			if (pc.hasControl(CControl.PCMAXDEX))
+			{
+				Logging
+					.errorPrint("Term MODEQUIPMAXDEX is not supported "
+						+ "when PCMAXDEX code control is used");
+			}
+			else
+			{
+				return pc.processOldMaxDex();
+			}
+		}
+		if (modEq.equals("SPELLFAILURE"))
+		{
+			if (pc.hasControl(CControl.PCSPELLFAILURE))
+			{
+				Logging
+					.errorPrint("Term MODEQUIPSPELLFAILURE is not supported "
+						+ "when PCSPELLFAILURE code control is used");
+			}
+			else
+			{
+				int bonus = 0;
+				for (Equipment eq : pc.getEquippedEquipmentSet())
+				{
+					bonus += EqToken.getSpellFailureTokenInt(pc, eq);
+				}
+				return bonus + (int) pc.getTotalBonusTo("MISC", "SPELLFAILURE");
+			}
+		}
+		return 0;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus
@@ -6,9 +6,9 @@ CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:COMBAT|BASE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Intimidate|Jump|Ride|Sense Motive|Survival|Swim
 1																			ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1																																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1																			ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	BONUS:ABILITYPOOL|Weapon Focus|1
-2																												ABILITY:FEAT|VIRTUAL|Improved Feint
+2																			ABILITY:FEAT|VIRTUAL|Improved Feint
 3							BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3	ABILITY:Special Ability|AUTOMATIC|Color of Money
 4	BONUS:ABILITYPOOL|Fighter Feat|1
 7																			ABILITY:Special Ability|AUTOMATIC|Mercenary's Revenge

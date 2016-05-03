@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
+
+# Deity Name	Domains										Description of Deity/Title					FACT			Deity Weapon			Align
+Apollo		DOMAINS:Art,Good,Knowledge,Travel|PREALIGN:NG,CG,CN			DESC:Worshippers: artists, xcrawlers, bards		FACT:Symbol|None	DEITYWEAP:Dagger			ALIGN:CG
+Bacchus		DOMAINS:Chaos,Good,Wine|PREALIGN:LG,NG,CG					DESC:Worshippers: decadents, brewers			FACT:Symbol|None						ALIGN:NG
+Ceres			DOMAINS:Fertility,Good,Healing,Plant|PREALIGN:LN,NG,TN,NE,CE	DESC:Worshippers: mothers, farmers				FACT:Symbol|None	DEITYWEAP:Sickle			ALIGN:TN
+Charities		DOMAINS:Good,Healing,Magic|PREALIGN:LG,NG,CG				DESC:Worshippers: wizards, sorcerers			FACT:Symbol|None	DEITYWEAP:Mace			ALIGN:NG
+Cupid			DOMAINS:Chaos,Love,Luck|PREALIGN:CG,CN,CE					DESC:Worshippers: lovers, romantics				FACT:Symbol|None	DEITYWEAP:Longbow			ALIGN:CN
+Diana			DOMAINS:Law,Plant,Protection|PREALIGN:LG,LN,LE				DESC:Worshippers: rangers, centaurs				FACT:Symbol|None	DEITYWEAP:Longbow			ALIGN:LN
+Discordia		DOMAINS:Evil,Magic,Trickery|PREALIGN:NE,CN,CE				DESC:Worshippers: villians, corrupt officials		FACT:Symbol|None	DEITYWEAP:Whip			ALIGN:CE
+Faunis		DOMAINS:Animal,Chaos,Fate|PREALIGN:CG,CN,CE				DESC:Worshippers: gamblers, rogues				FACT:Symbol|None	DEITYWEAP:Crossbow (Light)	ALIGN:CN
+Fortuna		DOMAINS:Chaos,Healing,Luck|PREALIGN:CG,CN,CE				DESC:Worshippers: gamblers, rogues				FACT:Symbol|None	DEITYWEAP:Rapier			ALIGN:CN
+Furaie		DOMAINS:Death,Destruction,Law|PREALIGN:LN,LE,NE				DESC:Worshippers: killers, soldiers				FACT:Symbol|None						ALIGN:LE
+Horae			DOMAINS:Animal,Law,Plant,Weather|PREALIGN:LN,NG,TN,NE,CE		DESC:Worshippers: rangres, animal trainers		FACT:Symbol|None	DEITYWEAP:Quarterstaff		ALIGN:TN
+Juno			DOMAINS:Good,Healing,Law,Protection|PREALIGN:LG,LN,NG			DESC:Worshippers: lawyers, officials			FACT:Symbol|None	DEITYWEAP:Mace			ALIGN:LG
+Jupiter		DOMAINS:Air,Destruction,Good,Weather|PREALIGN:LG,LN,NG		DESC:Worshippers: nobility, army officers			FACT:Symbol|None	DEITYWEAP:Longspear		ALIGN:LG
+Mars			DOMAINS:Chaos,Death,Destruction,War|PREALIGN:NE,CN,CE			DESC:Worshippers: soldiers, mercenaries			FACT:Symbol|None						ALIGN:CE
+Mercury		DOMAINS:Law,Luck,Travel|PREALIGN:LG,LN,LE					DESC:Worshippers: messengers, travelers, thieves	FACT:Symbol|None	DEITYWEAP:Club			ALIGN:LN
+Minerva		DOMAINS:Healing,Knowledge,Magic,War|PREALIGN:LG,LN,LE			DESC:Worshippers: military families, medics		FACT:Symbol|None	DEITYWEAP:Longsword		ALIGN:LN
+Morae			DOMAINS:Fate,Knowledge,Luck|PREALIGN:CG,CN,CE				DESC:Worshippers: scholars, doctors, scientists		FACT:Symbol|None	DEITYWEAP:Sword (Two-Bladed)	ALIGN:CN
+Pluto			DOMAINS:Death,Fire,Magic,Night|PREALIGN:LE,NE,CE			DESC:Worshippers: necromancers, killers			FACT:Symbol|None	DEITYWEAP:Battleaxe		ALIGN:NE
+Sol			DOMAINS:Fire,Sun,Travel|PREALIGN:LG,LN,NG					DESC:Worshippers: outdoorsman					FACT:Symbol|None	DEITYWEAP:Lance			ALIGN:LG
+Trivia		DOMAINS:Decision,Good,Knowledge|PREALIGN:LG,NG,CG			DESC:Worshippers: teachers, game designers		FACT:Symbol|None	DEITYWEAP:Hammer (Light)	ALIGN:NG
+Venus			DOMAINS:Chaos,Good,Love|PREALIGN:LG,NG,CG					DESC:Worshippers: beautiful people, lovers		FACT:Symbol|None	DEITYWEAP:Longspear		ALIGN:NG
+Vesta			DOMAINS:Earth,Fire,Healing,Protection|PREALIGN:LG,LN,LE		DESC:Worshippers: homemakers, midwives			FACT:Symbol|None	DEITYWEAP:Shortspear		ALIGN:LN
+Vulcan		DOMAINS:Earth,Fire,Protection,Strength|PREALIGN:LG,LN,LE		DESC:Worhsippers: craftsmen, technicians			FACT:Symbol|None	DEITYWEAP:Hammer (Light)	ALIGN:LN

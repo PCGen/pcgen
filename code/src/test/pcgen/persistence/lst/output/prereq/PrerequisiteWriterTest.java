@@ -36,6 +36,9 @@ import java.io.Writer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import pcgen.base.format.StringManager;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -51,6 +54,8 @@ import pcgen.util.TestHelper;
  */
 public class PrerequisiteWriterTest extends TestCase
 {
+	private static final StringManager STR_MGR = new StringManager();
+
 	/**
 	 * Constructs a test case with the given name.
 	 * @param name
@@ -399,6 +404,8 @@ public class PrerequisiteWriterTest extends TestCase
 		"PRESTAT:should_be_numeric,STR=18",												"PRESTAT:1,STR=18",
 		"PRESTAT:1,Strength=18",														"PRESTAT:1,Str=18",
 		"PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Rat)_Companion",		"PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Rat)_Companion",
+		"PREABILITY:1,CATEGORY=FEAT,[Surprise Strike]",									"PREABILITY:1,CATEGORY=FEAT,[Surprise Strike]",
+		"PREABILITY:1,CATEGORY=FEAT,Sneak Attack,[Alertness]",							"PREABILITY:1,CATEGORY=FEAT,Sneak Attack,[Alertness]",
 
 	//
 	// To cause exceptions
@@ -461,6 +468,9 @@ public class PrerequisiteWriterTest extends TestCase
 		SettingsHandler.setGame("3.5");
 		TestHelper.createAllAlignments();
 		TestHelper.makeSizeAdjustments();
+		FactKey.getConstant("IsPC", STR_MGR);
+		FactKey.getConstant("LEGS", STR_MGR);
+		FactSetKey.getConstant("PANTHEONS", STR_MGR);
 	}
 
 	/**

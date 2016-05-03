@@ -62,6 +62,7 @@ import pcgen.persistence.lst.TraitLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.CodeControlLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenTask;
@@ -152,6 +153,7 @@ public class GameModeFileLoader extends PCGenTask
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private SimpleLoader<Sponsor> sponsorLoader = new SimplePrefixLoader<Sponsor>(Sponsor.class, "SPONSOR");
 	private EquipIconLoader equipIconLoader = new EquipIconLoader();
+	private CodeControlLoader codeControlLoader = new CodeControlLoader();
 
 	/**
 	 * Load a sponsors lst file.
@@ -220,6 +222,8 @@ public class GameModeFileLoader extends PCGenTask
 				loadGameModeLstFile(context, equipIconLoader, gmName, gameFile,
 					"equipIcons.lst");
 
+				loadGameModeLstFile(context, codeControlLoader, gmName, gameFile,
+						"codeControl.lst");
 				
 				// Load pointbuymethods.lst
 				loadPointBuyFile(context, gameFile, gmName);

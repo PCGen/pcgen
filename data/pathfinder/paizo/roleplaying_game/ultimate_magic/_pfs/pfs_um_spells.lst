@@ -1,0 +1,12 @@
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher, Henk Slaaf, Douglas Limmer, Paul Shipley
+# ORIGINAL ENTRY DATE: Unknown
+
+# Spells: all spells are legal for play except blood transcription and those which grant a spellblight (such as curse of magic negation or steal voice);
+# Spell Name			Type			Classes of caster
+Blood Transcription.MOD		TYPE:PFSNotLegal	CLASSES:.CLEARALL
+Curse of Magic Negation.MOD	TYPE:PFSNotLegal	CLASSES:.CLEARALL
+Eldritch Fever.MOD		TYPE:PFSNotLegal	CLASSES:.CLEARALL
+Prediction of Failure.MOD	TYPE:PFSNotLegal	CLASSES:.CLEARALL
+Steal Voice.MOD			TYPE:PFSNotLegal	CLASSES:.CLEARALL

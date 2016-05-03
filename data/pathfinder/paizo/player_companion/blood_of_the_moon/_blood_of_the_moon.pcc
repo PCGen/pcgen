@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # ENTRY DATE: 2015-01
 # LST MONKEY: Andrew Maitland
 # LICENSE MONKEY: Paul Grosse
@@ -41,8 +42,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Blood of th
 # Data files
 ABILITY:botm_abilities_trait.lst
 ABILITYCATEGORY:botm_abilitycategories.lst
-EQUIPMENT:botm_equip.lst
-FEAT:botm_feats.lst
+BIOSET:botm_biosettings.lst
+EQUIPMENT:botm_equip_general.lst
+EQUIPMENT:botm_equip_magic_items.lst
+ABILITY:botm_feats.lst
 RACE:botm_races.lst
 SPELL:botm_spells.lst
 TEMPLATE:botm_templates.lst
@@ -57,7 +60,7 @@ TEMPLATE:botm_templates.lst
 # Updated to work with version: -
 # MINVER:6.5
 # MINDEVVER:6.05.1
-# COMMENTS:
+# COMMENTS: updated Oct 2015 by Wayne Tonjes added tempbonuses to the Beast Pelts
 
 
 #

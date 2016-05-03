@@ -1,14 +1,15 @@
-# CVS $Revision$ $Author$ -- Sat Nov  1 17:22:30 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
 
 # Feat Name				Type
-CATEGORY=FEAT|Far Shot.MOD			TYPE:LongbowFeat
-CATEGORY=FEAT|Improved Critical.MOD		TYPE:LongbowFeat
-CATEGORY=FEAT|Improved Precise Shot.MOD	TYPE:LongbowFeat
-CATEGORY=FEAT|Manyshot.MOD			TYPE:LongbowFeat
+# Ability Name						Type
+CATEGORY=FEAT|Far Shot.MOD				TYPE:LongbowFeat
+CATEGORY=FEAT|Improved Critical.MOD			TYPE:LongbowFeat
+CATEGORY=FEAT|Improved Precise Shot.MOD		TYPE:LongbowFeat
+CATEGORY=FEAT|Manyshot.MOD				TYPE:LongbowFeat
 CATEGORY=FEAT|Precise Shot.MOD			TYPE:LongbowFeat
-CATEGORY=FEAT|Rapid Shot.MOD			TYPE:LongbowFeat
-CATEGORY=FEAT|Shot on the Run.MOD		TYPE:LongbowFeat
+CATEGORY=FEAT|Rapid Shot.MOD				TYPE:LongbowFeat
+CATEGORY=FEAT|Shot on the Run.MOD			TYPE:LongbowFeat
 CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	TYPE:WildHunter

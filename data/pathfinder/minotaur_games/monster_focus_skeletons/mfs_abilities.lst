@@ -1,14 +1,14 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/	SOURCEDATE:2013-04
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 2013/05/23
 
 ###Block: Decrepit Skeleton Impairment abilities
-# Ability Name			Unique Key								Category of Ability		Type								Visible		Description																						Stat bonus		Source Page
-No Missing Parts			KEY:Decrepit Skeleton ~ No Missing Part			CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:No missing parts.																							SOURCEPAGE:p.4
-Missing One Arm			KEY:Decrepit Skeleton ~ Missing One Arm			CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing one arm. The skeleton only gets one claw attack or weapon attack and can't use two-handed weapons.								SOURCEPAGE:p.4
-Missing Numerous Bones		KEY:Decrepit Skeleton ~ Missing Numerous Bones		CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing a number of bones all over its body. It loses DR 5/bludgeoning or slashing.												SOURCEPAGE:p.4
-Missing One or Both Legs	KEY:Decrepit Skeleton ~ Missing One or Both Legs	CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing one or both legs. It takes a –4 penalty to Dexterity and its speed is reduced to 5 feet. It cannot take a 5-foot step.	BONUS:STAT|DEX|-4	SOURCEPAGE:p.4
+# Ability Name			Unique Key								Category of Ability		Type								Visible		Description																					Stat bonus		Source Page
+No Missing Parts			KEY:Decrepit Skeleton ~ No Missing Part			CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:No missing parts.																						SOURCEPAGE:p.4
+Missing One Arm			KEY:Decrepit Skeleton ~ Missing One Arm			CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing one arm. The skeleton only gets one claw attack or weapon attack and can't use two-handed weapons.							SOURCEPAGE:p.4
+Missing Numerous Bones		KEY:Decrepit Skeleton ~ Missing Numerous Bones		CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing a number of bones all over its body. It loses DR 5/bludgeoning or slashing.											SOURCEPAGE:p.4
+Missing One or Both Legs	KEY:Decrepit Skeleton ~ Missing One or Both Legs	CATEGORY:Special Ability	TYPE:SpecialQuality.DecrepitSkeletonImpairment	VISIBLE:DISPLAY	DESC:Missing one or both legs. It takes a -4 penalty to Dexterity and its speed is reduced to 5 feet. It cannot take a 5-foot step.	BONUS:STAT|DEX|-4	SOURCEPAGE:p.4
 
 ###Block: Skeletal Lord abilities
 # Ability Name	Unique Key						Category of Ability		Type						Define				Description																																																																																																				Modify VAR						Source Page

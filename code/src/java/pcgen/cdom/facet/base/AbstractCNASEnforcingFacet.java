@@ -33,12 +33,6 @@ public class AbstractCNASEnforcingFacet extends
 		AbstractDataFacet<CharID, CNAbilitySelection> implements
 		DataFacetChangeListener<CharID, CNAbilitySelection>
 {
-	public int size(CharID id)
-	{
-		List<List<SourcedCNAS>> list = getList(id);
-		return (list == null) ? 0 : list.size();
-	}
-
 	public boolean isEmpty(CharID id)
 	{
 		List<List<SourcedCNAS>> list = getList(id);
@@ -180,15 +174,7 @@ public class AbstractCNASEnforcingFacet extends
 	public int getCount(CharID id)
 	{
 		List<List<SourcedCNAS>> list = getList(id);
-		int count = 0;
-		if (list != null)
-		{
-			for (List<SourcedCNAS> orig : list)
-			{
-				count += orig.size();
-			}
-		}
-		return count;
+		return (list == null) ? 0 : list.size();
 	}
 
 	@Override

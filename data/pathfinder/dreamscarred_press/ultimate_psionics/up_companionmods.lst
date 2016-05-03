@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -114,7 +114,7 @@ FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal	SR:24																																	
 FOLLOWER:PsiCrystalLVL=20	TYPE:Psicrystal	SR:25
 
 ###Block:Psicrystal Bonuses to Master
-# Race of familiar		Type			Virtual Feat
+# Race of familiar		Type			Ability
 MASTERBONUSRACE:Psicrystal	TYPE:Psicrystal	ABILITY:FEAT|VIRTUAL|Alertness
 
 

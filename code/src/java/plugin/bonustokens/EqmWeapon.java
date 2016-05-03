@@ -25,7 +25,11 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:EQMWEAPON token.
@@ -67,5 +71,45 @@ public final class EqmWeapon extends MultiTagBonusObj
 	protected int getBonusTagLength()
 	{
 		return BONUS_TAGS.length;
+	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
+		{
+			if ("CRITRANGEADD".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+			if ("CRITRANGEDOUBLE".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
+		{
+			if ("RANGEADD".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+			if ("RANGEMULT".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		return super.parseToken(context, token);
 	}
 }

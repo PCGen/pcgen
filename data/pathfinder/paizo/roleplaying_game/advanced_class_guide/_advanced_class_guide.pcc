@@ -10,6 +10,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:4,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,7 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Cop
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
-DATACONTROL:acg_datacontrols.lst
+DATACONTROL:acg__datacontrols.lst
 ABILITY:acg_abilities_globalvar.lst
 
 ABILITY:acg_abilities_class.lst
@@ -92,5 +93,3 @@ HIDETYPE:FEAT|AberrantBloodRagerBloodline|AbyssalBloodRagerBloodline|ArcaneBlood
 # MINVER:6.5
 # MINDEVVER:6.05.1
 # COMMENTS: Extra contributors - JP Sugarbroad
-
-

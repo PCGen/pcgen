@@ -69,7 +69,7 @@ public class SkillInfoUtilities
 		}
 		else
 		{
-			return stat.resolvesTo().getKeyName();
+			return stat.get().getKeyName();
 		}
 	}
 
@@ -130,7 +130,7 @@ public class SkillInfoUtilities
 		else
 		{
 			// skip the keystat
-			ret.remove(Type.getConstant(keystat.resolvesTo().getDisplayName()));
+			ret.remove(Type.getConstant(keystat.get().getDisplayName()));
 			/*
 			 * TODO This is magic, and makes tremendous assumptions about the
 			 * DATA - BAD BAD BAD

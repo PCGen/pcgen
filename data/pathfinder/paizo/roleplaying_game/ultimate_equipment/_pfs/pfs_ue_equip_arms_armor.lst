@@ -1,0 +1,57 @@
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+
+#   Equipment: No Large or larger firearm is available for purchase. The double hackbut, culverin and any advanced firearms on Table 1-10 are not permitted in Pathfinder Society Organized Play. No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or gravesoul
+# nted by a class feature. All ammunition except metal cartridges may be purchased.
+# Equipment Name				Type			!PRECHARACTERTYPE		Description
+Double Hackbut.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Culverin.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+# TODO: These items in the original source should have type AdvancedFirearm
+Revolver.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Shotgun (Double-Barreled).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Rifle (Pepperbox).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Shotgun.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Metal Cartridge.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   The scorpion whip found in this book is no longer legal. Please refer to the Adventurer's Armory for the legal version.
+Scorpion Whip.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC	DESC:.CLEAR	DESC:This item is no longer approved for PFS. See Adventurer's Armory for the legal version.
+
+#   All specific magic armor on pages 124-129, except breastplate of vanishing, catskin leather, demon armor, enchanted eelskin, hamatula hide, mail of malevolence, morlock hide, otyugh hide, scarab breastplate, and warden of the woods are legal for play.
+Breastplate of Vanishing.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Catskin Leather.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Demon Armor.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Enchanted Eelskin.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Hamatula Hide.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Mail of Malevolence.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Morlock Hide.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Otyugh Hide.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Scarab Breastplate.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Warden of The Woods.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   All specific magic shields on pages 130-133, except avalanche shield, belligerent shield, celestial shield, dragonslayer's shield, elysian shield, living steel heavy shield, tempest shield, volcanic shield, wyrmslayer's shield, and zombie skin shield are legal for play.
+Avalanche Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Belligerent Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Celestial Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Dragonslayer's Shield.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Elysian Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Living Steel Heavy Shield.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Tempest Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Volcanic Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Wyrmslayer's Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Zombie Skin Shield.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   All specific magic weapons on pages 150-163, except bastard's sting, blade of the rising sun, blade of the sword-saint, cutthroat's apprentice, dagger of doubling, dragoncatch guisarme, earthenflail, hellscourge, lash of the howler, nine lives stealer, pistol of the infinite sky, polarity hammer, spider's fang, and ten-ring sword, are legal All items from Chapter 4 are legal for play except as noted below.
+Bastard's Sting.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Blade of the Rising Sun.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Blade of the Sword-Saint.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Cutthroat's Apprentice.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Dagger of Doubling.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Guisarme (Dragoncatch).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Earthenflail.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Hellscourge.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Lash of the Howler.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Nine Lives Stealer.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Pistol of the Infinite Sky.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Hammer (Polarity).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Spider's Fang.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Sword (Ten-Ring).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

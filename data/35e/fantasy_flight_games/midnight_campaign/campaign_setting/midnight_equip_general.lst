@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- reformated by PCGen PrettyLST v6.04.01
+#Original Entry By: Aaron Divinsky
+
+###Block:Goods
+# Equipment Name				Type								Cost		Weight	Size		Source Page		Bonus to Situation						Special Property
+Charm Buckle				TYPE:Goods.General					COST:50	WT:0.25			SOURCEPAGE:147
+Drop Sheath					TYPE:Goods.General					COST:20	WT:2				SOURCEPAGE:147
+Foldable Weapon				TYPE:Goods.Masterwork.Resizable									SOURCEPAGE:147
+Harvesting Tools				TYPE:Goods.General					COST:50	WT:5				SOURCEPAGE:147	BONUS:SITUATION|Survival=When Harvesting Herbs|2
+Herbal Concoctions (Gnaw Roots)	TYPE:Goods.General.Herbalism				COST:50	WT:0.25			SOURCEPAGE:147
+Herbal Concoctions (Infused Oils)	TYPE:Goods.General.Herbalism				COST:25	WT:0.25			SOURCEPAGE:147
+Herbal Concoctions (Salves)		TYPE:Goods.General.Herbalism				COST:100	WT:0.25			SOURCEPAGE:147
+Hollowed Equipment			TYPE:Goods.General											SOURCEPAGE:147
+Poison Stone				TYPE:Goods.General					COST:100	WT:1				SOURCEPAGE:147
+Poison (Corpse acid)			TYPE:Weapon.Ranged.Poison.Thrown.Splash.Acid	COST:40	WT:1				SOURCEPAGE:147										SPROP:Contact Comporeal Undead Only. 1d6 damage first round and 1d6 the following round
+Poison (Essence of silver)		TYPE:Goods.Poison.Consumable				COST:50	WT:1				SOURCEPAGE:147										SPROP:Injury, DC 15; Initial Damage 1d3 Con, Secondary Damage 1d6 Con.	SPROP:Can damage enemies with silver vulnerability
+Poison (Orcsbane)				TYPE:Goods.Poison.Consumable				COST:50	WT:1				SOURCEPAGE:147										SPROP:Injury, DC 18; against orcs: initial damage 1d4 Str, secondary damage 1d6 Con; against non-orcs: Initial damage 1 Str, secondary damage 1 Con.
+Poison (Orcish plagueskull)		TYPE:Weapon.Ranged.Poison.Thrown.Splash.Touch	COST:50	WT:1				SOURCEPAGE:147										SPROP:Creatures hit directly by the plagueskull must make a saving throw against a randomly determined non-magical disease or contract the disease. Creatures in splash range get a +5 save bonus.
+Wogren					TYPE:Mount.Goods.Transportation			COST:800	WT:0		SIZE:M	SOURCEPAGE:147
+Horse (Sarcosan Riding)			TYPE:Mount.Goods.Transportation			COST:300	WT:0		SIZE:L	SOURCEPAGE:147
+Horse (Sarcosan War)			TYPE:Mount.Goods.Transportation			COST:600	WT:0		SIZE:L	SOURCEPAGE:147

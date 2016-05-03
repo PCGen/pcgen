@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list																																						Plural description for UI		Display Location
+ABILITYCATEGORY:Elemental Aspect		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalAspect																																												PLURAL:Elemental Aspects		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Elemental Cohort		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalCohort																																												PLURAL:Elemental Cohorts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Elemental Resistance	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalResistance																																											PLURAL:Elemental Resistances		DISPLAYLOCATION:Heroic Path Abilities
+
+ABILITYCATEGORY:Heroic SpellLike Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ATS_SpellLikeAbility																																											PLURAL:Heroic SpellLike Abilities	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Spontaneous Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ATS_SpontaneousSpell																																											PLURAL:Heroic Spontaneous Spells	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Ability Boost	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ATS_AbilityBoost																																												PLURAL:Heroic Ability Boosts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Save Boost		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ATS_SaveBoost																																												PLURAL:Heroic Save Boosts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Skill Boost		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ATS_SkillBoost																																												PLURAL:Heroic Skill Boosts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Pureblood Skill Mastery	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PurebloodSkillMastery																																											PLURAL:Pureblood Skill Mastery	DISPLAYLOCATION:Heroic Path Abilities
+
+
+ABILITYCATEGORY:Master Adventurer		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability							ABILITYLIST:Master Adventurer																																											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wogren Rider Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Improved Mounted Archery|Improved Mounted Combat|Improved Ride By Attack|Improved Spirited Charge|Improved Trample|Mounted Archery|Mounted Combat|Ride-By Attack|Spirited Charge|Trample															DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Sarcosan Knight Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT									ABILITYLIST:Mounted Archery|Sarcosan Pureblood|Skill Focus (Ride)|Trample|Weapon Focus (Cedeku)|Weapon Focus (Scimitar)|Weapon Focus (Shortbow)|Weapon Specialization (Cedeku)|Weapon Specialization (Scimitar)|Weapon Specialization (Shortbow)							DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Living Nexus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LivingNexusAbility																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Bleak Knight			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BleakKnightAbility																																																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Avatar of the Witch Queen	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility																																																DISPLAYLOCATION:Class Abilities
+
+
+
+ABILITYCATEGORY:Mounted Maneuver		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Mounted Maneuver																																											DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Devastating Attack		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Devastating Attack																																										DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spellcasting			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT			TYPE:Spellcasting																																																			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Bane of Legates Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT			TYPE:ItemCreation.Metamagic																																																	DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Evolution			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:SaveBonus				ABILITYLIST:Melee Bonus|Ranged Bonus|Skill Bonus																																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Improved Spellcasting	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability							ABILITYLIST:Improved Spellcasting																																										DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spirit Manipulation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability							ABILITYLIST:Spirit Manipulation																																										DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Concoction Mastery		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability							ABILITYLIST:Concoction Mastery																																										DISPLAYLOCATION:Class Abilities
+
+
+
+#
+# End
+#

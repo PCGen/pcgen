@@ -1,24 +1,25 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com	SOURCEDATE:2003-01
 #Original Entry by: Frank Kliewe
 
 # Feat Name					Type
+# Ability Name						Type
 CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:MilitaryMAPre
 CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:BallisticFistPre
-CATEGORY=FEAT|Agile Riposte.MOD				TYPE:MilitaryMAPre
+CATEGORY=FEAT|Agile Riposte.MOD			TYPE:MilitaryMAPre
 CATEGORY=FEAT|Alertness.MOD				TYPE:MilitaryMAPre
 CATEGORY=FEAT|Brawl.MOD					TYPE:MilitaryMAPre
 CATEGORY=FEAT|Burst Fire.MOD				TYPE:BallisticFistPre
 CATEGORY=FEAT|Combat Expertise.MOD			TYPE:BallisticFistPre.MilitaryMAPre
-CATEGORY=FEAT|Combat Martial Arts.MOD			TYPE:BallisticFistPre.MilitaryMAPre
-CATEGORY=FEAT|Combat Throw.MOD				TYPE:MilitaryMAPre
+CATEGORY=FEAT|Combat Martial Arts.MOD		TYPE:BallisticFistPre.MilitaryMAPre
+CATEGORY=FEAT|Combat Throw.MOD			TYPE:MilitaryMAPre
 CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:MilitaryMAPre
 CATEGORY=FEAT|Dodge.MOD					TYPE:BallisticFistPre.MilitaryMAPre
 CATEGORY=FEAT|Double Tap.MOD				TYPE:BallisticFistPre
 CATEGORY=FEAT|Improved Brawl.MOD			TYPE:MilitaryMAPre
 CATEGORY=FEAT|Improved Combat Martial Arts.MOD	TYPE:MilitaryMAPre
 CATEGORY=FEAT|Improved Disarm.MOD			TYPE:MilitaryMAPre
-CATEGORY=FEAT|Improved Initiative.MOD			TYPE:BallisticFistPre.MilitaryMAPre
+CATEGORY=FEAT|Improved Initiative.MOD		TYPE:BallisticFistPre.MilitaryMAPre
 CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:BallisticFistPre
 CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:BallisticFistPre
 CATEGORY=FEAT|Quick Draw.MOD				TYPE:BallisticFistPre
@@ -27,4 +28,5 @@ CATEGORY=FEAT|Quick Draw.MOD				TYPE:BallisticFistPre
 # Frank - consider doing this in the Core set.  - Tir Gwaith
 ###Block: Weapon Focus
 # Feat Name		Weapon prof. bonus
+# Ability Name				Weapon prof. bonus
 CATEGORY=FEAT|Weapon Focus.MOD	BONUS:WEAPONPROF=%LIST|TOHIT|-1	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=WeaponFocus

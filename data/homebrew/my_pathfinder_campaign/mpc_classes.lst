@@ -1,27 +1,45 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mpcwebsite.com	SOURCEDATE:2008-01
 
 # Blank Class Template - Has all the normal tags, plus anything extra
 # xxx = Class Full Name
 # yyy = Condensed Class Name (No Spaces or special characters)
 
-#	CLASS:xxx	MAXLEVEL:20
-#	CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
-#	CLASS:xxx	FACT:Abb|	FACT:ClassType|	
-#	CLASS:xxx	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-# Choose BABPoor or BABModerate or remove both if BAB is Full
-#	CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-#			BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
-#	CLASS:xxx	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
-#	CLASS:xxx	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
-#	CLASS:xxx	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
-# Use this if the class is a Prestige, add further PRExxx tags here if required.
-#	CLASS:xxx	PRETEXT:
-#	CLASS:xxx	STARTSKILLPTS:	CSKILL:
-#	CLASS:xxx	FACT:Spelltype|	FACT:Spellstat|	MEMORIZE:
-#	CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_yyy	DEFINE:Caster_Level_yyy|0	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLyyy|0	BONUS:VAR|CasterLevelBLyyy|charbonusto("PCLEVEL","xxx")	
-#	CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy+CasterLevelBLyyy|TYPE=Base
+# CL*1/2	(Poor BAB)
+# CL*3/4	(Moderate BAB)
+# CL/2+2	(Good Save)
+# CL/3	(Poor Save)
 
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.
+#CLASS:xxx	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#CLASS:xxx	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy	DEFINE:Caster_Level_BL_Stripped_yyy|0	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy	DEFINE:CasterLevelBLyyy|0	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+###Block
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
@@ -69,13 +87,13 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #The TYPE tag is used within the filters of PCGen to sort the classes by their respective types (makes it easier to find a
 #specific class).
 #
-#The ABB tag can be used to hold a 3-5 letter abbreviation of the class name.
+#The FACT:Abb tag can be used to hold a 3-5 letter abbreviation of the class name.
 #
 #The MAXLEVEL tag sets the maximum number of levels of the class you can add to a character. You can use MAXLEVEL:NOLIMIT in addition to a number.
 #
 #The SOURCEPAGE tag can be used to hold a reference to where you can find the class. This will be displayed in PCGen.
 #
-#The LANGAUTO tag is holding a list of languages that the character automatically gains.
+#The AUTO:LANG tag is holding a list of languages that the character automatically gains.
 #
 #The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
 #of them, look in the List File Tag Index under the topic "Bonus tags".
@@ -85,9 +103,9 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #The CSKILL tag grants the listed skills as class skills. When used in a classes.lst, it grants the class skills only to the
 #class it is actually in.
 #
-#The FEATAUTO tag holds a list of feats that the class automatically gets.
+#The ABILITY:FEAT|AUTOMATIC| tag holds a list of feats that the class automatically gets.
 #
-#The SA tag is holding a text that will be displayed as Special Ability on the output sheet.
+#The SAB tag is holding a text that will be displayed as Special Ability on the output sheet.
 #
 #The ADD:FEAT tag will give the character a choice of one from the feats listed in the parentheses. If the feat being added
 #has a chooser ADD:FEAT is the only tag which will activate it (VFEAT, MFEAT and FEATAUTO will not). Besides of ADD:FEAT, there

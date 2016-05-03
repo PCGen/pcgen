@@ -27,6 +27,7 @@ import java.util.Date;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.util.treetable.TreeTableNode;
 
 /**
@@ -131,7 +132,8 @@ public final class Comparators
 		{
 			return (Comparator<? super T>) ignoreCaseStringComparator();
 		}
-		else if (c == TreeTableNode.class)
+		else if (c == TreeTableNode.class || c == InfoFacade.class
+			|| c.getSuperclass() == InfoFacade.class)
 		{
 			return treeTableNodeComparator();
 		}

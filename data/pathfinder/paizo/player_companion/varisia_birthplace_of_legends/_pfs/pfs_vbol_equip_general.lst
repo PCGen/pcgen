@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Varisia, Birthplace of Legends	SOURCESHORT:VBoL	SOURCEWEB:http://paizo.com/products/btpy8tim?Pathfinder-Player-Companion-Varisia-Birthplace-of-Legends	SOURCEDATE:2012-9
+# Original Entry by: John Mooney (SLoPPYALieN)
+
+## Equipment of Varisia
+# Equipment Name			Type			Prohibited Type
+Varisian Idol (Avaria).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Varisian Idol (Avidais).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Varisian Idol (Carnasia).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Varisian Idol (Idolis).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Varisian Idol (Ragario).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Varisian Idol (Vangloris).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Varisian Idol (Voratalo).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal

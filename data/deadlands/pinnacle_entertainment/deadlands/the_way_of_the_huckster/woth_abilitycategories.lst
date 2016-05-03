@@ -1,0 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Specific choices list				Display Location
+ABILITYCATEGORY:Diffusionist Spell increase	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Diffusionist Spell increase	DISPLAYLOCATION:Special Ability

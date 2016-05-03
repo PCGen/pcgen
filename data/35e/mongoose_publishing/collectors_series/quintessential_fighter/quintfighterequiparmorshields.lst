@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-02
 #Unsure how to set syntax for roundels and back and breast armors.
 
 # Equipment Name		Required Armor Proficiency	Required Shield Proficiency		Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Special Property

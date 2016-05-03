@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Chain Dancer	HD:10		TYPE:PC.Prestige	ABB:CnDcr		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat		Required Skill						PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Chain Dancer	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|CnDcr
+# Class Name		Required Ability				Required Skill						PRETOTALAB
 CLASS:Chain Dancer	PREABILITY:1,CATEGORY=FEAT,Desolati	PRESKILL:1,Perform (Spiked Chain Dancing)=8	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Jump|Listen|Move Silently|TYPE=Perform|Search|Sense Motive|Spot|Survival|Tumble|Use Rope
@@ -14,14 +14,14 @@ CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Jump|Listen|Mov
 2	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0	ABILITY:Special Ability|AUTOMATIC|Master Enthrall ~ Chain Dancer
 4	BONUS:VAR|EnthrallDuration|CL
 ###Block: Normal Level Progression
-1	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer						ABILITY:FEAT|AUTOMATIC|Weapon Specialization(Chain (Spiked))	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary
+1	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer	ABILITY:FEAT|AUTOMATIC|Weapon Specialization(Chain (Spiked))	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary
 3																																																					ABILITY:Special Ability|AUTOMATIC|Weapon Use (Elongated Spiked Chain) ~ Chain Dancer
 5																																																					ABILITY:Special Ability|AUTOMATIC|Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Homefront Guardian	HD:6		TYPE:PC.Prestige	ABB:HfG		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat	Required Skill					Required Text
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Homefront Guardian	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|HfG
+# Class Name			Required Ability				Required Skill					Required Text
 CLASS:Homefront Guardian	PREABILITY:1,CATEGORY=FEAT,Home	PRESKILL:3,Bluff=8,Hide=8,Move Silently=8	PRETEXT:Must have slain one person with the Remarian cultural feat.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
@@ -34,26 +34,26 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|D
 5	BONUS:ABILITYPOOL|Homefront Guardian Skill Bonus|1													ABILITY:Special Ability|AUTOMATIC|Homeblood Immunity ~ Homefront Guardian
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Imperial Legionnaire	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat		Multiple Requirements															Required Stat						Required Text																												PRETOTALAB		Req. Weapond Prof.
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																															FACT
+CLASS:Imperial Legionnaire	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|ImLgn
+# Class Name			Required Ability				Multiple Requirements															Required Stat						Required Text																												PRETOTALAB		Req. Weapond Prof.
 CLASS:Imperial Legionnaire	PREABILITY:1,CATEGORY=FEAT,Remarian	PREMULT:2,[PRESKILL:1,Knowledge (Local/Remaria)=8],[PRESKILL:1,Knowledge (History)=5,Knowledge (War)=5]	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PRETOTALAB:6	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Swim|Use Rope
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-###Block: Normal Progression
-1					BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire				TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary
-2					BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0												ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire								TEMPBONUS:PC|COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense
-3																														ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
-4																														ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
-6	BONUS:SAVE|BASE.Will|2																										ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire
-9																														ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire									TEMPBONUS:PC|SAVE|BASE.Reflex|2|TYPE=TrueAwareness
-10																														ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+###Block: Normal Progression	COMMENT: REVIEW THIS AS NOT SURE TEMPBONUS WORKS IN CLASS FILE
+1					BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire				TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary	TEMPVALUE:MIN=1|MAX=7|TITLE=Number of bound Legionnaires
+2					BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0	ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire								TEMPBONUS:PC|COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense
+3																			ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
+4																			ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
+6	BONUS:SAVE|BASE.Will|2															ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire
+9																			ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire									TEMPBONUS:PC|SAVE|BASE.Reflex|2|TYPE=TrueAwareness
+10																			ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																															FACT
+CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|ImLgn
 # Class Name			Required Skill			Required Text												PRETOTALAB		Req. Weapond Prof.
 CLASS:Knight of Pure Heart	PRESKILL:2,Diplomacy=5,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PRETOTALAB:5	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -66,14 +66,14 @@ CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Anim
 10	BONUS:ABILITYPOOL|Passion|1
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Orc Skin Artist	HD:6		TYPE:PC.Prestige	ABB:SnArt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat		Required Race					Required Skill					Req. Spell Type
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Orc Skin Artist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|SnArt	FACT:SpellType|Divine
+# Class Name		Required Ability					Required Race					Required Skill					Req. Spell Type
 CLASS:Orc Skin Artist	PREABILITY:1,CATEGORY=FEAT,Scribe Scroll	PRERACE:1,Half-Orc,Orc (Gadohig),Orc%	PRESKILL:1,Profession (Skin Art/Tattoo)=8	PRESPELLTYPE:1,Arcane=1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Orc Skin Artist	STARTSKILLPTS:3	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Profession|Spellcraft|Use Magic Device
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
-CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Orc Skin Artist|CL
+# Class Name		Spell Stat		Automatically Known Spell Levels				Caster level
+CLASS:Orc Skin Artist	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Orc Skin Artist|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Orc Skin Artist=0|Create Water,Cure Minor Wounds,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Touch of Fatigue
 1	SPELLLEVEL:CLASS|Orc Skin Artist=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
@@ -99,8 +99,8 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 10	CAST:6,5,4,3,2											ABILITY:Special Ability|AUTOMATIC|Ward ~ Orc Skin Artist
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Combat bonus										Save bonus
-CLASS:Stargazer	HD:6		TYPE:PC.Prestige	ABB:Star		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Stargazer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Star
 # Class Name	Required Race					Required Skill											Req. Spell Type
 CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:4,Concentration=7,Knowledge (Astronomy)=7,Spellcraft=7,Survival=4	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -136,18 +136,18 @@ SUBCLASSLEVEL:1	BONUS:VAR|SSImaginosLvl|1		ABILITY:Special Ability|AUTOMATIC|Opp
 10	BONUS:ABILITYPOOL|Star Sign Choice|1	ADD:SPELLCASTER|ANY
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Steadfast Knight	HD:10		TYPE:PC.Prestige	ABB:SfKnt		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat				Required Skill						Required Text						PRETOTALAB		Req. Weapond Prof.
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Steadfast Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|SfKnt	FACT:SpellType|Divine
+# Class Name		Required Ability							Required Skill						Required Text						PRETOTALAB		Req. Weapond Prof.
 CLASS:Steadfast Knight	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)	PRESKILL:2,Knowledge (Nature)=10,Survival=10	PRETEXT:You must impress two Steadfast Knights	PRETOTALAB:3	PREWEAPONPROF:1,Longbow
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge (Local/Launhym)|Knowledge (Nature)|Ride|Swim|Use Rope|Survival
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level					Use Spell List
-CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
+# Class Name		Spell Stat		Automatically Known Spell Levels				Caster level					Use Spell List
+CLASS:Steadfast Knight	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: level progression
 1	CAST:0,0		BONUS:VAR|SteadfastHitPoints|CL	ABILITY:Special Ability|AUTOMATIC|Launhym Nobility ~ Steadfast Knight|Oath ~ Steadfast Knight	ABILITY:Special Ability|AUTOMATIC|Oath (Active)|Oath (Direct Action)
 2	CAST:0,1
@@ -161,9 +161,9 @@ CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 10	CAST:0,2,2,2,1
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Steel Dragons	HD:12		TYPE:PC.Prestige	ABB:StDrg		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat		Required Skill																				PRETOTALAB
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Steel Dragons	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|StDrg
+# Class Name		Required Ability					Required Skill																				PRETOTALAB
 CLASS:Steel Dragons	PREABILITY:1,CATEGORY=FEAT,Galkarnan	PRESKILL:7,Craft (Alchemy)=8,Craft (Gunsmithing)=4,Listen=4,Spot=4,Tumble=4,Knowledge (Architecture and Engineering)=2,Spellcraft=2	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE=Craft|Disable Device|TYPE=Knowledge|Listen|Spellcraft|Spot|Tumble
@@ -171,7 +171,7 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE=Craft|Disable Device|TYPE=Knowle
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																																ABILITY:FEAT|AUTOMATIC|Alertness
+1																			ABILITY:FEAT|AUTOMATIC|Alertness
 2	BONUS:ABILITYPOOL|Gunnery Feat|1
 4							BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0	ABILITY:Special Ability|AUTOMATIC|Magical Alertness ~ Steel Dragons
 5	BONUS:ABILITYPOOL|Gunnery Feat|1
@@ -180,9 +180,9 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE=Craft|Disable Device|TYPE=Knowle
 10							BONUS:VAR|MagicalAlertnessBonus|4							ABILITY:Special Ability|AUTOMATIC|Improved Magical Alertness ~ Steel Dragons
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus
-CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|min(3,(var("classlevel("APPLIEDAS=NONEPIC")=Shadowtamer")-1))|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat	Required Skill																Required Spell School		PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																						FACT
+CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|min(3,(var("classlevel("APPLIEDAS=NONEPIC")=Shadowtamer")-1))|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|ShTmr
+# Class Name	Required Ability				Required Skill																Required Spell School		PRETOTALAB
 CLASS:Shadowtamer	PREABILITY:1,CATEGORY=FEAT,Shintai	PRESKILL:4,Knowledge (Arcana)=8,Knowledge (The Planes)=8,Knowledge (Nature)=4,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE=Craft|Gather Information|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft

@@ -1,0 +1,13 @@
+# Created July, 2015 Tom Parker
+# This file represents a conversion mechanism for items that were previously
+# stand-alone tokens (and had defaults set by a facet), but are now handled
+# internally by the new Formula System.
+#
+# This file does not need to be referenced by a set of data or game mode
+# unless that data uses a global modifier file (GLOBALMODIFIER: in a PCC file)
+#
+# Once a dataset takes on the responsibility of a GLOBALMODIFIER file, then it 
+# MUST include these entries in one of the GLOBALMODIFIER files.
+
+MODIFY:Face|SET|5,0|PRIORITY=5
+

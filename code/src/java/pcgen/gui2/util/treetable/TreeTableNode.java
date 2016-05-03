@@ -20,16 +20,21 @@
  */
 package pcgen.gui2.util.treetable;
 
-import java.util.List;
-import javax.swing.tree.MutableTreeNode;
+import java.util.Enumeration;
+import javax.swing.tree.TreeNode;
+import pcgen.gui2.util.table.Row;
 
 /**
  *
  * @author Connor Petty <mistercpp2000@gmail.com>
  */
-public interface TreeTableNode extends MutableTreeNode
+public interface TreeTableNode extends TreeNode, Row
 {
-    public List<Object> getValues();
-    public Object getValueAt(int column);
+	@Override
+	public Enumeration<TreeTableNode> children();
+	@Override
+	public TreeTableNode getChildAt(int childIndex);
     public void setValueAt(Object value, int column);
+	@Override
+	public TreeTableNode getParent();
 }

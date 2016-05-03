@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
@@ -53,7 +54,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -125,6 +125,9 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ " may not be empty", context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		String first = sep.next();
 		if (!sep.hasNext())
 		{
@@ -197,6 +200,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
 		ParsingSeparator tok = new ParsingSeparator(third, ',');
+		tok.addGroupingPair('[', ']');
+		tok.addGroupingPair('(', ')');
 		boolean allowStack = false;
 		int dupChoices = 0;
 

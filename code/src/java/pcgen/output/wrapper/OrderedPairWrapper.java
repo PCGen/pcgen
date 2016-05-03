@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2015-16 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,8 +18,8 @@
 package pcgen.output.wrapper;
 
 import pcgen.base.math.OrderedPair;
+import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.OrderedPairModel;
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -27,17 +27,14 @@ import freemarker.template.TemplateModelException;
  * An OrderedPairWrapper is an ObjectWrapper capable of producing a
  * TemplateModel for OrderedPair objects.
  */
-public class OrderedPairWrapper implements ObjectWrapper
+public class OrderedPairWrapper implements SimpleObjectWrapper
 {
-	/**
-	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(Object o) throws TemplateModelException
+	public TemplateModel wrap(Object obj) throws TemplateModelException
 	{
-		if (o instanceof OrderedPair)
+		if (obj instanceof OrderedPair)
 		{
-			return new OrderedPairModel((OrderedPair) o);
+			return new OrderedPairModel((OrderedPair) obj);
 		}
 		throw new TemplateModelException("Object was not an OrderedPair");
 	}

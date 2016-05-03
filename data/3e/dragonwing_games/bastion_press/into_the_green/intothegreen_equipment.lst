@@ -1,0 +1,68 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland & Chris Chandler (Barak)
+
+
+###Block: Mundane Items
+# Equipment Name		Required Weapon Proficiency	Type						Cost		Weight	Crit Mult	Damage	Source Page
+Bison Chips								TYPE:Goods					COST:0.2							SOURCEPAGE:p.76
+Cold Compress							TYPE:Goods					COST:35							SOURCEPAGE:p.76
+Drunken Sloth Bile						TYPE:Goods					COST:10							SOURCEPAGE:p.76
+Glow Rod								TYPE:Goods					COST:60							SOURCEPAGE:p.76
+Juniper Oil								TYPE:Goods					COST:5							SOURCEPAGE:p.77
+Kapok Jacket							TYPE:Goods					COST:40							SOURCEPAGE:p.77
+Machete			PROFICIENCY:WEAPON|Machete	TYPE:Weapon.Melee.Simple.Slashing	COST:8	WT:1		CRITMULT:x3	DAMAGE:1d4	SOURCEPAGE:p.77
+Walking Stick							TYPE:Goods					COST:0.2							SOURCEPAGE:p.77
+
+
+###Block: Magic Items
+# Equipment Name			Type						Cost		Source Page		Ability
+Collar of Scent			TYPE:Magic.Amulet				COST:6000	SOURCEPAGE:p.77	ABILITY:Special Ability|AUTOMATIC|Scent
+Horn of Steaming Mist		TYPE:Magic.Wondrous			COST:9000	SOURCEPAGE:p.77
+Ring of Arboreal Mastery	TYPE:Magic.Ring				COST:57000	SOURCEPAGE:p.78
+Rod of the Blightsower		TYPE:Magic.Rod				COST:53600	SOURCEPAGE:p.78
+Rod of Ethereal Bones		TYPE:Magic.Rod				COST:120000	SOURCEPAGE:p.78
+Rognak Helm				TYPE:Magic.Headgear.Helm		COST:78000	SOURCEPAGE:p.78
+Smiling Mask			TYPE:Magic.Eyegear.Facewear.Mask	COST:24500	SOURCEPAGE:p.79
+Sphere of Tireless Trivia	TYPE:Magic.Wondrous			COST:48500	SOURCEPAGE:p.79
+
+
+###Block: Substances
+# Equipment Name				Output Name		Type						Cost		Weight	Source Page		Special Property
+Substance (Aggression)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Babanth)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.5	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 15)
+Substance (Bloodfrog Toxin)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:400	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy or Herbalist (DC 20)
+Substance (Brown Snake Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:1600	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 15)
+Substance (Gravebane)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:10	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 15)
+Substance (Illuminating Attract)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 20)
+Substance (Itching Smoke)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
+Substance (Kaleidoscope Paint)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
+Substance (Lantana)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 17)
+Substance (Lover's Horn)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 20)
+Substance (Maidenhair Seeds)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.3	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)
+Substance (Mistletoe Antitoxin)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 15)
+Substance (Narrow Escape)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)
+Substance (Opium)				OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Red Lizard Spray)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 15)
+Substance (Regys' Kiss)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:100	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Rohhog Ointment)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:60	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Running Man)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:80	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 25)
+Substance (Salicin)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:40	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Scatcat)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:40	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Skunksong)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Handle Animal (DC 20)
+Substance (Spillan Ointment)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.4	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 5)
+Substance (Sugarglue)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
+Substance (Sunberry Paste)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
+Substance (Witch Hazel Extract)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:50	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 25)
+
+
+###Block: Poisons
+# Equipment Name		Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Asp Viper)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1250	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 16, Init.:Paralysis, Sec.:2d6 Con
+Poison (Baneberry)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:150	WT:0		SOURCEPAGE:p.91	SPROP:Ingested DC 13, Init.:Nausea, Sec.:Fatigue
+Poison (Maakantu)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:3300	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 19, Init.:2d6 Con, Sec.:2d6 Con
+Poison (Plain strider)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:375	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 12, Init.:1d4 Con, Sec.:1d4 Con
+Poison (Speckled frog)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 13, Init.:2d6 damage, Sec.:2d6 damage
+Poison (Spindleshank)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 20, Init.:Paralysis, Sec.:None
+Poison (Tarantula)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:125	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 11, Init.:1d3 Dex, Sec.:1d3 Dex
+Poison (Thornclaw)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:175	WT:0		SOURCEPAGE:p.91	SPROP:Injury DC 12, Init.:Paralysis, Sec.:None

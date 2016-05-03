@@ -26,6 +26,9 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -48,7 +51,6 @@ public class MaxDexToken extends Token
 		return TOKENNAME;
 	}
 
-	//TODO: Rip the processing of this token out of PlayerCharacter
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
@@ -56,7 +58,15 @@ public class MaxDexToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return getMaxDexToken(tokenSource, pc);
+		String retString = "";
+		int mod = process(pc);
+		
+		if (mod != Constants.MAX_MAXDEX)
+		{
+			retString = Delta.toString(mod);
+		}
+		
+		return retString;
 	}
 
 	/**
@@ -68,7 +78,7 @@ public class MaxDexToken extends Token
 	public static String getMaxDexToken(String tokenSource, PlayerCharacter pc)
 	{
 		String retString = "";
-		int mod = pc.modToFromEquipment(tokenSource);
+		int mod = process(pc);
 
 		if (mod != Constants.MAX_MAXDEX)
 		{
@@ -76,5 +86,17 @@ public class MaxDexToken extends Token
 		}
 
 		return retString;
+	}
+
+	private static int process(PlayerCharacter pc)
+	{
+		String maxDexVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					CControl.PCMAXDEX);
+		if (maxDexVar == null)
+		{
+			return pc.processOldMaxDex();
+		}
+		return ((Number) pc.getGlobal(maxDexVar)).intValue();
 	}
 }

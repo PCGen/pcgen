@@ -1,0 +1,78 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#Original Entry By: Beaver and Tir Gwaith
+
+###BLOCK: New Skills
+# Skill Name					Product Identity?	Key Stat	Untrained?		Exclusive?		Type					Source Page		Situational Skill																																																Bonus to skill
+Profession (Soldier)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Profession (Boater)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Profession (Sailor)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Profession (Herbalist)							KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Wisdom.Profession
+Knowledge (Local/Central Erenland)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Erethor)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Caraheen)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Aruun Jungle)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Miraleen)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Varadeen)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Northern Marches)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Northlands)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Kaladrun Mountains)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Subterranean Kaladruns)	NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Surface Kaladruns)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Local/Southern Erenland)		NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119
+Knowledge (Spirits)							KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119																																																			BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Knowledge (Spirits)=5|TYPE=Synergy.STACK
+Knowledge (Shadow)							KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.119	SITUATION:In the Central Erenland region|In the Endless Ocean region|In the Erethor region|In the Northern Marches region|In the Northlands region|In the Kaladrun Mountains region|In the Icewall Mountains region|In the Pale Ocean region|In the Sea of Pelluria region|In the Southern Erenland region
+
+###BLOCK: Mods
+# Skill Name					Choose						Situational Skill																																																																																							Bonus to Situation																																			Bonus to skill
+Appraise.MOD												SITUATION:In the Central Erenland region|In the Endless Ocean region|In the Erethor region|In the Northern Marches region|In the Northlands region|In the Kaladrun Mountains region|In the Icewall Mountains region|In the Pale Ocean region|In the Sea of Pelluria region|In the Southern Erenland region|Trading|Smuggling|Stone or Metal
+Balance.MOD													SITUATION:On mountainous terrain|When in trees
+Bluff.MOD													SITUATION:Against a minion of the Shadow|Smuggling|In which verbal persuasion plays a role|When dealing with outsiders|Trading|When dealing with those of the opposite gender|Orcs|Sarcosans|while attempting to reach a target|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Climb.MOD													SITUATION:On mountainous terrain|When in trees
+Concentration.MOD												SITUATION:Horse|Wogren
+Craft (Alchemy).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Armorsmithing).MOD										SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Bowmaking).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Blacksmithing).MOD										SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Carpentry).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Leatherworking).MOD										SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Painting).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Pottery).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Sculpting).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Shipmaking).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Stonemasonry).MOD										SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Trapmaking).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Weaponsmithing).MOD										SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Woodworking).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Craft (Untrained).MOD											SITUATION:When At Sea|Non-metal or Non-wood|Stone or Metal
+Diplomacy.MOD												SITUATION:Elves|Against a minion of the Shadow|Intelligent Plant Creatures|Elementals|In which verbal persuasion plays a role|When dealing with outsiders|Trading|Smuggling|When dealing with those of the opposite gender|Enemies of Izrador|Orcs|Wild Empathy (Horses)|Wild Empathy (Animals native to cold environments)|Wild Empathy (Magical beasts native to cold environments)|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Disguise.MOD												SITUATION:Smuggling
+Forgery.MOD													SITUATION:Smuggling|Trading
+Gather Information.MOD											SITUATION:Smuggling|In which verbal persuasion plays a role|When dealing with outsiders|In a city|Trading|When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Handle Animal.MOD												SITUATION:Wogren|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Hide.MOD													SITUATION:In Dark Areas|Against a minion of the Shadow|Tall Grass or Heavy Undergrowth|while attempting to reach a target|In natural settings																																																																																																								BONUS:SKILL|Hide|-2|PRERACE:1,Human%	BONUS:SKILL|Hide|-4|PRERACE:1,Elf%,Halfling%	BONUS:SKILL|Hide|-8|PRERACE:1,Dwarf%,Dworg,Orc%	BONUS:SKILL|Hide|-4|PREEQUIPPRIMARY:1,TYPE=Weapon|!PREEQUIPPRIMARY:1,TYPE=Natural	BONUS:SKILL|Hide|-4|PREEQUIPSECONDARY:1,TYPE=Weapon|!PREEQUIPSECONDARY:1,TYPE=Natural	BONUS:SKILL|Hide|-10|PREEQUIPTWOWEAPON:1,TYPE=Weapon|!PREEQUIPTWOWEAPON:1,TYPE=Natural	BONUS:SKILL|Hide|-10|PREEQUIPBOTH:1,TYPE=Weapon|!PREEQUIPBOTH:1,TYPE=Natural
+Intimidate.MOD												SITUATION:Against a minion of the Shadow|In which verbal persuasion plays a role|When dealing with outsiders|When dealing with those of the opposite gender|Sarcosans|Against Orcs or Legates in Occupied Territory|Against low-level orcs or collaborators trapped away from their usual comfort zone|While interacting with a member of the dark god's forces																															BONUS:SITUATION|Intimidate=Against Orcs or Legates in Occupied Territory|-2|TYPE=Circumstance	BONUS:SITUATION|Intimidate=Against low-level orcs or collaborators trapped away from their usual comfort zone|2|TYPE=Circumstance
+Jump.MOD													SITUATION:On mountainous terrain
+Knowledge (Local).MOD																																																																																																																																										BONUS:SKILL|Gather Information,Knowledge (Shadow)|SynergyBonus|PRESKILL:1,Knowledge (Local)=5|TYPE=Synergy.STACK
+Knowledge (Nature).MOD											SITUATION:In the Central Erenland region|In the Endless Ocean region|In the Erethor region|In the Northern Marches region|In the Northlands region|In the Kaladrun Mountains region|In the Icewall Mountains region|In the Pale Ocean region|In the Sea of Pelluria region|In the Southern Erenland region|In the Subterranean Kaladruns region|In the Surface Kaladruns region|In the Caraheen region|In the Aruun region|In the Varadeen region|In the Miraleen region																																																			BONUS:SKILL|Knowledge (Spirits)|SynergyBonus|PRESKILL:1,Knowledge (Nature)=5|TYPE=Synergy.STACK
+Move Silently.MOD												SITUATION:while attempting to reach a target|In natural settings
+Perform (Untrained).MOD											SITUATION:In which verbal persuasion plays a role|When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Act).MOD												SITUATION:In which verbal persuasion plays a role|When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Comedy).MOD											SITUATION:In which verbal persuasion plays a role|When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Dance).MOD											SITUATION:In which verbal persuasion plays a role|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Keyboard Instruments).MOD									SITUATION:When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Oratory).MOD											SITUATION:In which verbal persuasion plays a role|When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Percussion Instruments).MOD								SITUATION:When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (String Instruments).MOD									SITUATION:When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Wind Instruments).MOD									SITUATION:When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Perform (Sing).MOD											SITUATION:When dealing with those of the opposite gender|Orcs|Sarcosans|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Profession (Hunter).MOD											SITUATION:When At Sea|Smuggling|Trading|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Profession (Miner).MOD											SITUATION:When At Sea|Smuggling|Trading|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Profession (Siege Engineer).MOD									SITUATION:When At Sea|Smuggling|Trading|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Profession (Soldier).MOD										SITUATION:When At Sea|Smuggling|Trading|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Profession (Boater).MOD											SITUATION:When At Sea|Smuggling|Trading|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Profession (Sailor).MOD											SITUATION:When At Sea|Smuggling|Trading|While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow
+Ride.MOD													SITUATION:Wogren
+Sense Motive.MOD												SITUATION:Against a minion of the Shadow|Against Evil Creatures|Agents of Izrador
+Speak Language.MOD				CHOOSE:LANG|QUALIFIED[TYPE=Midnight]
+Survival.MOD												SITUATION:In the Central Erenland region|In the Endless Ocean region|In the Erethor region|In the Northern Marches region|In the Northlands region|In the Kaladrun Mountains region|In the Icewall Mountains region|In the Pale Ocean region|In the Sea of Pelluria region|In the Southern Erenland region|In the Subterranean Kaladruns region|In the Surface Kaladruns region|In the Caraheen region|In the Aruun Jungle region|In the Varadeen region|In the Miraleen region|On mountainous terrain|In cold environments|When Harvesting Herbs
+Use Magic Device												SITUATION:While interacting with a member of the dark god's forces|When interacting with enemies of the Shadow

@@ -40,6 +40,8 @@ import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.RemoteModifier;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.EqModRef;
@@ -48,6 +50,7 @@ import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.identifier.SpellSchool;
+import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
@@ -274,10 +277,18 @@ public final class ListKey<T>
 	public static final ListKey<String> SITUATION = new ListKey<String>();
 	public static final ListKey<FactKey<?>> REMOVED_FACTKEY = new ListKey<FactKey<?>>();
 	public static final ListKey<FactSetKey<?>> REMOVED_FACTSETKEY = new ListKey<FactSetKey<?>>();
+	public static final ListKey<VarModifier<?>> MODIFY = new ListKey<VarModifier<?>>();
+	public static final ListKey<CampaignSourceEntry> FILE_VARIABLE = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_DATACTRL = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_SAVE = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_STAT = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_SIZE = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_ALIGNMENT = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<RemoteModifier<?>> REMOTE_MODIFIER = new ListKey<RemoteModifier<?>>();
+	public static final ListKey<String> GROUP = new ListKey<String>();
+	public static final ListKey<CampaignSourceEntry> FILE_GLOBALMOD = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<CDOMReference<Dynamic>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

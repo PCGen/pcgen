@@ -1,0 +1,75 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:City of Strangers
+KEY:PF - City of Strangers
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Campaign Setting
+RANK:4
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:City of Strangers
+SOURCESHORT:CoS
+SOURCEWEB:http://paizo.com/products/btpy8fda?Pathfinder-Chronicles-City-of-Strangers
+SOURCEDATE:2010-01
+ISOGL:YES
+
+COVER:PZO9223_180.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8fda?Pathfinder-Chronicles-City-of-Strangers|Buy this publication from Paizo Publishing!
+DESC:In the outcast city of Kaer Maga, your business is your own, and no ware is too dangerous or taboo to find a buyer. Within the walls of the ancient, ruined fortress, refugees and criminals from every nation disappear into the swirling crowds of gangs and monsters. Here leech-covered bloatmages haggle with religious zealots who sew their own lips shut, while naga crime lords squeeze self-mutilating troll prophets for protection money. And these are just the city's anarchic residents, not the fearsome beasts barely contained in the mysterious dungeons beneath the streets, held at bay by the elite rangers known as the Duskwardens. Welcome to the City of Strangers, a haven of freedom and independence-assuming you survive. Inside this book, you'll find:	DESC:&nl; * Detailed gazetteers for all 11 of the city's districts, from the fabled Balconies of Bis to the necromantic paradise of Ankar-Te.	DESC:&nl; * A history of the city and the bizarre, ruined monument that houses it.	DESC:&nl; * Thorough briefings on the most important gangs and factions within the city, such as the golem-crafting Ardoc family and the abolitionist Freemen, as well as how they interact with each other.	DESC:&nl; * The bloatmage prestige class, in which spellcasters use their own blood to empower their spells-but at a terrible price.	DESC:&nl; * Statistics for the caulborn, a mysterious new race of telepathic, memoryeating monsters.	DESC:&nl; * A layer-by-layer guide to the dungeons beneath the city, and the echoes of lost races and magic that still guard them.	DESC:&nl; * New magic items, random encounter tables, and more.	DESC:&nl; City of Strangers is intended for use with the Pathfinder Chronicles campaign setting and the Pathfinder Roleplaying Game, but can easily be used in any fantasy game system or setting.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Chronicles: City of Strangers. Copyright 2010, Paizo Publishing, LLC; Author: James L. Sutter.
+COPYRIGHT:Cave Fisher from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Lawrence Schick.
+COPYRIGHT:Dark Creeper from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Rik Shepard.
+COPYRIGHT:Dark Stalker from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Mite from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Russet Mold from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors Revised. � 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: City of Strangers" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland (LegacyKing)).
+
+
+#Product Identity: The following items are hereby identified as Product Identity, as defined in the Open Game License version 1.0a, Section 1(e), and are not Open Content: All trademarks, registered trademarks, proper names (characters, deities, etc.), dialogue, plots, storylines, locations, characters, artwork, and trade dress. (Elements that have previously been designated as Open Game Content or are in the public domain are not included in this declaration.)
+#Open Content: Except for material designated as Product Identity (see above), the game mechanics of this Paizo Publishing game product are Open Game Content, as defined in the Open Gaming License version 1.0a Section 1(d). No portion of this work other than the material designated as Open Game Content may be reproduced in any form without written permission.
+#Pathfinder Chronicles: City of Strangers is published by Paizo Publishing, LLC under the Open Game License version 1.0a Copyright 2000 Wizards of the Coast, Inc. Paizo Publishing, LLC, the Paizo golem logo, Pathfinder, and GameMastery are registered trademarks of Paizo Publishing, LLC; Pathfinder Chronicles, Pathfinder Module, and the Pathfinder Roleplaying Game are trademarks of Paizo Publishing, LLC. � 2010, Paizo Publishing, LLC.
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Data Files
+
+# PFS Rules
+#
+
+# Standard Files
+ABILITYCATEGORY:cos_abilitycategories.lst
+ABILITY:cos_abilities_class.lst
+ABILITY:cos_abilities_race.lst
+CLASS:cos_classes.lst
+EQUIPMENT:cos_equip.lst
+ABILITY:cos_feats.lst
+KIT:cos_kits.lst
+RACE:cos_races.lst
+
+# ENTRY DATE: 2015-11-15
+# LST MONKEY: Andrew Maitland (LegacyKing)
+# LICENSE MONKEY: Paul Grosse (2015-11-16)
+# RELEASE REVIEW #
+# BETA: Andrew Maitland (2015-11-22) - 6.05.06
+# RELEASE:
+# Built for PCGen Version: 6.05.05
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.5
+# COMMENTS:

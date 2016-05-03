@@ -66,7 +66,7 @@ public class NaturalWeaponProfFacet extends
 			CharID id = dfce.getCharID();
 			for (CDOMSingleRef<WeaponProf> ref : iwp)
 			{
-				add(id, ref.resolvesTo(), cdo);
+				add(id, ref.get(), cdo);
 			}
 		}
 	}

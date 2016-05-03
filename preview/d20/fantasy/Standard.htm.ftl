@@ -688,6 +688,58 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
    </table>
    <font style="font-size:2pt"><br /></font>
 <!-- STOP Unarmed Attack Table -->
+	<#-- create variable x -->
+	<#assign fab = pcstring('WEAPONH.TOTALHIT')?keep_before("/")?number>
+	<#assign fab_1 = pcvar('VAR.FAB_1.INTVAL') + fab>
+	<#assign fab_2 = pcvar('VAR.FAB_2.INTVAL') + fab>
+	<#assign fab_3 = pcvar('VAR.FAB_3.INTVAL') + fab>
+	<#assign fab_4 = pcvar('VAR.FAB_4.INTVAL') + fab>
+	<#assign fab_5 = pcvar('VAR.FAB_5.INTVAL') + fab>
+	<#assign fab_6 = pcvar('VAR.FAB_6.INTVAL') + fab>
+	<#assign fab_7 = pcvar('VAR.FAB_7.INTVAL') + fab>
+	<#assign fab_8 = pcvar('VAR.FAB_8.INTVAL') + fab>
+	<#assign fab_9 = pcvar('VAR.FAB_9.INTVAL') + fab>
+
+<#if (pcvar("FlurryLvl") >= 1)>
+<!-- START Flurry Attack Table -->
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Flurry Attack">
+    <tr>
+     <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>Flurry of Blows</b></font></td>
+     <td align="center" bgcolor="black" width="60%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
+    </tr>
+    <tr>
+     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>
+     <#if (fab_1 >= 0)>+</#if><#t>${fab_1}<#t>
+     <#if (pcvar("FlurryAttacks") >= 2)>
+     /<#if (fab_2 >= 0)>+</#if><#t>${fab_2}<#t>
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 3)>
+     /<#if (fab_3 >= 0)>+</#if><#t>${fab_3}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 4)>
+     /<#if (fab_4 >= 0)>+</#if><#t>${fab_4}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 5)>
+     /<#if (fab_5 >= 0)>+</#if><#t>${fab_5}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 6)>
+     /<#if (fab_6 >= 0)>+</#if><#t>${fab_6}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 7)>
+     /<#if (fab_7 >= 0)>+</#if><#t>${fab_7}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 8)>
+     /<#if (fab_7 >= 0)>+</#if><#t>${fab_8}
+     </#if>
+     <#if (pcvar("FlurryAttacks") >= 9)>
+     /<#if (fab_7 >= 0)>+</#if><#t>${fab_9}
+     </#if>
+     <br /></b></font></td>
+    </tr>
+   </table>
+   <font style="font-size:2pt"><br /></font>
+<!-- STOP Flurry Attack Table -->
+</#if>
 
 
 
@@ -1392,6 +1444,8 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
 <!-- STOP Domain Table -->
 <!-- Start Turning Table -->
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1') ; turncount , turncount_has_next>
+	<#assign turnLevel = pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+0)')>  <#-- create variable x -->
+
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: small"><b>${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnType')} ${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnKind')}</b></font></td>
@@ -1400,7 +1454,7 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: x-small">TURNING CHECK<br />RESULT</font></td>
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: x-small">AFFECTED<br />(MAX HIT DICE)</font></td>
       <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: x-small">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL')}</b></td>
+      <td width="25%" class="border9" align="center"><b>${turnLevel}</b></td>
      </tr>
      <tr>
       <td bgcolor="black" align="right"><font color="white" style="font-size: x-small">TURN DAMAGE</font></td>
@@ -1408,47 +1462,47 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
      </tr>
      <tr>
       <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)-4).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${turnLevel-4}</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: x-small">TURNING CHECK</font></td>
       <td class="border9" align="center"><b>1d20${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO')}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)-3).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${turnLevel-3}</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: x-small">TURNS/DAY</font></td>
       <td class="border9" align="center"><b>${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL')}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)-2).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${turnLevel-2}</b></td>
       <td colspan="2" class="border" align="center"><font style="font-size: small">
         <@loop from=0 to=pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL')?number-1> &#9744; </@loop></font>
       </td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)-1).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${turnLevel-1}</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnNotes')}
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+0).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${turnLevel}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+1).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${turnLevel+1}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+2).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${turnLevel+2}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+3).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${turnLevel+3}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)+4).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${turnLevel+4}</b></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
@@ -1460,6 +1514,8 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
 <!-- Channeling Table -->
 <!-- Start Channeling Table -->
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1') ; channelingcount , channelingcount_has_next>
+		<#assign ChannelingLevel = pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+0)')>  <#-- create variable x -->
+
    <table width="100%" cellspacing="0" cellpadding="3" summary="Channeling Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: small"><b>${pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingType')} ${pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingKind')}</b></font></td>
@@ -1468,7 +1524,7 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: x-small">CHANNELING CHECK<br />RESULT</font></td>
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: x-small">AFFECTED<br />(MAX HIT DICE)</font></td>
       <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: x-small">CHANNELING LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>${pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel.INTVAL')}</b></td>
+      <td width="25%" class="border9" align="center"><b>${ChannelingLevel}</b></td>
      </tr>
      <tr>
       <td bgcolor="black" align="right"><font color="white" style="font-size: x-small">MAGNITUDE</font></td>
@@ -1476,51 +1532,51 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
      </tr>
      <tr>
       <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-8).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${ChannelingLevel-8}</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: x-small">CHANNELING CHECK</font></td>
       <td class="border9" align="center"><b>1d20${pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingCheck.INTVAL.SIGN.NOZERO')}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-7).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${ChannelingLevel-7}</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: x-small">USES/DAY</font></td>
       <td class="border9" align="center"><b>${pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingUses.INTVAL')}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-6).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${ChannelingLevel-6}</b></td>
       <td colspan="2" class="border" align="center"><font style="font-size: small">
         <@loop from=0 to=pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingUses.INTVAL')?number-1> &#9744; </@loop></font>
      </td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-5).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${ChannelingLevel-5}</b></td>
       <td colspan="2" rowspan="6" class="border8" valign="top">${pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingNotes')}
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-4).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${ChannelingLevel-4}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-3).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${ChannelingLevel-3}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-2).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${ChannelingLevel-2}</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-1).INTVAL')}</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>${ChannelingLevel-1}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>22 - 25</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+0).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${ChannelingLevel}</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>26+</b></td>
-      <td align="center" class="font8"><b>${pcvar('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)+1).INTVAL')}</b></td>
+      <td align="center" class="font8"><b>${ChannelingLevel+1}</b></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>

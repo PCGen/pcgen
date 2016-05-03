@@ -22,7 +22,8 @@ import java.util.Iterator;
 
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.output.library.ObjectWrapperLibrary;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateSequenceModel;
@@ -37,6 +38,9 @@ import freemarker.template.TemplateSequenceModel;
  */
 public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 {
+	//Make sure to use PCGen's Wrappers since we don't know the underlying type
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID used to get items from the underlying SetFacet
@@ -87,9 +91,16 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
-		T obj = new ArrayList<T>(facet.getSet(id)).get(index);
-		//Make sure to use PCGen's Wrappers since we don't know the underlying type
-		return ObjectWrapperLibrary.getInstance().wrap(obj);
+		if (index < 0)
+		{
+			return null;
+		}
+		ArrayList<T> list = new ArrayList<T>(facet.getSet(id));
+		if (index >= list.size())
+		{
+			return null;
+		}
+		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
 	/*

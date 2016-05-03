@@ -1,0 +1,50 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
+# Original Entry by: Eddy Anthony
+
+REGION:None
+
+STARTPACK:Acrobat Starting Package	TYPE:StartingKit	PRECLASS:1,Acrobat=1	SOURCEPAGE:p.17
+GEAR:Leather
+GEAR:Quarterstaff
+GEAR:Crossbow (Light)
+GEAR:Bolt (Crossbow)	QTY:20
+SKILL:Balance		RANK:4
+SKILL:Escape Artist	RANK:4
+SKILL:Jump			RANK:4
+SKILL:Tumble		RANK:4
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge			PRERACE:1,Human	PRESTAT:1,DEX=13
+ABILITY:CATEGORY=FEAT|Expertise		PRERACE:1,Human	PRESTAT:1,INT=13
+
+
+STARTPACK:Assassin Starting Package	TYPE:StartingKit	PRECLASS:1,Assassin (CW)=1	SOURCEPAGE:p.21
+GEAR:Leather
+GEAR:Greatsword				PRERACE:1,Dwarf%,Elf%,Half-Elf,Half-Orc,Human
+GEAR:Longsword				PRERACE:1,Gnome,Halfling
+GEAR:Crossbow (Light)
+GEAR:Bolt (Crossbow)	QTY:20
+SKILL:Bluff			RANK:4
+SKILL:Disguise		RANK:4
+SKILL:Hide			RANK:4
+SKILL:Move Silently	RANK:4
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Kukri)
+ABILITY:CATEGORY=FEAT|Improved Initiative				PRERACE:1,Human
+GEAR:Kukri
+
+
+STARTPACK:Pit Fighter Starting Package	TYPE:StartingKit	PRECLASS:1,Pit Fighter=1	SOURCEPAGE:p.25
+GEAR:Studded Leather
+GEAR:Chain (Spiked)
+GEAR:Net
+GEAR:Javelin		QTY:3
+SKILL:Heal		RANK:4
+SKILL:Intimidate	RANK:4
+ABILITY:CATEGORY=FEAT|Combat Reflexes					PRESTAT:1,DEX=12
+ABILITY:CATEGORY=FEAT|Weapon Focus(Chain (Spiked))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Net)
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Chain (Spiked))
+
+#
+# end
+#

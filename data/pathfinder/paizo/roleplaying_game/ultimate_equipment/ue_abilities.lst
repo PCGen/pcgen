@@ -1,4 +1,4 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Abilities granted by Magic Items
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # ORIGINAL ENTRY: James Dempsey, Scott Meyer
@@ -8,10 +8,10 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 CATEGORY=Internal|Default.MOD	DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Katana)
 
 ###Block:
-# Ability Name			Category of Ability	Define					Move				Ability														Combat bonus
+# Ability Name			Category of Ability	Define					Move				Ability														Modify VAR
 CATEGORY=Internal|Default.MOD					DEFINE:MerformBeltMerfolkForm|0					ABILITY:Internal|AUTOMATIC|Merform Belt Merfolk Form|PREVARGTEQ:MerformBeltMerfolkForm,1
 
-# Ability Name			Category of Ability	Define					Move				Ability														Combat bonus
+# Ability Name			Category of Ability	Define					Move				Ability														Modify VAR
 Merform Belt Merfolk Form	CATEGORY:Internal								MOVE:Swim,30,Walk,5																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
 #TODO: How to reduce walk to 5?
 
@@ -72,6 +72,7 @@ Unarmed Thawing				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNo
 Unarmed Valiant				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Valiant)
 
 Equipment ~ Deliquescent Gloves	CATEGORY:Internal							ASPECT:CombatBonus|Melee attacks deal 1d6 points of acid damage
+Equipment ~ Perform Bonus		CATEGORY:Internal							ASPECT:SkillBonus|+2 circumstance to Perform Checks.
 
 #
 # EOF

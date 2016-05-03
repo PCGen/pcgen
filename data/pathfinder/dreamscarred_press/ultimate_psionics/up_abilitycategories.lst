@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 # SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -132,6 +132,7 @@ ABILITYCATEGORY:Tactician Strategy	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRA
 ABILITYCATEGORY:Vitalist Method	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VitalistMethod	PLURAL:Vitalist Method		DISPLAYLOCATION:Class Features
 #ABILITYCATEGORY:Knack					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GeneralKnack											PLURAL:Knacks					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Guardian Knack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GuardianKnack	PLURAL:Guardian Knacks		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Intercessor Knack		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IntercessorKnack		PLURAL:Intercessor Knacks		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Mender Knack		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MenderKnack		PLURAL:Mender Knacks		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Soulthief Knack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulthiefKnack	PLURAL:Soulthief Knacks		DISPLAYLOCATION:Class Features
 
@@ -170,7 +171,6 @@ ABILITYCATEGORY:Pacifist Method						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 
 
 ###Block: Prestige Class ability pools
-
 ###Block: Soul Archer
 # NEEDS CODE/DATA WORK: How to limit this to only soulbolt blade skills, but not Alter Mind Bolt?
 # WORKAROUND: Allow any blade skill.  The rest is user-enforced.
@@ -198,22 +198,23 @@ ABILITYCATEGORY:Sighted Seeker The Sight		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 ABILITYCATEGORY:Sighted Seeker Metafaculty	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerMetafaculty		PLURAL:Sighted Seeker Metafaculty		DISPLAYLOCATION:Class Features
 
 ###Block: Enhancement choice ability pools
-# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Display Location
-ABILITYCATEGORY:Adaptive Warrior Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptiveWarriorEnhancementChoice		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Body Snatcher Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BodySnatcherEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cerebremancer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CerebremancerEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Elocater Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocaterEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Metamind Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamindEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Metamorph Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamorphEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Phrenic Slayer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PhrenicSlayerEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Psicrystal Imprinter Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalImprinterEnhancementChoice		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Psion Uncarnate Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsionUncarnateEnhancementChoice		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Psychic Fist Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsychicFistEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sighted Seeker Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Soul Archer Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulArcherEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Telekinetic Weaponmaster Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TelekineticWeaponmasterEnhancementChoice	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Thrallherd Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdEnhancementChoice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:War Mind Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WarMindEnhancementChoice				DISPLAYLOCATION:Class Features
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
+ABILITYCATEGORY:Manifesting Level Advancement			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BonusManifesting					PLURAL:Manifesting Level Advancements	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Adaptive Warrior Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptiveWarriorEnhancementChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Body Snatcher Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BodySnatcherEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cerebremancer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CerebremancerEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elocater Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElocaterEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamind Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamindEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metamorph Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetamorphEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Phrenic Slayer Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PhrenicSlayerEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psicrystal Imprinter Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalImprinterEnhancementChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psion Uncarnate Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsionUncarnateEnhancementChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Fist Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsychicFistEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sighted Seeker Enhancement Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SightedSeekerEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Soul Archer Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulArcherEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Telekinetic Weaponmaster Enhancement Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TelekineticWeaponmasterEnhancementChoice								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Thrallherd Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ThrallherdEnhancementChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:War Mind Enhancement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WarMindEnhancementChoice											DISPLAYLOCATION:Class Features
 
 ###Block: Racial Traits (abilities) Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display where?				Display Location
@@ -297,8 +298,8 @@ ABILITYCATEGORY:Ophiduan Scholar Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 
 ABILITYCATEGORY:Crystal Mask				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Equipment ~ Crystal Mask								DISPLAYLOCATION:Equipment
 
-ABILITYCATEGORY:Expanded Knowledge			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat	ABILITYLIST:Expanded Knowledge
-ABILITYCATEGORY:Feral Combat Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat	ABILITYLIST:Feral Combat Training
+ABILITYCATEGORY:Expanded Knowledge			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat								ABILITYLIST:Expanded Knowledge
+ABILITYCATEGORY:Feral Combat Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat								ABILITYLIST:Feral Combat Training
 
 #
 # End

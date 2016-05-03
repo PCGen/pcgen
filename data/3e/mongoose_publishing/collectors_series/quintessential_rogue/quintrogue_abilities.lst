@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+# Original Entry by: Tir Gwaith
+
+# Ability Name								Auto Weapon Prof
+CATEGORY=Special Ability|Rogue Weapon Proficiencies.MOD	AUTO:WEAPONPROF|Gauntlets (Clawed)

@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Altherian Sharpshooter	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:ASh		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.164	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required Feat																		Multiple Requirements									Required Skill
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Altherian Sharpshooter	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.164	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|ASh
+# Class Name			Required Ability																					Multiple Requirements												Required Skill
 CLASS:Altherian Sharpshooter	PREABILITY:5,CATEGORY=FEAT,Exotic Weapon Proficiency,Hawk Eyed,Point Blank Shot,Precise Shot,Weapon Focus (Altherian Flintlock (Rifle))	PREMULT:1,[PRETEMPLATE:1,Altheria],[PREABILITY:1,CATEGORY=FEAT,Shining Patrol Service]	PRESKILL:2,Concentration=4,Craft (Flintlocks)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Sharpshooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Hide|Jump|Move Silently|TYPE=Profession|Ride|Swim|Tumble
@@ -18,9 +18,9 @@ CLASS:Altherian Sharpshooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentr
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Altherian Triggermage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:ATrgm		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Feat														Multiple Requirements								Required Skill												Req. Spell Type
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Altherian Triggermage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|ATrgm
+# Class Name			Required Ability																	Multiple Requirements											Required Skill												Req. Spell Type
 CLASS:Altherian Triggermage	PREABILITY:4,CATEGORY=FEAT,Exotic Weapon Proficiency,Weapon Focus (TYPE=Flintlock),Point Blank Shot,Precise Shot	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Shining Patrol Service],[PREREGION:Altheria]	PRESKILL:1,Concentration=8	PRESKILL:1,TYPE.Arcana=6	PRESKILL:1,Spellcraft=7	PRESPELLTYPE:1,Arcane=2,Divine=2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Triggermage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|TYPE=Arcana|TYPE=Profession|Ride|Spellcraft|Spot
@@ -33,10 +33,10 @@ CLASS:Altherian Triggermage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craf
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Ansharan Gatekeeper	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:AGk		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Deity	Required Feat																			Required Skill													Req. Spell Type		Required Text
-CLASS:Ansharan Gatekeeper	PREDEITY:1,Anshar	PREABILITY:1,CATEGORY=FEAT,Endurance,Great Fortitude	PREABILITY:1,CATEGORY=FEAT,Skill Focus (TYPE.Arcana),Skill Focus (TYPE.Religion),Skill Focus (Spellcraft)	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,TYPE.Arcana=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Ansharan Gatekeeper	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|AGk
+# Class Name			Required Ability																									Required Deity	Required Skill													Req. Spell Type		Required Text
+CLASS:Ansharan Gatekeeper	PREABILITY:1,CATEGORY=FEAT,Endurance,Great Fortitude	PREABILITY:1,CATEGORY=FEAT,Skill Focus (TYPE.Arcana),Skill Focus (TYPE.Religion),Skill Focus (Spellcraft)	PREDEITY:1,Anshar	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,TYPE.Arcana=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ansharan Gatekeeper	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Gather Information|TYPE=Arcana|TYPE=Geography|TYPE=Planes|TYPE=Religion|Listen|Open Lock|TYPE=Profession|Search|Sense Motive|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine,Arcane
@@ -50,28 +50,28 @@ CLASS:Ansharan Gatekeeper	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Gather 
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name					Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Battlemage of the Coryani Legions	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Bmg		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.169	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name					Required AL		Required Feat							Multiple Requirements								Required Region	Required Skill
-CLASS:Battlemage of the Coryani Legions	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Legionnaire,Armored Caster,Combat Casting	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spell Mastery],[PRESPELLCAST:MEMORIZE=N]	PREREGION:Coryan	PRESKILL:1,Concentration=10,Spellcraft=10	PRESKILL:1,TYPE.History=5
+# Class Name					Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Battlemage of the Coryani Legions	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.169	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Bmg
+# Class Name					Required Ability										Required AL		Multiple Requirements											Required Region	Required Skill
+CLASS:Battlemage of the Coryani Legions	PREABILITY:1,CATEGORY=FEAT,Legionnaire,Armored Caster,Combat Casting	PREALIGN:LG,LN,LE	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Spell Mastery],[PRESPELLCAST:MEMORIZE=N]	PREREGION:Coryan	PRESKILL:1,Concentration=10,Spellcraft=10	PRESKILL:1,TYPE.History=5
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Battlemage of the Coryani Legions	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|TYPE=Arcana|TYPE=History|TYPE=Profession|Ride|Spellcraft
-1																									ABILITY:Special Ability|AUTOMATIC|Endurance Ability|Hunted|Strength Coryani Ability
+1																						ABILITY:Special Ability|AUTOMATIC|Endurance Ability|Hunted|Strength Coryani Ability
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Bonus Known Slot|MEMORIZE=N
-2																									ABILITY:Special Ability|AUTOMATIC|Battle Magic|PRESPELLCAST:MEMORIZE=Y
-2:REPEATLEVEL:1														ADD:SPELLCASTER|Arcane
-3:REPEATLEVEL:4																							ABILITY:Special Ability|AUTOMATIC|Spell Mast Ability|PRESPELLCAST:MEMORIZE=Y	ABILITY:Special Ability|AUTOMATIC|Spontaneous Caster Spell|PRESPELLCAST:MEMORIZE=N
-4																									ABILITY:Special Ability|AUTOMATIC|Improved Armored Casting
-5																									ABILITY:Special Ability|AUTOMATIC|Stable Casting
-5:REPEATLEVEL:4														BONUS:ABILITYPOOL|Battlemage of the Coryani Legions Feat|1
-6:REPEATLEVEL:2									BONUS:VAR|BattleSpellTimes|1										ABILITY:Special Ability|AUTOMATIC|Battle Spell	ABILITY:Special Ability|AUTOMATIC|Spontaneous Caster Spell|PRESPELLCAST:MEMORIZE=N
+2																						ABILITY:Special Ability|AUTOMATIC|Battle Magic|PRESPELLCAST:MEMORIZE=Y
+2:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane
+3:REPEATLEVEL:4																				ABILITY:Special Ability|AUTOMATIC|Spell Mast Ability|PRESPELLCAST:MEMORIZE=Y	ABILITY:Special Ability|AUTOMATIC|Spontaneous Caster Spell|PRESPELLCAST:MEMORIZE=N
+4																						ABILITY:Special Ability|AUTOMATIC|Improved Armored Casting
+5																						ABILITY:Special Ability|AUTOMATIC|Stable Casting
+5:REPEATLEVEL:4	BONUS:ABILITYPOOL|Battlemage of the Coryani Legions Feat|1
+6:REPEATLEVEL:2											BONUS:VAR|BattleSpellTimes|1					ABILITY:Special Ability|AUTOMATIC|Battle Spell	ABILITY:Special Ability|AUTOMATIC|Spontaneous Caster Spell|PRESPELLCAST:MEMORIZE=N
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Beltinian Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BEx		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.171	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Ability							Required AL			Required Deity		Required Feat		Required Skill								Req. Known Spell			Req. Spell Type
-CLASS:Beltinian Exorcist	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG,LN,NG,CG	PREDEITY:1,Beltine	PREABILITY:1,CATEGORY=FEAT,Extra Turning	PRESKILL:3,Concentration=8,TYPE.Arcana=8,TYPE.Religion=8	PRESPELL:1,Detect Undead	PRESPELLTYPE:1,Arcane=3
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Beltinian Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.171	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|BEx
+# Class Name			Required Ability														Required AL			Required Deity		Required Skill								Req. Known Spell			Req. Spell Type
+CLASS:Beltinian Exorcist	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREABILITY:1,CATEGORY=FEAT,Extra Turning	PREALIGN:LG,LN,NG,CG	PREDEITY:1,Beltine	PRESKILL:3,Concentration=8,TYPE.Arcana=8,TYPE.Religion=8	PRESPELL:1,Detect Undead	PRESPELLTYPE:1,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Beltinian Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Arcana|TYPE=History|TYPE=Planes|TYPE=Religion|TYPE=Profession|Ride|Search|Spellcraft
 1:REPEATLEVEL:1						ADD:SPELLCASTER|Divine
@@ -80,18 +80,18 @@ CLASS:Beltinian Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diploma
 3												ABILITY:Special Ability|AUTOMATIC|To Rip the Spirit from the Flesh
 4												ABILITY:Special Ability|AUTOMATIC|Sanctified Ward
 5												ABILITY:Special Ability|AUTOMATIC|To Banish the Restless
-6																								ABILITY:FEAT|AUTOMATIC|Extra Turning
+6												ABILITY:FEAT|AUTOMATIC|Extra Turning
 7												ABILITY:Special Ability|AUTOMATIC|Holy Presence
-8																								ABILITY:FEAT|AUTOMATIC|Extra Turning
+8												ABILITY:FEAT|AUTOMATIC|Extra Turning
 9												ABILITY:Special Ability|AUTOMATIC|Greater Sanctified Ward
 10												ABILITY:Special Ability|AUTOMATIC|Rend the Spirit
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus													Modify VAR
-CLASS:Blackchanter	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:BlKCh		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will,BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Ability							Restricted AL		Required Feat		Required Skill															Req. Spell Type		PRETOTALAB
-CLASS:Blackchanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	!PREALIGN:CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:4,Concentration=4,TYPE.Nobility=4,TYPE.Religion=4,Spellcraft=4	PRESKILL:1,TYPE.Perform=8	PRESPELLTYPE:1,Arcane=3	PRETOTALAB:4
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus													Modify VAR													FACT
+CLASS:Blackchanter	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will,BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|BlKCh
+# Class Name		Required Ability														Restricted AL		Required Skill															Req. Spell Type		PRETOTALAB
+CLASS:Blackchanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	PREABILITY:1,CATEGORY=FEAT,Iron Will	!PREALIGN:CG,CN,CE	PRESKILL:4,Concentration=4,TYPE.Nobility=4,TYPE.Religion=4,Spellcraft=4	PRESKILL:1,TYPE.Perform=8	PRESPELLTYPE:1,Arcane=3	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
 1:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
@@ -103,9 +103,9 @@ CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Bowman	HD:8		TYPE:PC.Prestige	ABB:Bow		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.175	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat															Required Skill												PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Bowman	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.175	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Bow
+# Class Name	Required Ability																				Required Skill												PRETOTALAB
 CLASS:Bowman	PREABILITY:4,CATEGORY=FEAT,Iron Will,Precise Shot,Point Blank Shot,Rapid Shot	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Bow)	PRESKILL:2,Balance=4,Spot=4	PRESKILL:1,Craft (Fletcher)=4,Craft (Bowmaking)=4	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bowman	STARTSKILLPTS:2	CSKILL:Climb|Craft (Bowmaking)|Craft (Fletcher)|Jump|Listen|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
@@ -113,7 +113,7 @@ CLASS:Bowman	STARTSKILLPTS:2	CSKILL:Climb|Craft (Bowmaking)|Craft (Fletcher)|Jum
 2:REPEATLEVEL:3	BONUS:VAR|RangedSneakAttack|1
 2			BONUS:VAR|RangedSneakDistance|60	ABILITY:Special Ability|AUTOMATIC|Ranged Sneak Attack
 3									ABILITY:Special Ability|AUTOMATIC|Focused Training BM
-4																															ABILITY:FEAT|AUTOMATIC|Improved Precise Shot
+4									ABILITY:FEAT|AUTOMATIC|Improved Precise Shot
 6									ABILITY:Special Ability|AUTOMATIC|Hold the Line
 7									ABILITY:Special Ability|AUTOMATIC|Inner Focus
 9									ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Hail of Arrows
@@ -121,10 +121,10 @@ CLASS:Bowman	STARTSKILLPTS:2	CSKILL:Climb|Craft (Bowmaking)|Craft (Fletcher)|Jum
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name						Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Brethren of the Order of St. Theomund	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BotO		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.176	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name						Required AL			Required Feat					Required Skill			Required Text																									PRETOTALAB
-CLASS:Brethren of the Order of St. Theomund	PREALIGN:LG,LN,NG,TN	PREABILITY:2,CATEGORY=FEAT,Iron Will,Combat Expertise	PRESKILL:1,TYPE.Religion=4	PRETEXT:Must follow the teachings of the Church of Coryan and must be accepted by the order.  Must swear an oath of fealty to the and faith to the Mother Church.	PRETOTALAB:4
+# Class Name						Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Brethren of the Order of St. Theomund	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.176	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|BotO
+# Class Name						Required Ability							Required AL			Required Skill			Required Text																									PRETOTALAB
+CLASS:Brethren of the Order of St. Theomund	PREABILITY:2,CATEGORY=FEAT,Iron Will,Combat Expertise	PREALIGN:LG,LN,NG,TN	PRESKILL:1,TYPE.Religion=4	PRETEXT:Must follow the teachings of the Church of Coryan and must be accepted by the order.  Must swear an oath of fealty to the and faith to the Mother Church.	PRETOTALAB:4
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:Brethren of the Order of St. Theomund	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Jump|TYPE=Arcana|TYPE=History|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 1			BONUS:ABILITYPOOL|Fighter Feat|1										ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker	ABILITY:Special Ability|AUTOMATIC|Unshakable Dogma	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
@@ -136,10 +136,10 @@ CLASS:Brethren of the Order of St. Theomund	STARTSKILLPTS:2	CSKILL:Climb|Concent
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Cantenari	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Cant		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.178	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Ability										Required AL		Required Feat			Required Item		Required Skill				PRETOTALAB
-CLASS:Cantenari	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Tainted Creatures)	PREALIGN:LG,LN,LE	PREABILITY:2,CATEGORY=FEAT,Iron Will,Track	PREITEM:1,TYPE=Sarishan	PRESKILL:2,TYPE.Planes=5,Survival=5	PRETOTALAB:6
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Cantenari	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.178	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Cant
+# Class Name	Required Ability																		Required AL		Required Item		Required Skill				PRETOTALAB
+CLASS:Cantenari	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Tainted Creatures)	PREABILITY:2,CATEGORY=FEAT,Iron Will,Track	PREALIGN:LG,LN,LE	PREITEM:1,TYPE=Sarishan	PRESKILL:2,TYPE.Planes=5,Survival=5	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cantenari	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Gather Information|Hide|TYPE=Planes|Listen|Move Silently|Ride|Spot|Search|Sense Motive|Survival
 1										ABILITY:Special Ability|AUTOMATIC|Infernal Enemy|Presence of the Infernal	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
@@ -156,13 +156,13 @@ CLASS:Cantenari	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Gather Information|Hide|TYPE=P
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Centurion	HD:10		TYPE:PC.Prestige	ABB:Cent		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.179	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|((classlevel("APPLIEDAS=NONEPIC")+1)/2)-1
-# Class Name	Required AL				Required Feat				Required Region	Required Skill										PRETOTALAB
-CLASS:Centurion	PREALIGN:LG,LN,LE,NG,TN,NE	PREABILITY:2,CATEGORY=FEAT,Leadership,Legionnaire	PREREGION:Coryan	PRESKILL:1,Concentration=2	PRESKILL:2,Intimidate=5,TYPE.History=5	PRETOTALAB:5
+# Class Name	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Centurion	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.179	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|((classlevel("APPLIEDAS=NONEPIC")+1)/2)-1	FACT:Abb|Cent
+# Class Name	Required Ability							Required AL				Required Region	Required Skill										PRETOTALAB
+CLASS:Centurion	PREABILITY:2,CATEGORY=FEAT,Leadership,Legionnaire	PREALIGN:LG,LN,LE,NG,TN,NE	PREREGION:Coryan	PRESKILL:1,Concentration=2	PRESKILL:2,Intimidate=5,TYPE.History=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Centurion	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|TYPE=History|TYPE=Profession|Ride|Sense Motive|Spot|Swim
-1								BONUS:ABILITYPOOL|Fighter Feat|CL/3														ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial				ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
+1								BONUS:ABILITYPOOL|Fighter Feat|CL/3														ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 1																											ABILITY:Special Ability|AUTOMATIC|Strength Coryani Heart Ability
 2																											ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Courage
 3:REPEATLEVEL:3															BONUS:VAR|FighterLVL|CL							ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
@@ -175,10 +175,10 @@ CLASS:Centurion	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Emerald Society Archaeologist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:ESArc		MAXLEVEL:6	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.185	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name				Restricted Ability						Required Feat						Multiple Requirements																																														Required Skill
-CLASS:Emerald Society Archaeologist	!PREABILITY:1,CATEGORY=Special Ability,Illiteracy	PREABILITY:1,CATEGORY=FEAT,Diligent,Skill Focus (TYPE.History)	PREMULT:2,[PRESKILL:1,TYPE.Knowledge=3],[!PRESKILL:2,TYPE.History=3,TYPE.Geography=3]	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trapfinding],[PREMULT:1,[PRETEMPLATE:1,Emerald Society,Azure Way],[PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Scholar],[PREABILITY:1,CATEGORY=Special Ability,Trapfindin]]]	PRESKILL:2,Appraise=3,Decipher Script=3	PRESKILL:1,TYPE.Geography=5	PRESKILL:1,TYPE.History=8	PRESKILL:3,Disable Device=4,Gather Information=4,Search=4
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																						Modify VAR														FACT
+CLASS:Emerald Society Archaeologist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:6	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.185	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|ESArc
+# Class Name				Required Ability									Restricted Ability						Multiple Requirements																																																Required Skill
+CLASS:Emerald Society Archaeologist	PREABILITY:1,CATEGORY=FEAT,Diligent,Skill Focus (TYPE.History)	!PREABILITY:1,CATEGORY=Special Ability,Illiteracy	PREMULT:2,[PRESKILL:1,TYPE.Knowledge=3],[!PRESKILL:2,TYPE.History=3,TYPE.Geography=3]	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trapfinding],[PREMULT:1,[PRETEMPLATE:1,Emerald Society,Azure Way],[PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Scholar],[PREABILITY:1,CATEGORY=Special Ability,Trapfindin]]]	PRESKILL:2,Appraise=3,Decipher Script=3	PRESKILL:1,TYPE.Geography=5	PRESKILL:1,TYPE.History=8	PRESKILL:3,Disable Device=4,Gather Information=4,Search=4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Gather Information|Hide|TYPE=Knowledge|Listen|Open Lock|TYPE=Profession|Research|Ride|Search|Sense Motive|Speak Language|Survival|Swim|Use Magic Device|Use Rope
 1			BONUS:ABILITYPOOL|Special Ability|Emerald Proficiency|1						ABILITY:Special Ability|AUTOMATIC|Ancient Lore
@@ -191,9 +191,9 @@ CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluf
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.186	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat				PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Gladiator	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.186	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Gldtr
+# Class Name	Required Ability							PRETOTALAB
 CLASS:Gladiator	PREABILITY:2,CATEGORY=FEAT,Combat Expertise,Dodge	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gladiator	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Examine Martial Technique|Intimidate|Jump|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
@@ -223,13 +223,13 @@ SUBCLASS:Thracian		COST:0
 SUBCLASSLEVEL:1										ABILITY:Special Ability|AUTOMATIC|Thracian CS
 SUBCLASSLEVEL:4										ABILITY:Special Ability|AUTOMATIC|Thracian ICS
 SUBCLASSLEVEL:8										ABILITY:Special Ability|AUTOMATIC|Thracian CSM
-1												ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial																																																																																			ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
+1												ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 1												ABILITY:Special Ability|AUTOMATIC|GladiatorUDAM1
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-3																																																														ABILITY:FEAT|VIRTUAL|Endurance|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
+3												ABILITY:FEAT|VIRTUAL|Endurance|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 5												ABILITY:Special Ability|AUTOMATIC|Idolized by the Mob|Signature Weapon|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 6												ABILITY:Special Ability|AUTOMATIC|Amazing Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|AUTOMATIC|Gladiator ~ Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]			ABILITY:FEAT|VIRTUAL|Diehard|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
+7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|AUTOMATIC|Gladiator ~ Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]	ABILITY:FEAT|VIRTUAL|Diehard|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 9												ABILITY:Special Ability|AUTOMATIC|Legendary Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 10												ABILITY:Special Ability|AUTOMATIC|As if They Were Gods
 10												ABILITY:Special Ability|AUTOMATIC|GladiatorUDAM10|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
@@ -238,9 +238,9 @@ SUBCLASSLEVEL:8										ABILITY:Special Ability|AUTOMATIC|Thracian CSM
 # errata 2006-06-03 applied
 # Text lists sunder as a prefeat - no such feat in 3.5 - no errata on it.
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Grand Master	HD:8		TYPE:PC.Prestige	ABB:GMstr		MAXLEVEL:8	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.189	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Feat																			Required Skill
+# Class Name		Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Grand Master	HD:8		TYPE:PC.Prestige	MAXLEVEL:8	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.189	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|GMstr
+# Class Name		Required Ability																						Required Skill
 CLASS:Grand Master	PREABILITY:6,CATEGORY=FEAT,Combat Expertise,Improved Disarm,Power Attack,Greater Weapon Focus,Greater Weapon Specialization,Improved Critical	PRESKILL:1,Craft (Weaponsmithing)=4	PRESKILL:1,Examine Martial Technique=6	PRESKILL:1,Profession (Educator)=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grand Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Craft (Weaponsmithing)|Examine Martial Technique|Intimidate|Jump|TYPE=History|TYPE=Nobility|Profession (Educator)|Ride|Sense Motive|Spot|Tumble
@@ -251,16 +251,16 @@ CLASS:Grand Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Craft (Weaponsmith
 3			BONUS:ABILITYPOOL|Weapon Master Feat|1
 4																ABILITY:Special Ability|AUTOMATIC|Strike of the Placid Mind
 4:REPEATLEVEL:2									BONUS:VAR|PlacidTimes|1
-5																												ABILITY:FEAT|AUTOMATIC|Improved Quick Draw
-6			BONUS:ABILITYPOOL|Weapon Grand Master Feat|1																		ABILITY:FEAT|AUTOMATIC|Riposte
+5																ABILITY:FEAT|AUTOMATIC|Improved Quick Draw
+6			BONUS:ABILITYPOOL|Weapon Grand Master Feat|1						ABILITY:FEAT|AUTOMATIC|Riposte
 8																ABILITY:Special Ability|AUTOMATIC|Quicken Strike
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Hurrianic Aegis	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:HAegs		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.190	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL				Required Check Base		Required Deity		Required Domain			Required Feat							Required Skill												Req. Spell Type
-CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:1,Hurrian	PREDOMAIN:2,Refuge,Protection	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Domain Focus (Refuge)	PRESKILL:2,Concentration=6,Knowledge (Religion/Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Hurrianic Aegis	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.190	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|HAegs
+# Class Name		Required Ability										Required AL				Required Check Base		Required Deity		Required Domain			Required Skill												Req. Spell Type
+CLASS:Hurrianic Aegis	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Domain Focus (Refuge)	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PREDEITY:1,Hurrian	PREDOMAIN:2,Refuge,Protection	PRESKILL:2,Concentration=6,Knowledge (Religion/Hurrian)=6	PRESKILL:1,Spellcraft=4	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion/Hurrian)|TYPE=Nature|TYPE=Profession|Sense Motive|Spellcraft|Survival
 1:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=Deflection
@@ -269,7 +269,7 @@ CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 2													ABILITY:Special Ability|AUTOMATIC|Grtr Domain Focus(Refuge)|Toughness Ability
 3													ABILITY:Special Ability|AUTOMATIC|Spontaneous Shield Other
 4													ABILITY:Special Ability|AUTOMATIC|Hurrian's Wall
-5:REPEATLEVEL:3																													ABILITY:FEAT|AUTOMATIC|Improved Toughness
+5:REPEATLEVEL:3											ABILITY:FEAT|AUTOMATIC|Improved Toughness
 5													ABILITY:Special Ability|AUTOMATIC|Extra Protection Domain Spell
 6													ABILITY:Special Ability|AUTOMATIC|Mass Shield Other Ability
 7													ABILITY:Special Ability|AUTOMATIC|Hurrian's Fortress
@@ -279,10 +279,10 @@ CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Larissan Dancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:LDncr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.192	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL				Required Feat										Multiple Requirements																		Required Skill
-CLASS:Larissan Dancer	PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Acrobatic,Agile	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perform (Dance))	PREMULT:1,[PREDEITY:1,Larissa],[PREMULT:3,[PREDEITY:1,Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion/Larissa)=1]]	PRESKILL:2,Bluff=6,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR													FACT
+CLASS:Larissan Dancer	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.192	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|LDncr
+# Class Name		Required Ability																Required AL				Multiple Requirements																		Required Skill
+CLASS:Larissan Dancer	PREABILITY:1,CATEGORY=FEAT,Acrobatic,Agile	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perform (Dance))	PREALIGN:NG,TN,NE,CG,CN,CE	PREMULT:1,[PREDEITY:1,Larissa],[PREMULT:3,[PREDEITY:1,Cadic],[PRECLASS:1,Bard=1],[PRESKILL:1,Knowledge (Religion/Larissa)=1]]	PRESKILL:2,Bluff=6,Diplomacy=6	PRESKILL:1,Perform (Dance)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Larissan Dancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|Diplomacy|Escape Artist|Gather Information|Hide|TYPE=Arcana|Knowledge (Art and Architecture)|TYPE=History|TYPE=Local|TYPE=Nobility|TYPE=Religion|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Tumble
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -298,10 +298,10 @@ CLASS:Larissan Dancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|Diploma
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Man-at-Arms	HD:10		TYPE:PC.Prestige	ABB:MAtA		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.195	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required AL			Required Feat					Required Skill											PRETOTALAB
-CLASS:Man-at-Arms	PREALIGN:LG,LN,NG,TN	PREABILITY:2,CATEGORY=FEAT,Alertness,Lightning Reflexes	PRESKILL:1,Profession (Soldier)=6	PRESKILL:1,TYPE.History=4,TYPE.Nobility=4	PRETOTALAB:4
+# Class Name	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Man-at-Arms	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.195	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|MAtA
+# Class Name	Required Ability								Required AL			Required Skill											PRETOTALAB
+CLASS:Man-at-Arms	PREABILITY:2,CATEGORY=FEAT,Alertness,Lightning Reflexes	PREALIGN:LG,LN,NG,TN	PRESKILL:1,Profession (Soldier)=6	PRESKILL:1,TYPE.History=4,TYPE.Nobility=4	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Man-at-Arms	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Jump|Handle Animal|Intimidate|TYPE=Geography|TYPE=History|TYPE=Local|TYPE=Nobility|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim
 1									ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
@@ -317,14 +317,14 @@ CLASS:Man-at-Arms	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Jump|Handle Animal|Inti
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					List of Class Spells by Level
-CLASS:Master of the Hounds	HD:8		TYPE:PC.Prestige	ABB:MotH		MAXLEVEL:9	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.197	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	SPELLLEVEL:CLASS|Master of the Hounds=1|Calm Animals,Charm Animal,Command,Cure Light Wounds,Jump,Longstrider,Mage Armor,Magic Fang,Summon Nature's Ally I|Master of the Hounds=2|Aid,Bear's Endurance,Bull's Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature's Ally II|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Haste,Magic Fang (Greater),Summon Nature's Ally III|Master of the Hounds=4|Animal Growth,Charm Monster,Cure Serious Wounds,Freedom of Movement,Mage's Faithful Hound,Summon Nature's Ally IV
-# Class Name			Required Feat								Required Skill										PRETOTALAB
+# Class Name			Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					List of Class Spells by Level																																																																																						FACT
+CLASS:Master of the Hounds	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.197	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	SPELLLEVEL:CLASS|Master of the Hounds=1|Calm Animals,Charm Animal,Command,Cure Light Wounds,Jump,Longstrider,Mage Armor,Magic Fang,Summon Nature's Ally I|Master of the Hounds=2|Aid,Bear's Endurance,Bull's Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature's Ally II|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Haste,Magic Fang (Greater),Summon Nature's Ally III|Master of the Hounds=4|Animal Growth,Charm Monster,Cure Serious Wounds,Freedom of Movement,Mage's Faithful Hound,Summon Nature's Ally IV	FACT:Abb|MotH	FACT:SpellType|Divine
+# Class Name			Required Ability														Required Skill										PRETOTALAB
 CLASS:Master of the Hounds	PREABILITY:1,CATEGORY=FEAT,Track	PREABILITY:1,CATEGORY=FEAT,Gentry (Val),Gentry (Non-Val)	PRESKILL:1,Handle Animal=5	PRESKILL:2,Survival=3,TYPE.Nobility=3	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Hounds	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Jump|TYPE=Nature|TYPE=Nobility|Listen|TYPE=Profession|Ride|Search|Spellcraft|Spot|Survival|Swim|Use Rope
-# Class Name			Spell Stat		Spell Type		Caster level
-CLASS:Master of the Hounds	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Master of the Hounds|CL
+# Class Name			Spell Stat		Caster level
+CLASS:Master of the Hounds	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Master of the Hounds|CL
 1																									SPELLLEVEL:CLASS|Master of the Hounds=1|Calm Animals,Charm Animal,Command,Cure Light Wounds,Jump,Longstrider,Mage Armor,Magic Fang,Summon Nature's Ally I (MoH)
 1			CAST:0,0							ABILITY:Special Ability|AUTOMATIC|Hound Companion|Status|Wild Empathy (Canines)
 2			CAST:0,1							ABILITY:Special Ability|AUTOMATIC|Head of the Pack
@@ -343,27 +343,27 @@ CLASS:Master of the Hounds	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Mast
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Milandisian Canton	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Cantn		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.198	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat		Required Region		Required Skill					PRETOTALAB		Var. Min. Value
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Milandisian Canton	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.198	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Cantn
+# Class Name			Required Ability					Required Region		Required Skill					PRETOTALAB		Var. Min. Value
 CLASS:Milandisian Canton	PREABILITY:1,CATEGORY=FEAT,Conscript	PREREGION:Milandir	PRESKILL:1,TYPE.Craft=5,TYPE.Profession=5	PRETOTALAB:2	PREVARGTEQ:(STAT.3.BASEMOD)+(STAT.4.BASEMOD)+(STAT.5.BASEMOD),0
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Milandisian Canton	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=History|TYPE=Nobility|TYPE=Profession|Survival|Swim
-1											BONUS:ABILITYPOOL|Milandisian Canton Feat|1	ABILITY:Special Ability|AUTOMATIC|Defensive Line
-1:REPEATLEVEL:4					BONUS:VAR|LineBonus|1
-2																																				ABILITY:Special Ability|AUTOMATIC|Always Set
-3																																				ABILITY:Special Ability|AUTOMATIC|Line Defense
-4											BONUS:ABILITYPOOL|Milandisian Canton Feat|1
-6																																				ABILITY:Special Ability|AUTOMATIC|Counter Charge
-7			SAB:Line Attack (Ex)																														ABILITY:Special Ability|AUTOMATIC|Line Attack
-8											BONUS:ABILITYPOOL|Milandisian Canton Feat|1
-10																																				ABILITY:Special Ability|AUTOMATIC|Rapid Set
+1							BONUS:ABILITYPOOL|Milandisian Canton Feat|1					ABILITY:Special Ability|AUTOMATIC|Defensive Line
+1:REPEATLEVEL:4													BONUS:VAR|LineBonus|1
+2																			ABILITY:Special Ability|AUTOMATIC|Always Set
+3																			ABILITY:Special Ability|AUTOMATIC|Line Defense
+4							BONUS:ABILITYPOOL|Milandisian Canton Feat|1
+6																			ABILITY:Special Ability|AUTOMATIC|Counter Charge
+7			SAB:Line Attack (Ex)													ABILITY:Special Ability|AUTOMATIC|Line Attack
+8							BONUS:ABILITYPOOL|Milandisian Canton Feat|1
+10																			ABILITY:Special Ability|AUTOMATIC|Rapid Set
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Myrmidon	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Myr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.200	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat															PRETOTALAB		Req. Weapond Prof.
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Myrmidon	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.200	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:Abb|Myr
+# Class Name	Required Ability																		PRETOTALAB		Req. Weapond Prof.
 CLASS:Myrmidon	PREABILITY:5,CATEGORY=FEAT,Armor Proficiency (Medium),Cleave,Dodge,Iron Will,Power Attack,Weapon Focus (TYPE=Melee)	PRETOTALAB:5	PREWEAPONPROF:10,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Myrmidon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Examine Martial Technique|Handle Animal|Heal|Intimidate|Jump|Listen|Ride|Swim
@@ -378,9 +378,9 @@ CLASS:Myrmidon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Examine Martial Technique
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Obsidian Sniper	NAMEISPI:YES	HD:6		ABB:ObSnp		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:201	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Feat							Required Skill					Var. Min. Value
+# Class Name		Product Identity?	Hit Dice	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Obsidian Sniper	NAMEISPI:YES	HD:6		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:201	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|ObSnp
+# Class Name		Required Ability									Required Skill					Var. Min. Value
 CLASS:Obsidian Sniper	PREABILITY:3,CATEGORY=FEAT,Far Shot,Point Blank Shot,Precise Shot	PRESKILL:3,Hide=8,Move Silently=8,Spot=8	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Obsidian Sniper	STARTSKILLPTS:4	CSKILL:Balance|Black Market|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
@@ -395,53 +395,53 @@ CLASS:Obsidian Sniper	STARTSKILLPTS:4	CSKILL:Balance|Black Market|Bluff|Climb|TY
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						List of Class Spells by Level
-CLASS:Onaran Templar	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:OTemp		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.202	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
-# Class Name		Required Feat					Required Skill			PRETOTALAB		Req. Weapond Prof.
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						List of Class Spells by Level																																																								FACT
+CLASS:Onaran Templar	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.202	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith	FACT:Abb|OTemp	FACT:SpellType|Divine
+# Class Name		Required Ability							Required Skill			PRETOTALAB		Req. Weapond Prof.
 CLASS:Onaran Templar	PREABILITY:2,CATEGORY=FEAT,Iron Will,Church Education	PRESKILL:1,TYPE.Religion=4	PRETOTALAB:5	PREWEAPONPROF:1,DEITYWEAPON
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Onaran Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=History|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
-# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels																																											Caster level
-CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Aid|Bear's Endurance|Beltine's Blessed Strike|Bless|Bless Weapon|Bull's Strength|Cat's Grace|Cure Light Wounds|Cure Moderate Wounds|Death Ward|Dispel Magic|Divine Favor|Divine Smite|Magic Weapon|Magic Weapon (Greater)|Prayer|Restoration|Restoration (Lesser)|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
-1																																																																						SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)
-1					CAST:0,1																				ABILITY:Special Ability|AUTOMATIC|Relentless	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
-2																																																																						SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace
-2					CAST:0,1,0																				ABILITY:Special Ability|AUTOMATIC|Religious Fury
-2:REPEATLEVEL:4|SKIP=0|MAX=6										BONUS:VAR|ReligiousFuryTimes|1
-3					CAST:0,1,1																				ABILITY:Special Ability|AUTOMATIC|Strength of the Spirit
-4																																																																						SPELLLEVEL:CLASS|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer
-4					CAST:0,1,1,0	DOMAIN:War	BONUS:DOMAIN|NUMBER|1													ABILITY:Special Ability|AUTOMATIC|Unshakable Dogma
+# Class Name		Spell Stat		Automatically Known Spell Levels																																											Caster level
+CLASS:Onaran Templar	SPELLSTAT:WIS	KNOWNSPELLS:Aid|Bear's Endurance|Beltine's Blessed Strike|Bless|Bless Weapon|Bull's Strength|Cat's Grace|Cure Light Wounds|Cure Moderate Wounds|Death Ward|Dispel Magic|Divine Favor|Divine Smite|Magic Weapon|Magic Weapon (Greater)|Prayer|Restoration|Restoration (Lesser)|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
+1																																																																									SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)
+1					CAST:0,1																					ABILITY:Special Ability|AUTOMATIC|Relentless	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
+2																																																																									SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace
+2					CAST:0,1,0																					ABILITY:Special Ability|AUTOMATIC|Religious Fury
+2:REPEATLEVEL:4|SKIP=0|MAX=6																	BONUS:VAR|ReligiousFuryTimes|1
+3					CAST:0,1,1																					ABILITY:Special Ability|AUTOMATIC|Strength of the Spirit
+4																																																																									SPELLLEVEL:CLASS|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer
+4					CAST:0,1,1,0	DOMAIN:War								BONUS:DOMAIN|NUMBER|1							ABILITY:Special Ability|AUTOMATIC|Unshakable Dogma
 5					CAST:0,2,1,1
-6																																																																						SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
+6																																																																									SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
 6					CAST:0,2,2,1,0
-7					CAST:0,3,2,1,1													BONUS:ABILITYPOOL|Weapon Specialization|1
+7					CAST:0,3,2,1,1			BONUS:ABILITYPOOL|Weapon Specialization|1
 8					CAST:0,3,3,2,2
-9					CAST:0,4,3,2,2																			ABILITY:Special Ability|AUTOMATIC|Zealot
-10					CAST:0,4,4,2,2																			ABILITY:Special Ability|AUTOMATIC|Voice of the Gods
+9					CAST:0,4,3,2,2																				ABILITY:Special Ability|AUTOMATIC|Zealot
+10					CAST:0,4,4,2,2																				ABILITY:Special Ability|AUTOMATIC|Voice of the Gods
 ##############################################################################################################################################################################################################################################################################################################################################
 # errata 2006-06-03 applied
 
-# Class Name				Product Identity?	Hit Dice	Type				Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Order of the Still Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige.PC	ABB:OotSH		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.204	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name				Required Deity	Required Feat		Required Skill						Required Text																							PRETOTALAB
-CLASS:Order of the Still Heart	PREDEITY:1,Neroth	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:2,Concentration=8,TYPE.Religion=8	PRETEXT:Must be a member of the Order in good standing and must pass the tests and perform the necromantic rituals necessary to gain admittance.	PRETOTALAB:4
+# Class Name				Product Identity?	Hit Dice	Type				Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Order of the Still Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige.PC	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.204	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|OotSH
+# Class Name				Required Ability					Required Deity	Required Skill						Required Text																							PRETOTALAB
+CLASS:Order of the Still Heart	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREDEITY:1,Neroth	PRESKILL:2,Concentration=8,TYPE.Religion=8	PRETEXT:Must be a member of the Order in good standing and must pass the tests and perform the necromantic rituals necessary to gain admittance.	PRETOTALAB:4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Still Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Arcana|TYPE=History|TYPE=Planes|TYPE=Religion|TYPE=Profession|Spellcraft
-1											ABILITY:Special Ability|AUTOMATIC|Path Taken									ABILITY:FEAT|AUTOMATIC|Toughness
+1											ABILITY:Special Ability|AUTOMATIC|Path Taken	ABILITY:FEAT|AUTOMATIC|Toughness
 2:REPEATLEVEL:1					ADD:SPELLCASTER|ANY
 2											ABILITY:Special Ability|AUTOMATIC|Lure of Darkness|Morbidity OSH|Tireless OSH
-3											ABILITY:Special Ability|AUTOMATIC|My Kin Feed Elsewhere							ABILITY:FEAT|AUTOMATIC|Improved Toughness
+3											ABILITY:Special Ability|AUTOMATIC|My Kin Feed Elsewhere	ABILITY:FEAT|AUTOMATIC|Improved Toughness
 4			BONUS:VAR|FastHealing|2					ABILITY:Special Ability|AUTOMATIC|Fast Healing
-5											ABILITY:Special Ability|AUTOMATIC|Daughter of Death								ABILITY:FEAT|AUTOMATIC|Improved Toughness
-6																								TEMPLATE:Undead
-8																											ABILITY:FEAT|AUTOMATIC|Improved Toughness
-10											ABILITY:Special Ability|AUTOMATIC|Angel of Death								ABILITY:FEAT|AUTOMATIC|Improved Toughness
+5											ABILITY:Special Ability|AUTOMATIC|Daughter of Death	ABILITY:FEAT|AUTOMATIC|Improved Toughness
+6																												TEMPLATE:Undead
+8											ABILITY:FEAT|AUTOMATIC|Improved Toughness
+10											ABILITY:Special Ability|AUTOMATIC|Angel of Death	ABILITY:FEAT|AUTOMATIC|Improved Toughness
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Order of the Thundering Storm	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:OotTS		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.205	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name				Required Check Base	Required Deity		Multiple Requirements																					Required Skill
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Order of the Thundering Storm	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.205	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|OotTS
+# Class Name				Required Check Base	Required Deity		Multiple Requirements																										Required Skill
 CLASS:Order of the Thundering Storm	PRECHECKBASE:1,Will=6	PREDEITY:1,Hurrian	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longsword),Weapon Focus (Sword (Kio))],[PREABILITY:4,CATEGORY=FEAT,Combat Expertise,Dodge,Spring Attack,Whirlwind Attack]	PRESKILL:1,TYPE.Religion=5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Religion|Ride|Tumble
@@ -457,9 +457,9 @@ CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Pistoleer	HD:8		TYPE:PC.Prestige	ABB:Pstlr		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.206	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat														Required Skill						PRETOTALAB		Req. Weapond Prof.
+# Class Name	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Pistoleer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.206	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Pstlr
+# Class Name	Required Ability																Required Skill						PRETOTALAB		Req. Weapond Prof.
 CLASS:Pistoleer	PREABILITY:3,CATEGORY=FEAT,Point Blank Shot,Two-Weapon Fighting,Weapon Focus (Altherian Flintlock (Pistol))	PRESKILL:2,Concentration=5,Craft (Flintlocks)=5	PRETOTALAB:5	PREWEAPONPROF:1,Altherian Flintlock (Pistol)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pistoleer	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Flintlocks)|Intimidate|Jump|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
@@ -471,10 +471,10 @@ CLASS:Pistoleer	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Flintlocks)|Intimida
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Royal Marine of Milandir	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:RMoM		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.208	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name				Required AL		Required Feat									Required Region		Required Skill					Required Text						PRETOTALAB		Req. Weapond Prof.
-CLASS:Royal Marine of Milandir	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Armor Proficiency (Heavy),Improved Bull Rush,Iron Will	PREREGION:Milandir	PRESKILL:1,Diplomacy=4	PRESKILL:1,Swim=8	PRETEXT:Must be an Officer in the Royal Navy.	PRETOTALAB:7	PREWEAPONPROF:1,Trident
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Royal Marine of Milandir	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.208	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|RMoM
+# Class Name				Required Ability												Required AL		Required Region		Required Skill					Required Text						PRETOTALAB		Req. Weapond Prof.
+CLASS:Royal Marine of Milandir	PREABILITY:3,CATEGORY=FEAT,Armor Proficiency (Heavy),Improved Bull Rush,Iron Will	PREALIGN:LG,LN,LE	PREREGION:Milandir	PRESKILL:1,Diplomacy=4	PRESKILL:1,Swim=8	PRETEXT:Must be an Officer in the Royal Navy.	PRETOTALAB:7	PREWEAPONPROF:1,Trident
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Royal Marine of Milandir	STARTSKILLPTS:2	CSKILL:Balance|Climb|Diplomacy|Jump|TYPE=Local|TYPE=Geography|TYPE=Profession|Swim|Use Rope
 1								ABILITY:Special Ability|AUTOMATIC|Distinction	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Weapon Focus(Trident)
@@ -482,14 +482,14 @@ CLASS:Royal Marine of Milandir	STARTSKILLPTS:2	CSKILL:Balance|Climb|Diplomacy|Ju
 2								ABILITY:Special Ability|AUTOMATIC|Shake Off Armor
 3								ABILITY:Special Ability|AUTOMATIC|Superior Bull Rush
 4								ABILITY:Special Ability|AUTOMATIC|Armor Mobility|Pillar of Courage
-5								ABILITY:Special Ability|AUTOMATIC|Martyr's Heart									ABILITY:FEAT|AUTOMATIC|Weapon Specialization(Trident)
+5								ABILITY:Special Ability|AUTOMATIC|Martyr's Heart	ABILITY:FEAT|AUTOMATIC|Weapon Specialization(Trident)
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Sarishan Binder	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SBndr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.209	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL		Required Deity	Required Feat							Required Skill						Req. Known Spell
-CLASS:Sarishan Binder	PREALIGN:LG,LN,LE	PREDEITY:1,Sarish	PREABILITY:2,CATEGORY=FEAT,Alien Understanding,Cast Out the Damned	PRESKILL:2,TYPE.Religion=13,TYPE.Planes=13	PRESPELL:1,Dismissal
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Sarishan Binder	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.209	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|SBndr
+# Class Name		Required Ability										Required AL		Required Deity	Required Skill						Req. Known Spell
+CLASS:Sarishan Binder	PREABILITY:2,CATEGORY=FEAT,Alien Understanding,Cast Out the Damned	PREALIGN:LG,LN,LE	PREDEITY:1,Sarish	PRESKILL:2,TYPE.Religion=13,TYPE.Planes=13	PRESPELL:1,Dismissal
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarishan Binder	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Arcana|TYPE=Local|TYPE=Planes|TYPE=Religion|TYPE=Profession|Spellcraft
 1:REPEATLEVEL:1								ADD:SPELLCASTER|ANY
@@ -505,14 +505,14 @@ CLASS:Sarishan Binder	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus													Modify VAR
-CLASS:Sensate of Savona	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SoS		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.212	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Restricted AL		Required Deity		Required Feat						Required Skill				PRETOTALAB
-CLASS:Sensate of Savona	!PREALIGN:LG,LN,LE	PREDEITY:1,Larissa	PREABILITY:2,CATEGORY=FEAT,Endurance,Improved Unarmed Strike	PRESKILL:2,TYPE.Religion=4,Tumble=4	PRETOTALAB:5
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus													Modify VAR														FACT
+CLASS:Sensate of Savona	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.212	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|SoS
+# Class Name		Required Ability									Restricted AL		Required Deity		Required Skill				PRETOTALAB
+CLASS:Sensate of Savona	PREABILITY:2,CATEGORY=FEAT,Endurance,Improved Unarmed Strike	!PREALIGN:LG,LN,LE	PREDEITY:1,Larissa	PRESKILL:2,TYPE.Religion=4,Tumble=4	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
-1														ABILITY:Special Ability|AUTOMATIC|Alertness Ability|A Toast to Larissa|The Life of the Party
-1:REPEATLEVEL:2								BONUS:VAR|ToastTimes|1
+1															ABILITY:Special Ability|AUTOMATIC|Alertness Ability|A Toast to Larissa|The Life of the Party
+1:REPEATLEVEL:2									BONUS:VAR|ToastTimes|1
 2			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,6d6					ABILITY:Special Ability|AUTOMATIC|Stumble|Tolerance
 3			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,6d6					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge Ability
 4			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,6d6					ABILITY:Special Ability|AUTOMATIC|Bar Room Brawler|Mobility Ability
@@ -525,9 +525,9 @@ CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Sky Knight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:SkKn		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.214	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat								Multiple Requirements																								Required Skill				PRETOTALAB
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Sky Knight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.214	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|SkKn
+# Class Name	Required Ability											Multiple Requirements																													Required Skill				PRETOTALAB
 CLASS:Sky Knight	PREABILITY:3,CATEGORY=FEAT,Mounted Combat,Lightning Reflexes,Ride-By Attack	PREMULT:1,[PREMULT:3,[PREGENDER:F],[PREREGION:Milandir],[PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,TYPE=Gentry],[PRECLASS:1,Aristocrat=1,Patrician=1]]],[PREABILITY:1,CATEGORY=FEAT,Pureblood Kio]	PRESKILL:2,Ride=8,Handle Animal=8	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sky Knight	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|TYPE=Nature|TYPE=Profession|Ride|Spot|Tumble
@@ -539,25 +539,25 @@ CLASS:Sky Knight	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|T
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Spellcaller	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	ABB:SpClr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.215	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR													FACT
+CLASS:Spellcaller	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.215	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|SpClr
 # Class Name	Multiple Requirements								Required Skill
 CLASS:Spellcaller	PREMULT:2,[PRESPELLCAST:MEMORIZE=N],[PRESPELLTYPE:1,Arcane=3]	PRESKILL:2,TYPE.Arcana=8,Spellcraft=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellcaller	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
 1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9					ABILITY:Special Ability|AUTOMATIC|Flexible Spell Slot|Multiple Spontaneous Adjustment|Spell Studies
 1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane
-2:REPEATLEVEL:2|SKIP=0|MAX=4														BONUS:ABILITYPOOL|Metamagic|1
+2:REPEATLEVEL:2|SKIP=0|MAX=4	BONUS:ABILITYPOOL|Metamagic|1
 6																						ABILITY:Special Ability|AUTOMATIC|Spell Mimic
 8																						ABILITY:Special Ability|AUTOMATIC|Metamagic Casting
 10																						ABILITY:Special Ability|AUTOMATIC|Metamagic Mastery
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Tal Kanath	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:TalK		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.216	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Ability						Required AL		Required Feat																	Required Race	Required Skill						PRETOTALAB
-CLASS:Tal Kanath	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PREABILITY:4,CATEGORY=FEAT,Combat Expertise,Dodge,Mobility,Spring Attack,Whirlwind Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Sword)	PRERACE:1,Elorii	PRESKILL:3,Jump=4,Tumble=4,Perform (Dance)=4	PRETOTALAB:8
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Tal Kanath	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.216	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|TalK
+# Class Name	Required Ability																														Required AL		Required Race	Required Skill						PRETOTALAB
+CLASS:Tal Kanath	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:4,CATEGORY=FEAT,Combat Expertise,Dodge,Mobility,Spring Attack,Whirlwind Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Sword)	PREALIGN:LG,LN,LE	PRERACE:1,Elorii	PRESKILL:3,Jump=4,Tumble=4,Perform (Dance)=4	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tal Kanath	STARTSKILLPTS:4	CSKILL:Balance|Jump|Hide|Listen|Move Silently|TYPE=Perform|Spot|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|Armor Bonus Ability|The First Steps	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
@@ -568,16 +568,16 @@ CLASS:Tal Kanath	STARTSKILLPTS:4	CSKILL:Balance|Jump|Hide|Listen|Move Silently|T
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Talon of the Hawk	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:TotHk		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.217	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Ability									Required Feat							Required Skill														Required Template		PRETOTALAB
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Talon of the Hawk	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.217	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|TotHk
+# Class Name		Required Ability																					Required Skill														Required Template		PRETOTALAB
 CLASS:Talon of the Hawk	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Ymandrakes)	PREABILITY:2,CATEGORY=FEAT,Spell Penetration,Improved Counterspell	PRESKILL:1,Concentration=8	PRESKILL:2,TYPE.Arcana=5,Spellcraft=5	PRESKILL:1,Survival=4	PRETEMPLATE:1,Hawk	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Diplomacy|Examine Martial Technique|Gather Information|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=History|Listen|Move Silently|TYPE=Profession|Ride|Sense Motive|Survival|Spot|Swim|Tumble|Use Magic Device
 1			BONUS:VAR|SneakAttack|1+(CL>=2)+(CL>=5)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0					ABILITY:Special Ability|AUTOMATIC|Dispel Focus	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency
 1:REPEATLEVEL:1																				ADD:SPELLCASTER|Arcane
 1:REPEATLEVEL:8	BONUS:VAR|DispelFocus|2
-2																																																			ABILITY:FEAT|AUTOMATIC|Armored Caster
+2																										ABILITY:FEAT|AUTOMATIC|Armored Caster
 4																										ABILITY:Special Ability|AUTOMATIC|Favored Enemy (Ymandrakes)
 4:REPEATLEVEL:2	BONUS:VAR|FavoredYmandrakes|2
 5																										ABILITY:Special Ability|AUTOMATIC|Arcane Savant (Dispel Magic)
@@ -586,32 +586,32 @@ CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Diplomac
 ##############################################################################################################################################################################################################################################################################################################################################
 # Resist Elements not a spell in 3.5 - not errated - taken out of spelllist
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Ulfilan Ranger	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:UlfR		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.218	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Feat			Multiple Requirements									Required Region			Required Skill								PRETOTALAB
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																						Modify VAR														FACT
+CLASS:Ulfilan Ranger	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.218	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|UlfR	FACT:SpellType|Divine
+# Class Name		Required Ability						Multiple Requirements									Required Region			Required Skill								PRETOTALAB
 CLASS:Ulfilan Ranger	PREABILITY:2,CATEGORY=FEAT,Endurance,Track	PREMULT:1,[PREDEITY:1,Hurrian],[PRETEMPLATE:1,Tensen,HolrynTensen]	PREREGION:Coryani Empire	PRESKILL:1,Climb=4	PRESKILL:2,TYPE.Nature=8,Survival=8	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ulfilan Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|TYPE=Geography|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Ulfilan Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ulfilan Ranger|CL
+# Class Name		Spell Stat		Caster level
+CLASS:Ulfilan Ranger	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Ulfilan Ranger|CL
 
 # Resist Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
-1																																						SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
+1																																								SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
 1	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Homeland Advantage	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|Wind Staff
 2	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Hurrian's Might
 # Protection from Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
-3																																						SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
+3																																								SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
 3	CAST:0,2,1
-4	CAST:0,2,1		ABILITY:Special Ability|AUTOMATIC|Storm Domain																											SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Ulfilan Ranger=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance
-5																																						SPELLLEVEL:CLASS|Ulfilan Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
+4	CAST:0,2,1		ABILITY:Special Ability|AUTOMATIC|Storm Domain																													SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Ulfilan Ranger=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance
+5																																								SPELLLEVEL:CLASS|Ulfilan Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
 5	CAST:0,2,2,1	ABILITY:Special Ability|AUTOMATIC|Craft Wind Staff
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Val'Mehan Emissary	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:VME		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.220	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Required Feat						Required Skill											Required Stat	Required Template
-CLASS:Val'Mehan Emissary	PREALIGN:LG,LN,LE	PREABILITY:2,CATEGORY=FEAT,Judge of Character,Honeyed Tongue	PRESKILL:1,Bluff=4	PRESKILL:3,Diplomacy=8,TYPE.Nobility=8,Sense Motive=8	PRESTAT:1,CHA=16	PRETEMPLATE:1,Mehan
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Val'Mehan Emissary	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.220	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|VME
+# Class Name			Required Ability									Required AL		Required Skill											Required Stat	Required Template
+CLASS:Val'Mehan Emissary	PREABILITY:2,CATEGORY=FEAT,Judge of Character,Honeyed Tongue	PREALIGN:LG,LN,LE	PRESKILL:1,Bluff=4	PRESKILL:3,Diplomacy=8,TYPE.Nobility=8,Sense Motive=8	PRESTAT:1,CHA=16	PRETEMPLATE:1,Mehan
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Spot|Swim
 1	ABILITY:Special Ability|AUTOMATIC|Heart of Stone|Silver Tongue	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
@@ -624,10 +624,10 @@ CLASS:Val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|D
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Warped Ones	HD:12		TYPE:PC.Prestige	ABB:WrpO		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.222	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Ability						Required AL		Required Feat			Required Region		PRETOTALAB
-CLASS:Warped Ones	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:CG,CN,CE	PREABILITY:2,CATEGORY=FEAT,Iron Will,Endurance	PREREGION:Hinterlands	PRETOTALAB:6
+# Class Name	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Warped Ones	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.222	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|WrpO
+# Class Name	Required Ability														Required AL		Required Region		PRETOTALAB
+CLASS:Warped Ones	PREABILITY:1,CATEGORY=Special Ability,Rage	PREABILITY:2,CATEGORY=FEAT,Iron Will,Endurance	PREALIGN:CG,CN,CE	PREREGION:Hinterlands	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warped Ones	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Intimidate|Jump|Listen|Spot|Survival|Swim
 1	ABILITY:Special Ability|AUTOMATIC|Path of Rage|Twisted Form	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
@@ -641,33 +641,33 @@ CLASS:Warped Ones	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Intimidate|Jum
 ##############################################################################################################################################################################################################################################################################################################################################
 # 2006-06-03 errata waives Weapon Focus prereq for Order of the Incandescent Path monks - no such requirement listed anywhere
 
-# Class Name				Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														List of Class Spells by Level
-CLASS:Warrior of the Eternal Flame	NAMEISPI:YES	HD:12		TYPE:PC.Prestige	ABB:WotEF		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.224	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon|Warrior of the Eternal Flame=2|Continual Flame,Flame Blade,Flaming Sphere,Magic Vestment,Resist Energy|Warrior of the Eternal Flame=3|Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
-# Class Name				Required AL		Required Deity	Required Feat					Multiple Requirements																							Required Skill			PRETOTALAB
-CLASS:Warrior of the Eternal Flame	PREALIGN:LG,LN,LE	PREDEITY:1,Nier	PREABILITY:2,CATEGORY=FEAT,Iron Will,Improved Toughness	PREMULT:1,[PRESUBCLASS:1,Order of the Incandescent Path],[PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Melee)],[!PRESUBCLASS:1,Order of the Incandescent Path]]	PRESKILL:1,TYPE.Religion=4	PRETOTALAB:7
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														List of Class Spells by Level																																																																				FACT
+CLASS:Warrior of the Eternal Flame	NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.224	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon|Warrior of the Eternal Flame=2|Continual Flame,Flame Blade,Flaming Sphere,Magic Vestment,Resist Energy|Warrior of the Eternal Flame=3|Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire	FACT:Abb|WotEF	FACT:SpellType|Divine
+# Class Name				Required Ability								Required AL		Required Deity	Multiple Requirements																										Required Skill			PRETOTALAB
+CLASS:Warrior of the Eternal Flame	PREABILITY:2,CATEGORY=FEAT,Iron Will,Improved Toughness	PREALIGN:LG,LN,LE	PREDEITY:1,Nier	PREMULT:1,[PRESUBCLASS:1,Order of the Incandescent Path],[PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=Melee)],[!PRESUBCLASS:1,Order of the Incandescent Path]]	PRESKILL:1,TYPE.Religion=4	PRETOTALAB:7
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft
-# Class Name				Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Warrior of the Eternal Flame|CL|PRECLASS:1,Warrior of the Eternal Flame=2
+# Class Name				Spell Stat		Memorize	Caster level
+CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Warrior of the Eternal Flame|CL|PRECLASS:1,Warrior of the Eternal Flame=2
 1											BONUS:ABILITYPOOL|Blessings of Flame|1						ABILITY:Special Ability|AUTOMATIC|Child of Nier	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
-2																																																																			SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon
+2																																																																					SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon
 2					CAST:0,0		KNOWN:0,1														ABILITY:Special Ability|AUTOMATIC|To Tap the Fire Within
 3					CAST:0,1		KNOWN:0,1														ABILITY:Special Ability|AUTOMATIC|Call Forth His Servants
-4					CAST:0,1,0		KNOWN:0,2,1														ABILITY:Special Ability|AUTOMATIC|Bonus Domain WEF																																				SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Burning Hands|Warrior of the Eternal Flame=2|Continual Flame,Flame Blade,Flaming Sphere,Magic Vestment,Produce Flame,Resist Energy (Fire)|Warrior of the Eternal Flame=3|Resist Energy|Warrior of the Eternal Flame=4|Wall of Fire|Warrior of the Eternal Flame=5|Fire Shield|Warrior of the Eternal Flame=6|Fire Seeds|Warrior of the Eternal Flame=7|Fire Storm|Warrior of the Eternal Flame=8|Incendiary Cloud|Warrior of the Eternal Flame=9|Elemental Swarm
+4					CAST:0,1,0		KNOWN:0,2,1														ABILITY:Special Ability|AUTOMATIC|Bonus Domain WEF																																						SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Burning Hands|Warrior of the Eternal Flame=2|Continual Flame,Flame Blade,Flaming Sphere,Magic Vestment,Produce Flame,Resist Energy (Fire)|Warrior of the Eternal Flame=3|Resist Energy|Warrior of the Eternal Flame=4|Wall of Fire|Warrior of the Eternal Flame=5|Fire Shield|Warrior of the Eternal Flame=6|Fire Seeds|Warrior of the Eternal Flame=7|Fire Storm|Warrior of the Eternal Flame=8|Incendiary Cloud|Warrior of the Eternal Flame=9|Elemental Swarm
 4:REPEATLEVEL:2|SKIP=0|MAX=10							BONUS:ABILITYPOOL|Blessings of Flame|1
 5					CAST:0,1,1		KNOWN:0,2,1
-6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																													SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion,Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
+6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																															SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion,Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
 7					CAST:0,2,1,1	KNOWN:0,3,2,1													ABILITY:Special Ability|AUTOMATIC|Fury of Nier
-8																																																																			SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
+8																																																																					SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
 8					CAST:0,2,2,1,0	KNOWN:0,3,2,2,1
 9					CAST:0,3,2,1,1	KNOWN:0,3,3,2,2													ABILITY:Special Ability|AUTOMATIC|Nier's Embrace
 10					CAST:0,3,3,2,2	KNOWN:0,3,3,2,2													ABILITY:Special Ability|AUTOMATIC|Fire from the Gates of Heaven|Nier's Gift
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Weapon Savant	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:WpnSv		MAXLEVEL:5	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.225	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Feat													PRETOTALAB
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Weapon Savant	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.225	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|WpnSv
+# Class Name		Required Ability															PRETOTALAB
 CLASS:Weapon Savant	PREABILITY:7,CATEGORY=FEAT,Combat Expertise,Combat Reflexes,Improved Disarm,Exotic Weapon Proficiency	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Weapon Savant	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Examine Martial Technique|Jump|TYPE=History|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
@@ -682,55 +682,55 @@ CLASS:Weapon Savant	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Examin
 
 # Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Combat bonus										Save bonus
 CLASS:Combat Styles of Onara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name			Required Feat			Required Skill		PRETOTALAB
+# Class Name			Required Ability						Required Skill		PRETOTALAB
 CLASS:Combat Styles of Onara	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PRESKILL:1,Balance=5	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Combat Styles of Onara	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Examine Martial Technique|Intimidate|Jump|Swim|Tumble
 # added errata of weapon focus/specialization kio sword equivalent to longsword
-SUBCLASS:Red Sword Fencing School	ABB:RSFS	PREABILITY:5,CATEGORY=FEAT,Dodge,Power Attack,Mobility,Spring Attack,Whirlwind Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longsword),Weapon Focus (Sword (Kio)),Weapon Focus (Sword (Short)),Weapon Focus (Sword (Bastard)),Weapon Focus (Greatsword),Weapon Focus (Rapier),Weapon Focus (Gladius)	PREABILITY:1,CATEGORY=FEAT,Weapon Specialization (Longsword),Weapon Specialization (Sword (Kio),Weapon Specialization (Sword (short)),Weapon Specialization (Sword (Bastard)),Weapon Specialization (Greatsword),Weapon Specialization (Rapier),Weapon Specialization (Gladius)
+SUBCLASS:Red Sword Fencing School	PREABILITY:5,CATEGORY=FEAT,Dodge,Power Attack,Mobility,Spring Attack,Whirlwind Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longsword),Weapon Focus (Sword (Kio)),Weapon Focus (Sword (Short)),Weapon Focus (Sword (Bastard)),Weapon Focus (Greatsword),Weapon Focus (Rapier),Weapon Focus (Gladius)	PREABILITY:1,CATEGORY=FEAT,Weapon Specialization (Longsword),Weapon Specialization (Sword (Kio),Weapon Specialization (Sword (short)),Weapon Specialization (Sword (Bastard)),Weapon Specialization (Greatsword),Weapon Specialization (Rapier),Weapon Specialization (Gladius)
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Demi-Volt
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Punto Riverso|To Meet the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Spinning Strike
-SUBCLASS:Steel Wall			ABB:StlWl	PREABILITY:2,CATEGORY=FEAT,Dodge,Quick Draw																																																																																								PRESKILL:1,Sense Motive=5					CSKILL:Sense Motive
+SUBCLASS:Steel Wall			PREABILITY:2,CATEGORY=FEAT,Dodge,Quick Draw																																																																																													PRESKILL:1,Sense Motive=5					CSKILL:Sense Motive
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Passing the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Defensive Perfection
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Defensive Spin Ability
-SUBCLASS:Twin Sting			ABB:TwnStg	PREABILITY:4,CATEGORY=FEAT,Dodge,Two-Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
+SUBCLASS:Twin Sting			PREABILITY:4,CATEGORY=FEAT,Dodge,Two-Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Double Lunge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Balance and Grace|Trap and Cut
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|The Cruelest Cut
-SUBCLASS:Twin Storms			ABB:TwnStm	PREABILITY:3,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Two-Bladed)),Weapon Focus (Sword (Two-Bladed)),Two-Weapon Fighting
+SUBCLASS:Twin Storms			PREABILITY:3,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Two-Bladed)),Weapon Focus (Sword (Two-Bladed)),Two-Weapon Fighting
 SUBCLASSLEVEL:1						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Cutting High and Low|Passing the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
-SUBCLASS:Haven's Blade			ABB:HvnBl	PREABILITY:4,CATEGORY=FEAT,Cleave,Great Cleave,Weapon Focus (Greatsword),Power Attack
+SUBCLASS:Haven's Blade			PREABILITY:4,CATEGORY=FEAT,Cleave,Great Cleave,Weapon Focus (Greatsword),Power Attack
 SUBCLASSLEVEL:1						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|To Meet the Charge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Mighty Swing
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Mighty Cleave
-SUBCLASS:Steel Dragon			ABB:StlDrg	PREABILITY:4,CATEGORY=FEAT,Exotic Weapon Proficiency (Steel Whip),Two-Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
+SUBCLASS:Steel Dragon			PREABILITY:4,CATEGORY=FEAT,Exotic Weapon Proficiency (Steel Whip),Two-Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Spinning Strike
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Reaping the Whirlwind
-SUBCLASS:Hand Blade and Mind		ABB:HBaM	PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio)),Quick Draw																																																																										PREITEM:1,Sword (Kio)	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4	CSKILL:Concentration|TYPE=Psionics
+SUBCLASS:Hand Blade and Mind		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio)),Quick Draw																																																																															PREITEM:1,Sword (Kio)	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4	CSKILL:Concentration|TYPE=Psionics
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Parry
-SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pressing Attack					ABILITY:FEAT|AUTOMATIC|Improved Quick Draw
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pressing Attack	ABILITY:FEAT|AUTOMATIC|Improved Quick Draw
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
-SUBCLASS:Sword That Believes		ABB:StBlv	PREABILITY:4,CATEGORY=FEAT,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio))																																																																				PREITEM:1,Sword (Kio)
-SUBCLASSLEVEL:1																			ABILITY:FEAT|AUTOMATIC|Blind-Fight
+SUBCLASS:Sword That Believes		PREABILITY:4,CATEGORY=FEAT,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio))																																																																									PREITEM:1,Sword (Kio)
+SUBCLASSLEVEL:1						ABILITY:FEAT|AUTOMATIC|Blind-Fight
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts|Instinctual Defense
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Strike Without Thought
@@ -740,9 +740,9 @@ SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability|Migh
 ###############################################################################################################################################################################################################################3
 #-------------Monk Prestige Classes--------------------------------------------------------
 
-# Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus													Modify VAR
-CLASS:Blade of Hurrian	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BldHr		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL		Required Class	Multiple Requirements																							Required Skill																					Required Subclass				PRETOTALAB
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus													Modify VAR														FACT
+CLASS:Blade of Hurrian	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|BldHr
+# Class Name		Required AL		Required Class	Multiple Requirements																													Required Skill																					Required Subclass				PRETOTALAB
 CLASS:Blade of Hurrian	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=6	PREMULT:1,[PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Longsword),Martial Weapon Technique (Longsword)],[PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Sword (Kio)),Martial Technique (Sword (Kio)]	PRESKILL:1,Balance=5	PRESKILL:1,Jump=6	PRESKILL:3,Knowledge (Religion/Hurrian)=4,Sense Motive=4,Spot=4	PRESKILL:1,TYPE.Perform=2	PRESUBCLASS:1,Order of the Blade	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blade of Hurrian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|Knowledge (Warfare & Tactics)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
@@ -764,10 +764,10 @@ CLASS:Blade of Hurrian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=C
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name					Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Order of the Bronze Sepulcher Elite	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:OotBS		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name					Required AL		Required Class	Required Feat					Required Skill																									Required Subclass						PRETOTALAB
-CLASS:Order of the Bronze Sepulcher Elite	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Improved Grapple	PRESKILL:2,Concentration=5,Listen=5	PRESKILL:1,Tumble=4	PRESKILL:1,Knowledge (Religion/Neroth)=4,Knowledge (Religion/Tzizhet)=4	PRESKILL:1,TYPE.Perform=3	PRESUBCLASS:1,Order of the Bronze Sepulcher	PRETOTALAB:7
+# Class Name					Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Order of the Bronze Sepulcher Elite	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|OotBS
+# Class Name					Required Ability								Required AL		Required Class	Required Skill																									Required Subclass						PRETOTALAB
+CLASS:Order of the Bronze Sepulcher Elite	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Improved Grapple	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PRESKILL:2,Concentration=5,Listen=5	PRESKILL:1,Tumble=4	PRESKILL:1,Knowledge (Religion/Neroth)=4,Knowledge (Religion/Tzizhet)=4	PRESKILL:1,TYPE.Perform=3	PRESUBCLASS:1,Order of the Bronze Sepulcher	PRETOTALAB:7
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Heal|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Neroth)|Knowledge (Religion/Tzizhet)|Listen|Move Silently|TYPE=Perform|Spot|Tumble
 ###Block: Monk stacking stuff
@@ -786,10 +786,10 @@ CLASS:Order of the Bronze Sepulcher Elite	STARTSKILLPTS:4	CSKILL:Balance|Climb|T
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Elemental Path of Flame	HD:8		TYPE:PC.Prestige	ABB:EPoF		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Required Class	Required Feat															Required Skill																	Required Subclass						Required Template		PRETOTALAB
-CLASS:Elemental Path of Flame	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREABILITY:4,CATEGORY=FEAT,Improved Initiative,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PRESKILL:2,Balanc=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETEMPLATE:1,Kelekene	PRETOTALAB:5
+# Class Name			Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Elemental Path of Flame	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|EPoF
+# Class Name			Required Ability																	Required AL		Required Class	Required Skill																	Required Subclass						Required Template		PRETOTALAB
+CLASS:Elemental Path of Flame	PREABILITY:4,CATEGORY=FEAT,Improved Initiative,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PRESKILL:2,Balanc=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETEMPLATE:1,Kelekene	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
@@ -804,10 +804,10 @@ CLASS:Elemental Path of Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus
-CLASS:Elemental Path of Stone	HD:10		TYPE:PC.Prestige	ABB:EPoS		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Required Class	Required Feat														Multiple Requirements						Required Skill																	Required Subclass						PRETOTALAB
-CLASS:Elemental Path of Stone	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREABILITY:4,CATEGORY=FEAT,Combat Expertise,Great Fortitude,Heightened Elorii Bloodline,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Marokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETOTALAB:5
+# Class Name			Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Elemental Path of Stone	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|EPoS
+# Class Name			Required Ability																	Required AL		Required Class	Multiple Requirements						Required Skill																	Required Subclass						PRETOTALAB
+CLASS:Elemental Path of Stone	PREABILITY:4,CATEGORY=FEAT,Combat Expertise,Great Fortitude,Heightened Elorii Bloodline,Improved Unarmed Strike	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Marokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
@@ -823,10 +823,10 @@ CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	ABB:EPoW		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Ability						Required AL		Required Class	Required Feat											Multiple Requirements						Required Skill																	Required Subclass						PRETOTALAB
-CLASS:Elemental Path of Water	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREABILITY:4,CATEGORY=FEAT,Dodge,Heightened Elorii Bloodline,Mobility,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETOTALAB:5
+# Class Name			Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																						Modify VAR														FACT
+CLASS:Elemental Path of Water	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|EPoW
+# Class Name			Required Ability																						Required AL		Required Class	Multiple Requirements						Required Skill																	Required Subclass						PRETOTALAB
+CLASS:Elemental Path of Water	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:4,CATEGORY=FEAT,Dodge,Heightened Elorii Bloodline,Mobility,Improved Unarmed Strike	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Berokene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff
@@ -841,10 +841,10 @@ CLASS:Elemental Path of Water	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 
 ###############################################################################################################################################3
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Elemental Path of Wind	HD:6		TYPE:PC.Prestige	ABB:EPWnd		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required AL		Required Class	Required Feat														Multiple Requirements							Required Skill																	Required Subclass						PRETOTALAB
-CLASS:Elemental Path of Wind	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREABILITY:4,CATEGORY=FEAT,Combat Reflexes,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Osalikene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETOTALAB:5
+# Class Name			Hit Dice	Type			Max Level	Source, Long Desc.				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Elemental Path of Wind	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|EPWnd
+# Class Name			Required Ability																	Required AL		Required Class	Multiple Requirements							Required Skill																	Required Subclass						PRETOTALAB
+CLASS:Elemental Path of Wind	PREABILITY:4,CATEGORY=FEAT,Combat Reflexes,Heightened Elorii Bloodline,Weapon Finesse,Improved Unarmed Strike	PREALIGN:LG,LN,LE	PRECLASS:1,Monk=8	PREMULT:2,[PRERACE:1,Elorii],[PRETEMPLATE:1,Osalikene]	PRESKILL:2,Balance=5,Jump=5	PRESKILL:1,Knowledge (Religion/Belisarda)=4,Knowledge (Religion/Elemental Lords)=4	PRESUBCLASS:1,Contemplation of the Elements	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Elemental Path of Wind	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|Knowledge (Religion/Belisarda)|Knowledge (Religion/Elemental Lords)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block: Monk stacking stuff

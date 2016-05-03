@@ -211,7 +211,9 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		JPanel leftPane = new JPanel(new BorderLayout());
 		if (availTable != null)
 		{
+			availTable.setAutoCreateRowSorter(true);
 			availTable.setTreeViewModel(treeViewModel);
+			availTable.getRowSorter().toggleSortOrder(0);
 			availTable.addActionListener(this);
 			leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 		}
@@ -246,7 +248,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		labelPane.add(new JLabel(chooser.getSelectionCountName()), new GridBagConstraints());
-		remainingLabel.setText(chooser.getRemainingSelections().getReference().toString());
+		remainingLabel.setText(chooser.getRemainingSelections().get().toString());
 		labelPane.add(remainingLabel, gbc);
 		labelPane.add(new JLabel(chooser.getSelectedTableTitle()), gbc);
 		rightPane.add(labelPane, BorderLayout.NORTH);
@@ -367,11 +369,11 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		if (e.getActionCommand().equals("OK"))
 		{
 			if (chooser.isRequireCompleteSelection()
-				&& chooser.getRemainingSelections().getReference() > 0)
+				&& chooser.getRemainingSelections().get() > 0)
 			{
 				JOptionPane.showMessageDialog(this,
 					  LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-						  chooser.getRemainingSelections().getReference()), 
+						  chooser.getRemainingSelections().get()), 
 						  chooser.getName(), 
 					  JOptionPane.INFORMATION_MESSAGE);
 				return;
@@ -433,9 +435,14 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 
 		@Override
-		public List<?> getData(InfoFacade obj)
+		public Object getData(InfoFacade element, int column)
 		{
-			return Collections.emptyList();
+			return null;
+		}
+
+		@Override
+		public void setData(Object value, InfoFacade element, int column)
+		{
 		}
 
 		@Override

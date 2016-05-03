@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Malhavoc Press - Book of Eldritch Might II	SOURCESHORT:BoEM2	SOURCEWEB:http://www.montecook.com
+
+# Deity Name	Product Identity?	Domains								Description of Deity/Title		FACT			FACTSET			Deity Weapon		Align		Source Page
+Jode			NAMEISPI:YES	DOMAINS:Air,Luck,Music,Protection|PREALIGN:NG,CG,CN	DESC:Bards, Song, Music, Poetry	FACT:Symbol|None	FACTSET:Pantheon|BoEM2	DEITYWEAP:Sword (Short)	ALIGN:CG	SOURCEPAGE:p.7

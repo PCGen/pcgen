@@ -49,7 +49,7 @@ Mancatcher				TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded.Weapon Gr
 # -- ranged
 Boomerang				TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Weapon Group Thrown
 Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows												HANDS:2
-Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Lasso																	HANDS:2
+Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Thrown																	HANDS:2
 
 ###Weapon Groups:
 Bardiche.MOD			TYPE:Axe.Polearm

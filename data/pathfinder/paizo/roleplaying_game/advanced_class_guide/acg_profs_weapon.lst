@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Jun 22 00:01:05 2015 -- reformated by PCGen PrettyLST v6.05.01
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # SPECIALS
 # Weapon Name			Type
 Brawler's Flurry			TYPE:Special.Light.Melee.Unarmed.Bludgeoning
@@ -26,10 +26,10 @@ Whip.MOD				TYPE:Weapon Group Melee OneHanded Slashing
 
 # APG
 Cestus.MOD				TYPE:Weapon Group Melee Light Piercing
-Stake.MOD									TYPE:Weapon Group Melee Light Piercing
-Starknife.MOD							TYPE:Weapon Group Melee Light Piercing
+Stake.MOD				TYPE:Weapon Group Melee Light Piercing
+Starknife.MOD			TYPE:Weapon Group Melee Light Piercing
 Sword Cane.MOD			TYPE:Weapon Group Melee OneHanded Piercing
-Trident.MOD							TYPE:Weapon Group Melee OneHanded Piercing
+Trident.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 
 # ACG - these weapons are not in the ACG
 # COMMENTS: wrong name?
@@ -76,9 +76,9 @@ Terbutje.MOD			TYPE:Weapon Group Melee OneHanded Slashing
 Terbutje (Great).MOD		TYPE:Weapon Group Melee OneHanded Slashing
 Hooked Axe.MOD			TYPE:Weapon Group Melee OneHanded Slashing
 Katana.MOD				TYPE:Weapon Group Melee OneHanded Slashing
-Rhoka Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
-Sawtooth Sabre.MOD	TYPE:Weapon Group Melee OneHanded Slashing
-Temple Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Rhoka Sword.MOD			TYPE:Weapon Group Melee OneHanded Slashing
+Sawtooth Sabre.MOD		TYPE:Weapon Group Melee OneHanded Slashing
+Temple Sword.MOD			TYPE:Weapon Group Melee OneHanded Slashing
 Urumi.MOD				TYPE:Weapon Group Melee OneHanded Slashing
 
 # UM

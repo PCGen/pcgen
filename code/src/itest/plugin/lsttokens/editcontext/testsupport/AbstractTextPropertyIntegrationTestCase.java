@@ -20,7 +20,6 @@ package plugin.lsttokens.editcontext.testsupport;
 import java.net.URISyntaxException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -36,17 +35,14 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 		extends AbstractIntegrationTestCase<T>
 {
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
-	public static final void localClassSetUp() throws URISyntaxException,
+	public final void localClassSetUp() throws URISyntaxException,
 		PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreClassParser());
 		TokenRegistration.register(new PreLevelWriter());
 		TokenRegistration.register(new PreClassWriter());
-		classSetUpFired = true;
+		setClassSetUpFired(true);
 	}
 
 	@Override
@@ -54,11 +50,15 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		if (!classSetUpFired)
+		if (!getClassSetUpFired())
 		{
 			localClassSetUp();
 		}
 	}
+
+	protected abstract boolean getClassSetUpFired();
+
+	protected abstract void setClassSetUpFired(boolean b);
 
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException

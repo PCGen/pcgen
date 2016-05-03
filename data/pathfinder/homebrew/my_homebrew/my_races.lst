@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
-# Blank Race Template	
-#	SIZE:	
-#	SOURCEPAGE:p.	
+# Blank Race Template
+#	SIZE:
+#	SOURCEPAGE:p.
 #	RACETYPE:yyy
 #	MONSTERCLASS:yyy:
 #	TYPE:yyy
@@ -26,7 +26,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #	BONUS:STAT|INT|
 #	BONUS:STAT|WIS|
 #	BONUS:STAT|CHA|
-#	ABILITY:Internal|AUTOMATIC|Racial Traits ~ XXX	
+#	ABILITY:Internal|AUTOMATIC|Racial Traits ~ XXX
 #	CR:
 #	LEVELADJUSTMENT:			//Only for systems where ECL/Level Adjustments are used.
 #	KIT:1|XXX Default

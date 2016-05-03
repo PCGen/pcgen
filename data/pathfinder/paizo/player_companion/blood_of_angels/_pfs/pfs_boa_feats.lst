@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
+
+# Feats: all feats on pages 24-25 are legal except Supernal Feast;
+# Magic: bard masterpieces are legal;
+
+###Block
+#Feat name			Type				Description																								Benefit																																																																																																																																																												Prerequisites																										Added levels	Added name
+# Feat Name			Type			Visible
+# Ability Name				Type			!PRECHARACTERTYPE
+CATEGORY=FEAT|Supernal Feast.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

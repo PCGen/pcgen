@@ -38,7 +38,9 @@ public abstract class AbstractToFactToken<T extends Loadable> extends
 		String value)
 	{
 		Logging.deprecationPrint(getTokenClass().getSimpleName() + " token "
-			+ getTokenName() + " has been deprecated and replaced by FACT:");
+			+ getTokenName()
+			+ " has been deprecated and replaced by FACT. Token was "
+			+ getTokenName() + ":" + value, context);
 		try
 		{
 			if (!context.processToken(obj, "FACT", getTokenName() + "|" + value))

@@ -1,0 +1,84 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#Original Entry By: Dan Schofield
+
+# NAMEISPI:YES
+###Block: Racial
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list																									Plural description for UI	Display Location
+ABILITYCATEGORY:Erenlander Ability Increase	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbilityIncrease																																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Erenlander Ability Decrease	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbilityDecrease																																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Erenlander Weapon Familiarity	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ErenlanderWeaponFamiliarty																																		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Erenlander Favored Region		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Favored Region ~ Northlands|Favored Region ~ Central Erenland|Favored Region ~ Southern Erenland															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dorn Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Fighter				ABILITYLIST:Shield Proficiency|Simple Weapon Proficiency|Martial Weapon Proficiency|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Dworg Weapon Familiarity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DworgWeaponFamiliarity																																			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Stout or Studious			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoutOrStudious																																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Nomadic Halfling Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MageCraft				ABILITYLIST:Mounted Combat																													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Innate Magic Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InnateMagic																																PLURAL:Innate Magic Spells	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Clan or Kurgun Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Clan Dwarf ~ Stonecunning|Kurgun Dwarf ~ Natural Mountaineers																					DISPLAYLOCATION:Racial Abilities
+
+###Block: Heroic Path
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Heroic Path					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HeroicPathSelection																DISPLAYLOCATION:Heroic Path Selection
+ABILITYCATEGORY:Beast Wildsense Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BeastWildSenseChoices										PLURAL:Heroic Wildsense Choices	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Beast Str Con Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BeastStrConStats																	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Beast Dex Wis Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BeastDexWisStats																	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Dragonblooded Improved Spellcasting	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedSpellcastingSchools															DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Dragonblooded Bolster Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Dragonblooded ~ Bolster Spell							DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Feyblooded Unearthly Grace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeybloodedUnearthlyGrace																DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Feyblooded Fey Vision			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeyVision																		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic SpellLike Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JackOfAllTradesSpellChoice									PLURAL:Heroic SpellLike Abilities	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Spontaneous Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ATS_SpontaneousSpell										PLURAL:Heroic Spontaneous Spells	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Ability Boost			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AbilityBoost												PLURAL:Heroic Ability Boosts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Save Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JackOfAllTradesSaveBoost										PLURAL:Heroic Save Boosts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Heroic Skill Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:JackOfAllTradesSkillBoost									PLURAL:Heroic Skill Boosts		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Naturefriend Natural Bond			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NaturalBond																		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Pureblood Skill Mastery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PurebloodSkillMastery										PLURAL:Pureblood Skill Mastery	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Pureblood Master Adventurer		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PurebloodMasterAdventurer									PLURAL:Pureblood Master Adventurer	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Pureblood Blood Of Kings			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BloodOfKings																		DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Steelblooded Bonus Feats			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SteelbloodedHeroicPath																DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Steelblooded Skilled Warrior		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SteelbloodedSkillWarriorAbilities														DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Warg Wildsense Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WargWildSenseChoices										PLURAL:Heroic Wildsense Choices	DISPLAYLOCATION:Heroic Path Abilities
+ABILITYCATEGORY:Warg Wild Empathy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WargWildEmpathy											PLURAL:Heroic Wildsense Choices	DISPLAYLOCATION:Heroic Path Abilities
+
+###Block: Class
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list									Plural description for UI		Display Location
+ABILITYCATEGORY:Spell Pool					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Spellpool																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Pool Lvl 0				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Spellpool Lvl 0														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Pool Lvl 1				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Spellpool Lvl 1														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spiritual Channeler Gift			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterofTwoWorlds																						DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spiritual Channeler Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation					ABILITYLIST:Extra Gift|Spell Knowledge												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hermetic Channeler Literacy		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Literacy																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hermetic Channeler Gift			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoreBook																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hermetic Channeler Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation.MetaMagic			ABILITYLIST:Spell Knowledge														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Charismatic Channeler Gift		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ForceOfPersonality																						DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Charismatic Channeler Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Extra Gift|Spell Focus|Greater Spell Focus|Spell Knowledge							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spellcasting Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Spellcasting																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Speed or Resilience				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpeedOrResilience																						DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Defender Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DefenderAbility																						DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wildlander Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WildlanderTrait.MasterHunterBonus																			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Animal Companion Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalCompanionAbilities																					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Danger Sense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DangerSense																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fighter Warriors Way			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WarriorsWay																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Warriors Way Adapter			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WarriorsWayAdapter																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Warriors Way Improviser			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WarriorsWayImproviser																					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Warriors Way Leader of Men		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WarriorsWayLeaderOfMen																					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Warriors Way Survivor			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WarriorsWaySurvivor																					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Animal Companion Rank			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalCompanionLevel															PLURAL:Animal Companion Levels	DISPLAYLOCATION:Animal Companion Rank
+
+###Block: Prestige Class
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list																			Display Location
+ABILITYCATEGORY:Bane Of Legates Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation.MetaMagic																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Druid Find the Way			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FindTheWay																									DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Freerider Mounted Maneuver	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MountedManeuver																								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Freerider Devastating Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DevastatintAttack																								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Haunted One Spell Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Spell Focus (Divination)|Spell Focus (Necromancy)|Greater Spell Focus (Divination)|Greater Spell Focus (Necromancy)	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Wizard Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation.Metamagic																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Worgen Rider Mounted Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MountedAbilities																								DISPLAYLOCATION:Class Abilities
+
+###Block: Covenant Weapon
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list								Display Location
+#	NAMEISPI:YES
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list								Display Location
+ABILITYCATEGORY:Fist of the Aruun Alignment	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Fist of the Aruun (Good)|Fist of the Aruun (Evil)	DISPLAYLOCATION:Weapon Abilities
+#
+# End
+#

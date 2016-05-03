@@ -1,8 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: TaluronIscandar
 
-Open Minded Skill	TYPE:Open Minded Skill	CATEGORY:Special Ability	CHOOSE:SKILL|!RANKS=MAXRANK,TYPE=Base	MULT:YES	STACK:YES	BONUS:SKILLRANK|%LIST|1
+# Ability Name	Category of Ability		Type				Stackable?	Multiple?	Choose						Bonus to skill rank
+Open Minded Skill	CATEGORY:Special Ability	TYPE:Open Minded Skill	STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK,TYPE=Base	BONUS:SKILLRANK|%LIST|1
 
 ###Block: Monster Psion Casting Support
 # Ability Name		Category of Ability	List of Class Spells by Level
@@ -169,61 +170,61 @@ Sweeping Strike			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extr
 Chain of Overwhelming Force	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES						DESC:1x/day
 
 ###Block: Astral Construct Menu A Abilities
-# Ability Name			Unique Key						Category of Ability		Type									Visible		Serves As						Move			Auto Feat				Ability									Bonus Ability Pool						Combat bonus				Bonus DR		Bonus to HP			Add to base move			Stat bonus		Modify VAR						Weapon prof. bonus			Damage Reduction
-Buff					KEY:Astral_Buff					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																													BONUS:HP|CURRENTMAX|5
-Celerity				KEY:Astral_Celerity				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																																	BONUS:MOVEADD|TYPE.Walk|10
-Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY											ABILITY:FEAT|AUTOMATIC|Cleave
-Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																				BONUS:COMBAT|AC|1|TYPE=Deflection
-Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES									MOVE:Fly,20							ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
-Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY											ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
-Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SERVESAS:FEAT|Improved Natural Attack																																																								BONUS:WEAPONPROF=Slam|DAMAGESIZE|1
-Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY											ABILITY:FEAT|AUTOMATIC|Mobility
-Power Attack			KEY:Astral_Power Attack				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY											ABILITY:FEAT|AUTOMATIC|Power Attack
-Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Resistance
-Swim					KEY:Astral_Swim					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES									MOVE:Swim,20
-Trip					KEY:Astral_Trip					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Trip
-Resistance To Cold		KEY:Astral_Resistance To Cold			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																																BONUS:VAR|ColdResistanceBonus|5
-Resistance To Fire		KEY:Astral_Resistance To Fire			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																																BONUS:VAR|FireResistanceBonus|5
-Resistance To Electricity	KEY:Astral_Resistance To Electricity	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity																															BONUS:VAR|ElectricityResistanceBonus|5
-Resistance To Sonic		KEY:Astral_Resistance To Sonic		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic																																BONUS:VAR|SonicResistanceBonus|5
-Resistance To Acid		KEY:Astral_Resistance To Acid			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Resistance To Acid																																BONUS:VAR|AcidResistanceBonus|5
+# Ability Name			Unique Key						Category of Ability		Type									Visible		Serves As							Move			Ability									Bonus Ability Pool						Combat bonus				Bonus DR		Bonus to HP			Add to base move			Stat bonus		Modify VAR						Weapon prof. bonus			Damage Reduction
+Buff					KEY:Astral_Buff					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																									BONUS:HP|CURRENTMAX|5
+Celerity				KEY:Astral_Celerity				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																													BONUS:MOVEADD|TYPE.Walk|10
+Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Cleave
+Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																BONUS:COMBAT|AC|1|TYPE=Deflection
+Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES										MOVE:Fly,20		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
+Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
+Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SERVESAS:ABILITY=Feat|Improved Natural Attack																																																			BONUS:WEAPONPROF=Slam|DAMAGESIZE|1
+Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Mobility
+Power Attack			KEY:Astral_Power Attack				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Power Attack
+Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Resistance
+Swim					KEY:Astral_Swim					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:YES										MOVE:Swim,20
+Trip					KEY:Astral_Trip					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Trip
+Resistance To Cold		KEY:Astral_Resistance To Cold			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																																BONUS:VAR|ColdResistanceBonus|5
+Resistance To Fire		KEY:Astral_Resistance To Fire			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																																BONUS:VAR|FireResistanceBonus|5
+Resistance To Electricity	KEY:Astral_Resistance To Electricity	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity																															BONUS:VAR|ElectricityResistanceBonus|5
+Resistance To Sonic		KEY:Astral_Resistance To Sonic		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic																																BONUS:VAR|SonicResistanceBonus|5
+Resistance To Acid		KEY:Astral_Resistance To Acid			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Resistance To Acid																																BONUS:VAR|AcidResistanceBonus|5
 
 #Astral Construct Menu B Abilities
-Two Menu A Abilities		KEY:Astral_Two Menu A Abilities		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																										BONUS:ABILITYPOOL|Astral Construct Menu A Ability|2
+Two Menu A Abilities		KEY:Astral_Two Menu A Abilities		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																						BONUS:ABILITYPOOL|Astral Construct Menu A Ability|2
 Extra Attack			KEY:Astral_Extra Attack				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Fast Healing			KEY:Astral_Fast Healing				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Fast Healing																																	BONUS:VAR|FastHealing|2
-Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																				BONUS:COMBAT|AC|4|TYPE=Deflection
-Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																													BONUS:HP|CURRENTMAX|15
-Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SERVESAS:FEAT|Improved Critical
-Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																									BONUS:DR|Magic|3																										DR:0/Magic
-Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY								MOVE:Fly,40							ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
-Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Improved Grab
-Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES									MOVE:Swim,60
-Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																																						BONUS:STAT|STR|4
+Fast Healing			KEY:Astral_Fast Healing				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Fast Healing																																	BONUS:VAR|FastHealing|2
+Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																BONUS:COMBAT|AC|4|TYPE=Deflection
+Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																									BONUS:HP|CURRENTMAX|15
+Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SERVESAS:ABILITY=Feat|Improved Critical
+Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																					BONUS:DR|Magic|3																										DR:0/Magic
+Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY									MOVE:Fly,40		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
+Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Improved Grab
+Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES										MOVE:Swim,60
+Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																																		BONUS:STAT|STR|4
 Poison Touch			KEY:Astral_Poison Touch				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Pounce
+Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Pounce
 Smite					KEY:Astral_Smite					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Trample
+Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Trample
 Energy Touch ~ Acid									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Cold									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Electricity								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Fire									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 
 #Astral Construct Menu C Abilities
-Two Menu B Abilities		KEY:Astral_Two Menu B Abilities		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																										BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
-Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																								BONUS:VAR|BlindsightRange|60|TYPE=Base
+Two Menu B Abilities		KEY:Astral_Two Menu B Abilities		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																						BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
+Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																				BONUS:VAR|BlindsightRange|60|TYPE=Base
 Concussion				KEY:Astral_Concussion				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES
-Constrict				KEY:Astral_Constrict				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Constrict
+Constrict				KEY:Astral_Constrict				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Constrict
 Dimension Slide			KEY:Astral_Dimension Slide			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES
 Energy Bolt				KEY:Astral_Energy Bolt				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES
-Extra Buff				KEY:Astral_Extra Buff				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																													BONUS:HP|CURRENTMAX|30
-Extreme Damage Reduction	KEY:Astral_Extreme Damage Reduction		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																										BONUS:DR|Magic|6
-Extreme Deflection		KEY:Astral_Extreme Deflection			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																				BONUS:COMBAT|AC|8|TYPE=Deflection
-Natural Invisibility		KEY:Astral_Natural Invisibility		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
+Extra Buff				KEY:Astral_Extra Buff				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																									BONUS:HP|CURRENTMAX|30
+Extreme Damage Reduction	KEY:Astral_Extreme Damage Reduction		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																						BONUS:DR|Magic|6
+Extreme Deflection		KEY:Astral_Extreme Deflection			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																BONUS:COMBAT|AC|8|TYPE=Deflection
+Natural Invisibility		KEY:Astral_Natural Invisibility		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
 Power Resistance			KEY:Astral_Power Resistance			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:YES
-Rend					KEY:Astral_Rend					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Rend
-Spring Attack			KEY:Astral_Spring Attack			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY											ABILITY:FEAT|AUTOMATIC|Spring Attack
-Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY											ABILITY:FEAT|AUTOMATIC|Whirlwind Attack
+Rend					KEY:Astral_Rend					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												ABILITY:Special Ability|AUTOMATIC|Rend
+Spring Attack			KEY:Astral_Spring Attack			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Spring Attack
+Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Whirlwind Attack
 
 
 ###Block: Psicrystal personalities

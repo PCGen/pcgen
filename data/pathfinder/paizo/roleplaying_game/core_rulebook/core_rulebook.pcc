@@ -42,13 +42,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
 
+
+
 # Fact/Factset & Formula System
-DATACONTROL:cr__datacontrol.lst
+DATACONTROL:cr__datacontrols.lst
 
 ### GM Moved
+ALIGNMENT:cr__align.lst
 SAVE:cr__saves.lst
 STAT:cr__stats.lst
-ALIGNMENT:cr__alignments.lst
 
 # Standard Files
 ABILITYCATEGORY:cr_abilitycategories.lst
@@ -92,7 +94,7 @@ HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodl
 HIDETYPE:EQUIP|AmuletOfMightyFists
 
 # Hide key stat types for skills
-HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Base
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Base|Background
 
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY

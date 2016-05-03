@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 # Original Entry: Andrew Maitland (LegacyKing)
 # Original Entry Date: 2008
@@ -16,7 +16,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 
 # Class Name		Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Bound Guardian	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Check Base					Multiple Requirements																		Required Skill					Required Text																														PRETOTALAB
+# Class Name		Required Check Base					Multiple Requirements																								Required Skill					Required Text																														PRETOTALAB
 CLASS:Bound Guardian	PRECHECKBASE:3,Fortitude=3,Reflex=3,Will=3	PREMULT:2,[PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Combat Reflexes,Weapon Focus],[PREABILITY:1,CATEGORY=FEAT,Great Fortitude,Iron Will,Lighting Reflexes]	PRESKILL:3,Intimidate=5,Listen=4,Spot=4	PRETEXT:Must undergo a special ritual of binding, including the casting of the guardian ties spell, the result of which is to bind the prospective Guardian to a single Mage of the Sanctorum.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bound Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Handle Animal|Hide|Intimidate|Listen|Move Silently|TYPE=Profession|Spot|Survival|Tumble
@@ -39,7 +39,7 @@ CLASS:Bound Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Handle Animal|Hide|Intimi
 
 # Class Name	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Magister	TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Multiple Requirements																		Required Skill						Required Text																				PRETOTALAB
+# Class Name	Multiple Requirements																								Required Skill						Required Text																				PRETOTALAB
 CLASS:Magister	PREMULT:2,[PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Skill Focus (Spellcraft)],[PREABILITY:3,CATEGORY=FEAT,Spell Focus,Spell Focus,Greater Spell Focus]	PRESKILL:2,Knowledge (Arcane)=15,Spellcraft=15	PRETEXT:Spells-  Ability to cast 7th-level arcane spells, and knowledge of 5th-level or higher spells from at least four schools.	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Research|Search|Spellcraft
@@ -124,8 +124,8 @@ SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Split Mi
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Save bonus													Modify VAR
 CLASS:Tears of Almeric	HD:4		TYPE:Prestige.PC	SOURCEPAGE:p.82	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL		Required Feat							Required Skill								Required Text
-CLASS:Tears of Almeric	PREALIGN:LG,NG,CG	PREABILITY:3,CATEGORY=FEAT,Iron Will,Lightning Reflexes,Combat Casting	PRESKILL:2,TYPE.Arcana=8,Knowledge (Local/Ymandragore)=8	PRETEXT: Able to prepare and cast 3rd level arcane spells, including expeditious retreat. Special: Must be a member in good standing of the Shield and must have successfully completed 4 missions for the Shield.
+# Class Name		Required Ability										Required AL		Required Skill								Required Text
+CLASS:Tears of Almeric	PREABILITY:3,CATEGORY=FEAT,Iron Will,Lightning Reflexes,Combat Casting	PREALIGN:LG,NG,CG	PRESKILL:2,TYPE.Arcana=8,Knowledge (Local/Ymandragore)=8	PRETEXT: Able to prepare and cast 3rd level arcane spells, including expeditious retreat. Special: Must be a member in good standing of the Shield and must have successfully completed 4 missions for the Shield.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tears of Almeric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Arcana|Knowledge (Local/Ymandragore)|Move Silently|TYPE=Profession|Spellcraft
 ###Block: Spell Caster Progression
@@ -152,7 +152,7 @@ CLASS:Tears of Almeric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Hide
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Via Proeliatoris	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required Feat														Required Skill							Required Text																						PRETOTALAB
+# Class Name		Required Ability																	Required Skill							Required Text																						PRETOTALAB
 CLASS:Via Proeliatoris	PREABILITY:4,CATEGORY=FEAT,Craft Magic Arms and Armor,Armor Proficiency (Light),Shield Proficiency,Weapon Focus	PRESKILL:3,TYPE.Arcana=10,Research=10,Spellcraft=10	PRETEXT:Spells: Must be able to cast 3rd level arcane spells - Special: Must be a member in good standing with the Sanctorum of the Arcane.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Via Proeliatoris	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Research|Spellcraft|Spot
@@ -177,7 +177,7 @@ CLASS:Via Proeliatoris	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Hide|Inti
 
 # Class Name	Type			Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Vieomancers	TYPE:Prestige.PC	SOURCEPAGE:p.85	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Restricted AL		Multiple Requirements													Required Skill							Required Text
+# Class Name	Restricted AL		Multiple Requirements																			Required Skill							Required Text
 CLASS:Vieomancers	!PREALIGN:LG,LN,LE	PREMULT:2,[PREABILITY:3,CATEGORY=FEAT,Alertness,Iron Will,Vieomantic Magic Student],[PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic]	PRESKILL:3,Concentration=9,TYPE.Arcana=9,Spellcraft=9	PRETEXT:Spells: Able to cast 3rd-level arcane spells, as well as dispel magic or greater dispel maigc. Special: The character must be accepted as a student of the Holders of Wisdom, and take an additional Sarishan Oath that he will cease following any line of magical inquiry if ordered to do so by one of the Magisters of the Sanctorum.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vieomancers	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Arcana|Knowledge (the Planes)|TYPE=Profession|Research|Spellcraft
@@ -207,7 +207,7 @@ CLASS:Vieomancers	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Arcana|Kn
 
 # Class Name			Hit Dice	Type			Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Arcane Infiltrator	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Feat										Required Skill							Required Text
+# Class Name			Required Ability													Required Skill							Required Text
 CLASS:Arcane Infiltrator	PREABILITY:3,CATEGORY=FEAT,Honey Tongue,Judge of Character,Skill Focus (Sense Motive)	PRESKILL:3,Gather Information=8,Bluff=8,Diplomacy=8	PRETEXT:Spells: Must be able to cast 1st level arcane; at least 4 of which must be Illusion spells.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Arcane Infiltrator	STARTSKILLPTS:6	CSKILL:Black Market|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Forgery|Disguise|Gather Information|Hide|Jump|TYPE=Arcana|TYPE=Geography|TYPE=Local|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Tumble|Use Rope
@@ -230,7 +230,7 @@ CLASS:Arcane Infiltrator	STARTSKILLPTS:6	CSKILL:Black Market|Bluff|Climb|Concent
 
 # Class Name	Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Battlestaff	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.90	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat																			Required Skill					Required Text																													PRETOTALAB
+# Class Name	Required Ability																					Required Skill					Required Text																													PRETOTALAB
 CLASS:Battlestaff	PREABILITY:5,CATEGORY=FEAT,Combat Expertise,Craft Magic Arms and Armor,Two-Weapon Fighting,Two-Weapon Defense,Weapon Focus (Quarterstaff)	PRESKILL:1,Craft (Weaponsmithing)=10	PRETEXT:Spells: Ability to prepare and cast 3rd level Arcane spells. Special: Must craft a Masterwork or Greater Masterwork quarterstaff and use it to defeat a foe in melee combat.	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Battlestaff	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
@@ -255,7 +255,7 @@ CLASS:Battlestaff	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|TYP
 
 # Class Name			Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Discipulus Phisicae	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required Feat					Required Skill										Required Text
+# Class Name			Required Ability								Required Skill										Required Text
 CLASS:Discipulus Phisicae	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Alchemy))	PRESKILL:4,Craft (Alchemy)=8,TYPE.Arcana=5,TYPE.Nature=5,Spellcraft=8	PRETEXT:Special: Must be invited to study by a current Discipulus Phisicae.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discipulus Phisicae	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Hide|TYPE=Knowledge|Move Silently|TYPE=Profession|Research|Spellcraft
@@ -316,8 +316,8 @@ SUBCLASSLEVEL:8	BONUS:ABILITYPOOL|The Augmentalist Feat|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Ehtzara	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required AL		Required Feat						Required Skill
-CLASS:Ehtzara	PREALIGN:CG,CE,CN	PREABILITY:2,CATEGORY=FEAT,Iron Will,Skill Focus (TYPE=Arcana)	PRESKILL:4,Concentration=8,Craft (Woodworking)=5,TYPE.Arcana=10,Spellcraft=10
+# Class Name	Required Ability									Required AL		Required Skill
+CLASS:Ehtzara	PREABILITY:2,CATEGORY=FEAT,Iron Will,Skill Focus (TYPE=Arcana)	PREALIGN:CG,CE,CN	PRESKILL:4,Concentration=8,Craft (Woodworking)=5,TYPE.Arcana=10,Spellcraft=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ehtzara	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Dreaming|Handle Animal|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|TYPE=Religion|Knowledge (The Planes ~ Spirit World)|Knowledge (The Planes ~ Spirit Creatures)|TYPE=Profession|Spellcraft|Spot|Survival|Use Magic Device
 # Class Name	Spell Stat		Caster level
@@ -325,7 +325,7 @@ CLASS:Ehtzara	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Ehtzara|CL
 #Weapon and Armor Proficiency: Ehtzara are proficient with the following weapons: club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, and spear. The Ehtzara are prohibited from wearing any items that grant an armor bonus to AC save his Spirit Robes, even bracers of armor, as wearing such meager means of protection show a lack of faith and anger the Ehtzara's patron sprits. An Ehtzara who wears prohibited armor finds himselfunable to cast any Ehtzara spells or use any of her supernatural or spell-like class abilities for 24 hours thereafter.
 1	ABILITY:Special Ability|AUTOMATIC|Ehtzara Proficiencies
 ###Block:
-1							ABILITY:Special Ability|AUTOMATIC|Fetish Crafting|Spirit Robes|Wizard ~ Familiar|Taboos
+1							ABILITY:Special Ability|AUTOMATIC|Fetish Crafting|Spirit Robes|Taboos|Wizard ~ Familiar
 2	BONUS:ABILITYPOOL|Binding Fetish|1	ABILITY:Special Ability|AUTOMATIC|Binding Fetish|Craft Esters Salves
 3							ABILITY:Special Ability|AUTOMATIC|Detect Spirits|Imbue Fetish
 5	BONUS:ABILITYPOOL|Binding Fetish|1	ABILITY:Special Ability|AUTOMATIC|Speak with Spirits
@@ -349,7 +349,7 @@ CLASS:Ehtzara	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Ehtzara|CL
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Discipulus Geometricus	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Feat							Required Skill									Required Text
+# Class Name			Required Ability										Required Skill									Required Text
 CLASS:Discipulus Geometricus	PREABILITY:2,CATEGORY=FEAT,Prodigy (Arcane Magic),Sculpt Runic Item	PRESKILL:3,Craft (Stoneworking)=5,TYPE.Arcana=12,Spellcraft=12	PRETEXT:Spells: Able to cast 3rd level Arcane spells, at least three of which must be Magic Circle spells.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discipulus Geometricus	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
@@ -380,7 +380,7 @@ CLASS:Discipulus Geometricus	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Dec
 
 # Class Name					Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Knight of the Order of St. Armon	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name					Required Feat						Required Skill			Required Text													PRETOTALAB
+# Class Name					Required Ability									Required Skill			Required Text													PRETOTALAB
 CLASS:Knight of the Order of St. Armon	PREABILITY:3,CATEGORY=FEAT,Armored Caster,Gentry,Weapon Focus	PRESKILL:1,Concentration=6	PRETEXT:Spellcasting: Must be able to cast 2nd level arcane spells. Nationality: Milandir	PRETOTALAB:4
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Order of St. Armon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=Knowledge|TYPE=Profession|Ride|Spellcraft
@@ -436,8 +436,8 @@ CLASS:Magus Irascortum	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Int
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:The Master-Smith	HD:8	HD:8	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Required Feat												Required Skill																		Required Text
-CLASS:The Master-Smith	PREALIGN:LG,LN,LE	PREABILITY:2,CATEGORY=FEAT,Skill Focus (Craft (Armorsmithing)),Skill Focus (Craft (Weaponsmithing))	PRESKILL:4,Craft (Weaponsmithing)=6,Craft (Armorsmithing)=6,Profession (Blacksmith)=6,Knowledge (Science/Metallurgy)=5	PRETEXT:Must find a Master-Smith of 5th level or above to take you as an apprentice
+# Class Name		Required Ability															Required AL		Required Skill																		Required Text
+CLASS:The Master-Smith	PREABILITY:2,CATEGORY=FEAT,Skill Focus (Craft (Armorsmithing)),Skill Focus (Craft (Weaponsmithing))	PREALIGN:LG,LN,LE	PRESKILL:4,Craft (Weaponsmithing)=6,Craft (Armorsmithing)=6,Profession (Blacksmith)=6,Knowledge (Science/Metallurgy)=5	PRETEXT:Must find a Master-Smith of 5th level or above to take you as an apprentice
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Master-Smith	STARTSKILLPTS:6	CSKILL:Appraise|Climb|TYPE=Craft|Concentration|Jump|TYPE=Knowledge|TYPE=Profession|Ride|Search|Spellcraft|Spot|Swim|Use Magic Device|Use Rope
 #Weapon and Armor Proficiency: The Master-Smith is proficient with all simple and martial weapons, with all types of armor, and with shields (including tower shields).
@@ -445,7 +445,7 @@ CLASS:The Master-Smith	STARTSKILLPTS:6	CSKILL:Appraise|Climb|TYPE=Craft|Concentr
 ###Block:
 1						ABILITY:Special Ability|AUTOMATIC|Apprenticeship|Silvered Weapon|Skill Mastery (Master-Smith)
 2						ABILITY:Special Ability|AUTOMATIC|Master Craftsman (Armorsmith)
-3						ABILITY:Special Ability|AUTOMATIC|Cold-Forging									ABILITY:FEAT|AUTOMATIC|Weapon Focus (Warhammer)
+3						ABILITY:Special Ability|AUTOMATIC|Cold-Forging	ABILITY:FEAT|AUTOMATIC|Weapon Focus (Warhammer)
 4						ABILITY:Special Ability|AUTOMATIC|Master Craftsman (Weaponsmith)
 5	BONUS:VAR|SecretOfTheSmithy|1	ABILITY:Special Ability|AUTOMATIC|Master-Smith|Secret of the Smithy
 6						ABILITY:Special Ability|AUTOMATIC|Eschew Spell Requirements
@@ -464,7 +464,7 @@ CLASS:The Master-Smith	STARTSKILLPTS:6	CSKILL:Appraise|Climb|TYPE=Craft|Concentr
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Savant	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.108	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required Feat																		Required Skill					Req. Spell Type				Required Text
+# Class Name	Required Ability																											Required Skill					Req. Spell Type				Required Text
 CLASS:Savant	PREABILITY:1,CATEGORY=FEAT,Extend Spell	PREABILITY:2,CATEGORY=FEAT,TYPE.Metamagic,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Prodigy,Magical Aptitude,Arcane Bloodline	PRESKILL:2,Spellcraft=10,TYPE.Arcana=10	PRESPELLTYPE:1,Arcane=3,Divine=3	PRETEXT:Must be able to cast 3rd level spells
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
@@ -484,8 +484,8 @@ CLASS:Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYP
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
 CLASS:Song Master of Cadic	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.110	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required Deity	Required Feat				Multiple Requirements												Required Text
-CLASS:Song Master of Cadic	PREDEITY:1,Cadic	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perform)	PREMULT:2,[PRESKILL:2,Bluff=8,Diplomacy=8],[PRESKILL:2,TYPE.Perform=10,TYPE.Perform=10]	PRETEXT:Spellcasting: Must be able to cast 1st level arcane spells. Special: Bardic Music class ability. The val'Borda musical bloodline powers or having the music domain will suffice for the Bardic Music class ability.
+# Class Name			Required Ability							Required Deity	Multiple Requirements												Required Text
+CLASS:Song Master of Cadic	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perform)	PREDEITY:1,Cadic	PREMULT:2,[PRESKILL:2,Bluff=8,Diplomacy=8],[PRESKILL:2,TYPE.Perform=10,TYPE.Perform=10]	PRETEXT:Spellcasting: Must be able to cast 1st level arcane spells. Special: Bardic Music class ability. The val'Borda musical bloodline powers or having the music domain will suffice for the Bardic Music class ability.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Song Master of Cadic	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sleight of Hand|Spellcraft|Spot|Tumble
 #Weapon and Armor Proficiency: The Song Masters of Cadic gain no additional proficiencies.
@@ -514,7 +514,7 @@ CLASS:Song Master of Cadic	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|TY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Spellchanter	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.111	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Feat								Required Skill																			Required Text
+# Class Name		Required Ability											Required Skill																			Required Text
 CLASS:Spellchanter	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude,Skill Focus (Perform (Singing))	PRESKILL:5,Perform (Singing)=11,Spellcraft=6,TYPE.Arcana=6,Concentration=5,Use Magic Device=5	PRESKILL:2,TYPE.Perform=11	PRETEXT:Special: Must be able to cast 2nd level arcane spells; Special: Bardic Music ability
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spellchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
@@ -544,7 +544,7 @@ CLASS:Spellchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Terramancer	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.113	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required Feat			Required Skill												Required Text
+# Class Name	Required Ability						Required Skill												Required Text
 CLASS:Terramancer	PREABILITY:1,CATEGORY=FEAT,Sculpt Runic Item	PRESKILL:3,Knowledge (Geology)=8,Knowledge (The Planes/Earth)=8,Craft (Stonework)=8	PRETEXT:Spellcasting: Earth Domain or the ability to cast 3 spells listed in the Earth Domain, must be able to cast stone shape. Special: Have had peaceful contact with a free-willed earth elemental
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Terramancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Geology)|TYPE=Religion|Knowledge (The Planes/Earth)|TYPE=Profession|Spellcraft
@@ -574,14 +574,14 @@ CLASS:Terramancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge
 
 ###Block: Vispilio de Magus ----------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Vispilio de Magus	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Feat												Required Skill													Required Text
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Vispilio de Magus	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Arcane
+# Class Name		Required Ability																		Required Skill													Required Text
 CLASS:Vispilio de Magus	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Disable Device)	PREABILITY:1,CATEGORY=FEAT,Arcane Knack,Arcane Training	PRESKILL:5,Decipher Script=5,Disable Device=8,Spellcraft=5,Search=8,Use Magic Device=5	PRETEXT:Special: The character must have Trap Finding and Evasion as class features. Additionally, the character must be able to cast the following spells: detect magic, and read magic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Vispilio de Magus	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|TYPE=Arcana|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Speak Language|Swim|Tumble|Use Magic Device|Use Rope
-# Class Name		Spell Type		Caster level
-CLASS:Vispilio de Magus	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
+# Class Name		Caster level
+CLASS:Vispilio de Magus	BONUS:CASTERLEVEL|Vispilio de Magus|CL
 #Weapon and Armor Proficiency: A Vispilio de Magus gains no proficiency with any weapon or armor. A Vispilio de Magus can cast his class spells while wearing light armor without incurring the normal arcane spell failure chance. However, like any other arcane spellcaster, a Vispilio de Magus wearing medium or heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component (which most do). A multiclassed Vispilio de Magus still incurs the normal arcane spell failure chance when casting arcane spells received from his other classes.
 #Block: Vispilio de Magus Spell List
 1	SPELLLEVEL:CLASS|Vispilio de Magus=1|Comprehend Languages,Detect Magic,Feather Fall,Hold Portal,Identify,Jump,Read Magic
@@ -617,8 +617,8 @@ CLASS:Vispilio de Magus	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Weather Witch	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.117	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required Deity							Required Feat		Required Race					Required Skill					Required Text
-CLASS:Weather Witch	PREDEITY:1,Shamanic,PANTHEON.Saluwe,PANTHEON.Hurrian	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRERACE:1,Human,Half-human,Dark-kin,Val	PRESKILL:2,Concentration=8,TYPE.Nature=8	PRETEXT:Special: Must pray for spells or cast spells without preparation
+# Class Name		Required Ability					Required Deity							Required Race					Required Skill					Required Text
+CLASS:Weather Witch	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREDEITY:1,Shamanic,PANTHEON.Saluwe,PANTHEON.Hurrian	PRERACE:1,Human,Half-human,Dark-kin,Val	PRESKILL:2,Concentration=8,TYPE.Nature=8	PRETEXT:Special: Must pray for spells or cast spells without preparation
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Weather Witch	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|TYPE=Arcana|TYPE=Nature|TYPE=Profession|Spellcraft|Survival|Swim
 #Weapon and Armor Proficiency: The Weather Witch gains no additional weapon or armor proficiencies
@@ -650,14 +650,14 @@ CLASS:Weather Witch	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|
 
 ###Block: Afatkuq --------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Afatkuq	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required AL		Required Feat								Required Skill																			Required Text
-CLASS:Afatkuq	PREALIGN:LG,LN	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Iron Will,Skill Focus (Heal)	PRESKILL:5,Heal=8,Knowledge (Local/Pengik)=5,Knowledge (Local/Ssethragore)=5,TYPE.Nature=8,Knowledge (Religion/Pengik)=8	PRETEXT:Must be able to understand Ssethric. Must have mundane blood and be unable to cast spells or manifest powers. Pengik
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR													FACT
+CLASS:Afatkuq	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:SpellType|Divine
+# Class Name	Required Ability										Required AL		Required Skill																			Required Text
+CLASS:Afatkuq	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Iron Will,Skill Focus (Heal)	PREALIGN:LG,LN	PRESKILL:5,Heal=8,Knowledge (Local/Pengik)=5,Knowledge (Local/Ssethragore)=5,TYPE.Nature=8,Knowledge (Religion/Pengik)=8	PRETEXT:Must be able to understand Ssethric. Must have mundane blood and be unable to cast spells or manifest powers. Pengik
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Afatkuq	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|TYPE=Nature|TYPE=Local|TYPE=Religion|TYPE=Profession|Spellcraft|Sense Motive|Survival
-# Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Afatkuq	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Afatkuq|CL
+# Class Name	Spell Stat		Caster level
+CLASS:Afatkuq	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Afatkuq|CL
 #Weapon and Armor Proficiency: Afatkuq are proficient with the following weapons:
 1	ABILITY:Special Ability|AUTOMATIC|Afatkuq Proficiencies
 ###Block:
@@ -695,7 +695,7 @@ CLASS:Afatkuq	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Afatkuq|CL
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Berotar	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.121	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required Feat		Required Skill					Required Text																																																											PRETOTALAB
+# Class Name	Required Ability					Required Skill					Required Text																																																											PRETOTALAB
 CLASS:Berotar	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:2,Profession (Sailor)=6,Swim=6	PRETEXT:Spellcasting: Be able to cast 3rd level spells and if a cleric have access to either the Air or Water domain. If an arcane caster or a divine caster with no domains, must have access to 2 different spells of 3rd level or higher appearing on the Air or Water domain spell lists. Special: Must be an Elorii from Entaris and be invited into the fellowship.	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berotar	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|TYPE=Arcana|TYPE=Nature|Profession (Sailor)|Spellcraft|Swim
@@ -717,8 +717,8 @@ CLASS:Berotar	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Dipl
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Death Lord	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.123	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Restricted AL		Required Deity	Required Domain	Required Feat								Required Skill										Required Text
-CLASS:Death Lord	!PREALIGN:LG,NG,CG	PREDEITY:1,Neroth	PREDOMAIN:1,Death	PREABILITY:2,CATEGORY=FEAT,Spell Focus (Necromancy),Domain Focus (Undead)	PRESKILL:3,TYPE.Arcana=10,Knowledge (Religion/Neroth)=10,Spellcraft=10	PRETEXT:If Wizard, must be a Specialist Wizard focusing on Necromancy. Must be able to cast 4th level Divine spells and 2nd level Arcane spells
+# Class Name	Required Ability											Restricted AL		Required Deity	Required Domain	Required Skill										Required Text
+CLASS:Death Lord	PREABILITY:2,CATEGORY=FEAT,Spell Focus (Necromancy),Domain Focus (Undead)	!PREALIGN:LG,NG,CG	PREDEITY:1,Neroth	PREDOMAIN:1,Death	PRESKILL:3,TYPE.Arcana=10,Knowledge (Religion/Neroth)=10,Spellcraft=10	PRETEXT:If Wizard, must be a Specialist Wizard focusing on Necromancy. Must be able to cast 4th level Divine spells and 2nd level Arcane spells
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Death Lord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Arcana|TYPE=History|Knowledge (Religion/Neroth)|TYPE=Profession|Spellcraft
 #Weapon and Armor Proficiency: Death Lords gain very little in the way of military training. They gain no additional weapon or armor proficiencies
@@ -752,7 +752,7 @@ CLASS:Death Lord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Eagle Hunter	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.125	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EagleCompanionLvl|CL
-# Class Name		Required Ability										Required Feat				Required Region			Required Skill
+# Class Name		Required Ability																			Required Region			Required Skill
 CLASS:Eagle Hunter	PREABILITY:2,CATEGORY=Special Ability,Wild Empathy,Animal Companion	PREABILITY:2,CATEGORY=FEAT,Animal Affinity,Track	PREREGION:Hinterlands,Kio	PRESKILL:3,Craft (Leatherworking)=7,Handle Animal=10,Survival=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eagle Hunter	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|TYPE=Geography|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Ride|Search|Spellcraft|Spot|Survival|Swim|Use Rope
@@ -788,8 +788,8 @@ CLASS:Eagle Hunter	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft
 
 # Class Name				Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Knowledge Warden of Althares	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.127	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name				Required AL		Required Check Base	Required Deity		Required Feat							Required Skill														Required Text
-CLASS:Knowledge Warden of Althares	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Will=4	PREDEITY:1,Althares	PREABILITY:2,CATEGORY=FEAT,Church Education,Improved Unarmed Strike	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESKILL:2,Gather Information=5,Sense Motive=5	PRETEXT:able to cast 1st level divine spells.  Must be a resident of Altheria, and must be a member of the Order of Knowledge.
+# Class Name				Required Ability										Required AL		Required Check Base	Required Deity		Required Skill														Required Text
+CLASS:Knowledge Warden of Althares	PREABILITY:2,CATEGORY=FEAT,Church Education,Improved Unarmed Strike	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Will=4	PREDEITY:1,Althares	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESKILL:2,Gather Information=5,Sense Motive=5	PRETEXT:able to cast 1st level divine spells.  Must be a resident of Altheria, and must be a member of the Order of Knowledge.
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Knowledge Warden of Althares	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Concentration|Decipher Script|Diplomacy|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|Search|Sense Motive|Spellcraft|Spot|Tumble
 #Weapon and Armor Proficiency: Knowledge Wardens gain proficiency in monk weapons (see Core Rulebook I) and Altherian flintlock pistols and rifles. They gain no armor proficiencies, and none of the class features below may be used while the Knowledge Warden is wearing armor.
@@ -835,8 +835,8 @@ CLASS:The Lifewarden	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Psionic Inquisitor	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.131	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required AL		Required Deity			Required Feat					Required Skill														Required Text
-CLASS:Psionic Inquisitor	PREALIGN:LG,LN,LE	PREDEITY:1,Illiir,Sarish	PREABILITY:2,CATEGORY=FEAT,Inquisitor,Psionic Meditation	PRESKILL:3,Concentration=8,TYPE.Religion=5,Sense Motive=8	PRESKILL:1,Psicraft=5,Spellcraft=5	PRETEXT:Spellcasting- Must be able to cast 1st level divine spells.; Manifesting: Must be able to manifest 1st level powers.
+# Class Name			Required Ability								Required AL		Required Deity			Required Skill														Required Text
+CLASS:Psionic Inquisitor	PREABILITY:2,CATEGORY=FEAT,Inquisitor,Psionic Meditation	PREALIGN:LG,LN,LE	PREDEITY:1,Illiir,Sarish	PRESKILL:3,Concentration=8,TYPE.Religion=5,Sense Motive=8	PRESKILL:1,Psicraft=5,Spellcraft=5	PRETEXT:Spellcasting- Must be able to cast 1st level divine spells.; Manifesting: Must be able to manifest 1st level powers.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psionic Inquisitor	STARTSKILLPTS:2	CSKILL:Autohypnosis|TYPE=Craft|Concentration|TYPE=Knowledge|Listen|Psicraft|Search|Sense Motive|Spellcraft|Spot
 #Weapon and Armor Proficiency: The Psionic Inquisitor gains no additional weapon or armor proficiencies.
@@ -890,15 +890,15 @@ CLASS:Tree Shaper of Saluwe	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Craft|Concentrat
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Ordainer	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.208	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required AL		Required Class				Required Feat						Required Skill									Required Text																	PRETOTALAB
-CLASS:Ordainer	PREALIGN:LN,LE	PRECLASS:1,SPELLCASTER.Arcane=5	PREABILITY:1,CATEGORY=FEAT,Track	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PRESKILL:4,Concentration=5,TYPE.Arcana=5,Spellcraft=5,Survival=5	PRETEXT:Special - Born and raised upon the Isle of Tears. Must swear loyalty to the Sorcerer King of Ymandragore.	PRETOTALAB:4
+# Class Name	Required Ability											Required AL		Required Class				Required Skill									Required Text																	PRETOTALAB
+CLASS:Ordainer	PREABILITY:1,CATEGORY=FEAT,Track	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREALIGN:LN,LE	PRECLASS:1,SPELLCASTER.Arcane=5	PRESKILL:4,Concentration=5,TYPE.Arcana=5,Spellcraft=5,Survival=5	PRETEXT:Special - Born and raised upon the Isle of Tears. Must swear loyalty to the Sorcerer King of Ymandragore.	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ordainer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|Research|Spellcraft|Spot|Survival
 ###Block: Proficiencies
 #Weapon and Armor Proficiency: The Ordainer is proficient with all simple and martial weapons, light armor, and shields.
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level Advancement
 1																						ABILITY:Special Ability|AUTOMATIC|Arcane Health|Reduced Arcane Spell Failure|Soul Search
 2	BONUS:ABILITYPOOL|Ordainer Feat|1																ABILITY:Special Ability|AUTOMATIC|Absorb Spell|Arcane Style|Power Meta-magic Ability
@@ -923,8 +923,8 @@ CLASS:Ordainer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Kn
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
 CLASS:Shard Shaper	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.210	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL		Required Check Base	Required Feat		Required Skill			Required Text
-CLASS:Shard Shaper	PREALIGN:LE,NE,CE	PRECHECKBASE:1,Will=6	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:1,Craft (Gemsmith)=5	PRETEXT:In addition, the character must successfully acquire a dwarven soul shard that contains the soul of an arcane spellcaster, and must complete the Ritual of Binding with the shard.
+# Class Name		Required Ability					Required AL		Required Check Base	Required Skill			Required Text
+CLASS:Shard Shaper	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREALIGN:LE,NE,CE	PRECHECKBASE:1,Will=6	PRESKILL:1,Craft (Gemsmith)=5	PRETEXT:In addition, the character must successfully acquire a dwarven soul shard that contains the soul of an arcane spellcaster, and must complete the Ritual of Binding with the shard.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shard Shaper	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Gemsmith)|TYPE=Arcana|Spellcraft|Use Magic Device
 ###Block: Proficiencies
@@ -939,14 +939,14 @@ CLASS:Shard Shaper	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Gemsmith)|TYPE=Ar
 
 ###Block: Wine Drinker ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type						Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Wine Drinker	HD:8		TYPE:Prestige.PC	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.213	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Restricted AL		Required Feat					Required Skill						Required Text
-CLASS:Wine Drinker	!PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Alchemy))	PRESKILL:2,Craft (Alchemy)=5,TYPE.Arcana=5	PRETEXT:Special: Must not be able to cast arcane spells prior to membership. Must make a substantial donation (minimum 5,000 gp) to the finger before the society will accept the applicant.
+# Class Name		Hit Dice	Type						Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Wine Drinker	HD:8		TYPE:Prestige.PC	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.213	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:SpellType|Arcane
+# Class Name		Required Ability								Restricted AL		Required Skill						Required Text
+CLASS:Wine Drinker	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Alchemy))	!PREALIGN:LG,NG,CG	PRESKILL:2,Craft (Alchemy)=5,TYPE.Arcana=5	PRETEXT:Special: Must not be able to cast arcane spells prior to membership. Must make a substantial donation (minimum 5,000 gp) to the finger before the society will accept the applicant.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Intimidate|TYPE=Arcana|TYPE=Profession|Research|Sense Motive
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker|CL
+# Class Name		Spell Stat		Caster level
+CLASS:Wine Drinker	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Wine Drinker|CL
 ###Block: Proficiencies
 #Weapon and Armor Proficiency: A Wind Drinker retains all previous weapon and armor proficiency. They also gain proficiency in any one Martial weapon of their choice to assist them in hunting down their prey.
 1	BONUS:ABILITYPOOL|Wine Drinker Weapon|1

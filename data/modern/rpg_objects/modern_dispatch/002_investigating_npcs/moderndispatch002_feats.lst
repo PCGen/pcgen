@@ -1,30 +1,32 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #2 - Investigating NPCs	SOURCESHORT:MD02-INPCs	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3987	SOURCEDATE:2004-01
 #Original Entry by: Frank Kliewe
 
-# Feat Name			Output Name				Type			Special ABility							Define				Description				Add 					Source Page
-Secret Identity (RPGO)	OUTPUTNAME:Secret Identity	CATEGORY:FEAT	TYPE:General	SAB:Reputation: % (Secret Identity)|SecretReputation	DEFINE:SecretReputation|0	DESC:You lead a double life	ADD:FEAT|TYPE=MoveReputation	SOURCEPAGE:p.3
+# Feat Name			Output Name				Type			Special ABility							Define				Description				Add					Source Page
+# Ability Name		Output Name				Category of Ability	Type			Special ABility							Define				Description				Add								Source Page
+Secret Identity (RPGO)	OUTPUTNAME:Secret Identity	CATEGORY:FEAT		TYPE:General	SAB:Reputation: % (Secret Identity)|SecretReputation	DEFINE:SecretReputation|0	DESC:You lead a double life	ADD:ABILITY|FEAT|NORMAL|TYPE=MoveReputation	SOURCEPAGE:p.3
 
 ###Block:Move Reputation
 # Feat Name							Type				Visible	Var. Min. Value			Modify VAR
-Reputation (Public ID +0 / Secret ID +0)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO
-Reputation (Public ID -1 / Secret ID +1)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,1		BONUS:VAR|Reputation|-1	BONUS:VAR|SecretReputation|1
-Reputation (Public ID -2 / Secret ID +2)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,2		BONUS:VAR|Reputation|-2	BONUS:VAR|SecretReputation|2
-Reputation (Public ID -3 / Secret ID +3)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,3		BONUS:VAR|Reputation|-3	BONUS:VAR|SecretReputation|3
-Reputation (Public ID -4 / Secret ID +4)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,4		BONUS:VAR|Reputation|-4	BONUS:VAR|SecretReputation|4
-Reputation (Public ID -5 / Secret ID +5)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,5		BONUS:VAR|Reputation|-5	BONUS:VAR|SecretReputation|5
-Reputation (Public ID -6 / Secret ID +6)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,6		BONUS:VAR|Reputation|-6	BONUS:VAR|SecretReputation|6
-Reputation (Public ID -7 / Secret ID +7)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,7		BONUS:VAR|Reputation|-7	BONUS:VAR|SecretReputation|7
-Reputation (Public ID -8 / Secret ID +8)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,8		BONUS:VAR|Reputation|-8	BONUS:VAR|SecretReputation|8
-Reputation (Public ID -9 / Secret ID +9)		CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,9		BONUS:VAR|Reputation|-9	BONUS:VAR|SecretReputation|9
-Reputation (Public ID -10 / Secret ID +10)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,10	BONUS:VAR|Reputation|-10	BONUS:VAR|SecretReputation|10
-Reputation (Public ID -11 / Secret ID +11)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,11	BONUS:VAR|Reputation|-11	BONUS:VAR|SecretReputation|11
-Reputation (Public ID -12 / Secret ID +12)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,12	BONUS:VAR|Reputation|-12	BONUS:VAR|SecretReputation|12
-Reputation (Public ID -13 / Secret ID +13)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,13	BONUS:VAR|Reputation|-13	BONUS:VAR|SecretReputation|13
-Reputation (Public ID -14 / Secret ID +14)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,14	BONUS:VAR|Reputation|-14	BONUS:VAR|SecretReputation|14
-Reputation (Public ID -15 / Secret ID +15)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,15	BONUS:VAR|Reputation|-15	BONUS:VAR|SecretReputation|15
-Reputation (Public ID -16 / Secret ID +16)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,16	BONUS:VAR|Reputation|-16	BONUS:VAR|SecretReputation|16
-Reputation (Public ID -17 / Secret ID +17)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,17	BONUS:VAR|Reputation|-17	BONUS:VAR|SecretReputation|17
-Reputation (Public ID -18 / Secret ID +18)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,18	BONUS:VAR|Reputation|-18	BONUS:VAR|SecretReputation|18
-Reputation (Public ID -19 / Secret ID +19)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,19	BONUS:VAR|Reputation|-19	BONUS:VAR|SecretReputation|19
-Reputation (Public ID -20 / Secret ID +20)	CATEGORY:FEAT	TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,20	BONUS:VAR|Reputation|-20	BONUS:VAR|SecretReputation|20
+# Ability Name						Category of Ability	Type				Visible	Var. Min. Value			Modify VAR
+Reputation (Public ID +0 / Secret ID +0)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO
+Reputation (Public ID -1 / Secret ID +1)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,1		BONUS:VAR|Reputation|-1	BONUS:VAR|SecretReputation|1
+Reputation (Public ID -2 / Secret ID +2)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,2		BONUS:VAR|Reputation|-2	BONUS:VAR|SecretReputation|2
+Reputation (Public ID -3 / Secret ID +3)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,3		BONUS:VAR|Reputation|-3	BONUS:VAR|SecretReputation|3
+Reputation (Public ID -4 / Secret ID +4)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,4		BONUS:VAR|Reputation|-4	BONUS:VAR|SecretReputation|4
+Reputation (Public ID -5 / Secret ID +5)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,5		BONUS:VAR|Reputation|-5	BONUS:VAR|SecretReputation|5
+Reputation (Public ID -6 / Secret ID +6)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,6		BONUS:VAR|Reputation|-6	BONUS:VAR|SecretReputation|6
+Reputation (Public ID -7 / Secret ID +7)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,7		BONUS:VAR|Reputation|-7	BONUS:VAR|SecretReputation|7
+Reputation (Public ID -8 / Secret ID +8)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,8		BONUS:VAR|Reputation|-8	BONUS:VAR|SecretReputation|8
+Reputation (Public ID -9 / Secret ID +9)		CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,9		BONUS:VAR|Reputation|-9	BONUS:VAR|SecretReputation|9
+Reputation (Public ID -10 / Secret ID +10)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,10	BONUS:VAR|Reputation|-10	BONUS:VAR|SecretReputation|10
+Reputation (Public ID -11 / Secret ID +11)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,11	BONUS:VAR|Reputation|-11	BONUS:VAR|SecretReputation|11
+Reputation (Public ID -12 / Secret ID +12)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,12	BONUS:VAR|Reputation|-12	BONUS:VAR|SecretReputation|12
+Reputation (Public ID -13 / Secret ID +13)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,13	BONUS:VAR|Reputation|-13	BONUS:VAR|SecretReputation|13
+Reputation (Public ID -14 / Secret ID +14)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,14	BONUS:VAR|Reputation|-14	BONUS:VAR|SecretReputation|14
+Reputation (Public ID -15 / Secret ID +15)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,15	BONUS:VAR|Reputation|-15	BONUS:VAR|SecretReputation|15
+Reputation (Public ID -16 / Secret ID +16)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,16	BONUS:VAR|Reputation|-16	BONUS:VAR|SecretReputation|16
+Reputation (Public ID -17 / Secret ID +17)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,17	BONUS:VAR|Reputation|-17	BONUS:VAR|SecretReputation|17
+Reputation (Public ID -18 / Secret ID +18)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,18	BONUS:VAR|Reputation|-18	BONUS:VAR|SecretReputation|18
+Reputation (Public ID -19 / Secret ID +19)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,19	BONUS:VAR|Reputation|-19	BONUS:VAR|SecretReputation|19
+Reputation (Public ID -20 / Secret ID +20)	CATEGORY:FEAT		TYPE:MoveReputation	VISIBLE:NO	PREVARGTEQ:Reputation,20	BONUS:VAR|Reputation|-20	BONUS:VAR|SecretReputation|20

@@ -100,8 +100,8 @@ ARMORPROF:psionics_expanded_armorprofs.lst
 SHIELDPROF:psionics_expanded_shieldprof.lst
 WEAPONPROF:psionics_expanded_weaponprofs.lst
 
-FEAT:psionics_expanded_feats.lst
-FEAT:psionics_expanded_feats_mods.lst
+ABILITY:psionics_expanded_feats.lst
+ABILITY:psionics_expanded_feats_mods.lst
 
 KIT:psionics_expanded_kits.lst
 

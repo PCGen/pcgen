@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name			Unique Key						Category of Ability		Type													Define					Description																								Ability										Adjust PC Size		Modify VAR															Source Page
 Race Traits ~ Companion Toad								CATEGORY:Internal																																															ABILITY:Special Ability|AUTOMATIC|TYPE=Companion Toad RacialTrait
@@ -11,5 +11,6 @@ Marsh Move				KEY:Companion Toad ~ Marsh Move		CATEGORY:Special Ability	TYPE:Com
 Companion Advancement ~ Toad								CATEGORY:Special Ability																																																								BONUS:SIZEMOD|NUMBER|1
 
 ###Block:
-Familiar (Pigeon Toad)		CATEGORY:Internal	BONUS:SKILL|Sense Motive|3	
-Familiar (Purple Peeper)	CATEGORY:Internal			BONUS:SAVE|Will|2		
+# Ability Name			Category of Ability	Save bonus		Bonus to skill
+Familiar (Pigeon Toad)		CATEGORY:Internal					BONUS:SKILL|Sense Motive|3
+Familiar (Purple Peeper)	CATEGORY:Internal		BONUS:SAVE|Will|2

@@ -21,7 +21,7 @@ Oni-Spawn		KEY:Tiefling (Oni-Spawn)	VISIBLE:NO	SUBRACE:Oni-Spawn		RACESUBTYPE:On
 Qlippoth-Spawn	KEY:Tiefling (Qlippoth-Spawn)	VISIBLE:NO	SUBRACE:Qlippoth-Spawn	RACESUBTYPE:Qlippoth-Spawn
 Rakshasa-Spawn	KEY:Tiefling (Rakshasa-Spawn)	VISIBLE:NO	SUBRACE:Rakshasa-Spawn	RACESUBTYPE:Rakshasa-Spawn
 
-
+Tiefling Bonus Languages	VISIBLE:NO	LANGBONUS:Celestial,Infernal,Abyssal,Auran,Terran,Aquan,Ignan
 
 #
 # End

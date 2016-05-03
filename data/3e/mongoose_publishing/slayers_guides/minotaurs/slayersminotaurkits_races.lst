@@ -1,0 +1,50 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 16:00:05 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs	SOURCESHORT:SGtM	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+
+STARTPACK:Minotaur (Brown) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Brown)]
+RACE:Minotaur (Brown)	!PRERACE:1,%
+NAME:Minotaur (Brown)
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Jump		RANK:4
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+
+STARTPACK:Minotaur (Shaggy) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Shaggy)]
+RACE:Minotaur (Shaggy)	!PRERACE:1,%
+NAME:Minotaur (Shaggy)
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Jump		RANK:4
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+
+STARTPACK:Minotaur (Bearded) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Bearded)]
+RACE:Minotaur (Bearded)	!PRERACE:1,%
+NAME:Minotaur (Bearded)
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Jump		RANK:4
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+
+STARTPACK:Minotaur (Noble) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Noble)]
+RACE:Minotaur (Noble)	!PRERACE:1,%
+NAME:Minotaur (Noble)
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:4
+SKILL:Search	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Jump		RANK:4
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude

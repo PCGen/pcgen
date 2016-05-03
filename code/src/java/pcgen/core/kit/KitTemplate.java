@@ -115,7 +115,7 @@ public class KitTemplate extends BaseKit
 
 		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
 		{
-			PCTemplate templateToAdd = ref.resolvesTo();
+			PCTemplate templateToAdd = ref.get();
 			List<CDOMSingleRef<PCTemplate>> subList =
 					templateList.getListFor(ref);
 			List<PCTemplate> subAdded = new ArrayList<PCTemplate>();
@@ -123,7 +123,7 @@ public class KitTemplate extends BaseKit
 			{
 				for (CDOMSingleRef<PCTemplate> subRef : subList)
 				{
-					PCTemplate ownedTemplate = subRef.resolvesTo();
+					PCTemplate ownedTemplate = subRef.get();
 					subAdded.add(ownedTemplate);
 					aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
 				}

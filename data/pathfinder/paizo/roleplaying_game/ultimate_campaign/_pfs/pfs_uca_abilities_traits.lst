@@ -1,0 +1,11 @@
+# CVS $Revision: 20472 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2013-05
+
+# Traits: all traits listed on pages 51-64 are legal for play except corpse cannibal, hedge magician, natural-born leader, rich parents, and unblemished barrel.
+
+# Ability Name								Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Trait ~ Corpse Cannibal.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Unblemished Barrel.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

@@ -334,7 +334,7 @@ public class SourceSelectionDialog extends JDialog
 		{
 			// Swap to the install data dialog.
 			setVisible(false);
-			DataInstaller di = new DataInstaller(frame);
+			DataInstaller di = new DataInstaller();
 			di.setVisible(true);
 		}
 		else if (command.equals(HIDEUNHIDE_COMMAND))
@@ -346,7 +346,6 @@ public class SourceSelectionDialog extends JDialog
 			table.setShowGrid(false);
 			table.setFocusable(false);
 			table.setRowSelectionAllowed(false);
-			table.toggleSort(0);
 			rowTable.setRowSelectionAllowed(false);
 
 			pane.setPreferredSize(new Dimension(300, 200));

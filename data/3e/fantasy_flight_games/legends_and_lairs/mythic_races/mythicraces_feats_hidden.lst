@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
+
+# Feat Name		Type			Visible	Bonus to skill
+# Ability Name	Category of Ability		Type			Bonus to skill
+Racial Craft	CATEGORY:Special Ability	TYPE:Special	BONUS:SKILL|TYPE.Craft|2
+Artistic Craft	CATEGORY:Special Ability	TYPE:Special	BONUS:SKILL|TYPE.Art|2
+
+
+###Block: Proficiencies
+# Feat Name				Type			Visible	Auto Weapon Prof
+# Ability Name			Category of Ability		Type			Auto Weapon Prof
+Animan Atavist Proficiencies	CATEGORY:Special Ability	TYPE:Special	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Longspear|Shortspear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub
+
+###Block: Soulless Resistance and Immunity
+# Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose
+# Ability Name		Category of Ability		Type			Special ABility			Stackable?	Multiple?	Choose
+Soulless Resistance	CATEGORY:Special Ability	TYPE:Special	SAB:Resistance 20/%CHOISE	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Fire
+Soulless Immunity		CATEGORY:Special Ability	TYPE:Special	SAB:Immunity 20/%CHOISE		STACK:NO	MULT:YES	CHOOSE:STRING|Electricity|Fire|Poison

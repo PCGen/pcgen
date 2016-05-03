@@ -39,7 +39,6 @@ public class StringKeyActorTest extends AbstractOutputTestCase
 			classSetUp();
 			classSetUpRun = true;
 		}
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	private void classSetUp()
@@ -56,14 +55,14 @@ public class StringKeyActorTest extends AbstractOutputTestCase
 		df.set(id, d);
 		d.put(StringKey.DAMAGE, expectedResult);
 		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "damage", ska);
+		CDOMObjectWrapper.load(dsid, d.getClass(), "damage", ska);
 		processThroughFreeMarker("${deity.damage}", expectedResult);
 	}
 
 	public void testListKeyActorMissingSafe()
 	{
 		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);
-		CDOMObjectWrapper.getInstance().load(Deity.class, "damage", ska);
+		CDOMObjectWrapper.load(dsid, Deity.class, "damage", ska);
 		processThroughFreeMarker("${deity.damage!}", "");
 	}
 

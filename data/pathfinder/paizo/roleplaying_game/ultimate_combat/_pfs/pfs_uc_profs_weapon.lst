@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Weapon Name	Required Ability
+Firearms.MOD	PREABILITY:1,CATEGORY=FEAT,Gunsmithing

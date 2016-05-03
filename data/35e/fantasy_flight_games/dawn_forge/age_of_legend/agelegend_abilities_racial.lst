@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -216,15 +216,15 @@ Visions of the Spirit	CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.
 ###################
 
 ###Block: Night Elf Racial Talents
-# Ability Name		Category of Ability		Type										Visible	Required Ability								Required AL		Required Feat					Required Lvl	Req. Spell Type		Innate Spells				Source Page
-Rites of Blood		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Rites of Darkness														PRESPELLTYPE:1,Divine=3							SOURCEPAGE:p.28
-Rites of Darkness		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																		SOURCEPAGE:p.28
-Rites of Fury		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES											PREALIGN:LE,NE,CE																					SOURCEPAGE:p.28
-Rites of the Hunt		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES														PREABILITY:1,CATEGORY=FEAT,Still Spell,Silent Spell					PRESPELLTYPE:1,Divine=2							SOURCEPAGE:p.28
-Songs of Mending		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.SpellLike		VISIBLE:YES																												SPELLS:Innate|TIMES=ATWILL|Mending	SOURCEPAGE:p.28
-Songs of Making		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending																								SOURCEPAGE:p.28
-Songs of Bladecrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending				PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor	PRELEVEL:MIN=8											SOURCEPAGE:p.28
-Songs of Armorcrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending				PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor	PRELEVEL:MIN=6											SOURCEPAGE:p.28
+# Ability Name		Category of Ability		Type										Visible	Required Ability																	Required AL		Required Lvl	Req. Spell Type		Innate Spells				Source Page
+Rites of Blood		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Rites of Darkness																PRESPELLTYPE:1,Divine=3							SOURCEPAGE:p.28
+Rites of Darkness		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																				SOURCEPAGE:p.28
+Rites of Fury		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																				PREALIGN:LE,NE,CE														SOURCEPAGE:p.28
+Rites of the Hunt		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Still Spell,Silent Spell																	PRESPELLTYPE:1,Divine=2							SOURCEPAGE:p.28
+Songs of Mending		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.SpellLike		VISIBLE:YES																														SPELLS:Innate|TIMES=ATWILL|Mending	SOURCEPAGE:p.28
+Songs of Making		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending																										SOURCEPAGE:p.28
+Songs of Bladecrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending	PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor				PRELEVEL:MIN=8											SOURCEPAGE:p.28
+Songs of Armorcrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending	PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor				PRELEVEL:MIN=6											SOURCEPAGE:p.28
 
 ###Block: Night Elf Racial Transformations
 # Ability Name		Category of Ability		Type											Visible	Required Ability								Required Vision			Source Page
@@ -313,7 +313,7 @@ Thoughtful		CATEGORY:Special Ability	TYPE:HighlanderRacialTransformation.Special
 
 ###Block:Lowlander Racial Talents
 # Ability Name	Category of Ability		Type							Visible	Multiple?	Choose											Selections	Combat bonus					Save bonus					Bonus to skill							Class Skill					Source Page
-Elnaria		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																														BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)		SOURCEPAGE:p.47
+Elnaria		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																														BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (geography)		SOURCEPAGE:p.47
 #+ a Knowledge skill of his choice...
 Larakis		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																													SOURCEPAGE:p.47
 Ironwall		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Martial]|EQUIPMENT[TYPE=Simple]	SELECT:3	BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																						SOURCEPAGE:p.47
@@ -359,25 +359,25 @@ Gambler		CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQual
 #######################
 
 ###Block:Trueborn Racial Talents
-# Ability Name	Category of Ability		Type										Visible	Required Ability							Add 									Bonus to skill				Source Page
-Hard Worker		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality				VISIBLE:YES										BONUS:ABILITYPOOL|Hard Worker Feat|1									SOURCEPAGE:p.106
-Bowman		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																									SOURCEPAGE:p.106
-Fleet Footed	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																			BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106
-Strong Faith	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																									SOURCEPAGE:p.106
-Silver Tongued	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																			BONUS:SKILL|Bluff|2|TYPE=Talent	SOURCEPAGE:p.106
-Horse Trainer	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																									SOURCEPAGE:p.107
-Horse Talker	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Supernatural		VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Horse Trainer																SOURCEPAGE:p.107
-Ironclad		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																									SOURCEPAGE:p.107
+# Ability Name	Category of Ability		Type										Visible	Required Ability							Bonus Ability Pool				Bonus to skill				Source Page
+Hard Worker		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality				VISIBLE:YES										BONUS:ABILITYPOOL|Hard Worker Feat|1							SOURCEPAGE:p.106
+Bowman		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																							SOURCEPAGE:p.106
+Fleet Footed	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																	BONUS:SKILL|Tumble|2|TYPE=Talent	SOURCEPAGE:p.106
+Strong Faith	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																							SOURCEPAGE:p.106
+Silver Tongued	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																	BONUS:SKILL|Bluff|2|TYPE=Talent	SOURCEPAGE:p.106
+Horse Trainer	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																							SOURCEPAGE:p.107
+Horse Talker	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Supernatural		VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Horse Trainer														SOURCEPAGE:p.107
+Ironclad		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																							SOURCEPAGE:p.107
 
 ###Block:Trueborn Racial Transformations
-# Ability Name		Unique Key				Category of Ability		Type											Visible	Required Feat	PRETOTALAB		Innate Spells				Ability									Bonus Ability Pool					Source Page
+# Ability Name		Unique Key				Category of Ability		Type											Visible	Required Ability				PRETOTALAB		Innate Spells				Ability									Bonus Ability Pool					Source Page
 Defending Soldier							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Dodge																												SOURCEPAGE:p.107
-Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																															SOURCEPAGE:p.107
-Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES							SPELLS:Innate|TIMES=ATWILL|Light																			SOURCEPAGE:p.107
-Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES													ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
-Divine Heritage							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																															SOURCEPAGE:p.107
-Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES				PRETOTALAB:6																									SOURCEPAGE:p.107
-Staunch								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																							BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107
+Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																																		SOURCEPAGE:p.107
+Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES										SPELLS:Innate|TIMES=ATWILL|Light																			SOURCEPAGE:p.107
+Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES																ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
+Divine Heritage							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																		SOURCEPAGE:p.107
+Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES							PRETOTALAB:6																									SOURCEPAGE:p.107
+Staunch								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																										BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107
 
 #################
 ### Minotaur  ###
@@ -477,19 +477,19 @@ Thunder Shout					CATEGORY:Special Ability	TYPE:LizardRacialTransformation.Speci
 #################
 
 ###Block: Tiefling Racial Talents
-# Ability Name		Category of Ability		Type										Visible		Required Ability							Required Feat			Required Lvl	Required Stat	Define					Innate Spells										Stackable?	Multiple?	Choose		Ability						Bonus Ability Pool					Modify VAR					Source Page
-Covert Casting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Covert Casting|1							SOURCEPAGE:p.92
-Poisoner			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.92
-Generalist			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.93
+# Ability Name		Category of Ability		Type										Visible		Required Ability							Required Lvl	Required Stat	Define					Innate Spells										Stackable?	Multiple?	Choose		Ability						Bonus Ability Pool					Modify VAR					Source Page
+Covert Casting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Covert Casting|1							SOURCEPAGE:p.92
+Poisoner			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																															SOURCEPAGE:p.92
+Generalist			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																															SOURCEPAGE:p.93
 #TODO: Generalist - Can't seem to find a way to add skillpoints outside classes...test
-Linguist			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.93
-Local Specialist		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.93
-Prophetic Instinct	CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																						DEFINE:PropheticInstinctTimes|0	SPELLS:Innate|TIMES=PropheticInstinctTimes|Augury|Guidance|True Strike	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
-Combat Maneuvers		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Combat Maneuver|1							SOURCEPAGE:p.93
-Fiendish Frenzy		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																PRELEVEL:MIN=6																													ABILITY:Special Ability|AUTOMATIC|Rage									BONUS:VAR|RageTimes|1			SOURCEPAGE:p.93
-Martial Training		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Martial Training|1							SOURCEPAGE:p.94
-Trip and Stab		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Whip Fighting									PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
-Whip Fighting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES											PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Whip)				PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
+Linguist			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																															SOURCEPAGE:p.93
+Local Specialist		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																															SOURCEPAGE:p.93
+Prophetic Instinct	CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																	DEFINE:PropheticInstinctTimes|0	SPELLS:Innate|TIMES=PropheticInstinctTimes|Augury|Guidance|True Strike	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																BONUS:VAR|PropheticInstinctTimes|1	SOURCEPAGE:p.93
+Combat Maneuvers		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Combat Maneuver|1							SOURCEPAGE:p.93
+Fiendish Frenzy		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES											PRELEVEL:MIN=6																													ABILITY:Special Ability|AUTOMATIC|Rage									BONUS:VAR|RageTimes|1			SOURCEPAGE:p.93
+Martial Training		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Martial Training|1							SOURCEPAGE:p.94
+Trip and Stab		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Whip Fighting				PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
+Whip Fighting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Whip)					PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
 
 ###Block: Tiefling Racial Transformations
 # Ability Name	Output Name		Category of Ability		Type											Visible	Required Ability							Required Template				Description	Move		Combat bonus			Bonus to skill													Bonus to nb of slots	Source Page

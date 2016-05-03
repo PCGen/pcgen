@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Alt Damage		Size		Source Page
+Belaying Pin	PROFICIENCY:WEAPON|Club		TYPE:Weapon.Simple.Melee.Bludgeoning.Wooden.Club		COST:0	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3				SIZE:S	SOURCEPAGE:p.45
+Gaff Hook		PROFICIENCY:WEAPON|Gaff Hook	TYPE:Weapon.Exotic.Melee.Piercing.Wooden				COST:4	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				SIZE:M	SOURCEPAGE:p.93
+Boathook		PROFICIENCY:WEAPON|Boathook	TYPE:Weapon.Exotic.Melee.Bludgeoning.Piercing.Wooden.Double	COST:6	WT:5		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d4	SIZE:L	SOURCEPAGE:p.93

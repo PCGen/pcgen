@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -143,14 +143,14 @@ CLASS:Lancer	STARTSKILLPTS:4	CSKILL:Athletics|Impress|Intimidate|Notice|Resolve|
 
 ###Block: Mage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Type			Max Level	Source Page		Define							Combat bonus								Bonus to HP				Save bonus																					Modify VAR
-CLASS:Mage		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.43	DEFINE:ArcaneAdept|0	DEFINE:ArcaneKnown|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:HP|CURRENTMAX|CON+CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:VAR|SpellPoints|classlevel("APPLIEDAS=NONEPIC")*2	BONUS:VAR|TotalCasterLvl|1
+# Class Name	Type			Max Level	Source Page		Define							Combat bonus								Bonus to HP				Save bonus																					Modify VAR														FACT
+CLASS:Mage		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.43	DEFINE:ArcaneAdept|0	DEFINE:ArcaneKnown|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:HP|CURRENTMAX|CON+CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:VAR|SpellPoints|classlevel("APPLIEDAS=NONEPIC")*2	BONUS:VAR|TotalCasterLvl|1	FACT:SpellType|Arcane
 # Class Name	Required Non-Monster Lvl
 CLASS:Mage		PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:8	CSKILL:Bluff|Crafting|Impress|Intimidate|Investigate|Medicine|Notice|Prestidigitation|Resolve|Ride|Search|Sense Motive
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Mage		SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage|TotalCasterLvl
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Mage		SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage|TotalCasterLvl
 ###Block: Class Progression
 1						ABILITY:Special Ability|AUTOMATIC|Subtle and Quick to Anger
 2	BONUS:VAR|ArcaneMightCount|1	ABILITY:Special Ability|AUTOMATIC|Arcane Might

@@ -15,7 +15,7 @@ Longaxe (Dwarven)			TYPE:Melee.Dwarven.Slashing.Exotic
 Longhammer (Dwarven)		TYPE:Melee.Dwarven.Bludgeoning.Exotic.Reach
 
 # COMMENT: Catfolk Claw Blades
-Claw Blades (Catfolk)		TYPE:Melee.Light.ClawBlades.Slashing.Piercing.Finesseable
+#Claw Blades (Catfolk)		TYPE:Melee.Light.ClawBlades.Slashing.Piercing.Finesseable
 
 # COMMENT: Kobold tail attachment weaponprofs
 Kobold Tail Attachment		TYPE:Melee.Light.Natural.KoboldTailAttachment
@@ -33,3 +33,14 @@ Terror Kite				TYPE:TerrorKite
 
 # COMMENT: Gillman Sea-Knife
 Sea-Knife				TYPE:Melee.Light.SeaKnife.Slashing.Piercing.Martial
+
+#
+# Weapon Groups
+#
+Dogslicer.MOD				TYPE:Weapon Group Blades Light
+Waraxe (Dwarven Double).MOD		TYPE:Weapon Group Axes.Weapon Group Double
+Helmet (Dwarven Boulder).MOD		TYPE:Weapon Group Close
+Horsechopper.MOD				TYPE:Weapon Group Polearms
+Longhammer (Dwarven).MOD		TYPE:Weapon Group Hammers
+Longaxe (Dwarven).MOD			TYPE:Weapon Group Axes
+Sea-Knife.MOD				TYPE:Weapon Group Blades Light

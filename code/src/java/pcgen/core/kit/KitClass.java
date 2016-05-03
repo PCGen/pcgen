@@ -76,7 +76,7 @@ public class KitClass extends BaseKit
 		theLevel = -1;
 		doLevelAbilities = true;
 		
-		theClass = pcClass.resolvesTo();
+		theClass = pcClass.get();
 
 		theOrigSubClass = aPC.getSubClassName(theClass);
 		applySubClass(aPC);

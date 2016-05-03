@@ -1,0 +1,34 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:CiSc	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
+# Original Entry by: Mynex, Tir Gwaith, & bD_92
+
+# Weapon Name	Type			Nb Hands
+Bola			TYPE:Exotic
+Boomerang		TYPE:Exotic
+Epee			TYPE:Martial
+Speargun		TYPE:Martial	HANDS:2
+Baseball Bat	TYPE:Simple
+Brass Knuckles	TYPE:Simple
+Knife (Bowie)	TYPE:Simple
+Garrote		TYPE:Exotic
+Sword Cane		TYPE:Simple
+Beretta 92F		TYPE:Personal
+M1911 .45		TYPE:Personal
+IMI Eagle		TYPE:Personal
+Luger 9mm		TYPE:Personal
+Colt Army		TYPE:Personal
+Colt Navy		TYPE:Personal
+Colt Dragoon	TYPE:Personal
+Colt Python		TYPE:Personal
+Derringer		TYPE:Personal
+Thompson .45	TYPE:Personal
+IMI Uzi		TYPE:Personal
+M16			TYPE:Advanced
+AK 47			TYPE:Advanced
+M72A3LAW		TYPE:Heavy		HANDS:2
+Antimatter Pistol	TYPE:Futuristic
+Antimatter Rifle	TYPE:Futuristic
+Blaster Pistol	TYPE:Futuristic
+Blaster Rifle	TYPE:Futuristic
+Laser Pistol	TYPE:Futuristic
+Laser Rifle		TYPE:Futuristic

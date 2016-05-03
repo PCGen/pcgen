@@ -1,237 +1,38 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 #COMMENT: Change Var name 'LongRace' to 'RaceSizeIsLong' makes more sense.
 
-A Dragon (Black)
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:4
-	RACETYPE:Dragon
-	RACESUBTYPE:Water
-	STARTFEATS:1
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
-	TEMPLATE:Black Dragon
+# Race Name		SORTKEY				Unique Key			Starting Feats	Move		Caster level bonus																					Modify VAR																								Ability									Nb Legs	Define			Monster Class Name and Starting Level	Main Race Type	Race Subtype	Template			Challenge Rating	Add							Apply Kit
+A Dragon (Black)										STARTFEATS:1	MOVE:Walk,5																									BONUS:VAR|RaceSizeIsLong|1																															LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:4				RACETYPE:Dragon	RACESUBTYPE:Water	TEMPLATE:Black Dragon	CR:3										KIT:1|Dragon Default Stat Array
 
-Black Dragon
-	KEY:Dragon (Black)
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Black Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:4
-	RACETYPE:Dragon
-	RACESUBTYPE:Water
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer
-	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer|(DragonAge-5)*2|PREVARGTEQ:DragonAge,6
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Black Dragon	SORTKEY:Dragon_Chromatic	KEY:Dragon (Black)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,4	BONUS:PCLEVEL|Sorcerer|(DragonAge-5)*2|PREVARGTEQ:DragonAge,6					BONUS:VAR|RaceSizeIsLong|1																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Black Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:4				RACETYPE:Dragon	RACESUBTYPE:Water					CR:3			ADD:SPELLCASTER|Sorcerer			KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Blue Dragon
-
-	KEY:Dragon (Blue)
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Blue Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Earth
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,3
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Blue Dragon		SORTKEY:Dragon_Chromatic	KEY:Dragon (Blue)		STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,3	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5	BONUS:VAR|DragonAirAllowed|1	BONUS:VAR|DragonEvilAllowed|1	BONUS:VAR|DragonLawAllowed|1	BONUS:VAR|RaceSizeIsLong|1						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Blue Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:6				RACETYPE:Dragon	RACESUBTYPE:Earth					CR:3			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Bluff|Hide|Spellcraft|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Green Dragon
-
-	KEY:Dragon (Green)
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Green Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:5
-	RACETYPE:Dragon
-	RACESUBTYPE:Air
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer
-	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,3
-	BONUS:PCLEVEL|Sorcerer|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Green Dragon	SORTKEY:Dragon_Chromatic	KEY:Dragon (Green)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,3	BONUS:PCLEVEL|Sorcerer|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5					BONUS:VAR|RaceSizeIsLong|1																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Green Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:5				RACETYPE:Dragon	RACESUBTYPE:Air					CR:3			ADD:SPELLCASTER|Sorcerer			KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Bluff|Hide|Move Silently|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Red Dragon
-
-	KEY:Dragon (Red)
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Red Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:7
-	RACETYPE:Dragon
-	RACESUBTYPE:Fire
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4
-	DEFINE:DragonChaosAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonFireAllowed|1
-	CR:4
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Red Dragon		SORTKEY:Dragon_Chromatic	KEY:Dragon (Red)		STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4	BONUS:VAR|DragonChaosAllowed|1	BONUS:VAR|DragonEvilAllowed|1	BONUS:VAR|DragonFireAllowed|1	BONUS:VAR|RaceSizeIsLong|1					ABILITY:Internal|AUTOMATIC|Racial Traits ~ Red Dragon		LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:7				RACETYPE:Dragon	RACESUBTYPE:Fire					CR:4			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Appraise|Bluff|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-White Dragon
-
-	KEY:Dragon (White)
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ White Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:3
-	RACETYPE:Dragon
-	RACESUBTYPE:Cold
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer
-	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,5
-	BONUS:PCLEVEL|Sorcerer|(DragonAge-6)*2|PREVARGTEQ:DragonAge,7
-	CR:2
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+White Dragon	SORTKEY:Dragon_Chromatic	KEY:Dragon (White)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,5	BONUS:PCLEVEL|Sorcerer|(DragonAge-6)*2|PREVARGTEQ:DragonAge,7					BONUS:VAR|RaceSizeIsLong|1																					ABILITY:Internal|AUTOMATIC|Racial Traits ~ White Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:3				RACETYPE:Dragon	RACESUBTYPE:Cold					CR:2			ADD:SPELLCASTER|Sorcerer			KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Brass Dragon
-
-	KEY:Dragon (Brass)
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Brass Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:4
-	RACETYPE:Dragon
-	RACESUBTYPE:Fire
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4
-	DEFINE:DragonChaosAllowed|1
-	DEFINE:DragonKnowledgeAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Brass Dragon	SORTKEY:Dragon_Metallic		KEY:Dragon (Brass)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4	BONUS:VAR|DragonChaosAllowed|1	BONUS:VAR|DragonKnowledgeAllowed|1	BONUS:VAR|RaceSizeIsLong|1									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Brass Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:4				RACETYPE:Dragon	RACESUBTYPE:Fire					CR:3			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Bluff|Gather Information|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Bronze Dragon
-
-	KEY:Dragon (Bronze)
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Bronze Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Water
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4
-	DEFINE:DragonAnimalAllowed|1
-	DEFINE:DragonLawAllowed|1
-	DEFINE:DragonWaterAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Bronze Dragon	SORTKEY:Dragon_Metallic		KEY:Dragon (Bronze)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4	BONUS:VAR|DragonAnimalAllowed|1	BONUS:VAR|DragonLawAllowed|1	BONUS:VAR|DragonWaterAllowed|1	BONUS:VAR|RaceSizeIsLong|1				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Bronze Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:6				RACETYPE:Dragon	RACESUBTYPE:Water					CR:3			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Disguise|Swim|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Copper Dragon
-
-	KEY:Dragon (Copper)
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Copper Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:5
-	RACETYPE:Dragon
-	RACESUBTYPE:Earth
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4
-	DEFINE:DragonChaosAllowed|1
-	DEFINE:DragonEarthAllowed|1
-	DEFINE:DragonTrickeryAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Copper Dragon	SORTKEY:Dragon_Metallic		KEY:Dragon (Copper)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4	BONUS:VAR|DragonChaosAllowed|1	BONUS:VAR|DragonEarthAllowed|1	BONUS:VAR|DragonTrickeryAllowed|1	BONUS:VAR|RaceSizeIsLong|1			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Copper Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:5				RACETYPE:Dragon	RACESUBTYPE:Earth					CR:3			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Bluff|Hide|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Gold Dragon
-
-	KEY:Dragon (Gold)
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gold Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:8
-	RACETYPE:Dragon
-	RACESUBTYPE:Fire
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4
-	DEFINE:DragonLuckAllowed|1
-	DEFINE:DragonLawAllowed|1
-	DEFINE:DragonGoodAllowed|1
-	CR:5
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Gold Dragon		SORTKEY:Dragon_Metallic		KEY:Dragon (Gold)		STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4	BONUS:VAR|DragonLuckAllowed|1	BONUS:VAR|DragonLawAllowed|1	BONUS:VAR|DragonGoodAllowed|1	BONUS:VAR|RaceSizeIsLong|1						ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gold Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:8				RACETYPE:Dragon	RACESUBTYPE:Fire					CR:5			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Disguise|Heal|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
-Silver Dragon
-
-	KEY:Dragon (Silver)
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Silver Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:7
-	RACETYPE:Dragon
-	RACESUBTYPE:Cold
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonGoodAllowed|1
-	DEFINE:DragonLawAllowed|1
-	DEFINE:DragonSunAllowed|1
-	CR:4
-	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
-	LEGS:4
-	MOVE:Walk,5
+Silver Dragon	SORTKEY:Dragon_Metallic		KEY:Dragon (Silver)	STARTFEATS:1	MOVE:Walk,5	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,2	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-3)*2|PREVARGTEQ:DragonAge,4	BONUS:VAR|DragonAirAllowed|1	BONUS:VAR|DragonGoodAllowed|1	BONUS:VAR|DragonLawAllowed|1	BONUS:VAR|DragonSunAllowed|1	BONUS:VAR|RaceSizeIsLong|1	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Silver Dragon	LEGS:4	DEFINE:RaceSizeIsLong|0	MONSTERCLASS:Dragon:7				RACETYPE:Dragon	RACESUBTYPE:Cold					CR:4			ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)	KIT:1|Dragon Default Stat Array
 #	MONCSKILL:Bluff|Disguise|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 

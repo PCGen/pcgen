@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
 
 ###Block:Animal Champion -----------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Ex Class				Source Page		Define				Combat bonus										Save bonus
-CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:p.23	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Required Feat			PRETOTALAB
-CLASS:Animal Champion	PREALIGN:TN,NG	PREABILITY:1,CATEGORY=FEAT,Animal Affinity	PRETOTALAB:10
+# Class Name		Hit Dice	Type			Max Level	Base class as subclass?	Ex Class				Source Page		Define				Combat bonus										Save bonus																					FACT
+CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:p.23	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|AC
+# Class Name		Required Ability						Required AL		PRETOTALAB
+CLASS:Animal Champion	PREABILITY:1,CATEGORY=FEAT,Animal Affinity	PREALIGN:TN,NG	PRETOTALAB:10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 
@@ -24,7 +24,7 @@ SUBCLASS:Animal Champion ~ (Dire Bat)						COST:0
 SUBCLASSLEVEL:3	BONUS:VAR|BlindsightRange|120	ABILITY:Special Ability|AUTOMATIC|Blindsight
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Improved Blindsight
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bat's Uncanny Travel
-SUBCLASS:Animal Champion ~ (Bear any)						COST:0													PRESIZEGTEQ:M
+SUBCLASS:Animal Champion ~ (Bear any)						COST:0															PRESIZEGTEQ:M
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Bearhug
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Bearpaw's Nourishment
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Bear's Loyalty
@@ -138,8 +138,8 @@ SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Wolverine's Tricks
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolverine's Fearlessness
 ###Block:Weapon & Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level Abilities
 1	BONUS:VAR|AnimalCompanionLVL|CL					ABILITY:Special Ability|AUTOMATIC|Animal Champion Companion|Animal Friendship|Chosen Species
 2											ABILITY:Special Ability|AUTOMATIC|Charm Animal
@@ -154,29 +154,29 @@ SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolverine's Fearlessness
 
 #CLASS:Ex Animal Champion --------------------------------------------------------------------
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Combat bonus										Save bonus
-CLASS:Ex Animal Champion	HD:8		TYPE:PC.Prestige	ABB:XAC		MAXLEVEL:10	SOURCEPAGE:p.23	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Hit Dice	Type			Max Level	Source Page		Visible	Combat bonus										Save bonus																					FACT
+CLASS:Ex Animal Champion	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.23	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|XAC
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 ###Block:Weapon & Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 
 
 ###Block:Briar Archer -------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Briar Archer	HD:8		TYPE:PC.Prestige	ABB:BA		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL	Required Feat									Required Race							Required Skill							Required Text										PRETOTALAB
-CLASS:Briar Archer	PREALIGN:TN	PREABILITY:4,CATEGORY=FEAT,Point Blank Shot,Precise Shot,Rapid Shot,Weapon Focus	PRERACE:1,Human,Elf%,Half-Elf,RACETYPE=Fey,Centaur	PRESKILL:2,Craft (Fletcher)=10,Knowledge (Nature)=10	PRETEXT:Must be able to cast speak with plants; Weapon Focus (any bow)	PRETOTALAB:7
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Briar Archer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|BA
+# Class Name		Required Ability												Required AL	Required Race							Required Skill							Required Text										PRETOTALAB
+CLASS:Briar Archer	PREABILITY:4,CATEGORY=FEAT,Point Blank Shot,Precise Shot,Rapid Shot,Weapon Focus	PREALIGN:TN	PRERACE:1,Human,Elf%,Half-Elf,RACETYPE=Fey,Centaur	PRESKILL:2,Craft (Fletcher)=10,Knowledge (Nature)=10	PRETEXT:Must be able to cast speak with plants; Weapon Focus (any bow)	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
+CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|Knowledge (geography)|Knowledge (local)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level Abilities
 1	BONUS:VAR|BriarArrowsPlus|CL+1/2	BONUS:VAR|SpeakWithPlantsTimes|CL	ABILITY:Special Ability|AUTOMATIC|Briar Arrows|Speak with Plants
 2	BONUS:VAR|SpecialArrowLVL|CL/2							ABILITY:Special Ability|AUTOMATIC|Special Arrow
@@ -184,17 +184,17 @@ CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|K
 
 ###Block:Green Knight ---------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GK		MAXLEVEL:10	SOURCEPAGE:p.39	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Restricted AL		Required Feat				Required Skill								Required Text															PRETOTALAB
-CLASS:Green Knight	!PREALIGN:LE,NE,CE	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Greataxe)	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood	PRETOTALAB:8
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Green Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.39	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|GK
+# Class Name		Required Ability							Restricted AL		Required Skill								Required Text															PRETOTALAB
+CLASS:Green Knight	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Greataxe)	!PREALIGN:LE,NE,CE	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood	PRETOTALAB:8
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Spot|Survival|Swim
+CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (geography)|Knowledge (local)|Knowledge (Nature)|Listen|TYPE=Profession|Spot|Survival|Swim
 
 ###Block:Weapon & Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
-1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 
 ###Block: Level Abilities
 1	BONUS:VAR|GreenAxeProgression|1	BONUS:VAR|GreenDemeanourProgression|1	ABILITY:Special Ability|AUTOMATIC|Code of Green Chivalry|Green Axe|Green Demeanour|Wild Empathy
@@ -211,12 +211,12 @@ CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Anim
 
 ###Block:Greenwood Judge --------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Greenwood Judge	HD:8		TYPE:PC.Prestige	ABB:GJ		MAXLEVEL:5	EXCLASS:Ex Greenwood Judge	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL		Required Feat							Required Skill														Required Text
-CLASS:Greenwood Judge	PREALIGN:LG,NG,CG	PREABILITY:4,CATEGORY=FEAT,Track,Leadership,Negotiator,Wild Empathy	PRESKILL:5,Diplomacy=12,Knowledge (Local)=8,Knowledge (Nature)=10,Sense Motive=12,Survival=12	PRETEXT:Must have been declared outlaw by a nearby court of law
+# Class Name		Hit Dice	Type			Max Level	Ex Class				Source Page		Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Greenwood Judge	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	EXCLASS:Ex Greenwood Judge	SOURCEPAGE:p.43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|GJ
+# Class Name		Required Ability										Required AL		Required Skill														Required Text
+CLASS:Greenwood Judge	PREABILITY:4,CATEGORY=FEAT,Track,Leadership,Negotiator,Wild Empathy	PREALIGN:LG,NG,CG	PRESKILL:5,Diplomacy=12,Knowledge (Local)=8,Knowledge (Nature)=10,Sense Motive=12,Survival=12	PRETEXT:Must have been declared outlaw by a nearby court of law
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
+CLASS:Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
 
 ###Block: Level Abilities
 1	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Code of Conduct ~ GWJ|Commonwealth of the Forest|Greenwood Leadership|Greenwood Signal
@@ -227,23 +227,23 @@ CLASS:Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|J
 
 #Ex-Class
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Combat bonus															Save bonus																					Modify VAR
-CLASS:Ex Greenwood Judge	HD:8		TYPE:PC.Prestige	ABB:GJ		MAXLEVEL:5	SOURCEPAGE:p.43	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Visible	Combat bonus															Save bonus																					Modify VAR														FACT
+CLASS:Ex Greenwood Judge	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.43	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|GJ
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Ex Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
+CLASS:Ex Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Jump|Knowledge (local)|Knowledge (Nature)|Listen|Move Silently|Ride|Sense Motive|Spot|Survival
 
 ###Block:Master of the Staff -------------------------------------------------------------------------------------
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Master of the Staff	HD:8		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required Feat																		PRETOTALAB
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Master of the Staff	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|MotS
+# Class Name			Required Ability																								PRETOTALAB
 CLASS:Master of the Staff	PREABILITY:3,CATEGORY=FEAT,Stunning Staff,Combat Expertise,Improved Trip	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Shortstaff),Weapon Focus (Tipstaff)	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|Spot|Survival
+CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (geography)|Knowledge (local)|Listen|Move Silently|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 
 ###Block: Level Abilities
 1								ABILITY:Special Ability|AUTOMATIC|Spinning Defence
@@ -258,16 +258,16 @@ CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography
 
 ###Block:Outlaw ------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Outlaw	HD:8		TYPE:PC.Prestige	ABB:Olw		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat								PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																						FACT
+CLASS:Outlaw	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	FACT:Abb|Olw
+# Class Name	Required Ability											PRETOTALAB
 CLASS:Outlaw	PREABILITY:3,CATEGORY=FEAT,Point Blank Shot,Track,Weapon Focus (Longbow)	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|Ride|Search|Spot|Survival
+CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (geography)|Knowledge (local)|Listen|Move Silently|TYPE=Perform|Ride|Search|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 
 ###Block: Level Abilities
 1							ABILITY:Special Ability|AUTOMATIC|Forest Expertise
@@ -281,12 +281,12 @@ CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information
 
 ###Block:Wild Hunter ---------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Wild Hunter	HD:8		TYPE:PC.Prestige	ABB:WH		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required Feat															Required Skill								Required Text														PRETOTALAB
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR														FACT
+CLASS:Wild Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|WH
+# Class Name	Required Ability																		Required Skill								Required Text														PRETOTALAB
 CLASS:Wild Hunter	PREABILITY:6,CATEGORY=FEAT,Endurance,Track,Power Attack,Dodge,Simple Weapon Proficiency,Martial Weapon Proficiency	PRESKILL:3,Handle Animal=8,Knowledge (Nature)=8,Survival=8	PRETEXT:Must have Favoured Enemy (Animal), Must have an animal companion which is a riding dog.	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Use Rope
+CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge (geography)|Knowledge (local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Use Rope
 
 ###Block: Level Abilities
 1														BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Animal Companion

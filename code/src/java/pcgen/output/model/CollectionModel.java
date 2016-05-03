@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.output.library.ObjectWrapperLibrary;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateSequenceModel;
@@ -32,10 +34,15 @@ import freemarker.template.TemplateSequenceModel;
 public class CollectionModel implements TemplateSequenceModel
 {
 
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * The underlying collection for this CollectionModel
 	 */
 	private final List<?> list;
+
+	private final CharID id;
 
 	/**
 	 * Constructs a new CollectionModel from the given Collection.
@@ -45,17 +52,25 @@ public class CollectionModel implements TemplateSequenceModel
 	 * transferred to this class. A copy is made in this constructor and stored
 	 * in this CollectionModel.
 	 * 
+	 * @param id
+	 *            The CharID for the PlayerCharacter to which this
+	 *            CollectionModel belongs
 	 * @param c
 	 *            The underlying Collection for this CollectionModel
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null
 	 */
-	public CollectionModel(Collection<?> c)
+	public CollectionModel(CharID id, Collection<?> c)
 	{
+		if (id == null)
+		{
+			throw new IllegalArgumentException("CharID may not be null");
+		}
 		if (c == null)
 		{
 			throw new IllegalArgumentException("Collection may not be null");
 		}
+		this.id = id;
 		this.list = new ArrayList<Object>(c);
 	}
 
@@ -65,7 +80,11 @@ public class CollectionModel implements TemplateSequenceModel
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
-		return ObjectWrapperLibrary.getInstance().wrap(list.get(index));
+		if ((index < 0) || (index >= list.size()))
+		{
+			return null;
+		}
+		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
 	/**

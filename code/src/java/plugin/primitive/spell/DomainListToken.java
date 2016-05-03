@@ -66,7 +66,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		DomainSpellList list = spelllist.resolvesTo();
+		DomainSpellList list = spelllist.get();
 		DataSetID datasetID = pc.getCharID().getDatasetID();
 		
 		for (AvailableSpell availSpell : masterAvailableSpellFacet

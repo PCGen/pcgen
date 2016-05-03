@@ -9,7 +9,7 @@ package plugin.pretokens.test;
 import java.util.Set;
 
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.base.util.ObjectContainer;
+import pcgen.base.util.Indirect;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -51,9 +51,9 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 				if (deity != null)
 				{
 					FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-					for (ObjectContainer<String> oc : deity.getSafeSetFor(fk))
+					for (Indirect<String> indirect : deity.getSafeSetFor(fk))
 					{
-						charDeityPantheon.addAll(oc.getContainedObjects());
+						charDeityPantheon.add(indirect.get());
 					}
 				}
 				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)

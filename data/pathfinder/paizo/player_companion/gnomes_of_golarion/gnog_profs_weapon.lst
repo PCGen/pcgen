@@ -4,11 +4,11 @@ SOURCELONG:Gnomes of Golarion	SOURCESHORT:GNOG	SOURCEWEB:http://paizo.com/produc
 #ORIGINAL ENTRY DATE:2012/12/31
 
 # Weapon Name		Type
-Flickmace			TYPE:Exotic.OneHanded.Melee.Bludgeoning.Reach.Trip
-Scarf (Bladed)		TYPE:Exotic
-Battle Ladder		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Trip
-Flailpole			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Disarm.Trip
-Maul (Piston)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning
-Glaive (Ripsaw)		TYPE:Exotic.TwoHanded.Melee.Slashing
-Flask Thrower		TYPE:Exotic.Ranged
-Javelin (Shrillshaft)	TYPE:Exotic.Ranged.Piercing
+Flickmace			TYPE:Exotic.OneHanded.Melee.Bludgeoning.Reach.Trip.Weapon Group Flails
+Scarf (Bladed)		TYPE:Exotic.Weapon Group Flails
+Battle Ladder		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Trip.Weapon Group Double
+Flailpole			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Disarm.Trip.Weapon Group Flails.Weapon Group Polearms
+Maul (Piston)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.Weapon Group Hammers
+Glaive (Ripsaw)		TYPE:Exotic.TwoHanded.Melee.Slashing.Weapon Group Polearms
+Flask Thrower		TYPE:Exotic.Ranged.Weapon Group Thrown
+Javelin (Shrillshaft)	TYPE:Exotic.Ranged.Piercing.Weapon Group Thrown

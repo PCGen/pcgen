@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 # Original Entry by: Aaron Divinsky
 
@@ -53,14 +53,14 @@ CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Progression
 1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2									TEMPLATE:Bull Lord
-2																										ABILITY:FEAT|AUTOMATIC|Great Fortitude
+2												ABILITY:FEAT|AUTOMATIC|Great Fortitude
 3						BONUS:STAT|STR|2
 4						BONUS:STAT|CON|2				ABILITY:Special Ability|AUTOMATIC|Pounce
 6						BONUS:STAT|STR|2				ABILITY:Special Ability|AUTOMATIC|Onslaught
-7																										ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
+7												ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
 8						BONUS:STAT|STR|2
 9												ABILITY:Special Ability|AUTOMATIC|Freedom		TEMPLATE:Minotaur Favored Class
 ###Block: Natural Armor
@@ -128,14 +128,14 @@ CLASS:Minotrice	STARTSKILLPTS:2
 4	DONOTADD:HITDIE|SKILLPOINTS
 
 
-# Class Name			Hit Dice	Type			Max Level	Source Page
-CLASS:Minotrice Maze Mage	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p.22
+# Class Name			Hit Dice	Type			Max Level	Source Page		FACT
+CLASS:Minotrice Maze Mage	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p.22	FACT:SpellType|Divine
 # Class Name			Required Race
 CLASS:Minotrice Maze Mage	PRERACE:1,Minotrice Maze Mage
 # Class Name			Skill Pts/Lvl
 CLASS:Minotrice Maze Mage	STARTSKILLPTS:2
-# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level							Use Spell List
-CLASS:Minotrice Maze Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Minotrice Maze Mage|floor(CL+1/2)	SPELLLIST:1|Druid
+# Class Name			Spell Stat		Automatically Known Spell Levels			Caster level							Use Spell List
+CLASS:Minotrice Maze Mage	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Minotrice Maze Mage|floor(CL+1/2)	SPELLLIST:1|Druid
 
 ###Block: Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency

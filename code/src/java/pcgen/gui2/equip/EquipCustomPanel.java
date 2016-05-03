@@ -44,7 +44,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.tree.TreeCellRenderer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
@@ -69,6 +68,7 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.TreeColumnCellRenderer;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -106,7 +106,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private final InfoPane equipModInfoPane;
 	private final InfoPane equipInfoPane;
 	private final CharacterFacade character;
-	private TreeCellRenderer renderer;
+	private TreeColumnCellRenderer renderer;
 	private NameAction nameAction;
 	private SPropAction spropAction;
 	private CostAction costAction;
@@ -631,12 +631,22 @@ public class EquipCustomPanel extends FlippingSplitPane
         	return builder.getSelectedList(head);
 		}
 
-        @Override
-		public List<?> getData(EquipModFacade obj)
+		@Override
+		public Object getData(EquipModFacade element, int column)
 		{
-			return Arrays.asList(obj.getSource());
+			switch(column){
+				case 0:
+					return element.getSource();
+				default:
+					return null;
+			}
 		}
 
+		@Override
+		public void setData(Object value, EquipModFacade element, int column)
+		{
+		}
+		
         @Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
@@ -762,7 +772,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		{
 			EquipmentHead head = (EquipmentHead) anItem;
 			currentHead = head;
-			headRef.setReference(head);
+			headRef.set(head);
 			availableTable.setTreeViewModel(availEqmodModelMap.get(currentHead));
 			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));
 		}

@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+
+# Feat Name			Type			Visible	Special ABility			Multiple?	Choose			Bonus to skill			Stat bonus
+# Ability Name		Category of Ability		Type			Special ABility			Multiple?	Choose			Bonus to skill			Stat bonus
+Aura of Knighthood	CATEGORY:Special Ability	TYPE:Special	SAB:Aura of Knighthood (Ex)							BONUS:SKILL|Intimidate|NOB/2
+
+CSStatBonus			CATEGORY:Special Ability	TYPE:Special						MULT:YES	CHOOSE:PCSTAT|CON|STR						BONUS:STAT|LIST|2
+
+###Block: Power Source
+# Feat Name						Type			Visible	Prohibited Class					Special ABility
+# Ability Name					Category of Ability		Type			Prohibited Class					Special ABility
+Power Source (Crusaders)			CATEGORY:Special Ability	TYPE:Special	!PRECLASS:1,Crusader=1				SAB:Power Source (Crusaders)
+Power Source (Druids/Minstrels)		CATEGORY:Special Ability	TYPE:Special	!PRECLASS:2,Druid=1,Minstrel=1		SAB:Power Source (Druids/Minstrels)
+Power Source (Hedge Mage/Enchantress)	CATEGORY:Special Ability	TYPE:Special	!PRECLASS:2,Hedge Mage=1,Enchantress=1	SAB:Power Source (Hedge Mage/Enchantress)
+Power Source (Hermits)				CATEGORY:Special Ability	TYPE:Special	!PRECLASS:1,Hermit=1				SAB:Power Source (Hermits)
+Power Source (Priest)				CATEGORY:Special Ability	TYPE:Special	!PRECLASS:1,Priest=1				SAB:Power Source (Priest)
+
+###Block: Minstrel stuff
+# Feat Name		Type			Visible	Special ABility																																																																																																																																					Define																					Innate Spells																																													Modify VAR
+# Ability Name	Category of Ability		Type			Special ABility																																																																																																																																					Define																					Innate Spells																																													Modify VAR
+Minstrel Lore	CATEGORY:Special Ability	TYPE:Special	SAB:Lore (+%)|MinstrelLore																																																																																																																																			DEFINE:MinstrelLore|0																																																																		BONUS:VAR|MinstrelLore|INT
+Minstrel Music	CATEGORY:Special Ability	TYPE:Special	SAB:Minstrel music %/day|MinstrelMusicTimes	SAB:Countersong (Su)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SAB:Fascinate (Sp) - can effect % creature|MinstrelFascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	SAB:Inspire Courage (Su) +%|InspireCourage	SAB:Inspire Competence (Su)|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:MinstrelMusicLevel,3	SAB:Suggestion (Sp)|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SAB:Inspire Greatness (Su) - can affect % people|InspireGreat	SAB:Song of Freedom (Su)|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:MinstrelMusicLevel,12	SAB:Inspire Heroics (Su) - can affect % people|InspireHeroics|PREVARGTEQ:MinstrelMusicLevel,15	SAB:Mass Suggestion (Sp)|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	DEFINE:MinstrelMusicTimes|0	DEFINE:MinstrelFascinate|0	DEFINE:InspireCourage|0	DEFINE:InspireGreat|0	DEFINE:InspireHeroics|0	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Minstrel")|Suggestion,12+CHA|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:MinstrelMusicLevel,6	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=var("CL=Minstrel")|Suggestion (Mass),15+CHA|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:MinstrelMusicLevel,18	BONUS:VAR|MinstrelFascinate|(MinstrelMusicLevel+2)/3	BONUS:VAR|InspireCourage|max(floor((MinstrelMusicLevel+4)/6),1)|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:MinstrelMusicLevel,1	BONUS:VAR|InspireGreat|(MinstrelMusicLevel-6)/3|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:MinstrelMusicLevel,9	BONUS:VAR|InspireHeroics|(MinstrelMusicLevel-12)/3|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:MinstrelMusicLevel,15
+
+###Block: Knight's Warhorse
+# Feat Name		Type			Visible	Special ABility			Define			Allow Follower			Allowed Companions
+# Ability Name	Category of Ability		Type			Special ABility			Define			Allow Follower			Allowed Companions
+Knight's Warhorse	CATEGORY:Special Ability	TYPE:Special	SAB:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Companion ~ Horse (Heavy),Companion ~ Horse (Light),Companion ~ Horse (Warhorse Heavy),Companion ~ Horse (Warhorse Light)
+
+###Block: Literacy
+# Feat Name	Type			Visible	Auto Language
+# Ability Name	Category of Ability		Type			Auto Language
+Literacy		CATEGORY:Special Ability	TYPE:Special	AUTO:LANG|Literacy
+
+#
+# End
+#

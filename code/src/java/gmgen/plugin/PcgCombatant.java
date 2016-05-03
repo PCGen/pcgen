@@ -817,7 +817,7 @@ public class PcgCombatant extends Combatant
 				{
 					modSkill =
 							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatModFor(keyStat.resolvesTo());
+								- pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 

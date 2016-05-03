@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Category			Visible		Editable?		Change Pool?	Category of Object		Specific choices list		Display Location
+ABILITYCATEGORY:Focused			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Focused		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Talented ~ Gift	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Talented ~ Gift	DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Weapon of Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Weapon of Choice	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Extended Critical	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Extended Critical	DISPLAYLOCATION:Feats

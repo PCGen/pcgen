@@ -32,6 +32,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
@@ -152,6 +153,10 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 */
 	public void testGetPCCText() throws PersistenceLayerException
 	{
+		OrderedPairManager opManager = new OrderedPairManager();
+		LoadContext context = Globals.getContext();
+		context.getVariableContext().assertLegalVariableID(
+			context.getActiveScope().getLegalScope(), opManager, "Face");
 		Race race = new Race();
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));
@@ -169,8 +174,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		raceLoader.parseLine(Globals.getContext(), null, racePCCText, source);
-		Race reconstRace = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestRace");
+		raceLoader.parseLine(context, null, racePCCText, source);
+		Race reconstRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestRace");
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			racePCCText, reconstRace.getPCCText());
@@ -186,7 +191,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		PCClassLoader classLoader = new PCClassLoader();
 		PCClass reconstClass =
-				classLoader.parseLine(Globals.getContext(), null, classPCCText,
+				classLoader.parseLine(context, null, classPCCText,
 					source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",

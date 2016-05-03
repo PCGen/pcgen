@@ -2,7 +2,7 @@
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 
 # ~ Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
-# Ability Name		Unique Key							Category of Ability		Type					Define																		Description									Auto Equip				Add 				Modify VAR
+# Ability Name		Unique Key							Category of Ability		Type					Define																		Description									Auto Equip				Add				Modify VAR
 Power Sharing I		KEY:Power Sharing I ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality
 Power Sharing II		KEY:Power Sharing II ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality
 Colorless Fire		KEY:Colorless Fire ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0										DESC: DC%1, %2 times/day|ColorlessFireDC|ColorlessFireTimes
@@ -67,4 +67,4 @@ Knife to the Soul		KEY:Knife to the Soul ~ Soulknife ITCK		CATEGORY:Special Abil
 ###Block: hidden feats
 # Feat Name			Type			Visible	Required Class			Stackable?	Multiple?	Choose													Modify VAR						Source Page
 # Ability Name		Category of Ability		Type			Visible	Required Class			Stackable?	Multiple?	Choose							Bonus to spell known/L		Modify VAR						Source Page
-Power Sequestration	CATEGORY:Special Ability	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Psionic|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|-1	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40
+Power Sequestration	CATEGORY:Special Ability	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Psionic|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|-1	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40

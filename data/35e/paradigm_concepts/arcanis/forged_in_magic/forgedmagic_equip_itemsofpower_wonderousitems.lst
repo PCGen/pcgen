@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
 
 ###Block: Garment of Might and Other Trappings of Power --------------------------------------
-# Equipment Name					Output Name						Type								Virtual Feat									Combat bonus				Save bonus					Bonus to skill																		Bonus to nb of slots	Stat bonus
+# Equipment Name					Output Name						Type								Ability													Combat bonus				Save bonus					Bonus to skill																		Bonus to nb of slots	Stat bonus
 Amulet of Independent Anatomy										TYPE:Magic.Wondrous.Amulet
-Crown of Eyes												TYPE:Magic.Wondrous.Crown.Headgear.Artifact												BONUS:COMBAT|AC|5|TYPE=Insight																															BONUS:STAT|INT,CHA|6|TYPE=Enhancement
-Crown of Shadows												TYPE:Magic.Wondrous.Crown.Headgear														BONUS:COMBAT|AC|5|TYPE=Deflection	BONUS:SAVE|ALL|5|TYPE=Resistance	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|2|TYPE=Luck					BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
+Crown of Eyes												TYPE:Magic.Wondrous.Crown.Headgear.Artifact															BONUS:COMBAT|AC|5|TYPE=Insight																															BONUS:STAT|INT,CHA|6|TYPE=Enhancement
+Crown of Shadows												TYPE:Magic.Wondrous.Crown.Headgear																	BONUS:COMBAT|AC|5|TYPE=Deflection	BONUS:SAVE|ALL|5|TYPE=Resistance	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|2|TYPE=Luck					BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
 Glory														TYPE:Magic.Wondrous.Cape				ABILITY:FEAT|VIRTUAL|Diehard|Endurance|Leadership|Strength of the Coryani Heart							BONUS:SAVE|ALL|5|TYPE=Resistance
-Hand of Dark Glory											TYPE:Magic.Wondrous.Amulet																																															BONUS:SLOTS|RING|2
+Hand of Dark Glory											TYPE:Magic.Wondrous.Amulet																																																		BONUS:SLOTS|RING|2
 Kroneu's Hourglass											TYPE:Magic.Wondrous
 Moon Cauldron												TYPE:Magic.Wondrous.Caldron
 Naja'haje						OUTPUTNAME:Naja'hale The Viper Crown	TYPE:Magic.Wondrous.Headgear.Crown

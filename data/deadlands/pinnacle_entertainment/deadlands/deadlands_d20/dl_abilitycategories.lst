@@ -1,0 +1,71 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+#
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Type of Object			Specific choices list																																																												Display Location
+ABILITYCATEGORY:Starting Language								EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Starting Language																																																											DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Rowdy Language Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RowdyLanguageSelection																																																																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Scout Language Bonus +2				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ScoutLanguageSelection2																																																																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Scout Language Bonus +4				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ScoutLanguageSelection4																																																																DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Harrowed						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Harrowed																																																																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Academic Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Academic Mastery																																																											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gift							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Gift																																																																			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Maverick						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Defensive Roll|Gambler's Luck|Improved Evasion|Maverick Sneak Attack|Skill Mastery|Slippery Mind																																													DISPLAYLOCATION:Feats
+
+
+
+ABILITYCATEGORY:Texas Ranger Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Dead Eye|Dodge|Endurance|Fannin'|Far Shot|Great Fortitude|Grim Servant o' Death|Improved Critical|Improved Two-Weapon Fighting|Iron Will|Level-Headed|Mounted Archery|Point Blank Shot|Precise Shot|Quick Draw|The Stare|Toughness|Two-Weapon Fighting|Weapon Focus																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rowdy Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Blind-Fight|Cleave|Dodge|Expertise|Great Cleave|Great Fortitude|Grim Servant o' Death|Improved Bull Rush|Improved Critical|Improved Disarm|Improved Initiative|Improved Trip|Improved Unarmed Strike|Iron Will|Level-Headed|Mobility|Nerves o' Steel|Power Attack|Sand|Spring Attack|Stunning Fist|Sucker Punch|Sunder|Toughness|Weapon Finesse|Weapon Focus|Whirlwind Attack	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gunslinger Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Ambidexterity|Automatic Weapon Proficiency|Dodge|Exotic Weapon Proficiency|Fannin'|Far Shot|Grim Servant o' Death|Improved Critical|Improved Initiative|Improved Two-Weapon Fighting|Level-Headed|Mounted Archery|Point Blank Shot|Precise Shot|Quick Draw|The Stare|Two-Weapon Fighting|Weapon Focus													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT			TYPE:Metamagic			ABILITYLIST:Spell Mastery																																																											DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Dead Eye						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Dead Eye																																																												DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Huckster up to 1st level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 1st level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 2nd level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 2nd level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 3rd level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 3rd level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 4th level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 4th level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 5th level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 5th level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 6th level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 6th level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 7th level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 7th level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 8th level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 8th level Hexes																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Huckster up to 9th level Hexes			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Huckster up to 9th level Hexes																																																								DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Black Magician up to 1st level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 1st level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 2nd level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 2nd level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 3rd level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 3rd level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 4th level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 4th level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 5th level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 5th level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 6th level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 6th level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 7th level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 7th level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 8th level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 8th level Black Magic																																																						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Black Magician up to 9th level Black Magic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Black Magician up to 9th level Black Magic																																																						DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Shaman up to 1st level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 1st level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 2nd level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 2nd level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 3rd level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 3rd level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 4th level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 4th level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 5th level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 5th level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 6th level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 6th level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 7th level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 7th level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 8th level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 8th level Favors																																																									DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaman up to 9th level Favors			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Shaman up to 9th level Favors																																																									DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Blessed up to 1st level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 1st level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 2nd level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 2nd level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 3rd level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 3rd level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 4th level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 4th level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 5th level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 5th level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 6th level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 6th level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 7th level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 7th level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 8th level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 8th level Miracles																																																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Blessed up to 9th level Miracles		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Blessed up to 9th level Miracles																																																								DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Guardian						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Guardian																																																																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Guardian2						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Guardian2																																																																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Guardian3						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Guardian3																																																																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Guardian4						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Guardian4																																																																		DISPLAYLOCATION:Feats

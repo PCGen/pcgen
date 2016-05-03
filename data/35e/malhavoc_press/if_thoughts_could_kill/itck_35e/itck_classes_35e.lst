@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 
-# Class Name		Product Identity?	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Psionic.Prestige	ABB:CoA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name		Required Feat										Required Skill				Req. Spell Type
+# Class Name		Product Identity?	Hit Dice	Type					Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR																										FACT
+CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	FACT:Abb|CoA
+# Class Name		Required Ability																Required Skill				Req. Spell Type
 CLASS:Colorless Adept	PREABILITY:1,CATEGORY=FEAT,Sequester Power	PREABILITY:2,CATEGORY=FEAT,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Spot
@@ -23,9 +23,9 @@ CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Cra
 
 #In the text Metamind states it receives a bouns caster level per level. The chart is different, I went with the text.
 
-# Class Name		Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name		Required Feat			Required Skill						Req. Spell Type
+# Class Name		Output Name			Hit Dice	Type					Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR																										FACT
+CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	FACT:Abb|MMd
+# Class Name		Required Ability						Required Skill						Req. Spell Type
 CLASS:Metamind ITCK	PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	PRESKILL:2,Psicraft=4,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft
@@ -46,14 +46,14 @@ CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft
 10	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power ~ Metamind ITCK
 
 
-# Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
-CLASS:Blade Manifester	HD:8		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity
-# Class Name		Required Feat						Required Stat
+# Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR																											FACT
+CLASS:Blade Manifester	HD:8		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	FACT:SpellType|Psionic
+# Class Name		Required Ability									Required Stat
 CLASS:Blade Manifester	PREABILITY:2,CATEGORY=FEAT,MindBlade Wielder,MindBlade Shape	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blade Manifester	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
-CLASS:Blade Manifester	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Blade Manifester|CL	SPELLLIST:1|Psychic Warrior
+# Class Name		Spell Stat		Memorize	Caster level					Use Spell List
+CLASS:Blade Manifester	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Blade Manifester|CL	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|BladeManifesterML|CL	BONUS:VAR|BladeManifesterML|var("BL=Blade Manifester")																									DEFINE:BladeManifesterML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BladeManifesterML,2	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:BladeManifesterML,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:BladeManifesterML,4

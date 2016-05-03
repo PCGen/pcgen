@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
+
+###Block: Diffusionist class abilities
+# Feat Name					Type			Visible	Special ABility				Multiple?	Choose						Source Page
+# Ability Name			Category of Ability		Type								Special ABility				Multiple?	Choose						Source Page
+Mad Science				CATEGORY:Special Ability	TYPE:ClassAbility						SAB:Mad Science													SOURCEPAGE:p.13
+S and R Catalog 1876 Edition	CATEGORY:Special Ability	TYPE:ClassAbility						SAB:S and R Catalog 1876 Edition										SOURCEPAGE:p.13
+Alchemy				CATEGORY:Special Ability	TYPE:ClassAbility						SAB:Alchemy														SOURCEPAGE:p.13
+Diffusionist Spell increase	CATEGORY:Special Ability	TYPE:ClassAbility.Diffusionist Spell increase							MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|9	SOURCEPAGE:p.13
+# BONUS:SPELLCAST|%LIST|1

@@ -22,7 +22,7 @@ Improved Other Planar		KEY:Improved Terrain Mastery ~ Other		CATEGORY:Special Ab
 
 
 ###Block: Epic Spellcasting Support
-# Ability Name					Category of Ability		Type			Visible		Add 							Bonus to spell cast/day
+# Ability Name					Category of Ability		Type			Visible		Add							Bonus to spell cast/day
 Epic Spellcaster (Arcane/INT Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Arcane/INT)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/INT);LEVEL=10|EpicSpellsPerDay
 Epic Spellcaster (Arcane/WIS Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Arcane/WIS)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/WIS);LEVEL=10|EpicSpellsPerDay
 Epic Spellcaster (Arcane/CHA Spellstat)	CATEGORY:Special Ability	TYPE:EpicSpells	VISIBLE:DISPLAY	ADD:SPELLCASTER|Epic Spells (Arcane/CHA)	BONUS:SPELLCAST|CLASS=Epic Spells (Arcane/CHA);LEVEL=10|EpicSpellsPerDay
@@ -115,5 +115,5 @@ Safekeeping		KEY:Living Vault ~ Safekeeping		CATEGORY:Special Ability	TYPE:Speci
 
 ###Block:
 # Ability Name		Category of Ability		Type					Required Class				Stackable?	Multiple?	Choose							Bonus to spell known/L		Source Page
-Spell Knowledge Arcane	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Arcane=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
-Spell Knowledge Divine	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Divine=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Divine|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
+Spell Knowledge Arcane	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Arcane=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Arcane|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
+Spell Knowledge Divine	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Divine=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SpellType=Divine|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats

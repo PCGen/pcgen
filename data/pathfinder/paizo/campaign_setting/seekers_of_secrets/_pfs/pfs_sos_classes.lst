@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# Original Entry by: Terry Milnes & Paul Shipley (elro the onk)
+
+# Prestige Class: Pathfinder Savants replace the item creation feat prerequisite with Spell Focus
+
+# Class Name
+CLASS:Pathfinder Savant.FORGET
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define		Combat bonus										Save bonus																						Modify VAR			FACT
+CLASS:Pathfinder Savant	HD:6		TYPE:PC.Prestige	MAXLEVEL:7	SOURCEPAGE:p.60	DEFINE:PaSLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|PaSLVL|CL	FACT:ClassType|PC	FACT:Abb|PaS
+# Class Name		Required Ability													Required Skill									Req. Spell Type
+CLASS:Pathfinder Savant	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude	PREABILITY:1,CATEGORY=FEAT,SpellFocus	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5,Use Magic Device=5	PRESPELLTYPE:1,Arcane=2,Divine=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft|Use Magic Device
+1	BONUS:VAR|PaSSkillBonus|max(1,CL/2)					ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Adept Activation|Pathfinder Savant ~ Master Scholar
+2	BONUS:VAR|PaSEsotericSpells|CL-1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Esoteric Magic|Pathfinder Savant ~ Glyph Finding
+3							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Scroll Master
+4	BONUS:VAR|PaSIdentifyTimes|CL/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Quick Identification
+5	BONUS:VAR|PaSSaveBonus|CL		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Sigil Master
+6	BONUS:VAR|PaSAnalyzeDuration|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Analyze Dweomer|Pathfinder Savant ~ Silence Master
+7							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Dispelling Master

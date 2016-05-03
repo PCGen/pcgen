@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern Dispatch #115 - Airborne Legionnaire	SOURCESHORT:MD115	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=50353	SOURCEDATE:2007-01
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus													Modify VAR
@@ -7,13 +7,13 @@ CLASS:Airborne Legionnaire	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BON
 CLASS:Airborne Legionnaire	PREMULT:1,[PRESKILL:1,Ride=4],[PRESKILL:2,Pilot=4,Handle Animal=4]	PRESTAT:1,DEX=13	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Airborne Legionnaire	STARTSKILLPTS:4	CSKILL:Balance|Climb|Listen|Jump|Spot|Navigate|Tumble|Ride|Handle Animal|Bluff|Concentration|Profession|Survival
-1	SAB:Share Spells									ABILITY:FEAT|VIRTUAL|Flyby Attack
+1	SAB:Share Spells												ABILITY:FEAT|VIRTUAL|Flyby Attack
 2	SAB:Aerial Defense
-3						ADD:FEAT|TYPE=AirborneLegionnaire
+3						ADD:ABILITY|FEAT|NORMAL|TYPE=AirborneLegionnaire
 4	SAB:Evasive Action
-5						ADD:FEAT|TYPE=AirborneLegionnaire
+5						ADD:ABILITY|FEAT|NORMAL|TYPE=AirborneLegionnaire
 6	SAB:Enhanced Maneuverability
 7	SAB:Mounted Spellcasting
-8						ADD:FEAT|TYPE=AirborneLegionnaire
+8						ADD:ABILITY|FEAT|NORMAL|TYPE=AirborneLegionnaire
 9	SAB:Extended Empathic Link
 10	SAB:Improved Aerial Evasion

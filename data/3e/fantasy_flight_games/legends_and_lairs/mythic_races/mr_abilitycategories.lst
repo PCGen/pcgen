@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list									Display Location
+ABILITYCATEGORY:Mechanist Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Mechanist															DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Aaleear Enchanter Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation.Metamagic	ABILITYLIST:Combat Casting|Spell Focus|Spell Mastery|Spell Penetration	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Green Mystic Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation.Metamagic													DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Item Creation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation															DISPLAYLOCATION:Feats
+
+
+
+###
+ABILITYCATEGORY:Soulless Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Soulless Resistance							DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Soulless Immunity		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Soulless Immunity								DISPLAYLOCATION:Feats

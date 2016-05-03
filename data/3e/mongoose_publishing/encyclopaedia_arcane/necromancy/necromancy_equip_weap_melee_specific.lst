@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
+
+# Equipment Name				Required Weapon Proficiency	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page		Weapon prop. bonus		Special Property
+Blade of the Banshee (+1 Longsword)	PROFICIENCY:WEAPON|Longsword	TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific	COST:306000	WT:4		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	SIZE:M	SOURCEPAGE:p.46	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:MP - Necromancy - See Text p.46

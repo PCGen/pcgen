@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Eddy Anthony
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
-CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name	Required Feat			Required Skill
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR														FACT
+CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|WgJky
+# Class Name	Required Ability					Required Skill
 CLASS:Wing Jockey	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|Knowledge (Geography)|Listen|TYPE=Profession|Ride|Spot|Use Rope
+CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|Knowledge (geography)|Listen|TYPE=Profession|Ride|Spot|Use Rope
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Level Progression
 1	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|0	ABILITY:Special Ability|AUTOMATIC|Mount Affinity ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Empathic Bonding ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Mount Affinity ~ Wing Jockey

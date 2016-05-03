@@ -172,6 +172,6 @@ public class FixedSizeFormula implements Formula
 	@Override
 	public Integer resolveStatic()
 	{
-		return size.resolvesTo().get(IntegerKey.SIZEORDER);
+		return size.get().get(IntegerKey.SIZEORDER);
 	}
 }

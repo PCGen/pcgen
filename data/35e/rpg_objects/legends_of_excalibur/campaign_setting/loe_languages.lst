@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+# Language	Type							Source Page
+Literacy	TYPE:Written					SOURCEPAGE:p7
+Arabic	TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+English	TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+French	TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+Irish		TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+Latin		TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+Saxon		TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+Scottish	TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+Spanish	TYPE:Spoken.Written.Read			SOURCEPAGE:p7
+
+#	class-specific languages (i.e. they are on the list of bonus languages for classes)
+Abyssal	TYPE:Spoken.Written.Read.Priest
+Celestial	TYPE:Spoken.Written.Read.Priest
+Draconic	TYPE:Spoken.Written.Read.Wizard
+Infernal	TYPE:Spoken.Written.Read.Priest
+Sylvan	TYPE:Spoken.Written.Read.Druid
+Druidic	TYPE:Spoken.Written.Read.Druid.Secret
+
+Auran		TYPE:Spoken
+Ignan		TYPE:Spoken

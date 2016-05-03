@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
-# Class Name		Hit Dice	Type			Class Type		Source Page			Combat bonus								Save bonus																														Modify VAR
-CLASS:Mecha Jockey	HD:10		TYPE:PC.Advanced	FACT:ClassType|PC	SOURCEPAGE:FutureMecha	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|Action|6+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/2
-# Class Name		Required Feat			Required Skill
+# Class Name		Hit Dice	Type			Source Page			Combat bonus								Save bonus																														Modify VAR														FACT
+CLASS:Mecha Jockey	HD:10		TYPE:PC.Advanced	SOURCEPAGE:FutureMecha	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|Action|6+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/2	FACT:ClassType|PC
+# Class Name		Required Ability						Required Skill
 CLASS:Mecha Jockey	PREABILITY:1,CATEGORY=FEAT,Mecha Operation	PRESKILL:1,Drive=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mecha Jockey	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Sleight of Hand|Speak Language|Spot
-1																							ABILITY:FEAT|AUTOMATIC|Mecha Weapon Proficiency
+1													ABILITY:FEAT|AUTOMATIC|Mecha Weapon Proficiency
 2								BONUS:VAR|LuvMyMecha|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Luv My Mecha
 3	BONUS:ABILITYPOOL|Mecha Jockey Feat|1
 4													ABILITY:Special Ability|AUTOMATIC|Mecha Feint

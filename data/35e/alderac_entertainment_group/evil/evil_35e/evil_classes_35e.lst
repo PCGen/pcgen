@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Bargainer.MOD	CSKILL:.CLEAR		CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 
-# Class Name		Clear Prereq.	Required AL	Required Feat											Required Skill								PRETOTALAB
-CLASS:Blood Archer.MOD	PRE:.CLEAR		PREALIGN:LE	PREABILITY:4,CATEGORY=FEAT,Endurance,Point Blank Shot,Track,Weapon Specialization (Longbow)	PRESKILL:3,Craft (Bowyer/Fletcher)=6,Hide=4,Survival=7	PRETOTALAB:6
+# Class Name		Clear Prereq.	Required Ability														Required AL	Required Skill								PRETOTALAB
+CLASS:Blood Archer.MOD	PRE:.CLEAR		PREABILITY:4,CATEGORY=FEAT,Endurance,Point Blank Shot,Track,Weapon Specialization (Longbow)	PREALIGN:LE	PRESKILL:3,Craft (Bowyer/Fletcher)=6,Hide=4,Survival=7	PRETOTALAB:6
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Blood Archer.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Survival|Tumble

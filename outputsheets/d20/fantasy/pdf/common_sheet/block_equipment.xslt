@@ -18,7 +18,9 @@
 ====================================-->
 	<xsl:template match="equipment">
 		<fo:block>
-			<fo:table table-layout="fixed" space-before.optimum="2mm">
+			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
+
+		<!--	<fo:table table-layout="fixed" space-before.optimum="2mm"> -->
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'equipment.border'"/>
 				</xsl:call-template>
@@ -79,7 +81,7 @@
 							<fo:block font-size="7pt">
 								<xsl:variable name="TotalValue">
 									<xsl:call-template name="Total">
-										<xsl:with-param name="Items" select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false]"/>
+										<xsl:with-param name="Items" select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false and contains(type, 'TEMPORARY')=false]"/>
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
@@ -89,7 +91,7 @@
 					</fo:table-row>
 				</fo:table-footer>
 				<fo:table-body>
-					<xsl:for-each select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false]">
+					<xsl:for-each select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false and contains(type, 'TEMPORARY')=false]">
 						<xsl:variable name="shade">
 							<xsl:choose>
 								<xsl:when test="position() mod 2 = 0 ">darkline</xsl:when>

@@ -656,9 +656,9 @@ public class EquipmentList {
 			//
 			// Change the names, to protect the innocent
 			//
-			final String sName = eq.nameItemFromModifiers(aPC);
+			final String sKeyName = eq.nameItemFromModifiers(aPC);
 			final Equipment eqExists = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Equipment.class, sName);
+					Equipment.class, sKeyName);
 
 			if (eqExists != null) { return; }
 

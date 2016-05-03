@@ -20,31 +20,25 @@
  */
 package pcgen.gui2.util;
 
-import java.awt.Container;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JTable;
-import javax.swing.JViewport;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
 import javax.swing.SwingConstants;
 import javax.swing.event.TableModelEvent;
-import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
-import pcgen.gui2.util.table.DefaultSortableTableModel;
 import pcgen.gui2.util.table.SortableTableModel;
+import pcgen.gui2.util.table.SortableTableRowSorter;
 import pcgen.gui2.util.table.TableCellUtilities;
-import pcgen.util.Comparators;
 
 /**
  *  <code>JTableEx</code> extends JTable to provide auto-tooltips.
@@ -59,8 +53,7 @@ public class JTableEx extends JTable
 
 	/** Constant for a double click action event. */
 	public static final int ACTION_DOUBLECLICK = 2042;
-	private final RowComparator rowComparator = new RowComparator();
-	private List<SortingPriority> columnkeys;
+	private boolean sortingEnabled;
 
 	/**
 	 * Constructor
@@ -74,7 +67,7 @@ public class JTableEx extends JTable
 	 * Constructor
 	 * @param tm
 	 */
-	public JTableEx(SortableTableModel tm)
+	public JTableEx(TableModel tm)
 	{
 		this(tm, null, null);
 	}
@@ -84,77 +77,67 @@ public class JTableEx extends JTable
 	 * @param tm
 	 * @param tcm
 	 */
-	public JTableEx(SortableTableModel tm, TableColumnModel tcm)
+	public JTableEx(TableModel tm, TableColumnModel tcm)
 	{
 		this(tm, tcm, null);
 	}
 
-	public JTableEx(SortableTableModel tm, TableColumnModel tcm,
-					ListSelectionModel lsm)
+	public JTableEx(TableModel tm, TableColumnModel tcm,
+			ListSelectionModel lsm)
 	{
 		super(tm, tcm, lsm);
-
+		setFillsViewportHeight(true);
 		setDefaultRenderer(BigDecimal.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
 		setDefaultRenderer(Float.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
 		setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
-		setSortingPriority(createDefaultSortingPriority());
-		setTableHeader(new JTableSortingHeader(this));
-		installDoubleCLickListener();
+		installDoubleClickListener();
 	}
 
-	protected List<SortingPriority> createDefaultSortingPriority()
-	{
-		Vector<SortingPriority> list = new Vector<SortingPriority>();
-		list.add(new SortingPriority(0, SortMode.ASCENDING));
-		return list;
-	}
-
-	private void installDoubleCLickListener()
+	private void installDoubleClickListener()
 	{
 		addMouseListener(new MouseAdapter()
 		{
 			@Override
-		    public void mouseClicked(MouseEvent e)
-		    {
-		        if (e.getComponent().isEnabled() && e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2)
-		        {
-		            Point p = e.getPoint();
-		            int row = convertRowIndexToModel(rowAtPoint(p)); 
-		            int column = convertColumnIndexToModel(columnAtPoint(p));
-		            Object value = getModel().getValueAt(row, column);
+			public void mouseClicked(MouseEvent e)
+			{
+				if (e.getComponent().isEnabled() && e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2)
+				{
+					Point p = e.getPoint();
+					int row = convertRowIndexToModel(rowAtPoint(p));
+					int column = convertColumnIndexToModel(columnAtPoint(p));
+					Object value = getModel().getValueAt(row, column);
 					fireActionEvent(JTableEx.this, ACTION_DOUBLECLICK, String.valueOf(value));
-		        }
-		    }
+				}
+			}
 		});
 	}
-
 
 	private void fireActionEvent(Object value, int id, String command)
 	{
 		ActionEvent e = null;
-        // Guaranteed to return a non-null array
-        Object[] listeners = listenerList.getListenerList();
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
         // Process the listeners last to first, notifying
-        // those that are interested in this event
-        for (int i = listeners.length - 2; i >= 0; i -= 2)
-        {
-            if (listeners[i] == ActionListener.class)
-            {
-                // Lazily create the event:
-        		if (e == null)
-        		{
-        			e = new ActionEvent(value, id, command);
-        		}
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == ActionListener.class)
+			{
+				// Lazily create the event:
+				if (e == null)
+				{
+					e = new ActionEvent(value, id, command);
+				}
 
-                ((ActionListener) listeners[i + 1]).actionPerformed(e);
-            }
-        }
+				((ActionListener) listeners[i + 1]).actionPerformed(e);
+			}
+		}
 	}
 
-    public void addActionListener(ActionListener listener)
-    {
-        listenerList.add(ActionListener.class, listener);
-    }
+	public void addActionListener(ActionListener listener)
+	{
+		listenerList.add(ActionListener.class, listener);
+	}
 
     public void removeActionListener(ActionListener listener)
     {
@@ -162,37 +145,74 @@ public class JTableEx extends JTable
     }
 	
 	@Override
-	public boolean getScrollableTracksViewportHeight()
+	public boolean getAutoCreateRowSorter()
 	{
-		// fetch the table's parent
-		Container viewport = getParent();
-
-		// if the parent is not a viewport, calling this isn't useful
-		if (!(viewport instanceof JViewport))
-		{
-			return false;
-		}
-
-		// return true if the table's preferred height is smaller
-		// than the viewport height, else false
-		return getPreferredSize().height < viewport.getHeight();
+		return sortingEnabled;
 	}
 
 	@Override
-	public void setModel(TableModel model)
+	public void setAutoCreateRowSorter(boolean autoCreateRowSorter)
 	{
-		if (!(model instanceof SortableTableModel))
+		boolean oldValue = this.sortingEnabled;
+		this.sortingEnabled = autoCreateRowSorter;
+		if (sortingEnabled)
 		{
-			model = new DefaultSortableTableModel(model);
+			TableModel model = getModel();
+			if (model instanceof SortableTableModel)
+			{
+				setRowSorter(new SortableTableRowSorter((SortableTableModel) dataModel));
+			}
+			else
+			{
+				setRowSorter(new TableRowSorter(model));
+			}
 		}
-		super.setModel(model);
-		sortModel();
+		firePropertyChange("autoCreateRowSorter", oldValue,
+				autoCreateRowSorter);
+	}
+
+	public void sortModel()
+	{
+		RowSorter rowSorter = getRowSorter();
+		if (rowSorter != null)
+		{
+			rowSorter.setSortKeys(getRowSorter().getSortKeys());
+		}
 	}
 
 	@Override
-	public SortableTableModel getModel()
+	public void setModel(TableModel dataModel)
 	{
-		return (SortableTableModel) super.getModel();
+		if (dataModel == null)
+		{
+			throw new IllegalArgumentException("Cannot set a null TableModel");
+		}
+		if (this.dataModel != dataModel)
+		{
+			TableModel old = this.dataModel;
+			if (old != null)
+			{
+				old.removeTableModelListener(this);
+			}
+			this.dataModel = dataModel;
+			dataModel.addTableModelListener(this);
+
+			tableChanged(new TableModelEvent(dataModel, TableModelEvent.HEADER_ROW));
+
+			firePropertyChange("model", old, dataModel);
+
+			if (getAutoCreateRowSorter())
+			{
+				if (dataModel instanceof SortableTableModel)
+				{
+					super.setRowSorter(new SortableTableRowSorter((SortableTableModel) dataModel));
+				}
+				else
+				{
+					super.setRowSorter(new TableRowSorter(dataModel));
+				}
+			}
+		}
 	}
 
 	/**
@@ -205,136 +225,6 @@ public class JTableEx extends JTable
 	{
 		getColumnModel().getColumn(col).setCellRenderer(
 				new TableCellUtilities.AlignRenderer(alignment));
-	}
-
-	@Override
-	public void tableChanged(TableModelEvent e)
-	{
-		super.tableChanged(e);
-//		if(!isSorting)
-//		{
-//			isSorting = true;
-//			sortModel();
-//			isSorting = false;
-//		}
-	}
-
-	public void toggleSort(int column)
-	{
-		Vector<SortingPriority> list = new Vector<SortingPriority>(getSortingPriority());
-		int index;
-		for (index = list.size() - 1; index >= 0; index--)
-		{
-			if (list.get(index).getColumn() == column)
-			{
-				break;
-			}
-		}
-		switch (index)
-		{
-			case 0:
-				if (list.get(0).getMode() == SortMode.ASCENDING)
-				{
-					list.set(0, new SortingPriority(column, SortMode.DESCENDING));
-					break;
-				}
-			default:
-				list.remove(index);
-			case -1:
-				list.add(0, new SortingPriority(column, SortMode.ASCENDING));
-		}
-		if (list.size() > 2)
-		{
-			list.setSize(2);
-		}
-		setSortingPriority(list);
-	}
-
-	public void setSortingPriority(List<SortingPriority> keys)
-	{
-		this.columnkeys = Collections.unmodifiableList(keys);
-		sortModel();
-	}
-
-	public void sortModel()
-	{
-		if (getAutoCreateColumnsFromModel())
-		{
-			TableColumnModel old = getColumnModel();
-			setColumnModel(new DefaultTableColumnModel());
-			getModel().sortModel(rowComparator);
-			setColumnModel(old);
-		}
-		else
-		{
-			getModel().sortModel(rowComparator);
-		}
-	}
-
-	public List<SortingPriority> getSortingPriority()
-	{
-		return columnkeys;
-	}
-
-	private final class RowComparator implements Comparator<List<?>>
-	{
-
-		@Override
-		@SuppressWarnings("unchecked")
-		public int compare(List<?> o1,
-						   List<?> o2)
-		{
-			SortableModel model = getModel();
-			for (SortingPriority priority : columnkeys)
-			{
-				if (priority.getMode() == SortMode.UNORDERED)
-				{
-					continue;
-				}
-				int column = priority.getColumn();
-				Comparator comparator = Comparators.getComparatorFor(model.getColumnClass(column));
-				Object obj1 = null;
-				Object obj2 = null;
-				if (o1.size() > column)
-				{
-					obj1 = o1.get(column);
-				}
-				if (o2.size() > column)
-				{
-					obj2 = o2.get(column);
-				}
-				int ret;
-				if (obj1 == null || obj2 == null)
-				{
-					if (obj1 == obj2)
-					{
-						ret = 0;
-					}
-					else if (obj1 == null)
-					{
-						ret = -1;
-					}
-					else
-					{
-						ret = 1;
-					}
-				}
-				else
-				{
-					ret = comparator.compare(obj1, obj2);
-				}
-				if (priority.getMode() == SortMode.DESCENDING)
-				{
-					ret *= -1;
-				}
-				if (ret != 0)
-				{
-					return ret;
-				}
-			}
-			return 0;
-		}
-
 	}
 
 }

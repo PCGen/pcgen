@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 #COMMENT: Line 512 - DATA-178 // Requires a Chooser
@@ -1111,7 +1111,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Spellcasting Harrier
 ABILITY:CATEGORY=FEAT|Superior Initiative
-ABILITY:CATEGORY=FEAT|Spring Attack		FREE:YES
+ABILITY:CATEGORY=FEAT|Spring Attack			FREE:YES
 ABILITY:CATEGORY=FEAT|Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
@@ -1138,7 +1138,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Spellcasting Harrier
 ABILITY:CATEGORY=FEAT|Spring Attack
-ABILITY:CATEGORY=FEAT|Superior Initiative	FREE:YES
+ABILITY:CATEGORY=FEAT|Superior Initiative		FREE:YES
 ABILITY:CATEGORY=FEAT|Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 

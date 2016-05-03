@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
+
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
+
+
+# Spectral Loremaster
+# Ability Name		Unique Key								Category of Ability		Type				Define						Description																								Modify VAR
+Speak with Dead		KEY:Speak with Dead ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SpeakDead|0				DESC: %1/Day|SpeakDead																						BONUS:VAR|SpeakDead|1
+Spectral Investigation	KEY:Spectral Investigation ~ Spectral Loremaster	CATEGORY:Special Ability	TYPE:SpecialQuality
+Divination			KEY:Divination ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality
+Lost Arcane Lore		KEY:Lost Arcane Lore ~ Spectral Loremaster		CATEGORY:Special Ability	TYPE:SpecialQuality
+Commune			KEY:Commune ~ Spectral Loremaster				CATEGORY:Special Ability	TYPE:SpecialQuality
+Contact Other Plane	KEY:Contact Other Plane ~ Spectral Loremaster		CATEGORY:Special Ability	TYPE:SpecialQuality
+Lessons from the Grave	KEY:Lessons from the Grave ~ Spectral Loremaster	CATEGORY:Special Ability	TYPE:SpecialQuality
+Spectral Lore		KEY:Spectral Lore ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality
+Lost Arcane Lore		KEY:Lost Arcane Lore ~ Spectral Loremaster		CATEGORY:Special Ability	TYPE:SpecialQuality
+The Veil Parted		KEY:The Veil Parted ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# Deathseeker
+Deathseeker Casting	KEY:Deathseeker Casting ~ Deathseeker			CATEGORY:Special Ability	TYPE:SpecialQuality
+Proximity to Death	KEY:Proximity to Death ~ Deathseeker			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:DeathProx|0				DESC: (%1')|DeathProx
+Unleash Negativity	KEY:Unleash Negativity ~ Deathseeker			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:UnleashNeg|0				DESC: %1/Day|UnleashNeg
+
+# Necrophage
+Grafting			KEY:Grafting ~ Necrophage					CATEGORY:Special Ability	TYPE:SpecialQuality
+Body Enhancement		KEY:Body Enhancement ~ Necrophage				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BodyEnhancementNecrophageLvl|0	DESC:I|PREVAREQ:BodyEnhancementNecrophageLvl,1	DESC:II|PREVAREQ:BodyEnhancementNecrophageLvl,2	DESC:III|PREVAREQ:BodyEnhancementNecrophageLvl,3
+Enhanced Grafting		KEY:Enhanced Grafting ~ Necrophage				CATEGORY:Special Ability	TYPE:SpecialQuality
+Augmentation		KEY:Augmentation ~ Necrophage					CATEGORY:Special Ability	TYPE:SpecialQuality
+Advanced Grafting		KEY:Advanced Grafting ~ Necrophage				CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhanced Augmentation	KEY:Enhanced Augmentation ~ Necrophage			CATEGORY:Special Ability	TYPE:SpecialQuality
+Master Grafting		KEY:Master Grafting ~ Necrophage				CATEGORY:Special Ability	TYPE:SpecialQuality
+Body Tranformation	KEY:Body Tranformation ~ Necrophage				CATEGORY:Special Ability	TYPE:SpecialQuality

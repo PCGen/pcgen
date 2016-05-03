@@ -34,7 +34,7 @@ public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> imple
 		if (reference != null)
 		{
 			reference.addReferenceListener(this);
-			setSelectedItem0(reference.getReference());
+			setSelectedItem0(reference.get());
 		}
 	}
 

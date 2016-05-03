@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+# Class Name		Ability																		Auto Language
+CLASS:Barbarian.MOD	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	AUTO:LANG|.CLEAR
+# Class Name		Clear Prereq.
+CLASS:Barbarian.MOD	PRE:.CLEAR
+
+# Class Name	Ability																		Auto Language
+CLASS:Fighter.MOD	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	AUTO:LANG|.CLEAR
+
+# Class Name	Ability																		Auto Language
+CLASS:Rogue.MOD	ABILITY:Special Ability|VIRTUAL|Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	AUTO:LANG|.CLEAR

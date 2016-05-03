@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/	SOURCEDATE:2002-01
+
+# Feat Name			Bonus to skill		Class Skill
+# Ability Name				Bonus to skill		Class Skill
+CATEGORY=FEAT|Divine Inquiry.MOD	BONUS:SKILL|Read Lips|1	CSKILL:Read Lips
+CATEGORY=FEAT|Flora Ward.MOD						CSKILL:Wilderness Lore
+CATEGORY=FEAT|Nuances.MOD		BONUS:SKILL|Innuendo|1	CSKILL:Innuendo

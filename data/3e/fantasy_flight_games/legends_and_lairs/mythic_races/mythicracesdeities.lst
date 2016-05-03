@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
+
+# No description for the Nature domain is given in the book. Removed Nature from Tangled Woman
+
+# Deity Name	Product Identity?	Domains										Description of Deity/Title						FACT										FACTSET				Deity Weapon								Align		Source Page
+Limpang-Lahai	NAMEISPI:YES	DOMAINS:Air,Good,Knowledge|PREALIGN:NG,CG,CN				DESC:Aaleear Goddess of art and music														FACTSET:Pantheon|Aaleear											ALIGN:CG	SOURCEPAGE:p.7
+Tangled Woman	NAMEISPI:YES	DOMAINS:Animal,Plant|PREALIGN:LG,NG,TN,CG					DESC:Aaleear Goddess of nature															FACTSET:Pantheon|Aaleear											ALIGN:NG	SOURCEPAGE:p.7
+Hollos the Archer	NAMEISPI:YES	DOMAINS:Destruction,Law,War|PREALIGN:LG,LN,NG				DESC:Aaleear God of war																	FACTSET:Pantheon|Aaleear	DEITYWEAP:Feybow								ALIGN:LG	SOURCEPAGE:p.7
+Salamos		NAMEISPI:YES	DOMAINS:Good,Healing,Plant,Protection|PREALIGN:LG,NG,TN,CG		DESC:The Oak Father																	FACTSET:Pantheon|Coivald											ALIGN:NG	SOURCEPAGE:p.38
+Peridus		NAMEISPI:YES	DOMAINS:Death,Evil,Magic|PREALIGN:LN,LE,NE				DESC:Diabolical Lord of Death																FACTSET:Pantheon|The Curst											ALIGN:LE	SOURCEPAGE:p.43
+Sealgairean		NAMEISPI:YES	DOMAINS:Animal,Knowledge,Plant,Strength|PREALIGN:TN,CG,CN,CE	DESC:The Hunter																		FACTSET:Pantheon|Mhvinntir											ALIGN:CN	SOURCEPAGE:p.75
+Dy'Madra		NAMEISPI:YES	DOMAINS:Air,Good,Luck|PREALIGN:NG,CG,CN					DESC:Goddess Of Air, Clouds, Sotmrs, and Wind			FACT:Symbol|Bolt of lightning surrounded by storm clouds	FACTSET:Pantheon|Niomus												ALIGN:CG	SOURCEPAGE:p.82
+The Sea		NAMEISPI:YES	DOMAINS:Knowledge,Law,Protection,Travel,Water|PREALIGN:LG,LN,LE	DESC:The Sea																		FACTSET:Pantheon|Ooloi												ALIGN:LN	SOURCEPAGE:p.88
+Buer			NAMEISPI:YES	DOMAINS:Animal,Strength,Travel,War|PREALIGN:TN,CG,CN,CE		DESC:Lord of the wilderness, war, and physical prowess											FACTSET:Pantheon|Aaleear	DEITYWEAP:Shortspear							ALIGN:CN	SOURCEPAGE:p.104
+Hmecsoba		NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery|PREALIGN:NE,CN,CE				DESC:The wicked trickster																FACTSET:Pantheon|Aaleear											ALIGN:CE	SOURCEPAGE:p.104
+Allasyrain		NAMEISPI:YES	DOMAINS:Air,Good,Healing|PREALIGN:NG,CG,CN				DESC:god of winds																		FACTSET:Pantheon|Siarran											ALIGN:CG	SOURCEPAGE:p.136
+Trevk and Ellayk	NAMEISPI:YES	DOMAINS:Air,Evil,Law,War,Water|PREALIGN:LG,LN,LE			DESC:Lord and Lady of rain and springs														FACTSET:Pantheon|Sktak		DEITYWEAP:Scimitar|Lance|Shortbow|Shortbow (Composite)	ALIGN:LN	SOURCEPAGE:p.142
+Ehromen		NAMEISPI:YES	DOMAINS:Destruction,Evil,Trickery|PREALIGN:LE,NE,CE			DESC:the demon																		FACTSET:Pantheon|Sktak												ALIGN:NE	SOURCEPAGE:p.142
+Y'llan		NAMEISPI:YES	DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE				DESC:The mother with a thousand faces														FACTSET:Pantheon|Uthuk														SOURCEPAGE:p.159
+
+#Animen Higher Self		?	SOURCEPAGE:p.19 (Animen)
+#Ba en Aset				?	SOURCEPAGE:p.25 (Artathi)
+#Ulmagnus				?	SOURCEPAGE:p.32 (Blickish)
+#Chevelle				?	SOURCEPAGE:p.32 (Blickish)
+#Ehlana				?	SOURCEPAGE:p.38 (Coivald)
+#Oberon				?	SOURCEPAGE:p.55 (Fairy)
+#Titania				?	SOURCEPAGE:p.55 (Fairy)
+#Phynnod				?	SOURCEPAGE:p.55 (Fairy)
+#Seelie 2-4				?	SOURCEPAGE:p.55 (Fairy)
+#Dark Titania			?	SOURCEPAGE:p.55 (Fairy)
+#Unseelie 2-4			?	SOURCEPAGE:p.55 (Fairy)
+#Nether Gods			?	SOURCEPAGE:p.55 (Fairy)
+#Hegretta				?	SOURCEPAGE:p.111,117 (Rhonians and Rhoode)
+#Orlem				?	SOURCEPAGE:p.99 (Quissians)

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd) 2007; Andrew Maitland
 #Completed 2008-05-14 - Needs Review
@@ -137,15 +137,15 @@ Grimm's Armband of Ever-Ready Blades	TYPE:Magic.Wondrous.Bracer	COST:55000			SOU
 Gris-Gris Bag					TYPE:Magic.Wondrous		COST:14000			SOURCEPAGE:p.87																																								BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
 
 ###Block: H ---------------------------------------------------------------------------------------------
-# Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells													Combat bonus				Save bonus					Bonus to skill									Stat bonus					Modify VAR			Special Property				Special ABility
-Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																															BONUS:STAT|CHA|2|TYPE=Enhancement					SPROP:May be used as +1 dagger
-Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87																																																																					BONUS:VAR|LOADSCORE|4
-Hauberk of the Spirits			TYPE:Magic.Wondrous.Robe		COST:51450	PRETEXT:Only usable by a shaman.				SOURCEPAGE:p.87																																														BONUS:SAVE|ALL|5|TYPE=Resistance												BONUS:STAT|CHA|6|TYPE=Enhancement
+# Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells													Combat bonus				Save bonus					Bonus to skill												Stat bonus					Modify VAR			Special Property				Special ABility
+Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																																		BONUS:STAT|CHA|2|TYPE=Enhancement					SPROP:May be used as +1 dagger
+Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87																																																																								BONUS:VAR|LOADSCORE|4
+Hauberk of the Spirits			TYPE:Magic.Wondrous.Robe		COST:51450	PRETEXT:Only usable by a shaman.				SOURCEPAGE:p.87																																														BONUS:SAVE|ALL|5|TYPE=Resistance															BONUS:STAT|CHA|6|TYPE=Enhancement
 #Only usable by "shaman" is that an actual class in PGTA or Arcanis?
 Headband of Delusion			TYPE:Magic.Wondrous.Headgear		COST:11000										SOURCEPAGE:p.87
 Headdress of Osalian			TYPE:Magic.Wondrous.Headgear		COST:131000										SOURCEPAGE:p.88
-Headdress of the Phoenix		TYPE:Magic.Wondrous.Headgear		COST:330000										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=3|CASTERLEVEL=20|Mantle of Unassailable Flame																																									SAB:Fire Immunity
-Headdress of the Phoenix Lesser	TYPE:Magic.Wondrous.Headgear		COST:72540										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=1|CASTERLEVEL=13|Mantle of Unassailable Flame																																									SAB:Fire Resistance 20
+Headdress of the Phoenix		TYPE:Magic.Wondrous.Headgear		COST:330000										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=3|CASTERLEVEL=20|Mantle of Unassailable Flame																																												SAB:Fire Immunity
+Headdress of the Phoenix Lesser	TYPE:Magic.Wondrous.Headgear		COST:72540										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=1|CASTERLEVEL=13|Mantle of Unassailable Flame																																												SAB:Fire Resistance 20
 Helm of Disguise Greater		TYPE:Magic.Wondrous.Headgear		COST:4500										SOURCEPAGE:p.88
 Helm of Protection +1			TYPE:Magic.Wondrous.Headgear		COST:2100							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																BONUS:COMBAT|AC|1|TYPE=Deflection							BONUS:SKILL|Listen,Spot|-2|!PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)
 Helm of Protection +2			TYPE:Magic.Wondrous.Headgear		COST:8400							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																BONUS:COMBAT|AC|2|TYPE=Deflection							BONUS:SKILL|Listen,Spot|-2|!PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)

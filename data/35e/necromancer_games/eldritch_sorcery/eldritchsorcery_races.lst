@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Combat bonus				Stat bonus											Modify VAR				Racial HD Class Skills	Virtual Feat		Nb Legs	Special ABility								Define			Monster Class Name and Starting Level	Main Race Type		Challenge Rating	Source Page		Apply Kit
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Combat bonus				Stat bonus											Modify VAR				Racial HD Class Skills	Ability					Nb Legs	Special ABility								Define			Monster Class Name and Starting Level	Main Race Type		Challenge Rating	Source Page		Apply Kit
 Dust Devil	STARTFEATS:1	SIZE:M	MOVE:Fly,100	FACE:5	REACH:5	VISION:Darkvision (60')	BONUS:COMBAT|AC|3|TYPE=NaturalArmor	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-6	BONUS:VAR|WhirlwindDC|11+STR	MONCSKILL:Listen|Spot	ABILITY:FEAT|VIRTUAL|Weapon Finesse	LEGS:0	SAB:Air Mastery (Ex)	SAB:Whirlwind (Su) DC %|WhirlwindDC	DEFINE:WhirlwindDC|0	MONSTERCLASS:Elemental (Air/Fire):2		RACETYPE:Elemental	CR:2			SOURCEPAGE:p.120	KIT:1|TN
 #
 # EoF

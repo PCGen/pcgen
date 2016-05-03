@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
 
@@ -16,7 +16,7 @@ FOLLOWER:PsiCrystalLVL=17	TYPE:Psicrystal																																							
 FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal																																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
 
 ###Block:Psicrystal Bonuses to Master
-# Race of familiar					Type			Combat bonus			Save bonus			Bonus to skill			Virtual Feat
+# Race of familiar					Type			Combat bonus			Save bonus			Bonus to skill			Ability
 MASTERBONUSRACE:Psicrystal				TYPE:Psicrystal															ABILITY:FEAT|VIRTUAL|Alertness
 
 MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal										BONUS:SKILL|TYPE.Craft|3	ABILITY:FEAT|VIRTUAL|Alertness

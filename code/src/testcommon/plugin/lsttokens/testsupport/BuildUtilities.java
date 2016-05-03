@@ -3,7 +3,7 @@ package plugin.lsttokens.testsupport;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.ObjectContainer;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
@@ -75,7 +75,7 @@ public class BuildUtilities
 	{
 		FactSetKey<String> fk = FactSetKey.getConstant(factsetname, STR_MGR);
 		FormatManager<String> tm = new StringManager();
-		ObjectContainer<String> indirect = tm.convertObjectContainer(value);
+		Indirect<String> indirect = tm.convertIndirect(value);
 		cdo.addToSetFor(fk, indirect);
 	}
 

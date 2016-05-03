@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+#Original entry by: Paul "Yes, that Paul" Grosse
+
+#Wand Name			Product Identity	Output name			Type				Weight		Base item	EQMod												Sourcepage
+# Equipment Name				Product Identity?	Output Name				Type					Weight	Base Item for EQMOD	Modifier														Source Page
+Wand (Belarosh's Law)			NAMEISPI:YES	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Belarosh's Law]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:p.34
+Wand (Bone Spikes)						OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Divine		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Bone Spikes]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:p.62
+Wand (Ill Omen)							OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Divine		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Ill Omen]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:p.64
+Wand (Iron Fist)							OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Iron Fist]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]			SOURCEPAGE:p.64
+Wand (Hideous Appearance)					OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Hideous Appearance]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:p.65
+Wand (Shadow Cloak)						OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Shadow Cloak]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]			SOURCEPAGE:p.65
+Wand (Strength of Yeenoghu I)		NAMEISPI:YES	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Strength of Yeenoghu I]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[50]	SOURCEPAGE:p.66
+Wand (Strength of Yeenoghu II)	NAMEISPI:YES	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Strength of Yeenoghu II]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]	SOURCEPAGE:p.66
+Wand (Strength of Yeenoghu III)	NAMEISPI:YES	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Strength of Yeenoghu III]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]	SOURCEPAGE:p.66
+Wand (Strength of Yeenoghu IV)	NAMEISPI:YES	OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Strength of Yeenoghu IV]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]	SOURCEPAGE:p.66
+Wand (Summon Shadow Raven)					OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Summon Shadow Raven]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:p.66
+Wand (Undead Attraction)					OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane.Divine	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Undead Attraction]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:p.67
+Wand (Waking Nightmares)					OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Arcane		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Waking Nightmares]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[50]		SOURCEPAGE:p.68
+Wand (Wounding)							OUTPUTNAME:Wand of [NAME]	TYPE:Magic.Wand.Divine		WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Wounding]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:p.68

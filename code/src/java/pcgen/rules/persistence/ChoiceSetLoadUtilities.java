@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -34,7 +35,6 @@ import pcgen.cdom.primitive.ObjectContainerPrimitive;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary.QualifierTokenIterator;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -56,8 +56,11 @@ public final class ChoiceSetLoadUtilities
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
 		List<PrimitiveCollection<T>> orList = new ArrayList<PrimitiveCollection<T>>();
-		for (ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|'); pipe
-				.hasNext();)
+		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
+		pipe.addGroupingPair('[', ']');
+		pipe.addGroupingPair('(', ')');
+
+		for (; pipe.hasNext();)
 		{
 			String joinedAnd = pipe.next();
 			if (hasIllegalSeparator(',', joinedAnd))
@@ -65,8 +68,10 @@ public final class ChoiceSetLoadUtilities
 				return null;
 			}
 			List<PrimitiveCollection<T>> andList = new ArrayList<PrimitiveCollection<T>>();
-			for (ParsingSeparator comma = new ParsingSeparator(joinedAnd, ','); comma
-					.hasNext();)
+			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
+			comma.addGroupingPair('[', ']');
+			comma.addGroupingPair('(', ')');
+			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
 				if (primitive == null || primitive.length() == 0)
@@ -157,8 +162,10 @@ public final class ChoiceSetLoadUtilities
 			return null;
 		}
 		List<PrimitiveCollection<T>> pcfOrList = new ArrayList<PrimitiveCollection<T>>();
-		for (ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|'); pipe
-				.hasNext();)
+		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
+		pipe.addGroupingPair('[', ']');
+		pipe.addGroupingPair('(', ')');
+		for (; pipe.hasNext();)
 		{
 			String joinedAnd = pipe.next();
 			if (joinedAnd.length() == 0 || hasIllegalSeparator(',', joinedAnd))
@@ -166,8 +173,10 @@ public final class ChoiceSetLoadUtilities
 				return null;
 			}
 			List<PrimitiveCollection<T>> pcfAndList = new ArrayList<PrimitiveCollection<T>>();
-			for (ParsingSeparator comma = new ParsingSeparator(joinedAnd, ','); comma
-					.hasNext();)
+			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
+			comma.addGroupingPair('[', ']');
+			comma.addGroupingPair('(', ')');
+			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
 				if (primitive == null || primitive.length() == 0)

@@ -1,0 +1,17 @@
+# CVS $Revision: 18395 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2013-11
+#Original Entry: Andrew Maitland
+
+STARTPACK:Wealth Roll	VISIBLE:YES	APPLY:INSTANT
+SELECT:roll("2d4")
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 2	OPTION:2
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 3	OPTION:3
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 4	OPTION:4
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 5	OPTION:5
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 6	OPTION:6
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 7	OPTION:7
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 8	OPTION:8
+
+#
+# End
+#

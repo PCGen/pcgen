@@ -1,23 +1,24 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
-# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add 				Modify VAR
-Psychotherapy Qualify			CATEGORY:FEAT	TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:FEAT|Psychotherapy
-Surgery Qualify				CATEGORY:FEAT	TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:FEAT|Surgery
+# Feat Name					Type				Visible	Required Feat					Special ABility																	Define				Stackable?	Multiple?	Choose		Add				Modify VAR
+# Ability Name				Category of Ability	Type				Visible	Required Ability								Special ABility																	Define				Stackable?	Multiple?	Choose		Add							Modify VAR
+Psychotherapy Qualify			CATEGORY:FEAT		TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:ABILITY|FEAT|NORMAL|Psychotherapy
+Surgery Qualify				CATEGORY:FEAT		TYPE:MedicalFeat		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Officer Candidate School																																	ADD:ABILITY|FEAT|NORMAL|Surgery
 
-Advanced Amphibious Training		CATEGORY:FEAT	TYPE:Terrain.NavyBoat	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Amphibious Assault Training																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AmphibiousTraining|1
-Advanced Arctic Training		CATEGORY:FEAT	TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Arctic Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ArcticTraining|1
-Advanced Desert Training		CATEGORY:FEAT	TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Desert Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|DesertTraining|1
-Advanced Jungle/Swamp Training	CATEGORY:FEAT	TYPE:Terrain.NavyBoat	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Jungle/Swamp Warfare College																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|JungleTraining|1
-Advanced Mountain Training		CATEGORY:FEAT	TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Mountain Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|MountainTraining|1
-Advanced Urban Training			CATEGORY:FEAT	TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Urban Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|UrbanTraining|1
+Advanced Amphibious Training		CATEGORY:FEAT		TYPE:Terrain.NavyBoat	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Amphibious Assault Training																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|AmphibiousTraining|1
+Advanced Arctic Training		CATEGORY:FEAT		TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Arctic Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|ArcticTraining|1
+Advanced Desert Training		CATEGORY:FEAT		TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Desert Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|DesertTraining|1
+Advanced Jungle/Swamp Training	CATEGORY:FEAT		TYPE:Terrain.NavyBoat	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Jungle/Swamp Warfare College																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|JungleTraining|1
+Advanced Mountain Training		CATEGORY:FEAT		TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Mountain Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|MountainTraining|1
+Advanced Urban Training			CATEGORY:FEAT		TYPE:Terrain		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Urban Warfare College																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|UrbanTraining|1
 
-Air Superiority				CATEGORY:FEAT	TYPE:Special		VISIBLE:NO								SAB:Air Superiority +%|AirSuperiority													DEFINE:AirSuperiority|0
-Strafing					CATEGORY:FEAT	TYPE:Special		VISIBLE:NO								SAB:Strafing +%|Strafing															DEFINE:Strafing|0
+Air Superiority				CATEGORY:FEAT		TYPE:Special		VISIBLE:NO											SAB:Air Superiority +%|AirSuperiority													DEFINE:AirSuperiority|0
+Strafing					CATEGORY:FEAT		TYPE:Special		VISIBLE:NO											SAB:Strafing +%|Strafing															DEFINE:Strafing|0
 
-Hostage Rescue				CATEGORY:FEAT	TYPE:Special		VISIBLE:NO								SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
+Hostage Rescue				CATEGORY:FEAT		TYPE:Special		VISIBLE:NO											SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
 
-Hasty Construction			CATEGORY:FEAT	TYPE:Special		VISIBLE:NO								SAB:Hasty Construction % pct|HastyConstruction												DEFINE:HastyConstruction|0												BONUS:VAR|HastyConstruction|100
+Hasty Construction			CATEGORY:FEAT		TYPE:Special		VISIBLE:NO											SAB:Hasty Construction % pct|HastyConstruction												DEFINE:HastyConstruction|0															BONUS:VAR|HastyConstruction|100
 
-Semper Fi					CATEGORY:FEAT	TYPE:Special		VISIBLE:NO								SAB:Semper Fi
+Semper Fi					CATEGORY:FEAT		TYPE:Special		VISIBLE:NO											SAB:Semper Fi

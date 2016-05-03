@@ -1,0 +1,26 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list																										Display Location
+ABILITYCATEGORY:Artificer Skill Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Artificer Skill Focus																								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Artificer Steamcraft Focus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Artificer Steamcraft Focus																							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Musketeer Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Musketeer																																DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Watchman				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Watchman																																DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Steamcraft Mage Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation			ABILITYLIST:Brew Injection|Empower Spell|Enlarge Spell|Extend Spell|Heighten Spell|Industrial Know-How|Industrial Master|Maximize Spell|Mechanical Aptitude|Quicken Spell	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Master of Enchantment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterofEnchantment																														DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Hypnotist				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Hypnotist DC Bonus|Hypnotist Spell Focus (Enchantment)																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Game Hunter				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GameHunterFavored																															DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Reference Material			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Reference Material																								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Brawler					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Brawler																																DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Song of Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SongPower																																DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Animal Lord Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalLordAbility																															DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Animal Lord Totem			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalLordTotem																															DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:HomeEnvironment			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HomeEnvironment																															DISPLAYLOCATION:Class Abilities

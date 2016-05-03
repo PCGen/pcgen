@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Arknight
@@ -54,7 +54,7 @@ Wall				KEY:WALL			TYPE:Shield						COST:20160	VISIBLE:QUALIFY	SOURCEPAGE:p.393	
 
 
 ###Block: Weapon equipment modifiers
-# Modifier Name			Unique Key		Type					Plus		Cost		Visible		Source Page		Required Type							Prohibited Type		Combat bonus				Save bonus				Modify VAR							Weapon prop. bonus				Special Property																									Ability								Virtual Feat
+# Modifier Name			Unique Key		Type					Plus		Cost		Visible		Source Page		Required Type							Prohibited Type		Combat bonus				Save bonus				Modify VAR							Weapon prop. bonus				Special Property																									Ability
 Agile					KEY:AGILE		TYPE:Melee.Weapon			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.394	PRETYPE:4,Enhancement,Weapon,Melee,Finesseable																									BONUS:WEAPON|DAMAGE|max(STR,DEX)-STR	SPROP:Add Dexterity bonus, instead of Strength bonus, to weapon damage
 Bodyfeeder				KEY:BODYFEED	TYPE:Weapon.Melee			PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.394	PRETYPE:3,Enhancement,Weapon,Melee																																		SPROP:adds damage as temporary hit points on a critical hit
 Challenger				KEY:CHALL		TYPE:Melee.Weapon			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.394	PRETYPE:3,Enhancement,Weapon.Melee																																		SPROP:attack and use Intimidate to give target penalties to attack others
@@ -106,7 +106,7 @@ Psychokinetic Burst		KEY:PKIN_BR_R	TYPE:Weapon.Ranged		PLUS:2			VISIBLE:QUALIFY	
 Rebounding				KEY:RBDNG		TYPE:Weapon.Thrown				COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.396	PRETYPE:3,Enhancement,Weapon,Thrown																																		SPROP:Use iterative attacks with single thrown weapon
 Scourgebane				KEY:SCGBN		TYPE:Weapon				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.396	PRETYPE:2,Enhancement,Weapon																																			SPROP:extra +2 enhancement, +2d6 damage against phrenic scourge creatures
 Soulbreaker				KEY:SOULBREAK	TYPE:Weapon.Melee			PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.396	PRETYPE:3,Enhancement,Weapon,Melee																																		SPROP:on a critical hit bestows one negative level on target; FORT Save (DC:18) day later or permanent
-Sundering				KEY:SUNDERING	TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.396	PRETYPE:3,Enhancement,Weapon,Melee																																		SPROP:wielder treated as if has Improved Sunder Feat																												ABILITY:FEAT|VIRTUAL|Improved Sunder
+Sundering				KEY:SUNDERING	TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.396	PRETYPE:3,Enhancement,Weapon,Melee																																		SPROP:wielder treated as if has Improved Sunder Feat																			ABILITY:FEAT|VIRTUAL|Improved Sunder
 Suppression				KEY:SUPPRESS_A	TYPE:Ammunition			PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.397	PRETYPE:2,Enhancement,Ammunition																																		SPROP:target opponent or object suffers targeted dispel psionics ((1d20 + 5 + wielder's manifester level, max 15) vs DC of 11+manifester level of power
 Suppression				KEY:SUPPRESS_M	TYPE:Weapon.Melee.Thrown	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.397	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown																															SPROP:target opponent or object suffers targeted dispel psionics ((1d20 + 5 + wielders manifester level, max 15) vs DC of 11+manifester level of power
 Suppression				KEY:SUPPRESS_R	TYPE:Weapon.Ranged		PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.397	PRETYPE:3,Enhancement,Weapon,Ranged				!PRETYPE:1,Thrown																												SPROP:3/day target opponent or object suffers targeted dispel psionics ((1d20 + 5 + wielders manifester level, max 15) vs DC of 11+manifester level of power

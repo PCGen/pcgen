@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+# These bloodlines impact a character's starting nobility, which isn't treated like the standard stats.
+#   Not sure how to code that atm.
+# Also, bloodline determines what you're starting gold is, which I also don't know ow to code.
+
+# Race Name			Favored Class			Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Bonus Ability Pool									Bonus to skill							Stat bonus					Auto Language			Special ABility								Main Race Type	Source Page
+Base/Criminal		FAVCLASS:Rogue							STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:ABILITYPOOL|Base Criminal|1							BONUS:SKILL|Search,Spot,Survival|2|TYPE=Bloodline	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2	AUTO:LANG|English			SAB:Illiterate	SAB:Survivor (Ex)					RACETYPE:Humanoid	SOURCEPAGE:p5
+# starting nobility is 10+1d10
+# starting gold is 2d6 * nobility
+
+Common/Serf			FAVCLASS:HIGHESTLEVELCLASS					STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:ABILITYPOOL|Common Serf|1	BONUS:ABILITYPOOL|CSStatBonus|1	BONUS:SKILL|TYPE.Craft|2|TYPE=Bloodline			BONUS:STAT|INT|-2				AUTO:LANG|English			SAB:Illiterate	SAB:Worker (Ex)	SAB:Fealty (Ex)		RACETYPE:Humanoid	SOURCEPAGE:p6
+# starting nobility is 20+1d10
+# starting gold is 3d6 * nobility
+
+Middle Class		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5													BONUS:SKILL|Diplomacy|2|TYPE=Bloodline									AUTO:LANG|English|Literacy	SAB:Stuck in the Middle With You (Ex)	SAB:Fealty (Ex)	RACETYPE:Humanoid	SOURCEPAGE:p7
+# starting nobility is 30+1d10
+# starting gold is 3d6 * nobility
+
+Lesser Nobility/Peerage	FAVCLASS:Knight|Priest						STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5													BONUS:SKILL|Ride|2|TYPE=Bloodline				BONUS:STAT|CON|2				AUTO:LANG|English|Literacy	SAB:Bred to the Saddle (Ex)	SAB:Fealty (Ex)			RACETYPE:Humanoid	SOURCEPAGE:p8
+# starting nobility is 40+1d10
+# starting gold is 5d6 * nobility
+
+Nobility/Royalty		FAVCLASS:Noble							STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5													BONUS:SKILL|Intimidate|2|TYPE=Bloodline			BONUS:STAT|CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|English|Literacy	SAB:Voice of Command (Ex)	SAB:Noblesse Oblige (Ex)	RACETYPE:Humanoid	SOURCEPAGE:p9
+# starting nobility is 50+1d10
+# starting gold is 7d6 * nobility

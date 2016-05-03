@@ -22,10 +22,14 @@ package pcgen.gui2.util.table;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+
 import javax.swing.AbstractCellEditor;
+import javax.swing.JComponent;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
@@ -36,6 +40,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -165,17 +170,20 @@ public final class TableCellUtilities
 		}
 
 	}
-
-	public static class ToggleButtonRenderer extends DefaultTableCellRenderer
+	
+	public static class ToggleButtonRenderer extends JComponent implements TableCellRenderer
 	{
 
 		private JToggleButton button;
+		private DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
 
 		public ToggleButtonRenderer(JToggleButton button)
 		{
 			this.button = button;
-			button.setHorizontalAlignment(CENTER);
+			button.setHorizontalAlignment(SwingConstants.CENTER);
 			button.setBorderPainted(true);
+			setLayout(new GridLayout(1, 1));
+			add(button);
 		}
 
 		@Override
@@ -186,19 +194,23 @@ public final class TableCellUtilities
 													   int row,
 													   int column)
 		{
-			super.getTableCellRendererComponent(table, value, isSelected,
+			renderer.getTableCellRendererComponent(table, value, isSelected,
 												hasFocus, row,
 												column);
 			if (value == null)
 			{
-				return this;
+				return renderer;
 			}
-			button.setForeground(getForeground());
-			button.setBackground(getBackground());
-			button.setBorder(getBorder());
-
+			setBackground(renderer.getBackground());
 			button.setSelected(((Boolean) value).booleanValue());
-			return button;
+			return this;
+		}
+
+		@Override
+		protected void paintComponent(Graphics g)
+		{
+			g.setColor(getBackground());
+			g.fillRect(0, 0, getWidth(), getHeight());
 		}
 
 	}

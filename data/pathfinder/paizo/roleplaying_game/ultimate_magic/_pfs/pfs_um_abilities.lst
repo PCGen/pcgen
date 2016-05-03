@@ -1,0 +1,48 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+# Other: No content from Chapter 2 is legal for play except new familiars;
+
+###Block: Spellblights
+#Block: Minor Spellblights
+# Ability Name									Type			!PRECHARACTERTYPE
+CATEGORY=Afflictions|Spellblight ~ Caster Blank.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Caster Croak.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Confounded Casting.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Disassociation.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Ebon Eyes.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Eldritch Ague.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Hemoculysis.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Lassitude.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Ritualistic Obsession.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Spell Addiction.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#Block: Major Spellblights
+CATEGORY=Afflictions|Spellblight ~ Eldritch Cataracts.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Nameless Dread.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Negated.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Obsessive Fixation.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Phase Blight.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Spell Burn.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Spell Sap.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Tranference Block.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Vertigo.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+###Block: Preparation Rituals for spellbooks
+# Ability Name											Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Preparation Ritual ~ Harmful Surge.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Alchemical Protection.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Breath of the Grave.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Glittering Eyes.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Defensive Transmutation.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Eyes of Rul Thaven.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Beastly Concoction.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Rime Bite.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Sturdy Summoning.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Travel Sage.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Guardian Trick.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Shadow Knowledge.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Improved Eyes of Rul Thaven.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Revivifying Contingency.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Defensive Boon.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Spontaneous Bomb.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Curse of Names.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

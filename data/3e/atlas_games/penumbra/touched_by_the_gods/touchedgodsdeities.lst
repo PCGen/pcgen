@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2001-01
+
+# Deity Name				Domains										Description of Deity/Title					FACT																			FACTSET				Deity Weapon							Align		Source Page
+Raeksen					DOMAINS:Destruction,Good,Protection|PREALIGN:NG,CG,CN			DESC:The Just, The Mad						FACT:Symbol|A scale representing justice for all											FACTSET:Pantheon|Penumbra	DEITYWEAP:Quarterstaff						ALIGN:CG	SOURCEPAGE:p.44
+Calaam					DOMAINS:Endings,Good,Law|PREALIGN:LG,LN,NG				DESC:Lord of Endings, Gatekeeper of the Netherworld	FACT:Symbol|A person inside of an angel													FACTSET:Pantheon|Penumbra	DEITYWEAP:Club|Handaxe|Hammer (Light)|Pick|Scythe|Net	ALIGN:LG	SOURCEPAGE:p.57
+The Wild					DOMAINS:Animal,Earth,Plant|PREALIGN:LN,NG,TN,NE,CN												FACT:Symbol|A circle of thorns														FACTSET:Pantheon|Penumbra										ALIGN:TN	SOURCEPAGE:p.62
+Syllisia					DOMAINS:Destruction,Earth,Plant|PREALIGN:NE,CN,CE			DESC:Lady of the Conquering Root				FACT:Symbol|A crumbling tower embraced by a green root										FACTSET:Pantheon|Penumbra	DEITYWEAP:Club							ALIGN:CN	SOURCEPAGE:p.74
+Bohnaraii					DOMAINS:Good,Luck,Nobility-p|PREALIGN:LG,NG,CG				DESC:Patroness of Nobility					FACT:Symbol|Large hands between which stands a bearded man in a loincloth with upraised hands.				FACTSET:Pantheon|Penumbra	DEITYWEAP:Rapier							ALIGN:NG	SOURCEPAGE:p.86
+The Legion of Ten Thousand Heroes	DOMAINS:Rage,Strength,War|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE										FACT:Symbol|3 horizontal spear points. The top and bottom ones pointing right. The middle one pointing left.	FACTSET:Pantheon|Penumbra	DEITYWEAP:Greataxe						ALIGN:CN	SOURCEPAGE:p.105
+The Divine Wolf				DOMAINS:Animal,Strength,Trickery|PREALIGN:LN,NG,TN,NE,CN											FACT:Symbol|Wolf paws																FACTSET:Pantheon|Penumbra										ALIGN:TN	SOURCEPAGE:p.116
+
+#Could not find entry for Ras'Tan in the book or index but the book is not organized to find things easily. Commenting out instead of deleting just in case I missed it.
+#Ras'Tan					DOMAINS:Sun,Time-p,Knowledge,Missionary|PREALIGN:LG,LN,TN,LE	DESC:The All-Knower					SYMBOL:The Temporal Crystal														DEITYWEAP:Scimitar						ALIGN:NG				SOURCEPAGE:p.?

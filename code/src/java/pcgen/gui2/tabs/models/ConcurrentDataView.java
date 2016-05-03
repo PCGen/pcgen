@@ -73,7 +73,7 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 		this.dataMap = Collections.synchronizedMap(new WeakHashMap<E, List<?>>());
 	}
 
-	@Override
+//	@Override
 	public final List<?> getData(final E obj)
 	{
 		Future<List<?>> future = executor.submit(new Callable<List<?>>()

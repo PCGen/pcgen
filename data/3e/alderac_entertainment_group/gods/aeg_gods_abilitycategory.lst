@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Alderac Entertainment Group (AEG) - Gods	SOURCESHORT:Gods	SOURCEWEB:http://www.alderac.com/d20
+
+###Block: Bonus Ability Category
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object			Specific choices list																											Plural description for UI		Display Location
+ABILITYCATEGORY:KSKnownSpellBonus			VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:KSKnownSpellBonus	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell																																PLURAL:KofS Bonus Known Spells	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Humanoid Hunter Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability						ABILITYLIST:HHFavored Enemy																																DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Barbarian Totem Selection		VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:BarbarianTotemSelection																																					DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Spider Warrior Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:FEAT								ABILITYLIST:Alertness|Far Shot|Improved Initiative|Mounted Archery|Mounted Combat|Point Blank Shot|Precise Shot|Rapid Shot|Ride-By Attack|Shot on the Run|Spirited Charge|Trample							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hunter Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:FEAT								ABILITYLIST:Far Shot|Point Blank Shot|Precise Shot|Shot on the Run																									DISPLAYLOCATION:Feats

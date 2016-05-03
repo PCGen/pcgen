@@ -64,6 +64,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			new DefaultDataViewColumn("in_classString", String.class, true),
 			new DefaultDataViewColumn("in_skillSkillCost", String.class,
 				SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
+			new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
 			new DefaultDataViewColumn("in_source", String.class));
 	private final DefaultListFacade<TreeView<SkillFacade>> treeviews;
 	private final CharacterFacade character;
@@ -136,27 +137,54 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	}
 
 	@Override
-	public List<?> getData(SkillFacade obj)
+	public Object getData(SkillFacade obj, int column)
 	{
 		if (selectionModel.isSelectionEmpty())
 		{
-			return Arrays.asList(0, 0, 0.0, null, 0, obj.getSource());
+			switch(column){
+				case 0:
+				case 1:
+				case 4:
+					return 0;
+				case 2:
+					return 0.0;
+				case 3:
+				case 5:
+					return null;
+				case 6:
+					return obj.getSource();
+				default:
+					return null;
+			}
 		}
-		else
-		{
-			int index = selectionModel.getMinSelectionIndex();
+		int index = selectionModel.getMinSelectionIndex();
 			CharacterLevelFacade level = levels.getElementAt(index);
 			SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);
-			return Arrays.asList(
-				skillBreakdown.total,
-				skillBreakdown.modifier,
-				skillBreakdown.ranks,
-					levels.getSkillCost(level, obj) == SkillCost.CLASS
+		switch(column){
+			case 0:
+				return skillBreakdown.total;
+			case 1:
+				return skillBreakdown.modifier;
+			case 2:
+				return skillBreakdown.ranks;
+			case 3:
+				return levels.getSkillCost(level, obj) == SkillCost.CLASS
 						? LanguageBundle.getString("in_yes") :  //$NON-NLS-1$
-						  LanguageBundle.getString("in_no"),    //$NON-NLS-1$
-					levels.getSkillCost(level, obj).getCost(),
-					obj.getSource());
+						  LanguageBundle.getString("in_no");    //$NON-NLS-1$
+			case 4:
+				return levels.getSkillCost(level, obj).getCost();
+			case 5:
+				return character.getInfoFactory().getDescription(obj);
+			case 6:
+				return obj.getSource();
+			default:
+				return null;
 		}
+	}
+
+	@Override
+	public void setData(Object value, SkillFacade element, int column)
+	{
 	}
 
 	@Override

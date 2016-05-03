@@ -30,9 +30,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj.StackType;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -141,6 +141,8 @@ public class Bonus
 	public static BonusObj newBonus(LoadContext context, final String bonusString)
 	{
 		ParsingSeparator sep = new ParsingSeparator(bonusString, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
 
 		if ((bonusString.indexOf(Constants.PIPE) == bonusString
 				.lastIndexOf(Constants.PIPE))

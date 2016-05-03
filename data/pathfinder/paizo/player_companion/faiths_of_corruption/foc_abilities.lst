@@ -1,10 +1,10 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec  9 22:07:56 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
 # Original Entry by: Stefan Radermacher
 
 ###Block: Religion Traits
 # Asmodeus
-# Ability Name			Unique Key						Product Identity?	Category of Ability		Type						Required Deity						Multiple Requirements																				Description																																																Stackable?	Multiple?	Choose						Bonus DC																																								Bonus to Situation								Bonus to skill					Modify VAR											Class Skill			Source Page		Aspects
+# Ability Name			Unique Key						Product Identity?	Category of Ability		Type						Required Deity						Multiple Requirements																										Description																																																Stackable?	Multiple?	Choose						Bonus DC																																								Bonus to Situation								Bonus to skill					Modify VAR											Class Skill			Source Page		Aspects
 Contract Master			KEY:Trait ~ Contract Master						CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Asmodeus					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Contract Master],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:Your facility with contracts makes you good at understanding dense text and obfuscating your intent. You gain a +1 trait bonus on Linguistics checks, and it becomes a class skill for you.																																																																																BONUS:SKILL|Linguistics|1|TYPE=Trait													CSKILL:Linguistics	SOURCEPAGE:p.5
 Fiendish Confidence		KEY:Trait ~ Fiendish Confidence					CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Asmodeus					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fiendish Confidence],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]		DESC:You expect to be obeyed, and are rarely proven wrong. You gain a +1 trait bonus on Intimidate checks, and Intimidate becomes a class skill for you.																																																																																							BONUS:SKILL|Intimidate|1|TYPE=Trait														CSKILL:Intimidate		SOURCEPAGE:p.5
 # Lamashtu				# Lamashtu
@@ -46,6 +46,10 @@ Loreseeker				KEY:Trait ~ Loreseeker							CATEGORY:Special Ability	TYPE:Trait.R
 Serpentine Squeeze		KEY:Trait ~ Serpentine Squeeze					CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Ydersius					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Serpentine Squeeze],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]		DESC:You gain a +1 trait bonus on combat maneuver checks to grapple a foe, as well as a +1 trait bonus to your CMD whenever an opponent tries to grapple you.																																																																																													BONUS:VAR|CMB_Grapple|1|TYPE=Trait	BONUS:VAR|CMD_Grapple|1|TYPE=Trait					SOURCEPAGE:p.22
 # Zyphus				# Zyphus
 Fatal Trapper			KEY:Trait ~ Fatal Trapper						CATEGORY:Special Ability	TYPE:Trait.ReligionTrait		PREDEITY:1,Zyphus						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fatal Trapper],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You gain a +1 trait bonus on Craft (traps) checks and a +1 trait bonus on Disable Device checks made to disable traps.																																																																																	BONUS:SITUATION|Disable Device=Traps|1|TYPE=Trait			BONUS:SKILL|Craft (Traps)|1|TYPE=Trait																	SOURCEPAGE:p.22
+
+###Block: Summoner Spell Support
+# Ability Name			List of Class Spells by Level
+CATEGORY=Class|Summoner.MOD	SPELLLEVEL:CLASS|Summoner=3|Shared Sacrifice|PREVAREQ:StandardSummoner,1
 
 #
 # End

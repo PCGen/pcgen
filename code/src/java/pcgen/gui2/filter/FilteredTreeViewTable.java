@@ -21,10 +21,14 @@
 package pcgen.gui2.filter;
 
 import java.awt.Rectangle;
-import java.awt.event.MouseEvent;
 import java.util.Collections;
 import java.util.List;
+
+import javax.swing.RowSorter;
+
 import pcgen.gui2.util.JTreeViewTable;
+import pcgen.gui2.util.table.SortableTableModel;
+import pcgen.gui2.util.table.SortableTableRowSorter;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
@@ -35,48 +39,59 @@ import pcgen.gui2.util.treeview.TreeViewPath;
  */
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {
-	
+
 	private static final TreeView<Object> searchView = new TreeView<Object>()
 	{
-		
+
 		@Override
 		public String getViewName()
 		{
 			// TODO: use localized string
 			return "Search";
 		}
-		
+
 		@Override
 		public List<TreeViewPath<Object>> getPaths(Object pobj)
 		{
 			return Collections.singletonList(new TreeViewPath<Object>(pobj));
 		}
-		
+
 	};
 	private boolean searchMode = false;
 	private DisplayableFilter<C, E> filter = null;
 	private FilteredTreeViewModel<C, E> filteredModel = null;
 	private C context = null;
 	private TreeView<? super E> tempView;
-	
+
 	public FilteredTreeViewTable()
 	{
-		setTableHeader(new FilteredTreeViewHeader());
+		RowSorter rowSorter = new SortableTableRowSorter()
+		{
+
+			@Override
+			public SortableTableModel getModel()
+			{
+				return (SortableTableModel) FilteredTreeViewTable.this.getModel();
+			}
+
+		};
+		setRowSorter(rowSorter);
+		rowSorter.toggleSortOrder(0);
 	}
-	
+
 	@Override
 	public void refilter()
 	{
 		filteredModel.refilter();
 		updateDisplay();
 	}
-	
+
 	@Override
 	public void scrollToTop()
 	{
 		this.scrollRectToVisible(new Rectangle(getCellRect(0, 0, true)));
 	}
-	
+
 	public void setContext(C context)
 	{
 		this.context = context;
@@ -85,7 +100,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 			filteredModel.setContext(context);
 		}
 	}
-	
+
 	public void setDisplayableFilter(DisplayableFilter<C, E> filter)
 	{
 		if (this.filter != null)
@@ -99,7 +114,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 			filteredModel.setFilter(filter);
 		}
 	}
-	
+
 	@Override
 	public void setTreeViewModel(TreeViewModel<E> viewModel)
 	{
@@ -116,8 +131,60 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		{
 			oldModel.setBaseModel(null);
 		}
+		sortModel();
 	}
 	
+//	private CharacterInfoTab parentTab()
+//	{
+//		Container parent = this;
+//		do
+//		{
+//			parent = parent.getParent();
+//		}
+//		while (parent != null && !(parent instanceof CharacterInfoTab));
+//		return (CharacterInfoTab) parent;
+//	}
+//	
+//	@Override
+//	public void setTreeViewModel(TreeViewModel<E> viewModel)
+//	{
+//		CharacterInfoTab tab = parentTab();
+//		String id = "";
+//		if (tab != null)
+//		{
+//			id = tab.getClass().getName();
+//		}
+//
+//		StopWatch watch = new StopWatch(id);
+//		FilteredTreeViewModel oldModel = filteredModel;
+//		filteredModel = new FilteredTreeViewModel<C, E>();
+//		watch.start("setBaseModel");
+//		filteredModel.setBaseModel(viewModel);
+//		watch.stop();
+//		if (filter != null)
+//		{
+//			watch.start("setFilter");
+//			filteredModel.setFilter(filter);
+//			watch.stop();
+//			watch.start("setContext");
+//			filteredModel.setContext(context);
+//			watch.stop();
+//		}
+//		watch.start("super.setTreeViewModel");
+//		super.setTreeViewModel(filteredModel);
+//		watch.stop();
+//		if (oldModel != null)
+//		{
+//			watch.start("oldModel.setBaseModel");
+//			oldModel.setBaseModel(null);
+//			watch.stop();
+//		}
+//		watch.start("sortModel");
+//		sortModel();
+//		watch.stop();
+//		System.out.println(watch.prettyPrint());
+//	}
+
 	@Override
 	public void setSearchEnabled(boolean searchMode)
 	{
@@ -130,39 +197,27 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 				{
 					tempView = treetableModel.getSelectedTreeView();
 					setTreeView(searchView);
+					cornerPopupMenu.setTreeViewsEnabled(false);
 				}
 				else
 				{
 					setTreeView(tempView);
+					cornerPopupMenu.setTreeViewsEnabled(true);
 				}
 			}
 		}
 	}
-	
+
 	@Override
 	public void refreshModelData()
 	{
 		super.refreshModelData();
 		refilter();
 	}
-	
+
 	public boolean isSearchEnabled()
 	{
 		return searchMode;
 	}
-	
-	private class FilteredTreeViewHeader extends JTreeViewHeader
-	{
-		
-		@Override
-		protected void maybeShowPopup(MouseEvent e)
-		{
-			if (!searchMode)
-			{
-				super.maybeShowPopup(e);
-			}
-		}
-		
-	}
-	
+
 }

@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
+
+# Ability Name						Type
+CATEGORY=Feat|Expertise.MOD				TYPE:QuestionerFeat
+CATEGORY=Feat|Improved Disarm.MOD			TYPE:QuestionerFeat
+CATEGORY=Feat|Improved Knockout Attack.MOD	TYPE:QuestionerFeat
+CATEGORY=Feat|Improved Trip.MOD			TYPE:QuestionerFeat
+CATEGORY=Feat|Keen Vision.MOD				TYPE:QuestionerFeat
+CATEGORY=Feat|Knockout Attack.MOD			TYPE:QuestionerFeat
+CATEGORY=Feat|Run.MOD					TYPE:QuestionerFeat
+CATEGORY=Feat|Shadow (TT).MOD				TYPE:QuestionerFeat
+CATEGORY=Feat|Skill Focus.MOD				TYPE:QuestionerFeat
+CATEGORY=Feat|Track.MOD					TYPE:QuestionerFeat

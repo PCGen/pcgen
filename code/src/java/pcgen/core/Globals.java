@@ -37,6 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 import java.util.logging.Level;
 
 import javax.swing.JFrame;
@@ -61,7 +62,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
-import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -108,10 +108,10 @@ public final class Globals
 	private static int        selectedPaper   = -1;
 
 	/** we need maps for efficient lookups */
-	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
-	private static Map<String, Campaign>        campaignNameMap     = new HashMap<String, Campaign>();
-	private static Map<String, Spell>        spellMap        = new HashMap<String, Spell>();
-	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
+	private static Map<URI, Campaign>    campaignMap     = new HashMap<URI, Campaign>();
+	private static Map<String, Campaign> campaignNameMap = new HashMap<String, Campaign>();
+	private static Map<String, Spell>    spellMap        = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
+	private static Map<String, String>   eqSlotMap       = new HashMap<String, String>();
 
 	/** We use lists for efficient iteration */
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
@@ -902,7 +902,6 @@ public final class Globals
 		emptyLists();
 		campaignMap.clear();
 		campaignList.clear();
-		hasSpellPPCost = false;
 	}
 
 	/**
@@ -988,7 +987,7 @@ public final class Globals
 		//////////////////////////////////////
 
 		// Clear Maps (not strictly necessary, but done for consistency)
-		spellMap = new HashMap<String, Spell>();
+		spellMap = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
 		VisionType.clearConstants();
 
 		// Perform other special cleanup
@@ -998,7 +997,6 @@ public final class Globals
 		RaceType.clearConstants();
 		createEmptyRace();
 		CNAbilityFactory.reset();
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	/**
@@ -1659,12 +1657,5 @@ public final class Globals
 	public static MasterListInterface getMasterLists()
 	{
 		return SettingsHandler.getGame().getMasterLists();
-	}
-	
-	private static boolean hasSpellPPCost;
-	
-	public static boolean hasSpellPPCost()
-	{
-		return hasSpellPPCost;
 	}
 }

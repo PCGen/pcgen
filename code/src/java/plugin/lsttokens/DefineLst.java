@@ -21,13 +21,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PCStat;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -59,6 +59,9 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 				+ obj.getClass().getSimpleName(), context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
+		sep.addGroupingPair('[', ']');
+		sep.addGroupingPair('(', ')');
+
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " may not be empty", context);

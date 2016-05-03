@@ -11,9 +11,9 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:2
 SKILL:Survival	RANK:2
 SKILL:Swim		RANK:1
-FEAT:Endurance
-FEAT:Run
-FEAT:Skill Focus (Survival)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Survival)
 
 STARTPACK:Weasel (Giant) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Weasel (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.82
 ALIGN:TN
@@ -24,8 +24,8 @@ SKILL:Climb		RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 SKILL:Survival	RANK:1
-FEAT:Skill Focus (Perception)
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Stealthy
 
 STARTPACK:Wolf (Timber) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wolf (Timber)],[!PRERACE:1,%]	SOURCEPAGE:p.83
 ALIGN:TN
@@ -34,7 +34,7 @@ NAME:Timber Wolf
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Frost Fir Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Frost Fir],[!PRERACE:1,%]	SOURCEPAGE:p.84
 ALIGN:TN
@@ -44,7 +44,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 SKILL:Intimidate	RANK:2
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:House Spirit (Domovoi) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,House Spirit (Domovoi)],[!PRERACE:1,%]	SOURCEPAGE:p.86
 ALIGN:CG
@@ -59,9 +59,9 @@ SKILL:Knowledge (local)	RANK:2
 SKILL:Perception		RANK:3
 SKILL:Sense Motive	RANK:3
 SKILL:Stealth		RANK:4
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
 GEAR:Club	SIZE:T	LOCATION:Primary Hand
 
 STARTPACK:House Spirit (Dvorovoi) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,House Spirit (Dvorovoi)],[!PRERACE:1,%]	SOURCEPAGE:p.86
@@ -78,10 +78,10 @@ SKILL:Perception			RANK:5
 SKILL:Sense Motive		RANK:2
 SKILL:Stealth			RANK:6
 SKILL:Survival			RANK:2
-FEAT:Catch Off-Guard
-FEAT:Combat Reflexes
-FEAT:Throw Anything
-FEAT:Two-Handed Thrower
+ABILITY:CATEGORY=FEAT|Catch Off-Guard
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Throw Anything
+ABILITY:CATEGORY=FEAT|Two-Handed Thrower
 GEAR:Pitchfork	LOCATION:Both Hands
 
 STARTPACK:House Spirit (Ovinnik) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,House Spirit (Ovinnik)],[!PRERACE:1,%]	SOURCEPAGE:p.87
@@ -97,8 +97,8 @@ SKILL:Knowledge (local)		RANK:2
 SKILL:Knowledge (nature)	RANK:2
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:1
-FEAT:Go Unnoticed
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Go Unnoticed
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Witchcrow Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Witchcrow],[!PRERACE:1,%]	SOURCEPAGE:p.88
 ALIGN:CE
@@ -111,8 +111,8 @@ SKILL:Perception			RANK:2
 SKILL:Sleight of Hand		RANK:1
 SKILL:Spellcraft			RANK:2
 SKILL:Stealth			RANK:1
-FEAT:Combat Expertise
-FEAT:Improved Steal
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Steal
 
 STARTPACK:Witchcrow (Greater) Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Witchcrow (Greater)],[!PRERACE:1,%]	SOURCEPAGE:p.88
 ALIGN:CE
@@ -127,9 +127,9 @@ SKILL:Sense Motive		RANK:3
 SKILL:Sleight of Hand		RANK:1
 SKILL:Spellcraft			RANK:3
 SKILL:Stealth			RANK:5
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Steal
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Steal
 ABILITY:CATEGORY=Witch Hex|Witch Hex ~ Cackle
 ABILITY:CATEGORY=Witch Hex|Witch Hex ~ Evil Eye
 ABILITY:CATEGORY=Witch Hex|Witch Hex ~ Misfortune

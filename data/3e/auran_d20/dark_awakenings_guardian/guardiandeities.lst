@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20	SOURCEDATE:2000-01
+
+# Deity Name	Domains												Description of Deity/Title					FACT									FACTSET					Deity Weapon			Align		Source Page
+Esmia			DOMAINS:Good,Healing,Law|PREALIGN:LG,LN,NG,TN,CG,CN					DESC:Goddess of Healing,The Lady of Unfettered Tears	FACT:Symbol|Tear-Drop shaped Amulet				FACTSET:Pantheon|Eldorian		DEITYWEAP:Unarmed Strike	ALIGN:LG	SOURCEPAGE:p.80
+Ormocea		DOMAINS:Good,Law,Protection|PREALIGN:LG,LN,NG,TN,CG,CN				DESC:God of Law,The Law Giver					FACT:Symbol|Balance						FACTSET:Pantheon|Eldorian		DEITYWEAP:Club			ALIGN:LG	SOURCEPAGE:p.80
+Phelltar		DOMAINS:Knowledge,Law,Protection|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE		DESC:God of Sentience,The Maker				FACT:Symbol|Small Miror						FACTSET:Pantheon|Eldorian|Elven	DEITYWEAP:Dagger			ALIGN:LN	SOURCEPAGE:p.80
+Sirrith		DOMAINS:Death,Evil,Knowledge|PREALIGN:LE,NE,CE						DESC:Goddess of Death						FACT:Symbol|Upside down humanoid				FACTSET:Pantheon|Eldorian		DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:-
+Tarimth		DOMAINS:Air,Knowledge,Luck|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE			DESC:God of the Moon and Stars,The Emperor of Stars	FACT:Symbol|Winked Ebony Disk					FACTSET:Pantheon|Eldorian|Elven	DEITYWEAP:Shortbow		ALIGN:LN	SOURCEPAGE:p.80
+Theydori		DOMAINS:Knowledge,Magic,Travel,Trickery|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:God of Knowledge,The Keeper of Hidden Knowledge	FACT:Symbol|Black Cube w/ White hand displayed on it	FACTSET:Pantheon|Eldorian		DEITYWEAP:Quarterstaff		ALIGN:NG	SOURCEPAGE:p.80

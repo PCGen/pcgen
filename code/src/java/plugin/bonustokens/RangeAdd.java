@@ -25,7 +25,11 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:RANGEADD token.
@@ -65,5 +69,18 @@ public final class RangeAdd extends MultiTagBonusObj
 	protected int getBonusTagLength()
 	{
 		return BONUS_TAGS.length;
+	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
+		{
+			Logging.errorPrint(
+				"BONUS:RANGEADD is disabled when EQRANGE control is used: "
+					+ token, context);
+			return false;
+		}
+		return super.parseToken(context, token);
 	}
 }

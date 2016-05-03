@@ -20,8 +20,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.DefaultVarValue;
+import pcgen.cdom.content.UserFunction;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.content.factset.FactSetDefinition;
+import pcgen.cdom.inst.DynamicCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.LstLineFileLoader;
@@ -44,6 +47,10 @@ public class CDOMControlLoader extends LstLineFileLoader
 		addLineLoader(new CDOMSubLineLoader<>("FACTDEF", FactDefinition.class));
 		addLineLoader(new CDOMSubLineLoader<>("FACTSETDEF",
 			FactSetDefinition.class));
+		addLineLoader(new CDOMSubLineLoader<DefaultVarValue>("DEFAULTVARIABLEVALUE",
+				DefaultVarValue.class));
+		addLineLoader(new CDOMSubLineLoader<>("FUNCTION", UserFunction.class));
+		addLineLoader(new CDOMSubLineLoader<>("DYNAMICSCOPE", DynamicCategory.class));
 	}
 
 	public void addLineLoader(CDOMSubLineLoader<?> loader)
@@ -126,7 +133,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 		}
 
 		AbstractReferenceContext refContext = context.getReferenceContext();
-		CC obj = refContext.constructNowIfNecessary(loader.getLoadedClass(), name.replace('|', ' '));
+		CC obj = refContext.constructNowIfNecessary(loader.getLoadedClass(), name.replace('|', ' ').replace(',', ' '));
 		return loader.parseLine(context, obj, line);
 	}
 

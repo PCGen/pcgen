@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
+# Input by Ruemere, email: ruemere@poczta.onet.pl
+
+
+# workaround for Hone class
+# Feat Name		Type			Visible		Special ABility			Description		Multiple?	Choose								Combat bonus						Weapon prof. bonus																																					Source Page
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Description		Multiple?	Choose										Combat bonus						Weapon prof. bonus																																					Source Page
+Weapon of Choice	CATEGORY:Special Ability	TYPE:Hone		VISIBLE:YES						DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Specialization]	BONUS:COMBAT|TOHIT|-1*PrecisionStrikeBonus	BONUS:WEAPONPROF=%LIST|TOHIT|PrecisionStrikeBonus	BONUS:WEAPONPROF=Unarmed Strike|TOHIT|PrecisionStrikeBonus	BONUS:WEAPONPROF=%LIST|TOHIT|PrecisionStrikeBonus|TYPE=Competence	BONUS:WEAPONPROF=%LIST|DAMAGE|FellBlowBonus|TYPE=Competence	SOURCEPAGE:p.51
+Extended Critical	CATEGORY:Special Ability	TYPE:Hone.Hidden	VISIBLE:YES	SAB:Extended Critical (Ex)	DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon of Choice]										BONUS:WEAPONPROF=%LIST|CRITMULTADD|1																																		SOURCEPAGE:p.52
+
+#BONUS:WEAPONPROF=%LIST|TOHIT|HonePrecision
+#(in Feat) (Removes it from Hone Precision)
+#BONUS:WEAPONPROF=%LIST|TOHIT|HonePrecision|TYPE=Competance
+#(adds the Competance bonus type, with stacking qualifications)
+
+###Block: Proficiencies
+# Feat Name			Type			Visible	Auto Weapon Prof
+# Ability Name		Category of Ability		Type			Visible	Special ABility					Multiple?	Choose								Auto Weapon Prof																			Bonus to skill
+Stalker Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:YES																			AUTO:WEAPONPROF|Shortbow|Rapier|Sap|Sword (Short)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Shortstaff
+
+# Special hidden feats for Gift workarounds (xxxtemplate.lst)
+Talented ~ Gift		CATEGORY:Special Ability	TYPE:Gift.Hidden										MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft|TYPE=Profession																						BONUS:SKILL|LIST|6|TYPE=Competence
+Focused			CATEGORY:Special Ability	TYPE:Gift.Hidden			SAB:+1 caster level for %CHOICE spells	MULT:YES	CHOOSE:NUMCHOICES=1|SCHOOLS|ALL

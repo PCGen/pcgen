@@ -1,0 +1,223 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry by: Tir Gwaith
+
+# Class Name		Bonus to skill point for a level								Template				FACT
+CLASS:Barbarian.MOD	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	TEMPLATE:Maximum Spell Level	FACT:SpellType|Arcane
+# Class Name		Class Skill
+CLASS:Barbarian.MOD	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|TYPE=Profession|Ride|Speak Language|Survival|Swim
+# Class Name		Spell Stat		Spell Stat Bonus		Spellbook		Caster level				Use Spell List
+CLASS:Barbarian.MOD	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLBOOK:NO	BONUS:CASTERLEVEL|Barbarian|TL	SPELLLIST:1|Channeler
+###Block: Spellcasting Implementation
+1:REPEATLEVEL:1	CAST:SpellCast0,SpellCast1,SpellCast2,SpellCast3,SpellCast4,SpellCast5,SpellCast6,SpellCast7,SpellCast8,SpellCast9
+###Block: Clear Barbarian Literacy (All classes start out illiterate)
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|.CLEAR.Barbarian ~ Illiteracy
+
+# Class Name	Visible
+CLASS:Bard.MOD	VISIBLE:NO
+
+# COMMENT: Why is this using SUBCLASS instead of a simple pool? - Andrew
+
+# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Define			Combat bonus											Save bonus																					Bonus to skill point for a level								Modify VAR				Template				FACT
+CLASS:Channeler	HD:6		TYPE:PC.Base	MAXLEVEL:20	ALLOWBASECLASS:NO		DEFINE:ChannelerLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	BONUS:VAR|ChannelerLvl|CL	TEMPLATE:Maximum Spell Level	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Channeler	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Handle Animal|Heal|Knowledge (arcana)|Knowledge (Spirits)|TYPE=Profession|Ride|Search|Speak Language|Spellcraft
+# Class Name	Spell Stat		Spell Stat Bonus		Spellbook		Caster level				Use Spell List
+CLASS:Channeler	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLBOOK:NO	BONUS:CASTERLEVEL|Channeler|TL	SPELLLIST:1|Channeler
+###Block: Hermetic Channeler Subclass
+SUBCLASS:Hermetic Channeler	COST:0	BONUS:VAR|HermeticChannelerLvl|CL	DEFINE:HermeticChannelerLvl|0	!PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual),Magecraft (Charismatic)
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1										ABILITY:FEAT|AUTOMATIC|Magecraft (Hermetic)
+SUBCLASSLEVEL:3	BONUS:ABILITYPOOL|Hermetic Channeler Gift|1										ABILITY:Special Ability|AUTOMATIC|Hermetic Channeler ~ Lorebook
+SUBCLASSLEVEL:4	BONUS:ABILITYPOOL|Hermetic Channeler Bonus Feat|1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1
+SUBCLASSLEVEL:6	BONUS:ABILITYPOOL|Hermetic Channeler Gift|1
+SUBCLASSLEVEL:7	BONUS:ABILITYPOOL|Hermetic Channeler Bonus Feat|1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1
+SUBCLASSLEVEL:9	BONUS:ABILITYPOOL|Hermetic Channeler Gift|1
+SUBCLASSLEVEL:10	BONUS:ABILITYPOOL|Hermetic Channeler Bonus Feat|1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1
+SUBCLASSLEVEL:12	BONUS:ABILITYPOOL|Hermetic Channeler Gift|1
+SUBCLASSLEVEL:13	BONUS:ABILITYPOOL|Hermetic Channeler Bonus Feat|1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1
+SUBCLASSLEVEL:15	BONUS:ABILITYPOOL|Hermetic Channeler Gift|1
+SUBCLASSLEVEL:16	BONUS:ABILITYPOOL|Hermetic Channeler Bonus Feat|1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1
+SUBCLASSLEVEL:18	BONUS:ABILITYPOOL|Hermetic Channeler Gift|1
+SUBCLASSLEVEL:19	BONUS:ABILITYPOOL|Hermetic Channeler Bonus Feat|1	BONUS:ABILITYPOOL|Hermetic Channeler Literacy|1
+###Block: Spiritual Channeler Subclass
+SUBCLASS:Spiritual Channeler	COST:0	!PREABILITY:1,CATEGORY=FEAT,Magecraft (Hermetic),Magecraft (Charismatic)
+SUBCLASSLEVEL:1										BONUS:VAR|SpiritualChannelerLvl|CL	ABILITY:FEAT|AUTOMATIC|Magecraft (Spiritual)	DEFINE:SpiritualChannelerLvl|0
+SUBCLASSLEVEL:3	BONUS:ABILITYPOOL|Spiritual Channeler Gift|1
+SUBCLASSLEVEL:4	BONUS:ABILITYPOOL|Spiritual Channeler Bonus Feat|1
+SUBCLASSLEVEL:6	BONUS:ABILITYPOOL|Spiritual Channeler Gift|1
+SUBCLASSLEVEL:7	BONUS:ABILITYPOOL|Spiritual Channeler Bonus Feat|1
+SUBCLASSLEVEL:9	BONUS:ABILITYPOOL|Spiritual Channeler Gift|1
+SUBCLASSLEVEL:10	BONUS:ABILITYPOOL|Spiritual Channeler Bonus Feat|1
+SUBCLASSLEVEL:12	BONUS:ABILITYPOOL|Spiritual Channeler Gift|1
+SUBCLASSLEVEL:13	BONUS:ABILITYPOOL|Spiritual Channeler Bonus Feat|1
+SUBCLASSLEVEL:15	BONUS:ABILITYPOOL|Spiritual Channeler Gift|1
+SUBCLASSLEVEL:16	BONUS:ABILITYPOOL|Spiritual Channeler Bonus Feat|1
+SUBCLASSLEVEL:18	BONUS:ABILITYPOOL|Spiritual Channeler Gift|1
+SUBCLASSLEVEL:19	BONUS:ABILITYPOOL|Spiritual Channeler Bonus Feat|1
+###Block: Charismatic Channeler Subclass
+SUBCLASS:Charismatic Channeler	COST:0	!PREABILITY:1,CATEGORY=FEAT,Magecraft (Spiritual),Magecraft (Hermetic)
+SUBCLASSLEVEL:1										BONUS:VAR|CharismaticChannelerLvl|CL	ABILITY:FEAT|AUTOMATIC|Magecraft (Charismatic)			DEFINE:CharismaticChannelerLvl|0
+SUBCLASSLEVEL:3	BONUS:ABILITYPOOL|Charismatic Channeler Gift|1									ABILITY:Special Ability|AUTOMATIC|Force of Personality Base
+SUBCLASSLEVEL:4	BONUS:ABILITYPOOL|Charismatic Channeler Bonus Feat|1
+SUBCLASSLEVEL:6	BONUS:ABILITYPOOL|Charismatic Channeler Gift|1
+SUBCLASSLEVEL:7	BONUS:ABILITYPOOL|Charismatic Channeler Bonus Feat|1
+SUBCLASSLEVEL:9	BONUS:ABILITYPOOL|Charismatic Channeler Gift|1
+SUBCLASSLEVEL:10	BONUS:ABILITYPOOL|Charismatic Channeler Bonus Feat|1
+SUBCLASSLEVEL:12	BONUS:ABILITYPOOL|Charismatic Channeler Gift|1
+SUBCLASSLEVEL:13	BONUS:ABILITYPOOL|Charismatic Channeler Bonus Feat|1
+SUBCLASSLEVEL:15	BONUS:ABILITYPOOL|Charismatic Channeler Gift|1
+SUBCLASSLEVEL:16	BONUS:ABILITYPOOL|Charismatic Channeler Bonus Feat|1
+SUBCLASSLEVEL:18	BONUS:ABILITYPOOL|Charismatic Channeler Gift|1
+SUBCLASSLEVEL:19	BONUS:ABILITYPOOL|Charismatic Channeler Bonus Feat|1
+###Block: Spellcasting Implementation
+1:REPEATLEVEL:1	CAST:SpellCast0,SpellCast1,SpellCast2,SpellCast3,SpellCast4,SpellCast5,SpellCast6,SpellCast7,SpellCast8,SpellCast9
+###Block: Channeler Abilities
+1															BONUS:VAR|SpellEnergy|CL	BONUS:VAR|SpellcasterLvl|CL	ABILITY:Special Ability|AUTOMATIC|Channeler ~ Weapon and Armor Proficiency
+2	BONUS:ABILITYPOOL|Spell Pool|(CL-1)*2	BONUS:ABILITYPOOL|Spellcasting Feat|1											ABILITY:Special Ability|AUTOMATIC|Channeler ~ Summon Familiar
+5	BONUS:ABILITYPOOL|Spellcasting Feat|1
+8	BONUS:ABILITYPOOL|Spellcasting Feat|1
+11	BONUS:ABILITYPOOL|Spellcasting Feat|1
+14	BONUS:ABILITYPOOL|Spellcasting Feat|1
+17	BONUS:ABILITYPOOL|Spellcasting Feat|1
+20	BONUS:ABILITYPOOL|Spellcasting Feat|1
+
+# Class Name	Visible
+CLASS:Cleric.MOD	VISIBLE:NO
+
+# Class Name	Hit Dice	Type			Max Level	Combat bonus										Save bonus																					Bonus to skill point for a level								Template				FACT
+CLASS:Defender	HD:8		TYPE:PC.Base	MAXLEVEL:20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	TEMPLATE:Maximum Spell Level	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Handle Animal|Hide|Jump|Knowledge (local)|Knowledge (Shadow)|Listen|Move Silently|TYPE=Profession|Ride|Sense Motive|Speak Language|Swim|Tumble
+# Class Name	Spell Stat		Spell Stat Bonus		Spellbook		Caster level			Use Spell List
+CLASS:Defender	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLBOOK:NO	BONUS:CASTERLEVEL|Defender|TL	SPELLLIST:1|Channeler
+###Block: Spellcasting Implementation
+1:REPEATLEVEL:1	CAST:SpellCast0,SpellCast1,SpellCast2,SpellCast3,SpellCast4,SpellCast5,SpellCast6,SpellCast7,SpellCast8,SpellCast9
+###Block: Defender abilities
+1																													ABILITY:Special Ability|AUTOMATIC|Defender ~ Weapon and Armor Proficiency	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
+1								BONUS:COMBAT|AC|(CL+1)/2|TYPE=Defender|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0
+2	BONUS:ABILITYPOOL|Defender Ability|1																						ABILITY:FEAT|AUTOMATIC|Defender ~ Stunning Fist
+3																						ADD:ABILITY|FEAT|NORMAL|Improved Grapple
+4																													ABILITY:Special Ability|AUTOMATIC|Defender ~ Precise Strike
+5	BONUS:ABILITYPOOL|Defender Ability|1
+6	BONUS:ABILITYPOOL|Speed Or Resilience|1
+8	BONUS:ABILITYPOOL|Defender Ability|1
+9	BONUS:ABILITYPOOL|Speed Or Resilience|1
+11	BONUS:ABILITYPOOL|Defender Ability|1
+12	BONUS:ABILITYPOOL|Speed Or Resilience|1
+14	BONUS:ABILITYPOOL|Defender Ability|1
+15	BONUS:ABILITYPOOL|Speed Or Resilience|1
+17	BONUS:ABILITYPOOL|Defender Ability|1
+18	BONUS:ABILITYPOOL|Speed Or Resilience|1
+20	BONUS:ABILITYPOOL|Defender Ability|1
+###Block: Defender unarmed damage bonus
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2
+6	UDAM:2d1,2d2,2d3,2d4,2d6,2d8,3d6,4d6,5d6
+12	UDAM:3d1,3d2,3d3,3d4,3d6,3d8,4d6,5d6,6d6
+18	UDAM:4d1,4d2,4d3,4d4,4d6,4d8,5d6,6d6,7d6
+
+# Class Name	Visible
+CLASS:Druid.MOD	VISIBLE:NO
+
+# Class Name	Bonus to skill point for a level								Template				FACT
+CLASS:Fighter.MOD	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	TEMPLATE:Maximum Spell Level	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fighter.MOD	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Shadow)|Jump|TYPE=Profession|Ride|Speak Language|Swim
+# Class Name	Spell Stat		Spell Stat Bonus		Spellbook		Caster level			Use Spell List
+CLASS:Fighter.MOD	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLBOOK:NO	BONUS:CASTERLEVEL|Fighter|TL	SPELLLIST:1|Channeler
+###Block: Spellcasting Implementation
+1:REPEATLEVEL:1	CAST:SpellCast0,SpellCast1,SpellCast2,SpellCast3,SpellCast4,SpellCast5,SpellCast6,SpellCast7,SpellCast8,SpellCast9
+###Block: Fighter abilities
+4	BONUS:ABILITYPOOL|Fighter Warriors Way|1
+
+# Class Name	Visible
+CLASS:Monk.MOD	VISIBLE:NO
+
+# Class Name	Visible
+CLASS:Paladin.MOD	VISIBLE:NO
+
+# Class Name	Visible
+CLASS:Ranger.MOD	VISIBLE:NO
+
+# Class Name	Bonus to skill point for a level								Template				FACT
+CLASS:Rogue.MOD	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	TEMPLATE:Maximum Spell Level	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rogue.MOD	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Shadow)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language
+# Class Name	Spell Stat		Spell Stat Bonus		Spellbook		Caster level			Use Spell List
+CLASS:Rogue.MOD	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLBOOK:NO	BONUS:CASTERLEVEL|Rogue|TL	SPELLLIST:1|Channeler
+###Block: Spellcasting Implementation
+1:REPEATLEVEL:1	CAST:SpellCast0,SpellCast1,SpellCast2,SpellCast3,SpellCast4,SpellCast5,SpellCast6,SpellCast7,SpellCast8,SpellCast9
+
+# Class Name		Visible
+CLASS:Sorcerer.MOD	VISIBLE:NO
+
+# Class Name	Hit Dice	Type			Max Level	Define			Combat bonus										Save bonus																						Bonus to skill point for a level								Modify VAR				Template				FACT
+CLASS:Wildlander	HD:8		TYPE:PC.Base	MAXLEVEL:20	DEFINE:WildlanderLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	BONUS:VAR|WildlanderLvl|CL	TEMPLATE:Maximum Spell Level	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Speak Language|Spot|Survival|Swim|Use Rope
+# Class Name	Spell Stat		Spell Stat Bonus		Spellbook		Caster level				Use Spell List
+CLASS:Wildlander	SPELLSTAT:OTHER	BONUSSPELLSTAT:NONE	SPELLBOOK:NO	BONUS:CASTERLEVEL|Wildlander|TL	SPELLLIST:1|Channeler
+###Block: Spellcasting Implementation
+1:REPEATLEVEL:1	CAST:SpellCast0,SpellCast1,SpellCast2,SpellCast3,SpellCast4,SpellCast5,SpellCast6,SpellCast7,SpellCast8,SpellCast9
+###Block: Wildlander Abilites
+1								ABILITY:Special Ability|AUTOMATIC|Wildlander ~ Weapon and Armor Proficiency
+1	BONUS:ABILITYPOOL|Wildlander Trait|1	ABILITY:FEAT|AUTOMATIC|Track
+2	BONUS:ABILITYPOOL|Wildlander Trait|1
+3								ABILITY:Special Ability|AUTOMATIC|Wildlander ~ Danger Sense
+4								ABILITY:Special Ability|AUTOMATIC|Wildlander ~ Hunter's Strike
+5	BONUS:ABILITYPOOL|Wildlander Trait|1
+6	BONUS:ABILITYPOOL|Danger Sense|1
+8	BONUS:ABILITYPOOL|Wildlander Trait|1
+9	BONUS:ABILITYPOOL|Danger Sense|1
+11	BONUS:ABILITYPOOL|Wildlander Trait|1
+12	BONUS:ABILITYPOOL|Danger Sense|1
+14	BONUS:ABILITYPOOL|Wildlander Trait|1
+15	BONUS:ABILITYPOOL|Danger Sense|1
+17	BONUS:ABILITYPOOL|Wildlander Trait|1
+18	BONUS:ABILITYPOOL|Danger Sense|1
+20	BONUS:ABILITYPOOL|Wildlander Trait|1
+
+# Class Name	Visible
+CLASS:Wizard.MOD	VISIBLE:NO
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Bonus Languages					Group of Prohibited Spells				Define			Combat bonus						Add domain number		Save bonus												Bonus to skill point for a level								Modify VAR			Template												FACT
+CLASS:Legate	HD:8		TYPE:Base.NPC	MAXLEVEL:20	SOURCEPAGE:279	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LN,TN	DEFINE:LegateLvl|0	BONUS:COMBAT|BASEAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:SAVE|BASE.Reflex|CL/3	BONUS:SKILLPOOL|NUMBER|-3|PRERACE:1,Elf (Wood/Midnight)|PREPCLEVEL:MAX=1	BONUS:VAR|LegateLvl|CL	TEMPLATE:RighteousMightDR	TEMPLATE:Unlock Midnight Spell Prerequisites	FACT:ClassType|NPC	FACT:SpellType|Divine
+# Class Name	Required AL				Required Race
+CLASS:Legate	PREALIGN:1,LN,TN,LE,NE,CE	PRERACE:1,Human%,Orc (Midnight),Dworg
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Legate	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Shadow)|Knowledge (Spirits)|Spellcraft|Speak Language
+# Class Name	Spell Stat		Automatically Known Spell Levels											Caster level
+CLASS:Legate	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Legate ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Legate ~ Spells
+1	ABILITY:Special Ability|AUTOMATIC|Legate ~ Spontaneous Casting
+1	ABILITY:Special Ability|AUTOMATIC|Legate ~ Alignment Spells
+1	ABILITY:Special Ability|AUTOMATIC|Legate ~ Turn or Rebuke Undead
+1	ABILITY:Special Ability|AUTOMATIC|Legate ~ Temple Dependency
+3	ABILITY:Special Ability|AUTOMATIC|Legate ~ Animal Companion
+###Block: Level progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+###Block:
+1	ADDDOMAINS:Death
+1	ADDDOMAINS:Destruction
+1	ADDDOMAINS:Evil
+1	ADDDOMAINS:Magic
+1	ADDDOMAINS:War

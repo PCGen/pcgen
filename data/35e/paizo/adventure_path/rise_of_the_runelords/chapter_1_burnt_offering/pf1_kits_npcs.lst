@@ -34,7 +34,7 @@ SKILL:Ride			RANK:4
 SKILL:Spot			RANK:4
 SKILL:Survival		RANK:4
 ABILITY:CATEGORY=FEAT|Mounted Combat
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
 GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
 GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
 GEAR:Shortbow				SIZE:S	LOCATION:Carried
@@ -64,11 +64,11 @@ SKILL:Bluff					RANK:1
 SKILL:Disable Device			RANK:1
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-ABILITY:CATEGORY=Monk Feat|Stunning Fist
-ABILITY:CATEGORY=Monk Feat|Deflect Arrows
+ABILITY:CATEGORY=Monk Feat|Monk Bonus Feat ~ Stunning Fist
+ABILITY:CATEGORY=Monk Feat|Monk Bonus Feat ~ Deflect Arrows
 GEAR:Potion (Cure Light Wounds)	LOCATION:Equipped
 GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
-GEAR:Ring (Protection +1)		LOCATION:Equipped
+GEAR:Ring of Protection +1		LOCATION:Equipped
 GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:MWORKT
 GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:MWORKI
 GEAR:Flurry of Blows			LOCATION:Equipped
@@ -83,7 +83,8 @@ STAT:STR=17|DEX=11|CON=16|INT=3|WIS=8|CHA=12
 SKILL:Intimidate	RANK:5
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Feat|Improved Initiative
-ABILITY:CATEGORY=Fighter Feat|Toughness
+# Toughness is not a 3.5e fighter feat.
+#ABILITY:CATEGORY=Fighter Feat|Toughness
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
 GEAR:Longsword	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:MWORKW
@@ -141,7 +142,7 @@ SKILL:Move Silently	RANK:5
 SKILL:Survival		RANK:5
 ABILITY:CATEGORY=FEAT|Point Blank Shot
 ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Elf))
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Elf)
 GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
 GEAR:Studded Leather					LOCATION:Equipped
 GEAR:Flail (Heavy)					LOCATION:Both Hands

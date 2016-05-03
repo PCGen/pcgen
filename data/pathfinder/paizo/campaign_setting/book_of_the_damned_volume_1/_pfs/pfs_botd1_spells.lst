@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+# Original Entry by: Stefan Radermacher
+
+# Spell Name								Type			Prohibited Type
+Agonize.MOD									TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Hellfire Ray.MOD								TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Maledication.MOD								TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+Sacrifice.MOD								TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal
+
+
+# Spell Name								Type			Prohibited Type
+Greater Teleport (Self Plus 50 Lbs. Of Objects Only).MOD	TYPE:PFSNotLegal	!PRETYPE:1,PFSNotLegal

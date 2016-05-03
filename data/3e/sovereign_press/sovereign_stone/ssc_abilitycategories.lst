@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object					Specific choices list			Display Location
+ABILITYCATEGORY:Unhorsed Dwarf		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability								ABILITYLIST:Unhorsed Dwarf		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Spellcaster Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT			TYPE:Elemental.ItemCreation.Metamagic							DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Sailor Weapon Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Sailor Weapon Bonus	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Archer Primary Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Archer Primary Weapon	DISPLAYLOCATION:Feats

@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Iron Gods Player's Guide
 KEY:Iron Gods Player's Guide
 GAMEMODE:Pathfinder
@@ -27,7 +28,7 @@ DESC: The Iron Gods Player's Guide gives players all the spoiler-free informatio
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Iron Gods Player's Guide © 2014, Paizo Inc.; Authors: Adam Daigle and James Jacobs.
+COPYRIGHT:Iron Gods Player's Guide ï¿½ 2014, Paizo Inc.; Authors: Adam Daigle and James Jacobs.
 COPYRIGHT:PCGen dataset conversion for "Iron Gods Player's Guide" Copyright 2015, PCGen Data Team (including, but not limited to Andrew (LegacyKing Maitland)
 
 # Do not remove the EXTRAFILE comment.

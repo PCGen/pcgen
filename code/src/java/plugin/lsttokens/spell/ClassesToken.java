@@ -130,7 +130,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			// could be name=x or name,name=x
 			String tokString = pipeTok.nextToken();
 
-			int equalLoc = tokString.indexOf(Constants.EQUALS);
+			int startPos = tokString.startsWith("TYPE=") ? "TYPE=".length() : 0;  
+			int equalLoc = tokString.indexOf(Constants.EQUALS, startPos);
 			if (equalLoc == -1)
 			{
 				return new ParseResult.Fail("Malformed " + getTokenName()

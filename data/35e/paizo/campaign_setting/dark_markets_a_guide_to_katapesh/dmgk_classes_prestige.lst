@@ -1,13 +1,13 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Stefan Radermacher
 
-# Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:BSA		MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name				Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					FACT
+CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	FACT:ClassType|Prestige	FACT:Abb|BSA
 # Class Name				Required Deity	Required Skill				Req. Spell Type
 CLASS:Balanced Scale of Abadar	PREDEITY:1,Abadar	PRESKILL:2,Appraise=4,Open Lock=4	PRESPELLTYPE:1,Divine=3
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Religion)|Open Lock|TYPE=Profession|Search|Spellcraft
+CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (dungeoneering)|Knowledge (local)|Knowledge (religion)|Open Lock|TYPE=Profession|Search|Spellcraft
 1																		ABILITY:Special Ability|AUTOMATIC|Bypass Ward ~ Balanced Scale
 2														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Appraising Eye ~ Balanced Scale
 3	BONUS:VAR|BalancedScaleBottomlessBagLVL,BalancedScaleAccessTheVaultLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Access the Vault ~ Balanced Scale|Bottomless Bag ~ Balanced Scale

@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+# Template Name	Visible	Source Page		Special ABility	Class Skill						Favored Class		Auto Language		Region
+British		VISIBLE:YES	SOURCEPAGE:p7											FAVOREDCLASS:Yeoman					REGION:England
+French		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Diplomacy|Gather Information						AUTO:LANG|French		REGION:France
+Holy Roman Empire	VISIBLE:YES	SOURCEPAGE:7				CSKILL:Knowledge (religion)|Diplomacy					AUTO:LANG|Latin		REGION:Italy
+Irish			VISIBLE:YES	SOURCEPAGE:7				CSKILL:Sense Motive|Spot							AUTO:LANG|Irish		REGION:Ireland
+Saracen		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Handle Animal|Ride							AUTO:LANG|Arabic		REGION:Arabia
+Saxon			VISIBLE:YES	SOURCEPAGE:7	SAB:Illiterate	CSKILL:Intimidate|Survival							AUTO:LANG|Saxon		REGION:Saxony
+Scottish		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Bluff|Hide									AUTO:LANG|Scottish	REGION:Scotland
+Spanish		VISIBLE:YES	SOURCEPAGE:7				CSKILL:Appraise|Listen								AUTO:LANG|Spanish		REGION:Spain

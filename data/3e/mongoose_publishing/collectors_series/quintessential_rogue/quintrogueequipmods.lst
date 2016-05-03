@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+#
+###Block:Mundane Armor Modifier
+#
+# Modifier Name	Unique Key	Type		Cost		Type granted	Source Page		Required Type					Bonus to skill											Bonus Equip Mods		Bonus Armor Mods
+Padding		KEY:ARMRPAD	TYPE:Armor	COST:50	ITYPE:Padded	SOURCEPAGE:p.57	PRETYPE:1,Armor	PRETYPE:1,Heavy,Medium	BONUS:SKILL|Move Silently|2	BONUS:SKILL|Move Silently|2|TYPE=Competence	BONUS:EQM|WEIGHTADD|5	BONUS:EQMARMOR|ACCHECK|-2	BONUS:EQMARMOR|MAXDEX|-1	BONUS:EQMARMOR|SPELLFAILURE|5
+#
+###Block:Magical Weapon Modifiers
+#
+# Modifier Name	Unique Key			Type				Plus		Source Page			Required Type									Modify VAR				Special Property														Ability
+Heartskewer		KEY:QR_HEARTSKEWER	TYPE:Weapon			PLUS:3	SOURCEPAGE:p.58		PRETYPE:1,EQMOD=MagicalEnhancement						BONUS:VAR|SneakAttackDice|2	SPROP:Grants Sneak Attack at 2d6 or improves Sneak Attack by 2d6.						ABILITY:Special Ability|VIRTUAL|Sneak Attack
+Ring Weapon		KEY:QR_RING_WEAPON	TYPE:Weapon			PLUS:3	SOURCEPAGE:p.58		PRETYPE:1,EQMOD=MagicalEnhancement											SPROP:Weapon turns into ring which does not detect as magical
+Seeker		KEY:QR_SEEKER		TYPE:Weapon.Ammunition	PLUS:2	SOURCEPAGE:p.58-59	PRETYPE:1,EQMOD=MagicalEnhancement	PRETYPE:1,Thrown,Ammunition						SPROP:Weapon that misses will attempt to strike on its own in subsequent rounds. (see text)
+Stealth		KEY:QR_STEALTH		TYPE:Weapon			PLUS:4	SOURCEPAGE:p.59		PRETYPE:1,EQMOD=MagicalEnhancement											SPROP:Emits silence in 5' radius
+Swarming		KEY:QR_SWARMING		TYPE:Weapon.Ammunition	PLUS:3	SOURCEPAGE:p.59		PRETYPE:1,EQMOD=MagicalEnhancement	PRETYPE:1,Thrown,Ammunition						SPROP:Splits into three missiles which each make a separate attack

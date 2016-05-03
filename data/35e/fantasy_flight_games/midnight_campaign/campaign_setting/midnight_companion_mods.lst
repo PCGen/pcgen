@@ -1,0 +1,100 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Mon Nov  2 12:22:38 2015 -- reformated by PCGen PrettyLST v6.04.01
+#Original Entry By: Eddy Anthony
+
+###Block:Animal Companion Tier 1
+# Class of the Master			Type						Required Race						Apply Kit						Bonus Ability Pool
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Wogren (Immature)		KIT:1|Wogren (Immature) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Badger				KIT:1|Badger Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Dire Animal (Dire Rat)	KIT:1|Dire Animal (Dire Rat) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Dog				KIT:1|Dog Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Dog (Riding)			KIT:1|Dog (Riding) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Eagle				KIT:1|Eagle Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Hawk				KIT:1|Hawk Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Horse (Heavy)			KIT:1|Horse (Heavy) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Horse (Light)			KIT:1|Horse (Light) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Snake (Viper/Medium)	KIT:1|Snake (Viper/Medium) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Snake (Viper/Small)		KIT:1|Snake (Viper/Small) Companion
+FOLLOWER:AnimalCompanionTier1Rank=1	TYPE:Animal Companion (Tier 1)	PRERACE:1,Companion ~ Wolf				KIT:1|Wolf Companion
+FOLLOWER:AnimalCompanionTier1Rank=2	TYPE:Animal Companion (Tier 1)																BONUS:ABILITYPOOL|Animal Companion Rank|1|!PRERACE:1,Companion ~ Wogren (Immature),Companion ~ Wogren (Adult)
+FOLLOWER:AnimalCompanionTier1Rank=3	TYPE:Animal Companion (Tier 1)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier1Rank=4	TYPE:Animal Companion (Tier 1)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier1Rank=5	TYPE:Animal Companion (Tier 1)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+
+###Block:Animal Companion Tier 2
+# Class of the Master			Type						Required Race						Apply Kit						Bonus Ability Pool
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Cat (Grass)			KIT:1|Cat (Grass) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Ort				KIT:1|Ort Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Bear (Black)			KIT:1|Bear (Black) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Boar				KIT:1|Boar Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Crocodile			KIT:1|Crocodile Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Horse (Warhorse Light)	KIT:1|Horse (Warhorse Heavy) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Horse (Warhorse Heavy)	KIT:1|Horse (Warhorse Heavy) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Shark (Large)			KIT:1|Shark (Large) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Snake (Constrictor)		KIT:1|Snake (Constrictor) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Snake (Viper/Large)		KIT:1|Snake (Viper/Large) Companion
+FOLLOWER:AnimalCompanionTier2Rank=1	TYPE:Animal Companion (Tier 2)	PRERACE:1,Companion ~ Wolverine			KIT:1|Wolverine Companion
+FOLLOWER:AnimalCompanionTier2Rank=2	TYPE:Animal Companion (Tier 2)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier2Rank=3	TYPE:Animal Companion (Tier 2)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier2Rank=4	TYPE:Animal Companion (Tier 2)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier2Rank=5	TYPE:Animal Companion (Tier 2)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+
+###Block:Animal Companion Tier 3
+# Class of the Master			Type						Required Race					Apply Kit					Bonus Ability Pool
+FOLLOWER:AnimalCompanionTier3Rank=1	TYPE:Animal Companion (Tier 3)														BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier3Rank=1	TYPE:Animal Companion (Tier 3)	PRERACE:1,Companion ~ Boro			KIT:1|Boro Companion
+FOLLOWER:AnimalCompanionTier3Rank=1	TYPE:Animal Companion (Tier 3)	PRERACE:1,Companion ~ Leopard (Plains)	KIT:1|Leopard (Plains) Companion
+FOLLOWER:AnimalCompanionTier3Rank=1	TYPE:Animal Companion (Tier 3)	PRERACE:1,Companion ~ Bear (Brown)		KIT:1|Bear (Brown) Companion
+FOLLOWER:AnimalCompanionTier3Rank=1	TYPE:Animal Companion (Tier 3)	PRERACE:1,Companion ~ Crocodile (Giant)	KIT:1|Crocodile (Giant) Companion
+FOLLOWER:AnimalCompanionTier3Rank=1	TYPE:Animal Companion (Tier 3)	PRERACE:1,Companion ~ Snake (Viper/Huge)	KIT:1|Snake (Viper/Huge) Companion
+FOLLOWER:AnimalCompanionTier3Rank=2	TYPE:Animal Companion (Tier 3)														BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier3Rank=3	TYPE:Animal Companion (Tier 3)														BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier3Rank=4	TYPE:Animal Companion (Tier 3)														BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier3Rank=5	TYPE:Animal Companion (Tier 3)														BONUS:ABILITYPOOL|Animal Companion Rank|1
+
+###Block:Animal Companion Tier 4
+# Class of the Master			Type						Required Race						Apply Kit						Bonus Ability Pool
+FOLLOWER:AnimalCompanionTier4Rank=1	TYPE:Animal Companion (Tier 4)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier4Rank=1	TYPE:Animal Companion (Tier 4)	PRERACE:1,Companion ~ Eel (River)			KIT:1|Eel (River) Companion
+FOLLOWER:AnimalCompanionTier4Rank=1	TYPE:Animal Companion (Tier 4)	PRERACE:1,Companion ~ Bear (Polar)			KIT:1|Bear (Polar) Companion
+FOLLOWER:AnimalCompanionTier4Rank=1	TYPE:Animal Companion (Tier 4)	PRERACE:1,Companion ~ Snake (Constrictor/Giant)	KIT:1|Snake (Constrictor/Giant) Companion
+FOLLOWER:AnimalCompanionTier4Rank=1	TYPE:Animal Companion (Tier 4)	PRERACE:1,Companion ~ Shark (Huge)			KIT:1|Shark (Huge) Companion
+FOLLOWER:AnimalCompanionTier4Rank=2	TYPE:Animal Companion (Tier 4)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier4Rank=3	TYPE:Animal Companion (Tier 4)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier4Rank=4	TYPE:Animal Companion (Tier 4)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier4Rank=5	TYPE:Animal Companion (Tier 4)																BONUS:ABILITYPOOL|Animal Companion Rank|1
+
+###Block:Animal Companion Tier 5
+# Class of the Master			Type						Apply Kit				Bonus Ability Pool
+FOLLOWER:AnimalCompanionTier5Rank=1	TYPE:Animal Companion (Tier 5)	KIT:1|Dragon (Sea) Companion	BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier5Rank=2	TYPE:Animal Companion (Tier 5)						BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier5Rank=3	TYPE:Animal Companion (Tier 5)						BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier5Rank=4	TYPE:Animal Companion (Tier 5)						BONUS:ABILITYPOOL|Animal Companion Rank|1
+FOLLOWER:AnimalCompanionTier5Rank=5	TYPE:Animal Companion (Tier 5)						BONUS:ABILITYPOOL|Animal Companion Rank|1
+
+###Block:Astirax Companion
+# Class of the Master	Type				Hit Dice	Ability										Special ABility		Stat bonus
+FOLLOWER:LegateLvl=6	TYPE:Astirax Companion	HD:2													SAB:Telepathy (Su)	BONUS:STAT|INT|CHA|1
+FOLLOWER:LegateLvl=9	TYPE:Astirax Companion	HD:2													SAB:Enhanced Sense I	BONUS:STAT|INT|CHA|1
+FOLLOWER:LegateLvl=12	TYPE:Astirax Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion					BONUS:STAT|INT|CHA|1
+FOLLOWER:LegateLvl=15	TYPE:Astirax Companion	HD:2													SAB:Enhanced Sense II	BONUS:STAT|INT|CHA|1
+FOLLOWER:LegateLvl=18	TYPE:Astirax Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Empathy					BONUS:STAT|INT|CHA|1
+
+###Block:Freerider Special Mount
+# Class of the Master			Type				Hit Dice	Ability										Apply Kit						Bonus Ability Pool			Combat bonus						Add to base move			Stat bonus					Main Race Type
+FOLLOWER:FreeRiderSpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion	KIT:1|Horse (Warhorse Heavy) Companion	BONUS:ABILITYPOOL|Animal Trick|2														BONUS:STAT|STR|2
+FOLLOWER:FreeRiderSpecialMountLvl=2	TYPE:Special Mount	HD:2																				BONUS:ABILITYPOOL|Animal Trick|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1	RACETYPE:Magical Beast
+FOLLOWER:FreeRiderSpecialMountLvl=3	TYPE:Special Mount	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion								BONUS:ABILITYPOOL|Animal Trick|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1
+FOLLOWER:FreeRiderSpecialMountLvl=4	TYPE:Special Mount	HD:2																				BONUS:ABILITYPOOL|Animal Trick|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.All|10	BONUS:STAT|STR|2	BONUS:STAT|DEX|1
+
+###Block:Wogrenrider Special Mount
+# Class of the Master				Type				Hit Dice	Ability										Bonus Ability Pool			Combat bonus						Add to base move			Stat bonus
+FOLLOWER:WogrenRiderSpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion	BONUS:ABILITYPOOL|Animal Trick|2														BONUS:STAT|STR|2
+FOLLOWER:WogrenRiderSpecialMountLvl=2	TYPE:Special Mount	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion	BONUS:ABILITYPOOL|Animal Trick|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1
+FOLLOWER:WogrenRiderSpecialMountLvl=3	TYPE:Special Mount	HD:2													BONUS:ABILITYPOOL|Animal Trick|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.All|10	BONUS:STAT|STR|2	BONUS:STAT|DEX|1
+FOLLOWER:WogrenRiderSpecialMountLvl=4	TYPE:Special Mount	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Empathy	BONUS:ABILITYPOOL|Animal Trick|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2	BONUS:STAT|DEX|1
+
+#
+# End
+#

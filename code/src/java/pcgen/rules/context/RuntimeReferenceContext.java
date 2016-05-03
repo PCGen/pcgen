@@ -54,10 +54,17 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
 		if (mfg == null)
 		{
-			mfg = new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
+			mfg = getNewReferenceManufacturer(cl);
 			map.put(cl, mfg);
 		}
 		return mfg;
+	}
+
+	@Override
+	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
+		Class<T> cl)
+	{
+		return new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
 	}
 
 	@Override

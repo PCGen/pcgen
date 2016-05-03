@@ -1,19 +1,19 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 
 
-# Domain Name		Class Skill			Choose								Selections	Innate Spells																Add 					Auto Feat				Auto Weapon Prof		Description						List of Domain Spells by Level						Type
-Foo Ball																																																		DESC:This is the Foo Ball Domain		SPELLLEVEL:DOMAIN|Foo Ball=1|Magic Missile|Foo Ball=2|Fireball	TYPE:TestDomainExtra
+# Domain Name		Class Skill			Choose								Selections	Innate Spells																Ability							Add							Auto Weapon Prof		Description						List of Domain Spells by Level						Type
+Foo Ball																																																							DESC:This is the Foo Ball Domain		SPELLLEVEL:DOMAIN|Foo Ball=1|Magic Missile|Foo Ball=2|Fireball	TYPE:TestDomainExtra
 
-Bar Ball							CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1																								AUTO:FEAT|Weapon Focus(%LIST)	AUTO:WEAPONPROF|%LIST	DESC:This is the Bar Ball Domain		SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify		TYPE:TestDomain
+Bar Ball							CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1																			ABILITY:FEAT|AUTOMATIC|Weapon Focus(%LIST)								AUTO:WEAPONPROF|%LIST	DESC:This is the Bar Ball Domain		SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify		TYPE:TestDomain
 
-Dungeon Crawl																																																	DESC:This is the Dungeon Crawl Domain												TYPE:TestDomainExtra
+Dungeon Crawl																																																						DESC:This is the Dungeon Crawl Domain												TYPE:TestDomainExtra
 
-Test Spells Domain																SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Spells Test,20	SPELLS:YourTest|TIMES=3|CASTERLEVEL=1|Same Spell Test															DESC:This has a Spells
+Test Spells Domain																SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Spells Test,20	SPELLS:YourTest|TIMES=3|CASTERLEVEL=1|Same Spell Test																				DESC:This has a Spells
 
 Domain Test Skill		CSKILL:Domain Skill 1
 Domain Test Skill List	CSKILL:LIST			CHOOSE:SKILL|Domain Skill 2|Domain Skill 3
-Domain Add Feat																																			ADD:FEAT|Add Feat Domain
+Domain Add Feat																																											ADD:ABILITY|FEAT|NORMAL|Add Feat Domain
 
 
 # RSRD Support

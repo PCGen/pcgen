@@ -55,6 +55,11 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 
 	public FilterBar()
 	{
+		this(true);
+	}
+
+	public FilterBar(boolean collapsable)
+	{
 		setLayout(new BorderLayout());
 		add(filterPanel, BorderLayout.CENTER);
 
@@ -72,7 +77,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 					}
 
 				});
-		add(arrowbutton, BorderLayout.SOUTH);
+		if (collapsable)
+		{
+			add(arrowbutton, BorderLayout.SOUTH);
+		}
 	}
 
 	public void addDisplayableFilter(DisplayableFilter<? super C, ? super E> filter)

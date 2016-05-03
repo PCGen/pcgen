@@ -1,4 +1,4 @@
-# CVS $Revision: 21419 $ $Author: evilmynex $ -- Wed Sep 18 13:58:41 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: 21419 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
@@ -5035,12 +5035,12 @@ RACE:Serpentfolk (Degenerate)	!PRERACE:1,%
 NAME:Serpentfolk (Degenerate)
 ALIGN:NE
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Acrobatics			RANK:1
-SKILL:Disguise			RANK:1
-SKILL:Escape Artist		RANK:1
+SKILL:Acrobatics		RANK:1
+SKILL:Disguise		RANK:1
+SKILL:Escape Artist	RANK:1
 #SKILL:Knowledge (Arcana)	RANK:5
-SKILL:Perception			RANK:1
-SKILL:Sense Motive		RANK:1
+SKILL:Perception		RANK:1
+SKILL:Sense Motive	RANK:1
 #SKILL:Spellcraft			RANK:5
 #SKILL:Use Magic Device		RANK:5
 ABILITY:CATEGORY=FEAT|Great Fortitude

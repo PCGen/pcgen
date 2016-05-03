@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # COMMENT: Broken down for easier review
 # COMMENT: EidolonDefault - Set to "1" to disable the APG default Eidolon
@@ -11,23 +12,27 @@
 # COMMENT: Pool_UnchainedEidolonEvolution tracks Evolution Points gained from Progression
 
 ###Block: Definitions
+# Class of the Master			Type				Define
 FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	DEFINE:UnchainedEidolonMasterLVL|0
 ###Block: Definitions Bonused
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:VAR|EidolonDefault|1
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:VAR|UnchainedEidolonMasterLVL|mastervar("UnchainedEidolonLVL")	
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:HP|CURRENTMAX|mastervar("EidolonHP")
+# Class of the Master			Type				Bonus Ability Pool								Bonus to HP							Modify VAR
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon																				BONUS:VAR|EidolonDefault|1
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon																				BONUS:VAR|UnchainedEidolonMasterLVL|mastervar("UnchainedEidolonLVL")
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon												BONUS:HP|CURRENTMAX|mastervar("EidolonHP")
 FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:ABILITYPOOL|Eidolon Bonus Skill|mastervar("EidolonSP")
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedEidolonEvolution|mastervar("EidolonEP")/4
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon																				BONUS:VAR|Pool_UnchainedEidolonEvolution|mastervar("EidolonEP")/4
 ###Block: Feature Progression
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Darkvision			
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Link				
-FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Share Spells			
-FOLLOWER:UnchainedEidolonLVL=2	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Evasion				
-FOLLOWER:UnchainedEidolonLVL=5	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Ability Score Increase	
-FOLLOWER:UnchainedEidolonLVL=6	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Devotion			
-FOLLOWER:UnchainedEidolonLVL=9	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Multiattack			
-FOLLOWER:UnchainedEidolonLVL=14	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Improved Evasion		
+# Class of the Master			Type				Ability
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Darkvision
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Link
+FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Share Spells
+FOLLOWER:UnchainedEidolonLVL=2	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Evasion
+FOLLOWER:UnchainedEidolonLVL=5	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Ability Score Increase
+FOLLOWER:UnchainedEidolonLVL=6	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Devotion
+FOLLOWER:UnchainedEidolonLVL=9	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Multiattack
+FOLLOWER:UnchainedEidolonLVL=14	TYPE:Unchained Eidolon	ABILITY:Special Ability|AUTOMATIC|Unchained Eidolon Companion ~ Improved Evasion
 ###Block: HD Progression
+# Class of the Master			Type				Hit Dice
 FOLLOWER:UnchainedEidolonLVL=2	TYPE:Unchained Eidolon	HD:1
 FOLLOWER:UnchainedEidolonLVL=3	TYPE:Unchained Eidolon	HD:1
 FOLLOWER:UnchainedEidolonLVL=5	TYPE:Unchained Eidolon	HD:1
@@ -43,6 +48,7 @@ FOLLOWER:UnchainedEidolonLVL=17	TYPE:Unchained Eidolon	HD:1
 FOLLOWER:UnchainedEidolonLVL=18	TYPE:Unchained Eidolon	HD:1
 FOLLOWER:UnchainedEidolonLVL=19	TYPE:Unchained Eidolon	HD:1
 ###Block: AC Progression
+# Class of the Master			Type				Modify VAR
 FOLLOWER:UnchainedEidolonLVL=2	TYPE:Unchained Eidolon	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
 FOLLOWER:UnchainedEidolonLVL=5	TYPE:Unchained Eidolon	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
 FOLLOWER:UnchainedEidolonLVL=7	TYPE:Unchained Eidolon	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
@@ -52,6 +58,7 @@ FOLLOWER:UnchainedEidolonLVL=15	TYPE:Unchained Eidolon	BONUS:VAR|AC_Natural_Armo
 FOLLOWER:UnchainedEidolonLVL=17	TYPE:Unchained Eidolon	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
 FOLLOWER:UnchainedEidolonLVL=20	TYPE:Unchained Eidolon	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
 ###Block: Evolution Pool
+# Class of the Master			Type				Modify VAR
 FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedEidolonEvolution|1
 FOLLOWER:UnchainedEidolonLVL=2	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedEidolonEvolution|1
 FOLLOWER:UnchainedEidolonLVL=3	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedEidolonEvolution|1
@@ -68,10 +75,12 @@ FOLLOWER:UnchainedEidolonLVL=17	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedE
 FOLLOWER:UnchainedEidolonLVL=18	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedEidolonEvolution|1
 FOLLOWER:UnchainedEidolonLVL=19	TYPE:Unchained Eidolon	BONUS:VAR|Pool_UnchainedEidolonEvolution|1
 ###Block: Ability Score Increase
+# Class of the Master			Type				Modify VAR
 FOLLOWER:UnchainedEidolonLVL=5	TYPE:Unchained Eidolon	BONUS:VAR|Pool_CompanionStatIncrease|1
 FOLLOWER:UnchainedEidolonLVL=10	TYPE:Unchained Eidolon	BONUS:VAR|Pool_CompanionStatIncrease|1
 FOLLOWER:UnchainedEidolonLVL=15	TYPE:Unchained Eidolon	BONUS:VAR|Pool_CompanionStatIncrease|1
 ###Block: Str and Dex Progrssion
+# Class of the Master			Type				Stat bonus
 FOLLOWER:UnchainedEidolonLVL=2	TYPE:Unchained Eidolon	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:UnchainedEidolonLVL=5	TYPE:Unchained Eidolon	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:UnchainedEidolonLVL=7	TYPE:Unchained Eidolon	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
@@ -81,6 +90,7 @@ FOLLOWER:UnchainedEidolonLVL=15	TYPE:Unchained Eidolon	BONUS:STAT|STR|1	BONUS:ST
 FOLLOWER:UnchainedEidolonLVL=17	TYPE:Unchained Eidolon	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:UnchainedEidolonLVL=20	TYPE:Unchained Eidolon	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 ###Block: Maximum Attacks
+# Class of the Master			Type				Modify VAR
 FOLLOWER:UnchainedEidolonLVL=1	TYPE:Unchained Eidolon	BONUS:VAR|EidMaxAttacks|3
 FOLLOWER:UnchainedEidolonLVL=4	TYPE:Unchained Eidolon	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:UnchainedEidolonLVL=9	TYPE:Unchained Eidolon	BONUS:VAR|EidMaxAttacks|1

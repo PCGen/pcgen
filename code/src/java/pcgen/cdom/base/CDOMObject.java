@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.Indirect;
@@ -54,7 +55,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable, Reducible
+		Cloneable, BonusContainer, Loadable, Reducible, VarScoped
 {
 
 	private URI sourceURI = null;
@@ -338,7 +339,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return null;
 		}
-		return indirect.resolvesTo();
+		return indirect.get();
 	}
 
 	public final <FT> FT put(FactKey<FT> key, Indirect<FT> value)
@@ -370,7 +371,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return factSetChar == null ? false : factSetChar.containsListFor(key);
 	}
 
-	public final <T> void addToSetFor(FactSetKey<T> key, ObjectContainer<T> element)
+	public final <T> void addToSetFor(FactSetKey<T> key, Indirect<T> element)
 	{
 		if (factSetChar == null)
 		{
@@ -388,15 +389,15 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		factSetChar.addAllToListFor(key, elementCollection);
 	}
 
-	public final <T> List<ObjectContainer<T>> getSetFor(FactSetKey<T> key)
+	public final <T> List<Indirect<T>> getSetFor(FactSetKey<T> key)
 	{
 		return factSetChar == null ? null : factSetChar.getListFor(key);
 	}
 
-	public final <T> List<ObjectContainer<T>> getSafeSetFor(FactSetKey<T> key)
+	public final <T> List<Indirect<T>> getSafeSetFor(FactSetKey<T> key)
 	{
 		return factSetChar != null && factSetChar.containsListFor(key) ? factSetChar.getListFor(key)
-				: new ArrayList<ObjectContainer<T>>();
+				: new ArrayList<Indirect<T>>();
 	}
 	
 	public final String getSetAsString(FactSetKey<?> key)
@@ -435,7 +436,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return out;
 	}
 
-	public final <T> boolean removeFromSetFor(FactSetKey<T> key, ObjectContainer<T> element)
+	public final <T> boolean removeFromSetFor(FactSetKey<T> key, Indirect<T> element)
 	{
 		boolean removed = factSetChar == null ? false : factSetChar.removeFromListFor(key, element);
 		if (removed && factSetChar.isEmpty())
@@ -1220,4 +1221,25 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		return this;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getLocalScopeName()
+	{
+		//I don't have one
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public VarScoped getVariableParent()
+	{
+		//Fall back to Global
+		return null;
+	}
+
 }

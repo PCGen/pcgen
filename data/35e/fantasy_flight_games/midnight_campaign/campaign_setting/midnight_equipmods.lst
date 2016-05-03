@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- reformated by PCGen PrettyLST v6.04.01
+#Original Entry By: Beaver
+
+###Block:Weapon
+# Modifier Name	Unique Key	Type					Cost		Type granted	Source Page		Special Property																			Apply to both heads
+Icewood		KEY:ICEWD	TYPE:MasterworkQuality.Weapon	COST:0	ITYPE:Masterwork	SOURCEPAGE:p.127	SPROP:Cost one-half of the standard resources of time, components and energy to enchant.	SPROP:+2 hardness +10 hitpoints	ASSIGNTOALL:YES

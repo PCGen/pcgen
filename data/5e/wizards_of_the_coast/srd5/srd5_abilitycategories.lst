@@ -1,0 +1,231 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+# Ability Category						Visible		Editable?		Change Pool?	Base Pool number						Category of Object		Type of Object											Specific choices list																				Display Location
+ABILITYCATEGORY:Special Ability				VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Special Ability
+ABILITYCATEGORY:Internal					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Internal
+ABILITYCATEGORY:Skill						VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Skill
+ABILITYCATEGORY:SkillExport					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:SkillExport
+ABILITYCATEGORY:Language					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Language
+ABILITYCATEGORY:Spell						VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Spell
+ABILITYCATEGORY:Weapon						VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Weapon
+ABILITYCATEGORY:Class						VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Class
+ABILITYCATEGORY:Attunement					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO										CATEGORY:Attunement
+
+#
+ABILITYCATEGORY:Language Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Language					CATEGORY:Language			TYPE:Language																																		DISPLAYLOCATION:Character
+
+
+# Ability Category						Visible		Editable?		Change Pool?	Base Pool number						Category of Object		Type of Object											Specific choices list																				Display Location
+ABILITYCATEGORY:Dwarf Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:DwarfSubrace																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Dwarf Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Dwarf Trait																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Dwarf Artisan's Tool Proficiency	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability														ABILITYLIST:Tool Proficiency ~ Brewer's Supplies|Tool Proficiency ~ Mason's Tools|Tool Proficiency ~ Smith's Tools				DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Elf Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:ElfSubrace																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Elf Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Elf Trait																																		DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Halfling Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:HalflingSubrace																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Halfling Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Halfling Trait																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Human Ethnicity																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Human Rule Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Human Rule Selection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Human Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Human Trait																																		DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Dragonborn Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Dragonborn Trait																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gnome Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Gnome Trait																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gnome Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:GnomeSubrace																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Half-Elf Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Half-Elf Trait																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Half-Orc Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Half-Orc Trait																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Tiefling Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Tiefling Trait																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Half-Elf Stat Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal																ABILITYLIST:Half-Elf Stat Choice																		DISPLAYLOCATION:Character
+
+
+
+ABILITYCATEGORY:Dragonborn Ancestry				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Dragonborn Ancestry																																DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Armor Class Method				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_AC_Tracker					CATEGORY:Special Ability	TYPE:AC_Tracker																																		DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Ability Score Increase +1			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:StatIncrease+1																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Skill Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Skill			TYPE:Skill Proficiency																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Character Advancement Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Character_Advancement_Selection		CATEGORY:Internal			TYPE:Ability Score Increase																																DISPLAYLOCATION:Character
+
+
+# Class Skills
+ABILITYCATEGORY:Barbarian Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Barbarian_Skill				CATEGORY:Skill																ABILITYLIST:Animal Handling|Athletics|Intimidation|Nature|Perception|Survival											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bard Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Bard_Skill					CATEGORY:Skill			TYPE:Skill Proficiency																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cleric Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Cleric_Skill					CATEGORY:Skill																ABILITYLIST:History|Insight|Medicine|Persuasion|Religion														DISPLAYLOCATION:Character
+ABILITYCATEGORY:Druid Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Druid_Skill					CATEGORY:Skill																ABILITYLIST:Arcana|Animal Handling|Insight|Medicine|Nature|Perception|Religion|Survival									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fighter Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Fighter_Skill					CATEGORY:Skill																ABILITYLIST:Acrobatics|Animal Handling|Athletics|History|Insight|Intimidation|Perception|Survival							DISPLAYLOCATION:Character
+ABILITYCATEGORY:Monk Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Monk_Skill					CATEGORY:Skill																ABILITYLIST:Acrobatics|Athletics|History|Insight|Religion|Stealth													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Paladin Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Paladin_Skill					CATEGORY:Skill																ABILITYLIST:Athletics|Insight|Intimidation|Medicine|Persuasion|Religion												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ranger Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Ranger_Skill					CATEGORY:Skill																ABILITYLIST:Animal Handling|Athletics|Insight|Investigation|Nature|Perception|Stealth|Survival								DISPLAYLOCATION:Character
+ABILITYCATEGORY:Rogue Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Rogue_Skill					CATEGORY:Skill																ABILITYLIST:Acrobatics|Athletics|Deception|Insight|Intimidation|Investigation|Perception|Performance|Persuasion|Sleight of Hand|Stealth	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Sorcerer Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Sorcerer_Skill				CATEGORY:Skill																ABILITYLIST:Arcana|Deception|Insight|Intimidation|Persuasion|Religion												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Warlock_Skill					CATEGORY:Skill																ABILITYLIST:Arcana|Deception|History|Intimidation|Investigation|Nature|Religion										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Wizard Skill					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Wizard_Skill					CATEGORY:Skill																ABILITYLIST:Arcana|History|Insight|Investigation|Medicine|Religion												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Nature Domain Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Nature_Domain_Skill				CATEGORY:Skill																ABILITYLIST:Animal Handling|Nature|Survival																DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Arcane Tradition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Wizard Arcane Tradition																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Roguish Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Roguish Archetype																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Martial Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Martial Archetype																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Fighting Style																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Maneuver Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Fighter_Maneuver				CATEGORY:Special Ability	TYPE:Maneuver Selection																																	DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Divine Domain					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Divine Domain																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Background					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Background																																		DISPLAYLOCATION:Character
+
+# Barbarian Class - Path of the Totem Warrior
+ABILITYCATEGORY:Barbarian Primal Path			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Barbarian Primal Path																																DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Totem Spirit Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Path of the Totem Warrior Totem Spirit Choice																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Aspect of the Beast Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Path of the Totem Warrior Aspect of the Beast Choice																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Totemic Attunement				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Path of the Totem Warrior Totemic Attunement																												DISPLAYLOCATION:Character
+
+# Bard Feature
+ABILITYCATEGORY:Bard College					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Bard College																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bard Magical Secrets			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Bard_Magical_Secrets			CATEGORY:Internal			TYPE:Bard Magical Secret																																DISPLAYLOCATION:Character
+
+# Spell Support
+ABILITYCATEGORY:Bard Spell Known Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:BardKnownSelection																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bard Spell Known Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:BardReplaceKnownSelection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bard Remove Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:BardRemoveKnownSelection																																DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Paladin Spell Known Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Paladin_Known_Spells			CATEGORY:Spell			TYPE:PaladinKnownSelection																																DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Ranger Spell Known Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:RangerKnownSelection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ranger Spell Known Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:RangerReplaceKnownSelection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ranger Remove Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:RangerRemoveKnownSelection																															DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Arcane Trickster Unrestricted Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Arcane_Trickster_Unrestricted_Spell	CATEGORY:Internal			TYPE:ArcaneTricksterUnrestrictedSpell																														DISPLAYLOCATION:Character
+ABILITYCATEGORY:Rogue Spell Known Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:RogueKnownSelection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Rogue Spell Known Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:RogueReplaceKnownSelection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Rogue Remove Spell Known			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:RogueRemoveKnownSelection																															DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Warlock Spell Known Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:WarlockKnownSelection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Spell Known Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:WarlockReplaceKnownSelection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Remove Spell Known		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:WarlockRemoveKnownSelection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Pact of the Tome Cantrips	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Warlock_Pact_of_the_Tome_Cantrips	CATEGORY:Internal			TYPE:WarlockPactoftheTomeCantrips																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Mystic Arcanum Spells		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Warlock_Mystic_Arcanum_Spells		CATEGORY:Internal			TYPE:WarlockMysticArcanumSpells																															DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Eldritch Knight Unrestricted Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Eldritch_Knight_Unrestricted_Spell	CATEGORY:Internal			TYPE:EldritchKnightUnrestrictedSpell																														DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fighter Spell Known Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:FighterKnownSelection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fighter Spell Known Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:FighterReplaceKnownSelection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fighter Remove Spell Known		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:FighterRemoveKnownSelection																															DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Druid Circle					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Druid_Circle					CATEGORY:Special Ability	TYPE:Druid Circle																																		DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Druid Circle Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Spell			TYPE:Druid Circle Spells																																DISPLAYLOCATION:Character
+
+# Cantrips
+ABILITYCATEGORY:Bard Cantrip					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Bard_Cantrip					CATEGORY:Internal			TYPE:Bard Cantrip																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cleric Cantrip				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Cleric_Cantrip				CATEGORY:Internal			TYPE:Cleric Cantrip																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Druid Cantrip					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Druid_Cantrip					CATEGORY:Internal			TYPE:Druid Cantrip																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Nature Domain Cantrip			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Nature_Domain_Cantrip			CATEGORY:Internal			TYPE:Nature Domain Cantrip																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Sorcerer Cantrip				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Sorcerer_Cantrip				CATEGORY:Internal			TYPE:Sorcerer Cantrip																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Cantrip				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Warlock_Cantrip				CATEGORY:Internal			TYPE:Warlock Cantrip																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Wizard Cantrip				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Wizard_Cantrip				CATEGORY:Internal			TYPE:Wizard Cantrip																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Magic Initiate Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Magic_Initiate				CATEGORY:Special Ability	TYPE:Magic Initiate																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bard Magic Initiate Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Bard_Magic_Initiate_Spell			CATEGORY:Internal			TYPE:BardMagicInitiateSpell																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cleric Magic Initiate Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Cleric_Magic_Initiate_Spell		CATEGORY:Internal			TYPE:ClericMagicInitiateSpell																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Druid Magic Initiate Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Druid_Magic_Initiate_Spell		CATEGORY:Internal			TYPE:DruidMagicInitiateSpell																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Sorcerer Magic Initiate Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Sorcerer_Magic_Initiate_Spell		CATEGORY:Internal			TYPE:SorcererMagicInitiateSpell																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Magic Initiate Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Warlock_Magic_Initiate_Spell		CATEGORY:Internal			TYPE:WarlockMagicInitiateSpell																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Wizard Magic Initiate Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Wizard_Magic_Initiate_Spell		CATEGORY:Internal			TYPE:WizardMagicInitiateSpell																																DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Ritual Caster Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Ritual_Caster					CATEGORY:Special Ability	TYPE:Ritual Caster																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Eldritch Knight Cantrip			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Eldritch_Knight_Cantrip			CATEGORY:Internal			TYPE:Wizard Cantrip																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Arcane Trickster Cantrip			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Arcane_Trickster_Cantrip			CATEGORY:Internal			TYPE:Wizard Cantrip																																	DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Paladin Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Paladin Fighting Style									ABILITYLIST:Fighting Style ~ Defense|Fighting Style ~ Dueling|Fighting Style ~ Great Weapon Fighting|Fighting Style ~ Protection		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ranger Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Ranger Fighting Style									ABILITYLIST:Fighting Style ~ Archery|Fighting Style ~ Defense|Fighting Style ~ Dueling|Fighting Style ~ Two-Weapon Fighting			DISPLAYLOCATION:Character
+
+# Ranger Hunter Selections
+ABILITYCATEGORY:Hunter's Prey Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Hunter's Prey Selection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Defensive Tactics Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Defensive Tactics Selection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Multiattack Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Multiattack Selection																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Superior Hunter's Defense Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Superior Hunter's Defense Selection																														DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Elemental Discipline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Elemental Discipline Selection																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Monastic Tradition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Monastic Tradition																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Draconic Ancestry				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Draconic_Ancestry				CATEGORY:Special Ability	TYPE:Draconic Ancestry																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Sorcerous Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Sorcerous_Origin				CATEGORY:Special Ability	TYPE:Sorcerous Origin																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Metamagic					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Metamagic					CATEGORY:Special Ability	TYPE:Metamagic																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Eldritch Invocation				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Eldritch_Invocation				CATEGORY:Special Ability	TYPE:Eldritch Invocation																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Otherworldly Patron				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Otherworldly Patron																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Pact Boon					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Pact Boon																																		DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Sacred Oath					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Sacred_Oath					CATEGORY:Special Ability	TYPE:Sacred Oath																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ranger Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Ranger_Archetype				CATEGORY:Special Ability	TYPE:Ranger Archetype																																	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Favored Terrain				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Favored_Terrain				CATEGORY:Special Ability	TYPE:Favored Terrain																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Favored Enemy					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Favored_Enemy					CATEGORY:Special Ability	TYPE:Favored Enemy																																	DISPLAYLOCATION:Character
+
+# Class Features
+ABILITYCATEGORY:Barbarian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Barbarian Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bard Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Bard Class Feature																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cleric Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Cleric Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Druid Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Druid Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fighter Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Fighter Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Monk Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Monk Class Feature																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Paladin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Paladin Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ranger Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Ranger Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Rogue Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Rogue Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Sorcerer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Sorcerer Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Warlock Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Warlock Class Feature																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Wizard Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Wizard Class Feature																																DISPLAYLOCATION:Character
+
+# Tools
+ABILITYCATEGORY:Tools Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Tool Proficiency																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Artisan's Tools Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Tool Proficiency Artisan's Tools																														DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gaming Set Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Tool Proficiency Gaming Set																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Musical Instrument Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Tool Proficiency Musical Instrument																														DISPLAYLOCATION:Character
+#
+ABILITYCATEGORY:Bard Tool Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Tool Proficiency Musical Instrument																														DISPLAYLOCATION:Character
+ABILITYCATEGORY:Monk Tool Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Internal			TYPE:Tool Proficiency Musical Instrument.Tool Proficiency Artisan's Tools																								DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Background					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Background																																		DISPLAYLOCATION:Character
+
+# Backgrounds
+ABILITYCATEGORY:Acolyte Personality Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Acolyte Personality Trait																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Acolyte Ideal					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Acolyte Ideal																																	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Acolyte Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Acolyte Bond																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Acolyte Flaw					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Acolyte Flaw																																		DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Custom Personality Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Custom Personality Trait																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Custom Ideal					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Custom Ideal																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Custom Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Custom Bond																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Custom Flaw					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Custom Flaw																																		DISPLAYLOCATION:Character
+
+###Block: Feat Support
+# Ability Category			Visible		Editable?		Change Pool?	Category of Object	Type of Object		Specific choices list							Display Location
+ABILITYCATEGORY:Athletic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal		TYPE:Athletic Choices	ABILITYLIST:Ability Score +1 ~ STR|Ability Score +1 ~ DEX	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal		TYPE:Weapon Proficiency											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Skilled			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal		TYPE:Skilled												DISPLAYLOCATION:Character
+
+###Block: Blessings Support
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Blessings of Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Blessings of Knowledge Skill	DISPLAYLOCATION:Character
+
+
+###Block: Misc Support
+# Ability Category			Visible		Editable?		Change Pool?	Base Pool number		Category of Object		Type of Object		Display Location
+ABILITYCATEGORY:Familiar Support	VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Familiar_Special	DISPLAYLOCATION:MISC
+ABILITYCATEGORY:Expertise		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Expertise	CATEGORY:Special Ability	TYPE:Expertise		DISPLAYLOCATION:Character
+
+
+#
+ABILITYCATEGORY:Item Attunement	VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Attunement		TYPE:Attunement		DISPLAYLOCATION:Character

@@ -1,14 +1,14 @@
-# CVS $Revision: 25130 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 25130 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 # Language		Unique Key			Type			Source Page
-Ancient							TYPE:Spoken		SOURCEPAGE:p. 48
-Ancient-Written		KEY:Ancient ~ Written		TYPE:Written	SOURCEPAGE:p. 48
+Ancient						TYPE:Spoken		SOURCEPAGE:p. 48
+Ancient-Written	KEY:Ancient ~ Written	TYPE:Written	SOURCEPAGE:p. 48
 
 Gutter Talk						TYPE:Spoken		SOURCEPAGE:p. 48
 
 Trade							TYPE:Spoken		SOURCEPAGE:p. 48
-Trade-Written		KEY:Trade ~ Written		TYPE:Written	SOURCEPAGE:p. 48
+Trade-Written	KEY:Trade ~ Written	TYPE:Written	SOURCEPAGE:p. 48
 
 Unislang						TYPE:Spoken		SOURCEPAGE:p. 48
-Unislang-Written	KEY:Unislang ~ Written		TYPE:Written	SOURCEPAGE:p. 48
+Unislang-Written	KEY:Unislang ~ Written	TYPE:Written	SOURCEPAGE:p. 48

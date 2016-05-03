@@ -17,22 +17,43 @@
  */
 package plugin.lsttokens.editcontext.race;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
+import pcgen.base.format.OrderedPairManager;
+import pcgen.base.math.OrderedPair;
+import pcgen.base.util.FormatManager;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.race.FaceToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.modifier.orderedpair.SetModifierFactory;
 
 public class FaceIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
 
 	static FaceToken token = new FaceToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(m);
+		primaryContext.getVariableContext().assertLegalVariableID(
+			primaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+		secondaryContext.getVariableContext().assertLegalVariableID(
+			secondaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+	}
 
 	@Override
 	public Class<Race> getCDOMClass()

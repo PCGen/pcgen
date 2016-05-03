@@ -126,7 +126,7 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	public String getLSTformat(boolean useAny)
 	{
 		return def.getFactSetName() + "="
-			+ def.getFormatManager().unconvert(toMatch.resolvesTo());
+			+ def.getFormatManager().unconvert(toMatch.get());
 	}
 
 	/**
@@ -135,13 +135,13 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	@Override
 	public boolean contains(T obj)
 	{
-		List<ObjectContainer<F>> factset = obj.getSetFor(def.getFactSetKey());
+		List<Indirect<F>> factset = obj.getSetFor(def.getFactSetKey());
 		if (factset != null)
 		{
-			F tgt = toMatch.resolvesTo();
-			for (ObjectContainer<F> oc : factset)
+			F tgt = toMatch.get();
+			for (Indirect<F> indirect : factset)
 			{
-				if (oc.contains(tgt))
+				if (indirect.get().equals(tgt))
 				{
 					return true;
 				}

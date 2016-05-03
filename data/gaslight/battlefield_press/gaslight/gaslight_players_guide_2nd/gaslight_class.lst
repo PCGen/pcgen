@@ -1,0 +1,578 @@
+# CVS $Revision: 25487 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Edition	SOURCESHORT:Gaslight	SOURCEWEB:http://www.battlefieldpress.com	SOURCEDATE:2013-11
+#Original Entry: Andrew Maitland
+
+# Class Name	Visible	FACT
+CLASS:Divine	VISIBLE:NO	FACT:SpellType|Divine
+# Class Name	Spell Stat
+CLASS:Divine	SPELLSTAT:WIS
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+21	CAST:6,5,5,5,5,5,4,4,4,4
+22	CAST:6,5,5,5,5,5,4,4,4,4
+23	CAST:6,5,5,5,5,5,4,4,4,4
+24	CAST:6,5,5,5,5,5,4,4,4,4
+25	CAST:6,5,5,5,5,5,4,4,4,4
+26	CAST:6,5,5,5,5,5,4,4,4,4
+27	CAST:6,5,5,5,5,5,4,4,4,4
+28	CAST:6,5,5,5,5,5,4,4,4,4
+29	CAST:6,5,5,5,5,5,4,4,4,4
+30	CAST:6,5,5,5,5,5,4,4,4,4
+
+# Class Name	Visible	FACT
+CLASS:Arcane	VISIBLE:NO	FACT:SpellType|Arcane
+# Class Name	Spell Stat
+CLASS:Arcane	SPELLSTAT:INT
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+21	CAST:6,5,5,5,5,5,4,4,4,4
+22	CAST:6,5,5,5,5,5,4,4,4,4
+23	CAST:6,5,5,5,5,5,4,4,4,4
+24	CAST:6,5,5,5,5,5,4,4,4,4
+25	CAST:6,5,5,5,5,5,4,4,4,4
+26	CAST:6,5,5,5,5,5,4,4,4,4
+27	CAST:6,5,5,5,5,5,4,4,4,4
+28	CAST:6,5,5,5,5,5,4,4,4,4
+29	CAST:6,5,5,5,5,5,4,4,4,4
+30	CAST:6,5,5,5,5,5,4,4,4,4
+
+
+
+
+# Class Name	Hit Dice	Type			Combat bonus								Save bonus															Modify VAR
+CLASS:Animal	HD:8		TYPE:Monster	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|NativeLanguage|-1
+# Class Name	Reg. Race Type
+CLASS:Animal	PRERACETYPE:Animal
+# Class Name	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Animal	MODTOSKILLS:NO			MONSKILL:10
+
+###Block: Acolyte --------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus							Add domain number		Save bonus															Modify VAR																	FACT
+CLASS:Acolyte	HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.93	DEFINE:AcolyteLVL|0	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/2+2	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:VAR|ClassDefense|(AcolyteLVL+1)/2	BONUS:VAR|Reputation|(AcolyteLVL+5)/3	BONUS:VAR|AcolyteLVL|CL	FACT:Abb|Aclyt	FACT:SpellType|Divine
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Expression)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Occult Sciences)|Knowledge (Theology and Philosophy)|Knowledge (The Planes)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Speak Language|Treat Injury
+# Class Name	Spell Stat		Automatically Known Spell Levels					Caster level			Use Spell List
+CLASS:Acolyte	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Acolyte|CL	SPELLLIST:2|Acolyte|Divine
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Starting Level
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+###Block: Turning
+2	BONUS:ABILITYPOOL|Undead Turning|1	BONUS:VAR|TurnTimesBase|3+CHA	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Acolyte Talent|(AcolyteLVL+1)/2
+4	BONUS:ABILITYPOOL|Acolyte Feat|1+(AcolyteLVL>5)+(AcolyteLVL>9)
+###Block:
+8	ABILITY:Special Ability|AUTOMATIC|Medical Mastery
+10	ABILITY:Special Ability|AUTOMATIC|Combat Casting
+###Block: Divine Caster Progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+21	CAST:6,5,5,5,5,5,4,4,4,4
+22	CAST:6,5,5,5,5,5,4,4,4,4
+23	CAST:6,5,5,5,5,5,4,4,4,4
+24	CAST:6,5,5,5,5,5,4,4,4,4
+25	CAST:6,5,5,5,5,5,4,4,4,4
+26	CAST:6,5,5,5,5,5,4,4,4,4
+27	CAST:6,5,5,5,5,5,4,4,4,4
+28	CAST:6,5,5,5,5,5,4,4,4,4
+29	CAST:6,5,5,5,5,5,4,4,4,4
+30	CAST:6,5,5,5,5,5,4,4,4,4
+
+
+###Block: Apprentice ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																	FACT
+CLASS:Apprentice	HD:6		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.95	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Will|1+(CL>1)+(CL>4)+(CL>6)+(CL>9)	FACT:Abb|Appr	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Apprentice	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Expression)|Decipher Script|TYPE=OperateVehicle|Escape Artist|Forgery|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Device
+# Class Name	Caster level
+CLASS:Apprentice	BONUS:CASTERLEVEL|Aprentice|CL
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Apprentice Talent|(CL+1)/2								ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2									BONUS:VAR|ClassDefense|1+(CL>5)+(CL>7)	ABILITY:FEAT|AUTOMATIC|Scribe Scroll
+3									BONUS:VAR|Reputation|CL/3
+4	BONUS:ABILITYPOOL|Apprentice Feat|(CL-2)/2
+7																ABILITY:Special Ability|AUTOMATIC|Combat Casting
+###Block: Arcane Caster Progression
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,6
+21	CAST:6,6,6,6,6,6,6,6,6,6
+22	CAST:6,6,6,6,6,6,6,6,6,6
+23	CAST:6,6,6,6,6,6,6,6,6,6
+24	CAST:6,6,6,6,6,6,6,6,6,6
+25	CAST:6,6,6,6,6,6,6,6,6,6
+26	CAST:6,6,6,6,6,6,6,6,6,6
+27	CAST:6,6,6,6,6,6,6,6,6,6
+28	CAST:6,6,6,6,6,6,6,6,6,6
+29	CAST:6,6,6,6,6,6,6,6,6,6
+30	CAST:6,6,6,6,6,6,6,6,6,6
+
+
+###Block: Everyman ----------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus									Save bonus															FACT
+CLASS:Everyman	HD:6		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:COMBAT|BASEAB|(((classlevel()+2)*2)/3)-2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Will|(classlevel()+4)/2	FACT:Abb|Evm
+# Class Name	Skill Pts/Lvl
+CLASS:Everyman	STARTSKILLPTS:5
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Everyman Talent|CL+1/2	BONUS:ABILITYPOOL|Everyman Class Skills|10
+2	BONUS:ABILITYPOOL|Everyman Feat|CL/2
+3																BONUS:VAR|ClassDefense,Reputation|1
+6																BONUS:VAR|ClassDefense,Reputation|1
+8																BONUS:VAR|ClassDefense|1
+9																BONUS:VAR|Reputation|1
+
+
+###Block: Explorer ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus															Modify VAR										FACT
+CLASS:Explorer	HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	FACT:Abb|Explr
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Athletics|Concentration|TYPE=Craft|Handle Animal|Treat Injury|Knowledge (Dungeoneering)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Notice|TYPE=OperateVehicle|Persuasion|Profession|Ride|Search|Stealth|Survival
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Explorer Talent|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Pathfinder
+2	BONUS:ABILITYPOOL|Favored Terrain|1
+4									ABILITY:Special Ability|AUTOMATIC|By the Bootstraps
+6	BONUS:ABILITYPOOL|Favored Terrain|1
+8									ABILITY:Special Ability|AUTOMATIC|Heroic Surge
+
+
+###Block: Gunslinger ------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus															Modify VAR										FACT
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	FACT:Abb|Gunsl
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Streetwise)|Notice|TYPE=OperateVehicle|Persuasion|Profession|Read/Write Language|Ride|Sleight of Hand|Stealth|Speak Language|Survival
+# |Knowledge (Popular Culture)
+
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Gunslinger Talent|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
+2	BONUS:ABILITYPOOL|Gunslinger Weapon Focus|1
+4									ABILITY:Special Ability|AUTOMATIC|Defensive Position
+5									ABILITY:Special Ability|AUTOMATIC|Lightning Shot
+6									ABILITY:Special Ability|AUTOMATIC|Sharp-Shooting
+8									ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus
+10									ABILITY:Special Ability|AUTOMATIC|Bullseye
+
+
+###Block: Inventor ---------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus															Modify VAR										FACT
+CLASS:Inventor	HD:6		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	FACT:Abb|Ivt
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Inventor	STARTSKILLPTS:6	CSKILL:Benchthumping|Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Deception|Decipher Script|Demolitions|Disable Device|Operate Vehicle (Ground Vehicles)|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|Profession|Read/Write Language|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Inventor Talent|(CL+1)/2
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Weird Science
+2	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Feat grab
+4	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Jack of All Trades
+10	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Exemplar
+
+###Block: Investigator ---------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus															Modify VAR										FACT
+CLASS:Investigator	HD:6		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel()-(InvestigatorLVL>=2)|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|(classlevel()+4)/2	BONUS:VAR|ClassDefense|(CL+2)/3	BONUS:VAR|Reputation|(CL-1)/2	FACT:Abb|Ivs
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Investigator	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Deception|Disable Device|Forgery|Gather Information|Persuasion|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Notice|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Investigator Talent|(CL+1)/2	BONUS:VAR|LogicalInvestigatorBonus|CL/2
+2																ABILITY:Special Ability|AUTOMATIC|Eye for Detail
+3
+4	BONUS:ABILITYPOOL|Investigator Feat|1
+6	BONUS:ABILITYPOOL|Investigator Feat|1
+7
+8																ABILITY:Special Ability|AUTOMATIC|Discern Lies
+9
+10	BONUS:ABILITYPOOL|Investigator Feat|1
+
+
+###Block: Martial Artist ----------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus								Save bonus															Modify VAR															FACT
+CLASS:Martial Artist	HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.108	DEFINE:MartialArtistLVL|0	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:VAR|ClassDefense|MartialArtistLVL/2	BONUS:VAR|Reputation|0	BONUS:VAR|MartialArtistLVL|CL	FACT:Abb|MrArt
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|Athletics|Knowledge (Current Events)|Knowledge (Theology and Philosophy)|Notice|Persuasion|Perform (Dance)|Profession|Read/Write Language|Stealth|Speak Language|Knowledge (Popular Culture)
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Martial Artist Talent|(MartialArtistLVL+1)/2
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Living Weapon
+2	ABILITY:Special Ability|AUTOMATIC|Fast Movement
+4	ABILITY:Special Ability|AUTOMATIC|Stunning Attack
+8	ABILITY:Special Ability|AUTOMATIC|Evade Fire
+
+###Block: Officer ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus							Save bonus															Modify VAR																	FACT
+CLASS:Officer	HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.111	DEFINE:OfficerLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(OfficerLVL+1)/2	BONUS:VAR|Reputation|(OfficerLVL+2)/3	BONUS:VAR|OfficerLVL|CL	FACT:Abb|Offcr
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Events)|Knowledge (History)|Knowledge (Military Science)|Notice|Navigate|TYPE=OperateVehicle|Persuasion|Profession|Read/Write Language|Speak Language|Survival
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Archaic Weapons Proficiency|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Officer Talent|1+(OfficerLVL>4)+(OfficerLVL>6)+(OfficerLVL>8)
+2	BONUS:ABILITYPOOL|Officer Feat|1+(OfficerLVL>3)+(OfficerLVL>5)+(OfficerLVL>7)
+###Block:
+3	ABILITY:Special Ability|AUTOMATIC|Rallying Call
+6	ABILITY:Special Ability|AUTOMATIC|Way of Command
+8	ABILITY:Special Ability|AUTOMATIC|Branch Elite
+10	ABILITY:Special Ability|AUTOMATIC|Legendary Speech
+
+###Block: Rogue ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																	Modify VAR										FACT
+CLASS:Personality	HD:6		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.113	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|1+(CL>1)+(CL>4)+(CL>6)+(CL>9)	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3	FACT:Abb|Per
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Personality	STARTSKILLPTS:8	CSKILL:Craft (Expression)|Deception|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Vaudeville)|Persuasion|Profession|Read/Write Language|Speak Language|Knowledge (Popular Culture)
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Personality Talent|(CL+1)/2
+4	BONUS:ABILITYPOOL|Personality Feat|CL-1/3
+###Block:
+2	ABILITY:Special Ability|AUTOMATIC|Personality ~ Unlimited Access
+3	ABILITY:Special Ability|AUTOMATIC|Personality ~ Bonus Class Skills
+4	ABILITY:Special Ability|AUTOMATIC|Personality ~ Bonus Feats
+5	ABILITY:Special Ability|AUTOMATIC|Personality ~ Royalty
+6	ABILITY:Special Ability|AUTOMATIC|Personality ~ Winning Smile
+
+
+###Block: Rogue ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																				Modify VAR										FACT
+CLASS:Rogue		HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|(classlevel()+3)*2/5	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|ClassDefense|(CL+6)/2	BONUS:VAR|Reputation|CL/3	FACT:Abb|Rogue
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Deception|Escape Artist|Forgery|Gather Information|Knowledge (Current Events)|Knowledge (Streetwise)|Navigate|Notice|TYPE=OperateVehicle|Persuasion|TYPE=Perform|Profession|Read/Write Language|Ride|Sleight of Hand|Search|Stealth|Speak Language|Survival|Use Device|Knowledge (Popular Culture)
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2	BONUS:SITUATION|Notice=Locate Traps|CL/2	BONUS:SKILL|Disable Device|CL/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding
+2																										ABILITY:Special Ability|AUTOMATIC|Evasion
+3																					BONUS:VAR|TrapSenseBonus|CL/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
+4	BONUS:ABILITYPOOL|Rogue Feat|CL/4																				ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+7																										ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
+
+###Block: Scholar ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus															Modify VAR										FACT
+CLASS:Scholar	HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel()+4)/3	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3	FACT:Abb|Schlr
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scholar	STARTSKILLPTS:6	CSKILL:Craft (Chemical)|Craft (Expression)|Craft (Mechanical)|Craft (Chemical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|TYPE=OperateVehicle|Profession|Read/Write Language|Research|Search|Speak Language|Treat Injury
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Scholar Talent|(CL+1)/2	BONUS:ABILITYPOOL|Educated|1
+2	BONUS:ABILITYPOOL|Scholar Feat|1
+4	BONUS:ABILITYPOOL|Scholar Feat|1
+6													ABILITY:Special Ability|AUTOMATIC|Legendary Knowledge
+8	BONUS:ABILITYPOOL|Scholar Feat|1
+
+###Block: Sensitive ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																						Save bonus																Modify VAR															FACT
+CLASS:Sensitive	HD:8		TYPE:Base.PC	MAXLEVEL:10	SOURCEPAGE:p.117	DEFINE:SensitiveLVL|0	BONUS:COMBAT|BASEAB|(SensitiveLVL>1)+(SensitiveLVL>1)+(SensitiveLVL>2)+(SensitiveLVL>3)+(SensitiveLVL>4)+(SensitiveLVL>6)+(SensitiveLVL>8)	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel()-1/2	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|SensitiveLVL|CL	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3	FACT:Abb|Sen
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sensitive	STARTSKILLPTS:7	CSKILL:Craft (Expression)|Deception|Handle Animal|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (psychic)|Knowledge (Streetwise)|Knowledge (Theology and Philosophy)|Knowledge (nobility and royalty)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	ABILITY:Special Ability|AUTOMATIC|Sensitive ~ Intuition
+1	ABILITY:Special Ability|AUTOMATIC|Sensitive ~ Psychic Powers
+1	ABILITY:Special Ability|AUTOMATIC|Sensitive ~ Talent
+2	ABILITY:Special Ability|AUTOMATIC|Sensitive ~ Bonus Feat
+
+###Block: ADVANCED CHARACTER CLASSES
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define		Combat bonus														Save bonus																			Modify VAR
+CLASS:Agent		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.121	DEFINE:AgentLVL|0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|AgentLVL|CL	BONUS:VAR|ClassDefense|1+(AgentLCL>=2)+(AgentLCL>=4)+(AgentLCL>=5)+(AgentLCL>=7)+(AgentLCL>=8)+(AgentLCL>=9)	BONUS:VAR|Reputation|(AgentLVL>4)+(AgentLCL>8)	BONUS:VAR|ClassBABModerate|classlevel()|PREVAREQ:UseFractionalBAB,1
+# Class Name	Required Skill					Required Stat		Required Text																																PRETOTALAB
+CLASS:Agent		PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Ability Score: Int 13 or higher, Cha 11 or higher Base Attack Bonus: +2 Allegiance: Must have at least one allegiance to a specific organization Skills: Speak Language 1 rank, Research 1 rank	PRETOTALAB:2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Agent		STARTSKILLPTS:4	CSKILL:Athletics|Concentration|Decipher Script|Demolitions|Disable Device|Deception|Forgery|Gather Information|Investigate|Knowledge (Civics)|Notice|TYPE=Operate Vehicle|Persuasion|Profession|Read/Write Language|Repair|Research|Search|Sense Motive|Stealth|Speak Language|Treat Injury
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Agent ~ Jurisdiction
+2	ABILITY:Special Ability|AUTOMATIC|Agent ~ Big Brother
+3	ABILITY:Special Ability|AUTOMATIC|Agent ~ Bonus Feats
+4	ABILITY:Special Ability|AUTOMATIC|Agent ~ Only the Best
+5	ABILITY:Special Ability|AUTOMATIC|Agent ~ Signature Kit
+7	ABILITY:Special Ability|AUTOMATIC|Agent ~ Team Effort
+9	ABILITY:Special Ability|AUTOMATIC|Agent ~ Safe House
+
+# Magician
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus							Save bonus																				Modify VAR
+CLASS:Magician	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.122	DEFINE:MagicianLVL|0	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3+1	BONUS:VAR|MagicianLVL|CL
+# Class Name	Required Skill													Required Text
+CLASS:Magician	PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Occult Sciences)=6,Research=6	PRETEXT:Skills: Craft (chemical) 6 ranks, Decipher Script 6 ranks, Knowledge (occult sciences) 6 ranks, Research 6 ranks.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Magician	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Chemical)|Craft (Expression)|Decipher Script|Investigate|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Occult Sciences)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Knowledge (Popular Culture)
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+4	ABILITY:Special Ability|AUTOMATIC|Magician ~ Scribe Tattoo
+5	ABILITY:Special Ability|AUTOMATIC|Magician ~ Spell Mastery
+7	ABILITY:Special Ability|AUTOMATIC|Magician ~ Combat Casting
+10	ABILITY:Special Ability|AUTOMATIC|Magician ~ Maximize Spells
+
+# News Hound - Greater Intuition level grant missing
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus							Save bonus																				Modify VAR
+CLASS:News Hound	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.123	DEFINE:NewsHoundLVL|0	BONUS:COMBAT|BASEAB|classlevel()/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()+1/3+1	BONUS:VAR|ClassDefense|(CL-1)/2+1	BONUS:VAR|Reputation|(CL-1)/3+1	BONUS:VAR|NewsHoundLVL|CL
+# Class Name	Required Skill								Required Stat		Required Text
+CLASS:News Hound	PRESKILL:3,Decpetion=8,Persuasion=8,Gather Information=8	PRESTAT:2,INT=12,CHA=13	PRETEXT:Abilities: Intelligence 12, Charisma 13  Skill: Deception 8 ranks, Persuasion 8 Ranks, Gather Information 8 ranks.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Athletics|Acrobatics|Craft (Expression)|Concentration|Deception|Gather Information|Stealth|TYPE=Knowledge|Notice|Persuasion|Profession|Research|Read/Write Language|Speak Language|Survival
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Information Gathering
+1	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Journalistic Sense
+5	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Calm Under Pressure
+7	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Sex Appeal
+5	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Intuition
+8	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Memory for Facts
+3	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Bonus Feats
+4	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Contact
+9	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Greater Intuition
+9	ABILITY:Special Ability|AUTOMATIC|News Hound ~ Language Training
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define							Combat bonus							Save bonus																					Modify VAR
+CLASS:Priest	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.125	DEFINE:PriestLVL|0	DEFINE:PriestLVL|0	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|PriestLVL|classlevel()	BONUS:VAR|PriestLVL|CL
+# Class Name	Req. Spell Type		Required Text
+CLASS:Priest	PRESPELLTYPE:1,Divine=1	PRETEXT:Spells: You must have the ability to cast divine spells.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Priest	STARTSKILLPTS:6	CSKILL:Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Deception|Decipher Script|Demolitions|Disable Device|Operate Vehicle (Ground Vehicles)|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|Profession|Read/Write Language|Speak Language
+1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Priest ~ Bonus Languages
+4	ABILITY:Special Ability|AUTOMATIC|Priest ~ Lore
+1	ABILITY:Special Ability|AUTOMATIC|Priest ~ Inspiring Presence
+6	ABILITY:Special Ability|AUTOMATIC|Priest ~ Channeled Shield Wall
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Define			Combat bonus								Save bonus																															Modify VAR
+CLASS:Relic Hunter	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.126	DEFINE:RelicHunterLVL|0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|1+(RelicHunterLVL>=2)+(RelicHunterLVL>=5)+(RelicHunterLVL>=7)+(RelicHunterLVL>=10)	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|RelicHunterLVL|CL
+# Class Name		Required Skill																Required Text
+CLASS:Relic Hunter	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:1,Craft (Mechanical)=8,Craft (Structural)=8	PRESKILL:1,Repair=8	PRETEXT:Skills: Knowledge (any) 8 ranks, Repair 8 ranks, Craft (mechanical or structural) 8 ranks
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Relic Hunter	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Decipher Script|Disable Device|Escape Artist|Knowledge (Occult Sciences)|Knowledge (History)|Navigate|Notice|Research|Ride|Search|Stealth|Survival
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Evasion
+2	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Improvised Tools
+3	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Uncanny Dodge
+4	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Improvised Weapons
+6	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Bonus Feats
+9	ABILITY:Special Ability|AUTOMATIC|Relic Hunter ~ Miraculous
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus							Save bonus																																Modify VAR
+CLASS:Sewer Rat	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.127	DEFINE:SewerRatLVL|0	BONUS:COMBAT|BASEAB|classlevel()-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|1+(SewerRatLVL>=2)+(SewerRatLVL>=3)+(SewerRatLVL>=6)+(SewerRatLVL>=7)+(SewerRatLVL>=8)	BONUS:SAVE|BASE.Will|classlevel()-1/3+1	BONUS:VAR|ClassDefense|(CL/2)+3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|SewerRatLVL|CL
+# Class Name	Required Text
+CLASS:Sewer Rat	PRETEXT:Base Attack Bonus: +2 or higher. Class and Level: At least 3 levels in Rogue. Skills: Athletics 6 ranks. Special: The sewer rat must be familiar with the sewer system of a large city. The class features listed applies only to that city. The prestige class may not be taken twice, specifying two cities; the sewer rat may only be familiar with one.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sewer Rat	STARTSKILLPTS:8	CSKILL:Acrobatics|Athletics|Deception|Decipher Script|Disable Device|Escape Artist|Gather Information|Notice|Stealth|Search|Sleight of Hand|Knowledge (Streetwise)
+###Block
+2	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ Disease Resistance
+1	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ Scavenge
+3	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ Home Ground
+4	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ From Beneath
+5	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ Sneak Attack
+6	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ Disease Carrier
+9	ABILITY:Special Ability|AUTOMATIC|Sewer Rat ~ Vermin Fighter
+
+###Block: PRESTIGE CLASSES
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus							Save bonus																				Modify VAR
+CLASS:Archmage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.129	DEFINE:ArchmageLVL|0	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL-1)/2+1	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|ArchmageLVL|CL
+# Class Name	Required Skill								Req. Spell Type		Required Text
+CLASS:Archmage	PRESKILL:2,Knowledge (Occult Sciences)=12,Concentration=12	PRESPELLTYPE:1,Arcane=1	PRETEXT:Skills: Knowledge (Occult Sciences) 12 ranks, Concentration 12 ranks. Special: Ability to cast arcane spells.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Archmage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Chemical)|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Occult Sciences)|Knowledge (Physical Sciences)|Knowledge (Streetwise)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Repair|Research|Speak Language|Knowledge (Popular Culture)
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Total Spellcasting
+1	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Increased Spells/Day
+5	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Gifted Incantations
+9	ABILITY:Special Ability|AUTOMATIC|Archmage ~ Granted Incantations
+2	ABILITY:Special Ability|AUTOMATIC|Archmage ~ High Arcana
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus							Save bonus																			Modify VAR
+CLASS:Dog Man	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.131	DEFINE:DogManLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1/3)+2	BONUS:VAR|DogManLVL|CL
+# Class Name	Required Ability										Required Skill									Required Text																										PRETOTALAB
+CLASS:Dog Man	PREABILITY:4,CATEGORY=FEAT,Alertness,Track,Quickdraw,Point Blank Shot	PRESKILL:4,Gather Information=5,Persuasion=5,Sneak=4,Notice=4	PRETEXT:Feats: Alertness, Track, Quickdraw, Point Blank Shot  Skills: Gather Information 5 ranks, Persuasion 5 ranks, Sneak 4 ranks, Notice 4 ranks. Base Attack: +6.	PRETOTALAB:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dog Man	STARTSKILLPTS:6	CSKILL:Athletics|TYPE=Craft|Demolitions|Deception|Forgery|Gather Information|Persuasion|TYPE=Knowledge|Notice|Stealth|TYPE=Operate Vehicle|Profession|Repair|Search|Sense Motive
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Relentless
+1	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Streetwise
+2	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Evasion
+2	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Uncanny Dodge
+3	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Fast Tracking
+3	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Precise Strike
+4	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Improved Subdual
+7	ABILITY:Special Ability|AUTOMATIC|Dog Man ~ Infamy
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus							Save bonus																				Modify VAR
+CLASS:Ecclesiarch	HD:8		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.132	DEFINE:EcclesiarchLVL|0	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1/3)+2	BONUS:VAR|EcclesiarchLVL|CL
+# Class Name	Required Ability							Required Skill															Req. Spell Type		Required Text
+CLASS:Ecclesiarch	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PRESKILL:3,Knowledge (Occult Sciences)=10,Knowledge (Theology and Philosophy)=10,Concentration=8	PRESPELLTYPE:1,Divine=1	PRETEXT:Skills: Knowledge (Occult Sciences) 10 ranks, Knowledge (theology and philosophy) 10 ranks, Concentration 8 ranks. Special: Ability to cast divine spells, ability to turn a particular creature type.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ecclesiarch	STARTSKILLPTS:5	CSKILL:Concentration|Craft (Chemical)|Craft (Mechanical)|Craft (Expression)|Decipher Script|Gather Information|Investigate|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Occult Sciences)|Knowledge (Theology and Philosophy)|Notice|TYPE=Perform|Persuasion|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Survival|Treat Injury
+# |Knowledge (Popular Culture)
+1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Total Spellcasting
+2	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Increased Spells/Day
+10	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Stalwart
+4	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Stern Gaze
+7	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Determination
+3	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Total Turning
+5	ABILITY:Special Ability|AUTOMATIC|Ecclesiarch ~ Innovative Turning
+
+# Knight of the Fey
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																Save bonus																																																Modify VAR																																																																		FACT
+CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.00	DEFINE:KnightofTheFeyLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|KnightofTheFeyLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|KoF	FACT:ClassType|PC
+# Class Name		Required Ability															Required Skill													Required Text																																						PRETOTALAB
+CLASS:Knight of the Fey	PREABILITY:5,CATEGORY=FEAT,Heavy Armor Proficiency,Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:4,Influence=4,Knowledge (Nature)=5,Knowledge (Nobility and Royalty)=5,Ride=4	PRETEXT:Base Attack Bonus: +4; Race: Fey; Skills: Influence 4 ranks, Knowledge (Nature) 5 ranks, Knowledge (Nobility and Royalty) 5 ranks, Ride 4 rank; Feats: Heavy Armor Proficiency, Power Attack, Cleave, Great Cleave, Mounted Combat	PRETOTALAB:4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Notice|Persuasion|Knowledge (Nature)|Knowledge (nobility and royalty)|Ride
+###Block	ABILITY:Knight of the Fey Class Feature|AUTOMATIC|
+1	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Blind-fight
+1	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Shining Beacon
+2	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Lucky Hit
+3	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Luck of the Fey
+5	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Call Knight of the Fey
+7	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Luck of the True Fey
+10	ABILITY:Special Ability|AUTOMATIC|Knight of the Fey ~ Destined
+
+
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus							Save bonus																				Modify VAR
+CLASS:Paladin	HD:6		TYPE:Base.PC.Prestige.Monster	MAXLEVEL:10	SOURCEPAGE:p.133	DEFINE:PaladinLVL|0	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|if(PaladinLVL==3,2,0)+(PaladinLVL>=5)+(PaladinLVL>=9)	BONUS:VAR|PaladinLVL|CL
+# Class Name	Required Ability														Required Skill													Req. Known Spell							Req. Spell Type		Required Text																																																																																																				PRETOTALAB
+CLASS:Paladin	PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PRESKILL:3,Knowledge (Theology and Religion)=8,Knowledge (Nobility and Royalty)=8,Ride=8	PRESPELL:1,Protection from Good,Protection from Evil	PRESPELLTYPE:1,Divine=1	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (theology and religion) 8 ranks, Knowledge (nobility and royalty) 8 ranks, Ride 8 ranks.  Feats: Mounted Combat.  Spellcasting: Ability to cast protection from good/evil as a divine spell.  Special: Ability to turn undead.  Other: At the time that the character receives his 1st level in the Paladin prestige class, he must decide whether his faith leans toward the positive (good) or negative (evil) energy of the universe. This choice adds either the good or evil allegiance to the character, and determines how the Paladin uses certain aspects of his faith.	PRETOTALAB:4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (nobility and royalty)|Persuasion|Profession|Ride|Sense Motive|Treat Injury|Knowledge (Theology and Philosophy)
+1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Spells per Day
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Sense Allegiance
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Smite Allegiance
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Turn Undead
+2	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Grace
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Special Mount
+3	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Courage
+3	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health
+4	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Remove Disease
+
+#
+# End
+#

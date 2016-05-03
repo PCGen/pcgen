@@ -43,3 +43,5 @@ Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games
 Mite from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
 
 Pathfinder Roleplaying Game Pathfinder Unchained Copyright 2015, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Ross Beyers, Logan Bonner, Jason Bulmahn, Robert Emerson, Tim Hitchcock, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Robert Schwalb, Mark Seifter, and Russ Taylor.
+
+PCGen dataset conversion for "Pathfinder RPG Pathfinder Unchained" Copyright 2015, PCGen Data team (Including, but not limited to Stefan Radermacher, and Andrew Maitland).

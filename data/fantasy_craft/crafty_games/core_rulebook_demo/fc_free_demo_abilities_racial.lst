@@ -1,40 +1,40 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
 
 
 #Block: Drake ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name				Unique Key						SORTKEY		Category of Ability		Type							Visible	Define																											Description																						Stackable?	Multiple?	Choose		Template				Move		Virtual Feat		Ability																				Bonus Ability Pool					Modify VAR																											Source Page		Natural Attacks							Aspects
-Drake Racial				KEY:Drake Racial					SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																				SOURCEPAGE:p.9
-Breath Weapon				KEY:Breath Weapon ~ Drake			SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialAttack						DEFINE:DrakeBreathWeaponDice|0	DEFINE:DrakeBreathWeaponSize|0	DEFINE:DrakeBreathWeaponBonus|0	DEFINE:DrakeBreathWeaponDC|0	DEFINE:DrakeSpeciesFeat|0	DESC:%1d%2+%3, DC %4|DrakeBreathWeaponDice|DrakeBreathWeaponSize|DrakeBreathWeaponBonus|DrakeBreathWeaponDC|PREVAREQ:DisplayVersion,0																																																BONUS:VAR|DrakeBreathWeaponDC|10+CON+DrakeSpeciesFeat	BONUS:VAR|DrakeBreathWeaponDice|2	BONUS:VAR|DrakeBreathWeaponSize|6	BONUS:VAR|DrakeBreathWeaponBonus|CON	SOURCEPAGE:p.9
-Inquisitive Mind				KEY:Inquisitive Mind				SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																BONUS:ABILITYPOOL|Interests|2																																SOURCEPAGE:p.12
-Natural Attack				KEY:Natural Attack ~ Drake			SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialAttack																																																																																																								BONUS:VAR|BiteGrade|1	BONUS:VAR|ClawGrade|1	BONUS:VAR|ClawAttacks|1																	SOURCEPAGE:p.12
-Reviled					KEY:Reviled ~ Drake				SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																				SOURCEPAGE:p.12
-Winged Flight				KEY:Winged Flight					SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																					MOVE:Fly,40																																																														SOURCEPAGE:p.12
+# Ability Name				Unique Key						SORTKEY		Category of Ability		Type							Visible	Define																											Description																						Stackable?	Multiple?	Choose		Template				Move		Ability																				Bonus Ability Pool					Modify VAR																											Source Page		Natural Attacks							Aspects
+Drake Racial				KEY:Drake Racial					SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																SOURCEPAGE:p.9
+Breath Weapon				KEY:Breath Weapon ~ Drake			SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialAttack						DEFINE:DrakeBreathWeaponDice|0	DEFINE:DrakeBreathWeaponSize|0	DEFINE:DrakeBreathWeaponBonus|0	DEFINE:DrakeBreathWeaponDC|0	DEFINE:DrakeSpeciesFeat|0	DESC:%1d%2+%3, DC %4|DrakeBreathWeaponDice|DrakeBreathWeaponSize|DrakeBreathWeaponBonus|DrakeBreathWeaponDC|PREVAREQ:DisplayVersion,0																																												BONUS:VAR|DrakeBreathWeaponDC|10+CON+DrakeSpeciesFeat	BONUS:VAR|DrakeBreathWeaponDice|2	BONUS:VAR|DrakeBreathWeaponSize|6	BONUS:VAR|DrakeBreathWeaponBonus|CON	SOURCEPAGE:p.9
+Inquisitive Mind				KEY:Inquisitive Mind				SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																												BONUS:ABILITYPOOL|Interests|2																																SOURCEPAGE:p.12
+Natural Attack				KEY:Natural Attack ~ Drake			SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialAttack																																																																																																				BONUS:VAR|BiteGrade|1	BONUS:VAR|ClawGrade|1	BONUS:VAR|ClawAttacks|1																	SOURCEPAGE:p.12
+Reviled					KEY:Reviled ~ Drake				SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																SOURCEPAGE:p.12
+Winged Flight				KEY:Winged Flight					SORTKEY:1-Racial	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																					MOVE:Fly,40																																																										SOURCEPAGE:p.12
 
 
 #Block: Dwarf ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Enlightened Crafting			KEY:Enlightened Crafting							CATEGORY:Special Ability	TYPE:SpecialQuality
 Iron Gut					KEY:Iron Gut								CATEGORY:Special Ability	TYPE:SpecialQuality
-Restricted Actions			KEY:Restricted Actions ~ Dwarf					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																											ABILITY:Special Ability|AUTOMATIC|Restricted Actions (Jump)|Restricted Actions (Kick Attacks)|Restricted Actions (Swim)
+Restricted Actions			KEY:Restricted Actions ~ Dwarf					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																							ABILITY:Special Ability|AUTOMATIC|Restricted Actions (Jump)|Restricted Actions (Kick Attacks)|Restricted Actions (Swim)
 #
-Restricted Actions (Kick Attacks)											CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus.SaveBonus																																																																																																																																													ASPECT:SkillBonus|Restricted Actions (Kick Attacks)
-Restricted Actions (Jump)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Jump)
-Restricted Actions (Swim)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Swim)
+Restricted Actions (Kick Attacks)											CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus.SaveBonus																																																																																																																																									ASPECT:SkillBonus|Restricted Actions (Kick Attacks)
+Restricted Actions (Jump)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Jump)
+Restricted Actions (Swim)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Swim)
 
 
 #Block: Elf ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Aloof						KEY:Aloof									CATEGORY:Special Ability	TYPE:SpecialQuality
 Burden of Ages				KEY:Burden of Ages							CATEGORY:Special Ability	TYPE:SpecialQuality
 Keen Sight					KEY:Keen Sight								CATEGORY:Special Ability	TYPE:SpecialQuality
-Natural Elegance				KEY:Natural Elegance							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																								BONUS:VAR|AppearanceBonus|1
+Natural Elegance				KEY:Natural Elegance							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																				BONUS:VAR|AppearanceBonus|1
 Sharp Hearing				KEY:Sharp Hearing								CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 #Block: Giant ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Natural Attack				KEY:Natural Attack ~ Giant						CATEGORY:Special Ability	TYPE:SpecialAttack																																																																											ABILITY:Internal|AUTOMATIC|Trample 1|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Natural Attack
-Trample 1															CATEGORY:Internal																																																																																																																																													NATURALATTACKS:Trample,Natural.Weapon.Melee,*1,1d8
+Natural Attack				KEY:Natural Attack ~ Giant						CATEGORY:Special Ability	TYPE:SpecialAttack																																																																							ABILITY:Internal|AUTOMATIC|Trample 1|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Natural Attack
+Trample 1															CATEGORY:Internal																																																																																																																																									NATURALATTACKS:Trample,Natural.Weapon.Melee,*1,1d8
 Sterner Stuff				KEY:Sterner Stuff								CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
@@ -44,18 +44,18 @@ Tenacious Spirit				KEY:Tenacious Spirit							CATEGORY:Special Ability	TYPE:Spe
 
 
 #Block: Human ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Talent					KEY:Talent ~ Human							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																BONUS:ABILITYPOOL|Talent|1
+Talent					KEY:Talent ~ Human							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																												BONUS:ABILITYPOOL|Talent|1
 
 
 #Block: Ogre ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Enlightened Athletics			KEY:Enlightened Athletics							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																																																																																																																												BONUS:VAR|MaxRankAthletics|2|TYPE=Enlightened
 No Pain					KEY:No Pain									CATEGORY:Special Ability	TYPE:SpecialQuality
 Reviled					KEY:Reviled ~ Ogre							CATEGORY:Special Ability	TYPE:SpecialQuality
-Restricted Actions			KEY:Restricted Actions ~ Ogre						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																											ABILITY:Special Ability|AUTOMATIC|Restricted Actions (Influence)|Restricted Actions (Outmaneuver)|Restricted Actions (Tumble)
+Restricted Actions			KEY:Restricted Actions ~ Ogre						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																							ABILITY:Special Ability|AUTOMATIC|Restricted Actions (Influence)|Restricted Actions (Outmaneuver)|Restricted Actions (Tumble)
 #
-Restricted Actions (Influence)											CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Influence)
-Restricted Actions (Outmaneuver)											CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Outmaneuver)
-Restricted Actions (Tumble)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Tumble)
+Restricted Actions (Influence)											CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Influence)
+Restricted Actions (Outmaneuver)											CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Outmaneuver)
+Restricted Actions (Tumble)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Tumble)
 Unbreakable					KEY:Unbreakable								CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
@@ -63,10 +63,10 @@ Unbreakable					KEY:Unbreakable								CATEGORY:Special Ability	TYPE:SpecialQual
 Always Ready				KEY:Always Ready								CATEGORY:Special Ability	TYPE:SpecialQuality
 #Enlightened Intimidate			KEY:Enlightened Intimidate							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																																																																																																																												BONUS:VAR|MaxRankIntimidate|2|TYPE=Enlightened
 Grueling Combatant			KEY:Grueling Combatant							CATEGORY:Special Ability	TYPE:SpecialQuality
-Restricted Actions			KEY:Restricted Actions ~ Orc						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																											ABILITY:Special Ability|AUTOMATIC|Restricted Actions (Calm)|Restricted Actions (Decipher)|Restricted Actions (Influence)
+Restricted Actions			KEY:Restricted Actions ~ Orc						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																							ABILITY:Special Ability|AUTOMATIC|Restricted Actions (Calm)|Restricted Actions (Decipher)|Restricted Actions (Influence)
 #
-Restricted Actions (Calm)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Calm)
-Restricted Actions (Decipher)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																														ASPECT:SkillBonus|Restricted Actions (Decipher)
+Restricted Actions (Calm)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Calm)
+Restricted Actions (Decipher)												CATEGORY:Special Ability	TYPE:SpecialQuality.SkillBonus																																																																																																																																										ASPECT:SkillBonus|Restricted Actions (Decipher)
 #Restricted Actions (Influence)												CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
@@ -79,43 +79,43 @@ Hearty Appetite				KEY:Hearty Appetite							CATEGORY:Special Ability	TYPE:Speci
 Achilles Heel (Fire)			KEY:Achilles Heel (Fire)						CATEGORY:Special Ability	TYPE:SpecialQuality
 Bleeding Immunity				KEY:Bleeding Immunity							CATEGORY:Special Ability	TYPE:SpecialQuality
 Lean Season					KEY:Lean Season ~ Rootwalker						CATEGORY:Special Ability	TYPE:SpecialQuality
-Natural Camouflage			KEY:Natural Camouflage ~ Rootwalker					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																BONUS:ABILITYPOOL|Natural Camouflage Choice|1
+Natural Camouflage			KEY:Natural Camouflage ~ Rootwalker					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																												BONUS:ABILITYPOOL|Natural Camouflage Choice|1
 #
 Natural Camouflage / Forest/Jungle	KEY:Natural Camouflage ~ Forest Jungle				CATEGORY:Special Ability	TYPE:NaturalCamouflageChoice
 Natural Camouflage / Swamp		KEY:Natural Camouflage ~ Swamp					CATEGORY:Special Ability	TYPE:NaturalCamouflageChoice
 
 
 #Block: Saurian ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Natural Attack				KEY:Natural Attack ~ Saurian						CATEGORY:Special Ability																																																																															ABILITY:Internal|AUTOMATIC|Bite 1|Tail Slap 1|PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalAttack												BONUS:VAR|Bite|1	BONUS:VAR|Tail|1
-Bite 1															CATEGORY:Internal																																																																																																																																													NATURALATTACKS:Bite,Natural.Weapon.Melee,*1,1d8
-Tail Slap 1															CATEGORY:Internal																																																																																																																																													NATURALATTACKS:Tail Slap,Natural.Weapon.Melee,*1,1d8
+Natural Attack				KEY:Natural Attack ~ Saurian						CATEGORY:Special Ability																																																																											ABILITY:Internal|AUTOMATIC|Bite 1|Tail Slap 1|PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalAttack												BONUS:VAR|Bite|1	BONUS:VAR|Tail|1
+Bite 1															CATEGORY:Internal																																																																																																																																									NATURALATTACKS:Bite,Natural.Weapon.Melee,*1,1d8
+Tail Slap 1															CATEGORY:Internal																																																																																																																																									NATURALATTACKS:Tail Slap,Natural.Weapon.Melee,*1,1d8
 
 
 #Block: Unborn ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Enlightened Skill				KEY:Enlightened Skill							CATEGORY:Special Ability	TYPE:SpecialQuality																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																	BONUS:ABILITYPOOL|Enlightened Skill|1
-Limited Proficiencies			KEY:Limited Proficiencies						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																								BONUS:VAR|Proficiency|-2|PREPCLEVEL:MIN=1
+Enlightened Skill				KEY:Enlightened Skill							CATEGORY:Special Ability	TYPE:SpecialQuality																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																													BONUS:ABILITYPOOL|Enlightened Skill|1
+Limited Proficiencies			KEY:Limited Proficiencies						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																				BONUS:VAR|Proficiency|-2|PREPCLEVEL:MIN=1
 
 # Enlightened Skill Choice
-Enlightened Acrobatics													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankAcrobatics|2|TYPE=Enlightened
-Enlightened Athletics													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankAthletics|2|TYPE=Enlightened
-Enlightened Blend														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankBlend|2|TYPE=Enlightened
-Enlightened Bluff														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankBluff|2|TYPE=Enlightened
-Enlightened Crafting													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankCrafting|2|TYPE=Enlightened
-Enlightened Disguise													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankDisguise|2|TYPE=Enlightened
-Enlightened Haggle													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankHaggle|2|TYPE=Enlightened
-Enlightened Impress													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankImpress|2|TYPE=Enlightened
-Enlightened Intimidate													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankIntimidate|2|TYPE=Enlightened
-Enlightened Investigate													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankInvestigate|2|TYPE=Enlightened
-Enlightened Medicine													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankMedicine|2|TYPE=Enlightened
-Enlightened Notice													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankNotice|2|TYPE=Enlightened
-Enlightened Prestidigitation												CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankPrestidigitation|2|TYPE=Enlightened
-Enlightened Resolve													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankResolve|2|TYPE=Enlightened
-Enlightened Ride														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankRide|2|TYPE=Enlightened
-Enlightened Search													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankSearch|2|TYPE=Enlightened
-Enlightened Sense Motive												CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankSenseMotive|2|TYPE=Enlightened
-Enlightened Sneak														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankSneak|2|TYPE=Enlightened
-Enlightened Survival													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankSurvival|2|TYPE=Enlightened
-Enlightened Tactics													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																								BONUS:VAR|MaxRankTactics|2|TYPE=Enlightened
+Enlightened Acrobatics													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankAcrobatics|2|TYPE=Enlightened
+Enlightened Athletics													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankAthletics|2|TYPE=Enlightened
+Enlightened Blend														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankBlend|2|TYPE=Enlightened
+Enlightened Bluff														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankBluff|2|TYPE=Enlightened
+Enlightened Crafting													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankCrafting|2|TYPE=Enlightened
+Enlightened Disguise													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankDisguise|2|TYPE=Enlightened
+Enlightened Haggle													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankHaggle|2|TYPE=Enlightened
+Enlightened Impress													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankImpress|2|TYPE=Enlightened
+Enlightened Intimidate													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankIntimidate|2|TYPE=Enlightened
+Enlightened Investigate													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankInvestigate|2|TYPE=Enlightened
+Enlightened Medicine													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankMedicine|2|TYPE=Enlightened
+Enlightened Notice													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankNotice|2|TYPE=Enlightened
+Enlightened Prestidigitation												CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankPrestidigitation|2|TYPE=Enlightened
+Enlightened Resolve													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankResolve|2|TYPE=Enlightened
+Enlightened Ride														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankRide|2|TYPE=Enlightened
+Enlightened Search													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankSearch|2|TYPE=Enlightened
+Enlightened Sense Motive												CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankSenseMotive|2|TYPE=Enlightened
+Enlightened Sneak														CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankSneak|2|TYPE=Enlightened
+Enlightened Survival													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankSurvival|2|TYPE=Enlightened
+Enlightened Tactics													CATEGORY:Special Ability	TYPE:EnlightenedSkill																																																																																																				BONUS:VAR|MaxRankTactics|2|TYPE=Enlightened
 
 #Block: Splinter Feats ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Default Races:
@@ -134,73 +134,73 @@ Steel Golem															CATEGORY:Internal			TYPE:Subrace					VISIBLE:NO							
 
 
 # Elemental Heritage
-EH ~ Crystal														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Crystal
-EH ~ Darkness														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Darkness
-EH ~ Dust/Sand														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Dust/Sand
-EH ~ Earth															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Earth
-EH ~ Fire															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Fire
-EH ~ Ice															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Ice
-EH ~ Lava															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Lava
-EH ~ Light															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Light
-EH ~ Lightning														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Lightning
-EH ~ Metal															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Metal
-EH ~ Mist/Smoke														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Mist/Smoke
-EH ~ Water															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Water
-EH ~ Wind															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Wind
-EH ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Wood
+EH ~ Crystal														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Crystal																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Darkness														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Darkness																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Dust/Sand														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Dust/Sand																																	BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Earth															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Earth																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Fire															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Fire																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Ice															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Ice																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Lava															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Lava																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Light															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Light																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Lightning														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Lightning																																	BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Metal															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Metal																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Mist/Smoke														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Mist/Smoke																																	BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Water															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Water																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Wind															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Wind																																		BONUS:VAR|Subrace|1|TYPE=Base
+EH ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Wood																																		BONUS:VAR|Subrace|1|TYPE=Base
 # Truescale
-TS ~ Aquatic														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Aquatic
-TS ~ Arctic															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Arctic
-TS ~ Caverns/Mountains													CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Caverns/Mountains
-TS ~ Desert															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Desert
-TS ~ Forest/Jungle													CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Forest/Jungle
-TS ~ Indoors/Settled													CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Indoors/Settled
-TS ~ Plains															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Plains
-TS ~ Swamp															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Swamp
+TS ~ Aquatic														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Aquatic																																		BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Arctic															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Arctic																																		BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Caverns/Mountains													CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Caverns/Mountains																																BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Desert															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Desert																																		BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Forest/Jungle													CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Forest/Jungle																																	BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Indoors/Settled													CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Indoors/Settled																																BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Plains															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Plains																																		BONUS:VAR|Subrace|1|TYPE=Base
+TS ~ Swamp															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Swamp																																		BONUS:VAR|Subrace|1|TYPE=Base
 # --Dwarf
-Dwarf ~ Hill														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Hill
-Dwarf ~ Magma														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Magma
+Dwarf ~ Hill														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Hill																																		BONUS:VAR|Subrace|1|TYPE=Base
+Dwarf ~ Magma														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Magma																																		BONUS:VAR|Subrace|1|TYPE=Base
 # --Elf
-Elf ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Wood
-Elf ~ Gray															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Gray
-Elf ~ Dark															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Dark
+Elf ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Wood																																		BONUS:VAR|Subrace|1|TYPE=Base
+Elf ~ Gray															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Gray																																		BONUS:VAR|Subrace|1|TYPE=Base
+Elf ~ Dark															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Dark																																		BONUS:VAR|Subrace|1|TYPE=Base
 # --Goblin / Orc
-Skull Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Skull Tribe
-Blood Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Blood Tribe
-Bone Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Bone Tribe
-Fang Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Fang Tribe
-Iron Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Iron Tribe
+Skull Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Skull Tribe																																	BONUS:VAR|Subrace|1|TYPE=Base
+Blood Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Blood Tribe																																	BONUS:VAR|Subrace|1|TYPE=Base
+Bone Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Bone Tribe																																	BONUS:VAR|Subrace|1|TYPE=Base
+Fang Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Fang Tribe																																	BONUS:VAR|Subrace|1|TYPE=Base
+Iron Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Iron Tribe																																	BONUS:VAR|Subrace|1|TYPE=Base
 # --Human
-Heavenly Blood														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Heavenly Blood
-Hellish Blood														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Hellish Blood
-Drake Blood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Drake Blood
-Ancient Blood														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Ancient Blood
-Fey Blood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Fey Blood
+Heavenly Blood														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Heavenly Blood																																	BONUS:VAR|Subrace|1|TYPE=Base
+Hellish Blood														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Hellish Blood																																	BONUS:VAR|Subrace|1|TYPE=Base
+Drake Blood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Drake Blood																																	BONUS:VAR|Subrace|1|TYPE=Base
+Ancient Blood														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Ancient Blood																																	BONUS:VAR|Subrace|1|TYPE=Base
+Fey Blood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Fey Blood																																	BONUS:VAR|Subrace|1|TYPE=Base
 # --Ogre
-Oni																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Oni
-Merrow															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Merrow
-Troll																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Troll
+Oni																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Oni																																		BONUS:VAR|Subrace|1|TYPE=Base
+Merrow															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Merrow																																		BONUS:VAR|Subrace|1|TYPE=Base
+Troll																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Troll																																		BONUS:VAR|Subrace|1|TYPE=Base
 # --Pech
-Hairfoot															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Hairfoot
-Gnome																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Gnome
+Hairfoot															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Hairfoot																																		BONUS:VAR|Subrace|1|TYPE=Base
+Gnome																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Gnome																																		BONUS:VAR|Subrace|1|TYPE=Base
 # --Rootwalker
-Evergreen															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Evergreen
-Ironwood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Ironwood
-Mistbranch															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Mistbranch
-Purewood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Purewood
-Skybranch															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Skybranch
-Sunleaf															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Sunleaf
-Tangleroot															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Tangleroot
-Whitebark															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Whitebark
+Evergreen															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Evergreen																																	BONUS:VAR|Subrace|1|TYPE=Base
+Ironwood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Ironwood																																		BONUS:VAR|Subrace|1|TYPE=Base
+Mistbranch															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Mistbranch																																	BONUS:VAR|Subrace|1|TYPE=Base
+Purewood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Purewood																																		BONUS:VAR|Subrace|1|TYPE=Base
+Skybranch															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Skybranch																																	BONUS:VAR|Subrace|1|TYPE=Base
+Sunleaf															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Sunleaf																																		BONUS:VAR|Subrace|1|TYPE=Base
+Tangleroot															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Tangleroot																																	BONUS:VAR|Subrace|1|TYPE=Base
+Whitebark															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Whitebark																																	BONUS:VAR|Subrace|1|TYPE=Base
 # --Saurian
-Draconian															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Draconian
-Chameleon															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Chameleon
-Frogman															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Frogman
+Draconian															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Draconian																																	BONUS:VAR|Subrace|1|TYPE=Base
+Chameleon															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Chameleon																																	BONUS:VAR|Subrace|1|TYPE=Base
+Frogman															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Frogman																																		BONUS:VAR|Subrace|1|TYPE=Base
 # --Unborn
-Brass																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Brass
-Clay																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Clay
-Clockwork															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Clockwork
-Flesh																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Flesh
-Gem																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Gem
-Granite															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Granite
-Living Metal														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Living Metal
+Brass																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Brass																																		BONUS:VAR|Subrace|1|TYPE=Base
+Clay																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Clay																																		BONUS:VAR|Subrace|1|TYPE=Base
+Clockwork															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Clockwork																																	BONUS:VAR|Subrace|1|TYPE=Base
+Flesh																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Flesh																																		BONUS:VAR|Subrace|1|TYPE=Base
+Gem																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Gem																																		BONUS:VAR|Subrace|1|TYPE=Base
+Granite															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Granite																																		BONUS:VAR|Subrace|1|TYPE=Base
+Living Metal														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Living Metal																																	BONUS:VAR|Subrace|1|TYPE=Base

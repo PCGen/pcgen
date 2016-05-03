@@ -55,6 +55,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 # Data files
 ABILITY:iswg_abilities.lst
 ABILITY:iswg_abilities_class.lst
@@ -75,7 +76,6 @@ KIT:iswg_kits_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
 RACE:iswg_races_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
-SKILL:iswg_skills.lst
 SPELL:iswg_spells.lst
 TEMPLATE:iswg_templates.lst
 ARMORPROF:iswg_profs_armor.lst

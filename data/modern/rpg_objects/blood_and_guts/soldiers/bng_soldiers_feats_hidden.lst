@@ -1,9 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
 # Feat Name				Type				Visible	Special ABility				Multiple?	Choose		Selections	Save bonus
-Smart Resilience (Fortitude)	CATEGORY:FEAT	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Fortitude)								BONUS:SAVE|Fortitude|INT
-Smart Resilience (Reflex)	CATEGORY:FEAT	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Reflex)									BONUS:SAVE|Reflex|INT
-Smart Resilience (Will)		CATEGORY:FEAT	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Will)									BONUS:SAVE|Will|INT
+# Ability Name			Category of Ability	Type				Visible	Special ABility				Multiple?	Choose		Selections	Save bonus
+Smart Resilience (Fortitude)	CATEGORY:FEAT		TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Fortitude)								BONUS:SAVE|Fortitude|INT
+Smart Resilience (Reflex)	CATEGORY:FEAT		TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Reflex)									BONUS:SAVE|Reflex|INT
+Smart Resilience (Will)		CATEGORY:FEAT		TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Will)									BONUS:SAVE|Will|INT
 
-Speed of the Essence		CATEGORY:FEAT	TYPE:Special		VISIBLE:NO	SAB:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILL|ALL	SELECT:1
+Speed of the Essence		CATEGORY:FEAT		TYPE:Special		VISIBLE:NO	SAB:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILL|ALL	SELECT:1
