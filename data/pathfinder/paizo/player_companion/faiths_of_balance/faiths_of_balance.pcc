@@ -33,6 +33,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of B
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 ABILITY:fob_abilities.lst
 DEITY:fob_deities.lst
 EQUIPMENT:fob_equip_general.lst

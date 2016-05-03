@@ -82,6 +82,9 @@ CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_GreaterBanner|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MasterTactician|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_SupremeCharge|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Proficiencies|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility2|0	
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility8|0	
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility15|0	
 
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Proficiencies=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Challenge=True
@@ -98,6 +101,9 @@ CATEGORY=Class|Cavalier.MOD																																																					
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_GreaterBanner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_GreaterBanner=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MasterTactician|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_MasterTactician=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_SupremeCharge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_SupremeCharge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility2|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility2=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility8|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility8=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility15|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility15=True
 
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Mount|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount

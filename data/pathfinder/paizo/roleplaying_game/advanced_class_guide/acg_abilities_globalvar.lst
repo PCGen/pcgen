@@ -407,6 +407,7 @@ CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_Hex14|0
 CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_Hex16|0
 CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_Hex18|0
 CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_Hex20|0
+CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_WanderingSpiritBase|0
 CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_WanderingSpiritTrue|0
 CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_WanderingSpiritGreater|0
 CATEGORY=Class|Shaman.MOD		DEFINE:Shaman_CF_WanderingHex6|0
@@ -423,6 +424,7 @@ CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shama
 CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_Hex16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_Hex16=True
 CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_Hex18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_Hex18=True
 CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_Hex20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_Hex20=True
+CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_WanderingSpiritBase|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingSpiritBase=True
 CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_WanderingSpiritTrue|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingSpiritTrue=True
 CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_WanderingSpiritGreater|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingSpiritGreater=True
 CATEGORY=Class|Shaman.MOD																																								BONUS:VAR|Shaman_CF_WanderingHex6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingHex6=True

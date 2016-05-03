@@ -32,6 +32,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" C
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 # Data files
 ABILITY:goog_abilities.lst
 ABILITY:goog_abilities_race.lst
