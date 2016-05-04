@@ -571,6 +571,17 @@ public class WeaponToken extends Token
 			}
 			return "";
 		}
+		else if (token.equals("CHARGES"))
+		{
+			String retString = "";
+			int charges = eq.getRemainingCharges();
+			if (charges >= 0)
+			{
+				retString = charges + "";
+			}
+			return retString;
+
+		}
 		Logging.errorPrint("Invalid WEAPON token: " + tokenSource, new Throwable());
 		return "";
 	}
