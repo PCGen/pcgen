@@ -99,7 +99,7 @@ Default Language ~ Wayang		VISIBLE:NO													AUTO:LANG|Common|Wayang		LANGB
 
 Race Bonus Language ~ All Spoken	VISIBLE:NO																		LANGBONUS:TYPE=Spoken
 
-Shadow Creature					VISIBLE:YES	DR:5/Magic|PRELEVEL:MIN=5	SOURCEPAGE:p.110	DEFINE:ShadowResistanceBonus|0											BONUS:DR|Magic|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1																	BONUS:VAR|ShadowResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|ShadowResistanceBonus|TYPE=Resistance	BONUS:VAR|ShadowResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|ShadowResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base			BONUS:VISION|Low-Light				ABILITY:Special Ability|AUTOMATIC|Shadow Creature ~ Shadow Blend|Resistance to Cold|Resistance to Electricity					SR:CR+5		FACT:AppliedName|Shadow
+Shadow Creature					VISIBLE:YES	DR:5/Magic|PRELEVEL:MIN=5	SOURCEPAGE:p.110	DEFINE:ShadowResistanceBonus|0											BONUS:DR|Magic|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1																	BONUS:VAR|ShadowResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|ShadowResistanceBonus|TYPE=Resistance	BONUS:VAR|ShadowResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|ShadowResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Shadow Creature ~ Shadow Blend|Resistance to Cold|Resistance to Electricity					SR:CR+5		FACT:AppliedName|Shadow
 
 ###Block: Race Builder Humanoid Subtypes
 # Template Name	Unique Key					Visible	Race Subtype		Type
