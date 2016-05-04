@@ -1529,3 +1529,7 @@ Meteor Hammer				KEY:NWP ~ Meteor Hammer						CATEGORY:Internal		TYPE:Oracle NWP
 Sword (Seven-Branched)			KEY:NWP ~ Sword Seven-Branched				CATEGORY:Internal		TYPE:Oracle NWP		PREVARLT:NWP_Bonus_Sword_Seven_Branched,4			!PREWEAPONPROF:1,Sword (Seven-Branched)		DEFINE:NWP_Bonus_Sword_Seven_Branched|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		ABILITY:Internal|AUTOMATIC|Oracle NWP Tracker ~ Sword Seven-Branched		BONUS:VAR|NWP_Bonus_Sword_Seven_Branched|1
 Tetsubo					KEY:NWP ~ Tetsubo							CATEGORY:Internal		TYPE:Oracle NWP		PREVARLT:NWP_Bonus_Tetsubo,4					!PREWEAPONPROF:1,Tetsubo				DEFINE:NWP_Bonus_Tetsubo|0				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		ABILITY:Internal|AUTOMATIC|Oracle NWP Tracker ~ Tetsubo				BONUS:VAR|NWP_Bonus_Tetsubo|1
 Rope Dart					KEY:NWP ~ Rope Dart						CATEGORY:Internal		TYPE:Oracle NWP		PREVARLT:NWP_Bonus_Rope_Dart,4				!PREWEAPONPROF:1,Rope Dart				DEFINE:NWP_Bonus_Rope_Dart|0				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		ABILITY:Internal|AUTOMATIC|Oracle NWP Tracker ~ Rope Dart				BONUS:VAR|NWP_Bonus_Rope_Dart|1
+
+
+
+Shadow Blend		KEY:Shadow Creature ~ Shadow Blend		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:In any condition of illumination other than bright light, a shadow creature blends into the shadows, giving it concealment (20% miss chance). A shadow creature can suspend or resume this ability as a free action.	SOURCEPAGE:p.110
