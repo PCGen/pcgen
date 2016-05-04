@@ -36,11 +36,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
+public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static SkilllistToken token = new SkilllistToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();

@@ -31,11 +31,11 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.helper.OptionBound;
 import pcgen.core.kit.BaseKit;
-import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -66,6 +66,9 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 			String value)
 	{
 		ParsingSeparator pipeSep = new ParsingSeparator(value, '|');
+		pipeSep.addGroupingPair('[', ']');
+		pipeSep.addGroupingPair('(', ')');
+
 		while (pipeSep.hasNext())
 		{
 			String subTok = pipeSep.next();
@@ -80,6 +83,8 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 				return pr;
 			}
 			ParsingSeparator commaSep = new ParsingSeparator(subTok, ',');
+			commaSep.addGroupingPair('[', ']');
+			commaSep.addGroupingPair('(', ')');
 			String minString = commaSep.next();
 			String maxString;
 			if (commaSep.hasNext())

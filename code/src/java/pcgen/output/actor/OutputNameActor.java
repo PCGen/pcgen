@@ -18,9 +18,10 @@
 package pcgen.output.actor;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.output.base.OutputActor;
-import freemarker.template.ObjectWrapper;
+import pcgen.output.base.SimpleWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -34,12 +35,14 @@ import freemarker.template.TemplateModelException;
 public class OutputNameActor implements OutputActor<CDOMObject>
 {
 	/**
-	 * @see pcgen.output.base.OutputActor#process(java.lang.Object)
+	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel process(CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
+		throws TemplateModelException
 	{
 		String outputName = OutputNameFormatting.getOutputName(d);
-		return ObjectWrapper.SIMPLE_WRAPPER.wrap(outputName);
+		return SimpleWrapperLibrary.wrap(outputName);
 	}
 }

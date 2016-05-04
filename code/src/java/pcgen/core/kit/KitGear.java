@@ -170,7 +170,7 @@ public final class KitGear extends BaseKit
 		}
 		if (gear.size != null)
 		{
-			actingSize = gear.size.resolvesTo();
+			actingSize = gear.size.get();
 		}
 	}
 
@@ -184,7 +184,7 @@ public final class KitGear extends BaseKit
 		actingLocation = theLocationStr;
 		if (size != null)
 		{
-			actingSize = size.resolvesTo();
+			actingSize = size.get();
 		}
 
 		theEquipment = null;
@@ -275,7 +275,7 @@ public final class KitGear extends BaseKit
 		{
 			// We need setBase() called.  The only way to do that is to resize.
 			// We will set the size to itself.
-			theEquipment.resizeItem(aPC, theEquipment.getSafe(ObjectKey.SIZE).resolvesTo());
+			theEquipment.resizeItem(aPC, theEquipment.getSafe(ObjectKey.SIZE).get());
 		}
 
 		//
@@ -289,7 +289,7 @@ public final class KitGear extends BaseKit
 				 * Going to do this the long way for now to avoid ugly entanglements
 				 */
 				StringBuilder sb = new StringBuilder(50);
-				EquipmentModifier eqMod = modref.getRef().resolvesTo();
+				EquipmentModifier eqMod = modref.getRef().get();
 				sb.append(eqMod.getKeyName());
 				for (String assoc : modref.getChoices())
 				{

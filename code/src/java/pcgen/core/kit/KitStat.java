@@ -66,7 +66,7 @@ public class KitStat extends BaseKit
 	{
 		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
-			PCStat mapStat = me.getKey().resolvesTo();
+			PCStat mapStat = me.getKey().get();
 			int sVal = me.getValue().resolve(aPC, "").intValue();
 			for (PCStat currentStat : aPC.getStatSet())
 			{

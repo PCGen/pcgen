@@ -18,9 +18,13 @@
 package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with ACCHECK token
@@ -51,4 +55,18 @@ public class AccheckToken extends AbstractIntToken<Equipment> implements
 	{
 		return Equipment.class;
 	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, Equipment obj,
+		String value)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when EQACCHECK control is used: " + value,
+				context);
+		}
+		return super.parseToken(context, obj, value);
+	}
+	
 }

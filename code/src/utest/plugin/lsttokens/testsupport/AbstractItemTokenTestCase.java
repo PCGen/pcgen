@@ -27,7 +27,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
 public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract Class<TC> getTargetClass();

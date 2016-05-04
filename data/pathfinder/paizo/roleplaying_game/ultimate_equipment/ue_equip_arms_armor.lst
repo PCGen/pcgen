@@ -1,4 +1,4 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # Equipment Name		Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
@@ -265,7 +265,7 @@ Alchemical Cartridge (Flare)																					TYPE:FirearmGear.Ammo.Ammunitio
 Alchemical Cartridge (Paper/Bullet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
 Alchemical Cartridge (Paper/Pellet)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
 Alchemical Cartridge (Salt Shot)																				TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:12
-Black Powder (Dose)																						TYPE:FirearmGear																		COST:10
+Black Powder (Dose)																						TYPE:FirearmGear.Black Powder (Dose)																		COST:10
 Black Powder (Keg)																						TYPE:FirearmGear																		COST:1000	WT:5
 Bullet (Firearm)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:1
 Bullet (Firearm/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmBullet											COST:30	WT:0.5				BASEQTY:30
@@ -368,7 +368,7 @@ Pata																PROFICIENCY:WEAPON|Pata									TYPE:Weapon.Resizable.Melee.
 Quadrens															PROFICIENCY:WEAPON|Quadrens								TYPE:Weapon.Resizable.Melee.Light.Exotic.Piercing.BladeLight																												COST:8	WT:2										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.34
 Scorpion Whip														PROFICIENCY:WEAPON|Scorpion Whip							TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.Flail																													COST:5	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.36
 Sica																PROFICIENCY:WEAPON|Sica									TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight																												COST:10	WT:2										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.37
-Swordbreaker Dagger													PROFICIENCY:WEAPON|Swordbreaker Dagger						TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight																												COST:10	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.38
+Swordbreaker (Dagger)													PROFICIENCY:WEAPON|Swordbreaker (Dagger)						TYPE:Weapon.Resizable.Melee.Light.Exotic.Slashing.BladeLight																												COST:10	WT:3										CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.38
 Tekko-Kagi (Iron Claw)													PROFICIENCY:WEAPON|Tekko-Kagi (Iron Claw)						TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.Light.Exotic.Piercing.Monk.Gauntlet																								COST:2	WT:0.1									CRITMULT:x2	CRITRANGE:1							DAMAGE:1d3					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.38
 Wakizashi															PROFICIENCY:WEAPON|Wakizashi								TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.Light.Exotic.Piercing.Slashing.Deadly.BladeLight																						COST:35	WT:2										CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6					EQMOD:STEEL													WIELD:Light							SIZE:M	SOURCEPAGE:p.40
 Terbutje (Great)							OUTPUTNAME:Great Terbutje			PROFICIENCY:WEAPON|Terbutje (Great)							TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Exotic.Slashing.Sword																											COST:12	WT:4										CRITMULT:x2	CRITRANGE:2							DAMAGE:1d10					EQMOD:FRAGILE.WOOD											WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.28
@@ -643,11 +643,23 @@ Siangham.MOD																										TYPE:Weapon Group Monk
 
 ###Block: Weapon Groups
 # Equipment Name				Type
-Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes.Polearm.Weapon Group Pole Arms
+# Weapon Group Axes
+#
+# Equipment Name				Type
+Bardiche.MOD				TYPE:Axe.Weapon Group Axes
+Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes
 Knuckle Axe.MOD				TYPE:Axe.Weapon Group Axes
 Mattock.MOD					TYPE:Axe.Weapon Group Axes
 Pata.MOD					TYPE:Axe.Weapon Group Axes.Bladelight.Weapon Group Blades Light
 #
+# Weapon Group Blades, Heavy
+#
+Chakram.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Falcata.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Khopesh.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Rhoka Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
 Katana (Double Walking Stick).MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
 Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
@@ -658,30 +670,64 @@ Sword (Seven-Branched).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapo
 Shotel.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
 Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 #
+# Weapon Group Blades, Light
+#
+Bayonet.MOD					TYPE:Bladelight.Weapon Group Blades Light.Close.Weapon Group Close
+Dogslicer.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Hunga Munga.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sword Cane.MOD				TYPE:Bladelight.Weapon Group Blades Light.Finesseable
+Swordbreaker (Dagger).MOD		TYPE:Bladelight.Weapon Group Blades Light
 Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
-#Gladius.MOD	TYPE:Bladelight
+Gladius.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Quadrens.MOD				TYPE:Bladelight.Weapon Group Blades Light
 Sica.MOD					TYPE:Bladelight.Weapon Group Blades Light
 Wakizashi.MOD				TYPE:Bladelight.Weapon Group Blades Light
 #
+# Weapon Group Close
+#
+Brass Knuckles.MOD			TYPE:Close.Weapon Group Close
+Shield (Heavy/Steel).MOD		TYPE:Close.Weapon Group Close
+Shield (Heavy/Wooden).MOD		TYPE:Close.Weapon Group Close
+Shield (Light/Steel).MOD		TYPE:Close.Weapon Group Close
+Shield (Light/Wooden).MOD		TYPE:Close.Weapon Group Close
+Stake (Wood).MOD				TYPE:Close.Weapon Group Close
+Armor Spikes.MOD				TYPE:Close.Weapon Group Close
 Dan Bong.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Emei Piercer.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Fighting Fan.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Iron Brush.MOD				TYPE:Close.Weapon Group Close
-#Madu.MOD					TYPE:Close.Weapon Group Close
+Madu (Leather).MOD			TYPE:Close.Weapon Group Close
+Madu (Steel).MOD				TYPE:Close.Weapon Group Close
 Mere Club.MOD				TYPE:Close.Weapon Group Close
 Scizore.MOD					TYPE:Close.Weapon Group Close
 Tekko-Kagi (Iron Claw).MOD		TYPE:Close.Weapon Group Close
 Tonfa.MOD					TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Wushu Dart.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
 #
+# Weapon Group Crossbows
+#
+Crossbow (Repeating Hand).MOD		TYPE:Crossbow.Weapon Group Crossbows
+Underwater Crossbow (Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Underwater Crossbow (Heavy).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Double).MOD			TYPE:Crossbow.Weapon Group Crossbows
 Tube Arrow Shooter.MOD			TYPE:Crossbow.Weapon Group Crossbows
+#
+# Weapon Group Double
+#
+Bo Staff.MOD				TYPE:Double.Weapon Group Double
+Katana (Double Walking Stick).MOD	TYPE:Double.Weapon Group Double
+Kama (Double-Chained).MOD		TYPE:Double.Weapon Group Double
+Kusarigama (Sickle and Chain).MOD	TYPE:Double.Weapon Group Double
 #
 #Firearms: All One-Handed, Two-Handed, And Siege Firearms
 #
-#Chain Spear.MOD	TYPE:Flail
-Kama (Double-Chained).MOD		TYPE:Flail.Weapon Group Flails.Monk
+
+#
+# Weapon Group Flails
+#
+Chain Spear.MOD				TYPE:Flail.Weapon Group Flails
+Kama (Double-Chained).MOD		TYPE:Flail.Weapon Group Flails
 Flying Blade.MOD				TYPE:Flail.Weapon Group Flails
 Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
 Kyoketsu Shoge.MOD			TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
@@ -691,12 +737,22 @@ Sansetsukon.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
 Scorpion Whip.MOD				TYPE:Flail.Weapon Group Flails
 Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
 #
+# Weapon Group Hammers
+#
+Battle Aspergillum.MOD			TYPE:Hammer.Weapon Group Hammers
+Earth Breaker.MOD				TYPE:Hammer.Weapon Group Hammers
 Aklys.MOD					TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
 Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
 Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
 Tetsubo.MOD					TYPE:Hammer.Weapon Group Hammers
 Wahaika.MOD					TYPE:Hammer.Weapon Group Hammers
 #
+# Weapon Group Monk
+#
+Brass Knuckles.MOD			TYPE:Monk.Weapon Group Monk
+Cestus.MOD					TYPE:Monk.Weapon Group Monk
+Kama (Double-Chained).MOD		TYPE:Monk.Weapon Group Monk
+Lungchuan Tamo.MOD			TYPE:Monk.Weapon Group Monk
 Bo Staff.MOD				TYPE:Monk.Weapon Group Monk
 Jutte.MOD					TYPE:Monk.Weapon Group Monk
 Monk's Spade.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
@@ -705,15 +761,37 @@ Rope Dart.MOD				TYPE:Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
 Shang Gou.MOD				TYPE:Monk.Weapon Group Monk
 Tiger Fork.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
 Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
-
-Naginata.MOD				TYPE:Polearm.Weapon Group Spears
-
+#
+# Weapon Group Polearms
+#
+Bardiche.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Bec De Corbin.MOD				TYPE:Polearm.Weapon Group Polearms
+Bill.MOD					TYPE:Polearm.Weapon Group Polearms
+Glaive-Guisarme.MOD			TYPE:Polearm.Weapon Group Polearms
+Hooked Lance.MOD				TYPE:Polearm.Weapon Group Polearms
+Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
+Lucerne Hammer.MOD			TYPE:Polearm.Weapon Group Polearms
+Mancatcher.MOD				TYPE:Polearm.Weapon Group Polearms
+Ogre Hook.MOD				TYPE:Polearm.Weapon Group Polearms
+Naginata.MOD				TYPE:Polearm.Weapon Group Polearms
+#
+# Weapon Group Spears
+#
 Amentum.MOD					TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
-#Boar Spear.MOD	TYPE:Spear
+Spear (Boar).MOD				TYPE:Spear.Weapon Group Spears
 Pilum.MOD					TYPE:Spear.Weapon Group Spears
 Sibat.MOD					TYPE:Spear.Weapon Group Spears
 Tiger Fork.MOD				TYPE:Spear.Weapon Group Spears
-
+Harpoon.MOD					TYPE:Spear.Weapon Group Spears
+#
+# Weapon Group Thrown
+#
+Boomerang.MOD				TYPE:Thrown.Weapon Group Thrown
+Chakram.MOD					TYPE:Thrown.Weapon Group Thrown
+Hunga Munga.MOD				TYPE:Thrown.Weapon Group Thrown
+Lasso.MOD					TYPE:Thrown.Weapon Group Thrown
+Snag Net.MOD				TYPE:Thrown.Weapon Group Thrown
+Trident.MOD					TYPE:Thrown.Weapon Group Thrown
 Atlatl.MOD					TYPE:Thrown.Weapon Group Thrown
 Harpoon.MOD					TYPE:Thrown.Weapon Group Thrown
 Kestros.MOD					TYPE:Thrown.Weapon Group Thrown

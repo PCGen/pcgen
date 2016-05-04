@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Template Name	Hit Dice Size	Visible
+Set Hit Die ~ d4	HITDIE:4		VISIBLE:NO
+Set Hit Die ~ d6	HITDIE:6		VISIBLE:NO
+Set Hit Die ~ d8	HITDIE:8		VISIBLE:NO
+Set Hit Die ~ d10	HITDIE:10		VISIBLE:NO
+Set Hit Die ~ d12	HITDIE:12		VISIBLE:NO
+Set Hit Die ~ d20	HITDIE:20		VISIBLE:NO

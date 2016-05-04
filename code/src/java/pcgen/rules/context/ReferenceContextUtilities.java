@@ -56,7 +56,7 @@ public final class ReferenceContextUtilities
 				String choice = singleRef.getChoice();
 				if (choice != null)
 				{
-					CDOMObject cdo = (CDOMObject) singleRef.resolvesTo();
+					CDOMObject cdo = (CDOMObject) singleRef.get();
 					ChooseInformation<?> ci = cdo.get(ObjectKey.CHOOSE_INFO);
 					if (ci == null)
 					{

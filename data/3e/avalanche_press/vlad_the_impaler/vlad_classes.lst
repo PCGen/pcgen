@@ -62,7 +62,7 @@ CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBA
 CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Intimidate|Ride|Spot|TYPE=Craft
-1										AUTO:WEAPONPROF|Lance (Light)|Lance (Heavy)|Scimitar
+1										AUTO:WEAPONPROF|TYPE=Lance|Scimitar
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Progression

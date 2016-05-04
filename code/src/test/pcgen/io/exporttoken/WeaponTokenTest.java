@@ -173,7 +173,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(StringKey.KEY_NAME, "KEY_MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL+15");
+		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BASEAB|CL+15");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		context.getReferenceContext().importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);
@@ -569,7 +569,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("2-handed prof should be martial",
-			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
+			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		EquipSet es =
 				new EquipSet("0.1.2", "Sword (Bastard)",
@@ -596,7 +596,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
-				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		EquipSet es =
 				new EquipSet("0.1.3", "Longsword (Large)",
@@ -624,7 +624,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
-				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		assertTrue("Character should be proficient with longsword", character
 			.isProficientWith(largeSword));
@@ -680,7 +680,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be SillyBite", "SillyBite", bite
-				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		EquipSet es =
 				new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
@@ -707,7 +707,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
-				.get(ObjectKey.WEAPON_PROF).resolvesTo().getKeyName());
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 		LoadContext context = Globals.getContext();
 
 		character.addEquipment(fineSword);

@@ -455,6 +455,18 @@ public class PluginBuildTest extends PCGenTestCase
 	}
 	
 	/**
+	 * Check for the presence of all variable
+	 * token parsing plugins.
+	 */
+	public void testLstVariablePlugins()
+	{
+		String jarPrefix = "VariableLstToken-";
+		File sourceFolder = new File("code/src/java/plugin/lsttokens/variable");
+		File jarFolder = new File("plugins/lstplugins");
+		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+	}
+	
+	/**
 	 * Check for the presence of all system (gamemode, miscinfo etc) file
 	 * token parsing plugins.
 	 */

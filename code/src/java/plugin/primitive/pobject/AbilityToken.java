@@ -164,7 +164,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		 * In theory the converter can be ignored here, since an equivalent
 		 * would exist within the ChooseInformation
 		 */
-		List<R> currentItems = getList(pc, ref.resolvesTo());
+		List<R> currentItems = getList(pc, ref.get());
 		if (currentItems == null)
 		{
 			return Collections.emptySet();

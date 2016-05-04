@@ -25,11 +25,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class VisibleTokenTest extends AbstractTokenTestCase<Ability>
+public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
 
 	static VisibleToken token = new VisibleToken();

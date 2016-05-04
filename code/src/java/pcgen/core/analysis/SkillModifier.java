@@ -48,7 +48,7 @@ public final class SkillModifier
 		CDOMSingleRef<PCStat> statref = sk.get(ObjectKey.KEY_STAT);
 		if (statref != null)
 		{
-			PCStat stat = statref.resolvesTo();
+			PCStat stat = statref.get();
 			bonus = aPC.getStatModFor(stat);
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
 		}
@@ -136,7 +136,7 @@ public final class SkillModifier
 		}
 		else
 		{
-			return pc.getStatModFor(stat.resolvesTo());
+			return pc.getStatModFor(stat.get());
 		}
 	}
 }

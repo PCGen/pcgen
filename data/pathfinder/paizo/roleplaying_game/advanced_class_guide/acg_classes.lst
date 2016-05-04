@@ -182,7 +182,7 @@ CLASS:Investigator	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|In
 1	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Trapfinding|PREVAREQ:Investigator_CF_Trapfinding,0
 2	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Poison Lore|PREVAREQ:Investigator_CF_PoisonLore,0
 2	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Poison Resistance|PREVAREQ:Investigator_CF_PoisonResistance,0
-3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Investigator Talents|PREVAREQ:Investigator_CF_Talents,0
+3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Investigator Talents|PREVAREQ:Investigator_CF_InvestigatorTalents,0
 3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Keen Recollection|PREVAREQ:Investigator_CF_KeenRecollection,0
 3	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Trap Sense|PREVAREQ:Investigator_CF_TrapSense,0
 4	ABILITY:Investigator Class Feature|AUTOMATIC|Investigator ~ Swift Alchemy|PREVAREQ:Investigator_CF_SwiftAlchemy,0

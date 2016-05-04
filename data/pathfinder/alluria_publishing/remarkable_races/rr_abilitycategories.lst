@@ -4,8 +4,8 @@
 
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display Location
-ABILITYCATEGORY:Anumus Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AnumusSubrace.AnumusSubraceDisplay								DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Squole Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SquoleSubrace.SquoleSubraceDisplay								DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Anumus Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AnumusSubrace.AnumusSubraceDisplay								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Squole Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SquoleSubrace.SquoleSubraceDisplay								DISPLAYLOCATION:Racial Abilities
 
 
 
@@ -31,6 +31,8 @@ ABILITYCATEGORY:Muse Langauge					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRAC
 
 
 ABILITYCATEGORY:Mahrog Stat Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MahrogStat												DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mogogol Size					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Mogogol Size												DISPLAYLOCATION:Racial Abilities
+
 ABILITYCATEGORY:Xax Resistance Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:XaxResistanceSelection										DISPLAYLOCATION:Racial Abilities
 
 

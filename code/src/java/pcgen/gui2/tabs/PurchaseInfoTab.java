@@ -20,6 +20,8 @@
  */
 package pcgen.gui2.tabs;
 
+import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -82,20 +84,17 @@ import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 import pcgen.gui2.tabs.models.BigDecimalFieldHandler;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
-import pcgen.gui2.tabs.models.ConcurrentDataView;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.event.PopupMouseAdapter;
+import pcgen.gui2.util.treeview.CachedDataView;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -191,7 +190,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					@Override
 					public boolean accept(CharacterFacade context, EquipmentFacade element)
 					{
-						return context.getInfoFactory().getCost(element) <= context.getFundsRef().getReference().floatValue();
+						return context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue();
 					}
 
 				});
@@ -201,10 +200,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			JPanel panel = new JPanel(new BorderLayout());
 			panel.add(filterBar, BorderLayout.NORTH);
 
-			availableTable.getTree().setLargeModel(true);
 			availableTable.setTreeCellRenderer(equipmentRenderer);
 			availableTable.setDisplayableFilter(filterBar);
-			availableTable.sortModel();
 			panel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
 
 			Box box = Box.createHorizontalBox();
@@ -230,8 +227,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 			purchasedTable.setDisplayableFilter(filterBar);
 			purchasedTable.setTreeCellRenderer(equipmentRenderer);
-			purchasedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-			purchasedTable.sortModel();
 			panel.add(new JScrollPane(purchasedTable), BorderLayout.CENTER);
 
 			Box box = Box.createHorizontalBox();
@@ -421,7 +416,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		models.get(AvailableTreeViewModel.class).uninstall();
+//		models.get(AvailableTreeViewModel.class).uninstall();
 		models.get(EquipInfoHandler.class).uninstall();
 		models.get(AddAction.class).uninstall();
 		models.get(RemoveAction.class).uninstall();
@@ -870,8 +865,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private class AvailableTreeViewModel extends ConcurrentDataView<EquipmentFacade>
-			implements TreeViewModel<EquipmentFacade>
+	private class AvailableTreeViewModel
+		extends CachedDataView<EquipmentFacade>
+			implements TreeViewModel<EquipmentFacade>, DataView<EquipmentFacade>
 	{
 
 		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews
@@ -879,6 +875,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final List<DefaultDataViewColumn> columns
 				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
@@ -942,23 +939,37 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		protected List<?> getDataList(EquipmentFacade obj)
+		public Object getDataInternal(EquipmentFacade obj, int column)
 		{
-			return Arrays.asList(character.getInfoFactory().getCost(obj),
-					character.getInfoFactory().getWeight(obj),
-					obj.getSource());
+			switch(column){
+				case 0:
+					return character.getInfoFactory().getCost(obj);
+				case 1:
+					return character.getInfoFactory().getWeight(obj);
+				case 2:
+					return character.getInfoFactory().getDescription(obj);
+				case 3:
+					return obj.getSource();
+				default:
+					return null;
+			}
 		}
 
 		@Override
-		protected void refreshTableData()
+		public void setData(Object value, EquipmentFacade element, int column)
 		{
-			availableTable.refreshModelData();
 		}
+		
+//		@Override
+//		protected void refreshTableData()
+//		{
+//			availableTable.refreshModelData();
+//		}
 
-		@Override
+//		@Override
 		public void install()
 		{
-			super.install();
+//			super.install();
 			availableTable.setTreeViewModel(this);
 		}
 	}
@@ -972,7 +983,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final List<DefaultDataViewColumn> columns
 				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true)); //$NON-NLS-1$
+						new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_descrip", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final EquipmentListFacade equipmentList;
 
@@ -1008,9 +1020,26 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public List<?> getData(EquipmentFacade obj)
+		public Object getData(EquipmentFacade obj, int column)
 		{
-			return Arrays.asList(character.getInfoFactory().getCost(obj), character.getInfoFactory().getWeight(obj), equipmentList.getQuantity(obj));
+			switch (column)
+			{
+				case 0:
+					return character.getInfoFactory().getCost(obj);
+				case 1:
+					return character.getInfoFactory().getWeight(obj);
+				case 2:
+					return equipmentList.getQuantity(obj);
+				case 3:
+					return character.getInfoFactory().getDescription(obj);
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, EquipmentFacade element, int column)
+		{
 		}
 
 		@Override
@@ -1669,7 +1698,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		MoveItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
 		{
-			super(destination.getNameRef().getReference());
+			super(destination.getNameRef().get());
 			this.character = character;
 			this.destination = destination;
 			this.targets = targets;
@@ -1701,7 +1730,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		CopyItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
 		{
-			super(destination.getNameRef().getReference());
+			super(destination.getNameRef().get());
 			this.character = character;
 			this.destination = destination;
 			this.targets = targets;

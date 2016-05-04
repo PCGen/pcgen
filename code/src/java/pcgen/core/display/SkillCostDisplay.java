@@ -112,7 +112,7 @@ public class SkillCostDisplay
 		CDOMSingleRef<PCStat> statref = sk.get(ObjectKey.KEY_STAT);
 		if (statref != null)
 		{
-			PCStat stat = statref.resolvesTo();
+			PCStat stat = statref.get();
 			bonus = aPC.getStatModFor(stat);
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "STAT");

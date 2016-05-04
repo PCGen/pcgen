@@ -22,6 +22,7 @@ package pcgen.core;
 
 import java.util.List;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SizeAdjustmentFacade;
@@ -32,7 +33,8 @@ import pcgen.facade.core.SizeAdjustmentFacade;
  * @author Greg Bingleman <byngl@users.sourceforge.net>
  * @version $Revision$
  */
-public final class SizeAdjustment extends PObject implements SizeAdjustmentFacade
+public final class SizeAdjustment extends PObject implements
+		SizeAdjustmentFacade, VarScoped
 {
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's
@@ -45,5 +47,11 @@ public final class SizeAdjustment extends PObject implements SizeAdjustmentFacad
 		BonusActivation.activateBonuses(this, aPC);
 
 		return super.getActiveBonuses(aPC);
+	}
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "SIZE";
 	}
 }

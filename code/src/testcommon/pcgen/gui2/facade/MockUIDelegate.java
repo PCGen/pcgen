@@ -115,7 +115,7 @@ public class MockUIDelegate implements UIDelegate
 	{
 		// Select as many choices as needed from the top of the available list 
 		int numChoices =
-				chooserFacade.getRemainingSelections().getReference();
+				chooserFacade.getRemainingSelections().get();
 		for (int i = 0; i < numChoices
 			&& !chooserFacade.getAvailableList().isEmpty(); i++)
 		{

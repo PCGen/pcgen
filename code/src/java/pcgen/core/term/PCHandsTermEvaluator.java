@@ -26,10 +26,16 @@
 
 package pcgen.core.term;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.HandsFacet;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 public class PCHandsTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator {
+		extends BasePCTermEvaluator implements TermEvaluator {
 
 	public PCHandsTermEvaluator(
 			String originalText)
@@ -38,9 +44,16 @@ public class PCHandsTermEvaluator
 	}
 
 	@Override
-	public Float resolve(CharacterDisplay display)
+	public Float resolve(PlayerCharacter display)
 	{
-		return (float) display.getHands();
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.CREATUREHANDS))
+		{
+			Logging.errorPrint("HANDS term is deprecated (does not function) "
+				+ "when CREATUREHANDS CodeControl is used");
+		}
+		return (float) FacetLibrary.getFacet(HandsFacet.class).getHands(
+			display.getCharID());
 	}
 
 	@Override

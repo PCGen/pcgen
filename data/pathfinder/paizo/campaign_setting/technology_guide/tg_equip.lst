@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Weapons
 # Equipment Name							Required Weapon Proficiency			Required Armor Proficiency			Required Shield Proficiency			Type												Contains			Cost		Weight	Define									AC Penalty Check	Crit Mult	Crit Range	Damage		Wield Category	Maximum DEX Bonus	Requires Modification?	Range		Reach		Source Page		% of Spell Failure	Ability								Damage Reduction	Combat bonus						Stat bonus					Modify VAR				Bonus Armor Mods																		Quality and value																Special Property
@@ -123,7 +123,8 @@ Access Card (Red)																												TYPE:Technological Gear												
 Access Card (Blue)																											TYPE:Technological Gear													COST:360																																					SOURCEPAGE:p.39
 Access Card (Orange)																											TYPE:Technological Gear													COST:490																																					SOURCEPAGE:p.39
 Access Card (Prismatic)																											TYPE:Technological Gear													COST:1000																																					SOURCEPAGE:p.39
-Battery																													TYPE:Technological Gear													COST:100	WT:1																																				SOURCEPAGE:p.39
+Battery																													TYPE:Technological Gear.Consumable											COST:100	WT:1																																				SOURCEPAGE:p.39
+Battery (Depleted)																											TYPE:Technological Gear.Consumable											COST:100	WT:1																																				SOURCEPAGE:p.39
 Camera																													TYPE:Technological Gear													COST:3000	WT:3																																				SOURCEPAGE:p.40																																																								QUALITY:Capacity|20	QUALITY:Usage|1 charge/hour
 Chemalyzer																													TYPE:Technological Gear													COST:2500	WT:8																																				SOURCEPAGE:p.40																																																								QUALITY:Capacity|10	QUALITY:Usage|1 charge
 Chipfinder (Brown)																											TYPE:Technological Gear													COST:500	WT:4																																				SOURCEPAGE:p.40																																																								QUALITY:Capacity|10	QUALITY:Usage|1 charge/hour
@@ -233,7 +234,7 @@ Lock Coder (Prismatic)																											TYPE:Technological Gear								
 Magboots																													TYPE:Technological Gear													COST:5000	WT:6																																				SOURCEPAGE:p.49																																																								QUALITY:Capacity|10	QUALITY:Usage|1 charge/hour
 Medlance																													TYPE:Technological Gear													COST:500	WT:0																																				SOURCEPAGE:p.49																																																								QUALITY:Capacity|10 uses	QUALITY:Usage|disposable
 Motion Tracker																												TYPE:Technological Gear													COST:10000	WT:2																																				SOURCEPAGE:p.49																																																								QUALITY:Capacity|20	QUALITY:Usage|1 charge
-Nanite Canister																												TYPE:Technological Gear													COST:500	WT:1																																				SOURCEPAGE:p.50																																																								QUALITY:Capacity|0	QUALITY:Usage|disposable
+Nanite Canister																												TYPE:Technological Gear.Consumable											COST:500	WT:1																																				SOURCEPAGE:p.50																																																								QUALITY:Capacity|0	QUALITY:Usage|disposable
 Nanite Hypogun (Brown)																											TYPE:Technological Gear													COST:1000	WT:1																																				SOURCEPAGE:p.50																																																								QUALITY:Capacity|10	QUALITY:Usage|1 charge or 5 charges
 Nanite Hypogun (Black)																											TYPE:Technological Gear													COST:6000	WT:1																																				SOURCEPAGE:p.50																																																								QUALITY:Capacity|10	QUALITY:Usage|1 charge or 5 charges
 Nanite Hypogun (White)																											TYPE:Technological Gear													COST:15000	WT:1																																				SOURCEPAGE:p.50																																																								QUALITY:Capacity|10	QUALITY:Usage|1 charge or 5 charges
@@ -290,3 +291,8 @@ Fusion Reactor		TYPE:Power Generator	SOURCEPAGE:p.63
 Geothermal Generator	TYPE:Power Generator	SOURCEPAGE:p.63
 Graviron Reactor		TYPE:Power Generator	SOURCEPAGE:p.63
 Solar Generator		TYPE:Power Generator	SOURCEPAGE:p.63
+
+
+###Block: Misc
+# Equipment Name	Type		Cost		Weight	Source Page
+Silverdisk		TYPE:Coin	COST:10	WT:1		SOURCEPAGE:p.39

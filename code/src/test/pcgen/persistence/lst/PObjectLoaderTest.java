@@ -122,7 +122,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		List<CDOMSingleRef<PCStat>> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
 		assertEquals(1, statList.size());
-		assertEquals("INT", statList.get(0).resolvesTo().getKeyName());
+		assertEquals("INT", statList.get(0).get().getKeyName());
 	}
 
 	public void testBadUnlockDefine() throws Exception

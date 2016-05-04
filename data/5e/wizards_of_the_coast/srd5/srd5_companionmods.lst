@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+###Block: Ranger's Companion
+# Class of the Master		Type				HP formula based on Master	Combat bonus															Modify VAR
+FOLLOWER:Ranger_Companion=1	TYPE:Ranger's Companion	COPYMASTERHP:max(1,MASTER/2)	BONUS:COMBAT|AC|mastervar("Proficiency_Bonus")	BONUS:COMBAT|DAMAGE|mastervar("Proficiency_Bonus")	BONUS:VAR|Proficiency_Bonus|mastervar("Proficiency_Bonus")
+
+FOLLOWER:Familiar=1		TYPE:Familiar
+
+# Race of familiar		Type			Ability
+MASTERBONUSRACE:Pseudodragon	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Pseudodragon)

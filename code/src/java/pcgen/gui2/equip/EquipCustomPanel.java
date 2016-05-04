@@ -631,12 +631,22 @@ public class EquipCustomPanel extends FlippingSplitPane
         	return builder.getSelectedList(head);
 		}
 
-        @Override
-		public List<?> getData(EquipModFacade obj)
+		@Override
+		public Object getData(EquipModFacade element, int column)
 		{
-			return Arrays.asList(obj.getSource());
+			switch(column){
+				case 0:
+					return element.getSource();
+				default:
+					return null;
+			}
 		}
 
+		@Override
+		public void setData(Object value, EquipModFacade element, int column)
+		{
+		}
+		
         @Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
@@ -762,7 +772,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		{
 			EquipmentHead head = (EquipmentHead) anItem;
 			currentHead = head;
-			headRef.setReference(head);
+			headRef.set(head);
 			availableTable.setTreeViewModel(availEqmodModelMap.get(currentHead));
 			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));
 		}

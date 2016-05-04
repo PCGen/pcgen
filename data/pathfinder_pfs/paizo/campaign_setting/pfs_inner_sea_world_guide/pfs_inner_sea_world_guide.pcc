@@ -89,7 +89,6 @@ ABILITY:pfs_iswg_feats.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 KIT:pfs_iswg_kits_race.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 LANGUAGE:pfs_iswg_languages.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 RACE:pfs_iswg_races.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
-SKILL:pfs_iswg_skills.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 SPELL:pfs_iswg_spells.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 TEMPLATE:pfs_iswg_templates.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 ARMORPROF:pfs_iswg_profs_armor.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide

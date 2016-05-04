@@ -56,7 +56,10 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -995,7 +998,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		int hands = 0;
 		if (pc != null)
 		{
-			hands = pc.getDisplay().getHands();
+			hands = getHands(pc);
 		}
 
 		List<String> aList = new ArrayList<String>();
@@ -1070,6 +1073,21 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 
 		return aList;
+	}
+
+	private int getHands(PlayerCharacter pc)
+	{
+		String solverValue = pc.getControl(CControl.CREATUREHANDS);
+		if (solverValue == null)
+		{
+			return FacetLibrary.getFacet(HandsFacet.class).getHands(
+				pc.getCharID());
+		}
+		else
+		{
+			Object val = pc.getGlobal(solverValue);
+			return ((Number) val).intValue();
+		}
 	}
 
 	/**

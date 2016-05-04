@@ -53,7 +53,7 @@ CLASS:Incarnate	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|
 CLASS:Incarnate	PREABILITY:1,CATEGORY=FEAT,Quicken Spell	PREALIGN:TN	PRECLASS:1,Druid=4	PRESKILL:1,Knowledge (Nature)=7
 # Class Name	Skill Pts/Lvl	Use Class Skill List	Class Skill
 CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
-1	ABILITY:FEAT|AUTOMATIC|Incarnate Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Incarnate Weapon Proficiencies
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
@@ -88,7 +88,7 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	BONUS:CASTERLEVEL|Penumbral Lord|CL
 1	SPELLLEVEL:CLASS|Penumbral Lord=8|Blackflame,Shadow Twin
 1	SPELLLEVEL:CLASS|Penumbral Lord=9|Eclipse
 ###Block: Weapon and Armor Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Penumbral Lord Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Penumbral Lord Weapon Proficiencies
 ###Block: Normal Level Progression
 1	CAST:3,2				VISION:Darkvision (60')						ABILITY:Special Ability|AUTOMATIC|Shadow Strength
 2	CAST:4,2,1													ABILITY:Special Ability|AUTOMATIC|Shadowcat Form

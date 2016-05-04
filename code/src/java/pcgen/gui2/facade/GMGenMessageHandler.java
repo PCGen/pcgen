@@ -173,7 +173,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 		{
 			PlayerCharacter playerCharacter =
 					CharacterManager.openPlayerCharacter(pcFile, delegate,
-						delegate.getLoadedDataSetRef().getReference(),
+						delegate.getLoadedDataSetRef().get(),
 						message.isBlockLoadedMessage());
 			message.setPlayerCharacter(playerCharacter);
 			message.consume();
@@ -181,7 +181,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 		else if (PCGFile.isPCGenPartyFile(pcFile))
 		{
 			CharacterManager.openParty(pcFile, delegate, delegate
-				.getLoadedDataSetRef().getReference());
+				.getLoadedDataSetRef().get());
 		}
 	}
 

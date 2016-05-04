@@ -98,7 +98,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 *             if this CDOMSimpleSingleRef has not been resolved
 	 */
 	@Override
-	public T resolvesTo()
+	public T get()
 	{
 		if (referencedObject == null)
 		{

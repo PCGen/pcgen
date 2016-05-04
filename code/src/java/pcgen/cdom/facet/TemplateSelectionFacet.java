@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCTemplate;
 
@@ -25,7 +26,7 @@ import pcgen.core.PCTemplate;
  * Character with the CHOOSE selection that was made (if CHOOSE was present)
  */
 public class TemplateSelectionFacet extends
-		AbstractAssociationFacet<PCTemplate, Object>
+		AbstractAssociationFacet<CharID, PCTemplate, Object>
 {
 
 }

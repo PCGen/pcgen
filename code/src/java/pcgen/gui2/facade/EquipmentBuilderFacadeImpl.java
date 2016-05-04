@@ -387,7 +387,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
-				if (equip.isVisible(aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))
+				if (equip.isVisible(character, aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))
 				{
 					if (aEqMod.isType("ALL"))
 					{
@@ -432,7 +432,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		
 		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
 		
-		return equip.canAddModifier(eqMod, head.isPrimary());
+		return equip.canAddModifier(character, eqMod, head.isPrimary());
 	}
 	
 	/**
@@ -457,7 +457,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		
 		equip.resizeItem(character, (SizeAdjustment) newSize);
 		equip.nameItemFromModifiers(character);
-		sizeRef.setReference(newSize);
+		sizeRef.set(newSize);
 	}
 
 	/**
@@ -490,16 +490,16 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 		
-		InfoFacade castingClass = spellBuilderFI.getClassRef().getReference();
-		Spell theSpell = (Spell) spellBuilderFI.getSpellRef().getReference();
-		String variant = spellBuilderFI.getVariantRef().getReference();
+		InfoFacade castingClass = spellBuilderFI.getClassRef().get();
+		Spell theSpell = (Spell) spellBuilderFI.getSpellRef().get();
+		String variant = spellBuilderFI.getVariantRef().get();
 		if (variant == null)
 		{
 			variant = "";
 		}
-		String spellType = spellBuilderFI.getSpellTypeRef().getReference();
-		int baseSpellLevel = spellBuilderFI.getSpellLevelRef().getReference();
-		int casterLevel = spellBuilderFI.getCasterLevelRef().getReference();
+		String spellType = spellBuilderFI.getSpellTypeRef().get();
+		int baseSpellLevel = spellBuilderFI.getSpellLevelRef().get();
+		int casterLevel = spellBuilderFI.getCasterLevelRef().get();
 		ListFacade<AbilityFacade> metamagicFeatsList = spellBuilderFI.getSelectedMetamagicFeats();
 		Object[] metamagicFeats = new Object[metamagicFeatsList.getSize()];
 		for (int i = 0; i < metamagicFeats.length; i++)

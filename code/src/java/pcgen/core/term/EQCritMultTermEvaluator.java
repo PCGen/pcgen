@@ -26,8 +26,13 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.io.exporttoken.EqToken;
+import pcgen.util.Logging;
 
 public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -42,6 +47,12 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 			boolean primary,
 			PlayerCharacter pc)
 	{
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.CRITMULT))
+		{
+			Logging
+				.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
+		}
 		if (primary)
 		{
 			return (float) eq.getCritMultiplier();
@@ -55,12 +66,18 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.CRITMULT))
+		{
+			Logging
+				.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
+		}
 		if (primary)
 		{
-			return eq.getCritMult();
+			return EqToken.multAsString(eq.getCritMultiplier());
 		}
 
-		return eq.getAltCritMult();
+		return EqToken.multAsString(eq.getAltCritMultiplier());
 	}
 	
 	@Override

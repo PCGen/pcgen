@@ -27,8 +27,10 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.HandsFacet;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -38,15 +40,12 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreHandsTester extends AbstractDisplayPrereqTest implements
+public class PreHandsTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal;
@@ -54,9 +53,10 @@ public class PreHandsTester extends AbstractDisplayPrereqTest implements
 		{
 			final int targetHands = Integer.parseInt(prereq.getOperand());
 
-			runningTotal =
-					prereq.getOperator().compare(display.getHands(),
-						targetHands);
+			int hands = FacetLibrary.getFacet(HandsFacet.class).getHands(
+				display.getCharID());
+
+			runningTotal = prereq.getOperator().compare(hands, targetHands);
 		}
 		catch (NumberFormatException nfe)
 		{

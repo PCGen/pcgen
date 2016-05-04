@@ -25,7 +25,11 @@
  */
 package plugin.bonustokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:EQMARMOR token.
@@ -66,5 +70,58 @@ public final class EqmArmor extends MultiTagBonusObj
 	protected int getBonusTagLength()
 	{
 		return BONUS_TAGS.length;
+	}
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.EDR))
+		{
+			if ("EDR".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|EDR is disabled when EDR control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.EQSPELLFAILURE))
+		{
+			if ("SPELLFAILURE".equals(token))
+			{
+				Logging.errorPrint("BONUS:EQMARMOR|SPELLFAILURE is disabled "
+					+ "when EQSPELLFAILURE control is used: " + token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.EQMAXDEX))
+		{
+			if ("MAXDEX".equals(token))
+			{
+				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled "
+					+ "when EQMAXDEX control is used: " + token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
+		{
+			if ("AC".equals(token))
+			{
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: "
+						+ token, context);
+				return false;
+			}
+		}
+		if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
+		{
+			if ("ACCHECK".equals(token))
+			{
+				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled "
+					+ "when EQACCHECK control is used: " + token, context);
+				return false;
+			}
+		}
+		return super.parseToken(context, token);
 	}
 }

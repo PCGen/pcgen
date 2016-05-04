@@ -283,12 +283,14 @@ public class KitPanel extends FlippingSplitPane
 				ListFacade<KitFacade> kitList = new DefaultListFacade<KitFacade>(character.getAvailableKits());
 				kits.setDelegate(kitList);
 				character.getKits().addListListener(this);
-				columns = Arrays.asList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+				columns = Arrays.asList(new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				kits = null;
-				columns = Arrays.asList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+				columns = Arrays.asList(new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -323,10 +325,22 @@ public class KitPanel extends FlippingSplitPane
 			}
 		}
 
-        @Override
-		public List<?> getData(KitFacade obj)
+		@Override
+		public Object getData(KitFacade element, int column)
 		{
-			return Arrays.asList(obj.getSource());
+			switch(column){
+				case 0:
+					return character.getInfoFactory().getDescription(element);
+				case 1:
+					return element.getSource();
+				default:
+					return null;
+			}
+		}
+
+		@Override
+		public void setData(Object value, KitFacade element, int column)
+		{
 		}
 
         @Override

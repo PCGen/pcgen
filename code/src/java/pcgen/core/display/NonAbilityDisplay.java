@@ -50,7 +50,7 @@ public class NonAbilityDisplay
 		for (CDOMSingleRef<PCStat> ref : po
 			.getSafeListFor(ListKey.NONSTAT_TO_STAT_STATS))
 		{
-			if (ref.resolvesTo().equals(stat))
+			if (ref.get().equals(stat))
 			{
 				return false;
 			}
@@ -58,7 +58,7 @@ public class NonAbilityDisplay
 	
 		for (CDOMSingleRef<PCStat> nsStat : po.getSafeListFor(ListKey.NONSTAT_STATS))
 		{
-			if (nsStat.resolvesTo().equals(stat))
+			if (nsStat.get().equals(stat))
 			{
 				return true;
 			}

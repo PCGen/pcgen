@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.Skill;
 
@@ -27,6 +28,6 @@ import pcgen.core.Skill;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillOutputOrderFacet extends
-		AbstractAssociationFacet<Skill, Integer>
+		AbstractAssociationFacet<CharID, Skill, Integer>
 {
 }

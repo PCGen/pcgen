@@ -107,11 +107,10 @@ public class SpellcasterQualifierTokenTest extends
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();		
 		assertTrue(parse(getSubTokenName() + "|SPELLCASTER[ALL]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
@@ -134,11 +133,10 @@ public class SpellcasterQualifierTokenTest extends
 	public void testGetSetFiltered() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();		
 		assertTrue(parse(getSubTokenName() + "|SPELLCASTER[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);

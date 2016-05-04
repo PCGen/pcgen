@@ -18,9 +18,13 @@
 package plugin.lsttokens.race;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REACH Token
@@ -52,4 +56,17 @@ public class ReachToken extends AbstractIntToken<Race> implements
 	{
 		return Race.class;
 	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, Race obj, String value)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when CREATEUREREACH control is used: " + value,
+				context);
+		}
+		return super.parseToken(context, obj, value);
+	}
+	
 }

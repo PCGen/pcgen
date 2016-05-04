@@ -56,6 +56,9 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
+import pcgen.gui2.util.table.SortableTableModel;
+import pcgen.gui2.util.table.SortableTableRowSorter;
+import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -86,7 +89,16 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	{
 		super("SpellsPrepared");
 		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
-		this.selectedTable = new JTreeViewTable<SuperNode>();
+		this.selectedTable = new JTreeViewTable<SuperNode>(){
+			
+			@Override
+			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
+			{
+				super.setTreeViewModel(viewModel);
+				sortModel();
+			}
+			
+		};
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addMMSpellButton = new JButton();
 		this.addSpellButton = new JButton();
@@ -105,6 +117,16 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
+		selectedTable.setRowSorter(new SortableTableRowSorter(){
+			
+			@Override
+			public SortableTableModel getModel()
+			{
+				return (SortableTableModel) selectedTable.getModel();
+			}
+
+		});
+		selectedTable.getRowSorter().toggleSortOrder(0);
 		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
@@ -459,8 +481,10 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		public TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellsPrepAva");
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getPreparedSpellNodes(), true, "SpellsPrepSel");
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(),
+					false, "SpellsPrepAva", character.getInfoFactory());
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getPreparedSpellNodes(),
+					true, "SpellsPrepSel", character.getInfoFactory());
 		}
 
 		public void install()

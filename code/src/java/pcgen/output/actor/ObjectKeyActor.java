@@ -19,9 +19,11 @@ package pcgen.output.actor;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.base.OutputActor;
-import pcgen.output.library.ObjectWrapperLibrary;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -39,6 +41,9 @@ import freemarker.template.TemplateModelException;
  */
 public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 {
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
+		.getFacet(ObjectWrapperFacet.class);
+
 	/**
 	 * The ObjectKey underlying this ObjectKeyActor (for which the contents will
 	 * be returned)
@@ -57,16 +62,18 @@ public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 	}
 
 	/**
-	 * @see pcgen.output.base.OutputActor#process(java.lang.Object)
+	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public TemplateModel process(CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
+		throws TemplateModelException
 	{
 		Object object = d.get(ok);
 		if (object == null)
 		{
 			object = Constants.EMPTY_STRING;
 		}
-		return ObjectWrapperLibrary.getInstance().wrap(object);
+		return WRAPPER_FACET.wrap(id, object);
 	}
 }

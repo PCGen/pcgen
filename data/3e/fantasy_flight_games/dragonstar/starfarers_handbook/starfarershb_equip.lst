@@ -83,8 +83,8 @@ Signal jammer				TYPE:HighTechGoods.Espionage			COST:750	WT:1		SOURCEPAGE:p.111
 ###Block: Tools
 # Equipment Name			Type						Cost		Weight	Requires Modification?	Source Page			Bonus to skill
 Appraisal kit			TYPE:HighTechGoods.Tools		COST:100	WT:5						SOURCEPAGE:p.114
-Demolitions kit			TYPE:HighTechGoods.Tools		COST:200	WT:5						SOURCEPAGE:p.114
-Demolitions kit (masterwork)	TYPE:HighTechGoods.Tools.Masterwork	COST:500	WT:8						SOURCEPAGE:p.114		BONUS:SKILL|Demolitions|2|TYPE=EquipmentCircumstance
+Demolitions Kit			TYPE:HighTechGoods.Tools		COST:200	WT:5						SOURCEPAGE:p.114
+Demolitions Kit (Masterwork)	TYPE:HighTechGoods.Tools.Masterwork	COST:500	WT:8						SOURCEPAGE:p.114		BONUS:SKILL|Demolitions|2|TYPE=EquipmentCircumstance
 Laser torch				TYPE:HighTechGoods.Tools		COST:250	WT:5						SOURCEPAGE:p.114
 Toolkit				TYPE:HighTechGoods.Tools		COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.113-114
 

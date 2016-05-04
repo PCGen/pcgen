@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name	Category of Ability
 Arcanist		CATEGORY:Class
@@ -328,7 +328,7 @@ CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Inspiration|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Trapfinding|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonLore|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance|0
-CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talents|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_InvestigatorTalents|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_KeenRecollection|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_TrapSense|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_SwiftAlchemy|0
@@ -359,7 +359,7 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Trapfinding|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Trapfinding=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonLore|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonLore=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance=True
-CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talents=True
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_InvestigatorTalents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_InvestigatorTalents=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_KeenRecollection|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_KeenRecollection=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_TrapSense=True
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_SwiftAlchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_SwiftAlchemy=True
@@ -374,7 +374,7 @@ CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Trapfinding|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapfinding
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonLore|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonLore
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_PoisonResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonResistance
-CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_Talents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTalents
+CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_InvestigatorTalents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTalents
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_KeenRecollection|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorKeenRecollection
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_TrapSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapSense
 CATEGORY=Class|Investigator.MOD																																							BONUS:VAR|Investigator_CF_SwiftAlchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorSwiftAlchemy
@@ -736,41 +736,78 @@ CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_ChannelEnergy|0
 CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_SacredArmor|0
 CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_AspectOfWar|0
 
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ClassSkills=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ArmorProficiencies=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_WeaponProficiencies=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_LightArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_LightArmorProficiency=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_MediumArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_MediumArmorProficiency=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_HeavyArmorProficiency=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ShieldProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ShieldProficiencies=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Aura|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Aura=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Blessings|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Blessings=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_FocusWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_FocusWeapon=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Orisons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Orisons=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_SacredWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SacredWeapon=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SpontaneousCasting=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_BonusLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusLanguages=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Fervor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Fervor=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeats=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ChannelEnergy=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SacredArmor=True
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_AspectOfWar=True
+CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_BonusFeat3|0
+CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_BonusFeat6|0
+CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_BonusFeat9|0
+CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_BonusFeat12|0
+CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_BonusFeat15|0
+CATEGORY=Class|Warpriest.MOD		DEFINE:Warpriest_CF_BonusFeat18|0
 
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestArmorProficiencies
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestWeaponProficiencies
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_LightArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestLightArmorProficiency
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_MediumArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestMediumArmorProficiency
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestHeavyArmorProficiency
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ShieldProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestShieldProficiencies
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Aura|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAura
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Blessings|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBlessings
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_FocusWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFocusWeapon
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Orisons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestOrisons
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_SacredWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredWeapon
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSpontaneousCasting
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_BonusLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusLanguages
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_Fervor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFervor
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusFeats
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestChannelEnergy
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredArmor
-CATEGORY=Class|Warpriest.MOD																																								BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAspectOfWar
+
+
+
+
+
+
+###Block:
+# Ability Name			Modify VAR
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ClassSkills=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ArmorProficiencies=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_WeaponProficiencies=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_LightArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_LightArmorProficiency=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_MediumArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_MediumArmorProficiency=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_HeavyArmorProficiency=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ShieldProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ShieldProficiencies=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Aura|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Aura=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Blessings|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Blessings=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_FocusWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_FocusWeapon=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Orisons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Orisons=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SacredWeapon=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SpontaneousCasting=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusLanguages=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Fervor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_Fervor=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeats=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_ChannelEnergy=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SacredArmor=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_AspectOfWar=True
+
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeat3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeat3=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeat6=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeat9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeat9=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeat12=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeat15=True
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_BonusFeat18=True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestArmorProficiencies
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestWeaponProficiencies
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_LightArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestLightArmorProficiency
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_MediumArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestMediumArmorProficiency
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestHeavyArmorProficiency
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ShieldProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestShieldProficiencies
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Aura|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAura
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Blessings|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBlessings
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_FocusWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFocusWeapon
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Orisons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestOrisons
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredWeapon
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSpontaneousCasting
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusLanguages
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Fervor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFervor
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusFeats
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestChannelEnergy
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredArmor
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAspectOfWar

@@ -186,5 +186,4 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		}
 
 	}
-
 }

@@ -47,6 +47,60 @@ Skill                   Total   Rnk     Stat    Msc
 |SPECIALABILITY.%|
 |ENDFOR|
 
+|FOR,%specialquality,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.HASASPECT.Name:Y)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASPECT.Name| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASPECT.Name| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASPECT.Name| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASPECT.Name| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASPECT.Name|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE:PsiLike)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Special Ability.VISIBLE.%specialquality.DESC|</description>
+			<type>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE|</type>
+			<associated>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASSOCIATEDCOUNT|</count>
+			<aspect>|ABILITYALL.Special Ability.VISIBLE.%specialquality.ASPECT|</aspect>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%specialquality.SOURCE|</source>
+		</special_quality>
+|ENDFOR|
+	</special_qualities>
+
+
 ------------------------ Templates -------------------------
 |TEMPLATELIST|
 

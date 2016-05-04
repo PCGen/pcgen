@@ -102,11 +102,10 @@ public class NoRankQualifierTokenTest extends
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|NORANK[ALL]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
@@ -129,11 +128,10 @@ public class NoRankQualifierTokenTest extends
 	public void testGetSetFiltered() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|NORANK[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);

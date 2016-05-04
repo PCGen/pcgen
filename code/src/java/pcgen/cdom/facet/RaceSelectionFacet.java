@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.Race;
 
@@ -24,6 +25,7 @@ import pcgen.core.Race;
  * RaceSelectionFacet is a Facet that tracks the Race of a Player Character with
  * the CHOOSE selection that was made
  */
-public class RaceSelectionFacet extends AbstractAssociationFacet<Race, Object>
+public class RaceSelectionFacet extends
+		AbstractAssociationFacet<CharID, Race, Object>
 {
 }

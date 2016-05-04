@@ -23,6 +23,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.inst.SimpleScopeInstance;
+import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.GroupDefinition;
@@ -37,16 +41,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Campaign;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.ParsingSeparator;
-import pcgen.output.library.ObjectWrapperLibrary;
-import pcgen.output.wrapper.AgeSetWrapper;
-import pcgen.output.wrapper.CDOMObjectWrapper;
-import pcgen.output.wrapper.CDOMReferenceWrapper;
-import pcgen.output.wrapper.CNAbilitySelectionWrapper;
-import pcgen.output.wrapper.CategoryWrapper;
-import pcgen.output.wrapper.EnumWrapper;
-import pcgen.output.wrapper.OrderedPairWrapper;
-import pcgen.output.wrapper.TypeSafeConstantWrapper;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -58,7 +52,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
-import freemarker.template.ObjectWrapper;
 
 public abstract class LoadContextInst implements LoadContext
 {
@@ -74,6 +67,8 @@ public abstract class LoadContextInst implements LoadContext
 
 	private final AbstractReferenceContext ref;
 	
+	private final VariableContext var;
+
 	private final List<Campaign> campaignList = new ArrayList<Campaign>();
 
 	private int writeMessageCount = 0;
@@ -87,20 +82,12 @@ public abstract class LoadContextInst implements LoadContext
 
 	//Per file
 	private CDOMObject stateful;
+	
+	private ScopeInstance scopeInst = null;
 
 	static
 	{
 		FacetInitialization.initialize();
-		ObjectWrapperLibrary owl = ObjectWrapperLibrary.getInstance();
-		owl.add(ObjectWrapper.SIMPLE_WRAPPER);
-		owl.add(CDOMObjectWrapper.getInstance());
-		owl.add(new AgeSetWrapper());
-		owl.add(new CDOMReferenceWrapper());
-		owl.add(new TypeSafeConstantWrapper());
-		owl.add(new CNAbilitySelectionWrapper());
-		owl.add(new CategoryWrapper());
-		owl.add(new EnumWrapper());
-		owl.add(new OrderedPairWrapper());
 	}
 
 	public LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
@@ -120,6 +107,7 @@ public abstract class LoadContextInst implements LoadContext
 		ref = rc;
 		list = lc;
 		obj = oc;
+		var = new VariableContext();
 	}
 
 	@Override
@@ -192,6 +180,12 @@ public abstract class LoadContextInst implements LoadContext
 		return list;
 	}
 
+	@Override
+	public VariableContext getVariableContext()
+	{
+		return var;
+	}
+	
 	@Override
 	public void commit()
 	{
@@ -531,5 +525,322 @@ public abstract class LoadContextInst implements LoadContext
 	public <T> GroupDefinition<T> getGroup(Class<T> cl, String s)
 	{
 		return support.getGroup(cl, s);
+	}
+
+	@Override
+	public ScopeInstance getActiveScope()
+	{
+		if (scopeInst == null)
+		{
+			LegalScope legalScope = var.getScope("Global");
+			scopeInst = new SimpleScopeInstance(null, legalScope);
+		}
+		return scopeInst;
+	}
+
+	@Override
+	public LoadContext dropIntoContext(String scope)
+	{
+		LegalScope legalScope = var.getScope(scope);
+		if (legalScope == null)
+		{
+			throw new IllegalArgumentException("LegalVariableScope " + scope
+				+ " does not exist");
+		}
+		return dropIntoContext(legalScope);
+	}
+
+	private LoadContext dropIntoContext(LegalScope lvs)
+	{
+		LegalScope parent = lvs.getParentScope();
+		if (parent == null)
+		{
+			//is Global
+			return this;
+		}
+		LoadContext parentLC = dropIntoContext(parent);
+		SimpleScopeInstance localInst =
+				new SimpleScopeInstance(parentLC.getActiveScope(), lvs);
+		return new DerivedLoadContext(parentLC, localInst);
+	}
+
+	private class DerivedLoadContext implements LoadContext
+	{
+
+		private final LoadContext parent;
+		private final ScopeInstance scopeInst;
+
+		public DerivedLoadContext(LoadContext parent, ScopeInstance lvs)
+		{
+			this.scopeInst = lvs;
+			this.parent = parent;
+		}
+
+		@Override
+		public void setExtractURI(URI extractURI)
+		{
+			parent.setExtractURI(extractURI);
+		}
+
+		@Override
+		public void setSourceURI(URI sourceURI)
+		{
+			parent.setSourceURI(sourceURI);
+		}
+
+		@Override
+		public URI getSourceURI()
+		{
+			return parent.getSourceURI();
+		}
+
+		@Override
+		public DataSetID getDataSetID()
+		{
+			return parent.getDataSetID();
+		}
+
+		@Override
+		public AbstractReferenceContext getReferenceContext()
+		{
+			return parent.getReferenceContext();
+		}
+
+		@Override
+		public AbstractObjectContext getObjectContext()
+		{
+			return parent.getObjectContext();
+		}
+
+		@Override
+		public AbstractListContext getListContext()
+		{
+			return parent.getListContext();
+		}
+
+		@Override
+		public boolean consolidate()
+		{
+			return parent.consolidate();
+		}
+
+		@Override
+		public VariableContext getVariableContext()
+		{
+			return parent.getVariableContext();
+		}
+
+		@Override
+		public void commit()
+		{
+			parent.commit();
+		}
+
+		@Override
+		public void rollback()
+		{
+			parent.rollback();
+		}
+
+		@Override
+		public void resolveDeferredTokens()
+		{
+			parent.resolveDeferredTokens();
+		}
+
+		@Override
+		public void resolvePostDeferredTokens()
+		{
+			parent.resolvePostDeferredTokens();
+		}
+
+		@Override
+		public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
+			SelectionCreator<T> sc, String value)
+		{
+			return parent.getChoiceSet(sc, value);
+		}
+
+		@Override
+		public <T extends CDOMObject> PrimitiveCollection<T> getPrimitiveChoiceFilter(
+			SelectionCreator<T> sc, String key)
+		{
+			return parent.getPrimitiveChoiceFilter(sc, key);
+		}
+
+		@Override
+		public String getPrerequisiteString(Collection<Prerequisite> prereqs)
+		{
+			return parent.getPrerequisiteString(prereqs);
+		}
+
+		@Override
+		public ReferenceManufacturer<? extends Loadable> getManufacturer(
+			String firstToken)
+		{
+			return parent.getManufacturer(firstToken);
+		}
+
+		@Override
+		public void forgetMeNot(CDOMReference<?> cdr)
+		{
+			parent.forgetMeNot(cdr);
+		}
+
+		@Override
+		public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo,
+			String newName)
+		{
+			return parent.cloneConstructedCDOMObject(cdo, newName);
+		}
+
+		@Override
+		public CampaignSourceEntry getCampaignSourceEntry(Campaign source,
+			String value)
+		{
+			return parent.getCampaignSourceEntry(source, value);
+		}
+
+		@Override
+		public void clearStatefulInformation()
+		{
+			parent.clearStatefulInformation();
+		}
+
+		@Override
+		public boolean addStatefulToken(String s)
+			throws PersistenceLayerException
+		{
+			return parent.addStatefulToken(s);
+		}
+
+		@Override
+		public void addStatefulInformation(CDOMObject target)
+		{
+			parent.addStatefulInformation(target);
+		}
+
+		@Override
+		public void setLoaded(List<Campaign> campaigns)
+		{
+			parent.setLoaded(campaigns);
+		}
+
+		@Override
+		public List<Campaign> getLoadedCampaigns()
+		{
+			return parent.getLoadedCampaigns();
+		}
+
+		@Override
+		public void loadCampaignFacets()
+		{
+			parent.loadCampaignFacets();
+		}
+
+		@Override
+		public <T extends CDOMObject> T performCopy(T object, String copyName)
+		{
+			return parent.performCopy(object, copyName);
+		}
+
+		@Override
+		public <T> ParseResult processSubToken(T cdo, String tokenName,
+			String key, String value)
+		{
+			return support.processSubToken(this, cdo, tokenName, key, value);
+		}
+
+		@Override
+		public <T extends Loadable> boolean processToken(T derivative,
+			String typeStr, String argument) throws PersistenceLayerException
+		{
+			return support.processToken(this, derivative, typeStr, argument);
+		}
+
+		@Override
+		public <T extends Loadable> void unconditionallyProcess(T cdo,
+			String key, String value)
+		{
+			parent.unconditionallyProcess(cdo, key, value);
+		}
+
+		@Override
+		public <T> String[] unparseSubtoken(T cdo, String tokenName)
+		{
+			return support.unparseSubtoken(this, cdo, tokenName);
+		}
+
+		@Override
+		public <T> Collection<String> unparse(T cdo)
+		{
+			return support.unparse(this, cdo);
+		}
+
+		@Override
+		public void addWriteMessage(String string)
+		{
+			parent.addWriteMessage(string);
+		}
+
+		@Override
+		public int getWriteMessageCount()
+		{
+			return parent.getWriteMessageCount();
+		}
+
+		@Override
+		public ScopeInstance getActiveScope()
+		{
+			return scopeInst;
+		}
+
+		@Override
+		public LoadContext dropIntoContext(String scope)
+		{
+			LegalScope toScope = var.getScope(scope);
+			if (toScope == null)
+			{
+				throw new IllegalArgumentException("LegalVariableScope "
+					+ scope + " does not exist");
+			}
+			LegalScope currentScope = scopeInst.getLegalScope();
+			if (currentScope.equals(toScope))
+			{
+				return this;
+			}
+			else if (currentScope.getParentScope().equals(toScope))
+			{
+				//Jump up from here
+				return parent;
+			}
+			else if (toScope.getParentScope().equals(currentScope))
+			{
+				//Direct drop from this
+				SimpleScopeInstance localInst =
+						new SimpleScopeInstance(scopeInst, toScope);
+				return new DerivedLoadContext(this, localInst);
+			}
+			//Random jump to somewhere else...
+			return LoadContextInst.this.dropIntoContext(toScope);
+		}
+
+		@Override
+		public void loadLocalToken(Object token)
+		{
+			parent.loadLocalToken(token);
+		}
+
+		@Override
+		public <T> GroupDefinition<T> getGroup(Class<T> cl, String s)
+		{
+			return parent.getGroup(cl, s);
+		}
+
+		@Override
+		public void resolvePostValidationTokens()
+		{
+			parent.resolvePostValidationTokens();
+		}
 	}
 }

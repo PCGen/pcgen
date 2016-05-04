@@ -106,11 +106,10 @@ public class AnyQualifierTokenTest extends
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
@@ -125,11 +124,10 @@ public class AnyQualifierTokenTest extends
 	public void testGetSetFiltered() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);

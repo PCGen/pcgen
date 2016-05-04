@@ -26,7 +26,7 @@ import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -35,7 +35,7 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-public class BenefitTokenTest extends AbstractTokenTestCase<Ability>
+public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
 
 	static BenefitToken token = new BenefitToken();

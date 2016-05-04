@@ -174,7 +174,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	public void install()
 	{
 		treeRenderer.setCharacter(character);
-		selectedModel = equipsetMap.get(character.getEquipmentSetRef().getReference());
+		selectedModel = equipsetMap.get(character.getEquipmentSetRef().get());
 		treeTable.setTreeTableModel(selectedModel);
 		treeTable.getModel().addTableModelListener(this);
 		realignRowHeights();

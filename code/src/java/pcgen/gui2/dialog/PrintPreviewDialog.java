@@ -30,11 +30,11 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.print.*;
+import java.awt.print.Pageable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.PipedInputStream;
@@ -121,7 +121,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	{
 		super(frame, true);
 		this.frame = frame;
-		this.character = frame.getSelectedCharacterRef().getReference();
+		this.character = frame.getSelectedCharacterRef().get();
 		this.previewPanelParent = new JPanel(new GridLayout(1, 1));
 		this.sheetBox = new JComboBox();
 		this.progressBar = new JProgressBar();
@@ -258,7 +258,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 				}
 				catch (PrinterException ex)
 				{
-					String message = "Could not print " + character.getNameRef().getReference();
+					String message = "Could not print " + character.getNameRef().get();
 					Logging.errorPrint(message, ex);
 					frame.showErrorMessage(Constants.APPLICATION_NAME, message);
 				}
@@ -376,11 +376,11 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			AWTRenderer renderer = new AWTRenderer();
 			renderer.setPreviewDialogDisplayed(false);
 			PipedOutputStream out = new PipedOutputStream();
-			FopTask task = FopTask.newFopTask(new BufferedInputStream(new PipedInputStream(out)), xsltFile, renderer);
+			FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
 			Thread thread = new Thread(task, "fop-preview");
 			thread.setDaemon(true);
 			thread.start();
-			BatchExporter.printToXmlStream(character, new BufferedOutputStream(out));
+			BatchExporter.exportCharacter(character, out);
 			try{
 				thread.join();
 			}catch(InterruptedException ex){

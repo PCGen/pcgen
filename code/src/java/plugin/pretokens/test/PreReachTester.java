@@ -27,6 +27,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
@@ -53,8 +55,11 @@ public class PreReachTester extends AbstractDisplayPrereqTest implements Prerequ
 		{
 			final int targetReach = Integer.parseInt(prereq.getOperand());
 
+			int pcReach =
+					FacetLibrary.getFacet(ReachFacet.class).getReach(
+						display.getCharID());
 			runningTotal =
-					prereq.getOperator().compare(display.getReach(),
+					prereq.getOperator().compare(pcReach,
 						targetReach);
 		}
 		catch (NumberFormatException nfe)

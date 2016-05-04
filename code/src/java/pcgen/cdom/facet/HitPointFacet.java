@@ -44,7 +44,7 @@ import pcgen.core.SettingsHandler;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HitPointFacet extends
-		AbstractAssociationFacet<PCClassLevel, Integer> implements
+		AbstractAssociationFacet<CharID, PCClassLevel, Integer> implements
 		DataFacetChangeListener<CharID, CDOMObject>
 {
 

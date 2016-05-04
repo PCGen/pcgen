@@ -139,7 +139,7 @@ public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
 	 *             if this CDOMCategorizedSingleRef has not been resolved
 	 */
 	@Override
-	public T resolvesTo()
+	public T get()
 	{
 		if (referencedObject == null)
 		{

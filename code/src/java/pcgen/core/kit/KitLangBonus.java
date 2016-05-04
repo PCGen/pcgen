@@ -107,7 +107,7 @@ public class KitLangBonus extends BaseKit
 		int remaining = allowedCount;
 		for (CDOMSingleRef<Language> ref : langList)
 		{
-			Language lang = ref.resolvesTo();
+			Language lang = ref.get();
 			if (remaining > 0 && controller.conditionallyApply(aPC, lang))
 			{
 				theLanguages.add(lang);

@@ -54,7 +54,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 				String desiredAlignIdentifier = prereq.getOperand();
 				PCAlignment desiredAlign = getPCAlignment(desiredAlignIdentifier);
 
-				if (desiredAlign.equals(deityAlign.resolvesTo()))
+				if (desiredAlign.equals(deityAlign.get()))
 				{
 					runningTotal = 1;
 				}

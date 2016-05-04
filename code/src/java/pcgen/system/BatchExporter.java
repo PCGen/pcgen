@@ -22,7 +22,10 @@
  */
 package pcgen.system;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
@@ -32,25 +35,26 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.ExportUtilities;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
-import pcgen.util.fop.FOPHandler;
-import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
+import pcgen.util.fop.FopTask;
 
 /**
  * The Class <code>BatchExporter</code> manages character sheet output to a 
@@ -221,38 +225,42 @@ public class BatchExporter
 	public static boolean exportCharacterToPDF(CharacterFacade character,
 		File outFile, File templateFile)
 	{
-		String extension =
-				StringUtils.substringAfterLast(templateFile.getName(), ".");
-		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
-		File tempFile = null;
-		try
+		
+		String templateExtension = FilenameUtils.getExtension(templateFile.getName());
+
+		boolean isTransformTemplate = "xslt".equalsIgnoreCase(templateExtension)
+				|| "xsl".equalsIgnoreCase(templateExtension);
+		
+		boolean useTempFile = PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
+		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
+		File tempFile = isTransformTemplate ? new File(outFileName + ".xml") : new File(outFileName + ".fo");
+		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
+				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
+				OutputStream exportOutput = useTempFile
+						//Output to both the byte stream and to the temp file.
+						? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile))
+						: byteOutputStream)
 		{
-			if ("xslt".equalsIgnoreCase(extension)
-				|| "xsl".equalsIgnoreCase(extension))
+			FopTask task;
+			if (isTransformTemplate)
 			{
-				tempFile = File.createTempFile("currentPC_", ".xml");
-				printToXMLFile(tempFile, character);
-				handler.setInputFile(tempFile, templateFile);
+				exportCharacter(character, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
 			}
 			else
 			{
-				tempFile = File.createTempFile("currentPC_", ".fo");
-				printToFile(tempFile, templateFile, character);
-				handler.setInputFile(tempFile);
+				exportCharacter(character, templateFile, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+				task = FopTask.newFopTask(inputStream, null, fileStream);
 			}
-			if (StringUtils.isNotEmpty(handler.getErrorMessage()))
-			{
-				return false;
-			}
-					
 			character.setDefaultOutputSheet(true, templateFile);
-			handler.setMode(FOPHandler.PDF_MODE);
-			handler.setOutputFile(outFile);
-			handler.run();
-			if (StringUtils.isNotBlank(handler.getErrorMessage()))
+			task.run();
+			if (StringUtils.isNotBlank(task.getErrorMessages()))
 			{
 				Logging.errorPrint("BatchExporter.exportCharacterToPDF failed: " //$NON-NLS-1$
-					+ handler.getErrorMessage());
+					+ task.getErrorMessages());
 				return false;
 			}
 		}
@@ -267,7 +275,6 @@ public class BatchExporter
 			return false;
 		}
 		return true;
-
 	}
 
 	/**
@@ -281,30 +288,25 @@ public class BatchExporter
 	 * @return true if the export was successful, false if it failed in some way.
 	 */
 	public static boolean exportCharacterToNonPDF(CharacterFacade character,
-		File outFile, File templateFile)
+			File outFile, File templateFile)
 	{
-		BufferedWriter bw;
-		try
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+				new FileOutputStream(outFile), "UTF-8")))
 		{
-			bw =
-					new BufferedWriter(new OutputStreamWriter(
-						new FileOutputStream(outFile), "UTF-8"));
 			character.export(new ExportHandler(templateFile), bw);
 			character.setDefaultOutputSheet(false, templateFile);
-			
-			bw.close();
 			return true;
 		}
 		catch (UnsupportedEncodingException e)
 		{
 			Logging.errorPrint(
-				"Unable to create output file " + outFile.getAbsolutePath(), e);
+					"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
 		}
 		catch (IOException e)
 		{
 			Logging.errorPrint(
-				"Unable to create output file " + outFile.getAbsolutePath(), e);
+					"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
 		}
 		catch (ExportException e)
@@ -358,30 +360,37 @@ public class BatchExporter
 		File templateFile)
 	{
 		// We want the non pdf extension here for the intermediate file.
-		String extension =
-				ExportUtilities.getOutputExtension(templateFile.getName(),
-					false);
-		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
-		File tempFile = null;
-		try
+		String templateExtension = ExportUtilities.getOutputExtension(templateFile.getName(), false);
+		boolean isTransformTemplate = "xslt".equalsIgnoreCase(templateExtension)
+				|| "xsl".equalsIgnoreCase(templateExtension);
+		
+		boolean useTempFile = PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+						PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
+		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
+		File tempFile = isTransformTemplate ? new File(outFileName + ".xml") : new File(outFileName + ".fo");
+		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
+				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
+				OutputStream exportOutput = useTempFile
+						//Output to both the byte stream and to the temp file.
+						? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile))
+						: byteOutputStream)
 		{
-			if ("xslt".equalsIgnoreCase(extension)
-				|| "xsl".equalsIgnoreCase(extension))
+			FopTask task;
+			if (isTransformTemplate)
 			{
-				tempFile = File.createTempFile("currentPC_", ".xml");
-				printToXMLFile(tempFile, party);
-				handler.setInputFile(tempFile, templateFile);
-				//SettingsHandler.setSelectedCharacterPDFOutputSheet(template.getAbsolutePath(), Globals.getPCList().get(pcExports[loop]));
+				exportParty(party, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
 			}
 			else
 			{
-				tempFile = File.createTempFile("currentPC_", ".fo");
-				printToFile(tempFile, true, templateFile, party);
-				handler.setInputFile(tempFile);
+				SettingsHandler.setSelectedPartyPDFOutputSheet(templateFile.getAbsolutePath());
+				
+				exportParty(party, templateFile, exportOutput);
+				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+				task = FopTask.newFopTask(inputStream, null, fileStream);
 			}
-			handler.setMode(FOPHandler.PDF_MODE);
-			handler.setOutputFile(outFile);
-			handler.run();
+			task.run();
 		}
 		catch (IOException e)
 		{
@@ -409,14 +418,10 @@ public class BatchExporter
 	public static boolean exportPartyToNonPDF(PartyFacade party, File outFile,
 		File templateFile)
 	{
-		BufferedWriter bw;
-		try
+		try(BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+						new FileOutputStream(outFile), "UTF-8")))
 		{
-			bw =
-					new BufferedWriter(new OutputStreamWriter(
-						new FileOutputStream(outFile), "UTF-8"));
 			party.export(new ExportHandler(templateFile), bw);
-			bw.close();
 			return true;
 		}
 		catch (UnsupportedEncodingException e)
@@ -430,6 +435,50 @@ public class BatchExporter
 			Logging.errorPrint(
 				"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
+		}
+	}
+
+	/**
+	 * Write a party sheet for the characters in the party to the outputStream. The party sheet will
+	 * be selected based on the selected game mode and pcgen preferences.
+	 *
+	 * @param party the party to be output
+	 * @param outputStream the stream to output the party sheet to.
+	 * @throws IOException
+	 * @throws ExportException
+	 */
+	public static void exportParty(PartyFacade party, OutputStream outputStream)
+			throws IOException, ExportException
+	{
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
+		{
+			for (CharacterFacade character : party)
+			{
+				File templateFile = getXMLTemplate(character);
+				character.export(new ExportHandler(templateFile), bw);
+			}
+		}
+	}
+
+	/**
+	 * Write a party sheet for the characters in the party to the ouputstream. The party sheet will
+	 * be built according to the template file.
+	 *
+	 * @param party the party to be output
+	 * @param templateFile The file that has the export template definition.
+	 * @param outputStream the stream to output the party sheet to.
+	 * @throws IOException
+	 * @throws ExportException
+	 */
+	public static void exportParty(PartyFacade party, File templateFile, OutputStream outputStream)
+			throws IOException, ExportException
+	{
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
+		{
+			for (CharacterFacade character : party)
+			{
+				character.export(new ExportHandler(templateFile), bw);
+			}
 		}
 	}
 
@@ -472,83 +521,54 @@ public class BatchExporter
 		});
 	}
 
-	public static void printToXmlStream(CharacterFacade character, OutputStream outputStream)
+	/**
+	 * Exports a character to an OuputStream using the default template for the character's game
+	 * mode. This is more generic
+	 * method than writing to a file and the same effect can be achieved by passing in a
+	 * FileOutputStream.
+	 *
+	 * @param character the loaded CharacterFacade to export
+	 * @param outputStream the OutputStream that the character will be exported to
+	 * @throws IOException
+	 * @throws ExportException
+	 */
+	public static void exportCharacter(CharacterFacade character, OutputStream outputStream)
 			throws IOException, ExportException
 	{
-		final BufferedWriter bw
-				= new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-		File template = getXMLTemplate(character);
-		character.export(new ExportHandler(template), bw);
-		bw.close();
+		exportCharacter(character, getXMLTemplate(character), outputStream);
 	}
 
-	public static void printToXMLFile(File outFile, CharacterFacade character)
-		throws IOException, ExportException
+	/**
+	 * Exports a character to an OutputStream using the given template file. The template file is
+	 * used to determine the type of character sheet that will be generated. This is more generic
+	 * method than writing to a file and the same effect can be achieved by passing in a
+	 * FileOutputStream.
+	 *
+	 * @param character the loaded CharacterFacade to export
+	 * @param templateFile the export template file for the ExportHandler to use
+	 * @param outputStream the OutputStream that the character will be exported to
+	 * @throws IOException
+	 * @throws ExportException
+	 */
+	public static void exportCharacter(CharacterFacade character, File templateFile,
+			OutputStream outputStream) throws IOException, ExportException
 	{
-		final BufferedWriter bw =
-				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
-					outFile), "UTF-8"));
-		File template = getXMLTemplate(character);
-		character.export(new ExportHandler(template), bw);
-		bw.close();
-	}
-
-	public static void printToXMLFile(File outFile, PartyFacade party)
-		throws IOException, ExportException
-	{
-		final BufferedWriter bw =
-				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
-					outFile), "UTF-8"));
-		for (CharacterFacade character : party)
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
 		{
-			File templateFile = getXMLTemplate(character);
 			character.export(new ExportHandler(templateFile), bw);
 		}
-		bw.close();
-	}
-
-	private static void printToFile(File outFile, 
-		File templateFile, CharacterFacade character) throws IOException, ExportException
-	{
-		final BufferedWriter bw =
-				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
-					outFile), "UTF-8"));
-		character.export(new ExportHandler(templateFile), bw);
-		bw.close();
-	}
-
-	private static void printToFile(File outFile, boolean pdf,
-		File templateFile, PartyFacade party) throws IOException
-	{
-		final BufferedWriter bw =
-				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
-					outFile), "UTF-8"));
-
-		if (pdf)
-		{
-			SettingsHandler.setSelectedPartyPDFOutputSheet(templateFile
-				.getAbsolutePath());
-		}
-		else
-		{
-			SettingsHandler.setSelectedPartyHTMLOutputSheet(templateFile
-				.getAbsolutePath());
-		}
-		party.export(new ExportHandler(templateFile), bw);
-		bw.close();
 	}
 
 	public static File getXMLTemplate(CharacterFacade character)
 	{
-		File template =
-				FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
-					"gameModes",
-					character.getDataSet().getGameMode().getName(), "base.xml.ftl");
+		File template = FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
+						"gameModes",
+						character.getDataSet().getGameMode().getName(), "base.xml.ftl");
 		if (!template.exists())
 		{
-			template =
-					new File(ConfigurationSettings.getOutputSheetsDir(),
-						"base.xml.ftl");
+			template
+					= new File(ConfigurationSettings.getOutputSheetsDir(),
+							"base.xml.ftl");
 		}
 		return template;
 	}

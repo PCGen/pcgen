@@ -22,9 +22,9 @@ package pcgen.gui2.util.table;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -154,7 +154,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
 
 	@Override
     @SuppressWarnings("unchecked")
-    public void sortModel(Comparator<List<?>> comparator)
+    public void sortModel(Comparator<Row> comparator)
     {
         Collections.sort(dataVector, comparator);
         fireTableDataChanged();

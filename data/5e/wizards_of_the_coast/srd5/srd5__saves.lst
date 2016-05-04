@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
+# Original Entry: See contributors listed in PCC file.
+
+# Name		SORTKEY	Save bonus
+Strength		SORTKEY:1	BONUS:SAVE|Strength|STR
+Dexterity		SORTKEY:2	BONUS:SAVE|Dexterity|DEX
+Constitution	SORTKEY:3	BONUS:SAVE|Constitution|CON
+Intelligence	SORTKEY:4	BONUS:SAVE|Intelligence|INT
+Wisdom		SORTKEY:5	BONUS:SAVE|Wisdom|WIS
+Charisma		SORTKEY:6	BONUS:SAVE|Charisma|CHA

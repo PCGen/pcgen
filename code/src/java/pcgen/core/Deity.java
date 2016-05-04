@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.util.ObjectContainer;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -82,7 +82,7 @@ public final class Deity extends PObject implements DeityFacade
 		{
 			return null;
 		}
-		return ref.resolvesTo();
+		return ref.get();
 	}
 
     @Override
@@ -90,9 +90,9 @@ public final class Deity extends PObject implements DeityFacade
 	{
 		Set<String> charDeityPantheon = new TreeSet<String>();
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-		for (ObjectContainer<String> oc : getSafeSetFor(fk))
+		for (Indirect<String> indirect : getSafeSetFor(fk))
 		{
-			charDeityPantheon.addAll(oc.getContainedObjects());
+			charDeityPantheon.add(indirect.get());
 		}
 		return charDeityPantheon;
 	}

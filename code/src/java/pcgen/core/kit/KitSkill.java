@@ -159,7 +159,7 @@ public final class KitSkill extends BaseKit
 			List<PCClass> classList = new ArrayList<PCClass>();
 			if (className != null)
 			{
-				String classKey = className.resolvesTo().getKeyName();
+				String classKey = className.get().getKeyName();
 				// Make sure if they specified a class to add from we try that
 				// class first.
 				PCClass pcClass = aPC.getClassKeyed(classKey);
@@ -432,7 +432,7 @@ public final class KitSkill extends BaseKit
 			int limit = (int) ranksToAdd;
 			for (CDOMSingleRef<Language> ref : selection)
 			{
-				Language lang = ref.resolvesTo();
+				Language lang = ref.get();
 				if (controller.conditionallyApply(pc, lang))
 				{
 					langList.add(lang);

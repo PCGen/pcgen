@@ -20,17 +20,16 @@
  */
 package pcgen.gui2.filter;
 
-import java.util.AbstractList;
 import java.util.Comparator;
-import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
 
 /**
@@ -98,7 +97,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 	protected abstract Object getValueAt(E element, int column);
 
 	@Override
-	public void sortModel(Comparator<List<?>> comparator)
+	public void sortModel(Comparator<Row> comparator)
 	{
 		if (comparator == null)
 		{
@@ -131,27 +130,20 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		fireTableRowsUpdated(e.getIndex(), e.getIndex());
 	}
 
-	private class RowList extends AbstractList<Object>
+	private class ElementRow implements Row
 	{
 
 		private final E element;
 
-		public RowList(E element)
+		public ElementRow(E element)
 		{
-			super();
 			this.element = element;
 		}
 
 		@Override
-		public Object get(int index)
+		public Object getValueAt(int column)
 		{
-			return getValueAt(element, index);
-		}
-
-		@Override
-		public int size()
-		{
-			return getColumnCount();
+			return FilteredListFacadeTableModel.this.getValueAt(element, column);
 		}
 
 	}
@@ -159,9 +151,9 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 	private class RowComparator implements Comparator<E>
 	{
 
-		private Comparator<List<?>> comp;
+		private final Comparator<Row> comp;
 
-		public RowComparator(Comparator<List<?>> comparator)
+		public RowComparator(Comparator<Row> comparator)
 		{
 			super();
 			this.comp = comparator;
@@ -170,7 +162,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		@Override
 		public int compare(E o1, E o2)
 		{
-			return comp.compare(new RowList(o1), new RowList(o2));
+			return comp.compare(new ElementRow(o1), new ElementRow(o2));
 		}
 
 	}

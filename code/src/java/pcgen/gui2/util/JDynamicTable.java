@@ -23,8 +23,8 @@ package pcgen.gui2.util;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.util.List;
+
 import javax.swing.AbstractAction;
-import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
@@ -33,6 +33,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.event.TableColumnModelEvent;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
@@ -68,9 +69,14 @@ public class JDynamicTable extends JTableEx
 		}
 
 	};
-	private final JButton cornerButton = new JButton(new CornerAction());
+	private final JTableMenuButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
 	private JPopupMenu menu = new JPopupMenu();
+
+	public JDynamicTable()
+	{
+		this.cornerButton = new JTableMenuButton(this, menu);
+	}
 
 	@Override
 	protected void configureEnclosingScrollPane()
@@ -169,26 +175,6 @@ public class JDynamicTable extends JTableEx
 		{
 			cornerButton.setVisible(false);
 		}
-	}
-
-	private class CornerAction extends AbstractAction
-	{
-
-		public CornerAction()
-		{
-			super("...");
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			Container parent = getParent();
-			//make sure that the menu has a chance to layout its components
-			//so that its width can be initialized
-			menu.setVisible(true);
-			menu.show(parent, parent.getWidth() - menu.getWidth(), 0);
-		}
-
 	}
 
 	private class MenuAction extends AbstractAction

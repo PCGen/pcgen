@@ -40,6 +40,9 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.HandsFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -50,19 +53,19 @@ import pcgen.core.character.EquipSlot;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.UIDelegate;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.DefaultListFacade;
-import pcgen.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -188,14 +191,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					if (slot.canContainType("WEAPON"))
 					{
 						// Add phantom nodes for the various weapon slots
-						if (charDisplay.getHands() > 0)
+						if (getPCHands() > 0)
 						{
 							addEquipNodeForEquipSlot(
 								node,
 								createWeaponEquipSlot(slot,
 									Constants.EQUIP_LOCATION_PRIMARY), true);
 						}
-						for (int i = 1; i < charDisplay.getHands(); ++i)
+						for (int i = 1; i < getPCHands(); ++i)
 						{
 							if (i > 1)
 							{
@@ -228,6 +231,22 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					}
 				}
 			}
+		}
+	}
+
+
+	private int getPCHands()
+	{
+		String solverValue = theCharacter.getControl(CControl.CREATUREHANDS);
+		if (solverValue == null)
+		{
+			return FacetLibrary.getFacet(HandsFacet.class).getHands(
+				theCharacter.getCharID());
+		}
+		else
+		{
+			Object val = theCharacter.getGlobal(solverValue);
+			return ((Number) val).intValue();
 		}
 	}
 
@@ -1338,7 +1357,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	public String getName()
 	{
-		return name.getReference();
+		return name.get();
 	}
 
 	/* (non-Javadoc)
@@ -1362,7 +1381,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	@Override
 	public void setName(String name)
 	{
-		this.name.setReference(name);
+		this.name.set(name);
 		eqSet.setName(name);
 	}
 

@@ -20,6 +20,7 @@
  */
 package pcgen.facade.util;
 
+import pcgen.base.util.Reference;
 import pcgen.facade.util.event.ReferenceListener;
 
 /**
@@ -29,13 +30,11 @@ import pcgen.facade.util.event.ReferenceListener;
  * reference change event is fired to all registered listeners.
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface ReferenceFacade<E>
+public interface ReferenceFacade<E> extends Reference<E>
 {
 
 	void addReferenceListener(ReferenceListener<? super E> listener);
 
 	void removeReferenceListener(ReferenceListener<? super E> listener);
-
-	E getReference();
 
 }

@@ -170,7 +170,7 @@ public final class KitAbilities extends BaseKit
 		 * the new Ability Pools are going to work
 		 */
 
-		AbilityCategory category = catRef.resolvesTo();
+		AbilityCategory category = catRef.get();
 		boolean tooManyAbilities = false;
 		// Don't allow choosing of more than allotted number of abilities
 		int maxChoices =
@@ -258,7 +258,7 @@ public final class KitAbilities extends BaseKit
 			
 			if (isFree())
 			{
-				AbilityCategory category = catRef.resolvesTo();
+				AbilityCategory category = catRef.get();
 				aPC.adjustAbilities(category, new BigDecimal(1));
 			}
 		}

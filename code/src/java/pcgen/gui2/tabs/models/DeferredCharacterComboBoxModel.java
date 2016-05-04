@@ -63,7 +63,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		if (reference != null)
 		{
 			reference.addReferenceListener(this);
-			setSelectedItem(reference.getReference());
+			setSelectedItem(reference.get());
 		}
 	}
 

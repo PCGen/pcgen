@@ -1,4 +1,4 @@
-# CVS $Revision: 21722 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21722 $ $Author: zaister $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 ###Block: Modify default ability
@@ -32,6 +32,7 @@ Sacred Conduit			KEY:Trait ~ Sacred Conduit			CATEGORY:Special Ability	TYPE:Trai
 Sacred Touch			KEY:Trait ~ Sacred Touch			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.FaithTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Sacred Touch],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.FaithTrait]			DESC:You were exposed to a potent source of positive energy as a child, perhaps by being born under the right cosmic sign, or maybe because one of your parents was a gifted healer. As a standard action, you may automatically stabilize a dying creature merely by touching it.																																																																																																																		SOURCEPAGE:p.329
 Scholar of the Great Beyond	KEY:Trait ~ Scholar of the Great Beyond	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.FaithTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Scholar of the Great Beyond],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.FaithTrait]	DESC:Your great interests as a child did not lie with current events or the mundane-- you have always felt out of place, as if you were born in the wrong era. You gain a +1 trait bonus on Knowledge (History) and Knowledge (Planes) checks, and %1 is always a class skill for you.|%LIST																		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Knowledge (History)|Knowledge (Planes)							BONUS:SKILL|Knowledge (History),Knowledge (Planes)|1|TYPE=Trait																																																												CSKILL:LIST		SOURCEPAGE:p.329
 
+
 ###Block: Basic Traits: Magic Traits
 # Ability Name		Unique Key					Category of Ability		Type						Visible	Multiple Requirements																										Description																																																																														Stackable?	Multiple?	Choose											Ability								Add Spell Lvl	Caster level				Bonus to skill										Modify VAR						Class Skill			Source Page		Aspects											Bonus
 Classically Schooled	KEY:Trait ~ Classically Schooled	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Classically Schooled],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait]	DESC:Your apprenticeship or early education was particularly focused on the direct application of magic. You gain a +1 trait bonus on Spellcraft checks, and Spellcraft is always a class skill for you.																																																																																BONUS:SKILL|Spellcraft|1|TYPE=Trait														CSKILL:Spellcraft		SOURCEPAGE:p.329
@@ -47,7 +48,7 @@ Mathematical Prodigy	KEY:Trait ~ Mathematical Prodigy	CATEGORY:Special Ability	T
 Skeptic			KEY:Trait ~ Skeptic			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Skeptic],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait]			DESC:Growing up, you were always around magical effects to the extent that you realized that much of it was smoke and mirrors. You gain a +2 trait bonus on all saving throws against illusions.																																																																																																								SOURCEPAGE:p.329	ASPECT:SaveBonus|+2 trait bonus on all saving throws against illusions.
 
 
-Magical Lineage		KEY:Magical Lineage ~ Metamagic	CATEGORY:FEAT									VISIBLE:NO																																																																																																																																						ADDSPELLLEVEL:-1
+Magical Lineage		KEY:Magical Lineage ~ Metamagic	CATEGORY:FEAT			TYPE:Metamagic						VISIBLE:EXPORT																																																																																																																																						ADDSPELLLEVEL:-1
 
 ###Block: Temp Workaround till CODE Fix, or Formula System implemented
 # Ability Name							Unique Key					Category of Ability		Ability																						Caster level
@@ -68,8 +69,8 @@ Sorcerer								KEY:Magical Knack ~ Sorcerer		CATEGORY:Special Ability										
 Wizard								KEY:Magical Knack ~ Wizard		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Wizard|min(2,(TL-(var("CL=Wizard")+var("BL=Wizard"))))
 Bard									KEY:Magical Knack ~ Bard		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Bard|min(2,(TL-(var("CL=Bard")+var("BL=Bard"))))
 Cleric								KEY:Magical Knack ~ Cleric		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Cleric|min(2,(TL-(var("CL=Cleric")+var("BL=Cleric"))))
-Paladin								KEY:Magical Knack ~ Paladin		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Paladin|min(2,(TL-(var("CL=Paladin")+var("BL=Paladin"))))
-Ranger								KEY:Magical Knack ~ Ranger		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Ranger|min(2,(TL-(var("CL=Ranger")+var("BL=Ranger"))))
+Paladin								KEY:Magical Knack ~ Paladin		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Paladin|min(2,(TL-(var("CL=Paladin")+var("BL=Paladin")-3)))|PRECLASS:1,Paladin=4
+Ranger								KEY:Magical Knack ~ Ranger		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Ranger|min(2,(TL-(var("CL=Ranger")+var("BL=Ranger")-3)))|PRECLASS:1,Ranger=4
 # APG
 Alchemist								KEY:Magical Knack ~ Alchemist		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Alchemist|min(2,(TL-(var("CL=Alchemist")+var("BL=Alchemist"))))
 Inquisitor								KEY:Magical Knack ~ Inquisitor	CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Inquisitor|min(2,(TL-(var("CL=Inquisitor")+var("BL=Inquisitor"))))
@@ -104,13 +105,23 @@ Suspicious							KEY:Trait ~ Suspicious			CATEGORY:Special Ability	TYPE:Trait.Ba
 
 ## Adopted Trait Race Selection
 # Ability Name						Unique Key					Category of Ability		Type						Multiple Requirements																										Description																																																																																Bonus Ability Pool															Bonus to Situation																				Bonus to skill					Modify VAR						Class Skill			Apply Kit			Source Page
-Dwarf								KEY:Adoptive Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Elf								KEY:Adoptive Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace
-Gnome								KEY:Adoptive Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Half-Elf							KEY:Adoptive Race ~ Half-Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Half-Orc							KEY:Adoptive Race ~ Half-Orc		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Halfling							KEY:Adoptive Race ~ Halfling		CATEGORY:Special Ability	TYPE:AdoptiveRace
-Human								KEY:Adoptive Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace
+Obsolete - Remove ~ Dwarf				KEY:Adoptive Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Elf					KEY:Adoptive Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Gnome				KEY:Adoptive Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Half-Elf				KEY:Adoptive Race ~ Half-Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Half-Orc				KEY:Adoptive Race ~ Half-Orc		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Halfling				KEY:Adoptive Race ~ Halfling		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+Obsolete - Remove ~ Human				KEY:Adoptive Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace	PREVAREQ:CannotUse,1
+
+# New Method - Less contract on Data team for maintenance
+Dwarf								KEY:Adopted Race ~ Dwarf		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=DwarfTrait
+Elf								KEY:Adopted Race ~ Elf			CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=ElfTrait
+Gnome								KEY:Adopted Race ~ Gnome		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GnomeTrait
+Half-Elf							KEY:Adopted Race ~ Half-Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HalfElfTrait
+Half-Orc							KEY:Adopted Race ~ Half-Orc		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HalfOrcTrait
+Halfling							KEY:Adopted Race ~ Halfling		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HalflingTrait
+Human								KEY:Adopted Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace	ABILITY:Traits|VIRTUAL|%LIST	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HumanTrait
+
 
 ###Block: Campaign Traits
 # Ability Name													Unique Key					Category of Ability		Type						Required Ability									Multiple Requirements																										Description																																																																																																																																Stackable?	Multiple?	Choose									Bonus Ability Pool				Combat bonus					Bonus to skill						Class Skill				Source Page
@@ -174,7 +185,7 @@ Asmodean Demon Hunter (Asmodeus)		KEY:Trait ~ Asmodean Demon Hunter		CATEGORY:Sp
 Calistrian Prostitute (Calistria)		KEY:Trait ~ Calistrian Prostitute		CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Calistrian Prostitute],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]	DESC:You worked in one of Calistria's temples as a sacred prostitute, and you know how to flatter, please, and (most of all) listen. You gain a +1 trait bonus on Sense Motive checks and Diplomacy checks to gather information, and one of these skills (your choice) is always a class skill for you.																STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Diplomacy|Sense Motive																					BONUS:SKILL|Diplomacy|Sense Motive|1|TYPE=Trait					CSKILL:LIST		SOURCEPAGE:p.333
 Child of Nature (Gozreh)			KEY:Trait ~ Child of Nature			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Child of Nature],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]		DESC:You have been blessed by Gozreh to be as comfortable in the wilderness as you are at home. You gain a +2 trait bonus on Survival checks to find food and water, and a +1 trait bonus on Knowledge (nature) checks. One of these skills (your choice) is always a class skill for you.																		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Knowledge (Nature)|Survival											BONUS:SITUATION|Survival=Find Food|2|TYPE=Trait			BONUS:SKILL|Knowledge (Nature)|1|TYPE=Trait					CSKILL:LIST		SOURCEPAGE:p.333
 Divine Warrior (Iomedae)			KEY:Trait ~ Divine Warrior			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Divine Warrior],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]		DESC:From an early age, you were trained by a militaristic order of clerics. You are devoted both to the teachings of Iomedae and to spreading those teachings by force. You gain a +1 trait bonus on melee weapon damage when you cast a divine spell that affect weapons.																																																																					SOURCEPAGE:p.333
-Ear for Music (Shelyn)				KEY:Trait ~ Ear for Music			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Ear for Music],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You spent countless hours of your youth in one of Shelyn's temples, listening to wonderful musicians and singers. You gain a +1 trait bonus on one category of Perform checks and a +2 trait bonus on any Knowledge (local) checks that deal with the local art or music scene.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Perform%														BONUS:SITUATION|Knowledge (Local)=ID monster|2|TYPE=Trait	BONUS:SKILL|LIST|1|TYPE=Trait											SOURCEPAGE:p.333
+Ear for Music (Shelyn)				KEY:Trait ~ Ear for Music			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Ear for Music],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]			DESC:You spent countless hours of your youth in one of Shelyn's temples, listening to wonderful musicians and singers. You gain a +1 trait bonus on one category of Perform checks and a +2 trait bonus on any Knowledge (local) checks that deal with the local art or music scene.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Perform%														BONUS:SITUATION|Knowledge (Local)=local art or music scene|2|TYPE=Trait	BONUS:SKILL|LIST|1|TYPE=Trait											SOURCEPAGE:p.333
 Eyes and Ears of the City (Abadar)		KEY:Trait ~ Eyes and Ears of the City	CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Eyes and Ears of the City],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]	DESC:Your religious training involved serving in the city watch of a large city, the primary duty of which was standing sentinel on a city wall. You gain a +1 trait bonus on Perception checks, and Perception is always a class skill for you.																																																										BONUS:SKILL|Perception|1|TYPE=Trait							CSKILL:Perception	SOURCEPAGE:p.333
 Flame of the Dawnflower (Sarenrae)		KEY:Trait ~ Flame of the Dawnflower		CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Flame of the Dawnflower],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]	DESC:You have been raised to view yourself as a blade in Sarenrae's service, or you have taken that duty on for yourself. Whenever you score a critical hit with a scimitar, you deal an additional 2 points of fire damage to your target.																																																																										SOURCEPAGE:p.333
 Fortified Drinker (Cayden Cailean)		KEY:Trait ~ Fortified Drinker			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Fortified Drinker],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]		DESC:Cayden Cailean's holy brews invigorate your mind, making you less susceptible to mental attacks. Whenever you imbibe any alcoholic beverage, you gain a +2 trait bonus on saves against mind-affecting effects for 1 hour.																																																																												SOURCEPAGE:p.333	ASPECT:SaveBonus|Whenever you imbibe any alcoholic beverage, you gain a +2 trait bonus on saves against mind-affecting effects for 1 hour.
@@ -190,17 +201,6 @@ Wisdom in the Flesh (Irori) - Dexterity	KEY:Trait ~ Wisdom in the Flesh ~ Dex	CA
 ###Block: No Traits ability to fill the pool for NPCs and monsters
 # Ability Name	Unique Key			Category of Ability		Type																				Visible		Multiple Requirements																							Description							Cost
 No Traits		KEY:Trait ~ No Traits	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait.CampaignTrait.RaceTrait.RegionalTrait.ReligionTrait	VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ No Traits],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
-
-
-###Block: Fix for Half-Casters - DATA-1062
-# Ability Name							Ability
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD	ABILITY:Internal|AUTOMATIC|Caster Level ~ Ranger|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Ranger)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Paladin|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Paladin)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Antipaladin|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Antipaladin)
-
-###Block: Half Casters
-# Ability Name			Category of Ability	Caster level
-Caster Level ~ Antipaladin	CATEGORY:Internal		BONUS:CASTERLEVEL|Antipaladin|2
-Caster Level ~ Paladin		CATEGORY:Internal		BONUS:CASTERLEVEL|Paladin|2
-Caster Level ~ Ranger		CATEGORY:Internal		BONUS:CASTERLEVEL|Ranger|2
 
 ###Block:	Acid|Cold|Electricity|Fire
 # Ability Name	Unique Key					Category of Ability	Type

@@ -124,7 +124,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	public String getLSTformat(boolean useAny)
 	{
 		return def.getFactName() + "="
-			+ def.getFormatManager().unconvert(toMatch.resolvesTo());
+			+ def.getFormatManager().unconvert(toMatch.get());
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	public boolean contains(T obj)
 	{
 		Indirect<?> fact = obj.get(def.getFactKey());
-		return fact != null && fact.resolvesTo().equals(toMatch.resolvesTo());
+		return fact != null && fact.get().equals(toMatch.get());
 	}
 
 	/**

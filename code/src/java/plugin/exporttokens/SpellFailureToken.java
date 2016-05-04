@@ -25,8 +25,13 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 
 //SPELLFAILURE
@@ -51,12 +56,23 @@ public class SpellFailureToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return getSpellFailureToken(tokenSource, pc) + "";
+		return Integer.toString(getSpellFailure(pc));
 	}
 
-	public static int getSpellFailureToken(String tokenSource,
-		PlayerCharacter pc)
+	private int getSpellFailure(PlayerCharacter pc)
 	{
-		return pc.modToFromEquipment(tokenSource);
+		String spellFailVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					CControl.PCSPELLFAILURE);
+		if (spellFailVar == null)
+		{
+			int bonus = 0;
+			for (Equipment eq : pc.getEquippedEquipmentSet())
+			{
+				bonus += EqToken.getSpellFailureTokenInt(pc, eq);
+			}
+			return bonus + (int) pc.getTotalBonusTo("MISC", "SPELLFAILURE");
+		}
+		return ((Number) pc.getGlobal(spellFailVar)).intValue();
 	}
 }

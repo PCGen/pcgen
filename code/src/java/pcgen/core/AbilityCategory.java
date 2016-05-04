@@ -567,7 +567,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
     @Override
 	public Category<Ability> getParentCategory()
 	{
-		return parentCategory.resolvesTo();
+		return parentCategory.get();
 	}
 
 	/**
@@ -817,7 +817,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 						validator);
 				if (res)
 				{
-					Ability ability = ref.resolvesTo();
+					Ability ability = ref.get();
 					if (added.add(ability))
 					{
 						rm.addObject(ability, ability.getKeyName());
@@ -832,7 +832,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
     @Override
 	public ManufacturableFactory<Ability> getParent()
 	{
-		AbilityCategory parent = parentCategory.resolvesTo();
+		AbilityCategory parent = parentCategory.get();
 		if (this.equals(parent))
 		{
 			return null;

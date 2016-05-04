@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
-CAMPAIGN:Pathfinder Campaign Setting: Inner Sea Gods
-KEY:Pathfinder Campaign Setting - Inner Sea Gods
+CAMPAIGN:Inner Sea Gods
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
@@ -9,21 +8,25 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
-PUBNAMELONG:Paizo Publishing
+PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Inner Sea Gods
-SOURCESHORT:ISGds
+SOURCESHORT:ISG
+SOURCEDATE:2014-04
 ISOGL:YES
 
 COVER:PZO9267_180.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy94wj?Pathfinder-Campaign-Setting-Inner-Sea-Gods-Hardcover|Buy this publication from Paizo Publishing!
+URL:Paizo Inc.|http://paizo.com/products/btpy94wj?Pathfinder-Campaign-Setting-Inner-Sea-Gods-Hardcover|Buy this publication from Paizo Publishing!
 
+DESC:Through the miracles of priests and the weapons of crusaders, the deities of the Pathfinder Roleplaying Game command unrivaled influence over the lands of the Inner Sea. Tap into their incredible might with Pathfinder Campaign Setting: Inner Sea Gods! Inside you'll discover the deepest secrets of an entire pantheon of incomparable beings, claim relics suited to both sinners and saints, and wield immortal might as a character of any background, race, or class. No longer does the favor of the gods belong to clerics, paladins, and other divine spellcasters alone—choose your faith and make holy power your own!
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:The Book of Fiends Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
@@ -41,7 +44,7 @@ COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer 
 COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
 COPYRIGHT:Soul Eater from the To me of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by David Cook.
 COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Gods Copyright 2014, Paizo Publishing, LLC; Authors: Sean K Reynolds, with Amanda Hamon, James Jacobs, John Ling, Mark Moreland, David N. Ross, F. Wesley Schneider, Amber E. Scott, Tork Shaw, James L. Sutter,Jerome Virnich.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea Gods" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland)
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea Gods" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland and Stefan Radermacher)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
@@ -53,12 +56,10 @@ ABILITY:isg_abilities.lst
 ABILITY:isg_abilities_feat.lst
 ABILITYCATEGORY:isg_abilitycategories.lst
 CLASS:isg_classes.lst
+DEITY:isg_deities.lst
 DOMAIN:isg_domains.lst
 EQUIPMENT:isg_equip.lst
 SPELL:isg_spells.lst
-
-# Forward References
-#FORWARDREF:CLASSSPELLLIST|Alchemist,Inquisitor,Magus,Summoner,Witch
 
 # ENTRY DATE: 2015-02
 # LST MONKEY: Andrew Maitland

@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -75,64 +76,66 @@ public class DefenseToken extends Token
 		if (aTok.hasMoreTokens())
 		{
 			String defenseType = aTok.nextToken();
-
 			CharacterDisplay display = pc.getDisplay();
-			if (defenseType.equals("TOTAL"))
+
+			String solverValue = pc.getControl("ACVAR" + defenseType);
+			if (solverValue != null)
 			{
-				retString = Integer.toString(getTotalToken(display));
+				Object val = pc.getGlobal(solverValue);
+				int intValue = ((Number) val).intValue();
+				if ("EQUIPMENT".equals(defenseType))
+				{
+					val = pc.getGlobal(pc.getControl(CControl.ACVARARMOR));
+					intValue += ((Number) val).intValue();
+				}
+				retString = Integer.toString(intValue);
+			}
+			else if (defenseType.equals("TOTAL"))
+			{
+				retString = Integer.toString(display.calcACOfType("Total"));
 			}
 			else if (defenseType.equals("FLATFOOTED"))
 			{
-				retString = Integer.toString(display.flatfootedAC());
+				retString = Integer.toString(display.calcACOfType("Flatfooted"));
 			}
 			else if (defenseType.equals("TOUCH"))
 			{
-				retString = Integer.toString(display.touchAC());
+				retString = Integer.toString(display.calcACOfType("Touch"));
 			}
 			else if (defenseType.equals("BASE"))
 			{
-				retString = Integer.toString(display.baseAC());
+				retString = Integer.toString(display.calcACOfType("Base"));
 			}
 			else if (defenseType.equals("ABILITY"))
 			{
-				retString = Integer.toString(display.abilityAC());
+				retString = Integer.toString(display.calcACOfType("Ability"));
 			}
 			else if (defenseType.equals("CLASS"))
 			{
-				retString = Integer.toString(display.classAC());
+				retString = Integer.toString(display.calcACOfType("ClassDefense"));
 			}
 			else if (defenseType.equals("DODGE"))
 			{
-				retString = Integer.toString(display.dodgeAC());
+				retString = Integer.toString(display.calcACOfType("Dodge"));
 			}
 			else if (defenseType.equals("EQUIPMENT"))
 			{
-				retString = Integer.toString(display.equipmentAC());
+				retString = Integer.toString(display.calcACOfType("Equipment") + display.calcACOfType("Armor"));
 			}
 			else if (defenseType.equals("MISC"))
 			{
-				retString = Integer.toString(display.miscAC());
+				retString = Integer.toString(display.calcACOfType("Misc"));
 			}
 			else if (defenseType.equals("NATURAL"))
 			{
-				retString = Integer.toString(display.naturalAC());
+				retString = Integer.toString(display.calcACOfType("NaturalArmor"));
 			}
 			else if (defenseType.equals("SIZE"))
 			{
-				retString = Integer.toString(display.sizeAC());
+				retString = Integer.toString(display.calcACOfType("Size"));
 			}
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Get total sub token
-	 * @param pc
-	 * @return total sub token
-	 */
-	public static int getTotalToken(CharacterDisplay display)
-	{
-		return display.getACTotal();
 	}
 }

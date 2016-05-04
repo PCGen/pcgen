@@ -177,7 +177,7 @@
 	<xsl:template match="martial_arts">
 		<xsl:if test="count(martial_art) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'martial_arts'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Martial Arts'"/>
 				<xsl:with-param name="list" select="martial_art"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -194,7 +194,7 @@
 	<xsl:template match="mystic_artists">
 		<xsl:if test="count(mystic_artist) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'mystic_artists'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Mystic Artist Abilities'"/>
 				<xsl:with-param name="list" select="mystic_artist"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -211,7 +211,7 @@
 	<xsl:template match="witchcrafts">
 		<xsl:if test="count(witchcraft) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'witchcrafts'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Witchcraft Abilities'"/>
 				<xsl:with-param name="list" select="witchcraft"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -314,7 +314,7 @@
 	<xsl:template match="eclipse_abilities">
 		<xsl:if test="count(eclipse_ability) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'eclipse_abilities'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Eclipse Abilities'" />
 				<xsl:with-param name="list" select="eclipse_ability"/>
 				<xsl:with-param name="name.tag" select="'name'"/>

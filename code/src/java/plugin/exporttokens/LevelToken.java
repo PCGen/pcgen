@@ -123,7 +123,7 @@ public class LevelToken extends Token
 			if (aClass != null)
 			{
 				CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);
-				aClass = pc.getClassKeyed(exc.resolvesTo().getKeyName());
+				aClass = pc.getClassKeyed(exc.get().getKeyName());
 			}
 		}
 		if (aClass != null)

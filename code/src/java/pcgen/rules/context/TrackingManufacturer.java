@@ -22,7 +22,6 @@ import java.util.List;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -258,12 +257,6 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 	public Indirect<T> convertIndirect(String arg0)
 	{
 		return rm.convertIndirect(arg0);
-	}
-
-	@Override
-	public ObjectContainer<T> convertObjectContainer(String arg0)
-	{
-		return rm.convertObjectContainer(arg0);
 	}
 
 	@Override

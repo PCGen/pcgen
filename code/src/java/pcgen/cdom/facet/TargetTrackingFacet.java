@@ -18,11 +18,12 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 
 public class TargetTrackingFacet extends
-		AbstractAssociationFacet<AbilitySelection, CNAbilitySelection>
+		AbstractAssociationFacet<CharID, AbilitySelection, CNAbilitySelection>
 {
 
 }

@@ -22,7 +22,7 @@
 package pcgen.gui2.util;
 
 import java.util.Comparator;
-import java.util.List;
+import pcgen.gui2.util.table.Row;
 
 /**
  *
@@ -30,6 +30,6 @@ import java.util.List;
  */
 public interface SortableModel 
 {
-    void sortModel(Comparator<List<?>> comparator);
+    void sortModel(Comparator<Row> comparator);
     Class<?> getColumnClass(int column);
 }

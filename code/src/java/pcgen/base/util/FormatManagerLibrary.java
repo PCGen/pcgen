@@ -20,6 +20,7 @@ package pcgen.base.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.OrderedPairManager;
@@ -32,21 +33,21 @@ import pcgen.base.format.StringManager;
 public final class FormatManagerLibrary
 {
 
-	private FormatManagerLibrary()
+	public FormatManagerLibrary()
 	{
-		//Utility class must not be constructed
+		reset();
 	}
 
 	/**
 	 * A Map storing the FormatManagers by (case-insensitive) name
 	 */
-	private static CaseInsensitiveMap<FormatManager<?>> managerNameMap =
+	private CaseInsensitiveMap<FormatManager<?>> managerNameMap =
 			new CaseInsensitiveMap<FormatManager<?>>();
 
 	/**
 	 * A Map storing the FormatManagers by (case-insensitive) name
 	 */
-	private static Map<Class<?>, FormatManager<?>> managerClassMap =
+	private Map<Class<?>, FormatManager<?>> managerClassMap =
 			new HashMap<Class<?>, FormatManager<?>>();
 
 	/**
@@ -61,17 +62,44 @@ public final class FormatManagerLibrary
 	 * @throws IllegalArgumentException
 	 *             if the given format does not have an associated FormatManager
 	 */
-	public static FormatManager<?> getFormatManager(String formatName)
+	public FormatManager<?> getFormatManager(String formatName)
 	{
 		FormatManager<?> fmtManager = managerNameMap.get(formatName);
 		if (fmtManager == null)
 		{
-			throw new IllegalArgumentException(
-				"No FormatManager available for " + formatName);
+			if (formatName.regionMatches(true, 0, "ARRAY[", 0, 6)
+				&& formatName.endsWith("]"))
+			{
+				String subName =
+						formatName.substring(6, formatName.length() - 1);
+				if (subName.regionMatches(true, 0, "ARRAY[", 0, 6))
+				{
+					throw new IllegalArgumentException(
+						"Cannot built mulit-dimensional arrays, request was: "
+							+ formatName);
+				}
+				FormatManager<?> subFmtManager = managerNameMap.get(subName);
+				if (subFmtManager == null)
+				{
+					throw new IllegalArgumentException(
+						"No FormatManager available for " + subName
+							+ " when requesting " + formatName);
+				}
+				/*
+				 * Is this comma (separator for the Array Format instruction
+				 * parser) the only thing preventing multi-dimensional arrays?
+				 */
+				fmtManager = new ArrayFormatManager<>(subFmtManager, ',');
+				addFormatManager(fmtManager);
+			}
+			else
+			{
+				throw new IllegalArgumentException(
+					"No FormatManager available for " + formatName);
+			}
 		}
 		return fmtManager;
 	}
-
 
 	/**
 	 * Gets the FormatManager for the given Class indicating a format of object.
@@ -84,14 +112,41 @@ public final class FormatManagerLibrary
 	 * @throws IllegalArgumentException
 	 *             if the given format does not have an associated FormatManager
 	 */
-	public static <T> FormatManager<T> getFormatManager(Class<T> format)
+	public <T> FormatManager<T> getFormatManager(Class<T> format)
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<T> fmtManager = (FormatManager<T>) managerClassMap.get(format);
 		if (fmtManager == null)
 		{
-			throw new IllegalArgumentException(
-				"No FormatManager available for " + format);
+			if (!format.isArray())
+			{
+				throw new IllegalArgumentException(
+					"No FormatManager available for " + format);
+			}
+			Class<?> componentType = format.getComponentType();
+			if (componentType.isArray())
+			{
+				throw new IllegalArgumentException(
+					"Cannot built mulit-dimensional arrays, request was: "
+						+ format);
+			}
+			FormatManager<?> subFmtManager = managerNameMap.get(componentType);
+			if (subFmtManager == null)
+			{
+				throw new IllegalArgumentException(
+					"No FormatManager available for " + componentType
+						+ " when requesting " + format);
+			}
+			/*
+			 * Is this comma (separator for the Array Format instruction parser)
+			 * the only thing preventing multi-dimensional arrays?
+			 */
+			@SuppressWarnings("unchecked")
+			FormatManager<T> arrayFmtManager =
+					(FormatManager<T>) new ArrayFormatManager<>(subFmtManager,
+						',');
+			addFormatManager(arrayFmtManager);
+			fmtManager = arrayFmtManager;
 		}
 		return fmtManager;
 	}
@@ -105,9 +160,15 @@ public final class FormatManagerLibrary
 	 *             if this FormatManagerLibrary already has a FormatManager with
 	 *             a matching identifier
 	 */
-	public static void addFormatManager(FormatManager<?> fmtManager)
+	public void addFormatManager(FormatManager<?> fmtManager)
 	{
 		String fmIdent = fmtManager.getIdentifierType();
+		if (fmIdent == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot set a FormatManager with no identifier (was nominally for: "
+					+ fmtManager.getManagedClass() + ")");
+		}
 		FormatManager<?> fmtManagerByName = managerNameMap.get(fmIdent);
 		if ((fmtManagerByName != null) && !fmtManagerByName.equals(fmtManager))
 		{
@@ -130,7 +191,7 @@ public final class FormatManagerLibrary
 	 * Resets the FormatManagerLibrary, to be used when a test needs a clean
 	 * FormatManagerLibrary.
 	 */
-	public static void reset()
+	public void reset()
 	{
 		managerNameMap.clear();
 		managerClassMap.clear();
@@ -139,10 +200,4 @@ public final class FormatManagerLibrary
 		addFormatManager(new BooleanManager());
 		addFormatManager(new OrderedPairManager());
 	}
-
-	static
-	{
-		reset();
-	}
-	
 }
