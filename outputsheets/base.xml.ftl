@@ -675,6 +675,7 @@
 				<ohdamagebonus>${pcstring('WEAPON.${weap}.OHDAMAGEBONUS')}</ohdamagebonus>
 				<rateoffire>${pcstring('WEAPON.${weap}.RATEOFFIRE')}</rateoffire>
 				<islight>${pcstring('WEAPON.${weap}.ISLIGHT')}</islight>
+				<quality>${pcstring('WEAPON.${weap}.QUALITY')}</quality>
 				<sequence>${weap}</sequence>
 			</common>
 			</#macro>
