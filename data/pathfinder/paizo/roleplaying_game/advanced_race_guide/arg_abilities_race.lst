@@ -1532,4 +1532,4 @@ Rope Dart					KEY:NWP ~ Rope Dart						CATEGORY:Internal		TYPE:Oracle NWP		PREVA
 
 
 
-Shadow Blend		KEY:Shadow Creature ~ Shadow Blend		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:In any condition of illumination other than bright light, a shadow creature blends into the shadows, giving it concealment (20% miss chance). A shadow creature can suspend or resume this ability as a free action.	SOURCEPAGE:p.110
+Shadow Blend		KEY:Shadow Creature ~ Shadow Blend		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:In any condition of illumination other than bright light, a shadow creature blends into the shadows, giving it concealment (20%% miss chance). A shadow creature can suspend or resume this ability as a free action.	SOURCEPAGE:p.110
