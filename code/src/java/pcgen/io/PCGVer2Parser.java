@@ -138,6 +138,7 @@ import pcgen.io.migration.EquipSetMigration;
 import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
+import pcgen.io.migration.SpellMigration;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
