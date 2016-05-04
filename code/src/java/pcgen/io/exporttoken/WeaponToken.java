@@ -28,13 +28,18 @@ package pcgen.io.exporttoken;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
@@ -526,6 +531,46 @@ public class WeaponToken extends Token
 		{
 			return getIsLightToken(pc, eq);
 		}
+		else if (token.equals("QUALITY"))
+		{
+			Map<String, String> qualityMap = eq.getMapFor(MapKey.QUALITY);
+			if (qualityMap != null)
+			{
+				if (aTok.hasMoreTokens())
+				{
+					String next = aTok.nextToken();
+					try
+					{
+						int idx = Integer.parseInt(next);
+						for (String value : qualityMap.values())
+						{
+							idx--;
+							if (idx == 0)
+							{
+								return value;
+							}
+						}
+					}
+					catch (NumberFormatException e)
+					{
+						String value = qualityMap.get(next);
+						if (value != null)
+						{
+							return value;
+						}
+					}
+					return "";
+				}
+				Set<String> qualities = new TreeSet<String>();
+				for (Map.Entry<String, String> me : qualityMap.entrySet())
+				{
+					qualities.add(new StringBuilder().append(me.getKey())
+							.append(": ").append(me.getValue()).toString());
+				}
+				return StringUtil.join(qualities, ", ");
+			}
+			return "";
+		}
 		Logging.errorPrint("Invalid WEAPON token: " + tokenSource, new Throwable());
 		return "";
 	}
@@ -787,7 +832,7 @@ public class WeaponToken extends Token
 		}
 		return profName;
 	}
-
+	
 	/**
 	 * Get the range list token
 	 * @param eq
