@@ -4122,8 +4122,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (TAG_SPELLNAME.equals(tag))
 			{
-				final String spellName =
-						EntityEncoder.decode(element.getText());
 				spellName = SpellMigration.getNewSpellKey(spellName, pcgenVersion, 
 					SettingsHandler.getGame().getName());
 
