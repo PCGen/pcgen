@@ -176,9 +176,10 @@ ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	
 ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NecromanticSavantChanneling		PLURAL:Necromancer Channeling Choices				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Nature Fang Talent						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Nature Fang Talents							DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Advanced Nature Fang Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SlayerTalent						PLURAL:Advanced Nature Fang Talent					DISPLAYLOCATION:Class Features
-
-
-
+ABILITYCATEGORY:Mutation Warrior Discovery				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mutation Warrior Discovery			PLURAL:Mutation Warrior Discoveries					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Verminous Hunter Vermin Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HunterVerminFocusAbility			PLURAL:Verminous Hunter Vermin Foci					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Verminous Hunter Vermin Companion Status		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HunterVerminCompanionStatus	PLURAL:Verminous Hunter Vermin Companion Statuses	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sanctified Slayer Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Sanctified Slayer Talents					DISPLAYLOCATION:Class Features
 
 
 #
