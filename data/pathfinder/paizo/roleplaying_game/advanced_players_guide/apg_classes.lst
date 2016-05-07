@@ -17,7 +17,7 @@ CLASS:Alchemist	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alche
 ###Block: Alchemist Book
 1	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Alchemist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Alchemist=1]]
 ###Block: Class Abilities
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Alchemy|PREVAREQ:Alchemist_CF_Alchemy,0
+1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Alchemy|Alchemist ~ Formulae|PREVAREQ:Alchemist_CF_Alchemy,0
 1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Bomb|PREVAREQ:Alchemist_CF_Bomb,0
 1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Brew Potion|PREVAREQ:Alchemist_CF_BrewPotion,0
 1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Mutagen|PREVAREQ:Alchemist_CF_Mutagen,0
