@@ -19,8 +19,6 @@
  */
  package pcgen.gui2.doomsdaybook;
 
-import gmgen.util.LogUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Insets;
@@ -36,15 +34,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.Vector;
 import java.util.prefs.Preferences;
-
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -55,6 +51,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import gmgen.util.LogUtilities;
 import org.jdom.DataConversionException;
 import org.jdom.DocType;
 import org.jdom.Document;
@@ -62,7 +59,6 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
-
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
 import pcgen.core.doomsdaybook.DataElementComperator;
@@ -77,6 +73,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.Predicates;
 import plugin.doomsdaybook.RandomNamePlugin;
 
 /**
@@ -86,10 +83,10 @@ import plugin.doomsdaybook.RandomNamePlugin;
  */
 public class NameGenPanel extends JPanel
 {
-	public Preferences namePrefs =
+	private Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
 	private Map<String, List<RuleSet>> categories =
-			new HashMap<String, List<RuleSet>>();
+			new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -150,20 +147,15 @@ public class NameGenPanel extends JPanel
 		loadData(dataPath);
 	}
 
-	public void setExitPrefs()
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
 	/**
 	 * Generate a Rule
 	 * @return new Rule
 	 */
-	public Rule generate()
+	private Rule generate()
 	{
 		try
 		{
-			Rule rule = null;
+			Rule rule;
 
 			if (chkStructure.isSelected())
 			{
@@ -194,7 +186,7 @@ public class NameGenPanel extends JPanel
 	 *  Initialization of the bulk of preferences.  sets the defaults
 	 *  if this is the first time you have used this version
 	 */
-	public void initPrefs()
+	private void initPrefs()
 	{
 		boolean prefsSet = namePrefs.getBoolean("arePrefsSet", false);
 
@@ -218,7 +210,7 @@ public class NameGenPanel extends JPanel
 		this.meaning.setText(meaning);
 	}
 
-	private void setMeaningText(ArrayList<DataValue> data)
+	private void setMeaningText(Iterable<DataValue> data)
 	{
 		StringBuilder meaningBuffer = new StringBuilder();
 
@@ -243,7 +235,7 @@ public class NameGenPanel extends JPanel
 		LogUtilities.inst().logMessage(RandomNamePlugin.LOG_NAME, name);
 	}
 
-	private void setNameText(ArrayList<DataValue> data)
+	private void setNameText(Iterable<DataValue> data)
 	{
 		StringBuilder nameBuffer = new StringBuilder();
 
@@ -260,7 +252,7 @@ public class NameGenPanel extends JPanel
 		this.pronounciation.setText(pronounciation);
 	}
 
-	private void setPronounciationText(ArrayList<DataValue> data)
+	private void setPronounciationText(Iterable<DataValue> data)
 	{
 		StringBuilder proBuffer = new StringBuilder();
 
@@ -279,7 +271,7 @@ public class NameGenPanel extends JPanel
 		setPronounciationText(proBuffer.toString());
 	}
 
-	void NameButtonActionPerformed(ActionEvent evt)
+	private void NameButtonActionPerformed(ActionEvent evt)
 	{
 		try
 		{
@@ -316,7 +308,7 @@ public class NameGenPanel extends JPanel
 		}
 	}
 
-	void cbCatalogActionPerformed(ActionEvent evt)
+	private void cbCatalogActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbCatalogActionPerformed
 		loadStructureDD();
 		this.clearButtons();
@@ -324,14 +316,14 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbCatalogActionPerformed
 
-	void cbStructureActionPerformed(ActionEvent evt)
+	private void cbStructureActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbStructureActionPerformed
 		this.clearButtons();
 	}
 
 	//GEN-LAST:event_cbStructureActionPerformed
 
-	void cbCategoryActionPerformed(ActionEvent evt)
+	private void cbCategoryActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbCategoryActionPerformed
 		this.loadGenderDD();
 		loadCatalogDD();
@@ -341,7 +333,7 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbCategoryActionPerformed
 
-	void cbSexActionPerformed(ActionEvent evt)
+	private void cbSexActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbSexActionPerformed
 		loadCatalogDD();
 		loadStructureDD();
@@ -350,7 +342,7 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbSexActionPerformed
 
-	void chkStructureActionPerformed(ActionEvent evt)
+	private void chkStructureActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_chkStructureActionPerformed
 		loadStructureDD();
 	}
@@ -396,7 +388,7 @@ public class NameGenPanel extends JPanel
 		buttonPanel.repaint();
 	}
 
-	void generateButtonActionPerformed(ActionEvent evt)
+	private void generateButtonActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_generateButtonActionPerformed
 
 		try
@@ -582,14 +574,14 @@ public class NameGenPanel extends JPanel
 		JLabel adjNameLabel = new JLabel(LanguageBundle.getString("in_rndNameAdjust")); //$NON-NLS-1$
 		
 		adjustNamePanel.add(adjNameLabel, BorderLayout.NORTH);
-		
+
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		// CODE-2099 Component needed to have correct vertical space available.
 		JLabel nb = new JLabel(" "); //$NON-NLS-1$
 		buttonPanel.add(nb);
 
 		adjustNamePanel.add(buttonPanel, BorderLayout.CENTER);
-		
+
 		add(adjustNamePanel, BorderLayout.SOUTH);
 
 		genCtrlPanel.add(jPanel7, BorderLayout.CENTER);
@@ -626,7 +618,7 @@ public class NameGenPanel extends JPanel
 
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
-		
+
 		namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
 
 		FontManipulation.xxlarge(name);
@@ -660,7 +652,7 @@ public class NameGenPanel extends JPanel
 
 	//GEN-END:initComponents
 
-	void jButton1ActionPerformed(ActionEvent evt)
+	private void jButton1ActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_jButton1ActionPerformed
 		Clipboard cb = getToolkit().getSystemClipboard();
 		StringSelection ss = new StringSelection(name.getText());
@@ -685,25 +677,20 @@ public class NameGenPanel extends JPanel
 
 			List<RuleSet> cats = categories.get(catKey);
 			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
-			List<RuleSet> join = new ArrayList<RuleSet>();
+			List<RuleSet> join = new ArrayList<>();
 			join.addAll(cats);
 			join.retainAll(sexes);
 			Collections.sort(join, new DataElementComperator());
 
-			Vector<RuleSet> catalogs = new Vector<RuleSet>();
+			List<RuleSet> catalogs = new ArrayList<>();
 			int oldSelected = -1;
 			int n = 0;
 
-			for (int i = 0; i < join.size(); i++)
-			{
-				RuleSet rs = join.get(i);
-
-				if (rs.getUsage().equals("final"))
-				{
+			for (RuleSet rs : join) {
+				if (rs.getUsage().equals("final")) {
 					catalogs.add(rs);
 
-					if (rs.getTitle().equals(catalogKey))
-					{
+					if (rs.getTitle().equals(catalogKey)) {
 						oldSelected = n;
 					}
 
@@ -712,7 +699,7 @@ public class NameGenPanel extends JPanel
 			}
 
 			DefaultComboBoxModel catalogModel =
-					new DefaultComboBoxModel(catalogs);
+					new DefaultComboBoxModel(catalogs.toArray());
 			cbCatalog.setModel(catalogModel);
 			if(oldSelected>=0)
 				cbCatalog.setSelectedIndex(oldSelected);
@@ -723,34 +710,11 @@ public class NameGenPanel extends JPanel
 		}
 	}
 
-	//	Get a list of all the gender categories in the category map
-	private Vector<String> getGenderCategoryNames()
-	{
-		Vector<String> genders = new java.util.Vector<String>();
-		Set<String> keySet = categories.keySet();
-		Iterator<String> itr = keySet.iterator();
-
-		//	Loop through the keys in the categories
-		while (itr.hasNext())
-		{
-			String key = itr.next();
-
-			//	if the key starts with "Sex" then save it
-			if (key.startsWith("Sex:"))
-			{
-				genders.add(key.substring(5));
-			}
-		}
-
-		//	Return all the found gender types
-		return genders;
-	}
-
 	//	Load the gender drop dowd
 	private void loadGenderDD()
 	{
-		Vector<String> genders = getGenderCategoryNames();
-		Vector<String> selectable = new Vector<String>();
+		List<String> genders = getCategoryNames(new genderCategoryPredicate());
+		List<String> selectable = new ArrayList<>();
 		String gender = (String) cbSex.getSelectedItem();
 
 		//	Get the selected category name
@@ -762,21 +726,16 @@ public class NameGenPanel extends JPanel
 		//	we need to determine if the selected category is supported by the 
 		//	available genders
 		//	loop through the available genders
-		for (int i = 0; i < genders.size(); ++i)
-		{
-			String genderString = genders.get(i);
-
+		for (String genderString : genders) {
 			//	Get the list of rules for the current gender
 			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
 			//	now loop through all the rules from the selected category
-			for (int j = 0; j < categoryRules.size(); ++j)
-			{
+			for (RuleSet categoryRule : categoryRules) {
 				//	if the category rule is in the list of gender rules
 				//	add the current gender to the selectable gender list
 				//	we can stop processing the list once we find a match
-				if (genderRules.contains(categoryRules.get(j)))
-				{
+				if (genderRules.contains(categoryRule)) {
 					selectable.add(genderString);
 					break;
 				}
@@ -787,7 +746,7 @@ public class NameGenPanel extends JPanel
 		Collections.sort(selectable);
 
 		//	Create a new model for the combobox and set it
-		cbSex.setModel(new DefaultComboBoxModel(selectable));
+		cbSex.setModel(new DefaultComboBoxModel(selectable.toArray()));
 		if (gender != null && selectable.contains(gender))
 		{
 			cbSex.setSelectedItem(gender);
@@ -821,27 +780,22 @@ public class NameGenPanel extends JPanel
 			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
 			builder.setEntityResolver(resolver);
 
-			for (int i = 0; i < dataFiles.length; i++)
-			{
-				try
-				{
-					URL url = dataFiles[i].toURI().toURL();
+			for (File dataFile : dataFiles) {
+				try {
+					URL url = dataFile.toURI().toURL();
 					Document nameSet = builder.build(url);
 					DocType dt = nameSet.getDocType();
 
-					if (dt.getElementName().equals("GENERATOR"))
-					{
+					if (dt.getElementName().equals("GENERATOR")) {
 						loadFromDocument(nameSet);
 					}
 
 					nameSet = null;
 					dt = null;
-				}
-				catch (Exception e)
-				{
+				} catch (Exception e) {
 					Logging.errorPrint(e.getMessage(), e);
 					JOptionPane.showMessageDialog(this, "XML Error with file "
-						+ dataFiles[i].getName());
+							+ dataFile.getName());
 				}
 			}
 
@@ -854,38 +808,42 @@ public class NameGenPanel extends JPanel
 		}
 	}
 
-	//	Get a list of category names from the categories map
-	private Vector<String> getCategoryNames()
-	{
-		Vector<String> cats = new java.util.Vector<String>();
+	private List<String> getCategoryNames(Predicates.BooleanPredicate<String> filter) {
+		List<String> cats = new ArrayList<>();
 		Set<String> keySet = categories.keySet();
-		Iterator<String> itr = keySet.iterator();
 
-		while (itr.hasNext())
-		{
-			String key = itr.next();
-
+		for (String key : keySet) {
 			//	Ignore any category that starts with this
-			if (key.startsWith("Sex:"))
-			{
-				continue;
+			if (filter.test(key)) {
+				cats.add(key);
 			}
-
-			cats.add(key);
 		}
-
-		//	Sor the selected categories before returning it
 		Collections.sort(cats);
 
 		return cats;
 	}
 
+	private static class genderCategoryPredicate implements Predicates.BooleanPredicate<String> {
+		@Override
+		public boolean test(final String key) {
+			return key.startsWith("Sex:");
+		}
+	}
+
+	private static class regularCategoryPredicate implements Predicates.BooleanPredicate<String> {
+		@Override
+		public boolean test(final String key) {
+			return !key.startsWith("Sex:");
+		}
+	}
+
 	private void loadDropdowns()
 	{
-		//	This method now just loads the category dropdown from the list of 
+		//	This method loads the category dropdown from the list of
 		//	category names
-		Vector<String> cats = this.getCategoryNames();
-		cbCategory.setModel(new DefaultComboBoxModel(cats));
+		List<String> cats = getCategoryNames(new regularCategoryPredicate());
+
+		cbCategory.setModel(new DefaultComboBoxModel(cats.toArray()));
 
 		this.loadGenderDD();
 		this.loadCatalogDD();
@@ -899,51 +857,39 @@ public class NameGenPanel extends JPanel
 		java.util.List<?> lists = generator.getChildren("LIST");
 		ListIterator<?> listIterator = lists.listIterator();
 
-		//TODO This is a "dead local store" - is this intended to do something? thpr 10/21/06
-		RuleSet rs = new RuleSet(allVars);
-
 		while (listIterator.hasNext())
 		{
 			Element list = (Element) listIterator.next();
 			loadList(list);
 		}
 
-		ListIterator<?> rulesetIterator = rulesets.listIterator();
-		while (rulesetIterator.hasNext())
-		{
-			Element ruleSet = (Element) rulesetIterator.next();
-			rs = loadRuleSet(ruleSet);
-			allVars.addDataElement(rs);
+		for (Object ruleset : rulesets) {
+			Element ruleSet = (Element) ruleset;
+			allVars.addDataElement(loadRuleSet(ruleSet));
 		}
 	}
 
-	private String loadList(Element list) throws DataConversionException
+	private void loadList(Element list) throws DataConversionException
 	{
 		pcgen.core.doomsdaybook.DDList dataList =
 				new pcgen.core.doomsdaybook.DDList(allVars, list
 					.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List<?> elements = list.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
 
-		while (elementsIterator.hasNext())
-		{
-			Element child = (Element) elementsIterator.next();
+		for (Object element : elements) {
+			Element child = (Element) element;
 			String elementName = child.getName();
 
-			if (elementName.equals("VALUE"))
-			{
+			if (elementName.equals("VALUE")) {
 				WeightedDataValue dv =
 						new WeightedDataValue(child.getText(), child
-							.getAttribute("weight").getIntValue());
-				java.util.List<?> subElements = child.getChildren("SUBVALUE");
-				ListIterator<?> subElementsIterator =
-						subElements.listIterator();
+								.getAttribute("weight").getIntValue());
+				List<?> subElements = child.getChildren("SUBVALUE");
 
-				while (subElementsIterator.hasNext())
-				{
-					Element subElement = (Element) subElementsIterator.next();
+				for (Object subElement1 : subElements) {
+					Element subElement = (Element) subElement1;
 					dv.addSubValue(subElement.getAttributeValue("type"),
-						subElement.getText());
+							subElement.getText());
 				}
 
 				dataList.add(dv);
@@ -951,8 +897,6 @@ public class NameGenPanel extends JPanel
 		}
 
 		allVars.addDataElement(dataList);
-
-		return dataList.getId();
 	}
 
 	private String loadRule(Element rule, String id)
@@ -962,43 +906,37 @@ public class NameGenPanel extends JPanel
 				new Rule(allVars, id, id, rule.getAttribute("weight")
 					.getIntValue());
 		java.util.List<?> elements = rule.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
 
-		while (elementsIterator.hasNext())
-		{
-			Element child = (Element) elementsIterator.next();
+		for (Object element : elements) {
+			Element child = (Element) element;
 			String elementName = child.getName();
 
-			if (elementName.equals("GETLIST"))
-			{
-				String listId = child.getAttributeValue("idref");
-				dataRule.add(listId);
+			switch (elementName) {
+				case "GETLIST":
+					String listId = child.getAttributeValue("idref");
+					dataRule.add(listId);
+					break;
+				case "SPACE":
+					DataElement sp = new SpaceRule();
+					allVars.addDataElement(sp);
+					dataRule.add(sp.getId());
+					break;
+				case "HYPHEN":
+					DataElement hy = new HyphenRule();
+					allVars.addDataElement(hy);
+					dataRule.add(hy.getId());
+					break;
+				case "CR":
+					DataElement cr = new CRRule();
+					allVars.addDataElement(cr);
+					dataRule.add(cr.getId());
+					break;
+				case "GETRULE":
+					String ruleId = child.getAttributeValue("idref");
+					dataRule.add(ruleId);
 			}
-			else if (elementName.equals("SPACE"))
-			{
-				SpaceRule sp = new SpaceRule();
-				allVars.addDataElement(sp);
-				dataRule.add(sp.getId());
-			}
-			else if (elementName.equals("HYPHEN"))
-			{
-				HyphenRule hy = new HyphenRule();
-				allVars.addDataElement(hy);
-				dataRule.add(hy.getId());
-			}
-			else if (elementName.equals("CR"))
-			{
-				CRRule cr = new CRRule();
-				allVars.addDataElement(cr);
-				dataRule.add(cr.getId());
-			}
-			else if (elementName.equals("GETRULE"))
-			{
-				String ruleId = child.getAttributeValue("idref");
-				dataRule.add(ruleId);
-			}
-		}
 
+		}
 		allVars.addDataElement(dataRule);
 
 		return dataRule.getId();
@@ -1043,7 +981,7 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			Vector<DataElement> struct = new Vector<DataElement>();
+			List<DataElement> struct = new ArrayList<>();
 
 			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
 			{
@@ -1057,7 +995,7 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			DefaultComboBoxModel structModel = new DefaultComboBoxModel(struct);
+			ComboBoxModel structModel = new DefaultComboBoxModel(struct.toArray());
 			cbStructure.setModel(structModel);
 			cbStructure.setEnabled(true);
 		}
@@ -1091,11 +1029,11 @@ public class NameGenPanel extends JPanel
 	}
 
 	/**
-	 * The Class <code>GeneratorDtdResolver</code> is an EntityResolver implementation 
+	 * The Class {@code GeneratorDtdResolver} is an EntityResolver implementation
 	 * for use with a SAX parser. It forces the generator.dtd to be read from a 
 	 * known location.
 	 */
-	public class GeneratorDtdResolver implements EntityResolver
+	private static class GeneratorDtdResolver implements EntityResolver
 	{
 
 		private final File parent;
@@ -1111,9 +1049,6 @@ public class NameGenPanel extends JPanel
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public InputSource resolveEntity(String publicId, String systemId)
 		{
