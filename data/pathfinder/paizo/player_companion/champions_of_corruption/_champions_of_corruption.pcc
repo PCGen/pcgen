@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/products/btpy991x
 SOURCEDATE:2014-09
 ISOGL:YES
 
-COVER:champions_of_corruption.jpg
+#COVER:champions_of_corruption.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
