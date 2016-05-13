@@ -1,0 +1,11 @@
+# SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion	SOURCEDATE:2014-02
+# ORIGINAL ENTRY: Andrew Wilson (nuance)
+# ORIGINAL ENTRY DATE: 12 February 2014
+# UPDATED ENTRY: Gwen T. (evilpixie87)
+# UPDATED ENTRY DATE: 25 April 2016
+
+ABILITYCATEGORY:Half-Elf Subrace								VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:HalfElfSubrace		DISPLAYLOCATION:Racial Abilities		PLURAL:Half-Elf Racial Traits
+
+ABILITYCATEGORY:Half-Orc Subrace								VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:HalfOrcSubrace		DISPLAYLOCATION:Racial Abilities		PLURAL:Half-Orc Racial Traits
+
+ABILITYCATEGORY:Averaka Arbiter Bonus Feat						VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat					TYPE:Teamwork			DISPLAYLOCATION:Feats					PLURAL:Averaka Arbiter Bonus Feats
