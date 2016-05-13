@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $
+SOURCELONG:Hell's Vengeance Player's Guide	SOURCESHORT:HVPG	SOURCEWEB:http://paizo.com/products/btpy9jva?Pathfinder-Adventure-Path-Hells-Vengeance-Players-Guide	SOURCEDATE:2015-09
+
+# Language		Type
+Celestial		TYPE:Spoken
+Elven			TYPE:Spoken.Written.Read
+Halfling		TYPE:Spoken.Written.Read
+Shadowtongue	TYPE:Spoken.Written.Read
+Ancient Osiriani	TYPE:Spoken.Written.Read
