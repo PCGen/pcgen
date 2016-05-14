@@ -105,6 +105,7 @@ Sling Staff (Halfling)		TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Halflin
 
 # SPECIALS
 Flurry of Blows			TYPE:Special.Light.Melee.Unarmed.Bludgeoning.Monk
+Improvised Weapon			TYPE:Improvised
 
 # Thrown Rocks
 Rock					TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
