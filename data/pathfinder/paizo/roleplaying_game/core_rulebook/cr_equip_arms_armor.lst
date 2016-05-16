@@ -402,3 +402,16 @@ Shuriken.MOD				TYPE:Weapon Group Thrown
 Sling.MOD					TYPE:Weapon Group Thrown
 Spear.MOD					TYPE:Weapon Group Thrown
 Starknife.MOD				TYPE:Weapon Group Thrown
+
+###Block: Improvised / WT and WIELD guessed based upon equivalents.
+Improvised Weapon (1d2)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:OneHanded	DAMAGE:1d2		COST:0	WT:1		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (1d3)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:OneHanded	DAMAGE:1d3		COST:0	WT:1		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (1d4)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:OneHanded	DAMAGE:1d4		COST:0	WT:2		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (1d6)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:OneHanded	DAMAGE:1d6		COST:0	WT:6		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (1d8)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:OneHanded	DAMAGE:1d8		COST:0	WT:10		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (1d10)		PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:OneHanded	DAMAGE:1d10		COST:0	WT:12		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (1d12)		PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:TwoHanded	DAMAGE:1d12		COST:0	WT:12		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (2d4)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:TwoHanded	DAMAGE:2d4		COST:0	WT:12		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (2d6)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:TwoHanded	DAMAGE:2d6		COST:0	WT:12		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (2d8)			PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:TwoHanded	DAMAGE:2d8		COST:0	WT:12		CRITMULT:x2	CRITRANGE:1
+Improvised Weapon (2d10)		PROFICIENCY:WEAPON|Improvised Weapon	SIZE:M	TYPE:Weapon.Melee.Improvised	WIELD:TwoHanded	DAMAGE:2d10		COST:0	WT:12		CRITMULT:x2	CRITRANGE:1
