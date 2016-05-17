@@ -984,7 +984,7 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.50 * (0.26 * $pagePrintableWidth - 4)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row height="2pt">
+				<fo:table-row height="0pt">
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>
 				</fo:table-row>
@@ -994,16 +994,25 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
 						</xsl:call-template>
-					<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">Encumbrance</fo:block>
+					<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="0pt">Encumbrance</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.total'"/>
 						</xsl:call-template>
+						<xsl:if test="(/character/equipment/total/load = 'Medium' or /character/equipment/total/load = 'Heavy' or /character/equipment/total/load = 'Overload')">
+						<fo:block font-size="10pt" font-weight="bold" color="red">
+							<xsl:value-of select="/character/equipment/total/load"/>
+							<fo:inline font-size="6" font-weight="italics"> (rules applied)</fo:inline>
+						</fo:block>
+						</xsl:if>
+						<xsl:if test="/character/equipment/total/load = 'Light'">
 						<fo:block space-before.optimum="2pt" font-size="10pt">
 							<xsl:value-of select="/character/equipment/total/load"/>
 						</fo:block>
+						</xsl:if>
+
 					</fo:table-cell>
 				</fo:table-row>
 			</fo:table-body>
