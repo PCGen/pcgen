@@ -31,3 +31,7 @@ Skillchip Skill	KEY:SKILLCHIP_2		TYPE:SkillchipMark2					COST:1600	VISIBLE:QUALI
 Skillchip Skill	KEY:SKILLCHIP_3		TYPE:SkillchipMark3					COST:3600	VISIBLE:QUALIFY																											BONUS:SKILL|%LIST|6																																																																																																						CHOOSE:SKILL|TYPE=Base
 Skillchip Skill	KEY:SKILLCHIP_4		TYPE:SkillchipMark4					COST:6400	VISIBLE:QUALIFY																											BONUS:SKILL|%LIST|8																																																																																																						CHOOSE:SKILL|TYPE=Base
 Skillchip Skill	KEY:SKILLCHIP_5		TYPE:SkillchipMark5					COST:10000	VISIBLE:QUALIFY																											BONUS:SKILL|%LIST|10																																																																																																						CHOOSE:SKILL|TYPE=Base
+
+###Block: Timeworn items
+Timeworn		KEY:TIMEWORN		TYPE:TimewornCondition.Technological Gear	COST:-(BASECOST/2)	VISIBLE:QUALIFY	ITYPE:Timeworn	SOURCEPAGE:p.55	PRETYPE:1,Technological Gear
+

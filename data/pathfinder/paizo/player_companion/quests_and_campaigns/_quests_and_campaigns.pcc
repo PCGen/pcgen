@@ -36,6 +36,9 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Quests and Campaigns" 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+#
+
 # Data files
 ABILITY:qac_abilities.lst
 EQUIPMENT:qac_equip.lst

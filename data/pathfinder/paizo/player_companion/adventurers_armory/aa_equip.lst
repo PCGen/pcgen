@@ -8,7 +8,7 @@ SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/product
 # Equipment Name				Product Identity?	Output Name						Required Weapon Proficiency		Type							Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Range		Size		Source Page		Modify VAR			Special Property
 Area Map																					TYPE:Goods.General								COST:50	WT:2																		SOURCEPAGE:p.5					SPROP: if relevant, +1 to Survival/Knowledge (dungeoneering) to navigate.
 Astrolabe																					TYPE:Goods.General								COST:1000	WT:6																		SOURCEPAGE:p.5					SPROP:Allows to use Int mod instead of Wis on Survival to avoid getting lost.
-Backpack (Masterwork).MOD					OUTPUTNAME:Backpack, Masterwork								TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any	COST:50	WT:4																		SOURCEPAGE:p.5	BONUS:VAR|LOADSCORE|1
+Backpack (Masterwork)						OUTPUTNAME:Backpack, Masterwork								TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any	COST:50	WT:4																		SOURCEPAGE:p.5	BONUS:VAR|LOADSCORE|1|TYPE=Masterwork
 Blanket																					TYPE:Goods.General								COST:0.2	WT:1																		SOURCEPAGE:p.6
 Block and Tackle.MOD																																																		SOURCEPAGE:p.6					SPROP:+5 circumstance to lift heavy; takes 1 minute to put into place
 Breakaway Chains																				TYPE:Goods.General								COST:65	WT:2																		SOURCEPAGE:p.6

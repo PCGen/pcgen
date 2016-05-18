@@ -33,6 +33,9 @@ COPYRIGHT:PCGen dataset conversion for "Adventure Path: Skull & Shackles Player'
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# PFS Rules
+#
+
 ABILITY:saspg_abilities.lst
 KIT:saspg_kits.lst
 LANGUAGE:saspg_languages.lst

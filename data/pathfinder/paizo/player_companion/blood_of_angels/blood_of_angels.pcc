@@ -30,6 +30,7 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.;
 COPYRIGHT:Pathfinder Player Companion: Blood of Angels Copyright 2012, Paizo Publishing, LLC; Author: Amber E. Scott.
 COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyright 2014, PCgen Data team (Including, but not limited to Andrew Wilson (nuance), Paul Grosse, Andrew Maitland)
 
+
 ABILITY:boa_abilities.lst
 ABILITY:boa_abilities_variant.lst
 ABILITYCATEGORY:boa_abilitycategories.lst
