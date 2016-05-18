@@ -4183,7 +4183,7 @@ BIO
 						<duration>1 round</duration>
 						<effect>Single target cannot make attacks of opportunity for 1 round.</effect>
 						<target>one creature</target>
-						<saveinfo>no</saveinfo>
+						<saveinfo>Will negates</saveinfo>
 						<school>
 							<school>Enchantment</school>
 							<subschool>Compulsion</subschool>

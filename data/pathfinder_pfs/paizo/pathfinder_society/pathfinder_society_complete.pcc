@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-CAMPAIGN:Pathfinder Society Complete
+CAMPAIGN:Pathfinder Society Complete Rules
 KEY:Pathfinder Society
 GAMEMODE:Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
@@ -8,7 +8,7 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:MultiSet
 SETTING:Pathfinder|Golarion
-SHOWINMENU:YES
+#SHOWINMENU:YES
 # COMMENT: No books should be allowed if this set is used. Causes issues!
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Pathfinder Society]
 #!PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play

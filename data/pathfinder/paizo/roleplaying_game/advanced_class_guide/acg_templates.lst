@@ -41,6 +41,12 @@ Enhance Fly Speed	KEY:Heavens Spirit Animal ~ Enhance Fly Speed	PREMULT:2,[PREMO
 
 Inspired Chemist Languages			VISIBLE:NO			LANGBONUS:ALL
 
+Fighter Tentacle		VISIBLE:NO		TEMPLATE:CHOOSE:Medium Fighter Tentacle|Small Fighter Tentacle
+Medium Fighter Tentacle	VISIBLE:NO													PRESIZEEQ:M		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Small Fighter Tentacle	VISIBLE:NO													PRESIZEEQ:S		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+
+
+
 
 #
 # End

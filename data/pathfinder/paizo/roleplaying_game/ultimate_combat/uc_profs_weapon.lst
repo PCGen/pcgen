@@ -271,6 +271,8 @@ Harpoon.MOD					TYPE:Thrown.Weapon Group Thrown
 Kestros.MOD					TYPE:Thrown.Weapon Group Thrown
 Poisoned Sand Tube.MOD			TYPE:Thrown.Weapon Group Thrown
 Throwing Shield.MOD			TYPE:Thrown.Weapon Group Thrown
+Shuriken.MOD				TYPE:Thrown.Weapon Group Thrown
+Sibat.MOD					TYPE:Thrown.Weapon Group Thrown
 
 #Siege Engines: All Siege Engines
 # Tengu now gets a BONUS VAR to include Exotic, matching the Bastard Sword.

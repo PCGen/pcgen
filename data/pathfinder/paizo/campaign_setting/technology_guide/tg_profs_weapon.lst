@@ -2,24 +2,24 @@
 
 # Group Firearms - Single Feat
 # Weapon Name	Type
-Arc Pistol		TYPE:Firearm.Proficiency_Group_Firearm
+Arc Pistol		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
 Arc Rifle		TYPE:Firearm.Proficiency_Group_Firearm
 Autograpnel		TYPE:Firearm.Proficiency_Group_Firearm
 Dart Gun		TYPE:Firearm.Proficiency_Group_Firearm
 Death Ray		TYPE:Firearm.Proficiency_Group_Firearm
-EMP Pistol		TYPE:Firearm.Proficiency_Group_Firearm
+EMP Pistol		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
 EMP Rifle		TYPE:Firearm.Proficiency_Group_Firearm
-Flare Gun		TYPE:Firearm.Proficiency_Group_Firearm
-Gravity Pistol	TYPE:Firearm.Proficiency_Group_Firearm
+Flare Gun		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Gravity Pistol	TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
 Gravity Rifle	TYPE:Firearm.Proficiency_Group_Firearm
 Id Rifle		TYPE:Firearm.Proficiency_Group_Firearm
-Laser Pistol	TYPE:Firearm.Proficiency_Group_Firearm
+Laser Pistol	TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
 Laser Rifle		TYPE:Firearm.Proficiency_Group_Firearm
 Mindrender		TYPE:Firearm.Proficiency_Group_Firearm
-Sonic Pistol	TYPE:Firearm.Proficiency_Group_Firearm
+Sonic Pistol	TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
 Sonic Rifle		TYPE:Firearm.Proficiency_Group_Firearm
-Stun Gun		TYPE:Firearm.Proficiency_Group_Firearm
-Zero Pistol		TYPE:Firearm.Proficiency_Group_Firearm
+Stun Gun		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
+Zero Pistol		TYPE:Firearm.Proficiency_Group_Firearm.OneHandedFirearm.Pistol
 Zero Rifle		TYPE:Firearm.Proficiency_Group_Firearm
 
 
