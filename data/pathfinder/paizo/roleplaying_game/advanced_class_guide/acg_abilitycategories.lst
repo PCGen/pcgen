@@ -167,18 +167,22 @@ ABILITYCATEGORY:Witch Channel Energy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 # ==============================
 
 ABILITYCATEGORY:Inspired Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InspiredInvestigatorTalent			PLURAL:Inspired Investigator Talent					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Blade Adept Blade Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AdeptBladeChoice																		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Blade Adept Arcana						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BladeAdeptArcana																		DISPLAYLOCATION:Class Features
-#ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererBloodline					PLURAL:Sorcerer Bloodlines							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Elemental Master Type					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElement					PLURAL:Elemental Master Types						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Savant School					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSavantSchool				PLURAL:Arcanist Savant Schools						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSavantOppositionSchool		PLURAL:Arcanist Savant Opposition Schools			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NecromanticSavantChanneling		PLURAL:Necromancer Channeling Choices				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Nature Fang Talent						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Nature Fang Talents							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Advanced Nature Fang Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SlayerTalent						PLURAL:Advanced Nature Fang Talent					DISPLAYLOCATION:Class Features
-
-
-
+ABILITYCATEGORY:Blade Adept Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AdeptBladeChoice															DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Blade Adept Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BladeAdeptArcana															DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererBloodline					PLURAL:Sorcerer Bloodlines						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elemental Master Type				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElement					PLURAL:Elemental Master Types						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Savant School				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSavantSchool				PLURAL:Arcanist Savant Schools					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistSavantOppositionSchool			PLURAL:Arcanist Savant Opposition Schools				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NecromanticSavantChanneling			PLURAL:Necromancer Channeling Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Nature Fang Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Nature Fang Talents						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Advanced Nature Fang Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SlayerTalent						PLURAL:Advanced Nature Fang Talent					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mutation Warrior Discovery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mutation Warrior Discovery			PLURAL:Mutation Warrior Discoveries					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Verminous Hunter Vermin Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HunterVerminFocusAbility				PLURAL:Verminous Hunter Vermin Foci					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Verminous Hunter Vermin Companion Status	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HunterVerminCompanionStatus			PLURAL:Verminous Hunter Vermin Companion Statuses		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sanctified Slayer Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Sanctified Slayer Talents					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wildcat Maneuver Training 2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 2													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wildcat Maneuver Training 3			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 3													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wildcat Maneuver Training 4			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 4													DISPLAYLOCATION:Class Features
 
 
 #

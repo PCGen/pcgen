@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Mon May  9 15:19:00 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Blood of the Elements	SOURCESHORT:BOTE	SOURCEWEB:http://paizo.com/products/btpy978p?Pathfinder-Player-Companion-Blood-of-the-Elements	SOURCEDATE:2014-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 4 April 2016
+
+
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list					Plural description for UI		Display Location
+ABILITYCATEGORY:Lifewater Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:LifewaterBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))	PLURAL:Lifewater Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shahzada Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShahzadaBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))	PLURAL:Shahzada Bloodline Feats	DISPLAYLOCATION:Feats

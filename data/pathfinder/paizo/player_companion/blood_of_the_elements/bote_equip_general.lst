@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Mon May  9 15:19:00 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Blood of the Elements	SOURCESHORT:BOTE	SOURCEWEB:http://paizo.com/products/btpy978p	SOURCEDATE:2014-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 4 April 2016
+
+# Equipment Name			Type							Cost		Weight	Source Page		Special Property
+Dead Air Vial			TYPE:Goods.Alchemical.Vial.Consumable	COST:200			SOURCEPAGE:p.19
+Elemental Brine			TYPE:Goods.Alchemical.Flask.Consumable	COST:500	WT:1		SOURCEPAGE:p.25
+Planar Alchemical Catalyst	TYPE:Goods.Alchemical.Consumable		COST:200	WT:2		SOURCEPAGE:p.21
+Stagnant Fog Sack			TYPE:Goods.Alchemical.Consumable		COST:80	WT:1		SOURCEPAGE:p.19
+Thunder Kettle			TYPE:Goods.Alchemical.Consumable		COST:275	WT:3		SOURCEPAGE:p.19
+
+Emissary's Sash			TYPE:Goods.Clothing.Resizable			COST:500	WT:3		SOURCEPAGE:p.27
+
+Drug (Fireskin Elixir)		TYPE:Goods.Drug.Consumable			COST:100			SOURCEPAGE:p.27	SPROP:Ingested; Addiction major, Fortitude DC 20; Effect 1 day; +10 alchemical bonus on Disguise checks to appear as an efreeti, –1 penalty on all saves; 1d2 Wis damage
+
+Phlogiston Vial			TYPE:Magic.Wondrous.Consumable		COST:1000			SOURCEPAGE:p.23
+Lamp of Fiery Visions		TYPE:Magic.Wondrous				COST:22200	WT:1		SOURCEPAGE:p.30
+Sandstorm Dust			TYPE:Magic.Wondrous				COST:9000	WT:1		SOURCEPAGE:p.30
+Snowfall Orb			TYPE:Magic.Wondrous				COST:14000	WT:1		SOURCEPAGE:p.30
+Windsong Lute			TYPE:Magic.Wondrous				COST:42500	WT:3		SOURCEPAGE:p.31
+Wintertide Candle			TYPE:Magic.Wondrous.Consumable		COST:1500	WT:0.5	SOURCEPAGE:p.31
