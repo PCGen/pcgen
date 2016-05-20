@@ -22,9 +22,6 @@ FACTDEF:ABILITY|Arcanist_Archetype_ArcanistExploit19			DATAFORMAT:BOOLEAN	REQUIR
 FACTDEF:ABILITY|Arcanist_Archetype_Spellbooks				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_Archetype_Spells					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 
-FACTDEF:ABILITY|Arcanist_CF_Spellbooks					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
-FACTDEF:ABILITY|Arcanist_CF_Spells						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
-
 
 FACTDEF:ABILITY|Arcanist_CF_Proficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
@@ -35,7 +32,6 @@ FACTDEF:ABILITY|Arcanist_CF_ArcanistExploits				DATAFORMAT:BOOLEAN	REQUIRED:NO	S
 FACTDEF:ABILITY|Arcanist_CF_Cantrips					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_GreaterArcanistExploits			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_MagicalSupremacy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
-
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit1				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit3				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit5				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
@@ -46,6 +42,8 @@ FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit13				DATAFORMAT:BOOLEAN	REQUIRED:NO	
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit15				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit17				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 FACTDEF:ABILITY|Arcanist_CF_ArcanistExploit19				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_Spellbooks					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
+FACTDEF:ABILITY|Arcanist_CF_Spells						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Arcanist Proficiencies removed
 
 
 # Bloodrager
@@ -60,7 +58,6 @@ FACTDEF:ABILITY|Bloodrager_Archetype_GreaterBloodrage			DATAFORMAT:BOOLEAN	REQUI
 FACTDEF:ABILITY|Bloodrager_Archetype_IndomitableWill			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Bloodrager_Archetype_TirelessBloodrage		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Bloodrager_Archetype_MightyBloodrage			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeats			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat6			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
@@ -68,32 +65,16 @@ FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat9			DATAFORMAT:BOOLEAN	REQUIRE
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat12			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat15			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat18			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
-
-
 FACTDEF:ABILITY|Bloodrager_Archetype_ArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_Spells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
-
-
-
-FACTDEF:ABILITY|Bloodrager_CF_ArmorProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
-FACTDEF:ABILITY|Bloodrager_CF_Spells					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
-
-
 FACTDEF:ABILITY|Bloodrager_Archetype_UncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 
-
-
 FACTDEF:ABILITY|Bloodrager_CF_UncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ImprovedUncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
-
-
-
-
-
+FACTDEF:ABILITY|Bloodrager_CF_ArmorProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_CF_Spells					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
-
-
 FACTDEF:ABILITY|Bloodrager_CF_Bloodline					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_Bloodrage					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_FastMovement				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
@@ -114,6 +95,7 @@ FACTDEF:ABILITY|Bloodrager_CF_BloodlineFeat18				DATAFORMAT:BOOLEAN	REQUIRED:NO	
 
 # Brawler
 FACTDEF:ABILITY|Brawler_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
+FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
 FACTDEF:ABILITY|Brawler_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ClassSkills
 FACTDEF:ABILITY|Brawler_Archetype_UnarmedStrike				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - UnarmedStrike
 FACTDEF:ABILITY|Brawler_Archetype_BrawlersCunning			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - BrawlersCunning
@@ -128,8 +110,13 @@ FACTDEF:ABILITY|Brawler_Archetype_BrawlersStrike			DATAFORMAT:BOOLEAN	REQUIRED:N
 FACTDEF:ABILITY|Brawler_Archetype_CloseWeaponMastery			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - CloseWeaponMastery
 FACTDEF:ABILITY|Brawler_Archetype_AwesomeBlow				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - AwesomeBlow
 FACTDEF:ABILITY|Brawler_Archetype_ImprovedAwesomeBlow			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
-FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
-
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat5				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat8				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat11				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat14				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat17				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_BonusFeat20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
 
 
 
@@ -148,7 +135,6 @@ FACTDEF:ABILITY|Brawler_CF_BrawlersStrike					DATAFORMAT:BOOLEAN	REQUIRED:NO	SEL
 FACTDEF:ABILITY|Brawler_CF_CloseWeaponMastery				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:CloseWeaponMastery
 FACTDEF:ABILITY|Brawler_CF_AwesomeBlow					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:AwesomeBlow
 FACTDEF:ABILITY|Brawler_CF_ImprovedAwesomeBlow				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:ImprovedAwesomeBlow
-
 FACTDEF:ABILITY|Brawler_CF_BonusFeat2					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES
 FACTDEF:ABILITY|Brawler_CF_BonusFeat5					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES
 FACTDEF:ABILITY|Brawler_CF_BonusFeat8					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES
@@ -159,31 +145,40 @@ FACTDEF:ABILITY|Brawler_CF_BonusFeat20					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECT
 
 # Hunter
 FACTDEF:ABILITY|Hunter_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_AnimalCompanion			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_AnimalFocus				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_NatureTraining				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_Orisons					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_WildEmpathy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_PreciseCompanion			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_Track					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_HunterTactics				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeats				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_ImprovedEmpatheticLink		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_WoodlandStride				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_BonusTricks				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_SecondAnimalFocus			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_SwiftTracker				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_RaiseAnimalCompanion			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_SpeakWithMaster			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_GreaterEmpathicLink			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_OneWithTheWild				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_MasterHunter				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_GreaterEmpatheticLink		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
-FACTDEF:ABILITY|Hunter_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_ClassSkills							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_WeaponProficiencies						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_ArmorProficiencies						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_AnimalCompanion							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_AnimalFocus							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_NatureTraining							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_Orisons								DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_WildEmpathy							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_PreciseCompanion						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_Track								DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_HunterTactics							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeats							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_WoodlandStride							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_BonusTricks							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_SecondAnimalFocus						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_SwiftTracker							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_RaiseAnimalCompanion						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_SpeakWithMaster							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_GreaterEmpathicLink						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_OneWithTheWild							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_MasterHunter							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat3							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat6							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat8							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat9							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat12							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat15							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat18							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_GreaterEmpatheticLink						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_ImprovedEmpatheticLink					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+
+
 FACTDEF:ABILITY|Hunter_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
-
-
 FACTDEF:ABILITY|Hunter_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_AnimalCompanion					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
@@ -204,7 +199,6 @@ FACTDEF:ABILITY|Hunter_CF_SpeakWithMaster					DATAFORMAT:BOOLEAN	REQUIRED:NO	SEL
 FACTDEF:ABILITY|Hunter_CF_GreaterEmpathicLink				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_OneWithTheWild					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_MasterHunter					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
-
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat6					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat8					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
@@ -212,11 +206,11 @@ FACTDEF:ABILITY|Hunter_CF_TeamworkFeat9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELEC
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
-
 FACTDEF:ABILITY|Hunter_CF_GreaterEmpatheticLink				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_ImprovedEmpatheticLink			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 
 # Investigator
+FACTDEF:ABILITY|Investigator_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_Alchemy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_Inspiration			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
@@ -231,10 +225,14 @@ FACTDEF:ABILITY|Investigator_Archetype_StudiedCombat			DATAFORMAT:BOOLEAN	REQUIR
 FACTDEF:ABILITY|Investigator_Archetype_StudiedStrike			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_TrueInspiration		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
-FACTDEF:ABILITY|Investigator_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_PoisonImmunity					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent9						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance6				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+
+
 FACTDEF:ABILITY|Investigator_CF_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
-
-
 FACTDEF:ABILITY|Investigator_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_Alchemy					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
@@ -252,13 +250,12 @@ FACTDEF:ABILITY|Investigator_CF_TrueInspiration				DATAFORMAT:BOOLEAN	REQUIRED:N
 
 FACTDEF:ABILITY|Investigator_CF_PoisonImmunity				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_Talent9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
-
-
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance2			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance4			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance6			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 
 # Shaman
+FACTDEF:ABILITY|Shaman_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Shaman_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Shaman_Archetype_Orisons					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Shaman_Archetype_Spirit					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
@@ -268,11 +265,25 @@ FACTDEF:ABILITY|Shaman_Archetype_Hex					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTAB
 FACTDEF:ABILITY|Shaman_Archetype_WanderingSpirit			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Shaman_Archetype_WanderingHex				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Shaman_Archetype_Manifestation				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex1				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex6				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex8				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex10				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex12				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex14				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex16				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex18				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_Hex20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_WanderingSpiritBase		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_WanderingSpiritTrue		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_WanderingSpiritGreater	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_WanderingHex6			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Shaman_Archetype_WanderingHex14			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
-FACTDEF:ABILITY|Shaman_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+
 FACTDEF:ABILITY|Shaman_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
-
-
 FACTDEF:ABILITY|Shaman_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
 FACTDEF:ABILITY|Shaman_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
 FACTDEF:ABILITY|Shaman_CF_Orisons						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
@@ -283,7 +294,6 @@ FACTDEF:ABILITY|Shaman_CF_Hex							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO
 FACTDEF:ABILITY|Shaman_CF_WanderingSpirit					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
 FACTDEF:ABILITY|Shaman_CF_WanderingHex					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
 FACTDEF:ABILITY|Shaman_CF_Manifestation					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
-
 FACTDEF:ABILITY|Shaman_CF_Hex1						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
 FACTDEF:ABILITY|Shaman_CF_Hex2						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
 FACTDEF:ABILITY|Shaman_CF_Hex4						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Shaman Proficiencies removed
@@ -303,31 +313,33 @@ FACTDEF:ABILITY|Shaman_CF_WanderingHex14					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELE
 
 
 # Skald
-FACTDEF:ABILITY|Skald_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_BardicKnowledge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_Cantrips					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_RagingSong				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_InspiredRage				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_ScribeScroll				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_VersatilePerformance			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_WellVersed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_RagePowers				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_SongOfMarching				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_UncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_SpellKenning				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_SongOfStrength				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_LoreMaster				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_ImprovedUncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_DamageReduction				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_DirgeOfDoom				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_SongOfTheFallen				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Skald_Archetype_MasterSkald				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_BardicKnowledge					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_Cantrips						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagingSong						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_InspiredRage					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_ScribeScroll					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_VersatilePerformance				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_WellVersed						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePowers						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SongOfMarching					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_UncannyDodge					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SpellKenning					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SongOfStrength					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_LoreMaster						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_ImprovedUncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_DamageReduction					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_DirgeOfDoom					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SongOfTheFallen					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_MasterSkald					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SpellKenning5					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SpellKenning11					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_SpellKenning17					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePower3						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
-FACTDEF:ABILITY|Skald_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Skald_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
-
-
 FACTDEF:ABILITY|Skald_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_BardicKnowledge					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
@@ -348,32 +360,44 @@ FACTDEF:ABILITY|Skald_CF_DamageReduction					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELE
 FACTDEF:ABILITY|Skald_CF_DirgeOfDoom					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_SongOfTheFallen					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_MasterSkald					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
-
 FACTDEF:ABILITY|Skald_CF_SpellKenning5					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_SpellKenning11					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_SpellKenning17					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
-
 FACTDEF:ABILITY|Skald_CF_RagePower3						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 
 
 
 # Slayer
 FACTDEF:ABILITY|Slayer_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Slayer_Archetype_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ArmorProficiencies	EXPLANATION:Determines whether the archetype affects - ArmorProficiencies
-FACTDEF:ABILITY|Slayer_Archetype_StudiedTarget				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:StudiedTarget		EXPLANATION:Determines whether the archetype affects - StudiedTarget
-FACTDEF:ABILITY|Slayer_Archetype_Track					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Track				EXPLANATION:Determines whether the archetype affects - Track
-FACTDEF:ABILITY|Slayer_Archetype_Talents					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Talents			EXPLANATION:Determines whether the archetype affects - Talents
-FACTDEF:ABILITY|Slayer_Archetype_SneakAttack				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SneakAttack			EXPLANATION:Determines whether the archetype affects - SneakAttack
-FACTDEF:ABILITY|Slayer_Archetype_Stalker					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Stalker			EXPLANATION:Determines whether the archetype affects - Stalker
-FACTDEF:ABILITY|Slayer_Archetype_SwiftTracker				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SwiftTracker		EXPLANATION:Determines whether the archetype affects - SwiftTracker
-FACTDEF:ABILITY|Slayer_Archetype_SlayersAdvance				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:SlayersAdvance		EXPLANATION:Determines whether the archetype affects - SlayersAdvance
-FACTDEF:ABILITY|Slayer_Archetype_Quarry					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Quarry			EXPLANATION:Determines whether the archetype affects - Quarry
-FACTDEF:ABILITY|Slayer_Archetype_ImprovedQuarry				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ImprovedQuarry		EXPLANATION:Determines whether the archetype affects - ImprovedQuarry
-FACTDEF:ABILITY|Slayer_Archetype_MasterSlayer				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:MasterSlayer		EXPLANATION:Determines whether the archetype affects - MasterSlayer
-FACTDEF:ABILITY|Slayer_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+
+FACTDEF:ABILITY|Slayer_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_LightArmorProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_MediumArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_ShieldProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_StudiedTarget					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Track						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talents						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_SneakAttack					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Stalker						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_SwiftTracker					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_SlayersAdvance					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Quarry						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_ImprovedQuarry					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_MasterSlayer					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent2						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent4						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent6						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent8						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent10						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent12						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent14						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent16						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent18						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
+FACTDEF:ABILITY|Slayer_Archetype_Talent20						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
 
 FACTDEF:ABILITY|Slayer_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Slayer Proficiencies removed
-
 FACTDEF:ABILITY|Slayer_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ArmorProficiencies	EXPLANATION:Slayer class feature altered or removed ~ ArmorProficiencies
 FACTDEF:ABILITY|Slayer_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponProficiencies	EXPLANATION:Slayer class feature altered or removed ~ WeaponProficiencies
 FACTDEF:ABILITY|Slayer_CF_LightArmorProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:LightArmorProficiency	EXPLANATION:Slayer class feature altered or removed ~ LightArmorProficiency
@@ -401,20 +425,48 @@ FACTDEF:ABILITY|Slayer_CF_Talent18						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABL
 FACTDEF:ABILITY|Slayer_CF_Talent20						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Talent20			EXPLANATION:Slayer class feature altered or removed ~ Talent20
 
 # Swashbuckler
-FACTDEF:ABILITY|Swashbuckler_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_Panache				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_Deeds				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklerFinesse		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_CharmedLife			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_Nimble				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeats			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklerWeaponTraining	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklerWeaponMastery	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_LightArmorProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_ShieldProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_Panache					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_Deeds					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklerFinesse			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_CharmedLife				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_Nimble					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeats				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklerWeaponTraining		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklerWeaponMastery		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_DerringDoDeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_DodgingPanacheDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_OpportuneParryandRiposteDeed	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_KipUpDeed					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_MenacingSwordplayDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_PreciseStrikeDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklersInitiativeDeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklersGraceDeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SuperiorFeintDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_TargetedStrikeDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BleedingWoundDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SubtleBladeDeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_EvasiveDeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_DizzyingDefenseDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_PerfectThrustDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_SwashbucklersEdgeDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_CheatDeathDeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_DeadlyStabDeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_StunningStabDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeat4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeat8				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeat12				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeat16				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Swashbuckler_Archetype_BonusFeat20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
-FACTDEF:ABILITY|Swashbuckler_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+
+
 FACTDEF:ABILITY|Swashbuckler_CF_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
-
-
 FACTDEF:ABILITY|Swashbuckler_CF_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
 FACTDEF:ABILITY|Swashbuckler_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
 FACTDEF:ABILITY|Swashbuckler_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
@@ -428,8 +480,6 @@ FACTDEF:ABILITY|Swashbuckler_CF_Nimble					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECT
 FACTDEF:ABILITY|Swashbuckler_CF_BonusFeats				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
 FACTDEF:ABILITY|Swashbuckler_CF_SwashbucklerWeaponTraining		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
 FACTDEF:ABILITY|Swashbuckler_CF_SwashbucklerWeaponMastery		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
-
-
 FACTDEF:ABILITY|Swashbuckler_CF_DerringDoDeed				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
 FACTDEF:ABILITY|Swashbuckler_CF_DodgingPanacheDeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
 FACTDEF:ABILITY|Swashbuckler_CF_OpportuneParryandRiposteDeed	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Swashbuckler Proficiencies removed
@@ -457,47 +507,58 @@ FACTDEF:ABILITY|Swashbuckler_CF_BonusFeat20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SE
 
 
 # Warpriest
-FACTDEF:ABILITY|Warpriest_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_Aura					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_Blessings				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_FocusWeapon				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_Orisons				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_SacredWeapon			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_SpontaneousCasting		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_BonusLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_Fervor				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_BonusFeats				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_ChannelEnergy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_SacredArmor				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_Archetype_AspectOfWar				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Warpriest_Archetype_ClassSkills							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_Proficiencies						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_ArmorProficiencies						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_WeaponProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_LightArmorProficiency					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_MediumArmorProficiency					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_HeavyArmorProficiency					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_ShieldProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_Aura								DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_Blessings							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_FocusWeapon							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_Orisons							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_SacredWeapon							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_SpontaneousCasting						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusLanguages						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_Fervor								DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeats							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_ChannelEnergy						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_SacredArmor							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_AspectOfWar							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeat3							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeat6							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeat9							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeat12							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeat15							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_Archetype_BonusFeat18							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
 
-FACTDEF:ABILITY|Warpriest_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Warpriest_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
 
 
-FACTDEF:ABILITY|Warpriest_CF_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_LightArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_MediumArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_HeavyArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_ShieldProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_Aura						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_Blessings					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_FocusWeapon					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_Orisons					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_SacredWeapon					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_SpontaneousCasting				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusLanguages				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_Fervor						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusFeats					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_ChannelEnergy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_SacredArmor					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_AspectOfWar					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-
-FACTDEF:ABILITY|Warpriest_CF_BonusFeat3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusFeat6					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusFeat9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusFeat12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusFeat15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
-FACTDEF:ABILITY|Warpriest_CF_BonusFeat18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Warpriest Proficiencies removed
+FACTDEF:ABILITY|Warpriest_CF_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_LightArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_MediumArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_HeavyArmorProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_ShieldProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_Aura						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_Blessings					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_FocusWeapon					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_Orisons					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_SacredWeapon					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_SpontaneousCasting				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusLanguages				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_Fervor						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeats					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_ChannelEnergy				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_SacredArmor					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_AspectOfWar					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeat3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeat6					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeat9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeat12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeat15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
+FACTDEF:ABILITY|Warpriest_CF_BonusFeat18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES		
