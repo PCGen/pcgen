@@ -176,13 +176,19 @@ ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDI
 ABILITYCATEGORY:Nature Fang Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Nature Fang Talents						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Advanced Nature Fang Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SlayerTalent						PLURAL:Advanced Nature Fang Talent					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Mutation Warrior Discovery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mutation Warrior Discovery			PLURAL:Mutation Warrior Discoveries					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Divine Hunter Companion Template		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Divine Hunter Companion				PLURAL:Divine Hunter Companion Templates				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Verminous Hunter Vermin Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HunterVerminFocusAbility				PLURAL:Verminous Hunter Vermin Foci					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Verminous Hunter Vermin Companion Status	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HunterVerminCompanionStatus			PLURAL:Verminous Hunter Vermin Companion Statuses		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Sanctified Slayer Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LesserSlayerTalent					PLURAL:Sanctified Slayer Talents					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wildcat Maneuver Training 2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 2													DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wildcat Maneuver Training 3			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 3													DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wildcat Maneuver Training 4			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 4													DISPLAYLOCATION:Class Features
-
+ABILITYCATEGORY:Champion of the Faith Alignment Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Champion of the Faith Alignment Choice	PLURAL:Champion of the Faith Alignment Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Disenchanter Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Disenchanter Bonus Feat				PLURAL:Disenchanter Bonus Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Divine Commander Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork						PLURAL:Divine Commander Teamwork Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Divine Commander Blessed Mount Template	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Divine Commander Blessed Mount Template	PLURAL:Divine Commander Blessed Mount Templates			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forgepriest Bonus Feat Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Forgepriest Bonus Feat Type			PLURAL:Forgepriest Bonus Feat Types					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forgepriest Bonus Item Creation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ItemCreation						PLURAL:Forgepriest Bonus Item Creation Feats			DISPLAYLOCATION:Feats
 
 #
 # End
