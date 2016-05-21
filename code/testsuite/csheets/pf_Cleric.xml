@@ -2991,7 +2991,7 @@ BIO
 						<outputname>Ant Haul</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Touch</range>
-						<components>V, S, M/DF (a small pulley)</components>
+						<components>V, S, M/DF</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>15</dc>
@@ -3223,7 +3223,7 @@ BIO
 						<outputname>Dancing Lantern</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Touch</range>
-						<components>V, S, F (a lantern)</components>
+						<components>V, S, F</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc></dc>
@@ -4414,7 +4414,7 @@ BIO
 						<outputname>Ghostbane Dirge</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Close (30 ft.)</range>
-						<components>V, S, M/DF (an old reed from a wind instrument)</components>
+						<components>V, S, M/DF</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>16</dc>
@@ -4733,7 +4733,7 @@ BIO
 						<outputname>Share Language</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Touch</range>
-						<components>V, S, M (a page from a dictionary)</components>
+						<components>V, S, M</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>16</dc>
