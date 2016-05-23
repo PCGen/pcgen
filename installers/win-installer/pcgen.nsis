@@ -22,7 +22,7 @@
 ; Define constants
 !define APPNAME "PCGen"
 !define APPNAMEANDVERSION "${APPNAME} ${LONGVER}"
-!define APPDIR "PCGen${SIMPVER}"
+!define APPDIR "${LONGVER}"
 !define TargetVer "1.7"
 !define OverVer "1.9"
 !define OutName "pcgen${SIMPVER}_win_install"
