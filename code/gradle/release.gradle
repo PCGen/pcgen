@@ -286,14 +286,6 @@ task genProjectNsis << {
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
         genProjectNsis, downloadJRE, createExe])  << {
-    //createExe puts the executable file at build/launch4j. 
-    //It needs to be copied to the right place.
-    copy {
-        println "Copying generated exe file from createExe"
-        from "${buildDir}/launch4j"
-        into "${projectDir}/code"
-        include '*.exe'
-    }
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
