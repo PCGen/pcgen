@@ -256,8 +256,9 @@ task cleanRoot(type: Delete) {
     }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToRoot', 'syncLibsToRoot', 'createExe'
 }
+build.mustRunAfter createExe
 
 clean {
 	it.dependsOn 'clean-plugins'
