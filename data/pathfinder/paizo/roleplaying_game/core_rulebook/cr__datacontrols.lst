@@ -11,7 +11,7 @@
 # SELECT-ability would be legal]) in one of the DATACONTROL files.
 
 # This MUST be included if you enable the datacontrol file....
-
+FACTDEF:SPELL|CompMaterial	DATAFORMAT:String							VISIBLE:YES
 # Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
 FACTDEF:ABILITY|AppliedName	DATAFORMAT:String							VISIBLE:YES
 
