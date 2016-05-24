@@ -695,7 +695,7 @@ CATEGORY=Internal|Default.MOD																																																			
 
 # COMMENT: Next to tackle, fixing the Summoner class feature set up.
 
-Summoner									CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|TYPE=Base|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base	BONUS:VAR|EidolonBaseSkill|0	DEFINE:EidolonCompanionBonusHD|0	BONUS:VAR|EidolonCompanionBonusHD|
+Summoner									CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|TYPE=Base|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base	BONUS:VAR|EidolonBaseSkill|0	DEFINE:EidolonCompanionBonusHD|0
 #
 Standard				KEY:Summoner ~ Standard Class	CATEGORY:Class		TYPE:Summoner Class Selection	PREVAREQ:StandardSummonerAllowed,1	DEFINE:StandardSummoner|0																														BONUS:VAR|StandardSummoner|1|TYPE=Base																													CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device	COST:1
 
