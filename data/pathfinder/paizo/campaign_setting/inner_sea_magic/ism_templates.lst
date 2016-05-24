@@ -6,6 +6,9 @@ SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/b
 Fleshwarped		CR:1			VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Fleshwarped Special Ability|1	BONUS:ABILITYPOOL|Fleshwarped Ability Bonus|1	BONUS:ABILITYPOOL|Fleshwarped Ability Penalty|2	BONUS:ABILITYPOOL|Fleshwarped Skill Bonus|1
 Magic School				VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Magic School Choice|1
 
+
+
+First Worlder Eidolon HD	HITDIE:6|CLASS=Eidolon	VISIBLE:NO
 #
 # End
 #
