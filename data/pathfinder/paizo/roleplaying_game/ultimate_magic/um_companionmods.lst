@@ -496,39 +496,3 @@ MASTERBONUSRACE:Familiar (Turtle)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Fa
 ###Block: Abilities for specific types of familiars
 # Class of the Master	Type			Required Race			Apply Kit
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Thrush)	KIT:1|Thrush Familiar Language
-
-###Block Fused Eidolon from Synthesis Archetype
-# Base Eidolon
-# Class of the Master		Type				Hit Dice	Ability								Copy Masters Checks	Use Masters skills?	Define											Bonus Ability Pool												Combat bonus			Save bonus					Stat bonus			Modify VAR
-FOLLOWER:FusedEidolonLVL=1	TYPE:Fused Eidolon												COPYMASTERCHECK:MASTER	USEMASTERSKILL:YES	DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3																								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
-FOLLOWER:FusedEidolonLVL=2	TYPE:Fused Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																							BONUS:ABILITYPOOL|Eidolon Evolution|1																				BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=3	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=4	TYPE:Fused Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|2									BONUS:COMBAT|AC|2|TYPE=Shield	BONUS:SAVE|ALL|2|TYPE=Circumstance					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:FusedEidolonLVL=5	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=6	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=7	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																				BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=8	TYPE:Fused Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=9	TYPE:Fused Eidolon	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																								BONUS:ABILITYPOOL|Eidolon Evolution|2																								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:FusedEidolonLVL=10	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=11	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=12	TYPE:Fused Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|4|TYPE=Shield	BONUS:SAVE|ALL|2|TYPE=Circumstance	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=13	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=14	TYPE:Fused Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																					BONUS:ABILITYPOOL|Eidolon Evolution|2																								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:FusedEidolonLVL=15	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=16	TYPE:Fused Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=17	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																				BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=18	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|1																								BONUS:VAR|MasterLevel|1
-FOLLOWER:FusedEidolonLVL=19	TYPE:Fused Eidolon	HD:1																															BONUS:ABILITYPOOL|Eidolon Evolution|2																								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:FusedEidolonLVL=20	TYPE:Fused Eidolon																																BONUS:ABILITYPOOL|Eidolon Evolution|1																				BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-###Block:
-#MASTERBONUSRACE:Fused Eidolon					TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Fused Eidolon HP|Fused Eidolon BAB|Fused Eidolon Stats	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	DEFINE:EidolonBAB|0	BONUS:VAR|EidolonBAB|var("BAB")	DEFINE:DisableBAB|0	DEFINE:EidolonStatSTR|0	BONUS:VAR|EidolonStatSTR|STRSCORE	DEFINE:EidolonStatDEX|0	BONUS:VAR|EidolonStatDEX|DEXSCORE	DEFINE:EidolonStatCON|0	BONUS:VAR|EidolonStatCON|CONSCORE
-# Race of familiar					Type				Ability													Define
-MASTERBONUSRACE:Fused Eidolon (Aquatic)		TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Fused Eidolon BAB|Fused Eidolon HP|Fused Eidolon Stats	DEFINE:EidolonHP|0	DEFINE:EidolonBAB|0	DEFINE:DisableBAB|0	DEFINE:EidolonStatSTR|0	DEFINE:EidolonStatDEX|0	DEFINE:EidolonStatCON|0
-MASTERBONUSRACE:Fused Eidolon (Biped)		TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Fused Eidolon BAB|Fused Eidolon HP|Fused Eidolon Stats	DEFINE:EidolonHP|0	DEFINE:EidolonBAB|0	DEFINE:DisableBAB|0	DEFINE:EidolonStatSTR|0	DEFINE:EidolonStatDEX|0	DEFINE:EidolonStatCON|0
-MASTERBONUSRACE:Fused Eidolon (Quadruped)		TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Fused Eidolon BAB|Fused Eidolon HP|Fused Eidolon Stats	DEFINE:EidolonHP|0	DEFINE:EidolonBAB|0	DEFINE:DisableBAB|0	DEFINE:EidolonStatSTR|0	DEFINE:EidolonStatDEX|0	DEFINE:EidolonStatCON|0
-MASTERBONUSRACE:Fused Eidolon (Serpentine)	TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Fused Eidolon BAB|Fused Eidolon HP|Fused Eidolon Stats	DEFINE:EidolonHP|0	DEFINE:EidolonBAB|0	DEFINE:DisableBAB|0	DEFINE:EidolonStatSTR|0	DEFINE:EidolonStatDEX|0	DEFINE:EidolonStatCON|0
-
-#BONUS:VAR|EidolonHP|var("HP")	BONUS:VAR|EidolonBAB|var("BAB")	BONUS:VAR|EidolonStatSTR|STRSCORE	BONUS:VAR|EidolonStatDEX|DEXSCORE		BONUS:VAR|EidolonStatCON|CONSCORE
-#BONUS:VAR|EidolonHP|var("HP")	BONUS:VAR|EidolonBAB|var("BAB")	BONUS:VAR|EidolonStatSTR|STRSCORE	BONUS:VAR|EidolonStatDEX|DEXSCORE		BONUS:VAR|EidolonStatCON|CONSCORE
-#BONUS:VAR|EidolonHP|var("HP")	BONUS:VAR|EidolonBAB|var("BAB")	BONUS:VAR|EidolonStatSTR|STRSCORE	BONUS:VAR|EidolonStatDEX|DEXSCORE		BONUS:VAR|EidolonStatCON|CONSCORE
-#BONUS:VAR|EidolonHP|var("HP")	BONUS:VAR|EidolonBAB|var("BAB")	BONUS:VAR|EidolonStatSTR|STRSCORE	BONUS:VAR|EidolonStatDEX|DEXSCORE		BONUS:VAR|EidolonStatCON|CONSCORE

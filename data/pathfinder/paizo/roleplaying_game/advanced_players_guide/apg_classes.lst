@@ -263,11 +263,11 @@ CLASS:Witch		SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_
 ##
 
 # Class Name	Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Define																		Combat bonus																Save bonus																																																																																																																															Modify VAR																																																																																																																																													FACT
-CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|0	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:EidolonFortGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:EidolonReflexGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:EidolonWillGood,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:EidolonFortGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:EidolonReflexGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:EidolonWillGood,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EidolonLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:EidolonFortGood,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:EidolonFortGood,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:EidolonReflexGood,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:EidolonReflexGood,0	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:EidolonWillGood,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVAREQ:EidolonWillGood,0	FACT:ClassType|Companion
+CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|0	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:Eidolon_CF_BaseAB,0|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonFortGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonReflexGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonWillGood,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonFortGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonReflexGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonWillGood,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:Eidolon_CF_BaseAB,0|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EidolonLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonFortGood,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonFortGood,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonReflexGood,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonReflexGood,0	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonWillGood,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonWillGood,0	FACT:ClassType|Companion
 # Class Name	Reg. Race Type
-CLASS:Eidolon	PRERACETYPE:Eidolon
-# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Eidolon	PRERACE:1,Eidolon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES
 
 
 
@@ -604,25 +604,3 @@ CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perce
 9	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Mobile Defense
 
 
-###Block: Old Eidolon Support - Phase out 6.8
-
-# Class Name			Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Combat bonus																Save bonus																						Modify VAR													FACT
-CLASS:Eidolon (Fort/Ref)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Companion
-# Class Name			Reg. Race Type
-CLASS:Eidolon (Fort/Ref)	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
-
-# Class Name			Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Combat bonus																Save bonus																					Modify VAR													FACT
-CLASS:Eidolon (Fort/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Companion
-# Class Name			Reg. Race Type
-CLASS:Eidolon (Fort/Will)	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
-
-# Class Name			Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Combat bonus																Save bonus																					Modify VAR													FACT
-CLASS:Eidolon (Ref/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:ClassType|Companion
-# Class Name			Reg. Race Type
-CLASS:Eidolon (Ref/Will)	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
