@@ -1106,3 +1106,13 @@ Awakened Vermin	DEFINESTAT:STAT|INT	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin							
 Awakened Tree	DEFINESTAT:STAT|INT											PRETEXT:Inanimate Tree	BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant
 
 Monster is a PC																			BONUS:VAR|IsPC|1
+
+
+
+Assign RaceType ~ Outsider		VISIBLE:NO	RACETYPE:Outsider
+Assign RaceType ~ Fey			VISIBLE:NO	RACETYPE:Fey
+Assign RaceSubType ~ Extraplanar	VISIBLE:NO	RACESUBTYPE:Extraplanar
+
+
+
+
