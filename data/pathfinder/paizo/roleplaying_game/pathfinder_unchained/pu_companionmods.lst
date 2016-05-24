@@ -8,6 +8,6 @@
 # COMMENT: EidolonSerpentine set to "1" allows selecting the Serpentine form from the selection, this is set to 1 even if the only form will be granted anyways for less confusion
 # COMMENT: EidMaxAttacks determines the maximum attacks an Eidolon may have
 # COMMENT: EidUsedAttacks determines how many available attacks has been used
-# COMMENT: UnchainedEidolonMasterLVL is used by the Eidolon. Eidolon uses it to advance the progression per subtype and determine when Evolutions can be taken.
+# COMMENT: MasterLevel is used by the Eidolon. Eidolon uses it to advance the progression per subtype and determine when Evolutions can be taken.
 # COMMENT: Pool_UnchainedEidolonEvolution tracks Evolution Points gained from Progression
 
