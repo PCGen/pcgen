@@ -695,7 +695,7 @@ CATEGORY=Internal|Default.MOD																																																			
 
 # COMMENT: Next to tackle, fixing the Summoner class feature set up.
 
-Summoner									CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|TYPE=Base|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base
+Summoner									CATEGORY:Class													DEFINE:Summoner_CFP_Level|0	DEFINE:StandardSummoner|0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0	ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|StandardSummoner|1|TYPE=Base|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base	BONUS:VAR|EidolonBaseSkill|0
 #
 Standard				KEY:Summoner ~ Standard Class	CATEGORY:Class		TYPE:Summoner Class Selection	PREVAREQ:StandardSummonerAllowed,1	DEFINE:StandardSummoner|0																														BONUS:VAR|StandardSummoner|1|TYPE=Base																													CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device	COST:1
 
@@ -775,6 +775,8 @@ CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=Summon
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VII|PREVAREQ:SummonerSummonMonsterLVL,7
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster VIII|PREVAREQ:SummonerSummonMonsterLVL,8
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster IX|PREVARGTEQ:SummonerSummonMonsterLVL,9
+
+CATEGORY=Special Ability|Summoner ~ Eidolon.MOD	DEFINE:EidolonCompanionBonusHD|0		BONUS:VAR|EidolonCompanionHD|(EidolonCompanionLVL>=2)+(EidolonCompanionLVL>=3)+(EidolonCompanionLVL>=5)+(EidolonCompanionLVL>=6)+(EidolonCompanionLVL>=7)+(EidolonCompanionLVL>=9)+(EidolonCompanionLVL>=10)+(EidolonCompanionLVL>=11)+(EidolonCompanionLVL>=13)+(EidolonCompanionLVL>=14)+(EidolonCompanionLVL>=15)+(EidolonCompanionLVL>=17)+(EidolonCompanionLVL>=18)+(EidolonCompanionLVL>=319)
 
 
 ###Block: Aspect evolution divertion
