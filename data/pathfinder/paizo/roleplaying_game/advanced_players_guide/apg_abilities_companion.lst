@@ -27,12 +27,14 @@ CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	BONUS:STAT|STR|EidolonStrBonus
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	BONUS:STAT|DEX|EidolonDexBonus
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	BONUS:VAR|EidolonStrBonus|EidolonLinkedStatBonus
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	BONUS:VAR|EidolonDexBonus|EidolonLinkedStatBonus
-CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	
+CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	DEFINE:EidolonSkillPoints|0	BONUS:VAR|EidolonSkillPoints|6+INT|PREVAREQ:EidolonDisableSkillPointProgression,0
+CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	BONUS:ABILITYPOOL|FEAT|-1*(HD+1/2)|PREVAREQ:EidolonDisableFeatProgression,1
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	BONUS:ABILITYPOOL|Eidolon Selection|1
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	DEFINE:EidolonDefault|0
 CATEGORY=Internal|Racial Traits ~ Eidolon.MOD	ABILITY:Internal|AUTOMATIC|IsCompanion ~ Eidolon|PREVARGTEQ:MasterLevel,1
 
-IsCompanion ~ Eidolon	CATEGORY:Internal	DEFINE:IsCompanion|0	BONUS:VAR|IsCompanion|1	BONUS:VAR|EidolonDefault|mastervar("StandardSummoner")
+IsCompanion ~ Eidolon	CATEGORY:Internal	DEFINE:IsCompanion|0	BONUS:VAR|IsCompanion|1	BONUS:VAR|EidolonDefault|mastervar("StandardSummoner")	DEFINE:EidolonDisableFeatProgression|0	DEFINE:EidolonDisableSkillPointProgression|0	BONUS:VAR|EidolonDisableFeatProgression|mastervar("EidolonDisableFeatProgression")	BONUS:VAR|EidolonDisableSkillPointProgression|mastervar("EidolonDisableSkillPointProgression")
+
 
 Standard Eidolon																CATEGORY:Internal			TYPE:Eidolon Selection		PREMULT:2,[PREVAREQ:IsCompanion,1],[PREVAREQ:EidolonDefault,1]																																													BONUS:VAR|EidolonEvolution|3+(MasterLevel>=2)+(MasterLevel>=3)+if(MasterLevel>=4,2,0)+(MasterLevel>=5)+(MasterLevel>=6)+(MasterLevel>=7)+(MasterLevel>=8)+if(MasterLevel>=9,2,0)+(MasterLevel>=10)+(MasterLevel>=11)+(MasterLevel>=12)+(MasterLevel>=13)+if(MasterLevel>=14,2,0)+(MasterLevel>=15)+(MasterLevel>=16)+(MasterLevel>=17)+(MasterLevel>=18)+if(MasterLevel>=19,2,0)+(MasterLevel>=20)	DEFINE:EidHeads|0		BONUS:ABILITYPOOL|Eidolon Type Selection|1		BONUS:VAR|EidHeads|1		BONUS:VAR|ClawAttacks|2*(EidClawCount-1)|TYPE=Claw	BONUS:VAR|TailSlapAttacks|EidTailSlapCount-1|TYPE=Tail	BONUS:VAR|SlamAttacks|EidSlamCount-1|TYPE=Slam	BONUS:VAR|TentacleAttacks|EidTentacleCount-1|TYPE=Tentacle	BONUS:VAR|StingAttacks|EidStingCount-1|TYPE=Sting	BONUS:VAR|PincersAttacks|2*(EidPincerCount-1)|TYPE=Pincer	BONUS:VAR|EidolonSkill|4+mastervar("EidolonBaseSkill")	BONUS:VAR|EidolonStatIncrease|(MasterLevel>=5)+(MasterLevel>=10)+(MasterLevel>=15)	ABILITY:Internal|AUTOMATIC|Eidolon Companion Progression ~ Standard	BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EidolonEP")/4		BONUS:HP|CURRENTMAX|mastervar("EidolonHP")	BONUS:ABILITYPOOL|Eidolon Bonus Skill|mastervar("EidolonSP")	DESC:Standard Eidolon for a standard summoner	ABILITY:Internal|AUTOMATIC|Eidolon ~ Skills|PREVAREQ:Eidolon_CF_Skills,0	DEFINE:Eidolon_CF_Skills|0
 
