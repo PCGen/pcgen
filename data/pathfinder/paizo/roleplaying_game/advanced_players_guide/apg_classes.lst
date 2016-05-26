@@ -267,7 +267,7 @@ CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:1	SOURCE
 # Class Name	Reg. Race Type
 CLASS:Eidolon	PRERACE:1,Eidolon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
-CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES
+CLASS:Eidolon	STARTSKILLPTS:EidolonSkillPoints	MODTOSKILLS:NO
 
 
 
