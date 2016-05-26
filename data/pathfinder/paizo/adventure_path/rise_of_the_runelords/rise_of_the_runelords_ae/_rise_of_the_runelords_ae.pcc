@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Jul 23 18:41:10 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # Anniversary Edition Replacement for the Conversion Set
 CAMPAIGN:Rise of the Runelords Adventure Path
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
 STATUS:BETA

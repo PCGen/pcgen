@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sun Jun 21 20:39:51 2015 -- reformated by PCGen PrettyLST v6.05.01
 CAMPAIGN:Humans of Golarion
 KEY:Humans of Golarion
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
