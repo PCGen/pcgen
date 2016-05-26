@@ -1,6 +1,6 @@
 # CVS $Revision: 21249 $ $Author: evilmynex $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Critical Fumble Deck
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.GameMastery Cards
 RANK:3
 STATUS:RELEASE
