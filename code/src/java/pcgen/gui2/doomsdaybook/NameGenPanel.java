@@ -19,8 +19,6 @@
  */
  package pcgen.gui2.doomsdaybook;
 
-import gmgen.util.LogUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Insets;
@@ -43,7 +41,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 import java.util.prefs.Preferences;
-
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -55,6 +52,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
+import gmgen.util.LogUtilities;
 import org.jdom.DataConversionException;
 import org.jdom.DocType;
 import org.jdom.Document;
@@ -62,7 +60,6 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
-
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
 import pcgen.core.doomsdaybook.DataElementComperator;
@@ -690,7 +687,7 @@ public class NameGenPanel extends JPanel
 			join.retainAll(sexes);
 			Collections.sort(join, new DataElementComperator());
 
-			Vector<RuleSet> catalogs = new Vector<RuleSet>();
+			List<RuleSet> catalogs = new ArrayList<>();
 			int oldSelected = -1;
 			int n = 0;
 
@@ -712,7 +709,7 @@ public class NameGenPanel extends JPanel
 			}
 
 			DefaultComboBoxModel catalogModel =
-					new DefaultComboBoxModel(catalogs);
+					new DefaultComboBoxModel(catalogs.toArray());
 			cbCatalog.setModel(catalogModel);
 			if(oldSelected>=0)
 				cbCatalog.setSelectedIndex(oldSelected);
@@ -724,9 +721,9 @@ public class NameGenPanel extends JPanel
 	}
 
 	//	Get a list of all the gender categories in the category map
-	private Vector<String> getGenderCategoryNames()
+	private List<String> getGenderCategoryNames()
 	{
-		Vector<String> genders = new java.util.Vector<String>();
+		List<String> genders = new ArrayList<>();
 		Set<String> keySet = categories.keySet();
 		Iterator<String> itr = keySet.iterator();
 
@@ -749,8 +746,8 @@ public class NameGenPanel extends JPanel
 	//	Load the gender drop dowd
 	private void loadGenderDD()
 	{
-		Vector<String> genders = getGenderCategoryNames();
-		Vector<String> selectable = new Vector<String>();
+		List<String> genders = getGenderCategoryNames();
+		List<String> selectable = new ArrayList<>();
 		String gender = (String) cbSex.getSelectedItem();
 
 		//	Get the selected category name
@@ -787,7 +784,7 @@ public class NameGenPanel extends JPanel
 		Collections.sort(selectable);
 
 		//	Create a new model for the combobox and set it
-		cbSex.setModel(new DefaultComboBoxModel(selectable));
+		cbSex.setModel(new DefaultComboBoxModel(selectable.toArray()));
 		if (gender != null && selectable.contains(gender))
 		{
 			cbSex.setSelectedItem(gender);
@@ -855,9 +852,9 @@ public class NameGenPanel extends JPanel
 	}
 
 	//	Get a list of category names from the categories map
-	private Vector<String> getCategoryNames()
+	private List<String> getCategoryNames()
 	{
-		Vector<String> cats = new java.util.Vector<String>();
+		List<String> cats = new ArrayList<>();
 		Set<String> keySet = categories.keySet();
 		Iterator<String> itr = keySet.iterator();
 
@@ -884,8 +881,8 @@ public class NameGenPanel extends JPanel
 	{
 		//	This method now just loads the category dropdown from the list of 
 		//	category names
-		Vector<String> cats = this.getCategoryNames();
-		cbCategory.setModel(new DefaultComboBoxModel(cats));
+		List<String> cats = this.getCategoryNames();
+		cbCategory.setModel(new DefaultComboBoxModel(cats.toArray()));
 
 		this.loadGenderDD();
 		this.loadCatalogDD();
