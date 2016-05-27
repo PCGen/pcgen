@@ -766,7 +766,7 @@ Gate					KEY:Summoner ~ Gate					CATEGORY:Special Ability	TYPE:SummonerClassFeat
 
 ###Block:
 
-CATEGORY=Special Ability|Summoner ~ Eidolon.MOD	DEFINE:EidolonEvolution|0	BONUS:VAR|EidolonEvolution|3+(MasterLevel>=2)+(MasterLevel>=3)+if(MasterLevel>=4,2,0)+(MasterLevel>=5)+(MasterLevel>=6)+(MasterLevel>=7)+(MasterLevel>=8)+if(MasterLevel>=9,2,0)+(MasterLevel>=10)+(MasterLevel>=11)+(MasterLevel>=12)+(MasterLevel>=13)+if(MasterLevel>=14,2,0)+(MasterLevel>=15)+(MasterLevel>=16)+(MasterLevel>=17)+(MasterLevel>=18)+if(MasterLevel>=19,2,0)+(MasterLevel>=20)|PREVAREQ:Eidolon_CF_EvolutionProgression,0	DEFINE:Eidolon_CF_EvolutionProgression|0
+CATEGORY=Special Ability|Summoner ~ Eidolon.MOD	DEFINE:EidolonEvolution|0	BONUS:VAR|EidolonEvolution|3+(SummonerLVL>=2)+(SummonerLVL>=3)+if(SummonerLVL>=4,2,0)+(SummonerLVL>=5)+(SummonerLVL>=6)+(SummonerLVL>=7)+(SummonerLVL>=8)+if(SummonerLVL>=9,2,0)+(SummonerLVL>=10)+(SummonerLVL>=11)+(SummonerLVL>=12)+(SummonerLVL>=13)+if(SummonerLVL>=14,2,0)+(SummonerLVL>=15)+(SummonerLVL>=16)+(SummonerLVL>=17)+(SummonerLVL>=18)+if(SummonerLVL>=19,2,0)+(SummonerLVL>=20)|PREVAREQ:Eidolon_CF_EvolutionProgression,0	DEFINE:Eidolon_CF_EvolutionProgression|0
 
 
 
