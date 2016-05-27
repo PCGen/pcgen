@@ -110,6 +110,7 @@ Disguise.MOD			SITUATION:Mimic objects
 Disguise.MOD			SITUATION:When using change shape
 Disguise.MOD			SITUATION:While using change shape ability
 Disguise.MOD			SITUATION:as original race
+Escape Artist.MOD			SITUATION:Escape manacles or ropes
 Handle Animal.MOD			SITUATION:Push Animal
 Handle Animal.MOD			SITUATION:Reptiles
 Heal.MOD				SITUATION:Animal
@@ -222,6 +223,8 @@ Survival.MOD			SITUATION:Tracking
 Survival.MOD			SITUATION:Tracking Undead
 Survival.MOD			SITUATION:Underground
 Survival.MOD			SITUATION:Urban
+Survival.MOD			SITUATION:Get along in the wild
+
 Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
 
 
