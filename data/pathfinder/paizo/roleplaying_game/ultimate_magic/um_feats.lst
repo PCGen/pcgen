@@ -269,9 +269,6 @@ Discovery (Greater True Name)		CATEGORY:FEAT		TYPE:Discovery.WizardBonus.SpellLi
 Discovery (Staff-Like Wand)		CATEGORY:FEAT		TYPE:Discovery.WizardBonus			PREABILITY:1,CATEGORY=FEAT,Craft Staff				PRECLASS:1,Wizard=11					DESC:You use your own power when using a wand.																																																																																																																																																					SOURCEPAGE:p.87	BENEFIT:Your research has unlocked a new power in conjunction with using a wand. Similar to using a magic staff, you use your own Intelligence score and relevant feats to set the DC for saves against spells you cast from a wand, and you can use your caster level when activating the power of a wand if it's higher than the caster level of the wand.
 
 #
-CATEGORY=FEAT|Extra Revelation.MOD																																																																																																										BONUS:ABILITYPOOL|Ancestor Mystery Revelation|1|PREVARGTEQ:AncestorMysteriesQualify,1	BONUS:ABILITYPOOL|Dark Tapestry Mystery Revelation|1|PREVARGTEQ:DarkMysteriesQualify,1	BONUS:ABILITYPOOL|Metal Mystery Revelation|1|PREVARGTEQ:MetalMysteriesQualify,1	BONUS:ABILITYPOOL|Time Mystery Revelation|1|PREVARGTEQ:TimeMysteriesQualify,1	BONUS:ABILITYPOOL|Wood Mystery Revelation|1|PREVARGTEQ:WooddMysteriesQualify,1
-
-
 Extra Summons Tracker			CATEGORY:Internal																																																																																																																																																																														BONUS:VAR|Feat_Extra_Summons_Allowed|SummonerLVL/5
 #
 # End

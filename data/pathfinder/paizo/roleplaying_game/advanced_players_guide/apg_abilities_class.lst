@@ -765,6 +765,11 @@ Twin Eidolon			KEY:Summoner ~ Twin Eidolon				CATEGORY:Special Ability	TYPE:Summ
 Gate					KEY:Summoner ~ Gate					CATEGORY:Special Ability	TYPE:SummonerClassFeatures.SpecialQuality.SpellLike																																	DESC:You may cast Gate with your Summon Monster spell-like ability.
 
 ###Block:
+
+CATEGORY=Special Ability|Summoner ~ Eidolon.MOD	DEFINE:EidolonEvolution|0	BONUS:VAR|EidolonEvolution|3+(MasterLevel>=2)+(MasterLevel>=3)+if(MasterLevel>=4,2,0)+(MasterLevel>=5)+(MasterLevel>=6)+(MasterLevel>=7)+(MasterLevel>=8)+if(MasterLevel>=9,2,0)+(MasterLevel>=10)+(MasterLevel>=11)+(MasterLevel>=12)+(MasterLevel>=13)+if(MasterLevel>=14,2,0)+(MasterLevel>=15)+(MasterLevel>=16)+(MasterLevel>=17)+(MasterLevel>=18)+if(MasterLevel>=19,2,0)+(MasterLevel>=20)|PREVAREQ:Eidolon_CF_EvolutionProgression,0	DEFINE:Eidolon_CF_EvolutionProgression|0
+
+
+
 # Ability Name								Innate Spells
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster I|PREVAREQ:SummonerSummonMonsterLVL,1
 CATEGORY=Special Ability|Summoner ~ Summon Monster.MOD	SPELLS:CLASS|TIMES=SummonerSummonMonsterTimes|CASTERLEVEL=SummonerLVL|Summoner Summon Monster II|PREVAREQ:SummonerSummonMonsterLVL,2
