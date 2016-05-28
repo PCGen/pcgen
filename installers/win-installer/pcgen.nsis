@@ -164,9 +164,9 @@ Section "JRE" Section5
         DetailPrint "JRE extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         ${If} ${RunningX64}
-            File /nonfatal /a /r "${SrcDir}/jre/jre_64/*.*"
+            File /nonfatal /a /r "${SrcDir}\jre\jre_64\*.*"
         ${Else}
-            File /nonfatal /a /r "${SrcDir}/jre/jre_32/*.*"
+            File /nonfatal /a /r "${SrcDir}\jre\jre_32\*.*"
         ${EndIf} 
         DetailPrint "JRE extraction complete!"
 SectionEnd
