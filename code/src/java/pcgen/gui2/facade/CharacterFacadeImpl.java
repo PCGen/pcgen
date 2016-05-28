@@ -1833,14 +1833,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	private void refreshStatScores()
 	{
-		for (StatFacade stat : statScoreMap.keySet())
-		{
-			WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
-			if (stat instanceof PCStat)
-			{
-				score.set(theCharacter.getTotalStatFor((PCStat) stat));
-			}
-		}
+//		for (StatFacade stat : statScoreMap.keySet())
+//		{
+//			WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
+//			if (stat instanceof PCStat)
+//			{
+//				score.set(theCharacter.getTotalStatFor((PCStat) stat));
+//			}
+//		}
 		if (charLevelsFacade != null)
 		{
 			charLevelsFacade.fireSkillBonusEvent(this, 0, true);

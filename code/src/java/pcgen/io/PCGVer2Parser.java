@@ -138,6 +138,7 @@ import pcgen.io.migration.EquipSetMigration;
 import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
+import pcgen.io.migration.SpellMigration;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -4122,8 +4123,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (TAG_SPELLNAME.equals(tag))
 			{
-				final String spellName =
+				String spellName =
 						EntityEncoder.decode(element.getText());
+				spellName = SpellMigration.getNewSpellKey(spellName, pcgenVersion, 
+					SettingsHandler.getGame().getName());
 
 				// either NULL (no spell) a Spell instance,
 				aSpell = Globals.getSpellMap().get(spellName);

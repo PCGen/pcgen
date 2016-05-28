@@ -84,6 +84,10 @@ ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 ABILITYCATEGORY:Eidolon Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_EidolonSkill	CATEGORY:Special Ability	TYPE:SkillChoice			PLURAL:Eidolon Skills				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Eidolon Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredClassSkillBonus	PLURAL:Eidolon Bonus Skills			DISPLAYLOCATION:Racial Abilities
 
+ABILITYCATEGORY:Eidolon Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Internal			TYPE:Eidolon Selection		PLURAL:Eidolon Selections			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Type Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Internal			TYPE:EidolonTypeSelection								DISPLAYLOCATION:Racial Abilities
+
+
 ###Block: Class Bonus Feat Categories
 # Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list								Plural description for UI						Display Location
 ABILITYCATEGORY:Swashbuckler Weapon Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MartialWeaponProficiency													PLURAL:Swashbuckler Weapon Proficiencies				DISPLAYLOCATION:Feats
@@ -247,7 +251,6 @@ ABILITYCATEGORY:Two-Handed Fighter Weapon Training IV		VISIBLE:QUALIFY	EDITABLE:
 
 ABILITYCATEGORY:Racial Heritage Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Racial Heritage Choice												DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Eidolon Type Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:EidolonTypeSelection																		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Spindle of Perfect Knowledge			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Equipment ~ Spindle of Perfect Knowledge									DISPLAYLOCATION:Equipment
 

@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Faiths and Philosophies	SOURCESHORT:FAB	SOURCEWEB:http://paizo.com/products/btpy8yw8?Pathfinder-Player-Companion-Faiths-Philosophies	SOURCEDATE:2013-08
+# ORIGINAL ENTRY:  Vincent Lhote (copied by Gwen T. (evilpixie87))
+# ORIGINAL ENTRY DATE: 2012-08
+
+# ==============================
+# Copy of dwarf caiman from AP55 (for Druid Crocodile domain)
+# ==============================
+
+MASTERBONUSRACE:Familiar (Dwarf Caiman)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dwarf Caiman)

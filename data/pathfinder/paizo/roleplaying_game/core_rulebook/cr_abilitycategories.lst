@@ -155,13 +155,13 @@ ABILITYCATEGORY:Arcane Bloodline School Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ###Block: Companion Support
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Animal Companion Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_AnimalCompanionFeat			CATEGORY:Special Ability	TYPE:AnimalCompanionFeat	PLURAL:Animal Companion Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Companion Level Increase Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CompanionLevelIncreaseChoice	CATEGORY:Special Ability	TYPE:CompChoice			PLURAL:Companion Level Increase Choice	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CompanionStatIncrease		CATEGORY:Special Ability	TYPE:CompStatChoice		PLURAL:Companion Stat Increase Choice	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Companion Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CompanionSkill			CATEGORY:Internal			TYPE:AnimalCompanionSkill	PLURAL:Companion Skill Choice			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Companion Level Increase Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CompanionLevelIncreaseChoice	CATEGORY:Special Ability	TYPE:CompChoice			PLURAL:Companion Level Increase Choice	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CompanionStatIncrease		CATEGORY:Special Ability	TYPE:CompStatChoice		PLURAL:Companion Stat Increase Choice	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Companion Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_CompanionSkill			CATEGORY:Internal			TYPE:AnimalCompanionSkill	PLURAL:Companion Skill Choice			DISPLAYLOCATION:Racial Abilities
 
 ###Block: Handle Animal Tricks and Training
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick	PLURAL:Animal Tricks		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick	PLURAL:Animal Tricks		DISPLAYLOCATION:Racial Abilities
 
 ###Block: Prestige Classes --------------------------
 
@@ -193,11 +193,15 @@ ABILITYCATEGORY:GM Awards					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALP
 ABILITYCATEGORY:Extra Channel					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:ExtraChannel															PLURAL:Extra Channels				DISPLAYLOCATION:Feats
 
 # Feat Choices
-ABILITYCATEGORY:Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Weapon Focus												DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Exotic Weapon Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Exotic Weapon Proficiency										DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Martial Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Martial Weapon Proficiency										DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Skill Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Skill Focus													DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Spell Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Spell Focus													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Weapon Focus													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Greater Weapon Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Greater Weapon Focus												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Improved Critical				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Improved Critical													DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Greater Weapon Specialization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Greater Weapon Specialization											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Specialization			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Weapon Specialization												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Exotic Weapon Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Exotic Weapon Proficiency											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Martial Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Martial Weapon Proficiency											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Skill Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Skill Focus														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT													ABILITYLIST:Spell Focus														DISPLAYLOCATION:Feats
 
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'

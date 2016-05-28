@@ -109,7 +109,14 @@ FOLLOWER:EvolvedCompanionFeatCount=1	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eid
 #FOLLOWER:EvolvedCompanionFeatCount=19	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
 #FOLLOWER:EvolvedCompanionFeatCount=20	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
 #
+FOLLOWER:DivineHunterCelestialCompanion=1		TYPE:Animal Companion		TEMPLATE:Celestial Creature
+FOLLOWER:DivineHunterFiendishCompanion=1		TYPE:Animal Companion		TEMPLATE:Fiendish Creature
 
+FOLLOWER:DivineCommanderCelestialMount=1		TYPE:Animal Companion		TEMPLATE:Celestial Creature
+FOLLOWER:DivineCommanderEntropicMount=1		TYPE:Animal Companion		TEMPLATE:Entropic Creature
+FOLLOWER:DivineCommanderFiendishMount=1		TYPE:Animal Companion		TEMPLATE:Fiendish Creature
+FOLLOWER:DivineCommanderResoluteMount=1		TYPE:Animal Companion		TEMPLATE:Resolute Creature
+FOLLOWER:DivineCommanderUnbiasedMount=1		TYPE:Animal Companion		SR:AnimalCompanionLVL+5			BONUS:VAR|AcidResistanceBonus|DivineCommanderMountResistance Acid|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|DivineCommanderMountResistance Cold|TYPE=Resistance	BONUS:VAR|ElectricityResistanceBonus|DivineCommanderMountResistance Electricity|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|DivineCommanderMountResistance Fire|TYPE=Resistance	BONUS:VAR|SonicResistanceBonus|DivineCommanderMountResistance Sonic|TYPE=Resistance		ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|PREVARGTEQ:DivineCommanderMountResistance Acid,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|PREVARGTEQ:DivineCommanderMountResistance Cold,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity|PREVARGTEQ:DivineCommanderMountResistance Electricity,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|PREVARGTEQ:DivineCommanderMountResistance Fire,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic|PREVARGTEQ:DivineCommanderMountResistance Sonic,1
 
 #
 # End

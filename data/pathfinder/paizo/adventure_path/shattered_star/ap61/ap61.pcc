@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Jul 23 12:11:28 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 CAMPAIGN:Shattered Star, Part 1 - Shards of Sin
 KEY:Adventure Path #61
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Shattered Star
 RANK:3
 STATUS:BETA
@@ -42,6 +42,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Shattered Sta
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+
+# PFS Rules
+#
 
 # Data files
 ABILITY:ap61_abilities.lst

@@ -35,6 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Fiends" Copyr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 # Data files
 ABILITY:bof_abilities_class.lst
 ABILITY:bof_abilities_race.lst

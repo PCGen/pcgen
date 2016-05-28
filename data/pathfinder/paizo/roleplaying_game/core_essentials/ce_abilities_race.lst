@@ -2014,3 +2014,10 @@ Freedom of Movement												CATEGORY:Special Ability	TYPE:Extraordinary.Speci
 Immunity to Nausea												CATEGORY:Special Ability	TYPE:Extraordinary.Immunity
 Immunity to Negative Energy											CATEGORY:Special Ability	TYPE:Extraordinary.Immunity
 Immunity to vision-based attacks										CATEGORY:Special Ability	TYPE:Extraordinary.Immunity
+
+
+
+
+Assign RaceType ~ Outsider		TEMPLATE:Assign RaceType ~ Outsider			CATEGORY:Internal
+Assign RaceType ~ Fey			TEMPLATE:Assign RaceType ~ Fey			CATEGORY:Internal
+Assign RaceSubType ~ Extraplanar	TEMPLATE:Assign RaceSubType ~ Extraplanar		CATEGORY:Internal

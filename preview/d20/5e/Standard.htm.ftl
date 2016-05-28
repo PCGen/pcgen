@@ -672,9 +672,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr>
      <td align="center" height="15" bgcolor="black" width="8%"></td>
      <td align="right" height="15" bgcolor="black" width="17%"><font style="font-size:8pt" color="white"><b>TO HIT</b></font></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASEHIT')}<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.TOTALHIT')}<br /></b></td>
      <td align="right" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>DAMAGE</b></font></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.BASICDAMAGE')}<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.DAMAGE')}<br /></b></td>
 
     </tr>
     <tr>

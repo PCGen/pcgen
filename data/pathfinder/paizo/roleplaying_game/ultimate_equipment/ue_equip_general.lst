@@ -119,7 +119,6 @@ Tobacco (per lb).MOD		OUTPUTNAME:Tobacco (per lb.)			TYPE:Goods.Trade	COST:0.5	W
 Allspice (per lb)			OUTPUTNAME:Allspice (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
 Basil (per lb)			OUTPUTNAME:Basil (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
 Cinnamon (per lb).MOD		OUTPUTNAME:Cinnamon (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
-Cloves (per lb).MOD		OUTPUTNAME:Cloves (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
 Dill (per lb)			OUTPUTNAME:Dill (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
 Glass (per lb)			OUTPUTNAME:Glass (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
 Honey (per lb)			OUTPUTNAME:Honey (per lb.)			TYPE:Goods.Trade	COST:1	WT:1		SOURCEPAGE:p.93
@@ -157,62 +156,62 @@ Mithral (per lb)			OUTPUTNAME:Mithral (per lb.)			TYPE:Goods.Trade	COST:500	WT:1
 Platinum (per lb).MOD		OUTPUTNAME:Platinum (per lb.)			TYPE:Goods.Trade	COST:500	WT:1		SOURCEPAGE:p.93
 
 ###Block: Food and Drink
-# Equipment Name			Type					Cost		Weight	Source Page
-Absinthe (Glass)			TYPE:Goods.Liquid.Food		COST:3			SOURCEPAGE:p.94
-Absinthe (Bottle)			TYPE:Goods.Liquid.Food		COST:30	WT:1.5	SOURCEPAGE:p.94
-Ale (Mug).MOD			TYPE:Goods.Liquid.Food		COST:0.04	WT:1		SOURCEPAGE:p.94
-Ale (Gallon).MOD			TYPE:Goods.Liquid.Food		COST:0.2	WT:8		SOURCEPAGE:p.94
-Applejack (Mug)			TYPE:Goods.Liquid.Food		COST:0.08	WT:1		SOURCEPAGE:p.94
-Applejack (Gallon)		TYPE:Goods.Liquid.Food		COST:0.4	WT:8		SOURCEPAGE:p.94
-Baijiu (Bottle)			TYPE:Goods.Liquid.Food		COST:10	WT:2		SOURCEPAGE:p.94
-Banquet (Per Person).MOD										SOURCEPAGE:p.94
-Bread (Loaf).MOD												SOURCEPAGE:p.94
-Bufo (Jug)				TYPE:Goods.Liquid.Food		COST:1	WT:2		SOURCEPAGE:p.94
-Cauim (Gourd)			TYPE:Goods.Liquid.Food		COST:1	WT:2		SOURCEPAGE:p.94
-Caviar				TYPE:Goods.Food			COST:50			SOURCEPAGE:p.94
-Cheese (Hunk).MOD												SOURCEPAGE:p.94
-Chocolate (Bar)			TYPE:Goods.Food			COST:5	WT:0.5	SOURCEPAGE:p.94
-Coffee (Cup)			TYPE:Goods.Liquid.Food		COST:0.01	WT:0.5	SOURCEPAGE:p.94
-Dwarven Stout (Mug)		TYPE:Goods.Liquid.Food		COST:0.04	WT:0.5	SOURCEPAGE:p.94
-Dwarven Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:1.5	SOURCEPAGE:p.95
-Elven Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:1		SOURCEPAGE:p.95
-Fortune Cookie			TYPE:Goods.Food			COST:0.01			SOURCEPAGE:p.95
-Gnome Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:1		SOURCEPAGE:p.95
-Grog (Mug)				TYPE:Goods.Liquid.Food		COST:0.02	WT:0.5	SOURCEPAGE:p.95
-Haggis				TYPE:Goods.Food			COST:0.1	WT:1.5	SOURCEPAGE:p.95
-Halfling Trail Rations		TYPE:Goods.Food.Resizable	COST:2	WT:0.5	SOURCEPAGE:p.96
-Honey (Jar)				TYPE:Goods.Liquid.Food		COST:1	WT:0.5	SOURCEPAGE:p.96
-Ice Cream				TYPE:Goods.Food			COST:0.1			SOURCEPAGE:p.96
-Jungle Coffee (Cup)		TYPE:Goods.Liquid.Food		COST:0.03	WT:0.5	SOURCEPAGE:p.96
-Kahve (Cup)				TYPE:Goods.Liquid.Food		COST:0.02	WT:0.5	SOURCEPAGE:p.96
-Kumis (Wineskin)			TYPE:Goods.Liquid.Food		COST:0.5	WT:1.5	SOURCEPAGE:p.96
-Maple Syrup (Jar)			TYPE:Goods.Liquid.Food		COST:1	WT:0.5	SOURCEPAGE:p.96
-Mead (Mug)				TYPE:Goods.Liquid.Food		COST:0.05	WT:0.5	SOURCEPAGE:p.96
-Mead (Gallon)			TYPE:Goods.Liquid.Food		COST:2	WT:8		SOURCEPAGE:p.96
-Meals (Poor/Per Day).MOD	TYPE:Goods.Food			COST:0.1			SOURCEPAGE:p.96
-Meals (Common/Per Day).MOD	TYPE:Goods.Food			COST:0.3			SOURCEPAGE:p.96
-Meals (Good/Per Day).MOD	TYPE:Goods.Food			COST:0.5			SOURCEPAGE:p.96
-Meat (Chunk).MOD			TYPE:Goods.Food			COST:0.3	WT:0.5	SOURCEPAGE:p.96
-Milk					TYPE:Goods.Liquid.Food		COST:0.05	WT:0.5	SOURCEPAGE:p.96
-Oldlaw Whiskey (Bottle)		TYPE:Goods.Liquid.Food		COST:20	WT:1		SOURCEPAGE:p.96
-Orc Trail Rations			TYPE:Goods.Food.Resizable	COST:1	WT:1		SOURCEPAGE:p.96
-Powdered Milk			TYPE:Goods.Food			COST:0.1	WT:1		SOURCEPAGE:p.97
-Pulque (Cup)			TYPE:Goods.Liquid.Food		COST:0.1	WT:0.5	SOURCEPAGE:p.97
-Pulque (Wineskin)			TYPE:Goods.Liquid.Food		COST:0.4	WT:2		SOURCEPAGE:p.97
-Rumboozle (Cup)			TYPE:Goods.Liquid.Food		COST:0.1	WT:0.5	SOURCEPAGE:p.97
-Sealord Wine (Bottle)		TYPE:Goods.Liquid.Food		COST:15	WT:0.5	SOURCEPAGE:p.97
-Street Meat				TYPE:Goods.Food			COST:0.01	WT:0.5	SOURCEPAGE:p.97
-Tea (Cup)				TYPE:Goods.Liquid.Food		COST:0.02	WT:0.5	SOURCEPAGE:p.97
-Tea (Ceremonial/Cup)		TYPE:Goods.Liquid.Food		COST:0.04	WT:0.5	SOURCEPAGE:p.97
-Tea Ceremony Set			TYPE:Goods.General		COST:25	WT:5		SOURCEPAGE:p.97
-Tepache (Cup)			TYPE:Goods.Liquid.Food		COST:0.05	WT:0.5	SOURCEPAGE:p.97
-Rations (Trail/Per Day).MOD										SOURCEPAGE:p.97
-Travel Cake Mix			TYPE:Goods.Food			COST:0.1	WT:1		SOURCEPAGE:p.97
-Wandermeal (Per Day)		TYPE:Goods.Food.Resizable	COST:0.01	WT:0.5	SOURCEPAGE:p.97
-Whiskey (Cup)			TYPE:Goods.Liquid.Food		COST:0.1	WT:0.5	SOURCEPAGE:p.97
-Wine (Common/Pitcher).MOD	TYPE:Goods.Liquid.Food		COST:0.2	WT:6		SOURCEPAGE:p.97
-Wine (Fine/Bottle).MOD		TYPE:Goods.Liquid.Food		COST:10	WT:1.5	SOURCEPAGE:p.97
-Yogurt				TYPE:Goods.Food			COST:0.1	WT:0.5	SOURCEPAGE:p.97
+# Equipment Name			Type							Cost		Weight	Source Page
+Absinthe (Glass)			TYPE:Goods.Liquid.Food.Consumable		COST:3			SOURCEPAGE:p.94
+Absinthe (Bottle)			TYPE:Goods.Liquid.Food.Consumable		COST:30	WT:1.5	SOURCEPAGE:p.94
+Ale (Mug).MOD			TYPE:Goods.Liquid.Food.Consumable		COST:0.04	WT:1		SOURCEPAGE:p.94
+Ale (Gallon).MOD			TYPE:Goods.Liquid.Food.Consumable		COST:0.2	WT:8		SOURCEPAGE:p.94
+Applejack (Mug)			TYPE:Goods.Liquid.Food.Consumable		COST:0.08	WT:1		SOURCEPAGE:p.94
+Applejack (Gallon)		TYPE:Goods.Liquid.Food.Consumable		COST:0.4	WT:8		SOURCEPAGE:p.94
+Baijiu (Bottle)			TYPE:Goods.Liquid.Food.Consumable		COST:10	WT:2		SOURCEPAGE:p.94
+Banquet (Per Person).MOD												SOURCEPAGE:p.94
+Bread (Loaf).MOD														SOURCEPAGE:p.94
+Bufo (Jug)				TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:2		SOURCEPAGE:p.94
+Cauim (Gourd)			TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:2		SOURCEPAGE:p.94
+Caviar				TYPE:Goods.Food.Consumable			COST:50			SOURCEPAGE:p.94
+Cheese (Hunk).MOD														SOURCEPAGE:p.94
+Chocolate (Bar)			TYPE:Goods.Food.Consumable			COST:5	WT:0.5	SOURCEPAGE:p.94
+Coffee (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.01	WT:0.5	SOURCEPAGE:p.94
+Dwarven Stout (Mug)		TYPE:Goods.Liquid.Food.Consumable		COST:0.04	WT:0.5	SOURCEPAGE:p.94
+Dwarven Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:1.5	SOURCEPAGE:p.95
+Elven Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:1		SOURCEPAGE:p.95
+Fortune Cookie			TYPE:Goods.Food.Consumable			COST:0.01			SOURCEPAGE:p.95
+Gnome Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:1		SOURCEPAGE:p.95
+Grog (Mug)				TYPE:Goods.Liquid.Food.Consumable		COST:0.02	WT:0.5	SOURCEPAGE:p.95
+Haggis				TYPE:Goods.Food.Consumable			COST:0.1	WT:1.5	SOURCEPAGE:p.95
+Halfling Trail Rations		TYPE:Goods.Food.Resizable.Consumable	COST:2	WT:0.5	SOURCEPAGE:p.96
+Honey (Jar)				TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:0.5	SOURCEPAGE:p.96
+Ice Cream				TYPE:Goods.Food.Consumable			COST:0.1			SOURCEPAGE:p.96
+Jungle Coffee (Cup)		TYPE:Goods.Liquid.Food.Consumable		COST:0.03	WT:0.5	SOURCEPAGE:p.96
+Kahve (Cup)				TYPE:Goods.Liquid.Food.Consumable		COST:0.02	WT:0.5	SOURCEPAGE:p.96
+Kumis (Wineskin)			TYPE:Goods.Liquid.Food.Consumable		COST:0.5	WT:1.5	SOURCEPAGE:p.96
+Maple Syrup (Jar)			TYPE:Goods.Liquid.Food.Consumable		COST:1	WT:0.5	SOURCEPAGE:p.96
+Mead (Mug)				TYPE:Goods.Liquid.Food.Consumable		COST:0.05	WT:0.5	SOURCEPAGE:p.96
+Mead (Gallon)			TYPE:Goods.Liquid.Food.Consumable		COST:2	WT:8		SOURCEPAGE:p.96
+Meals (Poor/Per Day).MOD	TYPE:Goods.Food.Consumable			COST:0.1			SOURCEPAGE:p.96
+Meals (Common/Per Day).MOD	TYPE:Goods.Food.Consumable			COST:0.3			SOURCEPAGE:p.96
+Meals (Good/Per Day).MOD	TYPE:Goods.Food.Consumable			COST:0.5			SOURCEPAGE:p.96
+Meat (Chunk).MOD			TYPE:Goods.Food.Consumable			COST:0.3	WT:0.5	SOURCEPAGE:p.96
+Milk					TYPE:Goods.Liquid.Food.Consumable		COST:0.05	WT:0.5	SOURCEPAGE:p.96
+Oldlaw Whiskey (Bottle)		TYPE:Goods.Liquid.Food.Consumable		COST:20	WT:1		SOURCEPAGE:p.96
+Orc Trail Rations			TYPE:Goods.Food.Resizable.Consumable	COST:1	WT:1		SOURCEPAGE:p.96
+Powdered Milk			TYPE:Goods.Food.Consumable			COST:0.1	WT:1		SOURCEPAGE:p.97
+Pulque (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.1	WT:0.5	SOURCEPAGE:p.97
+Pulque (Wineskin)			TYPE:Goods.Liquid.Food.Consumable		COST:0.4	WT:2		SOURCEPAGE:p.97
+Rumboozle (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.1	WT:0.5	SOURCEPAGE:p.97
+Sealord Wine (Bottle)		TYPE:Goods.Liquid.Food.Consumable		COST:15	WT:0.5	SOURCEPAGE:p.97
+Street Meat				TYPE:Goods.Food.Consumable			COST:0.01	WT:0.5	SOURCEPAGE:p.97
+Tea (Cup)				TYPE:Goods.Liquid.Food.Consumable		COST:0.02	WT:0.5	SOURCEPAGE:p.97
+Tea (Ceremonial/Cup)		TYPE:Goods.Liquid.Food.Consumable		COST:0.04	WT:0.5	SOURCEPAGE:p.97
+Tea Ceremony Set			TYPE:Goods.General.Consumable			COST:25	WT:5		SOURCEPAGE:p.97
+Tepache (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.05	WT:0.5	SOURCEPAGE:p.97
+Rations (Trail/Per Day).MOD												SOURCEPAGE:p.97
+Travel Cake Mix			TYPE:Goods.Food.Consumable			COST:0.1	WT:1		SOURCEPAGE:p.97
+Wandermeal (Per Day)		TYPE:Goods.Food.Resizable.Consumable	COST:0.01	WT:0.5	SOURCEPAGE:p.97
+Whiskey (Cup)			TYPE:Goods.Liquid.Food.Consumable		COST:0.1	WT:0.5	SOURCEPAGE:p.97
+Wine (Common/Pitcher).MOD	TYPE:Goods.Liquid.Food.Consumable		COST:0.2	WT:6		SOURCEPAGE:p.97
+Wine (Fine/Bottle).MOD		TYPE:Goods.Liquid.Food.Consumable		COST:10	WT:1.5	SOURCEPAGE:p.97
+Yogurt				TYPE:Goods.Food.Consumable			COST:0.1	WT:0.5	SOURCEPAGE:p.97
 
 ###Block: Lodging and Services
 # Equipment Name			Type				Cost		Source Page
@@ -400,7 +399,7 @@ Thieves' Tools (Masterwork).MOD																															COST:100	WT:2					
 Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
 Traveling Formula Book (Blank).MOD
 Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1					SOURCEPAGE:p.79
-Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20					SOURCEPAGE:p.79	BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
+Veterinarian's Kit																		TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.79	BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
 # Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property
@@ -410,7 +409,7 @@ Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURC
 Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																																				SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
 Backpack.MOD									OUTPUTNAME:Backpack, Common																												SOURCEPAGE:p.58
 Backpack (Masterwork).MOD																																							SOURCEPAGE:p.58
-Bandolier																	TYPE:Goods.Clothing.Resizable.Container		CONTAINS:*UNLIM|Any=8							COST:0.5						SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the "retrieve a stored item" action to take an item from a bandolier.
+Bandolier																	TYPE:Goods.General.Resizable.Container		CONTAINS:*UNLIM|Any=8							COST:0.5						SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the "retrieve a stored item" action to take an item from a bandolier.
 Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
 Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
 Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
@@ -442,7 +441,7 @@ Candlestick																	TYPE:Goods.General															COST:0.01	WT:0.5			
 Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:2	WT:1					SOURCEPAGE:p.61
 Canvas (Sq Yd).MOD																																								SOURCEPAGE:p.61
 Cauldron.MOD																TYPE:Goods.Tools																COST:1	WT:5					SOURCEPAGE:p.61
-Cauldron (Mithral)								OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																COST:1251	WT:2.5				SOURCEPAGE:p.61																																																				SPROP:Lighter than a standard cauldron and food rarely sticks to it.
+Cauldron (Mithral)								OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																COST:2501	WT:2.5				SOURCEPAGE:p.61																																																				SPROP:Lighter than a standard cauldron and food rarely sticks to it.
 Chain (10 Ft).MOD																																									SOURCEPAGE:p.61
 Chalk (1 Piece).MOD																																								SOURCEPAGE:p.62
 Chalkboard.MOD																TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.62
@@ -487,7 +486,7 @@ Glue Paper																	TYPE:Goods.General.Consumable														COST:0.1		
 Grappling Arrow																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
 Grappling Bolt																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a crossbow. When fired, it has a range increment of 30 feet.
 Grappling Hook.MOD								OUTPUTNAME:Grappling Hook, Common																											SOURCEPAGE:p.65
-Grappling Hook (Mithral)							OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.65
+Grappling Hook (Mithral)							OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General															COST:2001	WT:2					SOURCEPAGE:p.65
 Grooming Kit																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.65
 Gunsmith's Kit																TYPE:Goods.General.Gunsmith's Kit															COST:15	WT:2					SOURCEPAGE:p.65
 Hammer.MOD																																										SOURCEPAGE:p.65
@@ -555,10 +554,10 @@ Manacles (Masterwork/Small).MOD																																						SOURCEPAGE:
 Manacles (Masterwork/Large).MOD																																						SOURCEPAGE:p.68
 Manacles (Masterwork/Huge).MOD																																						SOURCEPAGE:p.68
 Manacles (Masterwork/Medium).MOD																																						SOURCEPAGE:p.68
-Manacles (Mithral/Small)														TYPE:Goods.General															COST:1000	WT:2					SOURCEPAGE:p.68
-Manacles (Mithral/Medium)														TYPE:Goods.General															COST:1000	WT:2					SOURCEPAGE:p.68
-Manacles (Mithral/Large)														TYPE:Goods.General															COST:10000	WT:8					SOURCEPAGE:p.68
-Manacles (Mithral/Huge)															TYPE:Goods.General															COST:100000	WT:32					SOURCEPAGE:p.68
+Manacles (Mithral/Small)														TYPE:Goods.General															COST:2015	WT:2					SOURCEPAGE:p.68
+Manacles (Mithral/Medium)														TYPE:Goods.General															COST:2015	WT:2					SOURCEPAGE:p.68
+Manacles (Mithral/Large)														TYPE:Goods.General															COST:20150	WT:8					SOURCEPAGE:p.68
+Manacles (Mithral/Huge)															TYPE:Goods.General															COST:201500	WT:32					SOURCEPAGE:p.68
 Marbles.MOD																	TYPE:Goods.General															COST:0.1	WT:2					SOURCEPAGE:p.68
 Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOURCEPAGE:p.68
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
@@ -578,9 +577,10 @@ Pole (10 Ft).MOD																																									SOURCEPAGE:p.69
 Portable Bridge																TYPE:Goods.General															COST:200	WT:60					SOURCEPAGE:p.70
 Ram (Portable).MOD								OUTPUTNAME:Portable Ram																													SOURCEPAGE:p.70
 Pot (Iron).MOD																																									SOURCEPAGE:p.70
-Pot (Mithral)																TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.70
+Pot (Mithral)																TYPE:Goods.General															COST:2001	WT:2					SOURCEPAGE:p.70
 Powder.MOD																	TYPE:Goods.General.Consumable														COST:0.01	WT:0.5				SOURCEPAGE:p.70																																																				SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
-Powder Horn																	TYPE:FirearmGear.Powder Horn																COST:3	WT:1					SOURCEPAGE:p.70
+Powder Horn																	TYPE:Goods.FirearmGear.Powder Horn.Container	CONTAINS:UNLIM|Black Powder (Dose)=10				COST:3	WT:1					SOURCEPAGE:p.70
+Powder Keg																	TYPE:Goods.FirearmGear.Container			CONTAINS:UNLIM|Black Powder (Dose)=100				COST:0	WT:5					SOURCEPAGE:p.41
 Prosthetic (Arm)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:10	WT:3					SOURCEPAGE:p.70
 Prosthetic (Foot)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:2					SOURCEPAGE:p.70
 Prosthetic (Hand)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:1					SOURCEPAGE:p.70
@@ -607,7 +607,7 @@ Whistle (Silent).MOD								OUTPUTNAME:Silent Whistle																											
 Rope (Silk/50 ft).MOD																																								SOURCEPAGE:p.72
 Skeleton Key																TYPE:Goods.General															COST:85						SOURCEPAGE:p.72
 Skillet (Common)									OUTPUTNAME:Skillet, Common			TYPE:Goods.General															COST:0.8	WT:4					SOURCEPAGE:p.72
-Skillet (Mithral)									OUTPUTNAME:Skillet, Mithral			TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.72
+Skillet (Mithral)									OUTPUTNAME:Skillet, Mithral			TYPE:Goods.General															COST:2001	WT:2					SOURCEPAGE:p.72
 Sledge.MOD																																										SOURCEPAGE:p.72
 Smoked Goggles.MOD															TYPE:Goods.General															COST:10	WT:0					SOURCEPAGE:p.72
 Snorkel (Common)									OUTPUTNAME:Snorkel, Common			TYPE:Goods.General															COST:0.5						SOURCEPAGE:p.72
@@ -634,7 +634,7 @@ Torch.MOD																																										SOURCEPAGE:p.74
 Traveler's Dictionary															TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.74
 Vial.MOD																																										SOURCEPAGE:p.74
 Waffle Iron (Common)															TYPE:Goods.General															COST:1	WT:5					SOURCEPAGE:p.74
-Waffle Iron (Mithral)															TYPE:Goods.General															COST:1260	WT:2.5				SOURCEPAGE:p.74
+Waffle Iron (Mithral)															TYPE:Goods.General															COST:2501	WT:2.5				SOURCEPAGE:p.74
 Water Clock.MOD																																									SOURCEPAGE:p.74
 Waterproof Bag																TYPE:Goods.General.Container.Resizable		CONTAINS:UNLIM|Any							COST:0.5	WT:0.5				SOURCEPAGE:p.74
 #Waterproof Lantern +5 gp -
@@ -836,9 +836,9 @@ Lizard						TYPE:Goods.Pets										COST:0.05	WT:2		SOURCEPAGE:p.84
 Monkey						TYPE:Goods.Pets										COST:3	WT:5		SOURCEPAGE:p.84
 Octopus						TYPE:Goods.Pets										COST:25	WT:2		SOURCEPAGE:p.84
 Otter							TYPE:Goods.Pets										COST:20	WT:10		SOURCEPAGE:p.84
-Owl (Small)						TYPE:Goods.Pets										COST:10	WT:1		SOURCEPAGE:p.84
-Owl (Medium)					TYPE:Goods.Pets										COST:10	WT:2		SOURCEPAGE:p.84
-Owl (Large)						TYPE:Goods.Pets										COST:10	WT:3		SOURCEPAGE:p.84
+Owl (Small)						TYPE:Goods.Pets										COST:20	WT:1		SOURCEPAGE:p.84
+Owl (Medium)					TYPE:Goods.Pets										COST:20	WT:2		SOURCEPAGE:p.84
+Owl (Large)						TYPE:Goods.Pets										COST:20	WT:3		SOURCEPAGE:p.84
 Ox.MOD						TYPE:Goods.Trade.Pets.Transportation						COST:15	WT:1500	SOURCEPAGE:p.93
 Parrot						TYPE:Goods.Pets										COST:50	WT:4		SOURCEPAGE:p.84
 Pig.MOD																		COST:10	WT:100	SOURCEPAGE:p.84

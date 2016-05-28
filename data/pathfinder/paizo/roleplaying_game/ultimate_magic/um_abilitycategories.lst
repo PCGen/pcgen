@@ -38,6 +38,10 @@ ABILITYCATEGORY:Eidolon Major Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Eidolon Ultimate Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidUltimateMagic	PLURAL:Eidolon Ultimate Magic Choices	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMagicUpgrade	PLURAL:Eidolon Magic Upgrades			DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Broodmaster Eidolon		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Broodmaster Eidolon	PLURAL:Broodmaster Eidolons			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Broodmaster Evolution Point		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Broodmaster Evolution Point	PLURAL:Broodmaster Evolution Points			DISPLAYLOCATION:Class Features
+
 
 ###Block: Cleric Archetype ability categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
