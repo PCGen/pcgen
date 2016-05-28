@@ -108,3 +108,36 @@ Elf			KEY:Race Builder Subtype ~ Elf	VISIBLE:NO	RACESUBTYPE:Elf		TYPE:Race Build
 Gnome			KEY:Race Builder Subtype ~ Gnome	VISIBLE:NO	RACESUBTYPE:Gnome		TYPE:Race Builder Subtype
 Halfling		KEY:Race Builder Subtype ~ Halfling	VISIBLE:NO	RACESUBTYPE:Halfling	TYPE:Race Builder Subtype
 Human			KEY:Race Builder Subtype ~ Human	VISIBLE:NO	RACESUBTYPE:Human		TYPE:Race Builder Subtype
+
+
+
+### Racial Subtypes
+Deep Delver		VISIBLE:NO		SUBRACE:Deep Delver	
+Elder Dwarf		VISIBLE:NO		SUBRACE:Elder Dwarf	
+Exiled Dwarf	VISIBLE:NO		SUBRACE:Exiled Dwarf	
+Mountain Dwarf	VISIBLE:NO		SUBRACE:Mountain Dwarf	
+Arctic Elf		VISIBLE:NO		SUBRACE:Arctic Elf	
+Dusk Elf		VISIBLE:NO		SUBRACE:Dusk Elf		
+Savage Elf		VISIBLE:NO		SUBRACE:Savage Elf	
+Tower Elf		VISIBLE:NO		SUBRACE:Tower Elf	
+Dread Gnomes	VISIBLE:NO		SUBRACE:Dread Gnomes	
+Gear Gnomes		VISIBLE:NO		SUBRACE:Gear Gnomes	
+Lava Gnomes		VISIBLE:NO		SUBRACE:Lava Gnomes	
+Traveler Gnomes	VISIBLE:NO		SUBRACE:Traveler Gnomes
+Drow-Descended	VISIBLE:NO		SUBRACE:Drow-Descended	
+Elf-Raised		VISIBLE:NO		SUBRACE:Elf-Raised	
+Human-Raised	VISIBLE:NO		SUBRACE:Human-Raised	
+Arena-Bred		VISIBLE:NO		SUBRACE:Arena-Bred	
+Deep Kin		VISIBLE:NO		SUBRACE:Deep Kin		
+Feral			VISIBLE:NO		SUBRACE:Feral		
+Mountain Clan	VISIBLE:NO		SUBRACE:Mountain Clan	
+Mystic		VISIBLE:NO		SUBRACE:Mystic		
+Avenging		VISIBLE:NO		SUBRACE:Avenging		
+Nomadic		VISIBLE:NO		SUBRACE:Nomadic		
+Slave Born		VISIBLE:NO		SUBRACE:Slave Born	
+Cosmopolitan	VISIBLE:NO		SUBRACE:Cosmopolitan	
+Country Folk	VISIBLE:NO		SUBRACE:Country Folk	
+Gutter Rat		VISIBLE:NO		SUBRACE:Gutter Rat	
+Imperious Human	VISIBLE:NO		SUBRACE:Imperious Human
+Trailblazer		VISIBLE:NO		SUBRACE:Trailblazer	
+Versatile Human	VISIBLE:NO		SUBRACE:Versatile Human
