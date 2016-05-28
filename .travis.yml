@@ -6,4 +6,7 @@ jdk:
 script: ./gradlew clean build test datatest pfinttest
 
 before_install:
+ - sudo apt-get update
+ - sudo apt-get install lib32z1 lib32ncurses5
  - chmod +x gradlew
+ 
