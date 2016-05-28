@@ -168,43 +168,6 @@ Vermilion Rhomboid - Flawed				KEY:Ioun Stone / Vermilion Rhomboid - Flawed			CA
 Vibrant purple Prism - Cracked			KEY:Ioun Stone / Vibrant purple Prism - Cracked			CATEGORY:Special Ability	MULT:YES	CHOOSE:NOCHOICE	STACK:YES		TYPE:Ioun Stone.Vibrant purple.Ioun.Cracked													SOURCEPAGE:p.47																																																																																														DESC:Stores one level of spells, as a ring of spell storing (minor)
 Vibrant purple Prism - Flawed				KEY:Ioun Stone / Vibrant purple Prism - Flawed			CATEGORY:Special Ability	MULT:YES	CHOOSE:NOCHOICE	STACK:YES		TYPE:Ioun Stone.Vibrant purple.Ioun.Flawed													SOURCEPAGE:p.50																																																																																														DESC:Stores three levels of spells, as a ring of spell storing (minor), but casting time increased to at least one round
 
-
-Ioun Stone / Deep red Sphere
-Ioun Stone / Dusty rose Prism
-Ioun Stone / Incandescent blue Sphere
-Ioun Stone / Iridescent Spindle
-Ioun Stone / Lavender and green Ellipsoid
-Ioun Stone / Orange Prism
-Ioun Stone / Pale blue Rhomboid
-Ioun Stone / Pale green Prism
-Ioun Stone / Pale lavender Ellipsoid
-Ioun Stone / Pearly white Spindle
-Ioun Stone / Pink and green Sphere
-Ioun Stone / Pink Rhomboid
-Ioun Stone / Scarlet and blue Sphere
-Ioun Stone / Vibrant purple Prism
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ###Block: Wayfinder Slotted Ioun Stones
 Amber Spindle						KEY:Wayfinder Ioun Stone / Amber Spindle						CATEGORY:Special Ability		BONUS:VAR|WayfinderIounStonesUsed|1	TYPE:Wayfinder Ioun Stone.Amber Spindle.Ioun					MULT:YES	CHOOSE:NOCHOICE	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Ioun Stone / Amber Spindle						
 Amber Spindle - Cracked ~ Fortitude			KEY:Wayfinder Ioun Stone / Amber Spindle - Cracked ~ Fortitude		CATEGORY:Special Ability		BONUS:VAR|WayfinderIounStonesUsed|1	TYPE:Wayfinder Ioun Stone.Amber Spindle.Ioun.Cracked				MULT:YES	CHOOSE:NOCHOICE	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Ioun Stone / Amber Spindle - Cracked ~ Fortitude		
