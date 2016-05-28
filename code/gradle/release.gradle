@@ -308,6 +308,7 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
         printf "Unhandled OS: " + System.properties['os.name']
     }
 }
+buildNsis.mustRunAfter createExe
 
 task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
