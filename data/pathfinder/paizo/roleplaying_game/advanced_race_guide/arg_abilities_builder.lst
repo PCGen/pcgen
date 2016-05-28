@@ -52,7 +52,7 @@ Tiny			KEY:Racial Size ~ Tiny		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSiz
 ###Block:
 # Ability Name			Category of Ability		Type				Visible	Stackable?	Multiple?	Choose						Template		Cost
 Humanoid Subrace Placeholder	CATEGORY:Special Ability	TYPE:Humanoid Subrace	VISIBLE:NO
-Humanoid Subrace Select		CATEGORY:Special Ability	TYPE:Humanoid Subrace	VISIBLE:YES	STACK:NO	MULT:YES	CHOOSE:TEMPLATE|TYPE=Race Builder Subtype	TEMPLATE:%LIST	COST:0
+Humanoid Subrace Select		CATEGORY:Special Ability	TYPE:Humanoid Subrace	VISIBLE:YES	STACK:NO	MULT:YES	CHOOSE:TEMPLATE|TYPE=Race Builder Subtype	TEMPLATE:%LIST	COST:0	SELECT:10
 
 ###Block: Speed Qualities
 #COMMENT:Normal Speed assumed
