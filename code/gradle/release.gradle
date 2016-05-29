@@ -134,12 +134,14 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
     }
     from ("${projectDir}") {
         include '*.jar'
-        include 'pcgen.exe'
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
         include 'characters/*.pcg'		
+    }
+    from ("${buildDir}/release") {
+        include 'pcgen.exe'
     }
 
     with baseLibs
