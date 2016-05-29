@@ -102,6 +102,7 @@ Diplomacy.MOD			SITUATION:City Officials
 Diplomacy.MOD			SITUATION:Gather Information
 Diplomacy.MOD			SITUATION:Influence Monster
 Diplomacy.MOD			SITUATION:Potentially Sexually Attracted
+Diplomacy.MOD			SITUATION:interacting with dwarves
 Disable Device.MOD		SITUATION:Magical Traps|Traps
 Disguise.MOD			SITUATION:Appear Human
 Disguise.MOD			SITUATION:Appear as cloak
@@ -116,6 +117,7 @@ Handle Animal.MOD			SITUATION:Reptiles
 Heal.MOD				SITUATION:Animal
 Heal.MOD				SITUATION:Treat disease and poison
 Intimidate.MOD			SITUATION:Demoralize Animal
+Intimidate.MOD			SITUATION:interacting with dwarves
 Intimidate.MOD			SITUATION:Mounted
 Intimidate.MOD			SITUATION:To demoralize
 Intimidate.MOD			SITUATION:Elders
