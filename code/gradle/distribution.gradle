@@ -55,8 +55,10 @@ ext {
             fileMode = 0755
         }
         from('code') {
-            include 'pcgen.exe'
             include 'LICENSE'
+        }
+        from('build/release') {
+            include 'pcgen.exe'
         }
     }
 
@@ -87,6 +89,7 @@ task fullZip(type: Zip, dependsOn: ['createExe', 'converterJar', 'copyToLibs']) 
         with charactersImage
     }
 }
+fullZip.mustRunAfter createExe
 
 
 task dataZip(type: Zip) {
