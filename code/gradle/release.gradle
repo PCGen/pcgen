@@ -152,7 +152,7 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    outfile = "pcgen.exe"
+    outfile = "../release/pcgen.exe"
     jreMinVersion = '1.6.0'
     jreMaxVersion = '1.7.9'
     jdkPreference = 'preferJre'
