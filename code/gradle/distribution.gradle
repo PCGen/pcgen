@@ -108,14 +108,13 @@ task docsZip(type: Zip) {
     }
 }
 
-task programZip(type: Zip, dependsOn: 'converterJar', 'createExe') {
+task programZip(type: Zip, dependsOn: 'converterJar') {
     classifier = 'program'
     into(zipRootFolder) {
         with programDistsImage
         with autobuildSpec
     }
 }
-programZip.mustRunAfter createExe
 
 task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     classifier = 'libs'
@@ -125,6 +124,8 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip', ,createExe']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }
+
+buildDist.mustRunAfter createExe
