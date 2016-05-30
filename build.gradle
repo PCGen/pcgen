@@ -382,8 +382,9 @@ task wrapper(type: Wrapper) {
 
 //Disable failing on javadoc warning
 allprojects {
-        tasks.withType(Javadoc) {
+  tasks.withType(Javadoc) {
           options.addBooleanOption('Xdoclint:none', true)
+    }
 }
 
 apply from: 'code/gradle/autobuild.gradle'
