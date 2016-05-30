@@ -108,13 +108,14 @@ task docsZip(type: Zip) {
     }
 }
 
-task programZip(type: Zip, dependsOn: 'converterJar') {
+task programZip(type: Zip, dependsOn: 'converterJar', 'createExe') {
     classifier = 'program'
     into(zipRootFolder) {
         with programDistsImage
         with autobuildSpec
     }
 }
+programZip.mustRunAfter createExe
 
 task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     classifier = 'libs'
