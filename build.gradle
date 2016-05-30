@@ -249,6 +249,7 @@ task cleanRoot(type: Delete) {
 	delete "$projectDir/pcgen-batch-convert.jar"
 	delete "$projectDir/batch-convert.jar"
 	delete "$projectDir/pcgen.sh"
+        delete "$projectDir/pcgen.exe"
 	delete "$projectDir/libs"
 	delete "$projectDir/autobuild.properties"
 	delete "$projectDir/svn.properties"
