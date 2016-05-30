@@ -3031,8 +3031,8 @@ BIO
 						<school>
 							<school>Enchantment</school>
 							<subschool>Compulsion</subschool>
-							<descriptor>Fear, Mind-Affecting</descriptor>
-							<fullschool>Enchantment (Compulsion) [Fear, Mind-Affecting]</fullschool>
+							<descriptor>Emotion, Fear, Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Emotion, Fear, Mind-Affecting]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
@@ -3118,8 +3118,8 @@ BIO
 						<school>
 							<school>Necromancy</school>
 							<subschool></subschool>
-							<descriptor>Fear, Mind-Affecting</descriptor>
-							<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
+							<descriptor>Emotion, Fear, Mind-Affecting</descriptor>
+							<fullschool>Necromancy [Emotion, Fear, Mind-Affecting]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
@@ -3466,8 +3466,8 @@ BIO
 						<school>
 							<school>Necromancy</school>
 							<subschool></subschool>
-							<descriptor>Fear, Mind-Affecting</descriptor>
-							<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
+							<descriptor>Emotion, Fear, Mind-Affecting</descriptor>
+							<fullschool>Necromancy [Emotion, Fear, Mind-Affecting]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
@@ -4106,8 +4106,8 @@ BIO
 						<school>
 							<school>Conjuration</school>
 							<subschool>Healing</subschool>
-							<descriptor></descriptor>
-							<fullschool>Conjuration (Healing)</fullschool>
+							<descriptor>Emotion</descriptor>
+							<fullschool>Conjuration (Healing) [Emotion]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
@@ -4164,8 +4164,8 @@ BIO
 						<school>
 							<school>Enchantment</school>
 							<subschool>Compulsion</subschool>
-							<descriptor>Mind-Affecting</descriptor>
-							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+							<descriptor>Emotion, Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Emotion, Mind-Affecting]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
@@ -5005,8 +5005,8 @@ BIO
 						<school>
 							<school>Transmutation</school>
 							<subschool></subschool>
-							<descriptor></descriptor>
-							<fullschool>Transmutation</fullschool>
+							<descriptor>Emotion</descriptor>
+							<fullschool>Transmutation [Emotion]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
