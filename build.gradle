@@ -224,7 +224,8 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
-task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
+task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar,
+        'unixLineEndings']) {
     outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
     from "$buildDir/libs/pcgen-${version}.jar"
@@ -233,6 +234,12 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
     from "$projectDir/code/pcgen.sh"
     into "$projectDir"
     rename "(.+)-$version(.+)", '$1$2'
+}
+
+task unixLineEndings( type: Exec) {
+    workingDir "$projectDir/code/sbin"
+    executable "bash"
+    args "-c", "dos2unix $projectDir/code/pcgen.sh"
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
