@@ -4332,8 +4332,8 @@ BIO
 						<school>
 							<school>Enchantment</school>
 							<subschool>Compulsion</subschool>
-							<descriptor>Good, Mind-Affecting, Emotion</descriptor>
-							<fullschool>Enchantment (Compulsion) [Good, Mind-Affecting, Emotion]</fullschool>
+							<descriptor>Emotion, Good, Mind-Affecting, Emotion</descriptor>
+							<fullschool>Enchantment (Compulsion) [Emotion, Good, Mind-Affecting, Emotion]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Pld1</sourcelevel>
