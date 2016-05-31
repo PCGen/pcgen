@@ -129,11 +129,11 @@ task copyMasterSheets(type: Copy) {
     }
     into ('../../western/htmlxml') {
 	    from 'outputsheets/d20/fantasy/htmlxml'
+        }
     }
-}
 
 compileJava {
-	it.dependsOn 'copyMasterSheets'
+    it.dependsOn 'copyMasterSheets'
 }
 
 
@@ -222,18 +222,18 @@ artifacts {
 task copyToLibs(type: Copy) {
 	into "$buildDir/libs"
 	from configurations.runtime
-}
+    }
 
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
 	from "$buildDir/libs/pcgen-${version}.jar"
 	from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-	from "$projectDir/code/pcgen.exe"
+	from "$buildDir/release/pcgen.exe"
 	from "$projectDir/code/pcgen.sh"
 	into "$projectDir"
  	rename "(.+)-$version(.+)", '$1$2'
-}
+    }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
 	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
@@ -248,15 +248,15 @@ task cleanRoot(type: Delete) {
 	delete "$projectDir/pcgen.jar"
 	delete "$projectDir/pcgen-batch-convert.jar"
 	delete "$projectDir/batch-convert.jar"
-	delete "$projectDir/pcgen.exe"
 	delete "$projectDir/pcgen.sh"
+        delete "$projectDir/pcgen.exe"
 	delete "$projectDir/libs"
 	delete "$projectDir/autobuild.properties"
 	delete "$projectDir/svn.properties"
-}
+    }
 
 build {
-	it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
 }
 
 clean {
@@ -379,6 +379,13 @@ task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.2'
+}
+
+//Disable failing on javadoc warning
+allprojects {
+  tasks.withType(Javadoc) {
+          options.addBooleanOption('Xdoclint:none', true)
+    }
 }
 
 apply from: 'code/gradle/autobuild.gradle'
