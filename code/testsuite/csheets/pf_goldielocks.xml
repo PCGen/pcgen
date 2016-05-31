@@ -2367,8 +2367,8 @@ BIO
 					<school>
 						<school>Enchantment</school>
 						<subschool>Compulsion</subschool>
-						<descriptor>Curse, Language-Dependent, Mind-Affecting</descriptor>
-						<fullschool>Enchantment (Compulsion) [Curse, Language-Dependent, Mind-Affecting]</fullschool>
+						<descriptor>Language-Dependent, Mind-Affecting</descriptor>
+						<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
 					</school>
 					<source>
 						<sourcelevel>Clr6, Sor6</sourcelevel>
@@ -3537,8 +3537,8 @@ BIO
 					<school>
 						<school>Enchantment</school>
 						<subschool>Compulsion</subschool>
-						<descriptor>Curse, Language-Dependent, Mind-Affecting</descriptor>
-						<fullschool>Enchantment (Compulsion) [Curse, Language-Dependent, Mind-Affecting]</fullschool>
+						<descriptor>Language-Dependent, Mind-Affecting</descriptor>
+						<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
 					</school>
 					<source>
 						<sourcelevel>Clr6, Sor6</sourcelevel>
