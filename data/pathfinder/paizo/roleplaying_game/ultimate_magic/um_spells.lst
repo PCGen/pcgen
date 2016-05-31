@@ -561,7 +561,6 @@ Weapon of Awe.MOD				DESCRIPTOR:Emotion
 Weird.MOD					DESCRIPTOR:Emotion
 Wrath.MOD					DESCRIPTOR:Emotion
 
-
 ###Block: Metal and Wood Elemental Spells
 #Block: Metal Elemental Spells
 # Spell Name			Descriptor
@@ -900,6 +899,57 @@ Youthful Appearance.MOD			ITEM:Potion
 #Summon Minor Monster.MOD	CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
 #Vitriolic Mist.MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
 #Web Shelter.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+
+###Block: Hex Crafter Spells - MAGUS	
+# Template to Follow:
+#	x.COPY=Hexcrafter Spell ~ x
+#	Hexcrafter Spell ~ x.MOD	OUTPUTNAME:x	CLASSES:.CLEARALL	CLASSES:Magus=N	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+# Wizard, Witch, Cleric, Druid is the order used when determining spell level. Bard, Paladin, Ranger is used only when no other full casters present.
+Bestow Curse.COPY=Hexcrafter Spell ~ Bestow Curse	
+Blindness/Deafness.COPY=Hexcrafter Spell ~ Blindness/Deafness
+Brand.COPY=Hexcrafter Spell ~ Brand		
+Brand (Greater).COPY=Hexcrafter Spell ~ Brand (Greater)
+Crafter's Curse.COPY=Hexcrafter Spell ~ Crafter's Curse
+Cup of Dust.COPY=Hexcrafter Spell ~ Cup of Dust	
+Feast of Ashes.COPY=Hexcrafter Spell ~ Feast of Ashes
+Geas (Lesser).COPY=Hexcrafter Spell ~ Geas (Lesser)	
+Geas/Quest.COPY=Hexcrafter Spell ~ Geas/Quest	
+Ill Omen.COPY=Hexcrafter Spell ~ Ill Omen	
+Mark of Justice.COPY=Hexcrafter Spell ~ Mark of Justice
+Nature's Exile.COPY=Hexcrafter Spell ~ Nature's Exile
+Oracle's Burden.COPY=Hexcrafter Spell ~ Oracle's Burden
+Rest Eternal.COPY=Hexcrafter Spell ~ Rest Eternal	
+
+# Hexcrafters Gain any Spell with the CURSE Descriptor
+Hexcrafter Spell ~ Bestow Curse.MOD		OUTPUTNAME:Bestow Curse			CLASSES:.CLEARALL	CLASSES:Magus=4	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Blindness/Deafness.MOD	OUTPUTNAME:Blindness/Deafness		CLASSES:.CLEARALL	CLASSES:Magus=2	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Brand.MOD			OUTPUTNAME:Brand				CLASSES:.CLEARALL	CLASSES:Magus=0	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Brand (Greater).MOD	OUTPUTNAME:Brand (Greater)		CLASSES:.CLEARALL	CLASSES:Magus=4	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Crafter's Curse.MOD	OUTPUTNAME:Crafter's Curse		CLASSES:.CLEARALL	CLASSES:Magus=1	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Cup of Dust.MOD		OUTPUTNAME:Cup of Dust			CLASSES:.CLEARALL	CLASSES:Magus=3	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Feast of Ashes.MOD	OUTPUTNAME:Feast of Ashes		CLASSES:.CLEARALL	CLASSES:Magus=2	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Geas (Lesser).MOD	OUTPUTNAME:Geas (Lesser)		CLASSES:.CLEARALL	CLASSES:Magus=4	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Geas/Quest.MOD		OUTPUTNAME:Geas/Quest			CLASSES:.CLEARALL	CLASSES:Magus=6	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Ill Omen.MOD		OUTPUTNAME:Ill Omen			CLASSES:.CLEARALL	CLASSES:Magus=1	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Mark of Justice.MOD	OUTPUTNAME:Mark of Justice		CLASSES:.CLEARALL	CLASSES:Magus=5	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Nature's Exile.MOD	OUTPUTNAME:Nature's Exile		CLASSES:.CLEARALL	CLASSES:Magus=3	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Oracle's Burden.MOD	OUTPUTNAME:Oracle's Burden		CLASSES:.CLEARALL	CLASSES:Magus=2	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Rest Eternal.MOD		OUTPUTNAME:Rest Eternal			CLASSES:.CLEARALL	CLASSES:Magus=5	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+
+Disfiguring Touch.COPY=Hexcrafter Spell ~ Disfiguring Touch			
+Eldritch Fever.COPY=Hexcrafter Spell ~ Eldritch Fever		
+Curse of Magic Negation.COPY=Hexcrafter Spell ~ Curse of Magic Negation	
+Curse (Major).COPY=Hexcrafter Spell ~ Curse (Major)		
+Reprobation.COPY=Hexcrafter Spell ~ Reprobation			
+
+
+Hexcrafter Spell ~ Disfiguring Touch.MOD			OUTPUTNAME:Disfiguring Touch			CLASSES:.CLEARALL	CLASSES:Magus=2	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Eldritch Fever.MOD			OUTPUTNAME:Eldritch Fever			CLASSES:.CLEARALL	CLASSES:Magus=3	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Curse of Magic Negation.MOD		OUTPUTNAME:Curse of Magic Negation		CLASSES:.CLEARALL	CLASSES:Magus=4	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Curse (Major).MOD			OUTPUTNAME:Curse (Major)			CLASSES:.CLEARALL	CLASSES:Magus=5	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+Hexcrafter Spell ~ Reprobation.MOD				OUTPUTNAME:Reprobation				CLASSES:.CLEARALL	CLASSES:Magus=5	PREABILITY:1,CATEGORY=Archetype,Magus Archetype ~ Hexcrafter
+
+
 
 
 #

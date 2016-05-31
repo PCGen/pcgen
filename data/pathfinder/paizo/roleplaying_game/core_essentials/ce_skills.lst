@@ -102,6 +102,7 @@ Diplomacy.MOD			SITUATION:City Officials
 Diplomacy.MOD			SITUATION:Gather Information
 Diplomacy.MOD			SITUATION:Influence Monster
 Diplomacy.MOD			SITUATION:Potentially Sexually Attracted
+Diplomacy.MOD			SITUATION:interacting with dwarves
 Disable Device.MOD		SITUATION:Magical Traps|Traps
 Disguise.MOD			SITUATION:Appear Human
 Disguise.MOD			SITUATION:Appear as cloak
@@ -110,11 +111,13 @@ Disguise.MOD			SITUATION:Mimic objects
 Disguise.MOD			SITUATION:When using change shape
 Disguise.MOD			SITUATION:While using change shape ability
 Disguise.MOD			SITUATION:as original race
+Escape Artist.MOD			SITUATION:Escape manacles or ropes
 Handle Animal.MOD			SITUATION:Push Animal
 Handle Animal.MOD			SITUATION:Reptiles
 Heal.MOD				SITUATION:Animal
 Heal.MOD				SITUATION:Treat disease and poison
 Intimidate.MOD			SITUATION:Demoralize Animal
+Intimidate.MOD			SITUATION:interacting with dwarves
 Intimidate.MOD			SITUATION:Mounted
 Intimidate.MOD			SITUATION:To demoralize
 Intimidate.MOD			SITUATION:Elders
@@ -222,6 +225,8 @@ Survival.MOD			SITUATION:Tracking
 Survival.MOD			SITUATION:Tracking Undead
 Survival.MOD			SITUATION:Underground
 Survival.MOD			SITUATION:Urban
+Survival.MOD			SITUATION:Get along in the wild
+
 Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
 
 
