@@ -73,12 +73,18 @@ ext {
         from('.') {
             include 'characters/*.pcg'
         }
+    }
 
+    jreDistro = copySpec {
+        from('build/nsis/jre/jre_64') {
+            into 'jre'
+        }
     }
 }
 
 
-task fullZip(type: Zip, dependsOn: ['createExe', 'converterJar', 'copyToLibs']) {
+task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
+     'copyToLibs']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -87,6 +93,7 @@ task fullZip(type: Zip, dependsOn: ['createExe', 'converterJar', 'copyToLibs']) 
         with libsDistsImage
         with autobuildSpec
         with charactersImage
+        with jreDistro
     }
 }
 fullZip.mustRunAfter createExe
