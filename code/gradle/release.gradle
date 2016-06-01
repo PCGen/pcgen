@@ -134,12 +134,14 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
     }
     from ("${projectDir}") {
         include '*.jar'
-        include 'pcgen.exe'
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
         include 'characters/*.pcg'		
+    }
+    from ("${buildDir}/release") {
+        include 'pcgen.exe'
     }
 
     with baseLibs
@@ -152,7 +154,7 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    outfile = "pcgen.exe"
+    outfile = "../release/pcgen.exe"
     jreMinVersion = '1.6.0'
     jreMaxVersion = '1.7.9'
     jdkPreference = 'preferJre'
@@ -163,6 +165,8 @@ launch4j {
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
+    //Can't be longer than 150 characters
+    copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
 }
 
 task downloadJRE << {
@@ -286,14 +290,6 @@ task genProjectNsis << {
 // Call NSIS to generate windows installer
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
         genProjectNsis, downloadJRE, createExe])  << {
-    //createExe puts the executable file at build/launch4j. 
-    //It needs to be copied to the right place.
-    copy {
-        println "Copying generated exe file from createExe"
-        from "${buildDir}/launch4j"
-        into "${projectDir}/code"
-        include '*.exe'
-    }
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
@@ -314,6 +310,7 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
         printf "Unhandled OS: " + System.properties['os.name']
     }
 }
+buildNsis.mustRunAfter createExe
 
 task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
