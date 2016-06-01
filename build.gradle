@@ -244,12 +244,13 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar,
 }
 
 task unixLineEndings( type: Exec) {
-    onlyIf {
-        Os.isFamily(Os.FAMILY_WINDOWS)
+    if(Os.isFamily(Os.FAMILY_WINDOWS)){
+        workingDir "$projectDir/code/sbin"
+        executable "bash"
+        args "-c", "dos2unix $projectDir/code/pcgen.sh"
+    }else if(Os.isFamily(Os.FAMILY_UNIX)){
+        commandLine "fromdos", "$projectDir/code/pcgen.sh"
     }
-    workingDir "$projectDir/code/sbin"
-    executable "bash"
-    args "-c", "dos2unix $projectDir/code/pcgen.sh"
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
