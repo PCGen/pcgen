@@ -12,6 +12,7 @@
  *
  * Author: James Dempsey
  */
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id "de.undercouch.download" version "2.1.0"
@@ -237,6 +238,9 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar,
 }
 
 task unixLineEndings( type: Exec) {
+    onlyIf {
+        Os.isFamily(Os.FAMILY_WINDOWS)
+    }
     workingDir "$projectDir/code/sbin"
     executable "bash"
     args "-c", "dos2unix $projectDir/code/pcgen.sh"
