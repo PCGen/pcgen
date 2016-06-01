@@ -38,4 +38,3 @@ task copySite(type: Copy) {
 task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
 'createExe']) {
 }
-deployAutobuild.mustRunAfter createExe
