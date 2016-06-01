@@ -35,6 +35,7 @@ task copySite(type: Copy) {
     expand(copyright: '2014', version: version, timestamp: buildTimestamp)
 }
 
-task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', 'createExe']) {
+task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
+'createExe']) {
 }
 deployAutobuild.mustRunAfter createExe
