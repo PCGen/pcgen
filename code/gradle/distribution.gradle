@@ -1,20 +1,20 @@
 /*
- * PCGen distributable generation tasks. This file specifies the 
- * archives included in the PCGen autobuild and PCGen releases. It 
+ * PCGen distributable generation tasks. This file specifies the
+ * archives included in the PCGen autobuild and PCGen releases. It
  * is called from the main build.gradle file.
  *
  * Usage: gradle builddist
- * 
- * Author: James Dempsey 
+ *
+ * Author: James Dempsey
  */
 
 ext {
     zipRootFolder = "pcgen"
 
     buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
-	
+
     autobuildSpec = copySpec{}
-	
+
     if (System.env.BUILD_NUMBER) {
         autobuildSpec = copySpec {
             from('code/gradle/autobuild.template')
@@ -22,7 +22,7 @@ ext {
             expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
         }
     }
-	
+
     dataDistsImage = copySpec {
         from('.') {
             include 'data/**'
@@ -68,17 +68,23 @@ ext {
             exclude 'pcgen-*.jar'
         }
     }
-	
+
     charactersImage = copySpec {
         from('.') {
             include 'characters/*.pcg'
         }
-		
+    }
+
+    jreDistro = copySpec {
+        from('build/nsis/jre/jre_64') {
+            into 'jre'
+        }
     }
 }
 
 
-task fullZip(type: Zip, dependsOn: ['createExe', 'converterJar', 'copyToLibs']) {
+task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
+     'copyToLibs']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -87,6 +93,7 @@ task fullZip(type: Zip, dependsOn: ['createExe', 'converterJar', 'copyToLibs']) 
         with libsDistsImage
         with autobuildSpec
         with charactersImage
+        with jreDistro
     }
 }
 fullZip.mustRunAfter createExe
