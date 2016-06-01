@@ -243,17 +243,13 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar,
     rename "(.+)-$version(.+)", '$1$2'
 }
 
-//Install the tools from: http://www.thefreecountry.com/tofrodos/
-task unixLineEndings( type: Exec ) {
-    if(Os.isFamily(Os.FAMILY_WINDOWS)){
-        workingDir "$projectDir/code/sbin/tofrodos"
-        commandLine "cmd", "/c", "fromdos $projectDir/code/pcgen.sh"
-    }else if(Os.isFamily(Os.FAMILY_UNIX)){
-        println "If this fails you'll need to install dos2unix."
-        println "For example for Debian: apt-get install dos2unix."
-        println "Or read the installation instructions specific for your OS on readme.txt file."
-        commandLine "dos2unix", "$projectDir/code/pcgen.sh"
+task unixLineEndings( type: Exec) {
+    onlyIf {
+        Os.isFamily(Os.FAMILY_WINDOWS)
     }
+    workingDir "$projectDir/code/sbin"
+    executable "bash"
+    args "-c", "dos2unix $projectDir/code/pcgen.sh"
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
