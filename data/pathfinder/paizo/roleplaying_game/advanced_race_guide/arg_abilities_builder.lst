@@ -38,6 +38,41 @@ Undead			KEY:Racial Type ~ Undead			CATEGORY:Racial Traits	TYPE:RacialQuality.Ra
 Half-Construct		KEY:Racial Type ~ Half-Construct		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Half-Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]	DESC:[Cost: %1]|7	TEMPLATE:Half-Construct													BONUS:VAR|ARG_RaceBuilderPoints|-7	COST:0
 Half-Undead			KEY:Racial Type ~ Half-Undead			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Half-Undead],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|5	TEMPLATE:Half-Undead													BONUS:VAR|ARG_RaceBuilderPoints|-5	COST:0
 
+###Block: Outsider Plane Choice
+Abaddon							KEY:Outsider Plane Choice ~ Abaddon								CATEGORY:Internal	TYPE:Outsider Plane Choice	
+The Abyss							KEY:Outsider Plane Choice ~ The Abyss								CATEGORY:Internal	TYPE:Outsider Plane Choice
+Plane of Agony						KEY:Outsider Plane Choice ~ Plane of Agony							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Akashic Record						KEY:Outsider Plane Choice ~ Akashic Record							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Astral Plane						KEY:Outsider Plane Choice ~ Astral Plane							CATEGORY:Internal	TYPE:Outsider Plane Choice
+The Boneyard						KEY:Outsider Plane Choice ~ The Boneyard							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Dimension of Dreams					KEY:Outsider Plane Choice ~ Dimension of Dreams						CATEGORY:Internal	TYPE:Outsider Plane Choice
+Elemental Plane of Air					KEY:Outsider Plane Choice ~ Elemental Plane of Air						CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Elemental Plane of Earth				KEY:Outsider Plane Choice ~ Elemental Plane of Earth					CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Elemental Plane of Fire					KEY:Outsider Plane Choice ~ Elemental Plane of Fire						CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Elemental Plane of Water				KEY:Outsider Plane Choice ~ Elemental Plane of Water					CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Elysium							KEY:Outsider Plane Choice ~ Elysium								CATEGORY:Internal	TYPE:Outsider Plane Choice
+Ethereal Plane						KEY:Outsider Plane Choice ~ Ethereal Plane							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Heaven							KEY:Outsider Plane Choice ~ Heaven								CATEGORY:Internal	TYPE:Outsider Plane Choice
+Hell								KEY:Outsider Plane Choice ~ Hell									CATEGORY:Internal	TYPE:Outsider Plane Choice
+Infernus							KEY:Outsider Plane Choice ~ Infernus								CATEGORY:Internal	TYPE:Outsider Plane Choice
+The Maelstrom						KEY:Outsider Plane Choice ~ The Maelstrom							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Material Plane						KEY:Outsider Plane Choice ~ Material Plane							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Negative Energy Plane					KEY:Outsider Plane Choice ~ Negative Energy Plane						CATEGORY:Internal	TYPE:Outsider Plane Choice
+Nirvana							KEY:Outsider Plane Choice ~ Nirvana								CATEGORY:Internal	TYPE:Outsider Plane Choice
+Plane of Gravity						KEY:Outsider Plane Choice ~ Plane of Gravity							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Plane of Molten Skies					KEY:Outsider Plane Choice ~ Plane of Molten Skies						CATEGORY:Internal	TYPE:Outsider Plane Choice
+Plane of Time						KEY:Outsider Plane Choice ~ Plane of Time							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Positive Energy Plane					KEY:Outsider Plane Choice ~ Positive Energy Plane						CATEGORY:Internal	TYPE:Outsider Plane Choice
+Quasi-Elemental Plane of Acid				KEY:Outsider Plane Choice ~ Quasi-Elemental Plane of Acid					CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Quasi-Elemental Plane of Lightning			KEY:Outsider Plane Choice ~ Quasi-Elemental Plane of Lightning				CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Quasi-Elemental Plane of Obsidian			KEY:Outsider Plane Choice ~ Quasi-Elemental Plane of Obsidian				CATEGORY:Internal	TYPE:Outsider Plane Choice.Elemental Plane
+Shadow Plane						KEY:Outsider Plane Choice ~ Shadow Plane							CATEGORY:Internal	TYPE:Outsider Plane Choice
+Utopia							KEY:Outsider Plane Choice ~ Utopia								CATEGORY:Internal	TYPE:Outsider Plane Choice
+
+
+
+
+
 
 ###Block: Size Qualities
 #COMMENT: Medium Size assumed
@@ -165,7 +200,7 @@ Desert Runner				KEY:Builder Racial Trait ~ Desert Runner											CATEGORY:Spe
 Dual-Minded					KEY:Builder Racial Trait ~ Dual-Minded											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderDefenseTrait.Standard																		DESC:+2 untyped bonus to all Will Saves	DESC:[Cost: %1]|1																																																																																	BONUS:SAVE|Will|2			BONUS:VAR|ARG_RaceBuilderPoints|-1																								COST:0	SOURCEPAGE:p.222
 Duergar Immunities			KEY:Builder Racial Trait ~ Duergar Immunities										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderDefenseTrait.Standard																		DESC:Immune Paralysis, Phantasms, Poison; +2 racial bonus vs. Spells &amp; Spell-Like Abilities.	DESC:[Cost: %1]|4																																																	ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis|Immunity to Phantasms|Immunity to Poison											BONUS:VAR|ARG_RaceBuilderPoints|-4																								COST:0	SOURCEPAGE:p.222
 Elven Immunities				KEY:Builder Racial Trait ~ Elven Immunities										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderDefenseTrait.Standard																		DESC:Immune Magic Sleep Effects; +2 racial bonus vs enchantments.	DESC:[Cost: %1]|2																																																							ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep																			BONUS:VAR|ARG_RaceBuilderPoints|-2																								COST:0	SOURCEPAGE:p.222
-Energy Resistance				KEY:Builder Racial Trait ~ Energy Resistance										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderDefenseTrait.Standard																		DESC:Choose Acid, Cold, Electricity, Fire: Resist 5 vs that element.	DESC:[Cost: %1]|1																																																																																	BONUS:VAR|ARG_RaceBuilderPoints|-1																								COST:0	SOURCEPAGE:p.222	BONUS:ABILITYPOOL|Race Builder Energy Resistance|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Energy Resistance				KEY:Builder Racial Trait ~ Energy Resistance										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderDefenseTrait.Standard																		DESC:Choose Acid, Cold, Electricity, Fire: Resist 5 vs that element.	DESC:[Cost: %1]|1																																																																																	BONUS:VAR|ARG_RaceBuilderPoints|-1																								COST:0	SOURCEPAGE:p.222	BONUS:ABILITYPOOL|Race Builder Energy Resistance|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES		PRETEXT:Prerequisite: Outsider (native) with ties to an elemental plane		PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Outsider (native)	PREABILITY:1,CATEGORY=Internal,TYPE.Elemental Plane
 #
 Acid			KEY:Builder Energy Resistance ~ Acid		CATEGORY:Internal	TYPE:BuilderEnergyResistanceChoice	BONUS:VAR|AcidResistanceBonus|5|TYPE=Resistance
 Cold			KEY:Builder Energy Resistance ~ Cold		CATEGORY:Internal	TYPE:BuilderEnergyResistanceChoice	BONUS:VAR|ColdResistanceBonus|5|TYPE=Resistance
