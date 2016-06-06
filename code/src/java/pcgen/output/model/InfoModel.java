@@ -93,7 +93,7 @@ public class InfoModel implements TemplateHashModel
 	private Object[] getVars(CaseInsensitiveString cis)
 	{
 		String[] vars = cdo.get(MapKey.INFOVARS, cis);
-		int varCount = vars.length;
+		int varCount = vars != null ? vars.length : 0;
 		Object[] replacedvars = new Object[varCount];
 		if (varCount == 0)
 		{
