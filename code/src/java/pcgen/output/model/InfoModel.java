@@ -78,13 +78,14 @@ public class InfoModel implements TemplateHashModel
 	{
 		CaseInsensitiveString cis = new CaseInsensitiveString(key);
 		MessageFormat info = cdo.get(MapKey.INFO, cis);
-		if (info == null)
-		{
-			throw new TemplateModelException(
-				"CDOMObject did not have INFO of type " + key);
-		}
+		
 		StringBuffer sb = new StringBuffer(100);
-		info.format(getVars(cis), sb, null);
+		if (info != null)
+		{
+			info.format(getVars(cis), sb, null);
+//			throw new TemplateModelException(
+//				"CDOMObject did not have INFO of type " + key);
+		}
 		return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
 			sb.toString());
 	}
