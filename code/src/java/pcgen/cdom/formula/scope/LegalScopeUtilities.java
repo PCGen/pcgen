@@ -25,6 +25,7 @@ public class LegalScopeUtilities
 
 	public static void loadLegalScopeLibrary(LegalScopeLibrary library)
 	{
+		library.registerScope(SpringHelper.getBean(AbilityScope.class));
 		library.registerScope(SpringHelper.getBean(GlobalScope.class));
 		library.registerScope(SpringHelper.getBean(EquipmentScope.class));
 		library.registerScope(SpringHelper.getBean(EquipmentPartScope.class));
