@@ -41,6 +41,7 @@ import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
+import pcgen.output.actor.DescActor;
 import pcgen.output.actor.DisplayNameActor;
 import pcgen.output.actor.EqTypeActor;
 import pcgen.output.actor.InfoActor;
@@ -77,6 +78,7 @@ public class CDOMWrapperInfoFacet
 	{
 		set(dsID, CDOMObject.class, "source", new SourceActor());
 		set(dsID, CDOMObject.class, "info", new InfoActor());
+		set(dsID, CDOMObject.class, "desc", new DescActor());
 		set(dsID, CDOMObject.class, "key", new KeyActor());
 		set(dsID, CDOMObject.class, "displayname", new DisplayNameActor());
 		OutputNameActor outputNameActor = new OutputNameActor();
