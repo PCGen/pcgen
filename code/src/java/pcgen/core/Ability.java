@@ -218,10 +218,4 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	public double getCost() {
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();
 	}
-	
-	@Override
-	public String getLocalScopeName()
-	{
-		return "ABILITY";
-	}
 }
