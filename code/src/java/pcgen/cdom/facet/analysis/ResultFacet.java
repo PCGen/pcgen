@@ -57,6 +57,11 @@ public class ResultFacet
 
 	public Object getLocalVariable(CharID id, CDOMObject cdo, String varName)
 	{
+		String localScopeName = cdo.getLocalScopeName();
+		if(localScopeName == null){
+			return getGlobalVariable(id, varName);
+		}
+		
 		/*
 		 * TODO Given who this serves, this is an interesting situation. This
 		 * uses cdoScope to drive it "local", but scopeFacet will still walk up
@@ -64,7 +69,7 @@ public class ResultFacet
 		 */
 		LegalScope cdoScope =
 				formulaSetupFacet.get(id.getDatasetID()).getLegalScopeLibrary()
-					.getScope(cdo.getLocalScopeName());
+					.getScope(localScopeName);
 		ScopeInstance scope = scopeFacet.get(id, cdoScope, cdo);
 		if (scope == null)
 		{
