@@ -1,5 +1,5 @@
 /*
- * DescActor.java
+ * TypeActor.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,31 +16,49 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 6, 2016, 11:58:14 PM
+ * Created on Jun 8, 2016, 10:44:28 PM
  */
 package pcgen.output.actor;
 
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import java.util.ArrayList;
+import java.util.List;
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.base.OutputActor;
-import pcgen.output.model.InfoModel;
+import pcgen.output.model.CollectionModel;
 
 /**
- * An DescActor is designed to act as a shortcut for the 'info.desc'
- * in freemarker.
+ * A TypeActor is designed to process an interpolation and convert the
+ types of a CDOMObject into a TemplateModel.
+ * 
+ * Note that the actual name of the interpolation is stored externally to this
+ * Actor (in CDOMObjectWrapperInfo to be precise)
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class DescActor implements OutputActor<CDOMObject>
+public class TypeActor implements OutputActor<CDOMObject>
 {
+
 	/**
 	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
+	 * java.lang.Object)
 	 */
 	@Override
 	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
+			throws TemplateModelException
 	{
-		return new InfoModel(id, d).get("desc");
+		final List<Type> types = d.getSafeListFor(ListKey.TYPE);
+		List<String> strings = new ArrayList<>(types.size());
+		for (Type type : types)
+		{
+			strings.add(type.toString());
+		}
+		return new CollectionModel(id, strings);
 	}
 }
