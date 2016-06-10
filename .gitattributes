@@ -18,13 +18,16 @@
 *.jspf          text=auto
 *.md            text=auto
 *.properties    text=auto
-*.sh            text=auto
 *.tld           text=auto
 *.txt           text=auto
 *.xml           text=auto
 *.lst           text=auto
 *.ftl           text=auto
 *.gradle        text=auto
+
+# This is a Linux specific file type, and since the release is on a Windows Machine, the EOL must remain unchanged.
+pcgen.sh        eol=lf
+*.sh            eol=lf
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
