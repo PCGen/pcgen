@@ -78,6 +78,8 @@ ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 
 
 ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance															DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Druid Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:DruidFavoredEnergyResistanceFavoredEnergyResistance											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:SorcererFavoredEnergyResistanceFavoredEnergyResistance											DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Far Traveler Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Far Traveler Selection										PLURAL:Far Traveler Selections	DISPLAYLOCATION:Class Features
 
@@ -140,10 +142,9 @@ ABILITYCATEGORY:Race Builder Bonus Race Languages		VISIBLE:QUALIFY	EDITABLE:YES	
 ABILITYCATEGORY:Language						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderLang																							DISPLAYLOCATION:Race Builder Design
 
 # Race Builder Traits
-ABILITYCATEGORY:Race Trait Ability Score			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderAdvancedAbilityScoreTrait																			DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait															DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Feat and Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait														DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait															DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait																		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait																	DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait																		DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Race Trait Senses					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderSensesTrait																							DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMovementTrait																						DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOffenseTrait																						DISPLAYLOCATION:Race Builder Design
@@ -163,14 +164,5 @@ ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO			
 
 ABILITYCATEGORY:Shards Bonus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsBonus			PLURAL:Shards Bonuses		DISPLAYLOCATION:Racial Abilities
 
-
-###Block: Racial Subtypes (aka Backgrounds)
-ABILITYCATEGORY:Dwarf Racial Subtype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dwarf Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Dwarf Racial Subtypes		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elf Racial Subtype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elf Racial Subtype			ABILITYLIST:Racial Subtype ~ None	PLURAL:Elf Racial Subtypes		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gnome Racial Subtype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gnome Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Gnome Racial Subtypes		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Elf Racial Subtype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Half-Elf Racial Subtypes	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Orc Racial Subtype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Half-Orc Racial Subtypes	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Halfling Racial Subtype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Halfling Racial Subtypes	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Human Racial Subtype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Racial Subtype		ABILITYLIST:Racial Subtype ~ None	PLURAL:Human Racial Subtypes		DISPLAYLOCATION:Racial Abilities
 
 
