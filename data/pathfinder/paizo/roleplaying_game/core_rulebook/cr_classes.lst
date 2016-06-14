@@ -412,7 +412,7 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABIL
 1	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|PREVAREQ:Wizard_CF_ScribeScroll,0
 ###Block:
 #1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School|PREVAREQ:Wizard_CF_ArcaneSchool,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Wizard_CF_ArcaneBond,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|PREVAREQ:Wizard_CF_Cantrips,0
 5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|PREVAREQ:Wizard_CF_BonusFeats,0
