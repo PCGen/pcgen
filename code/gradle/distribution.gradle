@@ -73,7 +73,12 @@ ext {
         from('.') {
             include 'characters/*.pcg'
         }
-		
+    }
+
+    jreDistro = copySpec {
+        from('jre/jre_64') {
+            into 'jre'
+        }
     }
 }
 
