@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Wed Feb  3 13:52:26 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
@@ -282,7 +282,7 @@ Natural Weapons						KEY:Kitsune ~ Natural Weapons		CATEGORY:Special Ability	TYP
 
 #Race Traits ~ Kitsune
 Race Traits ~ Kitsune											CATEGORY:Internal																																																																													ABILITY:Internal|AUTOMATIC|Race Language ~ Default Setting|PREABILITY:1,CATEGORY=Internal,TYPE.RaceAlternativeLanguageSet
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLowLightVision
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic

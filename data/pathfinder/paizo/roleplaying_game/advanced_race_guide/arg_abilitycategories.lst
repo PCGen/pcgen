@@ -157,7 +157,6 @@ ABILITYCATEGORY:Weapon Familiarity					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Hatred							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Hatred																									DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Race Builder Skill Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Skill Bonus																						DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:Race Builder Energy Resistance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:BuilderEnergyResistanceChoice																						DISPLAYLOCATION:Race Builder Design
 
 ABILITYCATEGORY:Canine Ferocity Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Feat													ABILITYLIST:Mounted Combat|Ride-By Attack|Skill Focus (Ride)|Spirited Charge|Trample|Unseat	DISPLAYLOCATION:Feats
 
