@@ -1,6 +1,6 @@
 /*
- * PCGen release tasks. This file specifies the way in which PCGen alpha, beta 
- * and production releases are made. 
+ * PCGen release tasks. This file specifies the way in which PCGen alpha, beta
+ * and production releases are made.
  *
  * Usage: gradle prepareRelease
  * Usage: gradle buildNsis
@@ -19,15 +19,15 @@
  *   c.	Tag
  *   d.	Update version - increment version and add snapshot
  *   e.	Commit new version
- * 
- * Author: James Dempsey 
+ *
+ * Author: James Dempsey
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
 ext {
-   
+
     // Work out the path to the release notes for our current version.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
     shortVerNum = plainVerNum.replaceAll(/\./, '')
@@ -35,7 +35,7 @@ ext {
 
     nsisBaseFolder = "${buildDir}/nsis/PCGen_${shortVerNum}_base"
     nsisOptionFolder = "${buildDir}/nsis/PCGen_${shortVerNum}_opt"
-   
+
     // specifications for what to copy to the NSIS base and optional folders
     baseLibs = copySpec {
         from("${buildDir}/libs") {
@@ -48,7 +48,7 @@ ext {
         }
         into ('/libs')
     }
-   
+
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
             include 'fop*.jar'
@@ -57,7 +57,7 @@ ext {
         }
         into ('/plugin/pdf/libs')
     }
-   
+
     skinLibs = copySpec {
         from("${buildDir}/libs") {
             include 'kunststoff*.jar'
@@ -65,7 +65,7 @@ ext {
         }
         into ('/plugin/skin/libs')
     }
-    
+
     basePlugins = copySpec {
         from("${projectDir}/plugins") {
             include '*plugins/**'
@@ -74,7 +74,7 @@ ext {
         }
         into ('/plugins')
     }
-    
+
     gmgenPlugins = copySpec {
         from("${projectDir}/plugins") {
             exclude '*plugins/**'
@@ -83,21 +83,21 @@ ext {
         }
         into ('/plugin/gmgen/plugins')
     }
-    
+
     nonPdfOutput = copySpec {
         from("${projectDir}/outputsheets") {
             exclude '**/pdf/**'
         }
         into ('/outputsheets')
     }
-    
+
     pdfOutput = copySpec {
         from("${projectDir}/outputsheets") {
             include '**/pdf/**'
         }
         into ('/plugin/pdf/outputsheets')
     }
-    
+
     baseData = copySpec {
         from("${projectDir}/data") {
             include 'customsources/**'
@@ -106,7 +106,7 @@ ext {
         }
         into ('/data')
     }
-    
+
     optionalData = copySpec {
         from("${projectDir}/data") {
             exclude 'customsources/**'
@@ -122,7 +122,7 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
     doFirst {
         // Release notes are required!
         assert file(releaseNotes).exists()
-    } 
+    }
 
     into nsisBaseFolder
     from ("${projectDir}/installers/win-installer/Local") {
@@ -138,7 +138,7 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
-        include 'characters/*.pcg'		
+        include 'characters/*.pcg'
     }
     from ("${buildDir}/release") {
         include 'pcgen.exe'
@@ -156,7 +156,6 @@ launch4j {
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
     outfile = "../release/pcgen.exe"
     jreMinVersion = '1.6.0'
-    jreMaxVersion = '1.7.9'
     jdkPreference = 'preferJre'
     initialHeapSize = 128
     maxHeapSize = 512
@@ -165,12 +164,15 @@ launch4j {
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
+    splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
+    splashWaitForWindows = true
+    splashTimeout = 60
+    splashTimeoutError = true
     //Can't be longer than 150 characters
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
 }
 
 task downloadJRE << {
-    //Commented code extracts the version of the JRE being used to run gradle.
     def m = System.properties['java.runtime.version'] =~ /(\d+)\.(\d+)\.(\d+)_(\d+)\-b(\d+)/
     def major = Integer.parseInt(m[0][1], 10)
     def minor = Integer.parseInt(m[0][2], 10)
@@ -270,7 +272,7 @@ task genProjectNsis << {
 }
 
 // Call NSIS to generate windows installer
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList, 
+task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
         genProjectNsis, downloadJRE, createExe])  << {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
@@ -327,7 +329,7 @@ task checksum(dependsOn: assembleArtifacts) << {
         def cs = ant.properties["cs_$file.name"]
         checksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
     }
-} 
+}
 
 task prepareRelease (dependsOn: ['clean', 'build', 'genDataList']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."

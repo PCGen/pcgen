@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu Feb 18 13:31:06 2016 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Knights of the Inner Sea
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA

@@ -1699,7 +1699,7 @@ Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT	
 ###Block: ACF = Alternate Class Feature - Home brew Support Requests
 
 # Ability Name					Category of Ability	Type				Visible	Define																							Auto Equip						Ability																																																		Modify VAR									Cost
-Wizard / Remove Scribe Scroll			CATEGORY:Archetype	TYPE:ACF.ScribeScroll																																																																																															COST:0
+Wizard / Remove Scribe Scroll			CATEGORY:Archetype	TYPE:ACF	FACT:Wizard_CF_ScribeScroll|True																																																																																															COST:0
 
 CATEGORY=Internal|Default.MOD																																												ABILITY:Internal|AUTOMATIC|Archetype Display
 CATEGORY=Internal|Default.MOD													DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0

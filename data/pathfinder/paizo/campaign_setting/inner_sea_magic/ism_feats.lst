@@ -15,8 +15,6 @@ Inscribe Magical Tattoo	CATEGORY:FEAT		TYPE:Item Creation											PREMULT:2,[P
 ###Block: Feat MODs
 # Feat Name					Bonus Ability Pool
 # Ability Name						Type				Bonus Ability Pool
-CATEGORY=FEAT|Extra Revelation.MOD							BONUS:ABILITYPOOL|Spellscar Mystery Revelation|1|PREVARGTEQ:SpellscarMysteriesQualify,1	BONUS:ABILITYPOOL|Outer Rifts Mystery Revelation|1|PREVARGTEQ:OuterRiftsMysteriesQualify,1
-
 CATEGORY=FEAT|Alignment Channel.MOD			TYPE:MendevianPriest
 CATEGORY=FEAT|Greater Spell Penetration.MOD	TYPE:MendevianPriest
 CATEGORY=FEAT|Leadership.MOD				TYPE:MendevianPriest
