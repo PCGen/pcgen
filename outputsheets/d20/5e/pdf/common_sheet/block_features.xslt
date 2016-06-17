@@ -71,10 +71,91 @@
 	<xsl:template match="race_traits">
 		<xsl:if test="count(race_trait) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'race_traits'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Race Traits'" />
 				<xsl:with-param name="list" select="race_trait"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Class Features
+====================================
+====================================-->
+	<xsl:template match="class_features">
+		<xsl:if test="count(class_feature) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Class Features'" />
+				<xsl:with-param name="list" select="class_feature"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Personality Traits
+====================================
+====================================-->
+	<xsl:template match="personality_traits">
+		<xsl:if test="count(personality_trait) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Personality Traits'" />
+				<xsl:with-param name="list" select="personality_trait"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Bond
+====================================
+====================================-->
+	<xsl:template match="bonds">
+		<xsl:if test="count(bond) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Bonds'" />
+				<xsl:with-param name="list" select="bond"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Ideal
+====================================
+====================================-->
+	<xsl:template match="ideals">
+		<xsl:if test="count(ideal) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Ideals'" />
+				<xsl:with-param name="list" select="ideal"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Flaw
+====================================
+====================================-->
+	<xsl:template match="flaws">
+		<xsl:if test="count(flaw) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Flaws'" />
+				<xsl:with-param name="list" select="flaw"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
 		</xsl:if>
