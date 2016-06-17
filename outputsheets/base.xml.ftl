@@ -246,13 +246,13 @@
 		<campaign_histories>
 			<@loop from=0 to=pcvar('count("CAMPAIGNHISTORY")-1') ; campaignhistory , campaignhistory_has_next>	
 			<campaign_history>
-				<campaign>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN</campaign>
-				<adventure>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE</adventure>
-				<party>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY</party>
-				<date>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE</date>
-				<xp>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP</xp>
-				<gm>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM</gm>
-				<text>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT</text>
+				<campaign>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN')}</campaign>
+				<adventure>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE')}</adventure>
+				<party>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY')}</party>
+				<date>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE')}</date>
+				<xp>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP')}</xp>
+				<gm>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM')}</gm>
+				<text>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT')}</text>
 			</campaign_history>
 			</@loop>	
 		</campaign_histories>

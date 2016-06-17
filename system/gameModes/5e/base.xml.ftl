@@ -4,6 +4,7 @@
 	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
+	<proficiency_bonus>${pcstring('VAR.Proficiency_Bonus.INTVAL.SIGN')}</proficiency_bonus>
 	<export>
 		<date>${pcstring('EXPORT.DATE')}</date>
 		<time>${pcstring('EXPORT.TIME')}</time>
@@ -227,13 +228,13 @@
 		<campaign_histories>
 			<@loop from=0 to=pcvar('count("CAMPAIGNHISTORY")-1') ; campaignhistory , campaignhistory_has_next>	
 			<campaign_history>
-				<campaign>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN</campaign>
-				<adventure>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE</adventure>
-				<party>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY</party>
-				<date>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE</date>
-				<xp>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP</xp>
-				<gm>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM</gm>
-				<text>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT</text>
+				<campaign>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN')}</campaign>
+				<adventure>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE')}</adventure>
+				<party>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY')}</party>
+				<date>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE')}</date>
+				<xp>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP')}</xp>
+				<gm>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM')}</gm>
+				<text>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT')}</text>
 			</campaign_history>
 			</@loop>	
 		</campaign_histories>
@@ -1420,6 +1421,55 @@
 	<race_traits>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Race Trait" nodeName="race_trait" />
 	</race_traits>
+	<!--
+	  ====================================
+	  ====================================
+			Class Features
+	  ====================================
+	  ====================================-->
+	<class_features>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Class Feature" nodeName="class_feature" />
+	</class_features>
+	<!--
+	  ====================================
+	  ====================================
+			Personality Traits
+	  ====================================
+	  ====================================-->
+	<personality_traits>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Personality Trait" nodeName="personality_trait" />
+	</personality_traits>
+	<!--
+	  ====================================
+	  ====================================
+			Bonds
+	  ====================================
+	  ====================================-->
+	<bonds>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Bond" nodeName="bond" />
+	</bonds>
+	<!--
+	  ====================================
+	  ====================================
+			Flaws
+	  ====================================
+	  ====================================-->
+	<flaws>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Flaw" nodeName="flaw" />
+	</flaws>
+	<!--
+	  ====================================
+	  ====================================
+			Ideals
+	  ====================================
+	  ====================================-->
+	<ideals>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Ideal" nodeName="ideal" />
+	</ideals>
+
+
+
+
 
 	<!--
 	====================================
