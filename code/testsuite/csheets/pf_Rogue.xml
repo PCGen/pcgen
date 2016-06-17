@@ -3788,7 +3788,7 @@ BIO
 		<ability_object>
 			<name>Fearless</name>
 			<description>Halflings receive a +2 racial bonus on saving throws against fear. This bonus stacks with the bonus granted by Halfling Luck.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.FEARLESS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3799,7 +3799,7 @@ BIO
 		<ability_object>
 			<name>Halfling Luck</name>
 			<description>Halflings receive a +1 racial bonus on all saving throws.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.HALFLING LUCK</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3832,7 +3832,7 @@ BIO
 		<ability_object>
 			<name>Keen Senses</name>
 			<description>Halflings receive a +2 bonus on Perception skill checks.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.KEENSENSES</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.KEEN SENSES.KEENSENSES</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3865,7 +3865,7 @@ BIO
 		<ability_object>
 			<name>Sure-Footed</name>
 			<description>Halflings receive a +2 racial bonus on Acrobatics and Climb skill checks.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.SURE-FOOTED</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3909,7 +3909,7 @@ BIO
 		<ability_object>
 			<name>Weapon Familiarity</name>
 			<description>Halflings are proficient with slings and treat any weapon with the word &quot;halfling&quot; in its name as a martial weapon.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.WEAPON FAMILIARITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
