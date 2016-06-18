@@ -1081,32 +1081,32 @@ Protection from Evil and Good	KEY:Warlock Magic Initiate Spell ~ Protection from
 Unseen Servant			KEY:Warlock Magic Initiate Spell ~ Unseen Servant			CATEGORY:Internal		TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Unseen Servant,WarlockSpellDC
 ###Block:
 # Ability Name			Unique Key										Category of Ability	Type					Innate Spells
-Alarm					KEY:Wizard Magic Initiate Spell ~ Alarm					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Alarm,,WizardSpellDC
-Burning Hands			KEY:Wizard Magic Initiate Spell ~ Burning Hands				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Burning Hands,,WizardSpellDC
-Charm Person			KEY:Wizard Magic Initiate Spell ~ Charm Person				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,,WizardSpellDC
-Color Spray				KEY:Wizard Magic Initiate Spell ~ Color Spray				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Color Spray,,WizardSpellDC
-Comprehend Languages		KEY:Wizard Magic Initiate Spell ~ Comprehend Languages		CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Comprehend Languages,,WizardSpellDC
-Detect Magic			KEY:Wizard Magic Initiate Spell ~ Detect Magic				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,,WizardSpellDC
-Disguise Self			KEY:Wizard Magic Initiate Spell ~ Disguise Self				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Disguise Self,,WizardSpellDC
-Expeditious Retreat		KEY:Wizard Magic Initiate Spell ~ Expeditious Retreat			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Expeditious Retreat,,WizardSpellDC
-False Life				KEY:Wizard Magic Initiate Spell ~ False Life				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|False Life,,WizardSpellDC
-Feather Fall			KEY:Wizard Magic Initiate Spell ~ Feather Fall				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Feather Fall,,WizardSpellDC
-Fog Cloud				KEY:Wizard Magic Initiate Spell ~ Fog Cloud				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Fog Cloud,,WizardSpellDC
-Grease				KEY:Wizard Magic Initiate Spell ~ Grease					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Grease,,WizardSpellDC
-Identify				KEY:Wizard Magic Initiate Spell ~ Identify				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Identify,,WizardSpellDC
-Illusory Script			KEY:Wizard Magic Initiate Spell ~ Illusory Script			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Illusory Script,,WizardSpellDC
-Jump					KEY:Wizard Magic Initiate Spell ~ Jump					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Jump,,WizardSpellDC
-Longstrider				KEY:Wizard Magic Initiate Spell ~ Longstrider				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Longstrider,,WizardSpellDC
-Mage Armor				KEY:Wizard Magic Initiate Spell ~ Mage Armor				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Mage Armor,,WizardSpellDC
-Magic Missile			KEY:Wizard Magic Initiate Spell ~ Magic Missile				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Magic Missile,,WizardSpellDC
-Protection from Evil and Good	KEY:Wizard Magic Initiate Spell ~ Protection from Evil and Good	CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Protection from Evil and Good,,WizardSpellDC
-Shield				KEY:Wizard Magic Initiate Spell ~ Shield					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Shield,,WizardSpellDC
-Silent Image			KEY:Wizard Magic Initiate Spell ~ Silent Image				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Silent Image,,WizardSpellDC
-Sleep					KEY:Wizard Magic Initiate Spell ~ Sleep					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Sleep,,WizardSpellDC
-Hideous Laughter			KEY:Wizard Magic Initiate Spell ~ Hideous Laughter			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Hideous Laughter,,WizardSpellDC
-Floating Disc			KEY:Wizard Magic Initiate Spell ~ Floating Disc				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Floating Disc,,WizardSpellDC
-Thunderwave				KEY:Wizard Magic Initiate Spell ~ Thunderwave				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Thunderwave,,WizardSpellDC
-Unseen Servant			KEY:Wizard Magic Initiate Spell ~ Unseen Servant			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Unseen Servant,,WizardSpellDC
+Alarm					KEY:Wizard Magic Initiate Spell ~ Alarm					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Alarm,WizardSpellDC
+Burning Hands			KEY:Wizard Magic Initiate Spell ~ Burning Hands				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Burning Hands,WizardSpellDC
+Charm Person			KEY:Wizard Magic Initiate Spell ~ Charm Person				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,WizardSpellDC
+Color Spray				KEY:Wizard Magic Initiate Spell ~ Color Spray				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Color Spray,WizardSpellDC
+Comprehend Languages		KEY:Wizard Magic Initiate Spell ~ Comprehend Languages		CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Comprehend Languages,WizardSpellDC
+Detect Magic			KEY:Wizard Magic Initiate Spell ~ Detect Magic				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,WizardSpellDC
+Disguise Self			KEY:Wizard Magic Initiate Spell ~ Disguise Self				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Disguise Self,WizardSpellDC
+Expeditious Retreat		KEY:Wizard Magic Initiate Spell ~ Expeditious Retreat			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Expeditious Retreat,WizardSpellDC
+False Life				KEY:Wizard Magic Initiate Spell ~ False Life				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|False Life,WizardSpellDC
+Feather Fall			KEY:Wizard Magic Initiate Spell ~ Feather Fall				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Feather Fall,WizardSpellDC
+Fog Cloud				KEY:Wizard Magic Initiate Spell ~ Fog Cloud				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Fog Cloud,WizardSpellDC
+Grease				KEY:Wizard Magic Initiate Spell ~ Grease					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Grease,WizardSpellDC
+Identify				KEY:Wizard Magic Initiate Spell ~ Identify				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Identify,WizardSpellDC
+Illusory Script			KEY:Wizard Magic Initiate Spell ~ Illusory Script			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Illusory Script,WizardSpellDC
+Jump					KEY:Wizard Magic Initiate Spell ~ Jump					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Jump,WizardSpellDC
+Longstrider				KEY:Wizard Magic Initiate Spell ~ Longstrider				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Longstrider,WizardSpellDC
+Mage Armor				KEY:Wizard Magic Initiate Spell ~ Mage Armor				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Mage Armor,WizardSpellDC
+Magic Missile			KEY:Wizard Magic Initiate Spell ~ Magic Missile				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Magic Missile,WizardSpellDC
+Protection from Evil and Good	KEY:Wizard Magic Initiate Spell ~ Protection from Evil and Good	CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Protection from Evil and Good,WizardSpellDC
+Shield				KEY:Wizard Magic Initiate Spell ~ Shield					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Shield,WizardSpellDC
+Silent Image			KEY:Wizard Magic Initiate Spell ~ Silent Image				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Silent Image,WizardSpellDC
+Sleep					KEY:Wizard Magic Initiate Spell ~ Sleep					CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Sleep,WizardSpellDC
+Hideous Laughter			KEY:Wizard Magic Initiate Spell ~ Hideous Laughter			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Hideous Laughter,WizardSpellDC
+Floating Disc			KEY:Wizard Magic Initiate Spell ~ Floating Disc				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Floating Disc,WizardSpellDC
+Thunderwave				KEY:Wizard Magic Initiate Spell ~ Thunderwave				CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Thunderwave,WizardSpellDC
+Unseen Servant			KEY:Wizard Magic Initiate Spell ~ Unseen Servant			CATEGORY:Internal		TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Unseen Servant,WizardSpellDC
 ###Block:
 # Ability Name		Unique Key				Category of Ability		Type						Description															Multiple?	Choose											Selections
 Bard Ritual Caster	KEY:Ritual Caster ~ Bard	CATEGORY:Special Ability	TYPE:Ritual Caster.SpecialQuality.Class Feature	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	MULT:YES	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Bard[LEVELMAX=ceil(TL/2)]	SELECT:99
