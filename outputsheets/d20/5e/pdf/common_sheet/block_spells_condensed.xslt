@@ -23,6 +23,7 @@
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
+					<xsl:apply-templates select="spell_slots"/>
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	
 					<xsl:apply-templates select="spells_innate/class_innate"/>	
 					<xsl:apply-templates select="known_spells"/>	
@@ -32,6 +33,112 @@
 		</xsl:if>
 		<!-- END Spells Pages -->
 	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Spell Slots
+====================================
+====================================-->
+	<xsl:template match="spell_slots">
+		<!-- BEGIN Spell Slots table -->
+		<fo:table table-layout="fixed" space-after="2mm">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell padding-top="1pt" number-columns-spanned="30">
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'spells.memorized.header'"/></xsl:call-template>
+						<fo:block font-size="10pt" font-weight="bold">Spell Slots</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 0'"/>
+						<xsl:with-param name="value" select="'At Will'"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 1'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL1"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 2'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL2"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 3'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL3"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 4'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL4"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 5'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL5"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 6'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL6"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 7'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL7"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 8'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL8"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Lvl 9'"/>
+						<xsl:with-param name="value" select="SpellSlotsLVL9"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>	
+	</xsl:template>
+	
 	<!--
 ====================================
 ====================================
@@ -610,6 +717,9 @@
 					<fo:inline font-weight="bold"> TIME: </fo:inline><xsl:value-of select="castingtime"/>
 					<fo:inline>; </fo:inline>
 					</xsl:if>
+					<xsl:if test="dc &gt; 0">
+						<fo:inline font-weight="bold">[DC: <xsl:value-of select="dc"/></fo:inline><fo:inline font-weight="bold">, <xsl:value-of select="saveinfo"/>] </fo:inline>
+						</xsl:if>
 					<xsl:if test="string-length(components) &gt; 0">
 						<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
 						<fo:inline> </fo:inline>
@@ -619,30 +729,8 @@
 					<fo:inline>; </fo:inline>
 					</xsl:if>
 					<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
-						<xsl:if test="string-length(effect) &gt; 150">
 							<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
-						</xsl:if>
-						<xsl:if test="string-length(effect) &lt; 151">
-							<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
-						</xsl:if>
-						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
-							<xsl:if test="string-length(spell_resistance) &gt; 0">
-								<fo:inline font-weight="bold">SR:</fo:inline>
-								<xsl:value-of select="spell_resistance"/>
-							</xsl:if>
-							<xsl:choose>
-								<xsl:when test="dc &gt; 0">
-									<fo:inline>; </fo:inline><fo:inline font-weight="bold">DC:</fo:inline> <xsl:value-of select="dc"/> 
-									<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
-								</xsl:when>
-								<xsl:when test="/character/house_var/spelldisplaydc &gt; 0">
-									<fo:inline>; </fo:inline><fo:inline font-weight="bold">DC: N/A</fo:inline>
-								</xsl:when>
-								<xsl:otherwise>
-								</xsl:otherwise>
-							</xsl:choose>
-							<fo:inline>] </fo:inline>
-						</xsl:if>
+
 						<xsl:if test="concentration != $baseconcentration">
 							<fo:inline>; </fo:inline>
 							<fo:inline font-style="italic" font-weight="bold">CONCENTRATION:</fo:inline>

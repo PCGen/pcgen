@@ -2,9 +2,60 @@
 SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
-# Ability Name						Unique Key				SORTKEY	Category of Ability		Type										Visible	Restricted Ability								Multiple Requirements																							Define																																																																																																										Define Stat							Description																																																													Ability																																																																																		Bonus Ability Pool						Modify VAR																																																																																																																												Vision					Cost		Aspects
-Default														CATEGORY:Internal																																																				DEFINE:Proficiency_Bonus|0	DEFINE:BlindsightRange|0	DEFINE:DarkvisionRange|0	DEFINE:TruesightRange|0	DEFINE:SpellCasterTotalLVL|0	DEFINE:SpellCasterClassCount|0	DEFINE:POOL_Background_Bond|0	DEFINE:POOL_Barbarian_Skill|0	DEFINE:POOL_Cleric_Skill|0	DEFINE:POOL_Druid_Skill|0	DEFINE:POOL_Fighter_Skill|0	DEFINE:POOL_Monk_Skill|0	DEFINE:POOL_Paladin_Skill|0	DEFINE:POOL_Ranger_Skill|0	DEFINE:POOL_Rogue_Skill|0	DEFINE:POOL_Sorcerer_Skill|0	DEFINE:POOL_Warlock_Skill|0	DEFINE:POOL_Wizard_Skill|0	DEFINE:POOL_Character_Advancement_Selection|0	DEFINE:POOL_Language|0	DEFINE:Spell_DC_Wizard|0																																																																							ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Special Ability|AUTOMATIC|Truesight|PREVARGTEQ:TruesightRange,1	ABILITY:Internal|AUTOMATIC|First Level Proficiencies|PREPCLEVEL:MIN=1	ABILITY:Special Ability|AUTOMATIC|Spellcaster Spell Slots|PREVARGTEQ:SpellCasterClassCount,1	ABILITY:Special Ability|AUTOMATIC|Passive Perception	ABILITY:SkillExport|AUTOMATIC|TYPE=SkillExport	BONUS:ABILITYPOOL|Background|1|PRECLASS:1,TYPE.Base=1	BONUS:VAR|Proficiency_Bonus|(TL+7)/4|TYPE=Base|!PRECLASS:1,Hit Die=1	BONUS:VAR|POOL_Background_Bond|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Background Selection|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Bond	BONUS:VAR|Spell_DC_Wizard|8+Proficiency_Bonus+INT
-CATEGORY=Internal|Default.MOD																																																																	DEFINE:MaxStatNPC|0
+# Ability Name						Unique Key				SORTKEY	Category of Ability		Type										Visible	Restricted Ability								Multiple Requirements																							Define																																																																																																										Define Stat							Description																																																													Ability																																																																																		Modify VAR																																																																																																																												Vision					Cost		Aspects
+Default		CATEGORY:Internal
+###Block:
+CATEGORY=Internal|Default.MOD	DEFINE:Proficiency_Bonus|0
+CATEGORY=Internal|Default.MOD	DEFINE:BlindsightRange|0
+CATEGORY=Internal|Default.MOD	DEFINE:DarkvisionRange|0
+CATEGORY=Internal|Default.MOD	DEFINE:TruesightRange|0
+CATEGORY=Internal|Default.MOD	DEFINE:SpellCasterTotalLVL|0
+CATEGORY=Internal|Default.MOD	DEFINE:SpellCasterClassCount|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Background_Bond|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Barbarian_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Cleric_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Druid_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Fighter_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Monk_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Paladin_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Ranger_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Rogue_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Sorcerer_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Warlock_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Wizard_Skill|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Character_Advancement_Selection|0
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Language|0
+CATEGORY=Internal|Default.MOD	DEFINE:Spell_DC_Wizard|0
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Truesight|PREVARGTEQ:TruesightRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|First Level Proficiencies|PREPCLEVEL:MIN=1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Spellcaster Spell Slots|PREVARGTEQ:SpellCasterClassCount,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Passive Perception
+CATEGORY=Internal|Default.MOD	ABILITY:SkillExport|AUTOMATIC|TYPE=SkillExport
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Background|PRECLASS:1,TYPE.Base=1
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Proficiency_Bonus|(TL+7)/4|TYPE=Base|!PRECLASS:1,Hit Die=1
+
+CATEGORY=Internal|Default.MOD		DEFINE:MaxStatNPC|0
+
+
+
+
+
+###Block: Spell DC
+CATEGORY=Internal|Default.MOD		DEFINE:SpellDC_CHA|0		BONUS:VAR|SpellDC_CHA|CHA+8+Proficiency_Bonus
+CATEGORY=Internal|Default.MOD		DEFINE:SpellDC_WIS|0		BONUS:VAR|SpellDC_WIS|WIS+8+Proficiency_Bonus
+CATEGORY=Internal|Default.MOD		DEFINE:SpellDC_INT|0		BONUS:VAR|SpellDC_INT|INT+8+Proficiency_Bonus
+CATEGORY=Internal|Default.MOD		DEFINE:BardSpellDC|0		BONUS:VAR|BardSpellDC|SpellDC_CHA
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererSpellDC|0	BONUS:VAR|SorcererSpellDC|SpellDC_CHA
+CATEGORY=Internal|Default.MOD		DEFINE:WarlockSpellDC|0		BONUS:VAR|WarlockSpellDC|SpellDC_CHA
+CATEGORY=Internal|Default.MOD		DEFINE:ClericSpellDC|0		BONUS:VAR|ClericSpellDC|SpellDC_WIS
+CATEGORY=Internal|Default.MOD		DEFINE:RangerSpellDC|0		BONUS:VAR|RangerSpellDC|SpellDC_WIS
+CATEGORY=Internal|Default.MOD		DEFINE:PaladinSpellDC|0		BONUS:VAR|PaladinSpellDC|SpellDC_WIS
+CATEGORY=Internal|Default.MOD		DEFINE:WizardSpellDC|0		BONUS:VAR|WizardSpellDC|SpellDC_INT
+
+
+
 
 # Default
 CATEGORY=Internal|Default.MOD																																																																	DEFINE:Use_AC_Output|0	DEFINE:POOL_Expertise|0																																																																																																																																																																										ABILITY:Internal|AUTOMATIC|AC Tracker																																																																																						BONUS:VAR|Use_AC_Output|1
@@ -438,3 +489,11 @@ Sword Of Vengeance	CATEGORY:Attunement	TYPE:Attunement	PREVARGTEQ:Attunement_Swo
 Sword Of Wounding		CATEGORY:Attunement	TYPE:Attunement	PREVARGTEQ:Attunement_Sword_Of_Wounding,1		PREVARLT:Attuned_Item_Count,Attuned_Item_Max	ABILITY:Special Ability|AUTOMATIC|This Character is Violating a Rule (Sword Of Wounding)|PREVAREQ:Attunement_Sword_Of_Wounding,0			BONUS:VAR|Attuned_Item_Count|1	COST:0
 Vorpal Sword		CATEGORY:Attunement	TYPE:Attunement	PREVARGTEQ:Attunement_Vorpal_Sword,1		PREVARLT:Attuned_Item_Count,Attuned_Item_Max	ABILITY:Special Ability|AUTOMATIC|This Character is Violating a Rule (Vorpal Sword)|PREVAREQ:Attunement_Vorpal_Sword,0					BONUS:VAR|Attuned_Item_Count|1	COST:0
 Weapon Of Warning		CATEGORY:Attunement	TYPE:Attunement	PREVARGTEQ:Attunement_Weapon_Of_Warning,1		PREVARLT:Attuned_Item_Count,Attuned_Item_Max	ABILITY:Special Ability|AUTOMATIC|This Character is Violating a Rule (Weapon Of Warning)|PREVAREQ:Attunement_Weapon_Of_Warning,0			BONUS:VAR|Attuned_Item_Count|1	COST:0
+
+###Block: Rules
+Bypass Background Restrictions			CATEGORY:Special Ability	TYPE:Rules	DESC:Allows the PC to take any Background desired.			
+Add additional Background Personality Trait	CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background personality trait			MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|POOL_Background_PersonalityTrait|1
+Add additional Background Ideal			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background ideal					MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|POOL_Background_Ideal|1
+Add additional Background Bond			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background bond					MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|POOL_Background_Bond|1
+Add additional Background Flaw			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background flaw					MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|POOL_Background_Flaw|1
+
