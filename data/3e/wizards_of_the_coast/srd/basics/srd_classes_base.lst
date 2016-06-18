@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -257,8 +257,8 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Sw
 # Stunning Attack times per day = StunningAttack
 # Stunning Attack DC = StunDC
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Attack Cycle	Combat bonus											Save bonus													FACT
-CLASS:Monk		HD:8		TYPE:Base.PC	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL	MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	FACT:ClassType|PC	FACT:Abb|Mnk
+# Class Name	Hit Dice	Type			Max Level	Source Page						Attack Cycle	Define		Combat bonus											Save bonus													Modify VAR			FACT
+CLASS:Monk		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesi	ATTACKCYCLE:UAB|3	DEFINE:MonkLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|MonkLVL|CL	FACT:ClassType|PC	FACT:Abb|Mnk
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Optionnal Weapon Prof.									Combat bonus															Save bonus																					Modify VAR														FACT
-CLASS:Bard (Monte Cook's)	HD:6	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Brd(MC)	FACT:SpellType|Arcane
+# Class Name			Hit Dice	Type			Max Level	Source Page		Optionnal Weapon Prof.									Define		Combat bonus															Save bonus																					Modify VAR																		FACT
+CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	DEFINE:BardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|BardLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	FACT:Abb|Brd(MC)	FACT:SpellType|Arcane
 # Class Name			Required AL
 CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill

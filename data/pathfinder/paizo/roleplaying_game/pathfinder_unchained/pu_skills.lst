@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Updated Background Skills
 # Skill Name					Type
@@ -80,7 +80,7 @@ Profession (Woodcutter).MOD			TYPE:Background
 
 
 ###Block: New Skills
-# Skill Name							Key Stat	Untrained?		Classes	Type
+# Skill Name							Key Stat	Untrained?		Classes	Type						Required Var. value
 Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background
 Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background
 
