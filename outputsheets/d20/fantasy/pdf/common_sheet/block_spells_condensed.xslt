@@ -715,7 +715,12 @@
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
+				<xsl:if test="string-length(castingtime) &lt; 15">
 					<xsl:value-of select="castingtime"/>
+				</xsl:if>
+				<xsl:if test="string-length(castingtime) &gt; 14">
+					See below
+				</xsl:if>
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
@@ -745,6 +750,10 @@
 			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 				<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
 					<fo:block text-align="start" font-size="5pt">
+					<xsl:if test="string-length(castingtime) &gt; 14">
+						<fo:inline font-weight="bold"> TIME: </fo:inline><xsl:value-of select="castingtime"/>
+						<fo:inline>; </fo:inline>
+					</xsl:if>
 					<xsl:if test="string-length(components) &gt; 0">
 						<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
 						<fo:inline> </fo:inline>
@@ -949,7 +958,7 @@
 			<fo:table-row>													<xsl:message>Test Levels 4-</xsl:message>
 				<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
 			</fo:table-row>
-			<xsl:if test="count(..//level) &gt; 5">
+			<xsl:if test="count(.//level) &gt; 5">
 				<fo:table-row>													<xsl:message>Test Levels 5+</xsl:message>
 					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
 				</fo:table-row>

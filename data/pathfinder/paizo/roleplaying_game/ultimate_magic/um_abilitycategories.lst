@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
@@ -29,18 +29,18 @@ ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTION
 ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:Combat.ItemCreation.Metamagic	PLURAL:Magus Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Summoner/Eidolon ability categories
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
-ABILITYCATEGORY:Eidolon Aquatic Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic	PLURAL:Eidolon Aquatic Evolutions		DISPLAYLOCATION:Class Features
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Eidolon Aquatic Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic			PLURAL:Eidolon Aquatic Evolutions		DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Eidolon Basic Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidBasicMagic	PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Minor Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMinorMagic	PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Major Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMajorMagic	PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Ultimate Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidUltimateMagic	PLURAL:Eidolon Ultimate Magic Choices	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMagicUpgrade	PLURAL:Eidolon Magic Upgrades			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Basic Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidBasicMagic			PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Minor Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMinorMagic			PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Major Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMajorMagic			PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Ultimate Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidUltimateMagic			PLURAL:Eidolon Ultimate Magic Choices	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMagicUpgrade			PLURAL:Eidolon Magic Upgrades			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Broodmaster Eidolon		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Broodmaster Eidolon	PLURAL:Broodmaster Eidolons			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Broodmaster Eidolon			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Broodmaster Eidolon		PLURAL:Broodmaster Eidolons			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Broodmaster Evolution Point		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	TYPE:Broodmaster Evolution Point	PLURAL:Broodmaster Evolution Points			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Broodmaster Evolution Point	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Broodmaster Evolution Point	PLURAL:Broodmaster Evolution Points		DISPLAYLOCATION:Class Features
 
 
 ###Block: Cleric Archetype ability categories
