@@ -1,14 +1,14 @@
 # CVS $Revision$ $Author$ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-CAMPAIGN:System Reference Document 5.0
-KEY:5e - System Reference Document 5.0
+CAMPAIGN:System Reference Document 5.1
+KEY:5e - System Reference Document
 RANK:1
 BOOKTYPE:Core Rules
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[5e - System Reference Document 5.0]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[5e - System Reference Document]
 GAMEMODE:5e
 SHOWINMENU:YES
-STATUS:ALPHA
+STATUS:BETA
 TYPE:Wizards of the Coast.Core
-SOURCELONG:System Reference Document 5.0
+SOURCELONG:System Reference Document
 SOURCESHORT:SRD5
 SOURCEDATE:2016-01
 SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd
@@ -20,13 +20,7 @@ COPYRIGHT:System Reference Document 5.0 Copyright 2016, Wizards of the Coast, In
 COPYRIGHT:PCGen dataset conversion for "System Reference Document 5.0" Copyright 2016, PCGen Data team (Including, but not limited to Andrew "Legacyking" Maitland, Wemes, Quonic, NGuill, Bahamut Dragon, Paul "Nylanfs" Grosse)
 
 #INFOTEXT:OGL.txt
-
-# COVER should be cover_gameMode_pub_book.file
-#COVER:../../../../_artwork/cover_5e_wotc_ph.jpg
-# LOGO should be logo_pub.file
-#LOGO:../../../../_artwork/logo_wotc.png
-
-INFOTEXT:System Reference Document 5.0 - The basic rules for 5th edition D&D.
+INFOTEXT:System Reference Document 5.1 - The basic rules for 5th edition D&D.
 
 PCC:../universal_rules/_universal_rules.pcc
 
@@ -35,8 +29,7 @@ ALIGNMENT:srd5__align.lst
 SAVE:srd5__saves.lst
 STAT:srd5__stats.lst
 
-
-
+#
 ABILITY:srd5_abilities.lst
 ABILITY:srd5_abilities_class.lst
 ABILITY:srd5_abilities_monster.lst
@@ -71,18 +64,19 @@ SKILL:srd5_skills.lst
 SPELL:srd5_spells.lst
 TEMPLATE:srd5_templates.lst
 
-###Block: Revisions
-#
-
 INFOTEXT:Supports 6.06.00
+
 # ENTRY DATE: 2016-01-12
 # LST MONKEY: Bahamut Dragon (Original set), Andrew Maitland (srd5)
 # LICENSE MONKEY: Paul Grosse - 2016-01-13
 # RELEASE REVIEW #
-# BETA:
+# BETA: Andrew Maitland
 # RELEASE:
 # Built for PCGen Version: 6.06.00
 # Updated to work with version: -
 # MINVER:6.6
 # MINDEVVER:6.06.00
 # COMMENTS: Contributors: Andrew "Legacyking" Maitland, Wemes, Quonic, NGuill, Bahamut Dragon
+###Block: Revisions
+# 5.0 initial release
+# 5.1 errata included
