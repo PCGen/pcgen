@@ -210,6 +210,15 @@ ABILITYCATEGORY:Custom Ideal					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							
 ABILITYCATEGORY:Custom Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Custom Bond																																		DISPLAYLOCATION:Character
 ABILITYCATEGORY:Custom Flaw					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability	TYPE:Custom Flaw																																		DISPLAYLOCATION:Character
 
+###Block: New Background Method
+ABILITYCATEGORY:Background / Personality Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Background_PersonalityTrait		CATEGORY:Special Ability	TYPE:Personality Trait																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Background / Ideal				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Background_Ideal				CATEGORY:Special Ability	TYPE:Ideal																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Background / Bond				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Background_Bond				CATEGORY:Special Ability	TYPE:Bond																																		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Background / Flaw				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Background_Flaw				CATEGORY:Special Ability	TYPE:Flaw																																		DISPLAYLOCATION:Character
+
+
+
+
 ###Block: Feat Support
 # Ability Category			Visible		Editable?		Change Pool?	Category of Object	Type of Object		Specific choices list							Display Location
 ABILITYCATEGORY:Athletic Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal		TYPE:Athletic Choices	ABILITYLIST:Ability Score +1 ~ STR|Ability Score +1 ~ DEX	DISPLAYLOCATION:Character
@@ -224,6 +233,8 @@ ABILITYCATEGORY:Blessings of Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPO
 ###Block: Misc Support
 # Ability Category			Visible		Editable?		Change Pool?	Base Pool number		Category of Object		Type of Object		Display Location
 ABILITYCATEGORY:Familiar Support	VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Familiar_Special	DISPLAYLOCATION:MISC
+ABILITYCATEGORY:Misc Rules		VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Rules			DISPLAYLOCATION:MISC
+
 ABILITYCATEGORY:Expertise		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:POOL_Expertise	CATEGORY:Special Ability	TYPE:Expertise		DISPLAYLOCATION:Character
 
 
