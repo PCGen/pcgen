@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original Entry by Tir Gwaith
 
@@ -154,37 +154,37 @@ Wildshape Blindsight	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO							
 
 
 ###Block:Monk abilities
-# Ability Name			Output Name				Category of Ability		Type						Visible	Define											Description																			Combat bonus											Add to base move																																																Add to magical move																																																										Modify VAR																								Source Page						Aspects
-Stunning Attack								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:StunningAttack|0	DEFINE:StunDC|0	DEFINE:MonkStunningLVL|0	DESC:%1 times per day (DC %2)|StunningAttack|StunDC																																																																																																																																								BONUS:VAR|StunDC|10+WIS	BONUS:VAR|StunningAttack|MonkStunningLVL|TYPE=NoStack.REPLACE	BONUS:VAR|StunDC|MonkStunningLVL/2|TYPE=NoStack.REPLACE	SOURCEPAGE:srdbasiccharacterclassesi	ASPECT:Ability Benefit|%1/day|StunningAttack
-Monk AC									CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MonkACCheck|0	DEFINE:MonkACLVL|0	DEFINE:MonkAC|0																						BONUS:COMBAT|AC|MonkAC|PREVARGTEQ:MonkACCheck,0	BONUS:COMBAT|AC|max(WIS,0)																																																																																																																BONUS:VAR|MonkACCheck|MonkAC+WIS	BONUS:VAR|MonkAC|MonkACLVL/5															SOURCEPAGE:srdbasiccharacterclassesi
-Monk Fast Movement		OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:MonkSpeedLVL|0																																										BONUS:MOVEADD|TYPE.Walk|5|TYPE=Normal.REPLACE|PREVARGTEQ:MonkSpeedLVL,3|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:MOVEADD|TYPE.Walk|min(floor(MonkSpeedLVL/3)*10,20)|TYPE=Normal.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*5,20)+floor(max(MonkSpeedLVL/15,0))*5|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*10,40)|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0																										SOURCEPAGE:srdbasiccharacterclassesi
-Still Mind									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Slow Fall									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:SlowFallMonkProgression|0	DEFINE:SlowFall|0				DESC:%1 feet|SlowFall|PREVARGTEQ:SlowFallMonkProgression,1	DESC:Any distance|PREVARGTEQ:SlowFallMonkProgression,2
-Purity of Body								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Leap of the Clouds							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Wholeness of Body								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES													DESC:%1 hp/day|WholenessHpLVL*2																																																																																																																																																																											ASPECT:Ability Benefit|%1 hp/day|WholenessHpLVL*2
-Ki Strike									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:KiStrike|0										DESC:+%1|KiStrike																																																																																																																																																																														ASPECT:Ability Benefit|+%1|KiStrike
-Diamond Body								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
-Abundant Step								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES
-Diamond Soul								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Quivering Palm								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:QuiverPalm|0									DESC:%1 per week|QuiverPalm																																																																																																																																																																												ASPECT:Ability Benefit|%1/week|QuiverPalm
-Tongue of the Sun and Moon						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Empty Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:EmptyBody|0									DESC:%1 rounds per day|EmptyBody
-Perfect Self								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Flurry of Blows								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:FlurryOfBlows|0																																																																																																																																																									BONUS:VAR|FlurryOfBlows|1
+# Ability Name						Output Name				Category of Ability		Type						Visible	Define											Description																			Combat bonus											Add to base move																																																Add to magical move																																																										Modify VAR																								Source Page						Aspects
+Stunning Attack											CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:StunningAttack|0	DEFINE:StunDC|0	DEFINE:MonkStunningLVL|0	DESC:%1 times per day (DC %2)|StunningAttack|StunDC																																																																																																																																								BONUS:VAR|StunDC|10+WIS	BONUS:VAR|StunningAttack|MonkStunningLVL|TYPE=NoStack.REPLACE	BONUS:VAR|StunDC|MonkStunningLVL/2|TYPE=NoStack.REPLACE	SOURCEPAGE:srdbasiccharacterclassesi	ASPECT:Ability Benefit|%1/day|StunningAttack
+Monk AC												CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MonkACCheck|0	DEFINE:MonkACLVL|0	DEFINE:MonkAC|0																						BONUS:COMBAT|AC|MonkAC|PREVARGTEQ:MonkACCheck,0	BONUS:COMBAT|AC|max(WIS,0)																																																																																																																BONUS:VAR|MonkACCheck|MonkAC+WIS	BONUS:VAR|MonkAC|MonkACLVL/5															SOURCEPAGE:srdbasiccharacterclassesi
+Monk Fast Movement					OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:MonkSpeedLVL|0																																										BONUS:MOVEADD|TYPE.Walk|5|TYPE=Normal.REPLACE|PREVARGTEQ:MonkSpeedLVL,3|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:MOVEADD|TYPE.Walk|min(floor(MonkSpeedLVL/3)*10,20)|TYPE=Normal.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*5,20)+floor(max(MonkSpeedLVL/15,0))*5|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*10,40)|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0																										SOURCEPAGE:srdbasiccharacterclassesi
+Still Mind												CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Slow Fall												CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:SlowFallMonkProgression|0	DEFINE:SlowFall|0				DESC:%1 feet|SlowFall|PREVARGTEQ:SlowFallMonkProgression,1	DESC:Any distance|PREVARGTEQ:SlowFallMonkProgression,2
+Purity of Body											CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Leap of the Clouds										CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Wholeness of Body											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES													DESC:%1 hp/day|WholenessHpLVL*2																																																																																																																																																																											ASPECT:Ability Benefit|%1 hp/day|WholenessHpLVL*2
+Ki Strike												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:KiStrike|0										DESC:+%1|KiStrike																																																																																																																																																																														ASPECT:Ability Benefit|+%1|KiStrike
+Diamond Body											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+Abundant Step											CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES
+Diamond Soul											CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Quivering Palm											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:QuiverPalm|0									DESC:%1 per week|QuiverPalm																																																																																																																																																																												ASPECT:Ability Benefit|%1/week|QuiverPalm
+Tongue of the Sun and Moon									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Empty Body												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:EmptyBody|0									DESC:%1 rounds per day|EmptyBody
+Perfect Self											CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Flurry of Blows											CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:FlurryOfBlows|0																																																																																																																																																									BONUS:VAR|FlurryOfBlows|1
 
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FlurryLVL|0	BONUS:VAR|FlurryLVL|MonkLVL	DEFINE:GreaterFlurry|0	BONUS:VAR|GreaterFlurry|(FlurryLVL>=11)|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkGreaterFlurry	
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FlurryAttacks|0	BONUS:VAR|FlurryAttacks|2+(FlurryLVL>=6)+(FlurryLVL>=10)+(FlurryLVL>=14)+(FlurryLVL>=18)	
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB|0	BONUS:VAR|FAB|-2
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_1|0	BONUS:VAR|FAB_1|FAB
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_2|0	BONUS:VAR|FAB_2|FAB
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_3|0	BONUS:VAR|FAB_3|FAB-3
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_4|0	BONUS:VAR|FAB_4|FAB-6
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_5|0	BONUS:VAR|FAB_5|FAB-9
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_6|0	BONUS:VAR|FAB_6|FAB-12
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_7|0	BONUS:VAR|FAB_7|FAB
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_8|0	BONUS:VAR|FAB_8|FAB
-CATEGORY=Special Ability|Flurry of Blows.MOD	DEFINE:FAB_9|0	BONUS:VAR|FAB_9|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FlurryLVL|0	DEFINE:GreaterFlurry|0																																																																																																																																																					BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|GreaterFlurry|(FlurryLVL>=11)|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkGreaterFlurry
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FlurryAttacks|0																																																																																																																																																									BONUS:VAR|FlurryAttacks|2+(FlurryLVL>=6)+(FlurryLVL>=10)+(FlurryLVL>=14)+(FlurryLVL>=18)
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB|0																																																																																																																																																										BONUS:VAR|FAB|-2
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_1|0																																																																																																																																																										BONUS:VAR|FAB_1|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_2|0																																																																																																																																																										BONUS:VAR|FAB_2|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_3|0																																																																																																																																																										BONUS:VAR|FAB_3|FAB-3
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_4|0																																																																																																																																																										BONUS:VAR|FAB_4|FAB-6
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_5|0																																																																																																																																																										BONUS:VAR|FAB_5|FAB-9
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_6|0																																																																																																																																																										BONUS:VAR|FAB_6|FAB-12
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_7|0																																																																																																																																																										BONUS:VAR|FAB_7|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_8|0																																																																																																																																																										BONUS:VAR|FAB_8|FAB
+CATEGORY=Special Ability|Flurry of Blows.MOD																			DEFINE:FAB_9|0																																																																																																																																																										BONUS:VAR|FAB_9|FAB
 
 ###Block: Paladin special abilities
 # Ability Name	Category of Ability		Type						Visible	Define			Description					Save bonus							Aspects
