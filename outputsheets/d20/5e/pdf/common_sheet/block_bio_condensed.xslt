@@ -285,7 +285,8 @@
 	====================================-->
 	<xsl:template match="campaign_histories">
 		<!-- BEGIN Armor table -->
-				<fo:page-sequence master-reference="Portrait">
+		<xsl:if test="count(campaign_history) &gt; 0">
+			<fo:page-sequence master-reference="Portrait">
 				<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'ac'"/>
 				</xsl:call-template>
@@ -397,6 +398,7 @@
 		</fo:table>
 						</fo:flow>
 			</fo:page-sequence>
+		</xsl:if>
 	</xsl:template>
 
 
