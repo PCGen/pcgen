@@ -1,4 +1,4 @@
-# CVS $Revision: 20448 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 20448 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -226,14 +226,14 @@ Philter of Love	TYPE:Magic.Wondrous	COST:3000	SOURCEPAGE:p.308
 Robes of Arcane Heritage	TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineFeatProgression|-4
 
 ###Block:S
-# Equipment Name			Type						Cost		Weight	Source Page		Modify VAR
-Sash of the War Champion	TYPE:Magic.Wondrous.Chest		COST:4000	WT:1		SOURCEPAGE:p.309	BONUS:VAR|ArmorTrainingLVL,BraveryLVL|4
-Scabbard of Stanching		TYPE:Magic.Wondrous.Belt.Container	COST:5000	WT:2		SOURCEPAGE:p.309								CONTAINS:UNLIM|Weapon=1
-Scabbard of Vigor			TYPE:Magic.Wondrous.Belt.Container	COST:1800	WT:3		SOURCEPAGE:p.309								CONTAINS:UNLIM|Weapon=1
-Sheath of Bladestealth		TYPE:Magic.Wondrous.Belt.Container	COST:5000	WT:2		SOURCEPAGE:p.309								CONTAINS:UNLIM|Weapon=1
-Silver Smite Bracelet		TYPE:Magic.Wondrous.Bracelet		COST:16000	WT:1		SOURCEPAGE:p.309	BONUS:VAR|SmiteEvilLVL|4
-Sniper Goggles			TYPE:Magic.Wondrous.Goggles		COST:20000	WT:1		SOURCEPAGE:p.309
-Soul Soap				TYPE:Magic.Wondrous.Consumable	COST:200	WT:2		SOURCEPAGE:p.309
+# Equipment Name			Type						Contains			Cost		Weight	Source Page		Modify VAR
+Sash of the War Champion	TYPE:Magic.Wondrous.Chest						COST:4000	WT:1		SOURCEPAGE:p.309	BONUS:VAR|ArmorTrainingLVL,BraveryLVL|4
+Scabbard of Stanching		TYPE:Magic.Wondrous.Belt.Container	CONTAINS:UNLIM|Weapon=1	COST:5000	WT:2		SOURCEPAGE:p.309
+Scabbard of Vigor			TYPE:Magic.Wondrous.Belt.Container	CONTAINS:UNLIM|Weapon=1	COST:1800	WT:3		SOURCEPAGE:p.309
+Sheath of Bladestealth		TYPE:Magic.Wondrous.Belt.Container	CONTAINS:UNLIM|Weapon=1	COST:5000	WT:2		SOURCEPAGE:p.309
+Silver Smite Bracelet		TYPE:Magic.Wondrous.Bracelet						COST:16000	WT:1		SOURCEPAGE:p.309	BONUS:VAR|SmiteEvilLVL|4
+Sniper Goggles			TYPE:Magic.Wondrous.Goggles						COST:20000	WT:1		SOURCEPAGE:p.309
+Soul Soap				TYPE:Magic.Wondrous.Consumable					COST:200	WT:2		SOURCEPAGE:p.309
 
 ###Block:T
 # Equipment Name		Type					Cost		Weight	Source Page		Ability

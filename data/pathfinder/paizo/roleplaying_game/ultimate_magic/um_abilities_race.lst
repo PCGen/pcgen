@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 27 March 2012
@@ -20,5 +20,5 @@ Ranged Attack (All Attacks/4 CP)		KEY:Animated Object ~ Ranged Attack All			CATE
 Trip (2 CP)						KEY:Animated Object ~ Trip					CATEGORY:Special Ability	TYPE:SpecialQuality.AnimatedObjectAbility	VISIBLE:DISPLAY																			DESC:The object gains the trip special ability with one of its slam attacks.																																	ABILITY:Special Ability|AUTOMATIC|Trip					BONUS:VAR|ConstructionPointsSpent|2									SOURCEPAGE:p.111
 
 ###Block: New Aquatic Eidolon.
-# Ability Name	Unique Key				Category of Ability	Type					QUALIFY:ABILITY							Ability																										Stat bonus									Modify VAR										Source Page
+# Ability Name	Unique Key				Category of Ability	Type					QUALIFY:ABILITY							Ability																										Stat bonus									Modify VAR									Source Page
 Aquatic		KEY:Eidolon Type ~ Aquatic	CATEGORY:Internal		TYPE:EidolonTypeSelection	QUALIFY:ABILITY=Special Ability|Evolution ~ Mount	ABILITY:Eidolon Aquatic Evolution|AUTOMATIC|Evolution ~ Bite|Evolution ~ Gills|Evolution ~ Improved Natural Armor|Evolution ~ Improved Swim|Evolution ~ Swim	BONUS:STAT|STR|6|TYPE=Race	BONUS:STAT|DEX|2|TYPE=Race	BONUS:VAR|EidolonFortGood,EidolonReflexGood|1|TYPE=Base	SOURCEPAGE:p.56
