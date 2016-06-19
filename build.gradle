@@ -144,6 +144,7 @@ compileJava {
 
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
+    compile group: 'com.apple', name: 'AppleJavaExtensions', version: '1.4'
     compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
     compile group: 'commons-io', name: 'commons-io', version:'2.4'
     compile group: 'rhino', name: 'js', version:'1.7R2'
