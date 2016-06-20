@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion	SOURCEDATE:2014-02
 # ORIGINAL ENTRY: Andrew Wilson (nuance)
 # ORIGINAL ENTRY DATE: 12 February 2014
@@ -17,35 +18,35 @@ SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/produ
 # Half-Elf Subraces
 # ==============================
 
-Half-Elf										KEY:Half-Elf ~ Default			VISIBLE:NO
-Aquatic Half-Elf								KEY:Half-Elf ~ Aquatic			VISIBLE:NO		SUBRACE:Shoreborn	
-Half-Drow										KEY:Half-Elf ~ Half-Drow		VISIBLE:NO		SUBRACE:DarkBorn
-Ekuaje Half-Elf				NAMEISPI:Yes		KEY:Half-Elf ~ Ekuaje			VISIBLE:NO		SUBRACE:Wildborn
-Mordant Spire Half-Elf		NAMEISPI:Yes		KEY:Half-Elf ~ Mordant Spire	VISIBLE:NO		SUBRACE:Spireborn		AUTO:LANG|Azlanti
-Snowcaster Half-Elf								KEY:Half-Elf ~ Snowcaster		VISIBLE:NO		SUBRACE:Snowborn
+# Template Name				Unique Key				Product Identity?	Visible	Source Page		Ability																															Auto Language	Bonus Languages					Region		Subrace
+Half-Elf					KEY:Half-Elf ~ Default					VISIBLE:NO
+Aquatic Half-Elf				KEY:Half-Elf ~ Aquatic					VISIBLE:NO																																																	SUBRACE:Shoreborn
+Half-Drow					KEY:Half-Elf ~ Half-Drow				VISIBLE:NO																																																	SUBRACE:DarkBorn
+Ekuaje Half-Elf				KEY:Half-Elf ~ Ekuaje		NAMEISPI:YES	VISIBLE:NO																																																	SUBRACE:Wildborn
+Mordant Spire Half-Elf			KEY:Half-Elf ~ Mordant Spire	NAMEISPI:YES	VISIBLE:NO																																				AUTO:LANG|Azlanti											SUBRACE:Spireborn
+Snowcaster Half-Elf			KEY:Half-Elf ~ Snowcaster				VISIBLE:NO																																																	SUBRACE:Snowborn
 
 # ==============================
 # Half-Orc Subraces
 # ==============================
 
-Half-Orc										KEY:Half-Orc ~ Default			VISIBLE:NO
-Darklands Half-Orc			NAMEISPI:Yes		KEY:Half-Orc ~ Darklands		VISIBLE:NO		SUBRACE:Gloomkin		LANGBONUS:Undercommon
-Desert Half-Orc									KEY:Half-Orc ~ Desert			VISIBLE:NO		SUBRACE:Sandkin			LANGBONUS:Kelish,Osiriani,Polyglot
-Jungle Half-Orc									KEY:Half-Orc ~ Jungle			VISIBLE:NO		SUBRACE:Rainkin			LANGBONUS:Polyglot
-Mountain Half-Orc								KEY:Half-Orc ~ Mountain			VISIBLE:NO		SUBRACE:Cragkin			LANGBONUS:Hallit,Shoanti,Skald,Varisian
-Winter Half-Orc									KEY:Half-Orc ~ Winter			VISIBLE:NO		SUBRACE:Frostkin		LANGBONUS:Erutaki,Skald
+Half-Orc					KEY:Half-Orc ~ Default					VISIBLE:NO
+Darklands Half-Orc			KEY:Half-Orc ~ Darklands	NAMEISPI:YES	VISIBLE:NO																																							LANGBONUS:Undercommon							SUBRACE:Gloomkin
+Desert Half-Orc				KEY:Half-Orc ~ Desert					VISIBLE:NO																																							LANGBONUS:Kelish,Osiriani,Polyglot					SUBRACE:Sandkin
+Jungle Half-Orc				KEY:Half-Orc ~ Jungle					VISIBLE:NO																																							LANGBONUS:Polyglot							SUBRACE:Rainkin
+Mountain Half-Orc				KEY:Half-Orc ~ Mountain					VISIBLE:NO																																							LANGBONUS:Hallit,Shoanti,Skald,Varisian				SUBRACE:Cragkin
+Winter Half-Orc				KEY:Half-Orc ~ Winter					VISIBLE:NO																																							LANGBONUS:Erutaki,Skald							SUBRACE:Frostkin
 
 # ==============================
 # New Regional Affinity
 # ==============================
 
-Regional Affinity (Erages)			NAMEISPI:YES		VISIBLE:NO			REGION:Erages		SOURCEPAGE:p.8
-Regional Affinity (Averaka)			NAMEISPI:YES		VISIBLE:NO			REGION:Averaka		SOURCEPAGE:p.14
+Regional Affinity (Erages)							NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8																																											REGION:Erages
+Regional Affinity (Averaka)							NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.14																																											REGION:Averaka
 
 
 # ==============================
 # Bardic Masterpiece Activation
 # ==============================
 
-Masterpiece Activation Bastard		VISIBLE:NO		ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ The Canticle of Joy|PREMULT:1,[PRESPELL:1,Masterpiece (The Canticle of Joy)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (The Canticle of Joy)]
-
+Masterpiece Activation Bastard									VISIBLE:NO				ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ The Canticle of Joy|PREMULT:1,[PRESPELL:1,Masterpiece (The Canticle of Joy)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (The Canticle of Joy)]

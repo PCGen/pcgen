@@ -4,6 +4,7 @@
 	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
+	<proficiency_bonus>${pcstring('VAR.Proficiency_Bonus.INTVAL.SIGN')}</proficiency_bonus>
 	<export>
 		<date>${pcstring('EXPORT.DATE')}</date>
 		<time>${pcstring('EXPORT.TIME')}</time>
@@ -227,13 +228,13 @@
 		<campaign_histories>
 			<@loop from=0 to=pcvar('count("CAMPAIGNHISTORY")-1') ; campaignhistory , campaignhistory_has_next>	
 			<campaign_history>
-				<campaign>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN</campaign>
-				<adventure>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE</adventure>
-				<party>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY</party>
-				<date>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE</date>
-				<xp>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP</xp>
-				<gm>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM</gm>
-				<text>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT</text>
+				<campaign>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN')}</campaign>
+				<adventure>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE')}</adventure>
+				<party>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY')}</party>
+				<date>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE')}</date>
+				<xp>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP')}</xp>
+				<gm>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM')}</gm>
+				<text>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT')}</text>
 			</campaign_history>
 			</@loop>	
 		</campaign_histories>
@@ -1420,6 +1421,51 @@
 	<race_traits>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Race Trait" nodeName="race_trait" />
 	</race_traits>
+	<!--
+	  ====================================
+	  ====================================
+			Class Features
+	  ====================================
+	  ====================================-->
+	<class_features>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Class Feature" nodeName="class_feature" />
+	</class_features>
+	<!--
+	  ====================================
+	  ====================================
+			Personality Traits
+	  ====================================
+	  ====================================-->
+	<personality_traits>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Personality Trait" nodeName="personality_trait" />
+	</personality_traits>
+	<!--
+	  ====================================
+	  ====================================
+			Bonds
+	  ====================================
+	  ====================================-->
+	<bonds>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Bond" nodeName="bond" />
+	</bonds>
+	<!--
+	  ====================================
+	  ====================================
+			Flaws
+	  ====================================
+	  ====================================-->
+	<flaws>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Flaw" nodeName="flaw" />
+	</flaws>
+	<!--
+	  ====================================
+	  ====================================
+			Ideals
+	  ====================================
+	  ====================================-->
+	<ideals>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Ideal" nodeName="ideal" />
+	</ideals>
 
 	<!--
 	====================================
@@ -1795,6 +1841,19 @@
 	  ====================================
 	  ====================================-->
 	<spells>
+		<spell_slots>
+			<SpellSlotsLVL0>${pcstring('VAR.SpellSlotsLVL0.INTVAL')}</SpellSlotsLVL0>
+			<SpellSlotsLVL1>${pcstring('VAR.SpellSlotsLVL1.INTVAL')}</SpellSlotsLVL1>
+			<SpellSlotsLVL2>${pcstring('VAR.SpellSlotsLVL2.INTVAL')}</SpellSlotsLVL2>
+			<SpellSlotsLVL3>${pcstring('VAR.SpellSlotsLVL3.INTVAL')}</SpellSlotsLVL3>
+			<SpellSlotsLVL4>${pcstring('VAR.SpellSlotsLVL4.INTVAL')}</SpellSlotsLVL4>
+			<SpellSlotsLVL5>${pcstring('VAR.SpellSlotsLVL5.INTVAL')}</SpellSlotsLVL5>
+			<SpellSlotsLVL6>${pcstring('VAR.SpellSlotsLVL6.INTVAL')}</SpellSlotsLVL6>
+			<SpellSlotsLVL7>${pcstring('VAR.SpellSlotsLVL7.INTVAL')}</SpellSlotsLVL7>
+			<SpellSlotsLVL8>${pcstring('VAR.SpellSlotsLVL8.INTVAL')}</SpellSlotsLVL8>
+			<SpellSlotsLVL9>${pcstring('VAR.SpellSlotsLVL9.INTVAL')}</SpellSlotsLVL9>
+		</spell_slots>
+
 		<!-- ### BEGIN Innate spells ### -->
 	<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
 	<#if (spellrace = 0)>

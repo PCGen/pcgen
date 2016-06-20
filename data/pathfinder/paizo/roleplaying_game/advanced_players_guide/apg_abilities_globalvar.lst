@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name	Category of Ability
 Alchemist		CATEGORY:Class
@@ -82,9 +82,9 @@ CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_GreaterBanner|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MasterTactician|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_SupremeCharge|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Proficiencies|0
-CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility2|0	
-CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility8|0	
-CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility15|0	
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility2|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility8|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility15|0
 
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Proficiencies=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Challenge=True

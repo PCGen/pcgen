@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # $Revision$ $Author$
 SOURCELONG:Pathfinder Player Companion Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-Archive	SOURCEDATE:2013-03
 
@@ -123,17 +123,17 @@ Familiar (Squirrel)	CATEGORY:Internal																												BONUS:SKILL|Sle
 # Ability Name		Category of Ability
 Boon Companion Tracker	CATEGORY:Internal
 ###Block: Tracking
-# Ability Name						Define													Modify VAR
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_AnimalCompanion|0	DEFINE:AnimalCompanionLVL_Diff|0	BONUS:VAR|BoonCompanionBonus_AnimalCompanion|MAX(0,MIN(4,AnimalCompanionLVL_Diff))	BONUS:VAR|AnimalCompanionLVL_Diff|AnimalCompanionMasterLVL-TL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_Familiar|0	DEFINE:FamiliarLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_Familiar|MAX(0,MIN(4,FamiliarLVL_Diff))	BONUS:VAR|FamiliarLVL_Diff|FamiliarMasterLVL-TL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_SpecialMount|0	DEFINE:SpecialMountLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_SpecialMount|MAX(0,MIN(4,SpecialMountLVL_Diff))	BONUS:VAR|SpecialMountLVL_Diff|CompanionMasterLVL_Paladin-TL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_CavalierMount|0	DEFINE:CavalierMountLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_CavalierMount|MAX(0,MIN(4,CavalierMountLVL_Diff))	BONUS:VAR|CavalierMountLVL_Diff|CompanionMasterLVL_Cavalier-TL
+# Ability Name						Define														Modify VAR
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_AnimalCompanion|0	DEFINE:AnimalCompanionLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_AnimalCompanion|MAX(0,MIN(4,AnimalCompanionLVL_Diff))	BONUS:VAR|AnimalCompanionLVL_Diff|AnimalCompanionMasterLVL-TL
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_Familiar|0	DEFINE:FamiliarLVL_Diff|0				BONUS:VAR|BoonCompanionBonus_Familiar|MAX(0,MIN(4,FamiliarLVL_Diff))	BONUS:VAR|FamiliarLVL_Diff|FamiliarMasterLVL-TL
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_SpecialMount|0	DEFINE:SpecialMountLVL_Diff|0				BONUS:VAR|BoonCompanionBonus_SpecialMount|MAX(0,MIN(4,SpecialMountLVL_Diff))	BONUS:VAR|SpecialMountLVL_Diff|CompanionMasterLVL_Paladin-TL
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_CavalierMount|0	DEFINE:CavalierMountLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_CavalierMount|MAX(0,MIN(4,CavalierMountLVL_Diff))	BONUS:VAR|CavalierMountLVL_Diff|CompanionMasterLVL_Cavalier-TL
 CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_HuntmasterCompanion|0	DEFINE:HuntmasterCompanionLVL_Diff|0	BONUS:VAR|BoonCompanionBonus_HuntmasterCompanion|MAX(0,MIN(4,HuntmasterCompanionLVL_Diff))	BONUS:VAR|HuntmasterCompanionLVL_Diff|TL-CompanionMasterLVL_Huntmaster
 
 ###Block: Selections
-# Ability Name	Unique Key						Category of Ability	Type					Multiple Requirements															Modify VAR
-Animal Companion	KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]	BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus_AnimalCompanion|PREVARGTEQ:AnimalCompanionLVL,1
-Familiar		KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]				BONUS:VAR|FamiliarLVL|BoonCompanionBonus_Familiar|PREVARGTEQ:FamiliarLVL,1
-Special Mount	KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]		BONUS:VAR|SpecialMountLVL|BoonCompanionBonus_SpecialMount|PREVARGTEQ:SpecialMountLVL,1
-Cavalier Mount	KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]		BONUS:VAR|CavalierMountLVL|BoonCompanionBonus_CavalierMount|PREVARGTEQ:CavalierMountLVL,1
-Animal Companion (Huntmaster Archetype)	KEY:Boon Companion ~ Huntmaster Companion	CATEGORY:Internal	TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:HuntmasterCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Huntmaster Companion]			BONUS:VAR|HuntmasterCompanionLVL|BoonCompanionBonus_HuntmasterCompanion|PREVARGTEQ:HuntmasterCompanionLVL,1
+# Ability Name					Unique Key						Category of Ability	Type					Multiple Requirements																Modify VAR
+Animal Companion					KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]		BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus_AnimalCompanion|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar						KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]					BONUS:VAR|FamiliarLVL|BoonCompanionBonus_Familiar|PREVARGTEQ:FamiliarLVL,1
+Special Mount					KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]			BONUS:VAR|SpecialMountLVL|BoonCompanionBonus_SpecialMount|PREVARGTEQ:SpecialMountLVL,1
+Cavalier Mount					KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]			BONUS:VAR|CavalierMountLVL|BoonCompanionBonus_CavalierMount|PREVARGTEQ:CavalierMountLVL,1
+Animal Companion (Huntmaster Archetype)	KEY:Boon Companion ~ Huntmaster Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:HuntmasterCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Huntmaster Companion]	BONUS:VAR|HuntmasterCompanionLVL|BoonCompanionBonus_HuntmasterCompanion|PREVARGTEQ:HuntmasterCompanionLVL,1

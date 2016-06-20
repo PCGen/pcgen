@@ -1,4 +1,4 @@
-# CVS $Revision: 14888 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 14888 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
 # Original Entry by:Stefan Radermacher
 
@@ -66,8 +66,8 @@ CATEGORY=Special Ability|Rogue Talent ~ Slippery Mind.MOD			TYPE:WhiteHairedWitc
 CATEGORY=Special Ability|Rogue Talent ~ Thoughtful Reexamining.MOD	TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
 
 ###Block: Cleric subdomain abilities
-# Ability Name	Unique Key				Category of Ability		Type								Define			Description																																																																																		Modify VAR							Aspects
-Moonfire		KEY:Domain Power ~ Moonfire	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.DomainPower	DESC:You can launch a blast of blazing moonlight from your eyes at a single target within 30 feet as a standard action. Moonfire deals %1d8 points of damage, and the target is dazzled for %2 rounds. This damage is the result of raw divine power, and cannot be blocked by energy resistance. A successful Reflex saving throw (DC %3) reduces the damage by half and negates the dazzle effect. You can use this ability %4 times per day.|DomainDarknessLVL/2|DomainDarknessLVL|DomainDarknessDC|DomainDarknessLVL/4-1		SOURCEPAGE:p.27	ASPECT:Ability Benefit|(%1/day)|DomainDarknessLVL/4-1	ASPECT:CheckCount|%1|DomainDarknessLVL/4-1	ASPECT:CheckType|Uses per Day
+# Ability Name	Unique Key				Category of Ability		Type								Description																																																																																				Source Page		Aspects
+Moonfire		KEY:Domain Power ~ Moonfire	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.DomainPower	DESC:You can launch a blast of blazing moonlight from your eyes at a single target within 30 feet as a standard action. Moonfire deals %1d8 points of damage, and the target is dazzled for %2 rounds. This damage is the result of raw divine power, and cannot be blocked by energy resistance. A successful Reflex saving throw (DC %3) reduces the damage by half and negates the dazzle effect. You can use this ability %4 times per day.|DomainDarknessLVL/2|DomainDarknessLVL|DomainDarknessDC|DomainDarknessLVL/4-1	SOURCEPAGE:p.27	ASPECT:Ability Benefit|(%1/day)|DomainDarknessLVL/4-1	ASPECT:CheckCount|%1|DomainDarknessLVL/4-1	ASPECT:CheckType|Uses per Day
 
 ###Block: Sorcerer bloodlines
 # Ability Name	Unique Key				Category of Ability		Type										Description																																							Ability																																																																																																					Bonus Ability Pool							Class Skill		Source Page

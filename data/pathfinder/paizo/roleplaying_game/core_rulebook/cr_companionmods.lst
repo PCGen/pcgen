@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
@@ -22,12 +22,12 @@ FOLLOWER:AnimalCompanionLVL=17	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1
 ###Block:
-# Class of the Master			Type				Ability
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Base Companion ~ Animal Companion
+# Class of the Master		Type				Ability
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Base Companion ~ Animal Companion
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
-# Class of the Master		Type				Auto Armor Prof				Define			Define Stat				Modify VAR								Main Race Type
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|MASTERVAR("SpecialMountLVL")	RACETYPE:Animal	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Special Mount
+# Class of the Master		Type				Ability										Auto Armor Prof				Define			Define Stat				Modify VAR								Main Race Type
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Special Mount	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|MASTERVAR("SpecialMountLVL")	RACETYPE:Animal
 ###Block: HD
 # Class of the Master		Type				Hit Dice
 FOLLOWER:SpecialMountLVL=2	TYPE:Special Mount	HD:1

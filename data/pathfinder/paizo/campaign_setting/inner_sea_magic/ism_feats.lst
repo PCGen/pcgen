@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
 
 ###Block: Feats
@@ -14,7 +14,7 @@ Inscribe Magical Tattoo	CATEGORY:FEAT		TYPE:Item Creation											PREMULT:2,[P
 
 ###Block: Feat MODs
 # Feat Name					Bonus Ability Pool
-# Ability Name						Type				Bonus Ability Pool
+# Ability Name						Type
 CATEGORY=FEAT|Alignment Channel.MOD			TYPE:MendevianPriest
 CATEGORY=FEAT|Greater Spell Penetration.MOD	TYPE:MendevianPriest
 CATEGORY=FEAT|Leadership.MOD				TYPE:MendevianPriest

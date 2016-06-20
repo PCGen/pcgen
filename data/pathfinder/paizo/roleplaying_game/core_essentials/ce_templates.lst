@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Builder templates
@@ -1100,19 +1100,15 @@ Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:STA
 
 
 ###Block:
-# Template Name	Define Stat			Required Race					Prohibited Stat	Required Text		Modify VAR			Add					Apply Kit			Bonus Languages		Subrace		Main Race Type		Add Levels
-Awakened Animal					PRERACE:1,RACETYPE=Animal,TYPE=Animal	!PRESTAT:1,INT=3									ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Animal|2
-Awakened Vermin	DEFINESTAT:STAT|INT	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin								BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Vermin	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Vermin|2
-Awakened Tree	DEFINESTAT:STAT|INT											PRETEXT:Inanimate Tree	BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant
+# Template Name				Visible	Define Stat			Required Race					Prohibited Stat	Required Text		Modify VAR			Add					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype		Add Levels
+Awakened Animal										PRERACE:1,RACETYPE=Animal,TYPE=Animal	!PRESTAT:1,INT=3									ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast					ADDLEVEL:Animal|2
+Awakened Vermin						DEFINESTAT:STAT|INT	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin								BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Vermin	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast					ADDLEVEL:Vermin|2
+Awakened Tree						DEFINESTAT:STAT|INT											PRETEXT:Inanimate Tree	BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant
 
-Monster is a PC																			BONUS:VAR|IsPC|1
-
-
-
-Assign RaceType ~ Outsider		VISIBLE:NO	RACETYPE:Outsider
-Assign RaceType ~ Fey			VISIBLE:NO	RACETYPE:Fey
-Assign RaceSubType ~ Extraplanar	VISIBLE:NO	RACESUBTYPE:Extraplanar
+Monster is a PC																								BONUS:VAR|IsPC|1
 
 
 
-
+Assign RaceType ~ Outsider		VISIBLE:NO																																							RACETYPE:Outsider
+Assign RaceType ~ Fey			VISIBLE:NO																																							RACETYPE:Fey
+Assign RaceSubType ~ Extraplanar	VISIBLE:NO																																											RACESUBTYPE:Extraplanar
