@@ -1841,6 +1841,8 @@
 	  ====================================
 	  ====================================-->
 	<spells>
+		<isslotcaster>${pcstring('VAR.SpellCasterClassCount.INTVAL')}</isslotcaster>
+		<warlock>${pcstring('VAR.WarlockLVL.INTVAL')}</warlock>
 		<spell_slots>
 			<SpellSlotsLVL0>${pcstring('VAR.SpellSlotsLVL0.INTVAL')}</SpellSlotsLVL0>
 			<SpellSlotsLVL1>${pcstring('VAR.SpellSlotsLVL1.INTVAL')}</SpellSlotsLVL1>
@@ -1853,6 +1855,11 @@
 			<SpellSlotsLVL8>${pcstring('VAR.SpellSlotsLVL8.INTVAL')}</SpellSlotsLVL8>
 			<SpellSlotsLVL9>${pcstring('VAR.SpellSlotsLVL9.INTVAL')}</SpellSlotsLVL9>
 		</spell_slots>
+		<spell_slots_warlock>
+			<WarlockSlotLVL>${pcstring('VAR.WarlockSlotLVL.INTVAL')}</WarlockSlotLVL>
+			<WarlockSpellSlots>${pcstring('VAR.WarlockSpellSlots.INTVAL')}</WarlockSpellSlots>
+			<WarlockSpellDC>${pcstring('VAR.WarlockSpellDC.INTVAL')}</WarlockSpellDC>
+		</spell_slots_warlock>
 
 		<!-- ### BEGIN Innate spells ### -->
 	<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
