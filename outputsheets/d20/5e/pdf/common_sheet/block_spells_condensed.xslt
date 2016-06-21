@@ -23,7 +23,12 @@
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
-					<xsl:apply-templates select="spell_slots"/>
+					<xsl:if test="isslotcaster &gt; 0">
+						<xsl:apply-templates select="spell_slots"/>
+					</xsl:if>
+					<xsl:if test="warlock &gt; 0">
+						<xsl:apply-templates select="spell_slots_warlock"/>
+					</xsl:if>
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	
 					<xsl:apply-templates select="spells_innate/class_innate"/>	
 					<xsl:apply-templates select="known_spells"/>	
@@ -134,6 +139,53 @@
 						<xsl:with-param name="value" select="SpellSlotsLVL9"/>
 					</xsl:call-template>
 					<fo:table-cell/>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>	
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Warlock Slots
+====================================
+====================================-->
+	<xsl:template match="spell_slots_warlock">
+		<!-- BEGIN Spell Slots table -->
+		<fo:table table-layout="fixed" space-after="2mm">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column column-width="0.75mm"/>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell padding-top="1pt" number-columns-spanned="9">
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'spells.memorized.header'"/></xsl:call-template>
+						<fo:block font-size="10pt" font-weight="bold">Warlock Spell Slots</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Slot Level'"/>
+						<xsl:with-param name="value" select="WarlockSlotLVL"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'Slots'"/>
+						<xsl:with-param name="value" select="WarlockSpellSlots"/>
+					</xsl:call-template>
+					<fo:table-cell/>
+					<xsl:call-template name="psionic.entry">
+						<xsl:with-param name="title" select="'DC'"/>
+						<xsl:with-param name="value" select="WarlockSpellDC"/>
+					</xsl:call-template>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>	

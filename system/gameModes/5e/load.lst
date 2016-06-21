@@ -1,45 +1,64 @@
-SIZEMULT:T|4
-SIZEMULT:S|6
-SIZEMULT:M|8
-SIZEMULT:L|16
-SIZEMULT:H|32
-SIZEMULT:G|64
+SIZEMULT:T|0.5
+SIZEMULT:S|1
+SIZEMULT:M|1
+SIZEMULT:L|2
+SIZEMULT:H|4
+SIZEMULT:G|8
 LOAD:0|0
-LOAD:1|0.625
-LOAD:2|1.25
-LOAD:3|1.875
-LOAD:4|2.5
-LOAD:5|3.125
-LOAD:6|3.75
-LOAD:7|4.375
-LOAD:8|5
-LOAD:9|5.625
-LOAD:10|6.25
-LOAD:11|6.875
-LOAD:12|7.5
-LOAD:13|8.125
-LOAD:14|8.75
-LOAD:15|9.375
-LOAD:16|10
-LOAD:17|10.625
-LOAD:18|11.25
-LOAD:19|11.875
-LOAD:20|12.5
-LOAD:21|13.125
-LOAD:22|13.75
-LOAD:23|14.375
-LOAD:24|15
-LOAD:25|15.625
-LOAD:26|16.25
-LOAD:27|16.875
-LOAD:28|17.5
-LOAD:29|18.125
-LOAD:30|18.75
-LOADMULT:4
+LOAD:1|15
+LOAD:2|30
+LOAD:3|45
+LOAD:4|60
+LOAD:5|75
+LOAD:6|90
+LOAD:7|105
+LOAD:8|120
+LOAD:9|135
+LOAD:10|150
+LOAD:11|165
+LOAD:12|180
+LOAD:13|195
+LOAD:14|210
+LOAD:15|225
+LOAD:16|240
+LOAD:17|255
+LOAD:18|270
+LOAD:19|285
+LOAD:20|300
+LOAD:21|315
+LOAD:22|330
+LOAD:23|345
+LOAD:24|360
+LOAD:25|375
+LOAD:26|390
+LOAD:27|405
+LOAD:28|420
+LOAD:29|435
+LOAD:30|450
+LOADMULT:15
 
 ENCUMBRANCE:Light|1||0
-ENCUMBRANCE:Medium|2||0
-ENCUMBRANCE:Heavy|3||0
+ENCUMBRANCE:Medium|1||0
+ENCUMBRANCE:Heavy|1||0
 ENCUMBRANCE:OverHead|1||0
 ENCUMBRANCE:OffGround|2||0
-ENCUMBRANCE:PushDrag|5||0
+ENCUMBRANCE:PushDrag|2||0
+
+#LIFTING AND CARRYING
+#Your Strength score determines the amount of weight
+#you can bear. The following terms define what you can
+#lift or carry.
+#Carrying Capacity. Vour carrying capacity is your
+#Strength score multiplied by 15. This is the weight (in
+#pounds) that you can carry, which is high enough that
+#most characlers don't usually have to worry about it.
+#Push, Drag, or Lift. You can push, drag, or lift a
+#weight in pounds up to twice your carrying capacity
+#(or 30 times your Strength score). While pushing or
+#dragging weight in excess of your carrying capacity,
+#your speed drops to 5 feet.
+#Size and Strength. Larger creatures can bear more
+#weight, whereas Tiny creatures can carry less. For
+#each size category above Medium, double the creature's
+#carrying capacity and the amount it can push, drag, or
+#lift. For a Tiny creature, halve these weights.
