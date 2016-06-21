@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
-	version="1.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+<xsl:stylesheet
+	version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
-	xmlns:str="http://xsltsl.sourceforge.net/string"
-	xmlns:xalan="http://xml.apache.org/xalan" 
+	xmlns:str="http://xsltsl.sourceforge.net/string.html"
+	xmlns:xalan="http://xml.apache.org/xalan"
 	>
 
 	<xsl:import href="../../../xsltsl-1.1/stdlib.xsl"/>
@@ -29,7 +29,7 @@
 			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Spell Resistance: </fo:inline><xsl:value-of select="spell_resistance"/></fo:block>
 			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Effect: </fo:inline><xsl:value-of select="effect"/></fo:block>
 			<fo:block font-size="5pt" text-indent="3mm"><xsl:value-of select="source/source"/></fo:block>
-						
+
 		</fo:block>
 	</xsl:template>
 
@@ -87,13 +87,14 @@
 <xsl:template match="*">
 	<xsl:call-template name="process.attack.string">
 		<xsl:with-param name="bab" select="'+7'" />
+        <xsl:with-param name="maxrepeat" select="4" />
 	</xsl:call-template>
 </xsl:template>
 
 	<!--
 ====================================
 ====================================
-	TEMPLATE - GENERIC Process 
+	TEMPLATE - GENERIC Process
 ====================================
 ====================================-->
 
@@ -104,34 +105,37 @@
 -->
 	<xsl:template name="process.attack.string">
 		<xsl:param name="bab"/>
+        <xsl:param name="maxrepeat"/>
 		<xsl:param name="attack" select="$bab"/>
 		<xsl:param name="string" select="''"/>
-		
+
 		<xsl:choose>
 			<xsl:when test="starts-with($attack, '+')">
 				<xsl:call-template name="process.attack.string">
 					<xsl:with-param name="attack" select="substring($attack, 2)"/>
 					<xsl:with-param name="bab" select="substring($bab, 2)"/>
+                    <xsl:with-param name="maxrepeat" select="$maxrepeat - 1"/>
 					<xsl:with-param name="string" select="$string"/>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:choose>
-					<xsl:when test="$bab &gt; 5">
+					<xsl:when test="($bab &gt; 5) and ($maxrepeat &gt; 0)">
 						<xsl:call-template name="process.attack.string">
 							<xsl:with-param name="attack" select="$attack - 5"/>
 							<xsl:with-param name="bab" select="$bab - 5"/>
+                            <xsl:with-param name="maxrepeat" select="$maxrepeat - 1"/>
 							<xsl:with-param name="string">
-								<xsl:value-of select="$string"/>+<xsl:value-of select="$attack"/>/</xsl:with-param>
+								<xsl:value-of select="$string"/><xsl:if test="starts-with($attack, '-')=false">+</xsl:if><xsl:value-of select="$attack"/>/</xsl:with-param>
 						</xsl:call-template>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="$string"/>+<xsl:value-of select="$attack"/>
+						<xsl:value-of select="$string"/><xsl:if test="starts-with($attack, '-')=false">+</xsl:if><xsl:value-of select="$attack"/>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:otherwise>
 		</xsl:choose>
-		
+
 	</xsl:template>
 
 	<!--
@@ -159,7 +163,7 @@
 		<xsl:param name="attribute"/>
 		<xsl:param name="title" />
 		<xsl:param name="value" />
-		
+
 		<fo:table table-layout="fixed" space-before.optimum="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
@@ -198,8 +202,8 @@
 		<xsl:param name="list" />
 		<xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" select="''" />
-		<xsl:param name="col1width" select="0.36 * ($pagePrintableWidth - 2) div 2"/> 
-		<xsl:param name="col2width" select="0.64 * ($pagePrintableWidth - 2) div 2"/> 
+		<xsl:param name="col1width" select="0.36 * ($pagePrintableWidth - 2) div 2"/>
+		<xsl:param name="col2width" select="0.64 * ($pagePrintableWidth - 2) div 2"/>
 
 		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
@@ -259,15 +263,22 @@
 		<xsl:param name="list" />
 		<xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" select="''" />
+		<xsl:param name="benefit.tag" select="''" />
 
 		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column>
-			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 6" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell padding-top="1pt">
+					<fo:table-cell padding-top="1pt" number-columns-spanned="3">
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.title')"/></xsl:call-template>
 						<fo:block font-size="9pt"><xsl:value-of select="$title"/></fo:block>
 					</fo:table-cell>
@@ -280,25 +291,58 @@
 						</xsl:choose>
 					</xsl:variable>
 					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
-						<fo:table-row keep-with-next.within-column="always">
+						<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
-							<fo:table-cell padding="1pt">
+							<xsl:choose>
+								<xsl:when test="source!=''">
+									<fo:table-cell padding="0pt" number-columns-spanned="2">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+									<fo:table-cell padding="0pt" text-align="end">
+										<fo:block  font-size="7pt" font-weight="bold">[<xsl:value-of select="source"/>]</fo:block>
+									</fo:table-cell>
+								</xsl:when>
+								<xsl:otherwise>
+									<fo:table-cell number-columns-spanned="3" padding="0pt">
+										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+										<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
+									</fo:table-cell>
+								</xsl:otherwise>
+							</xsl:choose>
+						</fo:table-row>
+
+						<xsl:if test="$desc.tag!=''">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
-								<fo:block font-size="7pt" font-weight="bold"><xsl:value-of select="./*[name()=$name.tag]"/></fo:block>
-								<xsl:if test="$desc.tag!=''">
+								<fo:table-cell padding="1pt" number-columns-spanned="3">
 									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
 										<xsl:call-template name="paragraghlist">
 											<xsl:with-param name="tag" select="$desc.tag"/>
 										</xsl:call-template>
 									</fo:block>
-								</xsl:if>
-							</fo:table-cell>
-						</fo:table-row>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:if>
+
+						<xsl:if test="$benefit.tag!=''">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
+								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+								<fo:table-cell padding="1pt" number-columns-spanned="3">
+									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$benefit.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</xsl:if>
 					</xsl:if>
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
+
 	<!--
 ====================================
 ====================================
@@ -317,7 +361,6 @@
 		<xsl:param name="special.tag" />
 		<xsl:param name="target.tag"  />
 		<xsl:param name="trigger.tag"  />
-		<xsl:param name="attack_type.tag"  />
 		<xsl:param name="attack.tag"  />
 		<xsl:param name="hit.tag"  />
 		<xsl:param name="miss.tag"  />
@@ -393,14 +436,6 @@
 										</xsl:call-template>
 									</fo:block>
 								</xsl:if>
-								<xsl:if test="string-length(./*[name()=$attack_type.tag]) &gt; 0">
-									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
-										<fo:inline font-weight="bold">Attack Type  </fo:inline>
-										<xsl:call-template name="paragraghlist">
-											<xsl:with-param name="tag" select="$attack_type.tag"/>
-										</xsl:call-template>
-									</fo:block>
-								</xsl:if>
 								<xsl:if test="string-length(./*[name()=$attack.tag]) &gt; 0">
 									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
 										<fo:inline font-weight="bold">Attack  </fo:inline>
@@ -457,6 +492,150 @@
 		</fo:table>
 	</xsl:template>
 
+<!--
+====================================
+====================================
+	TEMPLATE - Deity Display
+====================================
+====================================-->
+	<xsl:template name="deity.display">
+		<xsl:param name="attribute"/>
+		<xsl:param name="title" />
+		<xsl:param name="deitytitle.tag"  />
+		<xsl:param name="list" />
+		<xsl:param name="name.tag" />
+		<xsl:param name="desc.tag" />
+		<xsl:param name="alignment.tag"  />
+		<xsl:param name="domainlist.tag"  />
+		<xsl:param name="favoredweapon.tag"  />
+		<xsl:param name="holyitem.tag" />
+		<xsl:param name="pantheonlist.tag"  />
+		<xsl:param name="source.tag"  />
+		<xsl:param name="special_abilities.tag"  />
+		<xsl:param name="appearance.tag"  />
+		<xsl:param name="worshippers.tag"  />
+
+		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="concat($attribute, '.border')"/>
+			</xsl:call-template>
+			<fo:table-column>
+			    <xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 2) div 2" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell padding-top="1pt" number-columns-spanned="1">
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.title')"/></xsl:call-template>
+						<fo:block font-size="9pt"><xsl:value-of select="$title"/></fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+
+					<xsl:variable name="shade">
+						<xsl:choose>
+							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+							<xsl:otherwise>lightline</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+
+<!-->					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">	-->
+						<fo:table-row keep-with-next.within-column="always">
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+							<fo:table-cell padding="1pt">
+								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
+								<fo:block font-size="9pt"  text-align="left" font-weight="bold">
+									<xsl:value-of select="./*[name()=$name.tag]"/>
+								</fo:block>
+								<fo:block font-size="7pt" text-align="right" font-weight="bold">
+									<xsl:value-of select="./*[name()=$deitytitle.tag]"/>
+								</fo:block>
+								<xsl:if test="string-length(./*[name()=$desc.tag]) &gt; 0">
+									<fo:block font-size="5pt" font-style="italic"  text-align="center" >
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$desc.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+						<!-->		<xsl:if test="string-length(./*[name()=$alignment.tag]) &gt; 0">	-->
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$alignment.tag"/>
+										</xsl:call-template>
+									</fo:block>
+						<!-->		</xsl:if>	-->
+
+
+							<!-->	<xsl:if test="string-length(./*[name()=$domainlist.tag]) &gt; 0">	-->
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$domainlist.tag"/>
+										</xsl:call-template>
+									</fo:block>
+						<!-->		</xsl:if>	-->
+								<xsl:if test="string-length(./*[name()=$favoredweapon.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$favoredweapon.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$holyitem.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$holyitem.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$pantheonlist.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$pantheonlist.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$source.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$source.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$special_abilities.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$special_abilities.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$appearance.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$appearance.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$worshippers.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Power Use  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$worshippers.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+							</fo:table-cell>
+						</fo:table-row>
+	<!-->				</xsl:if>	-->
+
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
 	<!--
 ====================================
 ====================================
@@ -467,12 +646,12 @@
 		<xsl:param name="list"/>
 		<xsl:param name="count"/>
 		<xsl:param name="sofar"/>
-		
+
 		<xsl:choose>
 			<xsl:when test="not($list)">
 				<xsl:copy-of select="$sofar"/>
-			</xsl:when>		
-			<xsl:otherwise> 
+			</xsl:when>
+			<xsl:otherwise>
 				<!-- Call template for remaining Items -->
 				<xsl:variable name="fooz" select="$list[1]/name"/>
 				<xsl:variable name="froboz">
@@ -491,7 +670,7 @@
 								<xsl:copy-of select="$froboz"/>
 							</subitems>
 						</xsl:if>
-					</subitem>				
+					</subitem>
 				</xsl:variable>
 				<xsl:call-template name="equipment_list_to_tree">
 					<xsl:with-param name="list" select="$list[position()>1]"/>
@@ -513,7 +692,7 @@
 ====================================-->
 	<xsl:template match="equipment" mode="tree">
 		<xsl:param name="total_width"/>
-		
+
 		<xsl:variable name="spam">
 			<subitems>
 			<xsl:call-template name="equipment_list_to_tree">
@@ -619,7 +798,7 @@
 				</fo:table-body>
 			</fo:table>
 		</xsl:variable>
-		
+
 		<xsl:choose>
 			<xsl:when test="$depth = 0">
 				<xsl:copy-of select="$subitem"/>
@@ -644,9 +823,9 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
-	
-	
+
+
+
 	<!--
 ====================================
 ====================================
@@ -665,26 +844,26 @@
 					<xsl:apply-templates select="item" mode="equipment_name_details" />
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell>	
+			<fo:table-cell>
 				<fo:block text-align="right"  space-before.optimum="1pt" font-size="7pt">
 					<xsl:value-of select="item/quantity" />
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell>	
+			<fo:table-cell>
 				<fo:block text-align="right" space-before.optimum="1pt" font-size="7pt">
 					<xsl:value-of select="format-number(item/weight, '####0.0#')" />
 					<xsl:if test="item/quantity &gt; 1">
 						<fo:inline font-size="5pt">(<xsl:value-of select="format-number(item/weight * item/quantity, '####0.0#')" />)</fo:inline>
 					</xsl:if>
-				</fo:block>	
+				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell>	
+			<fo:table-cell>
 				<fo:block text-align="right" space-before.optimum="1pt" font-size="7pt">
 				<xsl:value-of select="format-number(item/cost, '####0.0#')" />
 					<xsl:if test="item/quantity &gt; 1">
 						<fo:inline font-size="5pt">(<xsl:value-of select="format-number(item/cost * item/quantity, '####0.0#')" />)</fo:inline>
 					</xsl:if>
-				</fo:block>	
+				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
 		<xsl:if test="subitems">
@@ -735,6 +914,7 @@
 		</fo:block-->
 		<fo:block space-before.optimum="1pt" font-size="5pt">
 			<xsl:value-of select="special_properties"/>
+			<xsl:value-of select="quality"/>
 		</fo:block>
 		<fo:block space-before.optimum="1pt" font-size="5pt">
 			<xsl:value-of select="note"/>
@@ -767,21 +947,21 @@
 				<xsl:with-param name="text" select="$string"/>
 				<xsl:with-param name="chars" select="' '"/>
 			</xsl:call-template>
-		</xsl:variable>		
+		</xsl:variable>
 
 		<xsl:variable name="label">
 			<xsl:call-template name="str:substring-after-last">
 				<xsl:with-param name="text" select="$string"/>
 				<xsl:with-param name="char" select="' '"/>
 			</xsl:call-template>
-		</xsl:variable>		
+		</xsl:variable>
 
 		<xsl:value-of select="format-number($number, '####0.0#')" /><xsl:text> </xsl:text><xsl:value-of select="$label"/>
 	</xsl:template>
 
 	<xsl:template name="stripLeadingPlus">
 		<xsl:param name="string"/>
-		
+
 		<xsl:choose>
 			<xsl:when test="starts-with($string, '+')">
 				<xsl:value-of select="substring($string, 2)"/>
@@ -812,12 +992,12 @@
 					<xsl:if test="string-length(.) &gt; 0">
 						<fo:block text-indent="5pt">
 							<xsl:value-of select="." />
-						</fo:block> 
+						</fo:block>
 					</xsl:if>
 					<xsl:if test="string-length(.) = 0">
 						<fo:block text-indent="5pt">
 							&#160;
-						</fo:block> 
+						</fo:block>
 					</xsl:if>
 				</xsl:if>
 			</xsl:for-each>
@@ -837,7 +1017,7 @@
 					<fo:table-column>
 						<xsl:attribute name="column-width">
 							<xsl:value-of select="@column-width" />
-						</xsl:attribute> 
+						</xsl:attribute>
 					</fo:table-column>
 				</xsl:for-each>
 				<xsl:for-each select="./table-body">
@@ -848,7 +1028,7 @@
 									<fo:table-cell>
 										<fo:block text-indent="5pt">
 											<xsl:value-of select="." />
-										</fo:block> 
+										</fo:block>
 									</fo:table-cell>
 								</xsl:for-each>
 							</fo:table-row>
@@ -860,3 +1040,4 @@
 	</xsl:template>
 
 </xsl:stylesheet>
+

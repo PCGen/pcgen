@@ -385,6 +385,17 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 +1 Level 8 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Bonus Spell Cast	DESC:GM awarded PC with +1 level 8 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=8|1
 +1 Level 9 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Bonus Spell Cast	DESC:GM awarded PC with +1 level 9 spell per day.			STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER																							BONUS:SPELLCAST|CLASS=%LIST;LEVEL=9|1
 
+
+###Block: GM Award to Ability Scores
+# Ability Name		SORTKEY		Category of Ability		Type					Description						Stackable?	Multiple?	Choose		Bonus to stat	Cost
++1 STR Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 STR bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|STR|1	COST:0
++1 DEX Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 DEX bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|DEX|1	COST:0
++1 CON Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 CON bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CON|1	COST:0
++1 INT Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 INT bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1	COST:0
++1 WIS Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 WIS bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|1	COST:0
++1 CHA Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 CHA bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1	COST:0
+
+
 ###Block: House Rules / Homebrew Support
 # Ability Name					Category of Ability	Type				Define					Description																Modify VAR							Cost
 Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0	DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule	COST:0
