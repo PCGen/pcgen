@@ -753,6 +753,11 @@ FACTDEF:ABILITY|Wizard_CF_BonusFeat20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTAB
 #FACTDEF:ABILITY|DwarfStonecunning				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Stonecunning										EXPLANATION:Remove Stonecunning
 #FACTDEF:ABILITY|DwarfWeaponFamiliarity			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponFamiliarity								EXPLANATION:Remove WeaponFamiliarity
 
+FACTDEF:ABILITY|QualifiedForDragonDisciple		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Qualified			EXPLANATION:An alternative method to qualify for Dragon Disciple
+
+
+
+
 ###Block: Saves File
 # Name						Dataformat		Required	Selectable		Visible	Displayname			Explanation
 FACTDEF:CHECK|MainStat				DATAFORMAT:STRING												EXPLANATION:Output the Stat a save uses to the OS
