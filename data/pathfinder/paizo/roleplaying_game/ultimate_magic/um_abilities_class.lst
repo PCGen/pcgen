@@ -53,6 +53,7 @@ True Magus				KEY:Magus ~ True Magus			CATEGORY:Special Ability	TYPE:MagusClassF
 
 Bonus Feats				KEY:Magus ~ Bonus Feats			CATEGORY:Special Ability	TYPE:MagusClassFeatures.SpecialQuality																							DESC:At 5th level, and every six levels thereafter, a magus gains a bonus feat in addition to those gained from normal advancement. These bonus feats must be selected from those listed as combat, item creation, or metamagic feats. He must meet the prerequisites for these feats as normal.																																																																																																																																																																																																																																																																					BONUS:ABILITYPOOL|Magus Bonus Feat|(MagusLVL+1)/6																																SOURCEPAGE:p.15
 
+Class Skills					KEY:Magus ~ Class Skills		CATEGORY:Internal	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
 
 ###Block: Archetype Support
 # Ability Name							Define				Modify VAR

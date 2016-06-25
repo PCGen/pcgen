@@ -146,7 +146,7 @@ CATEGORY=Class|Rogue ~ Unchained Class.MOD	BONUS:VAR|Rogue_CF_FinesseTraining4|1
 
 ###Block: Unchained Summoner Class Feature Progression
 # Ability Name						Ability
-CATEGORY=Class|Summoner ~ Unchained Class.MOD	ABILITY:Unchained Summoner Class Feature|AUTOMATIC|Unchained Summoner ~ Skills|PREVARGTEQ:Summoner_CFP_Level,1
+CATEGORY=Class|Summoner ~ Unchained Class.MOD	ABILITY:Unchained Summoner Class Feature|AUTOMATIC|Unchained Summoner ~ Skills|PREVAREQ:Summoner_CF_ClassSkills,0|PREVARGTEQ:Summoner_CFP_Level,1
 CATEGORY=Class|Summoner ~ Unchained Class.MOD	ABILITY:Unchained Summoner Class Feature|AUTOMATIC|Unchained Summoner ~ Weapon and Armor Proficiency|PREVARGTEQ:Summoner_CFP_Level,1
 CATEGORY=Class|Summoner ~ Unchained Class.MOD	ABILITY:Unchained Summoner Class Feature|AUTOMATIC|Unchained Summoner ~ Spells|PREVARGTEQ:Summoner_CFP_Level,1
 CATEGORY=Class|Summoner ~ Unchained Class.MOD	ABILITY:Unchained Summoner Class Feature|AUTOMATIC|Unchained Summoner ~ Cantrips|PREVARGTEQ:Summoner_CFP_Level,1
