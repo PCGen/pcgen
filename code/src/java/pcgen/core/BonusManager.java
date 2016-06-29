@@ -838,9 +838,14 @@ public class BonusManager
 				}
 				else if (co instanceof Ability)
 				{
-					if (((Ability)co).getTypes().contains("Equipment"))
+					List<String> types = ((Ability)co).getTypes();
+					if (types.contains("Equipment"))
 					{
 						addIt = useEquip;
+					}
+					else
+					{
+						addIt = true;
 					}
 				}
 				else if (tempBonusBySource.containsKey(bonus))
