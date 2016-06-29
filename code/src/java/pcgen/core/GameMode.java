@@ -1302,7 +1302,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Answer the acAbbrev field.
+	 * Set the acAbbrev field.
 	 */
 	String getACAbbrev()
 	{
