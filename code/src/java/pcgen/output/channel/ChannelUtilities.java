@@ -17,7 +17,6 @@
  */
 package pcgen.output.channel;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
@@ -63,8 +62,8 @@ public class ChannelUtilities
 		String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		LegalScope scope = instFactory.getScope(owner.getLocalScopeName());
-		return getChannel(id, instFactory.get(scope, owner), name);
+		ScopeInstance scopeInst = instFactory.get(owner.getLocalScopeName(), owner);
+		return getChannel(id, scopeInst, name);
 	}
 
 	/**
@@ -81,8 +80,8 @@ public class ChannelUtilities
 	public static VariableChannel<?> getGlobalChannel(CharID id, String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		LegalScope scope = instFactory.getScope("Global");
-		return getChannel(id, instFactory.getGlobalScope(scope), name);
+		ScopeInstance globalInstance = instFactory.getGlobalInstance("Global");
+		return getChannel(id, globalInstance, name);
 	}
 
 	private static VariableChannel<?> getChannel(CharID id,

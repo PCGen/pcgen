@@ -17,6 +17,7 @@
  */
 package pcgen.rules.context;
 
+import java.util.List;
 import java.util.Set;
 
 import pcgen.base.calculation.PCGenModifier;
@@ -28,6 +29,7 @@ import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.MonitorableVariableStore;
+import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.persistence.MasterModifierFactory;
 
@@ -41,6 +43,12 @@ public class VariableContext
 	public VariableContext()
 	{
 		formulaSetup.loadBuiltIns();
+		PluginFunctionLibrary pfl = PluginFunctionLibrary.getInstance();
+		List<Function> functions = pfl.getFunctions();
+		for (Function f : functions)
+		{
+			formulaSetup.getFunctionLibrary().addFunction(f);
+		}
 		LegalScopeUtilities.loadLegalScopeLibrary(formulaSetup
 			.getLegalScopeLibrary());
 	}
