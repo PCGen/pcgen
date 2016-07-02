@@ -40,15 +40,15 @@ public class CDOMFactory<T extends Loadable> implements
 		}
 		catch (InstantiationException e)
 		{
-			throw new IllegalArgumentException("Class for "
-					+ getClass().getName()
-					+ " must possess a zero-argument constructor", e);
+			throw new IllegalArgumentException("Class " + objClass + " for "
+				+ getClass().getName()
+				+ " must possess a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class for "
-					+ getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
+			throw new IllegalArgumentException("Class " + objClass + " for "
+				+ getClass().getName()
+				+ " must possess a public zero-argument constructor", e);
 		}
 		refClass = objClass;
 	}
