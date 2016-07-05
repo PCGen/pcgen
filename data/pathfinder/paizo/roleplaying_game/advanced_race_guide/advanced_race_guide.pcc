@@ -48,6 +48,7 @@ FORWARDREF:SPELL|Age Resistance (Lesser),Memory Lapse,Hydraulic Push
 ABILITY:arg_abilities_builder.lst
 ABILITY:arg_abilities_class.lst
 ABILITY:arg_abilities_race.lst
+ABILITY:arg_abilities_builder_race.lst
 ABILITYCATEGORY:arg_abilitycategories.lst
 BIOSET:arg_biosettings.lst
 EQUIPMENT:arg_equip_arms_armor.lst
@@ -58,6 +59,7 @@ ABILITY:arg_feats.lst
 RACE:arg_races.lst
 SPELL:arg_spells.lst
 TEMPLATE:arg_templates.lst
+LANGUAGE:arg_languages.lst
 
 WEAPONPROF:arg_profs_weapon.lst
 
