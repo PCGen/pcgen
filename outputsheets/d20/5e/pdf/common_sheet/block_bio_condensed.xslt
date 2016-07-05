@@ -89,9 +89,9 @@
 											<xsl:value-of select="race"/>
 										</fo:block>
 									</fo:table-cell>
-									<fo:table-cell number-rows-spanned="36"/>
+									<fo:table-cell number-rows-spanned="34"/>
 									<xsl:if test="string-length(portrait/portrait) &gt; 0">
-										<fo:table-cell display-align="center" number-rows-spanned="36">
+										<fo:table-cell display-align="center" number-rows-spanned="34">
 											<xsl:call-template name="attrib">
 												<xsl:with-param name="attribute" select="'picture'"/>
 											</xsl:call-template>
@@ -115,28 +115,6 @@
 									<xsl:with-param name="title" select="'AGE'"/>
 									<xsl:with-param name="value" select="age"/>
 								</xsl:call-template>
-		<!--	Remove VISION TEST					<fo:table-row>
-											<xsl:message>Test</xsl:message>
-									<fo:table-cell padding-top="1pt" height="9pt">
-										<xsl:call-template name="attrib">
-											<xsl:with-param name="attribute" select="'bio'"/>
-										</xsl:call-template>
-										<fo:block font-size="9pt">
-											Vision Test:
-											<xsl:value-of select="vision/all"/>
-											<xsl:if test="vision/all = ''">Normal</xsl:if>
-										</fo:block>
-									</fo:table-cell>
-								</fo:table-row>	-->
-								<fo:table-row>
-											<xsl:message>Test</xsl:message>
-									<fo:table-cell padding-top="0.5pt">
-										<xsl:call-template name="attrib">
-											<xsl:with-param name="attribute" select="'bio.title'"/>
-										</xsl:call-template>
-										<fo:block font-size="6pt"></fo:block>
-									</fo:table-cell>
-								</fo:table-row>
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'GENDER'"/>
 									<xsl:with-param name="value" select="gender/long"/>
@@ -152,6 +130,18 @@
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'DOMINANT HAND'"/>
 									<xsl:with-param name="value" select="handed"/>
+								</xsl:call-template>
+								<xsl:call-template name="bio.entry">
+									<xsl:with-param name="title" select="'Race Type'"/>
+									<xsl:with-param name="value" select="race/racetype"/>
+								</xsl:call-template>
+								<xsl:call-template name="bio.entry">
+									<xsl:with-param name="title" select="'Race Sub Type'"/>
+									<xsl:with-param name="value" select="race/racesubtype"/>
+								</xsl:call-template>
+								<xsl:call-template name="bio.entry">
+									<xsl:with-param name="title" select="'DEITY'"/>
+									<xsl:with-param name="value" select="deity/name"/>	
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'HEIGHT'"/>
@@ -173,10 +163,15 @@
 									<xsl:with-param name="title" select="'HAIR / HAIR STYLE'"/>
 									<xsl:with-param name="value" select="concat(hair/color, ', ', hair/length)"/>
 								</xsl:call-template>
+
+							<xsl:if test="string-length(phobias) &gt; 0">
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'PHOBIAS'"/>
 									<xsl:with-param name="value" select="phobias"/>
 								</xsl:call-template>
+							</xsl:if>
+
+							<xsl:if test="string-length(personality/trait) &gt; 0">
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'PERSONALITY TRAITS'"/>
 									<xsl:with-param name="value">
@@ -186,41 +181,45 @@
 										</xsl:for-each>
 									</xsl:with-param>
 								</xsl:call-template>
+							</xsl:if>
+
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'INTERESTS'"/>
 									<xsl:with-param name="value" select="interests"/>
 								</xsl:call-template>
+
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'SPOKEN STYLE / CATCH PHRASE'"/>
 									<xsl:with-param name="value" select="concat(speechtendency, ', ', catchphrase)"/>
 								</xsl:call-template>
+
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'RESIDENCE'"/>
 									<xsl:with-param name="value" select="residence"/>
 								</xsl:call-template>
+
+							<xsl:if test="string-length(location) &gt; 0">
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'LOCATION'"/>
 									<xsl:with-param name="value" select="location"/>
 								</xsl:call-template>
+							</xsl:if>
+
+							<xsl:if test="string-length(region) &gt; 0">
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'REGION'"/>
 									<xsl:with-param name="value" select="region"/>
 								</xsl:call-template>
-								<xsl:call-template name="bio.entry">
-									<xsl:with-param name="title" select="'DEITY'"/>
-									<xsl:with-param name="value" select="deity/name"/>	
-								</xsl:call-template>
-								<xsl:call-template name="bio.entry">
-									<xsl:with-param name="title" select="'Race Type'"/>
-									<xsl:with-param name="value" select="race/racetype"/>
-								</xsl:call-template>
-								<xsl:call-template name="bio.entry">
-									<xsl:with-param name="title" select="'Race Sub Type'"/>
-									<xsl:with-param name="value" select="race/racesubtype"/>
-								</xsl:call-template>
+							</xsl:if>
+								
 							</fo:table-body>
 						</fo:table>
 					</fo:block>
+					<fo:table table-layout="fixed">
+						<fo:table-body>
+							<fo:table-row>
+																<fo:table-cell>
+
 					<fo:block font-size="14pt" font-weight="bold" space-before="5mm" span="all">
 						Description:
 					</fo:block>
@@ -237,6 +236,12 @@
 							<xsl:with-param name="tag" select="'bio'"/>
 						</xsl:call-template>
 					</fo:block>
+					</fo:table-cell>
+							</fo:table-row>
+
+				</fo:table-body>
+			</fo:table>
+
 				</fo:flow>
 			</fo:page-sequence>
 <!-->		</xsl:if>	-->
@@ -273,33 +278,133 @@
 		<!-- END CHARACTER NOTES Pages -->
 	</xsl:template>
 	<!--
-====================================
-====================================
-	TEMPLATE - Campaign History
-====================================
-====================================-->
-	<xsl:template match="campaign_histories" mode="bio">
-		<!-- BEGIN Campaign History Pages -->
-		<xsl:if test="count(.//campaign_history) &gt; 0">
-			<fo:page-sequence master-reference="Portrait 2 Column">
-				<xsl:call-template name="page.footer"/>
+	====================================
+	====================================
+		TEMPLATE - Campaign History
+	====================================
+	====================================-->
+	<xsl:template match="campaign_histories">
+		<!-- BEGIN Armor table -->
+		<xsl:if test="count(campaign_history) &gt; 0">
+			<fo:page-sequence master-reference="Portrait">
+				<xsl:call-template name="attrib">
+						<xsl:with-param name="attribute" select="'ac'"/>
+				</xsl:call-template>
 				<fo:flow flow-name="body" font-size="8pt">
-					<xsl:for-each select="campaign_history">
-						<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
-							<xsl:value-of select="campaign"/>:
-							<xsl:value-of select="adventure"/>:
-							<xsl:value-of select="party"/>:
-							<xsl:value-of select="date"/>:
-							<xsl:value-of select="xp"/>:
-							<xsl:value-of select="gm"/>:
-							<xsl:value-of select="text"/>:
+				<fo:table table-layout="fixed" space-before="2mm">
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="'protection.border'"/>
+			</xsl:call-template>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 49" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-column/>
+			<fo:table-header>
+				<fo:table-row>
+											<xsl:message>Test</xsl:message>
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'protection.title'"/></xsl:call-template>
+					<fo:table-cell padding-top="1pt">
+						<fo:block font-size="7pt">
+							Campaign
 						</fo:block>
-					</xsl:for-each>
-				</fo:flow>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Adventure
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Party
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Date
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Xp
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell padding-top="3pt">
+						<fo:block font-size="7pt">
+							Gm
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-header>
+			<fo:table-body>
+				<xsl:for-each select="campaign_history">
+					<xsl:variable name="shade">
+						<xsl:choose>
+							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+							<xsl:otherwise>lightline</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<fo:table-row>
+											<xsl:message>Test</xsl:message>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
+						<fo:table-cell>
+							<fo:block font-size="8pt">
+								<xsl:value-of select="campaign"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="adventure"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="party"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="date"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="xp"/>
+							</fo:block>
+						</fo:table-cell>
+						<fo:table-cell text-align="center">
+							<fo:block font-size="8pt">
+								<xsl:value-of select="gm"/>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row>
+											<xsl:message>Test END</xsl:message>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="concat('protection.', $shade)"/>
+						</xsl:call-template>
+						<fo:table-cell number-columns-spanned="6" text-align="left">
+							<fo:block font-size="6pt">
+								<xsl:value-of select="text"/>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					
+				</xsl:for-each>
+			</fo:table-body>
+		</fo:table>
+						</fo:flow>
 			</fo:page-sequence>
 		</xsl:if>
-		<!-- END Campaign History Pages -->
 	</xsl:template>
+
+
+
+
+
 
 
 </xsl:stylesheet>

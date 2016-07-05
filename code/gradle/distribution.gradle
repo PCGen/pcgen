@@ -76,7 +76,7 @@ ext {
     }
 
     jreDistro = copySpec {
-        from('build/nsis/jre/jre_64') {
+        from('jre/jre_64') {
             into 'jre'
         }
     }

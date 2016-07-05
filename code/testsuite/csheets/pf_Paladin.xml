@@ -3092,7 +3092,7 @@ BIO
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.BONUS FEAT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3158,7 +3158,7 @@ BIO
 		<ability_object>
 			<name>Skilled</name>
 			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.SKILLED</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
