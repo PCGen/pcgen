@@ -282,7 +282,7 @@ Natural Weapons						KEY:Kitsune ~ Natural Weapons		CATEGORY:Special Ability	TYP
 
 #Race Traits ~ Kitsune
 Race Traits ~ Kitsune											CATEGORY:Internal																																																																													ABILITY:Internal|AUTOMATIC|Race Language ~ Default Setting|PREABILITY:1,CATEGORY=Internal,TYPE.RaceAlternativeLanguageSet
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLowLightVision
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																																																																						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
@@ -462,11 +462,61 @@ CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOM
 CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
 CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
 
-
-
 ###Block: Alternate Wayang Abilities
 # Ability Name		Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Cost		Source Page
 Dissolution's Child	KEY:Wayang ~ Dissolutions Child	CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangShadowMagic.SpecialQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Dissolution's Child],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]	DESC:Once per day, you may change your appearance to look as if you were little more than a 4-foot-tall area of shadow. Your physical form still exists and you are not incorporeal-only your appearance changes. This works like invisibility, except it only lasts 1 round per level (maximum 5 rounds). This is a supernatural ability. This racial trait replaces shadow magic.	COST:0	SOURCEPAGE:p.210
+
+
+#Race Traits ~ Gathlain
+# Ability Name						Category of Ability
+Race Traits ~ Gathlain					CATEGORY:Internal
+
+CATEGORY=Internal|Race Traits ~ Gathlain.MOD					ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
+CATEGORY=Internal|Race Traits ~ Gathlain.MOD					ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
+
+###Block: Default Gathlain Abilities
+# Ability Name						Unique Key					Category of Ability		Type											Description																												Bonus												Source Page
+Gathlain Magic						KEY:Gathlain ~ Gathlain Magic		CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault	DESC:Gathlains have a +1 natural armor bonus.																						SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Entangle|Feather Step			SOURCEPAGE:p.230
+Natural Armor						KEY:Gathlain ~ Natural Armor		CATEGORY:Special Ability	TYPE:Gathlain Race Trait.SpecialQuality.GathlainRacialDefault	DESC:Gathlains can cast entangle and feather step APG each once per day as spell-like abilities. The caster level for each is equal to the gathlain’s character level.		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base						SOURCEPAGE:p.230
+
+
+#Race Traits ~ Trox
+# Ability Name						Category of Ability
+Race Traits ~ Trox					CATEGORY:Internal
+
+CATEGORY=Internal|Race Traits ~ Trox.MOD						ABILITY:Special Ability|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
+CATEGORY=Internal|Race Traits ~ Trox.MOD						ABILITY:Special Ability|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
+CATEGORY=Internal|Race Traits ~ Trox.MOD						ABILITY:Special Ability|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
+
+###Block: Default Trox Abilities
+# Ability Name						Unique Key					Category of Ability		Type											Description																																		Bonus						Source Page
+Burrow							KEY:Trox ~ Burrow				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault			DESC:Trox have a burrow speed of 20 feet.																													MOVE:Burrow,30				SOURCEPAGE:p.234
+Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault			DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a –2 penalty to their AC.														SOURCEPAGE:p.234
+Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Race Trait.SpecialQuality.TroxRacialDefault			DESC:A trox’s smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.								SOURCEPAGE:p.234
+
+
+#Race Traits ~ Wyrwood
+# Ability Name						Category of Ability
+Race Traits ~ Wyrwood					CATEGORY:Internal
+CATEGORY=Internal|Race Traits ~ Wyrwood.MOD					ABILITY:Special Ability|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
+
+###Block: Default Wyrwood Abilities
+# Ability Name						Unique Key					Category of Ability		Type											Description													Bonus															Source Page
+Senses							KEY:Wyrwood ~ Senses			CATEGORY:Special Ability	TYPE:Wyrwood Race Trait.SpecialQuality.WyrwoodRacialDefault		DESC:Wyrwoods have low-light vision and can see in the dark up to 60 feet.		BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base		SOURCEPAGE:p.237
+
+
+#Race Traits ~ Wyvaran
+# Ability Name						Category of Ability
+Race Traits ~ Wyvaran					CATEGORY:Internal
+
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranSenses
+CATEGORY=Internal|Race Traits ~ Wyvaran.MOD					ABILITY:Special Ability|AUTOMATIC|Wyvaran ~ Slapping Tail|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyvaranSlappingTail
+
+###Block: Default Wyvaran Abilities
+# Ability Name		Unique Key					Category of Ability		Type											Description																																	Bonus															Source Page
+Senses							KEY:Wyvaran ~ Senses			CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvaran have low-light vision and can see in the dark up to 60 feet.																						BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowlightVision|1|TYPE=Base		SOURCEPAGE:p.238
+Slapping Tail						KEY:Wyvaran ~ Slapping Tail		CATEGORY:Special Ability	TYPE:Wyvaran Race Trait.SpecialQuality.WyvaranRacialDefault		DESC:Wyvarans have a tail attack they can use only when making attacks of opportunity. This slapping tail attack deals a number of points of damage equal to 1d8 + the wyvaran’s Strength modifier.		ABILITY:Internal|AUTOMATIC|Tail Slap									SOURCEPAGE:p.238
+
 
 ###Block: Changeling Mother's Gift Options
 # Ability Name		Unique Key						Category of Ability		Type									Description												Modify VAR							Weapon prof. bonus								Spell Res.	Source Page
@@ -753,9 +803,9 @@ Bonus Arcane School Power Use				KEY:Favored Class Bonus ~ Arcane School Power U
 # Dwarf Bard
 Bonus Arcane Spell Failure Reduction		KEY:Favored Class Bonus ~ Arcane Spell Failure Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Bard		PRECLASS:1,Bard=1												PRERACE:1,Dwarf%,RACESUBTYPE=Dwarf												DEFINE:BardArcaneSpellFailure|0																				DESC:Bard: Reduce arcane spell failure chance for casting bard spells when wearing medium armor by +1%%. Once the total reaches 10%%, the bard also receives Medium Armor Proficiency, if he does not already possess it.																														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|PREVARGTEQ:BardArcaneSpellFailure,10																																																BONUS:VAR|BardArcaneSpellFailure|1																																																					SOURCEPAGE:p.13
 # Halfling Gunslinger
-Bonus Armor Class (Nimble)				KEY:Favored Class Bonus ~ Armor Class Nimble				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger			VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Gunslinger	PRECLASS:1,Gunslinger=1											PRERACE:1,Halfling%,RACESUBTYPE=Halfling																																				DESC:Gunslinger: Add +1/4 to the dodge bonus to AC granted by the nimble class feature (maximum +2).																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Favored Bonus Tracker																																																						BONUS:VAR|Bonus_AC_Nimble_Dodge|1																																																					SOURCEPAGE:p.63
+Bonus Armor Class (Nimble)				KEY:Favored Class Bonus ~ Armor Class Nimble				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger			VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Gunslinger	PRECLASS:1,Gunslinger=1											PRERACE:1,Halfling%,RACESUBTYPE=Halfling																																				DESC:Gunslinger: Add +1/4 to the dodge bonus to AC granted by the nimble class feature (maximum +2).																																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																															BONUS:VAR|Bonus_AC_Nimble_Dodge|1																																																					SOURCEPAGE:p.63
 # Halfling Gunslinger
-Bonus Armor Class (Dodge Deed)			KEY:Favored Class Bonus ~ Armor Class Dodge Deed			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger			VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Gunslinger	PRECLASS:1,Gunslinger=1											PRERACE:1,Halfling%,RACESUBTYPE=Halfling																																				DESC:Gunslinger: Add +1/4 to the AC bonus gained when using the gunslinger's dodge deed.																																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Favored Bonus Tracker																																																																																																																SOURCEPAGE:p.63
+Bonus Armor Class (Dodge Deed)			KEY:Favored Class Bonus ~ Armor Class Dodge Deed			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger			VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Gunslinger	PRECLASS:1,Gunslinger=1											PRERACE:1,Halfling%,RACESUBTYPE=Halfling																																				DESC:Gunslinger: Add +1/4 to the AC bonus gained when using the gunslinger's dodge deed.																																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																									SOURCEPAGE:p.63
 # Half-Elf Paladin
 Bonus Aura Size						KEY:Favored Class Bonus ~ Aura Size						CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Paladin		PRECLASS:1,Paladin=1											PRERACE:1,Half-Elf%																																							DESC:Paladin: Add +1 foot to the size of all the paladin's aura class features. This option has no effect unless the paladin has selected it 5 times (or another increment of 5); an aura of 14 feet is effectively the same as a 10-foot aura, for example.																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																									SOURCEPAGE:p.43
 # Human Cavalier
