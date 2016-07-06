@@ -36,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Co
 # Data Files
 ABILITYCATEGORY:aa_abilitycategories.lst
 ABILITY:aa_abilities_traits.lst
+ABILITY:aa_abilities.lst
 EQUIPMENT:aa_equip.lst
 EQUIPMENT:aa_equip_arms_armor.lst
 EQUIPMOD:aa_equipmods.lst
