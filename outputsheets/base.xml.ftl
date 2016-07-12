@@ -501,12 +501,16 @@
 			<conditional_modifiers>
 				<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=CombatBonus")-1') ; ability , ability_has_next>
 				<combatbonus>
+					<name>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus')}</name>
+					<type>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus.TYPE')}</type>
 					<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus.ASPECT.CombatBonus')}</description>
 				</combatbonus>
 				</@loop>
 				<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
 				<savebonus>
-				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
+					<name>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus')}</name>
+					<type>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.TYPE')}</type>
+					<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
 				</savebonus>
 				</@loop>
 			</conditional_modifiers>
