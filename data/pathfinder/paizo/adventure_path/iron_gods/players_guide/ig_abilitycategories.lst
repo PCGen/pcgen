@@ -2,5 +2,5 @@
 
 
 # Ability Category						Editable?		Change Pool?	Base Pool number					Category of Object		Type of Object				Display Location
-ABILITYCATEGORY:Against the Technic League Selection	EDITABLE:YES	EDITPOOL:NO		POOL:Pool_Against_the_Technic_League	CATEGORY:Special Ability	TYPE:Against the Technic League	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Skymetal Smith Selection			EDITABLE:YES	EDITPOOL:NO		POOL:Pool_Skymetal_Smith			CATEGORY:Special Ability	TYPE:Skymetal Smith			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Against the Technic League Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Against the Technic League	DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Skymetal Smith Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skymetal Smith			DISPLAYLOCATION:Traits
