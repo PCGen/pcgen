@@ -1,4 +1,4 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 20122 $ $Author: zaister $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
@@ -63,4 +63,5 @@ MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3
 MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2
 #
 
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion																								BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")
+# Class of the Master		Type				Save bonus
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")

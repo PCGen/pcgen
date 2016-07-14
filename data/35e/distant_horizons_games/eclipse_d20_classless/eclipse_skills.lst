@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -15,8 +15,8 @@ Knowledge (Lore)			USEUNTRAINED:YES	EXCLUSIVE:YES	TYPE:AdeptChoice.Lore
 Secrets		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:AdeptChoice.NormalSkill.Secrets
 
 ###Block: Martial Arts Styles --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Skill Name			SORTKEY			Output Name							Key Stat	Untrained?		Skill Penalty?	Type												Visible		Source Page		Ability																																			Bonus Ability Pool													Modify VAR
-Martial Arts																	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:AdeptChoice.MartialArts.NormalSkill.MartialArt																																																														BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL","Martial Arts"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts")|TYPE=MartialArts
+# Skill Name			SORTKEY					Output Name							Key Stat	Untrained?		Skill Penalty?	Type												Visible		Source Page		Ability																																			Bonus Ability Pool													Modify VAR
+Martial Arts			SORTKEY:z_m															USEUNTRAINED:NO				TYPE:AdeptChoice.MartialArts.NormalSkill.MartialArt																																																														BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL","Martial Arts"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts")|TYPE=MartialArts
 #Martial Arts Counter			VISIBLE:GUI		SORTKEY:ZZ_DoNotDisplay
 
 #
@@ -25,12 +25,12 @@ Martial Arts																	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:AdeptChoice.Mart
 
 
 # Cheat Skills - For Martial Arts
-Martial Arts ~ Str Based	SORTKEY:Martial Arts_1a	OUTPUTNAME:Martial Arts (Strength Based)		KEYSTAT:STR	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:Strength.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Str Style|(1+skillinfo("TOTAL", "Martial Arts ~ Str Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Str Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Str Based")|TYPE=MartialArts
-Martial Arts ~ Dex Based	SORTKEY:Martial Arts_1b	OUTPUTNAME:Martial Arts (Dexterity Based)		KEYSTAT:DEX	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:Dexterity.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Dex Style|(1+skillinfo("TOTAL", "Martial Arts ~ Dex Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Dex Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Dex Based")|TYPE=MartialArts
-Martial Arts ~ Con Based	SORTKEY:Martial Arts_1c	OUTPUTNAME:Martial Arts (Constitution Based)	KEYSTAT:CON	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:Constitution.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Con Style|(1+skillinfo("TOTAL", "Martial Arts ~ Con Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Con Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Con Based")|TYPE=MartialArts
-Martial Arts ~ Int Based	SORTKEY:Martial Arts_1d	OUTPUTNAME:Martial Arts (Intelligence Based)	KEYSTAT:INT	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:Intelligence.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Int Style|(1+skillinfo("TOTAL", "Martial Arts ~ Int Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Int Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Int Based")|TYPE=MartialArts
-Martial Arts ~ Wis Based	SORTKEY:Martial Arts_1e	OUTPUTNAME:Martial Arts (Wisdom Based)		KEYSTAT:WIS	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:Wisdom.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																												BONUS:ABILITYPOOL|Martial Arts Wis Style|(1+skillinfo("TOTAL", "Martial Arts ~ Wis Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Wis Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Wis Based")|TYPE=MartialArts
-Martial Arts ~ Cha Based	SORTKEY:Martial Arts_1f	OUTPUTNAME:Martial Arts (Charisma Based)		KEYSTAT:CHA	USEUNTRAINED:NO	SORTKEY:z_m			TYPE:Charisma.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Cha Style|(1+skillinfo("TOTAL", "Martial Arts ~ Cha Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Cha Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Cha Based")|TYPE=MartialArts
+Martial Arts ~ Str Based	SORTKEY:Martial Arts_1a	SORTKEY:z_m	OUTPUTNAME:Martial Arts (Strength Based)		KEYSTAT:STR	USEUNTRAINED:NO				TYPE:Strength.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Str Style|(1+skillinfo("TOTAL", "Martial Arts ~ Str Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Str Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Str Based")|TYPE=MartialArts
+Martial Arts ~ Dex Based	SORTKEY:Martial Arts_1b	SORTKEY:z_m	OUTPUTNAME:Martial Arts (Dexterity Based)		KEYSTAT:DEX	USEUNTRAINED:NO				TYPE:Dexterity.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Dex Style|(1+skillinfo("TOTAL", "Martial Arts ~ Dex Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Dex Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Dex Based")|TYPE=MartialArts
+Martial Arts ~ Con Based	SORTKEY:Martial Arts_1c	SORTKEY:z_m	OUTPUTNAME:Martial Arts (Constitution Based)	KEYSTAT:CON	USEUNTRAINED:NO				TYPE:Constitution.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Con Style|(1+skillinfo("TOTAL", "Martial Arts ~ Con Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Con Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Con Based")|TYPE=MartialArts
+Martial Arts ~ Int Based	SORTKEY:Martial Arts_1d	SORTKEY:z_m	OUTPUTNAME:Martial Arts (Intelligence Based)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Int Style|(1+skillinfo("TOTAL", "Martial Arts ~ Int Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Int Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Int Based")|TYPE=MartialArts
+Martial Arts ~ Wis Based	SORTKEY:Martial Arts_1e	SORTKEY:z_m	OUTPUTNAME:Martial Arts (Wisdom Based)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																												BONUS:ABILITYPOOL|Martial Arts Wis Style|(1+skillinfo("TOTAL", "Martial Arts ~ Wis Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Wis Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Wis Based")|TYPE=MartialArts
+Martial Arts ~ Cha Based	SORTKEY:Martial Arts_1f	SORTKEY:z_m	OUTPUTNAME:Martial Arts (Charisma Based)		KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.AdeptChoice.NormalSkill.MartialArtsStyle.MartialArts																																											BONUS:ABILITYPOOL|Martial Arts Cha Style|(1+skillinfo("TOTAL", "Martial Arts ~ Cha Based"))/2	BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Cha Based"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Cha Based")|TYPE=MartialArts
 
 ####
 
@@ -40,30 +40,30 @@ Martial Arts ~ Cha Based	SORTKEY:Martial Arts_1f	OUTPUTNAME:Martial Arts (Charis
 #[Rune] Mastery					SORTKEY:z_r									USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.RuneCasting.NormalSkill	ABILITY:FEAT|VIRTUAL|Rune Casting Activated
 
 # Specific Runes:
-Rune Casting (Illusion)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Illusion)|PRESKILL:1,Rune Casting (Illusion)=1,Rune Mastery (Illusion)=1
-Rune Casting (Light)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Light)|PRESKILL:1,Rune Casting (Light)=1,Rune Mastery (Light)=1
-Rune Casting (Exorcism)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Exorcism)|PRESKILL:1,Rune Casting (Exorcism)=1,Rune Mastery (Exorcism)=1
-Rune Casting (Transmutation)			SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Transmutation)|PRESKILL:1,Rune Casting (Transmutation)=1,Rune Mastery (Transmutation)=1
+Rune Casting (Illusion)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Illusion)|PRESKILL:1,Rune Casting (Illusion)=1,Rune Mastery (Illusion)=1
+Rune Casting (Light)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Light)|PRESKILL:1,Rune Casting (Light)=1,Rune Mastery (Light)=1
+Rune Casting (Exorcism)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Exorcism)|PRESKILL:1,Rune Casting (Exorcism)=1,Rune Mastery (Exorcism)=1
+Rune Casting (Transmutation)	SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Transmutation)|PRESKILL:1,Rune Casting (Transmutation)=1,Rune Mastery (Transmutation)=1
 
 #
-Rune Mastery (Illusion)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-Rune Mastery (Light)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-Rune Mastery (Exorcism)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-Rune Mastery (Transmutation)			SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Illusion)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Light)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Exorcism)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Transmutation)	SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
 
 
 # Additional
-Rune Casting (Lunar)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Lunar)|PRESKILL:1,Rune Casting (Lunar)=1,Rune Mastery (Lunar)=1
-Rune Casting (Conjuration)			SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Conjuration)|PRESKILL:1,Rune Casting (Conjuration)=1,Rune Mastery (Conjuration)=1
-Rune Casting (Weather)				SORTKEY:z_r												USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Weather)|PRESKILL:1,Rune Casting (Weather)=1,Rune Mastery (Weather)=1
+Rune Casting (Lunar)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Lunar)|PRESKILL:1,Rune Casting (Lunar)=1,Rune Mastery (Lunar)=1
+Rune Casting (Conjuration)	SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Conjuration)|PRESKILL:1,Rune Casting (Conjuration)=1,Rune Mastery (Conjuration)=1
+Rune Casting (Weather)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Weather)|PRESKILL:1,Rune Casting (Weather)=1,Rune Mastery (Weather)=1
 
 
-Rune Mastery (Lunar)				SORTKEY:z_r													USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-Rune Mastery (Conjuration)			SORTKEY:z_r													USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-Rune Mastery (Weather)				SORTKEY:z_r													USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Lunar)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Conjuration)	SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
+Rune Mastery (Weather)		SORTKEY:z_r															USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.RuneCasting.NormalSkill									SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
 
 
-Spellcraft (Rune Casting)													KEYSTAT:INT	USEUNTRAINED:NO																VISIBLE:EXPORT
+Spellcraft (Rune Casting)															KEYSTAT:INT	USEUNTRAINED:NO																VISIBLE:EXPORT
 
 ###Block: Mystic Artist Skill
 # Skill Name		Classes	Type		Visible		Modify VAR
@@ -80,118 +80,118 @@ Mystic Artist Skill	CLASSES:ALL	TYPE:None	VISIBLE:DISPLAY	BONUS:VAR|MysticArtist
 
 ###Block: Thaumaturgy - buy feat to access skills
 #Block: Necromancy
-# Skill Name							Untrained?		Skill Penalty?	Type														Source Page
-Thaumaturgy (Necromancy ~ Channeling)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Necromancy ~ Entropic Manipulation)	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Necromancy ~ Gates of Death)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Necromancy ~ Life Force Transference)	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Necromancy ~ One With Death)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Necromancy ~ Spirit Binding)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Necromancy ~ Summoning)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103	SORTKEY:z_t
+# Skill Name							SORTKEY	Untrained?		Skill Penalty?	Type														Source Page
+Thaumaturgy (Necromancy ~ Channeling)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
+Thaumaturgy (Necromancy ~ Entropic Manipulation)	SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
+Thaumaturgy (Necromancy ~ Gates of Death)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
+Thaumaturgy (Necromancy ~ Life Force Transference)	SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
+Thaumaturgy (Necromancy ~ One With Death)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
+Thaumaturgy (Necromancy ~ Spirit Binding)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
+Thaumaturgy (Necromancy ~ Summoning)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyNecromancy.NormalSkill.OccultSkill		SOURCEPAGE:p.103
 
 #Block: Weather Control
-Thaumaturgy (Weather Control ~ Cold)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Heat)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Lightning)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Ocean Control)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Personalization)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Rain)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Weather Sense)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Weather Control ~ Wind)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
+Thaumaturgy (Weather Control ~ Cold)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Heat)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Lightning)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Ocean Control)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Personalization)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Rain)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Weather Sense)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Weather Control ~ Wind)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWeatherControl.NormalSkill.OccultSkill	SOURCEPAGE:p.103
 
 #Block: Psychokinesis ~ p.104
-Thaumaturgy (Psychokinesis ~ Capacitance)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Electrokinesis)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Nucleokinesis)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Pyrotics)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Reconstruction)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Stasis Fields)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Telekinesis)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Psychokinesis ~ Vibration)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
+Thaumaturgy (Psychokinesis ~ Capacitance)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Electrokinesis)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Nucleokinesis)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Pyrotics)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Reconstruction)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Stasis Fields)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Telekinesis)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Psychokinesis ~ Vibration)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyPsychokinesis.NormalSkill.OccultSkill		SOURCEPAGE:p.104
 
 #Block: Telepathy
-Thaumaturgy (Telepathy ~ Astral Form)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Constructs)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Disruption)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Illusion)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Links)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Presence)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Projection)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
-Thaumaturgy (Telepathy ~ Void)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104	SORTKEY:z_t
+Thaumaturgy (Telepathy ~ Astral Form)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Constructs)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Disruption)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Illusion)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Links)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Presence)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Projection)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
+Thaumaturgy (Telepathy ~ Void)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyTelepathy.NormalSkill.OccultSkill		SOURCEPAGE:p.104
 
 #Block: Warping
-Thaumaturgy (Warping ~ Dimensional Warping)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Gravitic Warping)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Overlay)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Spatial Warping)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Stabilization)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Temporal Warping)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Transference)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Warping ~ Warp Detection)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
+Thaumaturgy (Warping ~ Dimensional Warping)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Gravitic Warping)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Overlay)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Spatial Warping)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Stabilization)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Temporal Warping)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Transference)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Warping ~ Warp Detection)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyWarping.NormalSkill.OccultSkill			SOURCEPAGE:p.105
 
 #Block: Healing
-Thaumaturgy (Healing ~ Environmental Healing)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Healing ~ Life Transference)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Healing ~ Mental Healing)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Healing ~ Physical Healing)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Healing ~ Shapeshifting)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Healing ~ Spiritual Healing)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105	SORTKEY:z_t
-Thaumaturgy (Healing ~ Stabilization)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Healing ~ Transformation)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
+Thaumaturgy (Healing ~ Environmental Healing)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Healing ~ Life Transference)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Healing ~ Mental Healing)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Healing ~ Physical Healing)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Healing ~ Shapeshifting)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Healing ~ Spiritual Healing)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.105
+Thaumaturgy (Healing ~ Stabilization)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (Healing ~ Transformation)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyHealing.NormalSkill.OccultSkill			SOURCEPAGE:p.106
 
 #Block: Extra-Sensory Perception
-Thaumaturgy (ESP ~ Analytic Probe)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Aura Sight)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Awareness)					USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Clairsentience)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Dowsing)					USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Hypersenses)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Intuition)					USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (ESP ~ Psychic Awareness)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106	SORTKEY:z_t
+Thaumaturgy (ESP ~ Analytic Probe)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Aura Sight)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Awareness)					SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Clairsentience)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Dowsing)					SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Hypersenses)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Intuition)					SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
+Thaumaturgy (ESP ~ Psychic Awareness)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyESP.NormalSkill.OccultSkill			SOURCEPAGE:p.106
 
 #Block: Mysticism
-Thaumaturgy (Mysticism ~ Amplification)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Bestowal)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Imbuement)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Linking)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Nullification)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Permanency)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Psi-Armor)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
-Thaumaturgy (Mysticism ~ Willcrystal)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106	SORTKEY:z_t
+Thaumaturgy (Mysticism ~ Amplification)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Bestowal)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Imbuement)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Linking)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Nullification)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Permanency)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Psi-Armor)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
+Thaumaturgy (Mysticism ~ Willcrystal)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyMysticism.NormalSkill.OccultSkill		SOURCEPAGE:p.106
 
 
 ###Block:
 # Theurgical Verbs ~
-# Skill Name					Untrained?		Skill Penalty?	Type													Source Page
-Theurgical Verb (Creation)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Verb (Control)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Verb (Destruction)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Verb (Healing)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Verb (Transformation)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Verb (Understanding)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
+# Skill Name					SORTKEY	Untrained?		Skill Penalty?	Type													Source Page
+Theurgical Verb (Creation)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Control)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Destruction)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Healing)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Transformation)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Understanding)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
 
 #Theurgical Nouns ~
-Theurgical Noun (Air)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Noun (Earth)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.107	SORTKEY:z_t
-Theurgical Noun (Fire)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Water)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Body)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Mind)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Plant)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Spirit)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Illusion)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Magic)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Space)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
-Theurgical Noun (Time)				USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108	SORTKEY:z_t
+Theurgical Noun (Air)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Noun (Earth)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Noun (Fire)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Water)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Body)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Mind)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Plant)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Spirit)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Illusion)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Magic)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Space)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Time)				SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
 
 
 
 
 #Block: Umbrancy
-Thaumaturgy (Umbrancy ~ Darkness)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Umbrancy ~ Light)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Umbrancy ~ Ambiance)		USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Umbrancy ~ Spectrum Vision)	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Umbrancy ~ Gate of Shadow)	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Umbrancy ~ One with Shadow)	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
-Thaumaturgy (Umbrancy ~ Wind)			USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103	SORTKEY:z_t
+Thaumaturgy (Umbrancy ~ Darkness)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Light)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Ambiance)		SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Spectrum Vision)	SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Gate of Shadow)	SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ One with Shadow)	SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Wind)			SORTKEY:z_t	USEUNTRAINED:NO	ACHECK:YES		TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103

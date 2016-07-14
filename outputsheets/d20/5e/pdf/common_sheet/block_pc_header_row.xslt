@@ -209,9 +209,6 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
-<!-->						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="classes/shortform"/>
-						</fo:block>-->
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:variable name = "classcount" ><xsl:value-of select="count(classes/class)"/></xsl:variable>
 							<xsl:for-each select = "classes/class">
@@ -281,8 +278,7 @@
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="vision/all"/>
-							<xsl:if test="vision/all = ''">Normal</xsl:if>
+							<xsl:value-of select="hair/color"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -323,13 +319,24 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">VISION</fo:block>
+						<fo:block font-size="6pt" padding-top="1pt">Hair</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 				</fo:table-row>
 <!--	Third Row-->
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
+					<fo:table-cell number-columns-spanned="3">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'bio'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt" padding-top="3pt">
+							<xsl:value-of select="vision/all"/>
+							<xsl:if test="vision/all = ''">Normal</xsl:if>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -357,7 +364,6 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="age"/>
-							<xsl:if test="birthday != ''"> (<xsl:value-of select="birthday"/>)</xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -367,6 +373,7 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="gender/long"/>
+
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -378,31 +385,21 @@
 							<xsl:value-of select="eyes/color"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'bio'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt" padding-top="3pt">
-							<xsl:value-of select="hair/color"/>
-								<xsl:if test="hair/color != '' and hair/length !=''">, <xsl:value-of select="hair/length"/></xsl:if>
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'bio'"/>
-						</xsl:call-template>
-						<fo:block font-size="8pt" padding-top="3pt">	
-							<xsl:if test="poolpoints/cost &gt; 0"> <xsl:value-of select="poolpoints/cost"/> </xsl:if>	
-						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+
 				</fo:table-row>
 
 <!-- Third ROW Text-->
 				<fo:table-row>
 											<xsl:message>Test END</xsl:message>
+					<fo:table-cell number-columns-spanned="3">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'bio.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="6pt" padding-top="1pt">
+							<xsl:text>Vision</xsl:text>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -444,20 +441,8 @@
 						<fo:block font-size="6pt" padding-top="1pt">EYES</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'bio.title'"/>
-						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">HAIR</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
-					<fo:table-cell>
-						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'bio.title'"/>
-						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">Points</fo:block>	
-					</fo:table-cell>
-					<fo:table-cell/>
+
+
 				</fo:table-row>	
 			</fo:table-body>
 		</fo:table>

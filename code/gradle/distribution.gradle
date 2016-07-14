@@ -1,82 +1,90 @@
 /*
- * PCGen distributable generation tasks. This file specifies the 
- * archives included in the PCGen autobuild and PCGen releases. It 
+ * PCGen distributable generation tasks. This file specifies the
+ * archives included in the PCGen autobuild and PCGen releases. It
  * is called from the main build.gradle file.
  *
  * Usage: gradle builddist
- * 
- * Author: James Dempsey 
+ *
+ * Author: James Dempsey
  */
 
 ext {
     zipRootFolder = "pcgen"
 
-	buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
-	
-	autobuildSpec = copySpec{}
-	
-	if (System.env.BUILD_NUMBER) {
-		autobuildSpec = copySpec {
-			from('code/gradle/autobuild.template')
-			rename('.+','autobuild.properties')
-			expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
-		}
-	}
-	
+    buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
+
+    autobuildSpec = copySpec{}
+
+    if (System.env.BUILD_NUMBER) {
+        autobuildSpec = copySpec {
+            from('code/gradle/autobuild.template')
+            rename('.+','autobuild.properties')
+            expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
+        }
+    }
+
     dataDistsImage = copySpec {
         from('.') {
-        	include 'data/**'
-        	include 'outputsheets/**'
-        	include 'system/**'
-        	include 'preview/**'
+            include 'data/**'
+            include 'outputsheets/**'
+            include 'system/**'
+            include 'preview/**'
         }
     }
 
     docsDistsImage = copySpec {
         from('.') {
-        	include 'docs/**'
+            include 'docs/**'
         }
     }
 
     programDistsImage = copySpec {
         from('build/libs') {
-        	include 'pcgen-*.jar'
-        	// Use a regular expression to map the file name
-    		rename "(.+)-$version(.+)", '$1$2'
+            include 'pcgen-*.jar'
+            // Use a regular expression to map the file name
+            rename "(.+)-$version(.+)", '$1$2'
         }
         from('.') {
-        	include 'pcgen_low_mem.bat'
-        	include 'plugins/**'
-        	include 'logging.properties'
-        	include 'svn.properties'
+            include 'pcgen_low_mem.bat'
+            include 'plugins/**'
+            include 'logging.properties'
+            include 'svn.properties'
         }
         from('.') {
-        	include 'pcgen.sh'
-        	fileMode = 0755
+            include 'pcgen.sh'
+            fileMode = 0755
         }
         from('code') {
-        	include 'pcgen.exe'
-        	include 'LICENSE'
+            include 'LICENSE'
+        }
+        from('build/release') {
+            include 'pcgen.exe'
         }
     }
 
     libsDistsImage = copySpec {
         from('build/libs') {
-        	into 'libs'
-        	exclude 'pcgen-*.jar'
+            into 'libs'
+            exclude 'pcgen-*.jar'
         }
-	}
-	
-	charactersImage = copySpec {
-		from('.') {
-			include 'characters/*.pcg'
-		}
-		
-	}
+    }
+
+    charactersImage = copySpec {
+        from('.') {
+            include 'characters/*.pcg'
+        }
+    }
+
+    jreDistro = copySpec {
+        from('jre/jre_64') {
+            into 'jre'
+        }
+    }
 }
 
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs']) {
+task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
+     'copyToLibs']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -84,9 +92,11 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs']) {
         with programDistsImage
         with libsDistsImage
         with autobuildSpec
-		with charactersImage
+        with charactersImage
+        with jreDistro
     }
 }
+fullZip.mustRunAfter createExe
 
 
 task dataZip(type: Zip) {
@@ -121,6 +131,8 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip']) {
-	description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip', 'createExe']) {
+    description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }
+
+buildDist.mustRunAfter createExe

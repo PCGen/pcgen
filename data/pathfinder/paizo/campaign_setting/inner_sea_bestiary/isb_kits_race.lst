@@ -330,7 +330,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 STARTPACK:Female Lashunta Wizard	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lashunta (Male),Lashunta (Female)],[!PRERACE:1,%]	SOURCEPAGE:p.25
 ALIGN:NG
-RACE:Lashunta (Female)	!PRERACE:1,%
+RACE:Lashunta
 GENDER:Female
 NAME:Female Lashunta Wizard
 CLASS:Wizard	LEVEL:1

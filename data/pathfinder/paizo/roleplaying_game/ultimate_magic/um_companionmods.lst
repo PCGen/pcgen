@@ -1,16 +1,6 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Eidolon Evolution Bonus from Extra Evolution feat
 # Class of the Master		Type			Define																									Bonus Ability Pool				Modify VAR
-FOLLOWER:EidolonExtraEP=1	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=2	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=3	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=4	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=5	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=6	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=7	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=8	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-FOLLOWER:EidolonExtraEP=9	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
-
 FOLLOWER:FamiliarEP=1		TYPE:Familiar	DEFINE:MasterLevel|0	DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:EidArms|0	DEFINE:EidArmsUsed|0	DEFINE:EidLegs|0	DEFINE:EidLegsUsed|0	BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:VAR|EidMaxAttacks|8
 FOLLOWER:FamiliarEP=2		TYPE:Familiar																											BONUS:ABILITYPOOL|Eidolon Evolution|1
 FOLLOWER:FamiliarEP=3		TYPE:Familiar																											BONUS:ABILITYPOOL|Eidolon Evolution|1
@@ -494,17 +484,16 @@ MASTERBONUSRACE:Familiar (Turtle)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Fa
 
 
 ###Block: Abilities for specific types of familiars
-# Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Thrush)	KIT:1|Thrush Familiar Language
+# Class of the Master			Type			Required Race			Apply Kit					Modify VAR
+FOLLOWER:FamiliarLVL=1			TYPE:Familiar	PRERACE:1,Familiar (Thrush)	KIT:1|Thrush Familiar Language
 
 
 #
-FOLLOWER:EidolonCompanionLVLA=1	TYPE:Eidolon 1		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLA")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon1EP")
-FOLLOWER:EidolonCompanionLVLB=1	TYPE:Eidolon 2		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLB")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon2EP")
-FOLLOWER:EidolonCompanionLVLC=1	TYPE:Eidolon 3		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLC")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon3EP")
-FOLLOWER:EidolonCompanionLVLD=1	TYPE:Eidolon 4		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLD")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon4EP")
-FOLLOWER:EidolonCompanionLVLE=1	TYPE:Eidolon 5		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLE")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon5EP")
-FOLLOWER:EidolonCompanionLVLF=1	TYPE:Eidolon 6		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLF")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon6EP")
-FOLLOWER:EidolonCompanionLVLG=1	TYPE:Eidolon 7		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLG")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon7EP")
-FOLLOWER:EidolonCompanionLVLH=1	TYPE:Eidolon 8		BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLH")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon8EP")
-
+FOLLOWER:EidolonCompanionLVLA=1	TYPE:Eidolon 1												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLA")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon1EP")
+FOLLOWER:EidolonCompanionLVLB=1	TYPE:Eidolon 2												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLB")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon2EP")
+FOLLOWER:EidolonCompanionLVLC=1	TYPE:Eidolon 3												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLC")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon3EP")
+FOLLOWER:EidolonCompanionLVLD=1	TYPE:Eidolon 4												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLD")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon4EP")
+FOLLOWER:EidolonCompanionLVLE=1	TYPE:Eidolon 5												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLE")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon5EP")
+FOLLOWER:EidolonCompanionLVLF=1	TYPE:Eidolon 6												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLF")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon6EP")
+FOLLOWER:EidolonCompanionLVLG=1	TYPE:Eidolon 7												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLG")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon7EP")
+FOLLOWER:EidolonCompanionLVLH=1	TYPE:Eidolon 8												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLH")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon8EP")
