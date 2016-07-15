@@ -761,18 +761,18 @@ Shang Gou.MOD				TYPE:Monk.Weapon Group Monk
 Tiger Fork.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
 Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
 #
-# Weapon Group Polearms
+# Weapon Group Pole Arms
 #
 Bardiche.MOD				TYPE:Polearm.Weapon Group Pole Arms
-Bec De Corbin.MOD				TYPE:Polearm.Weapon Group Polearms
-Bill.MOD					TYPE:Polearm.Weapon Group Polearms
-Glaive-Guisarme.MOD			TYPE:Polearm.Weapon Group Polearms
-Hooked Lance.MOD				TYPE:Polearm.Weapon Group Polearms
-Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
-Lucerne Hammer.MOD			TYPE:Polearm.Weapon Group Polearms
-Mancatcher.MOD				TYPE:Polearm.Weapon Group Polearms
-Ogre Hook.MOD				TYPE:Polearm.Weapon Group Polearms
-Naginata.MOD				TYPE:Polearm.Weapon Group Polearms
+Bec De Corbin.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Bill.MOD					TYPE:Polearm.Weapon Group Pole Arms
+Glaive-Guisarme.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Hooked Lance.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Horsechopper.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Lucerne Hammer.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Mancatcher.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Ogre Hook.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Naginata.MOD				TYPE:Polearm.Weapon Group Pole Arms
 #
 # Weapon Group Spears
 #
