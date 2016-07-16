@@ -1478,40 +1478,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	/**
-	 * Export to PDF using the FOP PDF generator. 
-	 * 
-	 * @param outFile The file to place the output in.
-	 * @param tmpFile The file containing the definition of the character data. May be FO or XML.
-	 * @param xsltFile An optional XSLT file for use when the tmpFile is in XML.
-	 */
-	private void pdfExport(final File outFile, File tmpFile, File xsltFile)
-	{
-		try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(tmpFile));
-				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outFile)))
-		{
-			FopTask fopTask = FopTask.newFopTask(input, xsltFile, output);
-			fopTask.run();
-			String errMessage = fopTask.getErrorMessages();
-
-			if (errMessage.length() > 0)
-			{
-				delegate.showErrorMessage(Constants.APPLICATION_NAME, errMessage);
-			}
-		}
-		catch (IOException ex)
-		{
-			Logging.errorPrint(LanguageBundle.getFormattedString(
-				"InfoSpells.export.failed", charDisplay.getDisplayName()), ex); //$NON-NLS-1$
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, 
-				LanguageBundle.getFormattedString(
-					"InfoSpells.export.failed.retry", charDisplay.getDisplayName())); //$NON-NLS-1$ 
-		}
-		tmpFile.deleteOnExit();
-	}
-
-	
-	
-	/**
 	 * The Class <code>SpellNodeImpl</code> holds the information required to 
 	 * display and process a spell. It covers spells that are available, known, 
 	 * memorised etc.
