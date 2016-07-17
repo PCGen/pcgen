@@ -410,7 +410,7 @@ FACTDEF:ABILITY|Fighter_CF_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELEC
 FACTDEF:ABILITY|Fighter_CF_MediumArmorProficiency		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponMastery		EXPLANATION:Determines whether the archetype affects - WeaponMastery
 FACTDEF:ABILITY|Fighter_CF_HeavyArmorProficiency		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponMastery		EXPLANATION:Determines whether the archetype affects - WeaponMastery
 FACTDEF:ABILITY|Fighter_CF_ShieldProficiency			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponMastery		EXPLANATION:Determines whether the archetype affects - WeaponMastery
-FACTDEF:ABILITY|Fighter_CF_TowerShieldProficiency		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponMastery		EXPLANATION:Determines whether the archetype affects - WeaponMastery
+FACTDEF:ABILITY|Fighter_CF_LightArmorProficiency		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponMastery		EXPLANATION:Determines whether the archetype affects - WeaponMastery
 
 
 # Monk Archetype Section

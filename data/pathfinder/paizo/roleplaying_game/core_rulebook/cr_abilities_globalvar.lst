@@ -403,6 +403,24 @@ CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat16|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat18|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat20|0
 
+
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_TowerShieldProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ArmorProficiencies|0		
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Proficiencies|0			
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_LightArmorProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_MediumArmorProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_HeavyArmorProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ShieldProficiency|0		
+
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_TowerShieldProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_TowerShieldProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorProficiencies|1|PREFACT:1,ABILITIES,Fighter_CF_ArmorProficiencies=true	
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_Proficiencies|1|PREFACT:1,ABILITIES,Fighter_CF_Proficiencies=true		
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_LightArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_LightArmorProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_MediumArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_MediumArmorProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_HeavyArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_HeavyArmorProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ShieldProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_ShieldProficiency=true	
+
+
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ClassSkills=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeats=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_Bravery=True
