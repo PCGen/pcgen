@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0?Pathfinder-Player-Companion-Kobolds-of-Golarion	SOURCEDATE:2013-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 9 May 2016
+
+STARTPACK:Lair Snake				TYPE:Character Trait	VISIBLE:NO
+FUNDS:gp						QTY:200
+
+STARTPACK:Ooze Defense				TYPE:Character Trait	VISIBLE:NO
+GEAR:Alkali (Flask)				QTY:3				LOCATION:Equipped
+
+STARTPACK:Lightning Blessed			TYPE:Character Trait	VISIBLE:NO
+GEAR:Bottled Lightning				QTY:3				LOCATION:Equipped
+
+STARTPACK:Alchemical Breath			TYPE:Character Trait	VISIBLE:NO
+GEAR:Alchemical Coal (Choking Smoke)	QTY:3				LOCATION:Equipped
+
+STARTPACK:Icy Mementos				TYPE:Character Trait	VISIBLE:NO
+GEAR:Liquid Ice (Flask)				QTY:3				LOCATION:Equipped
+
