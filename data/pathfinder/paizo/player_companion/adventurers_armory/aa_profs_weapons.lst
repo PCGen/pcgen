@@ -76,7 +76,7 @@ Throwing Shield		TYPE:Exotic.Melee.Ranged
 # Weapon Group Axes
 #
 # Weapon Name			Type
-Bardiche.MOD			TYPE:Weapon Group Axes.Weapon Group Polearms
+Bardiche.MOD			TYPE:Weapon Group Axes.Weapon Group Pole Arms
 Maulaxe.MOD				TYPE:Weapon Group Axes.Weapon Group Hammers
 Pata.MOD				TYPE:Weapon Group Axes.Weapon Group Blades Light
 
@@ -155,13 +155,13 @@ Hanbo.MOD				TYPE:Monk.Weapon Group Monk.Weapon Group Hammers
 #
 # Weapon Group Polearm
 #
-Horsechopper.MOD			TYPE:Polearm.Weapon Group Polearms
-Mancatcher.MOD			TYPE:Polearm.Weapon Group Polearms
-Bec de corbin.MOD			TYPE:Weapon Group Polearms
-Bill.MOD				TYPE:Weapon Group Polearms
-Glaive-Guisarme.MOD		TYPE:Weapon Group Polearms
-Lucerne Hammer.MOD		TYPE:Weapon Group Polearms
-Ogre Hook.MOD			TYPE:Weapon Group Polearms
+Horsechopper.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Mancatcher.MOD			TYPE:Polearm.Weapon Group Pole Arms
+Bec de corbin.MOD			TYPE:Weapon Group Pole Arms
+Bill.MOD				TYPE:Weapon Group Pole Arms
+Glaive-Guisarme.MOD		TYPE:Weapon Group Pole Arms
+Lucerne Hammer.MOD		TYPE:Weapon Group Pole Arms
+Ogre Hook.MOD			TYPE:Weapon Group Pole Arms
 
 #
 # Weapon Group Spears

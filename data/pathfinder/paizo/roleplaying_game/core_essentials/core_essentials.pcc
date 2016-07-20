@@ -45,6 +45,8 @@ ABILITY:ce_abilities.lst
 ABILITY:ce_abilities_race.lst
 ABILITYCATEGORY:ce_abilitycategories.lst
 CLASS:ce_classes_race.lst
+DEITY:ce_deities.lst
+DOMAIN:ce_domains.lst
 EQUIPMENT:ce_equip_arms_armor.lst
 EQUIPMENT:ce_equip_general.lst
 ABILITY:ce_feats.lst
@@ -55,3 +57,5 @@ TEMPLATE:ce_templates.lst
 
 ARMORPROF:ce_profs_armor.lst
 WEAPONPROF:ce_profs_weapon.lst
+
+DATACONTROL:ce__datacontrols.lst

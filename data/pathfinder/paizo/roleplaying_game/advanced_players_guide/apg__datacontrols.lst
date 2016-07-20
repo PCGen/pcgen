@@ -45,6 +45,7 @@ FACTDEF:ABILITY|Alchemist_Archetype_BombDamage19	DATAFORMAT:BOOLEAN	REQUIRED:NO	
 # Replace all of these with BOMB
 FACTDEF:ABILITY|Alchemist_Archetype_BombDamage		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:GrandDiscovery			EXPLANATION:Determines whether the archetype affects - GrandDiscovery
 FACTDEF:ABILITY|Alchemist_Archetype_BombReduction	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:GrandDiscovery			EXPLANATION:Determines whether the archetype affects - GrandDiscovery
+FACTDEF:ABILITY|Alchemist_Archetype_ClassSkills		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Alchemy				EXPLANATION:Determines whether the archetype affects - Alchemy
 
 
 # Alchemist Class Feature Alterations
@@ -80,6 +81,8 @@ FACTDEF:ABILITY|Alchemist_CF_BombDamage13			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELEC
 FACTDEF:ABILITY|Alchemist_CF_BombDamage15			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistGrandDiscovery		EXPLANATION:Remove Alchemist GrandDiscovery
 FACTDEF:ABILITY|Alchemist_CF_BombDamage17			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistGrandDiscovery		EXPLANATION:Remove Alchemist GrandDiscovery
 FACTDEF:ABILITY|Alchemist_CF_BombDamage19			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistGrandDiscovery		EXPLANATION:Remove Alchemist GrandDiscovery
+
+FACTDEF:ABILITY|Alchemist_CF_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:AlchemistAlchemy			EXPLANATION:Remove Alchemist Alchemy
 
 ###Block: Cavalier
 # Name									Dataformat			Required	Selectable		Visible	Displayname					Explanation
@@ -252,6 +255,7 @@ FACTDEF:ABILITY|Summoner_Archetype_ShareSpells			DATAFORMAT:BOOLEAN	REQUIRED:NO	
 
 FACTDEF:ABILITY|Summoner_Archetype_EidolonBaseForm		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Base Form		EXPLANATION:Determines whether the archetype affects - Eidolon Base Form
 FACTDEF:ABILITY|Summoner_Archetype_EidolonType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Type		EXPLANATION:Determines whether the archetype affects - Eidolon Type
+FACTDEF:ABILITY|Summoner_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills		EXPLANATION:Determines whether the archetype affects - ClassSkills
 
 
 FACTDEF:ABILITY|Summoner_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ArmorProficiencies	EXPLANATION:Remove Summoner ArmorProficiencies
@@ -270,6 +274,7 @@ FACTDEF:ABILITY|Summoner_CF_MergeForms				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTA
 
 FACTDEF:ABILITY|Summoner_CF_EidolonBaseForm			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Base Form		EXPLANATION:Determines whether the archetype affects - Eidolon Base Form
 FACTDEF:ABILITY|Summoner_CF_EidolonType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Eidolon Type		EXPLANATION:Determines whether the archetype affects - Eidolon Type
+FACTDEF:ABILITY|Summoner_CF_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills		EXPLANATION:Remove Summoner ClassSkills
 
 
 FACTDEF:ABILITY|Summoner_CF_GreaterAspect				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:GreaterAspect		EXPLANATION:Remove Summoner GreaterAspect
