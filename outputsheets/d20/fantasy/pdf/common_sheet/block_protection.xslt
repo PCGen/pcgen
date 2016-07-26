@@ -18,6 +18,7 @@
 	====================================
 	====================================-->
 	<xsl:template match="protection">
+		<xsl:if test="count(armor|shield|item) &gt; 0" >
 		<!-- BEGIN Armor table -->
 		<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
 	<!--	<fo:table table-layout="fixed" space-before="2mm">	-->
@@ -68,7 +69,7 @@
 			</fo:table-header>
 			<fo:table-body>
 				<xsl:for-each select="armor|shield|item">
-					<xsl:if test="(not(contains(fulltype,'BARDING')))or(contains(location,'Equipped'))">
+					<xsl:if test="(not(contains(fulltype,'BARDING'))) or (contains(location,'Equipped'))">
 					<xsl:variable name="shade">
 						<xsl:choose>
 							<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
@@ -124,6 +125,7 @@
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
+		</xsl:if>
 	</xsl:template>
 
 
