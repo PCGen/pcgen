@@ -39,6 +39,7 @@ import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.FopFactoryBuilder;
 import org.apache.fop.apps.MimeConstants;
 import org.apache.fop.render.Renderer;
 
@@ -56,33 +57,40 @@ import pcgen.util.Logging;
  */
 public class FopTask implements Runnable
 {
+	private static final FopFactory FOP_FACTORY = createFopFactory();
+	private static FOUserAgent userAgent;
 
 	private static final TransformerFactory TRANS_FACTORY = TransformerFactory.newInstance();
 
 	private static FopFactory createFopFactory()
 	{
-		FopFactory fopFactory = FopFactory.newInstance();
-		fopFactory.setStrictValidation(false);
+		FopFactoryBuilder builder;
 
 		// Allow optional customization with configuration file
 		String configPath = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fop.xconf";
 		Logging.log(Logging.INFO, "Checking for config file at " + configPath);
 		File userConfigFile = new File(configPath);
-		if (userConfigFile.exists())
+		try
 		{
-			Logging.log(Logging.INFO, "FoPTask using config file "
-					+ configPath);
-			try
+			if (userConfigFile.exists())
 			{
-				fopFactory.setUserConfig(userConfigFile);
+				Logging.log(Logging.INFO, "FoPTask using config file " + configPath);
+				builder = new FopFactoryBuilder(userConfigFile.toURI());
 			}
-			catch (Exception e)
+			else
 			{
-				Logging.errorPrint("Problem with FOP configuration "
-						+ configPath + ": ", e);
-			}
+				Logging.log(Logging.INFO, "FoPTask using default config");
+				builder = new FopFactoryBuilder(new File(".").toURI());
+			}	
+			builder.setStrictFOValidation(false);
+			return builder.build();
 		}
-		return fopFactory;
+		catch (Exception e)
+		{
+			Logging.errorPrint("Problem with FOP configuration "
+					+ configPath + ": ", e);
+			return null;
+		}
 	}
 
 	private final StreamSource inputSource;
@@ -114,6 +122,11 @@ public class FopTask implements Runnable
 		return new StreamSource(xsltFile);
 	}
 
+	static public FopFactory getFactory()
+	{
+		return FOP_FACTORY;
+	}
+	
 	/**
 	 * Creates a new FopTask that transforms the input stream using the given xsltFile and outputs a
 	 * pdf document to the given output stream. The output can be saved to a file if a
@@ -128,6 +141,7 @@ public class FopTask implements Runnable
 	public static FopTask newFopTask(InputStream inputXmlStream, File xsltFile, OutputStream outputPdf) throws FileNotFoundException
 	{
 		StreamSource xsltSource = createXsltStreamSource(xsltFile);
+		userAgent = FOP_FACTORY.newFOUserAgent();
 		return new FopTask(new StreamSource(inputXmlStream), xsltSource, null, outputPdf);
 	}
 
@@ -145,6 +159,7 @@ public class FopTask implements Runnable
 	public static FopTask newFopTask(InputStream inputXmlStream, File xsltFile, Renderer renderer) throws FileNotFoundException
 	{
 		StreamSource xsltSource = createXsltStreamSource(xsltFile);
+		userAgent = renderer.getUserAgent();
 		return new FopTask(new StreamSource(inputXmlStream), xsltSource, renderer, null);
 	}
 
@@ -162,9 +177,6 @@ public class FopTask implements Runnable
 	{
 		try(OutputStream out = outputStream)
 		{
-			FopFactory factory = createFopFactory();
-
-			FOUserAgent userAgent = factory.newFOUserAgent();
 			userAgent.setProducer("PC Gen Character Generator");
 			userAgent.setAuthor(System.getProperty("user.name"));
 			userAgent.setCreationDate(new Date());
@@ -173,8 +185,6 @@ public class FopTask implements Runnable
 			if (renderer != null)
 			{
 				userAgent.setKeywords("PCGEN FOP PREVIEW");
-				userAgent.setRendererOverride(renderer);
-				renderer.setUserAgent(userAgent);
 				mimeType = MimeConstants.MIME_FOP_AWT_PREVIEW;
 			}
 			else
@@ -185,11 +195,11 @@ public class FopTask implements Runnable
 			Fop fop;
 			if (out != null)
 			{
-				fop = factory.newFop(mimeType, userAgent, out);
+				fop = FOP_FACTORY.newFop(mimeType, userAgent, out);
 			}
 			else
 			{
-				fop = factory.newFop(mimeType, userAgent);
+				fop = FOP_FACTORY.newFop(mimeType, userAgent);
 			}
 
 			Transformer transformer;
