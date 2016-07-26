@@ -183,8 +183,8 @@ Hanbo.MOD					TYPE:Monk.Weapon Group Monk
 #
 # Weapon Group Polearm
 #
-Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
-Mancatcher.MOD				TYPE:Polearm.Weapon Group Polearms
+Horsechopper.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Mancatcher.MOD				TYPE:Polearm.Weapon Group Pole Arms
 #
 # Weapon Group Thrown
 #
