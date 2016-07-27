@@ -250,7 +250,7 @@ Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 # Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Modifier		Source Page		Ability								Bonus to Situation							Bonus to skill
 Abacus.MOD																				TYPE:Goods.Tools													COST:2	WT:2					SOURCEPAGE:p.76
 Alchemist's Lab.MOD																																								SOURCEPAGE:p.76
-Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:50					SOURCEPAGE:p.76
+Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:5					SOURCEPAGE:p.76
 Antidote Kit																			TYPE:Goods.Tools													COST:100	WT:3					SOURCEPAGE:p.76
 Anvil (Blacksmith).MOD																		TYPE:Goods.Tools													COST:5	WT:100				SOURCEPAGE:p.76
 Anvil (Farrier).MOD																		TYPE:Goods.Tools													COST:5	WT:50					SOURCEPAGE:p.76
