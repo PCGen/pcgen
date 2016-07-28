@@ -81,67 +81,67 @@
 		<weapon><subattrib border="" centre="" normal=""/></weapon>
 
 		<protection.title><subattrib border="" centre="" inverse=""/></protection.title>
-		<protection.border padding="0.5pt"><subattrib border="" inverse=""/></protection.border>
+		<protection.border><subattrib border="" inverse=""/></protection.border>
 		<protection.darkline><subattrib  centre="" medium="" /></protection.darkline>
 		<protection.lightline><subattrib  centre="" light="" /></protection.lightline>
 
 		<rage.title><subattrib  centre="" inverse=""/></rage.title>
-		<rage.border padding="0.5pt"><subattrib border="" inverse=""/></rage.border>
+		<rage.border><subattrib border="" inverse=""/></rage.border>
 		<rage><subattrib normal=""/></rage>
 
 		<checklist.title><subattrib  centre="" inverse=""/></checklist.title>
-		<checklist.border padding="0.5pt"><subattrib border="" inverse=""/></checklist.border>
+		<checklist.border><subattrib border="" inverse=""/></checklist.border>
 		<checklist><subattrib normal=""/></checklist>
 
 		<wildshape.title><subattrib centre="" inverse=""/></wildshape.title>
-		<wildshape.border padding="0.5pt"><subattrib border="" inverse=""/></wildshape.border>
+		<wildshape.border><subattrib border="" inverse=""/></wildshape.border>
 		<wildshape><subattrib normal=""/></wildshape>
 
 		<bard.title><subattrib centre="" inverse=""/></bard.title>
-		<bard.border padding="0.5pt"><subattrib border="" inverse=""/></bard.border>
+		<bard.border><subattrib border="" inverse=""/></bard.border>
 		<bard><subattrib  normal=""/></bard>
 
 		<psionics.title><subattrib  centre="" inverse=""/></psionics.title>
-		<psionics.border padding="0.5pt"><subattrib border="" inverse=""/></psionics.border>
+		<psionics.border><subattrib border="" inverse=""/></psionics.border>
 		<psionics><subattrib border="" centre="" normal=""/></psionics>
 
 		<turning.title><subattrib centre="" inverse=""/></turning.title>
-		<turning.border padding="0.5pt"><subattrib border="" inverse=""/></turning.border>
+		<turning.border><subattrib border="" inverse=""/></turning.border>
 		<turning><subattrib  centre="" normal=""/></turning>
 		<turning.lightline><subattrib centre="" light=""/></turning.lightline>
 		<turning.darkline><subattrib centre="" medium=""/></turning.darkline>
 
 		<stunningfist.title><subattrib centre="" inverse=""/></stunningfist.title>
-		<stunningfist.border padding="0.5pt"><subattrib border="" inverse=""/></stunningfist.border>
+		<stunningfist.border><subattrib border="" inverse=""/></stunningfist.border>
 		<stunningfist><subattrib normal=""/></stunningfist>
 
 		<wholeness.title><subattrib  centre="" inverse=""/></wholeness.title>
-		<wholeness.border padding="0.5pt"><subattrib border="" inverse=""/></wholeness.border>
+		<wholeness.border><subattrib border="" inverse=""/></wholeness.border>
 		<wholeness><subattrib  normal=""/></wholeness>
 
 		<layonhands.title><subattrib centre="" inverse=""/></layonhands.title>
-		<layonhands.border padding="0.5pt"><subattrib border="" inverse=""/></layonhands.border>
+		<layonhands.border><subattrib border="" inverse=""/></layonhands.border>
 		<layonhands><subattrib  normal=""/></layonhands>
 
 		<domains.title><subattrib  centre="" inverse=""/></domains.title>
-		<domains.border padding="0.5pt"><subattrib border="" inverse=""/></domains.border>
+		<domains.border><subattrib border="" inverse=""/></domains.border>
 		<domains.lightline><subattrib  light=""/></domains.lightline>
 		<domains.darkline><subattrib  medium=""/></domains.darkline>
 
 		<proficiencies.title><subattrib centre="" inverse=""/></proficiencies.title>
-		<proficiencies.border padding="0.5pt"><subattrib border="" inverse=""/></proficiencies.border>
+		<proficiencies.border><subattrib border="" inverse=""/></proficiencies.border>
 		<proficiencies><subattrib centre="" normal=""/></proficiencies>
 
 		<prohibited.title><subattrib centre="" inverse=""/></prohibited.title>
-		<prohibited.border padding="0.5pt"><subattrib border="" inverse=""/></prohibited.border>
+		<prohibited.border><subattrib border="" inverse=""/></prohibited.border>
 		<prohibited><subattrib centre="" normal=""/></prohibited>
 
 		<languages.title><subattrib centre="" inverse=""/></languages.title>
-		<languages.border padding="0.5pt"><subattrib border="" inverse=""/></languages.border>
+		<languages.border><subattrib border="" inverse=""/></languages.border>
 		<languages><subattrib  centre="" normal=""/></languages>
 
 		<templates.title><subattrib centre="" inverse=""/></templates.title>
-		<templates.border padding="0.5pt"><subattrib border="" inverse=""/></templates.border>
+		<templates.border><subattrib border="" inverse=""/></templates.border>
 		<templates.lightline><subattrib light=""/></templates.lightline>
 		<templates.darkline><subattrib medium=""/></templates.darkline>
 
@@ -149,81 +149,81 @@
 		<companions><subattrib border="" centre="" normal=""/></companions>
 
 		<equipment.title><subattrib centre="" inverse=""/></equipment.title>
-		<equipment.border padding="0.5pt"><subattrib border="" inverse=""/></equipment.border>
+		<equipment.border><subattrib border="" inverse=""/></equipment.border>
 		<equipment.lightline><subattrib light=""/></equipment.lightline>
 		<equipment.darkline><subattrib medium=""/></equipment.darkline>
 
 		<weight.title><subattrib centre="" inverse=""/></weight.title>
-		<weight.border padding="0.5pt"><subattrib border="" inverse=""/></weight.border>
+		<weight.border><subattrib border="" inverse=""/></weight.border>
 		<weight.lightline><subattrib light=""/></weight.lightline>
 		<weight.darkline><subattrib  medium=""/></weight.darkline>
 
 		<money.title><subattrib  centre="" inverse=""/></money.title>
-		<money.border padding="0.5pt"><subattrib border="" inverse=""/></money.border>
+		<money.border><subattrib border="" inverse=""/></money.border>
 		<money.lightline><subattrib light=""/></money.lightline>
 		<money.darkline><subattrib medium=""/></money.darkline>
 
 		<magic.title><subattrib centre="" inverse=""/></magic.title>
-		<magic.border padding="0.5pt"><subattrib border="" inverse=""/></magic.border>
+		<magic.border><subattrib border="" inverse=""/></magic.border>
 		<magic.lightline><subattrib light=""/></magic.lightline>
 		<magic.darkline><subattrib medium=""/></magic.darkline>
 
 		<special_abilities.title><subattrib centre="" inverse=""/></special_abilities.title>
-		<special_abilities.border padding="0.5pt"><subattrib border="" inverse=""/></special_abilities.border>
+		<special_abilities.border><subattrib border="" inverse=""/></special_abilities.border>
 		<special_abilities.lightline><subattrib light=""/></special_abilities.lightline>
 		<special_abilities.darkline><subattrib medium=""/></special_abilities.darkline>
 
 		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
-		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
+		<archetypes.border><subattrib border="" inverse=""/></archetypes.border>
 		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
 		<archetypes.darkline><subattrib medium=""/></archetypes.darkline>
 
 		<special_attacks.title><subattrib centre="" inverse=""/></special_attacks.title>
-		<special_attacks.border padding="0.5pt"><subattrib border="" inverse=""/></special_attacks.border>
+		<special_attacks.border><subattrib border="" inverse=""/></special_attacks.border>
 		<special_attacks.lightline><subattrib light=""/></special_attacks.lightline>
 		<special_attacks.darkline><subattrib medium=""/></special_attacks.darkline>
 
 		<special_qualities.title><subattrib centre="" inverse=""/></special_qualities.title>
-		<special_qualities.border padding="0.5pt"><subattrib border="" inverse=""/></special_qualities.border>
+		<special_qualities.border><subattrib border="" inverse=""/></special_qualities.border>
 		<special_qualities.lightline><subattrib light=""/></special_qualities.lightline>
 		<special_qualities.darkline><subattrib medium=""/></special_qualities.darkline>
 
 		<afflictions.title><subattrib centre="" inverse=""/></afflictions.title>
-		<afflictions.border padding="0.5pt"><subattrib border="" inverse=""/></afflictions.border>
+		<afflictions.border><subattrib border="" inverse=""/></afflictions.border>
 		<afflictions.lightline><subattrib light=""/></afflictions.lightline>
 		<afflictions.darkline><subattrib medium=""/></afflictions.darkline>
 
 		<tempbonuses.title><subattrib centre="" inverse=""/></tempbonuses.title>
-		<tempbonuses.border padding="0.5pt"><subattrib border="" inverse=""/></tempbonuses.border>
+		<tempbonuses.border><subattrib border="" inverse=""/></tempbonuses.border>
 		<tempbonuses.lightline><subattrib light=""/></tempbonuses.lightline>
 		<tempbonuses.darkline><subattrib medium=""/></tempbonuses.darkline>
 
 
 
 		<animal_tricks.title><subattrib centre="" inverse=""/></animal_tricks.title>
-		<animal_tricks.border padding="0.5pt"><subattrib border="" inverse=""/></animal_tricks.border>
+		<animal_tricks.border><subattrib border="" inverse=""/></animal_tricks.border>
 		<animal_tricks.lightline><subattrib light=""/></animal_tricks.lightline>
 		<animal_tricks.darkline><subattrib medium=""/></animal_tricks.darkline>
 
 
 		<intelligent_items.title><subattrib centre="" inverse=""/></intelligent_items.title>
-		<intelligent_items.border padding="0.5pt"><subattrib border="" inverse=""/></intelligent_items.border>
+		<intelligent_items.border><subattrib border="" inverse=""/></intelligent_items.border>
 		<intelligent_items.lightline><subattrib light=""/></intelligent_items.lightline>
 		<intelligent_items.darkline><subattrib medium=""/></intelligent_items.darkline>
 
 		<traits.title><subattrib centre="" inverse=""/></traits.title>
-		<traits.border padding="0.5pt"><subattrib border="" inverse=""/></traits.border>
+		<traits.border><subattrib border="" inverse=""/></traits.border>
 		<traits.lightline><subattrib light=""/></traits.lightline>
 		<traits.darkline><subattrib medium=""/></traits.darkline>
 
 
 		<salient_divine_abilities.title><subattrib centre="" inverse=""/></salient_divine_abilities.title>
-		<salient_divine_abilities.border padding="0.5pt"><subattrib border="" inverse=""/></salient_divine_abilities.border>
+		<salient_divine_abilities.border><subattrib border="" inverse=""/></salient_divine_abilities.border>
 		<salient_divine_abilities.lightline><subattrib light=""/></salient_divine_abilities.lightline>
 		<salient_divine_abilities.darkline><subattrib medium=""/></salient_divine_abilities.darkline>
 
 		<feats.title><subattrib centre="" inverse=""/></feats.title>
-		<feats.border padding="0.5pt"><subattrib border="" inverse=""/></feats.border>
+		<feats.border><subattrib border="" inverse=""/></feats.border>
 		<feats.lightline><subattrib light=""/></feats.lightline>
 		<feats.darkline><subattrib medium=""/></feats.darkline>
 

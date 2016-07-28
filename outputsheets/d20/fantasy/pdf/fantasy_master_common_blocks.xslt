@@ -222,7 +222,7 @@
 ====================================
 ====================================-->
 	<xsl:template name="page.footer.content">
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.25 * $pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
@@ -279,7 +279,7 @@
 						<xsl:apply-templates select="basics"/>
 					</fo:block>
 					<fo:block span="all">
-						<fo:table table-layout="fixed">
+						<fo:table table-layout="fixed" width="100%">
 							<fo:table-column>
 								<xsl:attribute name="column-width"><xsl:value-of select="0.29 * $pagePrintableWidth" />mm</xsl:attribute>
 							</fo:table-column>

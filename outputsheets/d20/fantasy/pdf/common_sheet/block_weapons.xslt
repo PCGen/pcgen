@@ -53,7 +53,7 @@
 ====================================-->
 	<xsl:template match="weapons/martialarts">
 		<!-- START Martial Arts Attack Table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -153,7 +153,7 @@
 ====================================-->
 	<xsl:template match="weapons/spiritweaponmelee">
 		<!-- START Spirit Weapon Melee Attack Table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -253,7 +253,7 @@
 ====================================-->
 	<xsl:template match="weapons/spiritweaponranged">
 		<!-- START Martial Arts Attack Table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -355,7 +355,7 @@
 		<!-- START Unarmed Attack Table -->
 		<!--<xsl:choose>
 			<xsl:when test="(weapons/naturalattack) &lt; 1">	-->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -553,7 +553,7 @@
 	<xsl:template match="weapons/naturalattack">
 		<!-- START Natural Attack Table -->
 
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -694,7 +694,8 @@
 			</xsl:choose>
 			<fo:table-row>
 											<xsl:message>Test</xsl:message>
-				<fo:table-cell/>
+				<fo:table-cell><fo:block/></fo:table-cell>
+
 			</fo:table-row>
 		</fo:table-body>
 	</fo:table>
@@ -718,7 +719,7 @@
 		<xsl:param name="distance"/>
 		<xsl:param name="damage"/>
 		<xsl:param name="tohit" select="''"/>
-			<fo:table table-layout="fixed" space-before="2mm">
+			<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
@@ -937,7 +938,7 @@
 	<xsl:template match="common">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:block keep-with-next.within-page="always" keep-together.within-column="always">
-		<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-before="2mm">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 48" />mm</xsl:attribute>
 			</fo:table-column>
@@ -1078,7 +1079,7 @@
 	<xsl:template match="common" mode="special_properties">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column column-width="20mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 20" />mm</xsl:attribute>
@@ -1095,7 +1096,7 @@
 					</fo:table-cell>
 				</xsl:if>
 				<xsl:if test="special_properties = ''">
-					<fo:table-cell number-columns-spanned="2" />
+					<fo:table-cell number-columns-spanned="2"><fo:block/></fo:table-cell>
 				</xsl:if>
 				</fo:table-row>
 			</fo:table-body>
@@ -1122,7 +1123,7 @@
 		<xsl:param name="damage" select="''"/>
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth"/>
 		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.5 * $column_width" />mm</xsl:attribute>
 			</fo:table-column>
@@ -1247,7 +1248,7 @@
 	<xsl:template match="melee">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
 		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column column-width="8mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.35 * ($column_width - 19)" />mm</xsl:attribute>
@@ -1268,6 +1269,7 @@
 					<!-- To hit and Damage titles -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block/>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1279,6 +1281,7 @@
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block/>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1348,7 +1351,7 @@
 	<xsl:template match="ranges">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
@@ -1421,7 +1424,9 @@
 
 					<!-- Distances -->
 					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						</fo:block>
 					</fo:table-cell>
 					<xsl:for-each select="range[position() &gt; 1 and position() &lt; 7]">
 						<fo:table-cell>
@@ -1482,6 +1487,7 @@
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block/>
 					</fo:table-cell>
 					<xsl:for-each select="range[position() &gt; 0 and position() &lt; 6]">
 						<fo:table-cell>
@@ -1540,6 +1546,7 @@
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block/>
 					</fo:table-cell>
 					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
 						<fo:table-cell>

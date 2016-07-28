@@ -19,7 +19,7 @@
 ====================================-->
 	<xsl:template match="abilities">
 		<!-- BEGIN Ability Block -->
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.22 * (0.29 * $pagePrintableWidth - 9)" />mm</xsl:attribute>
 			</fo:table-column>
@@ -56,27 +56,33 @@
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">ABILITY NAME</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">BASE SCORE</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">BASE MOD</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">ABILITY SCORE</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">ABILITY MOD</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">TEMP SCORE</fo:block>
 					</fo:table-cell>
-					<fo:table-cell/>
+					<fo:table-cell><fo:block/></fo:table-cell>
+
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">TEMP MOD</fo:block>
 					</fo:table-cell>
@@ -95,7 +101,8 @@
 								<xsl:value-of select="name/long"/>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.base.score'"/>
@@ -104,7 +111,8 @@
 								<xsl:value-of select="base"/>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.base.modifier'"/>
@@ -113,7 +121,8 @@
 								<xsl:value-of select="basemod"/>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.score'"/>
@@ -122,7 +131,8 @@
 								<xsl:value-of select="no_temp_score"/>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.modifier'"/>
@@ -131,32 +141,35 @@
 								<xsl:value-of select="no_temp_modifier"/>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 						<fo:table-cell height="4pt">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.temp.score'"/>
 							</xsl:call-template>
-							<xsl:if test="score != no_temp_score">
 							<fo:block space-before.optimum="2pt" font-size="10pt">
-								<xsl:value-of select="score"/>
+								<xsl:if test="score != no_temp_score">
+									<xsl:value-of select="score"/>
+								</xsl:if>
 							</fo:block>
-							</xsl:if>
 						</fo:table-cell>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 						<fo:table-cell height="4pt">	<!-- Temp Score and Mod-->
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.temp.modifier'"/>
 							</xsl:call-template>
-							<xsl:if test="score != no_temp_score">
 							<fo:block space-before.optimum="2pt" font-size="10pt">
-								<xsl:value-of select="modifier"/>
+								<xsl:if test="score != no_temp_score">
+									<xsl:value-of select="modifier"/>
+								</xsl:if>
 							</fo:block>
-							</xsl:if>
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2pt">
 											<xsl:message>Test</xsl:message>
-						<fo:table-cell/>
+						<fo:table-cell><fo:block/></fo:table-cell>
+
 					</fo:table-row>
 				</xsl:for-each>
 			</fo:table-body>
