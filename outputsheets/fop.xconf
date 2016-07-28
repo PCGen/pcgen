@@ -20,17 +20,24 @@
       </filterList>
 
       <fonts>
+		<!--
+			If you want to use a different font family than the default Noto Sans, copy 
+			your font files into the outputsheets/fonts folder and replace the embed-url
+			attribute values in this block with the appropriate file names of your font. 
+			It is important to keep the PCGenSans name in the font-triplet lines.
+			PCGen must be restarted for any change in this file to become effective.
+		-->
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Regular.ttf">
-			<font-triplet name="NotoSans" style="normal" weight="normal" />
+			<font-triplet name="PCGenSans" style="normal" weight="normal" />
 		</font>
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Bold.ttf">
-			<font-triplet name="NotoSans" style="normal" weight="bold" />
+			<font-triplet name="PCGenSans" style="normal" weight="bold" />
 		</font>
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Italic.ttf">
-			<font-triplet name="NotoSans" style="italic" weight="normal" />
+			<font-triplet name="PCGenSans" style="italic" weight="normal" />
 		</font>
 		<font kerning="yes" embed-url="NotoSans/NotoSans-BoldItalic.ttf">
-			<font-triplet name="NotoSans" style="italic" weight="bold" />
+			<font-triplet name="PCGenSans" style="italic" weight="bold" />
 		</font>
       </fonts>
     </renderer>

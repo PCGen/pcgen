@@ -222,7 +222,7 @@
 ====================================
 ====================================-->
 	<xsl:template name="page.footer.content">
-		<xsl:attribute name="font-family">NotoSans</xsl:attribute>
+		<xsl:attribute name="font-family">PCGenSans</xsl:attribute>
 		<fo:table table-layout="fixed">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.25 * $pagePrintableWidth" />mm</xsl:attribute>
@@ -272,7 +272,7 @@
 				-->
 			<fo:page-sequence>
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
-				<xsl:attribute name="font-family">NotoSans</xsl:attribute>
+				<xsl:attribute name="font-family">PCGenSans</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<!--	CHARACTER BODY STARTS HERE !!!	-->
 				<fo:flow flow-name="body" font-size="8pt">
@@ -359,7 +359,7 @@
 			<fo:page-sequence>
 		
 				<xsl:attribute name="master-reference">Portrait 2 Column</xsl:attribute>
-				<xsl:attribute name="font-family">NotoSans</xsl:attribute>
+				<xsl:attribute name="font-family">PCGenSans</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block>
