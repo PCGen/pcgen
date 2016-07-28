@@ -50,6 +50,7 @@
 <!-->		<xsl:if test="string-length(translate(normalize-space(concat(description,bio)), ' ', '')) &gt; 0">	-->
 			<fo:page-sequence>
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
+				<xsl:attribute name="font-family">NotoSans</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block font-size="14pt" break-before="page" span="all">
@@ -239,6 +240,7 @@
 		<!-- BEGIN CHARACTER NOTES Pages -->
 		<xsl:if test="count(.//note) &gt; 0">
 			<fo:page-sequence master-reference="Portrait 2 Column">
+				<xsl:attribute name="font-family">NotoSans</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block font-size="14pt" font-weight="bold" space-after.optimum="2mm" break-before="page" span="all">
@@ -269,6 +271,7 @@
 		<!-- BEGIN Armor table -->
 			<xsl:if test="count(campaign_history) &gt; 0">
 				<fo:page-sequence master-reference="Portrait">
+				<xsl:attribute name="font-family">NotoSans</xsl:attribute>
 				<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'ac'"/>
 				</xsl:call-template>

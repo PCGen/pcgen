@@ -266,6 +266,11 @@
          <version>2.1</version>
      </dependency>
      <dependency>
+         <groupId>org.apache.pdfbox</groupId>
+         <artifactId>pdfbox</artifactId>
+         <version>1.8.9</version>
+     </dependency>
+     <dependency>
   		 <groupId>org.apache.xmlgraphics</groupId>
   		 <artifactId>xmlgraphics-commons</artifactId>
          <version>1.4</version>

@@ -21,6 +21,7 @@
   			</fo:layout-master-set>
 
   			<fo:page-sequence master-reference="Portrait">
+				<xsl:attribute name="font-family">NotoSans</xsl:attribute>
   				<fo:flow flow-name="xsl-region-body">
   					<xsl:apply-templates select=".//spell" mode="spell.card">
 						<xsl:sort select="name"/>

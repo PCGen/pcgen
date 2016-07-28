@@ -38,9 +38,14 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
+import org.apache.fop.apps.FopConfParser;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.FopFactoryBuilder;
 import org.apache.fop.apps.MimeConstants;
+import org.apache.fop.events.Event;
+import org.apache.fop.events.EventFormatter;
+import org.apache.fop.events.EventListener;
+import org.apache.fop.events.model.EventSeverity;
 import org.apache.fop.render.Renderer;
 
 import pcgen.cdom.base.Constants;
@@ -64,33 +69,35 @@ public class FopTask implements Runnable
 
 	private static FopFactory createFopFactory()
 	{
+		FopConfParser parser;
 		FopFactoryBuilder builder;
 
 		// Allow optional customization with configuration file
 		String configPath = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fop.xconf";
-		Logging.log(Logging.INFO, "Checking for config file at " + configPath);
+		Logging.log(Logging.INFO, "FoPTask checking for config file at " + configPath);
 		File userConfigFile = new File(configPath);
-		try
+		if (userConfigFile.exists())
 		{
-			if (userConfigFile.exists())
+			Logging.log(Logging.INFO, "FoPTask using config file " + configPath);
+			try
 			{
-				Logging.log(Logging.INFO, "FoPTask using config file " + configPath);
-				builder = new FopFactoryBuilder(userConfigFile.toURI());
+				parser = new FopConfParser(userConfigFile);
 			}
-			else
+			catch (Exception e)
 			{
-				Logging.log(Logging.INFO, "FoPTask using default config");
-				builder = new FopFactoryBuilder(new File(".").toURI());
-			}	
-			builder.setStrictFOValidation(false);
-			return builder.build();
+				Logging.errorPrint("FoPTask encountered a problem with FOP configuration "
+						+ configPath + ": ", e);
+				return null;
+			}
+			builder = parser.getFopFactoryBuilder();
 		}
-		catch (Exception e)
+		else
 		{
-			Logging.errorPrint("Problem with FOP configuration "
-					+ configPath + ": ", e);
-			return null;
-		}
+			Logging.log(Logging.INFO, "FoPTask using default config");
+			builder = new FopFactoryBuilder(new File(".").toURI());
+			builder.setStrictFOValidation(false);
+		}	
+		return builder.build();
 	}
 
 	private final StreamSource inputSource;
@@ -180,6 +187,8 @@ public class FopTask implements Runnable
 			userAgent.setProducer("PC Gen Character Generator");
 			userAgent.setAuthor(System.getProperty("user.name"));
 			userAgent.setCreationDate(new Date());
+			
+			userAgent.getEventBroadcaster().addEventListener(new FOPEventListener());
 
 			String mimeType;
 			if (renderer != null)
@@ -296,5 +305,42 @@ public class FopTask implements Runnable
 		}
 
 	}
-
+	
+	public static class FOPEventListener implements EventListener
+	{
+		/**
+		 * @{inheritdoc}
+		 */
+		@Override
+	    public void processEvent(Event event)
+		{
+	        String msg = "[FOP] " + EventFormatter.format(event);
+	        
+	        // filter out some erroneous FOP warnings about not finding internal fonts
+	        // this is an ancient, but still unfixed FOP bug
+	        // see https://issues.apache.org/jira/browse/FOP-1667
+	        if (msg.contains("not found") && (msg.contains("Symbol,normal") || msg.contains("ZapfDingbats,normal")))
+	        {
+	        	return;
+	        }
+	        
+	        EventSeverity severity = event.getSeverity();
+	        if (severity == EventSeverity.INFO)
+	        {
+	        	Logging.log(Logging.INFO, msg);
+	        }
+	        else if (severity == EventSeverity.WARN)
+	        {
+	        	Logging.log(Logging.WARNING, msg);
+	        }
+	        else if (severity == EventSeverity.ERROR || severity == EventSeverity.FATAL)
+	        {
+	        	Logging.log(Logging.ERROR, msg);
+	        }
+	        else
+	        {
+	            assert false;
+	        }
+		}
+	}
 }
