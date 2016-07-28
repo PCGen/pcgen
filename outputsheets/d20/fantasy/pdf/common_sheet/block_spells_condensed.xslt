@@ -41,7 +41,7 @@
 	<xsl:template match="racial_innate">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:block>
-				<fo:table table-layout="fixed">
+				<fo:table table-layout="fixed" width="100%">
 					<xsl:call-template name="spells.known.header.row">
 						<xsl:with-param name="columnOne" select="''"/>
 						<xsl:with-param name="title" select="'Innate Racial Spells'"/>
@@ -64,7 +64,7 @@
 	<xsl:template match="class_innate">
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:for-each select="spellbook">
-				<fo:table table-layout="fixed" space-before="5mm">
+				<fo:table table-layout="fixed" width="100%" space-before="5mm">
 					<xsl:call-template name="spells.known.header.row">
 						<xsl:with-param name="columnOne" select="''"/>
 						<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
@@ -98,7 +98,7 @@
 	<xsl:template match="class" mode="spells.known">
 		<xsl:if test="count(.//spell) &gt; 0">
 	<!--> This is causing the new page creation		<fo:block break-before="page"/>	-->
-			<fo:table table-layout="fixed">
+			<fo:table table-layout="fixed" width="100%">
 				<xsl:variable name="titletext">
 					<xsl:choose>
 						<xsl:when test="@spellcastertype = 'Psionic'">
@@ -132,7 +132,7 @@
 				<fo:table-body>
 					<fo:table-row height="2mm">
 											<xsl:message>Test</xsl:message>
-						<fo:table-cell />
+						<fo:table-cell><fo:block/></fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
 											<xsl:message>Test</xsl:message>
@@ -142,7 +142,7 @@
 					</fo:table-row>
 					<fo:table-row height="2mm">
 											<xsl:message>Test</xsl:message>
-						<fo:table-cell />
+						<fo:table-cell><fo:block/></fo:table-cell>
 					</fo:table-row>
 					<xsl:apply-templates select="level" mode="known.spells">
 						<xsl:with-param name="columnOne" select="$columnOne"/>
@@ -159,7 +159,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="class" mode="spell.level.table">
-		<fo:table table-layout="fixed" border-collapse="collapse">
+		<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
 			<fo:table-column column-width="proportional-column-width(2)"/>
 			<fo:table-column column-width="proportional-column-width(2)"/>
 			<xsl:for-each select="level">
@@ -188,7 +188,7 @@
 	<xsl:template match="class" mode="spell.level.count">
 		<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -205,7 +205,7 @@
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 	<!--
@@ -217,7 +217,7 @@
 	<xsl:template match="class" mode="spell.level.known">
 		<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -241,7 +241,7 @@
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 	<!--
@@ -251,9 +251,9 @@
 ====================================
 ====================================-->
 	<xsl:template match="class" mode="spell.level.cast">
-		<fo:table-row padding-bottom="2mm">
+		<fo:table-row>
 											<xsl:message>Test</xsl:message>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -284,7 +284,7 @@
 					</fo:block>
 				</fo:table-cell>
 			</xsl:for-each>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
 
@@ -298,7 +298,7 @@
 	<xsl:template match="class" mode="spell.concentration">
 		<fo:table-row keep-with-next.within-column="always">	
 											<xsl:message>Test</xsl:message>
-			<fo:table-cell/>
+			<fo:table-cell><fo:block/></fo:table-cell>
 			<fo:table-cell>	
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'spelllist.known.header.centre'"/>
@@ -355,7 +355,7 @@
 			</xsl:apply-templates>
 			<fo:table-row height="1mm">
 											<xsl:message>Test</xsl:message>
-				<fo:table-cell />
+				<fo:table-cell><fo:block/></fo:table-cell>
 			</fo:table-row>
 		</xsl:if>
 	</xsl:template>
@@ -820,7 +820,7 @@
 ====================================-->
 	<xsl:template name="spells.memorized.header">
 		<xsl:param name="title" select="'Unknown'"/>
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
@@ -849,7 +849,7 @@
 			<xsl:call-template name="spells.memorized.header">
 				<xsl:with-param name="title" select="'Innate'"/>
 			</xsl:call-template>
-			<fo:table table-layout="fixed" space-after="5mm">
+			<fo:table table-layout="fixed" width="100%" space-after="5mm">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
@@ -884,7 +884,7 @@
 			<xsl:call-template name="spells.memorized.header">
 				<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 			</xsl:call-template>
-			<fo:table table-layout="fixed">
+			<fo:table table-layout="fixed" width="100%">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
@@ -905,7 +905,7 @@
 ====================================-->
 	<xsl:template match="spellbook" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:table table-layout="fixed" space-before="4mm">
+			<fo:table table-layout="fixed" width="100%" space-before="4mm">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
@@ -975,7 +975,7 @@
 		<fo:table-cell padding-top="1pt">
 			<fo:block font-size="5pt">
 				<xsl:if test="count(.//spell) &gt; 0">
-					<fo:table table-layout="fixed">
+					<fo:table table-layout="fixed" width="100%">
 						<fo:table-column>
 							<xsl:attribute name="column-width"><xsl:value-of select="0.20 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 						</fo:table-column>

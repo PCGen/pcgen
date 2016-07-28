@@ -20,8 +20,8 @@
 	<xsl:template match="protection">
 		<xsl:if test="count(armor|shield|item) &gt; 0" >
 		<!-- BEGIN Armor table -->
-		<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
-	<!--	<fo:table table-layout="fixed" space-before="2mm">	-->
+		<fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-before="2mm">
+	<!--	<fo:table table-layout="fixed" width="100%" space-before="2mm">	-->
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'protection.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 49" />mm</xsl:attribute>
