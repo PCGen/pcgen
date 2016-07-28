@@ -1424,9 +1424,8 @@
 
 					<!-- Distances -->
 					<fo:table-cell>
-						<fo:block>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-						</fo:block>
+						<fo:block/>
 					</fo:table-cell>
 					<xsl:for-each select="range[position() &gt; 1 and position() &lt; 7]">
 						<fo:table-cell>
