@@ -115,7 +115,6 @@ GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
-# TODO: Needs a mirror
 STARTPACK:Skald's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:37
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
