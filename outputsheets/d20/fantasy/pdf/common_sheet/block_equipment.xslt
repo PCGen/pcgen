@@ -18,9 +18,9 @@
 ====================================-->
 	<xsl:template match="equipment">
 		<fo:block>
-			<fo:table table-layout="fixed" border-collapse="collapse" padding="0.5pt" space-before="2mm">
+			<fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-before="2mm">
 
-		<!--	<fo:table table-layout="fixed" space-before.optimum="2mm"> -->
+		<!--	<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm"> -->
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'equipment.border'"/>
 				</xsl:call-template>
@@ -34,7 +34,7 @@
 				<fo:table-header>
 					<fo:table-row>
 											<xsl:message>Test</xsl:message>
-						<fo:table-cell padding-top="1pt" number-columns-spanned="5">
+						<fo:table-cell number-columns-spanned="5">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'equipment.title'"/>
 							</xsl:call-template>
@@ -46,16 +46,16 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.title'"/>
 						</xsl:call-template>
-						<fo:table-cell padding-top="1pt">
+						<fo:table-cell>
 							<fo:block font-size="7pt">ITEM</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt">
+						<fo:table-cell>
 							<fo:block font-size="7pt">LOCATION</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt">
+						<fo:table-cell>
 							<fo:block font-size="7pt">QTY</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt" number-columns-spanned="2">
+						<fo:table-cell number-columns-spanned="2">
 							<fo:block font-size="7pt">WT / COST</fo:block>
 						</fo:table-cell>
 <!-->						<fo:table-cell padding-top="1pt">
@@ -69,10 +69,10 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.title'"/>
 						</xsl:call-template>
-						<fo:table-cell padding-top="1pt">
+						<fo:table-cell>
 							<fo:block font-size="7pt">TOTAL WEIGHT CARRIED/VALUE</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt">
+						<fo:table-cell>
 							<fo:block font-size="7pt">
 								<xsl:value-of select="total/weight"/>
 							</fo:block>
@@ -231,7 +231,7 @@
 ====================================-->
 	<xsl:template match="weight_allowance">
 		<!-- BEGIN Weight table -->
-		<fo:table table-layout="fixed" space-before.optimum="2mm" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weight.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.65 * 0.5 * ($pagePrintableWidth - 2) div 3" />mm</xsl:attribute>
@@ -290,6 +290,7 @@
 						<xsl:with-param name="title" select="'Push / Drag'"/>
 						<xsl:with-param name="value" select="push_drag"/>
 					</xsl:call-template>
+											<xsl:message>Test</xsl:message>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
@@ -304,7 +305,7 @@
 
 
 		<xsl:if test="count (misc/funds/fund|equipment/item[contains(type, 'COIN') or contains(type, 'GEM')]) or (misc/gold) &gt; 0">	
-			<fo:table table-layout="fixed" space-before.optimum="2mm">
+			<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'money.border'"/>
 				</xsl:call-template>
@@ -435,7 +436,7 @@
 ====================================-->
 	<xsl:template match="magics">
 		<xsl:if test="count(magic) &gt; 0">
-			<fo:table table-layout="fixed" space-before.optimum="2mm">
+			<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'magic.border'"/>
 				</xsl:call-template>
