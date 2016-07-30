@@ -21,10 +21,10 @@
 
       <fonts>
 		<!--
-			If you want to use a different font family than the default Noto Sans, copy 
-			your font files into the outputsheets/fonts folder and replace the embed-url
-			attribute values in this block with the appropriate file names of your font. 
-			It is important to keep the PCGenSans name in the font-triplet lines.
+			If you want to use a different font family than the default Noto Sans, 
+			copy your font files into the outputsheets/fonts folder and add them 
+			here. Then adjust the <xsl:variable> tag in outputsheets/d20/fantasy/pdf
+			appropriately.
 			PCGen must be restarted for any change in this file to become effective.
 		-->
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Regular.ttf">
