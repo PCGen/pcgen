@@ -24,6 +24,9 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -37,6 +40,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.URI;
@@ -91,6 +95,21 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + 
+				"fonts" + File.separator + "NotoSans" + File.separator; 
+		try
+		{
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
+		}
+		catch (IOException | FontFormatException ex)
+		{
+			Logging.errorPrint("Unexpected exception in PrintPreviewDialog:initFonts", ex);
+		}
+
 		JDialog dialog = new PrintPreviewDialog(frame);
 		Utility.setDialogRelativeLocation(frame, dialog);
 		dialog.setVisible(true);

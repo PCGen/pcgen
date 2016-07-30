@@ -21,7 +21,7 @@
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:page-sequence>	
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
-				<xsl:attribute name="font-family">PCGenSans</xsl:attribute>
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	

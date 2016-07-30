@@ -28,16 +28,16 @@
 			PCGen must be restarted for any change in this file to become effective.
 		-->
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Regular.ttf">
-			<font-triplet name="PCGenSans" style="normal" weight="normal" />
+			<font-triplet name="Noto Sans" style="normal" weight="normal" />
 		</font>
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Bold.ttf">
-			<font-triplet name="PCGenSans" style="normal" weight="bold" />
+			<font-triplet name="Noto Sans" style="normal" weight="bold" />
 		</font>
 		<font kerning="yes" embed-url="NotoSans/NotoSans-Italic.ttf">
-			<font-triplet name="PCGenSans" style="italic" weight="normal" />
+			<font-triplet name="Noto Sans" style="italic" weight="normal" />
 		</font>
 		<font kerning="yes" embed-url="NotoSans/NotoSans-BoldItalic.ttf">
-			<font-triplet name="PCGenSans" style="italic" weight="bold" />
+			<font-triplet name="Noto Sans" style="italic" weight="bold" />
 		</font>
       </fonts>
     </renderer>
