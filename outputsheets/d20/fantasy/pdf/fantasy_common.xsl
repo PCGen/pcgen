@@ -10,6 +10,7 @@
 	<xsl:import href="../../../xsltsl-1.1/stdlib.xsl"/>
   	<xsl:import href="inc_pagedimensions.xslt"/>
 
+	<xsl:variable name="PCGenFont">Noto Sans</xsl:variable>
 	<xsl:template match="spell" mode="spell.card">
 		<xsl:param name="break" select="'page'" />
 		<fo:block>
