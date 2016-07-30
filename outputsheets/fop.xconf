@@ -21,9 +21,9 @@
 
       <fonts>
 		<!--
-			If you want to use a different font family than the default Noto Sans, 
-			copy your font files into the outputsheets/fonts folder and add them 
-			here. Then adjust the <xsl:variable> tag in outputsheets/d20/fantasy/pdf
+			If you want to use a different font family than the default Noto Sans, copy 
+			your font files into the outputsheets/fonts folder and add them here. Then
+			adjust the <xsl:variable> tag in outputsheets/d20/fantasy/pdf/fantasy_common.xsl
 			appropriately.
 			PCGen must be restarted for any change in this file to become effective.
 		-->
