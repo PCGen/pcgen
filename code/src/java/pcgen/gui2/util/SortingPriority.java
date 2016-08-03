@@ -1,5 +1,5 @@
 /*
- * QualifiedActor.java
+ * SortingPriority.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,10 +17,29 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  */
-package pcgen.cdom.base;
 
-public interface QualifiedActor<T extends QualifyingObject, R>
+package pcgen.gui2.util;
+
+public final class SortingPriority
 {
 
-	public R act(T object, Object source);
+    private int column;
+    private SortMode mode;
+
+    public SortingPriority(int column, SortMode mode)
+    {
+        super();
+        this.column = column;
+        this.mode = mode;
+    }
+
+    public int getColumn()
+    {
+        return column;
+    }
+
+    public SortMode getMode()
+    {
+        return mode;
+    }
 }
