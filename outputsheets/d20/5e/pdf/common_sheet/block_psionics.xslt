@@ -109,7 +109,7 @@
 	<xsl:template match="psionics">
 		<!-- BEGIN psionicsTable -->
 		<xsl:variable name="endpoints" select="7"/>
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * ($pagePrintableWidth - $endpoints) div 6" />mm</xsl:attribute>
@@ -174,7 +174,7 @@
 		</fo:table>
 	<xsl:if test = "type = '3.0'">
 		<!-- Attack / Defence table -->
-		<fo:table table-layout="fixed" padding="0.5pt">
+		<fo:table table-layout="fixed" width="100%" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 70" />mm</xsl:attribute>

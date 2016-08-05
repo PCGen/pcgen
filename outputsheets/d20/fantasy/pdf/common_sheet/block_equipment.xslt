@@ -19,8 +19,6 @@
 	<xsl:template match="equipment">
 		<fo:block>
 			<fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-before="2mm">
-
-		<!--	<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm"> -->
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'equipment.border'"/>
 				</xsl:call-template>
@@ -290,7 +288,6 @@
 						<xsl:with-param name="title" select="'Push / Drag'"/>
 						<xsl:with-param name="value" select="push_drag"/>
 					</xsl:call-template>
-											<xsl:message>Test</xsl:message>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
