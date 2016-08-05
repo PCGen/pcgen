@@ -678,16 +678,14 @@
 						</xsl:call-template>
 						<fo:block font-size="6pt" padding-top="1pt">Region</fo:block>	
 					</fo:table-cell>
-					<fo:table-cell><fo:block/></fo:table-cell>
-	<!-- SPACE -->
+					<fo:table-cell><fo:block/></fo:table-cell>	<!-- SPACE -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
 						<fo:block font-size="6pt" padding-top="1pt">Alignment</fo:block>	
 					</fo:table-cell>
-					<fo:table-cell><fo:block/></fo:table-cell>
-	<!-- SPACE -->
+					<fo:table-cell><fo:block/></fo:table-cell>	<!-- SPACE -->
 				</fo:table-row>
 <!-- Second Row -->
 				<fo:table-row>
@@ -724,8 +722,7 @@
 							</xsl:for-each>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell><fo:block/></fo:table-cell>
-	<!-- SPACE -->
+					<fo:table-cell><fo:block/></fo:table-cell>	<!-- SPACE -->
 					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -743,8 +740,7 @@
 							</xsl:if>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell><fo:block/></fo:table-cell>
-	<!-- SPACE -->
+					<fo:table-cell><fo:block/></fo:table-cell>	<!-- SPACE -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -754,8 +750,7 @@
 							<xsl:if test="face/short != ''"> / <xsl:value-of select="face/short"/></xsl:if>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell><fo:block/></fo:table-cell>
-	<!-- SPACE -->
+					<fo:table-cell><fo:block/></fo:table-cell>	<!-- SPACE -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -765,8 +760,7 @@
 							<xsl:value-of select="weight/weight_unit"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell><fo:block/></fo:table-cell>
-	<!-- SPACE -->
+					<fo:table-cell><fo:block/></fo:table-cell>	<!-- SPACE -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>

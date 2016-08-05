@@ -53,7 +53,7 @@
 ====================================-->
 	<xsl:template match="weapons/martialarts">
 		<!-- START Martial Arts Attack Table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -153,7 +153,7 @@
 ====================================-->
 	<xsl:template match="weapons/spiritweaponmelee">
 		<!-- START Spirit Weapon Melee Attack Table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -253,7 +253,7 @@
 ====================================-->
 	<xsl:template match="weapons/spiritweaponranged">
 		<!-- START Martial Arts Attack Table -->
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -355,7 +355,7 @@
 		<!-- START Unarmed Attack Table -->
 		<xsl:choose>
 		<xsl:when test="(weapons/naturalattack) &lt; 1">
-		<fo:table table-layout="fixed" space-before="2mm">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -486,7 +486,7 @@
 	<xsl:template match="weapons/naturalattack">
 		<!-- START Natural Attack Table -->
 
-		<fo:table table-layout="fixed" space-before="2mm" keep-with-next.within-column="always">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 77" />mm</xsl:attribute>
@@ -627,7 +627,8 @@
 			</xsl:choose>
 			<fo:table-row>
 											<xsl:message>Test</xsl:message>
-				<fo:table-cell/>
+				<fo:table-cell><fo:block/></fo:table-cell>
+
 			</fo:table-row>
 		</fo:table-body>
 	</fo:table>
@@ -651,7 +652,7 @@
 		<xsl:param name="distance"/>
 		<xsl:param name="damage"/>
 		<xsl:param name="tohit" select="''"/>
-			<fo:table table-layout="fixed" space-before="2mm" keep-with-next.within-column="always">
+			<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
@@ -866,7 +867,8 @@
 ====================================-->
 	<xsl:template match="common">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" space-before="2mm" keep-with-next="always" keep-together="always">
+		<fo:block keep-with-next.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-before="2mm">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 48" />mm</xsl:attribute>
 			</fo:table-column>
@@ -877,7 +879,7 @@
 			<fo:table-column column-width="10mm"/>
 			<fo:table-body>
 			
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Name row (including Hand, Type, Size and Crit -->
 					<fo:table-cell number-rows-spanned="2">
@@ -930,7 +932,7 @@
 						<fo:block font-size="6pt">REACH</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Hand, Type, Size and Crit -->
 					<fo:table-cell>
@@ -995,6 +997,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 	<!--
 ====================================
@@ -1005,7 +1008,8 @@
 
 	<xsl:template match="common" mode="special_properties">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together.within-column="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column column-width="20mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 20" />mm</xsl:attribute>
@@ -1022,11 +1026,12 @@
 					</fo:table-cell>
 				</xsl:if>
 				<xsl:if test="special_properties = ''">
-					<fo:table-cell number-columns-spanned="2" />
+					<fo:table-cell number-columns-spanned="2"><fo:block/></fo:table-cell>
 				</xsl:if>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 	
 	<!--
@@ -1047,7 +1052,8 @@
 		<xsl:param name="to_hit" select="''"/>
 		<xsl:param name="damage" select="''"/>
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.5 * $column_width" />mm</xsl:attribute>
 			</fo:table-column>
@@ -1055,7 +1061,7 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.5 * $column_width" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1070,7 +1076,7 @@
 						<fo:block font-size="6pt">DAMAGE</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row  keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1091,6 +1097,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 
 	<!--
@@ -1131,7 +1138,8 @@
 ====================================-->
 	<xsl:template match="melee">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 1"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column column-width="8mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.35 * ($column_width - 19)" />mm</xsl:attribute>
@@ -1147,11 +1155,12 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.15 * ($column_width - 19)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-next.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- To hit and Damage titles -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block/>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1163,6 +1172,7 @@
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block/>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1174,7 +1184,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<xsl:if test="not(w1_h1_p/to_hit = /character/export/invalidtext/tohit and w1_h1_p/damage = /character/export/invalidtext/damage and w2_p_oh/to_hit = /character/export/invalidtext/tohit and w2_p_oh/damage = /character/export/invalidtext/damage)">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 						<!-- 1HP, 2WP-OH -->
 						<xsl:call-template name="weapon.complex.tohit">
@@ -1190,7 +1200,7 @@
 					</fo:table-row>
 				</xsl:if>
 				<xsl:if test="not(w1_h1_o/to_hit = /character/export/invalidtext/tohit and w1_h1_o/damage = /character/export/invalidtext/damage and w2_p_ol/to_hit = /character/export/invalidtext/tohit and w2_p_ol/damage = /character/export/invalidtext/damage)">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 						<!-- 1HO, 2WPOL -->
 						<xsl:call-template name="weapon.complex.tohit">
@@ -1205,7 +1215,7 @@
 						</xsl:call-template>
 					</fo:table-row>
 				</xsl:if>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- 2H, OH -->
 					<xsl:call-template name="weapon.complex.tohit">
@@ -1221,6 +1231,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 	<!--
 ====================================
@@ -1230,7 +1241,8 @@
 ====================================-->
 	<xsl:template match="ranges">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed">
+		<fo:block keep-with-previous.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column column-width="25mm"/>
 			<fo:table-column column-width="25mm"/>
@@ -1279,7 +1291,7 @@
 				</xsl:if>
 
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
@@ -1316,7 +1328,7 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
+				<fo:table-row keep-with-previous.within-page="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
@@ -1335,6 +1347,7 @@
 			</xsl:if>
 		</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 
 
