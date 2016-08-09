@@ -82,7 +82,7 @@ CLASS:Cleric.MOD
 # Class Name
 CLASS:Wizard.MOD
 ###Block: Level progression
-1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	ABILITY:FEAT|AUTOMATIC|.CLEAR.Scribe Scroll
+1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	BONUS:VAR|Wizard_CF_ScribeScroll|1
 
 # Class Name
 #CLASS:Companion.MOD
