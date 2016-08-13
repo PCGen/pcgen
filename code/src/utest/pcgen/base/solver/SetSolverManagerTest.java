@@ -24,7 +24,6 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;

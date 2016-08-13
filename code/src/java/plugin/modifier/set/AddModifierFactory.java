@@ -21,11 +21,12 @@ import java.lang.reflect.Array;
 import java.util.HashSet;
 import java.util.Set;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.rules.persistence.token.ModifierFactory;
@@ -74,7 +75,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
 	 */
 	@Override
-	public Modifier<T[]> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
 		FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
@@ -164,7 +165,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	/**
 	 * The Modifier that implements ADD for Set objects
 	 */
-	public abstract class AddArrayModifier implements Modifier<T[]>
+	public abstract class AddArrayModifier implements PCGenModifier<T[]>
 	{
 
 		/**
@@ -194,17 +195,19 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 * {@inheritDoc}
 		 */
 		@Override
-		public int getInherentPriority()
+		public long getPriority()
 		{
-			return 3;
+			return (userPriority << 32) + 3;
 		}
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public T[] process(T[] input, ScopeInformation scopeInfo, Object source)
+		public T[] process(EvaluationManager evalManager)
 		{
+			@SuppressWarnings("unchecked")
+			T[] input = (T[]) evalManager.peek(EvaluationManager.INPUT);
 			Set<T> newSet = new HashSet<T>();
 			for (T o : input)
 			{

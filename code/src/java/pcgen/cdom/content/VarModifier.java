@@ -17,17 +17,17 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 
 /**
  * A VarModifier is a container for all the information necessary to modify a
- * variable. This includes the scope, the variable name, and the Modifier to be
- * applied. This allows that grouping of information to be passed as a single
- * unit of information.
+ * variable. This includes the scope, the variable name, and the PCGenModifier
+ * to be applied. This allows that grouping of information to be passed as a
+ * single unit of information.
  * 
  * @param <T>
- *            The format of the variable modified by the Modifier in this
+ *            The format of the variable modified by the PCGenModifier in this
  *            VarModifier
  */
 public class VarModifier<T>
@@ -45,10 +45,10 @@ public class VarModifier<T>
 	public final LegalScope legalScope;
 
 	/**
-	 * The Modifier to be applied to the Variable when this VarModifier is
+	 * The PCGenModifier to be applied to the Variable when this VarModifier is
 	 * applied.
 	 */
-	public final Modifier<T> modifier;
+	public final PCGenModifier<T> modifier;
 
 	/**
 	 * Constructs a new VarModifier containing all the information necessary to
@@ -60,12 +60,13 @@ public class VarModifier<T>
 	 * @param legalScope
 	 *            the LegalScope in which the Modifier is applied
 	 * @param modifier
-	 *            The Modifier to be applied to the Variable when this
+	 *            The PCGenModifier to be applied to the Variable when this
 	 *            VarModifier is applied
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
-	public VarModifier(String varName, LegalScope legalScope, Modifier<T> modifier)
+	public VarModifier(String varName, LegalScope legalScope,
+		PCGenModifier<T> modifier)
 	{
 		if (varName == null)
 		{

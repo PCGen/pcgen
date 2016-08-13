@@ -19,7 +19,7 @@ package plugin.lsttokens.template;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
@@ -77,7 +77,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
-		Modifier<OrderedPair> modifier;
+		PCGenModifier<OrderedPair> modifier;
 		try
 		{
 			modifier =
@@ -91,7 +91,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 				+ " Modifier SET had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		OrderedPair pair = modifier.process(null, null, null);
+		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value
@@ -127,7 +127,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				Modifier<?> modifier = vm.modifier;
+				PCGenModifier<?> modifier = vm.modifier;
 				if (VAR_NAME.equals(vm.varName)
 					&& (vm.legalScope.getParentScope() == null)
 					&& (modifier.getUserPriority() == MOD_PRIORITY)

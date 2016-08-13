@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.datacontrol;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DefaultVarValue;

@@ -37,6 +37,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -352,7 +353,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ps.getModifier().getUserPriority();
+					return ((PCGenModifier<?>) ps.getModifier()).getUserPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:

@@ -21,11 +21,12 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetBooleanModifierTest extends TestCase
 {
@@ -58,10 +59,9 @@ public class SetBooleanModifierTest extends TestCase
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Boolean> modifier =
 				factory.getModifier(5, "True", null, varScope, booleanManager);
-		assertEquals(0, modifier.getInherentPriority());
-		assertEquals(5, modifier.getUserPriority());
+		assertEquals(5l<<32, modifier.getPriority());
 		assertEquals(Boolean.class, modifier.getVariableFormat());
-		assertEquals(Boolean.TRUE, modifier.process(Boolean.FALSE, null, null));
+		assertEquals(Boolean.TRUE, modifier.process(EvalManagerUtilities.getInputEM(Boolean.FALSE)));
 	}
 
 }

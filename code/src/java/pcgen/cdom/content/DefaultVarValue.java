@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
 /**
