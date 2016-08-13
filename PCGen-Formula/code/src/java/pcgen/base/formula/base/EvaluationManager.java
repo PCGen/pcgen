@@ -47,8 +47,8 @@ public class EvaluationManager extends MappedDeque
 			new TypedKey<ScopeInstance>();
 
 	/**
-	 * A TypedKey used for storing the Class<?> asserted by the current context
-	 * of a formula
+	 * A TypedKey used for storing the Format (as a Class<?>) asserted by the
+	 * current context of a formula.
 	 */
 	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
 
@@ -59,12 +59,12 @@ public class EvaluationManager extends MappedDeque
 	public static final TypedKey<Object> INPUT = new TypedKey<Object>();
 
 	/**
-	 * Generates a new EvaluationManager initialized with the given parameters
+	 * Generates a new EvaluationManager initialized with the given parameters.
 	 * 
 	 * @param formulaManager
 	 *            The FormulaManager used to evaluate formulas processed by this
 	 *            EvaluationManager
-	 * @param globalScopeInst
+	 * @param scopeInst
 	 *            The ScopeInstance of formulas processed by this
 	 *            EvaluationManager
 	 * @param assertedFormat
@@ -73,11 +73,11 @@ public class EvaluationManager extends MappedDeque
 	 * @return A new EvaluationManager initialized with the given parameters
 	 */
 	public static EvaluationManager generate(FormulaManager formulaManager,
-		ScopeInstance globalScopeInst, Class<Number> assertedFormat)
+		ScopeInstance scopeInst, Class<?> assertedFormat)
 	{
 		EvaluationManager manager = new EvaluationManager();
 		manager.set(FMANAGER, formulaManager);
-		manager.set(INSTANCE, globalScopeInst);
+		manager.set(INSTANCE, scopeInst);
 		manager.set(ASSERTED, assertedFormat);
 		return manager;
 	}
@@ -94,8 +94,7 @@ public class EvaluationManager extends MappedDeque
 	 *            The VariableID to be used to derive the the ScopeInstance and
 	 *            asserted format of the EvaluationManager
 	 * @return A new EvaluationManager initialized with the given FormulaManager
-	 *         and the ScopeInstance and asserted format as implied by the given
-	 *         VariableID.
+	 *         and the ScopeInstance Asserted Format of the given VariableID
 	 */
 	public static EvaluationManager generate(FormulaManager formulaManager,
 		VariableID<?> varID)
