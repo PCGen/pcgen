@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.formatmanager.FormatManagerLibraryUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
@@ -81,7 +82,12 @@ public abstract class AbstractReferenceContext
 	private URI extractURI;
 	
 	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
-	
+
+	public AbstractReferenceContext()
+	{
+		FormatManagerLibraryUtilities.loadDefaultFormats(fmtLibrary);
+	}
+
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
