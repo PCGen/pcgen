@@ -21,13 +21,15 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.IndividualSetup;
+import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetNumberModifierTest extends TestCase
 {
@@ -200,10 +202,9 @@ public class SetNumberModifierTest extends TestCase
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", null, varScope, numManager);
-		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
-		assertEquals(35, modifier.getUserPriority());
+		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(6.5, modifier.process(4.3, null, null));
+		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 
 	@Test
@@ -216,9 +217,10 @@ public class SetNumberModifierTest extends TestCase
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6+5", iSetup.getFormulaManager(), varScope, numManager);
-		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
-		assertEquals(35, modifier.getUserPriority());
+		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(11, modifier.process(4.3, iSetup.getScopeInfo(), null));
+		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
+		evalManager.push(EvaluationManager.FMANAGER, iSetup.getFormulaManager());
+		assertEquals(11, modifier.process(evalManager));
 	}
 }

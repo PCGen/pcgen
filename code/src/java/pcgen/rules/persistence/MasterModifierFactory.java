@@ -17,7 +17,7 @@
  */
 package pcgen.rules.persistence;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
@@ -67,7 +67,7 @@ public class MasterModifierFactory
 	 *            The FormatManager for the Modifier to be returned
 	 * @return a Modifier representing the information given in the parameters
 	 */
-	public <T> Modifier<T> getModifier(String modIdentifier,
+	public <T> PCGenModifier<T> getModifier(String modIdentifier,
 		String modInstructions, int priorityNumber, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
