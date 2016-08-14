@@ -3075,13 +3075,13 @@ ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Shield Focus				MAXVER:6.4.0
 EQUIPMENT:Sunblade (Bastard)		NEWKEY:Sun Blade (Bastard)	MAXVER:6.4.01
 EQUIPMENT:Sunblade (Short)		NEWKEY:Sun Blade (Short)	MAXVER:6.4.01
 
-RACE:Eidolon (Biped)		MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
-RACE:Eidolon (Quadruped)	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
-RACE:Eidolon (Serpentine)	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
-RACE:Eidolon (Aquatic)		MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
+RACE:Eidolon (Biped)		MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Quadruped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Serpentine)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Aquatic)		MAXVER:6.6.01		NEWKEY:Eidolon
 
 
 
-RACE:Unchained Eidolon (Biped)	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
-RACE:Unchained Eidolon (Quadruped)	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
-RACE:Unchained Eidolon (Serpentine)	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:Eidolon
+RACE:Unchained Eidolon (Biped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Unchained Eidolon (Quadruped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Unchained Eidolon (Serpentine)	MAXVER:6.6.01		NEWKEY:Eidolon
