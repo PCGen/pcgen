@@ -22,11 +22,7 @@
  */
 package pcgen.gui2.facade;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -101,7 +97,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
-import pcgen.util.fop.FopTask;
 
 /**
  * The Class <code>SpellSupportFacadeImpl</code> marshals the spell data for a 

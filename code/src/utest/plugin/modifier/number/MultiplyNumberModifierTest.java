@@ -21,11 +21,12 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class MultiplyNumberModifierTest extends TestCase
 {
@@ -198,9 +199,8 @@ public class MultiplyNumberModifierTest extends TestCase
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", null, varScope, numManager);
-		assertEquals(factory.getInherentPriority(), modifier.getInherentPriority());
-		assertEquals(35, modifier.getUserPriority());
+		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
-		assertEquals(27.95, modifier.process(4.3, null, null));
+		assertEquals(27.95, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 }

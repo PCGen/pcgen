@@ -21,11 +21,12 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetStringModifierTest extends TestCase
 {
@@ -58,10 +59,9 @@ public class SetStringModifierTest extends TestCase
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<String> modifier =
 				factory.getModifier(5, "MyString", null, varScope, stringManager);
-		assertEquals(0, modifier.getInherentPriority());
-		assertEquals(5, modifier.getUserPriority());
+		assertEquals(5l<<32, modifier.getPriority());
 		assertEquals(String.class, modifier.getVariableFormat());
-		assertEquals("MyString", modifier.process("Wrong Answer", null, null));
+		assertEquals("MyString", modifier.process(EvalManagerUtilities.getInputEM("Wrong Answer")));
 	}
 
 }

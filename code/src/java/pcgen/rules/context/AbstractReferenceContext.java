@@ -30,9 +30,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.formatmanager.FormatManagerLibraryUtilities;
+import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -80,8 +81,13 @@ public abstract class AbstractReferenceContext
 	
 	private URI extractURI;
 	
-	private final FormatManagerLibrary fmtLibrary = new FormatManagerLibrary();
-	
+	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
+
+	public AbstractReferenceContext()
+	{
+		FormatManagerLibraryUtilities.loadDefaultFormats(fmtLibrary);
+	}
+
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	

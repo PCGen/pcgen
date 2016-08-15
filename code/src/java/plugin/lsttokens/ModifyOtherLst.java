@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -242,7 +242,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 					+ " had too many arguments: " + value, context);
 			}
 		}
-		Modifier<?> modifier;
+		PCGenModifier<?> modifier;
 		try
 		{
 			FormatManager<?> format =
@@ -310,7 +310,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		Modifier<?> modifier = vm.modifier;
+		PCGenModifier<?> modifier = vm.modifier;
 		String type = modifier.getIdentification();
 		int userPriority = modifier.getUserPriority();
 		StringBuilder sb = new StringBuilder();
