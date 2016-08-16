@@ -21,6 +21,7 @@ import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
+import pcgen.base.math.OrderedPair;
 
 /**
  * FormatUtilities are utility methods for Format objects.
@@ -33,6 +34,11 @@ public final class FormatUtilities
 	public static final BooleanManager BOOLEAN_MANAGER = new BooleanManager();
 	public static final OrderedPairManager ORDEREDPAIR_MANAGER =
 			new OrderedPairManager();
+
+	public static final Class<Number> NUMBER_CLASS = Number.class;
+	public static final Class<String> STRING_CLASS = String.class;
+	public static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
+	public static final Class<OrderedPair> ORDEREDPAIR_CLASS = OrderedPair.class;
 
 	private FormatUtilities()
 	{
