@@ -18,6 +18,7 @@
 package pcgen.base.formula.base;
 
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * A OperatorLibrary is a container for OperatorAction objects. These define the
@@ -83,11 +84,11 @@ public interface OperatorLibrary
 	 * @param format2
 	 *            The class (data format) of the second argument to the abstract
 	 *            operation
-	 * @return The class (data format) of the result of the operation if this
-	 *         OperatorLibrary has an OperatorAction for the given Operator and
-	 *         arguments; null otherwise
+	 * @return A FormatManager for the data format of the result of the
+	 *         operation if this OperatorLibrary has an OperatorAction for the
+	 *         given Operator arguments; null otherwise
 	 */
-	public Class<?> processAbstract(Operator operator, Class<?> format1,
+	public FormatManager<?> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2);
 
 	/**
@@ -142,10 +143,9 @@ public interface OperatorLibrary
 	 * @param format
 	 *            The class (data format) of the argument to the abstract
 	 *            operation
-	 * @return The class (data format) of the result of the operation if this
-	 *         OperatorLibrary has a UnaryAction for the given Operator and
-	 *         argument; null otherwise
+	 * @return A FormatManager for the data format of the result of the
+	 *         operation if this OperatorLibrary has an OperatorAction for the
+	 *         given Operator arguments; null otherwise
 	 */
-	public Class<?> processAbstract(Operator operator, Class<?> format);
-
+	public FormatManager<?> processAbstract(Operator operator, Class<?> format);
 }

@@ -71,7 +71,7 @@ public class StringAddTest extends TestCase
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(STRING_CLASS,
-			op.abstractEvaluate(STRING_CLASS, STRING_CLASS));
+			op.abstractEvaluate(STRING_CLASS, STRING_CLASS).getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

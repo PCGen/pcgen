@@ -17,8 +17,9 @@
  */
 package pcgen.base.formula.base;
 
-import pcgen.base.util.TypedKey;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.MappedDeque;
+import pcgen.base.util.TypedKey;
 
 /**
  * A FormulaSemantics is a class to capture Formula semantics.
@@ -61,7 +62,12 @@ public class FormulaSemantics extends MappedDeque
 	 */
 	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
 
-	public static final TypedKey<Class<?>> INPUT_FORMAT = new TypedKey<Class<?>>();
+	/**
+	 * A TypedKey used for storing the Format of the input object for the
+	 * formula served by this FormulaSemantics.
+	 */
+	public static final TypedKey<FormatManager<?>> INPUT_FORMAT =
+			new TypedKey<FormatManager<?>>();
 
 	/**
 	 * A TypedKey used for storing if the formula served by this

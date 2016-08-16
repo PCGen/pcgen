@@ -20,8 +20,9 @@ package pcgen.base.formula.base;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
-import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
+import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * A Function is part of a Formula that performs an operation. It can be
@@ -166,8 +167,10 @@ public interface Function
 	 * @param semantics
 	 *            The FormulaSemantics object that is used to capture semantic
 	 *            information about this Function
+	 * @return a FormatManager indicating the format of the value returned by
+	 *         this Function
 	 */
-	Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
+	FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics);
 
 	/*

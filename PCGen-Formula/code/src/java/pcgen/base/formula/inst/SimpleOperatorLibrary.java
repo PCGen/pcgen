@@ -23,6 +23,7 @@ import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
 
 /**
@@ -95,14 +96,14 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> processAbstract(Operator operator, Class<?> format)
+	public FormatManager<?> processAbstract(Operator operator, Class<?> format)
 	{
 		List<UnaryAction> actionList = unaryMTL.getListFor(operator);
 		if (actionList != null)
 		{
 			for (UnaryAction action : actionList)
 			{
-				Class<?> result = action.abstractEvaluate(format);
+				FormatManager<?> result = action.abstractEvaluate(format);
 				/*
 				 * null indicates the UnaryAction can't evaluate these, but try
 				 * another (don't unconditionally return result because another
@@ -150,7 +151,7 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> processAbstract(Operator operator, Class<?> format1,
+	public FormatManager<?> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2)
 	{
 		List<OperatorAction> actionList = operatorMTL.getListFor(operator);
@@ -158,7 +159,8 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 		{
 			for (OperatorAction action : actionList)
 			{
-				Class<?> result = action.abstractEvaluate(format1, format2);
+				FormatManager<?> result =
+						action.abstractEvaluate(format1, format2);
 				/*
 				 * null indicates the OperatorAction can't evaluate these, but
 				 * try another (don't unconditionally return result because

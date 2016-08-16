@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -70,8 +71,8 @@ public class ComplexNEPFormulaTest extends TestCase
 		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
 
 		FormulaManager fm = indSetup.getFormulaManager();
-		NumberManager numberMgr = new NumberManager();
-		BooleanManager booleanMgr = new BooleanManager();
+		NumberManager numberMgr = FormatUtilities.NUMBER_MANAGER;
+		BooleanManager booleanMgr = FormatUtilities.BOOLEAN_MANAGER;
 		StringManager stringMgr = new StringManager();
 
 		FormulaSemantics fs = FormulaSemantics.generate(fm, globalScope, null);
@@ -127,7 +128,7 @@ public class ComplexNEPFormulaTest extends TestCase
 		new ComplexNEPFormula("if(c||d,\"A\",\"B\")").isValid(stringMgr, fs);
 		assertEquals(true, fs.isValid());
 
-		fs.set(FormulaSemantics.INPUT_FORMAT, Number.class);
+		fs.set(FormulaSemantics.INPUT_FORMAT, numberMgr);
 		new ComplexNEPFormula("value()").isValid(numberMgr, fs);
 		assertEquals(true, fs.isValid());
 		new ComplexNEPFormula("3^5").isValid(numberMgr, fs);
@@ -146,8 +147,8 @@ public class ComplexNEPFormulaTest extends TestCase
 		ScopeInstance globalInst = indSetup.getGlobalScopeInst();
 		DependencyManager depManager = setupDM(indSetup);
 
-		NumberManager numberMgr = new NumberManager();
-		BooleanManager booleanMgr = new BooleanManager();
+		NumberManager numberMgr = FormatUtilities.NUMBER_MANAGER;
+		BooleanManager booleanMgr = FormatUtilities.BOOLEAN_MANAGER;
 
 		new ComplexNEPFormula("3+5").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
@@ -270,8 +271,8 @@ public class ComplexNEPFormulaTest extends TestCase
 			//ok
 		}
 
-		NumberManager numberMgr = new NumberManager();
-		BooleanManager booleanMgr = new BooleanManager();
+		NumberManager numberMgr = FormatUtilities.NUMBER_MANAGER;
+		BooleanManager booleanMgr = FormatUtilities.BOOLEAN_MANAGER;
 
 		assertEquals(8, new ComplexNEPFormula("3+5").resolve(evalManager));
 		assertEquals(15, new ComplexNEPFormula("3*5").resolve(evalManager));

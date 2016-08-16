@@ -19,6 +19,7 @@ package pcgen.base.formula.visitor;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
@@ -66,6 +67,11 @@ import pcgen.base.util.FormatManager;
  * and examples provided there (and the different requirements on allowArgs() -
  * called by SemanticsVisitor - and getDependencies() - not called by
  * SemanticsVisitor)
+ * 
+ * The objects to be passed in as data to each of the methdos on the
+ * FormulaParserVisitor interface of SemanticsVisitor is a FormulaSemantics
+ * object. The objects that each of the methods on the FormulaParserVistor
+ * interface of SemanticsVisitor returns implement the FormatManager interface.
  */
 @SuppressWarnings("PMD.TooManyMethods")
 public class SemanticsVisitor implements FormulaParserVisitor
@@ -85,16 +91,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * from the isValid() method, then the method in SemanticsVisitor should
 	 * immediately return that "invalid" FormulaSemantics.
 	 */
-
-	/**
-	 * A cache of the Number class.
-	 */
-	private static final Class<Number> NUMBER_CLASS = Number.class;
-
-	/**
-	 * A cache of the String class.
-	 */
-	private static final Class<String> STRING_CLASS = String.class;
 
 	/**
 	 * Visits a SimpleNode. Because this cannot be processed, due to lack of
@@ -227,7 +223,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		try
 		{
 			Double.parseDouble(node.getText());
-			return NUMBER_CLASS;
+			return FormatUtilities.NUMBER_MANAGER;
 		}
 		catch (NumberFormatException e)
 		{
@@ -302,11 +298,12 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 	}
 
-	private Class<?> processArrayReference(String name, SimpleNode argNode,
+	private FormatManager<?> processArrayReference(String name, SimpleNode argNode,
 		FormulaSemantics semantics)
 	{
-		Class<?> argFormat = (Class<?>) singleChildValid(argNode, semantics);
-		if (!NUMBER_CLASS.isAssignableFrom(argFormat))
+		FormatManager<?> argFormat =
+				(FormatManager<?>) singleChildValid(argNode, semantics);
+		if (!FormatUtilities.NUMBER_MANAGER.equals(argFormat))
 		{
 			semantics.setInvalid("Argument to array: "
 				+ ((SimpleNode) argNode.jjtGetChild(0)).getText()
@@ -330,7 +327,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 				+ " was not an array in scope " + legalScope.getName());
 			return null;
 		}
-		return componentMgr.getManagedClass();
+		return componentMgr;
 	}
 
 	/**
@@ -359,7 +356,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 				+ " was not found in scope " + legalScope.getName());
 			return null;
 		}
-		return formatManager.getManagedClass();
+		return formatManager;
 	}
 
 	/**
@@ -408,7 +405,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{
-		return STRING_CLASS;
+		return FormatUtilities.STRING_MANAGER;
 	}
 
 	/**
@@ -418,11 +415,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * @param node
 	 *            The node to be validated to ensure it has valid children and a
 	 *            non-null Operator
-	 * @return A FormulaSemantics object, which will indicate isValid() true if
-	 *         this operator has 2 valid children and a non-null Operator.
-	 *         Otherwise, the FormulaSemantics will indicate isValid() false
+	 * @return A FormatManager object, which will indicate the format returned
+	 *         by the Operator.
 	 */
-	private Object visitOperatorNode(SimpleNode node, Object data)
+	private FormatManager<?> visitOperatorNode(SimpleNode node, Object data)
 	{
 		final FormulaSemantics semantics = (FormulaSemantics) data;
 		Operator op = node.getOperator();
@@ -440,7 +436,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		Node child1 = node.jjtGetChild(0);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> format1 = (Class<?>) child1.jjtAccept(this, data);
+		FormatManager<?> format1 = (FormatManager<?>) child1.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.isValid())
 		{
@@ -449,7 +445,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 
 		Node child2 = node.jjtGetChild(1);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> format2 = (Class<?>) child2.jjtAccept(this, data);
+		FormatManager<?> format2 = (FormatManager<?>) child2.jjtAccept(this, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.isValid())
 		{
@@ -457,20 +453,22 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		OperatorLibrary opLib =
 				semantics.peek(FormulaSemantics.FMANAGER).getOperatorLibrary();
-		Class<?> returnedFormat = opLib.processAbstract(op, format1, format2);
+		FormatManager<?> returnedFormat =
+				opLib.processAbstract(op, format1.getManagedClass(),
+					format2.getManagedClass());
 		//null response means the library couldn't find an appropriate operator
 		if (returnedFormat == null)
 		{
 			semantics.setInvalid("Parse Error: Operator " + op.getSymbol()
-				+ " cannot process children: " + format1.getSimpleName()
-				+ " and " + format2.getSimpleName() + " found in "
+				+ " cannot process children: " + format1.getIdentifierType()
+				+ " and " + format2.getIdentifierType() + " found in "
 				+ node.getClass().getName());
 			return null;
 		}
 		return returnedFormat;
 	}
 
-	private Object visitUnaryNode(SimpleNode node, Object data)
+	private FormatManager<?> visitUnaryNode(SimpleNode node, Object data)
 	{
 		FormulaSemantics semantics = (FormulaSemantics) data;
 		Operator op = node.getOperator();
@@ -482,7 +480,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			return null;
 		}
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> format = (Class<?>) singleChildValid(node, data);
+		FormatManager<?> format = (FormatManager<?>) singleChildValid(node, data);
 		//Consistent with the "fail fast" behavior in the implementation note
 		if (!semantics.isValid())
 		{
@@ -490,12 +488,12 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		}
 		OperatorLibrary opLib =
 				semantics.peek(FormulaSemantics.FMANAGER).getOperatorLibrary();
-		Class<?> returnedFormat = opLib.processAbstract(op, format);
+		FormatManager<?> returnedFormat = opLib.processAbstract(op, format.getManagedClass());
 		//null response means the library couldn't find an appropriate operator
 		if (returnedFormat == null)
 		{
 			semantics.setInvalid("Parse Error: Operator " + op.getSymbol()
-				+ " cannot process child: " + format.getSimpleName()
+				+ " cannot process child: " + format.getIdentifierType()
 				+ " found in " + node.getClass().getName());
 			return null;
 		}
@@ -512,9 +510,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * @param data
 	 *            The incoming FormulaSemantics object (as Object to assist
 	 *            other methods in this class)
-	 * @return A FormulaSemantics object, which will indicate isValid() true if
-	 *         this operator has a single, valid child; Otherwise, the
-	 *         FormulaSemantics will indicate isValid() false
+	 * @return A FormatManager object, which will indicate the format returned
+	 *         by the Node.
 	 */
 	private Object singleChildValid(SimpleNode node, Object data)
 	{
@@ -557,9 +554,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * @param data
 	 *            The incoming FormulaSemantics object (as Object to assist
 	 *            other methods in this class)
-	 * @return A FormulaSemantics object, which will indicate isValid() true if
-	 *         this operator has two valid children; Otherwise, the
-	 *         FormulaSemantics will indicate isValid() false
+	 * @return A FormatManager object, which will indicate the format returned
+	 *         by the Operator.
 	 */
 	private Object visitRelational(SimpleNode node, Object data)
 	{

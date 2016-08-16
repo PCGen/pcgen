@@ -17,19 +17,16 @@
  */
 package pcgen.base.formula.operator.string;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * StringAdd performs concatenation on two String values.
  */
 public class StringAdd implements OperatorAction
 {
-
-	/**
-	 * Cache of the String class.
-	 */
-	private static final Class<String> STRING_CLASS = String.class;
 
 	/**
 	 * Indicates that StringAdd Performs Concatenation of Strings.
@@ -44,17 +41,17 @@ public class StringAdd implements OperatorAction
 
 	/**
 	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * String.class and returns String.class.
+	 * String.class and returns StringManager.
 	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
-		if (STRING_CLASS.isAssignableFrom(format1)
-			&& STRING_CLASS.isAssignableFrom(format2))
+		if (FormatUtilities.STRING_CLASS.isAssignableFrom(format1)
+			&& FormatUtilities.STRING_CLASS.isAssignableFrom(format2))
 		{
-			return STRING_CLASS;
+			return FormatUtilities.STRING_MANAGER;
 		}
 		return null;
 	}

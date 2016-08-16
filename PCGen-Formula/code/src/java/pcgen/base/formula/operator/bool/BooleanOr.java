@@ -17,19 +17,16 @@
  */
 package pcgen.base.formula.operator.bool;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * BooleanOr performs the OR operation on two Boolean values.
  */
 public class BooleanOr implements OperatorAction
 {
-
-	/**
-	 * Cache of the Boolean class.
-	 */
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * Indicates that BooleanOr Performs a logical OR.
@@ -44,17 +41,17 @@ public class BooleanOr implements OperatorAction
 
 	/**
 	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * Boolean.class and returns Boolean.class.
+	 * Boolean.class and returns BooleanManager.
 	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
-		if (BOOLEAN_CLASS.isAssignableFrom(format1)
-			&& BOOLEAN_CLASS.isAssignableFrom(format2))
+		if (FormatUtilities.BOOLEAN_CLASS.isAssignableFrom(format1)
+			&& FormatUtilities.BOOLEAN_CLASS.isAssignableFrom(format2))
 		{
-			return BOOLEAN_CLASS;
+			return FormatUtilities.BOOLEAN_MANAGER;
 		}
 		return null;
 	}

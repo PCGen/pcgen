@@ -17,19 +17,16 @@
  */
 package pcgen.base.formula.operator.generic;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * GenericNotEqual performs an inequality comparison on two values.
  */
 public class GenericNotEqual implements OperatorAction
 {
-
-	/**
-	 * Cache of the Boolean class.
-	 */
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * Indicates that GenericNotEqual Performs a comparison for logical
@@ -45,16 +42,16 @@ public class GenericNotEqual implements OperatorAction
 
 	/**
 	 * Performs Abstract Evaluation, checking that the two arguments are are of
-	 * matching classes.
+	 * matching classes and returns BooleanManager.
 	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
 		if (format1.equals(format2))
 		{
-			return BOOLEAN_CLASS;
+			return FormatUtilities.BOOLEAN_MANAGER;
 		}
 		return null;
 	}

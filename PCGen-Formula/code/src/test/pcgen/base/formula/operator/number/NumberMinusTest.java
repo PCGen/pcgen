@@ -54,10 +54,10 @@ public class NumberMinusTest extends TestCase
 
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(NUMBER_CLASS));
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(DOUBLE_CLASS));
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(FLOAT_CLASS));
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(INTEGER_CLASS));
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(NUMBER_CLASS).getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(DOUBLE_CLASS).getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(FLOAT_CLASS).getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(INTEGER_CLASS).getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

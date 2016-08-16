@@ -19,6 +19,7 @@ package pcgen.base.formula.function;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -28,6 +29,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * AbstractUnaryFunction centralizes common behaviors for Functions that return
@@ -44,8 +46,8 @@ public abstract class AbstractUnaryFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public FormatManager<?> allowArgs(SemanticsVisitor visitor,
+		Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length != 1)
 		{
@@ -55,12 +57,13 @@ public abstract class AbstractUnaryFunction implements Function
 			return null;
 		}
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> format = (Class<?>) args[0].jjtAccept(visitor, semantics);
+		FormatManager<?> format =
+				(FormatManager<?>) args[0].jjtAccept(visitor, semantics);
 		if (!semantics.isValid())
 		{
 			return null;
 		}
-		if (!format.equals(Number.class))
+		if (!format.equals(FormatUtilities.NUMBER_MANAGER))
 		{
 			semantics.setInvalid("Parse Error: Invalid Value Format: " + format
 				+ " found in " + args[0].getClass().getName()
@@ -68,7 +71,7 @@ public abstract class AbstractUnaryFunction implements Function
 				+ " Number (class cannot be evaluated)");
 			return null;
 		}
-		return Number.class;
+		return format;
 	}
 
 	/**

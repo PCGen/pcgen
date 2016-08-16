@@ -19,13 +19,18 @@ package pcgen.base.formula.parse;
 
 import org.junit.Test;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
+import pcgen.base.util.FormatManager;
 
 public class FormulaArithmeticTest extends AbstractFormulaTestCase
 {
+
+	private static final FormatManager<?> booleanManager =
+			FormatUtilities.BOOLEAN_MANAGER;
 
 	@Override
 	protected void setUp() throws Exception
