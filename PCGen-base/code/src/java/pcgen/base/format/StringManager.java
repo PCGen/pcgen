@@ -98,7 +98,7 @@ public class StringManager implements FormatManager<String>
 	@Override
 	public boolean equals(Object o)
 	{
-		return o instanceof StringManager;
+		return o == this || o instanceof StringManager;
 	}
 
 	/**

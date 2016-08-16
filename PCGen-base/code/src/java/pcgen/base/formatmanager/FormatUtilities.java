@@ -23,13 +23,18 @@ import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 
 /**
- * FormatManagerLibraryUtilities are utility methods for FormatManagerLibrary
- * objects.
+ * FormatUtilities are utility methods for Format objects.
  */
-public final class FormatManagerLibraryUtilities
+public final class FormatUtilities
 {
 
-	private FormatManagerLibraryUtilities()
+	public static final NumberManager NUMBER_MANAGER = new NumberManager();
+	public static final StringManager STRING_MANAGER = new StringManager();
+	public static final BooleanManager BOOLEAN_MANAGER = new BooleanManager();
+	public static final OrderedPairManager ORDEREDPAIR_MANAGER =
+			new OrderedPairManager();
+
+	private FormatUtilities()
 	{
 		//Don't construct utility class
 	}
@@ -44,10 +49,10 @@ public final class FormatManagerLibraryUtilities
 	 */
 	public static void loadDefaultFormats(SimpleFormatManagerLibrary library)
 	{
-		library.addFormatManager(new NumberManager());
-		library.addFormatManager(new StringManager());
-		library.addFormatManager(new BooleanManager());
-		library.addFormatManager(new OrderedPairManager());
+		library.addFormatManager(NUMBER_MANAGER);
+		library.addFormatManager(STRING_MANAGER);
+		library.addFormatManager(BOOLEAN_MANAGER);
+		library.addFormatManager(ORDEREDPAIR_MANAGER);
 		library.addFormatManagerBuilder(new ArrayFormatFactory());
 	}
 }

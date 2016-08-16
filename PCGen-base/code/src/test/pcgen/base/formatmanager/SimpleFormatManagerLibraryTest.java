@@ -40,7 +40,7 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	{
 		super.setUp();
 		library = new SimpleFormatManagerLibrary();
-		FormatManagerLibraryUtilities.loadDefaultFormats(library);
+		FormatUtilities.loadDefaultFormats(library);
 	}
 
 	public void testFailOnlyClose()
