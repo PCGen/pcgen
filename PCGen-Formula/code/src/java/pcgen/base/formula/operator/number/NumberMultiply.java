@@ -17,19 +17,16 @@
  */
 package pcgen.base.formula.operator.number;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * NumberMultiply performs multiplication on two Number values.
  */
 public class NumberMultiply implements OperatorAction
 {
-
-	/**
-	 * Cache of the Number class.
-	 */
-	private static final Class<Number> NUMBER_CLASS = Number.class;
 
 	/**
 	 * Indicates that NumberMultiply Performs Multiplication.
@@ -44,17 +41,17 @@ public class NumberMultiply implements OperatorAction
 
 	/**
 	 * Performs Abstract Evaluation, checking that the two arguments are
-	 * Number.class and returns Number.class.
+	 * Number.class and returns NumberManager.
 	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2)
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2)
 	{
-		if (NUMBER_CLASS.isAssignableFrom(format1)
-			&& NUMBER_CLASS.isAssignableFrom(format2))
+		if (FormatUtilities.NUMBER_CLASS.isAssignableFrom(format1)
+			&& FormatUtilities.NUMBER_CLASS.isAssignableFrom(format2))
 		{
-			return NUMBER_CLASS;
+			return FormatUtilities.NUMBER_MANAGER;
 		}
 		return null;
 	}

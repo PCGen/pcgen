@@ -18,6 +18,7 @@
 package pcgen.base.formula.base;
 
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * An OperatorAction is used to process an operator (e.g. + or ==) in a Formula.
@@ -83,11 +84,11 @@ public interface OperatorAction
 	 * @param format2
 	 *            The class (data format) of the second argument to the abstract
 	 *            operation
-	 * @return The class (data format) of the result of the operation if this
-	 *         OperatorAction can process objects of the given classes; null
-	 *         otherwise
+	 * @return A FormatManager for the data format of the result of the
+	 *         operation if this OperatorAction can process objects of the given
+	 *         classes; null otherwise
 	 */
-	public Class<?> abstractEvaluate(Class<?> format1, Class<?> format2);
+	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2);
 
 	/**
 	 * Perform an evaluation with the two given objects as arguments and returns

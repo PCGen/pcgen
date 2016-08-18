@@ -17,19 +17,16 @@
  */
 package pcgen.base.formula.operator.number;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * NumberAdd performs negation of a Number value.
  */
 public class NumberMinus implements UnaryAction
 {
-
-	/**
-	 * Cache of the Number class.
-	 */
-	private static final Class<Number> NUMBER_CLASS = Number.class;
 
 	/**
 	 * Indicates that NumberMinus Performs Negation.
@@ -43,14 +40,17 @@ public class NumberMinus implements UnaryAction
 	}
 
 	/**
+	 * Performs Abstract Evaluation, checking that the two arguments are
+	 * Number.class and returns NumberManager.
+	 * 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> abstractEvaluate(Class<?> format)
+	public FormatManager<?> abstractEvaluate(Class<?> format)
 	{
-		if (NUMBER_CLASS.isAssignableFrom(format))
+		if (FormatUtilities.NUMBER_CLASS.isAssignableFrom(format))
 		{
-			return NUMBER_CLASS;
+			return FormatUtilities.NUMBER_MANAGER;
 		}
 		return null;
 	}

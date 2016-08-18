@@ -18,6 +18,7 @@
 package pcgen.base.formula.base;
 
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * A UnaryAction is used to process a unary operator (e.g. ! or -) in a Formula.
@@ -74,11 +75,11 @@ public interface UnaryAction
 	 * @param format
 	 *            The class (data format) of the argument to the abstract
 	 *            operation
-	 * @return The class (data format) of the result of the operation if this
-	 *         UnaryAction can process objects of the given classes; null
-	 *         otherwise
+	 * @return A FormatManager for the data format of the result of the
+	 *         operation if this UnaryAction can process objects of the given
+	 *         classes; null otherwise
 	 */
-	public Class<?> abstractEvaluate(Class<?> format);
+	public FormatManager<?> abstractEvaluate(Class<?> format);
 
 	/**
 	 * Perform an evaluation with the given object as an argument and returns a

@@ -28,6 +28,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * ValueFunction returns the input value to the evaluation
@@ -59,8 +60,8 @@ public class ValueFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
+		Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length == 0)
 		{

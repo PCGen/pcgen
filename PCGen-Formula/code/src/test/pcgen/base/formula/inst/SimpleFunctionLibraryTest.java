@@ -30,6 +30,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 public class SimpleFunctionLibraryTest extends TestCase
 {
@@ -129,7 +130,7 @@ public class SimpleFunctionLibraryTest extends TestCase
 			}
 
 			@Override
-			public Class<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics fs)
+			public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics fs)
 			{
 				return null;
 			}

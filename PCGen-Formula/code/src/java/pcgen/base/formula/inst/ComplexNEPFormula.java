@@ -172,18 +172,18 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	{
 		//semantics.set(FormulaSemantics.BASE_FORMAT, expectedFormat);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> formulaFormat =
-				(Class<?>) SEMANTICS_VISITOR.visit(root, semantics);
+		FormatManager<?> formulaFormat =
+				(FormatManager<?>) SEMANTICS_VISITOR.visit(root, semantics);
 		if (!semantics.isValid())
 		{
 			return;
 		}
-		Class<?> expectedFormat = formatManager.getManagedClass();
-		if (!expectedFormat.isAssignableFrom(formulaFormat))
+		if (!formatManager.equals(formulaFormat))
 		{
 			semantics.setInvalid("Parse Error: Invalid Value Format: "
 				+ formulaFormat + " found in " + root.getClass().getName()
-				+ " found in location requiring a " + expectedFormat
+				+ " found in location requiring a "
+				+ formatManager.getManagedClass()
 				+ " (class cannot be evaluated)");
 		}
 	}

@@ -31,6 +31,9 @@ import pcgen.base.formula.parse.Operator;
 
 public class SimpleOperatorLibraryTest extends TestCase
 {
+	private static final Class<Number> NUMBER_CLASS = Number.class;
+	private static final Class<Integer> INTEGER_CLASS = Integer.class;
+
 	private SimpleOperatorLibrary library;
 
 	@Override
@@ -75,8 +78,8 @@ public class SimpleOperatorLibraryTest extends TestCase
 	public void testEmpty()
 	{
 		assertNull(
-			library.processAbstract(Operator.ADD, Number.class, Integer.class));
-		assertNull(library.processAbstract(Operator.MINUS, Number.class));
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS));
+		assertNull(library.processAbstract(Operator.MINUS, NUMBER_CLASS));
 		try
 		{
 			library.evaluate(Operator.ADD, 1, 2);
@@ -102,7 +105,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 	{
 		library.addAction(new NumberAdd());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.ADD, Number.class, Integer.class));
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS).getManagedClass());
 		assertEquals(Integer.valueOf(3), library.evaluate(Operator.ADD, 1, 2));
 		try
 		{
@@ -120,7 +123,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 	{
 		library.addAction(new NumberMinus());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.MINUS, Integer.class));
+			library.processAbstract(Operator.MINUS, INTEGER_CLASS).getManagedClass());
 		assertEquals(Integer.valueOf(3), library.evaluate(Operator.MINUS, -3));
 		try
 		{
@@ -139,7 +142,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 		library.addAction(new GenericEquals());
 		library.addAction(new NumberEquals());
 		assertEquals(Boolean.class,
-			library.processAbstract(Operator.EQ, Number.class, Integer.class));
+			library.processAbstract(Operator.EQ, NUMBER_CLASS, INTEGER_CLASS).getManagedClass());
 		assertEquals(Boolean.FALSE, library.evaluate(Operator.EQ, 1, 2));
 	}
 

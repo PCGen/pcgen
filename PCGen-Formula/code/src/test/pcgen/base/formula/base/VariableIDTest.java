@@ -17,17 +17,19 @@
  */
 package pcgen.base.formula.base;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleScopeInstance;
 
 public class VariableIDTest extends TestCase
 {
 
-	NumberManager numberManager = new NumberManager();
+	NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
 
 	@Test
 	public void testDoubleConstructor()

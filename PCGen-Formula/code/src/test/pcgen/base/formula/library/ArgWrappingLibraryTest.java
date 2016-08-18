@@ -31,6 +31,7 @@ import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
+import pcgen.base.util.FormatManager;
 
 public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 {
@@ -126,7 +127,7 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 			}
 
 			@Override
-			public Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
+			public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 				FormulaSemantics fs)
 			{
 				return null;

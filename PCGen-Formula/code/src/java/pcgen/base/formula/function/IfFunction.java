@@ -19,6 +19,7 @@ package pcgen.base.formula.function;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -28,6 +29,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * IfFunction returns different values based on a given calculation. It follows
@@ -38,8 +40,6 @@ import pcgen.base.formula.visitor.StaticVisitor;
  */
 public class IfFunction implements Function
 {
-
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * Returns the function name for this function. This is how it is called by
@@ -61,8 +61,8 @@ public class IfFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
+		Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount != 3)
@@ -74,15 +74,17 @@ public class IfFunction implements Function
 		}
 		//Boolean conditional node
 		Node conditionalNode = args[0];
-		semantics.push(FormulaSemantics.ASSERTED, BOOLEAN_CLASS);
+		semantics.push(FormulaSemantics.ASSERTED, FormatUtilities.BOOLEAN_CLASS);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> format = (Class<?>) conditionalNode.jjtAccept(visitor, semantics);
+		FormatManager<?> format =
+				(FormatManager<?>) conditionalNode
+					.jjtAccept(visitor, semantics);
 		semantics.pop(FormulaSemantics.ASSERTED);
 		if (!semantics.isValid())
 		{
 			return null;
 		}
-		if (!BOOLEAN_CLASS.equals(format))
+		if (!FormatUtilities.BOOLEAN_MANAGER.equals(format))
 		{
 			semantics.setInvalid("Parse Error: Invalid Value Format: " + format
 				+ " found in " + conditionalNode.getClass().getName()
@@ -93,7 +95,8 @@ public class IfFunction implements Function
 
 		//If True node
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> tFormat = (Class<?>) args[1].jjtAccept(visitor, semantics);
+		FormatManager<?> tFormat =
+				(FormatManager<?>) args[1].jjtAccept(visitor, semantics);
 		if (!semantics.isValid())
 		{
 			return null;
@@ -101,7 +104,8 @@ public class IfFunction implements Function
 
 		//If False node
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> fFormat = (Class<?>) args[2].jjtAccept(visitor, semantics);
+		FormatManager<?> fFormat =
+				(FormatManager<?>) args[2].jjtAccept(visitor, semantics);
 		if (!semantics.isValid())
 		{
 			return null;
@@ -132,7 +136,7 @@ public class IfFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		manager.push(EvaluationManager.ASSERTED, BOOLEAN_CLASS);
+		manager.push(EvaluationManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS);
 		Boolean b = (Boolean) args[0].jjtAccept(visitor, manager);
 		manager.pop(EvaluationManager.ASSERTED);
 		/*
@@ -198,7 +202,7 @@ public class IfFunction implements Function
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		manager.push(DependencyManager.ASSERTED, Boolean.class);
+		manager.push(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS);
 		args[0].jjtAccept(visitor, manager);
 		manager.pop(DependencyManager.ASSERTED);
 		args[1].jjtAccept(visitor, manager);

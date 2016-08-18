@@ -19,6 +19,7 @@ package pcgen.base.formula.function;
 
 import java.util.Arrays;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -28,6 +29,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * AbstractNaryFunction centralizes common behaviors for Functions that take a
@@ -53,8 +55,8 @@ public abstract class AbstractNaryFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
+		Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount < 2)
@@ -67,12 +69,13 @@ public abstract class AbstractNaryFunction implements Function
 		for (Node n : args)
 		{
 			@SuppressWarnings("PMD.PrematureDeclaration")
-			Class<?> format = (Class<?>) n.jjtAccept(visitor, semantics);
+			FormatManager<?> format =
+					(FormatManager<?>) n.jjtAccept(visitor, semantics);
 			if (!semantics.isValid())
 			{
 				return null;
 			}
-			if (!format.equals(Number.class))
+			if (!format.equals(FormatUtilities.NUMBER_MANAGER))
 			{
 				semantics.setInvalid("Parse Error: Invalid Value Format: "
 					+ format + " found in " + n.getClass().getName()
@@ -81,7 +84,7 @@ public abstract class AbstractNaryFunction implements Function
 				return null;
 			}
 		}
-		return Number.class;
+		return FormatUtilities.NUMBER_MANAGER;
 	}
 
 	/**

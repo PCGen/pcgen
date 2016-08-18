@@ -19,6 +19,7 @@ package pcgen.base.formula.inst;
 
 import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -65,7 +66,7 @@ public class SimpleVariableStoreTest extends TestCase
 	public void testGlobal()
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
-		NumberManager numberManager = new NumberManager();
+		NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
 		LegalScope varScope = new SimpleLegalScope(null, "Global");
 		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
 		VariableID vid = new VariableID(globalInst, numberManager, "test");

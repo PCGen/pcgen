@@ -18,7 +18,6 @@
 package pcgen.base.formula.operator.generic;
 
 import junit.framework.TestCase;
-import pcgen.base.formula.operator.generic.GenericEquals;
 
 public class GenericEqualsTest extends TestCase
 {
@@ -72,7 +71,7 @@ public class GenericEqualsTest extends TestCase
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS));
+			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS).getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

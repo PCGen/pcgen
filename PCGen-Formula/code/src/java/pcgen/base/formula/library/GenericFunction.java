@@ -32,6 +32,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * GenericFunction can perform a varied calculation based on a pre-defined
@@ -108,8 +109,8 @@ public class GenericFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
+		Node[] args, FormulaSemantics semantics)
 	{
 		FormulaManager withArgs =
 				getManager(args, semantics.peek(FormulaSemantics.FMANAGER));
@@ -118,7 +119,8 @@ public class GenericFunction implements Function
 			new ArgumentDependencyManager());
 		semantics.push(FormulaSemantics.FMANAGER, withArgs);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Class<?> result = (Class<?>) visitor.visit(root, semantics);
+		FormatManager<?> result =
+				(FormatManager<?>) visitor.visit(root, semantics);
 		semantics.pop(FormulaSemantics.FMANAGER);
 		ArgumentDependencyManager myArgs =
 				semantics.pop(ArgumentDependencyManager.KEY);

@@ -20,8 +20,8 @@ package pcgen.base.testsupport;
 import java.util.List;
 
 import junit.framework.TestCase;
-import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
@@ -48,7 +48,6 @@ public abstract class AbstractFormulaTestCase extends TestCase
 {
 
 	protected FormatManager<Number> numberManager = new NumberManager();
-	protected FormatManager<Boolean> booleanManager = new BooleanManager();
 
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
@@ -158,7 +157,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		variableLibrary.assertLegalVariableID(formula,
-			localSetup.getGlobalScope(), booleanManager);
+			localSetup.getGlobalScope(), FormatUtilities.BOOLEAN_MANAGER);
 		return (VariableID<Boolean>) variableLibrary.getVariableID(
 			localSetup.getGlobalScopeInst(), formula);
 	}

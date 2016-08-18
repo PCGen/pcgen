@@ -19,18 +19,20 @@ package pcgen.base.formula.base;
 
 import java.util.Set;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleScopeInstance;
 
 public class VariableLibraryTest extends TestCase
 {
 
-	private NumberManager numberManager = new NumberManager();
+	private NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
 	private LegalScopeLibrary varScopeLib;
 	private VariableLibrary varLib;
 
@@ -487,7 +489,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testProveReuse()
 	{
-		BooleanManager booleanManager = new BooleanManager();
+		BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		ScopeInstance globalInst =
 				new SimpleScopeInstance(null, globalScope);

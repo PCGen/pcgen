@@ -17,19 +17,16 @@
  */
 package pcgen.base.formula.operator.bool;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
+import pcgen.base.util.FormatManager;
 
 /**
  * BooleanNot performs negation on a Boolean value.
  */
 public class BooleanNot implements UnaryAction
 {
-
-	/**
-	 * Cache of the Boolean class.
-	 */
-	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 
 	/**
 	 * Indicates that BooleanNot Performs Negation.
@@ -46,11 +43,11 @@ public class BooleanNot implements UnaryAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> abstractEvaluate(Class<?> format)
+	public FormatManager<?> abstractEvaluate(Class<?> format)
 	{
-		if (BOOLEAN_CLASS.isAssignableFrom(format))
+		if (FormatUtilities.BOOLEAN_CLASS.isAssignableFrom(format))
 		{
-			return BOOLEAN_CLASS;
+			return FormatUtilities.BOOLEAN_MANAGER;
 		}
 		return null;
 	}

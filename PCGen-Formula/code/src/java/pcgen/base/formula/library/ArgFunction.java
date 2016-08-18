@@ -31,6 +31,7 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
+import pcgen.base.util.FormatManager;
 
 /**
  * ArgFunction is a one-argument function designed to delegate to a value
@@ -91,8 +92,8 @@ public class ArgFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
+		Node[] args, FormulaSemantics semantics)
 	{
 		if (args.length != 1)
 		{
@@ -124,7 +125,7 @@ public class ArgFunction implements Function
 			}
 			assertArgs(semantics, argNum);
 			Node n = masterArgs[argNum];
-			return (Class<?>) n.jjtAccept(visitor, semantics);
+			return (FormatManager<?>) n.jjtAccept(visitor, semantics);
 		}
 		catch (NumberFormatException e)
 		{
