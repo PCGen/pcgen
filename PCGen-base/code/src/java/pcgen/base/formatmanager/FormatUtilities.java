@@ -29,15 +29,45 @@ import pcgen.base.math.OrderedPair;
 public final class FormatUtilities
 {
 
+	/**
+	 * An instance of a NumberManager, for widespread reuse
+	 */
 	public static final NumberManager NUMBER_MANAGER = new NumberManager();
+
+	/**
+	 * An instance of a StringManager, for widespread reuse
+	 */
 	public static final StringManager STRING_MANAGER = new StringManager();
+
+	/**
+	 * An instance of a BooleanManager, for widespread reuse
+	 */
 	public static final BooleanManager BOOLEAN_MANAGER = new BooleanManager();
+
+	/**
+	 * An instance of a OrderedPairManager, for widespread reuse
+	 */
 	public static final OrderedPairManager ORDEREDPAIR_MANAGER =
 			new OrderedPairManager();
 
+	/**
+	 * An instance of a Number.class, for widespread reuse
+	 */
 	public static final Class<Number> NUMBER_CLASS = Number.class;
+
+	/**
+	 * An instance of a String.class, for widespread reuse
+	 */
 	public static final Class<String> STRING_CLASS = String.class;
+
+	/**
+	 * An instance of a Boolean.class, for widespread reuse
+	 */
 	public static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
+
+	/**
+	 * An instance of a OrderedPair.class, for widespread reuse
+	 */
 	public static final Class<OrderedPair> ORDEREDPAIR_CLASS = OrderedPair.class;
 
 	private FormatUtilities()
