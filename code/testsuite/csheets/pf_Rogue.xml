@@ -1766,7 +1766,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WONDROUS.CLOAK</type>
+			<type>MAGIC.WONDROUS.CLOAK.CLOTH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2847,7 +2847,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WONDROUS.CLOAK</type>
+				<type>MAGIC.WONDROUS.CLOAK.CLOTH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>

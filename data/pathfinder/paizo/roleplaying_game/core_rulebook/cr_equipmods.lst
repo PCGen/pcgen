@@ -6,7 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # CODE NOTE: BaseMaterial TYPE is replaced by any other BaseMaterial TYPE per James Dempsey - this is not planned to be extended.
 ###Block: Base Materials
 # Modifier Name	Unique Key	Naming Option	Type														Cost		Visible		Type granted	Multiple Requirements									Prohibited Type		Apply to both heads
-Cloth			KEY:CLOTH	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				PREMULT:1,[PRETYPE:1,EQMOD=CLOTH],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal,Wooden
+Cloth			KEY:CLOTH	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Cloth		PREMULT:1,[PRETYPE:1,EQMOD=CLOTH],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal,Wooden
 Leather		KEY:LEATHER	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				PREMULT:1,[PRETYPE:1,EQMOD=LEATHER],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal,Wooden
 Rope			KEY:ROPE	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				PREMULT:1,[PRETYPE:1,EQMOD=ROPE],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal,Wooden
 Steel			KEY:STEEL	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		PREMULT:1,[PRETYPE:1,EQMOD=STEEL],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Wooden
