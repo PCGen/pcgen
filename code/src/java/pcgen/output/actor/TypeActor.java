@@ -24,13 +24,10 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import java.util.ArrayList;
 import java.util.List;
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
 
