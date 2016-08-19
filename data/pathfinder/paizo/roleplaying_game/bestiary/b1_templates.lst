@@ -81,17 +81,13 @@ Afflicted Werewolf	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted Ly
 ###Block: Lycanthrope Abilities (in Hybrid and animal forms)
 # Template Name		Visible	Template														Required Ability						Weapon prof. bonus			Ability															Move
 Lycanthrope Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Wererat Abilities|Werewolf Abilities
-Wererat Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wererat_STR	TEMPLATE:CHOOSE:Wererat_DEX	TEMPLATE:CHOOSE:Wererat_CON	PREABILITY:1,CATEGORY=Special Ability,Wererat	BONUS:WEAPONPROF=Bite|DAMAGESIZE|-1	ABILITY:Special Ability|AUTOMATIC|Disease ~ Filth Fever	ABILITY:Internal|AUTOMATIC|Bite	MOVE:Walk,40,Climb,20,Swim,20
-Werewolf Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Werewolf_STR	TEMPLATE:CHOOSE:Werewolf_DEX	TEMPLATE:CHOOSE:Werewolf_CON	PREABILITY:1,CATEGORY=Special Ability,Werewolf							ABILITY:Special Ability|AUTOMATIC|Trip	ABILITY:Internal|AUTOMATIC|Bite				MOVE:Walk,50
+Wererat Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wererat_STATS											PREABILITY:1,CATEGORY=Special Ability,Wererat	BONUS:WEAPONPROF=Bite|DAMAGESIZE|-1	ABILITY:Special Ability|AUTOMATIC|Disease ~ Filth Fever	ABILITY:Internal|AUTOMATIC|Bite	MOVE:Walk,40,Climb,20,Swim,20
+Werewolf Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Werewolf_STATS										PREABILITY:1,CATEGORY=Special Ability,Werewolf							ABILITY:Special Ability|AUTOMATIC|Trip	ABILITY:Internal|AUTOMATIC|Bite				MOVE:Walk,50
 
 ###Block: Lycanthrope Ability Scores (in Hybrid and animal forms)
 # Template Name	Visible	Define Stat
-Wererat_STR		VISIBLE:NO	DEFINESTAT:MINVALUE|STR|12
-Wererat_DEX		VISIBLE:NO	DEFINESTAT:MINVALUE|DEX|17
-Wererat_CON		VISIBLE:NO	DEFINESTAT:MINVALUE|CON|15
-Werewolf_STR	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|15
-Werewolf_DEX	VISIBLE:NO	DEFINESTAT:MINVALUE|DEX|15
-Werewolf_CON	VISIBLE:NO	DEFINESTAT:MINVALUE|CON|17
+Wererat_STATS	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|10	DEFINESTAT:MINVALUE|DEX|17	DEFINESTAT:MINVALUE|CON|13	DEFINESTAT:MINVALUE|INT|2	DEFINESTAT:MINVALUE|WIS|13	DEFINESTAT:MINVALUE|CHA|4
+Werewolf_STATS	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|13	DEFINESTAT:MINVALUE|DEX|15	DEFINESTAT:MINVALUE|CON|15	DEFINESTAT:MINVALUE|INT|2	DEFINESTAT:MINVALUE|WIS|12	DEFINESTAT:MINVALUE|CHA|6
 
 ###Block: Skeleton Templates
 # Template Name			Hit Dice Size			Challenge Rating	Visible	Damage Reduction	Template						Source Page		Define Stat			Required Hit Dice	Prohibited Race						Required Stat	Stat bonus					Modify VAR																																																													Class Skill																			Ability																																			Apply Kit		Subrace				Main Race Type	Race Subtype		Add Levels
