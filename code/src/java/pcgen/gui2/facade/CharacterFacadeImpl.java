@@ -179,6 +179,7 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
+import pcgen.output.channel.ChannelCompatibility;
 import pcgen.output.channel.compat.StatAdapter;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
@@ -380,7 +381,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (stat instanceof PCStat)
 			{
-				statScoreMap.put(stat, StatAdapter.generate(theCharacter.getCharID(), (PCStat) stat));
+				statScoreMap.put(stat, ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat));
 			}
 			else
 			{
