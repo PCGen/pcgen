@@ -31,7 +31,7 @@ import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         implements DynamicTableColumnModel
@@ -43,7 +43,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
 
     /**
      * This constructs an empty table model with an intial offset of <code>offset</code>.
-     * When adding columns to the model, the first <code>offset<code> number of colums added will
+     * When adding columns to the model, the first <code>offset</code> number of colums added will
      * be made always visible.
      * @param offset this is the number of always visible columns when this model is populated.
      */
@@ -103,7 +103,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
      * is lazily created using the parameters passed into
      * the fire method.
      * @param  e  the event received
-     * @see EventListenerList
+     * @see javax.swing.event.EventListenerList
      */
     protected void fireAvailableColumnAdded(TableColumnModelEvent e)
     {
@@ -129,7 +129,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
      * is lazily created using the parameters passed into
      * the fire method.
      * @param  e  the event received
-     * @see EventListenerList
+     * @see javax.swing.event.EventListenerList
      */
     protected void fireAvailableColumnRemoved(TableColumnModelEvent e)
     {

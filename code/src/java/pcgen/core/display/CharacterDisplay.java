@@ -399,7 +399,7 @@ public class CharacterDisplay
 	/**
 	 * Get the Spell Resistance granted by the given template to a character at a
 	 * given level (Class and Hit Dice). This will include the absolute
-	 * adjustment made with SR:, LEVEL:<num>:SR and HD:<num>:SR tags
+	 * adjustment made with {@literal SR:, LEVEL:<num>:SR and HD:<num>:SR tags}
 	 * 
 	 * Note: unlike DR and CR, the value returned here includes the PCs own
 	 * Spell Resistance.
@@ -755,8 +755,7 @@ public class CharacterDisplay
 	 * Retrieve those skills in the character's skill list that match the
 	 * supplied visibility level.
 	 * 
-	 * @param vis
-	 *            What level of visibility skills are desired.
+	 * @param v What level of visibility skills are desired.
 	 * 
 	 * @return A list of the character's skills matching the visibility
 	 *         criteria.
@@ -1481,7 +1480,6 @@ public class CharacterDisplay
 	/**
 	 * Get the value of the weight token in format WEIGHT.X
 	 * @param type Encumbrance type 
-	 * @param pc The character to retrieve the value for.
 	 * @return The value of the weight token.
 	 */
 	public double getLoadToken(String type)
@@ -1517,7 +1515,7 @@ public class CharacterDisplay
 	/**
 	 * Returns a region (including subregion) string for the character.
 	 * 
-	 * <p/> Build on-the-fly so removing templates won't mess up region
+	 * <p> Build on-the-fly so removing templates won't mess up region
 	 * 
 	 * @return character region
 	 */

@@ -51,7 +51,7 @@ import pcgen.util.Delta;
 /**
  * Definition and games rules for an equipment modifier.
  *
- * @author   Greg Bingleman <byngl@hotmail.com>
+ * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version  $Revision$
  */
 public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade
@@ -108,7 +108,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * turn.  If it finds that one of the bonuses contains %CHOICE, it replaces
 	 * it with a one new bonus object for every entry in "associated".
 	 *
-	 * @param as a PObject that has the associated bonuses
+	 * @param e a PObject that has the associated bonuses
 	 *
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.

@@ -27,11 +27,11 @@ package pcgen.util;
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>

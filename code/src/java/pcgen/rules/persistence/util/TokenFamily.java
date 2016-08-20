@@ -432,7 +432,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	/**
 	 * Adds a new DeferredToken to this TokenLibrary.
 	 * 
-	 * @param tok
+	 * @param newToken
 	 *            The DeferredToken to be added to this TokenLibrary
 	 */
 	public void addDeferredToken(DeferredToken<?> newToken)

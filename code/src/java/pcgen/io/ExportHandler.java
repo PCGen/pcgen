@@ -3834,7 +3834,7 @@ public final class ExportHandler
 	/**
 	 * <code>PStringTokenizer</code>
 	 *
-	 * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+	 * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
 	 * @version $Revision$
 	 */
 	private static final class PStringTokenizer

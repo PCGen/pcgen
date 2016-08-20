@@ -32,7 +32,7 @@ import java.awt.event.MouseEvent;
 /**
  * <code>Utilities</code>.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision$
  *
  * @see SwingConstants
@@ -50,7 +50,7 @@ final class Utilities implements SwingConstants
 	 * location.
 	 *
 	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * <code>IconImage</code> source
 	 *
 	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
 	 * on failure
@@ -91,7 +91,7 @@ final class Utilities implements SwingConstants
 	 * location and using a description.
 	 *
 	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * <code>IconImage</code> source
 	 * @param description <code>String</code>, the description
 	 *
 	 * @return <code>ImageIcon</code>, the icon or <code>null</code>

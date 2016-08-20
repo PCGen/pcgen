@@ -38,11 +38,11 @@ import pcgen.util.SortKeyAware;
  * to a domain with the domain. This allows these prereqs to be displayed and 
  * enforced by the UI.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class DomainFacadeImpl extends QualifiedObject<Domain> implements

@@ -183,7 +183,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the field for experience to add.
-	 * @return the <code>experienceToAdd<code> field.
+	 * @return the <code>experienceToAdd</code> field.
 	 */
 	public JTextField getExperienceField()
 	{

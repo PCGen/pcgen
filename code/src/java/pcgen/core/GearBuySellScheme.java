@@ -31,11 +31,11 @@ import pcgen.facade.core.GearBuySellFacade;
  * The Class <code>GearBuySellScheme</code> defines a named set of rates for 
  * buying and selling gear.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class GearBuySellScheme implements GearBuySellFacade

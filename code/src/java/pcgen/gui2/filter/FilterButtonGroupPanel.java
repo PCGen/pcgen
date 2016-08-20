@@ -35,7 +35,7 @@ import javax.swing.JPanel;
  * that it is possible to deselect all of the buttons.
  * @param <C> The context that this filter is defined under
  * @param <E> The element type that will be filtered
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterButtonGroupPanel<C, E> extends JPanel
 		implements DisplayableFilter<C, E>, ItemListener

@@ -33,7 +33,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 
 /**
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class EquipmentUtilities

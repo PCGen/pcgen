@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 /**
  * Utilities class for PlayerCharacter.  Holds various static methods.
  *
- * @author  Andrew Wilson <nuance@sourceforge.net>
+ * @author  Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */
 public class PlayerCharacterUtilities
 {

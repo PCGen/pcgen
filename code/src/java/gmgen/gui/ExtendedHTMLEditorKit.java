@@ -39,7 +39,7 @@ import javax.swing.text.html.StyleSheet;
  * classes instead of the defaults. Most important is the part which renders
  * relative image paths.
  *
- * @author <a href="mailto:jal@grimor.com">Frits Jalvingh </a>
+ * @author &lt;a href="mailto:jal@grimor.com"&gt;Frits Jalvingh &lt;/a&gt;
  * @version 1.0
  */
 public class ExtendedHTMLEditorKit extends HTMLEditorKit {

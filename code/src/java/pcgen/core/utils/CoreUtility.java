@@ -46,7 +46,7 @@ import pcgen.util.Logging;
  * (the two biggest classes in the project.) Some of this code seems awfully
  * similar, and should probably be further refactored.
  * 
- * @author Jonas Karlsson <pjak@yahoo.com>
+ * @author Jonas Karlsson &lt;pjak@yahoo.com&gt;
  * @version $Revision$
  */
 public final class CoreUtility
@@ -224,7 +224,7 @@ public final class CoreUtility
 	 *            second operand
 	 * @param eps
 	 *            the epsilon (or deadband)
-	 * @return TRUE if abs(a - b) < eps, else FALSE
+	 * @return TRUE {@literal if abs(a - b) < eps}, else FALSE
 	 */
 	public static boolean compareDouble(final double a, final double b,
 			final double eps)

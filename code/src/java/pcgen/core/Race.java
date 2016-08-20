@@ -39,7 +39,7 @@ import pcgen.facade.core.RaceFacade;
 /**
  * <code>Race</code>.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @author Michael Osterlie
  * @version $Revision$
  */

@@ -37,7 +37,7 @@ import pcgen.io.exporttoken.SpellListToken;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

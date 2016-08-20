@@ -43,7 +43,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
  * Last Editor: $Author: jdempsey $
  * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 1777 $
  */
 public class PreAbilityWriter extends AbstractPrerequisiteWriter implements

@@ -44,11 +44,11 @@ import pcgen.util.Logging;
 /**
  * The singleton class <code>TipOfTheDayHandler</code> manages the list of tips. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class TipOfTheDayHandler

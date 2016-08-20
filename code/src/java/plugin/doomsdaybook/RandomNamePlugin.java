@@ -88,7 +88,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()
@@ -193,7 +193,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public File getDataDirectory()

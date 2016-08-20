@@ -33,7 +33,7 @@ import pcgen.system.PropertyContext;
  * (i.e. pressed) the filter assigned to this button will become active. When deselected the filter
  * will become inactive. Selecting and deselecting the button will trigger its FilterHandler
  * to refilter its contents.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterButton<C, E> extends JToggleButton
 		implements DisplayableFilter<C, E>, ActionListener

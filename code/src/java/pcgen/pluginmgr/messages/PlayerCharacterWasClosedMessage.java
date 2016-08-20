@@ -29,11 +29,11 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class <code>PlayerCharacterWasClosedMessage</code> encapsulates an 
  * advisory message that a character was closed in the user interface of PCGen.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

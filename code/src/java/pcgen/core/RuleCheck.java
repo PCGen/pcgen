@@ -33,7 +33,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
  * <code>RuleCheck</code> describes checks that can be turned on or off in the
  * GUI by the users
  * 
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
+ * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class RuleCheck implements Loadable

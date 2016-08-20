@@ -67,7 +67,7 @@ import pcgen.util.enumeration.Tab;
 /**
  * This component allows the user to manage a character's templates.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {

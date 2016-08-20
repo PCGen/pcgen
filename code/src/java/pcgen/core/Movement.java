@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
 import pcgen.util.Logging;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  */
 public class Movement
 {

@@ -43,7 +43,7 @@ import pcgen.core.spell.Spell;
 /**
  * Stores information about how to randomly generate selections for a class.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */

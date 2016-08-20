@@ -84,7 +84,7 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 * 
 	 * @param prereq
 	 *            The prerequisite to test
-	 * @param character
+	 * @param display
 	 *            The PC to test the prerequisite against.
 	 * @return nothing. This always throws an exception.
 	 * 
@@ -117,7 +117,7 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 *            The prerequisite to test
 	 * @param equipment
 	 *            The equipment to test the prerequisite against.
-	 * @param character
+	 * @param display
 	 *            The PC to use as a last resort.
 	 * 
 	 * @return 1 if it passes, 0 otherwise

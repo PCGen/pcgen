@@ -25,7 +25,7 @@ package pcgen.core;
 /**
  * <code>SubClass</code>.
  * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision: 254 $
  */
 public final class SubstitutionClass extends PCClass

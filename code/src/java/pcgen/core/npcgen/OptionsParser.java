@@ -41,7 +41,7 @@ import pcgen.core.SystemCollections;
 /**
  * Parse a generator options file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
  */
 public class OptionsParser

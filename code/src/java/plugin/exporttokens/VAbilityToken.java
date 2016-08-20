@@ -42,7 +42,7 @@ import pcgen.io.exporttoken.AbilityToken;
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 public class VAbilityToken extends AbilityToken

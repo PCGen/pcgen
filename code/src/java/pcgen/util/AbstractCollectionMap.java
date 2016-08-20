@@ -27,7 +27,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 	extends AbstractMap<K, C> implements CollectionMap<K, V, C>

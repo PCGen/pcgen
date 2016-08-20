@@ -19,7 +19,7 @@
  */
 
 /**
- * @author Kim Winz <kwinz@users.sourceforge.net>
+ * @author Kim Winz &lt;kwinz@users.sourceforge.net&gt;
  * 
  * StatusWorker extends SwingWorker to handle progress display in the status bar.
  * 		It replaces TaskExecutor, which was a private class inside PCGenStatusBar.
@@ -50,7 +50,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		/**
 		 * @param statusMsg - text to display in status bar
 		 * @param task to be executed
-		 * @param the PCGen status Bar
+		 * @param statusBar the PCGen status Bar
 		 */
 		public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
 		{

@@ -26,7 +26,7 @@ import pcgen.facade.util.ListFacades;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TreeViewModelWrapper<E> implements TreeViewModel<E>
 {

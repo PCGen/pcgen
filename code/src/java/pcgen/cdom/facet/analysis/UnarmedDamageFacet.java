@@ -132,7 +132,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 
 	/**
 	 * Returns a new (empty) Map for this UnarmedDamageFacet. This does not
-	 * require the IdentityHashMap since List<String> is composed of only
+	 * require the IdentityHashMap since {@code List<String>} is composed of only
 	 * well-formed Java objects that behave properly with .equals() and
 	 * .hashCode() in terms of maintaining identity (whereas many CDOMObjects do
 	 * not as of 5.16)

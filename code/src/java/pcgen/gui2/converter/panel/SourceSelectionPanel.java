@@ -48,7 +48,7 @@ import pcgen.system.PCGenSettings;
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 public class SourceSelectionPanel extends ConvertSubPanel

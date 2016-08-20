@@ -33,11 +33,11 @@ import pcgen.pluginmgr.PCGenMessage;
  * ask that the character be added to the message for later use, however this 
  * should not be assumed to be present until all message processing is completed.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

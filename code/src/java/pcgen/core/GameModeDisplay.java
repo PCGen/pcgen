@@ -32,7 +32,7 @@ import pcgen.facade.core.GameModeDisplayFacade;
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision: 17100 $
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
@@ -42,7 +42,7 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	/**
 	 * Creates a new instance of GameModeMenuEntry.
 	 *
-	 * @param modeName the mode name
+	 * @param mode the mode name
 	 */
 	public GameModeDisplay(final GameMode mode)
 	{

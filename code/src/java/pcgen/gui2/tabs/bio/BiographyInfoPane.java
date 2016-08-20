@@ -77,11 +77,11 @@ import pcgen.system.LanguageBundle;
  * tab. It contains biography and physical description fields which may be 
  * updated by the user.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author: jdempsey $
  * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: 15691 $
  */
 @SuppressWarnings("serial")

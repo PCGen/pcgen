@@ -25,7 +25,7 @@ import pcgen.gui2.util.table.Row;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultSortableTreeTableModel extends DefaultTreeTableModel
         implements SortableTreeTableModel

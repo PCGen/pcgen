@@ -68,7 +68,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class AboutDialog extends JDialog
 {
@@ -90,7 +90,7 @@ public class AboutDialog extends JDialog
  * Create a simple panel to identify the program and those who contributed
  * to it.
  *
- * @author  Tom Epperly <tomepperly@home.com>
+ * @author  Tom Epperly &lt;tomepperly@home.com&gt;
  * @version $Revision: 11596 $
  * Modified 4/8/02 by W Robert Reed III (Mynex)
  * Adds List Monkeys Display area

@@ -44,11 +44,11 @@ import pcgen.cdom.enumeration.ListKey;
  * @param <V>
  *            The class of object stored by the List Key used by this
  *            ListMatchingReference.
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class ListMatchingReference<T extends CDOMObject, V> extends

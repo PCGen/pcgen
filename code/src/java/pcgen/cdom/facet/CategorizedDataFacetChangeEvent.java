@@ -32,11 +32,11 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * events to allow the listener to determine the category and nature to which
  * the ability is being applied.
  * 
- * <br/>
+ * <br>
  * Last Editor: $Author$ Last Edited: $Date: 2013-01-14 17:25:32 -0500
  * (Mon, 14 Jan 2013) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

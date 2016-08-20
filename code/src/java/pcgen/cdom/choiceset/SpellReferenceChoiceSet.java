@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 
 /**
  * A SpellReferenceChoiceSet contains references to CDOMListObjects. This is a
- * specialized PrimitiveChoiceSet designed for use with CDOMListObject<Spell>
+ * specialized PrimitiveChoiceSet designed for use with {@code CDOMListObject<Spell>}
  * lists.
  * 
  * The contents of a SpellReferenceChoiceSet is defined at construction of the

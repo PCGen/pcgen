@@ -34,7 +34,7 @@ import pcgen.persistence.lst.LstSystemLoader;
  * creates an instance of the underlying loader and calls methods to
  * do the loading of system files.
  *
- * @author  David Rice <david-pcgen@jcuz.com>
+ * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
  * @version $Revision$
  */
 public final class PersistenceManager

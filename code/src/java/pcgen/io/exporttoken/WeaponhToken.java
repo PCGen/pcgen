@@ -107,7 +107,7 @@ public class WeaponhToken extends WeaponToken
 	/**
 	 * Create a fake Unarmed Strike equipment so we don't need it in the .lst files anymore
 	 *
-	 * @param pc The character used to generate the size.
+	 * @param display The character used to generate the size.
 	 * @return The Unarmed Strike equipment.
 	 */
 	public static Equipment getWeaponEquipment(CharacterDisplay display)

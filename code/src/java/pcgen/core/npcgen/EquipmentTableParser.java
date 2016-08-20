@@ -46,7 +46,7 @@ import pcgen.util.Logging;
 /**
  * Parse a equipment table (random treasure) data file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.4
  */
@@ -144,7 +144,7 @@ public class EquipmentTableParser
 	 * This is the parsing event handler class.  The methods in this class are
 	 * called by the SAX parser as it finds various elements in the XML file.
 	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
+	 * @author boomer70 &lt;boomer70@yahoo.com&gt;
 	 *
 	 * @since 5.11.4
 	 */

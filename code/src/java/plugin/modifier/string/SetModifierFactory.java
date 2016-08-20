@@ -20,9 +20,9 @@ package plugin.modifier.string;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
- * A SetModifierFactory is a ModifierFactory<String> that returns a specific
+ * A {@code SetModifierFactory} is a {@code ModifierFactory<String>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
- * SetModifierFactory is processed.
+ * {@code SetModifierFactory} is processed.
  */
 public class SetModifierFactory extends AbstractSetModifierFactory<String>
 {
@@ -31,7 +31,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<String>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.String objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<String> getVariableFormat()

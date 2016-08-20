@@ -36,8 +36,8 @@ import org.nfunk.jep.function.PostfixMathCommand;
 /**
  * <code>RollingMethods</code>.
  *
- * @author Mario Bonassin <zebuleon@users.sourceforge.net>
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author Mario Bonassin &lt;zebuleon@users.sourceforge.net&gt;
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision$
  */
 public final class RollingMethods
@@ -125,7 +125,7 @@ public final class RollingMethods
 
     /**
      * Roll <var>times</var> bizarre dice, keeping
-     * <var>keep</keep> of them in ascending order.
+     * <var>keep</var> of them in ascending order.
      *
      * @param times int how many dice to roll?
      * @param shape int[] array of values of sides of die
@@ -216,8 +216,6 @@ public final class RollingMethods
      * operations (including exponentiation) are supported
      * Functions builtin include max, min, roll
      *  Add new functions to DiceExpressionFunctions
-     *
-     * @see pcgen.util.DiceExpression
      *
      * @param method String formatted string representing dice roll
      *

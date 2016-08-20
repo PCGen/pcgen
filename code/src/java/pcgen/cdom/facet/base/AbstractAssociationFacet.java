@@ -206,7 +206,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	}
 
 	/**
-	 * Returns the count of items (objects -> association entries) in this
+	 * Returns the count of items {@literal (objects -> association entries)} in this
 	 * AbstractAssociationFacet for the item represented by the given
 	 * PCGenIdentifier
 	 * 

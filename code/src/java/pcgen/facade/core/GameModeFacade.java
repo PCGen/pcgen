@@ -26,7 +26,7 @@ import pcgen.util.enumeration.Tab;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface GameModeFacade
 {

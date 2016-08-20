@@ -26,11 +26,11 @@ package pcgen.cdom.enumeration;
  * <code>BiographyField</code> lists the possible biographical fields which may 
  * be edited or suppressed from export.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("nls")

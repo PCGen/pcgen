@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * Assorted path and filename methods.
  *
- * @author     John Watson <john@sleazyweasel.com>
+ * @author     John Watson &lt;john@sleazyweasel.com&gt;
  * @version    $Revision$
  **/
 public class FileHelper

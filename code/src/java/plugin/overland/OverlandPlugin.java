@@ -95,7 +95,7 @@ public class OverlandPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()
@@ -200,7 +200,7 @@ public class OverlandPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public File getDataDirectory()

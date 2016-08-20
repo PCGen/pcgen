@@ -32,7 +32,7 @@ import pcgen.core.GameMode;
 /**
  * <code>GameModeLstToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public interface GameModeLstToken extends LstToken
 {

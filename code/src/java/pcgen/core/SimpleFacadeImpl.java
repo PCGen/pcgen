@@ -28,11 +28,11 @@ import pcgen.facade.core.SimpleFacade;
  * The Class <code></code> is a default implementation of the SimpleFacade 
  * interface. It was extracted from the implementation in the Race class.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class SimpleFacadeImpl implements SimpleFacade

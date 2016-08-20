@@ -48,11 +48,11 @@ import pcgen.system.LanguageBundle;
  * The NoteInfoPane displays a named text area that the user can fill in for her
  * character. This allows the creation of custom notes about the character.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

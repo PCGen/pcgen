@@ -35,7 +35,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {

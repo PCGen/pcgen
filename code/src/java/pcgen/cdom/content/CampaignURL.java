@@ -32,7 +32,7 @@ import java.net.URI;
  * Last Editor: $Author$ Last Edited: $Date: 2008-12-23 16:50:16 -0500
  * (Tue, 23 Dec 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CampaignURL implements Comparable<CampaignURL>

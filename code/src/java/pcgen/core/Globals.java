@@ -78,8 +78,8 @@ import pcgen.util.enumeration.VisionType;
  * This is like the top level model container. However,
  * it is build from static methods rather than instantiated.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @author boomer70 <boomer70@yahoo.com>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * @version $Revision$
  */
 public final class Globals
@@ -692,7 +692,7 @@ public final class Globals
 	 * Add spell to the spell map.
 	 * 
 	 * @param key The key the object is associated with.
-	 * @param anObject The object to be added to the map.
+	 * @param spell The object to be added to the map.
 	 */
 	public static void addToSpellMap(final String key, final Spell spell)
 	{

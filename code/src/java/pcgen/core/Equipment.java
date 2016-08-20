@@ -105,7 +105,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * <code>Equipment</code>.
  * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net> created December
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt; created December
  *         27
  * @author 2001
  * @version $Revision$
@@ -1166,7 +1166,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Get the item name based off the modifiers
 	 * 
-	 * @param The base name of the object, may instead be the base key if generating a key
+	 * @param baseName base name of the object, may instead be the base key if generating a key
 	 * @return item name based off the modifiers
 	 */
 	public String getItemNameFromModifiers(String baseName)
@@ -1617,7 +1617,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Set this item's output index, which controls the order in which the
 	 * equipment appears on a character sheet. Note: -1 means hidden and 0 means
-	 * not set <p/> <br>
+	 * not set <p> <br>
 	 * author: James Dempsey 17-Jun-02
 	 * 
 	 * @param newIndex
@@ -1632,7 +1632,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Return the output index, which controls the order in which the equipment
 	 * appears on a character sheet. Note: -1 means hidden and 0 means not set
-	 * <p/> <br>
+	 * <p> <br>
 	 * author: James Dempsey 17-Jun-02
 	 * 
 	 * @return the output index for this equipment item (-1=hidden, 0=not set)
@@ -1646,7 +1646,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Set this item's output subindex, which controls the order in which
 	 * equipment with the same output index appears on a character sheet. This
 	 * basically applies to natural weapons only, since they have output index 0
-	 * <p/> <br>
+	 * <p> <br>
 	 * author: Stefan Radermacher 11-Feb-05
 	 * 
 	 * @param newSubindex
@@ -1660,7 +1660,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Return the output subindex, which controls the order in which equipment
 	 * with the same output index appears on a character sheet. This basically
-	 * applies to natural weapons only, since they have output index 0 <p/> <br>
+	 * applies to natural weapons only, since they have output index 0 <p> <br>
 	 * author: Stefan Radermacher 11-Feb-05
 	 * 
 	 * @return the output subindex for this equipment item
@@ -2666,7 +2666,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	/**
 	 * Add a list equipment modifiers and their associated information eg:
-	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p/> Adds a feature to the
+	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p> Adds a feature to the
 	 * EqModifiers attribute of the Equipment object
 	 * 
 	 * @param aString
@@ -2681,7 +2681,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	/**
 	 * Add a list equipment modifiers and their associated information eg:
-	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p/> Adds a feature to the
+	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p> Adds a feature to the
 	 * EqModifiers attribute of the Equipment object
 	 * 
 	 * @param aString
@@ -3661,7 +3661,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	/**
 	 * Remove a list equipment modifiers and their associated information eg:
-	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p/> Removes a feature
+	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p> Removes a feature
 	 * from the EqModifiers attribute of the Equipment object
 	 * 
 	 * @param aString
@@ -4044,7 +4044,6 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * Sets the base attribute of the Equipment object
 	 * 
-	 * @param pc The PC carrying the item 
 	 * Todo remove the pc parameter, it is unused.
 	 */
 	public void setBase()
@@ -6145,7 +6144,7 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Convenience method. <p/> <br>
+	 * Convenience method. <p> <br>
 	 * author: Thomas Behr 27-03-02
 	 * 
 	 * @return a list with all Equipment objects this container holds; if this
@@ -6185,7 +6184,7 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Convenience method. <p/> <br>
+	 * Convenience method. <p> <br>
 	 * author: Thomas Behr 27-03-02
 	 * 
 	 * @return <code>true</code>, if this instance is a container;

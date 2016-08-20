@@ -32,7 +32,7 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 
 /**
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal Characteristics of an Association. It
  * is designed to act as an index to a specific Objects within an item that

@@ -49,11 +49,11 @@ import pcgen.util.ListMap;
  * tree structure showing the equipment by its equipped location for a 
  * particular character and equipment set.
  * 
- * <br/>
+ * <br>
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener

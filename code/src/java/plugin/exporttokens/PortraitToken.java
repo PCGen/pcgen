@@ -47,11 +47,11 @@ import pcgen.util.Logging;
  * The Class <code>PortraitToken</code> supports the PORTRAIT 
  * token and its and PORTRAIT.THUMB variant.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class PortraitToken extends AbstractExportToken

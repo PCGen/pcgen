@@ -64,7 +64,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab

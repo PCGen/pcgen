@@ -28,7 +28,7 @@ import pcgen.gui2.util.ToolBarUtilities;
  * common PCGen activities.
  *
  * @see pcgen.gui2.PCGenFrame
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenToolBar extends JToolBar
 {

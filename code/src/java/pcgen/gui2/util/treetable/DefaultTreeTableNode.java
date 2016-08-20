@@ -28,7 +28,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultTreeTableNode extends DefaultMutableTreeNode implements TreeTableNode
 {

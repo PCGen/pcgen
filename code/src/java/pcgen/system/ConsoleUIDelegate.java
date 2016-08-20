@@ -35,11 +35,11 @@ import pcgen.util.Logging;
  * and returns default choices. It is used when PCGen is running in batch mode 
  * without any windows shown.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class ConsoleUIDelegate implements UIDelegate

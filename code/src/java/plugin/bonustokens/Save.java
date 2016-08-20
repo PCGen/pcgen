@@ -35,7 +35,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>SAVE</code>.  Derived from CHECKS
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Save extends BonusObj
 {

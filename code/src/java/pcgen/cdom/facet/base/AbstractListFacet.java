@@ -446,7 +446,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
 	 * way of achieving the same results as this method. In other words, this
 	 * method was required in order to maintain compatibility with the code in
-	 * PCGen that tends to copy & clone things, but in the future, we are
+	 * PCGen that tends to copy &amp; clone things, but in the future, we are
 	 * attempting to move away from that structure, so use of this method (which
 	 * implies order dependency) is discouraged.
 	 * 
@@ -508,7 +508,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
 	 * way of achieving the same results as this method. In other words, this
 	 * method was required in order to maintain compatibility with the code in
-	 * PCGen that tends to copy & clone things, but in the future, we are
+	 * PCGen that tends to copy &amp; clone things, but in the future, we are
 	 * attempting to move away from that structure, so use of this method (which
 	 * implies order dependency) is discouraged.
 	 * 

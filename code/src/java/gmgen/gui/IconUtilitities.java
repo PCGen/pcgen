@@ -67,7 +67,7 @@ public class IconUtilitities
 	 * location.
 	 *
 	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * <code>IconImage</code> source
 	 * @param description <code>String</code>, the description
 	 *
 	 * @return <code>ImageIcon</code>, the icon or

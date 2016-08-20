@@ -118,7 +118,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SourceFileLoader extends PCGenTask implements Observer
 {

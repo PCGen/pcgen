@@ -207,7 +207,7 @@ public class NotesView extends JPanel
 	}
 
 	/**
-	 *  handle File->Open. Will open any .gmn files, and import them into your
+	 *  {@literal handle File->Open.} Will open any .gmn files, and import them into your
 	 *  notes structure
 	 */
 	public void handleOpen()

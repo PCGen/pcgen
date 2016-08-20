@@ -32,7 +32,7 @@ import freemarker.template.TemplateModelException;
  * Freemarker template. It checks if the character has a variable and returns 
  * true if so. e.g. ${pchasvar("Foo")} 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class PCHasVarFunction extends CharacterExportAction implements TemplateMethodModelEx

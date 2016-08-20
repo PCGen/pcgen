@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 
 /**
  * This contains helper functions for BigDecimal.
- * @author     Jonas Karlsson <jujutsunerd@sf.net>
+ * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  * @version    $Revision$
  */
 public class BigDecimalHelper
@@ -72,7 +72,7 @@ public class BigDecimalHelper
 
 	/**
 	 * Returns a string with the trimmed number.
-	 * E.g. numberToTrim=3.1000 > 3.1
+	 * E.g. {@literal numberToTrim=3.1000 > 3.1 }
 	 * If numberToTrim is non-numeric, 0 is returned (should be changed.)
 	 * @param numberToTrim The value to trim.
 	 * @return String

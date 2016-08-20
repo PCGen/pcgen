@@ -135,11 +135,11 @@ import pcgen.util.enumeration.View;
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class Gui2InfoFactory implements InfoFactory

@@ -44,11 +44,11 @@ import pcgen.system.LanguageBundle;
  * button. When text is typed into the field the table contents will be 
  * filtered to only those matching the search text.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 public class SearchFilterPanel extends JPanel

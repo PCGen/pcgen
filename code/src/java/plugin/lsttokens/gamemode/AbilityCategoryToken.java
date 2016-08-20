@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * <p>The class deligates the loading of the various subtokens to a separate
  * loader.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */

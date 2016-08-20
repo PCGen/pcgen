@@ -56,7 +56,7 @@ public final class RandomUtil
 	 * @param high
 	 *            The upper limit (exclusive) to be used to select a random
 	 *            value.
-	 * @return a Random Integer that is 0 < x < high
+	 * @return a Random Integer that is {@literal 0 < x < high}
 	 */
 	public static int getRandomInt(int high)
 	{

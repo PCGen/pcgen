@@ -60,7 +60,7 @@ import pcgen.system.PCGenSettings;
 /**
  * Convenience methods from various sources.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 14613 $
  */
 public final class Utility
@@ -377,7 +377,7 @@ public final class Utility
 	/**
 	 * View a URI in a browser.
 	 *
-	 * @param urI URI to display in browser.
+	 * @param uri URI to display in browser.
 	 * @throws IOException if browser can not be launched
 	 * @see DesktopBrowserLauncher
 	 */

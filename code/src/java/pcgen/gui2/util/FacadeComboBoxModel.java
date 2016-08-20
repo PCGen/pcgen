@@ -33,7 +33,7 @@ import pcgen.facade.util.ListFacade;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeComboBoxModel<E> extends AbstractListModel
 		implements ComboBoxModel, ListListener<E>, ReferenceListener<E>

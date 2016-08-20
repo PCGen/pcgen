@@ -34,7 +34,7 @@ import pcgen.util.Logging;
  * game mode files. The MAXDEVVER token specifies the non-production PCGen version when 
  * the rules object was last coded in the old format.  
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class MaxDevVerToken extends VersionAwareToken implements

@@ -44,11 +44,11 @@ import pcgen.system.LanguageBundle;
  * the user to select a spell for inclusion in things like custom equipment 
  * items.  
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

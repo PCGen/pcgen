@@ -48,7 +48,7 @@ import pcgen.util.Logging;
  * Equipment-related lists and methods extracted from Globals.java. Will
  * probably try to disentangle modifierlist into it's own class later.
  *
- * @author Jonas Karlsson <jujutsunerd@users.sourceforge.net>
+ * @author Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EquipmentList {

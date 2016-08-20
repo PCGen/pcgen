@@ -72,7 +72,7 @@ import pcgen.util.enumeration.Tab;
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision$
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
@@ -3016,7 +3016,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/**
 	 *
-	 * @param theInfoSheet the file name of the InfoSheet relative to the base pcgen directory
+	 * @param sheet the file name of the InfoSheet relative to the base pcgen directory
 	 */
 	public void setOutputSheetDefault(String type, String sheet)
 	{

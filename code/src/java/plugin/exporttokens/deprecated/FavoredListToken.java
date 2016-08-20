@@ -62,7 +62,7 @@ public class FavoredListToken extends AbstractExportToken
 
 	/**
 	 * Retrieve the list of favored classes for the PC.
-	 * @param pc The character to be queried.
+	 * @param display The character to be queried.
 	 * @return The text comma seperated list of favored classes.
 	 */
 	public static String getFavoredListToken(CharacterDisplay display)

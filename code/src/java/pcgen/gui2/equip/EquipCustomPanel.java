@@ -81,11 +81,11 @@ import pcgen.system.LanguageBundle;
  * The Class <code>EquipCustomPanel</code> displays an available/selected table 
  * pair to allow the creation of a custom piece of equipment.. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

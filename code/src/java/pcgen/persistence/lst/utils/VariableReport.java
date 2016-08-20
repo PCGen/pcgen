@@ -59,11 +59,11 @@ import freemarker.template.TemplateException;
  * The Class <code>VariableReport</code> produces a report on variable 
  * definitions within the PCGen LST data.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

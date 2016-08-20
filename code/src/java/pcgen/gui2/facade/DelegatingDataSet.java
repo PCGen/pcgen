@@ -60,7 +60,7 @@ import pcgen.facade.util.MapFacade;
  * between the DelegatingDataSet and the actual DataSetFacade thus preventing an
  * memory leaks that could occur from an outside event listener.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DelegatingDataSet implements DataSetFacade
 {

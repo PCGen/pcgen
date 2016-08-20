@@ -27,7 +27,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Handles the VISIBLE token on an ABILITYCATEGORY line.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */

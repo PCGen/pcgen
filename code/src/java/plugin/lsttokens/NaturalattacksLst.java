@@ -84,7 +84,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	/**
-	 * NATURAL WEAPONS CODE <p/>first natural weapon is primary, the rest are
+	 * NATURAL WEAPONS CODE <p>first natural weapon is primary, the rest are
 	 * secondary; NATURALATTACKS:primary weapon name,weapon type,num
 	 * attacks,damage|secondary1 weapon name,weapon type,num
 	 * attacks,damage|secondary2 format is exactly as it would be in an

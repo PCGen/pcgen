@@ -28,7 +28,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public enum Icons
 {
@@ -160,7 +160,7 @@ public enum Icons
 	 * location.
 	 *
 	 * @param fileName <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * <code>IconImage</code> source
 	 *
 	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
 	 * on failure

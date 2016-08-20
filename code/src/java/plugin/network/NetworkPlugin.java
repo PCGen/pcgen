@@ -96,7 +96,7 @@ public class NetworkPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()

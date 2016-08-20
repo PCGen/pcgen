@@ -86,7 +86,7 @@ import pcgen.util.Logging;
  * 
  * @deprecated DesktopBrowserLauncher should be used instead of this class now.
  *
- * @author Eric Albert (<a href="mailto:ejalbert@cs.stanford.edu">ejalbert@cs.stanford.edu</a>)
+ * @author Eric Albert (&lt;a href="mailto:ejalbert@cs.stanford.edu"&gt;ejalbert@cs.stanford.edu&lt;/a&gt;)
  * @version 1.4b1 (Released June 20, 2001)
  */
 final class BrowserLauncher

@@ -1698,9 +1698,8 @@ public final class SettingsHandler
 
 	/**
 	 * Sets whether the feats dialog should be shown at level up.
-	 * NOTE: This function has been disabled as it interferes with class builds. 
-	 * See bug #1502512 at 
-	 * https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719
+	 * NOTE: This function has been disabled as it interferes with class builds.
+	 * @see <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719">#1502512</a>
 	 *  
 	 * @param argShowFeatDialogAtLevelUp Should the feats dialog be shown at level up?
 	 */
@@ -2643,7 +2642,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the window state.  This corresponds to the values returned/accepted
+	 * <p>Sets the window state.  This corresponds to the values returned/accepted
 	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @param argWindowState The argWindowState to set.

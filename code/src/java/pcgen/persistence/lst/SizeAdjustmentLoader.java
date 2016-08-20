@@ -32,7 +32,7 @@ import pcgen.util.Logging;
 
 /**
  * 
- * @author David Rice <david-pcgen@jcuz.com>
+ * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  * @version $Revision$
  */
 public final class SizeAdjustmentLoader extends LstLineFileLoader

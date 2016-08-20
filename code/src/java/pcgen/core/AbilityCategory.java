@@ -69,7 +69,7 @@ import pcgen.util.enumeration.Visibility;
  * the AbilityCategory was &quot;FEAT&quot; and set the ability type to
  * &quot;Fighter&quot;. 
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */
@@ -474,7 +474,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	// KeyedObject Support
 	// -------------------------------------------
 	/**
-	 * @see pcgen.core.KeyedObject#getDisplayName()
+	 * @see pcgen.cdom.base.Category#getDisplayName()
 	 */
     @Override
 	public String getDisplayName()
@@ -495,7 +495,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
 	/**
-	 * @see pcgen.core.KeyedObject#getKeyName()
+	 * @see pcgen.cdom.base.Category#getKeyName()
 	 */
     @Override
 	public String getKeyName()
@@ -504,7 +504,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
 	/**
-	 * @see pcgen.core.KeyedObject#setName(java.lang.String)
+	 * @see pcgen.cdom.base.Loadable#setName(java.lang.String)
 	 */
     @Override
 	public void setName(final String aName)

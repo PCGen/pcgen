@@ -35,7 +35,7 @@ import java.text.ParseException;
  * This text field handles decimal numbers.
  * It should be moved to gui.utils.
  *
- * @author     Greg Bingleman <byngl@hotmail.com>
+ * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version    $Revision$
  */
 public class DecimalNumberField extends JTextField

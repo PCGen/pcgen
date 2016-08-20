@@ -75,7 +75,7 @@ public class AttackInfo
 	/**
 	 * Get total ATTACK token
 	 * @param pc
-	 * @param aType
+	 * @param at
 	 * @return total ATTACK token
 	 */
 	public static int getTotalToken(PlayerCharacter pc, AttackType at)
@@ -148,7 +148,7 @@ public class AttackInfo
 	/**
 	 * Get the misc ATTACK token
 	 * @param pc
-	 * @param aType
+	 * @param at
 	 * @return misc ATTACK token
 	 */
 	public static int getMiscToken(PlayerCharacter pc, AttackType at)
@@ -190,8 +190,6 @@ public class AttackInfo
 
 	/**
 	 * get stat ATTACK token
-	 * @param pc
-	 * @param aType
 	 * @return stat ATTACK token
 	 */
 	public static int getStatToken(CharacterDisplay display, AttackType at)

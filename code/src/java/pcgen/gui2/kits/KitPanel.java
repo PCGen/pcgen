@@ -67,11 +67,11 @@ import pcgen.system.LanguageBundle;
  * The Class <code>KitPanel</code> displays an available/selected table pair to 
  * allow the allocation of kit to the currently selected character. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
