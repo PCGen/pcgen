@@ -648,7 +648,7 @@ public class CharacterLevelsFacadeImpl extends
 			// 1. Selected level (if class had purchased a rank and is not above max ranks)
 			if (classHasRanksIn(skill,
 				((CharacterLevelFacadeImpl) baseLevel).getSelectedClass())
-				&& maxRanks != Float.NaN
+				&& !Float.isNaN(maxRanks)
 				&& maxRanks >= currRank
 				&& getSpentSkillPoints(baseLevel) > 0)
 			{
@@ -675,7 +675,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 
 		// Check if current level ok
-		if (maxRanks != Float.NaN && maxRanks >= newRank
+		if (!Float.isNaN(maxRanks) && maxRanks >= newRank
 			&& getRemainingSkillPoints(baseLevel) > 0)
 		{
 			return baseLevel;
@@ -734,7 +734,7 @@ public class CharacterLevelsFacadeImpl extends
 			float maxRanks =
 					getMaxRanks(testLevel, skillCost,
 						isClassSkillForMaxRanks(testLevel, aSkill));
-			if (maxRanks != Float.NaN && maxRanks >= testRank)
+			if (!Float.isNaN(maxRanks) && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
 				return testLevel;
@@ -772,7 +772,7 @@ public class CharacterLevelsFacadeImpl extends
 			float maxRanks =
 					getMaxRanks(testLevel, skillCost,
 						isClassSkillForMaxRanks(testLevel, aSkill));
-			if (maxRanks != Float.NaN && maxRanks >= testRank)
+			if (!Float.isNaN(maxRanks) && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
 				return testLevel;

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Modifier Name	Unique Key			Type								Cost		Visible		Type granted				Keys to replace	Source Page		Required Type				Combat bonus						Bonus to skill		Modify VAR							Bonus Equip Mods						Bonus Armor Mods																				Bonus Weapon Mods			Modify the item cost				Weapon prop. bonus											Special Property																						Ability								Change Armor Type		Choose			Apply to both heads
 Horacalcum		KEY:HORACALCUM_ARMR_LT	TYPE:BaseMaterial.MasterworkQuality.Armor		COST:10000	VISIBLE:QUALIFY	ITYPE:Metal.Horacalcum.Masterwork	REPLACES:MWORKA	SOURCEPAGE:p.57	PRETYPE:2,Metal,Light			BONUS:COMBAT|INITIATIVE|1|TYPE=Circumstance					BONUS:VAR|ArmorCheckPenalty|-1|TYPE=Enhancement																																																									SPROP:25% more hp																																							ASSIGNTOALL:NO
@@ -31,3 +31,7 @@ Skillchip Skill	KEY:SKILLCHIP_2		TYPE:SkillchipMark2					COST:1600	VISIBLE:QUALI
 Skillchip Skill	KEY:SKILLCHIP_3		TYPE:SkillchipMark3					COST:3600	VISIBLE:QUALIFY																											BONUS:SKILL|%LIST|6																																																																																																						CHOOSE:SKILL|TYPE=Base
 Skillchip Skill	KEY:SKILLCHIP_4		TYPE:SkillchipMark4					COST:6400	VISIBLE:QUALIFY																											BONUS:SKILL|%LIST|8																																																																																																						CHOOSE:SKILL|TYPE=Base
 Skillchip Skill	KEY:SKILLCHIP_5		TYPE:SkillchipMark5					COST:10000	VISIBLE:QUALIFY																											BONUS:SKILL|%LIST|10																																																																																																						CHOOSE:SKILL|TYPE=Base
+
+###Block: Timeworn items
+# Modifier Name	Unique Key		Type							Cost				Visible		Type granted	Source Page		Required Type
+Timeworn		KEY:TIMEWORN	TYPE:TimewornCondition.Technological Gear	COST:-(BASECOST/2)	VISIBLE:QUALIFY	ITYPE:Timeworn	SOURCEPAGE:p.55	PRETYPE:1,Technological Gear

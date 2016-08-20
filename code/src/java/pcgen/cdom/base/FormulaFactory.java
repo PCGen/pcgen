@@ -18,14 +18,13 @@
 package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.formula.analysis.FormulaSemanticsUtilities;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.NEPFormula;
-import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.util.FormatManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -325,8 +324,7 @@ public final class FormulaFactory
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void getDependencies(ScopeInformation scopeInfo,
-			DependencyManager arg1, Class<?> assertedFormat)
+		public void getDependencies(DependencyManager fdm)
 		{
 			//None
 		}
@@ -335,8 +333,7 @@ public final class FormulaFactory
 		 * {@inheritDoc}
 		 */
 		@Override
-		public T resolve(ScopeInformation scopeInfo, Class<T> assertedFormat,
-			Object owner)
+		public T resolve(EvaluationManager evalManager)
 		{
 			return value;
 		}
@@ -345,14 +342,16 @@ public final class FormulaFactory
 		 * {@inheritDoc}
 		 */
 		@Override
-		public FormulaSemantics isValid(FormulaManager fm, LegalScope varScope,
-			FormatManager<T> formatManager, Class<?> assertedFormat)
+		public void isValid(FormatManager<T> formatManager,
+			FormulaSemantics semantics)
 		{
-			FormulaSemantics semantics =
-					FormulaSemanticsUtilities.getInitializedSemantics();
-			semantics.setInfo(FormulaSemanticsUtilities.SEM_FORMAT,
-				formatManager.getManagedClass());
-			return semantics;
+			Class<?> expectedFormat = formatManager.getManagedClass();
+			if (!expectedFormat.isAssignableFrom(value.getClass()))
+			{
+				semantics.setInvalid("Parse Error: Invalid Value Format: "
+					+ value.getClass() + " found in location requiring a "
+					+ expectedFormat + " (class cannot be evaluated)");
+			}
 		}
 	}
 
@@ -415,28 +414,17 @@ public final class FormulaFactory
 		FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
-		Class<T> varClass = formatManager.getManagedClass();
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
 		FormulaSemantics semantics =
-				formula.isValid(formulaManager, varScope, formatManager,
+				FormulaSemantics.generate(formulaManager, varScope,
 					formatManager.getManagedClass());
-		if (semantics.getInfo(FormulaSemanticsUtilities.SEM_VALID).isValid())
+		formula.isValid(formatManager, semantics);
+		if (!semantics.isValid())
 		{
-			Class<?> formulaClass =
-					semantics.getInfo(FormulaSemanticsUtilities.SEM_FORMAT);
-			if (formulaClass.equals(varClass))
-			{
-				return formula;
-			}
-			throw new IllegalArgumentException("Formula: " + expression
-				+ " returned: " + formulaClass.getCanonicalName() + " but "
-				+ varClass.getCanonicalName() + " was required");
+			throw new IllegalArgumentException("Cannot create a Formula from: "
+				+ expression + ", due to: " + semantics.getReport()
+				+ " with format " + formatManager.getIdentifierType());
 		}
-		throw new IllegalArgumentException("Cannot create a Formula from: "
-			+ expression
-			+ ", due to: "
-			+ semantics.getInfo(FormulaSemanticsUtilities.SEM_REPORT)
-				.getReport() + " with format "
-			+ formatManager.getIdentifierType());
+		return formula;
 	}
 }

@@ -121,7 +121,7 @@ public class EqContainerToken extends Token
 
 			if (property.equals("ACCHECK"))
 			{
-				retString = Integer.toString(getAcCheckToken(pc, eq));
+				retString = Integer.toString(EqToken.getAcCheckTokenInt(pc, eq));
 			}
 			else if (property.equals("ACMOD"))
 			{
@@ -241,17 +241,6 @@ public class EqContainerToken extends Token
 			}
 		}
 		return retString;
-	}
-
-	/**
-	 * Get the AC Check Token
-	 * @param pc
-	 * @param eq
-	 * @return AC Check Token
-	 */
-	public static int getAcCheckToken(PlayerCharacter pc, Equipment eq)
-	{
-		return eq.acCheck(pc).intValue();
 	}
 
 	/**

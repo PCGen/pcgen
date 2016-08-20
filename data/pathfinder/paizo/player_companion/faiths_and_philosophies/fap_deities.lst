@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Faiths and Philosophies	SOURCESHORT:FAP	SOURCEWEB:http://paizo.com/products/btpy8yw8?Pathfinder-Player-Companion-Faiths-Philosophies	SOURCEDATE:2013-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 17 April 2016
+
+# ==============================
+# Common Wendo
+# ==============================
+
+# Deity Name	Product Identity?	FACT													FACTSET			Deity Weapon
+Kindo Kane		NAMEISPI:YES	FACT:Symbol|Sacred Animal: Panther	FACT:Title|The One Who Stands at the Gate	FACTSET:PANTHEON|Wendo	DEITYWEAP:Longspear
+Sister Liiza	NAMEISPI:YES	FACT:Symbol|Sacred Animal: Chicken	FACT:Title|Sweet Sister				FACTSET:PANTHEON|Wendo	DEITYWEAP:Dagger
+Lo Lulu		NAMEISPI:YES	FACT:Symbol|Sacred Animal: Spider	FACT:Title|Night Lord				FACTSET:PANTHEON|Wendo	DEITYWEAP:Blowgun
+Adamde Baaka	NAMEISPI:YES	FACT:Symbol|Sacred Animal: Monkey	FACT:Title|The Jungle Spirit			FACTSET:PANTHEON|Wendo	DEITYWEAP:Shortbow
+The Serpent King	NAMEISPI:YES	FACT:Symbol|Sacred Animal: Snake	FACT:Title|Wise Brother				FACTSET:PANTHEON|Wendo	DEITYWEAP:Quarterstaff
+Omoro			NAMEISPI:YES	FACT:Symbol|Sacred Animal: Warthog	FACT:Title|The One Mighty and Strong	FACTSET:PANTHEON|Wendo	DEITYWEAP:Club
+Mfuello		NAMEISPI:YES	FACT:Symbol|Sacred Animal: Frog	FACT:Title|The Journeyer			FACTSET:PANTHEON|Wendo	DEITYWEAP:Shortspear
+Old Ba		NAMEISPI:YES	FACT:Symbol|Sacred Animal: Goat	FACT:Title|Old Man, The Ancient		FACTSET:PANTHEON|Wendo	DEITYWEAP:Quarterstaff
+Donma Goko		NAMEISPI:YES	FACT:Symbol|Sacred Animal: Swallow-tailed gull	FACT:Title|The Cliffdweller	FACTSET:PANTHEON|Wendo	DEITYWEAP:Dagger

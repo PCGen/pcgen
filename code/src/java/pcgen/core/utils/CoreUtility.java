@@ -506,7 +506,7 @@ public final class CoreUtility
 				}
 			}
 
-			eq1.setQty(eQty);
+			workingList.get(i).setQty(eQty);
 		}
 
 		return workingList;

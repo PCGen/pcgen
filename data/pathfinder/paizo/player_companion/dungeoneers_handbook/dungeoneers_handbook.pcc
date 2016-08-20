@@ -29,10 +29,11 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Russet Mold from the Tome of Horrors Complete. Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax
 COPYRIGHT:Player Companion: Dungeoneer's Handbook Copyright 2013, Paizo Inc.; Authors: Amanda Hamon, Gareth Hanrahan, David Ross, & Jerome Virnich
-COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook" Copyright 2013, PCGen Data team (Including, but not limited to Scott Meyer (Guru_Scott), Paul Grosse, Andrew Maitland)
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook" Copyright 2013, PCGen Data team (Including, but not limited to Scott Meyer (Guru_Scott), Paul Grosse, Andrew Maitland, Gwen T. (evilpixie87))
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+
 
 # Data Files
 ABILITY:dh_abilities.lst
@@ -45,5 +46,5 @@ SPELL:dh_spells.lst
 KIT:dh_kits.lst
 SKILL:dh_skills.lst
 TEMPLATE:dh_templates.lst
-
+EQUIPMOD:dh_equipmods.lst
 WEAPONPROF:dh_profs_weapon.lst

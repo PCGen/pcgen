@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Champions of Corruption	SOURCESHORT:COC	SOURCEWEB:http://paizo.com/products/btpy991x	SOURCEDATE:2014-09
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 8 April 2016
+
+# ==============================
+# Eidolon Evolutions
+# ==============================
+
+# 1-point evolutions
+# Ability Name		Unique Key					Category of Ability		Type						Description																																																																																								Cost		Source Page		Aspects
+Bleed				KEY:Evolution ~ Bleed			CATEGORY:Special Ability	TYPE:EvolutionChoice.Extraordinary	DESC:An eidolon gains the ability to inflict bleeding wounds. Select one type of attack. Attacks of that type deal 1d6 points of bleed damage. This evolution can be selected more than once. Each time an eidolon selects this evolution, it applies to a different attack. The bleed effect doesn't stack.																																							COST:1	SOURCEPAGE:p.25
+Slippery			KEY:Evolution ~ Slippery		CATEGORY:Special Ability	TYPE:EvolutionChoice.Extraordinary	DESC:Due to its slimy hide or a slick exoskeleton, the eidolon is especially slippery. The eidolon gains a +4 bonus to CMD to escape a grapple and on Escape Artist checks.																																																													COST:1	SOURCEPAGE:p.25
+Sticky			KEY:Evolution ~ Sticky			CATEGORY:Special Ability	TYPE:EvolutionChoice.Extraordinary	DESC:The eidolon is especially sticky, whether from a coating of adhesive slime, partially congealed blood, or tiny barbed spines. The eidolon gains a +4 bonus on combat maneuver checks to initiate or maintain a grapple.																																																					COST:1	SOURCEPAGE:p.25
+
+# 2-point evolutions
+Sickening			KEY:Evolution ~ Sickening		CATEGORY:Special Ability	TYPE:EvolutionChoice.Extraordinary	DESC:The eidolon's smell or appearance is so offensive it sickens nearby creatures. Any living creature except its summoner that approaches within 20 feet or begins its turn in that area is sickened for 1 round unless itsucceeds at a Fortitude save (DC = 10 + 1/2 the eidolon's HD + its Con modifier). Creatures that successfully save cannot be affected by the same eidolon's sickening effect for 24 hours.																						COST:2	SOURCEPAGE:p.25
+
+# 3-point evolutions
+Fiendish Appearance	KEY:Evolution ~ Fiendish Appearance	CATEGORY:Special Ability	TYPE:EvolutionChoice.Extraordinary	DESC:The eidolon appears as a fiendish creature and manifests some of the abilities of a fiend. Spells and effects that target creatures with the evil subtype or have specific effects against such creatures affect the eidolon as if it were a fiend. The eidolon gains a +2 bonus on saves against acid, disease, fire, and poison spells and effects. It also gains spell resistance equal to %1 against spells with the good descriptor. At higher levels, additional powers can be unlocked at the cost of additional evolution points|5+HD	COST:3	SOURCEPAGE:p.25	ASPECT:SaveBonus|+2 bonus on saves against acid, disease, fire, and poison spells and effects

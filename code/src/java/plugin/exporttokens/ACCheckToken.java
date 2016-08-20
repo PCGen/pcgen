@@ -25,6 +25,9 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -67,6 +70,14 @@ public class ACCheckToken extends Token
 	 */
 	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
 	{
-		return pc.modToACCHECKFromEquipment();
+		String acCheckVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					CControl.PCACCHECK);
+		if (acCheckVar == null)
+		{
+			return pc.processOldAcCheck();
+		}
+		return ((Number) pc.getGlobal(acCheckVar)).intValue();
 	}
+
 }

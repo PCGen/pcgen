@@ -1,6 +1,8 @@
 # CVS $Revision: $ $Author: $ dschofield Sun Oct  4 16:22:19 2015 -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #Original Entry By: Aaron Divinsky
 
+CATEGORY=Internal|Default.MOD	BONUS:LANGUAGES|NUMBER|INT
+
 ###Block: Defender Abilities
 # Ability Name			Unique Key							SORTKEY			Category of Ability		Type									Visible	Required Ability														Define			Description																												Stackable?	Multiple?	Choose				Auto Weapon Prof																			Ability							Combat bonus				Bonus to HP			Add to base move																	Save bonus		Modify VAR						Source Page		Aspects
 Weapon and Armor Proficiency	KEY:Defender ~ Weapon and Armor Proficiency	SORTKEY:Class_Defender	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality				VISIBLE:YES																																																											AUTO:WEAPONPROF|Club|Dagger|Dart|Handaxe|Inutek|Hammer (Light)|Pick (Light)|Quarterstaff|Sap|Sickle|Axe (Throwing)|Sling	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight																																								SOURCEPAGE:p.82

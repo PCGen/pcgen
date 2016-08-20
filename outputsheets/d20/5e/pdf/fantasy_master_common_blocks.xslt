@@ -222,7 +222,8 @@
 ====================================
 ====================================-->
 	<xsl:template name="page.footer.content">
-		<fo:table table-layout="fixed">
+		<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
+		<fo:table table-layout="fixed" width="100%">
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.25 * $pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
@@ -239,7 +240,7 @@
 						<fo:block font-size="5pt">Player: <fo:inline font-weight="bold"><xsl:value-of select="/character/basics/playername"/></fo:inline></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
-						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Frugal, based on work by ROG, Arcady, Barak, Dimrill, Dekker &amp; Andrew Maitland (LegacyKing).</fo:block>
+						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Andrew Maitland (LegacyKing) and Stefan Radermacher (Zaister), based on work by Frugal, ROG, Arcady, Barak, Dimrill, &amp; Dekker.</fo:block>
 						<fo:block text-align="center" font-size="5pt">Created using <fo:basic-link external-destination="http://pcgen.org/" color="blue" text-decoration="underline">PCGen</fo:basic-link> v<xsl:value-of select="/character/export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="end" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
@@ -271,6 +272,7 @@
 				-->
 			<fo:page-sequence>
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<!--	CHARACTER BODY STARTS HERE !!!	-->
 				<fo:flow flow-name="body" font-size="8pt">
@@ -279,7 +281,7 @@
 						<xsl:apply-templates select="basics"/>
 					</fo:block>
 					<fo:block span="all">
-						<fo:table table-layout="fixed">
+						<fo:table table-layout="fixed" width="100%">
 							<fo:table-column>
 								<xsl:attribute name="column-width"><xsl:value-of select="0.29 * $pagePrintableWidth" />mm</xsl:attribute>
 							</fo:table-column>
@@ -304,6 +306,7 @@
 									<fo:table-cell>
 								<!-->		<xsl:apply-templates select="basics/bab" mode="bab"/>	-->
 										<xsl:call-template name="encumbrance"/>
+										<xsl:call-template name="proficiency_bonus"/>
 									</fo:table-cell>
 									<fo:table-cell number-rows-spanned="2">
 										<xsl:apply-templates select="skills">
@@ -326,7 +329,6 @@
 										<xsl:apply-templates select="saving_throws"/>
 										<xsl:apply-templates select="resistances"/>
 										<xsl:apply-templates select="attack" mode="conditional"/>
-										<xsl:apply-templates select="attack" mode="ranged_melee"/>
 										<xsl:apply-templates select="weapons/martialarts"/>
 										<xsl:apply-templates select="weapons/unarmed"/>
 										<xsl:apply-templates select="weapons/naturalattack"/>
@@ -359,6 +361,7 @@
 			<fo:page-sequence>
 		
 				<xsl:attribute name="master-reference">Portrait 2 Column</xsl:attribute>
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block>
@@ -376,49 +379,17 @@
 						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="languages"/>
 						<xsl:apply-templates select="misc/companions"/>
-						<xsl:apply-templates select="archetypes"/>	
-						<xsl:apply-templates select="animal_tricks"/>	
-						<xsl:apply-templates select="special_abilities"/>
-						<xsl:apply-templates select="traits"/>
-						<xsl:apply-templates select="afflictions"/>
-						<xsl:apply-templates select="racial_traits"/>
-						<xsl:apply-templates select="special_attacks"/>
-						<xsl:apply-templates select="special_qualities"/>
+						<!-- 5e Specific -->
+						<xsl:apply-templates select="personality_traits"/>
+						<xsl:apply-templates select="bonds"/>
+						<xsl:apply-templates select="ideals"/>
+						<xsl:apply-templates select="flaws"/>
 						<xsl:apply-templates select="race_traits"/>
+						<xsl:apply-templates select="class_features"/>
+
+						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
-						<xsl:apply-templates select="words_of_powers"/>	
-						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
-						<xsl:apply-templates select="charcreations"/>
-						<xsl:apply-templates select="disadvantages"/>
-						<xsl:apply-templates select="spellcasteroutputs"/>
-						<xsl:apply-templates select="eclipse_abilities"/>
-						<xsl:apply-templates select="martial_arts"/>
-						<xsl:apply-templates select="mystic_artists"/>
-						<xsl:apply-templates select="witchcrafts"/>
-						<xsl:apply-templates select="channelings"/>
-						<xsl:apply-templates select="dominions"/>
-						<xsl:apply-templates select="path_dragons"/>	
-						<!-- McWoD Edition Style -->
-						<xsl:apply-templates select="vampire_disciplines"/>
-						<xsl:apply-templates select="demon_cants"/>
-						<xsl:apply-templates select="werewolf_rites"/>
-						<xsl:apply-templates select="mage_gnosises"/>	
-						<!-- End McWoD Edition Style -->
-						<!-- Saga Edition Style -->
-						<xsl:apply-templates select="force_techniques"/>
-						<xsl:apply-templates select="force_powers"/>
-						<xsl:apply-templates select="force_secrets"/>	
-						<!-- End Saga Edition Style -->
-						<!-- 4th Edition Style -->	
-						<xsl:apply-templates select="powers_classfeatures"/>
-						<xsl:apply-templates select="powers_featpowers"/>
-						<xsl:apply-templates select="powers_atwills"/>
-						<xsl:apply-templates select="powers_encounters"/>
-						<xsl:apply-templates select="powers_dailies"/>
-						<xsl:apply-templates select="powers_utilities"/>	
-						<!-- End 4th Edition Style -->
-						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="pfs_chronicles"/>	
 
@@ -436,7 +407,7 @@
 			<xsl:apply-templates select="spells"/>	
 			<xsl:apply-templates select="basics" mode="bio"/>
 			<xsl:apply-templates select="basics/notes" mode="bio"/>	
-			<xsl:apply-templates select="basics" mode="campaign_histories"/>
+			<xsl:apply-templates select="basics/campaign_histories"/>
 
 		</fo:root>
 	</xsl:template>

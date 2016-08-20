@@ -61,20 +61,20 @@ Bountiful Bottle								TYPE:OtherMagic					COST:60000	WT:1		SOURCEPAGE:p.148
 Bracers of Might								TYPE:OtherMagic					COST:60000	WT:0.5	SOURCEPAGE:p.148
 Bracers of the Shield Mates						TYPE:OtherMagic					COST:60000	WT:2		SOURCEPAGE:p.148
 Canopic Jar									TYPE:OtherMagic					COST:60000	WT:2		SOURCEPAGE:p.148
-Cape of Free Will +1							TYPE:OtherMagic					COST:1500	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +2							TYPE:OtherMagic					COST:6000	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +3							TYPE:OtherMagic					COST:13500	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +4							TYPE:OtherMagic					COST:24000	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +5							TYPE:OtherMagic					COST:37500	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +1							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:1500	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +2							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:6000	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +3							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:13500	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +4							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:24000	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +5							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:37500	WT:1		SOURCEPAGE:p.148
 Cayden's Cup					NAMEISPI:YES	TYPE:OtherMagic					COST:16500	WT:1		SOURCEPAGE:p.149
 Censet of Sanctuary							TYPE:OtherMagic					COST:18000	WT:2		SOURCEPAGE:p.149
 Chime of Disillusionment						TYPE:OtherMagic					COST:35000	WT:2		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +1						TYPE:OtherMagic					COST:1500	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +2						TYPE:OtherMagic					COST:6000	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +3						TYPE:OtherMagic					COST:13500	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +4						TYPE:OtherMagic					COST:24000	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +5						TYPE:OtherMagic					COST:37500	WT:1		SOURCEPAGE:p.149
-Cloak of the Hunt								TYPE:OtherMagic					COST:12000	WT:1		SOURCEPAGE:p.150
+Cloak of Quick Reflexes +1						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:1500	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +2						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:6000	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +3						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:13500	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +4						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:24000	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +5						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:37500	WT:1		SOURCEPAGE:p.149
+Cloak of the Hunt								EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:12000	WT:1		SOURCEPAGE:p.150
 Cornucopia of Plenty							TYPE:OtherMagic					COST:35000	WT:5		SOURCEPAGE:p.150
 Death Warden's Bandolier						TYPE:OtherMagic					COST:15000	WT:3		SOURCEPAGE:p.150
 Dolorous Rod								TYPE:OtherMagic					COST:120000	WT:5		SOURCEPAGE:p.150
@@ -88,7 +88,7 @@ Golden Holy Symbol							TYPE:OtherMagic.Slot_Neck.Amulet		COST:10000	WT:1		SOUR
 Headband of Sealed Thoughts						TYPE:OtherMagic.Slot_Headband.Headband	COST:150000	WT:1		SOURCEPAGE:p.152
 Helm of the Serpent King						TYPE:OtherMagic.Slot_Head.Helm		COST:96000	WT:3		SOURCEPAGE:p.152
 Herbs of the Primal Beast						TYPE:OtherMagic.Slot_None			COST:1400	WT:0.5	SOURCEPAGE:p.152
-Immolation Cloak								TYPE:OtherMagic.Slot_Shoulders.Cape		COST:65000	WT:1		SOURCEPAGE:p.153
+Immolation Cloak								EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape		COST:65000	WT:1		SOURCEPAGE:p.153
 Inescapable Gloves							TYPE:OtherMagic.Slot_Hands.Glove		COST:9000	WT:1		SOURCEPAGE:p.153
 Laurel Wreath								TYPE:OtherMagic.Slot_Head.Helm		COST:19000	WT:1		SOURCEPAGE:p.153
 Lyre of Storms								TYPE:OtherMagic.Slot_None			COST:65000	WT:5		SOURCEPAGE:p.153
@@ -105,7 +105,7 @@ Pauldrons of Unflinching Fortitude +3				TYPE:OtherMagic.Slot_Shoulders.Cape		CO
 Pauldrons of Unflinching Fortitude +4				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:24000	WT:1		SOURCEPAGE:p.155
 Pauldrons of Unflinching Fortitude +5				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:37500	WT:1		SOURCEPAGE:p.155
 Penitent's Robes								TYPE:OtherMagic.Slot_Body			COST:95000	WT:1		SOURCEPAGE:p.155
-Phoenix Cloak								TYPE:OtherMagic.Slot_Shoulders.Cape		COST:55000	WT:7		SOURCEPAGE:p.156
+Phoenix Cloak								EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape		COST:55000	WT:7		SOURCEPAGE:p.156
 Ring of Energy Dampening						TYPE:OtherMagic.Slot_Ring.Ring		COST:31500	WT:0		SOURCEPAGE:p.156
 Ring of Transcendent Spells						TYPE:OtherMagic.Slot_Ring.Ring		COST:30000	WT:0		SOURCEPAGE:p.156
 Root of the World Tree (Lesser)					TYPE:OtherMagic.Slot_None			COST:300	WT:0		SOURCEPAGE:p.156

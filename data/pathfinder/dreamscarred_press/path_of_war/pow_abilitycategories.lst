@@ -66,7 +66,7 @@ ABILITYCATEGORY:Archer Training					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 
 # Block: Steelfist Commando
 ABILITYCATEGORY:Steelfist Commando Bonus Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SteelfistCommandoBonusChoice	PLURAL:Steelfist Commando Bonus Abilities			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Steelfist Commando Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat|Teamwork			PLURAL:Steelfist Commando Bonus Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Steelfist Commando Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Teamwork			PLURAL:Steelfist Commando Bonus Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Steelfist Commando Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent				PLURAL:Steelfist Commando Rogue Talents			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Steelfist Commando Advanced Rogue Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdvancedRogueTalent		PLURAL:Steelfist Commando Advanced Rogue Talents	DISPLAYLOCATION:Class Features
 
@@ -74,7 +74,7 @@ ABILITYCATEGORY:Steelfist Commando Advanced Rogue Talent	VISIBLE:QUALIFY	EDITABL
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object					Plural description for UI	Display Location
 ABILITYCATEGORY:Martial Tradition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:MartialTradition				PLURAL:Martial Traditions	DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Black Seraph Stalker Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphStalkerReplacement							DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Black Seraph Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphWardenReplacement							DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Black Seraph Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphWarderReplacement							DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Black Seraph Warlord Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BlackSeraphWarlordReplacement							DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Primal Fury Stalker Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:PrimalFuryStalkerReplacement							DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Primal Fury Warder Replacement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:PrimalFuryWardenReplacement							DISPLAYLOCATION:Archetype

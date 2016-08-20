@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -1076,7 +1077,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 	private int getHands(PlayerCharacter pc)
 	{
-		String solverValue = pc.getControl("*CREATUREHANDS");
+		String solverValue = pc.getControl(CControl.CREATUREHANDS);
 		if (solverValue == null)
 		{
 			return FacetLibrary.getFacet(HandsFacet.class).getHands(

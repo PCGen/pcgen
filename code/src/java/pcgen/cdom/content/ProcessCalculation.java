@@ -19,7 +19,7 @@ package pcgen.cdom.content;
 
 import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.formula.inst.ScopeInformation;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 	
 /**
@@ -66,8 +66,10 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T process(T input, ScopeInformation scopeInfo, Object source)
+	public T process(EvaluationManager evalManager)
 	{
+		@SuppressWarnings("unchecked")
+		T input = evalManager == null ? null : (T) evalManager.peek(EvaluationManager.INPUT);
 		return getBasicCalculation().process(input, obj);
 	}
 

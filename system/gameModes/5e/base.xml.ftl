@@ -4,6 +4,7 @@
 	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
+	<proficiency_bonus>${pcstring('VAR.Proficiency_Bonus.INTVAL.SIGN')}</proficiency_bonus>
 	<export>
 		<date>${pcstring('EXPORT.DATE')}</date>
 		<time>${pcstring('EXPORT.TIME')}</time>
@@ -227,13 +228,13 @@
 		<campaign_histories>
 			<@loop from=0 to=pcvar('count("CAMPAIGNHISTORY")-1') ; campaignhistory , campaignhistory_has_next>	
 			<campaign_history>
-				<campaign>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN</campaign>
-				<adventure>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE</adventure>
-				<party>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY</party>
-				<date>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE</date>
-				<xp>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP</xp>
-				<gm>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM</gm>
-				<text>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT</text>
+				<campaign>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN')}</campaign>
+				<adventure>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE')}</adventure>
+				<party>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY')}</party>
+				<date>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE')}</date>
+				<xp>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP')}</xp>
+				<gm>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM')}</gm>
+				<text>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT')}</text>
 			</campaign_history>
 			</@loop>	
 		</campaign_histories>
@@ -565,6 +566,12 @@
 					<long>${pcstring('WEAPON.${weap}.LONGNAME')}</long>
 					<output>${pcstring('WEAPON.${weap}.OUTPUTNAME')}</output>
 				</name>
+				<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+				<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+				<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+				<longrange>${longrange!0}</longrange>
+				<shortrange>${shortrange!0}</shortrange>
+				<rangelongmult>${rangelongmult!0}</rangelongmult>
 				<category>${pcstring('WEAPON.${weap}.CATEGORY')}</category>
 				<critical>
 					<range>${pcstring('WEAPON.${weap}.CRIT')}</range>
@@ -657,7 +664,14 @@
 			<#macro weapRangeBlock weap range>
 				<#if (pcstring('WEAPON.${weap}.RANGELIST.${range}') != "") >
 				<range>
+					<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+					<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+					<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+					<longrange>${longrange!0}</longrange>
+					<shortrange>${shortrange!0}</shortrange>
+					<rangelongmult>${rangelongmult!0}</rangelongmult>
 					<distance>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}</distance>
+					<base_to_hit>${pcstring('WEAPON.${weap}.TOTALHIT')}</base_to_hit>
 					<to_hit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TOTALHIT')}</to_hit>
 					<damage>${pcstring('WEAPON.${weap}.RANGELIST.${range}.DAMAGE')}</damage>
 					<basehit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.BASEHIT')}</basehit>
@@ -802,10 +816,17 @@
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))><#-- Valid only if we find the Thrown Value -->
 			<ranges>
 				<rangetype>Thrown</rangetype>
+				<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+				<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+				<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+				<longrange>${longrange!0}</longrange>
+				<shortrange>${shortrange!0}</shortrange>
+				<rangelongmult>${rangelongmult!0}</rangelongmult>
 			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-				<@loop from=0 to=5 ; range , range_has_next>
+				<@loop from=0 to=3 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
+
 			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 			</ranges>
 			<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) but IS Ranged -->
@@ -813,8 +834,9 @@
 			<!-- New Ranges Section -->
 			<ranges>
 			<rangetype>Ranged</rangetype><!-- ranged first -->
+				
 			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-				<@loop from=0 to=10 ; range , range_has_next>
+				<@loop from=0 to=5 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
 			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
@@ -834,15 +856,21 @@
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 
 				<rangetype>Thrown</rangetype>
+				<#assign shortrange = pcstring('EQ.${weap}.QUALITY.ShortRange')>
+				<#assign longrange = pcstring('EQ.${weap}.QUALITY.LongRange')>	
+				<#assign rangelongmult = pcstring('EQ.${weap}.QUALITY.RangeLongMult')>	
+				<longrange>${longrange!0}</longrange>
+				<shortrange>${shortrange!0}</shortrange>
+				<rangelongmult>${rangelongmult!0}</rangelongmult>
 				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-					<@loop from=0 to=5 ; range , range_has_next>
+					<@loop from=0 to=3 ; range , range_has_next>
 						<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><!-- Range -->
 				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 				<#else><#-- Thrown -->
 				<rangetype>Ranged</rangetype><!-- ranged second -->
 			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-				<@loop from=0 to=10 ; range , range_has_next>
+				<@loop from=0 to=5 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
 			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
@@ -864,14 +892,14 @@
 				<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 				<rangetype>Thrown</rangetype>
 				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-					<@loop from=0 to=5 ; range , range_has_next>
+					<@loop from=0 to=4 ; range , range_has_next>
 					<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><#-- Range -->
 				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 				<#else><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
 				<rangetype>Ranged</rangetype><!-- Ranged third -->
 				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
-					<@loop from=0 to=10 ; range , range_has_next>
+					<@loop from=0 to=5 ; range , range_has_next>
 					<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><#-- Range -->
 				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
@@ -892,12 +920,7 @@
 				<to_hit>${pcstring('WEAPON.${weap}.TOTALHIT')}</to_hit>
 				<damage>${pcstring('WEAPON.${weap}.DAMAGE')}</damage>
 				<range>${pcstring('WEAPON.${weap}.RANGE')}</range>
-				<!-- This is an Addition by Itwally for the Monk Flurry of Blows Fix per DATA-73 -->
 				<name>${pcstring('WEAPON.${weap}.NAME')}</name>
-				<class><@loop from=0 to=pcvar('countdistinct("CLASSES")')-1 ; class , class_has_next ><#rt>
-				<#t><@pcstring tag="CLASSABB.${class}"/><@pcstring tag="CLASS.${class}.LEVEL"/><#if class_has_next> </#if>
-			<#t></@loop></class>
-		<!-- End DATA-73 Work Around-->
 			</simple>
 		</weapon>
 		<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Double.OR.WEAPON.${weap}.CATEGORY:Non-Standard-Melee) -->
@@ -1398,6 +1421,51 @@
 	<race_traits>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Race Trait" nodeName="race_trait" />
 	</race_traits>
+	<!--
+	  ====================================
+	  ====================================
+			Class Features
+	  ====================================
+	  ====================================-->
+	<class_features>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Class Feature" nodeName="class_feature" />
+	</class_features>
+	<!--
+	  ====================================
+	  ====================================
+			Personality Traits
+	  ====================================
+	  ====================================-->
+	<personality_traits>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Personality Trait" nodeName="personality_trait" />
+	</personality_traits>
+	<!--
+	  ====================================
+	  ====================================
+			Bonds
+	  ====================================
+	  ====================================-->
+	<bonds>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Bond" nodeName="bond" />
+	</bonds>
+	<!--
+	  ====================================
+	  ====================================
+			Flaws
+	  ====================================
+	  ====================================-->
+	<flaws>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Flaw" nodeName="flaw" />
+	</flaws>
+	<!--
+	  ====================================
+	  ====================================
+			Ideals
+	  ====================================
+	  ====================================-->
+	<ideals>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Ideal" nodeName="ideal" />
+	</ideals>
 
 	<!--
 	====================================
@@ -1773,6 +1841,26 @@
 	  ====================================
 	  ====================================-->
 	<spells>
+		<isslotcaster>${pcstring('VAR.SpellCasterClassCount.INTVAL')}</isslotcaster>
+		<warlock>${pcstring('VAR.WarlockLVL.INTVAL')}</warlock>
+		<spell_slots>
+			<SpellSlotsLVL0>${pcstring('VAR.SpellSlotsLVL0.INTVAL')}</SpellSlotsLVL0>
+			<SpellSlotsLVL1>${pcstring('VAR.SpellSlotsLVL1.INTVAL')}</SpellSlotsLVL1>
+			<SpellSlotsLVL2>${pcstring('VAR.SpellSlotsLVL2.INTVAL')}</SpellSlotsLVL2>
+			<SpellSlotsLVL3>${pcstring('VAR.SpellSlotsLVL3.INTVAL')}</SpellSlotsLVL3>
+			<SpellSlotsLVL4>${pcstring('VAR.SpellSlotsLVL4.INTVAL')}</SpellSlotsLVL4>
+			<SpellSlotsLVL5>${pcstring('VAR.SpellSlotsLVL5.INTVAL')}</SpellSlotsLVL5>
+			<SpellSlotsLVL6>${pcstring('VAR.SpellSlotsLVL6.INTVAL')}</SpellSlotsLVL6>
+			<SpellSlotsLVL7>${pcstring('VAR.SpellSlotsLVL7.INTVAL')}</SpellSlotsLVL7>
+			<SpellSlotsLVL8>${pcstring('VAR.SpellSlotsLVL8.INTVAL')}</SpellSlotsLVL8>
+			<SpellSlotsLVL9>${pcstring('VAR.SpellSlotsLVL9.INTVAL')}</SpellSlotsLVL9>
+		</spell_slots>
+		<spell_slots_warlock>
+			<WarlockSlotLVL>${pcstring('VAR.WarlockSlotLVL.INTVAL')}</WarlockSlotLVL>
+			<WarlockSpellSlots>${pcstring('VAR.WarlockSpellSlots.INTVAL')}</WarlockSpellSlots>
+			<WarlockSpellDC>${pcstring('VAR.WarlockSpellDC.INTVAL')}</WarlockSpellDC>
+		</spell_slots_warlock>
+
 		<!-- ### BEGIN Innate spells ### -->
 	<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
 	<#if (spellrace = 0)>

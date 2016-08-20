@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion	SOURCEDATE:2014-02
+# ORIGINAL ENTRY: Andrew Wilson (nuance)
+# ORIGINAL ENTRY DATE: 12 February 2014
+# UPDATED ENTRY: Gwen T. (evilpixie87)
+# UPDATED ENTRY DATE: 25 April 2016
+
+# ==============================
+# Bardic masterpieces
+# ==============================
+
+# Spell Name				Classes of caster						School			Casting Time	Source Page
+Masterpiece (The Canticle of Joy)	CLASSES:Bard=3[PRESKILL:1,Perform (Sing)=7]	SCHOOL:Masterpiece	CASTTIME:1 round	SOURCEPAGE:p.27

@@ -26,9 +26,11 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.util.Logging;
 
 public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -51,6 +53,12 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 			Equipment eq,
 			boolean primary,
 			PlayerCharacter pc) {
+		if (pc.hasControl(CControl.EQREACH))
+		{
+			Logging.errorPrint("REACHMULT term"
+				+ " is disabled when EQREACH control is used");
+			return "0";
+		}
 		return String.valueOf(eq.getSafe(IntegerKey.REACH_MULT));
 	}
 

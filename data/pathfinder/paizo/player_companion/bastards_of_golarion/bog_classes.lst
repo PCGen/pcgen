@@ -1,0 +1,14 @@
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion	SOURCEDATE:2014-02
+# ORIGINAL ENTRY: Andrew Wilson (nuance)
+# ORIGINAL ENTRY DATE: 12 February 2014
+# UPDATED ENTRY: Gwen T. (evilpixie87)
+# UPDATED ENTRY DATE: 25 April 2016
+
+# ==============================
+# Bardic Masterpiece Activation
+# ==============================
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Bastard

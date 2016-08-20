@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
@@ -41,7 +42,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 	public ParseResult parseToken(LoadContext context, Equipment eq,
 		String value)
 	{
-		if (ControlUtilities.hasControlToken(context, "CRITRANGE"))
+		if (ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is disabled when CRITRANGE control is used: " + value,

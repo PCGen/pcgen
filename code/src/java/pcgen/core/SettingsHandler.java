@@ -43,9 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
-
 import javax.swing.SwingConstants;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -54,6 +52,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
 import pcgen.persistence.PersistenceManager;
+import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -676,7 +675,7 @@ public final class SettingsHandler
 	{
 		if ("".equals(selectedCharacterHTMLOutputSheet)) //$NON-NLS-1$
 		{
-			return getPcgenOutputSheetDir().toString();
+			return ConfigurationSettings.getOutputSheetsDir();
 		}
 
 		return new File(selectedCharacterHTMLOutputSheet).getParentFile().getAbsolutePath();
@@ -1275,7 +1274,7 @@ public final class SettingsHandler
 	{
 		if ("".equals(selectedCharacterPDFOutputSheet)) //$NON-NLS-1$
 		{
-			return getPcgenOutputSheetDir().toString();
+			return ConfigurationSettings.getOutputSheetsDir();
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
@@ -1358,29 +1357,11 @@ public final class SettingsHandler
 		pcgenOutputSheetDir = aFile;
 	}
 
-	/**
-	 * @deprecated Use ConfigurationSettings.getOutputSheetsDir()
-	 * @return the output sheet directory
-	 */
-	public static File getPcgenOutputSheetDir()
-	{
-		return pcgenOutputSheetDir;
-	}
-
 	public static void setPcgenPreviewDir(final File aFile)
 	{
 		pcgenPreviewDir = aFile;
 	}
-	
-	/**
-	 * @deprecated Use ConfigurationSettings.getPreviewDir()
-	 * @return the preview directory
-	 */
-	public static File getPcgenPreviewDir()
-	{
-		return pcgenPreviewDir;
-	}
-	
+
 	/**
 	 * Sets the path to the portrait files.
 	 *
@@ -1525,14 +1506,6 @@ public final class SettingsHandler
 	public static void setSaveCustomEquipment(final boolean aBool)
 	{
 		setSaveCustomInLst(aBool);
-	}
-
-	/**
-	 * @deprecated Use PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT)
-	 */
-	public static boolean getSaveCustomEquipment()
-	{
-		return isSaveCustomInLst();
 	}
 
 	/**

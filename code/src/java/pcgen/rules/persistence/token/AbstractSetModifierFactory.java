@@ -19,8 +19,8 @@ package pcgen.rules.persistence.token;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.Modifier;
 import pcgen.base.calculation.NEPCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
@@ -78,7 +78,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
 	 */
 	@Override
-	public Modifier<T> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T> getModifier(int userPriority, String instructions,
 		FormulaManager ignored, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
@@ -87,7 +87,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	}
 
 	@Override
-	public Modifier<T> getFixedModifier(int userPriority,
+	public PCGenModifier<T> getFixedModifier(int userPriority,
 		FormatManager<T> fmtManager, String instructions)
 	{
 		T n = fmtManager.convert(instructions);

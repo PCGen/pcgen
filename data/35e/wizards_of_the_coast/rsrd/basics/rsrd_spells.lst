@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #
 #This is a merge of Andargor's spell export and Zodar's manual spell entry plus a few of my estimates.
@@ -741,8 +741,8 @@ Unholy Aura.MOD																																																						TEMPBONUS:A
 Veil.MOD																																																							TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Temporary
 Virtue.MOD																																																							TEMPBONUS:ANYPC|HP|CURRENTMAX|1|TYPE=Teporary
 Warp Wood.MOD																																																						TEMPBONUS:EQ|Weapon,Wood|WEAPON|TOHIT|-4
-Prayer (Ally)																																																						TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Luck	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE.Standard|1|TYPE=Luck
-Prayer (Enemy)																																																						TEMPBONUS:ANYPC|SAVE|ALL|-1|TYPE=Luck	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|-1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE.Standard|-1|TYPE=Luck
+Prayer (Ally)																																																						TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Luck	TEMPBONUS:ANYPC|COMBAT|TOHIT|1|TYPE=Luck	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE.Standard|1|TYPE=Luck
+Prayer (Enemy)																																																						TEMPBONUS:ANYPC|SAVE|ALL|-1|TYPE=Luck	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1|TYPE=Luck	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|-1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE.Standard|-1|TYPE=Luck
 Polymorph.MOD																																																						TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Temporary
 Polymorph Any Object.MOD																																																				TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Temporary
 # Singling Righteous Might out because that long line of temp bonuses would add too much empty whitespace to the other spells -- Frank

@@ -79,13 +79,13 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.size(id));
+		assertEquals(0, directAbilityFacet.getCount(id));
 		Object sel = getAssoc();
 		templateInputFacet.directAdd(id, source, sel);
 		assertTrue(containsExpected());
-		assertEquals(1, directAbilityFacet.size(id));
+		assertEquals(1, directAbilityFacet.getCount(id));
 		templateInputFacet.remove(id, source);
-		assertEquals(0, directAbilityFacet.size(id));
+		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
 	@Test
@@ -127,14 +127,14 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.size(id));
+		assertEquals(0, directAbilityFacet.getCount(id));
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "English");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
-		assertEquals(2, directAbilityFacet.size(id));
+		assertEquals(2, directAbilityFacet.getCount(id));
 		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
-		assertEquals(0, directAbilityFacet.size(id));
+		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
 	@Override

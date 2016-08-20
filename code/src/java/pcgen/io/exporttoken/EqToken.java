@@ -40,6 +40,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
@@ -312,7 +313,7 @@ public class EqToken extends Token
 
 	public static Integer getRange(final PlayerCharacter pc, Equipment eq)
 	{
-		String rangeVar = pc.getControl("EQRANGE");
+		String rangeVar = pc.getControl(CControl.EQRANGE);
 		if (rangeVar != null)
 		{
 			//Need a special breakout based on PlayerCharacter reset of IntegerKey.RANGE
@@ -412,7 +413,15 @@ public class EqToken extends Token
 	 */
 	public static int getAcCheckTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.acCheck(pc).intValue();
+		String acCheckVar =
+				ControlUtilities.getControlToken(Globals.getContext(),
+					CControl.EQACCHECK);
+		if (acCheckVar == null)
+		{
+			return eq.preFormulaAcCheck(pc);
+		}
+		return ((Number) eq.getLocalVariable(pc.getCharID(), acCheckVar))
+			.intValue();
 	}
 
 	/**
@@ -457,7 +466,7 @@ public class EqToken extends Token
 	{
 		String critRangeVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITRANGE");
+					CControl.CRITRANGE);
 		if (critRangeVar == null)
 		{
 			int critRange = getOldBonusedCritRange(pc, eq, false);
@@ -687,7 +696,7 @@ public class EqToken extends Token
 	{
 		String critRangeVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"CRITRANGE");
+					CControl.CRITRANGE);
 		if (critRangeVar == null)
 		{
 			int critRange = getOldBonusedCritRange(pc, eq, true);
@@ -743,7 +752,7 @@ public class EqToken extends Token
 	public static int getEdrTokenInt(PlayerCharacter pc, Equipment eq)
 	{
 		String edrVar =
-				ControlUtilities.getControlToken(Globals.getContext(), "EDR");
+				ControlUtilities.getControlToken(Globals.getContext(), CControl.EDR);
 		if (edrVar == null)
 		{
 			return Math.max(0, eq.getSafe(IntegerKey.EDR)
@@ -779,7 +788,7 @@ public class EqToken extends Token
 	 */
 	public static String getFumbleRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		String frVar = ControlUtilities.getControlToken(Globals.getContext(), "FUMBLERANGE");
+		String frVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.FUMBLERANGE);
 		if (frVar == null)
 		{
 			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
@@ -890,7 +899,7 @@ public class EqToken extends Token
 	{
 		String maxDexVar =
 				ControlUtilities
-					.getControlToken(Globals.getContext(), "EQMAXDEX");
+					.getControlToken(Globals.getContext(), CControl.EQMAXDEX);
 		if (maxDexVar == null)
 		{
 			int mdex =
@@ -1038,7 +1047,7 @@ public class EqToken extends Token
 	{
 		String spellFailVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
-					"EQSPELLFAILURE");
+					CControl.EQSPELLFAILURE);
 		if (spellFailVar == null)
 		{
 			return Math.max(0, eq.getSafe(IntegerKey.SPELL_FAILURE)

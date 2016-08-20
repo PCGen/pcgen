@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Inner Sea Gods
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
 STATUS:BETA
@@ -44,7 +44,7 @@ COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer 
 COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
 COPYRIGHT:Soul Eater from the To me of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by David Cook.
 COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Gods Copyright 2014, Paizo Publishing, LLC; Authors: Sean K Reynolds, with Amanda Hamon, James Jacobs, John Ling, Mark Moreland, David N. Ross, F. Wesley Schneider, Amber E. Scott, Tork Shaw, James L. Sutter,Jerome Virnich.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea Gods" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland and Stefan Radermacher)
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea Gods" Copyright 2015, PCGen Data team (Including, but not limited to Andrew Maitland, Stefan Radermacher, and Gwen T.)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
@@ -53,6 +53,7 @@ DATACONTROL:isg__datacontrols.lst
 
 # Data files
 ABILITY:isg_abilities.lst
+ABILITY:isg_abilities_faith.lst
 ABILITY:isg_abilities_feat.lst
 ABILITYCATEGORY:isg_abilitycategories.lst
 CLASS:isg_classes.lst

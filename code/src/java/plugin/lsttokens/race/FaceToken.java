@@ -19,15 +19,15 @@ package plugin.lsttokens.race;
 
 import java.util.Collection;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.inst.CodeControl;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Race;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -56,27 +56,22 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
 		String value)
 	{
-		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
-		if (controller != null)
+		if (ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
-			if (controller.get(ObjectKey.getKeyFor(String.class, "*FACE")) != null)
-			{
-				return new ParseResult.Fail(
-					"FACE: LST Token is disabled when FACE: control is used",
-					context);
-			}
+			return new ParseResult.Fail(
+				"FACE: LST Token is disabled when FACE: control is used",
+				context);
 		}
 		if (value.indexOf(',') == -1)
 		{
 			value = value + "," + 0;
 		}
 		FormatManager<OrderedPair> formatManager =
-				context.getReferenceContext().getFormatManager(OrderedPair.class);
+				(FormatManager<OrderedPair>) context.getReferenceContext()
+					.getFormatManager("ORDEREDPAIR");
 		ScopeInstance scopeInst = context.getActiveScope();
 		LegalScope scope = scopeInst.getLegalScope();
-		Modifier<OrderedPair> modifier;
+		PCGenModifier<OrderedPair> modifier;
 		try
 		{
 			modifier =
@@ -90,7 +85,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ MOD_IDENTIFICATION + " had value " + value
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		OrderedPair pair = modifier.process(null, null, null);
+		OrderedPair pair = modifier.process(null);
 		if (pair.getPreciseX().doubleValue() < 0.0)
 		{
 			return new ParseResult.Fail(getTokenName() + " had value " + value
@@ -126,7 +121,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				Modifier<?> modifier = vm.modifier;
+				PCGenModifier<?> modifier = vm.modifier;
 				if (VAR_NAME.equals(vm.varName)
 					&& (vm.legalScope.getParentScope() == null)
 					&& (modifier.getUserPriority() == MOD_PRIORITY)

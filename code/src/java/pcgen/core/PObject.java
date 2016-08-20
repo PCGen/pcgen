@@ -34,7 +34,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.DataSetID;
-import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -177,12 +176,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 			}
 		}
 		return Collections.unmodifiableList(ret);
-	}
-	
-	public String getClassType()
-	{
-		FactKey<String> fk = FactKey.valueOf("ClassType");
-		return getResolved(fk);
 	}
 	
 	/**

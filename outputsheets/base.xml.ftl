@@ -246,13 +246,13 @@
 		<campaign_histories>
 			<@loop from=0 to=pcvar('count("CAMPAIGNHISTORY")-1') ; campaignhistory , campaignhistory_has_next>	
 			<campaign_history>
-				<campaign>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN</campaign>
-				<adventure>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE</adventure>
-				<party>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY</party>
-				<date>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE</date>
-				<xp>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP</xp>
-				<gm>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM</gm>
-				<text>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT</text>
+				<campaign>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN')}</campaign>
+				<adventure>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE')}</adventure>
+				<party>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY')}</party>
+				<date>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE')}</date>
+				<xp>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP')}</xp>
+				<gm>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM')}</gm>
+				<text>${pcstring('CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT')}</text>
 			</campaign_history>
 			</@loop>	
 		</campaign_histories>
@@ -480,7 +480,7 @@
 			<total>${pcstring('CHECK.${checknum}.TOTAL')}</total>
 			<base>${pcstring('CHECK.${checknum}.BASE')}</base>
 			<abil_mod>${pcstring('CHECK.${checknum}.STATMOD')}</abil_mod>
-			<feats>${pcstring('CHECK.${checknum}.FEATS')}</feats>
+			<feats>${pcstring('CHECK.${checknum}.FEAT')}</feats>
 			<magic_mod>${pcstring('CHECK.${checknum}.MAGIC')}</magic_mod>
 			<misc_mod>${pcstring('CHECK.${checknum}.MISC.NOMAGIC.NOSTAT')}</misc_mod>
 			<misc_w_magic_mod>${pcstring('CHECK.${checknum}.MISC.NOSTAT')}</misc_w_magic_mod>
@@ -501,12 +501,16 @@
 			<conditional_modifiers>
 				<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=CombatBonus")-1') ; ability , ability_has_next>
 				<combatbonus>
+					<name>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus')}</name>
+					<type>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus.TYPE')}</type>
 					<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus.ASPECT.CombatBonus')}</description>
 				</combatbonus>
 				</@loop>
 				<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
 				<savebonus>
-				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
+					<name>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus')}</name>
+					<type>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.TYPE')}</type>
+					<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
 				</savebonus>
 				</@loop>
 			</conditional_modifiers>
@@ -675,6 +679,8 @@
 				<ohdamagebonus>${pcstring('WEAPON.${weap}.OHDAMAGEBONUS')}</ohdamagebonus>
 				<rateoffire>${pcstring('WEAPON.${weap}.RATEOFFIRE')}</rateoffire>
 				<islight>${pcstring('WEAPON.${weap}.ISLIGHT')}</islight>
+				<quality>${pcstring('WEAPON.${weap}.QUALITY')}</quality>
+				<charges>${pcstring('WEAPON.${weap}.CHARGES')}</charges>
 				<sequence>${weap}</sequence>
 			</common>
 			</#macro>
@@ -1447,7 +1453,7 @@
 	<!--
 	  ====================================
 	  ====================================
-			FEATS
+			FEAT
 	  ====================================
 	  ====================================-->
 	<feats>
@@ -1514,7 +1520,7 @@
 			<source>${pcstring('FEAT.HIDDEN.${feat}.SOURCE')}</source>
 		</feat>
 		</@loop>
-		<!-- Hidden VFEATS -->
+		<!-- Hidden VFEAT -->
 		<@loop from=0 to=pcvar('COUNT[VFEATS.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('VFEAT.HIDDEN.${feat}')}</name>
@@ -1529,7 +1535,7 @@
 			<source>${pcstring('VFEAT.HIDDEN.${feat}.SOURCE')}</source>
 		</feat>
 		</@loop>
-		<!-- END Hidden VFEATS -->
+		<!-- END Hidden VFEAT -->
 		<@loop from=0 to=pcvar('COUNT[FEATSAUTO.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEATAUTO.HIDDEN.${feat}')}</name>

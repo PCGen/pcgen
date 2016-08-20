@@ -59,6 +59,7 @@ public class ArmorClassFacet
 	 * @return The armor class of the given type for the Player Character
 	 *         identified by the given CharID
 	 */
+	@Deprecated
 	public int calcACOfType(CharID id, String type)
 	{
 		/*

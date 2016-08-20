@@ -26,6 +26,7 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
@@ -88,6 +89,17 @@ public abstract class BasePCTermEvaluator
 		}
 
 		return retVal;
+	}
+
+	public Float localToFloat(PlayerCharacter pc, String localVar,
+		CDOMObject owner)
+	{
+		Object o = pc.getLocal(owner, localVar);
+		if (o instanceof Float)
+		{
+			return (Float) o;
+		}
+		return ((Number) o).floatValue();
 	}
 
 }

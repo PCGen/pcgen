@@ -1,40 +1,40 @@
-# CVS $Revision: 21485 $ $Author: amaitland $ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: 21485 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # All Material Used from this Web Site - http://www.d20pfsrd.com/
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2012-02-03
 
 # Dummy Proficiency to Trigger granting all Firearms Profs
-# Weapon Name			Type											Nb Hands
+# Weapon Name			Type																Nb Hands
 Firearms				TYPE:Exotic
 
 #-(Early) One-Handed Firearms
-Buckler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
-Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
-Pistol				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Buckler Gun				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm
+Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm
+Pistol				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
+Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.OneHandedFireArm.Pistol
 
 # Early Two-Handed Firearms
-Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Culverin				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Musket				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Culverin				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm			HANDS:2
+Musket				TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.TwoHandedFireArm.Musket	HANDS:2
 
 ###Block: Advanced Firearms
 # One-Handed
-# Weapon Name	Type													Nb Hands
-Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
+# Weapon Name	Type																	Nb Hands
+Revolver		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Revolver.OneHandedFireArm
 
 # Two-Handed
-Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm			HANDS:2
-Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
+Rifle			TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Rifle.TwoHandedFireArm			HANDS:2
+Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
 
 # NOTE: Expanded Groups p.45
 
@@ -271,6 +271,8 @@ Harpoon.MOD					TYPE:Thrown.Weapon Group Thrown
 Kestros.MOD					TYPE:Thrown.Weapon Group Thrown
 Poisoned Sand Tube.MOD			TYPE:Thrown.Weapon Group Thrown
 Throwing Shield.MOD			TYPE:Thrown.Weapon Group Thrown
+Shuriken.MOD				TYPE:Thrown.Weapon Group Thrown
+Sibat.MOD					TYPE:Thrown.Weapon Group Thrown
 
 #Siege Engines: All Siege Engines
 # Tengu now gets a BONUS VAR to include Exotic, matching the Bastard Sword.

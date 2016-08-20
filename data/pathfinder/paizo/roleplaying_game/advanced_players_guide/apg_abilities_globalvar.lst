@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name	Category of Ability
 Alchemist		CATEGORY:Class
@@ -13,7 +13,7 @@ Antipaladin		CATEGORY:Class
 
 
 # Ability Name				Define							Auto Weapon Prof																					Ability																								Bonus Ability Pool				Modify VAR
-CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
+CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple		ABILITY:Internal|AUTOMATIC|Alchemist ~ Class Skills|PREVAREQ:Alchemist_CF_ClassSkills,0
 
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Alchemy|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Bomb|0
@@ -28,6 +28,8 @@ CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_SwiftPoisoning|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_PersistentMutagen|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_InstantAlchemy|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_GrandDiscovery|0
+CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_ClassSkills|0
+
 
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Alchemy=True
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Bomb|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_Bomb=True
@@ -42,6 +44,7 @@ CATEGORY=Class|Alchemist.MOD																																																				
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_PersistentMutagen|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_PersistentMutagen=True
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_InstantAlchemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_InstantAlchemy=True
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_GrandDiscovery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_GrandDiscovery=True
+CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Alchemist_CF_ClassSkills=True
 
 # Old Type System
 CATEGORY=Class|Alchemist.MOD																																																																	BONUS:VAR|Alchemist_CF_Alchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
@@ -82,6 +85,9 @@ CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_GreaterBanner|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_MasterTactician|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_SupremeCharge|0
 CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_Proficiencies|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility2|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility8|0
+CATEGORY=Class|Cavalier.MOD		DEFINE:Cavalier_CF_OrderAbility15|0
 
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Proficiencies=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Challenge=True
@@ -98,6 +104,9 @@ CATEGORY=Class|Cavalier.MOD																																																					
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_GreaterBanner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_GreaterBanner=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_MasterTactician|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_MasterTactician=True
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_SupremeCharge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_SupremeCharge=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility2|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility2=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility8|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility8=True
+CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_OrderAbility15|1|PREFACT:1,ABILITIES,Cavalier_CF_OrderAbility15=True
 
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge
 CATEGORY=Class|Cavalier.MOD																																																																	BONUS:VAR|Cavalier_CF_Mount|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount
@@ -210,6 +219,7 @@ CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_GreaterShieldAlly|0
 CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_LifeBond|0
 CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_MergeForms|0
 CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_SummonMonster|0
+CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_ClassSkills|0
 
 
 CATEGORY=Class|Summoner.MOD		DEFINE:Summoner_CF_Aspect|0
@@ -234,6 +244,8 @@ CATEGORY=Class|Summoner.MOD																																																					
 CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_Aspect|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_Aspect=True
 CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ShareSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ShareSpells=True
 CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_TwinEidolon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_TwinEidolon=True
+CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ClassSkills=True
+
 
 CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerArmorProficiencies
 CATEGORY=Class|Summoner.MOD																																																																	BONUS:VAR|Summoner_CF_SimpleWeapons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons

@@ -34,6 +34,8 @@ import org.apache.commons.lang.math.Fraction;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -51,6 +53,7 @@ import pcgen.core.display.VisionDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.MovementToken;
+import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
 
 /*
@@ -69,17 +72,17 @@ public class PlayerCharacterOutput
 
 	public String getAC()
 	{
-		return Integer.toString(display.getACTotal());
+		return Integer.toString(display.calcACOfType("Total"));
 	}
 
 	public String getACFlatFooted()
 	{
-		return Integer.toString(display.flatfootedAC());
+		return Integer.toString(display.calcACOfType("Flatfooted"));
 	}
 
 	public String getACTouch()
 	{
-		return Integer.toString(display.touchAC());
+		return Integer.toString(display.calcACOfType("Touch"));
 	}
 
 	public String getAlignmentLong()
@@ -269,26 +272,42 @@ public class PlayerCharacterOutput
 
 	public String getInitMiscMod()
 	{
-		PCStat dex = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				PCStat.class, "DEX");
-		int statMod = pc.getStatModFor(dex);
-		int miscMod = display.initiativeMod() - statMod;
-
-		return "+" + miscMod;
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVEMISC);
+		if (initiativeVar == null)
+		{
+			PCStat dex = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
+			int statMod = pc.getStatModFor(dex);
+			return "+" + (display.processOldInitiativeMod() - statMod);
+		}
+		return Delta.toString(((Number) pc.getGlobal(initiativeVar)).intValue());
 	}
 
 	public String getInitStatMod()
 	{
-		PCStat dex = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				PCStat.class, "DEX");
-		int statMod = pc.getStatModFor(dex);
-
-		return "+" + statMod;
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVESTAT);
+		if (initiativeVar == null)
+		{
+			PCStat dex = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
+			return "+" + pc.getStatModFor(dex);
+		}
+		return Delta
+			.toString(((Number) pc.getGlobal(initiativeVar)).intValue());
 	}
 
 	public String getInitTotal()
 	{
-		return "+" + display.initiativeMod();
+		String initiativeVar = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		if (initiativeVar == null)
+		{
+			return "+" + display.processOldInitiativeMod();
+		}
+		return Delta
+			.toString(((Number) pc.getGlobal(initiativeVar)).intValue());
 	}
 
 	public String getMeleeTotal()

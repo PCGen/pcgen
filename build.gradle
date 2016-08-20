@@ -4,14 +4,19 @@
  * for specific output.
  *
  * Developer build: gradle
- * Incremental dev build: gradle build 
- * Full build: gradle all 
- * Build and run all tests: gradle clean build slowtest 
- * Run the data tests: gradle datatest 
- * Run the character integration tests: gradle inttest 
- * 
- * Author: James Dempsey 
+ * Incremental dev build: gradle build
+ * Full build: gradle all
+ * Build and run all tests: gradle clean build slowtest
+ * Run the data tests: gradle datatest
+ * Run the character integration tests: gradle inttest
+ *
+ * Author: James Dempsey
  */
+
+plugins {
+    id "de.undercouch.download" version "2.1.0"
+    id 'edu.sc.seis.launch4j' version '1.6.1'
+}
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -28,13 +33,13 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-	binDir = "code/bin"
-	
-	// Default ignoreTestFailures to false if it is not provided
-	if (!hasProperty('ignoreTestFailures')) {
-		ignoreTestFailures = false;
-	}
-	
+    binDir = "code/bin"
+
+    // Default ignoreTestFailures to false if it is not provided
+    if (!hasProperty('ignoreTestFailures')) {
+        ignoreTestFailures = false;
+    }
+
 }
 
 mainClassName = 'pcgen.system.Main'
@@ -62,16 +67,17 @@ applicationDistribution.from(artifacts) {
 
 repositories {
     mavenCentral()
-	ivy {
-	    url "http://pcgen.sourceforge.net/mvnrepo"
-	    layout "pattern", {
-	       artifact "[organisation]/jars/[artifact]-[revision].[ext]"
-	    }
-    }     
+    ivy {
+        url "http://pcgen.sourceforge.net/mvnrepo"
+        layout "pattern", {
+            artifact "[organisation]/jars/[artifact]-[revision].[ext]"
+        }
+    }
     ivy {
         name "fileRepo"
         url 'http://librepo.pcgen.org'
     }
+    jcenter()
 }
 
 sourceSets {
@@ -80,54 +86,54 @@ sourceSets {
             srcDirs 'code/src/java'
         }
         resources {
-        	srcDirs 'code/src/java'
-        	include '**/*.properties'
-        	include '**/*.xml'
-        	include '**/*.gif'
-        	include '**/*.png'
-        	include '**/*.jpg'
+            srcDirs 'code/src/java'
+            include '**/*.properties'
+            include '**/*.xml'
+            include '**/*.gif'
+            include '**/*.png'
+            include '**/*.jpg'
         }
     }
     test {
         java {
-            srcDirs = ['code/src/utest', 'code/src/testcommon'] 
+            srcDirs = ['code/src/utest', 'code/src/testcommon']
         }
     }
     itest {
         java {
-            srcDirs = ['code/src/itest', 'code/src/testcommon'] 
+            srcDirs = ['code/src/itest', 'code/src/testcommon']
         }
     }
     slowtest {
         java {
-            srcDirs = ['code/src/test', 'code/src/testcommon'] 
+            srcDirs = ['code/src/test', 'code/src/testcommon']
         }
     }
-    
+
 }
 
 /* Copy 'master' outputsheets into different genre folders */
 task copyMasterSheets(type: Copy) {
-	outputs.upToDateWhen { false }
-    
+    outputs.upToDateWhen { false }
+
     include 'eqsheet_fantasy_std.htm'
     include 'psheet_fantasy_std.htm'
     from 'outputsheets/d20/fantasy/htmlxml'
     into 'outputsheets/d20/historical/htmlxml'
 
     into ('../../horror/htmlxml') {
-	    from 'outputsheets/d20/fantasy/htmlxml'
+        from 'outputsheets/d20/fantasy/htmlxml'
     }
     into ('../../sciencefiction/htmlxml') {
-	    from 'outputsheets/d20/fantasy/htmlxml'
+        from 'outputsheets/d20/fantasy/htmlxml'
     }
     into ('../../western/htmlxml') {
-	    from 'outputsheets/d20/fantasy/htmlxml'
+        from 'outputsheets/d20/fantasy/htmlxml'
     }
 }
 
 compileJava {
-	it.dependsOn 'copyMasterSheets'
+    it.dependsOn 'copyMasterSheets'
 }
 
 
@@ -141,7 +147,8 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-beans', version:'3.1.3.RELEASE'
     compile group: 'mrj', name: 'MRJ141Stubs', version:'0'
     compile group: 'net.sf.squirrel-sql.thirdparty-non-maven', name: 'skinlf', version:'6.7'
-    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'1.0'
+    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.1'
+    compile group: 'org.apache.pdfbox', name: 'fontbox', version:'2.0.2'
     compile group: 'jep', name: 'jep', version:'2.4.1'
     compile group: 'org.freemarker', name: 'freemarker', version:'2.3.23'
     compile group: 'org.jdom', name: 'jdom', version:'1.1.3'
@@ -151,9 +158,9 @@ dependencies {
     compile group: 'org.apache.avalon.framework', name: 'avalon-framework-api', version:'4.3.1'
     compile group: 'org.apache.avalon.framework', name: 'avalon-framework-impl', version:'4.3.1'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.50'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.57'
-    
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.55'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.64'
+
     //testCompile group: 'org.easymock', name: 'easymock', version:'2.5.2'
     //testCompile group: 'org.easymock', name: 'easymockclassextension', version:'2.5.2'
     testCompile group: 'junit', name: 'junit', version:'4.11'
@@ -164,12 +171,12 @@ dependencies {
     //testCompile group: 'com.cenqua.clover', name: 'clover', version:'1.3.12'
     //testCompile group: 'emma', name: 'emma', version:'2.1.5320'
     //testCompile group: 'emma', name: 'emma_ant', version:'2.1.5320'
-    
+
     itestCompile sourceSets.main.output
     itestCompile configurations.testCompile
     itestCompile sourceSets.test.output
     itestRuntime configurations.testRuntime
-    
+
     slowtestCompile sourceSets.main.output
     slowtestCompile configurations.testCompile
     slowtestCompile sourceSets.test.output
@@ -180,27 +187,27 @@ ant.importBuild 'build-gradle.xml'
 ant.properties['src.java.dir']="code/src/java"
 ant.properties['build.classes.dir']="build/classes/main"
 
-configure('jar-all-plugins') {    
+configure('jar-all-plugins') {
     group = BasePlugin.BUILD_GROUP // Or use 'build'
     description = 'Create the plugin jars'
 }
 
 ext {
-	classpath = ""
-	configurations.runtime.each { lib -> classpath += " libs/${lib.name} "}
+    classpath = ""
+    configurations.runtime.each { lib -> classpath += " libs/${lib.name} "}
 }
 
 jar {
     it.dependsOn 'jar-all-plugins'
     manifest {
-        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version, 
+        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version,
         	'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
 }
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
-        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version, 
+        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version,
         	'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
     }
 
@@ -214,53 +221,53 @@ artifacts {
 }
 
 task copyToLibs(type: Copy) {
-	into "$buildDir/libs"
-	from configurations.runtime
+    into "$buildDir/libs"
+    from configurations.runtime
 }
 
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
-	from "$buildDir/libs/pcgen-${version}.jar"
-	from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-	from "$projectDir/code/pcgen.exe"
-	from "$projectDir/code/pcgen.sh"
-	into "$projectDir"
- 	rename "(.+)-$version(.+)", '$1$2'
+    from "$buildDir/libs/pcgen-${version}.jar"
+    from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
+    from "$buildDir/release/pcgen.exe"
+    from "$projectDir/code/pcgen.sh"
+    into "$projectDir"
+    rename "(.+)-$version(.+)", '$1$2'
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
-	from "${buildDir}/libs"
-	into "$projectDir/libs"
-	exclude "pcgen-*.jar"
+    from "${buildDir}/libs"
+    into "$projectDir/libs"
+    exclude "pcgen-*.jar"
 }
 
 task cleanRoot(type: Delete) {
-	description="Clean up things copied to the root folder by the build"
-	delete "$projectDir/pcgen.jar"
-	delete "$projectDir/pcgen-batch-convert.jar"
-	delete "$projectDir/batch-convert.jar"
-	delete "$projectDir/pcgen.exe"
-	delete "$projectDir/pcgen.sh"
-	delete "$projectDir/libs"
-	delete "$projectDir/autobuild.properties"
-	delete "$projectDir/svn.properties"
+    description="Clean up things copied to the root folder by the build"
+    delete "$projectDir/pcgen.jar"
+    delete "$projectDir/pcgen-batch-convert.jar"
+    delete "$projectDir/batch-convert.jar"
+    delete "$projectDir/pcgen.sh"
+    delete "$projectDir/pcgen.exe"
+    delete "$projectDir/libs"
+    delete "$projectDir/autobuild.properties"
+    delete "$projectDir/svn.properties"
 }
 
 build {
-	it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
 }
 
 clean {
-	it.dependsOn 'clean-plugins'
-	it.dependsOn 'cleanRoot'
+    it.dependsOn 'clean-plugins'
+    it.dependsOn 'cleanRoot'
 }
- 
+
 test {
-	exclude 'pcgen/testsupport/**'
-//	maxParallelForks 4
+    exclude 'pcgen/testsupport/**'
+    //	maxParallelForks 4
     testLogging {
         exceptionFormat = 'full'
     }
@@ -313,10 +320,10 @@ task inttest(type: Test, dependsOn: 'jar') {
         exceptionFormat = 'full'
     }
 
-	// Report each test as it is started.
-	beforeTest { descriptor ->
+    // Report each test as it is started.
+    beforeTest { descriptor ->
     	logger.lifecycle("Running test: " + descriptor)
-	}
+    }
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
@@ -329,10 +336,10 @@ task pfinttest(type: Test, dependsOn: 'jar') {
         exceptionFormat = 'full'
     }
 
-	// Report each test as it is started.
-	beforeTest { descriptor ->
+    // Report each test as it is started.
+    beforeTest { descriptor ->
     	logger.lifecycle("Running test: " + descriptor)
-	}
+    }
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
@@ -345,10 +352,10 @@ task rsrdinttest(type: Test, dependsOn: 'jar') {
         exceptionFormat = 'full'
     }
 
-	// Report each test as it is started.
-	beforeTest { descriptor ->
+    // Report each test as it is started.
+    beforeTest { descriptor ->
     	logger.lifecycle("Running test: " + descriptor)
-	}
+    }
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
@@ -361,10 +368,10 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
         exceptionFormat = 'full'
     }
 
-	// Report each test as it is started.
-	beforeTest { descriptor ->
+    // Report each test as it is started.
+    beforeTest { descriptor ->
     	logger.lifecycle("Running test: " + descriptor)
-	}
+    }
 }
 
 // Do the lot!
@@ -373,6 +380,15 @@ task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.2'
+}
+
+//Disable failing on javadoc warning
+allprojects {
+    if(JavaVersion.current() == JavaVersion.VERSION_1_8){
+        tasks.withType(Javadoc) {
+            options.addBooleanOption('Xdoclint:none', true)
+        }
+    }
 }
 
 apply from: 'code/gradle/autobuild.gradle'

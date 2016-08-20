@@ -65,7 +65,7 @@ public class CampaignLoader extends LstLineFileLoader
 		ListKey.FILE_EQUIP_MOD, ListKey.FILE_KIT, ListKey.FILE_BIO_SET,
 		ListKey.FILE_ALIGNMENT, ListKey.FILE_STAT, ListKey.FILE_SAVE,
 		ListKey.FILE_SIZE, ListKey.FILE_DATACTRL, ListKey.FILE_VARIABLE,
-		ListKey.FILE_GLOBALMOD};
+		ListKey.FILE_DYNAMIC, ListKey.FILE_GLOBALMOD};
 
 	/**
      * This method initializes any campaigns that include other campaigns,

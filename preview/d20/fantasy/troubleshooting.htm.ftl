@@ -123,8 +123,8 @@ ${pcstring('CHECK.${check}.STATMOD')}[STAT]
 <#if (pcvar('CHECK.${check}.MAGIC') != 0)> 
 ${pcstring('CHECK.${check}.MAGIC')}[MAGIC]
 </#if>
-<#if (pcvar('CHECK.FORTITUDE.FEATS') != 0)> 
-${pcstring('CHECK.${check}.FEATS')}[FEATS]
+<#if (pcvar('CHECK.FORTITUDE.FEAT') != 0)> 
+${pcstring('CHECK.${check}.FEAT')}[FEAT]
 </#if>
 <#if (pcvar('CHECK.${check}.EPIC') != 0)> 
 ${pcstring('CHECK.${check}.EPIC')}[EPIC]
@@ -262,7 +262,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
-<b>${pcstring('VFEATS.VISIBLE.${feat}')}</b> [<i>${pcstring('VFEATS.VISIBLE.${feat}.SOURCE')}</i>]<br>
+<b>${pcstring('VFEAT.VISIBLE.${feat}')}</b> [<i>${pcstring('VFEAT.VISIBLE.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
@@ -284,7 +284,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('COUNT[FEATSAUTO.HIDDEN]-1') ; feat , feat_has_next>
-<b>${pcstring('FEATSAUTO.HIDDEN.${feat}')}</b> [<i>${pcstring('FEATSAUTO.HIDDEN.${feat}.SOURCE')}</i>]<br>
+<b>${pcstring('FEATAUTO.HIDDEN.${feat}')}</b> [<i>${pcstring('FEATAUTO.HIDDEN.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 
@@ -293,7 +293,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </#if>
 <blockquote>
 <@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
-<b>${pcstring('VFEATS.HIDDEN.${feat}')}</b> [<i>${pcstring('VFEATS.HIDDEN.${feat}.SOURCE')}</i>]<br>
+<b>${pcstring('VFEAT.HIDDEN.${feat}')}</b> [<i>${pcstring('VFEAT.HIDDEN.${feat}.SOURCE')}</i>]<br>
 </@loop>
 </blockquote>
 

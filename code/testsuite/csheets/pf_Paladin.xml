@@ -3092,7 +3092,7 @@ BIO
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.BONUS FEAT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3158,7 +3158,7 @@ BIO
 		<ability_object>
 			<name>Skilled</name>
 			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.SKILLED</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3712,7 +3712,7 @@ BIO
 						<outputname>Compel Hostility</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Personal</range>
-						<components>V, S, M (a drop of your blood)</components>
+						<components>V, S, M</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>13</dc>
@@ -3944,7 +3944,7 @@ BIO
 						<outputname>Ghostbane Dirge</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Close (30 ft.)</range>
-						<components>V, S, M/DF (an old reed from a wind instrument)</components>
+						<components>V, S, M/DF</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>13</dc>
@@ -4031,7 +4031,7 @@ BIO
 						<outputname>Honeyed Tongue</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Personal</range>
-						<components>V, M/DF (a drop of honey)</components>
+						<components>V, M/DF</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc></dc>
@@ -4183,7 +4183,7 @@ BIO
 						<duration>1 round</duration>
 						<effect>Single target cannot make attacks of opportunity for 1 round.</effect>
 						<target>one creature</target>
-						<saveinfo>no</saveinfo>
+						<saveinfo>Will negates</saveinfo>
 						<school>
 							<school>Enchantment</school>
 							<subschool>Compulsion</subschool>
@@ -4205,7 +4205,7 @@ BIO
 						<outputname>Longshot</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Personal</range>
-						<components>V, S, M/DF (a piece of fletching)</components>
+						<components>V, S, M/DF</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc></dc>
@@ -4495,7 +4495,7 @@ BIO
 						<outputname>Tactical Acumen</outputname>
 						<times_memorized>1</times_memorized>
 						<range>30ft.</range>
-						<components>V, S, M/DF (a small piece of a map)</components>
+						<components>V, S, M/DF</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>13</dc>
@@ -4716,7 +4716,7 @@ BIO
 						<outputname>Compel Hostility</outputname>
 						<times_memorized>1</times_memorized>
 						<range>Personal</range>
-						<components>V, S, M (a drop of your blood)</components>
+						<components>V, S, M</components>
 						<castingtime>1 standard action</castingtime>
 						<casterlevel>3</casterlevel>
 						<dc>13</dc>

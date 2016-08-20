@@ -2664,7 +2664,7 @@ public final class ExportHandler
 
 			for (Equipment eq : aPC.getEquipmentListInOutputOrder())
 			{
-				if (eq.hasBonusWithInfo(aPC, "AC")
+				if (eq.altersAC(aPC)
 					&& (!eq.isArmor() && !eq.isShield()))
 				{
 					aArrayList.add(eq);

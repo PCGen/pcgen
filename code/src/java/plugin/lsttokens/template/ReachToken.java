@@ -18,9 +18,13 @@
 package plugin.lsttokens.template;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCTemplate;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REACH Token
@@ -51,5 +55,17 @@ public class ReachToken extends AbstractIntToken<PCTemplate> implements
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
+	}
+
+	@Override
+	public ParseResult parseToken(LoadContext context, PCTemplate obj, String value)
+	{
+		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when PCREACH control is used: " + value,
+				context);
+		}
+		return super.parseToken(context, obj, value);
 	}
 }

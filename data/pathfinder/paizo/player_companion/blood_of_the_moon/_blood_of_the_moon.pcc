@@ -5,7 +5,7 @@
 # DATA REVIEW MONKEY: Andrew Maitland
 
 CAMPAIGN:Blood of the Moon
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
@@ -42,7 +42,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Blood of th
 # Data files
 ABILITY:botm_abilities_trait.lst
 ABILITYCATEGORY:botm_abilitycategories.lst
-EQUIPMENT:botm_equip.lst
+BIOSET:botm_biosettings.lst
+EQUIPMENT:botm_equip_general.lst
+EQUIPMENT:botm_equip_magic_items.lst
 ABILITY:botm_feats.lst
 RACE:botm_races.lst
 SPELL:botm_spells.lst
@@ -58,7 +60,7 @@ TEMPLATE:botm_templates.lst
 # Updated to work with version: -
 # MINVER:6.5
 # MINDEVVER:6.05.1
-# COMMENTS:
+# COMMENTS: updated Oct 2015 by Wayne Tonjes added tempbonuses to the Beast Pelts
 
 
 #

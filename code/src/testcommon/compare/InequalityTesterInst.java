@@ -33,6 +33,7 @@ import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.solver.AggressiveSolverManager;
 import pcgen.base.test.InequalityTester;
+import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellSupportForPCClass;
 
@@ -57,6 +58,8 @@ public final class InequalityTesterInst implements InequalityTester
 		INEQ_MAP.put(AggressiveSolverManager.class, new IgnoreInequality());
 		//TODO SimpleVariableStore should not be ignored - but needs (hard?) custom comparator due to scopes...
 		INEQ_MAP.put(SimpleVariableStore.class, new IgnoreInequality());
+		//TODO MonitorableVariableStore should not be ignored - but needs (hard?) custom comparator due to scopes...
+		INEQ_MAP.put(MonitorableVariableStore.class, new IgnoreInequality());
 	}
 
 	@Override

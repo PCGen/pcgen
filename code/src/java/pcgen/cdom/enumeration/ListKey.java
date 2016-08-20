@@ -50,6 +50,7 @@ import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.identifier.SpellSchool;
+import pcgen.cdom.inst.Dynamic;
 import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
@@ -286,6 +287,8 @@ public final class ListKey<T>
 	public static final ListKey<RemoteModifier<?>> REMOTE_MODIFIER = new ListKey<RemoteModifier<?>>();
 	public static final ListKey<String> GROUP = new ListKey<String>();
 	public static final ListKey<CampaignSourceEntry> FILE_GLOBALMOD = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<CDOMReference<Dynamic>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

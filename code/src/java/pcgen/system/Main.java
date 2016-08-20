@@ -26,6 +26,9 @@ import static pcgen.system.ConfigurationSettings.getSystemProperty;
 import static pcgen.system.ConfigurationSettings.initSystemProperty;
 import static pcgen.system.ConfigurationSettings.setSystemProperty;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -367,6 +370,7 @@ public final class Main
 		configureUI();
 		validateEnvironment(true);
 		loadProperties(true);
+		initPrintPreviewFonts();
 
 		boolean showSplash = Boolean.parseBoolean(initSystemProperty("showSplash", "true"));
 		//TODO: allow commandline override of spash property
@@ -598,6 +602,24 @@ public final class Main
 		System.exit(0);
 	}
 
+	private static void initPrintPreviewFonts()
+	{
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + 
+				"fonts" + File.separator + "NotoSans" + File.separator; 
+		try
+		{
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
+		}
+		catch (IOException | FontFormatException ex)
+		{
+			Logging.errorPrint("Unexpected exception loading fonts fo print p", ex);
+		}
+	}
+	
 	/**
 	 * The Class <code>PCGenUncaughtExceptionHandler</code> reports any 
 	 * exceptions that are not otherwise handled by the program.

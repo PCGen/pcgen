@@ -1,6 +1,6 @@
 # CVS $Revision: 13827 $ $Author: zaister $ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Adventurer's Armory
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
@@ -36,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Co
 # Data Files
 ABILITYCATEGORY:aa_abilitycategories.lst
 ABILITY:aa_abilities_traits.lst
+ABILITY:aa_abilities.lst
 EQUIPMENT:aa_equip.lst
 EQUIPMENT:aa_equip_arms_armor.lst
 EQUIPMOD:aa_equipmods.lst

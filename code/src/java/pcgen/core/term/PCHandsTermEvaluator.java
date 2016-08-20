@@ -28,6 +28,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
+import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -46,7 +47,7 @@ public class PCHandsTermEvaluator
 	public Float resolve(PlayerCharacter display)
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			"CREATUREHANDS"))
+			CControl.CREATUREHANDS))
 		{
 			Logging.errorPrint("HANDS term is deprecated (does not function) "
 				+ "when CREATUREHANDS CodeControl is used");
