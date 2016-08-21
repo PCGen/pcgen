@@ -49,7 +49,7 @@ final class FORNode
 	 */
 	FORNode(String _var, String _min, String _max, String _step, boolean _exists)
 	{
-		children = new ArrayList<Object>();
+		children = new ArrayList<>();
 		var = _var;
 		min = _min;
 		max = _max;

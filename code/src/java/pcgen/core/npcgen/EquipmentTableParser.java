@@ -55,8 +55,8 @@ public class EquipmentTableParser
 	private SAXParser theParser;
 	private GameMode theMode;
 	
-	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<EquipmentItem, String>();
-	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<EqmodItem, String>();
+	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
+	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
 	
 	/**
 	 * Creates a new <tt>EquipmentTableParser</tt> for the specified game mode.
@@ -90,7 +90,7 @@ public class EquipmentTableParser
 	public List<EquipmentTable> parse( final File[] aFileList ) 
 		throws SAXException, IOException
 	{
-		final List<EquipmentTable> ret = new ArrayList<EquipmentTable>();
+		final List<EquipmentTable> ret = new ArrayList<>();
 		
 		for ( final File fileName : aFileList )
 		{

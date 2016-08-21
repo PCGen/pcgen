@@ -524,7 +524,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 		public List<NamedValue> getMovementValues(CharID id)
 		{
-			List<NamedValue> list = new ArrayList<NamedValue>();
+			List<NamedValue> list = new ArrayList<>();
 			for (int i = 0; i < countMovementTypes(); i++)
 			{
 				list.add(new NamedValue(getMovementType(i), movement(id, i)));

@@ -58,7 +58,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      */
     public static HTML.Tag getHTMLTag(Element e) {
         //Set List of tags
-        HashMap<String, HTML.Tag> tags = new HashMap<String, HTML.Tag>();
+        HashMap<String, HTML.Tag> tags = new HashMap<>();
         HTML.Tag[] tagList = HTML.getAllTags();
 
         for (int i = 0; i < tagList.length; i++) {

@@ -202,7 +202,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 			return Collections.emptySet();
 		}
 		return Collections
-			.unmodifiableSet(new ListSet<S>(componentMap.keySet()));
+			.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**
@@ -332,7 +332,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	protected Map<S, A> getComponentMap()
 	{
-		return new IdentityHashMap<S, A>();
+		return new IdentityHashMap<>();
 	}
 
 	/**

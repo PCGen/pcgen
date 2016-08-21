@@ -177,7 +177,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		public ChronicleHandler(CharacterFacade character)
 		{
 			descFacade = character.getDescriptionFacade();
-			chronicles = new ArrayList<ChroniclePane>();
+			chronicles = new ArrayList<>();
 			for (ChronicleEntryFacade entry : descFacade.getChronicleEntries())
 			{
 				chronicles.add(new ChroniclePane(this, entry));

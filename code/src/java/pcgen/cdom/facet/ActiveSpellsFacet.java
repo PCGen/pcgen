@@ -78,7 +78,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
 	{
-		return new TreeMap<CharacterSpell, Set<Object>>();
+		return new TreeMap<>();
 	}
 
 	/**

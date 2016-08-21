@@ -153,7 +153,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		super("SPELLCASTER", typePCS == null ? EMPTY_CHOICE_SET : typePCS);
 		types = typePCS;
 		primitives = primPCS;
-		spelltypes = new ArrayList<String>(spelltype);
+		spelltypes = new ArrayList<>(spelltype);
 		allClasses = allRef;
 	}
 
@@ -183,7 +183,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (primitives != null)
 		{
 			list.add(primitives.getLSTformat(useAny));
@@ -241,7 +241,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
 		FactKey<String> fk = FactKey.valueOf("SpellType");
-		Set<PCClass> returnSet = new HashSet<PCClass>();
+		Set<PCClass> returnSet = new HashSet<>();
 		if (types != null)
 		{
 			for (PCClass pcc : types.getSet(pc))

@@ -144,7 +144,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 		displayLocation = srcCat.displayLocation;
 		isAllAbilityTypes = srcCat.isAllAbilityTypes;
-		types = srcCat.types == null ? null : new HashSet<Type>(srcCat.types);
+		types = srcCat.types == null ? null : new HashSet<>(srcCat.types);
 		poolFormula = srcCat.poolFormula;
 		visibility = srcCat.visibility;
 		isEditable = srcCat.isEditable;
@@ -223,7 +223,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	{
 		if (types == null)
 		{
-			types = new TreeSet<Type>();
+			types = new TreeSet<>();
 		}
 		types.add(type);
 	}
@@ -270,7 +270,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	{
 		if ( containedAbilities == null )
 		{
-			containedAbilities = new HashSet<CDOMSingleRef<Ability>>();
+			containedAbilities = new HashSet<>();
 		}
 		containedAbilities.add(key);
 	}
@@ -633,20 +633,20 @@ public class AbilityCategory implements Category<Ability>, Loadable,
     @Override
 	public CDOMGroupRef<Ability> getAllReference()
 	{
-		return new CDOMAllRef<Ability>(Ability.class);
+		return new CDOMAllRef<>(Ability.class);
 	}
 
     @Override
 	public CDOMGroupRef<Ability> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<Ability>(Ability.class, types);
+		return new CDOMTypeRef<>(Ability.class, types);
 	}
 
     @Override
 	public CDOMSingleRef<Ability> getReference(String ident)
 	{
-		return new CDOMCategorizedSingleRef<Ability>(Ability.class, this,
-				ident);
+		return new CDOMCategorizedSingleRef<>(Ability.class, this,
+                ident);
 	}
 
     @Override
@@ -700,7 +700,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		Ability activeObj = rm.getObject(name);
 		if (activeObj == null)
 		{
-			List<String> choices = new ArrayList<String>();
+			List<String> choices = new ArrayList<>();
 			try
 			{
 				String reduced = AbilityUtilities.getUndecoratedName(name, choices);
@@ -783,7 +783,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 		Collection<Ability> allObjects = parentCrm.getAllObjects();
 		// Don't add things twice or we'll get dupe messages :)
-		Set<Ability> added = new WrappedMapSet<Ability>(IdentityHashMap.class);
+		Set<Ability> added = new WrappedMapSet<>(IdentityHashMap.class);
 		/*
 		 * Pull in all the base objects... note this skips containsDirectly
 		 * because items haven't been resolved

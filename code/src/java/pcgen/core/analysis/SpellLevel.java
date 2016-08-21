@@ -51,7 +51,7 @@ public class SpellLevel
 		{
 			return false;
 		}
-		Set<Integer> resultList = new TreeSet<Integer>();
+		Set<Integer> resultList = new TreeSet<>();
 		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getSpellLevelInfo(sp);
 		for (CDOMList<Spell> spellList : lists)
 		{
@@ -68,7 +68,7 @@ public class SpellLevel
 	public static Integer[] levelForKey(Spell sp,
 			List<? extends CDOMList<Spell>> lists, PlayerCharacter aPC)
 	{
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<>();
 
 		if (lists != null)
 		{

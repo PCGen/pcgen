@@ -182,7 +182,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	private static class CacheInfo
 	{
 
-		private HashMapToList<AgeSet, Kit> kitMap = new HashMapToList<AgeSet, Kit>();
+		private HashMapToList<AgeSet, Kit> kitMap = new HashMapToList<>();
 
 		public List<Kit> get(AgeSet ageSet)
 		{

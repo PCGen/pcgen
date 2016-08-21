@@ -328,7 +328,7 @@ public class CharacterManager
 			return null;
 		}
 		GameModeFacade gameMode = null;
-		HashSet<CampaignFacade> campaignSet = new HashSet<CampaignFacade>();
+		HashSet<CampaignFacade> campaignSet = new HashSet<>();
 		for (File file : files)
 		{
 			SourceSelectionFacade selection = getRequiredSourcesForCharacter(file, delegate);
@@ -356,7 +356,7 @@ public class CharacterManager
 		}
 		//TODO: check to make sure that the campaigns are compatable
 
-		return FacadeFactory.createSourceSelection(gameMode, new ArrayList<CampaignFacade>(campaignSet));
+		return FacadeFactory.createSourceSelection(gameMode, new ArrayList<>(campaignSet));
 	}
 
 	/**
@@ -584,7 +584,7 @@ final class RecentFileList extends AbstractListFacade<File>
 {
 
 	private static final int MAX_RECENT_FILES = 8;
-	private final LinkedList<File> fileList = new LinkedList<File>();
+	private final LinkedList<File> fileList = new LinkedList<>();
 	private final String contextProp;
 
 	public RecentFileList(String contextProp)
@@ -605,7 +605,7 @@ final class RecentFileList extends AbstractListFacade<File>
 	{
 		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
-		List<String> uris = new ArrayList<String>(fileList.size());
+		List<String> uris = new ArrayList<>(fileList.size());
 		for (File file : fileList)
 		{
 			URI uri = userdir.relativize(file.toURI());

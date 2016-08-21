@@ -94,8 +94,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	private class AbilityTabsModel implements ListListener<AbilityCategoryFacade>, ChangeListener
 	{
 
-		private final Map<String, TabInfo> typeMap = new HashMap<String, TabInfo>();
-		private final List<TabInfo> tabs = new ArrayList<TabInfo>();
+		private final Map<String, TabInfo> typeMap = new HashMap<>();
+		private final List<TabInfo> tabs = new ArrayList<>();
         private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> categoryMap;
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
@@ -188,13 +188,13 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		public void elementsChanged(ListEvent<AbilityCategoryFacade> e)
 		{
 			Map<String, List<AbilityCategoryFacade>> tempMap;
-			tempMap = new HashMap<String, List<AbilityCategoryFacade>>();
+			tempMap = new HashMap<>();
 			for (AbilityCategoryFacade category : categoryMap.getKeys())
 			{
 				String type = category.getType();
 				if (!tempMap.containsKey(type))
 				{
-					tempMap.put(type, new ArrayList<AbilityCategoryFacade>());
+					tempMap.put(type, new ArrayList<>());
 				}
 				tempMap.get(type).add(category);
 			}
@@ -288,8 +288,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			public TabInfo(String title, CharacterFacade character)
 			{
 				this.title = title;
-				this.categoryList = new DefaultListFacade<AbilityCategoryFacade>();
-				this.fullCategoryList = new DefaultListFacade<AbilityCategoryFacade>();
+				this.categoryList = new DefaultListFacade<>();
+				this.fullCategoryList = new DefaultListFacade<>();
 				this.tabData =
 						abilityTab.createState(character, categoryList,
 							fullCategoryList, title);

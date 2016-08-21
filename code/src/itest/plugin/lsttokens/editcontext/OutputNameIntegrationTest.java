@@ -30,7 +30,7 @@ public class OutputNameIntegrationTest extends
 {
 
 	static OutputnameLst token = new OutputnameLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

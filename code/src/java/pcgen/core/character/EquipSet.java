@@ -90,7 +90,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
-	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
+	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
 	private String id_path = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;

@@ -118,15 +118,13 @@ public class LanguagePanel extends PCGenPrefsPanel
 						new JRadioButton(in_langSystem), exclusiveGroup);
 
 		final SortedSet<JRadioButton> sorted =
-				new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
-				{
-					@Override
-					public int compare(final JRadioButton o1,
-						final JRadioButton o2)
-					{
-						return o1.getText().compareToIgnoreCase(o2.getText());
-					}
-				});
+                new TreeSet<>(new Comparator<JRadioButton>() {
+                    @Override
+                    public int compare(final JRadioButton o1,
+                                       final JRadioButton o2) {
+                        return o1.getText().compareToIgnoreCase(o2.getText());
+                    }
+                });
 
 		sorted.add(langEng = new JRadioButton(in_langEnglish));
 		sorted.add(langFre = new JRadioButton(in_langFrench));

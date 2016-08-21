@@ -188,7 +188,7 @@ public class EqToken extends Token
 			}
 
 			// Get the list of equipment
-			eqList = new ArrayList<Equipment>();
+			eqList = new ArrayList<>();
 			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
 			{
 				eqList.add(eq);
@@ -1306,7 +1306,7 @@ public class EqToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<String>();
+				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities.add(new StringBuilder().append(me.getKey())

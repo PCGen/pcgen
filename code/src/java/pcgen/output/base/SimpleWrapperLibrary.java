@@ -39,7 +39,7 @@ public class SimpleWrapperLibrary
 {
 
 	private static List<SimpleObjectWrapper> list =
-			new ArrayList<SimpleObjectWrapper>();
+            new ArrayList<>();
 	
 	static
 	{

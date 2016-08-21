@@ -149,7 +149,7 @@ public final class SpellInfo implements Comparable<SpellInfo>
 	{
 		if (featList == null)
 		{
-			featList = new ArrayList<Ability>(aList.size());
+			featList = new ArrayList<>(aList.size());
 		}
 
 		featList.addAll(aList);

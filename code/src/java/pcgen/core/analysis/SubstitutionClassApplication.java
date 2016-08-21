@@ -47,7 +47,7 @@ public class SubstitutionClassApplication
 			return;
 		}
 
-		List<PCClass> choiceList = new ArrayList<PCClass>();
+		List<PCClass> choiceList = new ArrayList<>();
 		buildSubstitutionClassChoiceList(cl, choiceList, aPC.getLevel(cl), aPC);
 		if (choiceList.size() <= 1)
 		{
@@ -57,9 +57,9 @@ public class SubstitutionClassApplication
 		}
 
 		CDOMChooserFacadeImpl<PCClass> chooserFacade =
-				new CDOMChooserFacadeImpl<PCClass>(
-					LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
-					new ArrayList<PCClass>(), 1);
+                new CDOMChooserFacadeImpl<>(
+                        LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
+                        new ArrayList<>(), 1);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);

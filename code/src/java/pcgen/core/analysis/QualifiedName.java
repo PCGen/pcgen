@@ -71,7 +71,7 @@ public class QualifiedName
 	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, 
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
-		List<T> allSelections = new ArrayList<T>();
+		List<T> allSelections = new ArrayList<>();
 		for (CNAbility cna : list)
 		{
 			if (pc.hasAssociations(cna))

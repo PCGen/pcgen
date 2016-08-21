@@ -41,7 +41,7 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 		implements DisplayableFilter<C, E>, ItemListener
 {
 
-	private List<FilterButton<C, E>> buttons = new ArrayList<FilterButton<C, E>>();
+	private List<FilterButton<C, E>> buttons = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterButtonGroupPanel()

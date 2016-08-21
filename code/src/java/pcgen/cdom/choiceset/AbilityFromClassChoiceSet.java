@@ -144,7 +144,7 @@ public class AbilityFromClassChoiceSet implements
 	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
 		PCClass aClass = pc.getClassKeyed(classRef.get().getKeyName());
-		Set<CNAbilitySelection> set = new HashSet<CNAbilitySelection>();
+		Set<CNAbilitySelection> set = new HashSet<>();
 		if (aClass != null)
 		{
 			//TODO This is a bug -> it was not properly gathering before

@@ -131,7 +131,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		if (integerChar == null)
 		{
-			integerChar = new HashMap<IntegerKey, Integer>();
+			integerChar = new HashMap<>();
 		}
 		return integerChar.put(key, intValue);
 	}
@@ -149,7 +149,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final Set<IntegerKey> getIntegerKeys()
 	{
 		return integerChar == null ? Collections.<IntegerKey> emptySet()
-			: new HashSet<IntegerKey>(integerChar.keySet());
+			: new HashSet<>(integerChar.keySet());
 	}
 
 	public final boolean containsKey(StringKey key)
@@ -172,7 +172,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		if (stringChar == null)
 		{
-			stringChar = new HashMap<StringKey, String>();
+			stringChar = new HashMap<>();
 		}
 		return stringChar.put(key, value);
 	}
@@ -190,7 +190,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final Set<StringKey> getStringKeys()
 	{
 		return stringChar == null ? Collections.<StringKey> emptySet()
-			: new HashSet<StringKey>(stringChar.keySet());
+			: new HashSet<>(stringChar.keySet());
 	}
 
 	public final boolean containsKey(FormulaKey key)
@@ -213,7 +213,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		if (formulaChar == null)
 		{
-			formulaChar = new HashMap<FormulaKey, Formula>();
+			formulaChar = new HashMap<>();
 		}
 		return formulaChar.put(key, value);
 	}
@@ -231,7 +231,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final Set<FormulaKey> getFormulaKeys()
 	{
 		return formulaChar == null ? Collections.<FormulaKey> emptySet()
-			: new HashSet<FormulaKey>(formulaChar.keySet());
+			: new HashSet<>(formulaChar.keySet());
 	}
 
 	public final boolean containsKey(VariableKey key)
@@ -247,14 +247,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final Set<VariableKey> getVariableKeys()
 	{
 		return variableChar == null ? Collections.<VariableKey> emptySet()
-			: new HashSet<VariableKey>(variableChar.keySet());
+			: new HashSet<>(variableChar.keySet());
 	}
 
 	public final Formula put(VariableKey key, Formula value)
 	{
 		if (variableChar == null)
 		{
-			variableChar = new HashMap<VariableKey, Formula>();
+			variableChar = new HashMap<>();
 		}
 		return variableChar.put(key, value);
 	}
@@ -294,7 +294,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		if (objectChar == null)
 		{
-			objectChar = new HashMap<ObjectKey<?>, Object>();
+			objectChar = new HashMap<>();
 		}
 		return key.cast(objectChar.put(key, value));
 	}
@@ -311,7 +311,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<ObjectKey<?>> getObjectKeys()
 	{
-		return objectChar == null ? Collections.<ObjectKey<?>>emptySet() : new HashSet<ObjectKey<?>>(objectChar.keySet());
+		return objectChar == null ? Collections.<ObjectKey<?>>emptySet() : new HashSet<>(objectChar.keySet());
 	}
 
 	public final boolean containsKey(FactKey<?> key)
@@ -346,7 +346,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		if (factChar == null)
 		{
-			factChar = new HashMap<FactKey<?>, Object>();
+			factChar = new HashMap<>();
 		}
 		return key.cast(factChar.put(key, value));
 	}
@@ -363,7 +363,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<FactKey<?>> getFactKeys()
 	{
-		return factChar == null ? Collections.<FactKey<?>>emptySet() : new HashSet<FactKey<?>>(factChar.keySet());
+		return factChar == null ? Collections.<FactKey<?>>emptySet() : new HashSet<>(factChar.keySet());
 	}
 
 	public final boolean containsSetFor(FactSetKey<?> key)
@@ -397,7 +397,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final <T> List<Indirect<T>> getSafeSetFor(FactSetKey<T> key)
 	{
 		return factSetChar != null && factSetChar.containsListFor(key) ? factSetChar.getListFor(key)
-				: new ArrayList<Indirect<T>>();
+				: new ArrayList<>();
 	}
 	
 	public final String getSetAsString(FactSetKey<?> key)
@@ -516,7 +516,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final <T> List<T> getSafeListFor(ListKey<T> key)
 	{
 		return listChar != null && listChar.containsListFor(key) ? listChar.getListFor(key)
-				: new ArrayList<T>();
+				: new ArrayList<>();
 	}
 	
 	/**
@@ -545,14 +545,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		if (listChar == null)
 		{
-			return new HashSet<T>();
+			return new HashSet<>();
 		}
 		List<T> list = listChar.getListFor(key);
 		if (list == null)
 		{
-			return new HashSet<T>();
+			return new HashSet<>();
 		}
-		return new LinkedHashSet<T>(list);
+		return new LinkedHashSet<>(list);
 	}
 	
 	public final String getListAsString(ListKey<?> key)
@@ -849,8 +849,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		if (cdomListMods == null)
 		{
 			cdomListMods =
-					new DoubleKeyMapToList<CDOMReference<? extends CDOMList<?>>, CDOMReference<?>, AssociatedPrereqObject>(
-						HashMap.class, LinkedHashMap.class);
+                    new DoubleKeyMapToList<>(
+                            HashMap.class, LinkedHashMap.class);
 		}
 		cdomListMods.addToListFor(listRef, granted, associations);
 	}
@@ -933,7 +933,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			if (integerChar == null)
 			{
-				integerChar = new HashMap<IntegerKey, Integer>();
+				integerChar = new HashMap<>();
 			}
 			integerChar.putAll(cdo.integerChar);
 		}
@@ -941,7 +941,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			if (stringChar == null)
 			{
-				stringChar = new HashMap<StringKey, String>();
+				stringChar = new HashMap<>();
 			}
 			stringChar.putAll(cdo.stringChar);
 		}
@@ -949,7 +949,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			if (formulaChar == null)
 			{
-				formulaChar = new HashMap<FormulaKey, Formula>();
+				formulaChar = new HashMap<>();
 			}
 			formulaChar.putAll(cdo.formulaChar);
 		}
@@ -957,7 +957,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			if (objectChar == null)
 			{
-				objectChar = new HashMap<ObjectKey<?>, Object>();
+				objectChar = new HashMap<>();
 			}
 			objectChar.putAll(cdo.objectChar);
 		}
@@ -965,7 +965,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			if (factChar == null)
 			{
-				factChar = new HashMap<FactKey<?>, Object>();
+				factChar = new HashMap<>();
 			}
 			factChar.putAll(cdo.factChar);
 		}
@@ -973,7 +973,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			if (variableChar == null)
 			{
-				variableChar = new HashMap<VariableKey, Formula>();
+				variableChar = new HashMap<>();
 			}
 			variableChar.putAll(cdo.variableChar);
 		}
@@ -1006,8 +1006,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			if (cdomListMods == null)
 			{
 				cdomListMods =
-						new DoubleKeyMapToList<CDOMReference<? extends CDOMList<?>>, CDOMReference<?>, AssociatedPrereqObject>(
-							HashMap.class, LinkedHashMap.class);
+                        new DoubleKeyMapToList<>(
+                                HashMap.class, LinkedHashMap.class);
 			}
 			cdomListMods.addAll(cdo.cdomListMods);
 		}
@@ -1017,12 +1017,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public CDOMObject clone() throws CloneNotSupportedException
 	{
 		CDOMObject clone = (CDOMObject) super.clone();
-		clone.integerChar = integerChar == null ? null : new HashMap<IntegerKey, Integer>(integerChar);
-		clone.stringChar = stringChar == null ? null : new HashMap<StringKey, String>(stringChar);
-		clone.formulaChar = formulaChar == null ? null : new HashMap<FormulaKey, Formula>(formulaChar);
-		clone.variableChar = variableChar == null ? null : new HashMap<VariableKey, Formula>(variableChar);
-		clone.objectChar = objectChar == null ? null : new HashMap<ObjectKey<?>, Object>(objectChar);
-		clone.factChar = factChar == null ? null : new HashMap<FactKey<?>, Object>(factChar);
+		clone.integerChar = integerChar == null ? null : new HashMap<>(integerChar);
+		clone.stringChar = stringChar == null ? null : new HashMap<>(stringChar);
+		clone.formulaChar = formulaChar == null ? null : new HashMap<>(formulaChar);
+		clone.variableChar = variableChar == null ? null : new HashMap<>(variableChar);
+		clone.objectChar = objectChar == null ? null : new HashMap<>(objectChar);
+		clone.factChar = factChar == null ? null : new HashMap<>(factChar);
 		if (listChar != null)
 		{
 			clone.listChar = new ListKeyMapToList();
@@ -1144,7 +1144,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter pc)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		for (BonusObj bonus : getRawBonusList(pc))
 		{

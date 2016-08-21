@@ -47,12 +47,12 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 public class KitStat extends BaseKit
 {
 	private Map<CDOMSingleRef<PCStat>, Formula> statMap =
-			new HashMap<CDOMSingleRef<PCStat>, Formula>();
+            new HashMap<>();
 
 	@Override
 	public String toString()
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
 			set.add(me.getKey().getLSTformat(false) + '='+ me.getValue());

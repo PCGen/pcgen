@@ -256,7 +256,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableList(new ArrayList<T>(componentSet));
+		return Collections.unmodifiableList(new ArrayList<>(componentSet));
 	}
 
 	/**
@@ -387,7 +387,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 */
 	protected Collection<T> getComponentSet()
 	{
-		return new LinkedHashSet<T>();
+		return new LinkedHashSet<>();
 	}
 
 	/**

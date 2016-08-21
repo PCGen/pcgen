@@ -34,7 +34,7 @@ public class SubraceIntegrationTest extends
 {
 
 	static SubraceToken token = new SubraceToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

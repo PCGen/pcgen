@@ -146,7 +146,7 @@ public enum Icons
 	private static final String RESOURCE_URL = "/pcgen/resources/images/";
 
 	/** Image cache */
-	private static final Map<Icons, ImageIcon> iconMap = new WeakHashMap<Icons, ImageIcon>(Icons.values().length);
+	private static final Map<Icons, ImageIcon> iconMap = new WeakHashMap<>(Icons.values().length);
 
 	private final String extension;
 

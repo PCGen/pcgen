@@ -40,8 +40,8 @@ public class TokenStore implements PluginLoader
 	private TokenStore()
 	{
 		tokenTypeMap =
-				new HashMap<Class<? extends LstToken>, Map<String, LstToken>>();
-		tokenTypeList = new ArrayList<Class<? extends LstToken>>();
+                new HashMap<>();
+		tokenTypeList = new ArrayList<>();
 		populateTokenTypeList();
 	}
 
@@ -132,7 +132,7 @@ public class TokenStore implements PluginLoader
 		Map<String, LstToken> tokenMap = tokenTypeMap.get(tokInterface);
 		if (tokenMap == null)
 		{
-			tokenMap = new HashMap<String, LstToken>();
+			tokenMap = new HashMap<>();
 			tokenTypeMap.put(tokInterface, tokenMap);
 		}
 		return tokenMap;

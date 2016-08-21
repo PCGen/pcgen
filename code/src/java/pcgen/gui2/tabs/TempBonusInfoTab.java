@@ -103,8 +103,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 	public TempBonusInfoTab()
 	{
 		super("TempBonus");
-		this.availableTable = new FilteredTreeViewTable<CharacterFacade, TempBonusFacade>();
-		this.selectedTable = new FilteredTreeViewTable<CharacterFacade, TempBonusFacade>();
+		this.availableTable = new FilteredTreeViewTable<>();
+		this.selectedTable = new FilteredTreeViewTable<>();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_InfoTempMod")); //$NON-NLS-1$
@@ -119,7 +119,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, TempBonusFacade> bar = new FilterBar<CharacterFacade, TempBonusFacade>();
+		FilterBar<CharacterFacade, TempBonusFacade> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		availPanel.add(bar, BorderLayout.NORTH);
 
@@ -138,7 +138,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, TempBonusFacade> filterBar = new FilterBar<CharacterFacade, TempBonusFacade>();
+		FilterBar<CharacterFacade, TempBonusFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -415,7 +415,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			this.isAvailModel = isAvailModel;
 			if (isAvailModel)
 			{
-				tempBonuses = new FilteredListFacade<CharacterFacade, TempBonusFacade>();
+				tempBonuses = new FilteredListFacade<>();
 				tempBonuses.setContext(character);
 				tempBonuses.setFilter(this);
 				tempBonuses.setDelegate(character.getAvailableTempBonuses());
@@ -581,18 +581,18 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				case TARGET_NAME:
 					if (infoFactory != null)
 					{
-						return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus,
-								infoFactory.getTempBonusTarget(bonus)));
+						return Collections.singletonList(new TreeViewPath<>(bonus,
+                                infoFactory.getTempBonusTarget(bonus)));
 					}
 				// No info factory? Treat as a name 
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus));
+					return Collections.singletonList(new TreeViewPath<>(bonus));
 				case ORIGIN_NAME:
-					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus,
-							bonus.getOriginType()));
+					return Collections.singletonList(new TreeViewPath<>(bonus,
+                            bonus.getOriginType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus,
-							bonus.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(bonus,
+                            bonus.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

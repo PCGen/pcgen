@@ -43,7 +43,7 @@ public class LastGroupSeparator
 		root = new StringBuilder(sbLength);
 		StringBuilder temp = new StringBuilder(sbLength);
 		boolean isValid = false;
-		Stack<String> expected = new Stack<String>();
+		Stack<String> expected = new Stack<>();
 		while (base.hasMoreTokens())
 		{
 			String working = base.nextToken();

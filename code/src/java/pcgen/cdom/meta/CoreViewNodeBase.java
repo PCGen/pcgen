@@ -40,7 +40,7 @@ import pcgen.facade.core.CoreViewNodeFacade;
  */
 public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
-	private List<CoreViewNodeFacade> grantedByList = new ArrayList<CoreViewNodeFacade>();
+	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
 	/**
 	 * {@inheritDoc}

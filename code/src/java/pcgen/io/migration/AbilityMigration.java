@@ -40,7 +40,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
 public class AbilityMigration
 {
 
-	private static Map<int[], List<MigrationRule>> abilityChangesForVer = new HashMap<int[], List<MigrationRule>>();
+	private static Map<int[], List<MigrationRule>> abilityChangesForVer = new HashMap<>();
 
 	/**
 	 * Find the new ability key to replace the provided one.

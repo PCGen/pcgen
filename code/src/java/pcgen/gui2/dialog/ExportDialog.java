@@ -121,8 +121,8 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	{
 		super(parent, true);
 		this.pcgenFrame = parent;
-		this.characterBoxModel = new FacadeComboBoxModel<CharacterFacade>(CharacterManager.getCharacters(),
-																		  parent.getSelectedCharacterRef());
+		this.characterBoxModel = new FacadeComboBoxModel<>(CharacterManager.getCharacters(),
+                parent.getSelectedCharacterRef());
 		this.characterBox = new JComboBox(characterBoxModel);
 		this.partyBox = new JCheckBox("Entire Party");
 		this.exportBox = new JComboBox(SheetFilter.values());

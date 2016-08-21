@@ -192,7 +192,7 @@ public enum EqModNameOpt
 	 */
 	private static void buildMap()
 	{
-		typeMap = new CaseInsensitiveMap<EqModNameOpt>();
+		typeMap = new CaseInsensitiveMap<>();
 		Class<EqModNameOpt> thisClass = EqModNameOpt.class;
 		for (Field f : thisClass.getDeclaredFields())
 		{

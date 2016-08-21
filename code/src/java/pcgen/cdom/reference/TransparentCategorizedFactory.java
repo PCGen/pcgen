@@ -56,20 +56,20 @@ public class TransparentCategorizedFactory<T extends Categorized<T>>
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMTransparentAllRef<T>(refClass);
+		return new CDOMTransparentAllRef<>(refClass);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTransparentTypeRef<T>(refClass, types);
+		return new CDOMTransparentTypeRef<>(refClass, types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		return new CDOMTransparentCategorizedSingleRef<T>(refClass, category,
-				key);
+		return new CDOMTransparentCategorizedSingleRef<>(refClass, category,
+                key);
 	}
 
 	@Override

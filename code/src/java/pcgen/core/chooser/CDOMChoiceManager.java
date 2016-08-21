@@ -41,7 +41,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	private final ChooseDriver owner;
 	private final Integer numberOfChoices;
 	protected final int choicesPerUnitCost;
-	protected ChooseController<T> controller = new ChooseController<T>();
+	protected ChooseController<T> controller = new ChooseController<>();
 	protected final ChooseInformation<T> info;
 
 	private transient int preChooserChoices;
@@ -111,7 +111,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
-		List<T> toAdd = new ArrayList<T>();
+		List<T> toAdd = new ArrayList<>();
 		for (T obj : selected)
 		{
 			if (oldSelections == null || !oldSelections.remove(obj))
@@ -174,8 +174,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		}
 		
 		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<T>(title, availableList,
-					selectedList, effectiveChoices);
+                new CDOMChooserFacadeImpl<>(title, availableList,
+                        selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(dupsAllowed);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));

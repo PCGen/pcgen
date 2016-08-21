@@ -189,7 +189,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
-		List<String> typeNames = new ArrayList<String>();
+		List<String> typeNames = new ArrayList<>();
 		for (Type type : trueTypeList) {
 			typeNames.add(type.toString());
 		}

@@ -28,7 +28,7 @@ public class MaxDexIntegrationTest extends
 {
 
 	static MaxdexToken token = new MaxdexToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

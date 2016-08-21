@@ -138,7 +138,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 
 		if (ability == null)
 		{
-			List<String> choices = new ArrayList<String>();
+			List<String> choices = new ArrayList<>();
 			String baseKey =
 					AbilityUtilities.getUndecoratedName(persistentFormat,
 						choices);

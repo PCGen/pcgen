@@ -152,7 +152,7 @@ public class VariableChannel<T> implements VariableListener<T>,
 		{
 			if (e == null)
 			{
-				e = new ReferenceEvent<T>(source, oldValue, newValue);
+				e = new ReferenceEvent<>(source, oldValue, newValue);
 			}
 			listeners[i + 1].referenceChanged(e);
 		}

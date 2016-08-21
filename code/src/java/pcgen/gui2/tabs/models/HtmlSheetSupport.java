@@ -104,7 +104,7 @@ public class HtmlSheetSupport
 
 	public void setCharacter(CharacterFacade character)
 	{
-		this.characterRef = new WeakReference<CharacterFacade>(character);
+		this.characterRef = new WeakReference<>(character);
 	}
 
 	public void install()
@@ -270,7 +270,7 @@ public class HtmlSheetSupport
 	private static class ImageCache extends Dictionary<URL, Image>
 	{
 
-		private HashMap<URL, Image> cache = new HashMap<URL, Image>();
+		private HashMap<URL, Image> cache = new HashMap<>();
 
 		@Override
 		public int size()

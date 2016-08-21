@@ -1162,8 +1162,8 @@ public final class PurchaseModeFrame extends JDialog
 			}
 
 			AbstractReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
-			List<PointBuyMethod> methods = new ArrayList<PointBuyMethod>(ref
-					.getConstructedCDOMObjects(PointBuyMethod.class));
+			List<PointBuyMethod> methods = new ArrayList<>(ref
+                    .getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)
 			{
 				final PointBuyMethod pbm = (PointBuyMethod) currentPurchaseMethods.getItemAt(i);

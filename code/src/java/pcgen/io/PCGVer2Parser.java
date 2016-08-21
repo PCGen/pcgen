@@ -183,11 +183,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 *
 	 * author: Thomas Behr 2002-11-13
 	 */
-	private final List<String> warnings = new ArrayList<String>();
+	private final List<String> warnings = new ArrayList<>();
 	private Cache cache;
 	private PlayerCharacter thePC;
-	private final Set<String> seenStats = new HashSet<String>();
-	private final Set<Language> cachedLanguages = new HashSet<Language>();
+	private final Set<String> seenStats = new HashSet<>();
+	private final Set<Language> cachedLanguages = new HashSet<>();
 
 	//
 	// MAJOR.MINOR.REVISION
@@ -291,7 +291,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			Logging.errorPrint("Character does not have campaign information.");
 			return FacadeFactory.createSourceSelection(mode,
-				new ArrayList<CampaignFacade>());
+                    new ArrayList<>());
 		}
 		/*
 		 * #System Information
@@ -876,7 +876,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		final List<PCLevelInfo> pcLevelInfoList =
-				new ArrayList<PCLevelInfo>(thePC.getLevelInfo());
+                new ArrayList<>(thePC.getLevelInfo());
 		if (cache.containsKey(TAG_CLASSABILITIESLEVEL))
 		{
 			thePC.clearLevelInfo();
@@ -1457,7 +1457,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		throws PCGParseException
 	{
 
-		final List<Campaign> campaigns = new ArrayList<Campaign>();
+		final List<Campaign> campaigns = new ArrayList<>();
 		PCGTokenizer tokens;
 
 		for (final String line : lines)
@@ -2386,7 +2386,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		//# EquipSet Temp Bonuses
 		//EQSETBONUS:0.2|TEMPBONUS:NAME=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
 		final Map<BonusObj, BonusManager.TempBonusInfo> aList =
-				new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
+                new IdentityHashMap<>();
 
 		for (final PCGElement element : tokens.getElements())
 		{
@@ -2599,8 +2599,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 		}
-		List<String> associations = new ArrayList<String>();
-		List<BonusObj> bonuses = new ArrayList<BonusObj>();
+		List<String> associations = new ArrayList<>();
+		List<BonusObj> bonuses = new ArrayList<>();
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -3917,7 +3917,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				String key = EntityEncoder.decode(element.getText());
 				ChoiceManagerList<Object> controller =
 						ChooserUtilities.getConfiguredController(aSkill, thePC,
-							null, new ArrayList<String>());
+							null, new ArrayList<>());
 				if (controller != null)
 				{
 					String[] assoc = key.split(Constants.COMMA, -1);
@@ -4113,7 +4113,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		int spellLevel = 0;
 		int numPages = 0;
 		
-		final List<Ability> metaFeats = new ArrayList<Ability>();
+		final List<Ability> metaFeats = new ArrayList<>();
 
 		int ppCost = -1;
 
@@ -5776,7 +5776,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if (children == null)
 			{
-				this.children = new ArrayList<PCGElement>(0);
+				this.children = new ArrayList<>(0);
 			}
 
 			return children;
@@ -5796,7 +5796,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if (children == null)
 			{
-				this.children = new ArrayList<PCGElement>(0);
+				this.children = new ArrayList<>(0);
 			}
 
 			children.add(child);
@@ -5854,7 +5854,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			this.nestedStartDelimiterChar = nestedStartDelimiter.charAt(0);
 			this.nestedStopDelimiterChar = nestedStopDelimiter.charAt(0);
 
-			this.elements = new ArrayList<PCGElement>(0);
+			this.elements = new ArrayList<>(0);
 
 			tokenizeLine(line);
 		}
@@ -6147,14 +6147,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
-		Set<Language> foundLanguages = new HashSet<Language>();
+		Set<Language> foundLanguages = new HashSet<>();
 		//Captures Auto (AUTO:LANG) and Persistent choices (ADD ex ability and CHOOSE)
 		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
-		HashMapToList<Language, Object> langSources = new HashMapToList<Language, Object>();
-		Map<Object, Integer> actorLimit = new IdentityHashMap<Object, Integer>();
-		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<PersistentTransitionChoice, CDOMObject>();
+		HashMapToList<Language, Object> langSources = new HashMapToList<>();
+		Map<Object, Integer> actorLimit = new IdentityHashMap<>();
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<>();
 
 		List<? extends CDOMObject> abilities = thePC.getCDOMObjectList();
 		for (CDOMObject a : abilities)

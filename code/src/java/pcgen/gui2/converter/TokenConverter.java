@@ -45,11 +45,11 @@ import pcgen.util.Logging;
 public class TokenConverter
 {
 
-	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> map = new DoubleKeyMap<Class<?>, String, TokenProcessorPlugin>();
+	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> map = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMap<Class<?>, String, Boolean> cached = new DoubleKeyMap<Class<?>, String, Boolean>();
+	private static final DoubleKeyMap<Class<?>, String, Boolean> cached = new DoubleKeyMap<>();
 
-	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache = new DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin>();
+	private static final DoubleKeyMapToList<Class<?>, String, TokenProcessorPlugin> tokenCache = new DoubleKeyMapToList<>();
 
 	private static final DefaultTokenProcessor defaultProc = new DefaultTokenProcessor();
 

@@ -85,16 +85,16 @@ public class FactDefinition<T extends CDOMObject, F> extends
 	@Override
 	protected void activateTokens(LoadContext context)
 	{
-		context.loadLocalToken(new FactParser<T, F>(this));
+		context.loadLocalToken(new FactParser<>(this));
 		Boolean required = getRequired();
 		if ((required != null) && required.booleanValue())
 		{
-			context.loadLocalToken(new FactDefinitionEnforcer<T, F>(this));
+			context.loadLocalToken(new FactDefinitionEnforcer<>(this));
 		}
 		Boolean selectable = getSelectable();
 		if ((selectable != null) && selectable.booleanValue())
 		{
-			context.loadLocalToken(new FactGroupDefinition<T, F>(this));
+			context.loadLocalToken(new FactGroupDefinition<>(this));
 		}
 	}
 

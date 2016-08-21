@@ -180,7 +180,7 @@ public final class KitGear extends BaseKit
 	{
 		actingQuantity = quantity;
 		actingCost = maxCost;
-		actingMods = mods == null ? null : new ArrayList<EqModRef>(mods);
+		actingMods = mods == null ? null : new ArrayList<>(mods);
 		actingLocation = theLocationStr;
 		if (size != null)
 		{
@@ -204,7 +204,7 @@ public final class KitGear extends BaseKit
 		}
 
 		List<Equipment> eqList =
-				new ArrayList<Equipment>(equip.getContainedObjects());
+                new ArrayList<>(equip.getContainedObjects());
 		if (actingCost != null)
 		{
 			final BigDecimal bdMaxCost =
@@ -223,7 +223,7 @@ public final class KitGear extends BaseKit
 		}
 		else
 		{
-			List<Equipment> selected = new ArrayList<Equipment>(1);
+			List<Equipment> selected = new ArrayList<>(1);
 			selected = Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
 			if (selected.size() == 1)
 			{
@@ -532,7 +532,7 @@ public final class KitGear extends BaseKit
 	{
 		if (lookupList == null)
 		{
-			lookupList = new LinkedList<NamedFormula>();
+			lookupList = new LinkedList<>();
 		}
 		lookupList.add(new NamedFormula(tableEntry, f));
 	}
@@ -546,7 +546,7 @@ public final class KitGear extends BaseKit
 	{
 		if (mods == null)
 		{
-			mods = new LinkedList<EqModRef>();
+			mods = new LinkedList<>();
 		}
 		mods.add(modRef);
 	}

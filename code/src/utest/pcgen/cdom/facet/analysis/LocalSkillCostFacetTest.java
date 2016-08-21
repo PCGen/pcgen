@@ -159,8 +159,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(ObjectKey.PARENT, class1);
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, pcl, new Object(),
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, pcl, new Object(),
+                        DataFacetChangeEvent.DATA_ADDED);
 		ListKey<CDOMReference<Skill>> lk = ListKey.LOCALCSKILL;
 		pcl.addToListFor(lk, CDOMDirectSingleRef.getRef(t1));
 		getFacet().dataAdded(dfce);
@@ -237,8 +237,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		Skill t1 = getObject();
 		PCClassLevel pcl = new PCClassLevel();
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, pcl, new Object(),
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, pcl, new Object(),
+                        DataFacetChangeEvent.DATA_ADDED);
 		ListKey<CDOMReference<Skill>> lk = ListKey.LOCALCSKILL;
 		pcl.addToListFor(lk, CDOMDirectSingleRef.getRef(t1));
 		try
@@ -295,8 +295,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(ObjectKey.PARENT, class1);
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, pcl, new Object(),
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, pcl, new Object(),
+                        DataFacetChangeEvent.DATA_ADDED);
 		ListKey<CDOMReference<Skill>> lk = ListKey.LOCALCSKILL;
 		pcl.addToListFor(lk, CDOMDirectSingleRef.getRef(t1));
 		getFacet().dataAdded(dfce);
@@ -462,8 +462,8 @@ public class LocalSkillCostFacetTest extends TestCase
 	private void addCost(CharID cid, PCClass cl, Skill skill, SkillCost sc)
 	{
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(cid, cl, new Object(),
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(cid, cl, new Object(),
+                        DataFacetChangeEvent.DATA_ADDED);
 		ListKey<CDOMReference<Skill>> lk;
 		if (sc.equals(SkillCost.CLASS))
 		{
@@ -488,8 +488,8 @@ public class LocalSkillCostFacetTest extends TestCase
 	private void removeCosts(CharID cid, CDOMObject cl)
 	{
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(cid, cl, new Object(),
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(cid, cl, new Object(),
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 	}
 }

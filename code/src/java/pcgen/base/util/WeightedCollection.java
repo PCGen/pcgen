@@ -62,7 +62,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection()
 	{
-		theData = new ListSet<WeightedItem<E>>();
+		theData = new ListSet<>();
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection(int initialSize)
 	{
-		theData = new ListSet<WeightedItem<E>>(initialSize);
+		theData = new ListSet<>(initialSize);
 	}
 
 	/**
@@ -113,12 +113,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	{
 		if (comp == null)
 		{
-			theData = new ListSet<WeightedItem<E>>();
+			theData = new ListSet<>();
 		}
 		else
 		{
-			theData = new TreeSet<WeightedItem<E>>(
-					new WeightedItemComparator<E>(comp));
+			theData = new TreeSet<>(
+                    new WeightedItemComparator<>(comp));
 		}
 	}
 
@@ -199,7 +199,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 				return true;
 			}
 		}
-		return theData.add(new WeightedItem<E>(element, weight));
+		return theData.add(new WeightedItem<>(element, weight));
 	}
 
 	/**

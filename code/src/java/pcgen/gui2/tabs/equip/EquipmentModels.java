@@ -189,7 +189,7 @@ public class EquipmentModels
 	private List<EquipNode> getSelectedEquipmentSetNodes()
 	{
 		int[] rows = equipmentSetTable.getSelectedRows();
-		List<EquipNode> paths = new ArrayList<EquipNode>();
+		List<EquipNode> paths = new ArrayList<>();
 		for (int i = 0; i < rows.length; i++)
 		{
 			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
@@ -425,9 +425,9 @@ public class EquipmentModels
 		public void actionPerformed(ActionEvent e)
 		{
 			int[] selectedRows = equipmentTable.getSelectedRows();
-			MapToList<EquipmentFacade, EquipNode> equipMap = new HashMapToList<EquipmentFacade, EquipNode>();
+			MapToList<EquipmentFacade, EquipNode> equipMap = new HashMapToList<>();
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
-			List<EquipmentFacade> equipment = new ArrayList<EquipmentFacade>();
+			List<EquipmentFacade> equipment = new ArrayList<>();
 
 			for (int i = 0; i < selectedRows.length; i++)
 			{
@@ -524,7 +524,7 @@ public class EquipmentModels
 			// First see if the user has selected a suitable node in the equipped tree
 			List<EquipNode> possibleNodeList = equipMap.getListFor(equipmentFacade);
 			int[] rows = equipmentSetTable.getSelectedRows();
-			List<EquipNode> paths = new ArrayList<EquipNode>();
+			List<EquipNode> paths = new ArrayList<>();
 			for (int i = 0; i < rows.length; i++)
 			{
 				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);

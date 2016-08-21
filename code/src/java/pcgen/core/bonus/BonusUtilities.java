@@ -51,7 +51,7 @@ public final class BonusUtilities
 	 */
 	public static List<BonusObj> getBonusFromList(final Collection<BonusObj> bonusList, final String aType, final String aName)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		if (bonusList != null)
 		{
@@ -94,7 +94,7 @@ public final class BonusUtilities
 	 */
 	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>(bonusList.size());
+		final List<BonusObj> aList = new ArrayList<>(bonusList.size());
 
 		// Analysis reveals that bonusList is never null
 		for ( BonusObj bonus : bonusList )

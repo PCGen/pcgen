@@ -115,7 +115,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 		Collection<PCTemplate> oldSet = getSet(id);
 		int totalLevels = levelFacet.getTotalLevels(id);
 		int totalHitDice = levelFacet.getMonsterLevelCount(id);
-		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<PCTemplate, PCTemplate>();
+		Map<PCTemplate, PCTemplate> newMap = new IdentityHashMap<>();
 		for (PCTemplate sourceTempl : templateFacet.getSet(id))
 		{
 			List<PCTemplate> conditionalTemplates = sourceTempl

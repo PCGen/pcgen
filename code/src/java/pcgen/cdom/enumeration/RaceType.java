@@ -135,7 +135,7 @@ public final class RaceType implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<RaceType>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

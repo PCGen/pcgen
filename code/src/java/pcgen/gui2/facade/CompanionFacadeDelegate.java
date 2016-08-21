@@ -49,9 +49,9 @@ public class CompanionFacadeDelegate implements CompanionFacade
 
 	public CompanionFacadeDelegate()
 	{
-		this.nameDelegate = new DelegateReferenceFacade<String>();
-		this.fileDelegate = new DelegateReferenceFacade<File>();
-		this.raceDelegate = new DelegateReferenceFacade<RaceFacade>();
+		this.nameDelegate = new DelegateReferenceFacade<>();
+		this.fileDelegate = new DelegateReferenceFacade<>();
+		this.raceDelegate = new DelegateReferenceFacade<>();
 	}
 
 	public void setCompanionFacade(CompanionFacade companionFacade)

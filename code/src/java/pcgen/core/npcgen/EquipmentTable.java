@@ -37,7 +37,7 @@ public class EquipmentTable extends Table
 	
 	public List<Equipment> getEquipment()
 	{
-		final List<Equipment> ret = new ArrayList<Equipment>();
+		final List<Equipment> ret = new ArrayList<>();
 		
 		final TableEntry entry = getEntry();
 		Logging.debugPrint("Table: " + this + " -> " + entry);
@@ -63,7 +63,7 @@ public class EquipmentTable extends Table
 	{
 		if ( theTables == null )
 		{
-			theTables = new HashMap<String, EquipmentTable>();
+			theTables = new HashMap<>();
 		}
 		theTables.put( aTable.getId(), aTable );
 	}

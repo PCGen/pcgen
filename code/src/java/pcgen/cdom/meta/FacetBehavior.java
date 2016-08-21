@@ -64,7 +64,7 @@ public final class FacetBehavior
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<FacetBehavior>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = FacetBehavior.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{
@@ -106,7 +106,7 @@ public final class FacetBehavior
 		{
 			buildMap();
 		}
-		return new HashSet<FacetBehavior>(map.values());
+		return new HashSet<>(map.values());
 	}
 
 }

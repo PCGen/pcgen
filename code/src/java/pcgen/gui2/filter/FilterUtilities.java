@@ -33,7 +33,7 @@ public class FilterUtilities
 
 	public static FilterBar<Object, Object> createDefaultFilterBar()
 	{
-		FilterBar<Object, Object> bar = new FilterBar<Object, Object>();
+		FilterBar<Object, Object> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		return bar;
 	}

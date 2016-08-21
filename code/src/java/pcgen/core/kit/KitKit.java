@@ -39,12 +39,12 @@ import pcgen.core.PlayerCharacter;
 public class KitKit extends BaseKit
 {
 	private List<CDOMSingleRef<Kit>> availableKits =
-			new ArrayList<CDOMSingleRef<Kit>>();
+            new ArrayList<>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient Map<Kit, List<BaseKit>> appliedKits =
-			new HashMap<Kit, List<BaseKit>>();
+            new HashMap<>();
 
 	/**
 	 * Actually applies the kit to this PC.
@@ -71,11 +71,11 @@ public class KitKit extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
-		appliedKits = new HashMap<Kit, List<BaseKit>>();
+		appliedKits = new HashMap<>();
 		for (CDOMSingleRef<Kit> ref : availableKits)
 		{
 			Kit addedKit = ref.get();
-			ArrayList<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
+			ArrayList<BaseKit> thingsToAdd = new ArrayList<>();
 			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
 			appliedKits.put(addedKit, thingsToAdd);
 		}

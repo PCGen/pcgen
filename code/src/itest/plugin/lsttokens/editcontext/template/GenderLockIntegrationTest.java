@@ -33,7 +33,7 @@ public class GenderLockIntegrationTest extends
 {
 
 	static GenderlockToken token = new GenderlockToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

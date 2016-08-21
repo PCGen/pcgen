@@ -72,7 +72,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		Category<Ability> cat)
 	{
 		List<List<SourcedCNAS>> list = getList(id);
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		ArrayList<CNAbility> returnList = new ArrayList<>();
 		if (list != null)
 		{
 			for (List<SourcedCNAS> array : list)
@@ -90,7 +90,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 	public Collection<CNAbility> getPoolAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		ArrayList<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -114,7 +114,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			//warning
 		}
 
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		ArrayList<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -132,7 +132,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 
 	public Collection<CNAbility> getCNAbilities(CharID id)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		ArrayList<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -147,7 +147,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 	public Collection<CNAbility> getCNAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
+		ArrayList<CNAbility> returnList = new ArrayList<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
@@ -166,7 +166,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 
 	public Collection<CNAbility> getCNAbilities(CharID id, Ability ability)
 	{
-		Set<CNAbility> returnList = new HashSet<CNAbility>();
+		Set<CNAbility> returnList = new HashSet<>();
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{

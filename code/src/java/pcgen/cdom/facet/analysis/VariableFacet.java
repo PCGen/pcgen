@@ -99,13 +99,13 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<Formula, Set<CDOMObject>> subMap = map.get(vk);
 		if (subMap == null)
 		{
-			subMap = new HashMap<Formula, Set<CDOMObject>>();
+			subMap = new HashMap<>();
 			map.put(vk, subMap);
 		}
 		Set<CDOMObject> sources = subMap.get(formula);
 		if (sources == null)
 		{
-			sources = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
+			sources = new WrappedMapSet<>(IdentityHashMap.class);
 			subMap.put(formula, sources);
 		}
 		sources.add(cdo);
@@ -151,7 +151,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
 		{
-			componentMap = new HashMap<VariableKey, Map<Formula, Set<CDOMObject>>>();
+			componentMap = new HashMap<>();
 			setCache(id, componentMap);
 		}
 		return componentMap;

@@ -121,7 +121,7 @@ public final class Language extends PObject implements Comparable<Object>,
     @Override
 	public List<String> getTypes()
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (Type type : getTrueTypeList(false))
 		{
 			list.add(type.toString());

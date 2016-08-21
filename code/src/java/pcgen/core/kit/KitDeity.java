@@ -59,7 +59,7 @@ public class KitDeity extends BaseKit
 	{
 		if (theDomains == null)
 		{
-			theDomains = new ArrayList<CDOMSingleRef<Domain>>(3);
+			theDomains = new ArrayList<>(3);
 		}
 		theDomains.add(ref);
 	}
@@ -174,7 +174,7 @@ public class KitDeity extends BaseKit
 			{
 				xs =
 						Globals.getChoiceFromList("Choose Domains", theDomains,
-							new ArrayList<CDOMSingleRef<Domain>>(),
+                                new ArrayList<>(),
 							numberOfChoices, aPC);
 
 				if (xs.size() != 0)
@@ -212,7 +212,7 @@ public class KitDeity extends BaseKit
 			}
 			if (domainsToAdd == null)
 			{
-				domainsToAdd = new ArrayList<Domain>();
+				domainsToAdd = new ArrayList<>();
 			}
 			domainsToAdd.add(domain);
 

@@ -86,7 +86,7 @@ public class TipOfTheDayHandler
 
 	public synchronized void loadTips()
 	{
-		tipList = new ArrayList<String>(20);
+		tipList = new ArrayList<>(20);
 		String systemDir = ConfigurationSettings.getSystemsDir();
 		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
 		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$

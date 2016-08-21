@@ -656,7 +656,7 @@ public class Logging
 	 */
 	public static List<Level> getLoggingLevels()
 	{
-		List<Level> levels = new ArrayList<Level>();
+		List<Level> levels = new ArrayList<>();
 		levels.add(ERROR);
 		levels.add(LST_ERROR);
 		levels.add(WARNING);
@@ -688,7 +688,7 @@ public class Logging
 	}
 
 	private static LinkedList<QueuedMessage> queuedMessages =
-			new LinkedList<QueuedMessage>();
+            new LinkedList<>();
 
 	public static void addParseMessage(Level lvl, String msg)
 	{

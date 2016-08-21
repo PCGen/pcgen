@@ -90,8 +90,8 @@ public class PatternFilter implements OutputFilter
 						new FileInputStream(filterFile), "UTF-8"));
 
 				outputFilterName = filterName;
-				match = new ArrayList<String>();
-				replace = new ArrayList<String>();
+				match = new ArrayList<>();
+				replace = new ArrayList<>();
 
 				for (;;)
 				{

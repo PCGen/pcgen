@@ -62,7 +62,7 @@ public class GlobalVisionTest extends AbstractContentTokenTest
 	protected boolean containsExpected()
 	{
 		return visionFacet.contains(id,
-			new QualifiedObject<Vision>(Vision.getVision("Normal (40')")));
+                new QualifiedObject<>(Vision.getVision("Normal (40')")));
 	}
 
 	@Override

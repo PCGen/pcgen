@@ -167,7 +167,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		set = new LinkedHashSet<T>(col);
+		set = new LinkedHashSet<>(col);
 		if (set.size() != col.size())
 		{
 			throw new IllegalArgumentException(
@@ -193,7 +193,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 		Set<T> sortingSet;
 		try
 		{
-			sortingSet = new TreeSet<T>(comparator);
+			sortingSet = new TreeSet<>(comparator);
 			sortingSet.addAll(set);
 		}
 		catch (ClassCastException cce)
@@ -236,7 +236,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		return new HashSet<T>(set);
+		return new HashSet<>(set);
 	}
 
 	/**

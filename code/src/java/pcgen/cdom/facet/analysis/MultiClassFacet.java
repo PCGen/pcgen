@@ -51,9 +51,9 @@ public class MultiClassFacet
 	 */
 	public double getMultiClassXPMultiplier(CharID id)
 	{
-		HashSet<PCClass> unfavoredClasses = new HashSet<PCClass>();
-		SortedSet<PCClass> favored = new TreeSet<PCClass>(
-				CDOMObjectUtilities.CDOM_SORTER);
+		HashSet<PCClass> unfavoredClasses = new HashSet<>();
+		SortedSet<PCClass> favored = new TreeSet<>(
+                CDOMObjectUtilities.CDOM_SORTER);
 		favored.addAll(favoredClassFacet.getSet(id));
 		SortedSet<PCClass> aList = favored;
 		boolean hasAny = hasAnyFavoredClassFacet.contains(id, Boolean.TRUE);

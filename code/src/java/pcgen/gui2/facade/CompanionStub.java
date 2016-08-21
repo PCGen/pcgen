@@ -52,7 +52,7 @@ public class CompanionStub implements CompanionStubFacade
 	 */
 	CompanionStub(RaceFacade race, String companionType)
 	{
-		this.race = new DefaultReferenceFacade<RaceFacade>(race);
+		this.race = new DefaultReferenceFacade<>(race);
 		this.companionType = companionType;
 	}
 	

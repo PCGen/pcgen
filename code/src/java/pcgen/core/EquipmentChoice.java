@@ -77,7 +77,7 @@ public final class EquipmentChoice
 	private int pool = 0;
 	private String title = null;
 
-	private List<Object> availableList = new ArrayList<Object>();
+	private List<Object> availableList = new ArrayList<>();
 
 	/**
 	 * Default constructor for the equipment choice class.
@@ -105,7 +105,7 @@ public final class EquipmentChoice
 	{
 		if (neverEmpty && availableList.isEmpty())
 		{
-			final List<Object> temp = new ArrayList<Object>();
+			final List<Object> temp = new ArrayList<>();
 			temp.add("");
 			return new EquipChoiceIterator(temp);
 		}
@@ -114,7 +114,7 @@ public final class EquipmentChoice
 		// Account for secondary values (sent as <primary>|<secondary>)
 		if (getMinValue() < getMaxValue())
 		{
-			finalList = new ArrayList<Object>();
+			finalList = new ArrayList<>();
 			for (int i = 0; i < availableList.size(); i++)
 			{
 				final String choice = String.valueOf(availableList.get(i));

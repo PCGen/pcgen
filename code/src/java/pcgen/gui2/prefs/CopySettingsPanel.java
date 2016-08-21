@@ -68,7 +68,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 			new JButton(LanguageBundle.getString("in_copy"));
 
 	private List<PCGenPrefsPanel> affectedPanels =
-			new ArrayList<PCGenPrefsPanel>();
+            new ArrayList<>();
 
 	/**
 	 * Instantiates a new copy settings panel.

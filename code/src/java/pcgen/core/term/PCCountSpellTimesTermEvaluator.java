@@ -65,11 +65,11 @@ public class PCCountSpellTimesTermEvaluator
 		if (!"".equals(bookName))
 		{
 			List<CharacterSpell> csList =
-					new ArrayList<CharacterSpell>();
+                    new ArrayList<>();
 
 			if (classNum == -1)
 			{
-				csList = new ArrayList<CharacterSpell>();
+				csList = new ArrayList<>();
 
 				for (PObject cl : pc.getDisplay().getClassSet())
 				{

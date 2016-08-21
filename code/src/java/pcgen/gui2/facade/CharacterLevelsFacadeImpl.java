@@ -131,8 +131,8 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private void initForCharacter()
 	{
-		classLevels = new ArrayList<ClassFacade>();
-		charLevels = new ArrayList<CharacterLevelFacade>();
+		classLevels = new ArrayList<>();
+		charLevels = new ArrayList<>();
 		refreshClassList();
 
 		charID = theCharacter.getCharID();
@@ -190,8 +190,8 @@ public class CharacterLevelsFacadeImpl extends
 		List<PCClass> newClasses = charDisplay.getClassList();
 		Collection<PCLevelInfo> levelInfo = charDisplay.getLevelInfo();
 
-		Map<String, Integer> levelCount = new HashMap<String, Integer>();
-		Map<String, PCClass> classMap = new HashMap<String, PCClass>();
+		Map<String, Integer> levelCount = new HashMap<>();
+		Map<String, PCClass> classMap = new HashMap<>();
 		for (PCClass pcClass : newClasses)
 		{
 			levelCount.put(pcClass.getKeyName(), 1);

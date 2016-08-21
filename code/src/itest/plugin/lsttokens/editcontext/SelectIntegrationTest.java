@@ -30,7 +30,7 @@ public class SelectIntegrationTest extends
 {
 
 	static SelectLst token = new SelectLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

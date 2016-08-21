@@ -105,11 +105,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	public SkillInfoTab()
 	{
 		super("Skill");
-		this.skillTable = new FilteredTreeViewTable<CharacterFacade, SkillFacade>();
+		this.skillTable = new FilteredTreeViewTable<>();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
-		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillQualified");
-		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillTrained");
+		this.cFilterButton = new FilterButton<>("SkillQualified");
+		this.trainedFilterButton = new FilterButton<>("SkillTrained");
 		this.tabTitle = new TabTitle(Tab.SKILLS);
 		this.htmlPane = new JEditorPane();
 		this.skillFilterBox = new JComboBox();
@@ -129,7 +129,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillTable.setDefaultRenderer(String.class,
 				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
-		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<CharacterFacade, SkillFacade>();
+		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		cFilterButton.setText(LanguageBundle.getString("in_classString")); //$NON-NLS-1$

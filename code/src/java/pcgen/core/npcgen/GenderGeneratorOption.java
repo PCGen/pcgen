@@ -43,7 +43,7 @@ public class GenderGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<Gender>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$

@@ -162,7 +162,7 @@ public class NPCGenerator
 		WeightedCollection<SkillChoice> WeightedCollection = theConfiguration.getSkillWeights(aClass.getKeyName());
 		if (WeightedCollection == null)
 		{
-			WeightedCollection = new WeightedCollection<SkillChoice>();
+			WeightedCollection = new WeightedCollection<>();
 			// User has not specified a weighting for skills for this class
 			// Assume class skills are picked uniformly and cross-class skills
 			// are 1/8 as likely to be selected.
@@ -301,10 +301,10 @@ public class NPCGenerator
 
 	private List<PCStat> getStatWeights(PlayerCharacter pc, final PCClass aClass)
 	{
-		final WeightedCollection<PCStat> stats = new WeightedCollection<PCStat>(
-				theConfiguration.getStatWeights(aClass.getKeyName()));
+		final WeightedCollection<PCStat> stats = new WeightedCollection<>(
+                theConfiguration.getStatWeights(aClass.getKeyName()));
 
-		final List<PCStat> ret = new ArrayList<PCStat>();
+		final List<PCStat> ret = new ArrayList<>();
 		for (int i = 0; i < pc.getDisplay().getStatCount(); i++)
 		{
 			final PCStat stat = stats.getRandomValue();
@@ -334,7 +334,7 @@ public class NPCGenerator
 			theConfiguration.getAbilityWeights(aClass.getKeyName(), AbilityCategory.FEAT);
 		if (weightedCollection == null)
 		{
-			weightedCollection = new WeightedCollection<Ability>();
+			weightedCollection = new WeightedCollection<>();
 			// User has not specified a weighting for feats for this class
 			// Assume General feats are 5 times as likely to be selected as
 			// any other type
@@ -374,7 +374,7 @@ public class NPCGenerator
 	private void selectDeity( final PlayerCharacter aPC, final PCClass aClass )
 	{
 		// Copy the list since we may modify it
-		final WeightedCollection<Deity> deities = new WeightedCollection<Deity>(theConfiguration.getDeityWeights(aClass.getKeyName()));
+		final WeightedCollection<Deity> deities = new WeightedCollection<>(theConfiguration.getDeityWeights(aClass.getKeyName()));
 		boolean selected = false;
 		while ( deities.size() > 0 )
 		{
@@ -430,7 +430,7 @@ public class NPCGenerator
 		WeightedCollection<Spell> WeightedCollection = theConfiguration.getKnownSpellWeights(pc, aClass.getKeyName(), aLevel);
 		if (WeightedCollection == null)
 		{
-			WeightedCollection = new WeightedCollection<Spell>();
+			WeightedCollection = new WeightedCollection<>();
 			for (final Spell spell : pc.getSpellsIn(aClass.get(ObjectKey.CLASS_SPELLLIST),
 				aLevel))
 			{
@@ -445,7 +445,7 @@ public class NPCGenerator
 		WeightedCollection<Spell> WeightedCollection = theConfiguration.getPreparedSpellWeights(aClass.getKeyName(), aLevel, pc);
 		if (WeightedCollection == null)
 		{
-			WeightedCollection = new WeightedCollection<Spell>();
+			WeightedCollection = new WeightedCollection<>();
 			for (final Spell spell : pc.getSpellsIn(aClass.get(ObjectKey.CLASS_SPELLLIST),
 				aLevel)) 
 			{
@@ -461,7 +461,7 @@ public class NPCGenerator
 		{
 			return;
 		}
-		final WeightedCollection<Domain> domains = new WeightedCollection<Domain>();
+		final WeightedCollection<Domain> domains = new WeightedCollection<>();
 		for (Domain d : aPC.getDomainSet())
 		{
 			// if any domains have this class as a source
@@ -473,8 +473,8 @@ public class NPCGenerator
 		}
 		final Domain domain = domains.getRandomValue();
 		final WeightedCollection<Spell> domainSpells =
-				new WeightedCollection<Spell>(aPC.getSpellsIn(domain.get(ObjectKey.DOMAIN_SPELLLIST),
-					aLevel));
+                new WeightedCollection<>(aPC.getSpellsIn(domain.get(ObjectKey.DOMAIN_SPELLLIST),
+                        aLevel));
 		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	
@@ -495,7 +495,7 @@ public class NPCGenerator
 			{
 				cs = new CharacterSpell( aClass, spell );
 			}
-			final String aString = aPC.addSpell(cs, new ArrayList<Ability>(), aClass.getKeyName(),
+			final String aString = aPC.addSpell(cs, new ArrayList<>(), aClass.getKeyName(),
 					   aBookName, aLevel, aLevel);
 			if (aString.length() != 0)
 			{
@@ -645,8 +645,8 @@ public class NPCGenerator
 				for ( int k = 0; k < highestSpellLevel; k++ ) { bonusSpells[k] = 0; }
 
 				// Make a copy of the list because we are going to modify it.
-				WeightedCollection<SkillChoice> skillList = new WeightedCollection<SkillChoice>(getSkillWeights(classCopy, aPC));
-				WeightedCollection<Ability> featList = new WeightedCollection<Ability>(getFeatWeights(classCopy));
+				WeightedCollection<SkillChoice> skillList = new WeightedCollection<>(getSkillWeights(classCopy, aPC));
+				WeightedCollection<Ability> featList = new WeightedCollection<>(getFeatWeights(classCopy));
 				for (int j = 0; j < numLevels; j++)
 				{
 					if ( i >= 0 )

@@ -161,7 +161,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		for (T obj : all.getContainedObjects())
 		{
 			V actual = obj.get(key);

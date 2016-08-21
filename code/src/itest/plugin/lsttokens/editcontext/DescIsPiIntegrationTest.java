@@ -34,7 +34,7 @@ public class DescIsPiIntegrationTest extends
 {
 
 	static DescispiLst token = new DescispiLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

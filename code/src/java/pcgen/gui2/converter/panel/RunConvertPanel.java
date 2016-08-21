@@ -133,7 +133,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
-		totalCampaigns = new ArrayList<Campaign>(pc.getSafeListFor(ListKey.CAMPAIGN));
+		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions

@@ -45,7 +45,7 @@ public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 	@Override
 	protected Collection<PCLevelInfo> getComponentSet()
 	{
-		return new ArrayList<PCLevelInfo>();
+		return new ArrayList<>();
 	}
 
 	/**

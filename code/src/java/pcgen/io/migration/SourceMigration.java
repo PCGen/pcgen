@@ -41,7 +41,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
 public class SourceMigration
 {
 
-	private static Map<int[], List<MigrationRule>> sourceChangesForVer = new HashMap<int[], List<MigrationRule>>();
+	private static Map<int[], List<MigrationRule>> sourceChangesForVer = new HashMap<>();
 
 	/**
 	 * Find the new source key to replace the provided one.

@@ -42,7 +42,7 @@ import pcgen.system.LanguageBundle;
  * @author  soulcatcher
  */
 public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
-	public static final HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
+	public static final HashMap<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;

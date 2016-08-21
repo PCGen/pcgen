@@ -24,7 +24,7 @@ import pcgen.cdom.base.Constants;
 
 public class Table 
 {
-	private WeightedCollection<TableEntry> theData = new WeightedCollection<TableEntry>();
+	private WeightedCollection<TableEntry> theData = new WeightedCollection<>();
 	
 	private String theId;
 	private String theName = Constants.EMPTY_STRING;

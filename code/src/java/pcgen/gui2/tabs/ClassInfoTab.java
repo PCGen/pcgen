@@ -109,14 +109,14 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	public ClassInfoTab()
 	{
 		super("Class");
-		this.availableTable = new FilteredTreeViewTable<Object, ClassFacade>();
+		this.availableTable = new FilteredTreeViewTable<>();
 		this.classTable = TableUtils.createDefaultTable();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.tabTitle = new TabTitle(Tab.CLASSES);
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_clInfo")); //$NON-NLS-1$
 		this.spinner = new JSpinner(new SpinnerNumberModel(1, 1, 50, 1));
-		this.qFilterButton = new FilterButton<Object, ClassFacade>("ClassQualified");
+		this.qFilterButton = new FilterButton<>("ClassQualified");
 		this.qualifiedRenderer = new QualifiedTreeCellRenderer();
 		this.classTransferHandler = new ClassTransferHandler();
 		initComponents();
@@ -129,7 +129,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, ClassFacade> bar = new FilterBar<Object, ClassFacade>();
+		FilterBar<Object, ClassFacade> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		bar.addDisplayableFilter(qFilterButton);
@@ -660,19 +660,19 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						if (types != null && types.length > 0)
 						{
 							List<TreeViewPath<ClassFacade>> paths
-									= new ArrayList<TreeViewPath<ClassFacade>>(types.length);
+									= new ArrayList<>(types.length);
 							for (String type : types)
 							{
-								paths.add(new TreeViewPath<ClassFacade>(pobj, type));
+								paths.add(new TreeViewPath<>(pobj, type));
 							}
 							return paths;
 						}
 					case NAME:
-						return Collections.singletonList(new TreeViewPath<ClassFacade>(pobj));
+						return Collections.singletonList(new TreeViewPath<>(pobj));
 					case SOURCE_NAME:
 						return Collections.singletonList(
-								new TreeViewPath<ClassFacade>(pobj,
-										pobj.getSourceForNodeDisplay()));
+                                new TreeViewPath<>(pobj,
+                                        pobj.getSourceForNodeDisplay()));
 					default:
 						throw new InternalError();
 				}

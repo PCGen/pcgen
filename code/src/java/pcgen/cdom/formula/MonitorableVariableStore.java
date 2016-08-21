@@ -102,7 +102,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 				// Lazily create event
 				if (vcEvent == null)
 				{
-					vcEvent = new VariableChangeEvent<T>(this, varID, old, value);
+					vcEvent = new VariableChangeEvent<>(this, varID, old, value);
 				}
 				listener.variableChanged(vcEvent);
 			}

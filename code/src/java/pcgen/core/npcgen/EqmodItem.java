@@ -39,7 +39,7 @@ public class EqmodItem
 		{
 			return theLookupTable.getEqMod();
 		}
-		final List<String> ret = new ArrayList<String>();
+		final List<String> ret = new ArrayList<>();
 		String eqMod = theEqmod;
 		if ( theRollString != null )
 		{

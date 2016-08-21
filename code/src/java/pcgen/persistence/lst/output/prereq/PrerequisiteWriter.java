@@ -89,7 +89,7 @@ public class PrerequisiteWriter
 		String prereqString = null;
 		if (prereqs != null && !prereqs.isEmpty())
 		{
-			TreeSet<String> list = new TreeSet<String>();
+			TreeSet<String> list = new TreeSet<>();
 			for (Prerequisite p : prereqs)
 			{
 				StringWriter swriter = new StringWriter();

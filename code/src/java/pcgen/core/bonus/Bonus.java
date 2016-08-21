@@ -62,7 +62,7 @@ public class Bonus
 	 */
 	public static List<BonusObj> sortBonusList(List<BonusObj> listToSort)
 	{
-		final List<BonusObj> tempList = new ArrayList<BonusObj>();
+		final List<BonusObj> tempList = new ArrayList<>();
 
 		// 'BONUS:blah|blah|Foo' depends on
 		// 'BONUS:VAR|Foo|MyGoo' which depends on
@@ -110,7 +110,7 @@ public class Bonus
 
 		listToSort = tempList;
 
-		final ArrayList<BonusObj> tempList2 = new ArrayList<BonusObj>();
+		final ArrayList<BonusObj> tempList2 = new ArrayList<>();
 
 		// go through and move all the static bonuses to the front
 		final int aSize = listToSort.size();

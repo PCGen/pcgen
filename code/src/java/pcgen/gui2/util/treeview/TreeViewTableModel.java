@@ -225,7 +225,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		if (view != null)
 		{
 			this.selectedView = view;
-			Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
+			Vector<TreeViewPath<? super E>> paths = new Vector<>();
 			for (E element : dataElements)
 			{
 				for (TreeViewPath<? super E> path : view.getPaths(element))
@@ -435,7 +435,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			else
 			{
-				Vector<TreeViewPath<? super E>> vector = new Vector<TreeViewPath<? super E>>();
+				Vector<TreeViewPath<? super E>> vector = new Vector<>();
 				vector.add(path);
 				newchild = new TreeViewNode(level + 1, levelObject, vector);
 			}

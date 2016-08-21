@@ -45,7 +45,7 @@ public class ClassGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<PCClass>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$

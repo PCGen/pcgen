@@ -68,7 +68,7 @@ public class SubstitutionLevelSupport
 			return;
 		}
 	
-		List<DeferredLine> newLevels = new ArrayList<DeferredLine>();
+		List<DeferredLine> newLevels = new ArrayList<>();
 		for (DeferredLine line : levelArray)
 		{
 			String aLine = line.lstLine;

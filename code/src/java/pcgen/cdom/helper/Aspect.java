@@ -65,7 +65,7 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	private final AspectName key;
 
-	private final List<String> theComponents = new ArrayList<String>();
+	private final List<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -211,7 +211,7 @@ public class Aspect extends ConcretePrereqObject
 	{
 		if (theVariables == null)
 		{
-			theVariables = new ArrayList<String>();
+			theVariables = new ArrayList<>();
 		}
 		theVariables.add(aVariable);
 	}
@@ -276,7 +276,7 @@ public class Aspect extends ConcretePrereqObject
 				}
 				else if (var.equals(VAR_LIST))
 				{
-					List<String> assocList = new ArrayList<String>();
+					List<String> assocList = new ArrayList<>();
 					for (CNAbility cna : abilities)
 					{
 						assocList.addAll(aPC.getAssociationList(cna));

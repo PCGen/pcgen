@@ -72,7 +72,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 				"This directive must have content.");
 		}
 		
-		List<EquipSet> eqSetList = new ArrayList<EquipSet>();
+		List<EquipSet> eqSetList = new ArrayList<>();
 		EquipSet currSet = null;
 		String currIdPath = pc.getCalcEquipSetId();
 		for (EquipSet es : pc.getDisplay().getEquipSet())

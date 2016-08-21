@@ -31,7 +31,7 @@ import pcgen.util.Logging;
 public class CDOMKitLoader
 {
 	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap =
-			new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
+            new HashMap<>();
 
 	private final Class<Kit> targetClass = Kit.class;
 

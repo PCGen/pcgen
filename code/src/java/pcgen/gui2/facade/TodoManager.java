@@ -44,7 +44,7 @@ public class TodoManager
 
 	TodoManager()
 	{
-		todoList = new DefaultListFacade<TodoFacade>();
+		todoList = new DefaultListFacade<>();
 	}
 	
 	synchronized ListFacade<TodoFacade> getTodoList()

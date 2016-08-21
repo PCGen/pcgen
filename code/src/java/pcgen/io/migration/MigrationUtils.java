@@ -49,7 +49,7 @@ public class MigrationUtils
 	protected static List<MigrationRule> getChangeList(int pcgVer[],
 		String gameModeName, ObjectType objectType)
 	{
-		List<MigrationRule> sourceChangeList = new ArrayList<MigrationRule>();
+		List<MigrationRule> sourceChangeList = new ArrayList<>();
 		List<MigrationRule> migrationRuleList =
 				SystemCollections
 					.getUnmodifiableMigrationRuleList(gameModeName);

@@ -42,7 +42,7 @@ public class PrerequisiteWriterFactory implements PluginLoader
 {
 	private static PrerequisiteWriterFactory instance = null;
 	private static Map<String, PrerequisiteWriterInterface> parserLookup =
-			new HashMap<String, PrerequisiteWriterInterface>();
+            new HashMap<>();
 
 	private PrerequisiteWriterFactory()
 	{

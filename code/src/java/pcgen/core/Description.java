@@ -54,7 +54,7 @@ import pcgen.util.Logging;
  */
 public class Description extends ConcretePrereqObject
 {
-	private List<String> theComponents = new ArrayList<String>();
+	private List<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -160,7 +160,7 @@ public class Description extends ConcretePrereqObject
 	{
 		if ( theVariables == null )
 		{
-			theVariables = new ArrayList<String>();
+			theVariables = new ArrayList<>();
 		}
 		theVariables.add( aVariable );
 	}
@@ -242,7 +242,7 @@ public class Description extends ConcretePrereqObject
 					}
 					else if ( var.equals(VAR_LIST) )
 					{
-						List<String> assocList = new ArrayList<String>();
+						List<String> assocList = new ArrayList<>();
 						for (Object obj : objList)
 						{
 							if (obj instanceof ChooseDriver)

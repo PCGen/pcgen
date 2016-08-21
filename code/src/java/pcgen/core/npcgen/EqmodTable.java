@@ -34,7 +34,7 @@ public class EqmodTable extends Table
 	
 	public List<String> getEqMod()
 	{
-		final List<String> ret = new ArrayList<String>();
+		final List<String> ret = new ArrayList<>();
 		
 		final TableEntry entry = getEntry();
 		final List<Object> items = entry.getData();
@@ -60,7 +60,7 @@ public class EqmodTable extends Table
 	{
 		if ( theTables == null )
 		{
-			theTables = new HashMap<String, EqmodTable>();
+			theTables = new HashMap<>();
 		}
 		theTables.put( aTable.getId(), aTable );
 	}

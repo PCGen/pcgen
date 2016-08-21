@@ -35,7 +35,7 @@ import pcgen.facade.util.ListFacade;
 public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements ListListener<E>
 {
 
-	private List<E> data = new ArrayList<E>();
+	private List<E> data = new ArrayList<>();
 	private ListFacade<E> delegate = null;
 	private Filter<? super C, ? super E> filter = null;
 	private C context = null;
@@ -92,7 +92,7 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		data.clear();
 		if (delegate != null)
 		{
-			List<E> list = new ArrayList<E>(delegate.getSize());
+			List<E> list = new ArrayList<>(delegate.getSize());
 			for (E element : delegate)
 			{
 				if (filter == null || filter.accept(context, element))

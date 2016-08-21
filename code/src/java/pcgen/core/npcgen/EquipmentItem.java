@@ -42,7 +42,7 @@ public class EquipmentItem
 	
 	public List<Equipment> getEquipment()
 	{
-		final List<Equipment> ret = new ArrayList<Equipment>();
+		final List<Equipment> ret = new ArrayList<>();
 		int numTimes = 1;
 		if ( theTimes != null )
 		{
@@ -122,7 +122,7 @@ public class EquipmentItem
 	{
 		if ( theEqMods == null )
 		{
-			theEqMods = new ArrayList<EqmodItem>();
+			theEqMods = new ArrayList<>();
 		}
 		theEqMods.add( aMod );
 	}
@@ -135,7 +135,7 @@ public class EquipmentItem
 	public void setVariableEquipment( final String anEquipString, final List<String> aList )
 	{
 		theVariableEquipment = anEquipString;
-		theChoices = new WeightedCollection<String>( aList );
+		theChoices = new WeightedCollection<>(aList);
 	}
 	
 	public void setTimes( final String aNumberTimes )

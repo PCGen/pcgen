@@ -65,8 +65,8 @@ public class DomainInputFacet
 	private <T> boolean processChoice(CharID id, PlayerCharacter pc,
 		Domain obj, ChoiceManagerList<T> aMan, ClassSource source)
 	{
-		List<T> selectedList = new ArrayList<T>();
-		List<T> availableList = new ArrayList<T>();
+		List<T> selectedList = new ArrayList<>();
+		List<T> availableList = new ArrayList<>();
 		aMan.getChoices(pc, availableList, selectedList);
 
 		if (availableList.isEmpty())
@@ -79,7 +79,7 @@ public class DomainInputFacet
 		}
 		final List<T> newSelections =
 				aMan.doChooser(pc, availableList, selectedList,
-					new ArrayList<String>());
+                        new ArrayList<>());
 		if (newSelections.size() != 1)
 		{
 			//Error?

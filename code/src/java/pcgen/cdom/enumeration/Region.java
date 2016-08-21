@@ -111,7 +111,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<Region>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

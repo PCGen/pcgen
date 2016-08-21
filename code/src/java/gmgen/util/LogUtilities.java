@@ -46,7 +46,7 @@ public class LogUtilities implements LogReceiver
 	private LogUtilities()
 	{
 		logging = false;
-		receivers = new ArrayList<LogReceiver>();
+		receivers = new ArrayList<>();
 	}
 
 	/**

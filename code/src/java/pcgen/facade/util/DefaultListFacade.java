@@ -37,12 +37,12 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 
 	public DefaultListFacade()
 	{
-		elementList = new ArrayList<E>();
+		elementList = new ArrayList<>();
 	}
 
 	public DefaultListFacade(Collection<? extends E> elements)
 	{
-		elementList = new ArrayList<E>(elements);
+		elementList = new ArrayList<>(elements);
 	}
 
 	@Override
@@ -256,7 +256,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	 */
 	public List<E> getContents()
 	{
-		return new ArrayList<E>(elementList);
+		return new ArrayList<>(elementList);
 	}
 	
 	/**

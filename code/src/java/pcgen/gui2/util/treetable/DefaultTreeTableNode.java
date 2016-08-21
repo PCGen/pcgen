@@ -73,7 +73,7 @@ public class DefaultTreeTableNode extends DefaultMutableTreeNode implements Tree
 	{
 		if (data.isEmpty())
 		{
-			data = new ArrayList<Object>(column + 1);
+			data = new ArrayList<>(column + 1);
 		}
 		while (data.size() <= column)
 		{
@@ -90,7 +90,7 @@ public class DefaultTreeTableNode extends DefaultMutableTreeNode implements Tree
 
 	protected void setValues(List<?> values)
 	{
-		this.data = new ArrayList<Object>(values);
+		this.data = new ArrayList<>(values);
 	}
 
 	@Override

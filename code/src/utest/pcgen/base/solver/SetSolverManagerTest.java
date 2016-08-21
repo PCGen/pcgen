@@ -94,7 +94,7 @@ public class SetSolverManagerTest extends TestCase
 		assertEquals(1, vc.set.size());
 		vc.reset();
 
-		AddModifierFactory<String> am1 = new AddModifierFactory<String>();
+		AddModifierFactory<String> am1 = new AddModifierFactory<>();
 		Modifier<String[]> mod = am1.getModifier(2000, "France,England", null, globalScope, arrayManager);
 		manager.addModifier(regions, mod, this);
 		array = vc.get(regions);
@@ -106,7 +106,7 @@ public class SetSolverManagerTest extends TestCase
 		assertEquals(1, vc.set.size());
 		vc.reset();
 
-		AddModifierFactory<String> am2 = new AddModifierFactory<String>();
+		AddModifierFactory<String> am2 = new AddModifierFactory<>();
 		mod = am2.getModifier(3000, "Greece,England", null, globalScope, arrayManager);
 		manager.addModifier(regions, mod, this);
 		array = vc.get(regions);

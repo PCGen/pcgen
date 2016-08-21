@@ -54,19 +54,19 @@ public final class MapKey<K, V>
 {
 
 	/** ASPECT - a map key. */
-	public static final MapKey<AspectName, List<Aspect>> ASPECT = new MapKey<AspectName, List<Aspect>>();
-	public static final MapKey<String, String> PROPERTY = new MapKey<String, String>();
-	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_PC_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
+	public static final MapKey<AspectName, List<Aspect>> ASPECT = new MapKey<>();
+	public static final MapKey<String, String> PROPERTY = new MapKey<>();
+	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_PC_INFO = new MapKey<>();
 
-	public static final MapKey<CDOMSingleRef<? extends PCClass>, Integer> APPLIED_CLASS = new MapKey<CDOMSingleRef<? extends PCClass>, Integer>();
-	public static final MapKey<String, Integer> APPLIED_VARIABLE = new MapKey<String, Integer>();
-	public static final MapKey<String, String> QUALITY = new MapKey<String, String>();
-	public static final MapKey<AttackType, Integer> ATTACK_CYCLE = new MapKey<AttackType, Integer>();
-	public static final MapKey<String, KitTable> KIT_TABLE = new MapKey<String, KitTable>();
+	public static final MapKey<CDOMSingleRef<? extends PCClass>, Integer> APPLIED_CLASS = new MapKey<>();
+	public static final MapKey<String, Integer> APPLIED_VARIABLE = new MapKey<>();
+	public static final MapKey<String, String> QUALITY = new MapKey<>();
+	public static final MapKey<AttackType, Integer> ATTACK_CYCLE = new MapKey<>();
+	public static final MapKey<String, KitTable> KIT_TABLE = new MapKey<>();
 	
-	public static final MapKey<String, Integer> CRMOD = new MapKey<String, Integer>();
-	public static final MapKey<CaseInsensitiveString, MessageFormat> INFO = new MapKey<CaseInsensitiveString, MessageFormat>();
-	public static final MapKey<CaseInsensitiveString, String[]> INFOVARS = new MapKey<CaseInsensitiveString, String[]>();
+	public static final MapKey<String, Integer> CRMOD = new MapKey<>();
+	public static final MapKey<CaseInsensitiveString, MessageFormat> INFO = new MapKey<>();
+	public static final MapKey<CaseInsensitiveString, String[]> INFOVARS = new MapKey<>();
 
 	/**
 	 * Private constructor to prevent instantiation of this class.

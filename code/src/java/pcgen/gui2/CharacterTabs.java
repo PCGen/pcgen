@@ -81,9 +81,9 @@ public final class CharacterTabs extends SharedTabPane
 	public CharacterTabs(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.characters = new ArrayList<CharacterFacade>();
+		this.characters = new ArrayList<>();
 		this.infoTabbedPane = new InfoTabbedPane();
-		this.listenerMap = new HashMap<CharacterFacade, TabLabel>();
+		this.listenerMap = new HashMap<>();
 		this.popupMenu = new JPopupMenu();
 		initComponents();
 	}

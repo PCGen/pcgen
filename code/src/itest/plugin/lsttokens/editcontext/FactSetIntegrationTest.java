@@ -45,7 +45,7 @@ public class FactSetIntegrationTest extends
 	private static final StringManager STRING_MGR = new StringManager();
 	private static FactSetLst token = new FactSetLst();
 	private static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+            new CDOMTokenLoader<>();
 	private FactSetDefinition cd;
 
 	@Override

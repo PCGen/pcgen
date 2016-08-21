@@ -60,7 +60,7 @@ public class MasterAvailableSpellFacet extends
 		DataSetID dsID = lc.getDataSetID();
 		MasterListInterface masterLists = Globals.getMasterLists();
 		ArrayList<CDOMReference<CDOMList<Spell>>> useLists =
-				new ArrayList<CDOMReference<CDOMList<Spell>>>();
+                new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<CDOMList<Spell>> lists = ref.getContainedObjects();
@@ -105,7 +105,7 @@ public class MasterAvailableSpellFacet extends
 	 */
 	public List<AvailableSpell> getAllSpellsInList(CDOMList<Spell> spellList, DataSetID dsID)
 	{
-		List<AvailableSpell> spellsInList = new ArrayList<AvailableSpell>();
+		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
 		for (AvailableSpell as : spells)
 		{
@@ -128,7 +128,7 @@ public class MasterAvailableSpellFacet extends
 	public List<AvailableSpell> getMatchingSpellsInList(
 		CDOMList<Spell> spellList, DataSetID dsID, Spell spell)
 	{
-		List<AvailableSpell> spellsInList = new ArrayList<AvailableSpell>();
+		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
 		for (AvailableSpell as : spells)
 		{

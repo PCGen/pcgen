@@ -54,7 +54,7 @@ public final class LookAndFeelManager
 	private static final String SYSTEM_LAF_CLASS = UIManager.getSystemLookAndFeelClassName();
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] lafHandlers;
-	private static final Map<String, LookAndFeelHandler> lafMap = new HashMap<String, LookAndFeelHandler>();
+	private static final Map<String, LookAndFeelHandler> lafMap = new HashMap<>();
 	private static final LookAndFeelManager instance = new LookAndFeelManager();
 
 	static

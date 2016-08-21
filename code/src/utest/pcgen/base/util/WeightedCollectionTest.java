@@ -45,7 +45,7 @@ public class WeightedCollectionTest extends TestCase {
 	@Override
 	@Before
 	public void setUp() {
-		wc = new WeightedCollection<Integer>();
+		wc = new WeightedCollection<>();
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class WeightedCollectionTest extends TestCase {
 	@Test
 	public void testBadCollectionConstructor() {
 		try {
-			new WeightedCollection<Integer>((Collection<Integer>) null);
+            new WeightedCollection<>((Collection<Integer>) null);
 			fail();
 		} catch (NullPointerException npe) {
 			// OK
@@ -72,11 +72,11 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testCollectionConstructorSemantics() {
-		Collection<Integer> c = new ArrayList<Integer>();
+		Collection<Integer> c = new ArrayList<>();
 		assertTrue(c.add(I1));
 		assertTrue(c.add(I2));
 		assertTrue(c.add(null));
-		WeightedCollection<Integer> col = new WeightedCollection<Integer>(c);
+		WeightedCollection<Integer> col = new WeightedCollection<>(c);
 		assertEquals(3, col.size());
 		c.add(Integer.valueOf(4));
 		assertEquals(3, col.size());
@@ -214,7 +214,7 @@ public class WeightedCollectionTest extends TestCase {
 	public void testEquals() {
 		assertTrue(wc.add(2, 5));
 		assertTrue(wc.add(1, 2));
-		WeightedCollection<Integer> wc2 = new WeightedCollection<Integer>(15);
+		WeightedCollection<Integer> wc2 = new WeightedCollection<>(15);
 		assertTrue(wc2.isEmpty());
 		assertEquals(0, wc2.size());
 		assertTrue(wc2.add(2));
@@ -492,7 +492,7 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testNullComparatorConstructor() {
-		WeightedCollection<String> swc = new WeightedCollection<String>((Comparator<String>) null);
+		WeightedCollection<String> swc = new WeightedCollection<>((Comparator<String>) null);
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
@@ -562,7 +562,7 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testInsensitiveComparatorConstructor() {
-		WeightedCollection<String> swc = new WeightedCollection<String>(String.CASE_INSENSITIVE_ORDER);
+		WeightedCollection<String> swc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
@@ -631,8 +631,8 @@ public class WeightedCollectionTest extends TestCase {
 
 	public void testComparatorEquals()
 	{
-		WeightedCollection<String> iwc = new WeightedCollection<String>(String.CASE_INSENSITIVE_ORDER);
-		WeightedCollection<String> swc = new WeightedCollection<String>();
+		WeightedCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
+		WeightedCollection<String> swc = new WeightedCollection<>();
 		assertTrue(iwc.isEmpty());
 		assertTrue(iwc.equals(iwc));
 		assertTrue(swc.equals(swc));
@@ -651,8 +651,8 @@ public class WeightedCollectionTest extends TestCase {
 
 	public void testArchitectureProof()
 	{
-		TreeSet<String> ciSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-		TreeSet<String> csSet = new TreeSet<String>(StringUtil.CASE_SENSITIVE_ORDER);
+		TreeSet<String> ciSet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+		TreeSet<String> csSet = new TreeSet<>(StringUtil.CASE_SENSITIVE_ORDER);
 		//To prove existing behavior
 		assertTrue(ciSet.equals(csSet));
 		ciSet.add("asting");

@@ -50,17 +50,17 @@ public class LoadInfo implements Loadable
 	private URI sourceURI;
 	private String loadInfoName;
 
-	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<CDOMSingleRef<SizeAdjustment>, BigDecimal>();
-	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<SizeAdjustment, BigDecimal>();
+	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
+	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
 
-	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<Integer, BigDecimal>();
+	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
 	private int minStrenghScoreWithLoad = 0;
 	private int maxStrengthScoreWithLoad = 0;
 
 	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
 	private int loadMultStep = 10;
 
-	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
+	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
 	private String modifyFormula;
 
     @Override

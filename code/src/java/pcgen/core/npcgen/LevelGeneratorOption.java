@@ -44,7 +44,7 @@ public class LevelGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<Integer>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		final StringTokenizer tok = new StringTokenizer(aValue, ","); //$NON-NLS-1$

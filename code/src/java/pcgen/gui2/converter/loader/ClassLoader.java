@@ -63,7 +63,7 @@ public class ClassLoader implements Loader
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
-		List<CDOMObject> list = new ArrayList<CDOMObject>();
+		List<CDOMObject> list = new ArrayList<>();
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
 		if (tokens.length == 0)
 		{

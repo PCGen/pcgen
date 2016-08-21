@@ -55,8 +55,8 @@ public class OutputNameFormatting
 	
 		final String preVarStr = varTokenizer.nextToken();
 	
-		final ArrayList<Float> varArray = new ArrayList<Float>();
-		final ArrayList<String> tokenList = new ArrayList<String>();
+		final ArrayList<Float> varArray = new ArrayList<>();
+		final ArrayList<String> tokenList = new ArrayList<>();
 	
 		while (varTokenizer.hasMoreElements())
 		{

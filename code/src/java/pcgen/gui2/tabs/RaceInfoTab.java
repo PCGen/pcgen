@@ -91,13 +91,13 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	public RaceInfoTab()
 	{
 		super("Race");
-		this.raceTable = new FilteredTreeViewTable<Object, RaceFacade>();
-		this.selectedTable = new FilteredTreeViewTable<Object, RaceFacade>();
+		this.raceTable = new FilteredTreeViewTable<>();
+		this.selectedTable = new FilteredTreeViewTable<>();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo")); //$NON-NLS-1$
 		this.selectRaceButton = new JButton();
 		this.removeButton = new JButton();
-		this.qFilterButton = new FilterButton<Object, RaceFacade>("RaceQualified");
-		this.noRacialHdFilterButton = new FilterButton<Object, RaceFacade>("RaceNoHD");
+		this.qFilterButton = new FilterButton<>("RaceQualified");
+		this.noRacialHdFilterButton = new FilterButton<>("RaceNoHD");
 		this.qualifiedRenderer = new QualifiedTreeCellRenderer();
 		initComponents();
 	}
@@ -109,7 +109,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, RaceFacade> bar = new FilterBar<Object, RaceFacade>();
+		FilterBar<Object, RaceFacade> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		noRacialHdFilterButton.setText(LanguageBundle.getString("in_irNoRacialHd")); //$NON-NLS-1$
 		noRacialHdFilterButton.setToolTipText(LanguageBundle.getString("in_irNoRacialHdTip")); //$NON-NLS-1$
@@ -135,7 +135,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, RaceFacade> filterBar = new FilterBar<Object, RaceFacade>();
+		FilterBar<Object, RaceFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -580,33 +580,33 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			switch (this)
 			{
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj,
-							pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getType()));
 				case RACETYPE_RACE_SUBTYPE_NAME:
 					List<String> subtypes = pobj.getRaceSubTypes();
 					if (!subtypes.isEmpty())
 					{
 						List<TreeViewPath<RaceFacade>> paths
-								= new ArrayList<TreeViewPath<RaceFacade>>();
+								= new ArrayList<>();
 						String raceType = pobj.getRaceType();
 						for (String subtype : subtypes)
 						{
-							paths.add(new TreeViewPath<RaceFacade>(pobj,
-									raceType, subtype));
+							paths.add(new TreeViewPath<>(pobj,
+                                    raceType, subtype));
 						}
 						return paths;
 					}
 					// No subtypes, fall through to treat it as a type tree.
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj,
-							pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getRaceType()));
 				case RACETYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj,
-							pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getRaceType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj,
-							pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
