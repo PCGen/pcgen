@@ -39,7 +39,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  */
 public class RaceMigration
 {
-	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<int[], List<MigrationRule>>();
+	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
 
 	/**
 	 * Find the new race key to replace the provided one.

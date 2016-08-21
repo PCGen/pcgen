@@ -76,7 +76,7 @@ public class OptionsParser
 	public List<GeneratorOption> parse( final File aFileName ) 
 		throws SAXException, IOException
 	{
-		final List<GeneratorOption> ret = new ArrayList<GeneratorOption>();
+		final List<GeneratorOption> ret = new ArrayList<>();
 		
 		try
 		{

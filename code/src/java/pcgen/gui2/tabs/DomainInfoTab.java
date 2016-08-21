@@ -106,7 +106,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	public DomainInfoTab()
 	{
 		super("Domain");
-		this.deityTable = new FilteredTreeViewTable<Object, DeityFacade>();
+		this.deityTable = new FilteredTreeViewTable<>();
 		this.domainTable = new JDynamicTable();
 		this.domainRowHeaderTable = TableUtils.createDefaultTable();
 		this.selectedDeity = new JLabel();
@@ -114,8 +114,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.selectedDomain = new JLabel();
 		this.deityInfo = new InfoPane("in_deityInfo"); //$NON-NLS-1$
 		this.domainInfo = new InfoPane("in_domainInfo"); //$NON-NLS-1$
-		this.qDeityButton = new FilterButton<Object, DeityFacade>("DeityQualified");
-		this.qDomainButton = new FilterButton<Object, DomainFacade>("DomainQualified");
+		this.qDeityButton = new FilterButton<>("DeityQualified");
+		this.qDomainButton = new FilterButton<>("DomainQualified");
 		this.qualifiedRenderer = new QualifiedTreeCellRenderer();
 		initComponents();
 	}
@@ -126,7 +126,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		deityTable.setTreeCellRenderer(qualifiedRenderer);
 		JPanel panel = new JPanel(new BorderLayout());
-		FilterBar<Object, DeityFacade> bar = new FilterBar<Object, DeityFacade>();
+		FilterBar<Object, DeityFacade> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		qDeityButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		bar.addDisplayableFilter(qDeityButton);
@@ -151,7 +151,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		splitPane.setLeftComponent(panel);
 
 		panel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, DomainFacade> dbar = new FilterBar<CharacterFacade, DomainFacade>();
+		FilterBar<CharacterFacade, DomainFacade> dbar = new FilterBar<>();
 		dbar.addDisplayableFilter(new SearchFilterPanel());
 		qDomainButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		dbar.addDisplayableFilter(qDomainButton);
@@ -703,7 +703,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private static final ListFacade<TreeView<DeityFacade>> views
-				= new DefaultListFacade<TreeView<DeityFacade>>(Arrays.asList(DeityTreeView.values()));
+				= new DefaultListFacade<>(Arrays.asList(DeityTreeView.values()));
 		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_domains", String.class), //$NON-NLS-1$
 				new DefaultDataViewColumn("in_descrip", String.class), //$NON-NLS-1$
@@ -810,29 +810,29 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public List<TreeViewPath<DeityFacade>> getPaths(DeityFacade pobj)
 		{
-			List<TreeViewPath<DeityFacade>> paths = new ArrayList<TreeViewPath<DeityFacade>>();
+			List<TreeViewPath<DeityFacade>> paths = new ArrayList<>();
 			switch (this)
 			{
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case DOMAIN_NAME:
 					for (String domain : pobj.getDomainNames())
 					{
-						paths.add(new TreeViewPath<DeityFacade>(pobj, domain));
+						paths.add(new TreeViewPath<>(pobj, domain));
 					}
 					return paths;
 				case ALIGNMENT_NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj,
-							pobj.getAlignment()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getAlignment()));
 				case PANTHEON_NAME:
 					for (String pantheon : pobj.getPantheons())
 					{
-						paths.add(new TreeViewPath<DeityFacade>(pobj, pantheon));
+						paths.add(new TreeViewPath<>(pobj, pantheon));
 					}
 					return paths;
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj,
-							pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

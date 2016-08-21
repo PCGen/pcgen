@@ -66,7 +66,7 @@ public enum ProhibitedSpellType
 			 * Long method for now
 			 * TODO Clean up
 			 */
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (SpellSchool ss : s.getSafeListFor(ListKey.SPELL_SCHOOL))
 			{
 				list.add(ss.toString());

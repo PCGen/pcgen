@@ -408,7 +408,7 @@ public class SpellSupportForPCClass
 		//
 		if (castForLevelMap == null)
 		{
-			castForLevelMap = new HashMap<Integer, Integer>(100);
+			castForLevelMap = new HashMap<>(100);
 		}
 		for (int i = 0; i < 100; i++)
 		{
@@ -567,7 +567,7 @@ public class SpellSupportForPCClass
 			{
 				Collection<CharacterSpell> aList = aPC.getCharacterSpells(
 						source, ix);
-				Collection<Spell> bList = new ArrayList<Spell>();
+				Collection<Spell> bList = new ArrayList<>();
 
 				if (!aList.isEmpty())
 				{

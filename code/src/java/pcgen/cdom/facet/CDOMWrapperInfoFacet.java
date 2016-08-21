@@ -142,7 +142,7 @@ public class CDOMWrapperInfoFacet
 	@Override
 	protected Map<String, OutputActor<?>> getSubComponentMap()
 	{
-		return new HashMap<String, OutputActor<?>>();
+		return new HashMap<>();
 	}
 
 	public void setDataSetInitializationFacet(

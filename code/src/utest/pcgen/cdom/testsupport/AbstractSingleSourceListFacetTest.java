@@ -285,7 +285,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	public void testObjAddAllUseless()
 	{
 		ST source1 = developSource(getTypeObj());
-		getFacet().addAll(id, new ArrayList<CT>(), source1);
+		getFacet().addAll(id, new ArrayList<>(), source1);
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();
 		testObjUnsetEmptySet();
@@ -298,7 +298,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		CT t2 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
@@ -327,7 +327,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		CT t2 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
@@ -341,7 +341,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		assertEventCount(2, 0);
 		CT t3 = getTypeObj();
 		ST source2 = developSource(t3);
-		List<CT> pct2 = new ArrayList<CT>();
+		List<CT> pct2 = new ArrayList<>();
 		pct2.add(t1);
 		pct2.add(t3);
 		getFacet().addAll(id, pct2, source2);
@@ -361,7 +361,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	{
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t1);
 		getFacet().addAll(id, pct, source1);
@@ -380,7 +380,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		CT t2 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(null);
 		pct.add(t2);
@@ -555,7 +555,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	public void testObjRemoveAllUseless()
 	{
 		ST source1 = developSource(getTypeObj());
-		getFacet().removeAll(id, new ArrayList<CT>(), source1);
+		getFacet().removeAll(id, new ArrayList<>(), source1);
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();
 		testObjUnsetEmptySet();
@@ -570,7 +570,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		CT t2 = getTypeObj();
 		ST source2 = developSource(t2);
 		CT t3 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
 		getFacet().add(id, t3, source1);
@@ -627,7 +627,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		CT t2 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
 		pct.add(t1);
@@ -649,7 +649,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		CT t2 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
 		pct.add(t1);
@@ -732,7 +732,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		{
 			// This is ok too
 		}
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		try
@@ -868,7 +868,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		assertNotNull(origset);
 		assertTrue(origset.isEmpty());
 		CT t2 = getTypeObj();
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
@@ -882,7 +882,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		assertEventCount(2, 0);
 		CT t3 = getTypeObj();
 		ST source2 = developSource(t3);
-		List<CT> pct2 = new ArrayList<CT>();
+		List<CT> pct2 = new ArrayList<>();
 		pct2.add(t1);
 		pct2.add(t3);
 		getFacet().addAll(id, pct2, source2);

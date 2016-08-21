@@ -44,7 +44,7 @@ public class ChronicleEntryFacet extends
     @Override
 	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
 	{
-		List<ChronicleEntry> newCopies = new ArrayList<ChronicleEntry>();
+		List<ChronicleEntry> newCopies = new ArrayList<>();
 		for (ChronicleEntry entry : componentSet)
 		{
 			try
@@ -69,7 +69,7 @@ public class ChronicleEntryFacet extends
 	@Override
 	protected List<ChronicleEntry> getComponentSet()
 	{
-		return new ArrayList<ChronicleEntry>();
+		return new ArrayList<>();
 	}
 
 

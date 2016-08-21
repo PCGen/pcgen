@@ -101,7 +101,7 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	@Override
 	public List<String> getRaceSubTypes()
 	{
-		List<String> subTypeNames = new ArrayList<String>();
+		List<String> subTypeNames = new ArrayList<>();
 		List<RaceSubType> rst = getListFor(ListKey.RACESUBTYPE);
 		if (rst != null)
 		{

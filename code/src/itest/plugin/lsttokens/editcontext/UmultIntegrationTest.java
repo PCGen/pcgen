@@ -30,7 +30,7 @@ public class UmultIntegrationTest extends
 {
 
 	static UmultLst token = new UmultLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

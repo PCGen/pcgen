@@ -74,15 +74,15 @@ public class MapKeyMapTest extends TestCase
 		nameKey = AspectName.getConstant("Name");
 		breedKey = AspectName.getConstant("breed");
 		
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageAspect = new Aspect("age", AGE);
 		ageList.add(ageAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
-		List<Aspect> nameList = new ArrayList<Aspect>();
+		List<Aspect> nameList = new ArrayList<>();
 		nameAspect = new Aspect("name", NAME);
 		nameList.add(nameAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, nameKey, nameList);
-		List<Aspect> breedList = new ArrayList<Aspect>();
+		List<Aspect> breedList = new ArrayList<>();
 		breedAspect = new Aspect("breed", BREED);
 		breedList.add(breedAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, breedKey, breedList);
@@ -131,7 +131,7 @@ public class MapKeyMapTest extends TestCase
 		assertEquals("Validate initial value of age", ageAspect, mapKeyMap
 			.get(MapKey.ASPECT, ageKey).get(0));
 		Aspect newage = new Aspect("age", "2");
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(newage);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
 		assertEquals("Validate new value of age", newage, mapKeyMap

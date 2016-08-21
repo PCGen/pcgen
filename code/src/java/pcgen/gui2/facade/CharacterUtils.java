@@ -88,7 +88,7 @@ public class CharacterUtils
 								"Clothing.Resizable", "Magic.Custom.Auto_Gen");
 				}
 
-				List<Equipment> selectedClothes = new ArrayList<Equipment>();
+				List<Equipment> selectedClothes = new ArrayList<>();
 				selectedClothes = Globals.getChoiceFromList(
 					LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
 					clothes, selectedClothes, 1, aPC);

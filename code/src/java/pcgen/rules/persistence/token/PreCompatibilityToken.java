@@ -120,7 +120,7 @@ public class PreCompatibilityToken implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Prerequisite p : changes.getAdded())
 		{
 			String kind = p.getKind();

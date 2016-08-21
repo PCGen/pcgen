@@ -91,8 +91,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 		FormatManager<T> fmtManager, String instructions)
 	{
 		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<T>(n, this, fmtManager);
-		return new CalculationModifier<T>(calc, userPriority);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
+		return new CalculationModifier<>(calc, userPriority);
 	}
 
 }

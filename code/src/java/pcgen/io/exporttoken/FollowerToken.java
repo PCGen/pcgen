@@ -99,7 +99,7 @@ public class FollowerToken extends Token
 		}
 
 		String result = "";
-		final List<Follower> followers = new ArrayList<Follower>(pc.getDisplay().getFollowerList());
+		final List<Follower> followers = new ArrayList<>(pc.getDisplay().getFollowerList());
 		if (i < followers.size())
 		{
 			result =

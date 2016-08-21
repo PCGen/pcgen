@@ -76,7 +76,7 @@ public class ClassSpellList extends CDOMListObject<Spell>
 	{
 		if (types == null)
 		{
-			types = new HashSet<Type>();
+			types = new HashSet<>();
 		}
 		types.add(type);
 	}

@@ -1029,10 +1029,10 @@ public class PcgCombatant extends Combatant
 				 <!-- End Prepared Spells -->
 			 */
 			ArrayList<PObject> classList =
-					new ArrayList<PObject>(display.getClassSet());
+                    new ArrayList<>(display.getClassSet());
 			classList.add(display.getRace());
 
-			Set<String> bookList = new HashSet<String>(pc.getDisplay().getSpellBookNames());
+			Set<String> bookList = new HashSet<>(pc.getDisplay().getSpellBookNames());
 			bookList.add(Globals.getDefaultSpellBook());
 			for (String book : bookList)
 			{
@@ -1044,7 +1044,7 @@ public class PcgCombatant extends Combatant
 
 		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
 		{
-			Set<PObject> classes = new HashSet<PObject>();
+			Set<PObject> classes = new HashSet<>();
 			classes.addAll(classList);
 			
 			for ( PObject pObj : classes )

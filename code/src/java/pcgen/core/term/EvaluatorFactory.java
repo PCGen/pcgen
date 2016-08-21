@@ -44,10 +44,10 @@ public class EvaluatorFactory {
 	Pattern internalVarPattern;
 	Map<String, TermEvaluatorBuilder> BuilderStore;
 	
-	private Map<String, TermEvaluator> SrcNeutralEvaluatorStore = 
-			new HashMap<String, TermEvaluator>();
-	private Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore = 
-			new HashMap<String, Map<String, TermEvaluator>>();
+	private Map<String, TermEvaluator> SrcNeutralEvaluatorStore =
+            new HashMap<>();
+	private Map<String, Map<String, TermEvaluator>> SrcDependantEvaluatorStore =
+            new HashMap<>();
 
 
 	public static final EvaluatorFactory PC =
@@ -64,7 +64,7 @@ public class EvaluatorFactory {
 				addStatBuilder(termEvaluatorBuilders) :
 				termEvaluatorBuilders;
 
-		BuilderStore     = new TreeMap<String, TermEvaluatorBuilder>();
+		BuilderStore     = new TreeMap<>();
 		StringBuilder sb = new StringBuilder("^(");
 
 		boolean add = false;
@@ -104,7 +104,7 @@ public class EvaluatorFactory {
 	private static TermEvaluatorBuilder makeStatBuilder()
 	{
 		Collection<PCStat> stats = Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class);
-		List<String> s = new LinkedList<String>();
+		List<String> s = new LinkedList<>();
 		StringBuilder pSt = new StringBuilder(stats.size() * 4 + 6);
 
 		pSt.append("(?:");
@@ -189,7 +189,7 @@ public class EvaluatorFactory {
 		if (evaluator.isSourceDependant())
 		{
 			Map<String, TermEvaluator> i = SrcDependantEvaluatorStore.get(term);
-			Map<String, TermEvaluator> j = (i == null) ? new HashMap<String, TermEvaluator>() : i;
+			Map<String, TermEvaluator> j = (i == null) ? new HashMap<>() : i;
 			j.put(source, evaluator);
 			SrcDependantEvaluatorStore.put(term, j);	
 		}

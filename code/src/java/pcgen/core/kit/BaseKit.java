@@ -52,7 +52,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	{
 		if (bounds == null)
 		{
-			bounds = new ArrayList<OptionBound>();
+			bounds = new ArrayList<>();
 		}
 		bounds.add(new OptionBound(min, max));
 	}

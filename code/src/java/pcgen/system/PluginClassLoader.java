@@ -81,12 +81,12 @@ public class PluginClassLoader extends PCGenTask
 		}
 
 	});
-	private LinkedList<File> jarFiles = new LinkedList<File>();
+	private LinkedList<File> jarFiles = new LinkedList<>();
 	private int progress = 0;
 
 	public PluginClassLoader(File pluginDir)
 	{
-		this.loaderMap = new HashMapToList<Class<?>, PluginLoader>();
+		this.loaderMap = new HashMapToList<>();
 		this.pluginDir = pluginDir;
 	}
 
@@ -107,7 +107,7 @@ public class PluginClassLoader extends PCGenTask
 	private void loadClasses(final File pluginJar) throws IOException
 	{
 		final JarClassLoader loader = new JarClassLoader(pluginJar.toURI().toURL());
-		final List<String> classList = new LinkedList<String>();
+		final List<String> classList = new LinkedList<>();
 		ZipFile file = new ZipFile(pluginJar);
 		Enumeration<? extends ZipEntry> entries = file.entries();
 		while (entries.hasMoreElements())
@@ -288,7 +288,7 @@ public class PluginClassLoader extends PCGenTask
 	private static class JarClassLoader extends URLClassLoader
 	{
 
-		private Map<String, byte[]> classDefinitions = new HashMap<String, byte[]>();
+		private Map<String, byte[]> classDefinitions = new HashMap<>();
 
 		public JarClassLoader(URL url) throws MalformedURLException
 		{

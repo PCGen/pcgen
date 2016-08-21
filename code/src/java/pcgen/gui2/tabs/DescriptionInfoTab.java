@@ -138,7 +138,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	{
 		ModelMap models = new ModelMap();
 		DefaultListModel listModel = new DefaultListModel();
-		List<NoteInfoPane> notePaneList = new ArrayList<NoteInfoPane>();
+		List<NoteInfoPane> notePaneList = new ArrayList<>();
 
 		PageItem firstPage = new PageItem(character, LanguageBundle.getString("in_descBiography"), bioPane); //$NON-NLS-1$
 		listModel.addElement(firstPage);

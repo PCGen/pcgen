@@ -85,7 +85,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 			{
 				if (e == null)
 				{
-					e = new MapEvent<K, V>(source, MapEvent.KEY_ADDED, key, null, value);
+					e = new MapEvent<>(source, MapEvent.KEY_ADDED, key, null, value);
 				}
 				((MapListener) listeners[i + 1]).keyAdded(e);
 			}
@@ -112,7 +112,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 			{
 				if (e == null)
 				{
-					e = new MapEvent<K, V>(source, MapEvent.KEY_REMOVED, key, value, null);
+					e = new MapEvent<>(source, MapEvent.KEY_REMOVED, key, value, null);
 				}
 				((MapListener) listeners[i + 1]).keyRemoved(e);
 			}
@@ -140,7 +140,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 			{
 				if (e == null)
 				{
-					e = new MapEvent<K, V>(source, MapEvent.KEY_MODIFIED, key, value, value, cause);
+					e = new MapEvent<>(source, MapEvent.KEY_MODIFIED, key, value, value, cause);
 				}
 				((MapListener) listeners[i + 1]).keyModified(e);
 			}
@@ -168,7 +168,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 			{
 				if (e == null)
 				{
-					e = new MapEvent<K, V>(source, MapEvent.VALUE_CHANGED, key, oldValue, newValue);
+					e = new MapEvent<>(source, MapEvent.VALUE_CHANGED, key, oldValue, newValue);
 				}
 				((MapListener) listeners[i + 1]).valueChanged(e);
 			}
@@ -196,7 +196,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 			{
 				if (e == null)
 				{
-					e = new MapEvent<K, V>(source, MapEvent.VALUE_MODIFIED, key, value, value, cause);
+					e = new MapEvent<>(source, MapEvent.VALUE_MODIFIED, key, value, value, cause);
 				}
 				((MapListener) listeners[i + 1]).valueModified(e);
 			}
@@ -221,7 +221,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 			{
 				if (e == null)
 				{
-					e = new MapEvent<K, V>(source);
+					e = new MapEvent<>(source);
 				}
 				((MapListener) listeners[i + 1]).keysChanged(e);
 			}

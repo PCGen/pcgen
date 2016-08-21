@@ -144,7 +144,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
                 setValueAt(model.getValueAt(x, y), x, y);
             }
         }
-        Vector<String> titles = new Vector<String>();
+        Vector<String> titles = new Vector<>();
         for(int x = 0; x < getColumnCount(); x++)
         {
             titles.add(model.getColumnName(x));

@@ -81,21 +81,21 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	private PropertyContext gamemodePrefsContext = prefsContext.createChildContext("gameMode"); //$NON-NLS-1$
 	private List<String> allowedModes;
-	private List<String> bonusFeatLevels = new ArrayList<String>();
-	private List<String> bonusStackList = new ArrayList<String>();
-	private List<String> bonusStatLevels = new ArrayList<String>();
-	private List<ClassType> classTypeList = new ArrayList<ClassType>();
-	private List<String> defaultDataSetList = new ArrayList<String>();
-	private List<String> defaultDeityList = new ArrayList<String>();
-	private Map<String, XPTable> xpTableInfo = new HashMap<String, XPTable>();
-	private List<String> loadStrings = new ArrayList<String>();
-	private List<String> skillMultiplierLevels = new ArrayList<String>();
+	private List<String> bonusFeatLevels = new ArrayList<>();
+	private List<String> bonusStackList = new ArrayList<>();
+	private List<String> bonusStatLevels = new ArrayList<>();
+	private List<ClassType> classTypeList = new ArrayList<>();
+	private List<String> defaultDataSetList = new ArrayList<>();
+	private List<String> defaultDeityList = new ArrayList<>();
+	private Map<String, XPTable> xpTableInfo = new HashMap<>();
+	private List<String> loadStrings = new ArrayList<>();
+	private List<String> skillMultiplierLevels = new ArrayList<>();
 	@Deprecated
-	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<String, ACControl>();
+	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
 	@Deprecated
-	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<String, ACControl>();
+	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
 	private Map<String, String> plusCalcs;
-	private Map<String, String> spellRangeMap = new HashMap<String, String>();
+	private Map<String, String> spellRangeMap = new HashMap<>();
 	private String acAbbrev = "";
 	private String acName = "";
 	private String alignmentName = "";
@@ -127,8 +127,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String weaponCategories = "";
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
-	private Map<Integer, Integer> xpAwardsMap = new HashMap<Integer, Integer>();
-	private Map<Integer, String> crStepsMap = new HashMap<Integer, String>();
+	private Map<Integer, Integer> xpAwardsMap = new HashMap<>();
+	private Map<Integer, String> crStepsMap = new HashMap<>();
 	private String crThreshold = null;
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
@@ -142,7 +142,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int maxNonEpicLevel = Integer.MAX_VALUE;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
-	private final List<String> schoolsList = new ArrayList<String>(20);
+	private final List<String> schoolsList = new ArrayList<>(20);
 
 	private int skillCosts_Class     = 1;
 	private int skillCost_CrossClass = 2;
@@ -185,19 +185,19 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String theInfoSheetSkill;
 	
 	private String outputSheetDirectory;
-	private Map<String, String> outputSheetDefaultMap = new HashMap<String, String>();
+	private Map<String, String> outputSheetDefaultMap = new HashMap<>();
 
 	private int [] dieSizes;
 	private int maxDieSize = 12;
 	private int minDieSize = 4;
 
-	private List<String> resizableTypeList = new ArrayList<String>();
-	private List<String> characterTypeList = new ArrayList<String>();
-	private List<String> monsterRoleList = new ArrayList<String>();
+	private List<String> resizableTypeList = new ArrayList<>();
+	private List<String> characterTypeList = new ArrayList<>();
+	private List<String> monsterRoleList = new ArrayList<>();
 	private String monsterRoleDefault = "";
-	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
+	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<>();
 
-	private List<String> xpTableNames = new ArrayList<String>();
+	private List<String> xpTableNames = new ArrayList<>();
 	private String defaultXPTableName;
 	private String defaultCharacterType;
 
@@ -207,10 +207,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/** SHOWTAB compatibility */
 	private Map<CDOMSingleRef<TabInfo>, Boolean> visibleTabs;
 
-	private Map<String, String> equipTypeIconMap = new HashMap<String, String>();
+	private Map<String, String> equipTypeIconMap = new HashMap<>();
 
 	/** Priority of the equipment types for icon use. */
-	private Map<String, Integer> equipTypeIconPriorityMap = new HashMap<String, Integer>();
+	private Map<String, Integer> equipTypeIconPriorityMap = new HashMap<>();
 	
 	/** A container for feat settings for this game mode. */
 	private AbilityCategory featTemplate;
@@ -346,7 +346,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 			if (allowedModes == null)
 			{
-				allowedModes = new ArrayList<String>();
+				allowedModes = new ArrayList<>();
 			}
 
 			allowedModes.add(aString);
@@ -1065,7 +1065,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 		if (classTypeList == null)
 		{
-			classTypeList = new ArrayList<ClassType>();
+			classTypeList = new ArrayList<>();
 		}
 
 		final ClassType aClassType = new ClassType();
@@ -1120,7 +1120,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		if (defaultDataSetList == null)
 		{
-			defaultDataSetList = new ArrayList<String>();
+			defaultDataSetList = new ArrayList<>();
 		}
 
 		defaultDataSetList.add(dataSetKey);
@@ -1150,7 +1150,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 		if (defaultDeityList == null)
 		{
-			defaultDeityList = new ArrayList<String>();
+			defaultDeityList = new ArrayList<>();
 		}
 
 		defaultDeityList.add(argDeityLine);
@@ -1177,7 +1177,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			if (plusCalcs == null)
 			{
-				plusCalcs = new HashMap<String, String>();
+				plusCalcs = new HashMap<>();
 			}
 
 			plusCalcs.put(aString.substring(0, idx).toUpperCase(), aString.substring(idx + 1));
@@ -1334,7 +1334,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		if (allowedModes == null)
 		{
-			final List<String> modes = new ArrayList<String>(1);
+			final List<String> modes = new ArrayList<>(1);
 			modes.add(name);
 
 			return modes;
@@ -1749,7 +1749,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			// Sort NUMERICALLY, not alphabetically!
 			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			pointBuyStatCosts = new TreeMap<Integer, PointBuyCost>(new ComparableComparator<Integer>());
+			pointBuyStatCosts = new TreeMap<>(new ComparableComparator<>());
 		}
 		abilityScoreCost = null;
 		pointBuyStatCosts.put(Integer.valueOf(pbc.getStatValue()), pbc);
@@ -2202,7 +2202,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			// Sort NUMERICALLY, not alphabetically!
 			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			statDisplayText = new TreeMap<Integer, String>(new ComparableComparator<Integer>());
+			statDisplayText = new TreeMap<>(new ComparableComparator<>());
 		}
 		statDisplayText.put(statValue, statText);
 	}
@@ -2263,7 +2263,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			// Sort NUMERICALLY, not alphabetically!
 			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			skillRankDisplayText = new TreeMap<Integer, String>(new ComparableComparator<Integer>());
+			skillRankDisplayText = new TreeMap<>(new ComparableComparator<>());
 		}
 		skillRankDisplayText.put(rankValue, rankText);
 	}
@@ -2401,7 +2401,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			return Collections.emptyList();
 		}
-		List<AbilityCategory> catList = new ArrayList<AbilityCategory>();
+		List<AbilityCategory> catList = new ArrayList<>();
 		for (AbilityCategory cat : getAllAbilityCategories())
 		{
 			if (key.equals(cat.getKeyName())
@@ -2454,7 +2454,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setDieSizes(final String value)
 	{
 		final StringTokenizer aTok = new StringTokenizer(value, ",", false);
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<>();
 		while (aTok.hasMoreTokens())
 		{
 			String aString = aTok.nextToken();
@@ -2626,7 +2626,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public List<String> getMonsterRoleDefaultList()
 	{
-		return new ArrayList<String>(Arrays.asList(monsterRoleDefault));
+		return new ArrayList<>(Arrays.asList(monsterRoleDefault));
 	}
 
 	/**
@@ -2743,7 +2743,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		Set<String> set = hiddenTypes.get(cl);
 		if (set == null)
 		{
-			set = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+			set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 			hiddenTypes.put(cl, set);
 		}
 		set.add(s);
@@ -2920,7 +2920,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		if (visibleTabs == null)
 		{
-			visibleTabs = new HashMap<CDOMSingleRef<TabInfo>, Boolean>();
+			visibleTabs = new HashMap<>();
 		}
 		visibleTabs.put(ref, set);
 	}

@@ -126,7 +126,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 		// Automatically sort the options alphabetically.
 		final SortedMap<String, JComponent> options =
-				new TreeMap<String, JComponent>();
+                new TreeMap<>();
 
 //		options.put(in_showMemory, showMemory);
 //		options.put(in_showImagePreview, showImagePreview);

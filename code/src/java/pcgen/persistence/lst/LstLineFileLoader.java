@@ -134,7 +134,7 @@ public abstract class LstLineFileLoader extends Observable
 	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry cse : fileList)

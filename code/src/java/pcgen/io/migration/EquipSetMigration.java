@@ -95,7 +95,7 @@ public class EquipSetMigration
 	private static List<EquipSet> getSortedChildren(
 		Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
-		List<EquipSet> children = new ArrayList<EquipSet>();
+		List<EquipSet> children = new ArrayList<>();
 		for (EquipSet equipSet : allEquipSets)
 		{
 			if (equipSet.getParentIdPath().equals(parentIdPath))

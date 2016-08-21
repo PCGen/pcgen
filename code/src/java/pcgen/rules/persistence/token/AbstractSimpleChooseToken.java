@@ -107,7 +107,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				return ParseResult.INTERNAL_ERROR;
 			}
 			Set<PrimitiveCollection<T>> set =
-					new HashSet<PrimitiveCollection<T>>();
+                    new HashSet<>();
 			StringTokenizer st = new StringTokenizer(activeValue, "|");
 			while (st.hasMoreTokens())
 			{
@@ -131,7 +131,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			{
 				return new ParseResult.Fail("No items in set.", context);
 			}
-			prim = new CompoundOrPrimitive<T>(set);
+			prim = new CompoundOrPrimitive<>(set);
 		}
 
 		if (!prim.getGroupingState().isValid())
@@ -142,8 +142,8 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			cpr.addErrorMessage("  Check that ALL is not combined with another item");
 			return cpr;
 		}
-		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<T>(prim);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(prim);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

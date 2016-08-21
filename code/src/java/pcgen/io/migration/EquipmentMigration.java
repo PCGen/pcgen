@@ -39,7 +39,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  */
 public class EquipmentMigration
 {
-	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<int[], List<MigrationRule>>();
+	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<>();
 
 	/**
 	 * Find the new equipment key to replace the provided one.

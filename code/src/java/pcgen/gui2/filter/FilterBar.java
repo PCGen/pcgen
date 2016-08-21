@@ -50,7 +50,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
 
 	private JPanel filterPanel = new JPanel(new FilterLayout());
-	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<DisplayableFilter<? super C, ? super E>>();
+	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterBar()

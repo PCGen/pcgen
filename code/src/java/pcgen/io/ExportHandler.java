@@ -116,7 +116,7 @@ public final class ExportHandler
 	private static final Float JEP_TRUE = new Float(1.0);
 
 	/** A map of output tokens to export */
-	private static Map<String, Token> tokenMap = new HashMap<String, Token>();
+	private static Map<String, Token> tokenMap = new HashMap<>();
 
 	/** 
 	 * A variable to hold the state of whether or not the output token map to
@@ -148,8 +148,8 @@ public final class ExportHandler
 	 * These maps hold the loop variables and parameters of FOR constructs that 
 	 * will be replaced by their actual values when evaluated.
 	 */
-	private final Map<Object, Object> loopVariables = new HashMap<Object, Object>();
-	private final Map<Object, Object> loopParameters = new HashMap<Object, Object>();
+	private final Map<Object, Object> loopVariables = new HashMap<>();
+	private final Map<Object, Object> loopParameters = new HashMap<>();
 
 	/** The delimiter used by embedded DFOR/FOR loops */
 	private String csheetTag2 = "\\";
@@ -339,7 +339,7 @@ public final class ExportHandler
 			// data-model
 			Map<String, Object> pc = OutputDB.buildDataModel(aPC.getCharID());
 			Map<String, Object> mode = OutputDB.buildModeDataModel(gamemode);
-			Map<String, Object> input = new HashMap<String, Object>();
+			Map<String, Object> input = new HashMap<>();
 			input.put("pcgen", OutputDB.getGlobal());
 			input.put("pc", ObjectWrapper.DEFAULT_WRAPPER.wrap(pc));
 			input.put("gamemode", mode);
@@ -656,7 +656,7 @@ public final class ExportHandler
 	
 	private String replaceVariables(String expr, Map<Object,Object> variables)
 	{
-		List<Object> keys = new ArrayList<Object>(variables.keySet());
+		List<Object> keys = new ArrayList<>(variables.keySet());
 		Collections.sort(keys, new VariableComparator());
 		
 		for (final Object anObject : variables.keySet())
@@ -1728,7 +1728,7 @@ public final class ExportHandler
 	public static List<String> getParameters(String forToken)
 	{
 		String splitStr[] = forToken.split(",");
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		StringBuilder buf = new StringBuilder();
 		boolean inFormula = false;
 		for (String string : splitStr)
@@ -2303,7 +2303,7 @@ public final class ExportHandler
 			// New token syntax |%TEMPLATE.x| instead of |%TEMPLATEx|
 			final StringTokenizer aTok =
 					new StringTokenizer(aString.substring(1), ".");
-			final List<PCTemplate> tList = new ArrayList<PCTemplate>(aPC.getTemplateSet());
+			final List<PCTemplate> tList = new ArrayList<>(aPC.getTemplateSet());
 			String fString = aTok.nextToken();
 			final int index;
 
@@ -2364,7 +2364,7 @@ public final class ExportHandler
 		// Filter out FOLLOWERTYPE.
 		if (aString.substring(1).startsWith("FOLLOWERTYPE."))
 		{
-			List<Follower> aList = new ArrayList<Follower>();
+			List<Follower> aList = new ArrayList<>();
 
 			for (Follower follower : aPC.getFollowerList())
 			{
@@ -2660,7 +2660,7 @@ public final class ExportHandler
 			aTok.nextToken(); // ARMOR
 
 			String fString = aTok.nextToken();
-			final Collection<Equipment> aArrayList = new ArrayList<Equipment>();
+			final Collection<Equipment> aArrayList = new ArrayList<>();
 
 			for (Equipment eq : aPC.getEquipmentListInOutputOrder())
 			{

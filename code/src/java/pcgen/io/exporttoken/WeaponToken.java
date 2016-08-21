@@ -565,7 +565,7 @@ public class WeaponToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<String>();
+				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities.add(new StringBuilder().append(me.getKey())
@@ -3143,7 +3143,7 @@ public class WeaponToken extends Token
 	 */
 	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 		final int baseRange = EqToken.getRange(aPC, eq).intValue();
 		int aRange = baseRange;
 		int maxIncrements = 0;

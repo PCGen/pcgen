@@ -211,7 +211,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 		
-		List<String> doneList = new ArrayList<String>();
+		List<String> doneList = new ArrayList<>();
 
 		for (int i = 0; i < hrRadio.length; i++)
 		{

@@ -102,8 +102,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<T>(coll);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(coll);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

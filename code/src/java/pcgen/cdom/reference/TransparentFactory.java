@@ -55,19 +55,19 @@ public class TransparentFactory<T extends Loadable> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMTransparentAllRef<T>(refClass);
+		return new CDOMTransparentAllRef<>(refClass);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTransparentTypeRef<T>(refClass, types);
+		return new CDOMTransparentTypeRef<>(refClass, types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		return new CDOMTransparentSingleRef<T>(refClass, key);
+		return new CDOMTransparentSingleRef<>(refClass, key);
 	}
 
 	@Override

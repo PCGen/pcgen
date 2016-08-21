@@ -29,7 +29,7 @@ public class NonPPIntegrationTest extends
 {
 
 	static NonppToken token = new NonppToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

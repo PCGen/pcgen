@@ -76,7 +76,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		super();
 		this.character = character;
 		this.levels = character.getCharacterLevelsFacade();
-		this.finalLevelMap = new HashMap<String, Integer>();
+		this.finalLevelMap = new HashMap<>();
 		resetLevelMap();
 		levels.addListListener(this);
 		levels.addClassListener(this);

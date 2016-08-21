@@ -104,13 +104,13 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	{
 		theCharacter = pc;
 		charDisplay = pc.getDisplay();
-		chronicleEntries = new DefaultListFacade<ChronicleEntryFacade>();
+		chronicleEntries = new DefaultListFacade<>();
 		for (ChronicleEntryFacade entry : charDisplay.getChronicleEntries())
 		{
 			chronicleEntries.addElement(entry);
 		}
 		
-		notes = new DefaultListFacade<NoteFacade>();
+		notes = new DefaultListFacade<>();
 		addDefaultNotes();
 		
 		for (NoteItem item : charDisplay.getNotesList())
@@ -118,19 +118,19 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			notes.addElement(item);
 		}
 
-		birthday = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.BIRTHDAY));
-		location = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.LOCATION));
-		city = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE));
-		region = new DefaultReferenceFacade<String>(charDisplay.getRegionString());
-		birthplace = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE));
-		personalityTrait1 = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1));
-		personalityTrait2 = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2));
-		phobias = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS));
-		interests = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.INTERESTS));
-		catchPhrase = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE));
-		hairStyle = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE));
-		speechPattern = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY));
-		customBiographyFields = new DefaultListFacade<BiographyField>();
+		birthday = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHDAY));
+		location = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION));
+		city = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE));
+		region = new DefaultReferenceFacade<>(charDisplay.getRegionString());
+		birthplace = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE));
+		personalityTrait1 = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1));
+		personalityTrait2 = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2));
+		phobias = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS));
+		interests = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.INTERESTS));
+		catchPhrase = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE));
+		hairStyle = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE));
+		speechPattern = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY));
+		customBiographyFields = new DefaultListFacade<>();
 		addCharacterCustomFields();
 	}
 
@@ -310,7 +310,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 
 		++newNodeId;
 		
-		Set<String> names = new HashSet<String>();
+		Set<String> names = new HashSet<>();
 		for (NoteFacade note : notes)
 		{
 			names.add(note.getName());

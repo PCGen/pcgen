@@ -196,7 +196,7 @@ public final class EntityEncoder
 
 final class EntityMap
 {
-	private final Map<String, String> map = new HashMap<String, String>();
+	private final Map<String, String> map = new HashMap<>();
 
 	/**
 	 * Get value

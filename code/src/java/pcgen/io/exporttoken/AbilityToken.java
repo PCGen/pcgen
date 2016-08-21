@@ -82,7 +82,7 @@ public class AbilityToken extends Token
 	public static final String TOKENNAME = "ABILITY";
 
 	/** The list of abilities to get the ability from */
-	private MapToList<Ability, CNAbility> abilityList = new HashMapToList<Ability, CNAbility>();
+	private MapToList<Ability, CNAbility> abilityList = new HashMapToList<>();
 
 	/** The current visibility filtering to apply */
 	private View view = View.VISIBLE_EXPORT;
@@ -172,9 +172,9 @@ public class AbilityToken extends Token
 		}
 
 		// Ability Types Filter List
-		List<String> types = new ArrayList<String>();
+		List<String> types = new ArrayList<>();
 		// Negated Ability Types Filter List (excludes from types)
-		List<String> negate = new ArrayList<String>();
+		List<String> negate = new ArrayList<>();
 		// Ability Type
 		String abilityType = null;
 		// Ability Types Filter List
@@ -322,7 +322,7 @@ public class AbilityToken extends Token
 		List<String> negate, String abilityType, View view,
 		String aspect, MapToList<Ability, CNAbility> listOfAbilities)
 	{
-		List<Ability> aList = new ArrayList<Ability>();
+		List<Ability> aList = new ArrayList<>();
 		aList.addAll(listOfAbilities.getKeySet());
 
 		// Sort the ability list passed in
@@ -333,7 +333,7 @@ public class AbilityToken extends Token
 		boolean matchAspectDef = false;
 
 		// List to build up
-		List<Ability> bList = new ArrayList<Ability>();
+		List<Ability> bList = new ArrayList<>();
 
 		// For each ability figure out whether it should be displayed depending
 		// on its visibility filtering and its ability type filtering 
@@ -350,8 +350,8 @@ public class AbilityToken extends Token
 		try
 		{
 			MapToList<Ability, CNAbility> mtl =
-					new GenericMapToList<Ability, CNAbility>(
-						LinkedHashMap.class);
+                    new GenericMapToList<>(
+                            LinkedHashMap.class);
 			for (Ability a : bList)
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
@@ -378,7 +378,7 @@ public class AbilityToken extends Token
 	static MapToList<Ability, CNAbility> buildAbilityList(String key, View view,
 		MapToList<Ability, CNAbility> listOfAbilities)
 	{
-		List<Ability> aList = new ArrayList<Ability>();
+		List<Ability> aList = new ArrayList<>();
 		aList.addAll(listOfAbilities.getKeySet());
 
 		// Sort the ability list passed in
@@ -388,7 +388,7 @@ public class AbilityToken extends Token
 		boolean matchVisibilityDef = false;
 
 		// List to build up
-		List<Ability> bList = new ArrayList<Ability>();
+		List<Ability> bList = new ArrayList<>();
 
 		// For each ability figure out whether it should be displayed depending
 		// on its visibility filtering and its ability type filtering 
@@ -404,8 +404,8 @@ public class AbilityToken extends Token
 		try
 		{
 			MapToList<Ability, CNAbility> mtl =
-					new GenericMapToList<Ability, CNAbility>(
-						LinkedHashMap.class);
+                    new GenericMapToList<>(
+                            LinkedHashMap.class);
 			for (Ability a : bList)
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
@@ -522,7 +522,7 @@ public class AbilityToken extends Token
 	{
 		String retString = "";
 		Ability aAbility;
-		List<Ability> aList = new ArrayList<Ability>(aMapToList.getKeySet());
+		List<Ability> aList = new ArrayList<>(aMapToList.getKeySet());
 		// If the ability index given is within a valid range
 		if (abilityIndex >= 0 && abilityIndex < aList.size())
 		{
@@ -555,7 +555,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
-				List<String> assocs = new ArrayList<String>();
+				List<String> assocs = new ArrayList<>();
 				for (CNAbility cna : abilities)
 				{
 					assocs.addAll(pc.getAssociationExportList(cna));
@@ -655,7 +655,7 @@ public class AbilityToken extends Token
 		{
 			return Constants.EMPTY_STRING;
 		}
-		List<String> assocs  = new ArrayList<String>();
+		List<String> assocs  = new ArrayList<>();
 		for (CNAbility cna : abilities)
 		{
 			assocs.addAll(pc.getAssociationExportList(cna));
@@ -688,7 +688,7 @@ public class AbilityToken extends Token
 		}
 		Ability sampleAbilityObject = abilities.get(0).getAbility();
 		Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
-		SortedSet<AspectName> sortedKeys = new TreeSet<AspectName>(aspectKeys);
+		SortedSet<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
 		StringBuilder buff = new StringBuilder();
 		for (AspectName key : sortedKeys)
 		{
@@ -733,7 +733,7 @@ public class AbilityToken extends Token
 			{
 				Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
 				List<AspectName> sortedKeys =
-						new ArrayList<AspectName>(aspectKeys);
+                        new ArrayList<>(aspectKeys);
 				Collections.sort(sortedKeys);
 				AspectName aspectName = sortedKeys.get(index);
 				return Aspect.printAspect(pc, aspectName, abilities);
@@ -786,7 +786,7 @@ public class AbilityToken extends Token
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
 	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)

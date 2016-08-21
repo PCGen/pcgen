@@ -37,7 +37,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         implements DynamicTableColumnModel
 {
 
-    private final List<TableColumn> availableColumns = new ArrayList<TableColumn>(5);
+    private final List<TableColumn> availableColumns = new ArrayList<>(5);
     private final List<TableColumn> safeColumns = Collections.unmodifiableList(availableColumns);
     private int offset;
 

@@ -42,13 +42,13 @@ public final class XPTable extends PObject implements XPTableFacade
 	public XPTable()
 	{
 		this.name = "Default";
-		this.infoMap = new HashMap<String, LevelInfo>();
+		this.infoMap = new HashMap<>();
 	}
 
 	public XPTable(String xpTable)
 	{
 		this.name = xpTable;
-		this.infoMap = new HashMap<String, LevelInfo>();
+		this.infoMap = new HashMap<>();
 	}
 
     @Override

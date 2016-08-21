@@ -393,7 +393,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			table.setRowSelectionInterval(row, row);
 		}
-		List<Integer> targets = new ArrayList<Integer>();
+		List<Integer> targets = new ArrayList<>();
 		for (int selRow : table.getSelectedRows())
 		{
 			targets.add(selRow);
@@ -1073,9 +1073,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				return;
 			}
 
-			List<EquipNode> upTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
-			List<EquipNode> downTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
-			List<EquipNode> sortTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
+			List<EquipNode> upTargets = new ArrayList<>();
+			List<EquipNode> downTargets = new ArrayList<>();
+			List<EquipNode> sortTargets = new ArrayList<>();
 			EquipNode[] relativeNodes = filterTargets(targets, upTargets, downTargets, sortTargets);
 
 			JPopupMenu popupMenu = new JPopupMenu();

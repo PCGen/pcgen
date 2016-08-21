@@ -123,7 +123,7 @@ public final class AspectName implements TypeSafeConstant,
 	{
 		if (nameMap == null)
 		{
-			nameMap = new CaseInsensitiveMap<AspectName>();
+			nameMap = new CaseInsensitiveMap<>();
 		}
 	}
 

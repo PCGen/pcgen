@@ -53,7 +53,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 	{
 		this.spellNodes = spellNodes;
 		this.prefsKey = prefsKey;
-		this.treeViews = new DefaultListFacade<SpellTreeView>(Arrays.asList(SpellTreeView.values()));
+		this.treeViews = new DefaultListFacade<>(Arrays.asList(SpellTreeView.values()));
 		this.dataView = new SpellNodeDataView(showcolumns, prefsKey, infoFactory);
 	}
 
@@ -108,7 +108,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 			if (node instanceof SpellNode)
 			{
 				SpellNode pobj = (SpellNode) node;
-				LinkedList<Object> pathList = new LinkedList<Object>();
+				LinkedList<Object> pathList = new LinkedList<>();
 				switch (this)
 				{
 					case CLASS_LEVEL_SPELL:
@@ -118,7 +118,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 						{
 							pathList.removeLast();
 						}
-						path = new TreeViewPath<SuperNode>(pobj, pathList.toArray());
+						path = new TreeViewPath<>(pobj, pathList.toArray());
 						break;
 					case CLASS_LEVEL_SCHOOL_SPELL:
 						Collections.addAll(pathList, pobj.getRootNode(),
@@ -132,7 +132,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 						{
 							pathList.removeLast();
 						}
-						path = new TreeViewPath<SuperNode>(pobj, pathList.toArray());
+						path = new TreeViewPath<>(pobj, pathList.toArray());
 						break;
 					default:
 						throw new InternalError();
@@ -141,7 +141,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 			}
 			else
 			{
-				path = new TreeViewPath<SuperNode>(node);
+				path = new TreeViewPath<>(node);
 			}
 			return Arrays.asList(path);
 		}

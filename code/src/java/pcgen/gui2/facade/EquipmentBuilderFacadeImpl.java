@@ -95,8 +95,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		this.delegate = delegate;
 		
 		sizeRef =
-				new DefaultReferenceFacade<SizeAdjustmentFacade>(
-					equip.getSizeAdjustment());
+                new DefaultReferenceFacade<>(
+                        equip.getSizeAdjustment());
 
 		final String sBaseKey = equip.getBaseItemKeyName();
 		baseEquipment = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -108,14 +108,14 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 					.of(EquipmentHead.PRIMARY);
 
 		availListMap =
-				new HashMap<EquipmentBuilderFacade.EquipmentHead, DefaultListFacade<EquipModFacade>>();
+                new HashMap<>();
 		selectedListMap =
-				new HashMap<EquipmentBuilderFacade.EquipmentHead, DefaultListFacade<EquipModFacade>>();
+                new HashMap<>();
 		for (EquipmentHead head : equipHeads)
 		{
-			availListMap.put(head, new DefaultListFacade<EquipModFacade>());
+			availListMap.put(head, new DefaultListFacade<>());
 			DefaultListFacade<EquipModFacade> selectedList =
-					new DefaultListFacade<EquipModFacade>();
+                    new DefaultListFacade<>();
 			selectedList.setContents(equip.getEqModifierList(head.isPrimary()));
 			selectedListMap.put(head, selectedList);
 		}
@@ -383,7 +383,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 
 		for (EquipmentHead head : equipHeads)
 		{
-			List<EquipModFacade> newEqMods = new ArrayList<EquipModFacade>();
+			List<EquipModFacade> newEqMods = new ArrayList<>();
 			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{

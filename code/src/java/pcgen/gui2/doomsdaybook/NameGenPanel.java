@@ -89,7 +89,7 @@ public class NameGenPanel extends JPanel
 	public Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
 	private Map<String, List<RuleSet>> categories =
-			new HashMap<String, List<RuleSet>>();
+            new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -685,12 +685,12 @@ public class NameGenPanel extends JPanel
 
 			List<RuleSet> cats = categories.get(catKey);
 			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
-			List<RuleSet> join = new ArrayList<RuleSet>();
+			List<RuleSet> join = new ArrayList<>();
 			join.addAll(cats);
 			join.retainAll(sexes);
 			Collections.sort(join, new DataElementComperator());
 
-			Vector<RuleSet> catalogs = new Vector<RuleSet>();
+			Vector<RuleSet> catalogs = new Vector<>();
 			int oldSelected = -1;
 			int n = 0;
 
@@ -726,7 +726,7 @@ public class NameGenPanel extends JPanel
 	//	Get a list of all the gender categories in the category map
 	private Vector<String> getGenderCategoryNames()
 	{
-		Vector<String> genders = new java.util.Vector<String>();
+		Vector<String> genders = new java.util.Vector<>();
 		Set<String> keySet = categories.keySet();
 		Iterator<String> itr = keySet.iterator();
 
@@ -750,7 +750,7 @@ public class NameGenPanel extends JPanel
 	private void loadGenderDD()
 	{
 		Vector<String> genders = getGenderCategoryNames();
-		Vector<String> selectable = new Vector<String>();
+		Vector<String> selectable = new Vector<>();
 		String gender = (String) cbSex.getSelectedItem();
 
 		//	Get the selected category name
@@ -801,7 +801,7 @@ public class NameGenPanel extends JPanel
 
 		if (cat == null)
 		{
-			thiscat = new ArrayList<RuleSet>();
+			thiscat = new ArrayList<>();
 			categories.put(category.getAttributeValue("title"), thiscat);
 		}
 		else
@@ -857,7 +857,7 @@ public class NameGenPanel extends JPanel
 	//	Get a list of category names from the categories map
 	private Vector<String> getCategoryNames()
 	{
-		Vector<String> cats = new java.util.Vector<String>();
+		Vector<String> cats = new java.util.Vector<>();
 		Set<String> keySet = categories.keySet();
 		Iterator<String> itr = keySet.iterator();
 
@@ -1043,7 +1043,7 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			Vector<DataElement> struct = new Vector<DataElement>();
+			Vector<DataElement> struct = new Vector<>();
 
 			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
 			{

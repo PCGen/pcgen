@@ -195,7 +195,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 */
 	public static <R extends Loadable> CDOMDirectSingleRef<R> getRef(R item)
 	{
-		return new CDOMDirectSingleRef<R>(item);
+		return new CDOMDirectSingleRef<>(item);
 	}
 
 	/**

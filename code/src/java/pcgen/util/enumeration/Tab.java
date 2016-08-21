@@ -49,7 +49,7 @@ public enum Tab
 
 	static
 	{
-		CaseInsensitiveMap<Tab> map = new CaseInsensitiveMap<Tab>();
+		CaseInsensitiveMap<Tab> map = new CaseInsensitiveMap<>();
 		for (Tab t : values())
 		{
 			Tab previous = map.put(t.toString(), t);

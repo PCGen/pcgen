@@ -63,7 +63,7 @@ public final class Deity extends PObject implements DeityFacade
 	@Override
 	public List<String> getDomainNames()
 	{
-		List<String> domains = new ArrayList<String>();
+		List<String> domains = new ArrayList<>();
 		for (CDOMReference<Domain> ref : getSafeListMods(Deity.DOMAINLIST))
 		{
 			for (Domain d : ref.getContainedObjects())
@@ -88,7 +88,7 @@ public final class Deity extends PObject implements DeityFacade
     @Override
 	public Collection<String> getPantheons()
 	{
-		Set<String> charDeityPantheon = new TreeSet<String>();
+		Set<String> charDeityPantheon = new TreeSet<>();
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
 		for (Indirect<String> indirect : getSafeSetFor(fk))
 		{

@@ -89,10 +89,10 @@ public class DamageReductionFacetTest extends
 		});
 
 		Map<DamageReduction, Set<Object>> drList =
-				new IdentityHashMap<DamageReduction, Set<Object>>();
+                new IdentityHashMap<>();
 		String listResult = drFacet.getDRString(id, drList);
 		assertEquals(listResult, "");
-		Set<Object> sourceSet = new HashSet<Object>();
+		Set<Object> sourceSet = new HashSet<>();
 		sourceSet.add(new Object());
 
 		drList.put(new DamageReduction(FormulaFactory.getFormulaFor(10),
@@ -247,7 +247,7 @@ public class DamageReductionFacetTest extends
 			.equalsIgnoreCase("15/good and magic; 10/lawful; 5/evil"));
 
 		Map<DamageReduction, Set<Object>> drList1 =
-				new IdentityHashMap<DamageReduction, Set<Object>>();
+                new IdentityHashMap<>();
 		drList1.put(new DamageReduction(FormulaFactory.getFormulaFor(10),
 			"epic"), sourceSet);
 		drList1.put(new DamageReduction(FormulaFactory.getFormulaFor(10),

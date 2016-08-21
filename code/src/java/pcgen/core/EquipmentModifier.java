@@ -73,7 +73,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		for (BonusObj bonus : getBonusList(caller))
 		{
@@ -122,7 +122,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private List<BonusObj> getBonusList(List<BonusObj> bonusList,
 		List<String> associations)
 	{
-		ArrayList<BonusObj> myBonusList = new ArrayList<BonusObj>(bonusList);
+		ArrayList<BonusObj> myBonusList = new ArrayList<>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)
 		{
 			final BonusObj aBonus  = myBonusList.get(i);
@@ -196,7 +196,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public List<String> getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
 	{
-		final List<String> retList = new ArrayList<String>();
+		final List<String> retList = new ArrayList<>();
 		for (SpecialProperty sp : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
 			String propName = sp.getParsedText(pc, caller, this);

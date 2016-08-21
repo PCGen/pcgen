@@ -57,8 +57,8 @@ public final class PJEP extends JEP
 	private Object parent;
 	private String variableSource;
 	private static List<Class<PCGenCommand>> commandList =
-			new ArrayList<Class<PCGenCommand>>();
-	private List<PCGenCommand> localCommandList = new ArrayList<PCGenCommand>();
+            new ArrayList<>();
+	private List<PCGenCommand> localCommandList = new ArrayList<>();
 
 	public static void addCommand(Class<PCGenCommand> clazz)
 	{

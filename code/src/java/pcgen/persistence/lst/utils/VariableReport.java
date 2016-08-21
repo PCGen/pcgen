@@ -83,14 +83,14 @@ public class VariableReport
 	{
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
 		Map<String, List<VarDefine>> gameModeVarMap =
-				new TreeMap<String, List<VarDefine>>();
+                new TreeMap<>();
 		Map<String, Integer> gameModeVarCountMap =
-				new TreeMap<String, Integer>();
+                new TreeMap<>();
 		for (GameMode gameMode : games)
 		{
-			List<VarDefine> varList = new ArrayList<VarDefine>();
-			Map<String, Integer> varCountMap = new HashMap<String, Integer>();
-			Set<File> processedLstFiles = new HashSet<File>();
+			List<VarDefine> varList = new ArrayList<>();
+			Map<String, Integer> varCountMap = new HashMap<>();
+			Set<File> processedLstFiles = new HashSet<>();
 			List<Campaign> campaignsForGameMode =
 					getCampaignsForGameMode(gameMode);
 			for (Campaign campaign : campaignsForGameMode)
@@ -148,7 +148,7 @@ public class VariableReport
 			Template template = cfg.getTemplate(reportFormat.getTemplate());
 
 			// data-model
-			Map<String, Object> input = new HashMap<String, Object>();
+			Map<String, Object> input = new HashMap<>();
 			input.put("gameModeVarMap", gameModeVarMap);
 			input.put("gameModeVarCountMap", gameModeVarCountMap);
 			input.put("pathIgnoreLen", dataPathLen + 1);
@@ -174,12 +174,12 @@ public class VariableReport
 
 	private List<Campaign> getCampaignsForGameMode(GameMode game)
 	{
-		List<String> gameModeList = new ArrayList<String>();
+		List<String> gameModeList = new ArrayList<>();
 		gameModeList.addAll(game.getAllowedModes());
 
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
-		Set<Campaign> gameModeCampaigns = new HashSet<Campaign>();
+		Set<Campaign> gameModeCampaigns = new HashSet<>();
 		for (Campaign campaign : allCampaigns)
 		{
 			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
@@ -201,7 +201,7 @@ public class VariableReport
 			}
 		}
 
-		return new ArrayList<Campaign>(gameModeCampaigns);
+		return new ArrayList<>(gameModeCampaigns);
 	}
 
 	private List<File> processCampaign(Campaign campaign,
@@ -209,7 +209,7 @@ public class VariableReport
 		Set<File> processedLstFiles) throws FileNotFoundException, IOException
 	{
 		List<CampaignSourceEntry> cseList =
-				new ArrayList<CampaignSourceEntry>();
+                new ArrayList<>();
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));
 		//TODO: Handle class with a special processor that tracks the class, sublass and level 
@@ -236,7 +236,7 @@ public class VariableReport
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_GLOBALMOD));
 
-		List<File> missingLstFiles = new ArrayList<File>();
+		List<File> missingLstFiles = new ArrayList<>();
 		for (CampaignSourceEntry cse : cseList)
 		{
 			File lstFile = new File(cse.getURI());
@@ -263,7 +263,7 @@ public class VariableReport
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		try
 		{
-			Map<String, String> varUseMap = new HashMap<String, String>();
+			Map<String, String> varUseMap = new HashMap<>();
 			String line = br.readLine();
 
 			while (line != null)

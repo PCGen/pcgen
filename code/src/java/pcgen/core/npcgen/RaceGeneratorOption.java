@@ -46,7 +46,7 @@ public class RaceGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<Race>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$

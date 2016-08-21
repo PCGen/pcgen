@@ -199,7 +199,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		}
 
 		private List<AssociationChangeListener> listeners =
-				new ArrayList<AssociationChangeListener>();
+                new ArrayList<>();
 
 		/**
 		 * Adds a new AssociationChangeListener to receive
@@ -313,7 +313,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		Map<Skill, Double> map = getInfo(id);
 		if (map == null)
 		{
-			map = new IdentityHashMap<Skill, Double>();
+			map = new IdentityHashMap<>();
 			setCache(id, map);
 		}
 		return map;

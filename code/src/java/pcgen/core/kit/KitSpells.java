@@ -59,7 +59,7 @@ public final class KitSpells extends BaseKit
 	private String spellBook;
 	private CDOMSingleRef<PCClass> castingClass;
 	DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer> spells =
-			new DoubleKeyMap<KnownSpellIdentifier, List<CDOMSingleRef<Ability>>, Integer>();
+            new DoubleKeyMap<>();
 	private Formula countFormula;
 
 	private transient List<KitSpellBookEntry> theSpells = null;
@@ -136,7 +136,7 @@ public final class KitSpells extends BaseKit
 
 		String workingBook =
 				spellBook == null ? Globals.getDefaultSpellBook() : spellBook;
-		List<KitSpellBookEntry> aSpellList = new ArrayList<KitSpellBookEntry>();
+		List<KitSpellBookEntry> aSpellList = new ArrayList<>();
 		if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS)
 			&& !workingBook.equals(Globals.getDefaultSpellBook()))
 		{
@@ -202,7 +202,7 @@ public final class KitSpells extends BaseKit
 			{
 				xs = Globals.getChoiceFromList("Choose " + aClass.getKeyName()
 						+ " spell(s) for " + workingBook, aSpellList,
-						new ArrayList<KitSpellBookEntry>(), numberOfChoices, aPC);
+                        new ArrayList<>(), numberOfChoices, aPC);
 
 				if (xs.size() != 0)
 				{
@@ -221,7 +221,7 @@ public final class KitSpells extends BaseKit
 				obj.setPCClass(aClass);
 				if (theSpells == null)
 				{
-					theSpells = new ArrayList<KitSpellBookEntry>();
+					theSpells = new ArrayList<>();
 				}
 				theSpells.add(obj);
 			}
@@ -317,7 +317,7 @@ public final class KitSpells extends BaseKit
 		final CharacterSpell cs = new CharacterSpell(owner, spell);
 		final List<CDOMSingleRef<Ability>> modifierList = aSpell.getModifiers();
 		int adjustedLevel = spLevel;
-		List<Ability> metamagicFeatList = new ArrayList<Ability>();
+		List<Ability> metamagicFeatList = new ArrayList<>();
 		for (CDOMSingleRef<Ability> feat : modifierList)
 		{
 			Ability anAbility = feat.get();

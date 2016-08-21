@@ -72,7 +72,7 @@ public final class PCGenDataConvert extends JFrame
 	{
 		PCGenDataConvert frame = new PCGenDataConvert();
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		List<ConvertSubPanel> panels = new ArrayList<ConvertSubPanel>();
+		List<ConvertSubPanel> panels = new ArrayList<>();
 		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
 		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
 		panels.add(new StartupPanel(gameModeFileLoader, campaignFileLoader));

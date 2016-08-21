@@ -376,7 +376,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			info.append("  <b>Requirements</b>: ").append(aString);
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
+		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(getSafeListFor(ListKey.KIT_TASKS));
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
@@ -424,8 +424,8 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			return;
 		}
 
-		final List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
-		final List<String> warnings = new ArrayList<String>();
+		final List<BaseKit> thingsToAdd = new ArrayList<>();
+		final List<String> warnings = new ArrayList<>();
 		aKit.testApplyKit(aPC, thingsToAdd, warnings);
 		if (Logging.isLoggable(Logging.WARNING))
 		{

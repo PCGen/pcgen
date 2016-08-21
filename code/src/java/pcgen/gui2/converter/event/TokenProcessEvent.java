@@ -112,13 +112,13 @@ public class TokenProcessEvent extends EventObject
 	{
 		if (injected == null)
 		{
-			injected = new ArrayList<CDOMObject>();
+			injected = new ArrayList<>();
 		}
 		injected.add(cdo);
 	}
 
 	public List<CDOMObject> getInjected()
 	{
-		return injected == null ? null : new ArrayList<CDOMObject>(injected);
+		return injected == null ? null : new ArrayList<>(injected);
 	}
 }

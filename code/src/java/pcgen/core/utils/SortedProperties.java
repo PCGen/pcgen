@@ -53,7 +53,7 @@ public class SortedProperties extends Properties
 	public void mystore(final FileOutputStream out, final String header)
 	{
 		BufferedWriter bw = null;
-		final SortedMap<Object, Object> aMap = new TreeMap<Object, Object>(this);
+		final SortedMap<Object, Object> aMap = new TreeMap<>(this);
 		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
 		Map.Entry<Object, Object> entry;
 

@@ -192,7 +192,7 @@ public class Prerequisite implements Cloneable
 	{
 		if (prerequisites == null)
 		{
-			prerequisites = new ArrayList<Prerequisite>();
+			prerequisites = new ArrayList<>();
 		}
 		prerequisites.add(prereq);
 	}
@@ -344,7 +344,7 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			copy.prerequisites = new ArrayList<Prerequisite>();
+			copy.prerequisites = new ArrayList<>();
 			for ( Prerequisite subreq : prerequisites )
 			{
 				copy.prerequisites.add(subreq.clone());
@@ -503,7 +503,7 @@ public class Prerequisite implements Cloneable
 				return false;
 			}
 			ArrayList<Prerequisite> removed =
-					new ArrayList<Prerequisite>(prerequisites);
+                    new ArrayList<>(prerequisites);
 			removed.removeAll(otherPRL);
 			if (!removed.isEmpty())
 			{
@@ -572,7 +572,7 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			copy.prerequisites = new ArrayList<Prerequisite>();
+			copy.prerequisites = new ArrayList<>();
 			for ( Prerequisite subreq : prerequisites )
 			{
 				copy.prerequisites.add(subreq.specify(assoc));

@@ -82,7 +82,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		this.treeTable = table;
 		treeRenderer = (TreeRenderer) treeTable.getTreeCellRenderer();
 
-		equipsetMap = new HashMap<EquipmentSetFacade, EquipmentTreeTableModel>();
+		equipsetMap = new HashMap<>();
 		equipsets = character.getEquipmentSets();
 		for (EquipmentSetFacade equipset : equipsets)
 		{
@@ -252,7 +252,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	private static class TreeRenderer extends CharacterTreeCellRenderer
 	{
 
-		private Map<String, ImageIcon> iconCache = new HashMap<String, ImageIcon>();
+		private Map<String, ImageIcon> iconCache = new HashMap<>();
 
 		@Override
 		public Component getTreeCellRendererComponent(final JTree tree,

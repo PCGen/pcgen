@@ -40,7 +40,7 @@ public abstract class Combatant implements InitHolder
 
 	/**  The object that contains all initiative information */
 	public SystemInitiative init;
-	protected List<Effect> effects = new ArrayList<Effect>();
+	protected List<Effect> effects = new ArrayList<>();
 	protected String comType = "Enemy";
 	protected State status = State.Nothing;
 	protected SystemHP hitPoints;
@@ -169,7 +169,7 @@ public abstract class Combatant implements InitHolder
     @Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
 		//Iterate through all the columns, and create the vector in that order
 		for ( String columnName : columnOrder )

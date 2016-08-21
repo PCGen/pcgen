@@ -50,8 +50,8 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundAndChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<PrimitiveChoiceSet<T>>(
-			ChoiceSetUtilities.WRITEABLE_SORTER);
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
+            ChoiceSetUtilities.WRITEABLE_SORTER);
 
 	/**
 	 * Constructs a new CompoundAndChoiceSet which will contain objects

@@ -34,7 +34,7 @@ public class TypeIntegrationTest extends
 {
 
 	static TypeLst token = new TypeLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Domain> getCDOMClass()

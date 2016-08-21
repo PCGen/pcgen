@@ -60,9 +60,9 @@ public final class AssociationKey<T>
 	 * CDOMObject and the TOKEN that processed to load the item into the
 	 * Context.
 	 */
-	public static final AssociationKey<CDOMObject> OWNER = new AssociationKey<CDOMObject>();
+	public static final AssociationKey<CDOMObject> OWNER = new AssociationKey<>();
 
-	public static final AssociationKey<String> TOKEN = new AssociationKey<String>();
+	public static final AssociationKey<String> TOKEN = new AssociationKey<>();
 
 	/*
 	 * End Load (Context) items
@@ -72,27 +72,27 @@ public final class AssociationKey<T>
 	 * These items are used by Tokens to store relationship information to specific items.
 	 */
 
-	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<SkillCost>();
+	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<>();
 
-	public static final AssociationKey<Integer> SPELL_LEVEL = new AssociationKey<Integer>();
+	public static final AssociationKey<Integer> SPELL_LEVEL = new AssociationKey<>();
 
-	public static final AssociationKey<Boolean> KNOWN = new AssociationKey<Boolean>();
+	public static final AssociationKey<Boolean> KNOWN = new AssociationKey<>();
 
-	public static final AssociationKey<List<String>> ASSOC_CHOICES = new AssociationKey<List<String>>();
+	public static final AssociationKey<List<String>> ASSOC_CHOICES = new AssociationKey<>();
 
-	public static final AssociationKey<Nature> NATURE = new AssociationKey<Nature>();
+	public static final AssociationKey<Nature> NATURE = new AssociationKey<>();
 
-	public static final AssociationKey<CDOMSingleRef<AbilityCategory>> CATEGORY = new AssociationKey<CDOMSingleRef<AbilityCategory>>();
+	public static final AssociationKey<CDOMSingleRef<AbilityCategory>> CATEGORY = new AssociationKey<>();
 
-	public static final AssociationKey<String> CASTER_LEVEL = new AssociationKey<String>();
+	public static final AssociationKey<String> CASTER_LEVEL = new AssociationKey<>();
 
-	public static final AssociationKey<Formula> TIMES_PER_UNIT = new AssociationKey<Formula>();
+	public static final AssociationKey<Formula> TIMES_PER_UNIT = new AssociationKey<>();
 
-	public static final AssociationKey<String> TIME_UNIT = new AssociationKey<String>();
+	public static final AssociationKey<String> TIME_UNIT = new AssociationKey<>();
 
-	public static final AssociationKey<String> SPELLBOOK = new AssociationKey<String>();
+	public static final AssociationKey<String> SPELLBOOK = new AssociationKey<>();
 
-	public static final AssociationKey<String> DC_FORMULA = new AssociationKey<String>();
+	public static final AssociationKey<String> DC_FORMULA = new AssociationKey<>();
 
 	/*
 	 * End token items
@@ -108,7 +108,7 @@ public final class AssociationKey<T>
 	 * Note: SPECIALTY is best done after SubClassFacet is made type safe.
 	 * Making SubClassFacet type safe is gated by CODE-1928
 	 */
-	public static final AssociationKey<String> SPECIALTY = new AssociationKey<String>();
+	public static final AssociationKey<String> SPECIALTY = new AssociationKey<>();
 
 	/*
 	 * End Player Character items related to CODE-1908
@@ -145,7 +145,7 @@ public final class AssociationKey<T>
 		AssociationKey<OT> key = (AssociationKey<OT>) map.get(assocName);
 		if (key == null)
 		{
-			key = new AssociationKey<OT>();
+			key = new AssociationKey<>();
 			map.put(assocName, key);
 		}
 		return key;
@@ -153,7 +153,7 @@ public final class AssociationKey<T>
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<AssociationKey<?>>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = AssociationKey.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{

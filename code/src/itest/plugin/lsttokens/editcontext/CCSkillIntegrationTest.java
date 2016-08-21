@@ -35,7 +35,7 @@ public class CCSkillIntegrationTest extends
 {
 
 	static CcskillLst token = new CcskillLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

@@ -278,7 +278,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			ReferenceFacade<SourceSelectionFacade> ref = frame.getCurrentSourceSelectionRef();
 			setSelectedItem(ref.get());
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getDisplayedSourceSelections();
-			setListModel(new SortedListFacade<SourceSelectionFacade>(Comparators.toStringIgnoreCaseCollator(), sources));
+			setListModel(new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(), sources));
 			ref.addReferenceListener(this);
 		}
 		
@@ -361,7 +361,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		public LoggingLevelMenu()
 		{
 			super(actionMap.get(PCGenActionMap.LOGGING_LEVEL_COMMAND));
-			DefaultListFacade<LoggingLevelWrapper> levels = new DefaultListFacade<LoggingLevelWrapper>();
+			DefaultListFacade<LoggingLevelWrapper> levels = new DefaultListFacade<>();
 			Level currentLvl = Logging.getCurrentLoggingLevel();
 			LoggingLevelWrapper current = null;
 			for (Level level : Logging.getLoggingLevels())

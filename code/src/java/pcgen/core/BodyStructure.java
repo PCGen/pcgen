@@ -86,12 +86,12 @@ public class BodyStructure implements BodyStructureFacade
 	public BodyStructure(String name, boolean holdsAnyType, Set<Type> forbiddenTypes)
 	{
 		this.name = name;
-		this.forbiddenTypes = new HashSet<Type>();
+		this.forbiddenTypes = new HashSet<>();
 		if (forbiddenTypes != null)
 		{
 			this.forbiddenTypes.addAll(forbiddenTypes);
 		}
-		slots = new ArrayList<EquipSlot>();
+		slots = new ArrayList<>();
 		this.holdsAnyType = holdsAnyType;
 	}
 

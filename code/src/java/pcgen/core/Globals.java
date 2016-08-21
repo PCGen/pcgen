@@ -85,7 +85,7 @@ import pcgen.util.enumeration.VisionType;
 public final class Globals
 {
 	/** These are changed during normal operation */
-	private static List<PlayerCharacter>            pcList      = new ArrayList<PlayerCharacter>();
+	private static List<PlayerCharacter>            pcList      = new ArrayList<>();
 	/** Race, a s_EMPTYRACE */
 	public static  Race            s_EMPTYRACE;
 
@@ -103,18 +103,18 @@ public final class Globals
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
 	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
 	
-	private static final List<String> custColumnWidth = new ArrayList<String>();
+	private static final List<String> custColumnWidth = new ArrayList<>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
 
 	/** we need maps for efficient lookups */
-	private static Map<URI, Campaign>    campaignMap     = new HashMap<URI, Campaign>();
-	private static Map<String, Campaign> campaignNameMap = new HashMap<String, Campaign>();
-	private static Map<String, Spell>    spellMap        = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
-	private static Map<String, String>   eqSlotMap       = new HashMap<String, String>();
+	private static Map<URI, Campaign>    campaignMap     = new HashMap<>();
+	private static Map<String, Campaign> campaignNameMap = new HashMap<>();
+	private static Map<String, Spell>    spellMap        = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+	private static Map<String, String>   eqSlotMap       = new HashMap<>();
 
 	/** We use lists for efficient iteration */
-	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
+	private static List<Campaign> campaignList          = new ArrayList<>(85);
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -184,7 +184,7 @@ public final class Globals
 			return SettingsHandler.getGame().getAllowedModes();
 		}
 
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 	/**
@@ -281,9 +281,9 @@ public final class Globals
 	 */
 	public static <T extends CDOMObject> List<T> getPObjectsOfType(final Collection<T> aPObjectList, final String aType)
 	{
-		final ArrayList<T> ret = new ArrayList<T>(aPObjectList.size());
+		final ArrayList<T> ret = new ArrayList<>(aPObjectList.size());
 
-		List<String> typeList = new ArrayList<String>();
+		List<String> typeList = new ArrayList<>();
 		StringTokenizer tok = new StringTokenizer(aType, ".");
 		while (tok.hasMoreTokens())
 		{
@@ -533,7 +533,7 @@ public final class Globals
 			return SettingsHandler.getGame().getDeityList();
 		}
 
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
 
 	/**
@@ -852,7 +852,7 @@ public final class Globals
 		{
 			typeList = aEq.typeList();
 		}
-		List<String> upperTypeList = new ArrayList<String>(typeList.size());
+		List<String> upperTypeList = new ArrayList<>(typeList.size());
 		for (String type : typeList)
 		{
 			upperTypeList.add(type.toUpperCase());
@@ -987,7 +987,7 @@ public final class Globals
 		//////////////////////////////////////
 
 		// Clear Maps (not strictly necessary, but done for consistency)
-		spellMap = new TreeMap<String, Spell>(String.CASE_INSENSITIVE_ORDER);
+		spellMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 		VisionType.clearConstants();
 
 		// Perform other special cleanup
@@ -1026,7 +1026,7 @@ public final class Globals
 	 */
 	private static void executePostExportCommand(final String fileName, String postExportCommand)
 	{
-		ArrayList<String> aList = new ArrayList<String>();
+		ArrayList<String> aList = new ArrayList<>();
 		StringTokenizer aTok = new StringTokenizer(postExportCommand, " ");
 		while (aTok.hasMoreTokens())
 		{
@@ -1323,16 +1323,16 @@ public final class Globals
 		final List<T> choiceList, final List<T> selectedList, final int pool,
 		final boolean forceChoice, final boolean preferRadioSelection, PlayerCharacter pc)
 	{
-		List<T> startingSelectedList = new ArrayList<T>();
+		List<T> startingSelectedList = new ArrayList<>();
 		if (selectedList != null)
 		{
 			startingSelectedList = selectedList;
 		}
 
 		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<T>(title,
-						choiceList,
-						startingSelectedList, pool);
+                new CDOMChooserFacadeImpl<>(title,
+                        choiceList,
+                        startingSelectedList, pool);
 		chooserFacade.setAllowsDups(false);
 		chooserFacade.setRequireCompleteSelection(forceChoice);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));

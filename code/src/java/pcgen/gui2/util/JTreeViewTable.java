@@ -112,7 +112,7 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
-		return new TreeViewTableModel<TM>(dataView);
+		return new TreeViewTableModel<>(dataView);
 	}
 
 	private JCheckBoxMenuItem createMenuItem(TableColumn column)
@@ -246,7 +246,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 			return Collections.emptyList();
 		}
-		List<Object> data = new ArrayList<Object>(paths.length);
+		List<Object> data = new ArrayList<>(paths.length);
 		for (TreePath path : paths)
 		{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();

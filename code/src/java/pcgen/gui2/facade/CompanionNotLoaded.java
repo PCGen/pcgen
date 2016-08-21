@@ -57,9 +57,9 @@ public class CompanionNotLoaded implements CompanionFacade
 	 */
 	public CompanionNotLoaded(String name, File file, RaceFacade race, String compType)
 	{
-		this.nameRef = new DefaultReferenceFacade<String>(name);
-		this.fileRef = new DefaultReferenceFacade<File>(file);
-		this.raceRef = new DefaultReferenceFacade<RaceFacade>(race);
+		this.nameRef = new DefaultReferenceFacade<>(name);
+		this.fileRef = new DefaultReferenceFacade<>(file);
+		this.raceRef = new DefaultReferenceFacade<>(race);
 		this.companionType = compType;
 	}
 	

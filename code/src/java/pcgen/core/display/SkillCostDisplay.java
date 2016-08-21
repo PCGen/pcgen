@@ -58,7 +58,7 @@ public class SkillCostDisplay
 			boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
-		List<String> explanation = new ArrayList<String>();
+		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SKILL." + keyName).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
@@ -203,7 +203,7 @@ public class SkillCostDisplay
 	public static String getSituationModifierExplanation(Skill sk,
 		String situation, PlayerCharacter aPC, boolean shortForm)
 	{
-		List<String> explanation = new ArrayList<String>();
+		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SITUATION." + keyName + "=" + situation).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())

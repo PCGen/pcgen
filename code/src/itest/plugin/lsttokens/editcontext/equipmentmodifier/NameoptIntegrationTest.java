@@ -32,7 +32,7 @@ public class NameoptIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 	static NameoptToken token = new NameoptToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

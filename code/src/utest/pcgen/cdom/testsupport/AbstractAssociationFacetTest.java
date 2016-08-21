@@ -400,7 +400,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		{
 			// This is ok too
 		}
-		List<CT> pct = new ArrayList<CT>();
+		List<CT> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		try

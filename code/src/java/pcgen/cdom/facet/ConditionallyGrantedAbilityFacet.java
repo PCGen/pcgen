@@ -59,11 +59,11 @@ public class ConditionallyGrantedAbilityFacet extends
 		Collection<CNAbilitySelection> current = getSet(id);
 		Collection<CNAbilitySelection> qualified = conditionalAbilityFacet
 				.getQualifiedSet(id);
-		List<CNAbilitySelection> toRemove = new ArrayList<CNAbilitySelection>(
-				current);
+		List<CNAbilitySelection> toRemove = new ArrayList<>(
+                current);
 		toRemove.removeAll(qualified);
-		List<CNAbilitySelection> toAdd = new ArrayList<CNAbilitySelection>(
-				qualified);
+		List<CNAbilitySelection> toAdd = new ArrayList<>(
+                qualified);
 		toAdd.removeAll(current);
 		if (!toAdd.isEmpty() || !toRemove.isEmpty())
 		{
@@ -121,8 +121,8 @@ public class ConditionallyGrantedAbilityFacet extends
 	@Override
 	protected Set<CNAbilitySelection> getComponentSet()
 	{
-		return new WrappedMapSet<CNAbilitySelection>(
-				IdentityHashMap.class);
+		return new WrappedMapSet<>(
+                IdentityHashMap.class);
 	}
 
 	public void setConditionalAbilityFacet(

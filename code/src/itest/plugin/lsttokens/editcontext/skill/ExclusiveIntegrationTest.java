@@ -32,7 +32,7 @@ public class ExclusiveIntegrationTest extends
 {
 
 	static ExclusiveToken token = new ExclusiveToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

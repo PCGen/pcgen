@@ -114,7 +114,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_ADDED, element, index);
+					e = new ListEvent<>(source, ListEvent.ELEMENT_ADDED, element, index);
 				}
 				((ListListener) listeners[i + 1]).elementAdded(e);
 			}
@@ -141,7 +141,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_REMOVED, element, index);
+					e = new ListEvent<>(source, ListEvent.ELEMENT_REMOVED, element, index);
 				}
 				((ListListener) listeners[i + 1]).elementRemoved(e);
 			}
@@ -165,7 +165,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source);
+					e = new ListEvent<>(source);
 				}
 				((ListListener) listeners[i + 1]).elementsChanged(e);
 			}
@@ -192,7 +192,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_MODIFIED, element, index);
+					e = new ListEvent<>(source, ListEvent.ELEMENT_MODIFIED, element, index);
 				}
 				((ListListener) listeners[i + 1]).elementModified(e);
 			}

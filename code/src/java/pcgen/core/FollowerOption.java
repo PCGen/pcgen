@@ -151,7 +151,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 
 	public Collection<FollowerOption> getExpandedOptions()
 	{
-		final List<FollowerOption> options = new ArrayList<FollowerOption>();
+		final List<FollowerOption> options = new ArrayList<>();
 		if (ref.getObjectCount() == 1)
 		{
 			options.add( this );

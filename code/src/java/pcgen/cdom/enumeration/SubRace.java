@@ -112,7 +112,7 @@ public final class SubRace implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<SubRace>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

@@ -44,7 +44,7 @@ import pcgen.core.Skill;
 public class SkillChoice
 {
 	private String theKey = null;
-	private WeightedCollection<Skill> theSkillList = new WeightedCollection<Skill>();
+	private WeightedCollection<Skill> theSkillList = new WeightedCollection<>();
 	
 	/**
 	 * Creates a new SkillChoice.

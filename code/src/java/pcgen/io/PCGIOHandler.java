@@ -76,8 +76,8 @@ import pcgen.util.Logging;
 public final class PCGIOHandler extends IOHandler
 {
 
-	private final List<String> errors = new ArrayList<String>();
-	private final List<String> warnings = new ArrayList<String>();
+	private final List<String> errors = new ArrayList<>();
+	private final List<String> warnings = new ArrayList<>();
 
 	/**
 	 * Selector
@@ -100,7 +100,7 @@ public final class PCGIOHandler extends IOHandler
 	 */
 	public List<String> getMessages()
 	{
-		final List<String> messages = new ArrayList<String>();
+		final List<String> messages = new ArrayList<>();
 
 		messages.addAll(errors);
 		messages.addAll(warnings);
@@ -139,7 +139,7 @@ public final class PCGIOHandler extends IOHandler
 			aPost = aChoice.substring(iOffs + 1);
 		}
 
-		final List<String> saNames = new ArrayList<String>();
+		final List<String> saNames = new ArrayList<>();
 		final StringTokenizer aTok = new StringTokenizer(aString, ",");
 
 		while (aTok.hasMoreTokens())
@@ -279,7 +279,7 @@ public final class PCGIOHandler extends IOHandler
 	 */
 	private List<String> readPcgLines(InputStream in)
 	{
-		final List<String> lines = new ArrayList<String>();
+		final List<String> lines = new ArrayList<>();
 
 		// try reading in all the lines in the .pcg file
 		BufferedReader br = null;
@@ -646,7 +646,7 @@ public final class PCGIOHandler extends IOHandler
 		String charFiles = lines.get(1);
 		String[] files = charFiles.split(",");
 
-		List<File> fileList = new ArrayList<File>();
+		List<File> fileList = new ArrayList<>();
 		for (String fileName : files)
 		{
 			// try to find it in the party's directory

@@ -70,7 +70,7 @@ public class ListSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		for (CDOMReference ref : cdo.getModifiedLists())
 		{
-			List<ClassSkillList> useList = new ArrayList<ClassSkillList>();
+			List<ClassSkillList> useList = new ArrayList<>();
 			for (Object list : ref.getContainedObjects())
 			{
 				if (list instanceof ClassSkillList)

@@ -44,7 +44,7 @@ public class FacadeListModel<E> extends AbstractListModel implements ListListene
 
 	public FacadeListModel(ListFacade<E> list)
 	{
-		this.delegate = new DelegatingListFacade<E>();
+		this.delegate = new DelegatingListFacade<>();
 		delegate.addListListener(this);
 		setListFacade(list);
 	}

@@ -33,7 +33,7 @@ public class TreasureGenerator
 {
 	private static TreasureGenerator theInstance = new TreasureGenerator();
 	
-	private static HashMap<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<GameMode,List<EquipmentTable>>();
+	private static HashMap<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<>();
 	
 	private static File tablesDir = new File(new File(ConfigurationSettings.getSystemsDir())
 			+ File.separator + "npcgen"  //$NON-NLS-1$ 
@@ -75,7 +75,7 @@ public class TreasureGenerator
 					}
 				});
 		
-				tables = new ArrayList<EquipmentTable>();
+				tables = new ArrayList<>();
 				tables.addAll(parser.parse(fileNames));
 				theTreasureTables.put( aMode, tables );
 				return tables;
@@ -93,7 +93,7 @@ public class TreasureGenerator
 		List<EquipmentTable> tables = theTreasureTables.get( aMode );
 		if ( tables == null )
 		{
-			tables = new ArrayList<EquipmentTable>();
+			tables = new ArrayList<>();
 			theTreasureTables.put( aMode , tables );
 		}
 		tables.add( aTable );

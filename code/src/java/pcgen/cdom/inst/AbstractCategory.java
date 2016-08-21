@@ -102,19 +102,19 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMAllRef<T>(getReferenceClass());
+		return new CDOMAllRef<>(getReferenceClass());
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<T>(getReferenceClass(), types);
+		return new CDOMTypeRef<>(getReferenceClass(), types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String ident)
 	{
-		return new CDOMCategorizedSingleRef<T>(getReferenceClass(), this, ident);
+		return new CDOMCategorizedSingleRef<>(getReferenceClass(), this, ident);
 	}
 
 	@Override

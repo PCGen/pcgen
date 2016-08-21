@@ -111,7 +111,7 @@ public class CharacterAbilities
 		this.delegate = delegate;
 		this.dataSetFacade = dataSetFacade;
 		this.todoManager = todoManager;
-		abilityCatSelectionListeners = new ArrayList<ChangeListener>();
+		abilityCatSelectionListeners = new ArrayList<>();
 		
 		initForCharacter();
 	}
@@ -127,9 +127,9 @@ public class CharacterAbilities
 	
 	private void initForCharacter()
 	{
-		abilityListMap = 
-				new LinkedHashMap<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>>();
-		activeCategories = new DefaultListFacade<AbilityCategoryFacade>();
+		abilityListMap =
+                new LinkedHashMap<>();
+		activeCategories = new DefaultListFacade<>();
 
 		charID = theCharacter.getCharID();
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
@@ -165,8 +165,8 @@ public class CharacterAbilities
 	synchronized void rebuildAbilityLists()
 	{
 		Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap =
-				new LinkedHashMap<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>>();
-		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<AbilityCategoryFacade>();
+                new LinkedHashMap<>();
+		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<>();
 
 		for (AbilityCategoryFacade category : dataSetFacade.getAbilities().getKeys())
 		{
@@ -213,7 +213,7 @@ public class CharacterAbilities
 			updateAbilityCategoryTodo((AbilityCategory) category);
 		}
 		
-		Set<AbilityCategoryFacade> origCats = new HashSet<AbilityCategoryFacade>(abilityListMap.keySet());
+		Set<AbilityCategoryFacade> origCats = new HashSet<>(abilityListMap.keySet());
 		for (AbilityCategoryFacade category : origCats)
 		{
 			if (!workingAbilityListMap.containsKey(category))
@@ -307,7 +307,7 @@ public class CharacterAbilities
 	private void addCategorisedAbility(CNAbility cna, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
 	{
 		Ability ability = cna.getAbility();
-		List<CNAbilitySelection> cas = new ArrayList<CNAbilitySelection>();
+		List<CNAbilitySelection> cas = new ArrayList<>();
 		Category<Ability> cat = cna.getAbilityCategory();
 		Nature nature = cna.getNature();
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -475,7 +475,7 @@ public class CharacterAbilities
 		DefaultListFacade<AbilityFacade> abList = abilityListMap.get(category);
 		if (abList == null)
 		{
-			abList = new DefaultListFacade<AbilityFacade>();
+			abList = new DefaultListFacade<>();
 			abilityListMap.put(category, abList);
 		}
 		return abList;
@@ -721,7 +721,7 @@ public class CharacterAbilities
 		DefaultListFacade<AbilityFacade> listFacade = workingAbilityListMap.get(cat);
 		if (listFacade == null)
 		{
-			listFacade = new  DefaultListFacade<AbilityFacade>();
+			listFacade = new DefaultListFacade<>();
 			workingAbilityListMap.put(cat, listFacade);
 		}
 		if (!listFacade.containsElement(ability))

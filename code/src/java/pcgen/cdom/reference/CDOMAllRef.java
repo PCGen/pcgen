@@ -143,7 +143,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 		{
 			if (referencedList == null)
 			{
-				referencedList = new ArrayList<T>();
+				referencedList = new ArrayList<>();
 			}
 			referencedList.add(item);
 		}

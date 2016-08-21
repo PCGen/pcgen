@@ -91,7 +91,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	public List<PCTemplate> getConditionalTemplates(int totalLevels,
 			int totalHitDice)
 	{
-		List<PCTemplate> returnList = new ArrayList<PCTemplate>();
+		List<PCTemplate> returnList = new ArrayList<>();
 
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
@@ -126,7 +126,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	@Override
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
-		List<BonusObj> list = new ArrayList<BonusObj>(super.getRawBonusList(pc));
+		List<BonusObj> list = new ArrayList<>(super.getRawBonusList(pc));
 		/*
 		 * TODO Does this require a test of getTotalLevels() totalHitDice() on
 		 * the PC?

@@ -60,9 +60,9 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 
 	public Collection<SpellLevel> getLevels(PlayerCharacter pc)
 	{
-		List<SpellLevel> list = new ArrayList<SpellLevel>();
-		Converter<PCClass, PCClass> conv = new AddFilterConverter<PCClass, PCClass>(
-				new DereferencingConverter<PCClass>(pc), this);
+		List<SpellLevel> list = new ArrayList<>();
+		Converter<PCClass, PCClass> conv = new AddFilterConverter<>(
+                new DereferencingConverter<>(pc), this);
 		for (PCClass cl : filter.getCollection(pc, conv))
 		{
 			int min = minimumLevel.resolve(pc, cl.getQualifiedKey()).intValue();

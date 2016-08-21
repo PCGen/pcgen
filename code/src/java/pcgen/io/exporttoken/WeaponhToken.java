@@ -126,7 +126,7 @@ public class WeaponhToken extends WeaponToken
 		Equipment eq = new Equipment();
 		eq.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 		eq.put(StringKey.KEY_NAME, "KEY_Unarmed Strike");
-		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
+		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<>(wp));
 		eq.put(StringKey.OUTPUT_NAME, LanguageBundle.getString("Equipment.UnarmedStrike"));
 		eq.addType(Type.WEAPON);
 		eq.addType(Type.MELEE);

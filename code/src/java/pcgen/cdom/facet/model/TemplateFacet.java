@@ -86,7 +86,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 	@Override
 	protected Map<PCTemplate, Set<Object>> getComponentMap()
 	{
-		return new LinkedHashMap<PCTemplate, Set<Object>>();
+		return new LinkedHashMap<>();
 	}
 
 	public void init()

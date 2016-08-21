@@ -36,7 +36,7 @@ public final class DisplayLocation implements TypeSafeConstant,
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<DisplayLocation> typeMap = new CaseInsensitiveMap<DisplayLocation>();
+	private static CaseInsensitiveMap<DisplayLocation> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class

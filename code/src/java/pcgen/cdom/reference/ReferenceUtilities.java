@@ -115,7 +115,7 @@ public final class ReferenceUtilities
 			return "";
 		}
 
-		Set<String> resultSet = new TreeSet<String>();
+		Set<String> resultSet = new TreeSet<>();
 		for (CDOMReference<? extends CDOMObject> ref : refCollection)
 		{
 			for (CDOMObject obj : ref.getContainedObjects())

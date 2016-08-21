@@ -59,14 +59,14 @@ public final class AssociationListKey<T>
 	 * This is closely related to the transition to ChooseSelectionActor instead
 	 * of ChooseResultActor, so this item is related to CODE-1902
 	 */
-	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<FixedStringList>();
+	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<>();
 
 	/*
 	 * ADD is a widely used key used to store the information about items added to the PC.
 	 * These items are stored against he TransitionChoice.
 	 * This is a candidate to be sunset as part of CODE-1908
 	 */
-	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
+	public static final AssociationListKey<Object> ADD = new AssociationListKey<>();
 
 	/*
 	 * End non-local token-related keys
@@ -103,7 +103,7 @@ public final class AssociationListKey<T>
 		AssociationListKey<OT> key = (AssociationListKey<OT>) map.get(keyName);
 		if (key == null)
 		{
-			key = new AssociationListKey<OT>();
+			key = new AssociationListKey<>();
 			map.put(keyName, key);
 		}
 		return key;
@@ -111,7 +111,7 @@ public final class AssociationListKey<T>
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<AssociationListKey<?>>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = AssociationListKey.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{

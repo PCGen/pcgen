@@ -50,7 +50,7 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 		Map<PCStringKey, String> rci = getInfo(id);
 		if (rci == null)
 		{
-			rci = new HashMap<PCStringKey, String>();
+			rci = new HashMap<>();
 			setCache(id, rci);
 		}
 		return rci;

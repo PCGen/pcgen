@@ -61,7 +61,7 @@ public final class VisionType extends AbstractConstant
 
 	private static void buildMap()
 	{
-		typeMap = new HashMap<CaseInsensitiveString, VisionType>();
+		typeMap = new HashMap<>();
 		Field[] fields = VisionType.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{

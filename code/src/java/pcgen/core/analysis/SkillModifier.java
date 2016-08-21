@@ -124,7 +124,7 @@ public final class SkillModifier
 			int statMod = 0;
 			if (Globals.getGameModeHasPointPool())
 			{
-				ArrayList<Type> typeList = new ArrayList<Type>();
+				ArrayList<Type> typeList = new ArrayList<>();
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
 				for (int i = 0; i < typeList.size(); ++i)
 				{

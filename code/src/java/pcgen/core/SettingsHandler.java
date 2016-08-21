@@ -85,7 +85,7 @@ public final class SettingsHandler
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
-	private static Map<String, String> ruleCheckMap = new HashMap<String, String>();
+	private static Map<String, String> ruleCheckMap = new HashMap<>();
 
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
@@ -1022,7 +1022,7 @@ public final class SettingsHandler
 				CoreUtility.split(getOptions().getProperty(
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
-		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
+		List<URI> uriList = new ArrayList<>(uriStringList.size());
 		for (String str : uriStringList)
 		{
 			try {

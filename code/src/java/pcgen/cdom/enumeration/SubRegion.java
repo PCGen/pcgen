@@ -112,7 +112,7 @@ public final class SubRegion implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<SubRegion>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

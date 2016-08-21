@@ -100,7 +100,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	@Override
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
-		List<BonusObj> list = new ArrayList<BonusObj>(super.getRawBonusList(pc));
+		List<BonusObj> list = new ArrayList<>(super.getRawBonusList(pc));
 		Collections.sort(list, new SkillBonusComparator(this));
 		return list;
 	}

@@ -45,7 +45,7 @@ public class DereferencingConverter<T> implements Converter<T, T>
 	@Override
 	public Collection<T> convert(ObjectContainer<T> orig, PrimitiveFilter<T> lim)
 	{
-		Set<T> returnSet = new HashSet<T>();
+		Set<T> returnSet = new HashSet<>();
 		for (T o : orig.getContainedObjects())
 		{
 			if (lim.allow(character, o))

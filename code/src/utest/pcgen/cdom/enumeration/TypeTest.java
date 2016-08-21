@@ -48,7 +48,7 @@ public class TypeTest extends TestCase
 	{
 		try
 		{
-			Set<Type> typeset = new HashSet<Type>();
+			Set<Type> typeset = new HashSet<>();
 			typeset.add(Type.getConstant("testitem 1"));
 			typeset.add(Type.getConstant("testitem 2"));
 		}

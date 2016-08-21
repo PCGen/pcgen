@@ -77,12 +77,12 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/** The suffix used to indicate this is a forget operation */
 	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
 
-	private List<ModEntry> copyLineList = new ArrayList<ModEntry>();
-	private List<String> forgetLineList = new ArrayList<String>();
-	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
+	private List<ModEntry> copyLineList = new ArrayList<>();
+	private List<String> forgetLineList = new ArrayList<>();
+	private List<List<ModEntry>> modEntryList = new ArrayList<>();
 	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
-	protected List<String> excludedObjects = new ArrayList<String>();
+	protected List<String> excludedObjects = new ArrayList<>();
 
 	/**
 	 * LstObjectFileLoader constructor.
@@ -101,7 +101,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	{
 		processComplete = true;
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry sourceEntry : fileList)
@@ -428,12 +428,12 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				{
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
-					classModLines = new ArrayList<ModEntry>();
+					classModLines = new ArrayList<>();
 					classModLines.add(new ModEntry(sourceEntry, line, i + 1));
 				}
 				else
 				{
-					List<ModEntry> modLines = new ArrayList<ModEntry>(1);
+					List<ModEntry> modLines = new ArrayList<>(1);
 					modLines.add(new ModEntry(sourceEntry, line, i + 1));
 					modEntryList.add(modLines);
 				}

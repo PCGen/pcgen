@@ -111,7 +111,7 @@ public interface CharacterInfoTab
 	public static class ModelMap
 	{
 
-		private final HashMap<Object, Object> classMap = new HashMap<Object, Object>();
+		private final HashMap<Object, Object> classMap = new HashMap<>();
 
 		public <T> T get(Class<T> key)
 		{

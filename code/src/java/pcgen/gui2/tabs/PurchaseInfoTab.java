@@ -115,7 +115,7 @@ import pcgen.util.enumeration.Tab;
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final Set<String> primaryTypes = new HashSet<String>();
+	private static final Set<String> primaryTypes = new HashSet<>();
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> purchasedTable;
 	private final EquipmentRenderer equipmentRenderer;
@@ -139,8 +139,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	public PurchaseInfoTab()
 	{
 		super("Purchase"); //$NON-NLS-1$
-		this.availableTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
-		this.purchasedTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
+		this.availableTable = new FilteredTreeViewTable<>();
+		this.purchasedTable = new FilteredTreeViewTable<>();
 		this.equipmentRenderer = new EquipmentRenderer();
 		this.autoResizeBox = new JCheckBox();
 		this.addCustomButton = new JButton();
@@ -154,7 +154,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.fundsAddButton = new JButton();
 		this.fundsSubtractButton = new JButton();
 		this.allowDebt = new JCheckBox();
-		this.currencyLabels = new ArrayList<JLabel>();
+		this.currencyLabels = new ArrayList<>();
 
 		initComponents();
 	}
@@ -165,11 +165,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop"); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Top Left panel
-			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
+			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<>();
 			{// Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
 				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
-						= new FilterButton<CharacterFacade, EquipmentFacade>("EqQualified"); //$NON-NLS-1$
+						= new FilterButton<>("EqQualified"); //$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -182,7 +182,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 				});
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter
-						= new FilterButton<CharacterFacade, EquipmentFacade>("EqAffordable"); //$NON-NLS-1$
+						= new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -219,7 +219,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setLeftComponent(panel);
 		}
 		{// Top Right panel
-			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
+			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<>();
 			filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 			JPanel panel = new JPanel(new BorderLayout());
@@ -442,7 +442,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				table.setRowSelectionInterval(row, row);
 			}
 		}
-		List<EquipmentFacade> targets = new ArrayList<EquipmentFacade>();
+		List<EquipmentFacade> targets = new ArrayList<>();
 		for (int selRow : table.getSelectedRows())
 		{
 			Object value = table.getModel().getValueAt(selRow, 0);
@@ -810,7 +810,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			if (!e.getValueIsAdjusting())
 			{
 				int selectedRows[] = target.getSelectedRows();
-				List<EquipmentFacade> newList = new ArrayList<EquipmentFacade>(selectedRows.length);
+				List<EquipmentFacade> newList = new ArrayList<>(selectedRows.length);
 				for (int row : selectedRows)
 				{
 					if (row != -1)
@@ -1096,7 +1096,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					if (types != null && types.size() > 1)
 					{
 						List<TreeViewPath<EquipmentFacade>> paths
-								= new ArrayList<TreeViewPath<EquipmentFacade>>();
+								= new ArrayList<>();
 						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
@@ -1105,8 +1105,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 								{
 									if (!type.equals(subType))
 									{
-										paths.add(new TreeViewPath<EquipmentFacade>(
-												pobj, type, subType));
+										paths.add(new TreeViewPath<>(
+                                                pobj, type, subType));
 									}
 								}
 							}
@@ -1118,23 +1118,23 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					types = pobj.getTypesForDisplay();
 					if (types != null && types.size() > 0)
 					{
-						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<TreeViewPath<EquipmentFacade>>(
-								types.size());
+						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(
+                                types.size());
 						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
 							{
-								paths.add(new TreeViewPath<EquipmentFacade>(pobj, type));
+								paths.add(new TreeViewPath<>(pobj, type));
 							}
 						}
 						return paths;
 					}
 				// No types, fall through and treat it as just a name.
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj,
-							pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj,
+                            pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

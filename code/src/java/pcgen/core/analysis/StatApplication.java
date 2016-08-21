@@ -75,13 +75,13 @@ public class StatApplication
 		}
 	
 		int iCount = 0;
-		Set<PCStat> statsAlreadyBonused = new HashSet<PCStat>();
+		Set<PCStat> statsAlreadyBonused = new HashSet<>();
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
 		DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
-			final List<String> selectableStats = new ArrayList<String>();
+			final List<String> selectableStats = new ArrayList<>();
 	
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
@@ -113,9 +113,9 @@ public class StatApplication
 			}
 	
 			CDOMChooserFacadeImpl<String> chooserFacade =
-					new CDOMChooserFacadeImpl<String>(
-						LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
-						new ArrayList<String>(), 1);
+                    new CDOMChooserFacadeImpl<>(
+                            LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
+                            new ArrayList<>(), 1);
 			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 			chooserFacade.setPreferRadioSelection(true);
 			chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));

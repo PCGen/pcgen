@@ -177,15 +177,15 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.stringDelimiter = stringDelimiter;
 				
 		// Build working content
-		availableList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origAvailable, stringDelimiter));
-		selectedList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origSelected, stringDelimiter));
-		numSelectionsRemain = new DefaultReferenceFacade<Integer>(maxNewSelections);
-		finalSelected = new ArrayList<T>(origSelected);
+		availableList = new DefaultListFacade<>(createInfoFacadeList(origAvailable, stringDelimiter));
+		selectedList = new DefaultListFacade<>(createInfoFacadeList(origSelected, stringDelimiter));
+		numSelectionsRemain = new DefaultReferenceFacade<>(maxNewSelections);
+		finalSelected = new ArrayList<>(origSelected);
 	}
 
 	private List<InfoFacade> createInfoFacadeList(List<? extends T> origAvailable2, String stringDelimiter)
 	{
-		List<InfoFacade> infoFacadeList = new ArrayList<InfoFacade>(origAvailable2.size());
+		List<InfoFacade> infoFacadeList = new ArrayList<>(origAvailable2.size());
 		for (T object : origAvailable2)
 		{
 			if (object instanceof InfoFacade)
@@ -367,7 +367,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	@Override
 	public List<String> getBranchNames(InfoFacade item)
 	{
-		List<String> branches = new ArrayList<String>();
+		List<String> branches = new ArrayList<>();
 		
 		if (item instanceof PObject)
 		{

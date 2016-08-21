@@ -85,7 +85,7 @@ public final class Comparators
 		{
 			return ((InverseComparator<T>) comparator).getComparator();
 		}
-		return new InverseComparator<T>(comparator);
+		return new InverseComparator<>(comparator);
 
 	}
 

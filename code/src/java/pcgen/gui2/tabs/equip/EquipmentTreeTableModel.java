@@ -72,7 +72,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		this.character = character;
 		this.equipSet = equipSet;
 		pathMap = CollectionMaps.createListMap(HashMap.class, ArrayList.class);
-		bodySlotNodes = new ArrayList<EquipNode>();
+		bodySlotNodes = new ArrayList<>();
 		initPathMap();
 		equipSet.getNodes().addListListener(this);
 		equipSet.addEquipmentTreeListener(this);

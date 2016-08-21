@@ -64,9 +64,9 @@ public class UserInputManager extends CDOMChoiceManager<String>
 		}
 		
 		CDOMChooserFacadeImpl<String> chooserFacade =
-				new CDOMChooserFacadeImpl<String>(
-						title, availableList, 
-					selectedList, effectiveChoices);
+                new CDOMChooserFacadeImpl<>(
+                        title, availableList,
+                        selectedList, effectiveChoices);
 		chooserFacade.setAllowsDups(dupsAllowed);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));
 		chooserFacade.setUserInput(true);

@@ -86,7 +86,7 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ReferenceEvent<E>(source, old, newer);
+					e = new ReferenceEvent<>(source, old, newer);
 				}
 				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
 			}

@@ -177,12 +177,12 @@ public class TreeViewPath<E>
 	 */
     public TreeViewPath<E> getParentPath()
     {
-        return new TreeViewPath<E>(path, length - 1);
+        return new TreeViewPath<>(path, length - 1);
     }
 
     public TreeViewPath<E> getParentPath(int lastElement)
     {
-        return new TreeViewPath<E>(path, lastElement + 1);
+        return new TreeViewPath<>(path, lastElement + 1);
     }
 
     public TreeViewPath<E> pathByAddingParent(String singlePath)
@@ -190,7 +190,7 @@ public class TreeViewPath<E>
         Object[] parentPath = new Object[length + 1];
         parentPath[0] = singlePath;
         System.arraycopy(path, 0, parentPath, 1, length);
-        return new TreeViewPath<E>(parentPath, length + 1);
+        return new TreeViewPath<>(parentPath, length + 1);
     }
 
 	/**

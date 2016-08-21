@@ -62,7 +62,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
 		if (map == null)
 		{
-			map = new HashMap<Skill, Map<PCClass, Double>>();
+			map = new HashMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -99,7 +99,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		Map<PCClass, Double> clMap = map.get(skill);
 		if (clMap == null)
 		{
-			clMap = new IdentityHashMap<PCClass, Double>();
+			clMap = new IdentityHashMap<>();
 			map.put(skill, clMap);
 		}
 		clMap.put(pcc, value);

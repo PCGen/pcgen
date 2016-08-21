@@ -76,7 +76,7 @@ public class CharacterFilter implements OutputFilter
 							new FileInputStream(filterFile), "UTF-8"));
 
 					outputFilterName = filterName;
-					outputFilter = new HashMap<Integer, String>();
+					outputFilter = new HashMap<>();
 
 					for (;;)
 					{

@@ -84,7 +84,7 @@ public class TabTitle
 	public TabTitle()
 	{
 		support = new PropertyChangeSupport(this);
-		table = new Hashtable<String, Object>();
+		table = new Hashtable<>();
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener l)

@@ -112,7 +112,7 @@ public final class RaceSubType implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<RaceSubType>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

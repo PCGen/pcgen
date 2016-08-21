@@ -148,7 +148,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	@Override
 	protected Map<List<String>, Set<Object>> getComponentMap()
 	{
-		return new HashMap<List<String>, Set<Object>>();
+		return new HashMap<>();
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)

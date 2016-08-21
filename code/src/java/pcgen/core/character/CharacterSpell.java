@@ -46,7 +46,7 @@ import pcgen.core.spell.Spell;
  */
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {
-	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
+	private final List<SpellInfo> infoList = new ArrayList<>();
 	private final CDOMObject owner; // PCClass/Race/etc. in whose list this object resides
 	private final Spell spell;
 	private String fixedCasterLevel = null;

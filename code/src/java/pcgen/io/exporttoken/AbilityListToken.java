@@ -128,8 +128,8 @@ public class AbilityListToken extends Token
 		}
 
 		// Default values
-		List<String> types = new ArrayList<String>();
-		List<String> negate = new ArrayList<String>();
+		List<String> types = new ArrayList<>();
+		List<String> negate = new ArrayList<>();
 		String aspect = null;
 
 		while (aTok.hasMoreTokens())
@@ -187,7 +187,7 @@ public class AbilityListToken extends Token
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
 	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)

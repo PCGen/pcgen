@@ -33,7 +33,7 @@ public class MonNonSkillHDIntegrationTest extends
 {
 
 	static MonnonskillhdToken token = new MonnonskillhdToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

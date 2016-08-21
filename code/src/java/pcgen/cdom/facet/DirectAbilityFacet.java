@@ -47,8 +47,8 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 		{
 			return;
 		}
-		List<CNAbilitySelection> removed = new ArrayList<CNAbilitySelection>();
-		List<CNAbilitySelection> added = new ArrayList<CNAbilitySelection>();
+		List<CNAbilitySelection> removed = new ArrayList<>();
+		List<CNAbilitySelection> added = new ArrayList<>();
 		for (Iterator<List<SourcedCNAS>> listIT = list.iterator(); listIT
 			.hasNext();)
 		{

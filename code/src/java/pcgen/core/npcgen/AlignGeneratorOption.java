@@ -46,7 +46,7 @@ public class AlignGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<PCAlignment>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$

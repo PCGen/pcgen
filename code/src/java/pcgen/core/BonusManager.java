@@ -69,15 +69,15 @@ public class BonusManager
 	private static final List<String> NO_ASSOC_LIST = Collections
 			.singletonList("");
 
-	private Map<String, String> activeBonusMap = new ConcurrentHashMap<String, String>();
+	private Map<String, String> activeBonusMap = new ConcurrentHashMap<>();
 
-	private Map<String, Double> cachedActiveBonusSumsMap = new ConcurrentHashMap<String, Double>();
+	private Map<String, Double> cachedActiveBonusSumsMap = new ConcurrentHashMap<>();
 
-	private Map<BonusObj, Object> activeBonusBySource = new IdentityHashMap<BonusObj, Object>();
+	private Map<BonusObj, Object> activeBonusBySource = new IdentityHashMap<>();
 
-	private Map<BonusObj, TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, TempBonusInfo>();
+	private Map<BonusObj, TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
-	private Set<String> tempBonusFilters = new TreeSet<String>();
+	private Set<String> tempBonusFilters = new TreeSet<>();
 
 	private final PlayerCharacter pc;
 	private Map<String, String> checkpointMap;
@@ -106,7 +106,7 @@ public class BonusManager
 			return cachedActiveBonusSumsMap.get(fullyQualifiedBonusType);
 		}
 
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 
 		for (String fullyQualifedCurrentBonus : activeBonusMap.keySet())
 		{
@@ -308,19 +308,19 @@ public class BonusManager
 	 */
 	void buildActiveBonusMap()
 	{
-		activeBonusMap = new ConcurrentHashMap<String, String>();
-		cachedActiveBonusSumsMap = new ConcurrentHashMap<String, Double>();
-		Map<String, String> nonStackMap = new ConcurrentHashMap<String, String>();
-		Map<String, String> stackMap = new ConcurrentHashMap<String, String>();
-		Set<BonusObj> processedBonuses = new WrappedMapSet<BonusObj>(
-				IdentityHashMap.class);
+		activeBonusMap = new ConcurrentHashMap<>();
+		cachedActiveBonusSumsMap = new ConcurrentHashMap<>();
+		Map<String, String> nonStackMap = new ConcurrentHashMap<>();
+		Map<String, String> stackMap = new ConcurrentHashMap<>();
+		Set<BonusObj> processedBonuses = new WrappedMapSet<>(
+                IdentityHashMap.class);
 
 		//Logging.log(Logging.INFO, "=== Start bonus processing.");
 		
 		//
 		// We do a first pass of just the "static" bonuses
 		// as they require less computation and no recursion
-		List<BonusObj> bonusListCopy = new ArrayList<BonusObj>();
+		List<BonusObj> bonusListCopy = new ArrayList<>();
 		bonusListCopy.addAll(getActiveBonusList());
 		for (BonusObj bonus : bonusListCopy)
 		{
@@ -371,7 +371,7 @@ public class BonusManager
 
 		//
 		// Now we do all the BonusObj's that require calculations
-		bonusListCopy = new ArrayList<BonusObj>();
+		bonusListCopy = new ArrayList<>();
 		bonusListCopy.addAll(getActiveBonusList());
 		for (BonusObj bonus : getActiveBonusList())
 		{
@@ -389,8 +389,8 @@ public class BonusManager
 
 			try
 			{
-				processBonus(bonus, new WrappedMapSet<BonusObj>(
-						IdentityHashMap.class), processedBonuses, nonStackMap, stackMap);
+				processBonus(bonus, new WrappedMapSet<>(
+                        IdentityHashMap.class), processedBonuses, nonStackMap, stackMap);
 			}
 			catch (Exception e)
 			{
@@ -444,7 +444,7 @@ public class BonusManager
 		final String prefix = new StringBuilder(bonusName).append('.').append(
 				bonusInfo).toString();
 		final StringBuilder buf = new StringBuilder();
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 
 		// final List<TypedBonus> bonuses = theBonusMap.get(prefix);
 		// if ( bonuses == null )
@@ -455,7 +455,7 @@ public class BonusManager
 		// TypedBonus.totalBonusesByType(bonuses);
 		// return CoreUtility.commaDelimit(bonusStrings);
 
-		final Set<String> keys = new TreeSet<String>();
+		final Set<String> keys = new TreeSet<>();
 		for (String fullyQualifiedBonusType : activeBonusMap.keySet())
 		{
 			if (fullyQualifiedBonusType.startsWith(prefix))
@@ -579,7 +579,7 @@ public class BonusManager
 		}
 		prevProcessed.add(aBonus);
 
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		// Go through all bonuses and check to see if they add to
 		// aBonus's dependencies and have not already been processed
@@ -784,9 +784,9 @@ public class BonusManager
 	{
 		String statAbbr = stat.getKeyName();
 		final String prefix = "STAT." + statAbbr;
-		Map<String, String> bonusMap = new HashMap<String, String>();
-		Map<String, String> nonStackMap = new ConcurrentHashMap<String, String>();
-		Map<String, String> stackMap = new ConcurrentHashMap<String, String>();
+		Map<String, String> bonusMap = new HashMap<>();
+		Map<String, String> nonStackMap = new ConcurrentHashMap<>();
+		Map<String, String> stackMap = new ConcurrentHashMap<>();
 
 		for (BonusObj bonus : getActiveBonusList())
 		{
@@ -905,12 +905,12 @@ public class BonusManager
 
 	public Map<BonusObj, TempBonusInfo> getTempBonusMap()
 	{
-		return new IdentityHashMap<BonusObj, TempBonusInfo>(tempBonusBySource);
+		return new IdentityHashMap<>(tempBonusBySource);
 	}
 
 	public Map<String, String> getBonuses(String bonusName, String bonusInfo)
 	{
-		Map<String, String> returnMap = new HashMap<String, String>();
+		Map<String, String> returnMap = new HashMap<>();
 		String prefix = bonusName + "." + bonusInfo + ".";
 
 		for (Map.Entry<String, String> entry : activeBonusMap.entrySet())
@@ -939,7 +939,7 @@ public class BonusManager
 
 	public Set<String> getTempBonusDisplayNames()
 	{
-		final Set<String> ret = new TreeSet<String>();
+		final Set<String> ret = new TreeSet<>();
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
 		{
@@ -950,7 +950,7 @@ public class BonusManager
 
 	public List<BonusObj> getTempBonusList(String aCreator, String aTarget)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
@@ -987,7 +987,7 @@ public class BonusManager
 
 	public List<String> getNamedTempBonusList()
 	{
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
 
 		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList
@@ -1024,7 +1024,7 @@ public class BonusManager
 
 	public List<String> getNamedTempBonusDescList()
 	{
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
 
 		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList
@@ -1061,7 +1061,7 @@ public class BonusManager
 
 	public Map<BonusObj, TempBonusInfo> getFilteredTempBonusList()
 	{
-		final Map<BonusObj, TempBonusInfo> ret = new IdentityHashMap<BonusObj, TempBonusInfo>();
+		final Map<BonusObj, TempBonusInfo> ret = new IdentityHashMap<>();
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
 		{
@@ -1092,7 +1092,7 @@ public class BonusManager
 
 	public Map<BonusObj, Object> getTempBonuses()
 	{
-		Map<BonusObj, Object> map = new IdentityHashMap<BonusObj, Object>();
+		Map<BonusObj, Object> map = new IdentityHashMap<>();
 		for (Map.Entry<BonusObj, TempBonusInfo> me : getFilteredTempBonusList()
 				.entrySet())
 		{
@@ -1118,7 +1118,7 @@ public class BonusManager
 	public Map<BonusObj, TempBonusInfo> getTempBonusMap(String aCreator,
 			String aTarget)
 	{
-		final Map<BonusObj, TempBonusInfo> aMap = new IdentityHashMap<BonusObj, TempBonusInfo>();
+		final Map<BonusObj, TempBonusInfo> aMap = new IdentityHashMap<>();
 
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
@@ -1258,7 +1258,7 @@ public class BonusManager
 			associatedList = NO_ASSOC_LIST;
 		}
 
-		List<BonusPair> bonusList = new ArrayList<BonusPair>();
+		List<BonusPair> bonusList = new ArrayList<>();
 
 		// Must use getBonusName because it contains the unaltered bonusType
 		String bonusName = bo.getBonusName();
@@ -1276,7 +1276,7 @@ public class BonusManager
 			{
 				replacedName = bonusName;
 			}
-			List<String> replacedInfoList = new ArrayList<String>(4);
+			List<String> replacedInfoList = new ArrayList<>(4);
 			for (String bonusInfo : bonusInfoArray)
 			{
 				if (bonusInfo.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
@@ -1417,7 +1417,7 @@ public class BonusManager
 
 	private Map<BonusObj, Object> getAllActiveBonuses()
 	{
-		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
+		Map<BonusObj, Object> ret = new IdentityHashMap<>();
 		for (final BonusContainer pobj : pc.getBonusContainerList())
 		{
 			// We exclude equipmods here as their bonuses are already counted in
@@ -1457,7 +1457,7 @@ public class BonusManager
 	 */
 	public void logChangeFromCheckpoint()
 	{
-		Map<String, String> addedMap = new HashMap<String, String>(activeBonusMap);
+		Map<String, String> addedMap = new HashMap<>(activeBonusMap);
 		for (Entry<String, String> prevEntry : checkpointMap.entrySet())
 		{
 			String addedValue = addedMap.get(prevEntry.getKey());
@@ -1466,7 +1466,7 @@ public class BonusManager
 				addedMap.remove(prevEntry.getKey());
 			}
 		}
-		Map<String, String> removedMap = new HashMap<String, String>(checkpointMap);
+		Map<String, String> removedMap = new HashMap<>(checkpointMap);
 		for (Entry<String, String> prevEntry : activeBonusMap.entrySet())
 		{
 			String addedValue = removedMap.get(prevEntry.getKey());
