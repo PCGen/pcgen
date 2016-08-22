@@ -186,7 +186,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		@Override
 		public long getPriority()
 		{
-			return (userPriority << 32) + 0;
+			return userPriority;
 		}
 
 		/**
