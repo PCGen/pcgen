@@ -99,7 +99,7 @@ public class SelectableTokenIntegrationTest extends TestCase
 		ReferenceManufacturer<Domain> mfg = context.getReferenceContext().getManufacturer(Domain.class);
 		PrimitiveCollection<Domain> pcf = context.getPrimitiveChoiceFilter(mfg, "PROPERTY=Aggressive");
 		context.getReferenceContext().resolveReferences(null);
-		Collection<? extends Object> coll = pcf.getCollection(null, new DereferencingConverter<Domain>(null));
+		Collection<? extends Object> coll = pcf.getCollection(null, new DereferencingConverter<>(null));
 		assertEquals(2, coll.size());
 		assertTrue(coll.contains(d1));
 		assertTrue(coll.contains(d2));
@@ -112,7 +112,7 @@ public class SelectableTokenIntegrationTest extends TestCase
 		Domain d = new Domain();
 		d.setName(key);
 		FactKey<String> fk = FactKey.getConstant(prop, STRING_MGR);
-		d.put(fk, new BasicIndirect<String>(STRING_MGR, val));
+		d.put(fk, new BasicIndirect<>(STRING_MGR, val));
 		context.getReferenceContext().importObject(d);
 		return d;
 	}

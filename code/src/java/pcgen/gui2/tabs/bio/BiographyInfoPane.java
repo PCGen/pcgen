@@ -77,11 +77,11 @@ import pcgen.system.LanguageBundle;
  * tab. It contains biography and physical description fields which may be 
  * updated by the user.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author: jdempsey $
  * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: 15691 $
  */
 @SuppressWarnings("serial")
@@ -193,10 +193,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 
 		private final ListFacade<BiographyField> customFields;
-		private List<BioItem> bioItems = new ArrayList<BioItem>();
+		private List<BioItem> bioItems = new ArrayList<>();
 		private Map<BiographyField, BioItem> customFieldMap =
-				new EnumMap<BiographyField, BiographyInfoPane.BioItem>(
-					BiographyField.class);
+                new EnumMap<>(
+                        BiographyField.class);
 		private final CharacterFacade character;
 		private BiographyInfoPane detailsPane;
 
@@ -904,7 +904,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			// Build list of choices
 			List<BiographyField> availFields =
-					new ArrayList<BiographyField>(Arrays.asList(BiographyField.values()));
+                    new ArrayList<>(Arrays.asList(BiographyField.values()));
 			availFields.removeAll(defaultBioFieds);
 			for (BiographyField field : character.getDescriptionFacade()
 				.getCustomBiographyFields())

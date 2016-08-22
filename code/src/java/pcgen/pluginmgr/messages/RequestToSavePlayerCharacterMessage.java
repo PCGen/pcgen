@@ -29,11 +29,11 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class <code>RequestToSavePlayerCharacterMessage</code> encapsulates a
  * request that PCGen save the specified character.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

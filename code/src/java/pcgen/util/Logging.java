@@ -47,7 +47,7 @@ import pcgen.core.SettingsHandler;
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
  * 
- * @author     Jonas Karlsson <jujutsunerd@sf.net>
+ * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  * @version    $Revision$
  */
 public class Logging
@@ -206,8 +206,7 @@ public class Logging
 	 * Print localised information message if PCGen is debugging.
 	 *
 	 * @param message String information message (usually variable)
-	 * @param param1 Object information message (usually value)
-	 * @param param2 Object information message (usually value)
+	 * @param params Object information message (usually value)
 	 */
 	public static void debugPrintLocalised(final String message, Object... params)
 	{
@@ -657,7 +656,7 @@ public class Logging
 	 */
 	public static List<Level> getLoggingLevels()
 	{
-		List<Level> levels = new ArrayList<Level>();
+		List<Level> levels = new ArrayList<>();
 		levels.add(ERROR);
 		levels.add(LST_ERROR);
 		levels.add(WARNING);
@@ -689,7 +688,7 @@ public class Logging
 	}
 
 	private static LinkedList<QueuedMessage> queuedMessages =
-			new LinkedList<QueuedMessage>();
+            new LinkedList<>();
 
 	public static void addParseMessage(Level lvl, String msg)
 	{

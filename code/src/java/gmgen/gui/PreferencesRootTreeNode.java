@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private List<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+	private List<PreferencesPanel> panelList = new ArrayList<>();
 
 	public PreferencesRootTreeNode()
 	{

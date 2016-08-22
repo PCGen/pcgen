@@ -6,7 +6,7 @@ import pcgen.util.PCGenCommand;
 import java.util.Stack;
 
 /**
- * Celing JEP Command.  eg. ceil(12.6) --> 13
+ * Celing JEP Command. {@literal  eg. ceil(12.6) --> 13 }
  */
 public class CeilCommand extends PCGenCommand
 {

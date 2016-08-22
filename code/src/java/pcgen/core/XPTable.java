@@ -30,7 +30,7 @@ import pcgen.facade.core.XPTableFacade;
 /**
  * <code>XPTable</code>.
  * 
- * @author Stefan Radermacher <radermacher@netcologne.de>
+ * @author Stefan Radermacher &lt;radermacher@netcologne.de&gt;
  * @version $Revision: 15994 $
  */
 @SuppressWarnings("serial")
@@ -42,13 +42,13 @@ public final class XPTable extends PObject implements XPTableFacade
 	public XPTable()
 	{
 		this.name = "Default";
-		this.infoMap = new HashMap<String, LevelInfo>();
+		this.infoMap = new HashMap<>();
 	}
 
 	public XPTable(String xpTable)
 	{
 		this.name = xpTable;
-		this.infoMap = new HashMap<String, LevelInfo>();
+		this.infoMap = new HashMap<>();
 	}
 
     @Override

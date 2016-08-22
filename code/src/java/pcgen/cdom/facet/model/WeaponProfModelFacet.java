@@ -75,7 +75,7 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 	public Set<WeaponProf> getSet(CharID id)
 	{
 		final Set<WeaponProf> ret =
-				new WrappedMapSet<WeaponProf>(IdentityHashMap.class);
+                new WrappedMapSet<>(IdentityHashMap.class);
 		ret.addAll(weaponProfFacet.getSet(id));
 		ret.addAll(autoWeaponProfFacet.getWeaponProfs(id));
 		if (hasDeityWeaponProfFacet.hasDeityWeaponProf(id))

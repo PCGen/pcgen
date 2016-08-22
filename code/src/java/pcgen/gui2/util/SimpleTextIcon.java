@@ -35,7 +35,7 @@ import javax.swing.Icon;
  * <br>
  * <br>
  * *Note* The SimpleTextIcon does not treat html text specially so it will be displayed verbatim.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SimpleTextIcon implements Icon
 {

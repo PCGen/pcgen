@@ -190,7 +190,7 @@ public class NoteToken extends Token
 	/**
 	 * Populate the target list with the children of the specified node.
 	 * This will recursively build up a list of the nodes in the base
-	 * list in breadth-first order. <br />
+	 * list in breadth-first order. <br>
 	 * The initial call should have a parentNode of -1. This will add all
 	 * children of the hard-coded base nodes.
 	 *

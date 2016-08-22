@@ -258,7 +258,7 @@ public class VectorTable extends AbstractList
 	/**
 	 * Finds the element at a certain <code>index</code> in the
 	 * <code>rows</code>.
-	 * @param index the <code>index number of the item to find.
+	 * @param index the <code>index</code> number of the item to find.
 	 * @return the item at the specified <code>index</code>.
 	 */
 	public Object elementAt(int index)
@@ -284,7 +284,7 @@ public class VectorTable extends AbstractList
 	 * Tests whether the paramater passed in is equal to the <code>String</code>
 	 * representation of this class.
 	 * @param o the <code>Object</code> that needs to be compared.
-	 * @return <b>true if the two <code>Strings</code> are equal.
+	 * @return true if the two <code>Strings</code> are equal.
 	 */
 	@Override
 	public boolean equals(Object o)

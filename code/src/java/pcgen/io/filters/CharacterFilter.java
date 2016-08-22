@@ -37,8 +37,7 @@ public class CharacterFilter implements OutputFilter
 	 * Create a new CharacterFilter instance suitable for processing output to 
 	 * files produced using the supplied template.
 	 *  
-	 * @param templateFileName The file name of the output template file. 
-	 * @throws IOException If the pattern filter cannot be read.
+	 * @param templateFileName The file name of the output template file.
 	 */
 	public CharacterFilter(String templateFileName)
 	{
@@ -77,7 +76,7 @@ public class CharacterFilter implements OutputFilter
 							new FileInputStream(filterFile), "UTF-8"));
 
 					outputFilterName = filterName;
-					outputFilter = new HashMap<Integer, String>();
+					outputFilter = new HashMap<>();
 
 					for (;;)
 					{

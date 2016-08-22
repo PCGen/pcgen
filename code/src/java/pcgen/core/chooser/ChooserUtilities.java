@@ -181,12 +181,12 @@ public class ChooserUtilities
 			return;
 		}
 
-		Set<String> allowedSet = new HashSet<String>();
+		Set<String> allowedSet = new HashSet<>();
 		for (CDOMSingleRef<Ability> ref : cat.getAbilityRefs())
 		{
 			if (ref.contains(ability))
 			{
-				List<String> choices = new ArrayList<String>();
+				List<String> choices = new ArrayList<>();
 				AbilityUtilities.getUndecoratedName(ref.getLSTformat(false), choices);
 				allowedSet.addAll(choices);
 			}

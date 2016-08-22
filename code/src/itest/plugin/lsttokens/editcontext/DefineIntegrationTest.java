@@ -37,7 +37,7 @@ public class DefineIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static DefineLst token = new DefineLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -75,7 +75,7 @@ public class AvailableSpellFacet extends
 		CharID id, Spell sp)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				new HashMapToList<CDOMList<Spell>, Integer>();
+                new HashMapToList<>();
 		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> listMap =
 				(Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>>) getCache(id);
 		if (listMap == null)

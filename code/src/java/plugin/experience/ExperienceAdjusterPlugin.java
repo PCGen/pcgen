@@ -117,7 +117,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()
@@ -235,7 +235,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * Handles the <b>Add Experience to Character</code> button on the GUI.
+	 * Handles the <b>Add Experience to Character</b> button on the GUI.
 	 */
 	public void handleAddExperienceToCharButton()
 	{
@@ -530,7 +530,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public File getDataDirectory()

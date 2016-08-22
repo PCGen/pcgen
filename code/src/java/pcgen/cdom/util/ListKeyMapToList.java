@@ -31,7 +31,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  * 
  * This encapsulates a MapToList in a typesafe and value-semantic way.
  * 

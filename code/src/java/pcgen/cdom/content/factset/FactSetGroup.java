@@ -106,7 +106,7 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	{
 		if (cache == null)
 		{
-			List<T> setupCache = new ArrayList<T>();
+			List<T> setupCache = new ArrayList<>();
 			for (T obj : allObjects.getContainedObjects())
 			{
 				if (contains(obj))

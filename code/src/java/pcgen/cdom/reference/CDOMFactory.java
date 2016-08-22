@@ -56,19 +56,19 @@ public class CDOMFactory<T extends Loadable> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMAllRef<T>(refClass);
+		return new CDOMAllRef<>(refClass);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTypeRef<T>(refClass, types);
+		return new CDOMTypeRef<>(refClass, types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		return new CDOMSimpleSingleRef<T>(refClass, key);
+		return new CDOMSimpleSingleRef<>(refClass, key);
 	}
 
 	@Override

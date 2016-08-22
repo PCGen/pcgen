@@ -55,7 +55,7 @@ import pcgen.system.LanguageBundle;
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
@@ -211,7 +211,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 		
-		List<String> doneList = new ArrayList<String>();
+		List<String> doneList = new ArrayList<>();
 
 		for (int i = 0; i < hrRadio.length; i++)
 		{

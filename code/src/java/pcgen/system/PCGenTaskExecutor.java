@@ -25,12 +25,12 @@ import org.apache.commons.lang.math.Fraction;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 {
 
-	private LinkedList<PCGenTask> tasks = new LinkedList<PCGenTask>();
+	private LinkedList<PCGenTask> tasks = new LinkedList<>();
 	private PCGenTask currentTask = null;
 	private Fraction progressMultiplier = null;
 	private Fraction baseProgress = Fraction.ZERO;

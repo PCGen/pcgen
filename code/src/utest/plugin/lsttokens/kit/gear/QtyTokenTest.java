@@ -29,8 +29,8 @@ public class QtyTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static QtyToken token = new QtyToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
-			"SPELLS", KitGear.class);
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
+            "SPELLS", KitGear.class);
 
 	@Override
 	public Class<KitGear> getCDOMClass()

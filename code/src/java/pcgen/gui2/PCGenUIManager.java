@@ -40,7 +40,7 @@ import pcgen.system.Main;
  * frameworks such as the application toolbar for Macs.
  *
  * @see pcgen.gui2.PCGenFrame
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenUIManager
 {

@@ -9,6 +9,9 @@ Eidolon	STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	BONUS:STAT|CON|2	BONUS:S
 # Race Name		SORTKEY			Output Name				Starting Feats	Size		Move				Face/Space	Reach		Var. Min. Value		Bonus to skill				Stat bonus																	Modify VAR				Weapon prof. bonus					Ability															Nb Legs	Define				Monster Class Name and Starting Level	Main Race Type	Race Subtype								Type				Challenge Rating	Source Page		Apply Kit
 Familiar (Parrot)	SORTKEY:z_Companion	OUTPUTNAME:Familiar [NAME]	STARTFEATS:1	SIZE:T	MOVE:Walk,10,Fly,40	FACE:2.5	REACH:0	PREVARGTEQ:NotAllowed,1	BONUS:SKILL|Climb,Swim|DEX-STR	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Claw|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite	LEGS:2	DEFINE:Maneuverability|0	MONSTERCLASS:Animal:1				RACETYPE:Animal	RACESUBTYPE:Familiar|Augmented Magical Beast|FamiliarBase	TYPE:Companion.Familiar	CR:1/6		SOURCEPAGE:p.133	KIT:1|Familiar ~ Raven
 
+# Animal Version
+Parrot	STARTFEATS:1	SIZE:T	MOVE:Walk,10,Fly,40	FACE:2.5	REACH:0		BONUS:SKILL|Climb,Swim|DEX-STR	BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Claw|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite	LEGS:2	DEFINE:Maneuverability|0	MONSTERCLASS:Animal:1				RACETYPE:Animal		TYPE:Animal	CR:1/6		SOURCEPAGE:p.133	KIT:1|Familiar ~ Raven
+
 #
 # End
 #

@@ -37,9 +37,9 @@ import pcgen.util.Logging;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
+	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<>();
 
-	private final Map<ManufacturableFactory<?>, ReferenceManufacturer<?>> mfgmap = new HashMap<ManufacturableFactory<?>, ReferenceManufacturer<?>>();
+	private final Map<ManufacturableFactory<?>, ReferenceManufacturer<?>> mfgmap = new HashMap<>();
 
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
@@ -64,14 +64,14 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		Class<T> cl)
 	{
-		return new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
+		return new SimpleReferenceManufacturer<>(new CDOMFactory<>(cl));
 	}
 
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<ReferenceManufacturer<?>>(
-				map.values());
+		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
+                map.values());
 		returnList.addAll(mfgmap.values());
 		return returnList;
 	}
@@ -87,7 +87,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 					(ReferenceManufacturer<T>) map.get(cl);
 			if (mfg == null)
 			{
-				mfg = new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
+				mfg = new SimpleReferenceManufacturer<>(new CDOMFactory<>(cl));
 				map.put(cl, mfg);
 			}
 			return mfg;
@@ -103,7 +103,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		ReferenceManufacturer<T> rm = (ReferenceManufacturer<T>) mfgmap.get(factory);
 		if (rm == null)
 		{
-			rm = new SimpleReferenceManufacturer<T>(factory);
+			rm = new SimpleReferenceManufacturer<>(factory);
 			mfgmap.put(factory, rm);
 		}
 		return rm;

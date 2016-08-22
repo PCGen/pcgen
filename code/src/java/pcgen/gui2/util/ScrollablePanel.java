@@ -35,7 +35,7 @@ import java.awt.Rectangle;
  * The Class <code>ScrollablePanel</code> provides a panel which can be 
  * dynamically built up and displayed in a JScrollPane.  
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 

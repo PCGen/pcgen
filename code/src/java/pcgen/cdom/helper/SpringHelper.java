@@ -34,11 +34,11 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * The Class <code>SpringHelper</code> is a simple helper for 
  * integrating the Spring framework into PCGen.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class SpringHelper

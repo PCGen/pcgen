@@ -112,7 +112,7 @@ import pcgen.util.enumeration.Tab;
  * This component displays a basic summary of a character such as name,
  * alignment, race, class, and stat information.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler
@@ -995,7 +995,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			};
 
-			classModel = new FacadeComboBoxModel<ClassFacade>(dataset.getClasses(), null);
+			classModel = new FacadeComboBoxModel<>(dataset.getClasses(), null);
 		}
 
 		public void install()
@@ -1640,7 +1640,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			StringBuilder todoText = new StringBuilder("<html><body>"); //$NON-NLS-1$
 
 			int i = 1;
-			SortedSet<TodoFacade> sortedTodos = new TreeSet<TodoFacade>();
+			SortedSet<TodoFacade> sortedTodos = new TreeSet<>();
 			for (TodoFacade item : character.getTodoList())
 			{
 				sortedTodos.add(item);

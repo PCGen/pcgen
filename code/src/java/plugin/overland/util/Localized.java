@@ -70,7 +70,7 @@ public class Localized
 	}
 
 	/**
-	 * Use a name based on the element name if no {@value #ATTRIBUTE_DEFAULTNAME} is defined.
+	 * Use a name based on the element name if no {@linkplain  #defaultName} is defined.
 	 * @param element
 	 */
 	public Localized(Element element)

@@ -64,7 +64,7 @@ import pcgen.gui2.util.table.TableCellUtilities;
 /**
  * Model used for the Ability/statistics table.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {

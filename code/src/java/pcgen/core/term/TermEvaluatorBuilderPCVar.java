@@ -44,7 +44,7 @@ import pcgen.util.TermUtilities;
  * have an array of string keys that enumerate every string that the regular
  * expression can match (this is not as bad as it sounds since each can only
  * match at most eight strings).  The array of string is used to populate a
- * Map<String, Enum>
+ * {@code Map<String, Enum>}
  */
 
 public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder

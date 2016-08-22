@@ -83,7 +83,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class AdvancedSourceSelectionPanel extends JPanel
 		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
@@ -111,9 +111,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 	public AdvancedSourceSelectionPanel(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.availableTable = new FilteredTreeViewTable<Object, CampaignFacade>();
-		this.selectedTable = new FilteredTreeViewTable<Object, CampaignFacade>();
-		this.selectedCampaigns = new DefaultListFacade<CampaignFacade>();
+		this.availableTable = new FilteredTreeViewTable<>();
+		this.selectedTable = new FilteredTreeViewTable<>();
+		this.selectedCampaigns = new DefaultListFacade<>();
 		this.availTreeViewModel = new SourceTreeViewModel();
 		this.selTreeViewModel = new SourceTreeViewModel(selectedCampaigns);
 		this.gameModeList = new JComboBox();
@@ -136,13 +136,13 @@ class AdvancedSourceSelectionPanel extends JPanel
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(new JLabel(LanguageBundle.getString("in_src_gameLabel")), BorderLayout.WEST); //$NON-NLS-1$
 
-		FacadeComboBoxModel<GameModeDisplayFacade> gameModes = new FacadeComboBoxModel<GameModeDisplayFacade>();
+		FacadeComboBoxModel<GameModeDisplayFacade> gameModes = new FacadeComboBoxModel<>();
 		gameModes.setListFacade(FacadeFactory.getGameModeDisplays());
 		gameModeList.setModel(gameModes);
 		gameModeList.addActionListener(this); 
 		panel.add(gameModeList, BorderLayout.CENTER);
 		
-		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>(false);
+		FilterBar<Object, CampaignFacade> bar = new FilterBar<>(false);
 		bar.add(panel, BorderLayout.WEST);
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		panel = new JPanel(new BorderLayout());
@@ -176,7 +176,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		topPane.setLeftComponent(panel);
 		
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, CampaignFacade> filterBar = new FilterBar<Object, CampaignFacade>();
+		FilterBar<Object, CampaignFacade> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		selectedTable.setDisplayableFilter(filterBar);
 
@@ -300,7 +300,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				gameModeList.setSelectedItem(gmdf);
 			}
 		}
-		List<CampaignFacade> wrap = new ArrayList<CampaignFacade>(ListFacades.wrap(sources.getCampaigns()));
+		List<CampaignFacade> wrap = new ArrayList<>(ListFacades.wrap(sources.getCampaigns()));
 		Collections.sort(wrap, Comparators.toStringIgnoreCaseCollator());
 		selectedCampaigns.setContents(wrap);
 	}
@@ -511,7 +511,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	{
 		
 		private ListFacade<TreeView<CampaignFacade>> views =
-				new DefaultListFacade<TreeView<CampaignFacade>>(Arrays.asList(SourceTreeView.values()));
+                new DefaultListFacade<>(Arrays.asList(SourceTreeView.values()));
 		private DefaultListFacade<CampaignFacade> model;
 		private ListFacade<CampaignFacade> baseModel = null;
 		private final List<DefaultDataViewColumn> columns;
@@ -519,7 +519,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		
 		public SourceTreeViewModel()
 		{
-			this.model = new DefaultListFacade<CampaignFacade>();
+			this.model = new DefaultListFacade<>();
 			this.isAvailModel = true;
 			columns =
 					Arrays.asList(new DefaultDataViewColumn("in_src_bookType", String.class, true), 
@@ -673,31 +673,31 @@ class AdvancedSourceSelectionPanel extends JPanel
 			{
 				case NAME:
 					return Collections
-						.singletonList(new TreeViewPath<CampaignFacade>(pobj));
+						.singletonList(new TreeViewPath<>(pobj));
 				case PUBLISHER_FORMAT_SETTING_NAME:
 					if (format != null && setting != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher, format, setting));
+							.singletonList(new TreeViewPath<>(
+                                    pobj, publisher, format, setting));
 					}
 					if (format != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher, format));
+							.singletonList(new TreeViewPath<>(
+                                    pobj, publisher, format));
 					}
 				case PUBLISHER_SETTING_NAME:
 					if (setting != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher, setting));
+							.singletonList(new TreeViewPath<>(
+                                    pobj, publisher, setting));
 					}
 				case PUBLISHER_NAME:
 					return Collections
-						.singletonList(new TreeViewPath<CampaignFacade>(pobj,
-							publisher));
+						.singletonList(new TreeViewPath<>(pobj,
+                                publisher));
 				default:
 					throw new InternalError();
 			}

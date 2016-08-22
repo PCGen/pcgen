@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 
 /**
- * Parses a token of the form: <Token Name>:<string>
+ * Parses a token of the form: {@literal <Token Name>:<string>}
  * 
  * @param <T>
  *            The type of object on which this AbstractStringToken can be used

@@ -51,11 +51,11 @@ import pcgen.system.LanguageBundle;
  * The Class <code>Gui2CampaignInfoFactory</code> is responsible for producing 
  * HTML formatted information on campaigns for the new user interface.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
@@ -78,7 +78,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		PersistenceManager pman)
 	{
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		for (CampaignFacade campaignFacade : testList)
 		{
 			uris.add(((Campaign) campaignFacade).getSourceURI());
@@ -316,7 +316,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	
 	public static List<CampaignURL> getUrlListForKind(Campaign c, URLKind kind)
 	{
-		List<CampaignURL> kindList = new ArrayList<CampaignURL>();
+		List<CampaignURL> kindList = new ArrayList<>();
 		for (CampaignURL url : c.getSafeListFor(ListKey.CAMPAIGN_URL))
 		{
 			if (url.getUrlKind() == kind)

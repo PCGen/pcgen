@@ -155,7 +155,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()

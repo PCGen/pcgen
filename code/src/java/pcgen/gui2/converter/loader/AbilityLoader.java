@@ -40,7 +40,7 @@ import pcgen.rules.context.EditorLoadContext;
  * properly process Ability files.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class AbilityLoader extends BasicLoader<Ability>

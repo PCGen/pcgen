@@ -40,12 +40,12 @@ import pcgen.io.exporttoken.AbilityListToken;
  * 
  * The format is ABILITYAUTOLIST.y.z where
  * y is the category (FEAT, FIGHTER etc, or ALL)
- * z is an option list of TYPE=<type> - type filter - may be negated
+ * {@literal z is an option list of TYPE=<type> - type filter - may be negated}
  *
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 public class AbilityAutoListToken extends AbilityListToken

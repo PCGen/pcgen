@@ -47,7 +47,7 @@ import pcgen.core.PlayerCharacter;
 /**
  * <code>KitAbiltiies</code>.
  *
- * @author   Andrew Wilson <nuance@sourceforge.net>
+ * @author   Andrew Wilson &lt;nuance@sourceforge.net&gt;
  * @version  $Revision$
  */
 public final class KitAbilities extends BaseKit
@@ -55,7 +55,7 @@ public final class KitAbilities extends BaseKit
 	private Boolean free = null;
 	private Integer choiceCount;
 	private List<CDOMReference<Ability>> abilities =
-			new ArrayList<CDOMReference<Ability>>();
+            new ArrayList<>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -127,9 +127,9 @@ public final class KitAbilities extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
-		abilitiesToAdd = new ArrayList<CNAbilitySelection>();
+		abilitiesToAdd = new ArrayList<>();
 		double minCost = Double.MAX_VALUE;
-		List<AbilitySelection> available = new ArrayList<AbilitySelection>();
+		List<AbilitySelection> available = new ArrayList<>();
 		for (CDOMReference<Ability> ref : abilities)
 		{
 			String choice = ref.getChoice();
@@ -198,13 +198,13 @@ public final class KitAbilities extends BaseKit
 		}
 		else
 		{
-			selected = new ArrayList<AbilitySelection>();
+			selected = new ArrayList<>();
 			// Force user to make enough selections
 			while (true)
 			{
 				selected =
 						Globals.getChoiceFromList("Choose abilities",
-							available, new ArrayList<AbilitySelection>(),
+							available, new ArrayList<>(),
 							numberOfChoices, aPC);
 
 				if (selected.size() != 0)
@@ -306,8 +306,8 @@ public final class KitAbilities extends BaseKit
 
 	public Collection<CDOMReference<Ability>> getAbilityKeys()
 	{
-		Set<CDOMReference<Ability>> wc = new TreeSet<CDOMReference<Ability>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		Set<CDOMReference<Ability>> wc = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		wc.addAll(abilities);
 		return wc;
 	}

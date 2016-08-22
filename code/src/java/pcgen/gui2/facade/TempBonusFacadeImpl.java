@@ -50,11 +50,11 @@ import pcgen.util.SortKeyAware;
  * The Class <code>TempBonusFacadeImpl</code> a proxy for a TempBonus used for 
  * displaying the temporary bonus on the UI. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 

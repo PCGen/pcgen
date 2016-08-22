@@ -28,11 +28,11 @@ import pcgen.facade.core.ChronicleEntryFacade;
  * The Class <code>ChronicleEntry</code> contains a record of an 
  * event in the character's history. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class ChronicleEntry implements ChronicleEntryFacade, Cloneable

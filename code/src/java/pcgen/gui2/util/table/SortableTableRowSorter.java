@@ -31,7 +31,7 @@ import pcgen.util.Comparators;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 {
@@ -71,8 +71,6 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 	 * @param column index of the column to make the primary sorted column,
 	 * in terms of the underlying model
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
-	 * @see #setSortable(int,boolean)
-	 * @see #setMaxSortKeys(int)
 	 */
 	@Override
 	public void toggleSortOrder(int column)

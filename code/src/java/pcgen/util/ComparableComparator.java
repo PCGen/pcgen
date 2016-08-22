@@ -30,7 +30,7 @@ import java.io.Serializable;
  * applications such as maintaining a sorted <code>JComboBoxEx</code>
  * and the like.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision$
  */
 public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>, Serializable

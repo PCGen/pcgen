@@ -22,7 +22,7 @@ package pcgen.facade.core.generator;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface PurchaseMethodFacade extends StatGenerationFacade
 {

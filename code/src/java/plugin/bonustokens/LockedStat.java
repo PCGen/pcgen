@@ -36,11 +36,11 @@ import pcgen.rules.context.LoadContext;
  * This is the class that implements the LockedStat bonuses.
  * BONUS:LOCKEDSTAT|x|y
  * 
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class LockedStat extends BonusObj

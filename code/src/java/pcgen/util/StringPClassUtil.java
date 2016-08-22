@@ -62,9 +62,9 @@ public class StringPClassUtil
 
 	static
 	{
-		classMap = new HashMap<String, Class<? extends Loadable>>();
-		stringMap = new HashMap<Class<? extends Loadable>, String>();
-		catClassMap = new HashMap<String, Class<? extends Category<?>>>();
+		classMap = new HashMap<>();
+		stringMap = new HashMap<>();
+		catClassMap = new HashMap<>();
 
 		classMap.put("ABILITY", Ability.class);
 		classMap.put("ALIGNMENT", PCAlignment.class);

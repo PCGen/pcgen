@@ -147,7 +147,7 @@ public class AutoLanguageFacet extends
 	 */
 	public List<Language> getAutoLanguage(CharID id)
 	{
-		List<Language> list = new ArrayList<Language>();
+		List<Language> list = new ArrayList<>();
 		for (QualifiedObject<CDOMReference<Language>> qo : getQualifiedSet(id))
 		{
 			Collection<Language> langList =

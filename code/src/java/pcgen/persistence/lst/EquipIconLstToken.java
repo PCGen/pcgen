@@ -30,11 +30,11 @@ import pcgen.core.GameMode;
  * The Interface <code>EquipIconLstToken</code> defines a token
  * as being callable by the EquipIconLoader.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public interface EquipIconLstToken extends LstToken

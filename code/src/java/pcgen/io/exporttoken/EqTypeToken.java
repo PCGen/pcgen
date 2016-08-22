@@ -71,7 +71,7 @@ public class EqTypeToken extends EqToken
 		}
 
 		//Get List
-		List<Equipment> eqList = new ArrayList<Equipment>();
+		List<Equipment> eqList = new ArrayList<>();
 		if ("Container".equals(token))
 		{
 			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))

@@ -235,10 +235,10 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	
 	private List<Campaign> getExistingPccs()
 	{
-		List<File> existingFiles = new ArrayList<File>();
+		List<File> existingFiles = new ArrayList<>();
 		findPCCFiles(path, existingFiles);
 		
-		List<Campaign> matchingCampaigns = new ArrayList<Campaign>();
+		List<Campaign> matchingCampaigns = new ArrayList<>();
 		
 		for (Campaign camp : campaignList)
 		{

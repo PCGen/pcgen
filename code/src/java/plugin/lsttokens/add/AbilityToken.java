@@ -66,27 +66,27 @@ import pcgen.util.enumeration.Visibility;
  * <code>AbilityToken</code> parses ADD:ABILITY entries.
  *
  * <p>
- * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br />
+ * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br>
  * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula -
- * Number of choices granted).<br />
+ * Number of choices granted).<br>
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this
- * ability will be added to).<br />
+ * ability will be added to).<br>
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
- * <tt>NORMAL</tt> or <tt>VIRTUAL</tt>)<br />
+ * <tt>NORMAL</tt> or <tt>VIRTUAL</tt>)<br>
  * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
- * choices specified in &quot;()&quot;)<br />
- * <p />
- * <b>What it does:</b><br/>
+ * choices specified in &quot;()&quot;)<br>
+ * <p>
+ * <b>What it does:</b><br>
  * <ul>
  * <li>Adds an Ability to a character, providing choices if these are required.</li>
  * <li>The Ability is added to the Ability Category specified.</li>
  * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
- *
+ * </ul>
  * Last Editor: $Author$ Last Edited: $Date: 2007-05-20 19:00:17 -0400
  * (Sun, 20 May 2007) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Rev$
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements

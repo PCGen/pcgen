@@ -39,8 +39,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 	 * Returns the value provided in the constructor. The input value and
 	 * FormulaManager are ignored.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#process(java.lang.Object,
-	 *      pcgen.base.formula.manager.FormulaManager)
+	 * @see pcgen.base.calculation.BasicCalculation#process(java.lang.Object,
+	 *      java.lang.Object)
 	 */
 	@Override
 	public T process(T previousValue, T argument)
@@ -53,7 +53,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	 * used if two Modifiers have the same User Priority. Lower values are
 	 * processed first.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getInherentPriority()
+	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
 	 */
 	@Override
 	public int getInherentPriority()
@@ -64,7 +64,7 @@ public abstract class AbstractSetModifierFactory<T> implements
 	/**
 	 * Returns an Identifier for this type of Modifier
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getIdentification()
+	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
 	 */
 	@Override
 	public String getIdentification()
@@ -91,8 +91,8 @@ public abstract class AbstractSetModifierFactory<T> implements
 		FormatManager<T> fmtManager, String instructions)
 	{
 		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<T>(n, this, fmtManager);
-		return new CalculationModifier<T>(calc, userPriority);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
+		return new CalculationModifier<>(calc, userPriority);
 	}
 
 }

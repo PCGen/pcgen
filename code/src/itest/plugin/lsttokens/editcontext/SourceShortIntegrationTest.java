@@ -30,7 +30,7 @@ public class SourceShortIntegrationTest extends
 {
 
 	static SourceshortLst token = new SourceshortLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

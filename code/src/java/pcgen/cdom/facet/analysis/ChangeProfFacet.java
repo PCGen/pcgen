@@ -125,7 +125,7 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 					+ type);
 		}
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		List<WeaponProf> aList = new ArrayList<WeaponProf>();
+		List<WeaponProf> aList = new ArrayList<>();
 		// Can't use master because late called references may not have been
 		// initialized, see 2001287
 		Collection<WeaponProf> weaponProfsOfType = Globals.getPObjectsOfType(

@@ -59,7 +59,7 @@ import pcgen.util.enumeration.View;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class SkillToken extends Token
@@ -132,7 +132,7 @@ public class SkillToken extends Token
 		try
 		{
 			final int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills = new ArrayList<Skill>(getSkillList(pc));
+			final List<Skill> pcSkills = new ArrayList<>(getSkillList(pc));
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
@@ -200,7 +200,7 @@ public class SkillToken extends Token
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 
 		SkillFilter filter = null;
-		List<String> properties = new ArrayList<String>();
+		List<String> properties = new ArrayList<>();
 
 		// Split out the parts of the source
 		String skillId = "";
@@ -493,7 +493,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_CLASSES:
-					List<String> classes = new ArrayList<String>();
+					List<String> classes = new ArrayList<>();
 					for (PCClass aClass : pc.getClassList())
 					{
 						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)

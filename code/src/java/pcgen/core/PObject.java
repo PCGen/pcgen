@@ -50,7 +50,7 @@ import pcgen.system.PCGenSettings;
  * <code>PObject</code><br>
  * This is the base class for several objects in the PCGen database.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 /**

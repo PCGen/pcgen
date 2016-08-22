@@ -41,7 +41,7 @@ import java.util.Set;
 /**
  * <code>SpinningTabbedPane</code>.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 1184 $
  *
  * @see JTabbedPane
@@ -164,7 +164,7 @@ public class SpinningTabbedPane extends JTabbedPane
         LanguageBundle.getString("in_spinTips32")
     };
     private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
-    private Set<Component> locked = new HashSet<Component>();
+    private Set<Component> locked = new HashSet<>();
     private SpinningTabbedPane parent = null;
 
     public SpinningTabbedPane()

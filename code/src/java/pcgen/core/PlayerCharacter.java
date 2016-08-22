@@ -285,7 +285,7 @@ import pcgen.util.enumeration.View;
 /**
  * <code>PlayerCharacter</code>.
  * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class PlayerCharacter  implements Cloneable, VariableContainer 
@@ -468,10 +468,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	
 	private ClassSource defaultDomainSource;
 
-	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
+	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<>();
 
 	// Temporary Bonuses
-	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
+	private List<Equipment> tempBonusItemList = new ArrayList<>();
 
 	private String calcEquipSetId = EquipSet.DEFAULT_SET_PATH; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
@@ -755,7 +755,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		equipmentFacet.removeAll(id);
 
 		// get all the PC's EquipSet's
-		final List<EquipSet> pcEquipSetList = new ArrayList<EquipSet>(getEquipSet());
+		final List<EquipSet> pcEquipSetList = new ArrayList<>(getEquipSet());
 
 		if (pcEquipSetList.isEmpty())
 		{
@@ -924,7 +924,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		/*
 		 * TODO This is a discussion we have to have about where items are sorted
 		 */
-		return new ArrayList<PCClass>(getClassSet());
+		return new ArrayList<>(getClassSet());
 	}
 
 	/**
@@ -1212,7 +1212,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public List<Equipment> getEquipmentMasterList()
 	{
 		Set<Equipment> set = userEquipmentFacet.getSet(id);
-		final List<Equipment> aList = new ArrayList<Equipment>(set);
+		final List<Equipment> aList = new ArrayList<>(set);
 		aList.addAll(autoListEquipmentFacet.getSet(id));
 		aList.addAll(autoEquipFacet.getAutoEquipment(id));
 		return aList;
@@ -1343,7 +1343,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	double getNumFeatsFromLevels()
 	{
-		Map<String, Double> featByLevelType = new HashMap<String, Double>();
+		Map<String, Double> featByLevelType = new HashMap<>();
 		for (PCClass pcClass : getClassSet())
 		{
 			int lvlPerFeat = pcClass.getSafe(IntegerKey.LEVELS_PER_FEAT);
@@ -1511,8 +1511,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * Sets the character's handedness.
 	 * 
 	 * 
-	 * @param g
-	 *            A handedness to try and set.
+	 * @param h A handedness to try and set.
 	 */
 	public void setHanded(final Handed h)
 	{
@@ -1686,7 +1685,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 		}
 
-		List<CompanionMod> newCompanionMods = new ArrayList<CompanionMod>();
+		List<CompanionMod> newCompanionMods = new ArrayList<>();
 
 		// Clear the companionModList so we can add everything to it
 		Collection<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
@@ -1759,7 +1758,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		if (masterFacet.getUseMasterSkill(id))
 		{
 			final Collection<Skill> mList = mPC.getSkillSet();
-			final List<Skill> sKeyList = new ArrayList<Skill>();
+			final List<Skill> sKeyList = new ArrayList<>();
 
 			// now we have to merge the two lists together and
 			// take the higher rank of each skill for the Familiar
@@ -1818,7 +1817,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 					ChoiceManagerList<Language> controller =
 							ChooserUtilities.getConfiguredController(newSkill,
-								this, null, new ArrayList<String>());
+								this, null, new ArrayList<>());
 					for (Language lang : selected)
 					{
 						if (!controller.conditionallyApply(this, lang))
@@ -2213,7 +2212,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public List<SpecialAbility> getSpecialAbilityList()
 	{
 		// aList will contain a list of SpecialAbility objects
-		List<SpecialAbility> aList = new ArrayList<SpecialAbility>();
+		List<SpecialAbility> aList = new ArrayList<>();
 		aList.addAll(userSpecialAbilityFacet.getAllResolved(id, SA_PROC));
 		aList.addAll(specialAbilityFacet.getAllResolved(id, SA_PROC));
 
@@ -2229,7 +2228,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private List<String> getSpecialAbilityListStrings()
 	{
-		List<String> bList = new ArrayList<String>();
+		List<String> bList = new ArrayList<>();
 
 		bList.addAll(userSpecialAbilityFacet.getAllResolved(id, SA_TO_STRING_PROC));
 		bList.addAll(specialAbilityFacet.getAllResolved(id, SA_TO_STRING_PROC));
@@ -2248,7 +2247,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public ArrayList<String> getSpecialAbilityTimesList()
 	{
 		final List<String> abilityList = getSpecialAbilityListStrings();
-		final List<String> sortList = new ArrayList<String>();
+		final List<String> sortList = new ArrayList<>();
 		final int[] numTimes = new int[abilityList.size()];
 
 		for (int i = 0; i < abilityList.size(); i++)
@@ -2271,7 +2270,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 		}
 
-		final ArrayList<String> retList = new ArrayList<String>();
+		final ArrayList<String> retList = new ArrayList<>();
 		for (int i = 0; i < sortList.size(); i++)
 		{
 			String ability = sortList.get(i);
@@ -2335,7 +2334,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private List<String> getSpellBookNames()
 	{
-		return new ArrayList<String>(spellBookFacet.getBookNames(id));
+		return new ArrayList<>(spellBookFacet.getBookNames(id));
 	}
 
 	/**
@@ -2959,7 +2958,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int subTotal = BAB;
 		int raceBAB = 0;
 
-		final List<Integer> ab = new ArrayList<Integer>(10);
+		final List<Integer> ab = new ArrayList<>(10);
 		final StringBuilder attackString = new StringBuilder(30);
 
 		// Assume a max of 10 attack cycles
@@ -3297,7 +3296,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public List<Equipment> getEquipmentOfType(final String typeName, final String subtypeName, final int status)
 	{
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (Equipment eq : getEquipmentSet())
 		{
@@ -3508,7 +3507,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public double getFeatBonusTo(String aType, String aName)
 	{
-		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
+		final Map<String, Ability> aHashMap = new HashMap<>();
 		
 		for (Ability aFeat : getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 		{
@@ -3519,7 +3518,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
-		List<Ability> aggregateFeatList = new ArrayList<Ability>();
+		List<Ability> aggregateFeatList = new ArrayList<>();
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
 		aggregateFeatList.addAll(aHashMap.values());
 		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(), aName.toUpperCase());
@@ -4204,7 +4203,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		String tType;
 		String tStr;
 		// final List<TypedBonus> bonuses = new ArrayList<TypedBonus>();
-		final List<CasterLevelSpellBonus> bonuses = new ArrayList<CasterLevelSpellBonus>();
+		final List<CasterLevelSpellBonus> bonuses = new ArrayList<>();
 
 		if (classOrRace != null)
 		{
@@ -4290,7 +4289,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		 * This wraps in TreeSet because it looks to me like this is ordered
 		 * (given .RESET)
 		 */
-		for (SpellSchool school : new TreeSet<SpellSchool>(aSpell.getSafeListFor(ListKey.SPELL_SCHOOL)))
+		for (SpellSchool school : new TreeSet<>(aSpell.getSafeListFor(ListKey.SPELL_SCHOOL)))
 		{
 			tStr = "SCHOOL." + school.toString();
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
@@ -4317,7 +4316,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 		}
 
-		for (String subschool : new TreeSet<String>(aSpell.getSafeListFor(ListKey.SPELL_SUBSCHOOL)))
+		for (String subschool : new TreeSet<>(aSpell.getSafeListFor(ListKey.SPELL_SUBSCHOOL)))
 		{
 			tStr = "SUBSCHOOL." + subschool;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
@@ -4959,7 +4958,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public List<Spell> aggregateSpellList(final String school, final String subschool, final String descriptor,
 			final int minLevel, final int maxLevel)
 	{
-		final List<Spell> retList = new ArrayList<Spell>();
+		final List<Spell> retList = new ArrayList<>();
 
 		for (PObject pObj : getSpellClassList())
 		{
@@ -5132,7 +5131,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 *            Desired spell level
 	 * @param minNumSpells
 	 *            Minimum number of spells at the desired spell level
-	 * @return boolean <p/> author David Wilson
+	 * @return boolean <p> author David Wilson
 	 *         <eldiosyeldiablo@users.sourceforge.net>
 	 */
 	private boolean canCastSpellTypeLevel(final String spellType, final int spellLevel, final int minNumSpells)
@@ -5306,19 +5305,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * <li>save.BASE.list</li>
 	 * <li>save.MISC.list</li>
 	 * </ul>
-	 * where<br />
-	 * save := "CHECK1"|"CHECK2"|"CHECK3"<br />
-	 * list := ((include|exclude)del)*(include|exclude)<br />
-	 * include := "FEATS"|"MAGIC"|"RACE"<br />
-	 * exclude := "NOFEATS"|"NOMAGIC"|"NORACE"|"NOSTAT" <br />
-	 * del := "." <br />
-	 * given as regular expression. <p/> "include"-s will add the appropriate
-	 * modifier "exclude"-s will subtract the appropriate modifier <p/> (This
+	 * where<br>
+	 * save := "CHECK1"|"CHECK2"|"CHECK3"<br>
+	 * list := ((include|exclude)del)*(include|exclude)<br>
+	 * include := "FEATS"|"MAGIC"|"RACE"<br>
+	 * exclude := "NOFEATS"|"NOMAGIC"|"NORACE"|"NOSTAT" <br>
+	 * del := "." <br>
+	 * given as regular expression. <p> "include"-s will add the appropriate
+	 * modifier "exclude"-s will subtract the appropriate modifier <p> (This
 	 * means <tt>save.MAGIC.NOMAGIC</tt> equals 0, whereas
-	 * <tt>save.RACE.RACE</tt> equals 2 times the racial bonus) <p/> If you
+	 * <tt>save.RACE.RACE</tt> equals 2 times the racial bonus) <p> If you
 	 * use unrecognised terminals, their value will amount to 0 This means
 	 * <tt>save.BLABLA</tt> equals 0 whereas <tt>save.MAGIC.BLABLA</tt>
-	 * equals <tt>save.MAGIC</tt> <p/> <br>
+	 * equals <tt>save.MAGIC</tt> <p> <br>
 	 * author: Thomas Behr 09-03-02
 	 * 
 	 * @param check
@@ -5451,8 +5450,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			return;
 		}
 
-		final List<Equipment> unequippedPrimary = new ArrayList<Equipment>();
-		final List<Equipment> unequippedSecondary = new ArrayList<Equipment>();
+		final List<Equipment> unequippedPrimary = new ArrayList<>();
+		final List<Equipment> unequippedSecondary = new ArrayList<>();
 
 		for (Equipment eq : getEquipmentSet())
 		{
@@ -5885,7 +5884,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		int penaltyForLoad = (Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
 		
-		final IdentityList<Equipment> vEqList = new IdentityList<Equipment>(getTempBonusItemList());
+		final IdentityList<Equipment> vEqList = new IdentityList<>(getTempBonusItemList());
 		
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
@@ -6275,7 +6274,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public void validateCharacterDomains()
 	{
 		//Clone to avoid Concurrent Mod Exception, CODE-153
-		for (Domain d : new ArrayList<Domain>(getDomainSet()))
+		for (Domain d : new ArrayList<>(getDomainSet()))
 		{
 			if (!isDomainValid(d, this.getDomainSource(d)))
 			{
@@ -6349,7 +6348,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	private Map<String, Integer> getCharacterLevelHashMap(final int maxCharacterLevel)
 	{
-		final Map<String, Integer> lvlMap = new HashMap<String, Integer>();
+		final Map<String, Integer> lvlMap = new HashMap<>();
 
 		int characterLevels = 0;
 		for (int i = 0; i < getLevelInfoSize(); ++i)
@@ -6412,7 +6411,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	private HashMap<String, Integer> getTotalLevelHashMap()
 	{
-		final HashMap<String, Integer> lvlMap = new HashMap<String, Integer>();
+		final HashMap<String, Integer> lvlMap = new HashMap<>();
 
 		for (PCClass aClass : getClassSet())
 		{
@@ -6514,7 +6513,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public List<? extends CDOMObject> getCDOMObjectList()
 	{
-		List<CDOMObject> list = new ArrayList<CDOMObject>();
+		List<CDOMObject> list = new ArrayList<>();
 
 		// Loaded campaigns
 		list.addAll(expandedCampaignFacet.getSet(id));
@@ -6972,7 +6971,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public List<? extends PObject> getSpellClassList()
 	{
-		final ArrayList<PObject> aList = new ArrayList<PObject>();
+		final ArrayList<PObject> aList = new ArrayList<>();
 
 		Race race = getRace();
 		if (!getCharacterSpells(race).isEmpty())
@@ -7298,7 +7297,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		if (unsortedEquip.isEmpty())
 		{
 			// Create a real list so it can be added to later on
-			return new ArrayList<Equipment>();
+			return new ArrayList<>();
 		}
 
 		// Merge list for duplicates
@@ -7739,7 +7738,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		Map<String, String> slotMap = new HashMap<String, String>();
+		Map<String, String> slotMap = new HashMap<>();
 
 		for (EquipSet es : getEquipSet())
 		{
@@ -8154,7 +8153,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		if (theUserPoolBonuses == null)
 		{
-			theUserPoolBonuses = new HashMap<Category<Ability>, BigDecimal>();
+			theUserPoolBonuses = new HashMap<>();
 		}
 		BigDecimal userMods = theUserPoolBonuses.get(aCategory);
 		if (userMods != null)
@@ -8172,7 +8171,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		if (theUserPoolBonuses == null)
 		{
-			theUserPoolBonuses = new HashMap<Category<Ability>, BigDecimal>();
+			theUserPoolBonuses = new HashMap<>();
 		}
 		theUserPoolBonuses.put(aCategory, anAmount);
 	}
@@ -8341,8 +8340,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
 	{
-		List<Ability> aggregate = new ArrayList<Ability>();
-		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
+		List<Ability> aggregate = new ArrayList<>();
+		final Map<String, Ability> aHashMap = new HashMap<>();
 
 		for (Ability aFeat : getAbilityList(aCategory, Nature.NORMAL))
 		{
@@ -8639,7 +8638,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			return Collections.emptyList();
 		}
-		List<String> ret = new ArrayList<String>(selections.size());
+		List<String> ret = new ArrayList<>(selections.size());
 		for (T sel : selections)
 		{
 			ret.add(info.encodeChoice(sel));
@@ -8656,7 +8655,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			return Collections.emptyList();
 		}
-		List<String> ret = new ArrayList<String>(selections.size());
+		List<String> ret = new ArrayList<>(selections.size());
 		for (T sel : selections)
 		{
 			ret.add(String.valueOf(sel));
@@ -8689,7 +8688,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		List<T> list = getAssocList(obj, alk);
 		if (list == null)
 		{
-			return new ArrayList<T>();
+			return new ArrayList<>();
 		}
 		return list;
 	}
@@ -8821,7 +8820,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			hml = availSpellFacet.getSpellLevelInfo(id, sp);
 			cache.addToMapFor(MapKey.SPELL_PC_INFO, sp, hml);
 		}
-		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<CDOMList<Spell>, Integer>();
+		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<>();
 		newhml.addAllLists(hml);
 		return newhml;
 	}
@@ -8835,7 +8834,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell, PObject owner)
 	{
-		List<CharacterSpell> cspells = new ArrayList<CharacterSpell>(getCharacterSpells(po));
+		List<CharacterSpell> cspells = new ArrayList<>(getCharacterSpells(po));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(po, cspells);
 
@@ -8861,10 +8860,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public final List<CharacterSpell> getCharacterSpells(CDOMObject spellSource, final Spell aSpell, final String book,
 			final int level)
 	{
-		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
+		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		final ArrayList<CharacterSpell> aList = new ArrayList<>();
 		if (csList.size() == 0)
 		{
 			return aList;
@@ -9355,7 +9354,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	private Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
-		Set<Ability> newSet = new HashSet<Ability>();
+		Set<Ability> newSet = new HashSet<>();
 		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, cat, nature);
 		for (CNAbility cna : cnas)
 		{
@@ -9522,7 +9521,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Collection<? extends SpellProhibitor> getProhibitedSchools(PCClass source)
 	{
-		List<SpellProhibitor> list = new ArrayList<SpellProhibitor>();
+		List<SpellProhibitor> list = new ArrayList<>();
 		list.addAll(prohibitedSchoolFacet.getSet(id, source));
 		list.addAll(spellProhibitorFacet.getSet(id, source));
 		return list;
@@ -9555,10 +9554,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Collection<CharacterSpell> getCharacterSpells(PObject spellSource, int level)
 	{
-		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
+		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		ArrayList<CharacterSpell> aList = new ArrayList<>();
 		for (CharacterSpell cs : csList)
 		{
 			if (cs.hasSpellInfoFor(level))
@@ -9572,11 +9571,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Collection<CharacterSpell> getCharacterSpells(PObject spellSource, String bookName)
 	{
-		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
+		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
 
-		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
+		ArrayList<CharacterSpell> aList = new ArrayList<>();
 		for (CharacterSpell cs : csList)
 		{
 			if (cs.hasSpellInfoFor(bookName))
@@ -9670,7 +9669,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Collection<BonusContainer> getBonusContainerList()
 	{
-		List<BonusContainer> list = new ArrayList<BonusContainer>(getCDOMObjectList());
+		List<BonusContainer> list = new ArrayList<>(getCDOMObjectList());
 		list.add(ageSetFacet.get(id));
 		GameMode gm = SettingsHandler.getGame();
 		if (gm.isPurchaseStatMode())
@@ -9724,7 +9723,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		
 		for (PCLevelInfo lvlInfo : levelInfo)
 		{
-			Map<String, PCClass> classMap = new HashMap<String, PCClass>();
+			Map<String, PCClass> classMap = new HashMap<>();
 			for (PCClass pcClass : newClasses)
 			{
 				classMap.put(pcClass.getKeyName(), pcClass);
@@ -10208,7 +10207,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public List<Spell> getAllSpellsInLists(List<? extends CDOMList<Spell>> spellLists)
 	{
-		List<Spell> spellList = new ArrayList<Spell>();
+		List<Spell> spellList = new ArrayList<>();
 		for (CDOMList<Spell> list : availSpellFacet.getScopes1(id))
 		{
 			if (spellLists.contains(list))
@@ -10314,7 +10313,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		List<? extends CDOMList<Spell>> lists = getSpellLists(pcc);
 		List<CharacterSpell> spellsToBeRemoved =
-				new ArrayList<CharacterSpell>();
+                new ArrayList<>();
 
 		for (Iterator<? extends CharacterSpell> iter =
 				getCharacterSpells(pcc).iterator(); iter.hasNext();)
@@ -10363,7 +10362,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Set<CNAbility> set = new HashSet<CNAbility>();
+		Set<CNAbility> set = new HashSet<>();
 		set.addAll(grantedAbilityFacet.getCNAbilities(id));
 		return set;
 	}
@@ -10375,7 +10374,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category");
 		}
-		Set<CNAbility> set = new HashSet<CNAbility>();
+		Set<CNAbility> set = new HashSet<>();
 		set.addAll(grantedAbilityFacet.getCNAbilities(id, cat, n));
 		return set;
 	}
@@ -10388,7 +10387,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		List<CNAbility> list = new ArrayList<CNAbility>();
+		List<CNAbility> list = new ArrayList<>();
 		list.addAll(grantedAbilityFacet.getCNAbilities(id, ability));
 		return list;
 	}
@@ -10400,21 +10399,21 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category, was: " + cat);
 		}
-		List<CNAbility> list = new ArrayList<CNAbility>();
+		List<CNAbility> list = new ArrayList<>();
 		list.addAll(grantedAbilityFacet.getCNAbilities(id, cat));
 		return list;
 	}
 
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<CNAbility>();
+		List<CNAbility> list = new ArrayList<>();
 		list.addAll(grantedAbilityFacet.getPoolAbilities(id, cat));
 		return list;
 	}
 
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
-		Set<CNAbility> set = new HashSet<CNAbility>();
+		Set<CNAbility> set = new HashSet<>();
 		set.addAll(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 		return set;
 	}
@@ -10512,7 +10511,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		if (cdo instanceof Ability)
 		{
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			List<CNAbility> cnabilities = getMatchingCNAbilities((Ability) cdo);
 			for (CNAbility cna : cnabilities)
 			{

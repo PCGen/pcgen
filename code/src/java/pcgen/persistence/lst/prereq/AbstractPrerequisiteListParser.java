@@ -228,7 +228,7 @@ public abstract class AbstractPrerequisiteListParser
 						String requirementKey = getRequirementKey(tokens);
 						subreq.setKey(requirementKey);
 						// now back fill all of the previous prereqs with this minimum
-						for (Prerequisite p : new ArrayList<Prerequisite>(prereq.getPrerequisites()))
+						for (Prerequisite p : new ArrayList<>(prereq.getPrerequisites()))
 						{
 							if (p.getOperand().equals("-99"))
 							{

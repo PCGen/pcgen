@@ -27,7 +27,7 @@ import java.util.ArrayList;
  */
 public class CRRule implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 
 	/** Creates a new instance of SpaceRule */
 	public CRRule()

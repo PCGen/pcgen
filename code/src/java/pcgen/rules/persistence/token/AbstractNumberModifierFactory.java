@@ -52,8 +52,8 @@ public abstract class AbstractNumberModifierFactory<T> implements
 			final NEPFormula<T> f =
 					FormulaFactory.getValidFormula(instructions,
 						formulaManager, varScope, formatManager);
-			NEPCalculation<T> calc = new FormulaCalculation<T>(f, this);
-			return new CalculationModifier<T>(calc, userPriority);
+			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
+			return new CalculationModifier<>(calc, userPriority);
 		}
 	}
 
@@ -62,7 +62,7 @@ public abstract class AbstractNumberModifierFactory<T> implements
 		FormatManager<T> fmtManager, String instructions)
 	{
 		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<T>(n, this, fmtManager);
-		return new CalculationModifier<T>(calc, userPriority);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
+		return new CalculationModifier<>(calc, userPriority);
 	}
 }

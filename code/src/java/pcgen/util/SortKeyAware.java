@@ -27,11 +27,11 @@ package pcgen.util;
  * sort key. That is the text to be used for sorting, which may be different 
  * from the text used to display the item.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public interface SortKeyAware

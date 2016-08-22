@@ -68,15 +68,15 @@ import pcgen.rules.persistence.token.ParseResult;
  * Implements the ABILITY: global LST token.
  *
  * <p>
- * <b>Tag Name</b>: <code>ABILITY</code>:x|y|z|z<br />
- * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br />
+ * <b>Tag Name</b>: <code>ABILITY</code>:x|y|z|z<br>
+ * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br>
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
- * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br />
+ * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br>
  * <b>Variables Used (z)</b>: Ability Key or TYPE(The Ability to add. Can have
- * choices specified in &quot;()&quot;)<br />
- * <b>Prereqs Allowed</b>: Yes <br />
- * <p />
- * <b>What it does:</b><br/>
+ * choices specified in &quot;()&quot;)<br>
+ * <b>Prereqs Allowed</b>: Yes <br>
+ * <p>
+ * <b>What it does:</b><br>
  * <ul>
  * <li>Adds an Ability to a character.</li>
  * <li>The Ability is added to the Ability Category specied and that category's
@@ -92,19 +92,19 @@ import pcgen.rules.persistence.token.ParseResult;
  * <li>This tag is a replacement for the following tags: <tt>FEAT</tt>,
  * <tt>VFEAT</tt>, and <tt>FEATAUTO</tt>.
  * </ul>
- * <b>Where it is used:</b><br />
+ * <b>Where it is used:</b><br>
  * Global tag can be used anywhere.
- * <p />
- * <b>Examples:</b><br />
- * <code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code><br />
+ * <p>
+ * <b>Examples:</b><br>
+ * <code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code><br>
  * Adds a Metamagic feat as an Auto feat.
- * <p />
+ * <p>
  *
- * <code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code><br />
+ * <code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code><br>
  * Adds the Stunning Fist feat as a virtual class feature.
- * <p />
+ * <p>
  *
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
  * @since 5.11.1
  *

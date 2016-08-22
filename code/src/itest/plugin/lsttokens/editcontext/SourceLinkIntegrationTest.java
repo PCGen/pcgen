@@ -30,7 +30,7 @@ public class SourceLinkIntegrationTest extends
 {
 
 	static SourcelinkLst token = new SourcelinkLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

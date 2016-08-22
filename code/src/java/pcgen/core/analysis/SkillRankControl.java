@@ -332,7 +332,7 @@ public class SkillRankControl
 	 * <li>or taking them off the remainder for the highest class level.</li>
 	 * </ol>
 	 * 
-	 * @param playerCharacter The character being updated.
+	 * @param pc The character being updated.
 	 * @param classBeingLevelledDown The class we are removing a level of.
 	 * @param currentLevel The character;s level before the removal.
 	 * @param pointsToRemove The number of points that need to be refunded.

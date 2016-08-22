@@ -41,8 +41,7 @@ public class OrderedPairModel implements TemplateScalarModel,
 	/**
 	 * Constructs a new OrderedPairModel with the given underlying OrderedPair
 	 * 
-	 * @param cat
-	 *            The OrderedPair this OrderedPairModel wraps
+	 * @param point The OrderedPair this OrderedPairModel wraps
 	 */
 	public OrderedPairModel(OrderedPair point)
 	{

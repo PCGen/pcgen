@@ -85,7 +85,7 @@ public final class SettingsHandler
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
-	private static Map<String, String> ruleCheckMap = new HashMap<String, String>();
+	private static Map<String, String> ruleCheckMap = new HashMap<>();
 
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
@@ -1022,7 +1022,7 @@ public final class SettingsHandler
 				CoreUtility.split(getOptions().getProperty(
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
-		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
+		List<URI> uriList = new ArrayList<>(uriStringList.size());
 		for (String str : uriStringList)
 		{
 			try {
@@ -1698,9 +1698,8 @@ public final class SettingsHandler
 
 	/**
 	 * Sets whether the feats dialog should be shown at level up.
-	 * NOTE: This function has been disabled as it interferes with class builds. 
-	 * See bug #1502512 at 
-	 * https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719
+	 * NOTE: This function has been disabled as it interferes with class builds.
+	 * @see <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719">#1502512</a>
 	 *  
 	 * @param argShowFeatDialogAtLevelUp Should the feats dialog be shown at level up?
 	 */
@@ -2643,7 +2642,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the window state.  This corresponds to the values returned/accepted
+	 * <p>Sets the window state.  This corresponds to the values returned/accepted
 	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @param argWindowState The argWindowState to set.

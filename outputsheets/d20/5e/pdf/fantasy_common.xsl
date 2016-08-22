@@ -312,6 +312,7 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</fo:table-row>
+					</xsl:if>
 
 						<xsl:if test="$desc.tag!=''">
 							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
@@ -338,7 +339,7 @@
 								</fo:table-cell>
 							</fo:table-row>
 						</xsl:if>
-					</xsl:if>
+					
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>

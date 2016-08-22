@@ -55,7 +55,7 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
-		List<PrimitiveCollection<T>> orList = new ArrayList<PrimitiveCollection<T>>();
+		List<PrimitiveCollection<T>> orList = new ArrayList<>();
 		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
@@ -67,7 +67,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			List<PrimitiveCollection<T>> andList = new ArrayList<PrimitiveCollection<T>>();
+			List<PrimitiveCollection<T>> andList = new ArrayList<>();
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
@@ -110,7 +110,7 @@ public final class ChoiceSetLoadUtilities
 				}
 				else
 				{
-					orList.add(new CompoundAndPrimitive<T>(andList));
+					orList.add(new CompoundAndPrimitive<>(andList));
 				}
 			}
 		}
@@ -124,7 +124,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new CompoundOrPrimitive<T>(orList);
+			return new CompoundOrPrimitive<>(orList);
 		}
 	}
 
@@ -161,7 +161,7 @@ public final class ChoiceSetLoadUtilities
 		{
 			return null;
 		}
-		List<PrimitiveCollection<T>> pcfOrList = new ArrayList<PrimitiveCollection<T>>();
+		List<PrimitiveCollection<T>> pcfOrList = new ArrayList<>();
 		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
@@ -172,7 +172,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			List<PrimitiveCollection<T>> pcfAndList = new ArrayList<PrimitiveCollection<T>>();
+			List<PrimitiveCollection<T>> pcfAndList = new ArrayList<>();
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
@@ -204,7 +204,7 @@ public final class ChoiceSetLoadUtilities
 			}
 			else
 			{
-				pcfOrList.add(new CompoundAndPrimitive<T>(pcfAndList));
+				pcfOrList.add(new CompoundAndPrimitive<>(pcfAndList));
 			}
 		}
 		if (pcfOrList.size() == 1)
@@ -213,7 +213,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new CompoundOrPrimitive<T>(pcfOrList);
+			return new CompoundOrPrimitive<>(pcfOrList);
 		}
 	}
 
@@ -313,7 +313,7 @@ public final class ChoiceSetLoadUtilities
 			return null;
 		}
 		ObjectContainer<T> p = fgd.getPrimitive(context, pi.tokValue);
-		return new ObjectContainerPrimitive<T>(p);
+		return new ObjectContainerPrimitive<>(p);
 	}
 	
 	public static <T> PrimitiveCollection<T> getTokenPrimitive(
@@ -351,7 +351,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			return new NegatingPrimitive<T>(typeReference, sc.getAllReference());
+			return new NegatingPrimitive<>(typeReference, sc.getAllReference());
 		}
 		if (tokValue != null)
 		{
@@ -370,8 +370,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		if (key.startsWith(Constants.LST_NOT_TYPE_DOT))
 		{
-			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(sc,
-				key.substring(6)), sc.getAllReference());
+			return new NegatingPrimitive<>(TokenUtilities.getTypeReference(sc,
+                    key.substring(6)), sc.getAllReference());
 		}
 		if (key.indexOf('%') == -1)
 		{
@@ -379,8 +379,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new PatternMatchingReference<T>(sc.getReferenceClass(),
-					sc.getAllReference(), key);
+			return new PatternMatchingReference<>(sc.getReferenceClass(),
+                    sc.getAllReference(), key);
 		}
 	}
 	
@@ -466,8 +466,8 @@ public final class ChoiceSetLoadUtilities
 		{
 			tokKey = tokKey.substring(1);
 		}
-		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<T, QualifierToken<T>>(
-				sc.getReferenceClass(), tokKey); it.hasNext();)
+		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<>(
+                sc.getReferenceClass(), tokKey); it.hasNext();)
 		{
 			QualifierToken<T> token = it.next();
 			if (token.initialize(loadContext, sc, tokValue, tokRestriction,

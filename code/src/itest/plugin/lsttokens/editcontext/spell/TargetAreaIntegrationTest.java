@@ -29,7 +29,7 @@ public class TargetAreaIntegrationTest extends
 {
 
 	static TargetareaToken token = new TargetareaToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

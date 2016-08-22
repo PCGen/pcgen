@@ -127,8 +127,7 @@ public class HPRollToken extends Token
 
 	/**
 	 * Get the HPROLL.STAT token
-	 * @param pc
-	 * @param level
+	 * @param display
 	 * @return the HPROLL.STAT token
 	 */
 	public static int getStatToken(CharacterDisplay display)

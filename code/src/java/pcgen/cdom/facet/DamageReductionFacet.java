@@ -106,12 +106,12 @@ public class DamageReductionFacet extends
 	private CaseInsensitiveMap<Integer> getDRMap(CharID id,
 			Map<DamageReduction, Set<Object>> componentMap)
 	{
-		CaseInsensitiveMap<Integer> andMap = new CaseInsensitiveMap<Integer>();
+		CaseInsensitiveMap<Integer> andMap = new CaseInsensitiveMap<>();
 		if (componentMap == null || componentMap.isEmpty())
 		{
 			return andMap;
 		}
-		CaseInsensitiveMap<Integer> orMap = new CaseInsensitiveMap<Integer>();
+		CaseInsensitiveMap<Integer> orMap = new CaseInsensitiveMap<>();
 		for (Map.Entry<DamageReduction, Set<Object>> me : componentMap
 				.entrySet())
 		{
@@ -223,7 +223,7 @@ public class DamageReductionFacet extends
 			Map<DamageReduction, Set<Object>> cachedMap)
 	{
 		CaseInsensitiveMap<Integer> map = getDRMap(id, cachedMap);
-		TreeMapToList<Integer, String> hml = new TreeMapToList<Integer, String>();
+		TreeMapToList<Integer, String> hml = new TreeMapToList<>();
 		for (Map.Entry<Object, Integer> me : map.entrySet())
 		{
 			String key = me.getKey().toString();
@@ -235,7 +235,7 @@ public class DamageReductionFacet extends
 		{
 			if (hml.sizeOfListFor(reduction) > 1)
 			{
-				Set<String> set = new TreeSet<String>();
+				Set<String> set = new TreeSet<>();
 				for (String s : hml.getListFor(reduction))
 				{
 					if (!OR_PATTERN.matcher(s).find())
@@ -252,7 +252,7 @@ public class DamageReductionFacet extends
 		boolean needSeparator = false;
 		for (Integer reduction : hml.getKeySet())
 		{
-			Set<String> set = new TreeSet<String>();
+			Set<String> set = new TreeSet<>();
 			for (String s : hml.getListFor(reduction))
 			{
 				set.add(reduction + "/" + s);

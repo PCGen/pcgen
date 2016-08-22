@@ -40,11 +40,11 @@ import pcgen.util.SortKeyAware;
  * The Class <code>SpellFacadeImplem</code> is a proxy for a spell used for 
  * displaying the spell on the UI. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class SpellFacadeImplem implements SpellFacade, SortKeyAware

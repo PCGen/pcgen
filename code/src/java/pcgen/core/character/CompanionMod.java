@@ -18,7 +18,7 @@
  *
  *************************************************************************
  *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
+ * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * @Created on July 10th, 2002, 3:55 PM
  *
  * Current Ver: $Revision$
@@ -44,7 +44,7 @@ import pcgen.core.Race;
 /**
  * <code>CompanionMod</code>.
  *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
+ * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class CompanionMod extends PObject implements

@@ -51,8 +51,8 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundOrChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<PrimitiveChoiceSet<T>>(
-			ChoiceSetUtilities.WRITEABLE_SORTER);
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
+            ChoiceSetUtilities.WRITEABLE_SORTER);
 
 	private final String separator;
 
@@ -119,7 +119,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Set<T> returnSet = new HashSet<T>();
+		Set<T> returnSet = new HashSet<>();
 		for (PrimitiveChoiceSet<T> cs : pcsSet)
 		{
 			returnSet.addAll(cs.getSet(pc));

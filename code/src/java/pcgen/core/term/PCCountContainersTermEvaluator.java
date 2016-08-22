@@ -47,7 +47,7 @@ public class PCCountContainersTermEvaluator
 	{
 		final int merge = Constants.MERGE_ALL;
 
-		final Collection<Equipment> aList = new ArrayList<Equipment>();
+		final Collection<Equipment> aList = new ArrayList<>();
 		final List<Equipment> eList = pc.getEquipmentListInOutputOrder(merge);
 
 		for ( Equipment eq : eList )

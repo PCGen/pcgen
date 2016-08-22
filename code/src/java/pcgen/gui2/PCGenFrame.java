@@ -126,11 +126,11 @@ import pcgen.util.chooser.ChooserFactory;
  * The main window for PCGen. In addition this class is responsible for providing 
  * global UI functions such as message dialogs. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 @SuppressWarnings("serial")
@@ -154,9 +154,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public PCGenFrame()
 	{
 		Globals.setRootFrame(this);
-		this.currentSourceSelection = new DefaultReferenceFacade<SourceSelectionFacade>();
-		this.currentCharacterRef = new DefaultReferenceFacade<CharacterFacade>();
-		this.currentDataSetRef = new DefaultReferenceFacade<DataSetFacade>();
+		this.currentSourceSelection = new DefaultReferenceFacade<>();
+		this.currentCharacterRef = new DefaultReferenceFacade<>();
+		this.currentDataSetRef = new DefaultReferenceFacade<>();
 		this.actionMap = new PCGenActionMap(this);
 		this.characterTabs = new CharacterTabs(this);
 		this.statusBar = new PCGenStatusBar(this);
@@ -386,7 +386,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				}
 
 				List<CampaignFacade> campaigns =
-						new ArrayList<CampaignFacade>();
+                        new ArrayList<>();
 				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
 				for (Iterator<CampaignFacade> iterator =
 						FacadeFactory.getCampaigns().iterator(); iterator
@@ -735,7 +735,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	private void prepareForSave(CharacterFacade character, boolean savingAll)
 	{
-		List<CompanionFacade> tobeSaved = new ArrayList<CompanionFacade>(); 
+		List<CompanionFacade> tobeSaved = new ArrayList<>();
 		for (CompanionFacade comp : character.getCompanionSupport().getCompanions())
 		{
 			if (StringUtils.isEmpty(comp.getFileRef().get().getName())
@@ -805,8 +805,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		int saveAllChoice = CLOSE_OPT_CHOOSE;
 
-		List<CharacterFacade> characterList = new ArrayList<CharacterFacade>();
-		List<CharacterFacade> unsavedPCs = new ArrayList<CharacterFacade>();
+		List<CharacterFacade> characterList = new ArrayList<>();
+		List<CharacterFacade> unsavedPCs = new ArrayList<>();
 		for (CharacterFacade characterFacade : characters)
 		{
 			if (characterFacade.isDirty())

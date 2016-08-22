@@ -35,7 +35,7 @@ import java.util.Enumeration;
  * methods <em>never called by PCGen</em>, so code analysis tools will flag
  * methods as unused.  This is fine.  Do not remove or deprecate them.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Id$
  */
 public class ExtendedHTMLDocument extends HTMLDocument {

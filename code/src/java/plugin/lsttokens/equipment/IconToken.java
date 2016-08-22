@@ -37,11 +37,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * The Class <code>IconToken</code> processes the ICPON token. This 
  * allows an icon to be specified for the item of equipment.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class IconToken extends AbstractNonEmptyToken<Equipment> implements

@@ -63,7 +63,7 @@ import pcgen.util.enumeration.Tab;
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class InfoTabbedPane extends JTabbedPane
@@ -84,13 +84,13 @@ public final class InfoTabbedPane extends JTabbedPane
 	private final DoubleKeyMap<CharacterFacade, CharacterInfoTab, ModelMap> stateMap;
 	private final Map<CharacterFacade, Integer> tabSelectionMap;
 	private final TabModelService modelService;
-	private final List<CharacterInfoTab> fullTabList = new ArrayList<CharacterInfoTab>();
+	private final List<CharacterInfoTab> fullTabList = new ArrayList<>();
 	private CharacterFacade currentCharacter = null;
 
 	public InfoTabbedPane()
 	{
-		this.stateMap = new DoubleKeyMap<CharacterFacade, CharacterInfoTab, ModelMap>();
-		this.tabSelectionMap = new WeakHashMap<CharacterFacade, Integer>();
+		this.stateMap = new DoubleKeyMap<>();
+		this.tabSelectionMap = new WeakHashMap<>();
 		this.modelService = new TabModelService();
 		initComponent();
 	}
@@ -334,7 +334,7 @@ public final class InfoTabbedPane extends JTabbedPane
 
 		public TabModelService()
 		{
-			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(), new ThreadFactory()
+			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactory()
 			{
 
 				@Override
@@ -348,9 +348,9 @@ public final class InfoTabbedPane extends JTabbedPane
 				}
 
 			});
-			this.timingMap = new HashMap<CharacterInfoTab, Long>();
-			storeQueue = new LinkedList<CharacterInfoTab>();
-			restoreQueue = new LinkedList<Future<?>>();
+			this.timingMap = new HashMap<>();
+			storeQueue = new LinkedList<>();
+			restoreQueue = new LinkedList<>();
 		}
 
 		@Override
@@ -399,7 +399,7 @@ public final class InfoTabbedPane extends JTabbedPane
 				handleDisplayAware();
 			}
 
-			PriorityQueue<CharacterInfoTab> queue = new PriorityQueue<CharacterInfoTab>(states.keySet().size(), this);
+			PriorityQueue<CharacterInfoTab> queue = new PriorityQueue<>(states.keySet().size(), this);
 			queue.addAll(states.keySet());
 			queue.remove(firstTab);
 

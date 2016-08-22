@@ -103,11 +103,11 @@ import pcgen.util.enumeration.View;
  * character for display in the user interface. It also responds to any actions 
  * by the UI layer on the character's spells.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class SpellSupportFacadeImpl implements SpellSupportFacade,
@@ -155,19 +155,19 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		this.dataSet = dataSet;
 		this.todoManager = todoManager;
 		this.pcFacade = pcFacade;
-		rootNodeMap = new HashMap<String, RootNodeImpl>();
+		rootNodeMap = new HashMap<>();
 		
-		spellBookNames = new DefaultListFacade<String>();
-		defaultSpellBook = new DefaultReferenceFacade<String>(charDisplay.getSpellBookNameToAutoAddKnown());
+		spellBookNames = new DefaultListFacade<>();
+		defaultSpellBook = new DefaultReferenceFacade<>(charDisplay.getSpellBookNameToAutoAddKnown());
 		
-		availableSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
+		availableSpellNodes = new DefaultListFacade<>();
 		buildAvailableNodes();
-		allKnownSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		knownSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		preparedSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		bookSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
-		preparedSpellLists = new ArrayList<SpellSupportFacade.SpellNode>();
-		spellBooks = new ArrayList<SpellSupportFacade.SpellNode>();
+		allKnownSpellNodes = new DefaultListFacade<>();
+		knownSpellNodes = new DefaultListFacade<>();
+		preparedSpellNodes = new DefaultListFacade<>();
+		bookSpellNodes = new DefaultListFacade<>();
+		preparedSpellLists = new ArrayList<>();
+		spellBooks = new ArrayList<>();
 		buildKnownPreparedNodes();
 		
 		updateSpellsTodo();
@@ -225,7 +225,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	public void addKnownSpell(SpellNode spell)
 	{
 		SpellNode node =
-				addSpellToCharacter(spell, Globals.getDefaultSpellBook(), new ArrayList<Ability>());
+				addSpellToCharacter(spell, Globals.getDefaultSpellBook(), new ArrayList<>());
 		if (node != null)
 		{
 			allKnownSpellNodes.addElement(node);
@@ -262,7 +262,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	@Override
 	public void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic)
 	{
-		List<Ability> metamagicFeats = new ArrayList<Ability>();
+		List<Ability> metamagicFeats = new ArrayList<>();
 		if (useMetamagic)
 		{
 			metamagicFeats = queryUserForMetamagic(spell);
@@ -357,10 +357,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			label = LanguageBundle.getString("InfoSpells.add.with.metamagic");
 		}
 		
-		final ArrayList<Ability> selectedList = new ArrayList<Ability>();
+		final ArrayList<Ability> selectedList = new ArrayList<>();
 		GeneralChooserFacadeBase chooserFacade =
 				new GeneralChooserFacadeBase(label, availableList,
-					new ArrayList<InfoFacade>(), 99, infoFactory)
+                        new ArrayList<>(), 99, infoFactory)
 		{
 			/**
 			 * {@inheritDoc}
@@ -387,7 +387,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private List<InfoFacade> buildAvailableMetamagicFeatList(SpellNode spellNode)
 	{
-		List<Ability> characterMetaMagicFeats = new ArrayList<Ability>();
+		List<Ability> characterMetaMagicFeats = new ArrayList<>();
 		List<CNAbility> feats = pc.getCNAbilities(AbilityCategory.FEAT);
 
 		for (CNAbility cna : feats)
@@ -405,7 +405,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			return Collections.emptyList();
 		}
-		List<InfoFacade> availableList = new ArrayList<InfoFacade>();
+		List<InfoFacade> availableList = new ArrayList<>();
 		availableList.addAll(characterMetaMagicFeats);
 		return availableList;
 	}
@@ -562,7 +562,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			bookName = bookName.substring(0, bookName.lastIndexOf(" ["));
 		}
 		SpellNode node =
-			addSpellToCharacter(spell, bookName, new ArrayList<Ability>());
+			addSpellToCharacter(spell, bookName, new ArrayList<>());
 		if (node != null)
 		{
 			if (bookSpellNodes.containsElement(node))
@@ -750,7 +750,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			b.appendI18nElement("InfoSpells.school", schoolInfo.toString()); //$NON-NLS-1$ 
 		}
 
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (SpellProhibitor sp : aClass
 			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
@@ -860,7 +860,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		DefaultListFacade<SpellNode> spellNodeList, PCClass pcClass)
 	{
 		DoubleKeyMapToList<SpellFacade, String, SpellNode> spellMap =
-				new DoubleKeyMapToList<SpellFacade, String, SpellSupportFacade.SpellNode>();
+                new DoubleKeyMapToList<>();
 
 		for (SpellNode spellNode : spellNodeList)
 		{
@@ -890,7 +890,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		// Scan character classes for spell classes
 		List<PCClass> classList = getCharactersSpellcastingClasses();
-		List<PObject> pobjList = new ArrayList<PObject>(classList);
+		List<PObject> pobjList = new ArrayList<>(classList);
 		
 		// Include spells from race etc
 		pobjList.add(charDisplay.getRace());
@@ -927,7 +927,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private void buildKnownPreparedSpellsForCDOMObject(CDOMObject pObject)
 	{
 		Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
-		List<CharacterSpell> cSpells = new ArrayList<CharacterSpell>(sp);
+		List<CharacterSpell> cSpells = new ArrayList<>(sp);
 
 		// Add in the spells granted by objects
 		pc.addBonusKnownSpellsToList(pObject, cSpells);
@@ -1099,7 +1099,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	
 	private List<PCClass> getCharactersSpellcastingClasses()
 	{
-		List<PCClass> castingClasses = new ArrayList<PCClass>();
+		List<PCClass> castingClasses = new ArrayList<>();
 		Collection<PCClass> classes = charDisplay.getClassSet();
 		for (PCClass pcClass : classes)
 		{
@@ -1477,7 +1477,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display and process a spell. It covers spells that are available, known, 
 	 * memorised etc.
 	 * 
-	 * @author James Dempsey <jdempsey@users.sourceforge.net>
+	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public class SpellNodeImpl implements SpellNode
 	{
@@ -1692,7 +1692,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display an empty spell list. It is only used to ensure the spell list name 
 	 * is displayed.
 	 * 
-	 * @author James Dempsey <jdempsey@users.sourceforge.net>
+	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public class DummySpellNodeImpl implements SpellNode
 	{

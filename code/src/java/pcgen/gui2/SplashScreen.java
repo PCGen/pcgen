@@ -39,7 +39,7 @@ import pcgen.system.PCGenTaskListener;
  * PCGen's splash screen which is shown upon startup.
  *
  * @see pcgen.system.Main
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SplashScreen extends JWindow implements PCGenTaskListener
 {

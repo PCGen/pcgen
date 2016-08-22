@@ -33,7 +33,7 @@ public class MoveCloneIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static MovecloneLst token = new MovecloneLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

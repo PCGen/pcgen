@@ -33,7 +33,7 @@ package pcgen.core;
  * (The reason for an interface rather than a class
  * is that an interface uses a little less memory.)
  *
- * @author     Greg Bingleman <byngl@hotmail.com>
+ * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version    $Revision$
  */
 public interface RuleConstants

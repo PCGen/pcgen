@@ -111,7 +111,7 @@ public class SkillDisplay
 	 */
 	public static List<Skill> getSkillListInOutputOrder(PlayerCharacter pc)
 	{
-		return getSkillListInOutputOrder(pc, new ArrayList<Skill>(pc.getSkillSet()));
+		return getSkillListInOutputOrder(pc, new ArrayList<>(pc.getSkillSet()));
 	}
 
 	public static void updateSkillsOutputOrder(PlayerCharacter pc, Skill aSkill)
@@ -186,7 +186,7 @@ public class SkillDisplay
 		}
 		SkillComparator comparator = new SkillComparator(pc, sort, sortOrder);
 		int nextOutputIndex = 1;
-		List<Skill> skillList = new ArrayList<Skill>(pc.getSkillSet());
+		List<Skill> skillList = new ArrayList<>(pc.getSkillSet());
 		Collections.sort(skillList, comparator);
 
 		for (Skill aSkill : skillList)
@@ -207,7 +207,7 @@ public class SkillDisplay
 	private static int getHighestOutputIndex(PlayerCharacter pc)
 	{
 		int maxOutputIndex = 0;
-		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillSet());
+		final List<Skill> skillList = new ArrayList<>(pc.getSkillSet());
 		for (Skill bSkill : skillList)
 		{
 			Integer outputIndex = pc.getSkillOrder(bSkill);

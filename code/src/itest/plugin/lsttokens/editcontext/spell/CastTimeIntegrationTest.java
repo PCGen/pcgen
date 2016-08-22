@@ -29,7 +29,7 @@ public class CastTimeIntegrationTest extends
 {
 
 	static CasttimeToken token = new CasttimeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

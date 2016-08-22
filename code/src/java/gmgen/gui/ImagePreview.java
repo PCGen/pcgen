@@ -24,7 +24,7 @@ import pcgen.system.LanguageBundle;
  * A panel for previewing graphics in a file chooser.  This includes previewing
  * a character portrait referenced in a PCG file.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Id$
  * TODO Merge with {@link gmgen.gui.ImageFileChooserPreview}
  * TODO Support PCG portraits

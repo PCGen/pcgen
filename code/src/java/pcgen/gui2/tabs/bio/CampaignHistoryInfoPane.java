@@ -64,7 +64,7 @@ import pcgen.gui2.tools.Icons;
 /**
  * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
  * character.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 {
@@ -177,7 +177,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		public ChronicleHandler(CharacterFacade character)
 		{
 			descFacade = character.getDescriptionFacade();
-			chronicles = new ArrayList<ChroniclePane>();
+			chronicles = new ArrayList<>();
 			for (ChronicleEntryFacade entry : descFacade.getChronicleEntries())
 			{
 				chronicles.add(new ChroniclePane(this, entry));

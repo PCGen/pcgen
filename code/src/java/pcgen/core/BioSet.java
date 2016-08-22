@@ -52,11 +52,11 @@ import pcgen.util.Logging;
  */
 public final class BioSet extends PObject implements NonInteractive
 {
-	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<Region, Integer, AgeSet>();
+	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<>();
 
-	private CaseInsensitiveMap<Integer> ageNames = new CaseInsensitiveMap<Integer>();
+	private CaseInsensitiveMap<Integer> ageNames = new CaseInsensitiveMap<>();
 
-	private TripleKeyMapToList<Region, String, String, String> userMap = new TripleKeyMapToList<Region, String, String, String>();
+	private TripleKeyMapToList<Region, String, String, String> userMap = new TripleKeyMapToList<>();
 
 	public AgeSet getAgeSet(Region region, int index)
 	{
@@ -196,7 +196,7 @@ public final class BioSet extends PObject implements NonInteractive
 			return;
 		}
 
-		final List<String> ranList = new ArrayList<String>();
+		final List<String> ranList = new ArrayList<>();
 		final StringTokenizer lineTok = new StringTokenizer(randomizeStr, ".", false);
 
 		while (lineTok.hasMoreTokens())
@@ -301,7 +301,7 @@ public final class BioSet extends PObject implements NonInteractive
 	private SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> getRaceTagsByAge(Region region, String race)
 	{
 		// setup a mapped structure
-		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<Integer, SortedMap<String, SortedMap<String, String>>>();
+		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<>();
 		// Read in the user settings, split where necessary and add to the appropriate age bracket
 		for (String key : userMap.getTertiaryKeySet(region, race))
 		{
@@ -347,7 +347,7 @@ public final class BioSet extends PObject implements NonInteractive
 	 * Adds the tag (key & value) to the supplied ageSets collection. It is
 	 * assumed that the ageSet already has an entry for each age bracket and
 	 * that this entry will be a SortedMap of races. Each race will contain a
-	 * SortedMap of tags and their values.<br/> The key is assumed to be of the
+	 * SortedMap of tags and their values.<br> The key is assumed to be of the
 	 * form region.race.tag eg "Custom.Human%.MAXAGE" The value is assumed to be
 	 * either a list of values or a single value, depending on the tag. eg
 	 * "[34,52,69,110]" or "Blond|Brown" If a single value, it will be added to
@@ -377,14 +377,14 @@ public final class BioSet extends PObject implements NonInteractive
 					.get(Integer.valueOf(ageBracket));
 			if (races == null)
 			{
-				races = new TreeMap<String, SortedMap<String, String>>();
+				races = new TreeMap<>();
 				ageSets.put(ageBracket, races);
 			}
 			SortedMap<String, String> tags = races.get(race);
 
 			if (tags == null)
 			{
-				tags = new TreeMap<String, String>();
+				tags = new TreeMap<>();
 				races.put(race, tags);
 			}
 
@@ -396,7 +396,7 @@ public final class BioSet extends PObject implements NonInteractive
 			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
 			final StringBuilder sb)
 	{
-		Set<Integer> ageIndices = new TreeSet<Integer>();
+		Set<Integer> ageIndices = new TreeSet<>();
 		ageIndices.addAll(ageSets.keySet());
 		ageIndices.addAll(ageNames.values());
 		// Iterate through ages, outputing the info
@@ -532,7 +532,7 @@ public final class BioSet extends PObject implements NonInteractive
 		if (line != null && line.length() > 0)
 		{
 			final StringTokenizer aTok = new StringTokenizer(line, "|");
-			final List<String> aList = new ArrayList<String>();
+			final List<String> aList = new ArrayList<>();
 
 			while (aTok.hasMoreTokens())
 			{
@@ -691,7 +691,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Set<String> getAgeCategories()
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Object o : ageNames.keySet())
 		{
 			set.add(o.toString());
@@ -701,6 +701,6 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Map<Integer, AgeSet> getAgeSets(String regionName)
 	{
-		return new TreeMap<Integer, AgeSet>(ageMap.getMapFor(Region.getConstant(regionName)));
+		return new TreeMap<>(ageMap.getMapFor(Region.getConstant(regionName)));
 	}
 }

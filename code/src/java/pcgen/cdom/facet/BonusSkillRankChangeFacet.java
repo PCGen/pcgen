@@ -105,7 +105,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 		HashMap<Skill, Double> map = getInfo(id);
 		if (map == null)
 		{
-			map = new HashMap<Skill, Double>();
+			map = new HashMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -244,7 +244,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	public static class SkillRankChangeSupport
 	{
 		private List<SkillRankChangeListener> listeners =
-				new ArrayList<SkillRankChangeListener>();
+                new ArrayList<>();
 
 		/**
 		 * Adds a new SkillRankChangeListener to receive SkillRankChangeEventas

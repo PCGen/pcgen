@@ -32,7 +32,7 @@ import pcgen.base.lang.UnreachableError;
  * <code>Campaign</code>.
  * A simple structure.
  *
- * @author Felipe Diniz <fdiniz@users.sourceforge.net>
+ * @author Felipe Diniz &lt;fdiniz@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class ClassType implements Cloneable

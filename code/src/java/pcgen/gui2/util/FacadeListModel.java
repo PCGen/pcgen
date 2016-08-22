@@ -29,7 +29,7 @@ import pcgen.facade.util.ListFacade;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class FacadeListModel<E> extends AbstractListModel implements ListListener<E>
@@ -44,7 +44,7 @@ public class FacadeListModel<E> extends AbstractListModel implements ListListene
 
 	public FacadeListModel(ListFacade<E> list)
 	{
-		this.delegate = new DelegatingListFacade<E>();
+		this.delegate = new DelegatingListFacade<>();
 		delegate.addListListener(this);
 		setListFacade(list);
 	}

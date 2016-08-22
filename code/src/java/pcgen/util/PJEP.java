@@ -40,7 +40,7 @@ import pcgen.system.PluginLoader;
 /**
  * <code>PJEP</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision$
  *
  * Provides a common interface setup for Singular Systems' Java Mathematical Expression Parser.
@@ -57,8 +57,8 @@ public final class PJEP extends JEP
 	private Object parent;
 	private String variableSource;
 	private static List<Class<PCGenCommand>> commandList =
-			new ArrayList<Class<PCGenCommand>>();
-	private List<PCGenCommand> localCommandList = new ArrayList<PCGenCommand>();
+            new ArrayList<>();
+	private List<PCGenCommand> localCommandList = new ArrayList<>();
 
 	public static void addCommand(Class<PCGenCommand> clazz)
 	{

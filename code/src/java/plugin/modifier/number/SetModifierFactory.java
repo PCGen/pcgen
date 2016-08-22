@@ -29,7 +29,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
- * A SetModifierFactory is a ModifierFactory<Number> that returns a specific
+ * A SetModifierFactory is a {@code ModifierFactory<Number>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
  * SetModifierFactory is processed.
  */
@@ -40,7 +40,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()

@@ -26,8 +26,8 @@ import java.util.Stack;
 
 public class PjepPool
 {
-	private Stack<PJEP> freeStack = new Stack<PJEP>();
-	private List<PJEP> usedList = new ArrayList<PJEP>();
+	private Stack<PJEP> freeStack = new Stack<>();
+	private List<PJEP> usedList = new ArrayList<>();
 	private static PjepPool instance = new PjepPool();
 
 	private PjepPool()

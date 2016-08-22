@@ -32,7 +32,7 @@ public class ServesAsIntegrationTest extends
 {
 
 	static ServesAsToken token = new ServesAsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public String getPrefix()

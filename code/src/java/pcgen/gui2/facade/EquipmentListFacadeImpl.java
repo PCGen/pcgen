@@ -32,7 +32,7 @@ import pcgen.facade.util.AbstractListFacade;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		implements EquipmentListFacade
@@ -43,14 +43,14 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 
 	public EquipmentListFacadeImpl()
 	{
-		equipmentList = new ArrayList<EquipmentFacade>();
-		quantityMap = new HashMap<EquipmentFacade, Integer>();
+		equipmentList = new ArrayList<>();
+		quantityMap = new HashMap<>();
 	}
 
 	public EquipmentListFacadeImpl(List<Equipment> list)
 	{
-		equipmentList = new ArrayList<EquipmentFacade>(list);
-		quantityMap = new HashMap<EquipmentFacade, Integer>();
+		equipmentList = new ArrayList<>(list);
+		quantityMap = new HashMap<>();
 		for (Equipment equipment : list)
 		{
 			quantityMap.put(equipment, equipment.getQty().intValue());
@@ -63,8 +63,8 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 	 */
 	public void refresh(List<Equipment> list)
 	{
-		equipmentList = new ArrayList<EquipmentFacade>(list);
-		quantityMap = new HashMap<EquipmentFacade, Integer>();
+		equipmentList = new ArrayList<>(list);
+		quantityMap = new HashMap<>();
 		for (Equipment equipment : list)
 		{
 			quantityMap.put(equipment, equipment.getQty().intValue());

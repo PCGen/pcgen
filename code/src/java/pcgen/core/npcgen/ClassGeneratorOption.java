@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 /**
  * This class represents a particular class generator option.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * @since 5.11.1
  */
 public class ClassGeneratorOption extends GeneratorOption
@@ -45,7 +45,7 @@ public class ClassGeneratorOption extends GeneratorOption
 	{
 		if ( theChoices == null )
 		{
-			theChoices = new WeightedCollection<PCClass>();
+			theChoices = new WeightedCollection<>();
 		}
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$

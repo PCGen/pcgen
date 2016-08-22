@@ -101,10 +101,10 @@ import pcgen.util.enumeration.Tab;
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author: $ Last Edited: $Date: $
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 @SuppressWarnings("serial")
@@ -393,7 +393,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			table.setRowSelectionInterval(row, row);
 		}
-		List<Integer> targets = new ArrayList<Integer>();
+		List<Integer> targets = new ArrayList<>();
 		for (int selRow : table.getSelectedRows())
 		{
 			targets.add(selRow);
@@ -402,7 +402,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	}
 
 	/**
-	 * @param load (i.e. Encumbrance) value
 	 */
 	public void setLoadLabel(String text)
 	{
@@ -1074,9 +1073,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				return;
 			}
 
-			List<EquipNode> upTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
-			List<EquipNode> downTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
-			List<EquipNode> sortTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
+			List<EquipNode> upTargets = new ArrayList<>();
+			List<EquipNode> downTargets = new ArrayList<>();
+			List<EquipNode> sortTargets = new ArrayList<>();
 			EquipNode[] relativeNodes = filterTargets(targets, upTargets, downTargets, sortTargets);
 
 			JPopupMenu popupMenu = new JPopupMenu();

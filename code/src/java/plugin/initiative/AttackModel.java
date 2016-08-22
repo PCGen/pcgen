@@ -212,7 +212,7 @@ public class AttackModel extends PObjectModel
 
 	/**
 	 * <p>Gets the crit multiple at the specified attack bonus index, based
-	 * on whether or not the index > or < the first off hand attack index.</p>
+	 * on whether or not the index is greater than or less than the first off hand attack index.</p>
 	 *
 	 * @param index
 	 * @return The crit multiple value.
@@ -300,7 +300,7 @@ public class AttackModel extends PObjectModel
 
 	/**
 	 * <p>Gets the crit range at the specified attack bonus index, based
-	 * on whether or not the index > or < the first off hand attack index.</p>
+	 * on whether or not the index is greater than or less than the first off hand attack index.</p>
 	 *
 	 * @param index The attack bonus index
 	 * @return The requested crit range.
@@ -433,7 +433,7 @@ public class AttackModel extends PObjectModel
 
 	/**
 	 * <p>Gets the damage dice at the specified attack bonus index, based
-	 * on whether or not the index > or < the first off hand attack index.</p>
+	 * on whether or not the index is greater than or less than the first off hand attack index.</p>
 	 *
 	 * @param index The attack bonus index
 	 * @return The requested damage string.

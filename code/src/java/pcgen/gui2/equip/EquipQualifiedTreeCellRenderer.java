@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * EquipQualifiedTreeCellRenderer renders an equipment modifier in a table 
  * cell using color to show if the modifier can be used.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer

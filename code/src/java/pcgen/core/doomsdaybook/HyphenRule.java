@@ -27,7 +27,7 @@ import java.util.ArrayList;
  */
 public class HyphenRule implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 
 	/** Creates a new instance of SpaceRule */
 	public HyphenRule()

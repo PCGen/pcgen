@@ -53,7 +53,7 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 	@Override
 	public Collection<? extends R> convert(ObjectContainer<B> orig, PrimitiveFilter<B> lim)
 	{
-		return converter.convert(orig, new CompoundFilter<B>(filter, lim));
+		return converter.convert(orig, new CompoundFilter<>(filter, lim));
 	}
 
 	private static final class CompoundFilter<T> implements PrimitiveFilter<T>

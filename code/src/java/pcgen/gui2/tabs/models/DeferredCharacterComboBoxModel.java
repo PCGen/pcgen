@@ -42,13 +42,13 @@ import pcgen.gui2.util.FacadeListModel;
  * Note: This class needs to be added as a FocusListener of the target JComboBox 
  * for selection to work.  
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

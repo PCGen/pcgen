@@ -30,7 +30,7 @@ import javax.swing.table.TableModel;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultSortableTableModel extends DefaultTableModel implements SortableTableModel
 {
@@ -144,7 +144,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
                 setValueAt(model.getValueAt(x, y), x, y);
             }
         }
-        Vector<String> titles = new Vector<String>();
+        Vector<String> titles = new Vector<>();
         for(int x = 0; x < getColumnCount(); x++)
         {
             titles.add(model.getColumnName(x));

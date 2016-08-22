@@ -76,12 +76,12 @@ import pcgen.util.Logging;
 public final class PCGIOHandler extends IOHandler
 {
 
-	private final List<String> errors = new ArrayList<String>();
-	private final List<String> warnings = new ArrayList<String>();
+	private final List<String> errors = new ArrayList<>();
+	private final List<String> warnings = new ArrayList<>();
 
 	/**
 	 * Selector
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 18-03-02
 	 *
 	 * @return a list of error messages
@@ -93,14 +93,14 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Convenience Method
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 18-03-02
 	 *
 	 * @return a list of messages
 	 */
 	public List<String> getMessages()
 	{
-		final List<String> messages = new ArrayList<String>();
+		final List<String> messages = new ArrayList<>();
 
 		messages.addAll(errors);
 		messages.addAll(warnings);
@@ -110,7 +110,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Selector
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 15-03-02
 	 *
 	 * @return a list of warning messages
@@ -139,7 +139,7 @@ public final class PCGIOHandler extends IOHandler
 			aPost = aChoice.substring(iOffs + 1);
 		}
 
-		final List<String> saNames = new ArrayList<String>();
+		final List<String> saNames = new ArrayList<>();
 		final StringTokenizer aTok = new StringTokenizer(aString, ",");
 
 		while (aTok.hasMoreTokens())
@@ -201,7 +201,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Reads the contents of the given PlayerCharacter from a stream
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 11-03-02
 	 *
 	 * @param pcToBeRead the PlayerCharacter to store the read data
@@ -279,7 +279,7 @@ public final class PCGIOHandler extends IOHandler
 	 */
 	private List<String> readPcgLines(InputStream in)
 	{
-		final List<String> lines = new ArrayList<String>();
+		final List<String> lines = new ArrayList<>();
 
 		// try reading in all the lines in the .pcg file
 		BufferedReader br = null;
@@ -319,7 +319,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * Writes the contents of the given PlayerCharacter to a stream
-	 * <p/>
+	 * <p>
 	 * <br>author: Thomas Behr 11-03-02
 	 * 
 	 * @deprecated The write to a file method should be used in preference as it has safe backup handling.
@@ -646,7 +646,7 @@ public final class PCGIOHandler extends IOHandler
 		String charFiles = lines.get(1);
 		String[] files = charFiles.split(",");
 
-		List<File> fileList = new ArrayList<File>();
+		List<File> fileList = new ArrayList<>();
 		for (String fileName : files)
 		{
 			// try to find it in the party's directory

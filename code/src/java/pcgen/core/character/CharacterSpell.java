@@ -41,12 +41,12 @@ import pcgen.core.spell.Spell;
 /**
  * <code>PCClass</code>.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {
-	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
+	private final List<SpellInfo> infoList = new ArrayList<>();
 	private final CDOMObject owner; // PCClass/Race/etc. in whose list this object resides
 	private final Spell spell;
 	private String fixedCasterLevel = null;
@@ -68,7 +68,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param pc The character to query.
 	 * @param bookName name of spellbook/list
 	 * @param level actual level of spell (adjusted by feats)
-	 * @param specialty -1 = inSpecialty insensitive;<br/>0 = inSpecialty==false; and <br/> 1 = inSpecialty==true
+	 * @param specialty -1 = inSpecialty insensitive;<br>0 = inSpecialty==false; and <br> 1 = inSpecialty==true
 	 * @return info index
 	 */
 	public int getInfoIndexFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)

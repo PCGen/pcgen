@@ -48,7 +48,7 @@ public class EqModCost
 	{
 		double val = 0;
 
-		Set<String> typesToGetBonusesFor = new HashSet<String>();
+		Set<String> typesToGetBonusesFor = new HashSet<>();
 
 		for (BonusObj bonus : eqMod.getBonusList(parent))
 		{

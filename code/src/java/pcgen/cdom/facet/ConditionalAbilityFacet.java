@@ -66,7 +66,7 @@ public class ConditionalAbilityFacet extends
 	 */
 	public Collection<CNAbilitySelection> getQualifiedSet(CharID id)
 	{
-		List<CNAbilitySelection> set = new ArrayList<CNAbilitySelection>();
+		List<CNAbilitySelection> set = new ArrayList<>();
 		Map<CNAbilitySelection, Object> cached = getCachedMap(id);
 		if (cached != null)
 		{

@@ -91,7 +91,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		int currIndex = 0;
 		boolean expectComma = false;
 		boolean expectStart = true;
-		List<String> subList = new ArrayList<String>();
+		List<String> subList = new ArrayList<>();
 
 		for (currIndex = 0; currIndex < input.length(); currIndex++)
 		{

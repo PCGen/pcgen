@@ -143,7 +143,7 @@ public class ReadXML
 			Vector<String> row;
 			for (int x = 0; x < rows; x++)
 			{
-				row = new Vector<String>();
+				row = new Vector<>();
 
 				for (int y = 0; y < cols; y++)
 				{

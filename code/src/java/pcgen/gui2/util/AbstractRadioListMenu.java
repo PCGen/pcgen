@@ -33,13 +33,13 @@ import pcgen.facade.util.event.ListEvent;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> implements ItemListener
 {
 
 	private final ButtonGroup group = new ButtonGroup();
-	private Map<E, RadioMenuItem> menuMap = new HashMap<E, RadioMenuItem>();
+	private Map<E, RadioMenuItem> menuMap = new HashMap<>();
 	private E selectedItem = null;
 
 	public AbstractRadioListMenu(Action action)

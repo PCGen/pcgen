@@ -50,7 +50,7 @@ public class AbstractAdapter<T>
 			{
 				if (e == null)
 				{
-					e = new ReferenceEvent<T>(source, oldValue, newValue);
+					e = new ReferenceEvent<>(source, oldValue, newValue);
 				}
 				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
 			}

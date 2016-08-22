@@ -54,7 +54,7 @@ public final class CorePerspective
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<CorePerspective>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = CorePerspective.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{
@@ -85,6 +85,6 @@ public final class CorePerspective
 
 	public static Collection<CorePerspective> getAllConstants()
 	{
-		return new HashSet<CorePerspective>(map.values());
+		return new HashSet<>(map.values());
 	}
 }

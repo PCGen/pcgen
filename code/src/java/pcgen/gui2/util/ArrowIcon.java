@@ -32,7 +32,7 @@ import javax.swing.UIManager;
  * javax.swing.plaf.basic.BasicArrowButton. As such this icon draws the arrow
  * that you find on arrow buttons.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class ArrowIcon implements Icon, SwingConstants
 {

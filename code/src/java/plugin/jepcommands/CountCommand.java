@@ -36,10 +36,10 @@ import pcgen.util.Logging;
 /**
  * <code>CountCommand</code> deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
- * <p/> Last Editor: $Author$ Last Edited: $Date: 2007-10-26 21:23:23 +0100 (Fri,
+ * <p> Last Editor: $Author$ Last Edited: $Date: 2007-10-26 21:23:23 +0100 (Fri,
  * 26 Oct 2007) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CountCommand extends AbstractCountCommand

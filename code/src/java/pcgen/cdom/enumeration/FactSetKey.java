@@ -35,7 +35,7 @@ public final class FactSetKey<T>
 	 * This Map contains the mappings from Strings to the FactSetKey
 	 */
 	private static CaseInsensitiveMap<FactSetKey<?>> typeMap =
-			new CaseInsensitiveMap<FactSetKey<?>>();
+            new CaseInsensitiveMap<>();
 
 	/**
 	 * The name of this FactSetKey
@@ -87,7 +87,7 @@ public final class FactSetKey<T>
 		FactSetKey<T> key = (FactSetKey<T>) typeMap.get(name);
 		if (key == null)
 		{
-			key = new FactSetKey<T>(name, fmtManager);
+			key = new FactSetKey<>(name, fmtManager);
 			typeMap.put(name, key);
 		}
 		else if (!key.formatManager.equals(fmtManager))

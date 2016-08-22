@@ -163,13 +163,11 @@ public class TemplateToken extends Token
 	 * that the PC qualifies for at the supplied level and
 	 * hit dice. 
 	 * 
-	 * @param pct
+	 * @param pc
 	 *
 	 * @param level
 	 *
 	 * @param hitdice
-	 *
-	 * @param addNew
 	 *
 	 * @return a list of feats 
 	 */
@@ -222,7 +220,7 @@ public class TemplateToken extends Token
 	/**
 	 * Get value of CR Sub Token
 	 * @param template
-	 * @param pc
+	 * @param display
 	 * @return value of CR Sub Token
 	 */
 	public static float getCRToken(PCTemplate template, CharacterDisplay display)
@@ -337,7 +335,7 @@ public class TemplateToken extends Token
 	/**
 	 * Get value of SR Sub token
 	 * @param template
-	 * @param pc
+	 * @param display
 	 * @return value of SR Sub token
 	 */
 	public static int getSRToken(PCTemplate template, CharacterDisplay display)

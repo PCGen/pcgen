@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  * @version $Revision$
  */
 public class LevelToken implements LevelLstToken

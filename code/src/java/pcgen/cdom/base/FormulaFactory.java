@@ -379,12 +379,12 @@ public final class FormulaFactory
 		}
 		try
 		{
-			return new SimpleFormula<T>(fmtManager.convert(expression));
+			return new SimpleFormula<>(fmtManager.convert(expression));
 		}
 		catch (IllegalArgumentException e)
 		{
 			// Okay, not simple :P
-			return new ComplexNEPFormula<T>(expression);
+			return new ComplexNEPFormula<>(expression);
 		}
 	}
 

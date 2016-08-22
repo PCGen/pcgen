@@ -86,7 +86,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 			throw new IllegalArgumentException(
 					"Choice Collection cannot be empty");
 		}
-		refCollection = new WeightedCollection<CDOMReference<T>>(col);
+		refCollection = new WeightedCollection<>(col);
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<CDOMReference<?>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(refCollection);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);
@@ -151,7 +151,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Set<T> getSet(PlayerCharacter pc)
 	{
-		Set<T> returnSet = new HashSet<T>();
+		Set<T> returnSet = new HashSet<>();
 		for (CDOMReference<T> ref : refCollection)
 		{
 			returnSet.addAll(ref.getContainedObjects());

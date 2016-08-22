@@ -78,11 +78,11 @@ import pcgen.util.enumeration.Tab;
  * where each item is located. As a result it also manages what items are 
  * deemed active.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
@@ -96,7 +96,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private final DataSetFacade dataSet;
 	private final EquipmentListFacadeImpl purchasedList;
 
-	private List<EquipmentTreeListener> listeners = new ArrayList<EquipmentTreeListener>();
+	private List<EquipmentTreeListener> listeners = new ArrayList<>();
 	private DefaultReferenceFacade<String> name;
 	private EquipmentListFacadeImpl equippedItemsList;
 	private Map<String, BodyStructure> bodyStructMap;
@@ -144,11 +144,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private void initForEquipSet(EquipSet equipSet)
 	{
 		this.eqSet = equipSet;
-		name = new DefaultReferenceFacade<String>(equipSet.getName());
-		bodyStructMap = new HashMap<String, BodyStructure>();
+		name = new DefaultReferenceFacade<>(equipSet.getName());
+		bodyStructMap = new HashMap<>();
 		equippedItemsList = new EquipmentListFacadeImpl();
-		naturalWeaponNodes = new HashMap<String, EquipmentSetFacadeImpl.EquipNodeImpl>();
-		hiddenPhantomNodes = new HashSet<EquipmentSetFacadeImpl.EquipNodeImpl>();
+		naturalWeaponNodes = new HashMap<>();
+		hiddenPhantomNodes = new HashSet<>();
 
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
 		{
@@ -158,7 +158,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		
 		buildNodeList();
 
-		List<EquipSet> equipList = new ArrayList<EquipSet>(charDisplay.getEquipSet());
+		List<EquipSet> equipList = new ArrayList<>(charDisplay.getEquipSet());
 		Collections.sort(equipList);
 		createNaturalWeaponSlots();
 		updateNaturalWeaponSlots();
@@ -168,8 +168,8 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 	private void buildNodeList()
 	{
-		nodeList = new DefaultListFacade<EquipNode>();
-		equipSlotNodeMap = new LinkedHashMap<EquipSlot, EquipNode>();
+		nodeList = new DefaultListFacade<>();
+		equipSlotNodeMap = new LinkedHashMap<>();
 		int index = 0;
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
 		{
@@ -285,7 +285,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	private void addChildrenToPath(String idPath, List<EquipSet> equipList, EquipNodeImpl parent)
 	{
-		List<EquipNodeImpl> children = new ArrayList<EquipNodeImpl>();
+		List<EquipNodeImpl> children = new ArrayList<>();
 
 		// process all EquipNodeImpl Items
 		for (int iSet = 0; iSet < equipList.size(); ++iSet)
@@ -535,7 +535,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	private Map<String, EquipNodeImpl> buildPathNodeMap()
 	{
-		Map<String, EquipNodeImpl> pathMap = new HashMap<String, EquipmentSetFacadeImpl.EquipNodeImpl>();
+		Map<String, EquipNodeImpl> pathMap = new HashMap<>();
 		for (EquipNode node : nodeList)
 		{
 			if (node instanceof EquipNodeImpl && ((EquipNodeImpl) node).getIdPath() != null)
@@ -554,7 +554,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	private Map<String, EquipSet> buildPathEquipSetMap()
 	{
-		Map<String, EquipSet> esMap = new HashMap<String, EquipSet>();
+		Map<String, EquipSet> esMap = new HashMap<>();
 		for (EquipSet es : charDisplay.getEquipSet())
 		{
 			esMap.put(es.getIdPath(), es);
@@ -741,8 +741,8 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		EquipNodeImpl equipNode = (EquipNodeImpl) node;
 		
 		List<EquipNode> orderedEquipNodes =
-				new ArrayList<EquipmentSetFacade.EquipNode>(
-					nodeList.getContents());
+                new ArrayList<>(
+                        nodeList.getContents());
 		Collections.sort(orderedEquipNodes);
 		
 		// Get current location
@@ -823,7 +823,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		
 		String pid = ((EquipNodeImpl) parentNode).idPath;
 		boolean isBodyStructure = parentNode.getBodyStructure() instanceof BodyStructure;
-		List<EquipNodeImpl> childList = new ArrayList<EquipmentSetFacadeImpl.EquipNodeImpl>();
+		List<EquipNodeImpl> childList = new ArrayList<>();
 		Map<String, EquipNodeImpl> origPathToNode = buildPathNodeMap();
 		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
 		for (Entry<String, EquipNodeImpl> entry : origPathToNode.entrySet())
@@ -981,11 +981,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private void updateOutputOrder()
 	{
 		List<EquipNode> orderedEquipNodes =
-				new ArrayList<EquipmentSetFacade.EquipNode>(
-					nodeList.getContents());
+                new ArrayList<>(
+                        nodeList.getContents());
 		Collections.sort(orderedEquipNodes);
 		List<Equipment> processed =
-				new ArrayList<Equipment>(orderedEquipNodes.size());
+                new ArrayList<>(orderedEquipNodes.size());
 
 		int outputIndex = 1;
 		for (EquipNode equipNode : orderedEquipNodes)
@@ -1085,7 +1085,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			return;
 		}
 
-		List<EquipNode> equipToBeRemoved = new ArrayList<EquipNode>(nodeList.getSize());
+		List<EquipNode> equipToBeRemoved = new ArrayList<>(nodeList.getSize());
 		for (EquipNode node : nodeList)
 		{
 			// Only select top level equipment, anything in a container will be removed along with the container. 
@@ -1112,7 +1112,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	private List<EquipNode> getIncompatibleWeaponSlots(EquipNodeImpl targetNode)
 	{
-		List<EquipNode> wpnList = new ArrayList<EquipNode>();
+		List<EquipNode> wpnList = new ArrayList<>();
 		if (targetNode.getNodeType() != NodeType.PHANTOM_SLOT)
 		{
 			return wpnList;
@@ -1172,7 +1172,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private void addCompatWeaponSlots(final EquipNodeImpl restoredNode)
 	{
 		List<EquipNode> weaponSlots = getIncompatibleWeaponSlots(restoredNode);
-		Set<EquipNode> incompatNodes = new HashSet<EquipNode>();
+		Set<EquipNode> incompatNodes = new HashSet<>();
 		for (EquipNode equipNode : nodeList)
 		{
 			if (equipNode.getNodeType() == NodeType.EQUIPMENT
@@ -1273,9 +1273,9 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private void updatePhantomSlots()
 	{
 		// Check for phantom slots which are no longer usable and slots over capacity
-		Set<EquipNode> nodesToBeRemoved = new HashSet<EquipmentSetFacade.EquipNode>();
-		Set<EquipNodeImpl> presentPNs = new HashSet<EquipNodeImpl>();
-		Set<EquipNodeImpl> neededPNs = new HashSet<EquipNodeImpl>();
+		Set<EquipNode> nodesToBeRemoved = new HashSet<>();
+		Set<EquipNodeImpl> presentPNs = new HashSet<>();
+		Set<EquipNodeImpl> neededPNs = new HashSet<>();
 		for (EquipNode node : nodeList)
 		{
 			EquipNodeImpl nodeImpl = (EquipNodeImpl) node; 
@@ -1660,7 +1660,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	@Override
 	public void removeAllEquipment()
 	{
-		List<EquipNode> equipToBeRemoved = new ArrayList<EquipNode>(nodeList.getSize());
+		List<EquipNode> equipToBeRemoved = new ArrayList<>(nodeList.getSize());
 		for (EquipNode node : nodeList)
 		{
 			// Only select top level equipment, anything in a container will be removed along with the container. 
@@ -2081,7 +2081,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 	private List<EquipNodeImpl> findEquipmentNodes(EquipmentFacade equipmentFacade)
 	{
-		List<EquipNodeImpl> affectedList = new ArrayList<EquipNodeImpl>();
+		List<EquipNodeImpl> affectedList = new ArrayList<>();
 		for (EquipNode node : nodeList)
 		{
 			if (equipmentFacade.equals(node.getEquipment()))

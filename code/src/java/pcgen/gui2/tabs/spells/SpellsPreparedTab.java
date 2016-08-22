@@ -64,7 +64,7 @@ import pcgen.util.enumeration.Tab;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInfoTab
@@ -88,7 +88,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	public SpellsPreparedTab()
 	{
 		super("SpellsPrepared");
-		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
+		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new JTreeViewTable<SuperNode>(){
 			
 			@Override
@@ -103,7 +103,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		this.addMMSpellButton = new JButton();
 		this.addSpellButton = new JButton();
 		this.removeSpellButton = new JButton();
-		this.qFilterButton = new FilterButton<CharacterFacade, SuperNode>("SpellPreparedQualified");
+		this.qFilterButton = new FilterButton<>("SpellPreparedQualified");
 		this.addSpellListButton = new JButton();
 		this.removeSpellListButton = new JButton();
 		this.slotsBox = new JCheckBox();
@@ -127,7 +127,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		});
 		selectedTable.getRowSorter().toggleSortOrder(0);
-		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
+		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);

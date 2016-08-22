@@ -33,11 +33,11 @@ import pcgen.core.PCStat;
  * NonStatToStatFacet is a Facet that tracks the Stats that have been locked to 
  * non stats on a Player Character.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class NonStatToStatFacet extends AbstractSourcedListFacet<CharID, PCStat> implements

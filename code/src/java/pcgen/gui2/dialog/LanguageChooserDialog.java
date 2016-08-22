@@ -65,7 +65,7 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class LanguageChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>
 {
@@ -81,11 +81,11 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	{
 		super(frame, true);
 		this.chooser = chooser;
-		this.availTable = new JTreeViewTable<LanguageFacade>();
+		this.availTable = new JTreeViewTable<>();
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new LangTreeViewModel();
 		this.list = new JListEx();
-		this.listModel = new FacadeListModel<LanguageFacade>();
+		this.listModel = new FacadeListModel<>();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());
 		listModel.setListFacade(chooser.getSelectedList());
@@ -223,7 +223,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			DataView<LanguageFacade>//, TreeView<LanguageFacade>
 	{
 		private static final ListFacade<TreeView<LanguageFacade>> views =
-				new DefaultListFacade<TreeView<LanguageFacade>>(Arrays.asList(LanguageTreeView.values()));
+                new DefaultListFacade<>(Arrays.asList(LanguageTreeView.values()));
 
 		@Override
 		public ListFacade<? extends TreeView<LanguageFacade>> getTreeViews()
@@ -298,15 +298,15 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		@Override
 		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
 		{
-			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<TreeViewPath<LanguageFacade>>();
+			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<>();
 			switch (this)
 			{
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<LanguageFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
 					for(String type : pobj.getTypes())
 					{
-						paths.add(new TreeViewPath<LanguageFacade>(pobj, type));
+						paths.add(new TreeViewPath<>(pobj, type));
 					}
 					return paths;
 				default:

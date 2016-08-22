@@ -47,7 +47,7 @@ import pcgen.rules.context.RuntimeLoadContext;
 /**
  * <code>Campaign</code> is a source or campaign defined in a *.pcc file.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class Campaign extends PObject implements CampaignFacade, NonInteractive
@@ -67,7 +67,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
-		final List<Campaign> ret = new ArrayList<Campaign>(pccFiles.size());
+		final List<Campaign> ret = new ArrayList<>(pccFiles.size());
 		
 		for ( final CampaignSourceEntry fileName : pccFiles )
 		{
@@ -90,7 +90,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
-		final List<CampaignSourceEntry> ret = new ArrayList<CampaignSourceEntry>();
+		final List<CampaignSourceEntry> ret = new ArrayList<>();
 		
 		for ( final CampaignSourceEntry cse : pccFiles )
 		{
@@ -133,7 +133,7 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	{
 		if (gameModes == null)
 		{
-			gameModes = new DefaultListFacade<GameModeFacade>();
+			gameModes = new DefaultListFacade<>();
 			List<String> modes = getSafeListFor(ListKey.GAME_MODE);
 			for (String string : modes)
 			{

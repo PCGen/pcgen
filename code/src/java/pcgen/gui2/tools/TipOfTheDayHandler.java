@@ -44,11 +44,11 @@ import pcgen.util.Logging;
 /**
  * The singleton class <code>TipOfTheDayHandler</code> manages the list of tips. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class TipOfTheDayHandler
@@ -86,7 +86,7 @@ public class TipOfTheDayHandler
 
 	public synchronized void loadTips()
 	{
-		tipList = new ArrayList<String>(20);
+		tipList = new ArrayList<>(20);
 		String systemDir = ConfigurationSettings.getSystemsDir();
 		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
 		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$

@@ -59,7 +59,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 	{
 		if (display.hasFollowers())
 		{
-			final List<Follower> aList = new ArrayList<Follower>();
+			final List<Follower> aList = new ArrayList<>();
 
 			for ( Follower follower : display.getFollowerList() )
 			{

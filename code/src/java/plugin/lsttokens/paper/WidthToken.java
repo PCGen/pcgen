@@ -35,7 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>WidthToken</code>
  * 
- * @author Devon Jones <soulcatcher@evilsoft.org>
+ * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class WidthToken extends AbstractNonEmptyToken<PaperInfo> implements
 		CDOMPrimaryToken<PaperInfo>

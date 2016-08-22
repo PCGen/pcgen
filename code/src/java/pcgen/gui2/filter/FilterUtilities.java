@@ -26,14 +26,14 @@ import javax.swing.JScrollPane;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterUtilities
 {
 
 	public static FilterBar<Object, Object> createDefaultFilterBar()
 	{
-		FilterBar<Object, Object> bar = new FilterBar<Object, Object>();
+		FilterBar<Object, Object> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		return bar;
 	}
