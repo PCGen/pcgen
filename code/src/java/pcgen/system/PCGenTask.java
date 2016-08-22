@@ -130,11 +130,6 @@ public abstract class PCGenTask
 		fireErrorOccurredEvent(record);
 	}
 
-	protected void sendErrorMessage(String message)
-	{
-		fireErrorOccurredEvent(new LogRecord(Logging.ERROR, message));
-	}
-
 	protected void fireErrorOccurredEvent(LogRecord message)
 	{
 		PCGenTaskEvent taskEvent = null;

@@ -113,7 +113,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	
 	private final JTreeTable companionsTable;
 	private final JEditorPane infoPane;
-	private final JButton loadButton;
+	final JButton loadButton;
 	private CompanionDialog companionDialog = null;
 	
 	public CompanionInfoTab()
@@ -209,9 +209,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		return new TabTitle(Tab.COMPANIONS);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void tabSelected()
 	{
@@ -318,7 +315,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private ListSelectionModel selectionModel;
 		private PCGenFrame frame;
 		
-		public LoadButtonAndSheetHandler()
+		private LoadButtonAndSheetHandler()
 		{
 			File sheet =
 					FileUtils.getFile(ConfigurationSettings.getPreviewDir(),

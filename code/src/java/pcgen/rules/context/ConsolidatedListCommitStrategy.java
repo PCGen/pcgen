@@ -46,7 +46,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 
 	private final DoubleKeyMapToList<CDOMReference<? extends CDOMList<?>>, CDOMObject, AssociatedPrereqObject> masterList =
             new DoubleKeyMapToList<>();
-	
+
 	public URI getExtractURI()
 	{
 		return extractURI;

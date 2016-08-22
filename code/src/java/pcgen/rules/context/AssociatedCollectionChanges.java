@@ -22,16 +22,16 @@ import java.util.Collection;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 
-public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
+class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 {
 	private final MapToList<T, AssociatedPrereqObject> positive;
 	private final MapToList<T, AssociatedPrereqObject> negative;
 	private final boolean clear;
 
-	public AssociatedCollectionChanges(
-		MapToList<T, AssociatedPrereqObject> added,
-		MapToList<T, AssociatedPrereqObject> removed,
-		boolean globallyCleared)
+	AssociatedCollectionChanges(
+			MapToList<T, AssociatedPrereqObject> added,
+			MapToList<T, AssociatedPrereqObject> removed,
+			boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;
@@ -44,7 +44,7 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		return clear;
 	}
 
-	public boolean isEmpty()
+	protected boolean isEmpty()
 	{
 		return !clear && !hasAddedItems() && !hasRemovedItems();
 	}
@@ -55,7 +55,7 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		return positive.getKeySet();
 	}
 
-	public boolean hasAddedItems()
+	private boolean hasAddedItems()
 	{
 		return positive != null && !positive.isEmpty();
 	}
@@ -66,7 +66,7 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		return negative == null ? null : negative.getKeySet();
 	}
 
-	public boolean hasRemovedItems()
+	private boolean hasRemovedItems()
 	{
 		return negative != null && !negative.isEmpty();
 	}

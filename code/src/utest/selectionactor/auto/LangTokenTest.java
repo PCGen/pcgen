@@ -27,7 +27,7 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class LangTokenTest extends AbstractSelectionActorTest<Language>
 {
 
-	static LangToken cra = new LangToken();
+	private static final LangToken cra = new LangToken();
 
 	@Test
 	public void testEmpty()
