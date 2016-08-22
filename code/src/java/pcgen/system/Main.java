@@ -166,7 +166,7 @@ public final class Main
 		return SystemUtils.USER_DIR;
 	}
 
-	static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
+	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
 	{
 		Main.characterFile = characterFile;
 		Main.exportSheet = exportSheet;
