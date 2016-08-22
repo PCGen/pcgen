@@ -152,10 +152,8 @@ public final class Main
 	private static String getConfigPath()
 	{
 		//TODO: convert to a proper command line argument instead of a -D java property
-		String aPath;
-
 		// First see if it was specified on the command line
-		aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
+		String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
 		if (aPath != null)
 		{
 			File testPath = new File(aPath);
@@ -181,7 +179,7 @@ public final class Main
 	}
 
 	/**
-	 * initalized Main. Must be called before any other getter can be used.
+	 * Initialize Main - must be called before any other getter can be used.
 	 *
 	 * @param argv the command line arguments to be parsed
 	 */
