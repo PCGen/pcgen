@@ -83,7 +83,7 @@ public final class Main
 	private static String characterFile;
 	private static String outputFile;
 
-    public static boolean shouldStartInGMGen()
+	public static boolean shouldStartInGMGen()
 	{
 		return startGMGen;
 	}
@@ -130,8 +130,8 @@ public final class Main
 	public static void main(String[] args)
 	{
 		Logging.log(Level.INFO,
-			"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
-				+ PCGenPropBundle.getAutobuildString());
+				"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
+						+ PCGenPropBundle.getAutobuildString());
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(getConfigPath());
@@ -139,10 +139,12 @@ public final class Main
 
 		parseCommands(args);
 
-		if (exportSheet != null) {
+		if (exportSheet != null)
+		{
 			startupWithoutGUI();
 			shutdown();
-		} else {
+		} else
+		{
 			startupWithGUI();
 		}
 	}
@@ -154,8 +156,9 @@ public final class Main
 
 		// First see if it was specified on the command line
 		aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
-		if (aPath != null) {
-			File testPath=new File(aPath);
+		if (aPath != null)
+		{
+			File testPath = new File(aPath);
 			// Then make sure it's an existing folder
 			if (testPath.exists() && testPath.isDirectory())
 			{
@@ -179,13 +182,15 @@ public final class Main
 
 	/**
 	 * initalized Main. Must be called before any other getter can be used.
+	 *
 	 * @param argv the command line arguments to be parsed
 	 */
 	private static void parseCommands(String[] argv)
 	{
-        Namespace args = getParser().parseArgsOrFail(argv);
+		Namespace args = getParser().parseArgsOrFail(argv);
 
-		if (args.getInt("verbose") > 0) {
+		if (args.getInt("verbose") > 0)
+		{
 			Logging.setCurrentLoggingLevel(Logging.DEBUG);
 		}
 
@@ -194,11 +199,11 @@ public final class Main
 		ignoreJavaVer = args.getBoolean("J");
 		settingsDir = args.getString("settingsdir");
 		campaignMode = args.getString("campaignmode");
-        characterSheet = args.get("D");
-        exportSheet = args.get("E");
-        partyFile = args.get("p");
-        characterFile = args.get("c");
-        outputFile = args.get("o");
+		characterSheet = args.get("D");
+		exportSheet = args.get("E");
+		partyFile = args.get("p");
+		characterFile = args.get("c");
+		outputFile = args.get("o");
 	}
 
 	private static void startupWithGUI()
@@ -268,13 +273,13 @@ public final class Main
 			{
 				String message =
 						"Java version "
-							+ javaVerString
-							+ " is too old. PCGen requires at least Java 1.6 to run.";
+								+ javaVerString
+								+ " is too old. PCGen requires at least Java 1.6 to run.";
 				Logging.errorPrint(message);
 				if (useGui)
 				{
 					JOptionPane.showMessageDialog(null, message,
-						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
+							Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 				}
 				System.exit(1);
 			}
@@ -282,17 +287,17 @@ public final class Main
 			{
 				String message =
 						"Java version "
-							+ javaVerString
-							+ " is newer than PCGen supports. The program may not\n"
-							+ "work correctly. Java versions up to 1.8 are supported.";
+								+ javaVerString
+								+ " is newer than PCGen supports. The program may not\n"
+								+ "work correctly. Java versions up to 1.8 are supported.";
 				Logging.errorPrint(message);
 				if (useGui)
 				{
 					int result =
 							JOptionPane.showConfirmDialog(null, message
-								+ "\n\nDo you wish to continue?",
-								Constants.APPLICATION_NAME,
-								JOptionPane.OK_CANCEL_OPTION);
+											+ "\n\nDo you wish to continue?",
+									Constants.APPLICATION_NAME,
+									JOptionPane.OK_CANCEL_OPTION);
 					if (result != JOptionPane.OK_OPTION)
 					{
 						System.exit(1);
@@ -304,10 +309,10 @@ public final class Main
 		// Check our main folders are present
 		String neededDirs[] =
 				{ConfigurationSettings.getSystemsDir(),
-					ConfigurationSettings.getPccFilesDir(),
-					getPluginsDir(),
-					ConfigurationSettings.getPreviewDir(),
-					ConfigurationSettings.getOutputSheetsDir()};
+						ConfigurationSettings.getPccFilesDir(),
+						getPluginsDir(),
+						ConfigurationSettings.getPreviewDir(),
+						ConfigurationSettings.getOutputSheetsDir()};
 		StringBuilder missingDirs = new StringBuilder();
 		for (String dirPath : neededDirs)
 		{
@@ -318,11 +323,10 @@ public final class Main
 				try
 				{
 					path = dir.getCanonicalPath();
-				}
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					Logging.errorPrint("Unable to find canonical path for "
-						+ dir);
+							+ dir);
 				}
 				missingDirs.append("  ").append(path).append("\n");
 			}
@@ -332,13 +336,13 @@ public final class Main
 			String message;
 			message =
 					"This installation of PCGen is missing the following required folders:\n"
-						+ missingDirs;
+							+ missingDirs;
 			Logging.errorPrint(message);
 			if (useGui)
 			{
 				JOptionPane.showMessageDialog(null, message
-					+ "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
-					JOptionPane.ERROR_MESSAGE);
+								+ "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
+						JOptionPane.ERROR_MESSAGE);
 			}
 			System.exit(1);
 		}
@@ -368,6 +372,7 @@ public final class Main
 
 	/**
 	 * Create a task to load all system plugins.
+	 *
 	 * @return The task to load plugins.
 	 */
 	public static PCGenTask createLoadPluginTask()
@@ -379,8 +384,7 @@ public final class Main
 		try
 		{
 			loader.addPluginLoader(PreParserFactory.getInstance());
-		}
-		catch (PersistenceLayerException ex)
+		} catch (PersistenceLayerException ex)
 		{
 			Logging.errorPrint("createLoadPluginTask failed", ex);
 		}
@@ -450,111 +454,108 @@ public final class Main
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
-		}
-		catch (IOException | FontFormatException ex)
+		} catch (IOException | FontFormatException ex)
 		{
 			Logging.errorPrint("Unexpected exception loading fonts fo print p", ex);
 		}
 	}
 
 	/**
-	 *
 	 * @return an ArgumentParser used to peform argument parsing
 	 */
-	private static ArgumentParser getParser() {
-        ArgumentParser parser = ArgumentParsers
+	private static ArgumentParser getParser()
+	{
+		ArgumentParser parser = ArgumentParsers
 				.newArgumentParser(Constants.APPLICATION_NAME)
-                .defaultHelp(false)
-                .description("RPG Character Generator")
-                .version(PCGenPropBundle.getVersionNumber())
-				;
+				.defaultHelp(false)
+				.description("RPG Character Generator")
+				.version(PCGenPropBundle.getVersionNumber());
 
-        parser.addArgument("-v", "--verbose")
-                .help("verbose logging")
-                .type(Boolean.class)
-                .action(Arguments.count())
-				;
+		parser.addArgument("-v", "--verbose")
+				.help("verbose logging")
+				.type(Boolean.class)
+				.action(Arguments.count())
+		;
 
-        parser.addArgument("-V", "--version")
-                .action(Arguments.version())
-				;
+		parser.addArgument("-V", "--version")
+				.action(Arguments.version())
+		;
 
-        parser.addArgument("-J")
-                .help("ignore java version checks")
-                .action(Arguments.storeTrue())
-				;
+		parser.addArgument("-J")
+				.help("ignore java version checks")
+				.action(Arguments.storeTrue())
+		;
 
-        MutuallyExclusiveGroup startupMode = parser
-                .addMutuallyExclusiveGroup()
-                .description("start up on a specific mode")
-				;
+		MutuallyExclusiveGroup startupMode = parser
+				.addMutuallyExclusiveGroup()
+				.description("start up on a specific mode");
 
-        startupMode.addArgument("-G", "--gmgen")
-                .help("GMGen mode")
-                .type(Boolean.class)
-                .action(Arguments.storeTrue())
-				;
+		startupMode.addArgument("-G", "--gmgen")
+				.help("GMGen mode")
+				.type(Boolean.class)
+				.action(Arguments.storeTrue())
+		;
 
-        startupMode.addArgument("-N", "--npc")
-                .help("NPC generation mode")
-                .type(Boolean.class)
-                .action(Arguments.storeTrue())
-				;
+		startupMode.addArgument("-N", "--npc")
+				.help("NPC generation mode")
+				.type(Boolean.class)
+				.action(Arguments.storeTrue())
+		;
 
-        startupMode.addArgument("-D", "--tab").nargs(1);
+		startupMode.addArgument("-D", "--tab").nargs(1);
 
-        parser.addArgument("-s", "--settingsdir")
+		parser.addArgument("-s", "--settingsdir")
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-							.verifyIsDirectory()
-							.verifyCanRead()
-							.verifyExists()
+								.verifyIsDirectory()
+								.verifyCanRead()
+								.verifyExists()
 				)
-				;
-        parser.addArgument("-m", "--campaignmode")
+		;
+		parser.addArgument("-m", "--campaignmode")
 				.nargs(1)
 				.type(String.class)
-				;
-        parser.addArgument("-E", "--exportsheet")
+		;
+		parser.addArgument("-E", "--exportsheet")
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-							.verifyCanRead()
-							.verifyExists()
-							.verifyIsFile()
+								.verifyCanRead()
+								.verifyExists()
+								.verifyIsFile()
 				)
-				;
-        parser.addArgument("-o", "--outputfile")
+		;
+		parser.addArgument("-o", "--outputfile")
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-							.verifyCanCreate()
-							.verifyCanWrite()
-							.verifyNotExists()
+								.verifyCanCreate()
+								.verifyCanWrite()
+								.verifyNotExists()
 				)
-				;
-        parser.addArgument("-c", "--character")
+		;
+		parser.addArgument("-c", "--character")
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-							.verifyCanRead()
-							.verifyExists()
-							.verifyIsFile()
+								.verifyCanRead()
+								.verifyExists()
+								.verifyIsFile()
 				)
-				;
-        parser.addArgument("-p", "--party")
+		;
+		parser.addArgument("-p", "--party")
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-							.verifyCanRead()
-							.verifyExists()
-							.verifyIsFile()
+								.verifyCanRead()
+								.verifyExists()
+								.verifyIsFile()
 				)
-				;
+		;
 
-        return parser;
-    }
+		return parser;
+	}
 
 	/**
 	 * The Class {@code PCGenUncaughtExceptionHandler} reports any
