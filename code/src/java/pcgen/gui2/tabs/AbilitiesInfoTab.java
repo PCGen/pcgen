@@ -51,14 +51,13 @@ import pcgen.util.enumeration.Tab;
  * @see AbilityChooserTab
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-@SuppressWarnings("serial")
-public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
+class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final AbilityChooserTab abilityTab;
 	private final TabTitle tabTitle;
 
-	public AbilitiesInfoTab()
+	AbilitiesInfoTab()
 	{
 		this.abilityTab = new AbilityChooserTab();
 		this.tabTitle = new TabTitle(Tab.ABILITIES);
@@ -281,11 +280,11 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 
 			public final String title;
-			public final Hashtable<Object, Object> tabData;
-			public final DefaultListFacade<AbilityCategoryFacade> categoryList;
-			public final DefaultListFacade<AbilityCategoryFacade> fullCategoryList;
+			final Hashtable<Object, Object> tabData;
+			final DefaultListFacade<AbilityCategoryFacade> categoryList;
+			final DefaultListFacade<AbilityCategoryFacade> fullCategoryList;
 
-			public TabInfo(String title, CharacterFacade character)
+			TabInfo(String title, CharacterFacade character)
 			{
 				this.title = title;
 				this.categoryList = new DefaultListFacade<>();
