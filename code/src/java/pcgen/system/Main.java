@@ -108,7 +108,7 @@ public final class Main
 		return characterFile;
 	}
 
-	static void logSystemProps()
+	private static void logSystemProps()
 	{
 		Properties props = System.getProperties();
 		StringWriter writer = new StringWriter();
@@ -164,17 +164,6 @@ public final class Main
 		}
 		// Otherwise return user dir
 		return SystemUtils.USER_DIR;
-	}
-
-	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
-	{
-		Main.characterFile = characterFile;
-		Main.exportSheet = exportSheet;
-		Main.outputFile = outputFile;
-
-		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(configFile));
-		return startupWithoutGUI();
 	}
 
 	/**
@@ -557,14 +546,11 @@ public final class Main
     }
 
 	/**
-	 * The Class <code>PCGenUncaughtExceptionHandler</code> reports any
+	 * The Class {@code PCGenUncaughtExceptionHandler} reports any
 	 * exceptions that are not otherwise handled by the program.
 	 */
 	private static class PCGenUncaughtExceptionHandler implements UncaughtExceptionHandler
 	{
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void uncaughtException(Thread t, Throwable e)
 		{
