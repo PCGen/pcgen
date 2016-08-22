@@ -463,7 +463,7 @@ public final class Main
 	 */
 	private static ArgumentParser getParser() {
         ArgumentParser parser = ArgumentParsers
-                .newArgumentParser(Constants.APPLICATION_NAME)
+				.newArgumentParser(Constants.APPLICATION_NAME)
                 .defaultHelp(false)
                 .description("RPG Character Generator")
                 .version(PCGenPropBundle.getVersionNumber())
@@ -538,18 +538,18 @@ public final class Main
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-								.verifyCanRead()
-								.verifyExists()
-								.verifyIsFile()
+							.verifyCanRead()
+							.verifyExists()
+							.verifyIsFile()
 				)
 				;
         parser.addArgument("-p", "--party")
 				.nargs(1)
 				.type(
 						Arguments.fileType()
-								.verifyCanRead()
-								.verifyExists()
-								.verifyIsFile()
+							.verifyCanRead()
+							.verifyExists()
+							.verifyIsFile()
 				)
 				;
 
