@@ -48,10 +48,9 @@ public final class Comparators
 	private static final IntegerComparator iC = new IntegerComparator();
 	private static final NumberComparator nC = new NumberComparator();
 	private static final DateComparator dC = new DateComparator();
-	private static final HashCodeComparator hCC = new HashCodeComparator();
 	private static final TreeTableNodeComparator treeNodeComp = new TreeTableNodeComparator();
 
-	public static Comparator<Object> toStringComparator()
+	private static Comparator<Object> toStringComparator()
 	{
 		return tSC;
 	}
@@ -69,47 +68,27 @@ public final class Comparators
 	/**
 	 * @return A comparator for use with the contents of tree table nodes. 
 	 */
-	public static Comparator<Object> treeTableNodeComparator()
+	private static Comparator<Object> treeTableNodeComparator()
 	{
 		return treeNodeComp;
 	}
 
-	/**
-	 * TODO: perhaps keep instance references to commonly used InverseComparators?
-	 * @param comparator
-	 * @return new InverseComparator instance
-	 */
-	public static <T> Comparator<T> inverseComparator(Comparator<T> comparator)
-	{
-		if (comparator instanceof InverseComparator)
-		{
-			return ((InverseComparator<T>) comparator).getComparator();
-		}
-		return new InverseComparator<>(comparator);
-
-	}
-
-	public static Comparator<Object> hashCodeComparator()
-	{
-		return hCC;
-	}
-
-	public static Comparator<Integer> integerComparator()
+	private static Comparator<Integer> integerComparator()
 	{
 		return iC;
 	}
 
-	public static Comparator<Number> numberComparator()
+	private static Comparator<Number> numberComparator()
 	{
 		return nC;
 	}
 
-	public static Comparator<Date> dateComparator()
+	private static Comparator<Date> dateComparator()
 	{
 		return dC;
 	}
 
-	public static Comparator<String> ignoreCaseStringComparator()
+	private static Comparator<String> ignoreCaseStringComparator()
 	{
 		return String.CASE_INSENSITIVE_ORDER;
 	}
@@ -141,18 +120,16 @@ public final class Comparators
 	}
 
 	/**
-	 * A <code>Comparator</code> to compare objects as
-	 * <code>String</code>s.  This is particularly useful for applications
-	 * such as maintaining a sorted <code>JComboBoxEx</code> and the like.
+	 * A {@code Comparator} to compare objects as
+	 * {@code String}s.  This is particularly useful for applications
+	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
 	 *
 	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
-	 * @version $Revision: 2112 $
 	 */
 	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -164,10 +141,10 @@ public final class Comparators
 	}
 
 	/**
-	 * A <code>Comparator</code> to compare objects as
-	 * <code>String</code>s ignoring case.  This is particularly useful
+	 * A {@code Comparator} to compare objects as
+	 * {@code String}s ignoring case.  This is particularly useful
 	 * for applications such as maintaining a sorted
-	 * <code>JComboBoxEx</code> and the like.
+	 * {@code JComboBoxEx} and the like.
 	 *
 	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 * @version $Revision: 2112 $
@@ -176,7 +153,6 @@ public final class Comparators
 			Comparator<Object>, Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -190,13 +166,12 @@ public final class Comparators
 	}
 
 	/**
-	 * A <code>Comparator</code> to compare tree table nodes. This respects SORTKEY for the contained object. 
+	 * A {@code Comparator} to compare tree table nodes. This respects SORTKEY for the contained object.
 	 */
 	private static final class TreeTableNodeComparator implements Comparator<Object>,
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -211,29 +186,25 @@ public final class Comparators
 			return collator.compare(String.valueOf(o1), String.valueOf(o2));
 		}
 
-		private String getSortKey(Object obj1)
+		private static String getSortKey(Object obj1)
 		{
 			String key;
 			if (obj1 == null)
 			{
 				key = "";
 			}
-			else if (obj1 instanceof CDOMObject)
-			{
-				CDOMObject co = (CDOMObject) obj1;
-				key = co.get(StringKey.SORT_KEY);
-				if (key == null)
-				{
-					key = co.getDisplayName();
+			else {
+				if (obj1 instanceof CDOMObject) {
+					CDOMObject co = (CDOMObject) obj1;
+					key = co.get(StringKey.SORT_KEY);
+					if (key == null) {
+						key = co.getDisplayName();
+					}
+				} else if (obj1 instanceof SortKeyAware) {
+					key = ((SortKeyAware) obj1).getSortKey();
+				} else {
+					key = obj1.toString();
 				}
-			}
-			else if (obj1 instanceof SortKeyAware)
-			{
-				key = ((SortKeyAware) obj1).getSortKey();
-			}
-			else
-			{
-				key = obj1.toString();
 			}
 			return key;
 		}
@@ -255,8 +226,7 @@ public final class Comparators
 
 	}
 
-	private static final class IntegerComparator implements Comparator<Integer>
-	{
+	private static final class IntegerComparator implements Comparator<Integer>, Serializable {
 
 		@Override
 		public int compare(Integer o1, Integer o2)
@@ -266,8 +236,7 @@ public final class Comparators
 
 	}
 
-	private static final class NumberComparator implements Comparator<Number>
-	{
+	private static final class NumberComparator implements Comparator<Number>, Serializable {
 
 		@Override
 		public int compare(Number o1, Number o2)
@@ -290,8 +259,7 @@ public final class Comparators
 
 	}
 
-	private static final class DateComparator implements Comparator<Date>
-	{
+	private static final class DateComparator implements Comparator<Date>, Serializable {
 
 		@Override
 		public int compare(Date o1, Date o2)
@@ -310,45 +278,6 @@ public final class Comparators
 			}
 
 			return 0;
-		}
-
-	}
-
-	private static final class HashCodeComparator implements Comparator<Object>
-	{
-
-		@Override
-		public int compare(Object o1, Object o2)
-		{
-			return iC.compare(o1.hashCode(), o2.hashCode());
-		}
-
-	}
-
-	/**
-	 *
-	 * @param E
-	 */
-	private static final class InverseComparator<E> implements Comparator<E>,
-			Serializable
-	{
-
-		private final Comparator<E> comparator;
-
-		public InverseComparator(Comparator<E> comparator)
-		{
-			this.comparator = comparator;
-		}
-
-		public Comparator<E> getComparator()
-		{
-			return comparator;
-		}
-
-		@Override
-		public int compare(E o1, E o2)
-		{
-			return -comparator.compare(o1, o2);
 		}
 
 	}
