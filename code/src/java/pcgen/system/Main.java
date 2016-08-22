@@ -166,6 +166,17 @@ public final class Main
 		return SystemUtils.USER_DIR;
 	}
 
+	static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
+	{
+		Main.characterFile = characterFile;
+		Main.exportSheet = exportSheet;
+		Main.outputFile = outputFile;
+
+		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(configFile));
+		return startupWithoutGUI();
+	}
+
 	/**
 	 * initalized Main. Must be called before any other getter can be used.
 	 * @param argv the command line arguments to be parsed
