@@ -240,9 +240,7 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar,
 //Install the tools from: http://www.thefreecountry.com/tofrodos/
 task unixLineEndings( type: Exec) {
     if(Os.isFamily(Os.FAMILY_WINDOWS)){
-        workingDir "$projectDir/code/sbin"
-        executable "bash"
-        args "-c", "fromdos $projectDir/code/pcgen.sh"
+        commandLine "cmd", "/c", "fromdos $projectDir/code/pcgen.sh"
     }else if(Os.isFamily(Os.FAMILY_UNIX)){
         commandLine "dos2unix", "$projectDir/code/pcgen.sh"
     }
