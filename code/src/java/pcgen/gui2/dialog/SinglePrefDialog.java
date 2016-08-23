@@ -24,14 +24,10 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
@@ -61,11 +57,11 @@ public class SinglePrefDialog extends JDialog
 	public SinglePrefDialog(JFrame parent, PCGenPrefsPanel prefsPanel)
 	{
 		super(parent, prefsPanel.getTitle(), true);
-		
+
 		this.prefsPanel = prefsPanel;
 
 		initComponents();
-		
+
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().add(prefsPanel, BorderLayout.CENTER);
 		this.getContentPane().add(controlPanel, BorderLayout.SOUTH);
@@ -73,7 +69,7 @@ public class SinglePrefDialog extends JDialog
 		prefsPanel.applyOptionValuesToControls();
 
 		pack();
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -86,27 +82,13 @@ public class SinglePrefDialog extends JDialog
 		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
 		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		controlPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		JButton cancelButton =
 				new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
 		controlPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 	}
 	
 	private void cancelButtonActionPerformed()

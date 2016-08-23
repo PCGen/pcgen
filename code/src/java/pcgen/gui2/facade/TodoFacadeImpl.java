@@ -36,7 +36,7 @@ import pcgen.util.enumeration.Tab;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class TodoFacadeImpl implements TodoFacade
+class TodoFacadeImpl implements TodoFacade
 {
 
 	private final Tab tab;
@@ -51,7 +51,7 @@ public class TodoFacadeImpl implements TodoFacade
 	 * @param fieldName The field on which the task exists
 	 * @param messageKey The il8n property key of the task details.
 	 */
-	public TodoFacadeImpl(Tab tab, String fieldName, String messageKey, int order)
+	TodoFacadeImpl(Tab tab, String fieldName, String messageKey, int order)
 	{
 		this.tab = tab;
 		this.fieldName = fieldName;
@@ -67,7 +67,7 @@ public class TodoFacadeImpl implements TodoFacade
 	 * @param subTabName The internal name of the sub tab where the task can be completed.
 	 * @param order The value for use when sorting the messages, low appears higher in the displayed list.
 	 */
-	public TodoFacadeImpl(Tab tab, String fieldName, String messageKey, String subTabName, int order)
+	TodoFacadeImpl(Tab tab, String fieldName, String messageKey, String subTabName, int order)
 	{
 		this.tab = tab;
 		this.fieldName = fieldName;
@@ -142,9 +142,6 @@ public class TodoFacadeImpl implements TodoFacade
 		return EQUAL;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSubTabName()
 	{

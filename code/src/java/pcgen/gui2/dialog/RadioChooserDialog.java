@@ -59,9 +59,7 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
-@SuppressWarnings("serial")
 public class RadioChooserDialog extends JDialog implements ActionListener
 {
 
@@ -103,16 +101,16 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		pane.add(buttonPanel, BorderLayout.CENTER);
 
 		JPanel bottomPane = new JPanel(new FlowLayout());
-		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
-		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
-		button.setActionCommand("OK");
-		button.addActionListener(this);
-		bottomPane.add(button);
-		button = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
-		button.setActionCommand("CANCEL");
-		button.addActionListener(this);
-		bottomPane.add(button);
+		JButton in_ok = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		in_ok.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
+		in_ok.setActionCommand("OK");
+		in_ok.addActionListener(this);
+		bottomPane.add(in_ok);
+		JButton in_cancel = new JButton(LanguageBundle.getString("in_cancel"));
+		in_cancel.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
+		in_cancel.setActionCommand("CANCEL");
+		in_cancel.addActionListener(this);
+		bottomPane.add(in_cancel);
 		pane.add(bottomPane, BorderLayout.SOUTH);
 	}
 
@@ -144,10 +142,10 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		}
 
 		// Layout the buttons
-		GridBagLayout gridbag = new GridBagLayout();
 		buttonPanel = new JPanel();
 		TitledBorder title = BorderFactory.createTitledBorder(null, "");
 		buttonPanel.setBorder(title);
+		GridBagLayout gridbag = new GridBagLayout();
 		buttonPanel.setLayout(gridbag);
 
 		GridBagConstraints c = new GridBagConstraints();
@@ -161,9 +159,8 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		{
 			for (int i = 0; i < numRows; ++i)
 			{
-				int cr = i;
 				c.anchor = GridBagConstraints.WEST;
-				Utility.buildConstraints(c, 0, cr, 2, 1, 1, 0);
+				Utility.buildConstraints(c, 0, i, 2, 1, 1, 0);
 				gridbag.setConstraints(avaRadioButton[i], c);
 				buttonPanel.add(avaRadioButton[i]);
 			}
@@ -198,9 +195,6 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

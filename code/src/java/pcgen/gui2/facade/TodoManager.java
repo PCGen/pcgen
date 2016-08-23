@@ -40,7 +40,7 @@ import pcgen.facade.util.ListFacade;
  */
 public class TodoManager
 {
-	DefaultListFacade<TodoFacade> todoList;
+	private DefaultListFacade<TodoFacade> todoList;
 
 	TodoManager()
 	{

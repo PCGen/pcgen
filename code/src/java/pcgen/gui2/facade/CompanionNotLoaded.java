@@ -40,7 +40,7 @@ import pcgen.facade.util.ReferenceFacade;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class CompanionNotLoaded implements CompanionFacade
+class CompanionNotLoaded implements CompanionFacade
 {
 
 	private final DefaultReferenceFacade<String> nameRef;
@@ -55,7 +55,7 @@ public class CompanionNotLoaded implements CompanionFacade
 	 * @param race The race of the companion.
 	 * @param compType The type of companion.
 	 */
-	public CompanionNotLoaded(String name, File file, RaceFacade race, String compType)
+	CompanionNotLoaded(String name, File file, RaceFacade race, String compType)
 	{
 		this.nameRef = new DefaultReferenceFacade<>(name);
 		this.fileRef = new DefaultReferenceFacade<>(file);
@@ -63,36 +63,24 @@ public class CompanionNotLoaded implements CompanionFacade
 		this.companionType = compType;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return nameRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<File> getFileRef()
 	{
 		return fileRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return raceRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{

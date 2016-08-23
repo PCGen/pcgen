@@ -19,14 +19,16 @@
  */
  package pcgen.gui2.doomsdaybook;
 
+import java.io.File;
+
 /**
  *
  * @author  devon
  */
-public class XMLFilter implements java.io.FilenameFilter
+class XMLFilter implements java.io.FilenameFilter
 {
 	/** Creates a new instance of XMLFilter */
-	public XMLFilter()
+	XMLFilter()
 	{
 		// Empty Constructor
 	}
@@ -39,7 +41,7 @@ public class XMLFilter implements java.io.FilenameFilter
 	 * @return true if filter matches *.xml
 	 */
 	@Override
-	public boolean accept(java.io.File file, String str)
+	public boolean accept(File file, String str)
 	{
 		return str.matches(".*\\.xml$");
 	}

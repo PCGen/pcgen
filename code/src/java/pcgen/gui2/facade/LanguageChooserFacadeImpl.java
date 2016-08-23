@@ -60,7 +60,7 @@ import pcgen.facade.util.ListFacade;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
+final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
