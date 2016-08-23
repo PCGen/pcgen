@@ -31,6 +31,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -250,8 +251,6 @@ public final class ExportHandler
 					new StringTokenizer(template.toString(),
 						Constants.LINE_SEPARATOR, false);
 
-			final FileAccess fileAccess = new FileAccess();
-
 			// Get FOR loops and IIF statements
 			final FORNode root = parseFORsAndIIFs(tokenizer);
 
@@ -264,7 +263,7 @@ public final class ExportHandler
 
 			// Now actually process the FOR loops in the template
 			// and then clear the loop variables
-			loopFOR(root, 0, 0, 1, out, fileAccess, aPC);
+			loopFOR(root, 0, 0, 1, out, aPC);
 			loopVariables.clear();
 		}
 		catch (IOException exc)
@@ -384,7 +383,7 @@ public final class ExportHandler
 	 * @param br The BufferedReader containing the template
 	 * @throws IOException
 	 */
-	private StringBuilder prepareTemplate(BufferedReader br) throws IOException
+	private static StringBuilder prepareTemplate(BufferedReader br) throws IOException
 	{
 		// A pattern to replace || with | | to stop StringTokenizer from merging them
 		Pattern pat = Pattern.compile(Pattern.quote("||"));
@@ -631,7 +630,7 @@ public final class ExportHandler
 		};
 	}
 	
-	private class VariableComparator implements Comparator<Object>
+	private static class VariableComparator implements Comparator<Object>, Serializable
 	{
 		@Override
 		public int compare(Object o1, Object o2)
@@ -653,12 +652,12 @@ public final class ExportHandler
 			}
 		}
 	}
-	
+
 	private String replaceVariables(String expr, Map<Object,Object> variables)
 	{
 		List<Object> keys = new ArrayList<>(variables.keySet());
 		Collections.sort(keys, new VariableComparator());
-		
+
 		for (final Object anObject : variables.keySet())
 		{
 			if (anObject != null)
@@ -921,8 +920,8 @@ public final class ExportHandler
 	 * @param aPC PC containing values to help evaluate the expression
 	 * @return true if the expression was evaluated successfully, else false
 	 */
-	private boolean processSpellcasterExpression(String expr1,
-		PlayerCharacter aPC)
+	private static boolean processSpellcasterExpression(String expr1,
+	                                                    PlayerCharacter aPC)
 	{
 		final String fString = expr1.substring(12).trim();
 
@@ -1001,11 +1000,10 @@ public final class ExportHandler
 	 * 
 	 * @param node The IIFNode to evaluate
 	 * @param output The output to write to (character sheet template)
-	 * @param fa The FileAccess
 	 * @param aPC The PC we are outputting
 	 */
 	private void evaluateIIF(final IIFNode node, final BufferedWriter output,
-		final FileAccess fa, final PlayerCharacter aPC)
+		final PlayerCharacter aPC)
 	{
 		// Comma is a delimiter for a higher-level parser, so 
 		// we'll use a semicolon and replace it with a comma for
@@ -1016,11 +1014,11 @@ public final class ExportHandler
 		// If we can evaluate the expression then evaluate its children
 		if (evaluateExpression(aString, aPC))
 		{
-			evaluateIIFChildren(node.trueChildren(), output, fa, aPC);
+			evaluateIIFChildren(node.trueChildren(), output, aPC);
 		}
 		else
 		{
-			evaluateIIFChildren(node.falseChildren(), output, fa, aPC);
+			evaluateIIFChildren(node.falseChildren(), output, aPC);
 		}
 	}
 
@@ -1029,11 +1027,10 @@ public final class ExportHandler
 	 * 
 	 * @param children The list of children for the IIF node
 	 * @param output The output to write to (filling in the character sheet template)
-	 * @param fa The file access helper
 	 * @param aPC THe PC to output
 	 */
 	private void evaluateIIFChildren(final List<?> children,
-		final BufferedWriter output, final FileAccess fa,
+		final BufferedWriter output,
 		final PlayerCharacter aPC)
 	{
 		for (Object aChild : children)
@@ -1067,7 +1064,7 @@ public final class ExportHandler
 				loopParameters.put(var + "!MAX", maxValue);
 				loopParameters.put(var + "!STEP", stepValue);
 
-				loopFOR(nextFor, minValue, maxValue, stepValue, output, fa, aPC);
+				loopFOR(nextFor, minValue, maxValue, stepValue, output, aPC);
 				loopParameters.remove(var + "!MIN");
 				loopParameters.remove(var + "!MAX");
 				loopParameters.remove(var + "!STEP");
@@ -1078,7 +1075,7 @@ public final class ExportHandler
 			// If child is an IIFNode, then evaluate that 
 			else if (aChild instanceof IIFNode)
 			{
-				evaluateIIF((IIFNode) aChild, output, fa, aPC);
+				evaluateIIF((IIFNode) aChild, output, aPC);
 			}
 			// Else it's something to be processed
 			else
@@ -1108,16 +1105,15 @@ public final class ExportHandler
 	 * @param end The ending value of the loop
 	 * @param step The amount by which the counter should be changed each iteration.
 	 * @param output The writer output is to be sent to.
-	 * @param fa The FileAccess instance to be used to manage the output.
 	 * @param aPC The character being processed.
 	 */
 	private void loopFOR(final FORNode node, final int start, final int end,
-		final int step, final BufferedWriter output, final FileAccess fa,
+		final int step, final BufferedWriter output,
 		final PlayerCharacter aPC)
 	{
 		for (int x = start; ((step < 0) ? x >= end : x <= end); x += step)
 		{
-			if (processLoop(node, output, fa, aPC, x))
+			if (processLoop(node, output, aPC, x))
 			{
 				break;
 			}
@@ -1129,13 +1125,12 @@ public final class ExportHandler
 	 * 
 	 * @param node The node being processed
 	 * @param output The writer output is to be sent to.
-	 * @param fa The FileAccess instance to be used to manage the output.
 	 * @param aPC The character being processed.
 	 * @param index The current value of the loop index
 	 * @return true if the loop should be stopped.
 	 */
 	private boolean processLoop(FORNode node, BufferedWriter output,
-		FileAccess fa, PlayerCharacter aPC, int index)
+		PlayerCharacter aPC, int index)
 	{
 		loopVariables.put(node.var(), index);
 		int numberOfChildrenNodes = node.children().size();
@@ -1166,7 +1161,7 @@ public final class ExportHandler
 				loopParameters.put(var + "!MAX", varMax);
 				loopParameters.put(var + "!STEP", varMax);
 				
-				loopFOR(nextFor, varMin, varMax, varStep, output, fa, aPC);
+				loopFOR(nextFor, varMin, varMax, varStep, output, aPC);
 				loopParameters.remove(var + "!MIN");
 				loopParameters.remove(var + "!MAX");
 				loopParameters.remove(var + "!STEP");
@@ -1176,7 +1171,7 @@ public final class ExportHandler
 			}
 			else if (node.children().get(y) instanceof IIFNode)
 			{
-				evaluateIIF((IIFNode) node.children().get(y), output, fa, aPC);
+				evaluateIIF((IIFNode) node.children().get(y), output, aPC);
 			}
 			else
 			{
@@ -1448,22 +1443,22 @@ public final class ExportHandler
 
 								case SUBTRACTION_MODE:
 									total =
-											new Float(total.doubleValue()
-												- Double.parseDouble(valString));
+											(float) (total.doubleValue()
+													- Double.parseDouble(valString));
 
 									break;
 
 								case MULTIPLICATION_MODE:
 									total =
-											new Float(total.doubleValue()
-												* Double.parseDouble(valString));
+											(float) (total.doubleValue()
+													* Double.parseDouble(valString));
 
 									break;
 
 								case DIVISION_MODE:
 									total =
-											new Float(total.doubleValue()
-												/ Double.parseDouble(valString));
+											(float) (total.doubleValue()
+													/ Double.parseDouble(valString));
 
 									break;
 
@@ -3726,7 +3721,8 @@ public final class ExportHandler
 			// terminate after printing one character. 
 			boolean breakloop = (forParser.existsOnly() && (currPC == null));
 
-			if (++x == forParser.step() || breakloop)
+			++x;
+			if (x == forParser.step() || breakloop)
 			{
 				x = 0;
 				FileAccess.write(out, forParser.endOfLine());
@@ -3748,7 +3744,7 @@ public final class ExportHandler
 	/**
 	 * @param canWrite The canWrite flag to set.
 	 */
-	public final void setCanWrite(boolean canWrite)
+	public void setCanWrite(boolean canWrite)
 	{
 		this.canWrite = canWrite;
 	}
@@ -3756,7 +3752,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the checkBefore flag.
 	 */
-	public final boolean getCheckBefore()
+	public boolean getCheckBefore()
 	{
 		return checkBefore;
 	}
@@ -3764,7 +3760,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the inLabel flag.
 	 */
-	public final boolean getInLabel()
+	public boolean getInLabel()
 	{
 		return inLabel;
 	}
@@ -3772,7 +3768,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the existsOnly flag.
 	 */
-	public final boolean getExistsOnly()
+	public boolean getExistsOnly()
 	{
 		return existsOnly;
 	}
@@ -3780,7 +3776,7 @@ public final class ExportHandler
 	/**
 	 * @param noMoreItems The noMoreItems flag to set.
 	 */
-	public final void setNoMoreItems(boolean noMoreItems)
+	public void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
 	}
@@ -3788,7 +3784,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the manualWhitespace flag.
 	 */
-	public final boolean isManualWhitespace()
+	public boolean isManualWhitespace()
 	{
 		return manualWhitespace;
 	}
@@ -3796,7 +3792,7 @@ public final class ExportHandler
 	/**
 	 * @param manualWhitespace Set the manualWhitespace flag.
 	 */
-	public final void setManualWhitespace(boolean manualWhitespace)
+	public void setManualWhitespace(boolean manualWhitespace)
 	{
 		this.manualWhitespace = manualWhitespace;
 	}
@@ -3925,7 +3921,7 @@ public final class ExportHandler
 
 		private final boolean existsOnly;
 
-		PartyForParser(String aString, final Integer numOfPCs)
+		private PartyForParser(String aString, final Integer numOfPCs)
 		{
 			pTok =
 					new PStringTokenizer(aString.substring(4), ",", "\\\\",
@@ -3975,22 +3971,22 @@ public final class ExportHandler
 			return cStep;
 		}
 
-		public String tokenString()
+		private String tokenString()
 		{
 			return tokenString;
 		}
 
-		public String startOfLine()
+		private String startOfLine()
 		{
 			return stringForStartOfLine;
 		}
 
-		public String endOfLine()
+		private String endOfLine()
 		{
 			return stringForEndOfLine;
 		}
 
-		public boolean existsOnly()
+		private boolean existsOnly()
 		{
 			return existsOnly;
 		}
