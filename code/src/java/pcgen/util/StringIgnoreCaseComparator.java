@@ -35,14 +35,13 @@ import java.io.Serializable;
  */
 public final class StringIgnoreCaseComparator implements Comparator<Object>, Serializable
 {
-	/** Constructs a <code>StringIgnoreCaseComparator</code>. */
+	/** Constructs a {@code StringIgnoreCaseComparator}. */
 	public StringIgnoreCaseComparator()
 	{
 		// TODO: Exception needs to be handled
 	}
 
-	/** {@inheritDoc} */
-    @Override
+	@Override
 	public int compare(Object o1, Object o2)
 	{
 		// Treat null as the empty string.

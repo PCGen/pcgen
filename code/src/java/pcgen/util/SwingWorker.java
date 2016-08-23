@@ -42,11 +42,11 @@ public abstract class SwingWorker
 	 * Class to maintain reference to current worker thread
 	 * under separate synchronization control.
 	 */
-	private static class ThreadVar
+	private static final class ThreadVar
 	{
 		private Thread thread;
 
-		ThreadVar(Thread t)
+		private ThreadVar(Thread t)
 		{
 			thread = t;
 		}
@@ -84,14 +84,14 @@ public abstract class SwingWorker
 	}
 
 	/** 
-	 * Compute the value to be returned by the <code>get</code> method 
+	 * Compute the value to be returned by the {@code get} method
 	 * @return Object
 	 */
 	public abstract Object construct();
 
 	/**
 	 * Called on the event dispatching thread (not on the worker thread)
-	 * after the <code>construct</code> method has returned.
+	 * after the {@code construct} method has returned.
 	 */
 	public void finished()
 	{
@@ -113,12 +113,12 @@ public abstract class SwingWorker
 	}
 
 	/**
-	 * Return the value created by the <code>construct</code> method
+	 * Return the value created by the {@code construct} method
 	 *   
 	 * Returns null if either the constructing thread or the current
 	 * thread was interrupted before a value was produced
 	 * 
-	 * @return the value created by the <code>construct</code> method
+	 * @return the value created by the {@code construct} method
 	 */
 	public Object get()
 	{
@@ -142,29 +142,25 @@ public abstract class SwingWorker
 	}
 
 	/**
-	 * Start a thread that will call the <code>construct</code> method
+	 * Start a thread that will call the {@code construct} method
 	 * and then exit.
 	 */
-	public SwingWorker()
+	protected SwingWorker()
 	{
-		final Runnable doFinished = this::finished;
+		final Runnable doFinished = () -> finished();
 
-		Runnable doConstruct = new Runnable()
+		Runnable doConstruct = () ->
 		{
-            @Override
-			public void run()
+			try
 			{
-				try
-				{
-					setValue(construct());
-				}
-				finally
-				{
-					threadVar.clear();
-				}
-
-				SwingUtilities.invokeLater(doFinished);
+				setValue(construct());
 			}
+			finally
+			{
+				threadVar.clear();
+			}
+
+			SwingUtilities.invokeLater(doFinished);
 		};
 
 		Thread t = new Thread(doConstruct);

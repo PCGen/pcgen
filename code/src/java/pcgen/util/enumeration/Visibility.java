@@ -60,21 +60,18 @@ public enum Visibility
 				return true;
 
 			case HIDDEN_DISPLAY:
-				return (this == Visibility.HIDDEN || this == Visibility.OUTPUT_ONLY);
+				return this == HIDDEN || this == OUTPUT_ONLY;
 
 			case HIDDEN_EXPORT:
-				return (this == Visibility.HIDDEN || this == Visibility.DISPLAY_ONLY);
+				return this == HIDDEN || this == DISPLAY_ONLY;
 
 			case VISIBLE_EXPORT:
-				return (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY);
-				
+				return this == DEFAULT || this == OUTPUT_ONLY;
+
 			case VISIBLE_DISPLAY:
-			default:
-				return (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
+				return this == DEFAULT || this == DISPLAY_ONLY;
 		}
-		/*
-		 * TODO Need to deal with QUALIFY
-		 */
+		return false;
 	}
 	
 }
