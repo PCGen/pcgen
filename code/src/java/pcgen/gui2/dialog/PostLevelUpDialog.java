@@ -109,7 +109,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 		{
 			return;
 		}
-		
+
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		PostLevelUpDialog dialog =
 				new PostLevelUpDialog(frame, character, oldLevel);

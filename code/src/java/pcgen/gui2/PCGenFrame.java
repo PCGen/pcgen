@@ -323,7 +323,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							{
 								showTipsOfTheDay();
 							}
-							
+
 							if (!SourceSelectionDialog.skipSourceSelection())
 							{
 								showSourceSelectionDialog();
