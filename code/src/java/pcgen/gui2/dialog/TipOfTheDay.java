@@ -89,7 +89,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		tipHandler.loadTips();
 
 		pack();
-		
+
 		Utility.installEscapeCloseOperation(this);
 
 		showNextTip();
