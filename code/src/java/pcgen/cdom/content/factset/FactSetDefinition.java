@@ -61,9 +61,6 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		getFactSetKey();
 	}
 
-	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateOutput(DataSetID)
-	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
 	{
@@ -81,9 +78,6 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		}
 	}
 
-	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateTokens(pcgen.rules.context.LoadContext)
-	 */
 	@Override
 	protected void activateTokens(LoadContext context)
 	{
@@ -114,7 +108,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be null");
 		}
-		if (name.length() == 0)
+		if (name.isEmpty())
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be empty");
 		}
@@ -130,9 +124,6 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		return factSetName;
 	}
 
-	/**
-	 * @see pcgen.cdom.content.factset.FactSetInfo#getFactSetKey()
-	 */
 	@Override
 	public FactSetKey<F> getFactSetKey()
 	{

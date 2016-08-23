@@ -19,6 +19,7 @@ package pcgen.cdom.content.factset;
 
 import java.util.List;
 
+import java.util.Objects;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.persistence.lst.LstToken;
@@ -57,19 +58,11 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 	 *            The FactSetInfo that will be enforced to ensure it exists in
 	 *            the data
 	 */
-	public FactSetDefinitionEnforcer(FactSetInfo<T, F> fsi)
+	FactSetDefinitionEnforcer(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("FactSet Info cannot be null");
-		}
-		def = fsi;
+		def = Objects.requireNonNull(fsi);
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#process(pcgen.rules.context.LoadContext,
-	 *      pcgen.cdom.base.Loadable)
-	 */
 	@Override
 	public boolean process(LoadContext context, T obj)
 	{
@@ -79,7 +72,7 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		 * Note, even if the Indirects in list are empty this should pass,
 		 * because they TRIED, right?
 		 */
-		if ((list != null) && !list.isEmpty())
+		if (list != null && !list.isEmpty())
 		{
 			return true;
 		}
@@ -89,18 +82,12 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		return false;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#getDeferredTokenClass()
-	 */
 	@Override
 	public Class<T> getDeferredTokenClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.content.fact;
 
+import java.util.Objects;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
@@ -52,58 +53,38 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements
 	 * 
 	 * @param fi
 	 *            The FactInfo underlying this FactGroupDefinition
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given FactInfo is null
 	 */
-	public FactGroupDefinition(FactInfo<T, F> fi)
+	FactGroupDefinition(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
-		def = fi;
+		def = Objects.requireNonNull(fi);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitiveName()
-	 */
 	@Override
 	public String getPrimitiveName()
 	{
 		return def.getFactName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getGroupingState()
-	 */
 	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getFormatManager()
-	 */
 	@Override
 	public FormatManager<?> getFormatManager()
 	{
 		return def.getFormatManager();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitive(pcgen.rules.context.LoadContext,
-	 *      java.lang.String)
-	 */
 	@Override
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{

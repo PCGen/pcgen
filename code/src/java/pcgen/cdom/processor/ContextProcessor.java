@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.processor;
 
+import java.util.Objects;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.content.Processor;
@@ -58,23 +59,13 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	 * @param contextRef
 	 *            The CDOMReference which contains the objects for which the
 	 *            underlying Processor should be applied.
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given Processor or the given CDOMReference is null
 	 */
 	public ContextProcessor(Processor<T> mod, CDOMReference<R> contextRef)
 	{
-		if (mod == null)
-		{
-			throw new IllegalArgumentException(
-					"Processor in ContextProcessor cannot be null");
-		}
-		if (contextRef == null)
-		{
-			throw new IllegalArgumentException(
-					"Context in ContextProcessor cannot be null");
-		}
-		processor = mod;
-		contextItems = contextRef;
+		processor = Objects.requireNonNull(mod);
+		contextItems = Objects.requireNonNull(contextRef);
 	}
 
 	/**
@@ -140,8 +131,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	 * Returns true if this ContextProcessor is equal to the given Object.
 	 * Equality is defined as being another ContextProcessor object underlying
 	 * Processor and context items
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -157,8 +147,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this ContextProcessor
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

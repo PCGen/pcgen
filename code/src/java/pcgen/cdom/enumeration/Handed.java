@@ -75,9 +75,9 @@ public enum Handed implements HandedFacade
 	{
 		return Right;
 	}
-	
+
 	/**
-	 * Retrieve a Gender object to match the name ({@link #name()}) or localized name
+	 * Retrieve a Handed object to match the name ({@link #name()}) or localized name
 	 * (output by {@link #toString()}). The localized lookup is kept for legacy purpose
 	 * when the localized name was saved in the character files (instead of the
 	 * {@link #name()}).

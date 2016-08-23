@@ -84,11 +84,6 @@ public class TabInfo implements Loadable
 		tabName = name;
 	}
 
-	public String getTabName()
-	{
-		return tabName;
-	}
-
 	public String getResolvedName()
 	{
 		String temp = tabName;
@@ -151,11 +146,6 @@ public class TabInfo implements Loadable
 		hiddenColumns.add(column);
 	}
 
-	public boolean isColumnVisible(int column)
-	{
-		return (hiddenColumns == null) || !hiddenColumns.contains(column);
-	}
-
 	public Collection<Integer> getHiddenColumns()
 	{
 		if (hiddenColumns == null)
@@ -168,11 +158,6 @@ public class TabInfo implements Loadable
 	public void setHelpContext(File context)
 	{
 		helpFile = context;
-	}
-
-	public File getHelpContext()
-	{
-		return helpFile;
 	}
 
 	public String getRawHelpContext()

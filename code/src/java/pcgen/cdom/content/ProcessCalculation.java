@@ -62,38 +62,25 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 		this.formatManager = fmtManager;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T process(EvaluationManager evalManager)
 	{
-		@SuppressWarnings("unchecked")
 		T input = evalManager == null ? null : (T) evalManager.peek(EvaluationManager.INPUT);
 		return getBasicCalculation().process(input, obj);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getInstructions()
 	{
 		return formatManager.unconvert(obj);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return obj.hashCode() ^ getBasicCalculation().hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

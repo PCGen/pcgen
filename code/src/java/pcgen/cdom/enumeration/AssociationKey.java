@@ -126,8 +126,7 @@ public final class AssociationKey<T>
 		return (T) obj;
 	}
 
-	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> assocClass,
-			String assocName)
+	public static <OT> AssociationKey<OT> getKeyFor(String assocName)
 	{
 		if (map == null)
 		{
