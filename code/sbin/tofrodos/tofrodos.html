@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- Copyright 1996-2013 Christopher Heng. All rights reserved. -->
+<title>tofrodos - Converts text files between MSDOS and Unix file formats</title>
+<style type="text/css">
+h1, h2, p { font-family: Arial, Helvetica, sans-serif ; }
+dt {
+	font-family: Arial, Helvetica, sans-serif ;
+	font-weight: bold ;
+}
+dd {
+	font-family: Arial, Helvetica, sans-serif ;
+}
+span.programname {
+	font-weight: bold ;
+}
+span.optionchar {
+	font-weight: bold ;
+}
+span.filename {
+	font-family: "Courier New", Courier, monospace ;
+}
+p.copyright {
+	font-family: Arial, Helvetica, sans-serif ;
+	font-size: 90% ;
+}
+</style>
+</head>
+<body>
+
+<h1>Tofrodos - Converts text files between MSDOS and Unix file formats</h1>
+
+<h2>Synopsis</h2>
+
+<p>
+<span class="programname">fromdos</span> [options] [<span class="filename">file...</span>]<br />
+<span class="programname">todos</span> [options] [<span class="filename">file...</span>]<br />
+</p>
+
+<h2>Description</h2>
+
+<p>
+DOS text files traditionally have carriage return and line feed pairs
+as their newline characters while Unix text files have the line feed
+as their newline character. <span class="programname">fromdos</span>
+converts ASCII and Unicode UTF-8 text files from the DOS format to the Unix format, while
+<span class="programname">todos</span>
+converts them from the Unix format to the DOS format.
+</p>
+
+<p>
+The programs accept multiple filenames and wildcards as their arguments.
+You may also use them in a pipe.
+If either program finds its input redirected, it will process stdin
+and place the output on stdout.
+</p>
+
+<h2>Options</h2>
+
+<dl title="List of options available for Tofrodos">
+<dt>-a</dt>
+<dd>
+This option is deprecated. Do not use it unless you know what you're doing. By default,
+Tofrodos does the expected thing for text files. That is, when converting from
+DOS to Unix, it will remove carriage returns only if they are followed by line feeds.
+When converting from Unix to DOS, it will add carriage returns only if the linefeeds
+are not already preceeded by carriage returns. When Tofrodos is run on a normal text file that
+has already been converted, the resulting file should be identical to the original. However,
+if you use this option, the program will always remove carriage returns in the DOS to Unix mode
+and always add carriage returns in the Unix to DOS mode even if it is not appropriate.
+</dd>
+<dt>-b</dt>
+<dd>
+Make a backup of original file. The original file is renamed
+with a <span class="filename">.bak</span> extension appended to the original
+filename, silently replacing any existing file of that name. For example,
+"<span class="filename">filename.ext</span>" becomes
+"<span class="filename">filename.ext.bak</span>" replacing any existing file
+having the name "<span class="filename">filename.ext.bak</span>". Important: the program behaves
+differently if it is compiled for DOS (as compared to being compiled for Windows, Linux,
+Mac OS X or other systems). In view of the filename restrictions present on DOS, the DOS executable
+will strip the original file extension, if any, from the file
+before appending the <span class="filename">.bak</span> extension. For example,
+"<span class="filename">filename.ext</span>" becomes "<span class="filename">filename.bak</span>".
+</dd>
+<dt>-d</dt>
+<dd>
+Convert from DOS to Unix. This forces the program to convert the file in
+a particular direction. By default, if the program is named
+<span class="programname">fromdos</span> or <span class="programname">dos2unix</span>
+it will assume that the input file is in a DOS format and convert it to
+a Unix format. If the program is named <span class="programname">todos</span> or
+<span class="programname">unix2dos</span> it will assume that the input file is in a Unix format and convert it to
+a DOS format. Using the <span class="optionchar">-d</span> option forces the program to convert from a DOS
+format to a Unix format regardless of how the program is named. Likewise, using the
+<span class="optionchar">-u</span> option forces the program to convert from a Unix format to a DOS format
+regardless of the name of the program.
+</dd>
+<dt>-e</dt>
+<dd>
+Abort processing on any error in any file. Normally, the program will
+simply skip to process the next file on the command line when it encounters
+any errors. This option causes it to abort on errors.
+</dd>
+<dt>-f</dt>
+<dd>
+Force: convert even if the file is not writeable (read-only). By default,
+if the program finds that the file does not have write permission, it will not process
+that file. This option forces the conversion even if the file is read-only.
+</dd>
+<dt>-h</dt>
+<dd>
+Display a short help screen on the program usage and quit.
+</dd>
+<dt>-l &lt;logfile&gt;</dt>
+<dd>
+Log error messages to &lt;logfile&gt;. Note that if your command line has an
+error, such as when you specify an unknown option, the error message for the
+command line option error will be issued to stderr instead and not logged.
+</dd>
+<dt>-o</dt>
+<dd>
+Overwrite the original file (no backup). This is the default.
+</dd>
+<dt>-p</dt>
+<dd>
+Preserve file ownership and time on Unix-type systems (like Linux). On Windows and MSDOS, it only
+preserves the file time. Note that on many Unix-type systems, including Linux, the file
+ownership will only be preserved if the program is run as root, otherwise it
+will just set the file time and silently fail the change of file
+ownership. On such systems, if you want a warning message when the file ownership
+cannot be changed, use <span class="optionchar">-v</span> (the verbose flag) as well.
+</dd>
+<dt>-u</dt>
+<dd>
+Convert from Unix to DOS. See the <span class="optionchar">-d</span> option above for more information.
+</dd>
+<dt>-v</dt>
+<dd>
+Verbose.
+</dd>
+<dt>-V</dt>
+<dd>
+Show version message and quit.
+</dd>
+</dl>
+
+<h2>Exit Code</h2>
+
+<p>
+Tofrodos terminates with an exit code of 0 on success and 1 on error.
+</p>
+<p>
+If the program is invoked with multiple files on the command line, the default behaviour is to skip to the next
+file in the list if an error is encountered with any file. In such a case, the exit code returned will the
+status of the last file processed (ie, 0 on success, 1 on failure). If this is not desirable, use the
+<span class="optionchar">-e</span> option, which will force the program to abort immediately with the appropriate exit
+code on encountering any error.
+</p>
+
+<h2>Author</h2>
+
+<p>
+The program and its documentation are copyrighted &copy; 1996-2013 by
+Christopher Heng. All rights reserved. They are distributed under
+the terms of the GNU General Public License Version 2.
+</p>
+
+<p>
+The latest version of Tofrodos can be obtained from
+<a href="http://www.thefreecountry.com/tofrodos/index.shtml" target="_top">http://www.thefreecountry.com/tofrodos/index.shtml</a>.
+</p>
+
+<hr />
+
+<p class="copyright">
+Copyright &copy; 1996-2013 Christopher Heng. All rights reserved.
+</p>
+
+</body>
+</html>
