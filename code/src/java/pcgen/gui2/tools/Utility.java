@@ -55,6 +55,7 @@ import javax.swing.SwingUtilities;
 
 import org.apache.commons.lang.SystemUtils;
 
+import org.jetbrains.annotations.Nullable;
 import pcgen.system.PCGenSettings;
 
 /**
@@ -300,7 +301,7 @@ public final class Utility
 	 * Sets the default browser.
 	 * @param parent The component to show the dialog over.
 	 */
-	public static void selectDefaultBrowser(Component parent)
+	public static void selectDefaultBrowser(@Nullable Component parent)
 	{
 		final JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle("Find and select your preferred html browser.");
@@ -394,7 +395,7 @@ public final class Utility
 				&& SystemUtils.IS_OS_WINDOWS
 				&& PCGenSettings.getBrowserPath() == null)
 		{
-			Utility.selectDefaultBrowser(null);
+			selectDefaultBrowser(null);
 		}
 
 		DesktopBrowserLauncher.browse(uri);
