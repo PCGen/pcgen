@@ -20,7 +20,7 @@ package pcgen.cdom.processor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+import java.util.Objects;
 import pcgen.cdom.content.Processor;
 
 /**
@@ -61,23 +61,13 @@ public class ChangeArmorType implements Processor<String>
 	 *            applyProcessor if the Processor acts on the incoming type. May
 	 *            be null to indicate this ChangeArmorType should remove the
 	 *            source armor type
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given source type is null
 	 */
-	public ChangeArmorType(String sourceType, String resultType)
+	public ChangeArmorType(final String sourceType, final String resultType)
 	{
-		if (sourceType == null)
-		{
-			throw new IllegalArgumentException(
-					"Source Type for ChangeArmorType cannot be null");
-		}
-		if (resultType == null)
-		{
-			throw new IllegalArgumentException(
-					"Resulting Type for ChangeArmorType cannot be null");
-		}
-		result = resultType;
-		source = sourceType;
+		result = Objects.requireNonNull(resultType);
+		source = Objects.requireNonNull(sourceType);
 	}
 
 	/**
