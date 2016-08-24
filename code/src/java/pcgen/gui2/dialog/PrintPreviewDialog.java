@@ -319,7 +319,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private static class PercentEditor extends JFormattedTextField implements ComboBoxEditor, PropertyChangeListener
 	{
 
-		private PercentEditor(JComboBox comboBox)
+		public PercentEditor(JComboBox comboBox)
 		{
 			super(NumberFormat.getPercentInstance());
 			addPropertyChangeListener("value", this);
@@ -360,7 +360,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 
 		private URI uri;
 
-		private PreviewLoader(URI uri)
+		public PreviewLoader(URI uri)
 		{
 			this.uri = uri;
 			progressBar.setIndeterminate(true);

@@ -92,7 +92,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	 * 
 	 * @return Amount of damage this DR reduces
 	 */
-	private int getRawReductionValue()
+	public int getRawReductionValue()
 	{
 		return theReduction.isStatic() ? theReduction.resolveStatic()
 			.intValue() : -1;
@@ -104,7 +104,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	 * 
 	 * @return Collection of unique types converted to lower case
 	 */
-	private Collection<String> getBypassList()
+	public Collection<String> getBypassList()
 	{
 		StringTokenizer tok = new StringTokenizer(theBypass, " ");
 		HashSet<String> ret = new HashSet<>();

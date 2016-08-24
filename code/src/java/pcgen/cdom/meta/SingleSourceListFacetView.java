@@ -23,12 +23,12 @@ import java.util.Collections;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 
-class SingleSourceListFacetView<T> implements FacetView<T>
+public class SingleSourceListFacetView<T> implements FacetView<T>
 {
 
 	private AbstractSingleSourceListFacet<T, ?> facet;
 	
-	SingleSourceListFacetView(AbstractSingleSourceListFacet<T, ?> facet)
+	public SingleSourceListFacetView(AbstractSingleSourceListFacet<T, ?> facet)
 	{
 		this.facet = facet;
 	}

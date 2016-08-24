@@ -48,7 +48,7 @@ public enum BiographyField
 	
 	private final String il8nKey;
 	
-	BiographyField(String key)
+	private BiographyField(String key)
 	{
 		il8nKey = key;
 	}
