@@ -49,7 +49,7 @@ public class URIFactory
 		{
 			FAILED_URI = new URI("file:/FAIL");
 		}
-		catch (URISyntaxException e)
+		catch (final URISyntaxException e)
 		{
 			throw new UnreachableError(e);
 		}
@@ -93,7 +93,7 @@ public class URIFactory
 	 * 
 	 * @return The root URI for this URIFactory
 	 */
-	public URI getRootURI()
+	URI getRootURI()
 	{
 		return rootURI;
 	}
@@ -103,7 +103,7 @@ public class URIFactory
 	 * 
 	 * @return The offset for this URIFactory
 	 */
-	public String getOffset()
+	String getOffset()
 	{
 		return offset;
 	}
@@ -117,21 +117,15 @@ public class URIFactory
 	 */
 	public URI getURI()
 	{
-		return getNonNormalizedPathURI(rootURI, offset).normalize();
+		return URIFactory.getNonNormalizedPathURI(rootURI, offset).normalize();
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return offset.hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

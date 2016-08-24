@@ -20,7 +20,6 @@ package pcgen.util.chooser;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import pcgen.base.util.RandomUtil;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.InfoFacade;
@@ -52,25 +51,6 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	private int totalSelectionsAvailable = 1;
 
 	private boolean pickAll = false;
-	
-	/**
-	 * Chooser constructor.
-	 */
-	public RandomChooser()
-	{
-		//Empty constructor
-	}
-
-	/**
-	 * Sets the AllowsDups attribute of the Chooser object
-	 *
-	 * @param aBool  The new AllowsDups value
-	 */
-    @Override
-	public void setAllowsDups(boolean aBool)
-	{
-		theAllowDuplicatesFlag = aBool;
-	}
 
 	/**
 	 * Sets the AvailableList attribute of the Chooser object
@@ -78,7 +58,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @param availableList  The new AvailableList value
 	 */
     @Override
-	public void setAvailableList(List availableList)
+	public void setAvailableList(final List availableList)
 	{
 		theAvailableList = new ArrayList(availableList);
 	}
@@ -99,7 +79,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 * @param argMessageText  java.lang.String
 	 */
     @Override
-	public void setMessageText(String argMessageText)
+	public void setMessageText(final String argMessageText)
 	{
 		//This is not used.
 	}
@@ -148,11 +128,11 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	/**
 	 * Returns the selected item list
 	 *
-	 * @return   java.util.ArrayList
+	 * @return   java.util.List
 	 * author   Matt Woodard
 	 */
     @Override
-	public ArrayList getSelectedList()
+	public List getSelectedList()
 	{
 		return new ArrayList(theSelectedList);
 	}
@@ -221,10 +201,8 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 			return;
 		}
 
-		for (int i = 0, count = theSelectedList.size(); i < count; i++)
+		for (final Object anObj : theSelectedList)
 		{
-			final Object anObj = theSelectedList.get(i);
-
 			if (addObj.equals(anObj) && !theAllowDuplicatesFlag)
 			{
 				return;
@@ -253,7 +231,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	}
 
     @Override
-	public void setTitle(String title)
+	public void setTitle(final String title)
 	{
 		// Do nothing
 	}
@@ -288,17 +266,14 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 		return pickAll;
 	}
 	
-	public int getEffectivePool()
+	private int getEffectivePool()
 	{
 		return selectionsPerUnitCost * totalSelectionsAvailable
 				- theSelectedList.size();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public boolean makeChoice(ChooserFacade chooserFacade)
+	public boolean makeChoice(final ChooserFacade chooserFacade)
 	{
 		while (chooserFacade.getRemainingSelections().get() > 0
 			&& !chooserFacade.getAvailableList().isEmpty())
