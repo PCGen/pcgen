@@ -201,7 +201,7 @@ public class ArmortypeTokenTest extends
 					null, "Medium"));
 			assertBadUnparse();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Good here too :)
 		}
@@ -216,7 +216,7 @@ public class ArmortypeTokenTest extends
 					"Heavy", null));
 			assertBadUnparse();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Good here too :)
 		}
