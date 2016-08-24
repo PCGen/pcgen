@@ -48,7 +48,6 @@ ext {
             include 'pcgen_low_mem.bat'
             include 'plugins/**'
             include 'logging.properties'
-            include 'svn.properties'
         }
         from('.') {
             include 'pcgen.sh'
