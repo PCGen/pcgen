@@ -37,15 +37,14 @@ import pcgen.util.enumeration.Tab;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 14613 $
  */
-@SuppressWarnings("serial")
-public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
+class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.INVENTORY);
 	private final EquipInfoTab equipTab = new EquipInfoTab();
 	private final PurchaseInfoTab purchaseTab = new PurchaseInfoTab();
 
-	public InventoryInfoTab()
+	InventoryInfoTab()
 	{
 		addTab(LanguageBundle.getString("in_purchase"), purchaseTab); //$NON-NLS-1$
 		addTab(LanguageBundle.getString("in_equipment"), equipTab); //$NON-NLS-1$
@@ -77,7 +76,7 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 		private final ModelMap equipModelMap;
 		private final ModelMap purchaseModelMap;
 
-		public ModelHandler(CharacterFacade character)
+		private ModelHandler(CharacterFacade character)
 		{
 			equipModelMap = equipTab.createModels(character);
 			purchaseModelMap = purchaseTab.createModels(character);
@@ -102,9 +101,6 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

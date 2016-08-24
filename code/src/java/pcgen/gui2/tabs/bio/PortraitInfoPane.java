@@ -45,6 +45,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -66,7 +67,6 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-@SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
 
@@ -76,19 +76,16 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	private final ThumbnailPane tnPane;
 	private final JButton loadButton;
 	private final JButton clearButton;
-	private final JButton purchaseButton;
 	private final JSlider zoomSlider;
 	private JFileChooser chooser = null;
 
 	public PortraitInfoPane()
 	{
-		super();
 		this.tnPane = new ThumbnailPane();
 		this.portraitPane = new PortraitPane();
 		this.loadButton = new JButton();
 		this.clearButton = new JButton();
-		this.purchaseButton = new JButton();
-		this.zoomSlider = new JSlider(JSlider.VERTICAL);
+		this.zoomSlider = new JSlider(SwingConstants.VERTICAL);
 		initComponents();
 	}
 
@@ -152,7 +149,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		((PortraitHandler) models.get(PortraitHandler.class)).uninstall();
+		models.get(PortraitHandler.class).uninstall();
 	}
 
 	@Override
@@ -204,7 +201,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public ClearAction(CharacterFacade character)
+		private ClearAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_clearPortrait")); //$NON-NLS-1$
 			this.character = character;
@@ -223,7 +220,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public PurchaseAction(CharacterFacade character)
+		private PurchaseAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_buyPortrait")); //$NON-NLS-1$
 			this.character = character;
@@ -262,7 +259,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		private Point cropOffset = null;
 //		private BoundedRangeModel boundedRangeModel;
 
-		public PortraitHandler(CharacterFacade character)
+		private PortraitHandler(CharacterFacade character)
 		{
 			this.character = character;
 			cropRect = character.getThumbnailCropRef().get();

@@ -89,6 +89,7 @@ import pcgen.util.Logging;
  * @author Eric Albert (&lt;a href="mailto:ejalbert@cs.stanford.edu"&gt;ejalbert@cs.stanford.edu&lt;/a&gt;)
  * @version 1.4b1 (Released June 20, 2001)
  */
+@Deprecated
 final class BrowserLauncher
 {
 	/**
@@ -104,7 +105,7 @@ final class BrowserLauncher
 	 * Caches whether any classes, methods, and fields that are
 	 * not part of the JDK and need to be dynamically loaded at
 	 * runtime loaded successfully.     <p> Note that if this is
-	 * <code>false</code>, <code>openURL()</code> will always
+	 * {@code false}, {@code openURL()} will always
 	 * return an IOException.
 	 */
 	private static boolean loadedWithoutErrors;
@@ -299,13 +300,12 @@ final class BrowserLauncher
 		}
 		else if (osName.startsWith("Windows"))
 		{
-			if (osName.indexOf("9") != -1)
-			{
-				jvm = WINDOWS_9x;
-			}
-			else
+			if (osName.indexOf("9") == -1)
 			{
 				jvm = WINDOWS_NT;
+			} else
+			{
+				jvm = WINDOWS_9x;
 			}
 		}
 		else

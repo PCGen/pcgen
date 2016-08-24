@@ -73,7 +73,7 @@ import pcgen.util.enumeration.Tab;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 14593 $
  */
-public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
+class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
 
 	/**
@@ -92,8 +92,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	/**
 	 * Create a new instance of CharacterSheetInfoTab
 	 */
-	@SuppressWarnings("serial")
-	public CharacterSheetInfoTab()
+	CharacterSheetInfoTab()
 	{
 		super("CharSheet");
 		this.csheet = new CharacterSheetPanel();

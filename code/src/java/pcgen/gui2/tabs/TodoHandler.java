@@ -23,7 +23,7 @@
 package pcgen.gui2.tabs;
 
 /**
- * <code>TodoHandler</code> defines a tab that is capable of advising the user 
+ * {@code TodoHandler} defines a tab that is capable of advising the user
  * of which field should be used to action a todo. This may be by highlighting 
  * the field, or changing focus to the field.   
  *
@@ -35,6 +35,7 @@ package pcgen.gui2.tabs;
  * @version $Revision$
  */
 
+@FunctionalInterface
 public interface TodoHandler
 {
 

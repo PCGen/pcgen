@@ -238,12 +238,12 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 	}
 
-	private static class ModRenderer extends JLabel implements TableCellRenderer
+	private static final class ModRenderer extends JLabel implements TableCellRenderer
 	{
 
-		private DecimalFormat formatter = PrettyIntegerFormat.getFormat();
+		private static final DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
-		public ModRenderer()
+		private ModRenderer()
 		{
 			setHorizontalAlignment(RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
@@ -366,13 +366,13 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 	}
 
-	public static class SpinnerEditor extends AbstractCellEditor
+	private static class SpinnerEditor extends AbstractCellEditor
 			implements TableCellEditor, ChangeListener
 	{
 
-		protected final JSpinner spinner;
+		private final JSpinner spinner;
 
-		public SpinnerEditor()
+		private SpinnerEditor()
 		{
 			this.spinner = new JSpinner(new SpinnerNumberModel(0, 0, null, 1));
 		}
@@ -388,7 +388,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			spinnerModel.setMinimum(minValue);
 		}
 
-		public JTextField getTextField()
+		private JTextField getTextField()
 		{
 			return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
 		}
@@ -495,7 +495,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	/**
 	 * Table renderer used for abilities/statistics.
 	 */
-	private class StatRenderer extends JLabel implements TableCellRenderer
+	private static class StatRenderer extends JLabel implements TableCellRenderer
 	{
 
 		@Override

@@ -45,7 +45,7 @@ import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.util.event.MapEvent;
 import pcgen.facade.util.event.MapListener;
-import pcgen.facade.core.generator.StatGenerationFacade;
+import pcgen.facade.core.StatGenerationFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;

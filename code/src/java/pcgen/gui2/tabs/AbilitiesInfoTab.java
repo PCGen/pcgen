@@ -51,14 +51,13 @@ import pcgen.util.enumeration.Tab;
  * @see AbilityChooserTab
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-@SuppressWarnings("serial")
-public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
+class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final AbilityChooserTab abilityTab;
 	private final TabTitle tabTitle;
 
-	public AbilitiesInfoTab()
+	AbilitiesInfoTab()
 	{
 		this.abilityTab = new AbilityChooserTab();
 		this.tabTitle = new TabTitle(Tab.ABILITIES);
@@ -102,7 +101,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		private String selectedTitle = null;
 		private ListFacade<AbilityCategoryFacade> activeCategories;
 
-		public AbilityTabsModel(CharacterFacade character)
+		private AbilityTabsModel(CharacterFacade character)
 		{
 			this.character = character;
 			this.activeCategories = character.getActiveAbilityCategories();
@@ -281,11 +280,11 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 
 			public final String title;
-			public final Hashtable<Object, Object> tabData;
-			public final DefaultListFacade<AbilityCategoryFacade> categoryList;
-			public final DefaultListFacade<AbilityCategoryFacade> fullCategoryList;
+			private final Hashtable<Object, Object> tabData;
+			private final DefaultListFacade<AbilityCategoryFacade> categoryList;
+			private final DefaultListFacade<AbilityCategoryFacade> fullCategoryList;
 
-			public TabInfo(String title, CharacterFacade character)
+			private TabInfo(String title, CharacterFacade character)
 			{
 				this.title = title;
 				this.categoryList = new DefaultListFacade<>();
@@ -296,10 +295,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				typeMap.put(title, this);
 			}
 
-			/**
-			 * {@inheritDoc}
-			 */
-			@SuppressWarnings("nls")
 			@Override
 			public String toString()
 			{
@@ -309,9 +304,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@SuppressWarnings("nls")
 		@Override
 		public String toString()
@@ -322,9 +314,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

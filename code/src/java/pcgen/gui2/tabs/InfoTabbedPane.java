@@ -286,9 +286,6 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
@@ -332,7 +329,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		private final Queue<CharacterInfoTab> storeQueue;
 		private final Queue<Future<?>> restoreQueue;
 
-		public TabModelService()
+		private TabModelService()
 		{
 			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), new ThreadFactory()
 			{
@@ -420,7 +417,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			}
 		}
 
-		public void cancelRestoreTasks()
+		private void cancelRestoreTasks()
 		{
 			while (!restoreQueue.isEmpty())
 			{
@@ -435,7 +432,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			private final ModelMap models;
 			private boolean executed;
 
-			public RestoreModelsTask(CharacterInfoTab infoTab, ModelMap models)
+			private RestoreModelsTask(CharacterInfoTab infoTab, ModelMap models)
 			{
 				this.infoTab = infoTab;
 				this.models = models;
@@ -483,7 +480,7 @@ public final class InfoTabbedPane extends JTabbedPane
 
 		private Component component;
 
-		public TabActionListener(Component component)
+		private TabActionListener(Component component)
 		{
 			this.component = component;
 		}

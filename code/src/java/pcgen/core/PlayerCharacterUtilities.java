@@ -34,23 +34,8 @@ import pcgen.cdom.enumeration.ObjectKey;
  *
  * @author  Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */
-public class PlayerCharacterUtilities
+final class PlayerCharacterUtilities
 {
-	/**
-	 * Set the Weapon proficiency of one piece of Equipment to the same as the
-	 * Proficiency in another piece of Equipment.  For some bizarre reason, as
-	 * well as setting the proficiency,  this zeros out the Weight and cost of
-	 * the equipment.
-	 *
-	 * @param  equip  the Weapon to get the proficiency from
-	 * @param  eqm    the weapon to set the proficiency in
-	 */
-	static void setProf(final Equipment equip, final Equipment eqm)
-	{
-		eqm.put(ObjectKey.WEAPON_PROF, equip.get(ObjectKey.WEAPON_PROF));
-		// In case this is used somewhere it shouldn't be used,
-		// set weight and cost to 0
-		eqm.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-		eqm.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
-	}
+	private PlayerCharacterUtilities() {}
+
 }

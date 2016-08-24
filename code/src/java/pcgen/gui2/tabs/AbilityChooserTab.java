@@ -104,7 +104,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
 	private final AbilityRenderer abilityRenderer;
 
-	public AbilityChooserTab()
+	AbilityChooserTab()
 	{
 		super("ability");
 		this.availableTreeViewPanel = new FilteredTreeViewTable<>();

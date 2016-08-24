@@ -35,7 +35,7 @@ import pcgen.system.LanguageBundle;
 public class Utilities
 {
 
-	public static JButton createSignButton(Sign sign)
+	public static JButton createSignButton(final Sign sign)
 	{
 		JButton button = new JButton();
 		button.setMargin(new Insets(0, 8, 0, 8));

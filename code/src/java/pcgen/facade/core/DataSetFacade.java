@@ -22,7 +22,6 @@ package pcgen.facade.core;
 
 import java.util.List;
 
-import pcgen.facade.core.generator.StatGenerationFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 

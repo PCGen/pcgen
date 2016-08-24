@@ -57,9 +57,9 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
     @Override
-	public boolean containsElement(E element)
+	public boolean containsElement(final E element)
 	{
-		for (Object object : this)
+		for (final Object object : this)
 		{
 			if (object.equals(element))
 			{
@@ -78,7 +78,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 
 				@Override
-				public E get(int index)
+				public E get(final int index)
 				{
 					return getElementAt(index);
 				}
@@ -95,11 +95,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> one element is added from the model.
-	 * <code>index</code> is the index that has been added.
+	 * {@code index} is the index that has been added.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was added
 	 * @param index the index of the element that was added.
 	 * @see EventListenerList

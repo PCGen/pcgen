@@ -43,8 +43,8 @@ class ClassInfoHandler implements ListSelectionListener
 	private final InfoPane classPane;
 	private String text;
 
-	public ClassInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
-							InfoPane classPane)
+	ClassInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
+	                 InfoPane classPane)
 	{
 		this.character = character;
 		this.classPane = classPane;

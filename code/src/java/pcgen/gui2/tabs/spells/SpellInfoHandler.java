@@ -44,8 +44,8 @@ class SpellInfoHandler implements ListSelectionListener
 	private final InfoPane spellsPane;
 	private String currText;
 
-	public SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
-							InfoPane spellsPane)
+	SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
+	                 InfoPane spellsPane)
 	{
 		this.spellsPane = spellsPane;
 		this.availableTable = table1;

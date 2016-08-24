@@ -43,7 +43,7 @@ class ImagePreviewer extends JComponent
 	private static String in_notAnImage = LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private BufferedImage image;
 
-	public ImagePreviewer()
+	ImagePreviewer()
 	{
 		setPreferredSize(new Dimension(SIZE, SIZE));
 	}

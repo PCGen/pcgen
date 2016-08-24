@@ -41,19 +41,19 @@ class ThumbnailPane extends JComponent
 	private BufferedImage portrait;
 	private Rectangle cropRect;
 
-	public ThumbnailPane()
+	ThumbnailPane()
 	{
 		this.setDoubleBuffered(true);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
-	public void setPortraitImage(BufferedImage portrait)
+	void setPortraitImage(BufferedImage portrait)
 	{
 		this.portrait = portrait;
 		refreshImage();
 	}
 
-	public void setCropRectangle(Rectangle cropRect)
+	void setCropRectangle(Rectangle cropRect)
 	{
 		this.cropRect = new Rectangle(cropRect);
 		refreshImage();

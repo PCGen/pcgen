@@ -114,8 +114,7 @@ import pcgen.util.enumeration.Tab;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-@SuppressWarnings("serial")
-public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler
+class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler
 {
 
 	private final TabTitle tabTitle;
@@ -165,7 +164,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private final JButton random;
 	private JScrollPane langScroll;
 
-	public SummaryInfoTab()
+	SummaryInfoTab()
 	{
 		this.tabTitle = new TabTitle(Tab.SUMMARY);
 		this.basicsPanel = new JPanel();
@@ -1571,7 +1570,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 *
 		 * @param character The character being managed.
 		 */
-		public TodoListHandler(CharacterFacade character)
+		private TodoListHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}

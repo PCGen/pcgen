@@ -43,19 +43,19 @@ class PortraitPane extends JComponent
 	private BufferedImage portrait;
 	private Rectangle cropRect;
 
-	public PortraitPane()
+	PortraitPane()
 	{
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
-	public void setPortraitImage(BufferedImage portrait)
+	void setPortraitImage(BufferedImage portrait)
 	{
 		this.portrait = portrait;
-		scale = MAX_PORTRAIT_HEIGHT / (float) portrait.getHeight();
+		scale = PortraitPane.MAX_PORTRAIT_HEIGHT / (float) portrait.getHeight();
 		repaint();
 	}
 
-	public void setCropRectangle(Rectangle newCropRect)
+	void setCropRectangle(Rectangle newCropRect)
 	{
 		this.cropRect = new Rectangle(newCropRect);
 		repaint();

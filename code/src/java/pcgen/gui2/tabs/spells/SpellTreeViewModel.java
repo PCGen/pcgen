@@ -40,19 +40,17 @@ import pcgen.system.LanguageBundle;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class SpellTreeViewModel implements TreeViewModel<SuperNode>
+class SpellTreeViewModel implements TreeViewModel<SuperNode>
 {
 
 	private final SpellNodeDataView dataView;
 	private final ListFacade<? extends SuperNode> spellNodes;
 	private final ListFacade<SpellTreeView> treeViews;
-	private final String prefsKey;
 
-	public SpellTreeViewModel(ListFacade<? extends SuperNode> spellNodes,
-			boolean showcolumns, String prefsKey, InfoFactory infoFactory)
+	SpellTreeViewModel(ListFacade<? extends SuperNode> spellNodes,
+	                   boolean showcolumns, String prefsKey, InfoFactory infoFactory)
 	{
 		this.spellNodes = spellNodes;
-		this.prefsKey = prefsKey;
 		this.treeViews = new DefaultListFacade<>(Arrays.asList(SpellTreeView.values()));
 		this.dataView = new SpellNodeDataView(showcolumns, prefsKey, infoFactory);
 	}
@@ -89,7 +87,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 		
 		private String name;
 
-		private SpellTreeView(String name)
+		SpellTreeView(String name)
 		{
 			this.name = LanguageBundle.getString(name);
 		}
@@ -101,7 +99,6 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 		}
 
 		@Override
-		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SuperNode>> getPaths(SuperNode node)
 		{
 			TreeViewPath<SuperNode> path;
@@ -143,7 +140,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 			{
 				path = new TreeViewPath<>(node);
 			}
-			return Arrays.asList(path);
+			return Collections.singletonList(path);
 		}
 
 	}

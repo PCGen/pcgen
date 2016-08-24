@@ -38,7 +38,7 @@ public final class ListFacades
 		//Do not instantiate Utility Class
 	}
 
-	public static final ListFacade EMPTY_LIST = new EmptyList();
+	private static final ListFacade EMPTY_LIST = new EmptyList();
 
 	public static <T> ListFacade<T> emptyList()
 	{
