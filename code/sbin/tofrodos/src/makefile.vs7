@@ -1,0 +1,89 @@
+# Makefile for use with Visual Studio .NET 2003 to generate Win32 binaries
+# Copyright 2005 by Christopher Heng. All rights reserved.
+
+# To debug, just use the IDE. Sorry.
+
+# Programs
+# Warning: the RM macro assumes that the del command accepts a "/y"
+# argument (yes to all prompts) and accepts multiple filenames for
+# deletion.
+CC = cl
+CP = copy
+LD = link
+RM = del /y
+ZIP = zip
+
+# Flags
+CFLAGS = $(CFL1) $(CFL2)
+	# /nologo	- suppress startup banner
+	# /Zi		- debug - create program database
+	# /W4		- warning level 4
+	# /WX		- treat warnings as errors
+	# /02		- maximize speed (/Og /Oi /Ot /Oy /Gs /GF /Gy)
+	#		note that
+	#		/Og global optimizations (implied by /O2)
+	#		/Oi - enable intrinsic functions
+	#		/Ot - optimize speed
+	#		/Oy -
+	#		/Gs stack checking calls (for local variables)
+	#		/GF enable string pooling
+	#		/Gy function-level linking
+	# /Ob1		- only expand __inline functions
+	# /D "NDEBUG" /D "_CONSOLE" /D "WIN32" /D "_MBCS"
+	# /ML		- single threaded library
+	# /Fo		- output dir
+	# /Fd		- PDB dir
+	# /I		- include directory
+	# /c		- compile only
+CFL1 =  /nologo /Zi /W4 /WX /O2 /Ob1 /D "NDEBUG" /D "_CONSOLE" /D "WIN32" /D "_MBCS" /ML
+CFL2 = /I "$(LIBDIR)" /Fo"$(BINDIR)\\" /Fd"$(BINDIR)\\" /c
+LDFLAGS = $(LDFL1) $(LDFL2) $(LDFL3) $(LDFL4)
+LDFL1 = /OUT:"$(FROMDOS)" /INCREMENTAL:NO /NOLOGO /DEBUG /PDB:"$(PDBFILE)" 
+LDFL2 = /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /MACHINE:X86
+LDFL3 = odbc32.lib odbccp32.lib setargv.obj  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib
+LDFL4 = advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib
+
+# Directories
+BINDIR = .\bin
+LIBDIR = .\lib
+
+# Files
+FROMDOS = $(BINDIR)\fromdos.exe
+TODOS = $(BINDIR)\todos.exe
+
+OBJS =	$(BINDIR)\emsg.obj \
+	$(BINDIR)\init.obj \
+	$(BINDIR)\getopt.obj \
+	$(BINDIR)\mktemp.obj \
+	$(BINDIR)\tofrodos.obj \
+	$(BINDIR)\utility.obj
+PDBFILE = $(BINDIR)\fromdos.pdb
+
+# Implicit rules
+.c{$(BINDIR)}.obj:
+	$(CC) @<<
+  $(CFLAGS) $<
+<<
+
+# Rules
+all: $(FROMDOS) $(TODOS)
+
+clean:
+	$(RM) $(OBJS)
+
+clobber: clean
+	$(RM) $(FROMDOS) $(TODOS) $(PDBFILE)
+
+$(FROMDOS): $(OBJS)
+	$(LD) @<<
+  $(LDFLAGS) $(OBJS)
+<<
+
+$(TODOS): $(FROMDOS)
+	$(CP) $(FROMDOS) $(TODOS)
+
+$(BINDIR)\getopt.obj: $(LIBDIR)\getopt.c $(LIBDIR)\getopt.h
+	$(CC) $(CFLAGS) $(LIBDIR)\getopt.c
+
+$(BINDIR)\mktemp.obj: $(LIBDIR)\mktemp.c $(LIBDIR)\mktemp.h
+	$(CC) $(CFLAGS) $(LIBDIR)\mktemp.c
