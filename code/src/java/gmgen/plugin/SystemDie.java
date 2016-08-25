@@ -21,6 +21,7 @@
 package gmgen.plugin;
 
 
+import gmgen.plugin.dice.AppendModifier;
 import gmgen.plugin.dice.ResultModifier;
 import gmgen.plugin.dice.SimpleModifier;
 import gmgen.plugin.dice.SimpleSumCounter;
@@ -43,7 +44,6 @@ class SystemDie extends Die
 		this.num = 1;
 		this.sides = 20;
 		this.aModifier = modifier;
-		rolls = new int[num];
 	}
 
 	/**  Constructor for the SystemDie object */
@@ -52,20 +52,15 @@ class SystemDie extends Die
 		this(0);
 	}
 
-	/** Roll the die.  If the roll is 20, return 30, if it's 1, returns -9.
+	/** Roll the die.
 	 * @return result from the roll
 	 */
     @Override
 	public int roll()
 	{
-
-		for (int i = 0; i < num; i++)
-		{
-			int thisRoll = Die.rand.nextInt(sides) + 1;
-			rolls[i] = thisRoll;
-		}
 		return new SimpleSumCounter().totalCount(
-				ResultModifier.modify(rolls,
+				ResultModifier.modify(
+						new AppendModifier(num, sides, Die.rand),
 						new SystemModifier(),
 						new SimpleModifier(aModifier)
 				)
