@@ -30,20 +30,19 @@ package gmgen.plugin;
 public class Dice extends Die
 {
 	/** Die modifier */
-	private int aModifier;
+	private final int aModifier;
 
 	/** Constructor for the Dice object
 	 * @param num Number of dice
 	 * @param sides Number of sides
 	 * @param modifier Modifier to the die roll
 	 */
-	public Dice(int num, int sides, int modifier)
+	public Dice(final int num, final int sides, final int modifier)
 	{
 		this.num = num;
 		this.sides = sides;
 		this.aModifier = modifier;
 		rolls = new int[num];
-		roll();
 	}
 
 	/** Constructor for the Dice object
@@ -56,24 +55,22 @@ public class Dice extends Die
 	}
 
 	/** Rolls the die, and returns the result.
-	 * I made it final as it's called from the constructor.
 	 * @return Result of the die roll
 	 */
     @Override
-	public final int roll()
+	public int roll()
 	{
-		int value = 0;
-		int i;
 		total = 0;
 
-		for (i = 0; i < num; i++)
+		int value = 0;
+		for (int i = 0; i < num; i++)
 		{
-			rolls[i] = rand.nextInt(sides) + 1;
+			rolls[i] = Die.rand.nextInt(sides) + 1;
 			value = rolls[i] + value;
 		}
 
 		total = value + aModifier;
-		timesRolled++;
+
 
 		return total;
 	}

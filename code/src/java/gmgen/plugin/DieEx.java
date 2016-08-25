@@ -32,8 +32,6 @@ import java.util.StringTokenizer;
  */
 public class DieEx extends Die
 {
-	/** Number of sides of the die that is being rolled */
-	public int aModifier;
 
 	/** Drop high roll */
 	private boolean highDrop;
@@ -44,7 +42,7 @@ public class DieEx extends Die
 	/** Creates an instance of this class to vet values as a die roll.
 	 * @param roll Roll that needs to be made
 	 */
-	public DieEx(String roll)
+	private DieEx(String roll)
 	{
 		StringTokenizer strTok = new StringTokenizer(roll, "d ");
 		String hold = "";
@@ -100,9 +98,9 @@ public class DieEx extends Die
 		DieEx DieRoller;
 		StringBuilder temp = new StringBuilder();
 
-		for (int x = 0; x < args.length; x++)
+		for (final String arg : args)
 		{
-			temp.append(args[x]).append(" ");
+			temp.append(arg).append(" ");
 		}
 
 		DieRoller = new DieEx(temp.toString());
@@ -128,29 +126,26 @@ public class DieEx extends Die
 			// sort rolls first or this doesn't work.
 			Arrays.sort(rolls);
 
-			if (!highDrop)
+			if (highDrop)
 			{
-				for (int x = 0; ((x < drops) && (x < rolls.length)); x++)
+				for (int x = rolls.length - 1; x > (rolls.length - drops - 1); x--)
 				{
 					total -= rolls[x];
 				}
-			}
-			else
+			} else
 			{
-				for (int x = rolls.length - 1; x > (rolls.length - drops - 1); x--)
+				for (int x = 0; (x < drops) && (x < rolls.length); x++)
 				{
 					total -= rolls[x];
 				}
 			}
 		}
 
-		timesRolled++;
-
 		return total;
 	}
 
-	/** Creates a <code>String</code> representation of this class
-	 * @return This class as a <code>String</code>.
+	/** Creates a {@code String} representation of this class
+	 * @return This class as a {@code String}.
 	 */
 	@Override
 	public String toString()
