@@ -58,18 +58,16 @@ class SystemDie extends Die
     @Override
 	public int roll()
 	{
-		int i;
-		total = 0;
 
-		for (i = 0; i < num; i++)
+		for (int i = 0; i < num; i++)
 		{
-			int thisRoll = rand.nextInt(sides) + 1;
+			int thisRoll = Die.rand.nextInt(sides) + 1;
 			rolls[i] = thisRoll;
 		}
 		return new SimpleSumCounter().totalCount(
 				ResultModifier.modify(rolls,
 						new SystemModifier(),
-						new SimpleModifier(modifier)
+						new SimpleModifier(aModifier)
 				)
 		);
 

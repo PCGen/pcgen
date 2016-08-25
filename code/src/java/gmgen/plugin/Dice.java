@@ -60,8 +60,6 @@ public class Dice extends Die
     @Override
 	public int roll()
 	{
-		total = 0;
-
 		int value = 0;
 		for (int i = 0; i < num; i++)
 		{
@@ -69,10 +67,7 @@ public class Dice extends Die
 			value = rolls[i] + value;
 		}
 
-		total = value + aModifier;
-
-
-		return total;
+		return value + aModifier;
 	}
 
 	/** Name of the die in the nds+m format

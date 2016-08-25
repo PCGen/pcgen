@@ -37,17 +37,11 @@ public abstract class Die
 	/** Holds the rolls of each die */
 	public int[] rolls;
 
-	/** Die modifier */
-	public int modifier;
-
 	/** Number of dice */
 	public int num;
 
 	/** Number of sides */
 	public int sides;
-
-	/** Total from last die roll */
-	public int total;
 
 	/** Roll the die, and get back a value
 	 * @return Result of the die roll
@@ -66,13 +60,5 @@ public abstract class Die
 	public static void setRandom(Random rand)
 	{
 		Die.rand = rand;
-	}
-
-	/** Returns the last roll.
-	 * @return The last roll
-	 */
-	public int value()
-	{
-		return total;
 	}
 }
