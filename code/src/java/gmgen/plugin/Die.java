@@ -30,8 +30,9 @@ import java.util.Random;
  */
 public abstract class Die
 {
+
 	/** Random number seed */
-	protected static Random rand = new Random();
+	static Random rand = new Random();
 
 	/** Holds the rolls of each die */
 	public int[] rolls;
@@ -44,9 +45,6 @@ public abstract class Die
 
 	/** Number of sides */
 	public int sides;
-
-	/**  Number of times rolled */
-	public int timesRolled;
 
 	/** Total from last die roll */
 	public int total;
