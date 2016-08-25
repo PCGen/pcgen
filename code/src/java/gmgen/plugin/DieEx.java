@@ -84,12 +84,6 @@ public class DieEx extends Die
 		}
 	}
 
-	/** Creates an instance of this class using the default roll */
-	public DieEx()
-	{
-		this("1d6");
-	}
-
 	/** Method used for testing and running on it's own
 	 * @param args Command line arguments
 	 */
@@ -113,11 +107,11 @@ public class DieEx extends Die
     @Override
 	public int roll()
 	{
-		total = 0;
+		int total = 0;
 
 		for (int x = 0; x < num; x++)
 		{
-			rolls[x] = rand.nextInt(sides) + 1;
+			rolls[x] = Die.rand.nextInt(sides) + 1;
 			total += rolls[x];
 		}
 
