@@ -20,7 +20,7 @@
  *
  *  Created on January 24, 2002, 11:15 AM
  */
-package gmgen.plugin;
+package gmgen.plugin.dice;
 
 import java.util.Random;
 
@@ -29,22 +29,21 @@ import java.util.Random;
  */
 public abstract class Die
 {
+
+	private DiceConfig dc;
+
 	/** Random number seed */
+	protected static Random random = new Random();
 
-	static Random random = new Random();
-	
-	/** Roll the die, and get back a value
-	 * @return Result of the die roll
-	 */
-	public abstract int roll();
-
-	/** Sets the random Die object. Allows you to put in a seeded random for better randomness.
-	 * @param rand Random
-	 */
-	public static void setRandom(final Random rand)
-	{
-		random = rand;
+	protected Die(final DiceConfig dc) {
+		this.dc = dc;
 	}
 
-
+	/** Name of the die in the nds+m format
+	 * @return Name of the die
+	 */
+	public String toString()
+	{
+		return dc.toFormula();
+	}
 }

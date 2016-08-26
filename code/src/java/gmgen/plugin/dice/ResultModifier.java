@@ -19,7 +19,7 @@
 package gmgen.plugin.dice;
 
 @FunctionalInterface
-public interface ResultModifier
+interface ResultModifier
 {
 
 

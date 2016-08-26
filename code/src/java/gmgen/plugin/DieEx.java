@@ -22,32 +22,32 @@
  */
 package gmgen.plugin;
 
+import gmgen.plugin.dice.Die;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
-/** This class does the rolling of the dice for the GMGen system.
- * @author Expires 2003
- * @version 2.10
+/**
+ * This class does the rolling of the dice for the GMGen system.
  */
-public class DieEx extends Die
+public class DieEx
 {
 
 
 	/** Number of sides */
-	public int sides;
+	private final int sides;
 
 	/** Total from last die roll */
-	public int total;
+	private int total;
 
 	/** Number of dice */
-	public int num;
+	private final int num;
 
 	/** Drop high roll */
 	private boolean highDrop;
 
 	/** Holds the rolls of each die */
-	public int[] rolls;
+	private int[] rolls;
 
 	/** Dice roll that is dropped */
 	private int drops;
@@ -100,7 +100,7 @@ public class DieEx extends Die
 	/** Method used for testing and running on it's own
 	 * @param args Command line arguments
 	 */
-	public static void main(String[] args)
+	public static void main(final String[] args)
 	{
 		DieEx DieRoller;
 		StringBuilder temp = new StringBuilder();

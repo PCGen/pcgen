@@ -2,6 +2,7 @@ package gmgen.plugin.dice;
 
 
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Random;
 
 public class NSidedModifiedDieConfig implements DiceConfig
@@ -39,5 +40,17 @@ public class NSidedModifiedDieConfig implements DiceConfig
 			return MessageFormat.format("{0}d{1}", n, sides);
 		}
 		return MessageFormat.format("{0}d{1} + {2}", n, sides, bias);
+	}
+
+	@Override
+	public String toString()
+	{
+		return "NSidedModifiedDieConfig{" +
+				"n=" + n +
+				", sides=" + sides +
+				", bias=" + bias +
+				", counter=" + counter +
+				", modifiers=" + Arrays.toString(modifiers) +
+				'}';
 	}
 }

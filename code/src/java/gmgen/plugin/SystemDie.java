@@ -21,7 +21,7 @@
 package gmgen.plugin;
 
 
-import gmgen.plugin.dice.DiceConfig;
+import gmgen.plugin.dice.Die;
 import gmgen.plugin.dice.SystemDieConfig;
 
 /** A d20 die, applies a +10 on a 20, and a -10 on a 1
@@ -30,14 +30,12 @@ import gmgen.plugin.dice.SystemDieConfig;
  */
 class SystemDie extends Die
 {
-	private final DiceConfig dc;
-
 	/** Constructor for the SystemDie object
 	 * @param modifier Modifier to each roll
 	 */
 	private SystemDie(final int modifier)
 	{
-		this.dc = new SystemDieConfig(1, 20, modifier, Die.random);
+		super(new SystemDieConfig(1, 20, modifier, Die.random));
 	}
 
 	/**  Constructor for the SystemDie object */
@@ -46,21 +44,4 @@ class SystemDie extends Die
 		this(0);
 	}
 
-	/** Roll the die.
-	 * @return result from the roll
-	 */
-    @Override
-	public int roll()
-	{
-		return dc.roll();
-	}
-
-	/** Name of the die in nds+m form
-	 * @return Name of the die
-	 */
-	@Override
-	public String toString()
-	{
-		return dc.toFormula();
-	}
 }

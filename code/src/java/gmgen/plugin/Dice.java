@@ -23,7 +23,7 @@
 package gmgen.plugin;
 
 
-import gmgen.plugin.dice.DiceConfig;
+import gmgen.plugin.dice.Die;
 import gmgen.plugin.dice.NSidedModifiedDieConfig;
 
 /** A normal die
@@ -32,8 +32,6 @@ import gmgen.plugin.dice.NSidedModifiedDieConfig;
  */
 public class Dice extends Die
 {
-	private final DiceConfig dc;
-
 	/** Constructor for the Dice object
 	 * @param num Number of dice
 	 * @param sides Number of sides
@@ -42,7 +40,7 @@ public class Dice extends Die
 	public Dice(final int num, final int sides, final int bias)
 	{
 		/* Holds the rolls of each die */
-		dc = new NSidedModifiedDieConfig(num, sides, bias, Die.random);
+		super(new NSidedModifiedDieConfig(num, sides, bias, Die.random));
 	}
 
 	/** Constructor for the Dice object
@@ -54,21 +52,4 @@ public class Dice extends Die
 		this(num, sides, 0);
 	}
 
-	/** Rolls the die, and returns the result.
-	 * @return Result of the die roll
-	 */
-    @Override
-	public int roll()
-	{
-		return dc.roll();
-	}
-
-	/** Name of the die in the nds+m format
-	 * @return Name of the die
-	 */
-	@Override
-	public String toString()
-	{
-		return dc.toFormula();
-	}
 }

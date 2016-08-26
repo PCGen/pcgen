@@ -2,6 +2,7 @@ package gmgen.plugin.dice;
 
 
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Random;
 
 public class SystemDieConfig implements DiceConfig
@@ -39,5 +40,18 @@ public class SystemDieConfig implements DiceConfig
 	public String toFormula()
 	{
 		return MessageFormat.format("system({0}d{1} + {2})", n, sides, bias);
+	}
+
+	@Override
+	public String toString()
+	{
+		return "SystemDieConfig{" +
+				"n=" + n +
+				", sides=" + sides +
+				", bias=" + bias +
+				", random=" + random +
+				", counter=" + counter +
+				", modifiers=" + Arrays.toString(modifiers) +
+				'}';
 	}
 }

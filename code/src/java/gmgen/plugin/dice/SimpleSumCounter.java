@@ -20,7 +20,7 @@ package gmgen.plugin.dice;
 
 import java.util.stream.IntStream;
 
-public class SimpleSumCounter implements ResultCounter
+class SimpleSumCounter implements ResultCounter
 {
 	@Override
 	public int totalCount(final int[] in)
