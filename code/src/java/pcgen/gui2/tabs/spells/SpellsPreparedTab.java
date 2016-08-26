@@ -317,15 +317,12 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					String spellList = getCurrentSpellListName(character);
-					character.getSpellSupport().addPreparedSpell(
-							(SpellNode) object, spellList, true);
-				}
-			}
+				String spellList = getCurrentSpellListName(character);
+				character.getSpellSupport().addPreparedSpell(
+						(SpellNode) object, spellList, true);
+			});
 		}
 
 	}
@@ -346,14 +343,11 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		{
 			List<?> data = availableTable.getSelectedData();
 			String spellList = getCurrentSpellListName(character);
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					character.getSpellSupport().addPreparedSpell(
-							(SpellNode) object, spellList, false);
-				}
-			}
+				character.getSpellSupport().addPreparedSpell(
+						(SpellNode) object, spellList, false);
+			});
 		}
 
 		public void install()
@@ -384,15 +378,12 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = selectedTable.getSelectedData();
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					SpellNode spellNode = (SpellNode) object;
-					character.getSpellSupport().removePreparedSpell(spellNode,
-							spellNode.getRootNode().toString());
-				}
-			}
+				SpellNode spellNode = (SpellNode) object;
+				character.getSpellSupport().removePreparedSpell(spellNode,
+						spellNode.getRootNode().toString());
+			});
 		}
 
 		public void install()
