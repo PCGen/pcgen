@@ -117,7 +117,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		return prereq;
 	}
 
-	private void setCategory(Prerequisite prereq, String string)
+	private static void setCategory(Prerequisite prereq, String string)
 	{
 		prereq.setCategoryName(string);
 		for (Prerequisite element : prereq.getPrerequisites())
@@ -132,7 +132,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 * @param prereq The prereq to be processed.
 	 * @throws PersistenceLayerException If more than one category entry is found 
 	 */
-	private void extractCategory(Prerequisite prereq)
+	private static void extractCategory(Prerequisite prereq)
 		throws PersistenceLayerException
 	{
 		String categoryName = "";
@@ -241,7 +241,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 *
 	 * @param prereq The prereq to be negated.
 	 */
-	private void negateAbilityChoice(Prerequisite prereq)
+	private static void negateAbilityChoice(Prerequisite prereq)
 	{
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())

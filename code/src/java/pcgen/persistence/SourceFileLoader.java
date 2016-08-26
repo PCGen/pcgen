@@ -483,7 +483,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			uris.add(((Campaign) campaignFacade).getSourceURI());
 		}
-		pManager.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		sourcesSet.clear();
 		licenseFiles.clear();
