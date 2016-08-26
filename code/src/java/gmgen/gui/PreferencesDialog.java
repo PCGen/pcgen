@@ -23,11 +23,8 @@
 package gmgen.gui;
 
 import gmgen.GMGenSystem;
-
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Font;
-
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,15 +34,9 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
 
-/**
- *@author     devon
- *@since    April 7, 2003
- */
-// TODO use constants instead of duplicated Strings values.
 public class PreferencesDialog extends AbstractPreferencesDialog
 {
 	private static final String OPTION_NAME_DIVIDER = "PreferencesDialog.PrefsDividerLocation"; //$NON-NLS-1$
@@ -67,9 +58,9 @@ public class PreferencesDialog extends AbstractPreferencesDialog
      *
      *@param  parent      Description of the Parameter
      *@param  modal       Description of the Parameter
-     * @param root
+     *@param root
      */
-    public PreferencesDialog(JFrame parent, boolean modal, PreferencesRootTreeNode root)
+    public PreferencesDialog(final JFrame parent, final boolean modal, final PreferencesRootTreeNode root)
     {
         super(parent, GMGenSystem.APPLICATION_NAME, modal);
         this.root = root;
@@ -84,10 +75,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
      */
     public void applyPreferences()
     {
-        for (PreferencesPanel panel : root.getPanelList())
-        {
-            panel.applyPreferences();
-        }
+        root.getPanelList().forEach(PreferencesPanel::applyPreferences);
     }
 
     private void PrefsTreeActionPerformed()
@@ -99,9 +87,12 @@ public class PreferencesDialog extends AbstractPreferencesDialog
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) obj;
             Object uobj = node.getUserObject();
             if(uobj instanceof PreferencesPanel)
-            	cardLayout.show(prefsPane, uobj.toString());
-            else
-            	cardLayout.show(prefsPane, EMPTY);
+            {
+                cardLayout.show(prefsPane, uobj.toString());
+            } else
+            {
+                cardLayout.show(prefsPane, PreferencesDialog.EMPTY);
+            }
         }
     }
 
@@ -140,7 +131,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
         addWindowListener(new java.awt.event.WindowAdapter()
             {
             @Override
-                public void windowClosing(java.awt.event.WindowEvent evt)
+                public void windowClosing(java.awt.event.WindowEvent e)
                 {
                     close();
                 }
@@ -150,21 +141,12 @@ public class PreferencesDialog extends AbstractPreferencesDialog
         jSplitPane1.setLeftComponent(new JScrollPane(prefsTree,
 			ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
-        prefsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
-            {
-            @Override
-                public void valueChanged(javax.swing.event.TreeSelectionEvent evt)
-                {
-                    PrefsTreeActionPerformed();
-                }
-            });
+        prefsTree.addTreeSelectionListener(evt -> PrefsTreeActionPerformed());
 
         jSplitPane1.setRightComponent(prefsPane);
 
         return jSplitPane1;
     }
-
-    //GEN-LAST:event_closeDialog
 
     /** Moves and resizes the preferences dialog based on your last opening of it */
     private void initLast()
@@ -184,21 +166,18 @@ public class PreferencesDialog extends AbstractPreferencesDialog
     /** Sets all the widgets to reflect the current preferences */
     private void initPreferences()
     {
-        for (PreferencesPanel panel : root.getPanelList())
+        // add panel to card layout
+        root.getPanelList().forEach(panel ->
         {
             panel.initPreferences();
-            
-			// add panel to card layout
-			JPanel jp = new JPanel(new BorderLayout());
-			JLabel comp = new JLabel(panel.toString());
-			Font f = UIManager.getFont("TitledBorder.font"); //$NON-NLS-1$
-			comp.setFont(f);
-			jp.add(comp, BorderLayout.NORTH);
-			jp.add(panel, BorderLayout.CENTER);
+            // add panel to card layout
+            JPanel jp = new JPanel(new BorderLayout());
+            JLabel comp = new JLabel(panel.toString());
+            comp.setFont(UIManager.getFont("TitledBorder.font"));
+            jp.add(comp, BorderLayout.NORTH);
+            jp.add(panel, BorderLayout.CENTER);
 
-			prefsPane.add(jp, panel.toString());
-		}
+            prefsPane.add(jp, panel.toString());
+        });
     }
-
-    // End of variables declaration//GEN-END:variables
 }

@@ -21,38 +21,25 @@ package gmgen.io;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
 import pcgen.util.Logging;
 
 /**
  * This class is used to read through XML tables on disk.
- * It will create a <code>Vector</code> in memory.
- * @author Expires 2003
- * @version 2.10
+ * It will create a {@code Vector} in memory.
  */
 public class ReadXML
 {
-	/** The document used for XML parsing. */
-	private Document document;
 
 	/** The name of the table. */
 	private String tableName;
 
 	/** The table as a Vector. */
-	private VectorTable vt;
-
-	/** The columns of a tabke. */
-	private int cols = 0;
-
-	/** The rows of the table. */
-	private int rows = 0;
+	private final VectorTable vt;
 
 	/**
 	 * Creates an instance of this class taking in a file.
@@ -74,7 +61,7 @@ public class ReadXML
 	}
 
 	/**
-	 * Gets the table as a <code>Vector</code>.
+	 * Gets the table as a {@code Vector}.
 	 * @return the table.
 	 */
 	public VectorTable getTable()
@@ -120,30 +107,30 @@ public class ReadXML
 	private void readxmlFile(File table)
 	{
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db;
-		int items;
 		Logging.debugPrint("readxmlFile called.");
 
 		try
 		{
-			db = dbf.newDocumentBuilder();
-			document = db.parse(table);
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			/* The document used for XML parsing. */
+			final Document document = db.parse(table);
 			tableName =
 					document.getElementsByTagName("lookuptable").item(0)
 						.getAttributes().getNamedItem("name").getNodeValue();
 
-			rows = document.getElementsByTagName("row").getLength();
-			items = document.getElementsByTagName("item").getLength();
-			cols = items / rows;
+			/* The rows of the table. */
+			final int rows = document.getElementsByTagName("row").getLength();
+			int items = document.getElementsByTagName("item").getLength();
+			/* The columns of a tabke. */
+			final int cols = items / rows;
 
 			vt.setName(table.getPath());
 
 			int pos = 0;
 
-			Vector<String> row;
 			for (int x = 0; x < rows; x++)
 			{
-				row = new Vector<>();
+				Vector<String> row = new Vector<>();
 
 				for (int y = 0; y < cols; y++)
 				{
@@ -155,29 +142,11 @@ public class ReadXML
 				vt.add(row);
 			}
 		}
-		catch (ParserConfigurationException e)
+		catch (ParserConfigurationException | IllegalArgumentException | IOException | SAXException e)
 		{
-			Logging.errorPrint("ParserConfigurationException!");
+			Logging.errorPrint(e.getLocalizedMessage());
 			Logging.errorPrint("Could not parse xml file " + table.getPath());
 			Logging.errorPrint("IO", e);
-		}
-		catch (IOException io)
-		{
-			Logging.errorPrint("IOException!");
-			Logging.errorPrint("Could not parse xml file " + table.getPath());
-			Logging.errorPrint("IO", io);
-		}
-		catch (SAXException sax)
-		{
-			Logging.errorPrint("SAXException!");
-			Logging.errorPrint("Could not parse xml file " + table.getPath());
-			Logging.errorPrint("IO", sax);
-		}
-		catch (IllegalArgumentException iae)
-		{
-			Logging.errorPrint("IllegalArgumentException!");
-			Logging.errorPrint("Could not parse xml file " + table.getPath());
-			Logging.errorPrint("IO", iae);
 		}
 	}
 }

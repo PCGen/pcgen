@@ -93,7 +93,7 @@ public class SimpleFileFilter extends FileFilter
 	 * @return true / false on user acceptance.
 	 */
     @Override
-	public boolean accept(File f)
+	public boolean accept(final File f)
 	{
 		//we always allow directories, regardless of their extension
 		if (f.isDirectory())
