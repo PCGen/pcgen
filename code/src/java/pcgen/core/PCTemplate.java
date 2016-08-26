@@ -28,6 +28,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
@@ -95,31 +96,13 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 
 		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-				{
-					returnList.add(lt);
-				}
-			}
+			returnList.addAll(rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels).collect(Collectors.toList()));
 		}
 
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-			{
-				returnList.add(lt);
-			}
-		}
+		returnList.addAll(getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels).collect(Collectors.toList()));
 
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice
-					&& lt.get(IntegerKey.HD_MIN) <= totalHitDice)
-			{
-				returnList.add(lt);
-			}
-		}
+		returnList.addAll(getSafeListFor(ListKey.HD_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.HD_MAX) >= totalHitDice
+				&& lt.get(IntegerKey.HD_MIN) <= totalHitDice).collect(Collectors.toList()));
 		return returnList;
 	}
 

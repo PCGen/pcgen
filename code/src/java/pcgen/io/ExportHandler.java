@@ -52,6 +52,7 @@ import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.Version;
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -2370,13 +2371,7 @@ public final class ExportHandler
 			{
 				// only allow followers that currently loaded
 				// Otherwise the stats a zero
-				for (PlayerCharacter pc : Globals.getPCList())
-				{
-					if (pc.getFileName().equals(follower.getFileName()))
-					{
-						aList.add(follower);
-					}
-				}
+				aList.addAll(Globals.getPCList().stream().filter(pc -> pc.getFileName().equals(follower.getFileName())).map(pc -> follower).collect(Collectors.toList()));
 			}
 
 			StringTokenizer aTok = new StringTokenizer(aString, ".");
@@ -2660,16 +2655,8 @@ public final class ExportHandler
 			aTok.nextToken(); // ARMOR
 
 			String fString = aTok.nextToken();
-			final Collection<Equipment> aArrayList = new ArrayList<>();
-
-			for (Equipment eq : aPC.getEquipmentListInOutputOrder())
-			{
-				if (eq.altersAC(aPC)
-					&& (!eq.isArmor() && !eq.isShield()))
-				{
-					aArrayList.add(eq);
-				}
-			}
+			final Collection<Equipment> aArrayList = aPC.getEquipmentListInOutputOrder().stream().filter(eq -> eq.altersAC(aPC)
+					&& (!eq.isArmor() && !eq.isShield())).collect(Collectors.toCollection(ArrayList::new));
 
 			// When removing old syntax, remove the else and leave the if
 			final int count;

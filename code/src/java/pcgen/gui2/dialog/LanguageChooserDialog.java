@@ -35,6 +35,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -304,10 +305,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					for(String type : pobj.getTypes())
-					{
-						paths.add(new TreeViewPath<>(pobj, type));
-					}
+					paths.addAll(pobj.getTypes().stream().map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList()));
 					return paths;
 				default:
 					throw new InternalError();

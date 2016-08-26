@@ -29,6 +29,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 
@@ -83,15 +84,7 @@ public final class EquipmentUtilities
 	 */
 	public static List<Equipment> removeNotEqType(final List<Equipment> aList, final String aString)
 	{
-		final List<Equipment> aArrayList = new ArrayList<>();
-
-		for (Equipment eq : aList)
-		{
-			if (eq.typeStringContains(aString))
-			{
-				aArrayList.add(eq);
-			}
-		}
+		final List<Equipment> aArrayList = aList.stream().filter(eq -> eq.typeStringContains(aString)).collect(Collectors.toList());
 
 		return aArrayList;
 	}

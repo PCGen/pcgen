@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.content.CNAbility;
@@ -136,10 +137,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list != null)
 		{
-			for (List<SourcedCNAS> array : list)
-			{
-				returnList.add(array.get(0).cnas.getCNAbility());
-			}
+			returnList.addAll(list.stream().map(array -> array.get(0).cnas.getCNAbility()).collect(Collectors.toList()));
 		}
 		return returnList;
 	}

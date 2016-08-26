@@ -25,6 +25,7 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -72,10 +73,7 @@ public class KitAlignment extends BaseKit
 		else
 		{
 			List<PCAlignment> available = new ArrayList<>(alignments.size());
-			for (CDOMSingleRef<PCAlignment> ref : alignments)
-			{
-				available.add(ref.get());
-			}
+			available.addAll(alignments.stream().map(CDOMSingleRef::get).collect(Collectors.toList()));
 			while (true)
 			{
 				List<PCAlignment> sel = new ArrayList<>(1);

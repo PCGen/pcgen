@@ -44,6 +44,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.AggressiveSolverManager;
@@ -6548,15 +6550,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			list.add(eq);
 
-			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-			{
-				list.add(eqMod);
-			}
+			list.addAll(eq.getEqModifierList(true));
 
-			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-			{
-				list.add(eqMod);
-			}
+			list.addAll(eq.getEqModifierList(false));
 		}
 
 		// Feats and abilities (virtual feats, auto feats)
@@ -6976,13 +6972,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			aList.add(race);
 		}
 
-		for (PCClass pcClass : getClassSet())
-		{
-			if (pcClass.get(FactKey.valueOf("SpellType")) != null)
-			{
-				aList.add(pcClass);
-			}
-		}
+		aList.addAll(getClassSet().stream().filter(pcClass -> pcClass.get(FactKey.valueOf("SpellType")) != null).collect(Collectors.toList()));
 
 		return aList;
 	}
@@ -8636,10 +8626,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			return Collections.emptyList();
 		}
 		List<String> ret = new ArrayList<>(selections.size());
-		for (T sel : selections)
-		{
-			ret.add(info.encodeChoice(sel));
-		}
+		ret.addAll(selections.stream().map((Function<T, String>) info::encodeChoice).collect(Collectors.toList()));
 		return ret;
 	}
 
@@ -8653,10 +8640,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			return Collections.emptyList();
 		}
 		List<String> ret = new ArrayList<>(selections.size());
-		for (T sel : selections)
-		{
-			ret.add(String.valueOf(sel));
-		}
+		ret.addAll(selections.stream().map((Function<T, String>) String::valueOf).collect(Collectors.toList()));
 		return ret;
 	}
 

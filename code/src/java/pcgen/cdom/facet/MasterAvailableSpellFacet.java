@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -107,13 +108,7 @@ public class MasterAvailableSpellFacet extends
 	{
 		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
-		for (AvailableSpell as : spells)
-		{
-			if (as.getSpelllist().equals(spellList))
-			{
-				spellsInList.add(as);
-			}
-		}
+		spellsInList.addAll(spells.stream().filter(as -> as.getSpelllist().equals(spellList)).collect(Collectors.toList()));
 
 		return spellsInList;
 	}
@@ -130,14 +125,8 @@ public class MasterAvailableSpellFacet extends
 	{
 		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
-		for (AvailableSpell as : spells)
-		{
-			if (as.getSpelllist().equals(spellList)
-				&& as.getSpell().equals(spell))
-			{
-				spellsInList.add(as);
-			}
-		}
+		spellsInList.addAll(spells.stream().filter(as -> as.getSpelllist().equals(spellList)
+				&& as.getSpell().equals(spell)).collect(Collectors.toList()));
 
 		return spellsInList;
 	}

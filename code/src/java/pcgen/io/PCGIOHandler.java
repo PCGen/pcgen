@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -450,14 +451,8 @@ public final class PCGIOHandler extends IOHandler
 			currentPC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(baseFeatPool));
 		}
 
-		for (CNAbility aFeat : currentPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
-		{
-			if (aFeat.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
-			{
-				warnings.add("Multiple selection feat found with no selections ("
-						+ aFeat.getAbility().getDisplayName() + "). Correct on Feat tab.");
-			}
-		}
+		warnings.addAll(currentPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL).stream().filter(aFeat -> aFeat.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat)).map(aFeat -> "Multiple selection feat found with no selections ("
+				+ aFeat.getAbility().getDisplayName() + "). Correct on Feat tab.").collect(Collectors.toList()));
 
 		// Get templates - give it the biggest HD
 		// sk4p 11 Dec 2002

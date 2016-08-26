@@ -37,11 +37,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -1035,12 +1037,8 @@ public class Gui2InfoFactory implements InfoFactory
 		Map<String, String> qualityMap = equip.getMapFor(MapKey.QUALITY);
 		if (qualityMap != null && !qualityMap.isEmpty())
 		{
-			Set<String> qualities = new TreeSet<>();
-			for (Map.Entry<String, String> me : qualityMap.entrySet())
-			{
-				qualities.add(new StringBuilder(50).append(me.getKey()).append(
-					": ").append(me.getValue()).toString());
-			}
+			Set<String> qualities = qualityMap.entrySet().stream().map(me -> new StringBuilder(50).append(me.getKey()).append(
+					": ").append(me.getValue()).toString()).collect(Collectors.toCollection(TreeSet::new));
 
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join( //$NON-NLS-1$
@@ -2316,10 +2314,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				set.add(OutputNameFormatting.piString(d, false));
-			}
+			set.addAll(ref.getContainedObjects().stream().map(d -> OutputNameFormatting.piString(d, false)).collect(Collectors.toList()));
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		//piString.append("<html>"); //$NON-NLS-1$
@@ -2341,10 +2336,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (deity != null)
 		{
 			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-			for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-			{
-				set.add(indirect.get());
-			}
+			set.addAll(deity.getSafeSetFor(fk).stream().map(Reference::get).collect(Collectors.toList()));
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$

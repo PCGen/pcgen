@@ -28,6 +28,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.bonus.BonusObj;
@@ -111,14 +112,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
     @Override
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
-		final List<BonusObj> aList = new ArrayList<>();
-		for (BonusObj bonus : getBonuses())
-		{
-			if (pc.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
+		final List<BonusObj> aList = getBonuses().stream().filter(pc::isApplied).collect(Collectors.toList());
 		return aList;
 	}
 

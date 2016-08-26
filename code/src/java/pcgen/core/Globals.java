@@ -40,6 +40,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.logging.Level;
 
+import java.util.stream.Collectors;
 import javax.swing.JFrame;
 
 import org.apache.commons.lang.SystemUtils;
@@ -842,10 +843,7 @@ public final class Globals
 			typeList = aEq.typeList();
 		}
 		List<String> upperTypeList = new ArrayList<>(typeList.size());
-		for (String type : typeList)
-		{
-			upperTypeList.add(type.toUpperCase());
-		}
+		upperTypeList.addAll(typeList.stream().map(String::toUpperCase).collect(Collectors.toList()));
 
 		List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
 		for (String rType : resizeTypeList)

@@ -28,6 +28,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
@@ -121,11 +122,7 @@ public final class Language extends PObject implements Comparable<Object>,
     @Override
 	public List<String> getTypes()
 	{
-		List<String> list = new ArrayList<>();
-		for (Type type : getTrueTypeList(false))
-		{
-			list.add(type.toString());
-		}
+		List<String> list = getTrueTypeList(false).stream().map(Type::toString).collect(Collectors.toList());
 		return list;
 	}
 

@@ -38,6 +38,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.util.HashMapToList;
@@ -2401,15 +2402,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			return Collections.emptyList();
 		}
-		List<AbilityCategory> catList = new ArrayList<>();
-		for (AbilityCategory cat : getAllAbilityCategories())
-		{
-			if (key.equals(cat.getKeyName())
-				|| key.equals(cat.getParentCategory().getKeyName()))
-			{
-				catList.add(cat);
-			}
-		}
+		List<AbilityCategory> catList = getAllAbilityCategories().stream().filter(cat -> key.equals(cat.getKeyName())
+				|| key.equals(cat.getParentCategory().getKeyName())).collect(Collectors.toList());
 		return Collections.unmodifiableCollection(catList);
 	}
 

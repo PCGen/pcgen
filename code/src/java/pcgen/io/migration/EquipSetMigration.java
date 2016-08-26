@@ -30,6 +30,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -95,14 +96,7 @@ public final class EquipSetMigration
 	private static List<EquipSet> getSortedChildren(
 		Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
-		List<EquipSet> children = new ArrayList<>();
-		for (EquipSet equipSet : allEquipSets)
-		{
-			if (equipSet.getParentIdPath().equals(parentIdPath))
-			{
-				children.add(equipSet);
-			}
-		}
+		List<EquipSet> children = allEquipSets.stream().filter(equipSet -> equipSet.getParentIdPath().equals(parentIdPath)).collect(Collectors.toList());
 
 		Collections.sort(children, comparator);
 		return children;

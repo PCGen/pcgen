@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.util.Collection;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -73,15 +74,9 @@ public class ListChanges<T extends CDOMObject> implements
 		{
 			for (CDOMReference<T> ref : listMods)
 			{
-				for (AssociatedPrereqObject assoc : positive
-						.getListAssociations(list, ref))
-				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						set.add(ref);
-					}
-				}
+				set.addAll(positive
+						.getListAssociations(list, ref).stream().filter(assoc -> tokenName.equals(assoc
+								.getAssociation(AssociationKey.TOKEN))).map(assoc -> ref).collect(Collectors.toList()));
 			}
 		}
 		return set;
@@ -110,15 +105,9 @@ public class ListChanges<T extends CDOMObject> implements
 		{
 			for (CDOMReference<T> ref : listMods)
 			{
-				for (AssociatedPrereqObject assoc : negative
-						.getListAssociations(list, ref))
-				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						set.add(ref);
-					}
-				}
+				set.addAll(negative
+						.getListAssociations(list, ref).stream().filter(assoc -> tokenName.equals(assoc
+								.getAssociation(AssociationKey.TOKEN))).map(assoc -> ref).collect(Collectors.toList()));
 			}
 		}
 		return set;

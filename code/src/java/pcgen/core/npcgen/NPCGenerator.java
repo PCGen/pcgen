@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.RandomUtil;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
@@ -461,16 +462,9 @@ public class NPCGenerator
 		{
 			return;
 		}
-		final WeightedCollection<Domain> domains = new WeightedCollection<>();
-		for (Domain d : aPC.getDomainSet())
-		{
-			// if any domains have this class as a source
-			// and is a valid domain, add them
-			if (aClass.equals(aPC.getDomainSource(d).getPcclass()))
-			{
-				domains.add(d);
-			}
-		}
+		final WeightedCollection<Domain> domains = aPC.getDomainSet().stream().filter(d -> aClass.equals(aPC.getDomainSource(d).getPcclass())).collect(Collectors.toCollection(WeightedCollection::new));
+		// if any domains have this class as a source
+// and is a valid domain, add them
 		final Domain domain = domains.getRandomValue();
 		final WeightedCollection<Spell> domainSpells =
                 new WeightedCollection<>(aPC.getSpellsIn(domain.get(ObjectKey.DOMAIN_SPELLLIST),

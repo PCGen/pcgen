@@ -26,6 +26,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
@@ -78,11 +79,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	                                                    PersistenceManager pman)
 	{
 		List<URI> oldList = PersistenceManager.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : testList)
-		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
-		}
+		List<URI> uris = testList.stream().map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI()).collect(Collectors.toList());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		return oldList;
 	}
@@ -316,14 +313,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	
 	public static List<CampaignURL> getUrlListForKind(Campaign c, URLKind kind)
 	{
-		List<CampaignURL> kindList = new ArrayList<>();
-		for (CampaignURL url : c.getSafeListFor(ListKey.CAMPAIGN_URL))
-		{
-			if (url.getUrlKind() == kind)
-			{
-				kindList.add(url);
-			}
-		}
+		List<CampaignURL> kindList = c.getSafeListFor(ListKey.CAMPAIGN_URL).stream().filter(url -> url.getUrlKind() == kind).collect(Collectors.toList());
 		return kindList;
 	}
 

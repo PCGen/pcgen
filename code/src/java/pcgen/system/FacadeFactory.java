@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.ArrayUtils;
 
 import pcgen.cdom.base.CDOMObject;
@@ -371,11 +372,7 @@ public final class FacadeFactory
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = PersistenceManager.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : campaigns)
-		{
-			uris.add(((Campaign)campaignFacade).getSourceURI());
-		}
+		List<URI> uris = campaigns.stream().map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI()).collect(Collectors.toList());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		for (CampaignFacade campaignFacade : campaigns)
 		{
@@ -492,11 +489,7 @@ public final class FacadeFactory
 		public void setCampaigns(List<CampaignFacade> campaign)
 		{
 			campaigns.setContents(campaign);
-			List<String> camps = new ArrayList<>();
-			for (CampaignFacade camp : campaign)
-			{
-				camps.add(camp.getName());
-			}
+			List<String> camps = campaign.stream().map(CampaignFacade::getName).collect(Collectors.toList());
 			context.setStringArray("campaigns", camps);
 		}
 

@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import org.nfunk.jep.ParseException;
 
 import pcgen.base.lang.UnreachableError;
@@ -175,14 +176,7 @@ public abstract class JepCountType
 
 					boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
 					final Set<ChronicleEntry> cs =
-                            new HashSet<>();
-					for (ChronicleEntry ce : coll)
-					{
-						if (ce.isOutputEntry() == wantExport)
-						{
-							cs.add(ce);
-						}
-					}
+							coll.stream().filter(ce -> ce.isOutputEntry() == wantExport).collect(Collectors.toSet());
 					return cs;
 				}
 
