@@ -33,7 +33,7 @@ public abstract class Die
 	private DiceConfig dc;
 
 	/** Random number seed */
-	protected static Random random = new Random();
+	protected static final Random rand = new Random();
 
 	protected Die(final DiceConfig dc) {
 		this.dc = dc;

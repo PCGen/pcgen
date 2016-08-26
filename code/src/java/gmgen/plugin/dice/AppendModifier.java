@@ -19,17 +19,15 @@
 package gmgen.plugin.dice;
 
 import java.util.Random;
-import java.util.function.Function;
-import static org.apache.fop.fonts.type1.AdobeStandardEncoding.z;
 
-public class AppendModifier implements ResultModifier
+class AppendModifier implements ResultModifier
 {
 
 	private final int count;
 	private final int max;
 	private final Random rand;
 
-	public AppendModifier(final int count, final int max, final Random rand) {
+	AppendModifier(final int count, final int max, final Random rand) {
 		this.count = count;
 		this.max = max;
 		this.rand = rand;

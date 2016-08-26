@@ -24,9 +24,8 @@ package gmgen.plugin;
 import gmgen.plugin.dice.Die;
 import gmgen.plugin.dice.SystemDieConfig;
 
-/** A d20 die, applies a +10 on a 20, and a -10 on a 1
- * @author Soulcatcher
- * @since May 24, 2003
+/**
+ * A d20 die, applies a +10 on a 20, and a -10 on a 1
  */
 class SystemDie extends Die
 {

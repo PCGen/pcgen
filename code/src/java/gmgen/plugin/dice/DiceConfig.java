@@ -1,7 +1,6 @@
 package gmgen.plugin.dice;
 
-
-public interface DiceConfig
+interface DiceConfig
 {
 	int roll();
 	String toFormula();

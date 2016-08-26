@@ -20,7 +20,7 @@ package gmgen.plugin.dice;
 
 class SimpleModifier implements ResultModifier
 {
-	private int mod;
+	private final int mod;
 
 	public SimpleModifier(final int mod) {
 		this.mod = mod;
@@ -36,13 +36,5 @@ class SimpleModifier implements ResultModifier
 		}
 		return result;
 
-	}
-
-	@Override
-	public String toString()
-	{
-		return "SimpleModifier{" +
-				"mod=" + mod +
-				'}';
 	}
 }

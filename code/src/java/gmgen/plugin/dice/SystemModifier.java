@@ -20,7 +20,7 @@ package gmgen.plugin.dice;
 
 /**
  * If the original value was 1, produces -9
- * If the original value was 20, producds 30
+ * If the original value was 20, produces 30
  * Otherwise produces results unchanged
  */
 class SystemModifier implements ResultModifier
